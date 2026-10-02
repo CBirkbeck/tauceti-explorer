@@ -6,8 +6,8 @@ Issue [#1328](https://github.com/CBirkbeck/tauceti-explorer/issues/1328). Status
 - **The paper.** K. Česnavičius, *Purity for the Brauer group*, Duke Math. J. 168 (2019), 1461–1486.
   - arXiv v4, the author's final version, was re-fetched; its SHA-256 (a62a12bb…) matches the checkpoint.
   - The Duke text is not openly available.
-- **Items.** The result has **178 items: 15 library, 13 planned and 150 missing**. Every missing item is routed exactly once, and every numbered statement is an item; all twenty-six were checked against arXiv v4.
-- **Mistakes.** Four are recorded under `sourceIssues`.
+- **Items.** The result has **178 items: 15 library, 12 planned and 151 missing**. Every missing item is routed exactly once, and every numbered statement is an item; all twenty-six were checked against arXiv v4.
+- **Mistakes.** Five reviewed findings are recorded under `sourceIssues` (including E5 added by the independent review).
 
 ## This continuation (cc-442dc5)
 
@@ -27,7 +27,7 @@ Issue [#1328](https://github.com/CBirkbeck/tauceti-explorer/issues/1328). Status
 
 ## Mistakes found (`sourceIssues`)
 
-- **E1** (gap; affects a stated result), Proposition 2.2 and its proof, p.4, in arXiv 1711.06456v4 (1 December 2018, the latest version; PDF SHA-256 a62a12bb…8709); the author's copy of 27 November 2018 on his homepage has the same text; the published text, Duke Math. J. 168 (2019), 1461–1486, was not collated. *Printed:* "Proposition 2.2. For a finite, flat map R → R′ of local rings, an open subscheme V ⊂ Spec R, and an affine, smooth R-group scheme G, if (1) Γ(Spec R, O) ≅ Γ(V, O) via pullback; and (2) every G-torsor is trivial over R; then the following pullback is injective: H¹_et(V, G) ↪ H¹_et(V_{R′}, G). (2.2.1)" Proof: "… every element of X(V) lifts to (Res_{R′/R}(G_{R′}))(V), so, by [Gir71, III.3.2.2], the map H¹_et(V, G) → H¹_et(V, Res_{R′/R}(G_{R′})) (2.2.2) is injective." *Correction:* State Proposition 2.2 for commutative G, which covers both of its uses (Proposition 2.3, with G = Res_{R′/R}(T_{R′})/T, and Corollary 2.4, with G = T). For noncommutative G, supply the missing step: for every G-torsor P over V, the twisted map (^P Res_{R′/R}(G_{R′}))(V) → (^P X)(V) must also be surjective.
+- **E1** (gap; affects a stated result), Proposition 2.2 and its proof, p.4, in arXiv 1711.06456v4 (1 December 2018, the latest version; PDF SHA-256 a62a12bb…8709); the author's copy of 27 November 2018 on his homepage has the same text; the published text, Duke Math. J. 168 (2019), 1461–1486, was not collated. *Printed:* "Proposition 2.2. For a finite, flat map R → R′ of local rings, an open subscheme V ⊂ Spec R, and an affine, smooth R-group scheme G, if (1) Γ(Spec R, O) ≅ Γ(V, O) via pullback; and (2) every G-torsor is trivial over R; then the following pullback is injective: H¹_et(V, G) ↪ H¹_et(V_{R′}, G). (2.2.1)" Proof: "… every element of X(V) lifts to (Res_{R′/R}(G_{R′}))(V), so, by [Gir71, III.3.2.2], the map H¹_et(V, G) → H¹_et(V, Res_{R′/R}(G_{R′})) (2.2.2) is injective." *Correction:* State Proposition 2.2 for commutative G, which covers both of its uses (Proposition 2.3, with G = Res_{R′/R}(T_{R′})/T, and Corollary 2.4, with G = T). For arbitrary noncommutative G, the checked weaker conclusion is a singleton neutral fibre. Full injectivity additionally requires surjectivity of (^P Res_{R′/R}(G_{R′}))(V) → (^P X)(V) for every G-torsor P over V.
 - **E2** (misprint; affects the proof), Supporting source GR, math/0201175v3, Proposition5.4.13 proof, p119 (not a finding in the main Česnavičius text). *Printed:* such that t^h ∈ H *Correction:* Choose the finite subideal H with t^h∈H+p_a. This is precisely the condition used later for H_λ+p_(λ,a).
 - **E3** (misprint; affects the proof), Supporting source GR, math/0201175v3, Proposition5.4.13 proof, p119 (not a finding in the main Česnavičius text). *Printed:* S̄_λ := R̄_λ ⊗_(R_λ) S *Correction:* The completed finite-stage algebra is S̄_λ=R̄_λ⊗_(R_λ)S_λ, where S_λ=F_λ/J_λ. In the immediately preceding point-ideal list use X_N−c_N for its last generator.
 - **E4** (misprint; affects nothing), Supporting source SGA2, Laszlo annotated edition, XI Lemma3.17(e); inherited finding from the 2026-09-22 continuation. *Printed:* pour tout y fermé de X, y ∈ Y *Correction:* Replace y ∈ Y by y ∉ Y in this hypothesis.
@@ -76,7 +76,7 @@ Current worker: Codex, session codex-c83e7a. Refs #1328. Read/check date: 2026-0
 
 Status: **partial checkpoint**. The entire main paper has been read and its named conclusions, constructions, remarks and proof interfaces inventoried. This is not a closed proof plan: the JSON names 25 open source/proof gaps, several requiring further one-declaration decomposition. Nothing in this submission claims a new formalization.
 
-There are 178 items: 15 library imports, 13 existing planned interfaces and 150 missing items. Every missing item has exactly one route. The 42 definitions/constructions carry 126 unexecuted planning tests with canonical kinds, API outlines and use records. All 17 routes are sources for existing proposed roadmaps; no new roadmap or Part II is needed. The 2026-09-23 continuation below records the 19 additions and the narrowed G-ELKIK boundary.
+There are 178 items: 15 library imports, 12 existing planned interfaces and 151 missing items. Every missing item has exactly one route. The 42 definitions/constructions carry 126 unexecuted planning tests with canonical kinds, API outlines and use records. The 18 routes comprise 15 existing source routes plus the shared PurityForFlatCohomology proposal and two Part II proposals already named by PAPER-CESNAVICIUS-SCHOLZE-24. The 2026-09-23 continuation below records the 19 additions and the narrowed G-ELKIK boundary.
 
 ### Source and reading boundary
 
@@ -128,23 +128,23 @@ Lemma 2.1's rank-zero edge case is handled on its clopen locus before the positi
 
 | Supplier | Exact contribution |
 | --- | --- |
-| SchemeAndStackFoundations SF.0 | Punctured opens, Hartogs/coherent extension and determinant/Picard bridge |
+| PurityForFlatCohomology (shared with CS24) | Punctured opens, Hartogs, regular-local Picard extension, local/global purity, coniveau application, residues and local parafactorial/Lefschetz applications |
 | SF.1 | General scheme-torus descent, diagonal quotient, torsor lifting and finite-type group reductions |
-| SF.2 | Coefficient-specific cohomology, Brauer comparison/descent/purity, coniveau, residues and Appendix A field cohomology |
-| SF.4 | Henselian approximation, projective presentation groupoid, iterated-completion adapter and local parafactorial/Picard theory |
-| DeformationAndDerivedPatchingAlgebra R03.3 | Shared local depth, lci and regular-factorial algebra |
+| SF.2 | General sites, coefficient/descent/completion and perfectoid cohomology, supports/local-to-global/strict stalks, Appendix A field cohomology |
+| SchemeAndStackFoundationsFlatCohomologyPartII (shared with CS24) | Scheme Brauer foundation and affine Azumaya/cohomological comparison |
+| SF.4 | General Henselian approximation, missing smooth lifting shared with CMM21/044, projective presentation groupoid, iterated completion and SGA 2 VIII–IX formal comparison/algebraization |
+| DeformationAndDerivedPatchingAlgebra R03.3 | Shared local depth, lci and regular-factorial algebra; SGA 2 XI 3.15 sheaf determinant lemma imports the exact SF.1 interface |
 | ReductiveGroupsPartII RG2.0a | The existing Weil restriction/norm owner, extended to the exact arbitrary-affine and finite-flat smoothness scope |
 | PerfectoidQuotients Q0:integral-algebra | Integral perfectoid specialization, θ comparison, compatible roots and integral/Tate adapter |
 | PerfectoidSpaces P1/P2/P3 | General Banach realization, tilt, rational homeomorphism/sheafiness, finite étale and full-site equivalence |
-| PerfectoidSpaces P5/P7 | Noetherian-stage qcqs limit extension; regular finite-flat towers and their completed limit |
+| PerfectoidSpaces P5 | Noetherian-stage qcqs limit extension |
+| PerfectoidQuotientsIntegralPerfectoidPartII (shared with CS24) | Regular finite-flat residue/perfectoid towers; import P7 general Frobenius, limit and completion infrastructure |
 | AdicEtaleGeometry A1 | Actual adic étale-site basis and stability |
 | ClassicalAdicEtaleCohomology H0/H1:henselian | Adic cohomology continuity and Huber's henselian comparison |
 | AdicCoefficientsAndComparisons L2 | Scheme finite-presentation/cohomology continuity |
 | FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1 | Only the source-scoped finite connected/connected p-group devissage |
 
-These are source refinements of existing proposed layers, not new foundations detached from their owners. At integration, split early site/field/approximation prefixes from later purity suffixes. In particular the generic P1 foundations precede Q0, while the specialized Q0-to-P1 adapter is later; SF.2's early coefficient theory precedes SF.4, and its final purity consumer follows. Adding blanket reverse edges between whole stages would create artificial cycles.
-
-The catalogue pass included new roadmaps, packets, integrated decompositions, reserved IDs and the relevant RS-02/05/25/31 ownership records. Cartier duality and strict henselization are not reassigned from their upstream owners. The current Gille–Parimala paper already uses SF.0–SF.1 for coherent Hartogs and torsor purity; Harpaz–Wittenberg20 uses SF.2 for G_m/purity/residues. The present source coalesces with these uses.
+The shared purity proposal consumes general support/cohomology machinery from SF.2 and approximation/formal-algebraization machinery from SF.4. Early site, field, scheme and Tate foundations precede the completion/perfectoid and purity consumers; no blanket reverse stage edges are added. The two Part II IDs and purity ID match the completed CS24 extraction. Wider consumers still routed to old owners require the concrete maintainer follow-up in the fixes report. Cartier duality and strict henselization retain their upstream owners.
 
 Neither K2SymbolsBrauer's explicit classical symbols nor the Lefschetz-pencil/vanishing-cycle project owns local Brauer purity or the local parafactorial theorem. SF.3's curve/Picard objects also do not by themselves provide the higher-dimensional local theorem.
 
@@ -357,7 +357,7 @@ The Noetherian convention is printed in **Elkik §0, p554**. It applies to Theor
 5. **Principal Henselian approximation.** After stabilization, choose a principal smooth open containing the formal generic image. Solve a selected set of equations with Tougeron's lemma; a power of the defining element kills the remaining relations. Torsion separation kills those residual relations when the approximation is sufficiently deep.
 6. **Theorem2bis.** Induct on the number of ideal generators, applying the complete theorem in the completion along one generator and then the principal Henselian theorem to return to (A). Nakayama preserves the chosen smooth open under sufficiently high congruence.
 
-These applications refine **SF.4**. They import the pinned Artin–Rees theorem and Tau Ceti's controlled-preimage theorem. The general Henselian smooth-lifting interface coalesces with **PAPER-CLAUSEN-MATHEW-MORROW-21/044 in SF.0**; no second Henselian carrier is proposed. DD.0 remains the owner of the full cotangent complex. Zavyalov25/142 concerns the later algebraization of admissible formal models, and Colmez–Nizioł17/158 consumes approximation in a Galois comparison.
+These applications refine **SF.4**. They import the pinned Artin–Rees theorem and Tau Ceti's controlled-preimage theorem. The general Henselian smooth-lifting interface coalesces with **PAPER-CLAUSEN-MATHEW-MORROW-21/044 in SF.4**, as a missing exact smooth-algebra lifting theorem; no second Henselian carrier is proposed. DD.0 remains the owner of the full cotangent complex. Zavyalov25/142 concerns the later algebraization of admissible formal models, and Colmez–Nizioł17/158 consumes approximation in a Galois comparison.
 
 #### What this closes, and what it leaves open
 
@@ -373,7 +373,7 @@ The issue explicitly requires a `sourceIssues` list, including findings mentione
 
 E2 corrects the finite subideal condition in GR5.4.13 from (t^h\in H) to (t^h\in H+\mathfrak p_a), precisely the condition used later in that proof. The former is too strong: (f=X^2(X-1)) at (a=1) over \(\mathbf Q[[t]]\) is smooth at the selected root but singular at the double root. E3 corrects the completed finite-stage algebra to \(\bar R_\lambda\otimes_{R_\lambda}S_\lambda\) and the final point-ideal coordinate to (X_N-c_N). The latest arXiv download retains the slips. Published-book correction status is unknown. The statements being proved are unchanged.
 
-**Register integration caveat:** `scripts/errata.py` currently does not coalesce matching IDs across the extraction and dedicated errata file. Copying E1 as required by issue5a therefore produces two occurrences of the same finding in the register. `sourceIssuesRegister` identifies the canonical record. Only the three authorized deliverables were edited; the separate errata file and collector require a later authorized integration change.
+**Register repair (2 October 2026):** E1 is now active only in the extraction. The dedicated errata file carries a cross-reference outside `sourceIssues`, and both former records and independent reviews survive in history. The corrections include commutative full injectivity, arbitrary-group neutral-fibre triviality and the outstanding twisted-fibre condition. Duke remains uncollated; `sourceVersions` lists only the actual v4 and author-manuscript readings. Collector changes are a separate maintainer follow-up.
 
 Validation: `check_paper.py` and the three-file intake check pass. The supplemental audit passed **2,551 structural assertions**, including all **331 dependency edges**, reverse uses, unchanged inherited statuses, exact routes, test kinds and acyclicity. Exact arithmetic passed **6,383 assertions**, covering 1,296 Newton examples over localizations of the integers, 1,200 multivariate Taylor examples, the strict-boundary counterexample, conormal characteristic2 behavior and stabilization rank counts. These finite diagnostics do not prove the general theorems or execute the 126 Lean planning tests.
 
@@ -398,3 +398,11 @@ An independent review by Claude Code, session cc-d67081, for issue
   difference and confirms it predates v4.
 
 Full report: `research/blueprint/reviews/REV-PAPER-CESNAVICIUS-19.md`.
+
+## Repair after RT-PAPER-CESNAVICIUS-19 (Codex, codex-rtOQ9t, 2 October 2026)
+
+All four independently confirmed findings are repaired. The current ownership table and JSON supersede the historical continuation/review route and status counts above: **178 items, 15 library, 12 planned, 151 missing, 18 routes, 42 definitions and 126 planning tests**. All item IDs and mathematical statements are preserved; only smooth lifting changes status, because a missing CMM21/044 obligation is not a planned theorem. SF.0 has no remaining source route. The full ringed-space sheaf determinant statement stays with the R03.3 factoriality proof, importing the explicit SF.1 determinant interface.
+
+The 2019 H² bijectivity and H³ injectivity are retained alongside the weaker CS24 7.2.8(a) conclusion. Generic supports and formal algebraization stay at SF.2/SF.4; regular-local tower applications share the existing Part II ID while importing P7 infrastructure. Azumaya Br, cohomological Br′ and ambient H² remain separate until comparison. E1 is one active stated-result gap; prior review/classification history remains available, and E2–E4 no longer claim to await reviews already present. No new full supporting-source audit or independent review is claimed.
+
+Bounded reading: v4 pp.1–2,4,11–14 (images pp.4,11,13), author manuscript p.4, CS24 v3 pp.29,88–91; historical source hashes match. Duke publication metadata does not establish reading its text. The read-only collector now exposes this paper as preprint with one stated finding. Detailed fixes, checks and out-of-scope integration requests: [RT-PAPER-CESNAVICIUS-19.fixes.md](../redteam/RT-PAPER-CESNAVICIUS-19.fixes.md). No Lean deliverable or compilation.
