@@ -2461,3 +2461,98 @@ Fresh primary reading was Heuer25 Definition 1.2(2), all of Definition 4.1 and R
 Under PROTOCOL section 13, the current suggested bodies are admitted sketches. The fifteen actual affine declarations and ten proved examples remain available at immutable commit 9a36f4d1d6743c0202f12020c0df603400149faa; their preceding exact-file receipts remain historical. A separate Mathlib-only experiment proves the generic span/word/kernel implication from an explicit ideal-generation equality, without admissions. That experiment is evidence for the algebraic route, not a compiled proof of the Tau Ceti augmentation adapter or of a global sheaf statement. Current exact-file and projection receipts appear in the packet and handoff.
 
 Current exact admitted sketch receipt: 0 errors, 156 admitted-declaration warnings only, 62 examples; source SHA-256 e7c84108653b8d910a49fb6aebe50ca9880572f206b2e0348ba36e625665af4b. Compiler-output SHA-256 2c8ff8fa3cfb9ca4ba9deef0bc48a0fdb6436a483149be1da355a8281715482f. Separate conditional proof: 0 errors/warnings, both axiom audits contain only propext, Classical.choice and Quot.sound. The finite script freshly reruns all 88 commuting F₂ pairs at N=0,…,4 (440 cases) and its ambient-ideal, characteristic-two and nonreduced fixtures. The actual assembler has an acyclic 3,022-vertex/8,663-edge stage graph; the own declaration graph is 71/138; the reachable declaration/request graph is 3,088/8,916. All 21 computed stage prerequisite pairs are reachable, with unchanged stage edges and no own skipped links. Sixty-eight of the seventy inherited node objects are unchanged; all mathematical statements and prior tests survive. All 71 nodes remain unchecked; H.0 partial and H.1–H.8 not_read.
+
+## Ordered second iterates on affine coefficient charts
+
+For a finite basis (q_i) of Q, contraction reconstructs θ(e)=Σ_i a_θ(q_i∨)(e)⊗q_i. This requires no basis or reducedness on E. Apply θ a second time to the E-factor and use the native associator to obtain E⊗(Q⊗Q). The new coefficient occupies the left slot, so contraction by (v,w) is a_θ(v)∘a_θ(w), with w applied first. This formula holds for noncommuting contractions.
+
+Reconstructing both tensor factors proves that the second iterate vanishes exactly when every ordered product of two coefficient contractions vanishes. Exterior integrability and commuting contractions are not hypotheses. This supplies the N=2 affine step of the existing all-N coordinate theorem; it retains the required all-N induction, restriction/change-of-chart and sheaf gluing. No tensor of global section modules replaces a sheaf tensor.
+
+Declaration: HodgeStructuresPartII:H.0/affine-contractions-reconstruction. lemma. Native name: TwistedHiggsBundle.affineContractions_reconstruct.
+
+Statement: For a finite basis b=(q_i) of Q and every e in E, θ(e)=Σ_i a_θ(b_i∨)(e)⊗q_i in the actual E⊗_R Q. The coordinate dual is b.coord i. Only Q has a finite basis; E is an arbitrary module.
+
+Hypotheses: R is any commutative ring and E,Q are R-modules. No freeness, finiteness or reducedness is required on E. A finite basis b of Q is required only for reconstruction and the converse vanishing criterion. The tensor products and End_R(E) are the existing native algebraic carriers. The second iterate is ordered, with the newly applied Q-factor on the left. Integrability and commuting contractions are not hypotheses. These are affine statements; sheaf restriction/gluing stays an E1 input.
+
+Inputs: HodgeStructuresPartII:H.0/affine-contractions, mathlib:Module.Basis.coord, mathlib:Module.Basis.sum_repr, mathlib:TensorProduct.induction_on, mathlib:TensorProduct.map_tmul, mathlib:TensorProduct.tmul_sum.
+
+Proof: Tensor induction reduces reconstruction to zero, pure tensors and sums. For e⊗q, contracting b.coord i gives the corresponding scalar times e. Tensor balancing and the native finite basis reconstruction sum give e⊗q. Apply this identity to θ(e); no generic basis or tensor carrier is defined.
+
+Source: Heuer25 Definitions1.2(2) and4.1 motivate the contraction. The displayed ordered algebra is derived, not quoted as a named source theorem.
+
+Declaration: HodgeStructuresPartII:H.0/affine-ordered-square. construction. Native name: TwistedHiggsBundle.affineOrderedSquare.
+
+Statement: Construct θ^[2]:E→E⊗(Q⊗Q) as assoc∘(θ⊗id_Q)∘θ. The outer θ creates the left coefficient factor; no exterior or symmetric quotient is taken.
+
+Hypotheses: R is any commutative ring and E,Q are R-modules. No freeness, finiteness or reducedness is required on E. A finite basis b of Q is required only for reconstruction and the converse vanishing criterion. The tensor products and End_R(E) are the existing native algebraic carriers. The second iterate is ordered, with the newly applied Q-factor on the left. Integrability and commuting contractions are not hypotheses. These are affine statements; sheaf restriction/gluing stays an E1 input.
+
+Inputs: HodgeStructuresPartII:H.0/affine-contractions, mathlib:TensorProduct.map, mathlib:TensorProduct.assoc.
+
+Proof: Compose the existing linear tensor map of θ and id_Q with θ, then apply the existing associator. The codomain retains both ordered coefficient slots even for noncommuting contractions.
+
+Use: HodgeStructuresPartII:H.0/ordered-coordinate-vanishing. Supplies the exact native N=2 affine specialization before the general iteration and sheaf assembly.
+
+Use: HodgeStructuresPartII:H.0/affine-ordered-square-vanishing. Tests ordered nilpotence by actual products of two contractions.
+
+API: TwistedHiggsBundle.affineOrderedSquare_apply (projection). The value on e is the native associator applied to (θ⊗id_Q)(θ(e)).
+
+API: TwistedHiggsBundle.affineOrderedSquare_zero (simp). The zero field has zero second iterate.
+
+API: TwistedHiggsBundle.affineOrderedSquare_contraction (compatibility). Contraction of the two slots by v,w equals a_θ(v)∘a_θ(w), with w applied first.
+
+Test: TwistedHiggsBundle.affineOrderedSquare.test_zero (degenerate). For any modules E,Q, the second iterate of the zero field is zero.
+
+Test: TwistedHiggsBundle.affineOrderedSquare.test_line_nonzero (non-example). For any nontrivial R, E=Q=R and θ(e)=e⊗1, the ordered second iterate is nonzero. A rank-one field cannot be declared square-nilpotent from an exterior-square condition.
+
+Test: TwistedHiggsBundle.affineOrderedSquare.test_empty_coefficients (degenerate). If Q is subsingleton, every θ has zero second iterate.
+
+Test: TwistedHiggsBundle.affineOrderedSquare.test_order (computation). Over ℚ, E=Q=ℚ², let X=E12,Y=E21 and θ(e)=Xe⊗q0+Ye⊗q1. Contraction of θ^[2] by the coordinate pair (q0∨,q1∨) is XY=E11 and differs from the reverse YX=E22. No integrability is assumed.
+
+Source: Heuer25 Definitions1.2(2) and4.1 motivate the contraction. The displayed ordered algebra is derived, not quoted as a named source theorem.
+
+Declaration: HodgeStructuresPartII:H.0/affine-ordered-square-contraction. lemma. Native name: TwistedHiggsBundle.affineOrderedSquare_contraction.
+
+Statement: For arbitrary dual functionals v,w on Q, contract θ^[2] by the functional lid∘(v⊗w):Q⊗Q→R. The resulting endomorphism is a_θ(v)·a_θ(w), with the right factor applied first. No finite basis or integrability is needed.
+
+Hypotheses: R is any commutative ring and E,Q are R-modules. No freeness, finiteness or reducedness is required on E. A finite basis b of Q is required only for reconstruction and the converse vanishing criterion. The tensor products and End_R(E) are the existing native algebraic carriers. The second iterate is ordered, with the newly applied Q-factor on the left. Integrability and commuting contractions are not hypotheses. These are affine statements; sheaf restriction/gluing stays an E1 input.
+
+Inputs: HodgeStructuresPartII:H.0/affine-ordered-square, HodgeStructuresPartII:H.0/affine-contractions, mathlib:TensorProduct.induction_on, mathlib:TensorProduct.map_tmul, mathlib:TensorProduct.assoc_tmul, mathlib:TensorProduct.rid.
+
+Proof: On each outer pure tensor e⊗q, use a second tensor induction on θ(e). The native associator and tensor map identify the result with w(q) times the v-contraction of θ(e); commuting coefficient scalars uses the commutative base only. Additivity finishes both inductions. Apply the result to θ(e) and use the actual composition multiplication in End_R(E).
+
+Source: Heuer25 Definitions1.2(2) and4.1 motivate the contraction. The displayed ordered algebra is derived, not quoted as a named source theorem.
+
+Declaration: HodgeStructuresPartII:H.0/affine-ordered-square-vanishing. lemma. Native name: TwistedHiggsBundle.affineOrderedSquare_eq_zero_iff.
+
+Statement: For a finite basis b of Q, θ^[2]=0 iff a_θ(b_i∨)·a_θ(b_j∨)=0 for every ordered pair i,j. No integrability, field, reducedness or finite basis on E is needed. Distinct ordered pairs remain distinct, including in characteristic two.
+
+Hypotheses: R is any commutative ring and E,Q are R-modules. No freeness, finiteness or reducedness is required on E. A finite basis b of Q is required only for reconstruction and the converse vanishing criterion. The tensor products and End_R(E) are the existing native algebraic carriers. The second iterate is ordered, with the newly applied Q-factor on the left. Integrability and commuting contractions are not hypotheses. These are affine statements; sheaf restriction/gluing stays an E1 input.
+
+Inputs: HodgeStructuresPartII:H.0/affine-ordered-square, HodgeStructuresPartII:H.0/affine-ordered-square-contraction, HodgeStructuresPartII:H.0/affine-contractions-reconstruction, mathlib:TensorProduct.sum_tmul, mathlib:TensorProduct.map_tmul, mathlib:TensorProduct.assoc_tmul.
+
+Proof: If θ^[2] vanishes, contract the two slots and use the exact two-slot formula. Conversely reconstruct θ(e) and then θ(a_θ(b_j∨)e) in the finite coefficient basis. Every summand of the associated ordered double tensor has coefficient a_θ(b_i∨)a_θ(b_j∨)e. The hypothesized endomorphism equality kills every coefficient, so both finite sums vanish. This is an actual algebraic N=2 proof; general N and sheaf gluing are separate obligations.
+
+Source: Heuer25 Definitions1.2(2) and4.1 motivate the contraction. The displayed ordered algebra is derived, not quoted as a named source theorem.
+
+The existing HodgeStructuresPartII:H.0/ordered-coordinate-vanishing now imports HodgeStructuresPartII:H.0/affine-ordered-square-vanishing and HodgeStructuresPartII:H.0/affine-contractions-reconstruction for its affine N=2 step. Its arbitrary-N and sheaf hypotheses/statement remain unchanged.
+
+Native baseline statements:
+
+- mathlib:Module.Basis.sum_repr — A vector in a finite basis is the finite sum of its coordinates times basis vectors. Source: Mathlib/LinearAlgebra/Basis/Defs.lean.
+- mathlib:Module.Basis.coord — Existing linear dual coordinate of a chosen basis. Source: Mathlib/LinearAlgebra/Basis/Defs.lean.
+- mathlib:TensorProduct.induction_on — Existing zero/pure-tensor/add induction for the actual tensor product. Source: Mathlib/LinearAlgebra/TensorProduct/Defs.lean.
+- mathlib:TensorProduct.assoc — Existing linear associator from (E tensor Q) tensor Q to E tensor (Q tensor Q). Source: Mathlib/LinearAlgebra/TensorProduct/Associator.lean.
+- mathlib:TensorProduct.assoc_tmul — The actual associator sends (e tensor q) tensor r to e tensor (q tensor r). Source: Mathlib/LinearAlgebra/TensorProduct/Associator.lean.
+- mathlib:TensorProduct.map_tmul — Native tensor map applies its two component maps to a pure tensor. Source: Mathlib/LinearAlgebra/TensorProduct/Map.lean.
+- mathlib:TensorProduct.tmul_sum — Tensoring a fixed first factor distributes over a finite sum in the second factor. Source: Mathlib/LinearAlgebra/TensorProduct/Defs.lean.
+- mathlib:TensorProduct.sum_tmul — Tensoring a finite sum in the first factor distributes over a fixed second factor. Source: Mathlib/LinearAlgebra/TensorProduct/Defs.lean.
+
+The source-augmentation generator adapter remains HodgeStructuresPartII:H.0/augmentation-power-generators: the actual source ideal power is generated by words of exactly that length, including the empty word at degree zero. This is separate from the new tensor-square chart calculation.
+
+## Validation boundary of the ordered-square contracts
+
+The [separate native proof prototype](https://github.com/CBirkbeck/tauceti-explorer/blob/a31c7908e2ba7455d333f1f4e25e07a6563f692b/research/blueprint/suggested/HodgeStructuresPartII.lean) proves finite-coefficient reconstruction, the actual second-iterate construction, its projection/zero/contraction formulas and the exact finite-basis vanishing criterion. All four new examples are proved, including the E12/E21 ordering test. A narrow extraction passes with zero errors or warnings and seven kernel axiom audits without admission dependencies. It reuses the historical native contraction proof; it does not prove general-N or global sheaf statements.
+
+Under PROTOCOL section13 the submitted new signatures/examples retain admitted bodies. The entire suggested file, which imports only Mathlib, passes at the exact pin with 66 examples, zero errors, 166 admission warnings and no other warnings. The 35 inherited global omission entries remain; compilation does not supply those signatures. No TauCeti build, library cache or language server was created.
+
+The packet has 75 nodes, 115 API items, 107 total tests (105 for definitions/constructions), 82 baseline references and six planets. All 71 predecessor statements and 70 complete predecessor node objects are preserved. The actual stage graph and its transitive stage/declaration graph are acyclic, all 21 required stage pairs are reachable, and this packet has no skipped/pending links. H.0 remains partial, H.1–H.8 not_read; eleven gaps and five requests remain.
