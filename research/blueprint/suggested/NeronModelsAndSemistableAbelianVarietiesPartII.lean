@@ -5599,3 +5599,145 @@ example :
   sorry
 
 end TauCeti.GenusOne.FerrandPushout
+
+
+namespace TauCeti.GenusOne.FerrandPushout
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry TopologicalSpace Opposite
+variable {Y P : Scheme.{u}}
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+
+lemma conductorChart_ambient_le (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.affineOpens) :
+    (f.app U).hom.range.conductor ≤
+      ((conductorIdealSheaf f).comap f).ideal ⟨f ⁻¹ᵁ U, U.2.preimage f⟩ := by
+  sorry
+
+lemma conductorSourceIdeal_affine (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] [IsAffine P] [IsAffine Y] :
+    ((conductorIdealSheaf f).comap f).ideal ⟨⊤, isAffineOpen_top Y⟩ =
+      f.appTop.hom.range.conductor := by
+  sorry
+
+-- Native flat base change supplies this local instance; no new generic carrier.
+local instance conductorRestrict_dominant (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.Opens) :
+    IsSchemeTheoreticallyDominant (f ∣_ U) :=
+  IsSchemeTheoreticallyDominant.of_isPullback (isPullback_morphismRestrict f U).flip
+
+lemma conductorIdealSheaf_restrict (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.Opens) :
+    conductorIdealSheaf (f ∣_ U) = (conductorIdealSheaf f).comap U.ι := by
+  sorry
+
+lemma conductorSourceIdeal_restrict (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.Opens) :
+    ((conductorIdealSheaf f).comap f).comap (f ⁻¹ᵁ U).ι =
+      (conductorIdealSheaf (f ∣_ U)).comap (f ∣_ U) := by
+  sorry
+
+lemma conductor_range_conjugate {A B C D : Type u}
+    [CommRing A] [CommRing B] [CommRing C] [CommRing D]
+    (f : A →+* B) (eA : C ≃+* A) (eB : D ≃+* B) :
+    ((eB.symm.toRingHom.comp f).comp eA.toRingHom).range.conductor =
+      f.range.conductor.comap eB.toRingHom := by
+  sorry
+
+lemma conductorSourceIdeal_chart_transport (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.affineOpens) :
+    (((conductorIdealSheaf f).comap f).comap (f ⁻¹ᵁ U).ι).ideal
+        ⟨⊤, @isAffineOpen_top _ (U.2.preimage f)⟩ =
+      (((conductorIdealSheaf f).comap f).ideal ⟨f ⁻¹ᵁ U, U.2.preimage f⟩).comap
+        (f ⁻¹ᵁ U).topIso.hom.hom := by
+  sorry
+
+lemma conductorSourceIdeal_chart (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.affineOpens) :
+    ((conductorIdealSheaf f).comap f).ideal ⟨f ⁻¹ᵁ U, U.2.preimage f⟩ =
+      (f.app U).hom.range.conductor := by
+  sorry
+
+-- Exact pre-existing canonical header, now supplied with a native proof.
+lemma conductorSourceIdeal_mem (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.affineOpens)
+    (b : Γ(Y, f ⁻¹ᵁ U)) :
+    b ∈ ((conductorIdealSheaf f).comap f).ideal ⟨f ⁻¹ᵁ U, U.2.preimage f⟩ ↔
+      ∀ c : Γ(Y, f ⁻¹ᵁ U), b * c ∈ (f.app U).hom.range := by
+  sorry
+
+def conductorSourceObjIso (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.affineOpens) :
+    Γ(((conductorIdealSheaf f).comap f).subscheme,
+        ((conductorIdealSheaf f).comap f).subschemeι ⁻¹ᵁ (f ⁻¹ᵁ U)) ≅
+      CommRingCat.of (Γ(Y, f ⁻¹ᵁ U) ⧸ (f.app U).hom.range.conductor) :=
+  ((conductorIdealSheaf f).comap f).subschemeObjIso ⟨f ⁻¹ᵁ U, U.2.preimage f⟩ ≪≫
+    (Ideal.quotEquivOfEq (conductorSourceIdeal_chart f U)).toCommRingCatIso
+
+lemma conductorSourceObjIso_inclusion (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.affineOpens) :
+    ((conductorIdealSheaf f).comap f).subschemeι.app (f ⁻¹ᵁ U) ≫
+        (conductorSourceObjIso f U).hom =
+      CommRingCat.ofHom (Ideal.Quotient.mk (f.app U).hom.range.conductor) := by
+  sorry
+
+lemma conductorSourceObjIso_mk (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.affineOpens)
+    (b : Γ(Y, f ⁻¹ᵁ U)) :
+    (conductorSourceObjIso f U).hom
+        (((conductorIdealSheaf f).comap f).subschemeι.app (f ⁻¹ᵁ U) b) =
+      Ideal.Quotient.mk (f.app U).hom.range.conductor b := by
+  sorry
+
+lemma conductorSourceObjIso_inv_mk (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.affineOpens)
+    (b : Γ(Y, f ⁻¹ᵁ U)) :
+    (conductorSourceObjIso f U).inv (Ideal.Quotient.mk (f.app U).hom.range.conductor b) =
+      ((conductorIdealSheaf f).comap f).subschemeι.app (f ⁻¹ᵁ U) b := by
+  sorry
+
+lemma conductorChartMap_ambient_quotient (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.affineOpens) :
+    conductorChartMap f U ≫ (conductorSourceObjIso f U).hom =
+      ((conductorIdealSheaf f).subschemeObjIso U).hom ≫
+        CommRingCat.ofHom (Ideal.quotientMap (f.app U).hom.range.conductor
+          (f.app U).hom (conductorIdealSheaf_ideal f U).le) := by
+  sorry
+
+end TauCeti.GenusOne.FerrandPushout
+
+
+namespace TauCeti.GenusOne.FerrandPushout
+open CategoryTheory AlgebraicGeometry Opposite
+variable {Y P : Scheme.{u}}
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+
+-- test: ConductorSourceChartChecked.quotient_representative
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (U : P.affineOpens) (b : Γ(Y, f ⁻¹ᵁ U)) :
+    (conductorSourceObjIso f U).inv (Ideal.Quotient.mk (f.app U).hom.range.conductor b) =
+      ((conductorIdealSheaf f).comap f).subschemeι.app (f ⁻¹ᵁ U) b := by
+  sorry
+
+-- test: ConductorSourceChartChecked.empty_open
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f] :
+    ∀ x : Γ(((conductorIdealSheaf f).comap f).subscheme,
+      ((conductorIdealSheaf f).comap f).subschemeι ⁻¹ᵁ (f ⁻¹ᵁ (⊥ : P.Opens))),
+      (conductorSourceObjIso f ⟨⊥, isAffineOpen_bot P⟩).hom x = 0 := by
+  sorry
+
+-- test: ConductorSourceChartChecked.nonreduced_diagonal
+example :
+    let d : CommRingCat.of (ZMod 4) ⟶ CommRingCat.of (ZMod 4 × ZMod 4) :=
+      CommRingCat.ofHom (RingHom.prod (RingHom.id _) (RingHom.id _))
+    let f := Spec.map d
+    ∃ (_ : IsFinite f) (_ : IsSchemeTheoreticallyDominant f),
+      let U : (Spec (.of (ZMod 4))).affineOpens := ⟨⊤, isAffineOpen_top _⟩
+      let b := (Scheme.ΓSpecIso (.of (ZMod 4 × ZMod 4))).inv (2, 2)
+      let y := ((conductorIdealSheaf f).comap f).subschemeι.app (f ⁻¹ᵁ U) b
+      (f.app U).hom.range.conductor = ⊥ ∧ b ≠ 0 ∧ b ^ 2 = 0 ∧
+        (conductorSourceObjIso f U).hom y ≠ 0 ∧
+        ((conductorSourceObjIso f U).hom y) ^ 2 = 0 := by
+  sorry
+
+end TauCeti.GenusOne.FerrandPushout
