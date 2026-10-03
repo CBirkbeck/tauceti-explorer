@@ -30,7 +30,7 @@ When at least 20 GiB is available, run one owned compile at a time for the recov
 
 ## Public recovery and validation
 
-The own branch ancestor **UNPUBLISHED** stores the proof draft and bounded prototype inside comments of the allowed suggested file. The final suggested file is the canonical admitted prototype. No separate proof file, paper, private path or build artifact is committed. The ancestor must remain reachable; do not rewrite its history.
+The own branch ancestor **7585601b52091181a9edec2ad4e877003a0c1886** stores the proof draft and bounded prototype inside comments of the allowed suggested file. The final suggested file is the canonical admitted prototype. No separate proof file, paper, private path or build artifact is committed. The ancestor must remain reachable; do not rewrite its history.
 
 Save the first Python block as recover.py and run it with your own disk scratch directory and the **actual full PR head SHA**. It verifies every artifact hash and all three incoming prefix hashes, retrieves the immutable incoming four deliverables, and extracts the four scripts below. It does not run Lean. Then run verify.py and graph.py from an existing repository clone, giving the scratch directory and declaration index to verify.py and setting MODULI_VALIDATE_BASE to the publication base. Their read adapter uses immutable Git blobs rather than copying the repository. A recovered source-only replay must not be described as a Lean compile.
 
@@ -46,7 +46,7 @@ HEAD=sys.argv[2]
 assert re.fullmatch('[0-9a-f]{40}',HEAD),'Use the actual full pull-request head SHA, never a guessed SHA.'
 ROOT='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
 STEM='AlgebraicModuliForArithmeticGeometry--A0-extension'
-ARCHIVE='UNPUBLISHED'
+ARCHIVE='7585601b52091181a9edec2ad4e877003a0c1886'
 BASE='21b2f2946940fe7557c08f1b578854c0b015aa80'
 PUBLICATION_BASE='588f2b8bd535f2c370ddaaa49a1cc4d850413ce7'
 TAGS={'Native.lean': 'NATIVE STRONG PULLBACK PROOF DRAFT', 'Canonical.lean': 'BOUNDED MATHLIB STRONG PULLBACK PROTOTYPE', 'New.lean': 'STRONG PULLBACK NEW PROOFS', 'NewAdmitted.lean': 'STRONG PULLBACK NEW ADMITTED', 'Audits.lean': 'STRONG PULLBACK AXIOM COMMANDS'}
