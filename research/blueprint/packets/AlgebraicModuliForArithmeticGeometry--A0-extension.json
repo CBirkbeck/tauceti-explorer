@@ -13,7 +13,7 @@
     "AlgebraicModuliForArithmeticGeometry:R09.7"
   ],
   "status": "partial",
-  "summary": "Partial checkpoint with 366 declaration nodes. Adds 25 actual StrongTrans pullback adapters: five constructions and twenty lemmas, sixteen API items and fifteen native carrier/orientation tests. The actual local equivalences now compare the correct target pullbacks; arbitrary deeper-slice coherence and inverse Hom-sheaf gluing remain open. All incoming general gerbe/key-definition statements, source issues, requests, planets and ownership contracts are preserved; only the general full-faithfulness node receives two supplier edges and one proof step. No stage or reserved key is closed.",
+  "summary": "Native Hom-sheaf assembly checkpoint: 19 new declarations, three constructions, 13 API items and 12 tests. Use full StrongTrans composition coherence and Mathlib local-bijection gluing to specify fibrewise fullness in the inherited adapter universe convention. All 365 untouched incoming node objects and the old full-faithfulness contract are retained; that parent gains only two prerequisite edges and one proof step. All implementations stay unchecked. Partial checkpoint with 366 declaration nodes. Adds 25 actual StrongTrans pullback adapters: five constructions and twenty lemmas, sixteen API items and fifteen native carrier/orientation tests. The actual local equivalences now compare the correct target pullbacks; arbitrary deeper-slice coherence and inverse Hom-sheaf gluing remain open. All incoming general gerbe/key-definition statements, source issues, requests, planets and ownership contracts are preserved; only the general full-faithfulness node receives two supplier edges and one proof step. No stage or reserved key is closed.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1217,6 +1217,104 @@
         "sourceSha256": "94c995fd165ad4c7a422bca4b64d422deb2207bc490967487bb20b16b2d3315e",
         "provides": "A native Faithful functor has injective actual Hom maps.",
         "checked": "Exact statement and ambient hypotheses freshly read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; existing generic transport is reused."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Pseudofunctor.StrongTrans.naturality_comp_iso",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Bicategory/NaturalTransformation/Pseudo.lean",
+        "provides": "The strong comparison for a composite is the composite of the source pseudofunctor comparison, two naturality comparisons and inverse target comparison.",
+        "checked": "Actual statement and ambient hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Pseudofunctor.StrongTrans.naturality_id_iso",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Bicategory/NaturalTransformation/Pseudo.lean",
+        "provides": "The identity strong comparison is expressed using the source and target mapId comparisons and unitors.",
+        "checked": "Actual statement and ambient hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Pseudofunctor.presheafHomObjHomEquiv",
+        "kind": "construction",
+        "module": "Mathlib/CategoryTheory/Sites/Descent/IsPrestack.lean",
+        "provides": "The actual fibre Hom type is equivalent to the native Hom-presheaf section at the identity slice object.",
+        "checked": "Actual statement and ambient hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Sieve.overEquiv",
+        "kind": "construction",
+        "module": "Mathlib/CategoryTheory/Sites/Over.lean",
+        "provides": "Order equivalence between sieves on an object of Over U and sieves on its underlying object.",
+        "checked": "Actual statement and ambient hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Sieve.overEquiv_symm_iff",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Sites/Over.lean",
+        "provides": "Membership in the transported slice sieve is membership of the underlying arrow.",
+        "checked": "Actual statement and ambient hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.GrothendieckTopology.overEquiv_symm_mem_over",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Sites/Over.lean",
+        "provides": "A covering base sieve transports to a covering sieve for the native over topology.",
+        "checked": "Actual statement and ambient hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Presheaf.imageSieve",
+        "kind": "construction",
+        "module": "Mathlib/CategoryTheory/Sites/LocallySurjective.lean",
+        "provides": "The actual sieve of restrictions of a target section admitting a preimage.",
+        "checked": "Actual statement and ambient hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Presheaf.IsLocallySurjective",
+        "kind": "definition",
+        "module": "Mathlib/CategoryTheory/Sites/LocallySurjective.lean",
+        "provides": "Local surjectivity means every native image sieve is covering.",
+        "checked": "Actual statement and ambient hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Presheaf.isLocallyInjective_of_injective",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Sites/LocallyInjective.lean",
+        "provides": "Componentwise injectivity implies local injectivity.",
+        "checked": "Actual statement and ambient hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Sheaf.isLocallyBijective_iff_isIso",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Sites/LocallyBijective.lean",
+        "provides": "For sheaves in a suitable concrete category, in particular Type, local injectivity and local surjectivity are equivalent to IsIso; the pinned proof performs the actual gluing.",
+        "checked": "Actual statement and ambient hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.asIso",
+        "kind": "construction",
+        "module": "Mathlib/CategoryTheory/Iso.lean",
+        "provides": "Convert an actual IsIso morphism into the corresponding native isomorphism.",
+        "checked": "Actual statement and ambient hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.asIso_hom",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Iso.lean",
+        "provides": "The forward map of asIso is the original morphism.",
+        "checked": "Actual statement and ambient hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.Full",
+        "kind": "definition",
+        "module": "Mathlib/CategoryTheory/Functor/FullyFaithful.lean",
+        "provides": "Fullness is surjectivity of each actual map on Hom types.",
+        "checked": "Actual statement and ambient hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:MonoidHom.toFunctor",
+        "kind": "construction",
+        "module": "Mathlib/CategoryTheory/SingleObj.lean",
+        "provides": "The actual one-object functor induced by a monoid homomorphism; used by the non-full constant-unit boundary test.",
+        "checked": "Actual statement and ambient hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
       }
     ]
   },
@@ -1916,6 +2014,33 @@
         }
       ],
       "scope": "These exact native StrongTrans transport formulas, local inverses and tests are authored deductions, not formulas claimed to be printed in the notes. No whole-paper re-audit, repair of the Lemma 31.3 self-reference, completion of Lemma 31.6, general Hom-sheaf isomorphism or global gerbe equivalence is claimed."
+    },
+    {
+      "id": "OG-HOM-SHEAF-7e92bd",
+      "title": "Banded gerbe full faithfulness through the native slice Hom sheaf",
+      "authors": "Martin Olsson (lectures), course-note contributors; Mathlib contributors; authored Hom-sheaf assembly Codex — codex-7e92bd",
+      "edition": "Exact author-hosted 2007 notes accessed 2026-10-03; Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://stacky.net/files/written/Stacks/Stacks.pdf",
+      "sha256": "716bf95c7a200194d5fd1f2af48372253fde5ea65487b5d362bcccb5e0b7426a",
+      "accessDate": "2026-10-03",
+      "readSections": [
+        "Fresh complete PDF122–123, with page122 rendered and inspected: Definition31.1, Remark31.2, Lemma31.3 and its printed self-reference, Lemma31.4, Remark31.5; only the visible beginning and incompleteness warning of31.6. No whole-paper read or repair of the incomplete classification argument is claimed.",
+        "Fresh complete mathematical Stacks06NZ and0CJY, including the omitted varying-base step. The latter is an intrinsic-band source, not a proof of full faithfulness.",
+        "Fresh pinned StrongTrans fields and composition/identity coherence; actual pullHom, presheafHom, presheafHomObjHomEquiv, sheafHom; sieve overEquiv and covering transfer; native imageSieve/local-surjectivity, local-injectivity from injectivity, and the full pinned proof and public statement of Sheaf.isLocallyBijective_iff_isIso; Full, asIso and MonoidHom.toFunctor.",
+        "Fresh reviewed R09.4 audit and full REV-AUDIT01, whole current campaign reader, exact accepted RS27 R09.4 keep/supplier/owner and incoming-link records, full reserved gerbe node and actual latest band/StrongTrans interfaces. Earlier own5921 governing/audit/key/redteam/stage records were checked unchanged; no new whole historical packet or paper audit is asserted.",
+        "Bounded open Mathlib search for presheafHom StrongTrans returned no matching open PR. Bounded indexed Zulip search led to PR9965: CLOSED, unmerged, head3b04faa172c098ad531fbaca652e13ef5c1f8126; metadata/body/file list read, noting the body says the main result is already in Mathlib. Consume the exact pinned theorem, not the PR implementation. No exhaustive absence claim."
+      ],
+      "sourceHashes": {
+        "Mathlib/CategoryTheory/Bicategory/NaturalTransformation/Pseudo.lean": "4485e8cf6de3421060a3c803f2c37495a63b8ad785f956b87687c3d324011406",
+        "Mathlib/CategoryTheory/Functor/FullyFaithful.lean": "94c995fd165ad4c7a422bca4b64d422deb2207bc490967487bb20b16b2d3315e",
+        "Mathlib/CategoryTheory/Iso.lean": "b47eab342f3e7d08f4ff8d4a16d4580b0273d63f1a790b25560236c92d4cace7",
+        "Mathlib/CategoryTheory/SingleObj.lean": "6aca3a01c2a4beddfb1c80f82695834762e1ca0b30fe33ab0bb78d43aa24da03",
+        "Mathlib/CategoryTheory/Sites/Descent/IsPrestack.lean": "470b75a20ab5cb1de6de12444a84d4b50352cbd1b6bba9224cd54779dd8b22b2",
+        "Mathlib/CategoryTheory/Sites/LocallyBijective.lean": "93c3d3a37047051791529f454e42a9717fdf5ae17c252ed5f8a3e4c5eecb83fe",
+        "Mathlib/CategoryTheory/Sites/LocallyInjective.lean": "cef3deebb285b45abae9be3a35a464cfd1ff6bbc3e974c9ea4bfcf306a4e0728",
+        "Mathlib/CategoryTheory/Sites/LocallySurjective.lean": "7a730ba6c4b580b7612e97508e1af05d6b39091b017d4d4422a2a93ce2573c64",
+        "Mathlib/CategoryTheory/Sites/Over.lean": "46ba17b6ed171fefc18877d0d4470e11aea339dc56dbfd4b988266ed0bc43493"
+      }
     }
   ],
   "nodes": [
@@ -2719,14 +2844,17 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-faithful",
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-isom-equiv-cover",
         "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/cover-equiv",
-        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/preimage-restrict"
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/preimage-restrict",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/sheaf-isomorphism",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/component-full"
       ],
       "proofSteps": [
         "The induced map on Isom sheaves is A-equivariant.",
         "Locally trivialize the source torsor; the map is translation on A and is invertible.",
         "An isomorphism of sheaves is bijective on sections over U, giving fibrewise full faithfulness.",
         "The current native subproof establishes fibrewise faithfulness and actual anchored Isom equivalences on a covering sieve. Complete the map of native Hom sheaves using StrongTrans naturality, glue the anchor-independent inverses, and identify its inverse on U-sections; anchored local surjectivity alone is not global fullness.",
-        "Use the actual StrongTrans transport to compare the correct G(f)(ηUx),G(f)(ηUy) target pullbacks. The covering-sieve equivalence and supplied-global-anchor restriction law are available; arbitrary deeper-slice coherence and sheaf inverse gluing remain explicitly open."
+        "Use the actual StrongTrans transport to compare the correct G(f)(ηUx),G(f)(ηUy) target pullbacks. The covering-sieve equivalence and supplied-global-anchor restriction law are available; arbitrary deeper-slice coherence and sheaf inverse gluing remain explicitly open.",
+        "The codex-7e92bd Hom-sheaf continuation now specifies the arbitrary deeper-slice coherence and actual native Hom-sheaf morphism. Band injectivity and covering image sieves let the existing Mathlib local-bijection theorem supply its inverse, whose identity-slice evaluation gives the actual component Full instance. These are admitted proof plans in the inherited equal coefficient/fibre-hom universe adapter family; validate their bodies and the independent-universe general interface before treating this parent theorem as implemented."
       ],
       "acceptance": [
         "The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses."
@@ -22405,6 +22533,951 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/comparison-composite",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Strong comparison for a composite base arrow",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.comparison_comp",
+      "statement": "For f:V→U and g:W→V, c_(g∘f)(x) is ηW applied to the source mapComp comparison, followed by c_g(F(f)x), G(g)(c_f(x)), and the inverse target mapComp comparison.",
+      "hypotheses": [
+        "C is an arbitrary category and F,G are native Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ. η is their native StrongTrans. The forward comparison and presheaf-map adapters require no gerbe or band hypothesis; the sheaf map requires the native IsPrestack predicates for the specified topology J.",
+        "For injectivity, covering image sieves, the sheaf isomorphism and fibrewise fullness, F,G are IsGerbe on the specified site, bF,bG band them by the same actual abelian sheaf A, and η preserves that band. No global source anchor, neutralization, terminal base object, finite site or chosen single cover is assumed.",
+        "The new Lean banded adapters retain the incoming convention A : Sheaf J AddCommGrpCat.{v′}, matching the fibre-hom universe. This does not certify the more general independent coefficient-universe interface of the reserved gerbe contract; its normalization remains an explicit validation gap. Base and fibre-object universes are not restricted."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/comparison",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/comparison-native",
+        "mathlib:CategoryTheory.Pseudofunctor.StrongTrans.naturality_comp_iso"
+      ],
+      "proofSteps": [
+        "Apply the native strong-transformation composition coherence to f.op and g.op, convert the Cat-valued 2-isomorphisms to natural isomorphisms, and evaluate at x.",
+        "Retain all four factors and their direction: ηW(F(gf)x)→ηW(F(g)F(f)x)→G(g)ηV(F(f)x)→G(g)G(f)ηUx→G(gf)ηUx. The first and last maps are the actual pseudofunctor comparisons, not definitional identifications.",
+        "Use the native mapComp′ equality witness for the base composite. Associators in Cat evaluate to the required component identities."
+      ],
+      "acceptance": [
+        "For f:V→U and g:W→V, c_(g∘f)(x) is ηW applied to the source mapComp comparison, followed by c_g(F(f)x), G(g)(c_f(x)), and the inverse target mapComp comparison."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-HOM-SHEAF-7e92bd",
+          "locator": "Olsson §31, Lemma31.3 full-faithfulness paragraph, PDF122–123; authored comparison_comp deduction",
+          "excerpt": "Full faithfulness",
+          "match": "Use the actual native StrongTrans and Hom sheaves. The notes printed self-reference is replaced by the explicit local band-equivariant inverse and the pinned sheaf local-bijection theorem; no essential-surjectivity result is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/deeper-restriction",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Compatibility with every deeper slice restriction",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homMap_pullHom",
+      "statement": "For every actual local arrow p:F(f)x→F(f)y and g:W→V, h:W→U with g∘f=h, h_h(pullHom_F(p,g,h,h))=pullHom_G(h_f(p),g,h,h). No global antecedent for p is assumed.",
+      "hypotheses": [
+        "C is an arbitrary category and F,G are native Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ. η is their native StrongTrans. The forward comparison and presheaf-map adapters require no gerbe or band hypothesis; the sheaf map requires the native IsPrestack predicates for the specified topology J.",
+        "For injectivity, covering image sieves, the sheaf isomorphism and fibrewise fullness, F,G are IsGerbe on the specified site, bF,bG band them by the same actual abelian sheaf A, and η preserves that band. No global source anchor, neutralization, terminal base object, finite site or chosen single cover is assumed.",
+        "The new Lean banded adapters retain the incoming convention A : Sheaf J AddCommGrpCat.{v′}, matching the fibre-hom universe. This does not certify the more general independent coefficient-universe interface of the reserved gerbe contract; its normalization remains an explicit validation gap. Base and fibre-object universes are not restricted."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/comparison-composite",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/hom-map",
+        "mathlib:CategoryTheory.Pseudofunctor.LocallyDiscreteOpToCat.pullHom"
+      ],
+      "proofSteps": [
+        "Replace h by g∘f using the supplied equality, then expand the pinned pullHom formula: source mapComp hom, functorial pullback of p, target mapComp inverse.",
+        "Expand h_f as c_f(x) inverse, ηV(p), c_f(y) forward. Substitute the two comparison-composite formulas for x and y.",
+        "Use naturality of c_g at the arbitrary local arrow p and functorial preservation of composition. Cancel adjacent inverse comparison factors. The remaining factors are exactly the target pullHom formula.",
+        "The argument works for p that does not lift from U. The earlier supplied-global-arrow restriction lemma is therefore not used as a substitute."
+      ],
+      "acceptance": [
+        "For every actual local arrow p:F(f)x→F(f)y and g:W→V, h:W→U with g∘f=h, h_h(pullHom_F(p,g,h,h))=pullHom_G(h_f(p),g,h,h). No global antecedent for p is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-HOM-SHEAF-7e92bd",
+          "locator": "Olsson §31, Lemma31.3 full-faithfulness paragraph, PDF122–123; authored homMap_pullHom deduction",
+          "excerpt": "Full faithfulness",
+          "match": "Use the actual native StrongTrans and Hom sheaves. The notes printed self-reference is replaced by the explicit local band-equivariant inverse and the pinned sheaf local-bijection theorem; no essential-surjectivity result is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/presheaf-map",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The map of native slice Hom presheaves",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homPresheafMap",
+      "statement": "Construct a natural transformation F.presheafHom(x,y)→G.presheafHom(ηUx,ηUy) on (C/U)ᵒᵖ whose component at T is h_(T.hom).",
+      "hypotheses": [
+        "C is an arbitrary category and F,G are native Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ. η is their native StrongTrans. The forward comparison and presheaf-map adapters require no gerbe or band hypothesis; the sheaf map requires the native IsPrestack predicates for the specified topology J.",
+        "For injectivity, covering image sieves, the sheaf isomorphism and fibrewise fullness, F,G are IsGerbe on the specified site, bF,bG band them by the same actual abelian sheaf A, and η preserves that band. No global source anchor, neutralization, terminal base object, finite site or chosen single cover is assumed.",
+        "The new Lean banded adapters retain the incoming convention A : Sheaf J AddCommGrpCat.{v′}, matching the fibre-hom universe. This does not certify the more general independent coefficient-universe interface of the reserved gerbe contract; its normalization remains an explicit validation gap. Base and fibre-object universes are not restricted."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/deeper-restriction",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/hom-map",
+        "mathlib:CategoryTheory.Pseudofunctor.presheafHom"
+      ],
+      "proofSteps": [
+        "Use the already defined h_(T.hom) on objects of the slice. It has the exact native source and target Hom carriers.",
+        "For an arbitrary slice arrow a, apply the deeper-restriction theorem with g=a.left and the slice equality a.w. This is precisely the naturality square for the pinned presheafHom maps.",
+        "Keep Mathlib presheafHom as the carrier; no alternate Hom presheaf or generic stack category is introduced."
+      ],
+      "acceptance": [
+        "Construct a natural transformation F.presheafHom(x,y)→G.presheafHom(ηUx,ηUy) on (C/U)ᵒᵖ whose component at T is h_(T.hom)."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-HOM-SHEAF-7e92bd",
+          "locator": "Olsson §31, Lemma31.3 full-faithfulness paragraph, PDF122–123; authored homPresheafMap deduction",
+          "excerpt": "Full faithfulness",
+          "match": "Use the actual native StrongTrans and Hom sheaves. The notes printed self-reference is replaced by the explicit local band-equivariant inverse and the pinned sheaf local-bijection theorem; no essential-surjectivity result is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homPresheafMap_app",
+          "role": "compatibility",
+          "statement": "At every T∈C/U, the new Hom-presheaf component sends p to the existing homMap η T.hom x y p."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homPresheafMap_naturality",
+          "role": "compatibility",
+          "statement": "For a:T₂→T₁ in C/U and any local section p, applying the source restriction then the Hom-presheaf map equals applying the map then the target restriction."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homPresheafMap_identity",
+          "role": "compatibility",
+          "statement": "At the identity slice object, the Hom-presheaf component takes F.presheafHomObjHomEquiv(p) to G.presheafHomObjHomEquiv(ηU.map(p))."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homPresheafMap_injective",
+          "role": "compatibility",
+          "statement": "For a fixed-band gerbe morphism, every component of homPresheafMap is injective, with no anchor assumption."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.presheafIdentity",
+          "kind": "degenerate",
+          "statement": "The identity StrongTrans induces exactly the identity of the native Hom presheaf."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.deeperArrow",
+          "kind": "compatibility",
+          "statement": "For an arbitrary local p and composable f,g, h_(g∘f) of pullHom_F(p) equals pullHom_G(h_f(p)); p need not descend from a global arrow."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.identitySlice",
+          "kind": "compatibility",
+          "statement": "At id U, the map agrees with the actual fibre functor through the two native presheafHomObjHomEquiv maps."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.pointNonzero",
+          "kind": "computation",
+          "statement": "On the one-point constant SingleObj(Multiplicative(Z/2Z)) fixture, the identity transformation preserves the actual nonidentity arrow represented by additive 1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Olsson §31 Lemma31.3, full-faithfulness paragraph; AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-full-faithful",
+          "how": "Turn the incoming actual local band-equivariant comparisons into a coherent native Hom-sheaf map and its inverse, retaining the actual fibre functor."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:key/gerbes and subsequent band-preserving equivalence/neutralization constructions",
+          "how": "Supply full faithfulness without a global anchor. Object descent and essential surjectivity still require their own proof, and the general universe contract is not narrowed."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/presheaf-component",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The actual component of the Hom-presheaf map",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homPresheafMap_app",
+      "statement": "At every T∈C/U, the new Hom-presheaf component sends p to the existing homMap η T.hom x y p.",
+      "hypotheses": [
+        "C is an arbitrary category and F,G are native Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ. η is their native StrongTrans. The forward comparison and presheaf-map adapters require no gerbe or band hypothesis; the sheaf map requires the native IsPrestack predicates for the specified topology J.",
+        "For injectivity, covering image sieves, the sheaf isomorphism and fibrewise fullness, F,G are IsGerbe on the specified site, bF,bG band them by the same actual abelian sheaf A, and η preserves that band. No global source anchor, neutralization, terminal base object, finite site or chosen single cover is assumed.",
+        "The new Lean banded adapters retain the incoming convention A : Sheaf J AddCommGrpCat.{v′}, matching the fibre-hom universe. This does not certify the more general independent coefficient-universe interface of the reserved gerbe contract; its normalization remains an explicit validation gap. Base and fibre-object universes are not restricted."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/presheaf-map"
+      ],
+      "proofSteps": [
+        "Unfold only the new natural transformation component. The existing objectwise map and both comparison components remain visible."
+      ],
+      "acceptance": [
+        "At every T∈C/U, the new Hom-presheaf component sends p to the existing homMap η T.hom x y p."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-HOM-SHEAF-7e92bd",
+          "locator": "Olsson §31, Lemma31.3 full-faithfulness paragraph, PDF122–123; authored homPresheafMap_app deduction",
+          "excerpt": "Full faithfulness",
+          "match": "Use the actual native StrongTrans and Hom sheaves. The notes printed self-reference is replaced by the explicit local band-equivariant inverse and the pinned sheaf local-bijection theorem; no essential-surjectivity result is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/presheaf-naturality",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Naturality on arbitrary slice arrows",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homPresheafMap_naturality",
+      "statement": "For a:T₂→T₁ in C/U and any local section p, applying the source restriction then the Hom-presheaf map equals applying the map then the target restriction.",
+      "hypotheses": [
+        "C is an arbitrary category and F,G are native Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ. η is their native StrongTrans. The forward comparison and presheaf-map adapters require no gerbe or band hypothesis; the sheaf map requires the native IsPrestack predicates for the specified topology J.",
+        "For injectivity, covering image sieves, the sheaf isomorphism and fibrewise fullness, F,G are IsGerbe on the specified site, bF,bG band them by the same actual abelian sheaf A, and η preserves that band. No global source anchor, neutralization, terminal base object, finite site or chosen single cover is assumed.",
+        "The new Lean banded adapters retain the incoming convention A : Sheaf J AddCommGrpCat.{v′}, matching the fibre-hom universe. This does not certify the more general independent coefficient-universe interface of the reserved gerbe contract; its normalization remains an explicit validation gap. Base and fibre-object universes are not restricted."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/presheaf-map",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/deeper-restriction"
+      ],
+      "proofSteps": [
+        "Evaluate the naturality field of the constructed transformation at p. Record this native function equality as the downstream inverse-gluing interface."
+      ],
+      "acceptance": [
+        "For a:T₂→T₁ in C/U and any local section p, applying the source restriction then the Hom-presheaf map equals applying the map then the target restriction."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-HOM-SHEAF-7e92bd",
+          "locator": "Olsson §31, Lemma31.3 full-faithfulness paragraph, PDF122–123; authored homPresheafMap_naturality deduction",
+          "excerpt": "Full faithfulness",
+          "match": "Use the actual native StrongTrans and Hom sheaves. The notes printed self-reference is replaced by the explicit local band-equivariant inverse and the pinned sheaf local-bijection theorem; no essential-surjectivity result is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/identity-slice",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Agreement with the actual fibre functor",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homPresheafMap_identity",
+      "statement": "At the identity slice object, the Hom-presheaf component takes F.presheafHomObjHomEquiv(p) to G.presheafHomObjHomEquiv(ηU.map(p)).",
+      "hypotheses": [
+        "C is an arbitrary category and F,G are native Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ. η is their native StrongTrans. The forward comparison and presheaf-map adapters require no gerbe or band hypothesis; the sheaf map requires the native IsPrestack predicates for the specified topology J.",
+        "For injectivity, covering image sieves, the sheaf isomorphism and fibrewise fullness, F,G are IsGerbe on the specified site, bF,bG band them by the same actual abelian sheaf A, and η preserves that band. No global source anchor, neutralization, terminal base object, finite site or chosen single cover is assumed.",
+        "The new Lean banded adapters retain the incoming convention A : Sheaf J AddCommGrpCat.{v′}, matching the fibre-hom universe. This does not certify the more general independent coefficient-universe interface of the reserved gerbe contract; its normalization remains an explicit validation gap. Base and fibre-object universes are not restricted."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/presheaf-component",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/hom-map",
+        "mathlib:CategoryTheory.Pseudofunctor.presheafHomObjHomEquiv",
+        "mathlib:CategoryTheory.Pseudofunctor.StrongTrans.naturality_id_iso"
+      ],
+      "proofSteps": [
+        "Unfold the native identity-slice Hom equivalence, which conjugates by the pseudofunctor mapId comparison.",
+        "Evaluate the strong-transformation identity coherence at both x and y. Substitute it in h_id and cancel the mapId inverse pairs.",
+        "This identifies the induced bijection on identity-slice sections with the actual ηU.map, rather than with an unspecified equivalent function."
+      ],
+      "acceptance": [
+        "At the identity slice object, the Hom-presheaf component takes F.presheafHomObjHomEquiv(p) to G.presheafHomObjHomEquiv(ηU.map(p))."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-HOM-SHEAF-7e92bd",
+          "locator": "Olsson §31, Lemma31.3 full-faithfulness paragraph, PDF122–123; authored homPresheafMap_identity deduction",
+          "excerpt": "Full faithfulness",
+          "match": "Use the actual native StrongTrans and Hom sheaves. The notes printed self-reference is replaced by the explicit local band-equivariant inverse and the pinned sheaf local-bijection theorem; no essential-surjectivity result is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/sheaf-map",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The map of existing Hom sheaves",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homSheafMap",
+      "statement": "For native prestacks F,G, bundle homPresheafMap as a morphism F.sheafHom J x y→G.sheafHom J ηUx ηUy in Sheaf(J.over U,Type).",
+      "hypotheses": [
+        "C is an arbitrary category and F,G are native Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ. η is their native StrongTrans. The forward comparison and presheaf-map adapters require no gerbe or band hypothesis; the sheaf map requires the native IsPrestack predicates for the specified topology J.",
+        "For injectivity, covering image sieves, the sheaf isomorphism and fibrewise fullness, F,G are IsGerbe on the specified site, bF,bG band them by the same actual abelian sheaf A, and η preserves that band. No global source anchor, neutralization, terminal base object, finite site or chosen single cover is assumed.",
+        "The new Lean banded adapters retain the incoming convention A : Sheaf J AddCommGrpCat.{v′}, matching the fibre-hom universe. This does not certify the more general independent coefficient-universe interface of the reserved gerbe contract; its normalization remains an explicit validation gap. Base and fibre-object universes are not restricted."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/presheaf-map",
+        "mathlib:CategoryTheory.Pseudofunctor.sheafHom"
+      ],
+      "proofSteps": [
+        "Use the native IsPrestack predicates to supply the existing sheafHom objects. A morphism in the full category of sheaves is the constructed presheaf natural transformation.",
+        "Do not reprove descent of Hom sections or define another stack carrier. Ordinary stack/descent ownership stays at DiamondsAndVStacks:D0."
+      ],
+      "acceptance": [
+        "For native prestacks F,G, bundle homPresheafMap as a morphism F.sheafHom J x y→G.sheafHom J ηUx ηUy in Sheaf(J.over U,Type)."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-HOM-SHEAF-7e92bd",
+          "locator": "Olsson §31, Lemma31.3 full-faithfulness paragraph, PDF122–123; authored homSheafMap deduction",
+          "excerpt": "Full faithfulness",
+          "match": "Use the actual native StrongTrans and Hom sheaves. The notes printed self-reference is replaced by the explicit local band-equivariant inverse and the pinned sheaf local-bijection theorem; no essential-surjectivity result is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homSheafMap_hom",
+          "role": "compatibility",
+          "statement": "The underlying natural transformation of homSheafMap is exactly homPresheafMap."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homPresheafMap_imageSieve",
+          "role": "compatibility",
+          "statement": "For every T∈C/U and target Hom section s over T, the native Presheaf.imageSieve of homPresheafMap and s belongs to (J.over U)(T)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homSheafMap_locallySurjective",
+          "role": "compatibility",
+          "statement": "The actual homSheafMap is Sheaf.IsLocallySurjective on J.over U."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homSheafMap_locallyInjective",
+          "role": "compatibility",
+          "statement": "The actual homSheafMap is Sheaf.IsLocallyInjective on J.over U."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homSheafMap_isIso",
+          "role": "compatibility",
+          "statement": "The actual homSheafMap has the native IsIso property."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.bandHypothesisNeeded",
+          "kind": "non-example",
+          "statement": "The constant-unit monoid endomorphism of Multiplicative(Z/2Z) induces a one-object functor that is not Full. A morphism of underlying groupoids without the band condition need not have the claimed conclusion."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.nativeSheafMap",
+          "kind": "compatibility",
+          "statement": "Forgetting the new Hom-sheaf morphism gives exactly the constructed natural transformation between the existing native Hom presheaves."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.separatesLocalArrows",
+          "kind": "characterisation",
+          "statement": "Two arbitrary local source arrows with equal images under the actual Hom-sheaf map are equal."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.noGlobalAnchor",
+          "kind": "non-example",
+          "statement": "If the actual source Hom type x→y is empty, the target Hom type ηUx→ηUy is empty. The theorem does not smuggle in a global source anchor."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Olsson §31 Lemma31.3, full-faithfulness paragraph; AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-full-faithful",
+          "how": "Turn the incoming actual local band-equivariant comparisons into a coherent native Hom-sheaf map and its inverse, retaining the actual fibre functor."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:key/gerbes and subsequent band-preserving equivalence/neutralization constructions",
+          "how": "Supply full faithfulness without a global anchor. Object descent and essential surjectivity still require their own proof, and the general universe contract is not narrowed."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/sheaf-underlying",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Underlying natural transformation of the sheaf map",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homSheafMap_hom",
+      "statement": "The underlying natural transformation of homSheafMap is exactly homPresheafMap.",
+      "hypotheses": [
+        "C is an arbitrary category and F,G are native Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ. η is their native StrongTrans. The forward comparison and presheaf-map adapters require no gerbe or band hypothesis; the sheaf map requires the native IsPrestack predicates for the specified topology J.",
+        "For injectivity, covering image sieves, the sheaf isomorphism and fibrewise fullness, F,G are IsGerbe on the specified site, bF,bG band them by the same actual abelian sheaf A, and η preserves that band. No global source anchor, neutralization, terminal base object, finite site or chosen single cover is assumed.",
+        "The new Lean banded adapters retain the incoming convention A : Sheaf J AddCommGrpCat.{v′}, matching the fibre-hom universe. This does not certify the more general independent coefficient-universe interface of the reserved gerbe contract; its normalization remains an explicit validation gap. Base and fibre-object universes are not restricted."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/sheaf-map"
+      ],
+      "proofSteps": [
+        "Unfold the new sheaf morphism. This ensures the local image and injectivity calculations apply to the intended map."
+      ],
+      "acceptance": [
+        "The underlying natural transformation of homSheafMap is exactly homPresheafMap."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-HOM-SHEAF-7e92bd",
+          "locator": "Olsson §31, Lemma31.3 full-faithfulness paragraph, PDF122–123; authored homSheafMap_hom deduction",
+          "excerpt": "Full faithfulness",
+          "match": "Use the actual native StrongTrans and Hom sheaves. The notes printed self-reference is replaced by the explicit local band-equivariant inverse and the pinned sheaf local-bijection theorem; no essential-surjectivity result is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/component-injective",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Injectivity on every actual Hom carrier",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homPresheafMap_injective",
+      "statement": "For a fixed-band gerbe morphism, every component of homPresheafMap is injective, with no anchor assumption.",
+      "hypotheses": [
+        "C is an arbitrary category and F,G are native Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ. η is their native StrongTrans. The forward comparison and presheaf-map adapters require no gerbe or band hypothesis; the sheaf map requires the native IsPrestack predicates for the specified topology J.",
+        "For injectivity, covering image sieves, the sheaf isomorphism and fibrewise fullness, F,G are IsGerbe on the specified site, bF,bG band them by the same actual abelian sheaf A, and η preserves that band. No global source anchor, neutralization, terminal base object, finite site or chosen single cover is assumed.",
+        "The new Lean banded adapters retain the incoming convention A : Sheaf J AddCommGrpCat.{v′}, matching the fibre-hom universe. This does not certify the more general independent coefficient-universe interface of the reserved gerbe contract; its normalization remains an explicit validation gap. Base and fibre-object universes are not restricted."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/presheaf-component",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/hom-injective"
+      ],
+      "proofSteps": [
+        "Rewrite the component by homPresheafMap_app, then apply the existing actual homMap_injective theorem. Its proof depends on band-preserving faithfulness, not on the full-faithfulness target."
+      ],
+      "acceptance": [
+        "For a fixed-band gerbe morphism, every component of homPresheafMap is injective, with no anchor assumption."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-HOM-SHEAF-7e92bd",
+          "locator": "Olsson §31, Lemma31.3 full-faithfulness paragraph, PDF122–123; authored homPresheafMap_injective deduction",
+          "excerpt": "Full faithfulness",
+          "match": "Use the actual native StrongTrans and Hom sheaves. The notes printed self-reference is replaced by the explicit local band-equivariant inverse and the pinned sheaf local-bijection theorem; no essential-surjectivity result is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/image-sieve-cover",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The local-preimage sieve is covering",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homPresheafMap_imageSieve",
+      "statement": "For every T∈C/U and target Hom section s over T, the native Presheaf.imageSieve of homPresheafMap and s belongs to (J.over U)(T).",
+      "hypotheses": [
+        "C is an arbitrary category and F,G are native Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ. η is their native StrongTrans. The forward comparison and presheaf-map adapters require no gerbe or band hypothesis; the sheaf map requires the native IsPrestack predicates for the specified topology J.",
+        "For injectivity, covering image sieves, the sheaf isomorphism and fibrewise fullness, F,G are IsGerbe on the specified site, bF,bG band them by the same actual abelian sheaf A, and η preserves that band. No global source anchor, neutralization, terminal base object, finite site or chosen single cover is assumed.",
+        "The new Lean banded adapters retain the incoming convention A : Sheaf J AddCommGrpCat.{v′}, matching the fibre-hom universe. This does not certify the more general independent coefficient-universe interface of the reserved gerbe contract; its normalization remains an explicit validation gap. Base and fibre-object universes are not restricted."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/presheaf-map",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/hom-surjective-anchor",
+        "AlgebraicModuliForArithmeticGeometry:key/gerbes",
+        "mathlib:CategoryTheory.Presheaf.imageSieve",
+        "mathlib:CategoryTheory.Sieve.overEquiv",
+        "mathlib:CategoryTheory.Sieve.overEquiv_symm_iff",
+        "mathlib:CategoryTheory.GrothendieckTopology.overEquiv_symm_mem_over"
+      ],
+      "proofSteps": [
+        "Apply IsGerbe.locallyIsomorphic on T.left to the actual objects F(T.hom)x and F(T.hom)y. It supplies a J-covering sieve R with local source anchors; no global anchor is chosen.",
+        "Transport a local anchor along the two F.mapComp′ comparisons to an isomorphism F(S.hom)x≅F(S.hom)y for each slice arrow a:S→T above R. The slice identity a.left∘T.hom=S.hom supplies the equality witness.",
+        "Restrict s by the actual target presheaf map along a. The existing anchored homMap surjectivity at S.hom produces a preimage of this particular restricted section.",
+        "Thus (Sieve.overEquiv T).symm R is contained in the native imageSieve. The pinned overEquiv_symm_mem_over puts that sieve in J.over U; upward closure proves the image sieve covering. No pullback objects or terminal object in C are needed."
+      ],
+      "acceptance": [
+        "For every T∈C/U and target Hom section s over T, the native Presheaf.imageSieve of homPresheafMap and s belongs to (J.over U)(T)."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-HOM-SHEAF-7e92bd",
+          "locator": "Olsson §31, Lemma31.3 full-faithfulness paragraph, PDF122–123; authored homPresheafMap_imageSieve deduction",
+          "excerpt": "Full faithfulness",
+          "match": "Use the actual native StrongTrans and Hom sheaves. The notes printed self-reference is replaced by the explicit local band-equivariant inverse and the pinned sheaf local-bijection theorem; no essential-surjectivity result is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/locally-surjective",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Local surjectivity of the Hom-sheaf map",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homSheafMap_locallySurjective",
+      "statement": "The actual homSheafMap is Sheaf.IsLocallySurjective on J.over U.",
+      "hypotheses": [
+        "C is an arbitrary category and F,G are native Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ. η is their native StrongTrans. The forward comparison and presheaf-map adapters require no gerbe or band hypothesis; the sheaf map requires the native IsPrestack predicates for the specified topology J.",
+        "For injectivity, covering image sieves, the sheaf isomorphism and fibrewise fullness, F,G are IsGerbe on the specified site, bF,bG band them by the same actual abelian sheaf A, and η preserves that band. No global source anchor, neutralization, terminal base object, finite site or chosen single cover is assumed.",
+        "The new Lean banded adapters retain the incoming convention A : Sheaf J AddCommGrpCat.{v′}, matching the fibre-hom universe. This does not certify the more general independent coefficient-universe interface of the reserved gerbe contract; its normalization remains an explicit validation gap. Base and fibre-object universes are not restricted."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/image-sieve-cover",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/sheaf-underlying",
+        "mathlib:CategoryTheory.Presheaf.IsLocallySurjective"
+      ],
+      "proofSteps": [
+        "Use the native imageSieve_mem field with the preceding cover theorem, and the definitional underlying presheaf of homSheafMap. This is a native local-surjectivity instance, not a global lifting assumption."
+      ],
+      "acceptance": [
+        "The actual homSheafMap is Sheaf.IsLocallySurjective on J.over U."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-HOM-SHEAF-7e92bd",
+          "locator": "Olsson §31, Lemma31.3 full-faithfulness paragraph, PDF122–123; authored homSheafMap_locallySurjective deduction",
+          "excerpt": "Full faithfulness",
+          "match": "Use the actual native StrongTrans and Hom sheaves. The notes printed self-reference is replaced by the explicit local band-equivariant inverse and the pinned sheaf local-bijection theorem; no essential-surjectivity result is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/locally-injective",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Local injectivity of the Hom-sheaf map",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homSheafMap_locallyInjective",
+      "statement": "The actual homSheafMap is Sheaf.IsLocallyInjective on J.over U.",
+      "hypotheses": [
+        "C is an arbitrary category and F,G are native Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ. η is their native StrongTrans. The forward comparison and presheaf-map adapters require no gerbe or band hypothesis; the sheaf map requires the native IsPrestack predicates for the specified topology J.",
+        "For injectivity, covering image sieves, the sheaf isomorphism and fibrewise fullness, F,G are IsGerbe on the specified site, bF,bG band them by the same actual abelian sheaf A, and η preserves that band. No global source anchor, neutralization, terminal base object, finite site or chosen single cover is assumed.",
+        "The new Lean banded adapters retain the incoming convention A : Sheaf J AddCommGrpCat.{v′}, matching the fibre-hom universe. This does not certify the more general independent coefficient-universe interface of the reserved gerbe contract; its normalization remains an explicit validation gap. Base and fibre-object universes are not restricted."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/component-injective",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/sheaf-underlying",
+        "mathlib:CategoryTheory.Presheaf.isLocallyInjective_of_injective"
+      ],
+      "proofSteps": [
+        "Apply the pinned implication from componentwise injectivity to local injectivity. The sheaf predicate abbreviates that of the underlying presheaf morphism."
+      ],
+      "acceptance": [
+        "The actual homSheafMap is Sheaf.IsLocallyInjective on J.over U."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-HOM-SHEAF-7e92bd",
+          "locator": "Olsson §31, Lemma31.3 full-faithfulness paragraph, PDF122–123; authored homSheafMap_locallyInjective deduction",
+          "excerpt": "Full faithfulness",
+          "match": "Use the actual native StrongTrans and Hom sheaves. The notes printed self-reference is replaced by the explicit local band-equivariant inverse and the pinned sheaf local-bijection theorem; no essential-surjectivity result is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/isomorphism-criterion",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Apply the existing sheaf local-bijection theorem",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homSheafMap_isIso",
+      "statement": "The actual homSheafMap has the native IsIso property.",
+      "hypotheses": [
+        "C is an arbitrary category and F,G are native Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ. η is their native StrongTrans. The forward comparison and presheaf-map adapters require no gerbe or band hypothesis; the sheaf map requires the native IsPrestack predicates for the specified topology J.",
+        "For injectivity, covering image sieves, the sheaf isomorphism and fibrewise fullness, F,G are IsGerbe on the specified site, bF,bG band them by the same actual abelian sheaf A, and η preserves that band. No global source anchor, neutralization, terminal base object, finite site or chosen single cover is assumed.",
+        "The new Lean banded adapters retain the incoming convention A : Sheaf J AddCommGrpCat.{v′}, matching the fibre-hom universe. This does not certify the more general independent coefficient-universe interface of the reserved gerbe contract; its normalization remains an explicit validation gap. Base and fibre-object universes are not restricted."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/locally-surjective",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/locally-injective",
+        "mathlib:CategoryTheory.Sheaf.isLocallyBijective_iff_isIso"
+      ],
+      "proofSteps": [
+        "Apply the forward direction of Mathlib Sheaf.isLocallyBijective_iff_isIso in the category of Type-valued sheaves on J.over U.",
+        "The pinned proof constructs a compatible local-preimage family using injectivity, glues by the source sheaf condition and identifies its image by target separatedness. Reuse this theorem; do not add blueprint nodes for generic sheaf gluing.",
+        "This step needs the naturality already established for arbitrary slice arrows. Local anchored bijections without that naturality would not supply a sheaf morphism to which the theorem applies."
+      ],
+      "acceptance": [
+        "The actual homSheafMap has the native IsIso property."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-HOM-SHEAF-7e92bd",
+          "locator": "Olsson §31, Lemma31.3 full-faithfulness paragraph, PDF122–123; authored homSheafMap_isIso deduction",
+          "excerpt": "Full faithfulness",
+          "match": "Use the actual native StrongTrans and Hom sheaves. The notes printed self-reference is replaced by the explicit local band-equivariant inverse and the pinned sheaf local-bijection theorem; no essential-surjectivity result is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/sheaf-isomorphism",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The native Hom-sheaf isomorphism",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homSheafIso",
+      "statement": "Construct the isomorphism F.sheafHom J x y≅G.sheafHom J ηUx ηUy whose forward morphism is the actual homSheafMap.",
+      "hypotheses": [
+        "C is an arbitrary category and F,G are native Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ. η is their native StrongTrans. The forward comparison and presheaf-map adapters require no gerbe or band hypothesis; the sheaf map requires the native IsPrestack predicates for the specified topology J.",
+        "For injectivity, covering image sieves, the sheaf isomorphism and fibrewise fullness, F,G are IsGerbe on the specified site, bF,bG band them by the same actual abelian sheaf A, and η preserves that band. No global source anchor, neutralization, terminal base object, finite site or chosen single cover is assumed.",
+        "The new Lean banded adapters retain the incoming convention A : Sheaf J AddCommGrpCat.{v′}, matching the fibre-hom universe. This does not certify the more general independent coefficient-universe interface of the reserved gerbe contract; its normalization remains an explicit validation gap. Base and fibre-object universes are not restricted."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/sheaf-map",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/isomorphism-criterion",
+        "mathlib:CategoryTheory.asIso"
+      ],
+      "proofSteps": [
+        "Register the proved IsIso property locally and apply native asIso to homSheafMap. The resulting inverse is the sheaf inverse certified by the pinned theorem.",
+        "No selected global source Isom or neutralization is supplied to this construction."
+      ],
+      "acceptance": [
+        "Construct the isomorphism F.sheafHom J x y≅G.sheafHom J ηUx ηUy whose forward morphism is the actual homSheafMap."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-HOM-SHEAF-7e92bd",
+          "locator": "Olsson §31, Lemma31.3 full-faithfulness paragraph, PDF122–123; authored homSheafIso deduction",
+          "excerpt": "Full faithfulness",
+          "match": "Use the actual native StrongTrans and Hom sheaves. The notes printed self-reference is replaced by the explicit local band-equivariant inverse and the pinned sheaf local-bijection theorem; no essential-surjectivity result is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homSheafIso_hom",
+          "role": "compatibility",
+          "statement": "The hom of homSheafIso is homSheafMap exactly."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homSheafIso_inverse_anchor",
+          "role": "compatibility",
+          "statement": "At T, whenever an actual source anchor p and target isomorphism q are supplied, the inverse Hom-sheaf component sends q.hom to the hom of the existing preimageIso η T.hom x y bF bG p q."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homSheafIso_inverse_restrict",
+          "role": "compatibility",
+          "statement": "The inverse Hom-sheaf component commutes with the native restrictions along every arrow of C/U, for every target local section."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.fibreHom_bijective",
+          "role": "compatibility",
+          "statement": "For every x,y∈F(U), the actual function ηU.map:(x→y)→(ηUx→ηUy) is bijective, without a global anchor hypothesis."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.inverseRoundtrip",
+          "kind": "characterisation",
+          "statement": "The inverse Hom-sheaf component applied after the forward component returns every actual local source arrow."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.forwardRoundtrip",
+          "kind": "characterisation",
+          "statement": "The forward component applied after the inverse returns every actual local target arrow."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.arbitraryInverseRestriction",
+          "kind": "compatibility",
+          "statement": "For every slice arrow and arbitrary target section, the inverse commutes with the actual native restriction, with no supplied global arrow or anchor."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.inverseBandCoordinate",
+          "kind": "computation",
+          "statement": "On the identity slice, the inverse returns the source automorphism with precisely the supplied band coordinate a from the target automorphism with that coordinate."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Olsson §31 Lemma31.3, full-faithfulness paragraph; AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-full-faithful",
+          "how": "Turn the incoming actual local band-equivariant comparisons into a coherent native Hom-sheaf map and its inverse, retaining the actual fibre functor."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:key/gerbes and subsequent band-preserving equivalence/neutralization constructions",
+          "how": "Supply full faithfulness without a global anchor. Object descent and essential surjectivity still require their own proof, and the general universe contract is not narrowed."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/isomorphism-forward",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The specified forward map of the isomorphism",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homSheafIso_hom",
+      "statement": "The hom of homSheafIso is homSheafMap exactly.",
+      "hypotheses": [
+        "C is an arbitrary category and F,G are native Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ. η is their native StrongTrans. The forward comparison and presheaf-map adapters require no gerbe or band hypothesis; the sheaf map requires the native IsPrestack predicates for the specified topology J.",
+        "For injectivity, covering image sieves, the sheaf isomorphism and fibrewise fullness, F,G are IsGerbe on the specified site, bF,bG band them by the same actual abelian sheaf A, and η preserves that band. No global source anchor, neutralization, terminal base object, finite site or chosen single cover is assumed.",
+        "The new Lean banded adapters retain the incoming convention A : Sheaf J AddCommGrpCat.{v′}, matching the fibre-hom universe. This does not certify the more general independent coefficient-universe interface of the reserved gerbe contract; its normalization remains an explicit validation gap. Base and fibre-object universes are not restricted."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/sheaf-isomorphism",
+        "mathlib:CategoryTheory.asIso_hom"
+      ],
+      "proofSteps": [
+        "Apply the native asIso_hom equality."
+      ],
+      "acceptance": [
+        "The hom of homSheafIso is homSheafMap exactly."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-HOM-SHEAF-7e92bd",
+          "locator": "Olsson §31, Lemma31.3 full-faithfulness paragraph, PDF122–123; authored homSheafIso_hom deduction",
+          "excerpt": "Full faithfulness",
+          "match": "Use the actual native StrongTrans and Hom sheaves. The notes printed self-reference is replaced by the explicit local band-equivariant inverse and the pinned sheaf local-bijection theorem; no essential-surjectivity result is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/inverse-anchor",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The global sheaf inverse agrees with each local anchor",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homSheafIso_inverse_anchor",
+      "statement": "At T, whenever an actual source anchor p and target isomorphism q are supplied, the inverse Hom-sheaf component sends q.hom to the hom of the existing preimageIso η T.hom x y bF bG p q.",
+      "hypotheses": [
+        "C is an arbitrary category and F,G are native Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ. η is their native StrongTrans. The forward comparison and presheaf-map adapters require no gerbe or band hypothesis; the sheaf map requires the native IsPrestack predicates for the specified topology J.",
+        "For injectivity, covering image sieves, the sheaf isomorphism and fibrewise fullness, F,G are IsGerbe on the specified site, bF,bG band them by the same actual abelian sheaf A, and η preserves that band. No global source anchor, neutralization, terminal base object, finite site or chosen single cover is assumed.",
+        "The new Lean banded adapters retain the incoming convention A : Sheaf J AddCommGrpCat.{v′}, matching the fibre-hom universe. This does not certify the more general independent coefficient-universe interface of the reserved gerbe contract; its normalization remains an explicit validation gap. Base and fibre-object universes are not restricted."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/sheaf-isomorphism",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/isomorphism-forward",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/component-injective",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/map-preimage",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-hom"
+      ],
+      "proofSteps": [
+        "Apply the injective forward component to the proposed equality. The sheaf inverse identity sends the left side to q.hom.",
+        "The existing map_preimageIso and mapIso_hom formulas send the right side to q.hom. Injectivity identifies the two source arrows.",
+        "The equality is valid for every local source anchor. It proves that the sheaf inverse agrees with the old local inverses without using an anchor as global data."
+      ],
+      "acceptance": [
+        "At T, whenever an actual source anchor p and target isomorphism q are supplied, the inverse Hom-sheaf component sends q.hom to the hom of the existing preimageIso η T.hom x y bF bG p q."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-HOM-SHEAF-7e92bd",
+          "locator": "Olsson §31, Lemma31.3 full-faithfulness paragraph, PDF122–123; authored homSheafIso_inverse_anchor deduction",
+          "excerpt": "Full faithfulness",
+          "match": "Use the actual native StrongTrans and Hom sheaves. The notes printed self-reference is replaced by the explicit local band-equivariant inverse and the pinned sheaf local-bijection theorem; no essential-surjectivity result is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/inverse-restriction",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The sheaf inverse commutes with every restriction",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homSheafIso_inverse_restrict",
+      "statement": "The inverse Hom-sheaf component commutes with the native restrictions along every arrow of C/U, for every target local section.",
+      "hypotheses": [
+        "C is an arbitrary category and F,G are native Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ. η is their native StrongTrans. The forward comparison and presheaf-map adapters require no gerbe or band hypothesis; the sheaf map requires the native IsPrestack predicates for the specified topology J.",
+        "For injectivity, covering image sieves, the sheaf isomorphism and fibrewise fullness, F,G are IsGerbe on the specified site, bF,bG band them by the same actual abelian sheaf A, and η preserves that band. No global source anchor, neutralization, terminal base object, finite site or chosen single cover is assumed.",
+        "The new Lean banded adapters retain the incoming convention A : Sheaf J AddCommGrpCat.{v′}, matching the fibre-hom universe. This does not certify the more general independent coefficient-universe interface of the reserved gerbe contract; its normalization remains an explicit validation gap. Base and fibre-object universes are not restricted."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/sheaf-isomorphism"
+      ],
+      "proofSteps": [
+        "Evaluate the naturality field of the inverse sheaf morphism. The source and target presheaves are the native Hom presheaves, so this is exactly the unrestricted inverse restriction law."
+      ],
+      "acceptance": [
+        "The inverse Hom-sheaf component commutes with the native restrictions along every arrow of C/U, for every target local section."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-HOM-SHEAF-7e92bd",
+          "locator": "Olsson §31, Lemma31.3 full-faithfulness paragraph, PDF122–123; authored homSheafIso_inverse_restrict deduction",
+          "excerpt": "Full faithfulness",
+          "match": "Use the actual native StrongTrans and Hom sheaves. The notes printed self-reference is replaced by the explicit local band-equivariant inverse and the pinned sheaf local-bijection theorem; no essential-surjectivity result is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/fibre-bijection",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Bijection on the actual fibre Hom map",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.fibreHom_bijective",
+      "statement": "For every x,y∈F(U), the actual function ηU.map:(x→y)→(ηUx→ηUy) is bijective, without a global anchor hypothesis.",
+      "hypotheses": [
+        "C is an arbitrary category and F,G are native Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ. η is their native StrongTrans. The forward comparison and presheaf-map adapters require no gerbe or band hypothesis; the sheaf map requires the native IsPrestack predicates for the specified topology J.",
+        "For injectivity, covering image sieves, the sheaf isomorphism and fibrewise fullness, F,G are IsGerbe on the specified site, bF,bG band them by the same actual abelian sheaf A, and η preserves that band. No global source anchor, neutralization, terminal base object, finite site or chosen single cover is assumed.",
+        "The new Lean banded adapters retain the incoming convention A : Sheaf J AddCommGrpCat.{v′}, matching the fibre-hom universe. This does not certify the more general independent coefficient-universe interface of the reserved gerbe contract; its normalization remains an explicit validation gap. Base and fibre-object universes are not restricted."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/sheaf-isomorphism",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/isomorphism-forward",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/identity-slice",
+        "mathlib:CategoryTheory.Pseudofunctor.presheafHomObjHomEquiv"
+      ],
+      "proofSteps": [
+        "Evaluate the sheaf isomorphism at op(Over.mk(id U)) to get a bijection on native identity-slice sections.",
+        "Compose with F.presheafHomObjHomEquiv and the inverse of the target equivalence. The identity-slice compatibility theorem identifies this composite with ηU.map.",
+        "This does not use essential surjectivity or a chosen global source isomorphism. If the source Hom type is empty, the target Hom type is empty too."
+      ],
+      "acceptance": [
+        "For every x,y∈F(U), the actual function ηU.map:(x→y)→(ηUx→ηUy) is bijective, without a global anchor hypothesis."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-HOM-SHEAF-7e92bd",
+          "locator": "Olsson §31, Lemma31.3 full-faithfulness paragraph, PDF122–123; authored fibreHom_bijective deduction",
+          "excerpt": "Full faithfulness",
+          "match": "Use the actual native StrongTrans and Hom sheaves. The notes printed self-reference is replaced by the explicit local band-equivariant inverse and the pinned sheaf local-bijection theorem; no essential-surjectivity result is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/component-full",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Fullness of every actual component functor",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.full",
+      "statement": "Every component functor ηU is Full in the native Mathlib sense, in the inherited coefficient/fibre-hom universe convention.",
+      "hypotheses": [
+        "C is an arbitrary category and F,G are native Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ. η is their native StrongTrans. The forward comparison and presheaf-map adapters require no gerbe or band hypothesis; the sheaf map requires the native IsPrestack predicates for the specified topology J.",
+        "For injectivity, covering image sieves, the sheaf isomorphism and fibrewise fullness, F,G are IsGerbe on the specified site, bF,bG band them by the same actual abelian sheaf A, and η preserves that band. No global source anchor, neutralization, terminal base object, finite site or chosen single cover is assumed.",
+        "The new Lean banded adapters retain the incoming convention A : Sheaf J AddCommGrpCat.{v′}, matching the fibre-hom universe. This does not certify the more general independent coefficient-universe interface of the reserved gerbe contract; its normalization remains an explicit validation gap. Base and fibre-object universes are not restricted."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/fibre-bijection",
+        "mathlib:CategoryTheory.Functor.Full"
+      ],
+      "proofSteps": [
+        "For every pair x,y take the surjectivity half of fibreHom_bijective and supply the native Functor.Full.map_surjective field.",
+        "Together with the existing BandedMorphism.faithful this supplies the fixed-universe adapter of the old full-faithfulness target. The original more general universe interface, all proof-body checks and essential surjectivity remain separate obligations."
+      ],
+      "acceptance": [
+        "Every component functor ηU is Full in the native Mathlib sense, in the inherited coefficient/fibre-hom universe convention."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-HOM-SHEAF-7e92bd",
+          "locator": "Olsson §31, Lemma31.3 full-faithfulness paragraph, PDF122–123; authored full deduction",
+          "excerpt": "Full faithfulness",
+          "match": "Use the actual native StrongTrans and Hom sheaves. The notes printed self-reference is replaced by the explicit local band-equivariant inverse and the pinned sheaf local-bijection theorem; no essential-surjectivity result is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -22613,7 +23686,8 @@
         "Current continuation resolves the prescribed nonconstant C4 to C2 to C2 and terminal-free two-chain intrinsic-band fixtures, with actual native bottom-topology IsStack/IsGerbe proofs and coefficient-to-band presheaf/sheaf isomorphisms on explicitly small bases. The preceding remaining-work entry is retained verbatim as historical context; its two fixture obligations are now checked only in this stated bottom-topology scope. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, the nonneutral O(1) root-gerbe instance, derived H2 and general classification remain open.",
         "Actual Isom/Hom principal comparison is now specified and independently checked on the native slice-presheaf and sheaf carriers, with covering-sieve local sections for arbitrary J. Complete the D0 torsor/classifying-stack adapter, the SF1 descended intrinsic-band comparison and the nonneutral O(1) root example; do not infer a chosen global isomorphism from local sections.",
         "The actual fixed-band component maps now have faithful fibres, an anchored Isom inverse with action/identity/composition laws and local covering-sieve equivalences. Build the coherent StrongTrans map on native slice Hom sheaves and glue those inverses before claiming fibrewise fullness. Essential surjectivity, inverse strong transformation and the full equivalence target remain open, alongside all inherited frontiers.",
-        "Actual strong-naturality transport now lands in G(f)(ηUx) and G(f)(ηUy), with inverse round trips, anchor independence, coefficients, injectivity and covering-sieve equivalences. Compatibility along arbitrary g:W→V in the slice still requires the native η.naturality_comp and both pseudofunctor comparison maps; the supplied-global-anchor restriction law is only a special case. Build that coherent Hom-presheaf map, then glue local inverses using the native Hom sheaf before claiming fibrewise fullness. All inherited frontiers and supplier requests remain open."
+        "Actual strong-naturality transport now lands in G(f)(ηUx) and G(f)(ηUy), with inverse round trips, anchor independence, coefficients, injectivity and covering-sieve equivalences. Compatibility along arbitrary g:W→V in the slice still requires the native η.naturality_comp and both pseudofunctor comparison maps; the supplied-global-anchor restriction law is only a special case. Build that coherent Hom-presheaf map, then glue local inverses using the native Hom sheaf before claiming fibrewise fullness. All inherited frontiers and supplier requests remain open.",
+        "The arbitrary deeper-slice coherence, native Hom-presheaf/sheaf morphism, covering image-sieve argument, native locally-bijective sheaf inverse and actual fibre Full instance now have separate mathematical proof plans and admitted signatures. The new bodies have not been certified and the incoming native StrongTrans draft was itself uncompiled. The banded adapter family retains the same coefficient/fibre-hom universe convention; normalize and validate the independent-universe reserved-key interface before claiming the general theorem. Essential surjectivity, an inverse strong transformation, general gerbe equivalence, SF1 descended-band comparison, D0 torsor/classifying-stack comparison, nonneutral O(1) root gerbe, derived H2/classification, compatible-object profinite limits, R09.3 affine module descent elaboration, all other stage/source obligations and all 21 requests remain required."
       ]
     },
     {
@@ -22728,7 +23802,8 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-full-faithful",
         "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/hom-map",
         "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/cover-equiv"
-      ]
+      ],
+      "homSheafAssemblyContinuation": "The arbitrary deeper-slice coherence, native Hom-presheaf/sheaf morphism, covering image-sieve argument, native locally-bijective sheaf inverse and actual fibre Full instance now have separate mathematical proof plans and admitted signatures. The new bodies have not been certified and the incoming native StrongTrans draft was itself uncompiled. The banded adapter family retains the same coefficient/fibre-hom universe convention; normalize and validate the independent-universe reserved-key interface before claiming the general theorem. Essential surjectivity, an inverse strong transformation, general gerbe equivalence, SF1 descended-band comparison, D0 torsor/classifying-stack comparison, nonneutral O(1) root gerbe, derived H2/classification, compatible-object profinite limits, R09.3 affine module descent elaboration, all other stage/source obligations and all 21 requests remain required."
     }
   ],
   "sourceIssues": [
