@@ -1,3 +1,6 @@
+import Mathlib.Data.Fintype.BigOperators
+import Mathlib.Data.Fin.Tuple.Basic
+import Mathlib.Data.List.OfFn
 import Mathlib.RingTheory.Nilpotent.Basic
 import Mathlib.LinearAlgebra.ExteriorPower.Pairing
 import Mathlib.LinearAlgebra.Matrix.Notation
@@ -2871,12 +2874,19 @@ example (θ : E →ₗ[R] E ⊗[R] Q) (v : Module.Dual R Q) :
 
 -- test: TwistedHiggsBundle.affineTensorField.test_integer_sharp_bound
 example :
-    let J : Module.End ℤ (ℤ × ℤ) := by
+    let J : Module.End ℤ (ℤ × ℤ) := (LinearMap.snd ℤ ℤ ℤ).prod 0
+    let θ := affineTwoDirectionField J 0 (1 : ℤ) 0
+    let v : Module.Dual ℤ ℤ := LinearMap.id
+    affineContractions (affineTensorField θ θ) v ^ 3 = 0 ∧
+      affineContractions (affineTensorField θ θ) v ^ 2 ≠ 0 := by
   sorry
 
 -- test: TwistedHiggsBundle.affineTensorField.test_char_two_square_cancellation
 example :
-    let J : Module.End (ZMod 2) (ZMod 2 × ZMod 2) := by
+    let J : Module.End (ZMod 2) (ZMod 2 × ZMod 2) :=
+      (LinearMap.snd (ZMod 2) (ZMod 2) (ZMod 2)).prod 0
+    let θ := affineTwoDirectionField J 0 (1 : ZMod 2) 0
+    affineContractions (affineTensorField θ θ) (LinearMap.id : Module.Dual (ZMod 2) (ZMod 2)) ^ 2 = 0 := by
   sorry
 
 -- test: TwistedHiggsBundle.affineTwoDirectionField.test_contracted_formula
@@ -2886,9 +2896,175 @@ example (A B : Module.End R E) (q r : Q) (v : Module.Dual R Q) :
 
 -- test: TwistedHiggsBundle.affineTensorField.test_self_powers_do_not_detect_ordered
 example :
-    let K := by
+    let K := ZMod 2
+    let V := K × K
+    let J : Module.End K V := (LinearMap.snd K K K).prod 0
+    let θ := affineTwoDirectionField (J.rTensor V) (J.lTensor V)
+      ((1,0) : K × K) (0,1)
+    (∀ v : Module.Dual K (K × K), affineContractions θ v ^ 2 = 0) ∧
+      affineOrderedIterate θ 2 ≠ 0 := by
   sorry
 
 end
 end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
 /- END AFFINE TENSOR CONTRACTION NILPOTENCE -/
+
+/- BEGIN AFFINE MIXED TENSOR WORDS -/
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+open scoped TensorProduct BigOperators
+variable {R E F Q : Type*} [CommRing R]
+  [AddCommGroup E] [Module R E] [AddCommGroup F] [Module R F]
+  [AddCommGroup Q] [Module R Q]
+
+lemma affineTensorField_contractions_cross_commute
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (v w : Module.Dual R Q) :
+    Commute ((affineContractions θ v).rTensor F)
+      ((affineContractions ψ w).lTensor E) := by
+  sorry
+
+lemma affineTensorField_contractions_selected_word
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (n : ℕ) (vs : Fin n → Module.Dual R Q) (c : Fin n → Bool) :
+    (List.ofFn (fun i =>
+      if c i then (affineContractions θ (vs i)).rTensor F
+      else (affineContractions ψ (vs i)).lTensor E)).prod =
+    TensorProduct.map
+      ((List.ofFn (fun i => if c i then affineContractions θ (vs i) else 1)).prod)
+      ((List.ofFn (fun i => if c i then 1 else affineContractions ψ (vs i))).prod) := by
+  sorry
+
+lemma affineTensorField_contractions_word_expansion
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (n : ℕ) (vs : Fin n → Module.Dual R Q) :
+    (List.ofFn (fun i => affineContractions (affineTensorField θ ψ) (vs i))).prod =
+    ∑ c : Fin n → Bool, TensorProduct.map
+      ((List.ofFn (fun i => if c i then affineContractions θ (vs i) else 1)).prod)
+      ((List.ofFn (fun i => if c i then 1 else affineContractions ψ (vs i))).prod) := by
+  sorry
+
+lemma affineOrderedIterate_selected_word_zero
+    (θ : E →ₗ[R] E ⊗[R] Q) (N n : ℕ)
+    (hθ : affineOrderedIterate θ N = 0)
+    (vs : Fin n → Module.Dual R Q) (c : Fin n → Bool)
+    (hcount : N ≤ ((List.finRange n).filter (fun i => c i)).length) :
+    (List.ofFn (fun i => if c i then affineContractions θ (vs i) else 1)).prod = 0 := by
+  sorry
+
+lemma affineTensorField_contractions_word_summand_zero
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (N M n : ℕ) (hN : 0 < N) (hM : 0 < M) (hn : N + M ≤ n + 1)
+    (hθ : affineOrderedIterate θ N = 0) (hψ : affineOrderedIterate ψ M = 0)
+    (vs : Fin n → Module.Dual R Q) (c : Fin n → Bool) :
+    TensorProduct.map
+      ((List.ofFn (fun i => if c i then affineContractions θ (vs i) else 1)).prod)
+      ((List.ofFn (fun i => if c i then 1 else affineContractions ψ (vs i))).prod) = 0 := by
+  sorry
+
+lemma affineTensorField_contractions_word_zero
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (N M n : ℕ) (hN : 0 < N) (hM : 0 < M) (hn : N + M ≤ n + 1)
+    (hθ : affineOrderedIterate θ N = 0) (hψ : affineOrderedIterate ψ M = 0)
+    (vs : Fin n → Module.Dual R Q) :
+    (List.ofFn (fun i => affineContractions (affineTensorField θ ψ) (vs i))).prod = 0 := by
+  sorry
+
+lemma affineTensorField_ordered_bound_of_basis {I : Type*} [Fintype I]
+    (b : Module.Basis I R Q)
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (N M : ℕ) (hN : 0 < N) (hM : 0 < M)
+    (hθ : affineOrderedIterate θ N = 0) (hψ : affineOrderedIterate ψ M = 0) :
+    affineOrderedIterate (affineTensorField θ ψ) (N + M - 1) = 0 := by
+  sorry
+
+lemma affineTensorField_ordered_bound_of_basis_of_le {I : Type*} [Fintype I]
+    (b : Module.Basis I R Q)
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (N M k : ℕ) (hN : 0 < N) (hM : 0 < M) (hk : N + M ≤ k + 1)
+    (hθ : affineOrderedIterate θ N = 0) (hψ : affineOrderedIterate ψ M = 0) :
+    affineOrderedIterate (affineTensorField θ ψ) k = 0 := by
+  sorry
+
+variable (S : Type*) [CommRing S] [Algebra R S]
+
+lemma affineTensorField_ordered_bound_of_basis_baseChange {I : Type*} [Fintype I]
+    (b : Module.Basis I R Q)
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (N M : ℕ) (hN : 0 < N) (hM : 0 < M)
+    (hθ : affineOrderedIterate θ N = 0) (hψ : affineOrderedIterate ψ M = 0) :
+    affineOrderedIterate
+      (affineTensorField (affineBaseChange S θ) (affineBaseChange S ψ)) (N + M - 1) = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_mixed_word_empty
+example (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) :
+    (List.ofFn (fun i : Fin 0 =>
+      affineContractions (affineTensorField θ ψ) (Fin.elim0 i))).prod =
+      (1 : Module.End R (E ⊗[R] F)) := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_mixed_word_two
+example (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (v w : Module.Dual R Q) :
+    affineContractions (affineTensorField θ ψ) v *
+      affineContractions (affineTensorField θ ψ) w =
+    TensorProduct.map (affineContractions θ v * affineContractions θ w) (1 : Module.End R F) +
+      TensorProduct.map (affineContractions θ v) (affineContractions ψ w) +
+      TensorProduct.map (affineContractions θ w) (affineContractions ψ v) +
+      TensorProduct.map (1 : Module.End R E)
+        (affineContractions ψ v * affineContractions ψ w) := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineOrderedIterate.test_selected_repeated_direction
+example (θ : E →ₗ[R] E ⊗[R] Q) (hθ : affineOrderedIterate θ 2 = 0)
+    (v : Module.Dual R Q) :
+    (List.ofFn (fun _ : Fin 2 => affineContractions θ v)).prod = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_mixed_bound_zero_factor
+example {I : Type*} [Fintype I] (b : Module.Basis I R Q)
+    (ψ : F →ₗ[R] F ⊗[R] Q) (M : ℕ) (hM : 0 < M)
+    (hψ : affineOrderedIterate ψ M = 0) :
+    affineOrderedIterate (affineTensorField (0 : E →ₗ[R] E ⊗[R] Q) ψ) M = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_mixed_empty_coefficients
+example [Subsingleton Q]
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) :
+    affineOrderedIterate (affineTensorField θ ψ) 1 = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_mixed_char_two_bound
+example :
+    let K := ZMod 2
+    let V := K × K
+    let J : Module.End K V := (LinearMap.snd K K K).prod 0
+    let θ := affineTwoDirectionField J 0 ((1,0) : K × K) 0
+    let ψ := affineTwoDirectionField J 0 ((0,1) : K × K) 0
+    affineOrderedIterate θ 2 = 0 ∧ affineOrderedIterate ψ 2 = 0 ∧
+      affineOrderedIterate (affineTensorField θ ψ) 3 = 0 ∧
+      affineOrderedIterate (affineTensorField θ ψ) 2 ≠ 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_mixed_integer_bound
+example :
+    let J : Module.End ℤ (ℤ × ℤ) := (LinearMap.snd ℤ ℤ ℤ).prod 0
+    let θ := affineTwoDirectionField J 0 (1 : ℤ) 0
+    affineOrderedIterate θ 2 = 0 ∧
+      affineOrderedIterate (affineTensorField θ θ) 3 = 0 ∧
+      affineOrderedIterate (affineTensorField θ θ) 2 ≠ 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_mixed_nonflat_baseChange
+example {I : Type*} [Fintype I]
+    [Module ℤ E] [Module ℤ F] [Module ℤ Q] (b : Module.Basis I ℤ Q)
+    (θ : E →ₗ[ℤ] E ⊗[ℤ] Q) (ψ : F →ₗ[ℤ] F ⊗[ℤ] Q)
+    (hθ : affineOrderedIterate θ 2 = 0) (hψ : affineOrderedIterate ψ 2 = 0) :
+    affineOrderedIterate (affineTensorField (affineBaseChange (ZMod 2) θ)
+      (affineBaseChange (ZMod 2) ψ)) 3 = 0 := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+/- END AFFINE MIXED TENSOR WORDS -/
