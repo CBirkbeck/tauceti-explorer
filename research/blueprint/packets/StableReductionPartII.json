@@ -22920,7 +22920,7 @@
           "sourceId": "finite-limit-native-pinned",
           "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
           "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned.",
-          "excerpt": "The limits of `F : J ⥤ C` and `G : J ⥤ C` are isomorphic,\nif the functors are naturally isomorphic."
+          "excerpt": "if the functors are naturally isomorphic."
         },
         {
           "sourceId": "knudsen2",
@@ -23023,7 +23023,7 @@
           "sourceId": "finite-limit-native-pinned",
           "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
           "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned.",
-          "excerpt": "The limits of `F : J ⥤ C` and `G : J ⥤ C` are isomorphic,\nif the functors are naturally isomorphic."
+          "excerpt": "if the functors are naturally isomorphic."
         },
         {
           "sourceId": "knudsen2",
@@ -23128,7 +23128,7 @@
           "sourceId": "finite-limit-native-pinned",
           "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
           "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned.",
-          "excerpt": "The limits of `F : J ⥤ C` and `G : J ⥤ C` are isomorphic,\nif the functors are naturally isomorphic."
+          "excerpt": "if the functors are naturally isomorphic."
         },
         {
           "sourceId": "knudsen2",
@@ -23232,7 +23232,7 @@
           "sourceId": "finite-limit-native-pinned",
           "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
           "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned.",
-          "excerpt": "The limits of `F : J ⥤ C` and `G : J ⥤ C` are isomorphic,\nif the functors are naturally isomorphic."
+          "excerpt": "if the functors are naturally isomorphic."
         },
         {
           "sourceId": "knudsen2",
@@ -23329,7 +23329,7 @@
           "sourceId": "finite-limit-native-pinned",
           "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
           "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned.",
-          "excerpt": "The limits of `F : J ⥤ C` and `G : J ⥤ C` are isomorphic,\nif the functors are naturally isomorphic."
+          "excerpt": "if the functors are naturally isomorphic."
         }
       ],
       "implementationStatus": "unchecked",
@@ -23365,7 +23365,7 @@
           "sourceId": "finite-limit-native-pinned",
           "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
           "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned.",
-          "excerpt": "The limits of `F : J ⥤ C` and `G : J ⥤ C` are isomorphic,\nif the functors are naturally isomorphic."
+          "excerpt": "if the functors are naturally isomorphic."
         }
       ],
       "implementationStatus": "unchecked",
@@ -23401,7 +23401,7 @@
           "sourceId": "finite-limit-native-pinned",
           "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
           "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned.",
-          "excerpt": "The limits of `F : J ⥤ C` and `G : J ⥤ C` are isomorphic,\nif the functors are naturally isomorphic."
+          "excerpt": "if the functors are naturally isomorphic."
         }
       ],
       "implementationStatus": "unchecked",
@@ -23437,7 +23437,7 @@
           "sourceId": "finite-limit-native-pinned",
           "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
           "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned.",
-          "excerpt": "The limits of `F : J ⥤ C` and `G : J ⥤ C` are isomorphic,\nif the functors are naturally isomorphic."
+          "excerpt": "if the functors are naturally isomorphic."
         }
       ],
       "implementationStatus": "unchecked",
@@ -23473,7 +23473,7 @@
           "sourceId": "finite-limit-native-pinned",
           "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
           "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned.",
-          "excerpt": "The limits of `F : J ⥤ C` and `G : J ⥤ C` are isomorphic,\nif the functors are naturally isomorphic."
+          "excerpt": "if the functors are naturally isomorphic."
         }
       ],
       "implementationStatus": "unchecked",
@@ -23509,7 +23509,7 @@
           "sourceId": "finite-limit-native-pinned",
           "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
           "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned.",
-          "excerpt": "The limits of `F : J ⥤ C` and `G : J ⥤ C` are isomorphic,\nif the functors are naturally isomorphic."
+          "excerpt": "if the functors are naturally isomorphic."
         }
       ],
       "implementationStatus": "unchecked",
@@ -23545,7 +23545,7 @@
           "sourceId": "finite-limit-native-pinned",
           "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
           "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned.",
-          "excerpt": "The limits of `F : J ⥤ C` and `G : J ⥤ C` are isomorphic,\nif the functors are naturally isomorphic."
+          "excerpt": "if the functors are naturally isomorphic."
         }
       ],
       "implementationStatus": "unchecked",
@@ -23581,7 +23581,7 @@
           "sourceId": "finite-limit-native-pinned",
           "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
           "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned.",
-          "excerpt": "The limits of `F : J ⥤ C` and `G : J ⥤ C` are isomorphic,\nif the functors are naturally isomorphic."
+          "excerpt": "if the functors are naturally isomorphic."
         }
       ],
       "implementationStatus": "unchecked",
@@ -23618,7 +23618,7 @@
           "sourceId": "finite-limit-native-pinned",
           "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
           "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned.",
-          "excerpt": "The limits of `F : J ⥤ C` and `G : J ⥤ C` are isomorphic,\nif the functors are naturally isomorphic."
+          "excerpt": "if the functors are naturally isomorphic."
         }
       ],
       "implementationStatus": "unchecked",
@@ -23655,7 +23655,7 @@
           "sourceId": "finite-limit-native-pinned",
           "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
           "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned.",
-          "excerpt": "The limits of `F : J ⥤ C` and `G : J ⥤ C` are isomorphic,\nif the functors are naturally isomorphic."
+          "excerpt": "if the functors are naturally isomorphic."
         }
       ],
       "implementationStatus": "unchecked",
@@ -23693,7 +23693,7 @@
           "sourceId": "finite-limit-native-pinned",
           "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
           "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned.",
-          "excerpt": "The limits of `F : J ⥤ C` and `G : J ⥤ C` are isomorphic,\nif the functors are naturally isomorphic."
+          "excerpt": "if the functors are naturally isomorphic."
         }
       ],
       "implementationStatus": "unchecked",
@@ -23731,7 +23731,7 @@
           "sourceId": "finite-limit-native-pinned",
           "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
           "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned.",
-          "excerpt": "The limits of `F : J ⥤ C` and `G : J ⥤ C` are isomorphic,\nif the functors are naturally isomorphic."
+          "excerpt": "if the functors are naturally isomorphic."
         }
       ],
       "implementationStatus": "unchecked",
@@ -23768,7 +23768,7 @@
           "sourceId": "finite-limit-native-pinned",
           "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
           "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned.",
-          "excerpt": "The limits of `F : J ⥤ C` and `G : J ⥤ C` are isomorphic,\nif the functors are naturally isomorphic."
+          "excerpt": "if the functors are naturally isomorphic."
         }
       ],
       "implementationStatus": "unchecked",
@@ -23805,7 +23805,7 @@
           "sourceId": "finite-limit-native-pinned",
           "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
           "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned.",
-          "excerpt": "The limits of `F : J ⥤ C` and `G : J ⥤ C` are isomorphic,\nif the functors are naturally isomorphic."
+          "excerpt": "if the functors are naturally isomorphic."
         }
       ],
       "implementationStatus": "unchecked",
@@ -23843,7 +23843,7 @@
           "sourceId": "finite-limit-native-pinned",
           "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
           "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned.",
-          "excerpt": "The limits of `F : J ⥤ C` and `G : J ⥤ C` are isomorphic,\nif the functors are naturally isomorphic."
+          "excerpt": "if the functors are naturally isomorphic."
         }
       ],
       "implementationStatus": "unchecked",
@@ -23881,7 +23881,7 @@
           "sourceId": "finite-limit-native-pinned",
           "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
           "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned.",
-          "excerpt": "The limits of `F : J ⥤ C` and `G : J ⥤ C` are isomorphic,\nif the functors are naturally isomorphic."
+          "excerpt": "if the functors are naturally isomorphic."
         }
       ],
       "implementationStatus": "unchecked",
@@ -23918,7 +23918,7 @@
           "sourceId": "finite-limit-native-pinned",
           "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
           "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned.",
-          "excerpt": "The limits of `F : J ⥤ C` and `G : J ⥤ C` are isomorphic,\nif the functors are naturally isomorphic."
+          "excerpt": "if the functors are naturally isomorphic."
         }
       ],
       "implementationStatus": "unchecked",
@@ -23955,7 +23955,7 @@
           "sourceId": "finite-limit-native-pinned",
           "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
           "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned.",
-          "excerpt": "The limits of `F : J ⥤ C` and `G : J ⥤ C` are isomorphic,\nif the functors are naturally isomorphic."
+          "excerpt": "if the functors are naturally isomorphic."
         }
       ],
       "implementationStatus": "unchecked",
@@ -23993,7 +23993,7 @@
           "sourceId": "finite-limit-native-pinned",
           "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
           "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned.",
-          "excerpt": "The limits of `F : J ⥤ C` and `G : J ⥤ C` are isomorphic,\nif the functors are naturally isomorphic."
+          "excerpt": "if the functors are naturally isomorphic."
         }
       ],
       "implementationStatus": "unchecked",
@@ -24032,7 +24032,7 @@
           "sourceId": "finite-limit-native-pinned",
           "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
           "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned.",
-          "excerpt": "The limits of `F : J ⥤ C` and `G : J ⥤ C` are isomorphic,\nif the functors are naturally isomorphic."
+          "excerpt": "if the functors are naturally isomorphic."
         }
       ],
       "implementationStatus": "unchecked",
