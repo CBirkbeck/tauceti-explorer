@@ -22063,6 +22063,13 @@
       "ownSkippedPendingEmpty": true
     },
     "publicationBase": "84e885b95c0ad537079c0fe6fdbb122c8020ac33",
-    "publicationChecks": "All21 selected owner/governing/audit/key/source-route/validator input blobs are byte-identical between the mathematical and publication bases. Actual immutable atlas assembly, intake and preservation checks were rerun on the five final overlays."
+    "publicationChecks": "All21 selected owner/governing/audit/key/source-route/validator input blobs are byte-identical between the mathematical and publication bases. Actual immutable atlas assembly, intake and preservation checks were rerun on the five final overlays.",
+    "archiveCommit": "71211013c077a46744584d95b38434e23a55fc9d",
+    "publicArtifacts": {
+      "Native.lean": "690e22fed4c79b7b46fd8c3e72ae33da6c9f00ce0eeea7498eb0daf18971eeb6",
+      "Canonical.lean": "75072a34103f2da87b6fabf65f58c708e3e54f3bdf06a03ab1e629913b6a5d4b",
+      "verify.py": "370c2aa47fdf16ceac5f8896dd2216ecda874f0d662582bb697a18ad9bd4ac49",
+      "immutable_view.py": "8894c75fe2998c5a466e9b83bd9e664d1e2f4b6ce5931af91f2c9ac8b793de73"
+    }
   }
 }
