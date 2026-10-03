@@ -1,3 +1,307 @@
+# Fibre Isom actions and choice-independent natural transport
+
+The fixed-band native morphism groupoid has a pointwise action functor. At U, fix x in F(U) and y in G(U). A strong transformation X gives the actual type Isom(y,X_U(x)), with a coefficient acting by postcomposition with the prescribed band automorphism. A modification acts by postcomposition with its actual component. Native modification composition and the gerbe fibre inverses give the functor laws and inverse-arrow comparison. This extends the existing Isom action to Mathlib's Action category; it does not define a second torsor carrier.
+
+In the self case, an isomorphism e:x→x′ transports p:x→X_U(x) to e⁻¹ followed by p followed by X_U(e). Band conjugation proves equivariance. Naturality of each actual modification proves that these isomorphisms assemble into a native natural isomorphism of action functors. For a second connecting arrow f, write f followed by e⁻¹ as b_x(a). Band preservation and conjugation along p move X_U(b_x(a)) past p; precomposing f⁻¹ and postcomposing X_U(e) cancel the discrepancy. This proves independence of the chosen arrow, as well as identity and composition laws.
+
+The coefficient universe remains independent of the fibre hom universe. The construction works for empty Isom section sets: an action on an empty set exists, whereas Mathlib's set-valued Torsor requires Nonempty. Local nonemptiness of a gerbe gives sheaf-local sections, not a chosen global section. The complete torsor-sheaf functor still requires arbitrary site-restriction coherence, descent, full faithfulness, and the coherent inverse and unit/counit. All eight stages remain partial and all inherited gaps, supplier requests and source corrections remain.
+
+The author-hosted Olsson–Geraschenko notes, printed122–123, motivate the band-preserving morphisms and Isom-sheaf torsor comparison. Their Lemma31.3 proof still contains its recorded self-reference, and the incomplete H² route is not used to close any gap. The exact native action and natural-transport formulas are deductions from the specified banding and modification fields, not quotations from the notes. The prototype retains computed native carriers and maps while admitting its proof leaves; no packet node claims implementation.
+
+## The bundled fibre Isom action
+
+`TauCeti.AlgebraicGeometry.BandedIsom.fibreAction`
+
+Bundle Isom_F(U)(x,y) as the native Action (Type v′) of Multiplicative(A(U)), with coefficient a acting by p ↦ p followed by b_y(a). Its carrier may be empty; the coefficient universe w is independent of v′.
+
+Use the existing band automorphism homomorphism as postcomposition on the actual Iso type. Aut and End multiplication reverse categorical composition, so rho(ac)=rho(c) followed by rho(a). No anchor or nonempty instance enters the constructor.
+
+API:
+
+- `TauCeti.AlgebraicGeometry.BandedIsom.fibreAction_apply`: For a in Multiplicative(A(U)) and p:x≅y, the underlying function rho(a) sends p to p followed by b_y(a).
+- `TauCeti.AlgebraicGeometry.BandedIsom.fibreAction_empty`: If Isom_F(U)(x,y) is empty, the carrier of fibreAction(b,x,y) is empty as well.
+- `TauCeti.AlgebraicGeometry.BandedIsom.band_commute`: For q:y≅z, b_y(a) followed by q equals q followed by b_z(a); this is the existing band conjugation equation used by the bundled action API.
+
+Typed checks:
+
+- `TauCeti.AlgebraicGeometry.FibreActionTests.actual_coefficient` (computation): On an actual p:x≅y, coefficient a acts by p followed by the prescribed b_y(a).
+- `TauCeti.AlgebraicGeometry.FibreActionTests.empty_sections` (non-example): A supplied empty Isom section set is still the carrier of a valid bundled action and remains empty.
+- `TauCeti.AlgebraicGeometry.FibreActionTests.multiplication_order` (compatibility): The coefficient action satisfies rho(ac)=rho(c) followed by rho(a), matching native End multiplication.
+
+## The bundled action uses the actual band automorphism
+
+`TauCeti.AlgebraicGeometry.BandedIsom.fibreAction_apply`
+
+For a in Multiplicative(A(U)) and p:x≅y, the underlying function rho(a) sends p to p followed by b_y(a).
+
+Project the computed native action and TypeCat.ofHom fields.
+
+## Empty Isom sections remain empty in the bundled action
+
+`TauCeti.AlgebraicGeometry.BandedIsom.fibreAction_empty`
+
+If Isom_F(U)(x,y) is empty, the carrier of fibreAction(b,x,y) is empty as well.
+
+The carrier is definitionally the actual Iso type; retain the supplied IsEmpty witness.
+
+## Postcomposition as an isomorphism of band actions
+
+`TauCeti.AlgebraicGeometry.BandedIsom.postcomposeActionIso`
+
+For q:y≅z, postcomposition p ↦ p followed by q is an isomorphism fibreAction(b,x,y) ≅ fibreAction(b,x,z) in the native action category. Its inverse uses q inverse.
+
+Band conjugation makes postcomposition commute with every coefficient. Construct actual forward and inverse Action.Hom fields and cancel q with q inverse.
+
+API:
+
+- `TauCeti.AlgebraicGeometry.BandedIsom.postcomposeActionIso_apply`: For q:y≅z and p:x≅y, the forward underlying function of postcomposeActionIso(b,q) is p followed by q.
+- `TauCeti.AlgebraicGeometry.BandedIsom.postcomposeActionIso_inv_apply`: For q:y≅z and p:x≅z, the inverse underlying function is p followed by q inverse.
+- `TauCeti.AlgebraicGeometry.BandedIsom.postcomposeActionIso_comp`: Postcomposition by q followed by r equals the composition of postcomposeActionIso(b,q) and postcomposeActionIso(b,r), with the original source object x fixed.
+
+Typed checks:
+
+- `TauCeti.AlgebraicGeometry.FibreActionTests.postcompose_forward` (computation): The forward function on p is p followed by the supplied q.
+- `TauCeti.AlgebraicGeometry.FibreActionTests.postcompose_roundtrip` (characterisation): Forward postcomposition by q and inverse postcomposition by q inverse return the original p.
+- `TauCeti.AlgebraicGeometry.FibreActionTests.postcompose_composition` (compatibility): Postcomposition by q followed by r equals composing the two native action isomorphisms.
+
+## Forward postcomposition in the action category
+
+`TauCeti.AlgebraicGeometry.BandedIsom.postcomposeActionIso_apply`
+
+For q:y≅z and p:x≅y, the forward underlying function of postcomposeActionIso(b,q) is p followed by q.
+
+Project the computed forward function.
+
+## Inverse postcomposition in the action category
+
+`TauCeti.AlgebraicGeometry.BandedIsom.postcomposeActionIso_inv_apply`
+
+For q:y≅z and p:x≅z, the inverse underlying function is p followed by q inverse.
+
+Project the computed inverse function.
+
+## Composing equivariant postcomposition isomorphisms
+
+`TauCeti.AlgebraicGeometry.BandedIsom.postcomposeActionIso_comp`
+
+Postcomposition by q followed by r equals the composition of postcomposeActionIso(b,q) and postcomposeActionIso(b,r), with the original source object x fixed.
+
+Apply native Iso and Action.Hom extensionality and associativity of Iso composition.
+
+## A native modification component as a fibre isomorphism
+
+`TauCeti.AlgebraicGeometry.BandedMorphism.componentIso`
+
+For a native arrow m:X→Y in HomCategory(bF,bG), its component at U and x is the actual fibre isomorphism X_U(x)≅Y_U(x) obtained by asIso from m_U(x).
+
+The target gerbe makes the native natural-transformation component IsIso. Use asIso of that arrow; retain the existing StrongTrans and full-subcategory carriers.
+
+API:
+
+- `TauCeti.AlgebraicGeometry.BandedMorphism.componentIso_hom`: The forward arrow of componentIso(m,U,x) is exactly the component of the actual native modification m, with no quotient or replacement carrier.
+- `TauCeti.AlgebraicGeometry.BandedMorphism.componentIso_id`: The component isomorphism of the identity native modification at U,x is Iso.refl of X_U(x).
+- `TauCeti.AlgebraicGeometry.BandedMorphism.componentIso_comp`: componentIso(m followed by n,U,x) equals componentIso(m,U,x) followed by componentIso(n,U,x).
+- `TauCeti.AlgebraicGeometry.BandedMorphism.componentIso_inv`: The component of the existing homIso(m) inverse is the inverse of componentIso(m,U,x).
+
+Typed checks:
+
+- `TauCeti.AlgebraicGeometry.FibreActionTests.native_component` (compatibility): The forward fibre arrow is exactly the component of the given native modification.
+- `TauCeti.AlgebraicGeometry.FibreActionTests.native_component_inverse` (characterisation): Evaluation of the native modification inverse is the inverse of the evaluated component isomorphism.
+- `TauCeti.AlgebraicGeometry.FibreActionTests.native_component_composition` (compatibility): Evaluation of actual vertical modification composition agrees with composition of fibre isomorphisms.
+
+## The component isomorphism retains its forward arrow
+
+`TauCeti.AlgebraicGeometry.BandedMorphism.componentIso_hom`
+
+The forward arrow of componentIso(m,U,x) is exactly the component of the actual native modification m, with no quotient or replacement carrier.
+
+Project asIso.hom.
+
+## Identity modifications give identity fibre isomorphisms
+
+`TauCeti.AlgebraicGeometry.BandedMorphism.componentIso_id`
+
+The component isomorphism of the identity native modification at U,x is Iso.refl of X_U(x).
+
+Native full-subcategory identities, modification identities and natural-transformation identities evaluate to the identity arrow; use Iso.ext.
+
+## Modification composition evaluates to Iso composition
+
+`TauCeti.AlgebraicGeometry.BandedMorphism.componentIso_comp`
+
+componentIso(m followed by n,U,x) equals componentIso(m,U,x) followed by componentIso(n,U,x).
+
+Native vertical modification composition is componentwise composition; use Iso.ext.
+
+## The native modification inverse evaluates to the fibre inverse
+
+`TauCeti.AlgebraicGeometry.BandedMorphism.componentIso_inv`
+
+The component of the existing homIso(m) inverse is the inverse of componentIso(m,U,x).
+
+Compare the computed inverse modification component with the same asIso inverse and apply Iso.ext.
+
+## Fixed-band morphisms acting on fibre Isom sets
+
+`TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomActionFunctor`
+
+For U, x in F(U), and y in G(U), construct the native functor HomCategory(bF,bG) → Action(Type v′, Multiplicative(A(U))). It sends X to the action on Isom_G(U)(y,X_U(x)) and sends a native modification m to postcomposition by its actual component isomorphism.
+
+Use the actual Iso carrier and its band action at each native strong transformation. Use postcomposeActionIso for every modification; component identity and composition prove the functor laws. No section, neutrality, terminal object or inverse strong transformation is required.
+
+API:
+
+- `TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomActionFunctor_obj`: The carrier of the action assigned to X is exactly Isom_G(U)(y,X_U(x)).
+- `TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomActionFunctor_map_apply`: On p:y≅X_U(x), the underlying function assigned to m:X→Y sends p to p followed by componentIso(m,U,x).
+- `TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomActionFunctor_map_inverse`: The action functor map of homIso(m) inverse is the inverse arrow of postcomposeActionIso(bG,componentIso(m,U,x)).
+
+Typed checks:
+
+- `TauCeti.AlgebraicGeometry.FibreActionTests.functor_actual_carrier` (characterisation): The functor object has the actual carrier Isom_G(U)(y,X_U(x)).
+- `TauCeti.AlgebraicGeometry.FibreActionTests.functor_coefficient_naturality` (compatibility): Every native modification map commutes with each coefficient action, in the native Action.Hom equation.
+- `TauCeti.AlgebraicGeometry.FibreActionTests.functor_native_inverse` (compatibility): The native inverse modification maps to the inverse of postcomposition by the evaluated component.
+
+## The action functor retains the actual Isom carrier
+
+`TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomActionFunctor_obj`
+
+The carrier of the action assigned to X is exactly Isom_G(U)(y,X_U(x)).
+
+Project the computed functor object and native action carrier.
+
+## The action functor retains native modification evaluation
+
+`TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomActionFunctor_map_apply`
+
+On p:y≅X_U(x), the underlying function assigned to m:X→Y sends p to p followed by componentIso(m,U,x).
+
+Project the computed functor map and postcomposition function.
+
+## The action functor carries the actual modification inverse
+
+`TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomActionFunctor_map_inverse`
+
+The action functor map of homIso(m) inverse is the inverse arrow of postcomposeActionIso(bG,componentIso(m,U,x)).
+
+Evaluate the native inverse modification, then use the inverse postcomposition formula.
+
+## Transporting the self-morphism action along a fibre isomorphism
+
+`TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportActionIso`
+
+For X in HomCategory(b,b) and e:x≅x′, construct an isomorphism between the action on Isom(x,X_U(x)) and the action on Isom(x′,X_U(x′)). It sends p to e inverse followed by p followed by X_U(e); its inverse uses e and X_U(e inverse).
+
+Use actual native functor images of e and e inverse. Band conjugation for X_U(e) proves equivariance; functoriality and the inverse equations prove both round trips.
+
+API:
+
+- `TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportActionIso_apply`: The forward underlying function is p ↦ e inverse followed by p followed by X_U(e).
+- `TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportActionIso_inv_apply`: The inverse underlying function is p ↦ e followed by p followed by X_U(e inverse).
+- `TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportActionIso_id`: Transport by Iso.refl(x) is the identity isomorphism of the native self-morphism action.
+- `TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportActionIso_comp`: Transport along e:x≅x′ followed by f:x′≅x″ equals transport along e followed by transport along f.
+- `TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportActionIso_independent`: For X in HomCategory(b,b) and any two actual isomorphisms e,f:x≅x′, selfTransportActionIso(X,e) equals selfTransportActionIso(X,f). No choice of a connecting arrow is retained.
+
+Typed checks:
+
+- `TauCeti.AlgebraicGeometry.SelfTransportTests.actual_arrow_transport` (computation): The forward function sends p to e inverse followed by p followed by X_U(e).
+- `TauCeti.AlgebraicGeometry.SelfTransportTests.no_chosen_arrow` (characterisation): Two arbitrary connecting isomorphisms e,f give the same action isomorphism for an actual band-preserving X.
+- `TauCeti.AlgebraicGeometry.SelfTransportTests.identity_transport` (degenerate): Using Iso.refl(x) gives the native identity action isomorphism.
+
+## The self-transport forward formula
+
+`TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportActionIso_apply`
+
+The forward underlying function is p ↦ e inverse followed by p followed by X_U(e).
+
+Project the computed forward function, preserving its domain and codomain objects.
+
+## The self-transport inverse formula
+
+`TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportActionIso_inv_apply`
+
+The inverse underlying function is p ↦ e followed by p followed by X_U(e inverse).
+
+Project the computed inverse function.
+
+## Transport by the identity fibre arrow
+
+`TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportActionIso_id`
+
+Transport by Iso.refl(x) is the identity isomorphism of the native self-morphism action.
+
+Evaluate the identity image and apply native action-arrow extensionality.
+
+## Transport along successive fibre isomorphisms
+
+`TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportActionIso_comp`
+
+Transport along e:x≅x′ followed by f:x′≅x″ equals transport along e followed by transport along f.
+
+Functor.mapIso_trans and associativity give equality of the actual forward functions.
+
+## Natural transport of fixed-band self-morphism actions
+
+`TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportNatIso`
+
+For e:x≅x′, assemble selfTransportActionIso(X,e) into a native natural isomorphism between fibreIsomActionFunctor(b,b,U,x,x) and fibreIsomActionFunctor(b,b,U,x′,x′). Naturality is with respect to every actual native modification.
+
+The component is the existing selfTransportActionIso. Naturality of m_U at e gives X_U(e) followed by m_U(x′) = m_U(x) followed by Y_U(e). Precompose by e inverse and p. Native NatIso.ofComponents supplies inverse naturality.
+
+API:
+
+- `TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportNatIso_app`: At X, the natural isomorphism component is exactly selfTransportActionIso(X,e).
+- `TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportNatIso_independent`: For e,f:x≅x′, the resulting native natural isomorphisms of self-morphism action functors are equal.
+- `TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportNatIso_id`: Natural transport along Iso.refl(x) is the identity natural isomorphism of the native action functor.
+- `TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportNatIso_comp`: Natural transport along e followed by f equals the composition of the native natural transports along e and f.
+
+Typed checks:
+
+- `TauCeti.AlgebraicGeometry.SelfTransportTests.modification_naturality` (compatibility): For every native modification m the action-functor maps commute with the natural transport components.
+- `TauCeti.AlgebraicGeometry.SelfTransportTests.natural_composition` (compatibility): Transport along e followed by f agrees as a native natural isomorphism with composing the two transports.
+- `TauCeti.AlgebraicGeometry.SelfTransportTests.natural_independence` (characterisation): Arbitrary e,f between the same objects produce equal native natural isomorphisms.
+
+## The natural transport uses the specified action isomorphisms
+
+`TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportNatIso_app`
+
+At X, the natural isomorphism component is exactly selfTransportActionIso(X,e).
+
+Project the native NatIso.ofComponents field.
+
+## Self-action transport is independent of the connecting arrow
+
+`TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportActionIso_independent`
+
+For X in HomCategory(b,b) and any two actual isomorphisms e,f:x≅x′, selfTransportActionIso(X,e) equals selfTransportActionIso(X,f). No choice of a connecting arrow is retained.
+
+Express f followed by e inverse as the band automorphism b_x(a) using the actual autEquiv inverse. Band preservation identifies X_U(b_x(a)) with b_X_U(x)(a). Band conjugation along p moves the matching automorphism past p; cancel after precomposing f inverse and postcomposing X_U(e).
+
+## Natural self-action transport is independent of the connecting arrow
+
+`TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportNatIso_independent`
+
+For e,f:x≅x′, the resulting native natural isomorphisms of self-morphism action functors are equal.
+
+Apply native Iso and natural-transformation extensionality to the equality at every X.
+
+## Identity natural transport of self-morphism actions
+
+`TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportNatIso_id`
+
+Natural transport along Iso.refl(x) is the identity natural isomorphism of the native action functor.
+
+Apply equality at every native transformation and natural-transformation extensionality.
+
+## Composing natural transports of self-morphism actions
+
+`TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportNatIso_comp`
+
+Natural transport along e followed by f equals the composition of the native natural transports along e and f.
+
+Use componentwise transport composition and native natural-transformation extensionality.
+
+## Inherited roadmap and remaining obligations
+
 # Native morphism groupoids for fixed-band gerbes
 
 Fix a site (C,J), native Cat-valued pseudofunctors F,G, and actual abelian bandings bF,bG by a specified sheaf A. The coefficient universe is independent of the fibre object and morphism universes. The fixed-band morphism category is the native full subcategory of StrongTrans(F,G) on BandPreserving(bF,bG). All native modifications remain arrows. No neutralization or terminal object is chosen.
