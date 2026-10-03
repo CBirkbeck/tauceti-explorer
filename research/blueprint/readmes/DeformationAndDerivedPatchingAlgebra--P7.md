@@ -1,3 +1,231 @@
+# Native degree quotients and equation-jet images
+
+Let σ be finite and k be any commutative ring. Write R=k[[X_i]], v=(X_i), P=k[X_i], P_n for the native degree-n homogeneous polynomial submodule, H_n for the existing polynomial component, φ for the existing ideal-power-to-equation-jet map. All maps below are k-linear. The denominator v•top is the native submodule of the ideal-power subtype, restricted from R to k; no new quotient carrier is introduced.
+
+The coefficient identity shows g−H_n(g) lies in the next ideal power whenever g∈v^n. Polynomial inclusion is a section of D_n and gives every homogeneous representative. Its kernel is the actual denominator v·v^n. Transporting that denominator to the kernel and using the pinned first isomorphism theorem gives the ambient equivalence. For an equation f, composition with φ gives ψ. The same remainder identity proves φ=ψD_n and equality of their actual images. The pinned first isomorphism theorem then gives P_n/ker ψ≃image φ. These equivalences preserve the displayed representatives; the inverse ambient map is the actual class of polynomial inclusion.
+
+The principal degreewise kernel needs exact finite order and no zero divisors. Below the equation order only a lower bound is needed. The zero equation has infinite order and a trivial homogeneous kernel. A unit equation kills every image. None of these facts identifies image φ with the intrinsic q-power quotient in R/(f) without a further comparison. The full graded map, multiplication, principal ideal identity, support dimension and general Hilbert–Samuel results remain required.
+
+### Homogeneous polynomials in ideal powers
+
+TauCeti.HilbertSamuel.homogeneousLift. The k-linear map L_n:P_n→v^n sends a native degree-n homogeneous polynomial to its native series inclusion; its ideal membership is part of the data.
+
+Use native polynomial inclusion and its additive and scalar compatibility. The existing homogeneity comparison and ideal-power membership supply the subtype witness.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-series-homogeneity, DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-variable-ideal-membership, mathlib:MvPolynomial.homogeneousSubmodule.
+
+API TauCeti.HilbertSamuel.homogeneousLift_apply (simp): For every p∈P_n, the underlying series of L_n(p) is exactly the native inclusion of p.
+
+API TauCeti.HilbertSamuel.degreePolynomial_lift (simp): For every p∈P_n, D_n(L_n(p))=p.
+
+API TauCeti.HilbertSamuel.degreePolynomial_surjective (simp): D_n is surjective for every n. No field or flatness hypothesis is required.
+
+Test DegreeQuotientTests.lift_zero: For every n, L_n sends the zero homogeneous polynomial to the zero element of v^n.
+
+Test DegreeQuotientTests.lift_variable: The lift of the native degree-one polynomial X_i has underlying series exactly X_i.
+
+Test DegreeQuotientTests.lift_torsion: Over ℤ/4ℤ in two variables, the lift of the degree-one polynomial 2X has underlying series 2X; nilpotent coefficients are retained.
+
+### Value of the homogeneous lift
+
+TauCeti.HilbertSamuel.homogeneousLift_apply. For every p∈P_n, the underlying series of L_n(p) is exactly the native inclusion of p.
+
+Unfold the constructed map and take its underlying series.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-polynomial-lift.
+
+### Polynomial projection of an ideal power
+
+TauCeti.HilbertSamuel.degreePolynomial. The k-linear map D_n:v^n→P_n sends g to H_n(g), with its native degree-n homogeneity witness.
+
+Restrict the existing polynomial component to v^n and bundle its native homogeneity witness. Reuse additivity and scalar linearity of H_n.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-component, DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-degree, mathlib:MvPolynomial.homogeneousSubmodule.
+
+API TauCeti.HilbertSamuel.degreePolynomial_apply (simp): For every g∈v^n, the polynomial underlying D_n(g) is H_n(g).
+
+API TauCeti.HilbertSamuel.degreePolynomial_eq_zero_iff (simp): For g∈v^n, D_n(g)=0 if and only if the underlying series lies in v^(n+1).
+
+API TauCeti.HilbertSamuel.degreePolynomial_ker (characterisation): As k-submodules of v^n, ker(D_n) is the restriction of v·v^n, written v•top on the native ideal-power subtype.
+
+Test DegreeQuotientTests.degree_lift: For every commutative k, finite variable set and p∈P_n, D_n(L_n(p))=p.
+
+Test DegreeQuotientTests.degree_constant: With no variables, degree zero recovers every constant polynomial over any commutative k.
+
+Test DegreeQuotientTests.degree_next: Every element of v^n whose underlying series lies in v^(n+1) has zero degree-n projection.
+
+### Value of the polynomial projection
+
+TauCeti.HilbertSamuel.degreePolynomial_apply. For every g∈v^n, the polynomial underlying D_n(g) is H_n(g).
+
+Evaluate the bundled map.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-polynomial-projection.
+
+### Polynomial inclusion is a section
+
+TauCeti.HilbertSamuel.degreePolynomial_lift. For every p∈P_n, D_n(L_n(p))=p.
+
+Use the existing component identity on an included homogeneous polynomial and subtype extensionality.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-polynomial-projection-value, DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-polynomial-lift-value, DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-retraction.
+
+### Every homogeneous polynomial is represented
+
+TauCeti.HilbertSamuel.degreePolynomial_surjective. D_n is surjective for every n. No field or flatness hypothesis is required.
+
+Choose L_n(p) as the representative and use the section identity.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-projection-section.
+
+### The next ideal power is the kernel
+
+TauCeti.HilbertSamuel.degreePolynomial_eq_zero_iff. For g∈v^n, D_n(g)=0 if and only if the underlying series lies in v^(n+1).
+
+Subtype vanishing is equivalent to underlying polynomial vanishing. Use the polynomial/series vanishing equivalence followed by the existing next-power criterion.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-polynomial-projection-value, DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-vanishing, DeformationAndDerivedPatchingAlgebra:R03.3/degree-component-next-power.
+
+### The actual quotient denominator
+
+TauCeti.HilbertSamuel.degreePolynomial_ker. As k-submodules of v^n, ker(D_n) is the restriction of v·v^n, written v•top on the native ideal-power subtype.
+
+Apply the pointwise kernel criterion. The native subtype-smul membership lemma converts v•top to v·v^n in R; ideal scalar multiplication and the power identity give v^(n+1).
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-polynomial-vanishing, mathlib:Submodule.mem_smul_top_iff, mathlib:Ideal.smul_eq_mul.
+
+### Homogeneous graded pieces
+
+TauCeti.HilbertSamuel.ambientDegreeEquiv. For every n, define the k-linear equivalence (v^n/(v•top))≃P_n, using the native ideal-power subtype and restricting its R-submodule denominator to k. This is the actual degree quotient, not a new definition of the associated graded ring.
+
+Transport the actual denominator to ker(D_n) using equality of submodules. Apply the existing first isomorphism theorem to the proved surjective D_n.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-polynomial-kernel-submodule, DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-polynomial-surjectivity, mathlib:Submodule.quotEquivOfEq, mathlib:LinearMap.quotKerEquivOfSurjective.
+
+API TauCeti.HilbertSamuel.ambientDegreeEquiv_mk (simp): The ambient equivalence sends the class of g∈v^n to D_n(g).
+
+API TauCeti.HilbertSamuel.ambientDegreeEquiv_symm (simp): The inverse ambient equivalence sends p∈P_n to the actual quotient class of L_n(p).
+
+API TauCeti.HilbertSamuel.degreePolynomial_lift (simp): For every p∈P_n, D_n(L_n(p))=p.
+
+Test DegreeQuotientTests.ambient_roundtrip: For every g∈v^n, the inverse ambient comparison of D_n(g) equals the actual quotient class of g.
+
+Test DegreeQuotientTests.ambient_inverse: For every homogeneous p, applying the ambient equivalence to the quotient class of its native lift returns p.
+
+Test DegreeQuotientTests.ambient_torsion: Over ℤ/4ℤ, the inverse ambient image of 2X in degree one is nonzero, despite the coefficient 2 being nilpotent.
+
+### The ambient comparison on representatives
+
+TauCeti.HilbertSamuel.ambientDegreeEquiv_mk. The ambient equivalence sends the class of g∈v^n to D_n(g).
+
+Use the native representative formulas for quotient transport and the first isomorphism equivalence.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/ambient-degree-quotient-equivalence, mathlib:Submodule.quotEquivOfEq_mk, mathlib:LinearMap.quotKerEquivOfSurjective_apply_mk.
+
+### The inverse ambient comparison
+
+TauCeti.HilbertSamuel.ambientDegreeEquiv_symm. The inverse ambient equivalence sends p∈P_n to the actual quotient class of L_n(p).
+
+Apply injectivity of the forward equivalence and use its representative formula followed by the section identity.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/ambient-degree-quotient-representative, DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-projection-section.
+
+### Homogeneous equation-jet projection
+
+TauCeti.HilbertSamuel.homogeneousCurveProjection. For every equation f∈R and n, define ψ_f,n:P_n→R/((f)+v^(n+1)) as the composite of L_n with the existing actual curve-degree projection φ_f,n.
+
+Compose the two established k-linear maps. The target is the actual equation-jet quotient; do not replace it by a polynomial presentation.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection, DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-polynomial-lift.
+
+API TauCeti.HilbertSamuel.homogeneousCurveProjection_apply (simp): For p∈P_n, ψ_f,n(p) is the actual equation-jet class of the native series inclusion of p.
+
+API TauCeti.HilbertSamuel.curveDegreeProjection_factor (compatibility): For every f,n and g∈v^n, ψ_f,n(D_n(g))=φ_f,n(g).
+
+API TauCeti.HilbertSamuel.homogeneousCurveProjection_range (compatibility): The k-submodule image of ψ_f,n equals the k-submodule image of φ_f,n, inside the same native equation-jet quotient.
+
+API TauCeti.HilbertSamuel.homogeneousCurveProjection_kernel (characterisation): Assume k has no zero divisors, order(f)=d is finite and d≤n. For p∈P_n, ψ_f,n(p)=0 if and only if p=H_d(f)w for a native polynomial w homogeneous of degree n−d.
+
+API TauCeti.HilbertSamuel.homogeneousCurveProjection_below_order (characterisation): If order(f)≥d and n<d, ψ_f,n(p)=0 if and only if p=0, for every p∈P_n. This lower-degree result holds over arbitrary commutative k.
+
+Test DegreeQuotientTests.curve_unit: For the unit equation f=1, every homogeneous polynomial has zero equation-jet image.
+
+Test DegreeQuotientTests.curve_zero: For the zero equation over any commutative coefficient ring, the homogeneous equation-jet map has zero image exactly on the zero polynomial.
+
+Test DegreeQuotientTests.characteristic_two_killed: Over 𝔽₂, the degree-two polynomial X² maps to zero for the repeated equation f=x².
+
+### The equation-jet class of a polynomial
+
+TauCeti.HilbertSamuel.homogeneousCurveProjection_apply. For p∈P_n, ψ_f,n(p) is the actual equation-jet class of the native series inclusion of p.
+
+Evaluate the composite and the existing quotient projection.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-projection, DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-polynomial-lift-value, DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-apply.
+
+### Keeping the leading component preserves the class
+
+TauCeti.HilbertSamuel.curveDegreeProjection_factor. For every f,n and g∈v^n, ψ_f,n(D_n(g))=φ_f,n(g).
+
+The degree-n homogeneous component lies in v^n and is fixed by the same component map. Thus g minus its degree-n component has zero degree-n component and lies in v^(n+1). Its negative gives equality of the two actual quotient classes.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-projection-value, DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-polynomial-projection-value, DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-series, DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-variable-ideal-membership, DeformationAndDerivedPatchingAlgebra:R03.3/degree-component-next-power, mathlib:MvPowerSeries.isHomogeneous_homogeneousComponent, mathlib:MvPowerSeries.isHomogeneous_iff_eq_homogeneousComponent.
+
+### Equality of the actual degree images
+
+TauCeti.HilbertSamuel.homogeneousCurveProjection_range. The k-submodule image of ψ_f,n equals the k-submodule image of φ_f,n, inside the same native equation-jet quotient.
+
+Every polynomial image is the image of its lift under φ. Every series image is the image of D_n(g) under ψ by the factorization identity.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-projection, DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-polynomial-factorization.
+
+### Principal equation kernel on homogeneous polynomials
+
+TauCeti.HilbertSamuel.homogeneousCurveProjection_kernel. Assume k has no zero divisors, order(f)=d is finite and d≤n. For p∈P_n, ψ_f,n(p)=0 if and only if p=H_d(f)w for a native polynomial w homogeneous of degree n−d.
+
+Apply the existing degreewise polynomial kernel theorem to L_n(p). Its polynomial component is p by the homogeneous-inclusion identity. Retain all order and no-zero-divisors hypotheses.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-projection, DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-polynomial-lift-value, DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-retraction, DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-degree-kernel.
+
+### No relations below the equation order
+
+TauCeti.HilbertSamuel.homogeneousCurveProjection_below_order. If order(f)≥d and n<d, ψ_f,n(p)=0 if and only if p=0, for every p∈P_n. This lower-degree result holds over arbitrary commutative k.
+
+Use the existing strict-below-order polynomial kernel criterion on L_n(p). Identify its polynomial component with p and use subtype extensionality.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-projection, DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-polynomial-lift-value, DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-retraction, DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-degree-below.
+
+### Degreewise tangent-cone comparison
+
+TauCeti.HilbertSamuel.homogeneousCurveQuotientEquiv. For every f,n, define (P_n/ker(ψ_f,n))≃ image(φ_f,n) as a k-linear equivalence. The target is the actual image in the equation-jet quotient, without a domain or finite-equation-order hypothesis.
+
+Use the native first isomorphism theorem for ψ. Transport its image to the actual image of φ by the proved equality, without defining a new target ring.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-projection-image, mathlib:LinearMap.quotKerEquivRange, mathlib:LinearEquiv.ofEq.
+
+API TauCeti.HilbertSamuel.homogeneousCurveQuotientEquiv_mk (simp): After coercion into the actual equation-jet quotient, the quotient-image equivalence sends the class of p to ψ_f,n(p).
+
+API TauCeti.HilbertSamuel.homogeneousCurveProjection_range (compatibility): The k-submodule image of ψ_f,n equals the k-submodule image of φ_f,n, inside the same native equation-jet quotient.
+
+API TauCeti.HilbertSamuel.homogeneousCurveProjection_kernel (characterisation): Assume k has no zero divisors, order(f)=d is finite and d≤n. For p∈P_n, ψ_f,n(p)=0 if and only if p=H_d(f)w for a native polynomial w homogeneous of degree n−d.
+
+Test DegreeQuotientTests.quotient_value: The homogeneous quotient-image equivalence sends each representative to its actual equation-jet class.
+
+Test DegreeQuotientTests.quotient_inverse: The inverse homogeneous quotient-image equivalence returns the same quotient class on each representative image.
+
+Test DegreeQuotientTests.quotient_zero_equation: For f=0, the quotient-image equivalence of the class of p is zero if and only if p=0, over arbitrary commutative coefficients.
+
+### The tangent-cone comparison on representatives
+
+TauCeti.HilbertSamuel.homogeneousCurveQuotientEquiv_mk. After coercion into the actual equation-jet quotient, the quotient-image equivalence sends the class of p to ψ_f,n(p).
+
+Evaluate the native first-isomorphism equivalence and the equal-submodule transport.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-quotient-image-equivalence, mathlib:LinearMap.quotKerEquivRange_apply_mk, mathlib:LinearEquiv.coe_ofEq_apply.
+
+The source is the credited DDPA-JET-HANDOFF §§3–5, refined by the pinned native module interfaces in HS-DEGREE-QUOTIENT-PIN-J6LwjP. This is an authored adapter deduction, not a claim that the source states the arbitrary-coefficient theorem verbatim. Both reserved multiplicity conventions, all routed source obligations, the eight stage statuses, incoming node contracts and supplier requests remain unchanged.
+
+---
+
 # Polynomial representatives of homogeneous series
 
 Let σ be finite, k a commutative ring, R=k[[X_i]] and P=k[X_i]. Write ι:P→R for the native injective polynomial inclusion, v for the algebraically generated variable ideal, HC_n for the native series component and H_n for the polynomial-valued component. All degree indices are natural numbers; order takes values in the extended naturals. The zero series keeps its infinite order.
