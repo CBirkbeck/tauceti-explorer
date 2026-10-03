@@ -2604,3 +2604,155 @@ example :
 end
 end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
 /- END AFFINE TENSOR CURVATURE -/
+
+/- BEGIN AFFINE TENSOR BASE CHANGE -/
+
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+open scoped TensorProduct
+variable {R E F Q : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E] [AddCommGroup F] [Module R F]
+variable [AddCommGroup Q] [Module R Q]
+variable (S : Type*) [CommRing S] [Algebra R S]
+
+lemma affineTensorBaseChange_left (a : S) (z : E ⊗[R] Q) (f : F) :
+    TensorProduct.rightComm S (S ⊗[R] E) (S ⊗[R] Q) (S ⊗[R] F)
+      (TensorProduct.AlgebraTensorModule.distribBaseChange R S E Q (a ⊗ₜ[R] z) ⊗ₜ[S]
+        ((1 : S) ⊗ₜ[R] f)) =
+    TensorProduct.map (TensorProduct.AlgebraTensorModule.distribBaseChange R S E F).toLinearMap
+      (LinearMap.id : S ⊗[R] Q →ₗ[S] S ⊗[R] Q)
+      (TensorProduct.AlgebraTensorModule.distribBaseChange R S (E ⊗[R] F) Q
+        (a ⊗ₜ[R] TensorProduct.rightComm R E Q F (z ⊗ₜ[R] f))) := by
+  sorry
+
+lemma affineTensorBaseChange_right (a : S) (e : E) (w : F ⊗[R] Q) :
+    (TensorProduct.assoc S (S ⊗[R] E) (S ⊗[R] F) (S ⊗[R] Q)).symm
+      ((a ⊗ₜ[R] e) ⊗ₜ[S]
+        TensorProduct.AlgebraTensorModule.distribBaseChange R S F Q ((1 : S) ⊗ₜ[R] w)) =
+    TensorProduct.map (TensorProduct.AlgebraTensorModule.distribBaseChange R S E F).toLinearMap
+      (LinearMap.id : S ⊗[R] Q →ₗ[S] S ⊗[R] Q)
+      (TensorProduct.AlgebraTensorModule.distribBaseChange R S (E ⊗[R] F) Q
+        (a ⊗ₜ[R] (TensorProduct.assoc R E F Q).symm (e ⊗ₜ[R] w))) := by
+  sorry
+
+lemma affineTensorField_baseChange (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) :
+    (affineTensorField (affineBaseChange S θ) (affineBaseChange S ψ)).comp
+      (TensorProduct.AlgebraTensorModule.distribBaseChange R S E F).toLinearMap =
+    (TensorProduct.map (TensorProduct.AlgebraTensorModule.distribBaseChange R S E F).toLinearMap
+      (LinearMap.id : S ⊗[R] Q →ₗ[S] S ⊗[R] Q)).comp
+      (affineBaseChange S (affineTensorField θ ψ)) := by
+  sorry
+
+lemma affineTensorField_baseChange_inverse
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) :
+    (affineBaseChange S (affineTensorField θ ψ)).comp
+      (TensorProduct.AlgebraTensorModule.distribBaseChange R S E F).symm.toLinearMap =
+    (TensorProduct.map (TensorProduct.AlgebraTensorModule.distribBaseChange R S E F).symm.toLinearMap
+      (LinearMap.id : S ⊗[R] Q →ₗ[S] S ⊗[R] Q)).comp
+      (affineTensorField (affineBaseChange S θ) (affineBaseChange S ψ)) := by
+  sorry
+
+lemma affineTensorField_baseChange_ordered
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (n : ℕ) :
+    (affineOrderedIterate (affineTensorField (affineBaseChange S θ) (affineBaseChange S ψ)) n).comp
+      (TensorProduct.AlgebraTensorModule.distribBaseChange R S E F).toLinearMap =
+    (TensorProduct.map (TensorProduct.AlgebraTensorModule.distribBaseChange R S E F).toLinearMap
+      (LinearMap.id : (⨂[S]^n (S ⊗[R] Q)) →ₗ[S] (⨂[S]^n (S ⊗[R] Q)))).comp
+      (affineOrderedIterate (affineBaseChange S (affineTensorField θ ψ)) n) := by
+  sorry
+
+lemma affineTensorField_baseChange_ordered_zero_iff
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (n : ℕ) :
+    affineOrderedIterate (affineTensorField (affineBaseChange S θ) (affineBaseChange S ψ)) n = 0 ↔
+    affineOrderedIterate (affineBaseChange S (affineTensorField θ ψ)) n = 0 := by
+  sorry
+
+lemma affineTensorField_baseChange_nilpotence
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (n : ℕ)
+    (h : affineOrderedIterate (affineTensorField θ ψ) n = 0) :
+    affineOrderedIterate (affineTensorField (affineBaseChange S θ) (affineBaseChange S ψ)) n = 0 := by
+  sorry
+
+lemma affineTensorField_baseChange_nilpotence_iff [Module.FaithfullyFlat R S]
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (n : ℕ) :
+    affineOrderedIterate (affineTensorField (affineBaseChange S θ) (affineBaseChange S ψ)) n = 0 ↔
+    affineOrderedIterate (affineTensorField θ ψ) n = 0 := by
+  sorry
+
+lemma affineTensorField_baseChange_exterior
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) :
+    (affineExteriorSquare (affineTensorField (affineBaseChange S θ) (affineBaseChange S ψ))).comp
+      (TensorProduct.AlgebraTensorModule.distribBaseChange R S E F).toLinearMap =
+    (TensorProduct.map (TensorProduct.AlgebraTensorModule.distribBaseChange R S E F).toLinearMap
+      (LinearMap.id : (⋀[S]^2 (S ⊗[R] Q)) →ₗ[S] (⋀[S]^2 (S ⊗[R] Q)))).comp
+      (affineExteriorSquare (affineBaseChange S (affineTensorField θ ψ))) := by
+  sorry
+
+lemma affineTensorField_baseChange_exterior_zero_iff
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) :
+    affineExteriorSquare (affineTensorField (affineBaseChange S θ) (affineBaseChange S ψ)) = 0 ↔
+    affineExteriorSquare (affineBaseChange S (affineTensorField θ ψ)) = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_baseChange_zero
+example :
+    affineTensorField (affineBaseChange S (0 : E →ₗ[R] E ⊗[R] Q))
+      (affineBaseChange S (0 : F →ₗ[R] F ⊗[R] Q)) = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_baseChange_integer_value
+example :
+    affineBaseChange ℚ (affineTensorField (TensorProduct.rid ℤ ℤ).symm.toLinearMap
+      (TensorProduct.rid ℤ ℤ).symm.toLinearMap)
+      ((2 : ℚ) ⊗ₜ[ℤ] ((1 : ℤ) ⊗ₜ[ℤ] (1 : ℤ))) =
+    ((2 : ℚ) ⊗ₜ[ℤ] ((1 : ℤ) ⊗ₜ[ℤ] (1 : ℤ))) ⊗ₜ[ℚ]
+      ((1 : ℚ) ⊗ₜ[ℤ] (2 : ℤ)) := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_baseChange_nonflat_tensor
+example :
+    (affineTensorField (affineBaseChange (ZMod 2) (TensorProduct.rid ℤ ℤ).symm.toLinearMap)
+      (affineBaseChange (ZMod 2) (TensorProduct.rid ℤ ℤ).symm.toLinearMap)).comp
+        (TensorProduct.AlgebraTensorModule.distribBaseChange ℤ (ZMod 2) ℤ ℤ).toLinearMap =
+    (TensorProduct.map (TensorProduct.AlgebraTensorModule.distribBaseChange ℤ (ZMod 2) ℤ ℤ).toLinearMap
+      (LinearMap.id : ZMod 2 ⊗[ℤ] ℤ →ₗ[ZMod 2] ZMod 2 ⊗[ℤ] ℤ)).comp
+        (affineBaseChange (ZMod 2) (affineTensorField
+          (TensorProduct.rid ℤ ℤ).symm.toLinearMap (TensorProduct.rid ℤ ℤ).symm.toLinearMap)) := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_baseChange_torsion_coefficients
+example (θ : ZMod 2 →ₗ[ℤ] ZMod 2 ⊗[ℤ] (ZMod 2 × ZMod 2))
+    (ψ : ZMod 4 →ₗ[ℤ] ZMod 4 ⊗[ℤ] (ZMod 2 × ZMod 2)) (n : ℕ) :
+    affineOrderedIterate (affineTensorField (affineBaseChange (ZMod 2) θ)
+      (affineBaseChange (ZMod 2) ψ)) n = 0 ↔
+    affineOrderedIterate (affineBaseChange (ZMod 2) (affineTensorField θ ψ)) n = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_baseChange_degree_zero
+example (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) :
+    affineOrderedIterate (affineTensorField (affineBaseChange S θ) (affineBaseChange S ψ)) 0 = 0 ↔
+    affineOrderedIterate (affineBaseChange S (affineTensorField θ ψ)) 0 = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_baseChange_faithful
+example [Module.FaithfullyFlat R S] (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (n : ℕ) :
+    affineOrderedIterate (affineTensorField (affineBaseChange S θ) (affineBaseChange S ψ)) n = 0 ↔
+    affineOrderedIterate (affineTensorField θ ψ) n = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_baseChange_exterior_scope
+example (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) :
+    affineExteriorSquare (affineTensorField (affineBaseChange S θ) (affineBaseChange S ψ)) = 0 ↔
+    affineExteriorSquare (affineBaseChange S (affineTensorField θ ψ)) = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_baseChange_nonfaithful_erasure
+example :
+    let θ := (TensorProduct.rid ℤ ℤ).symm.toLinearMap
+    affineTensorField θ θ ≠ 0 ∧
+      affineTensorField (affineBaseChange (ZMod 2) θ) (affineBaseChange (ZMod 2) θ) = 0 := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+/- END AFFINE TENSOR BASE CHANGE -/
