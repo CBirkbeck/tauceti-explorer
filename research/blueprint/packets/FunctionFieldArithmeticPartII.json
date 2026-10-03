@@ -15,7 +15,7 @@
   "FunctionFieldArithmeticPartII:GC.5",
   "FunctionFieldArithmeticPartII:GC.6"
  ],
- "summary": "Partial 325-node root-chart point-action checkpoint: thirteen new declaration-sized nodes specify the actual tensor-lift action on arbitrary test-algebra points, native MulAction laws, test-algebra naturality, recovery of existing scaling and of the universal coaction, two antipode inverse laws and fixed zero-root points. All 312 incoming statement contracts, both route inventories, 39 planets, eight gaps and thirteen requests are retained. The geometric quotient, diagonalizable coordinate identification and whole geometric Lean compilation remain open. Partial 218-node positive-divisibility root-chart comparison checkpoint: 24 new declaration-sized leaves construct the native all-positive root algebra colimit, its injective finite insertions and root relations, extensions into the existing factorial colimit independent of the chosen multiple, both universal algebra maps and their actual inverse equivalence with finite-root formulas. All 194 inherited statement contracts, both source-route inventories, 39 planets, eight gaps and thirteen supplier requests remain. Every stage remains partial and every implementation unchecked. Coherent root-groupoid reindexing, grading, Spec limits and the fpqc quotient remain open; the full geometric suggested file remains uncompiled. Coherent ring-valued factorial scalar points now have actual chart-colimit scaling automorphisms and a native universal test family; universal Hopf and geometric quotient boundaries remain. Coherent scalar points and root-colimit scaling now have actual coefficient-ring naturality, including φ-semilinear chart functor laws and inverse scaling. The factorial unity-root algebra now has explicit native bialgebra/Hopf structures, a universal chart coaction, and a natural fixed-universe representation of coherent unit families; geometric identification and quotient obligations remain open. This continuation specifies coefficient naturality of the actual universal factorial coaction, counit and antipode via the existing heterobasic tensor map, including identity/composition and characteristic-two nonreduced tests. The actual factorial unity-root point equivalence is now specified as a multiplicative equivalence for the imported native convolution monoid, with antipode inverses and test-algebra naturality. Every stage remains partial and every implementation unchecked.",
+ "summary": "Partial 340-node checkpoint adding fifteen finite unity-root/cyclic-coordinate nodes (four constructions and eleven lemmas), fifteen API records and twelve native acceptance tests. All325 incoming statement contracts and324 whole node objects are retained; only the infinite affine quotient consumer gains five dependencies and one proof step. Both source routes,39 planets,8 gaps,13 requests, reserved key and stable-curve imports are retained. E_n:A[T]/(T^n−1)≃A[Z/n] has explicit inverse, finite divisibility, coaction/counit/root-antipode formulas over arbitrary commutative rings, including zero and wild/nonreduced rings. Every stage remains partial and every implementation unchecked; A[Q/Z], root-groupoid, Spec-limit, fpqc torsor and quotient comparisons remain open.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1490,6 +1490,48 @@
     "module": "Mathlib/Algebra/Group/Action/Defs.lean",
     "provides": "The native monoid action carrier with its multiplication and unit laws; reuse this class for the root-specific point action.",
     "checked": "Actual declaration and surrounding assumptions personally read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; no generic replacement is planned."
+   },
+   {
+    "ref": "mathlib:MonoidAlgebra.lift",
+    "module": "Mathlib/Algebra/MonoidAlgebra/Basic.lean",
+    "provides": "Native equivalence between monoid homomorphisms M→*B and R-algebra maps R[M]→ₐ[R]B, for commutative semiring R and an R-algebra B.",
+    "checked": "Actual declaration and relevant variables personally read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; generic infrastructure imported, not replanned."
+   },
+   {
+    "ref": "mathlib:MonoidAlgebra.lift_single",
+    "module": "Mathlib/Algebra/MonoidAlgebra/Basic.lean",
+    "provides": "The native lift sends single m a to a•F(m).",
+    "checked": "Actual declaration and relevant variables personally read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; generic infrastructure imported, not replanned."
+   },
+   {
+    "ref": "mathlib:MonoidAlgebra.algHom_ext",
+    "module": "Mathlib/Algebra/MonoidAlgebra/Basic.lean",
+    "provides": "Equality on single m 1 plus equality of the coefficient algebra maps implies equality of algebra maps.",
+    "checked": "Actual declaration and relevant variables personally read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; generic infrastructure imported, not replanned."
+   },
+   {
+    "ref": "mathlib:ZMod.val_add",
+    "module": "Mathlib/Data/ZMod/Basic.lean",
+    "provides": "For n>0, val(a+b)=(val(a)+val(b)) mod n.",
+    "checked": "Actual declaration and relevant variables personally read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; generic infrastructure imported, not replanned."
+   },
+   {
+    "ref": "mathlib:ZMod.val_natCast",
+    "module": "Mathlib/Data/ZMod/Basic.lean",
+    "provides": "For all n,k, val(k:ZMod n)=k mod n.",
+    "checked": "Actual declaration and relevant variables personally read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; generic infrastructure imported, not replanned."
+   },
+   {
+    "ref": "mathlib:ZMod.natCast_zmod_val",
+    "module": "Mathlib/Data/ZMod/Basic.lean",
+    "provides": "For n>0 the cast of val(a) into ZMod n is a.",
+    "checked": "Actual declaration and relevant variables personally read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; generic infrastructure imported, not replanned."
+   },
+   {
+    "ref": "mathlib:MonoidAlgebra.antipode_single",
+    "module": "Mathlib/RingTheory/HopfAlgebra/MonoidAlgebra.lean",
+    "provides": "The native group-algebra antipode sends single g a to single g⁻¹ (S a).",
+    "checked": "Actual declaration and relevant variables personally read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; generic infrastructure imported, not replanned."
    }
   ]
  },
@@ -1667,6 +1709,16 @@
    "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/codex-a71f92-n14-3403-point-action/research/blueprint/handoff/DESIGN-FunctionFieldArithmeticPartII.md",
    "readSections": [
     "Native coaction/tensor-lift action, actual monoid laws, inverse cancellation, universal recovery, scaling comparison and naturality; motivated by fresh selected reading of Talpo–Vistoli arXiv:1410.1164v2, complete printed/PDF pp.14–16. This is not a printed quotient theorem or a new whole-paper audit."
+   ]
+  },
+  {
+   "id": "FiniteCyclicCoordinates-codex-7e92bd",
+   "title": "Finite unit-root cyclic coordinates",
+   "authors": "Codex — codex-7e92bd",
+   "edition": "Authored coordinate deductions, 2026-10-03",
+   "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/codex-7e92bd-function-root-loop/research/blueprint/handoff/DESIGN-FunctionFieldArithmeticPartII.md",
+   "readSections": [
+    "The quotient root maps to the cyclic group-algebra generator. Explicit inverse, both inverse laws, comultiplication/counit/root-antipode and divisibility formulas; motivated by freshly read Talpo–Vistoli arXiv1410.1164v2 complete printed/PDF pp.14–16, p.14 also rendered. The native proof and replay are archived in the handoff."
    ]
   }
  ],
@@ -7301,7 +7353,12 @@
     "FunctionFieldArithmeticPartII:RS.2/point-action-universal",
     "FunctionFieldArithmeticPartII:RS.2/point-action-left-inverse",
     "FunctionFieldArithmeticPartII:RS.2/point-action-right-inverse",
-    "FunctionFieldArithmeticPartII:RS.2/point-action-fixed-zero-roots"
+    "FunctionFieldArithmeticPartII:RS.2/point-action-fixed-zero-roots",
+    "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence",
+    "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-coaction",
+    "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-divisibility",
+    "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-counit",
+    "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-antipode"
    ],
    "proofSteps": [
     "Use the existing actual factorial algebra C_f and its checked finite-coordinate API. The positive-divisibility comparison identifies it with C_div by mutually inverse native algebra maps, carrying every positive root v_n to u_i^(d_i/n) at any factorial multiple. The diagonalizable grading, Spec-limit transport and coherent fpqc torsor/root-groupoid contracts are separate remaining steps; no geometric conclusion follows merely from this algebra comparison.",
@@ -7314,7 +7371,8 @@
     "The actual factorial Hopf/coaction interface now supplies counitality, coassociativity, antipode identities, represented algebra-valued points and specialization to inherited scaling. Use these checked rank-one algebra maps as input, then separately identify the canonical diagonalizable coordinate Hopf algebra, its point convolution group and the transported positive-index action. The existing Spec-limit, coherent frame torsor and fpqc quotient-groupoid constructions are still required; no geometric conclusion is inferred from these algebra formulas.",
     "Before the separate geometric quotient construction, use the actual coaction, counit and antipode coefficient-naturality identities. They provide compatible ring maps on coefficients and all factorial roots; they do not supply the remaining fpqc frame-torsor or quotient-stack equivalence.",
     "Use the actual convolution point/coherent-root multiplicative equivalence and its antipode inverse and test-algebra naturality. Import the existing Tau Ceti convolution-group instance, whose inverse is p∘S, rather than constructing another generic point group. The A[Q/Z] coordinate Hopf comparison, universe transports, root-object reindexing, affine Spec limits, fpqc frame torsors and geometric quotient equivalence remain distinct obligations.",
-    "Use the actual convolution action on chart algebra-valued points, its native action laws, inverse cancellation, naturality and universal tensor recovery. Fixed zero-root points expressly prevent inferring a free action or torsor from these formulas. The A[Q/Z] coordinate comparison, universe/index transports, coherent root-object groupoids, affine Spec limits, fpqc frame torsors and quotient-groupoid equivalence remain independent obligations."
+    "Use the actual convolution action on chart algebra-valued points, its native action laws, inverse cancellation, naturality and universal tensor recovery. Fixed zero-root points expressly prevent inferring a free action or torsor from these formulas. The A[Q/Z] coordinate comparison, universe/index transports, coherent root-object groupoids, affine Spec limits, fpqc frame torsors and quotient-groupoid equivalence remain independent obligations.",
+    "Use the actual finite unity-root equivalence E_n:B_n(1)≃A[Z/n], whose root and inverse-basis formulas intertwine the existing coaction with native comultiplication, identify counit/root antipode, and carry divisibility transitions to [k]↦[(N/n)k]. Then separately construct compatible Z/n→Q/Z embeddings and identify the colimit as A[Q/Z], including all Hopf maps. No infinite coordinate or geometric quotient conclusion follows from the finite equivalences alone."
    ],
    "acceptance": [
     "No reducedness, Noetherian or invertibility-of-the-exponent hypothesis is introduced."
@@ -19467,6 +19525,863 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-character",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "The universal finite cyclic root character",
+   "kind": "construction",
+   "declarationName": "TauCeti.RootStack.affineUnitCharacter",
+   "statement": "Define χ_n:Multiplicative(ZMod n)→*B_n by χ_n([k])=t_n^val(k), where B_n=A[T]/(T^n−1).",
+   "hypotheses": [
+    "A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.",
+    "B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.",
+    "The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.0/affine-root-power-reduction",
+    "mathlib:ZMod.val_add"
+   ],
+   "proofSteps": [
+    "The existing root-power reduction with f=1 makes t_n^k periodic modulo n. Use val(k+l)=(val(k)+val(l)) mod n to prove multiplicativity; zero maps to one."
+   ],
+   "acceptance": [
+    "Define χ_n:Multiplicative(ZMod n)→*B_n by χ_n([k])=t_n^val(k), where B_n=A[T]/(T^n−1)."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.affineUnitCharacter"
+   },
+   "sources": [
+    {
+     "sourceId": "FiniteCyclicCoordinates-codex-7e92bd",
+     "locator": "Authored finite coordinate deduction affineUnitCharacter; reproducible native proof in the handoff",
+     "excerpt": "The quotient root maps to the cyclic group-algebra generator.",
+     "match": "An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.RootStack.affineUnitCharacter.natCast",
+     "role": "simp",
+     "statement": "For every k≥0, χ_n([k])=t_n^k."
+    },
+    {
+     "name": "TauCeti.RootStack.affineUnitFromCyclic.single",
+     "role": "simp",
+     "statement": "For k:ZMod n and a∈A, G_n(a e_[k])=a·t_n^val(k)."
+    },
+    {
+     "name": "TauCeti.RootStack.affineUnitCyclic.right_inverse",
+     "role": "compatibility",
+     "statement": "F_n∘G_n=id_A[Z/n] as actual A-algebra homomorphisms."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.RootStack.affineUnitCharacter.test_one",
+     "kind": "degenerate",
+     "statement": "At n=1 every cyclic character value is 1."
+    },
+    {
+     "name": "TauCeti.RootStack.affineUnitCharacter.test_wrap",
+     "kind": "computation",
+     "statement": "At n=2 the representative 3 maps to t_2, not to an unreduced new generator."
+    },
+    {
+     "name": "TauCeti.RootStack.affineUnitCharacter.test_square",
+     "kind": "compatibility",
+     "statement": "At n=2 the universal character of [1] has square 1."
+    }
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-character-power",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Cyclic character at a natural exponent",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.affineUnitCharacter.natCast",
+   "statement": "For every k≥0, χ_n([k])=t_n^k.",
+   "hypotheses": [
+    "A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.",
+    "B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.",
+    "The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-character",
+    "FunctionFieldArithmeticPartII:RS.0/affine-root-power-reduction",
+    "mathlib:ZMod.val_natCast"
+   ],
+   "proofSteps": [
+    "Replace val([k]) by k mod n and apply the existing root-power reduction with coefficient one."
+   ],
+   "acceptance": [
+    "For every k≥0, χ_n([k])=t_n^k."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.affineUnitCharacter.natCast"
+   },
+   "sources": [
+    {
+     "sourceId": "FiniteCyclicCoordinates-codex-7e92bd",
+     "locator": "Authored finite coordinate deduction affineUnitCharacter.natCast; reproducible native proof in the handoff",
+     "excerpt": "The quotient root maps to the cyclic group-algebra generator.",
+     "match": "An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/unit-to-cyclic",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "The polynomial-to-cyclic coordinate map",
+   "kind": "construction",
+   "declarationName": "TauCeti.RootStack.affineUnitToCyclic",
+   "statement": "Construct F_n:B_n→ₐ[A]A[Z/n] sending t_n to e_[1].",
+   "hypotheses": [
+    "A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.",
+    "B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.",
+    "The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.0/affine-character-power",
+    "mathlib:AdjoinRoot.liftAlgHom"
+   ],
+   "proofSteps": [
+    "The native group-algebra generator satisfies e_[1]^n=e_[n]=e_[0]=1. Apply the existing AdjoinRoot algebra lift; retain the actual quotient carrier."
+   ],
+   "acceptance": [
+    "Construct F_n:B_n→ₐ[A]A[Z/n] sending t_n to e_[1]."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.affineUnitToCyclic"
+   },
+   "sources": [
+    {
+     "sourceId": "FiniteCyclicCoordinates-codex-7e92bd",
+     "locator": "Authored finite coordinate deduction affineUnitToCyclic; reproducible native proof in the handoff",
+     "excerpt": "The quotient root maps to the cyclic group-algebra generator.",
+     "match": "An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.RootStack.affineUnitToCyclic.root",
+     "role": "simp",
+     "statement": "F_n(t_n)=e_[1]."
+    },
+    {
+     "name": "TauCeti.RootStack.affineUnitCyclic.left_inverse",
+     "role": "compatibility",
+     "statement": "G_n∘F_n=id_B_n as actual A-algebra homomorphisms."
+    },
+    {
+     "name": "TauCeti.RootStack.affineUnitCyclic.right_inverse",
+     "role": "compatibility",
+     "statement": "F_n∘G_n=id_A[Z/n] as actual A-algebra homomorphisms."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.RootStack.affineUnitToCyclic.test_one",
+     "kind": "degenerate",
+     "statement": "At n=1 the quotient root maps to 1."
+    },
+    {
+     "name": "TauCeti.RootStack.affineUnitToCyclic.test_cube",
+     "kind": "computation",
+     "statement": "At n=3, F_3(t_3^4)=e_[1]."
+    },
+    {
+     "name": "TauCeti.RootStack.affineUnitToCyclic.test_zeroRing",
+     "kind": "degenerate",
+     "statement": "Over a zero ring, F_n sends every element to zero."
+    }
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/unit-to-cyclic-root",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Polynomial-to-cyclic root evaluation",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.affineUnitToCyclic.root",
+   "statement": "F_n(t_n)=e_[1].",
+   "hypotheses": [
+    "A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.",
+    "B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.",
+    "The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/unit-to-cyclic",
+    "mathlib:AdjoinRoot.liftAlgHom_root"
+   ],
+   "proofSteps": [
+    "Evaluate the existing quotient lift at its root."
+   ],
+   "acceptance": [
+    "F_n(t_n)=e_[1]."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.affineUnitToCyclic.root"
+   },
+   "sources": [
+    {
+     "sourceId": "FiniteCyclicCoordinates-codex-7e92bd",
+     "locator": "Authored finite coordinate deduction affineUnitToCyclic.root; reproducible native proof in the handoff",
+     "excerpt": "The quotient root maps to the cyclic group-algebra generator.",
+     "match": "An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/unit-from-cyclic",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "The cyclic-to-polynomial coordinate map",
+   "kind": "construction",
+   "declarationName": "TauCeti.RootStack.affineUnitFromCyclic",
+   "statement": "Construct G_n:A[Z/n]→ₐ[A]B_n as the native MonoidAlgebra.lift of χ_n.",
+   "hypotheses": [
+    "A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.",
+    "B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.",
+    "The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-character",
+    "mathlib:MonoidAlgebra.lift"
+   ],
+   "proofSteps": [
+    "Apply the native group-algebra universal property to the already constructed multiplicative root character. No new generic group algebra or cyclic group universal property is defined."
+   ],
+   "acceptance": [
+    "Construct G_n:A[Z/n]→ₐ[A]B_n as the native MonoidAlgebra.lift of χ_n."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.affineUnitFromCyclic"
+   },
+   "sources": [
+    {
+     "sourceId": "FiniteCyclicCoordinates-codex-7e92bd",
+     "locator": "Authored finite coordinate deduction affineUnitFromCyclic; reproducible native proof in the handoff",
+     "excerpt": "The quotient root maps to the cyclic group-algebra generator.",
+     "match": "An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.RootStack.affineUnitFromCyclic.single",
+     "role": "simp",
+     "statement": "For k:ZMod n and a∈A, G_n(a e_[k])=a·t_n^val(k)."
+    },
+    {
+     "name": "TauCeti.RootStack.affineUnitCyclic.left_inverse",
+     "role": "compatibility",
+     "statement": "G_n∘F_n=id_B_n as actual A-algebra homomorphisms."
+    },
+    {
+     "name": "TauCeti.RootStack.affineUnitCyclic.right_inverse",
+     "role": "compatibility",
+     "statement": "F_n∘G_n=id_A[Z/n] as actual A-algebra homomorphisms."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.RootStack.affineUnitFromCyclic.test_constant",
+     "kind": "degenerate",
+     "statement": "At n=1, G_1(a e_[0]) is the algebra-map image of a."
+    },
+    {
+     "name": "TauCeti.RootStack.affineUnitFromCyclic.test_nontrivial_basis",
+     "kind": "computation",
+     "statement": "At n=4, G_4(2 e_[3])=2·t_4^3 over arbitrary A, including rings with 2-torsion."
+    },
+    {
+     "name": "TauCeti.RootStack.affineUnitFromCyclic.test_multiplication",
+     "kind": "compatibility",
+     "statement": "At n=2, G_2(e_[1]e_[1])=1, using the actual group-algebra multiplication."
+    }
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/unit-from-cyclic-single",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Cyclic basis evaluation in the root chart",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.affineUnitFromCyclic.single",
+   "statement": "For k:ZMod n and a∈A, G_n(a e_[k])=a·t_n^val(k).",
+   "hypotheses": [
+    "A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.",
+    "B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.",
+    "The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/unit-from-cyclic",
+    "mathlib:MonoidAlgebra.lift_single"
+   ],
+   "proofSteps": [
+    "Evaluate the native lift on a single basis vector."
+   ],
+   "acceptance": [
+    "For k:ZMod n and a∈A, G_n(a e_[k])=a·t_n^val(k)."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.affineUnitFromCyclic.single"
+   },
+   "sources": [
+    {
+     "sourceId": "FiniteCyclicCoordinates-codex-7e92bd",
+     "locator": "Authored finite coordinate deduction affineUnitFromCyclic.single; reproducible native proof in the handoff",
+     "excerpt": "The quotient root maps to the cyclic group-algebra generator.",
+     "match": "An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-left-inverse",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "The polynomial coordinate inverse law",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.affineUnitCyclic.left_inverse",
+   "statement": "G_n∘F_n=id_B_n as actual A-algebra homomorphisms.",
+   "hypotheses": [
+    "A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.",
+    "B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.",
+    "The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/unit-to-cyclic-root",
+    "FunctionFieldArithmeticPartII:RS.2/unit-from-cyclic",
+    "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-character-power",
+    "mathlib:MonoidAlgebra.lift_single",
+    "mathlib:AdjoinRoot.algHom_ext"
+   ],
+   "proofSteps": [
+    "AdjoinRoot extensionality reduces to t_n. The character formula at k=1 gives t_n, including n=1 where the displayed representative is zero."
+   ],
+   "acceptance": [
+    "G_n∘F_n=id_B_n as actual A-algebra homomorphisms."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.affineUnitCyclic.left_inverse"
+   },
+   "sources": [
+    {
+     "sourceId": "FiniteCyclicCoordinates-codex-7e92bd",
+     "locator": "Authored finite coordinate deduction affineUnitCyclic.left_inverse; reproducible native proof in the handoff",
+     "excerpt": "The quotient root maps to the cyclic group-algebra generator.",
+     "match": "An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-right-inverse",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "The cyclic coordinate inverse law",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.affineUnitCyclic.right_inverse",
+   "statement": "F_n∘G_n=id_A[Z/n] as actual A-algebra homomorphisms.",
+   "hypotheses": [
+    "A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.",
+    "B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.",
+    "The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/unit-from-cyclic-single",
+    "FunctionFieldArithmeticPartII:RS.2/unit-to-cyclic-root",
+    "FunctionFieldArithmeticPartII:RS.0/affine-character-power",
+    "mathlib:ZMod.natCast_zmod_val",
+    "mathlib:MonoidAlgebra.algHom_ext"
+   ],
+   "proofSteps": [
+    "Use native group-algebra extensionality. On e_[k], the composite gives e_[val(k)]=e_[k]; coefficient maps agree because both maps are A-algebra homomorphisms."
+   ],
+   "acceptance": [
+    "F_n∘G_n=id_A[Z/n] as actual A-algebra homomorphisms."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.affineUnitCyclic.right_inverse"
+   },
+   "sources": [
+    {
+     "sourceId": "FiniteCyclicCoordinates-codex-7e92bd",
+     "locator": "Authored finite coordinate deduction affineUnitCyclic.right_inverse; reproducible native proof in the handoff",
+     "excerpt": "The quotient root maps to the cyclic group-algebra generator.",
+     "match": "An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Finite unit-root cyclic coordinates",
+   "kind": "construction",
+   "declarationName": "TauCeti.RootStack.affineUnitCyclicEquiv",
+   "statement": "The specified mutually inverse maps give E_n:B_n≃ₐ[A]A[Z/n]. It works for arbitrary commutative A and every n>0; it does not split the group algebra into a product or discard nilpotents.",
+   "hypotheses": [
+    "A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.",
+    "B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.",
+    "The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-left-inverse",
+    "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-right-inverse",
+    "mathlib:AlgEquiv.ofAlgHom"
+   ],
+   "proofSteps": [
+    "Bundle the two actual inverse laws with the existing AlgEquiv.ofAlgHom. This finite polynomial-coordinate comparison is explicitly left separate in the pinned Tau Ceti roots-of-unity source."
+   ],
+   "acceptance": [
+    "The specified mutually inverse maps give E_n:B_n≃ₐ[A]A[Z/n]. It works for arbitrary commutative A and every n>0; it does not split the group algebra into a product or discard nilpotents."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.affineUnitCyclicEquiv"
+   },
+   "sources": [
+    {
+     "sourceId": "FiniteCyclicCoordinates-codex-7e92bd",
+     "locator": "Authored finite coordinate deduction affineUnitCyclicEquiv; reproducible native proof in the handoff",
+     "excerpt": "The quotient root maps to the cyclic group-algebra generator.",
+     "match": "An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.RootStack.affineUnitCyclicEquiv.root",
+     "role": "simp",
+     "statement": "E_n(t_n)=e_[1]."
+    },
+    {
+     "name": "TauCeti.RootStack.affineUnitCyclicEquiv.inverse_single",
+     "role": "simp",
+     "statement": "E_n⁻¹(a e_[k])=a·t_n^val(k)."
+    },
+    {
+     "name": "TauCeti.RootStack.affineUnitCyclicEquiv.coaction",
+     "role": "compatibility",
+     "statement": "(id⊗E_n)∘ρ_1,n=Δ∘E_n, where ρ_1,n is the inherited actual root coaction and Δ is the native group-algebra comultiplication."
+    },
+    {
+     "name": "TauCeti.RootStack.affineUnitCyclicEquiv.divisibility_single",
+     "role": "simp",
+     "statement": "For positive n|N, E_N∘d_n,N∘E_n⁻¹ sends a e_[k] to a e_[(N/n)val(k)] in A[Z/N]. The direction is the character-group inclusion Z/n→Z/N, dual to μ_N→μ_n."
+    },
+    {
+     "name": "TauCeti.RootStack.affineUnitCyclicEquiv.counit",
+     "role": "compatibility",
+     "statement": "ε∘E_n is the actual AdjoinRoot algebra lift evaluating t_n at 1."
+    },
+    {
+     "name": "TauCeti.RootStack.affineUnitCyclicEquiv.antipode_root",
+     "role": "simp",
+     "statement": "S(E_n(t_n))=E_n(t_n^(n−1)), using the native group-algebra antipode. This includes n=1."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.RootStack.affineUnitCyclicEquiv.test_transition_two_six",
+     "kind": "compatibility",
+     "statement": "Over Z, the transported 2|6 transition sends e_[1] to e_[3], not e_[1]."
+    },
+    {
+     "name": "TauCeti.RootStack.affineUnitCyclicEquiv.test_wild_nilpotent",
+     "kind": "non-example",
+     "statement": "Over ZMod 2 and n=2, x=t_2−1 is nonzero and x²=0. The equivalence must preserve this nilpotent rather than replace μ_2 by its set of field points."
+    },
+    {
+     "name": "TauCeti.RootStack.affineUnitCyclicEquiv.test_zeroRing",
+     "kind": "degenerate",
+     "statement": "Over a zero ring the actual forward and inverse maps compose to the identity for every n>0."
+    }
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-root",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Finite cyclic equivalence on the root",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.affineUnitCyclicEquiv.root",
+   "statement": "E_n(t_n)=e_[1].",
+   "hypotheses": [
+    "A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.",
+    "B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.",
+    "The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence",
+    "FunctionFieldArithmeticPartII:RS.2/unit-to-cyclic-root"
+   ],
+   "proofSteps": [
+    "The bundled equivalence has forward map F_n."
+   ],
+   "acceptance": [
+    "E_n(t_n)=e_[1]."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.affineUnitCyclicEquiv.root"
+   },
+   "sources": [
+    {
+     "sourceId": "FiniteCyclicCoordinates-codex-7e92bd",
+     "locator": "Authored finite coordinate deduction affineUnitCyclicEquiv.root; reproducible native proof in the handoff",
+     "excerpt": "The quotient root maps to the cyclic group-algebra generator.",
+     "match": "An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-inverse",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Finite cyclic equivalence on inverse basis coordinates",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.affineUnitCyclicEquiv.inverse_single",
+   "statement": "E_n⁻¹(a e_[k])=a·t_n^val(k).",
+   "hypotheses": [
+    "A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.",
+    "B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.",
+    "The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence",
+    "FunctionFieldArithmeticPartII:RS.2/unit-from-cyclic-single"
+   ],
+   "proofSteps": [
+    "The bundled equivalence has inverse map G_n."
+   ],
+   "acceptance": [
+    "E_n⁻¹(a e_[k])=a·t_n^val(k)."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.affineUnitCyclicEquiv.inverse_single"
+   },
+   "sources": [
+    {
+     "sourceId": "FiniteCyclicCoordinates-codex-7e92bd",
+     "locator": "Authored finite coordinate deduction affineUnitCyclicEquiv.inverse_single; reproducible native proof in the handoff",
+     "excerpt": "The quotient root maps to the cyclic group-algebra generator.",
+     "match": "An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-coaction",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Finite cyclic coordinates intertwine comultiplication",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.affineUnitCyclicEquiv.coaction",
+   "statement": "(id⊗E_n)∘ρ_1,n=Δ∘E_n, where ρ_1,n is the inherited actual root coaction and Δ is the native group-algebra comultiplication.",
+   "hypotheses": [
+    "A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.",
+    "B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.",
+    "The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-root",
+    "FunctionFieldArithmeticPartII:RS.0/affine-coaction",
+    "mathlib:MonoidAlgebra.comul_single",
+    "mathlib:Algebra.TensorProduct.map",
+    "mathlib:AdjoinRoot.algHom_ext"
+   ],
+   "proofSteps": [
+    "On t_n both sides are e_[1]⊗e_[1]. Apply native quotient-root extensionality. This compares actual algebra maps, not a newly assumed Hopf compatibility field."
+   ],
+   "acceptance": [
+    "(id⊗E_n)∘ρ_1,n=Δ∘E_n, where ρ_1,n is the inherited actual root coaction and Δ is the native group-algebra comultiplication."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.affineUnitCyclicEquiv.coaction"
+   },
+   "sources": [
+    {
+     "sourceId": "FiniteCyclicCoordinates-codex-7e92bd",
+     "locator": "Authored finite coordinate deduction affineUnitCyclicEquiv.coaction; reproducible native proof in the handoff",
+     "excerpt": "The quotient root maps to the cyclic group-algebra generator.",
+     "match": "An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-divisibility",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Cyclic coordinates of divisibility transitions",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.affineUnitCyclicEquiv.divisibility_single",
+   "statement": "For positive n|N, E_N∘d_n,N∘E_n⁻¹ sends a e_[k] to a e_[(N/n)val(k)] in A[Z/N]. The direction is the character-group inclusion Z/n→Z/N, dual to μ_N→μ_n.",
+   "hypotheses": [
+    "A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.",
+    "B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.",
+    "The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-root",
+    "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-inverse",
+    "FunctionFieldArithmeticPartII:RS.2/affine-divisibility-root",
+    "FunctionFieldArithmeticPartII:RS.0/affine-character-power"
+   ],
+   "proofSteps": [
+    "Apply the inverse single formula, the inherited transition t_n↦t_N^(N/n), multiplicativity and the character-power formula. The displayed coefficient is preserved; no field or separability argument is used."
+   ],
+   "acceptance": [
+    "For positive n|N, E_N∘d_n,N∘E_n⁻¹ sends a e_[k] to a e_[(N/n)val(k)] in A[Z/N]. The direction is the character-group inclusion Z/n→Z/N, dual to μ_N→μ_n."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.affineUnitCyclicEquiv.divisibility_single"
+   },
+   "sources": [
+    {
+     "sourceId": "FiniteCyclicCoordinates-codex-7e92bd",
+     "locator": "Authored finite coordinate deduction affineUnitCyclicEquiv.divisibility_single; reproducible native proof in the handoff",
+     "excerpt": "The quotient root maps to the cyclic group-algebra generator.",
+     "match": "An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-counit",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Finite cyclic coordinates identify the counit",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.affineUnitCyclicEquiv.counit",
+   "statement": "ε∘E_n is the actual AdjoinRoot algebra lift evaluating t_n at 1.",
+   "hypotheses": [
+    "A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.",
+    "B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.",
+    "The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-root",
+    "mathlib:MonoidAlgebra.counit_single",
+    "mathlib:AdjoinRoot.liftAlgHom",
+    "mathlib:AdjoinRoot.algHom_ext"
+   ],
+   "proofSteps": [
+    "The two algebra maps agree at t_n, where the group-like generator has counit one; use native quotient extensionality."
+   ],
+   "acceptance": [
+    "ε∘E_n is the actual AdjoinRoot algebra lift evaluating t_n at 1."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.affineUnitCyclicEquiv.counit"
+   },
+   "sources": [
+    {
+     "sourceId": "FiniteCyclicCoordinates-codex-7e92bd",
+     "locator": "Authored finite coordinate deduction affineUnitCyclicEquiv.counit; reproducible native proof in the handoff",
+     "excerpt": "The quotient root maps to the cyclic group-algebra generator.",
+     "match": "An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-antipode",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Finite cyclic coordinates identify root inversion",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.affineUnitCyclicEquiv.antipode_root",
+   "statement": "S(E_n(t_n))=E_n(t_n^(n−1)), using the native group-algebra antipode. This includes n=1.",
+   "hypotheses": [
+    "A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.",
+    "B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.",
+    "The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-root",
+    "FunctionFieldArithmeticPartII:RS.0/affine-character-power",
+    "mathlib:MonoidAlgebra.antipode_single"
+   ],
+   "proofSteps": [
+    "The antipode sends e_[1] to e_[−1]. Since n>0, [(n−1)]=−[1] in Z/n, and the root-power formula identifies the right side."
+   ],
+   "acceptance": [
+    "S(E_n(t_n))=E_n(t_n^(n−1)), using the native group-algebra antipode. This includes n=1."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.affineUnitCyclicEquiv.antipode_root"
+   },
+   "sources": [
+    {
+     "sourceId": "FiniteCyclicCoordinates-codex-7e92bd",
+     "locator": "Authored finite coordinate deduction affineUnitCyclicEquiv.antipode_root; reproducible native proof in the handoff",
+     "excerpt": "The quotient root maps to the cyclic group-algebra generator.",
+     "match": "An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
@@ -19664,7 +20579,8 @@
     "Actual coherent scalar maps and φ-semilinear chart maps now obey identity/composition and the forward/inverse scaling squares for arbitrary coefficient ring homomorphisms. The universal diagonalizable group scheme and Hopf coaction, transport through the positive-divisibility comparison, coherent root-object groupoid reindexing, Spec limits, fpqc frame torsors and the infinite quotient comparison remain required constructions. TOWER-AFF, KUMMER-FINITE, TOWER-TYPING, DVR/Kummer and the all-roots-of2 non-fppf distinctions and separate Yun–Zhang/symplectic source routes are unchanged.",
     "The universal factorial algebra coaction, native bialgebra/Hopf structures and fixed-universe natural equivalence of algebra-valued points with coherent unit families now have explicit signatures and separate no-admission native evidence. Identify H_A with the canonical diagonalizable coordinate Hopf algebra A[Q/Z] and its convolution group of points; transport the coaction through the full positive-divisibility equivalence; prove coefficient-base-change/coaction compatibility and higher-universe adapters; construct coherent root-object groupoid reindexing, affine Spec limits, fpqc frame torsors and the infinite quotient comparison. Preserve TOWER-AFF, KUMMER-FINITE, TOWER-TYPING, DVR/Kummer, the all-roots-of2 non-fppf counterexample and both Yun–Zhang and symplectic source routes. No stage or implementation closes.",
     "The fixed-universe coefficient maps now have explicit coaction/counit/antipode squares and separate native proof evidence. Still identify H_A with A[Q/Z], compare convolution points, transport positive-divisibility and higher-universe structures, and construct root groupoid reindexing, affine Spec limits, fpqc frame torsors and quotient comparisons. All existing TOWER-AFF/KUMMER-FINITE/TOWER-TYPING/DVR obligations remain.",
-    "The fixed-universe convolution-point/coherent-root comparison now has explicit native product, identity, antipode inverse, multiplicative equivalence and test-algebra naturality proofs. Identify H_A with A[Q/Z], transport positive-divisibility and universe structures, reindex root-object groupoids, build affine Spec limits, fpqc frame torsors and the geometric quotient equivalence. All existing TOWER-AFF/KUMMER-FINITE/TOWER-TYPING/DVR obligations remain."
+    "The fixed-universe convolution-point/coherent-root comparison now has explicit native product, identity, antipode inverse, multiplicative equivalence and test-algebra naturality proofs. Identify H_A with A[Q/Z], transport positive-divisibility and universe structures, reindex root-object groupoids, build affine Spec limits, fpqc frame torsors and the geometric quotient equivalence. All existing TOWER-AFF/KUMMER-FINITE/TOWER-TYPING/DVR obligations remain.",
+    "The actual finite unity-root/cyclic equivalence and its divisibility, coaction, counit and root-antipode comparisons now have explicit signatures and separate native evidence. Next construct compatible Z/n→Q/Z character embeddings, prove that their group-algebra colimit is A[Q/Z], and compare all infinite Hopf maps; retain index/universe transports, root-groupoid reindexing, affine Spec limits, fpqc frame torsors and quotient comparison, TOWER-AFF/KUMMER-FINITE/TOWER-TYPING/DVR and the roots-of2 non-fppf counterexample. No stage or implementation closes."
    ]
   },
   {

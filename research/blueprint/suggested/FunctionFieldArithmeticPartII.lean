@@ -3614,3 +3614,151 @@ example (x : FactorialAffineColimit (0 : ZMod 1) →ₐ[ZMod 1] ZMod 1) :
 
 end FactorialPointAction
 end TauCeti.RootStack
+
+/- BEGIN FINITE CYCLIC COORDINATES -/
+namespace TauCeti.RootStack
+variable {A : Type u} [CommRing A]
+open scoped TensorProduct
+
+def affineUnitCharacter (n : ℕ) [NeZero n] :
+    Multiplicative (ZMod n) →* AffineRing (1 : A) n := by
+  sorry
+
+lemma affineUnitCharacter.natCast (n k : ℕ) [NeZero n] :
+    affineUnitCharacter (A := A) n (Multiplicative.ofAdd (k : ZMod n)) =
+      AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (1 : A)) ^ k := by
+  sorry
+
+def affineUnitToCyclic (n : ℕ) [NeZero n] :
+    AffineRing (1 : A) n →ₐ[A] MuHopf A n := by
+  sorry
+
+lemma affineUnitToCyclic.root (n : ℕ) [NeZero n] :
+    affineUnitToCyclic (A := A) n (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (1 : A))) =
+      MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod n)) (1 : A) := by
+  sorry
+
+def affineUnitFromCyclic (n : ℕ) [NeZero n] :
+    MuHopf A n →ₐ[A] AffineRing (1 : A) n := by
+  sorry
+
+lemma affineUnitFromCyclic.single (n : ℕ) [NeZero n] (k : ZMod n) (a : A) :
+    affineUnitFromCyclic n (MonoidAlgebra.single (Multiplicative.ofAdd k) a) =
+      a • AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (1 : A)) ^ k.val := by
+  sorry
+
+lemma affineUnitCyclic.left_inverse (n : ℕ) [NeZero n] :
+    (affineUnitFromCyclic (A := A) n).comp (affineUnitToCyclic n) =
+      AlgHom.id A (AffineRing (1 : A) n) := by
+  sorry
+
+lemma affineUnitCyclic.right_inverse (n : ℕ) [NeZero n] :
+    (affineUnitToCyclic (A := A) n).comp (affineUnitFromCyclic n) =
+      AlgHom.id A (MuHopf A n) := by
+  sorry
+
+def affineUnitCyclicEquiv (n : ℕ) [NeZero n] :
+    AffineRing (1 : A) n ≃ₐ[A] MuHopf A n := by
+  sorry
+
+lemma affineUnitCyclicEquiv.root (n : ℕ) [NeZero n] :
+    affineUnitCyclicEquiv (A := A) n (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (1 : A))) =
+      MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod n)) (1 : A) := by
+  sorry
+
+lemma affineUnitCyclicEquiv.inverse_single (n : ℕ) [NeZero n] (k : ZMod n) (a : A) :
+    (affineUnitCyclicEquiv n).symm (MonoidAlgebra.single (Multiplicative.ofAdd k) a) =
+      a • AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (1 : A)) ^ k.val := by
+  sorry
+
+lemma affineUnitCyclicEquiv.coaction (n : ℕ) [NeZero n] :
+    (Algebra.TensorProduct.map (AlgHom.id A (MuHopf A n))
+      (affineUnitCyclicEquiv n).toAlgHom).comp (affineCoaction (1 : A) n) =
+      (Bialgebra.comulAlgHom A (MuHopf A n)).comp (affineUnitCyclicEquiv n).toAlgHom := by
+  sorry
+
+lemma affineUnitCyclicEquiv.divisibility_single (n N : ℕ) [NeZero n] [NeZero N]
+    (h : n ∣ N) (k : ZMod n) (a : A) :
+    affineUnitCyclicEquiv N
+      (affineDivisibility (1 : A) n N h
+        ((affineUnitCyclicEquiv n).symm (MonoidAlgebra.single (Multiplicative.ofAdd k) a))) =
+      MonoidAlgebra.single (Multiplicative.ofAdd ((N / n * k.val : ℕ) : ZMod N)) a := by
+  sorry
+
+lemma affineUnitCyclicEquiv.counit (n : ℕ) [NeZero n] :
+    (Bialgebra.counitAlgHom A (MuHopf A n)).comp (affineUnitCyclicEquiv n).toAlgHom =
+      AdjoinRoot.liftAlgHom (Polynomial.X ^ n - Polynomial.C (1 : A))
+        (AlgHom.id A A) (1 : A) (by simp) := by
+  sorry
+
+lemma affineUnitCyclicEquiv.antipode_root (n : ℕ) [NeZero n] :
+    HopfAlgebra.antipode A (affineUnitCyclicEquiv n
+      (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (1 : A)))) =
+      affineUnitCyclicEquiv n
+        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (1 : A)) ^ (n - 1)) := by
+  sorry
+
+-- TauCeti.RootStack.affineUnitCharacter.test_one
+example (g : Multiplicative (ZMod 1)) : affineUnitCharacter (A := A) 1 g = 1 := by
+  sorry
+
+-- TauCeti.RootStack.affineUnitCharacter.test_wrap
+example : affineUnitCharacter (A := A) 2 (Multiplicative.ofAdd (3 : ZMod 2)) =
+    AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (1 : A)) := by
+  sorry
+
+-- TauCeti.RootStack.affineUnitCharacter.test_square
+example : (affineUnitCharacter (A := A) 2 (Multiplicative.ofAdd (1 : ZMod 2))) ^ 2 = 1 := by
+  sorry
+
+-- TauCeti.RootStack.affineUnitToCyclic.test_one
+example : affineUnitToCyclic (A := A) 1 (AdjoinRoot.root (Polynomial.X ^ 1 - Polynomial.C (1 : A))) = 1 := by
+  sorry
+
+-- TauCeti.RootStack.affineUnitToCyclic.test_cube
+example : affineUnitToCyclic (A := A) 3
+    (AdjoinRoot.root (Polynomial.X ^ 3 - Polynomial.C (1 : A)) ^ 4) =
+      MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 3)) (1 : A) := by
+  sorry
+
+-- TauCeti.RootStack.affineUnitToCyclic.test_zeroRing
+example [Subsingleton A] (n : ℕ) [NeZero n] (x : AffineRing (1 : A) n) :
+    affineUnitToCyclic n x = 0 := by
+  sorry
+
+-- TauCeti.RootStack.affineUnitFromCyclic.test_constant
+example (a : A) : affineUnitFromCyclic 1 (MonoidAlgebra.single (Multiplicative.ofAdd (0 : ZMod 1)) a) =
+    algebraMap A (AffineRing (1 : A) 1) a := by
+  sorry
+
+-- TauCeti.RootStack.affineUnitFromCyclic.test_nontrivial_basis
+example : affineUnitFromCyclic 4 (MonoidAlgebra.single (Multiplicative.ofAdd (3 : ZMod 4)) (2 : A)) =
+    (2 : A) • AdjoinRoot.root (Polynomial.X ^ 4 - Polynomial.C (1 : A)) ^ 3 := by
+  sorry
+
+-- TauCeti.RootStack.affineUnitFromCyclic.test_multiplication
+example : affineUnitFromCyclic 2
+    (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : A) *
+      MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : A)) = 1 := by
+  sorry
+
+-- TauCeti.RootStack.affineUnitCyclicEquiv.test_transition_two_six
+example : affineUnitCyclicEquiv 6
+    (affineDivisibility (1 : ℤ) 2 6 (by decide)
+      ((affineUnitCyclicEquiv 2).symm (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : ℤ)))) =
+      MonoidAlgebra.single (Multiplicative.ofAdd (3 : ZMod 6)) (1 : ℤ) := by
+  sorry
+
+-- TauCeti.RootStack.affineUnitCyclicEquiv.test_wild_nilpotent
+example :
+    let x := AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (1 : ZMod 2)) - 1
+    x ≠ 0 ∧ x ^ 2 = 0 := by
+  sorry
+
+-- TauCeti.RootStack.affineUnitCyclicEquiv.test_zeroRing
+example [Subsingleton A] (n : ℕ) [NeZero n] (x : MuHopf A n) :
+    affineUnitCyclicEquiv n ((affineUnitCyclicEquiv n).symm x) = x := by
+  sorry
+
+end TauCeti.RootStack
+/- END FINITE CYCLIC COORDINATES -/
