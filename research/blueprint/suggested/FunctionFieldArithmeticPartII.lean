@@ -3767,9 +3767,9 @@ end TauCeti.RootStack
 
 /- BEGIN INFINITE RATIONAL CHARACTERS -/
 noncomputable section
-universe u
+universe uQZ
 namespace TauCeti.RootStack
-variable {A : Type u} [CommRing A]
+variable {A : Type uQZ} [CommRing A]
 local instance (i : ℕ) : NeZero (Nat.factorial (i+1)) := ⟨Nat.factorial_ne_zero _⟩
 local instance (q : ℚ) : NeZero q.den := ⟨Nat.ne_of_gt q.den_pos⟩
 open scoped TensorProduct
@@ -3799,7 +3799,7 @@ lemma affineQZCharacter.exhaustive (u : AddCircle (1 : ℚ)) :
       ∃ k : ZMod n, @affineQZCharacter n ⟨Nat.ne_of_gt hn⟩ k = u := by
   sorry
 
-def finiteQZAlgMap (A : Type u) [CommRing A] (n : ℕ) [NeZero n] :
+def finiteQZAlgMap (A : Type uQZ) [CommRing A] (n : ℕ) [NeZero n] :
     MuHopf A n →ₐ[A] MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) := by
   sorry
 
@@ -3819,7 +3819,7 @@ lemma finiteQZAlgMap.transition (n N : ℕ) [NeZero n] [NeZero N]
       finiteQZAlgMap A n (MonoidAlgebra.single (Multiplicative.ofAdd k) a) := by
   sorry
 
-def finiteRootQZMap (A : Type u) [CommRing A] (n : ℕ) [NeZero n] :
+def finiteRootQZMap (A : Type uQZ) [CommRing A] (n : ℕ) [NeZero n] :
     AffineRing (1 : A) n →ₐ[A] MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) := by
   sorry
 
@@ -3837,13 +3837,13 @@ lemma finiteRootQZMap.transition (n N : ℕ) [NeZero n] [NeZero N] (h : n ∣ N)
     (finiteRootQZMap A N).comp (affineDivisibility (1 : A) n N h) = finiteRootQZMap A n := by
   sorry
 
-lemma factorialQZRoot_power (A : Type u) [CommRing A] (i : ℕ) :
+lemma factorialQZRoot_power (A : Type uQZ) [CommRing A] (i : ℕ) :
     (MonoidAlgebra.single (Multiplicative.ofAdd
       (((1 / (Nat.factorial (i+1) : ℚ) : ℚ) : AddCircle (1 : ℚ))))
       (1 : A)) ^ Nat.factorial (i+1) = 1 := by
   sorry
 
-lemma factorialQZRoot_transition (A : Type u) [CommRing A] (i j : ℕ) (h : i ≤ j) :
+lemma factorialQZRoot_transition (A : Type uQZ) [CommRing A] (i j : ℕ) (h : i ≤ j) :
     (MonoidAlgebra.single (Multiplicative.ofAdd
       (((1 / (Nat.factorial (j+1) : ℚ) : ℚ) : AddCircle (1 : ℚ))))
       (1 : A)) ^ (Nat.factorial (j+1) / Nat.factorial (i+1)) =
@@ -3851,43 +3851,43 @@ lemma factorialQZRoot_transition (A : Type u) [CommRing A] (i j : ℕ) (h : i �
         (((1 / (Nat.factorial (i+1) : ℚ) : ℚ) : AddCircle (1 : ℚ)))) 1 := by
   sorry
 
-def factorialUnitQZMap (A : Type u) [CommRing A] :
+def factorialUnitQZMap (A : Type uQZ) [CommRing A] :
     FactorialAffineColimit (1 : A) →ₐ[A]
       MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) := by
   sorry
 
-lemma factorialUnitQZMap.root (A : Type u) [CommRing A] (i : ℕ) :
+lemma factorialUnitQZMap.root (A : Type uQZ) [CommRing A] (i : ℕ) :
     factorialUnitQZMap A (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) =
       MonoidAlgebra.single (Multiplicative.ofAdd
         (((1 / (Nat.factorial (i+1) : ℚ) : ℚ) : AddCircle (1 : ℚ)))) 1 := by
   sorry
 
-lemma factorialUnitQZMap.leg (A : Type u) [CommRing A] (n : RootDivIndex)
+lemma factorialUnitQZMap.leg (A : Type uQZ) [CommRing A] (n : RootDivIndex)
     (x : AffineRing (1 : A) n.exponent) :
     factorialUnitQZMap A (factorialAffineExtension (1 : A) n x) =
       finiteRootQZMap A n.exponent x := by
   sorry
 
-lemma factorialUnitQZMap.injective (A : Type u) [CommRing A] :
+lemma factorialUnitQZMap.injective (A : Type uQZ) [CommRing A] :
     Function.Injective (factorialUnitQZMap A) := by
   sorry
 
-lemma factorialUnitQZMap.surjective (A : Type u) [CommRing A] :
+lemma factorialUnitQZMap.surjective (A : Type uQZ) [CommRing A] :
     Function.Surjective (factorialUnitQZMap A) := by
   sorry
 
-def factorialUnitQZEquiv (A : Type u) [CommRing A] :
+def factorialUnitQZEquiv (A : Type uQZ) [CommRing A] :
     FactorialAffineColimit (1 : A) ≃ₐ[A]
       MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) := by
   sorry
 
-lemma factorialUnitQZEquiv.root (A : Type u) [CommRing A] (i : ℕ) :
+lemma factorialUnitQZEquiv.root (A : Type uQZ) [CommRing A] (i : ℕ) :
     factorialUnitQZEquiv A (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) =
       MonoidAlgebra.single (Multiplicative.ofAdd
         (((1 / (Nat.factorial (i+1) : ℚ) : ℚ) : AddCircle (1 : ℚ)))) 1 := by
   sorry
 
-lemma factorialUnitQZEquiv.inverse_single_den (A : Type u) [CommRing A] (q : ℚ) (a : A) :
+lemma factorialUnitQZEquiv.inverse_single_den (A : Type uQZ) [CommRing A] (q : ℚ) (a : A) :
     (factorialUnitQZEquiv A).symm
       (MonoidAlgebra.single (Multiplicative.ofAdd (q : AddCircle (1 : ℚ))) a) =
       factorialAffineExtension (1 : A) ⟨q.den, q.den_pos⟩
@@ -3895,25 +3895,25 @@ lemma factorialUnitQZEquiv.inverse_single_den (A : Type u) [CommRing A] (q : ℚ
           (MonoidAlgebra.single (Multiplicative.ofAdd (q.num : ZMod q.den)) a)) := by
   sorry
 
-lemma factorialUnitQZEquiv.comul (A : Type u) [CommRing A]
+lemma factorialUnitQZEquiv.comul (A : Type uQZ) [CommRing A]
     (x : FactorialAffineColimit (1 : A)) :
     Algebra.TensorProduct.map (factorialUnitQZEquiv A).toAlgHom
       (factorialUnitQZEquiv A).toAlgHom (factorialCoaction (1 : A) x) =
       Coalgebra.comul (R := A) (factorialUnitQZEquiv A x) := by
   sorry
 
-lemma factorialUnitQZEquiv.counit (A : Type u) [CommRing A]
+lemma factorialUnitQZEquiv.counit (A : Type uQZ) [CommRing A]
     (x : FactorialAffineColimit (1 : A)) :
     Coalgebra.counit (R := A) (factorialUnitQZEquiv A x) = factorialCounit A x := by
   sorry
 
-lemma factorialUnitQZEquiv.antipode (A : Type u) [CommRing A]
+lemma factorialUnitQZEquiv.antipode (A : Type uQZ) [CommRing A]
     (x : FactorialAffineColimit (1 : A)) :
     HopfAlgebra.antipode A (factorialUnitQZEquiv A x) =
       factorialUnitQZEquiv A (factorialAntipode A x) := by
   sorry
 
-lemma factorialUnitQZEquiv.coefficient_natural {B : Type u} [CommRing B]
+lemma factorialUnitQZEquiv.coefficient_natural {B : Type uQZ} [CommRing B]
     (φ : A →+* B) (x : FactorialAffineColimit (1 : A)) :
     MonoidAlgebra.mapRingHom (Multiplicative (AddCircle (1 : ℚ))) φ
       (factorialUnitQZEquiv A x) =
@@ -3969,3 +3969,122 @@ example (x : FactorialAffineColimit (1 : ℤ)) : MonoidAlgebra.mapRingHom (Multi
 end TauCeti.RootStack
 end
 /- END INFINITE RATIONAL CHARACTERS -/
+
+/-! Rational-character LEFT coaction on the actual arbitrary-section root chart.
+Compilation receipts are in the handoff. No geometric fpqc quotient is inferred.
+The parameter f is not a unit assumption. Characters stay in the first factor. -/
+noncomputable section
+universe uQZCoact
+namespace TauCeti.RootStack
+variable {A : Type uQZCoact} [CommRing A]
+open scoped TensorProduct
+
+def factorialQZCoaction (f : A) :
+    FactorialAffineColimit f →ₐ[A]
+      (MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
+        FactorialAffineColimit f) := by
+  sorry
+
+lemma factorialQZCoaction.transport (f : A) :
+    factorialQZCoaction f =
+      (Algebra.TensorProduct.map (factorialUnitQZEquiv A).toAlgHom
+        (AlgHom.id A (FactorialAffineColimit f))).comp (factorialCoaction f) := by
+  sorry
+
+lemma factorialQZCoaction.root (f : A) (i : ℕ) :
+    factorialQZCoaction f (factorialAffineInclusion f i (AdjoinRoot.root _)) =
+      MonoidAlgebra.single (Multiplicative.ofAdd
+        (((1 / (Nat.factorial (i+1) : ℚ) : ℚ) : AddCircle (1 : ℚ))))
+        (1 : A) ⊗ₜ[A]
+          factorialAffineInclusion f i (AdjoinRoot.root _) := by
+  sorry
+
+lemma factorialQZCoaction.constant (f a : A) :
+    factorialQZCoaction f (algebraMap A _ a) =
+      (1 : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[A]
+        algebraMap A (FactorialAffineColimit f) a := by
+  sorry
+
+lemma factorialQZCoaction.power (f : A) (i k : ℕ) :
+    factorialQZCoaction f ((factorialAffineInclusion f i (AdjoinRoot.root _)) ^ k) =
+      MonoidAlgebra.single (Multiplicative.ofAdd
+        (((k / (Nat.factorial (i+1) : ℚ) : ℚ) : AddCircle (1 : ℚ))))
+        (1 : A) ⊗ₜ[A]
+          (factorialAffineInclusion f i (AdjoinRoot.root _)) ^ k := by
+  sorry
+
+lemma factorialQZCoaction.counit (f : A) :
+    ((Algebra.TensorProduct.lid A (FactorialAffineColimit f)).toAlgHom.comp
+      (Algebra.TensorProduct.map
+        (Bialgebra.counitAlgHom A
+          (MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))))
+        (AlgHom.id A (FactorialAffineColimit f)))).comp (factorialQZCoaction f) =
+      AlgHom.id A (FactorialAffineColimit f) := by
+  sorry
+
+lemma factorialQZCoaction.coassoc (f : A) :
+    let G := MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))
+    (Algebra.TensorProduct.assoc A A A G G (FactorialAffineColimit f)).toAlgHom.comp
+      ((Algebra.TensorProduct.map (Bialgebra.comulAlgHom A G)
+        (AlgHom.id A (FactorialAffineColimit f))).comp (factorialQZCoaction f)) =
+      (Algebra.TensorProduct.map (AlgHom.id A G) (factorialQZCoaction f)).comp
+        (factorialQZCoaction f) := by
+  sorry
+
+lemma factorialQZCoaction.injective (f : A) :
+    Function.Injective (factorialQZCoaction f) := by
+  sorry
+
+lemma factorialQZCoaction.coinvariant_iff (f : A) (x : FactorialAffineColimit f) :
+    factorialQZCoaction f x =
+      (1 : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[A] x ↔
+    factorialCoaction f x = (1 : FactorialAffineColimit (1 : A)) ⊗ₜ[A] x := by
+  sorry
+
+lemma factorialQZCoaction.unity (x : FactorialAffineColimit (1 : A)) :
+    Algebra.TensorProduct.map
+      (AlgHom.id A (MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))))
+      (factorialUnitQZEquiv A).toAlgHom (factorialQZCoaction (1 : A) x) =
+      Coalgebra.comul (R := A) (factorialUnitQZEquiv A x) := by
+  sorry
+
+-- test: TauCeti.RootStack.factorialQZCoaction.test_level_zero
+example (f : A) :
+    factorialQZCoaction f (factorialAffineInclusion f 0 (AdjoinRoot.root _)) =
+      (1 : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[A]
+        algebraMap A (FactorialAffineColimit f) f := by
+  sorry
+
+-- test: TauCeti.RootStack.factorialQZCoaction.test_sixth_root
+example :
+    factorialQZCoaction (2 : ZMod 4)
+      ((factorialAffineInclusion (2 : ZMod 4) 2 (AdjoinRoot.root _)) ^ 2) =
+      MonoidAlgebra.single (Multiplicative.ofAdd
+        (((1 / 3 : ℚ) : AddCircle (1 : ℚ)))) (1 : ZMod 4) ⊗ₜ[ZMod 4]
+          (factorialAffineInclusion (2 : ZMod 4) 2 (AdjoinRoot.root _)) ^ 2 := by
+  sorry
+
+-- test: TauCeti.RootStack.factorialQZCoaction.test_native_transport
+example (f : A) (x : FactorialAffineColimit f) :
+    factorialQZCoaction f x =
+      Algebra.TensorProduct.map (factorialUnitQZEquiv A).toAlgHom
+        (AlgHom.id A (FactorialAffineColimit f)) (factorialCoaction f x) := by
+  sorry
+
+-- test: TauCeti.RootStack.factorialQZCoaction.test_wild_zero_section
+example :
+    let u := factorialAffineInclusion (0 : ZMod 2) 1 (AdjoinRoot.root _)
+    factorialQZCoaction (0 : ZMod 2) u ≠
+      (1 : MonoidAlgebra (ZMod 2) (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[ZMod 2] u := by
+  sorry
+
+-- test: TauCeti.RootStack.factorialQZCoaction.test_unity
+example (x : FactorialAffineColimit (1 : A)) :
+    Algebra.TensorProduct.map
+      (AlgHom.id A (MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))))
+      (factorialUnitQZEquiv A).toAlgHom (factorialQZCoaction (1 : A) x) =
+      Coalgebra.comul (R := A) (factorialUnitQZEquiv A x) := by
+  sorry
+
+end TauCeti.RootStack
+end

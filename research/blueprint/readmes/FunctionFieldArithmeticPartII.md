@@ -1,3 +1,129 @@
+# Rational-character coaction on arbitrary-section charts
+
+Write d_i=(i+1)!, C=C_A(f), H=H_A=C_A(1), G=G_A=A[Q/Z] and E=E_A:H≃G. Here A is any commutative ring and f is any element, including zero and nonunits. The universe is the inherited same-universe colimit's universe. The roots u_i and h_i are the actual AdjoinRoot elements inserted into the existing colimits. The character [q] is the class of q in AddCircle(1:Q), represented multiplicatively in the native MonoidAlgebra. All tensor products are over A. The coaction is LEFT: its target is G⊗C, never C⊗G.
+
+The source motivation is the rank-one grading action in [Talpo–Vistoli, arXiv1410.1164v2, printed pp.14–16](https://arxiv.org/pdf/1410.1164v2). The following coordinate calculations are authored deductions from the inherited coaction and coordinate equivalence, not additional named results of that paper. The pinned tensor maps, tensor congr and associator are imported; no general tensor/Hopf or stack theory is duplicated.
+
+## Rational character coaction on an arbitrary root chart
+
+`TauCeti.RootStack.factorialQZCoaction` — Define η_f:C_A(f)→G_A⊗_A C_A(f) as the native tensor map E_A⊗id_C composed with ρ_f. Its parameter f is unchanged, and the characters are in the first tensor factor.
+
+Import the incoming algebra equivalence and LEFT coaction, take the existing native tensor map and compose A-algebra homomorphisms. No generic Hopf, tensor or stack carrier is rebuilt.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction`, `FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence`, `mathlib:Algebra.TensorProduct.map`.
+
+## Specified coordinate transport
+
+`TauCeti.RootStack.factorialQZCoaction.transport` — η_f=(E_A⊗id_C)∘ρ_f as native A-algebra maps C_A(f)→G_A⊗_A C_A(f).
+
+Unfold the specified composite; neither the tensor-factor order nor the section parameter changes.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction`, `mathlib:Algebra.TensorProduct.map`.
+
+## Rational character weight of a root
+
+`TauCeti.RootStack.factorialQZCoaction.root` — For each i, η_f(u_i)=e_[1/d_i]⊗u_i.
+
+Evaluate the inherited ρ_f on u_i, apply the native tensor map formula, and use E_A(h_i)=e_[1/d_i].
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-transport`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence-root`, `mathlib:Algebra.TensorProduct.map_tmul`.
+
+## Rational coaction on coefficients
+
+`TauCeti.RootStack.factorialQZCoaction.constant` — For a∈A, η_f(a)=1⊗a with a included in the actual chart.
+
+Use ρ_f(a)=1⊗a, the native pure-tensor formula, and the unit law for E_A.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-transport`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-constant`, `mathlib:Algebra.TensorProduct.map_tmul`.
+
+## Root powers retain character multiplicities
+
+`TauCeti.RootStack.factorialQZCoaction.power` — For i,k∈N, η_f(u_i^k)=e_[k/d_i]⊗u_i^k. In particular at k=d_i this is 1⊗f; neither k nor f is cancelled.
+
+Apply the algebra-map power law, pure-tensor power and single power formulas. The additive character k·[1/d_i] equals [k/d_i]. At k=d_i the character is zero and the included-root relation is u_i^d_i=f.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-root`, `mathlib:Algebra.TensorProduct.tmul_pow`, `mathlib:MonoidAlgebra.single_pow`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-power`.
+
+## Native counitality in rational coordinates
+
+`TauCeti.RootStack.factorialQZCoaction.counit` — For the native counit ε_G, lid∘(ε_G⊗id_C)∘η_f=id_C as A-algebra maps.
+
+Compose tensor maps using ε_G∘E_A=ε_H from the incoming coordinate counit square. After the unchanged native left unitor the resulting composite is the incoming coaction counit identity.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-transport`, `FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-counit`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-counit`, `mathlib:Bialgebra.counitAlgHom`, `mathlib:Algebra.TensorProduct.map_comp`, `mathlib:Algebra.TensorProduct.lid`.
+
+## Native coassociativity in rational coordinates
+
+`TauCeti.RootStack.factorialQZCoaction.coassoc` — For the native Δ_G and associator α, α∘(Δ_G⊗id_C)∘η_f=(id_G⊗η_f)∘η_f into G_A⊗_A(G_A⊗_A C_A(f)).
+
+Postcompose the incoming coassociativity identity with E_A⊗(E_A⊗id_C). Its compatibility with α is checked on (h⊗h')⊗x: both sides give E_A(h)⊗(E_A(h')⊗x). Use (E_A⊗E_A)Δ_H=Δ_GE_A and native tensor map composition to identify the two resulting composites. C_A(f) receives a coaction, not a new Hopf algebra.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-transport`, `FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-comul`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-coassoc`, `mathlib:Bialgebra.comulAlgHom`, `mathlib:Algebra.TensorProduct.map_comp`, `mathlib:Algebra.TensorProduct.map_tmul`, `mathlib:Algebra.TensorProduct.assoc`.
+
+## Faithful rational-character coaction
+
+`TauCeti.RootStack.factorialQZCoaction.injective` — η_f is injective for every A and f.
+
+The displayed counit composite is an actual left inverse. Applying it to η_f(x)=η_f(y) gives x=y, also for the zero ring.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-counit`.
+
+## Coordinate change reflects universal coinvariance
+
+`TauCeti.RootStack.factorialQZCoaction.coinvariant_iff` — For x∈C_A(f), η_f(x)=1⊗x if and only if ρ_f(x)=1⊗x. These are universal coaction equations, not invariance under A-valued points.
+
+The existing native tensor congr(E_A,refl_C) is an algebra equivalence H_A⊗C_A(f)≃G_A⊗C_A(f) whose forward function is E_A⊗id_C and sends 1⊗x to 1⊗x. Preservation follows by applying its function; reflection follows from its injectivity. No flatness or reducedness of the chart is needed, and this does not identify all coinvariants with A.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-transport`, `FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence`, `mathlib:Algebra.TensorProduct.congr`, `mathlib:Algebra.TensorProduct.congr_apply`, `mathlib:Algebra.TensorProduct.map_tmul`.
+
+## Unity chart agrees with native comultiplication
+
+`TauCeti.RootStack.factorialQZCoaction.unity` — For x∈H_A, (id_G⊗E_A)(η_1(x))=Δ_G(E_A(x)). The second factor of η_1 remains H_A until this second coordinate change.
+
+Native tensor map composition identifies (id_G⊗E_A)(E_A⊗id_H) with E_A⊗E_A, and the incoming comultiplication square gives the result.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-transport`, `FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-comul`, `mathlib:Algebra.TensorProduct.map_comp`, `mathlib:Bialgebra.comulAlgHom`.
+
+## Usable interface and discriminating tests
+
+`TauCeti.RootStack.factorialQZCoaction.transport` (compatibility): η_f=(E_A⊗id_C)∘ρ_f as native A-algebra maps C_A(f)→G_A⊗_A C_A(f).
+
+`TauCeti.RootStack.factorialQZCoaction.root` (simp): For each i, η_f(u_i)=e_[1/d_i]⊗u_i.
+
+`TauCeti.RootStack.factorialQZCoaction.constant` (simp): For a∈A, η_f(a)=1⊗a with a included in the actual chart.
+
+`TauCeti.RootStack.factorialQZCoaction.power` (simp): For i,k∈N, η_f(u_i^k)=e_[k/d_i]⊗u_i^k. In particular at k=d_i this is 1⊗f; neither k nor f is cancelled.
+
+`TauCeti.RootStack.factorialQZCoaction.counit` (compatibility): For the native counit ε_G, lid∘(ε_G⊗id_C)∘η_f=id_C as A-algebra maps.
+
+`TauCeti.RootStack.factorialQZCoaction.coassoc` (compatibility): For the native Δ_G and associator α, α∘(Δ_G⊗id_C)∘η_f=(id_G⊗η_f)∘η_f into G_A⊗_A(G_A⊗_A C_A(f)).
+
+`TauCeti.RootStack.factorialQZCoaction.injective` (compatibility): η_f is injective for every A and f.
+
+`TauCeti.RootStack.factorialQZCoaction.coinvariant_iff` (compatibility): For x∈C_A(f), η_f(x)=1⊗x if and only if ρ_f(x)=1⊗x. These are universal coaction equations, not invariance under A-valued points.
+
+`TauCeti.RootStack.factorialQZCoaction.unity` (compatibility): For x∈H_A, (id_G⊗E_A)(η_1(x))=Δ_G(E_A(x)). The second factor of η_1 remains H_A until this second coordinate change.
+
+`TauCeti.RootStack.factorialQZCoaction.test_level_zero` (degenerate): At i=0, d_0=1 and η_f(u_0)=1⊗f, with f included in C_A(f).
+
+`TauCeti.RootStack.factorialQZCoaction.test_sixth_root` (computation): For A=Z/4,f=2,i=2,k=2, η_f(u_2²)=e_[1/3]⊗u_2²; the character numerator must retain k=2.
+
+`TauCeti.RootStack.factorialQZCoaction.test_native_transport` (compatibility): For every x∈C_A(f), η_f(x) equals the native map(E_A,id_C) applied to the incoming ρ_f(x).
+
+`TauCeti.RootStack.factorialQZCoaction.test_wild_zero_section` (non-example): For A=F_2,f=0,u=u_1, η_0(u)≠1⊗u although μ_2(F_2) acts trivially on this finite root. The universal weight is [1/2]≠0 and u≠0.
+
+`TauCeti.RootStack.factorialQZCoaction.test_unity` (compatibility): For f=1, applying id_G⊗E_A to η_1 equals the native Δ_G after E_A, with BOTH tensor factors transported.
+
+The wild test uses the monic finite chart F₂[t]/(t²), where the coefficient of t is nonzero. Its included root remains nonzero because the chart transition and insertion maps are injective. In the native free character basis, the coefficient at [1/2] of η₀(u)−1⊗u is u, while the coefficient at zero is −u; these indices are distinct even in characteristic two. Thus the tensor is nonzero. In contrast, μ₂(F₂) consists only of 1, so the finite root's field-point action is trivial. Native free-module tensor coefficient evaluation, not reduced-group points or division by two, is the acceptance route.
+
+## Scope and proof boundary
+
+These ten items add one construction with nine promoted API lemmas and five tests. Every incoming declaration remains present. Only the existing infinite quotient consumer acquires their explicit dependencies. There is no new planet: RS.2 already has its six named landmarks. The reserved general root-stack node still includes arbitrary schemes/stacks, nontrivial lines and sections, relative closed-subscheme roots and full nonreduced fibres. The native counit supplies injectivity; tensor congr reflects universal coinvariance without flatness. Neither result proves that the invariant algebra equals A. The unity compatibility transports BOTH tensor factors and uses the inherited actual comultiplication square.
+
+Construct the arbitrary-section coefficient square from the existing heterobasic tensor map and the incoming E_A coefficient square. Establish higher-universe and full positive-index coherent groupoid transport, affine Spec limits, fpqc frame torsors and the quotient comparison. All eight gaps and thirteen supplier requests remain open; all ten stages stay partial, and all implementation statuses stay unchecked. The two accepted source routes, 33 source-coverage entries and the independent symplectic continuation are unchanged. The ten new declaration signatures and five example headers elaborate in an authenticated Mathlib-only native fragment with expected admitted-proof warnings. The complete canonical file remains uncompiled; exact finite algebra calculations are regression checks, not Lean proofs or a new whole-source coverage receipt.
+
+---
+
 # Infinite unity-root coordinates in the rational character algebra
 
 This continuation specifies the canonical diagonalizable coordinate input to RS.2. It starts from the inherited finite equivalence between the actual unity-root chart and the actual finite cyclic group algebra, and the already constructed factorial root colimit. It gives the normalized characters into the native rational circle, compatible finite algebra maps, the unity-root colimit equivalence with the native group algebra, and separate comultiplication, counit, antipode and coefficient comparisons. This is a mathematical plan with admitted signatures. Its new signatures have not been elaborated. Every implementation status remains unchecked and all ten stages remain partial.
