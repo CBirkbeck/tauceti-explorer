@@ -323,6 +323,42 @@ def install():
     sys.meta_path.insert(0, Finder())
 ```
 
+## Immutable publication receipt and recovery
+
+Archive [`0794fbbeccea350481e116a7c0b2813b20f7af99`](https://github.com/CBirkbeck/tauceti-explorer/blob/0794fbbeccea350481e116a7c0b2813b20f7af99/research/blueprint/suggested/NeronModelsAndSemistableAbelianVarietiesPartII.lean) is an ancestor of this submission and changes only this issue's five authorized paths. Its suggested file stores the native proof, exact admitted extract and new fragment under the three ARCHIVED QUADRATIC GLOBAL SCHEMES markers. Its [handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/0794fbbeccea350481e116a7c0b2813b20f7af99/research/blueprint/handoff/DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII.md) stores the two replay scripts above. The final suggested file removes the inert archived comments and has the stated FullCanonical hash.
+
+The immutable indexed checker and actual five-file intake both pass with zero errors/warnings/problems/refusals. Actual DAGs are acyclic: stages 3043 vertices/8727 edges; owned declarations 382/1056; scoped combined 3396/10353. All 69 required pairs are reachable; there are no unresolved/external declaration dependencies, no own skipped/pending links, unchanged stage edges and unchanged unrelated skipped/pending records. All 21 governing inputs are byte-identical between the mathematical and publication trees. The read-only replay inspected 845 immutable paths, whose sorted JSON-list SHA256 is `058eeeb5e5c0bdfc5035fb51bc7ec615b0620060b78255e78566ae7f62f43681`. The final overlay was checked again after replacing archives with admitted signatures. These graph counts describe the fixed publication tree, not all subsequent main commits.
+
+Save the following fence as recover-current.py outside the checkout and run `python3 recover-current.py <final-submitted-commit> <scratch-directory>`. It fetches the immutable archive, verifies three source hashes and two validator hashes, verifies the final full canonical hash, and writes the five proposed overlays. Then run the verifier as described above. This recovery was also tested against public raw GitHub blobs after push; recovering sources alone does not recertify execution. Delete reproduction scratch afterward. Original execution logs are not distributed; the no-log replay truthfully reports source/hash/header validation only. The hash-specific log branch is solely for the original successful logs, not for newly compiled logs with different timings/paths.
+
+```python
+from pathlib import Path
+from urllib.request import urlopen
+import hashlib,sys
+ARCHIVE='0794fbbeccea350481e116a7c0b2813b20f7af99'
+RID='NeronModelsAndSemistableAbelianVarietiesPartII'
+REF=sys.argv[1];OUT=Path(sys.argv[2]);OUT.mkdir(parents=True,exist_ok=True)
+def read(ref,path):return urlopen('https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'+ref+'/'+path,timeout=60).read().decode()
+def save(name,text,expected):
+ assert hashlib.sha256(text.encode()).hexdigest()==expected,name
+ (OUT/name).write_text(text)
+leanpath='research/blueprint/suggested/'+RID+'.lean'
+blob=read(ARCHIVE,leanpath)
+for name,marker,sha in [
+ ('Native.lean','CHECKED QUADRATIC GLOBAL SCHEMES','79743d44fbe8c95a4887f95a61ea957c8831975dd4e5472022968acf8dd99697'),
+ ('Canonical.lean','ADMITTED QUADRATIC GLOBAL SCHEMES','bcd995740564027f6dd0b7f574293d474202b2d9c24ff937e487430a20052db4'),
+ ('New.lean','NEW QUADRATIC GLOBAL SCHEMES','ef951b645014f7f9469f735f210d66146f40ba0718c0440f2bf34765a08a6f47')]:
+ save(name,blob.split('BEGIN ARCHIVED '+marker+'\n',1)[1].split('END ARCHIVED '+marker+'\n',1)[0],sha)
+handoff=read(ARCHIVE,'research/blueprint/handoff/DESIGN-'+RID+'.md')
+for name,sha in [('verify.py','ca3a16f2c4e0557c60ae0761ac80d175ded3ebcc9bb66b3d4e6dc2261024b816'),('immutable_view.py','1e943d287481e0cd4bf0f1b9a8a805276aec0e206345cecfa35063a7d2d3c4f4')]:
+ save(name,handoff.split('### '+name+'\n',1)[1].split('```python\n',1)[1].split('```',1)[0],sha)
+for folder,ext in [('roadmaps','json'),('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]:
+ path='research/blueprint/'+folder+'/'+('DESIGN-' if folder=='handoff' else '')+RID+'.'+ext
+ text=read(REF,path);dest=OUT/'proposal'/path;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_text(text)
+ if folder=='suggested':save('FullCanonical.lean',text,'450acceb8e682310f5ba7b45e1d1e3395108e1f9d79b672b63377573f3de1e77')
+print('Recovered three hash-verified proof/signature sources, two hash-verified validators, and five final overlays; Lean was not rerun.')
+```
+
 ---
 
 The complete incoming handoff follows unchanged. Its earlier frontier and execution receipts are historical; the current boundary is stated above.
