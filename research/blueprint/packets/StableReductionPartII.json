@@ -13,7 +13,7 @@
     "StableReductionPartII:MC.7"
   ],
   "status": "partial",
-  "summary": "Partial pointed-moduli roadmap. Adds twelve consumed declaration-sized inputs for ordinary R-bidual reflexivity of the actual polynomial section ideal, with explicit inverse F↦F(incl), native evaluation equivalence and dual reflexivity through the existing Mathlib instance. All inherited contracts remain, all eight stages stay partial, and arbitrary coefficient-module Hom exchange, higher Ext, completion and family geometry remain required. The actual polynomial coefficient-module Hom comparisons D⊗_A M≃Hom_R(J,R⊗_A M) and J⊗_A M≃Hom_R(D,R⊗_A M) are R-linear, canonical on pure tensors, natural for arbitrary A-linear coefficient maps and compatible with native bidual evaluation when M=A. Signed coordinate lemmas and universal transpose exactness give bijectivity for every M without a flatness assumption; no higher Ext, relative stable-reflexivity or geometric closure is inferred. The actual R-module Hom cochains for the polynomial section ideal and dual are specified with correct alternating phases, signed augmentation cycles and zero native positive cohomology for every coefficient module. The augmented projective-resolution/Ext identification remains required. This checkpoint supplies the actual native projective resolutions of the polynomial section ideal and its dual; the higher Ext and geometric comparisons remain open. The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain. The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial.",
+  "summary": "Partial pointed-moduli roadmap. Adds twelve consumed declaration-sized inputs for ordinary R-bidual reflexivity of the actual polynomial section ideal, with explicit inverse F↦F(incl), native evaluation equivalence and dual reflexivity through the existing Mathlib instance. All inherited contracts remain, all eight stages stay partial, and arbitrary coefficient-module Hom exchange, higher Ext, completion and family geometry remain required. The actual polynomial coefficient-module Hom comparisons D⊗_A M≃Hom_R(J,R⊗_A M) and J⊗_A M≃Hom_R(D,R⊗_A M) are R-linear, canonical on pure tensors, natural for arbitrary A-linear coefficient maps and compatible with native bidual evaluation when M=A. Signed coordinate lemmas and universal transpose exactness give bijectivity for every M without a flatness assumption; no higher Ext, relative stable-reflexivity or geometric closure is inferred. The actual R-module Hom cochains for the polynomial section ideal and dual are specified with correct alternating phases, signed augmentation cycles and zero native positive cohomology for every coefficient module. The augmented projective-resolution/Ext identification remains required. This checkpoint supplies the actual native projective resolutions of the polynomial section ideal and its dual; the higher Ext and geometric comparisons remain open. The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain. The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial. This continuation supplies the actual completed coefficient algebra and its exact two-base tensor quotient, keeping the full relative completion theorem open.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1404,6 +1404,125 @@
         "module": "Mathlib/Algebra/Homology/DerivedCategory/Ext/Basic.lean",
         "provides": "Localization-defined Ext as an additive-group-valued functor in the target.",
         "checked": "Statement and definition read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03."
+      },
+      {
+        "ref": "mathlib:AdicCompletion.algebraMap_apply",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdicCompletion/Algebra.lean",
+        "provides": "Compare the native A-algebra maps with the completed coefficient square, then apply the scalar-tower constructor.",
+        "checked": "Full declaration statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03."
+      },
+      {
+        "ref": "mathlib:AdicCompletion.evalₐ",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/AdicCompletion/Algebra.lean",
+        "provides": "Transport raw completion coherence through the native quotient-by-pⁿ•⊤ identification; quotient representatives verify the transition square.",
+        "checked": "Full declaration statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03."
+      },
+      {
+        "ref": "mathlib:AdicCompletion.evalₐ_liftRingHom",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdicCompletion/Algebra.lean",
+        "provides": "Use the finite-evaluation characterization of the actual native completion lift.",
+        "checked": "Full declaration statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03."
+      },
+      {
+        "ref": "mathlib:AdicCompletion.evalₐ_of",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdicCompletion/Algebra.lean",
+        "provides": "Apply evaluation of native completed coefficients, followed by the quotient representative law.",
+        "checked": "Full declaration statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03."
+      },
+      {
+        "ref": "mathlib:AdicCompletion.ext_evalₐ",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/AdicCompletion/Algebra.lean",
+        "provides": "Compare all finite quotient evaluations, then apply native completion extensionality.",
+        "checked": "Full declaration statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03."
+      },
+      {
+        "ref": "mathlib:AdicCompletion.liftRingHom",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/AdicCompletion/Algebra.lean",
+        "provides": "Instantiate the native completion universal property with the proved compatible finite family.",
+        "checked": "Full declaration statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03."
+      },
+      {
+        "ref": "mathlib:AdicCompletion.transitionMap_comp_eval_apply",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+        "provides": "Transport raw completion coherence through the native quotient-by-pⁿ•⊤ identification; quotient representatives verify the transition square.",
+        "checked": "Full declaration statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.factorPow",
+        "kind": "abbrev",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/PowTransition.lean",
+        "provides": "Use ring-hom extensionality and quotient-surjectivity to reduce both composites to the same coefficient representative.",
+        "checked": "Full declaration statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03."
+      },
+      {
+        "ref": "mathlib:Ideal.map_le_iff_le_comap",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "Apply the native map/comap adjunction, transport ideal powers through ι, and use monotonicity of ideal powers.",
+        "checked": "Full declaration statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03."
+      },
+      {
+        "ref": "mathlib:Ideal.map_pow",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "Apply the native map/comap adjunction, transport ideal powers through ι, and use monotonicity of ideal powers.",
+        "checked": "Full declaration statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03."
+      },
+      {
+        "ref": "mathlib:Ideal.quotientMap",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+        "provides": "Use the proved power containment in the native ideal quotient map.",
+        "checked": "Full declaration statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03."
+      },
+      {
+        "ref": "mathlib:Ideal.quotientMap_mk",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+        "provides": "Unfold the actual quotient map on its quotient representative.",
+        "checked": "Full declaration statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03."
+      },
+      {
+        "ref": "mathlib:IsScalarTower.of_algebraMap_eq",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Algebra/Tower.lean",
+        "provides": "Compare the native A-algebra maps with the completed coefficient square, then apply the scalar-tower constructor.",
+        "checked": "Full declaration statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03."
+      },
+      {
+        "ref": "mathlib:TensorProduct.AlgebraTensorModule.ker_mapOfCompatibleSMul",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Quotient.lean",
+        "provides": "Specialize the native generic kernel theorem. The explicit scalar restriction agrees definitionally with the Â-linear native map. This identifies a quotient and makes no assertion that its kernel is zero.",
+        "checked": "Full declaration statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03."
+      },
+      {
+        "ref": "mathlib:TensorProduct.mapOfCompatibleSMul",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Basic.lean",
+        "provides": "Specialize the existing generic compatible-scalar tensor map to the actual completed coefficient algebra and scalar tower. Do not construct a duplicate tensor carrier.",
+        "checked": "Full declaration statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03."
+      },
+      {
+        "ref": "mathlib:TensorProduct.mapOfCompatibleSMul_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Basic.lean",
+        "provides": "Import generic surjectivity, whose proof is tensor induction on zero, pure tensors and sums.",
+        "checked": "Full declaration statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03."
+      },
+      {
+        "ref": "mathlib:TensorProduct.mapOfCompatibleSMul_tmul",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Basic.lean",
+        "provides": "Use the pure-tensor law of the imported native map.",
+        "checked": "Full declaration statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03."
       }
     ]
   },
@@ -1455,7 +1574,8 @@
       "readSections": [
         "§§1–3, printed pp.161–191 (PDF1–31), rendered scan",
         "Appendix, printed191–199 (PDF31–39), fresh visual selected read by codex-5ebb6f; cited Bourbaki proof and Proposition7 exercise remain unresolved.",
-        "2026-10-03 codex-7e92bd: full Appendix physical31–39/printed191–199 freshly rendered and read. Bourbaki III5.4.4 and Proposition7 exercise still unresolved."
+        "2026-10-03 codex-7e92bd: full Appendix physical31–39/printed191–199 freshly rendered and read. Bourbaki III5.4.4 and Proposition7 exercise still unresolved.",
+        "2026-10-03 codex-J6LwjP: fresh selected visual read physical31–35/printed191–195 (ambient noetherian flat setup, exact four-condition criterion, proof and Propositions4–6), plus physical37/printed197. This is not a fresh full-Appendix read. Bourbaki III5.4.4 remains unread; Proposition7 proof is not supplied."
       ]
     },
     {
@@ -4315,7 +4435,11 @@
         "StableReductionPartII:MC.2/section-ideal-absolute-derived-ext-vanishing",
         "StableReductionPartII:MC.2/section-dual-absolute-derived-ext-vanishing",
         "StableReductionPartII:MC.2/section-ideal-absolute-localization-ext-vanishing",
-        "StableReductionPartII:MC.2/section-dual-absolute-localization-ext-vanishing"
+        "StableReductionPartII:MC.2/section-dual-absolute-localization-ext-vanishing",
+        "StableReductionPartII:MC.2/completion-coefficient-hom-original",
+        "StableReductionPartII:MC.2/completion-coefficient-scalar-tower",
+        "StableReductionPartII:MC.2/completion-coefficient-tensor-surjective",
+        "StableReductionPartII:MC.2/completion-coefficient-tensor-kernel"
       ],
       "proofSteps": [
         "Apply the separately named polynomial dual, residue, coefficient-flatness, ring-linear tensor and actual quotient-base-change calculations; these are inputs to the completed-local comparison, not the global conclusion.",
@@ -4327,7 +4451,8 @@
         "The native R-module Hom cochains now have zero positive cohomology for every coefficient module and correctly identified degree-zero cycles. Establish the actual augmented finite-free/projective resolutions and their native Ext comparison before invoking relative stable reflexivity.",
         "Use the actual finite-free native projective resolutions with signed P_J/P_D augmentations and the checked precomposition differential comparison. The remaining categorical Hom-complex/native Ext, exact relative stable-reflexivity, two-base completion and geometric descent comparisons are separate obligations.",
         "The actual categorical Hom-complex isomorphisms and both native Mathlib higher Ext vanishing statements are now separate checked polynomial inputs for every coefficient module. Apply the exact Appendix/Ile relative stable-reflexivity and two-base completion comparisons only after their own proofs, then the pointed hull identification, family/sheaf descent and arbitrary-base approximation; this Ext calculation alone is not that geometric argument.",
-        "The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial."
+        "The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial.",
+        "The actual ideal-adic coefficient homomorphism Â→R̂ is now constructed from compatible native finite quotients for the polynomial nodal chart whenever p⊆ι⁻¹(m). Its original-coefficient square, finite evaluations, uniqueness and actual A→Â→R̂ scalar tower have explicit native signatures and proof bodies. The complete new native and admitted files are not freshly compiled in this continuation because available memory is below the WORKERS.md threshold. For every Â-module N, the native R̂-linear comparison R̂⊗_A N→R̂⊗_Â N is surjective, with its exact Â-linear kernel generated by completed-coefficient balancing differences. This identifies the additional quotient; injectivity is not claimed. Next establish the reusable owner-level relative stable-reflexivity formulation and the actual two-base completion Hom/Ext or universally acyclic-complex comparison with justified faithful reflection, then the pointed completed-local hull, coefficient-compatible sheaf descent and arbitrary-base approximation. Bourbaki III5.4.4 remains unread and Proposition7 remains an exercise input. All eight stages remain partial."
       ],
       "acceptance": [
         "Do not strengthen this to J·J∨=J throughout a smoothing family: that equality holds only on the nodal-section locus."
@@ -19297,6 +19422,1105 @@
           "statement": "Let A be any commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the coefficient algebra map, u=[X], v=[Y], J=(u−ιs,v−ιt) and D=Hom_R(J,R). All duals are R-linear and use native Module.Dual. For any A-module M put N_M=R⊗_A M with its inherited left R-action and η=Module.Dual.eval R J. For A=ℤ/4, (γ,δ,s,t)=(0,0,1,0), every categorical Ext⁴_R(D,R) class is zero."
         }
       ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/completion-coefficient-powers",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Coefficient powers enter the nodal ideal powers",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For every n≥0, pⁿ⊆ι⁻¹(mⁿ).",
+      "hypotheses": [
+        "Only the displayed commutative-ring and ideal-containment assumptions are used. No noetherianity, localness, nontriviality, discriminant condition or flatness of N is required for these specialized adapters. The source completion criterion has additional noetherian/local hypotheses and is not proved here."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-coefficient-map",
+        "mathlib:Ideal.map_le_iff_le_comap",
+        "mathlib:Ideal.map_pow"
+      ],
+      "proofSteps": [
+        "Apply the native map/comap adjunction, transport ideal powers through ι, and use monotonicity of ideal powers."
+      ],
+      "acceptance": [
+        "Use the inherited polynomial nodal chart, native ideal quotients and actual AdicCompletion rings. All chosen algebra structures and scalar restrictions must be explicit.",
+        "This is a prerequisite for the two-base completion argument, not a proof of Knudsen Appendix Proposition6, relative stable reflexivity, pointed hull identification or sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6, printed194–195 (physical31–35)",
+          "match": "Source motivation for the two completed coefficient rings and arbitrary coefficient modules. These finite-quotient and tensor adapters are an authored specialization of the pinned native library; the cited source does not supply their Lean signatures or the missing completion comparison proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionCoefficient_pow"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/completion-coefficient-level",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Finite-level nodal coefficient map",
+      "kind": "construction",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. Construct λ_n:A/pⁿ→R/mⁿ as the actual quotient map induced by ι.",
+      "hypotheses": [
+        "Only the displayed commutative-ring and ideal-containment assumptions are used. No noetherianity, localness, nontriviality, discriminant condition or flatness of N is required for these specialized adapters. The source completion criterion has additional noetherian/local hypotheses and is not proved here."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/completion-coefficient-powers",
+        "mathlib:Ideal.quotientMap"
+      ],
+      "proofSteps": [
+        "Use the proved power containment in the native ideal quotient map."
+      ],
+      "acceptance": [
+        "Use the inherited polynomial nodal chart, native ideal quotients and actual AdicCompletion rings. All chosen algebra structures and scalar restrictions must be explicit.",
+        "This is a prerequisite for the two-base completion argument, not a proof of Knudsen Appendix Proposition6, relative stable reflexivity, pointed hull identification or sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6, printed194–195 (physical31–35)",
+          "match": "Source motivation for the two completed coefficient rings and arbitrary coefficient modules. These finite-quotient and tensor adapters are an authored specialization of the pinned native library; the cited source does not supply their Lean signatures or the missing completion comparison proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionCoefficientLevel",
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientLevel_mk",
+          "role": "simp",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For every a∈A and n≥0, λ_n([a])=[ι(a)]."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientLevel_transition",
+          "role": "functoriality",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For i≤j, factor_m(j,i)∘λ_j=λ_i∘factor_p(j,i)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientLevel_mul",
+          "role": "simp",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For every n and a,b∈A/pⁿ, λ_n(ab)=λ_n(a)λ_n(b)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": " supplies the actual completed coefficient square before relative stable-reflexivity, hull and sheaf comparisons."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/completion-coefficient-scalar-tower",
+          "how": " distinguishes the completed coefficient algebra from the inherited A-algebra."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/completion-coefficient-tensor-kernel",
+          "how": " supports the exact two-base quotient and its additional balancing relations."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientLevel.test_level_zero",
+          "kind": "degenerate",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. The n=0 map has the representative law in the zero quotient A/p⁰."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientLevel.test_level_one",
+          "kind": "compatibility",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. The first quotient carries an original coefficient a to ι(a)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientLevel.test_product",
+          "kind": "compatibility",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. At n=3 the map preserves the product of two arbitrary quotient elements."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/completion-coefficient-level-representatives",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Finite coefficients on representatives",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For every a∈A and n≥0, λ_n([a])=[ι(a)].",
+      "hypotheses": [
+        "Only the displayed commutative-ring and ideal-containment assumptions are used. No noetherianity, localness, nontriviality, discriminant condition or flatness of N is required for these specialized adapters. The source completion criterion has additional noetherian/local hypotheses and is not proved here."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/completion-coefficient-level",
+        "mathlib:Ideal.quotientMap_mk"
+      ],
+      "proofSteps": [
+        "Unfold the actual quotient map on its quotient representative."
+      ],
+      "acceptance": [
+        "Use the inherited polynomial nodal chart, native ideal quotients and actual AdicCompletion rings. All chosen algebra structures and scalar restrictions must be explicit.",
+        "This is a prerequisite for the two-base completion argument, not a proof of Knudsen Appendix Proposition6, relative stable reflexivity, pointed hull identification or sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6, printed194–195 (physical31–35)",
+          "match": "Source motivation for the two completed coefficient rings and arbitrary coefficient modules. These finite-quotient and tensor adapters are an authored specialization of the pinned native library; the cited source does not supply their Lean signatures or the missing completion comparison proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionCoefficientLevel_mk"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/completion-coefficient-level-transition",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Finite coefficient transition square",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For i≤j, factor_m(j,i)∘λ_j=λ_i∘factor_p(j,i).",
+      "hypotheses": [
+        "Only the displayed commutative-ring and ideal-containment assumptions are used. No noetherianity, localness, nontriviality, discriminant condition or flatness of N is required for these specialized adapters. The source completion criterion has additional noetherian/local hypotheses and is not proved here."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/completion-coefficient-level",
+        "mathlib:Ideal.Quotient.factorPow"
+      ],
+      "proofSteps": [
+        "Use ring-hom extensionality and quotient-surjectivity to reduce both composites to the same coefficient representative."
+      ],
+      "acceptance": [
+        "Use the inherited polynomial nodal chart, native ideal quotients and actual AdicCompletion rings. All chosen algebra structures and scalar restrictions must be explicit.",
+        "This is a prerequisite for the two-base completion argument, not a proof of Knudsen Appendix Proposition6, relative stable reflexivity, pointed hull identification or sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6, printed194–195 (physical31–35)",
+          "match": "Source motivation for the two completed coefficient rings and arbitrary coefficient modules. These finite-quotient and tensor adapters are an authored specialization of the pinned native library; the cited source does not supply their Lean signatures or the missing completion comparison proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionCoefficientLevel_transition"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/completion-coefficient-level-products",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Finite coefficient multiplication",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For every n and a,b∈A/pⁿ, λ_n(ab)=λ_n(a)λ_n(b).",
+      "hypotheses": [
+        "Only the displayed commutative-ring and ideal-containment assumptions are used. No noetherianity, localness, nontriviality, discriminant condition or flatness of N is required for these specialized adapters. The source completion criterion has additional noetherian/local hypotheses and is not proved here."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/completion-coefficient-level"
+      ],
+      "proofSteps": [
+        "Use multiplication preservation of this particular native ring homomorphism."
+      ],
+      "acceptance": [
+        "Use the inherited polynomial nodal chart, native ideal quotients and actual AdicCompletion rings. All chosen algebra structures and scalar restrictions must be explicit.",
+        "This is a prerequisite for the two-base completion argument, not a proof of Knudsen Appendix Proposition6, relative stable reflexivity, pointed hull identification or sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6, printed194–195 (physical31–35)",
+          "match": "Source motivation for the two completed coefficient rings and arbitrary coefficient modules. These finite-quotient and tensor adapters are an authored specialization of the pinned native library; the cited source does not supply their Lean signatures or the missing completion comparison proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionCoefficientLevel_mul"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/completion-source-transition",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Completed coefficient evaluations commute",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For i≤j and a∈Â, factor_p(j,i)(π_A,j(a))=π_A,i(a).",
+      "hypotheses": [
+        "Only the displayed commutative-ring and ideal-containment assumptions are used. No noetherianity, localness, nontriviality, discriminant condition or flatness of N is required for these specialized adapters. The source completion criterion has additional noetherian/local hypotheses and is not proved here."
+      ],
+      "prerequisites": [
+        "mathlib:AdicCompletion.transitionMap_comp_eval_apply",
+        "mathlib:AdicCompletion.evalₐ"
+      ],
+      "proofSteps": [
+        "Transport raw completion coherence through the native quotient-by-pⁿ•⊤ identification; quotient representatives verify the transition square."
+      ],
+      "acceptance": [
+        "Use the inherited polynomial nodal chart, native ideal quotients and actual AdicCompletion rings. All chosen algebra structures and scalar restrictions must be explicit.",
+        "This is a prerequisite for the two-base completion argument, not a proof of Knudsen Appendix Proposition6, relative stable reflexivity, pointed hull identification or sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6, printed194–195 (physical31–35)",
+          "match": "Source motivation for the two completed coefficient rings and arbitrary coefficient modules. These finite-quotient and tensor adapters are an authored specialization of the pinned native library; the cited source does not supply their Lean signatures or the missing completion comparison proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionCoefficientSource_transition"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/completion-coefficient-family",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Compatible completed coefficient family",
+      "kind": "construction",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. Construct f_n:Â→R/mⁿ as λ_n∘π_A,n.",
+      "hypotheses": [
+        "Only the displayed commutative-ring and ideal-containment assumptions are used. No noetherianity, localness, nontriviality, discriminant condition or flatness of N is required for these specialized adapters. The source completion criterion has additional noetherian/local hypotheses and is not proved here."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/completion-coefficient-level",
+        "mathlib:AdicCompletion.evalₐ"
+      ],
+      "proofSteps": [
+        "Compose the actual quotient map with native completion evaluation, as a ring homomorphism."
+      ],
+      "acceptance": [
+        "Use the inherited polynomial nodal chart, native ideal quotients and actual AdicCompletion rings. All chosen algebra structures and scalar restrictions must be explicit.",
+        "This is a prerequisite for the two-base completion argument, not a proof of Knudsen Appendix Proposition6, relative stable reflexivity, pointed hull identification or sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6, printed194–195 (physical31–35)",
+          "match": "Source motivation for the two completed coefficient rings and arbitrary coefficient modules. These finite-quotient and tensor adapters are an authored specialization of the pinned native library; the cited source does not supply their Lean signatures or the missing completion comparison proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionCoefficientFamily",
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientFamily_transition",
+          "role": "functoriality",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For i≤j, factor_m(j,i)∘f_j=f_i."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientFamily_of",
+          "role": "simp",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For every a∈A and n≥0, f_n(e_A(a))=[ι(a)]."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientFamily_one",
+          "role": "simp",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For every n≥0, f_n(1)=1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": " supplies the actual completed coefficient square before relative stable-reflexivity, hull and sheaf comparisons."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/completion-coefficient-scalar-tower",
+          "how": " distinguishes the completed coefficient algebra from the inherited A-algebra."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/completion-coefficient-tensor-kernel",
+          "how": " supports the exact two-base quotient and its additional balancing relations."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientFamily.test_coefficients",
+          "kind": "compatibility",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. At n=2 the family evaluates e_A(a) to [ι(a)]."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientFamily.test_unit",
+          "kind": "compatibility",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. At n=4 the compatible family sends the unit to the unit."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientFamily.test_successor",
+          "kind": "compatibility",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. The finite family commutes with every successor transition n+1→n."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/completion-coefficient-family-transition",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Completed coefficient family transitions",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For i≤j, factor_m(j,i)∘f_j=f_i.",
+      "hypotheses": [
+        "Only the displayed commutative-ring and ideal-containment assumptions are used. No noetherianity, localness, nontriviality, discriminant condition or flatness of N is required for these specialized adapters. The source completion criterion has additional noetherian/local hypotheses and is not proved here."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/completion-coefficient-family",
+        "StableReductionPartII:MC.2/completion-coefficient-level-transition",
+        "StableReductionPartII:MC.2/completion-source-transition"
+      ],
+      "proofSteps": [
+        "Compose the two separately proved finite-transition identities; no topology is supplied by a private carrier."
+      ],
+      "acceptance": [
+        "Use the inherited polynomial nodal chart, native ideal quotients and actual AdicCompletion rings. All chosen algebra structures and scalar restrictions must be explicit.",
+        "This is a prerequisite for the two-base completion argument, not a proof of Knudsen Appendix Proposition6, relative stable reflexivity, pointed hull identification or sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6, printed194–195 (physical31–35)",
+          "match": "Source motivation for the two completed coefficient rings and arbitrary coefficient modules. These finite-quotient and tensor adapters are an authored specialization of the pinned native library; the cited source does not supply their Lean signatures or the missing completion comparison proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionCoefficientFamily_transition"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/completion-coefficient-family-original",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Original coefficients in the finite family",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For every a∈A and n≥0, f_n(e_A(a))=[ι(a)].",
+      "hypotheses": [
+        "Only the displayed commutative-ring and ideal-containment assumptions are used. No noetherianity, localness, nontriviality, discriminant condition or flatness of N is required for these specialized adapters. The source completion criterion has additional noetherian/local hypotheses and is not proved here."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/completion-coefficient-family",
+        "StableReductionPartII:MC.2/completion-coefficient-level-representatives",
+        "mathlib:AdicCompletion.evalₐ_of"
+      ],
+      "proofSteps": [
+        "Apply evaluation of native completed coefficients, followed by the quotient representative law."
+      ],
+      "acceptance": [
+        "Use the inherited polynomial nodal chart, native ideal quotients and actual AdicCompletion rings. All chosen algebra structures and scalar restrictions must be explicit.",
+        "This is a prerequisite for the two-base completion argument, not a proof of Knudsen Appendix Proposition6, relative stable reflexivity, pointed hull identification or sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6, printed194–195 (physical31–35)",
+          "match": "Source motivation for the two completed coefficient rings and arbitrary coefficient modules. These finite-quotient and tensor adapters are an authored specialization of the pinned native library; the cited source does not supply their Lean signatures or the missing completion comparison proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionCoefficientFamily_of"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/completion-coefficient-family-unit",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The finite family preserves the unit",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For every n≥0, f_n(1)=1.",
+      "hypotheses": [
+        "Only the displayed commutative-ring and ideal-containment assumptions are used. No noetherianity, localness, nontriviality, discriminant condition or flatness of N is required for these specialized adapters. The source completion criterion has additional noetherian/local hypotheses and is not proved here."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/completion-coefficient-family"
+      ],
+      "proofSteps": [
+        "Use the ring-hom unit identity on the compatible coefficient family."
+      ],
+      "acceptance": [
+        "Use the inherited polynomial nodal chart, native ideal quotients and actual AdicCompletion rings. All chosen algebra structures and scalar restrictions must be explicit.",
+        "This is a prerequisite for the two-base completion argument, not a proof of Knudsen Appendix Proposition6, relative stable reflexivity, pointed hull identification or sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6, printed194–195 (physical31–35)",
+          "match": "Source motivation for the two completed coefficient rings and arbitrary coefficient modules. These finite-quotient and tensor adapters are an authored specialization of the pinned native library; the cited source does not supply their Lean signatures or the missing completion comparison proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionCoefficientFamily_one"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/completion-coefficient-hom",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Completed nodal coefficient homomorphism",
+      "kind": "construction",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. Construct ĩ:Â→R̂ as the native completion lift of the compatible f_n.",
+      "hypotheses": [
+        "Only the displayed commutative-ring and ideal-containment assumptions are used. No noetherianity, localness, nontriviality, discriminant condition or flatness of N is required for these specialized adapters. The source completion criterion has additional noetherian/local hypotheses and is not proved here."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/completion-coefficient-family",
+        "StableReductionPartII:MC.2/completion-coefficient-family-transition",
+        "mathlib:AdicCompletion.liftRingHom"
+      ],
+      "proofSteps": [
+        "Instantiate the native completion universal property with the proved compatible finite family."
+      ],
+      "acceptance": [
+        "Use the inherited polynomial nodal chart, native ideal quotients and actual AdicCompletion rings. All chosen algebra structures and scalar restrictions must be explicit.",
+        "This is a prerequisite for the two-base completion argument, not a proof of Knudsen Appendix Proposition6, relative stable reflexivity, pointed hull identification or sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6, printed194–195 (physical31–35)",
+          "match": "Source motivation for the two completed coefficient rings and arbitrary coefficient modules. These finite-quotient and tensor adapters are an authored specialization of the pinned native library; the cited source does not supply their Lean signatures or the missing completion comparison proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionCoefficientHom",
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientHom_eval",
+          "role": "simp",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For every a∈Â and n≥0, π_R,n(ĩ(a))=λ_n(π_A,n(a))."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientHom_of",
+          "role": "simp",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For every a∈A, ĩ(e_A(a))=e_R(ι(a))."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientHom_unique",
+          "role": "characterisation",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. If f:Â→R̂ is a ring homomorphism satisfying π_R,n(f(a))=λ_n(π_A,n(a)) for every n,a, then f=ĩ."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": " supplies the actual completed coefficient square before relative stable-reflexivity, hull and sheaf comparisons."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/completion-coefficient-scalar-tower",
+          "how": " distinguishes the completed coefficient algebra from the inherited A-algebra."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/completion-coefficient-tensor-kernel",
+          "how": " supports the exact two-base quotient and its additional balancing relations."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientHom.test_finite_projection",
+          "kind": "compatibility",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. The completed coefficient map has the prescribed n=2 finite projection for every completed element."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientHom.test_uniqueness",
+          "kind": "compatibility",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. Any ring homomorphism with all prescribed finite projections equals ĩ."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientHom.test_nonreduced",
+          "kind": "degenerate",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For A=ℤ/4, (γ,δ,s,t)=(0,0,1,0) and p=m=0, the completed coefficient square holds for every a∈A; no reducedness or discriminant unit is required."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/completion-coefficient-hom-evaluation",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Completed coefficients at finite level",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For every a∈Â and n≥0, π_R,n(ĩ(a))=λ_n(π_A,n(a)).",
+      "hypotheses": [
+        "Only the displayed commutative-ring and ideal-containment assumptions are used. No noetherianity, localness, nontriviality, discriminant condition or flatness of N is required for these specialized adapters. The source completion criterion has additional noetherian/local hypotheses and is not proved here."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/completion-coefficient-hom",
+        "mathlib:AdicCompletion.evalₐ_liftRingHom"
+      ],
+      "proofSteps": [
+        "Use the finite-evaluation characterization of the actual native completion lift."
+      ],
+      "acceptance": [
+        "Use the inherited polynomial nodal chart, native ideal quotients and actual AdicCompletion rings. All chosen algebra structures and scalar restrictions must be explicit.",
+        "This is a prerequisite for the two-base completion argument, not a proof of Knudsen Appendix Proposition6, relative stable reflexivity, pointed hull identification or sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6, printed194–195 (physical31–35)",
+          "match": "Source motivation for the two completed coefficient rings and arbitrary coefficient modules. These finite-quotient and tensor adapters are an authored specialization of the pinned native library; the cited source does not supply their Lean signatures or the missing completion comparison proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionCoefficientHom_eval"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/completion-coefficient-hom-original",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The completed coefficient square",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For every a∈A, ĩ(e_A(a))=e_R(ι(a)).",
+      "hypotheses": [
+        "Only the displayed commutative-ring and ideal-containment assumptions are used. No noetherianity, localness, nontriviality, discriminant condition or flatness of N is required for these specialized adapters. The source completion criterion has additional noetherian/local hypotheses and is not proved here."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/completion-coefficient-hom-evaluation",
+        "StableReductionPartII:MC.2/completion-coefficient-level-representatives",
+        "mathlib:AdicCompletion.evalₐ_of",
+        "mathlib:AdicCompletion.ext_evalₐ"
+      ],
+      "proofSteps": [
+        "Compare all finite quotient evaluations, then apply native completion extensionality."
+      ],
+      "acceptance": [
+        "Use the inherited polynomial nodal chart, native ideal quotients and actual AdicCompletion rings. All chosen algebra structures and scalar restrictions must be explicit.",
+        "This is a prerequisite for the two-base completion argument, not a proof of Knudsen Appendix Proposition6, relative stable reflexivity, pointed hull identification or sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6, printed194–195 (physical31–35)",
+          "match": "Source motivation for the two completed coefficient rings and arbitrary coefficient modules. These finite-quotient and tensor adapters are an authored specialization of the pinned native library; the cited source does not supply their Lean signatures or the missing completion comparison proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionCoefficientHom_of"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/completion-coefficient-hom-unique",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Uniqueness from all finite quotients",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. If f:Â→R̂ is a ring homomorphism satisfying π_R,n(f(a))=λ_n(π_A,n(a)) for every n,a, then f=ĩ.",
+      "hypotheses": [
+        "Only the displayed commutative-ring and ideal-containment assumptions are used. No noetherianity, localness, nontriviality, discriminant condition or flatness of N is required for these specialized adapters. The source completion criterion has additional noetherian/local hypotheses and is not proved here."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/completion-coefficient-hom-evaluation",
+        "mathlib:AdicCompletion.ext_evalₐ"
+      ],
+      "proofSteps": [
+        "Use ring-hom extensionality followed by native completion extensionality; finite equality is a hypothesis, not presumed injectivity of a single quotient."
+      ],
+      "acceptance": [
+        "Use the inherited polynomial nodal chart, native ideal quotients and actual AdicCompletion rings. All chosen algebra structures and scalar restrictions must be explicit.",
+        "This is a prerequisite for the two-base completion argument, not a proof of Knudsen Appendix Proposition6, relative stable reflexivity, pointed hull identification or sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6, printed194–195 (physical31–35)",
+          "match": "Source motivation for the two completed coefficient rings and arbitrary coefficient modules. These finite-quotient and tensor adapters are an authored specialization of the pinned native library; the cited source does not supply their Lean signatures or the missing completion comparison proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionCoefficientHom_unique"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/completion-coefficient-algebra",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The actual completed coefficient algebra",
+      "kind": "construction",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. Equip R̂ with the Â-algebra induced by ĩ. Keep the inherited A-algebra coming from R.",
+      "hypotheses": [
+        "Only the displayed commutative-ring and ideal-containment assumptions are used. No noetherianity, localness, nontriviality, discriminant condition or flatness of N is required for these specialized adapters. The source completion criterion has additional noetherian/local hypotheses and is not proved here."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/completion-coefficient-hom"
+      ],
+      "proofSteps": [
+        "Use the algebra attached to the constructed ring homomorphism; record the chosen structure explicitly in all dependent signatures."
+      ],
+      "acceptance": [
+        "Use the inherited polynomial nodal chart, native ideal quotients and actual AdicCompletion rings. All chosen algebra structures and scalar restrictions must be explicit.",
+        "This is a prerequisite for the two-base completion argument, not a proof of Knudsen Appendix Proposition6, relative stable reflexivity, pointed hull identification or sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6, printed194–195 (physical31–35)",
+          "match": "Source motivation for the two completed coefficient rings and arbitrary coefficient modules. These finite-quotient and tensor adapters are an authored specialization of the pinned native library; the cited source does not supply their Lean signatures or the missing completion comparison proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionCoefficientAlgebra",
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientAlgebra_map",
+          "role": "simp",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. The chosen algebra map Â→R̂ equals ĩ on every a∈Â."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientAlgebra_of",
+          "role": "simp",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. The chosen algebra map sends e_A(a) to e_R(ι(a)) for every a∈A."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientScalarTower",
+          "role": "functoriality",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. The inherited A-action and the chosen Â-action on R̂ form IsScalarTower(A,Â,R̂)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": " supplies the actual completed coefficient square before relative stable-reflexivity, hull and sheaf comparisons."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/completion-coefficient-scalar-tower",
+          "how": " distinguishes the completed coefficient algebra from the inherited A-algebra."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/completion-coefficient-tensor-kernel",
+          "how": " supports the exact two-base quotient and its additional balancing relations."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientAlgebra.test_tower",
+          "kind": "compatibility",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. The inherited A-action factors compatibly through the chosen actual Â-action on R̂."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientAlgebra.test_product_coefficients",
+          "kind": "compatibility",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. The algebra map carries e_A(ab) to e_R(ι(ab)) for arbitrary a,b∈A."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientAlgebra.test_completed_element",
+          "kind": "compatibility",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. The algebra map equals ĩ for every element of Â, beyond elements known to lie in e_A(A)."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/completion-coefficient-algebra-map",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Completed algebra map is the completion lift",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. The chosen algebra map Â→R̂ equals ĩ on every a∈Â.",
+      "hypotheses": [
+        "Only the displayed commutative-ring and ideal-containment assumptions are used. No noetherianity, localness, nontriviality, discriminant condition or flatness of N is required for these specialized adapters. The source completion criterion has additional noetherian/local hypotheses and is not proved here."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/completion-coefficient-algebra"
+      ],
+      "proofSteps": [
+        "Unfold the native algebra structure induced by the ring homomorphism."
+      ],
+      "acceptance": [
+        "Use the inherited polynomial nodal chart, native ideal quotients and actual AdicCompletion rings. All chosen algebra structures and scalar restrictions must be explicit.",
+        "This is a prerequisite for the two-base completion argument, not a proof of Knudsen Appendix Proposition6, relative stable reflexivity, pointed hull identification or sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6, printed194–195 (physical31–35)",
+          "match": "Source motivation for the two completed coefficient rings and arbitrary coefficient modules. These finite-quotient and tensor adapters are an authored specialization of the pinned native library; the cited source does not supply their Lean signatures or the missing completion comparison proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionCoefficientAlgebra_map"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/completion-coefficient-algebra-original",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Original coefficients in the completed algebra",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. The chosen algebra map sends e_A(a) to e_R(ι(a)) for every a∈A.",
+      "hypotheses": [
+        "Only the displayed commutative-ring and ideal-containment assumptions are used. No noetherianity, localness, nontriviality, discriminant condition or flatness of N is required for these specialized adapters. The source completion criterion has additional noetherian/local hypotheses and is not proved here."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/completion-coefficient-algebra",
+        "StableReductionPartII:MC.2/completion-coefficient-hom-original"
+      ],
+      "proofSteps": [
+        "Apply the already proved original-coefficient square to the specified algebra map."
+      ],
+      "acceptance": [
+        "Use the inherited polynomial nodal chart, native ideal quotients and actual AdicCompletion rings. All chosen algebra structures and scalar restrictions must be explicit.",
+        "This is a prerequisite for the two-base completion argument, not a proof of Knudsen Appendix Proposition6, relative stable reflexivity, pointed hull identification or sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6, printed194–195 (physical31–35)",
+          "match": "Source motivation for the two completed coefficient rings and arbitrary coefficient modules. These finite-quotient and tensor adapters are an authored specialization of the pinned native library; the cited source does not supply their Lean signatures or the missing completion comparison proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionCoefficientAlgebra_of"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/completion-coefficient-scalar-tower",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Compatibility of the two coefficient actions",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. The inherited A-action and the chosen Â-action on R̂ form IsScalarTower(A,Â,R̂).",
+      "hypotheses": [
+        "Only the displayed commutative-ring and ideal-containment assumptions are used. No noetherianity, localness, nontriviality, discriminant condition or flatness of N is required for these specialized adapters. The source completion criterion has additional noetherian/local hypotheses and is not proved here."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/completion-coefficient-algebra-original",
+        "mathlib:AdicCompletion.algebraMap_apply",
+        "mathlib:IsScalarTower.of_algebraMap_eq"
+      ],
+      "proofSteps": [
+        "Compare the native A-algebra maps with the completed coefficient square, then apply the scalar-tower constructor."
+      ],
+      "acceptance": [
+        "Use the inherited polynomial nodal chart, native ideal quotients and actual AdicCompletion rings. All chosen algebra structures and scalar restrictions must be explicit.",
+        "This is a prerequisite for the two-base completion argument, not a proof of Knudsen Appendix Proposition6, relative stable reflexivity, pointed hull identification or sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6, printed194–195 (physical31–35)",
+          "match": "Source motivation for the two completed coefficient rings and arbitrary coefficient modules. These finite-quotient and tensor adapters are an authored specialization of the pinned native library; the cited source does not supply their Lean signatures or the missing completion comparison proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionCoefficientScalarTower"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/completion-coefficient-tensor",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Two-base tensor quotient for the nodal chart",
+      "kind": "construction",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For every Â-module N with the compatible restricted A-action, construct the R̂-linear map c_N:R̂⊗_A N→R̂⊗_Â N induced by r⊗n↦r⊗n.",
+      "hypotheses": [
+        "Only the displayed commutative-ring and ideal-containment assumptions are used. No noetherianity, localness, nontriviality, discriminant condition or flatness of N is required for these specialized adapters. The source completion criterion has additional noetherian/local hypotheses and is not proved here."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/completion-coefficient-algebra",
+        "StableReductionPartII:MC.2/completion-coefficient-scalar-tower",
+        "mathlib:TensorProduct.mapOfCompatibleSMul"
+      ],
+      "proofSteps": [
+        "Specialize the existing generic compatible-scalar tensor map to the actual completed coefficient algebra and scalar tower. Do not construct a duplicate tensor carrier."
+      ],
+      "acceptance": [
+        "Use the inherited polynomial nodal chart, native ideal quotients and actual AdicCompletion rings. All chosen algebra structures and scalar restrictions must be explicit.",
+        "This is a prerequisite for the two-base completion argument, not a proof of Knudsen Appendix Proposition6, relative stable reflexivity, pointed hull identification or sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6, printed194–195 (physical31–35)",
+          "match": "Source motivation for the two completed coefficient rings and arbitrary coefficient modules. These finite-quotient and tensor adapters are an authored specialization of the pinned native library; the cited source does not supply their Lean signatures or the missing completion comparison proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionCoefficientTensor",
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientTensor_tmul",
+          "role": "simp",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For every such N, r∈R̂ and n∈N, c_N(r⊗_A n)=r⊗_Â n."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientTensor_surjective",
+          "role": "simp",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For every such N, c_N is surjective. No flatness or finite-generation assumption is placed on N."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientTensor_balance",
+          "role": "simp",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For a∈Â,r∈R̂,n∈N, c_N((a•r)⊗_A n)=c_N(r⊗_A(a•n))."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientTensor_ker",
+          "role": "characterisation",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. As an Â-submodule, ker(c_N)=span_Â{(a•r)⊗_A n−r⊗_A(a•n):a∈Â,r∈R̂,n∈N}; restrict the R̂-linear map to Â to state this exact kernel."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": " supplies the actual completed coefficient square before relative stable-reflexivity, hull and sheaf comparisons."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/completion-coefficient-scalar-tower",
+          "how": " distinguishes the completed coefficient algebra from the inherited A-algebra."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/completion-coefficient-tensor-kernel",
+          "how": " supports the exact two-base quotient and its additional balancing relations."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientTensor.test_unit_tensors",
+          "kind": "compatibility",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For every n∈N the comparison sends 1⊗_A n to 1⊗_Â n."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientTensor.test_relation_kernel",
+          "kind": "compatibility",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For every a∈Â,r∈R̂,n∈N the additional balancing difference maps to zero."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionCoefficientTensor.test_arbitrary_target",
+          "kind": "compatibility",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. Every arbitrary target tensor has a preimage; the statement covers sums rather than only pure tensors."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/completion-coefficient-tensor-pure",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The two-base map on pure tensors",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For every such N, r∈R̂ and n∈N, c_N(r⊗_A n)=r⊗_Â n.",
+      "hypotheses": [
+        "Only the displayed commutative-ring and ideal-containment assumptions are used. No noetherianity, localness, nontriviality, discriminant condition or flatness of N is required for these specialized adapters. The source completion criterion has additional noetherian/local hypotheses and is not proved here."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/completion-coefficient-tensor",
+        "mathlib:TensorProduct.mapOfCompatibleSMul_tmul"
+      ],
+      "proofSteps": [
+        "Use the pure-tensor law of the imported native map."
+      ],
+      "acceptance": [
+        "Use the inherited polynomial nodal chart, native ideal quotients and actual AdicCompletion rings. All chosen algebra structures and scalar restrictions must be explicit.",
+        "This is a prerequisite for the two-base completion argument, not a proof of Knudsen Appendix Proposition6, relative stable reflexivity, pointed hull identification or sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6, printed194–195 (physical31–35)",
+          "match": "Source motivation for the two completed coefficient rings and arbitrary coefficient modules. These finite-quotient and tensor adapters are an authored specialization of the pinned native library; the cited source does not supply their Lean signatures or the missing completion comparison proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionCoefficientTensor_tmul"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/completion-coefficient-tensor-surjective",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The two-base map is surjective",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For every such N, c_N is surjective. No flatness or finite-generation assumption is placed on N.",
+      "hypotheses": [
+        "Only the displayed commutative-ring and ideal-containment assumptions are used. No noetherianity, localness, nontriviality, discriminant condition or flatness of N is required for these specialized adapters. The source completion criterion has additional noetherian/local hypotheses and is not proved here."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/completion-coefficient-tensor",
+        "mathlib:TensorProduct.mapOfCompatibleSMul_surjective"
+      ],
+      "proofSteps": [
+        "Import generic surjectivity, whose proof is tensor induction on zero, pure tensors and sums."
+      ],
+      "acceptance": [
+        "Use the inherited polynomial nodal chart, native ideal quotients and actual AdicCompletion rings. All chosen algebra structures and scalar restrictions must be explicit.",
+        "This is a prerequisite for the two-base completion argument, not a proof of Knudsen Appendix Proposition6, relative stable reflexivity, pointed hull identification or sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6, printed194–195 (physical31–35)",
+          "match": "Source motivation for the two completed coefficient rings and arbitrary coefficient modules. These finite-quotient and tensor adapters are an authored specialization of the pinned native library; the cited source does not supply their Lean signatures or the missing completion comparison proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionCoefficientTensor_surjective"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/completion-coefficient-tensor-balancing",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Completed coefficient balancing",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. For a∈Â,r∈R̂,n∈N, c_N((a•r)⊗_A n)=c_N(r⊗_A(a•n)).",
+      "hypotheses": [
+        "Only the displayed commutative-ring and ideal-containment assumptions are used. No noetherianity, localness, nontriviality, discriminant condition or flatness of N is required for these specialized adapters. The source completion criterion has additional noetherian/local hypotheses and is not proved here."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/completion-coefficient-tensor-pure"
+      ],
+      "proofSteps": [
+        "Use the pure-tensor law and the actual Â-balancing relation in the codomain."
+      ],
+      "acceptance": [
+        "Use the inherited polynomial nodal chart, native ideal quotients and actual AdicCompletion rings. All chosen algebra structures and scalar restrictions must be explicit.",
+        "This is a prerequisite for the two-base completion argument, not a proof of Knudsen Appendix Proposition6, relative stable reflexivity, pointed hull identification or sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6, printed194–195 (physical31–35)",
+          "match": "Source motivation for the two completed coefficient rings and arbitrary coefficient modules. These finite-quotient and tensor adapters are an authored specialization of the pinned native library; the cited source does not supply their Lean signatures or the missing completion comparison proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionCoefficientTensor_balance"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/completion-coefficient-tensor-kernel",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Kernel of the two-base comparison",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)) the existing polynomial nodal chart and ι:A→R its native coefficient map. Let p⊆A and m⊆R be ideals with h:p⊆ι⁻¹(m). Put Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), e_A:A→Â and e_R:R→R̂ the native maps, π_A,n and π_R,n the native finite-quotient evaluations. As an Â-submodule, ker(c_N)=span_Â{(a•r)⊗_A n−r⊗_A(a•n):a∈Â,r∈R̂,n∈N}; restrict the R̂-linear map to Â to state this exact kernel.",
+      "hypotheses": [
+        "Only the displayed commutative-ring and ideal-containment assumptions are used. No noetherianity, localness, nontriviality, discriminant condition or flatness of N is required for these specialized adapters. The source completion criterion has additional noetherian/local hypotheses and is not proved here."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/completion-coefficient-tensor",
+        "mathlib:TensorProduct.AlgebraTensorModule.ker_mapOfCompatibleSMul"
+      ],
+      "proofSteps": [
+        "Specialize the native generic kernel theorem. The explicit scalar restriction agrees definitionally with the Â-linear native map. This identifies a quotient and makes no assertion that its kernel is zero."
+      ],
+      "acceptance": [
+        "Use the inherited polynomial nodal chart, native ideal quotients and actual AdicCompletion rings. All chosen algebra structures and scalar restrictions must be explicit.",
+        "This is a prerequisite for the two-base completion argument, not a proof of Knudsen Appendix Proposition6, relative stable reflexivity, pointed hull identification or sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6, printed194–195 (physical31–35)",
+          "match": "Source motivation for the two completed coefficient rings and arbitrary coefficient modules. These finite-quotient and tensor adapters are an authored specialization of the pinned native library; the cited source does not supply their Lean signatures or the missing completion comparison proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionCoefficientTensor_ker"
     }
   ],
   "requests": [
@@ -20279,7 +21503,8 @@
         "Current next frontier after native Hom cochains: instantiate the augmented finite-free R-resolutions of J and D with the actual P_J/P_D maps, prove native projectivity and identify their Hom cochains with native Ext. Positive cohomology vanishing by itself is not this comparison. All completion, relative stable-reflexivity, hull and family descent requirements remain.",
         "The actual augmented finite-free R-projective resolutions of J and D are now specified and separately checked with native QuasiIso. Their Hom precomposition differentials equal the existing arbitrary-coefficient cochain maps. Next identify the categorical Hom complex and native higher Ext; then apply the exact Appendix/Ile relative stable-reflexivity and two-base completion theorems, pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. The differential equality alone is not an Ext comparison.",
         "The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain.",
-        "The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial."
+        "The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial.",
+        "The actual ideal-adic coefficient homomorphism Â→R̂ is now constructed from compatible native finite quotients for the polynomial nodal chart whenever p⊆ι⁻¹(m). Its original-coefficient square, finite evaluations, uniqueness and actual A→Â→R̂ scalar tower have explicit native signatures and proof bodies. The complete new native and admitted files are not freshly compiled in this continuation because available memory is below the WORKERS.md threshold. For every Â-module N, the native R̂-linear comparison R̂⊗_A N→R̂⊗_Â N is surjective, with its exact Â-linear kernel generated by completed-coefficient balancing differences. This identifies the additional quotient; injectivity is not claimed. Next establish the reusable owner-level relative stable-reflexivity formulation and the actual two-base completion Hom/Ext or universally acyclic-complex comparison with justified faithful reflection, then the pointed completed-local hull, coefficient-compatible sheaf descent and arbitrary-base approximation. Bourbaki III5.4.4 remains unread and Proposition7 remains an exercise input. All eight stages remain partial."
       ]
     },
     {
@@ -20683,7 +21908,7 @@
       "neededBy": [
         "StableReductionPartII:MC.2/dual-section-ideal"
       ],
-      "detail": "The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial. Do not replace R̂⊗_Ŝ N by R̂⊗_S N for an arbitrary Ŝ-module N. Knudsen Proposition6 cites Bourbaki III5.4.4 without an argument; Proposition7 is an exercise. These remain unproved inputs here. The general stable-Hom/Ext formula in Ile §2.3 is false without additional hypotheses (E11) and is not a substitute."
+      "detail": "The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial. Do not replace R̂⊗_Ŝ N by R̂⊗_S N for an arbitrary Ŝ-module N. Knudsen Proposition6 cites Bourbaki III5.4.4 without an argument; Proposition7 is an exercise. These remain unproved inputs here. The general stable-Hom/Ext formula in Ile §2.3 is false without additional hypotheses (E11) and is not a substitute. The actual ideal-adic coefficient homomorphism Â→R̂ is now constructed from compatible native finite quotients for the polynomial nodal chart whenever p⊆ι⁻¹(m). Its original-coefficient square, finite evaluations, uniqueness and actual A→Â→R̂ scalar tower have explicit native signatures and proof bodies. The complete new native and admitted files are not freshly compiled in this continuation because available memory is below the WORKERS.md threshold. For every Â-module N, the native R̂-linear comparison R̂⊗_A N→R̂⊗_Â N is surjective, with its exact Â-linear kernel generated by completed-coefficient balancing differences. This identifies the additional quotient; injectivity is not claimed. Next establish the reusable owner-level relative stable-reflexivity formulation and the actual two-base completion Hom/Ext or universally acyclic-complex comparison with justified faithful reflection, then the pointed completed-local hull, coefficient-compatible sheaf descent and arbitrary-base approximation. Bourbaki III5.4.4 remains unread and Proposition7 remains an exercise input. All eight stages remain partial."
     }
   ],
   "sourceIssues": [
@@ -21227,8 +22452,8 @@
   ],
   "prototypeCoverage": {
     "status": "partial",
-    "compiled": true,
-    "reason": "The entire current Mathlib-only admitted sketch elaborates. A separately checked admission-free native archive preserves all prior polynomial/tensor/bidual bodies and supplies the actual arbitrary-coefficient-module Hom maps, signed coordinate proofs, R-linear isomorphisms, coefficient naturality and M=A unit/bidual comparisons. Higher Ext, relative stable reflexivity, two-base completion and all geometry remain open. The specialized actual Hom cochain signatures, positive native cohomology and signed augmentation cycles are now expressible; native resolution/Ext comparison remains outside this checkpoint. The actual native projective-resolution signatures and differential comparisons are now expressible; categorical Hom-complex/Ext comparisons remain open. The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain.",
+    "compiled": false,
+    "reason": "The entire current Mathlib-only admitted sketch elaborates. A separately checked admission-free native archive preserves all prior polynomial/tensor/bidual bodies and supplies the actual arbitrary-coefficient-module Hom maps, signed coordinate proofs, R-linear isomorphisms, coefficient naturality and M=A unit/bidual comparisons. Higher Ext, relative stable reflexivity, two-base completion and all geometry remain open. The specialized actual Hom cochain signatures, positive native cohomology and signed augmentation cycles are now expressible; native resolution/Ext comparison remains outside this checkpoint. The actual native projective-resolution signatures and differential comparisons are now expressible; categorical Hom-complex/Ext comparisons remain open. The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain. The actual ideal-adic coefficient homomorphism Â→R̂ is now constructed from compatible native finite quotients for the polynomial nodal chart whenever p⊆ι⁻¹(m). Its original-coefficient square, finite evaluations, uniqueness and actual A→Â→R̂ scalar tower have explicit native signatures and proof bodies. The complete new native and admitted files are not freshly compiled in this continuation because available memory is below the WORKERS.md threshold. For every Â-module N, the native R̂-linear comparison R̂⊗_A N→R̂⊗_Â N is surjective, with its exact Â-linear kernel generated by completed-coefficient balancing differences. This identifies the additional quotient; injectivity is not claimed. Next establish the reusable owner-level relative stable-reflexivity formulation and the actual two-base completion Hom/Ext or universally acyclic-complex comparison with justified faithful reflection, then the pointed completed-local hull, coefficient-compatible sheaf descent and arbitrary-base approximation. Bourbaki III5.4.4 remains unread and Proposition7 remains an exercise input. All eight stages remain partial. Current complete suggested file not freshly compiled: available memory is below20 GB. Historical compilation receipts refer only to their own recovered source hashes.",
     "expressedNodes": [
       "StableReductionPartII:MC.2/binary-node-form",
       "StableReductionPartII:MC.2/node-factorization-products",
@@ -21440,7 +22665,30 @@
       "StableReductionPartII:MC.2/section-dual-localization-ext-vanishing",
       "StableReductionPartII:MC.2/section-resolution-hom-isomorphism-naturality",
       "StableReductionPartII:MC.2/section-ideal-derived-ext-isomorphism-zero",
-      "StableReductionPartII:MC.2/section-dual-derived-ext-isomorphism-zero"
+      "StableReductionPartII:MC.2/section-dual-derived-ext-isomorphism-zero",
+      "StableReductionPartII:MC.2/completion-coefficient-powers",
+      "StableReductionPartII:MC.2/completion-coefficient-level",
+      "StableReductionPartII:MC.2/completion-coefficient-level-representatives",
+      "StableReductionPartII:MC.2/completion-coefficient-level-transition",
+      "StableReductionPartII:MC.2/completion-coefficient-level-products",
+      "StableReductionPartII:MC.2/completion-source-transition",
+      "StableReductionPartII:MC.2/completion-coefficient-family",
+      "StableReductionPartII:MC.2/completion-coefficient-family-transition",
+      "StableReductionPartII:MC.2/completion-coefficient-family-original",
+      "StableReductionPartII:MC.2/completion-coefficient-family-unit",
+      "StableReductionPartII:MC.2/completion-coefficient-hom",
+      "StableReductionPartII:MC.2/completion-coefficient-hom-evaluation",
+      "StableReductionPartII:MC.2/completion-coefficient-hom-original",
+      "StableReductionPartII:MC.2/completion-coefficient-hom-unique",
+      "StableReductionPartII:MC.2/completion-coefficient-algebra",
+      "StableReductionPartII:MC.2/completion-coefficient-algebra-map",
+      "StableReductionPartII:MC.2/completion-coefficient-algebra-original",
+      "StableReductionPartII:MC.2/completion-coefficient-scalar-tower",
+      "StableReductionPartII:MC.2/completion-coefficient-tensor",
+      "StableReductionPartII:MC.2/completion-coefficient-tensor-pure",
+      "StableReductionPartII:MC.2/completion-coefficient-tensor-surjective",
+      "StableReductionPartII:MC.2/completion-coefficient-tensor-balancing",
+      "StableReductionPartII:MC.2/completion-coefficient-tensor-kernel"
     ],
     "expressedApi": [
       "NodeForm.eval",
@@ -25286,5 +26534,39 @@
     "inheritedNodeCount": 319,
     "frontier": "The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial.",
     "openWorkSearch": "Fresh bounded GitHub open PR title query reflexive returned0; broad Ext/base-change search returned adjacent Gorenstein/completion work, not this polynomial ideal calculation. Bounded Lean Zulip domain searches for stably reflexive and reflexive Ext returned no results. This is not a library-wide absence proof."
+  },
+  "completedCoefficientContinuation": {
+    "agent": "Codex",
+    "session": "codex-J6LwjP",
+    "date": "2026-10-03",
+    "inheritedNodeCount": 325,
+    "addedNodes": [
+      "StableReductionPartII:MC.2/completion-coefficient-powers",
+      "StableReductionPartII:MC.2/completion-coefficient-level",
+      "StableReductionPartII:MC.2/completion-coefficient-level-representatives",
+      "StableReductionPartII:MC.2/completion-coefficient-level-transition",
+      "StableReductionPartII:MC.2/completion-coefficient-level-products",
+      "StableReductionPartII:MC.2/completion-source-transition",
+      "StableReductionPartII:MC.2/completion-coefficient-family",
+      "StableReductionPartII:MC.2/completion-coefficient-family-transition",
+      "StableReductionPartII:MC.2/completion-coefficient-family-original",
+      "StableReductionPartII:MC.2/completion-coefficient-family-unit",
+      "StableReductionPartII:MC.2/completion-coefficient-hom",
+      "StableReductionPartII:MC.2/completion-coefficient-hom-evaluation",
+      "StableReductionPartII:MC.2/completion-coefficient-hom-original",
+      "StableReductionPartII:MC.2/completion-coefficient-hom-unique",
+      "StableReductionPartII:MC.2/completion-coefficient-algebra",
+      "StableReductionPartII:MC.2/completion-coefficient-algebra-map",
+      "StableReductionPartII:MC.2/completion-coefficient-algebra-original",
+      "StableReductionPartII:MC.2/completion-coefficient-scalar-tower",
+      "StableReductionPartII:MC.2/completion-coefficient-tensor",
+      "StableReductionPartII:MC.2/completion-coefficient-tensor-pure",
+      "StableReductionPartII:MC.2/completion-coefficient-tensor-surjective",
+      "StableReductionPartII:MC.2/completion-coefficient-tensor-balancing",
+      "StableReductionPartII:MC.2/completion-coefficient-tensor-kernel"
+    ],
+    "frontier": "The actual ideal-adic coefficient homomorphism Â→R̂ is now constructed from compatible native finite quotients for the polynomial nodal chart whenever p⊆ι⁻¹(m). Its original-coefficient square, finite evaluations, uniqueness and actual A→Â→R̂ scalar tower have explicit native signatures and proof bodies. The complete new native and admitted files are not freshly compiled in this continuation because available memory is below the WORKERS.md threshold. For every Â-module N, the native R̂-linear comparison R̂⊗_A N→R̂⊗_Â N is surjective, with its exact Â-linear kernel generated by completed-coefficient balancing differences. This identifies the additional quotient; injectivity is not claimed. Next establish the reusable owner-level relative stable-reflexivity formulation and the actual two-base completion Hom/Ext or universally acyclic-complex comparison with justified faithful reflection, then the pointed completed-local hull, coefficient-compatible sheaf descent and arbitrary-base approximation. Bourbaki III5.4.4 remains unread and Proposition7 remains an exercise input. All eight stages remain partial.",
+    "libraryBoundary": "Generic completion lift, compatible-scalar tensor map, surjectivity and kernel formula are imported from pinned Mathlib. The newly planned declarations specialize them to the existing nodal chart and chosen completed coefficient algebra; no new generic completion, tensor or stable-reflexivity carrier is proposed.",
+    "executionBoundary": "The complete Native.lean and FullCanonical.lean have not been freshly compiled. A whole-file native attempt was terminated (exit143) after the memory report showed19 GB available. Later reports17–19 GB prevent another start under WORKERS.md. The archived source is proof evidence for inspection, not a successful elaboration receipt."
   }
 }
