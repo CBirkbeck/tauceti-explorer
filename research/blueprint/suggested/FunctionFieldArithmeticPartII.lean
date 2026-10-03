@@ -1,3 +1,5 @@
+import Mathlib.Algebra.Colimit.DirectLimit
+import Mathlib.RingTheory.Flat.FaithfullyFlat.Algebra
 import Mathlib.Algebra.Category.CommAlgCat.Basic
 import Mathlib.CategoryTheory.Category.Preorder
 import Mathlib.Data.Nat.Factorial.Basic
@@ -2200,6 +2202,188 @@ example :
 example {i j : ℕ} (h : i ≤ j) (x : (factorialAffineTower (0 : ZMod 1)).obj i) :
     factorialAffineTower.chart (0 : ZMod 1) j
       (((factorialAffineTower (0 : ZMod 1)).map (homOfLE h)).hom x) = 0 := by
+  sorry
+
+end TauCeti.RootStack
+
+
+/-! Native factorial root colimit continuation. -/
+noncomputable section
+namespace TauCeti.RootStack
+open CategoryTheory CategoryTheory.Limits
+variable {A : Type u} [CommRing A]
+local instance (i : ℕ) : NeZero (Nat.factorial (i+1)) := ⟨Nat.factorial_ne_zero _⟩
+
+def factorialAffineMap (f : A) (i j : ℕ) (h : i ≤ j) :
+    AffineRing f (Nat.factorial (i+1)) →ₐ[A] AffineRing f (Nat.factorial (j+1)) := by
+  sorry
+
+instance factorialAffineDirected (f : A) :
+    DirectedSystem (fun i => AffineRing f (Nat.factorial (i+1)))
+      (fun i j h => factorialAffineMap f i j h) := by
+  sorry
+
+abbrev FactorialAffineColimit (f : A) :=
+  DirectLimit (fun i => AffineRing f (Nat.factorial (i+1))) (factorialAffineMap f)
+
+
+def factorialAffineInclusion (f : A) (i : ℕ) :
+    AffineRing f (Nat.factorial (i+1)) →ₐ[A] FactorialAffineColimit f := by
+  sorry
+
+lemma factorialAffineInclusion.transition (f : A) {i j : ℕ} (h : i ≤ j)
+    (x : AffineRing f (Nat.factorial (i+1))) :
+    factorialAffineInclusion f j (factorialAffineMap f i j h x) =
+      factorialAffineInclusion f i x := by
+  sorry
+
+lemma factorialAffineInclusion.root (f : A) {i j : ℕ} (h : i ≤ j) :
+    factorialAffineInclusion f i (AdjoinRoot.root _) =
+      factorialAffineInclusion f j (AdjoinRoot.root _) ^
+        (Nat.factorial (j+1) / Nat.factorial (i+1)) := by
+  sorry
+
+lemma factorialAffineInclusion.pow (f : A) (i : ℕ) :
+    factorialAffineInclusion f i (AdjoinRoot.root _) ^ Nat.factorial (i+1) =
+      algebraMap A (FactorialAffineColimit f) f := by
+  sorry
+
+lemma affineDivisibility.injective (f : A) (n N : ℕ) [NeZero n] [NeZero N]
+    (h : n ∣ N) : Function.Injective (affineDivisibility f n N h) := by
+  sorry
+
+lemma factorialAffineInclusion.injective (f : A) (i : ℕ) :
+    Function.Injective (factorialAffineInclusion f i) := by
+  sorry
+
+lemma factorialAffineColimit.exists_level (f : A) (x : FactorialAffineColimit f) :
+    ∃ i, ∃ y : AffineRing f (Nat.factorial (i+1)), factorialAffineInclusion f i y = x := by
+  sorry
+
+lemma factorialAffineColimit.hom_ext (f : A) {C : Type u} [CommRing C] [Algebra A C]
+    (g h : FactorialAffineColimit f →ₐ[A] C)
+    (heq : ∀ i, g (factorialAffineInclusion f i (AdjoinRoot.root _)) =
+      h (factorialAffineInclusion f i (AdjoinRoot.root _))) : g = h := by
+  sorry
+
+def factorialAffineCocone (f : A) : Cocone (factorialAffineTower f) := by
+  sorry
+
+def factorialAffineCocone.isColimit (f : A) : IsColimit (factorialAffineCocone f) := by
+  sorry
+
+def factorialAffineRootLift (f : A) {C : Type u} [CommRing C] [Algebra A C]
+    (r : ℕ → C) (hr : ∀ i, r i ^ Nat.factorial (i+1) = algebraMap A C f)
+    (hc : ∀ i j, i ≤ j → r j ^ (Nat.factorial (j+1) / Nat.factorial (i+1)) = r i) :
+    FactorialAffineColimit f →ₐ[A] C := by
+  sorry
+
+lemma factorialAffineRootLift.root (f : A) {C : Type u} [CommRing C] [Algebra A C]
+    (r : ℕ → C) (hr : ∀ i, r i ^ Nat.factorial (i+1) = algebraMap A C f)
+    (hc : ∀ i j, i ≤ j → r j ^ (Nat.factorial (j+1) / Nat.factorial (i+1)) = r i)
+    (i : ℕ) :
+    factorialAffineRootLift f r hr hc (factorialAffineInclusion f i (AdjoinRoot.root _)) = r i := by
+  sorry
+
+-- factorialAffineColimit.test_wild_nonzero
+
+example : factorialAffineInclusion (0 : ZMod 2) 1 (AdjoinRoot.root _) ≠ 0 := by
+  sorry
+
+-- factorialAffineColimit.test_wild_square
+
+example : factorialAffineInclusion (0 : ZMod 2) 1 (AdjoinRoot.root _) ^ 2 = 0 := by
+  sorry
+
+-- factorialAffineColimit.test_two_to_six
+
+example (f : A) : factorialAffineInclusion f 1 (AdjoinRoot.root _) =
+    factorialAffineInclusion f 2 (AdjoinRoot.root _) ^ 3 := by
+  sorry
+
+def factorialAffineCocone.point (f : A) :
+    (factorialAffineCocone f).pt ≅ CommAlgCat.of A (FactorialAffineColimit f) := by
+  sorry
+
+lemma factorialAffineCocone.leg (f : A) (i : ℕ) :
+    ((factorialAffineCocone f).ι.app i ≫ (factorialAffineCocone.point f).hom).hom =
+      (factorialAffineInclusion f i).comp (factorialAffineTower.chart f i).toAlgHom := by
+  sorry
+
+lemma factorialAffineRootLift.unique (f : A) {C : Type u} [CommRing C] [Algebra A C]
+    (r : ℕ → C) (hr : ∀ i, r i ^ Nat.factorial (i+1) = algebraMap A C f)
+    (hc : ∀ i j, i ≤ j → r j ^ (Nat.factorial (j+1) / Nat.factorial (i+1)) = r i)
+    (g : FactorialAffineColimit f →ₐ[A] C)
+    (hg : ∀ i, g (factorialAffineInclusion f i (AdjoinRoot.root _)) = r i) :
+    g = factorialAffineRootLift f r hr hc := by
+  sorry
+
+lemma factorialAffineRootLift.postcomp (f : A) {C D : Type u} [CommRing C] [Algebra A C]
+    [CommRing D] [Algebra A D] (k : C →ₐ[A] D)
+    (r : ℕ → C) (hr : ∀ i, r i ^ Nat.factorial (i+1) = algebraMap A C f)
+    (hc : ∀ i j, i ≤ j → r j ^ (Nat.factorial (j+1) / Nat.factorial (i+1)) = r i)
+    (hs : ∀ i, k (r i) ^ Nat.factorial (i+1) = algebraMap A D f)
+    (ht : ∀ i j, i ≤ j → k (r j) ^ (Nat.factorial (j+1) / Nat.factorial (i+1)) = k (r i)) :
+    k.comp (factorialAffineRootLift f r hr hc) =
+      factorialAffineRootLift f (fun i => k (r i)) hs ht := by
+  sorry
+
+-- factorialAffineInclusion.test_coefficients
+
+example (a : ZMod 4) :
+    factorialAffineInclusion (2 : ZMod 4) 1 (algebraMap (ZMod 4) _ a) =
+      algebraMap (ZMod 4) (FactorialAffineColimit (2 : ZMod 4)) a := by
+  sorry
+
+-- factorialAffineColimit.test_zeroRing
+
+example (x : FactorialAffineColimit (0 : ZMod 1)) : x = 0 := by
+  sorry
+
+-- factorialAffineCocone.test_wild
+
+example : IsColimit (factorialAffineCocone (0 : ZMod 2)) := by
+  sorry
+
+-- factorialAffineCocone.test_zeroRing
+
+example : IsColimit (factorialAffineCocone (0 : ZMod 1)) := by
+  sorry
+
+-- factorialAffineCocone.test_leg
+
+example (f : A) :
+    ((factorialAffineCocone f).ι.app 0 ≫ (factorialAffineCocone.point f).hom).hom =
+      (factorialAffineInclusion f 0).comp (factorialAffineTower.chart f 0).toAlgHom := by
+  sorry
+
+-- factorialAffineRootLift.test_one
+
+example : factorialAffineRootLift (1 : ℤ) (fun _ => (1 : ℤ))
+    (by simp) (by simp) (factorialAffineInclusion (1 : ℤ) 2 (AdjoinRoot.root _)) = 1 := by
+  sorry
+
+-- factorialAffineRootLift.test_zero
+
+example : factorialAffineRootLift (0 : ZMod 2) (fun _ => (0 : ZMod 2))
+    (by simp [Nat.factorial_ne_zero]) (by
+      intro i j h
+      have hd : 0 < Nat.factorial (j+1) / Nat.factorial (i+1) :=
+        Nat.div_pos (Nat.factorial_le (Nat.add_le_add_right h 1))
+          (Nat.factorial_pos _)
+      exact zero_pow (Nat.ne_of_gt hd))
+    (factorialAffineInclusion (0 : ZMod 2) 1 (AdjoinRoot.root _)) = 0 := by
+  sorry
+
+-- factorialAffineRootLift.test_identity
+
+example (f : A) (hr : ∀ i, factorialAffineInclusion f i (AdjoinRoot.root _) ^
+    Nat.factorial (i+1) = algebraMap A (FactorialAffineColimit f) f)
+    (hc : ∀ i j, i ≤ j → factorialAffineInclusion f j (AdjoinRoot.root _) ^
+      (Nat.factorial (j+1) / Nat.factorial (i+1)) =
+        factorialAffineInclusion f i (AdjoinRoot.root _)) :
+    factorialAffineRootLift f (fun i => factorialAffineInclusion f i (AdjoinRoot.root _)) hr hc =
+      AlgHom.id A (FactorialAffineColimit f) := by
   sorry
 
 end TauCeti.RootStack
