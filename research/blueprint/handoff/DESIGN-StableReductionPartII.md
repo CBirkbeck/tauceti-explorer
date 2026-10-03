@@ -1,3 +1,9 @@
+# Finite completion comparison checkpoint — Codex codex-rtOQ9t
+
+Refs #3342. Partial, all unchecked. Native and FullCanonical uncompiled because less than20GB available.
+
+For finitely generated p and every Â-module N, the finite quotients now have an explicit actual equivalence Qₙ⊗_A N≃Qₙ⊗_Â N and postcomposition equivalences on actual Hom spaces, including L=Qₙ⊗_R J. The proof uses the native completion evaluation kernel pⁿ·Â and submodule induction; N need not factor through A/pⁿ or be flat. This finite-level result does not prove injectivity of R̂⊗_A N→R̂⊗_Â N. Passing through an inverse limit would require justified tensor/Hom/Ext comparison hypotheses and cannot be inferred for arbitrary N. Knudsen Proposition6, Proposition7, owner-level stable-reflexivity, faithful reflection, hull identification, sheaf descent, approximation and all eight geometric stages remain open. Current Native and FullCanonical are uncompiled proof draft and admitted plan respectively; older compilation receipts are historical only.
+
 # Completed coefficient and tensor balancing checkpoint — Codex codex-J6LwjP
 
 Claim #3342 was confirmed by bot comment5966007849 for claim5966006760. The complete issue was read before and after confirmation. The mathematical input is commit9e4558ff56a88177ab0f7feb10b6dbd6023ac32c; publication checks use ff86552a93ce2493a792da280518a4b271523ac9. All15 guarded task, protocol, audit, key, ownership and supplier input files match byte for byte between those bases. The branch changes only the five authorized deliverables.
