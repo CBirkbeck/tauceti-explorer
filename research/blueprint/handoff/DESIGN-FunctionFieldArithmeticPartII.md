@@ -1,3 +1,853 @@
+# Universal factorial root coaction and native Hopf structure
+
+Codex — codex-a71f92. Refs #3403. Claim5964634228 was explicitly won by
+bot5964635179; the whole issue was read before and after confirmation.
+Immutable mathematical read base: d66f0b304e762d1fff6864197a34cd309b359a34.
+
+## Result and exact boundary
+
+Thirty-two declaration-sized nodes add the actual factorial coaction ρ_f,
+augmentation ε_A, antipode S_A, their root/coefficient formulas and laws,
+the natural equivalence Hom_A-alg(H_A,B)≃S(B), specialization to the
+existing scaling map, and native Bialgebra/HopfAlgebra structures constructed
+through Mathlib's existing factories. There are seven constructions,
+twenty-five lemmas, twenty-seven API records and twenty-three typed examples.
+All244 incoming contracts are retained,243 whole node objects byte-for-JSON-value
+unchanged. Only the infinite-affine-quotient consumer gains five prerequisites
+and one proof step; its original statement/hypotheses/API/tests remain.
+The entire incoming suggested file and reader are exact prefixes; the entire
+incoming handoff is preserved below. The roadmap definition is byte-identical.
+
+Compatible roots determine the algebra maps.
+
+Put d_i=(i+1)!, C_A(f) equal to the actual inherited factorial colimit,
+H_A=C_A(1), and u_i,h_i its distinguished roots. The inherited universal
+coherent unit family has ring value h_i. The pair h_i⊗u_i has d_i-th
+power1⊗f and satisfies every actual transition power, so the compatible
+root lift supplies ρ_f. Its iterates, with the native tensor associator,
+both send u_i to h_i⊗(h_i⊗u_i). Evaluate all h_i at1 to obtain ε_A;
+evaluate at inverse universal units to obtain S_A. The two convolution
+products become1 on each h_i; applying S_A to the right product identity
+and cancelling an actual unit proves involutivity. Algebra points evaluate
+the universal family, and the compatible-root lift reconstructs those
+points. Unit-value injectivity and root extensionality prove both inverse
+identities and naturality. Evaluating the universal coaction at a coherent
+scalar gives the inherited actual scaling endomorphism, not merely a
+formula on geometric points.
+
+A is any commutative ring and f is arbitrary. Test A-algebras B,C share
+the fixed universe, and naturality is for A-algebra homomorphisms B→C.
+No nontriviality, reducedness, domain, characteristic-zero, invertible-order,
+Noetherian, flatness or unit-parameter hypothesis is introduced. Structures
+are installed only locally. The characteristic-two zero-section degree-two
+root has a nonzero coaction image with square0; a collapsed or point-only
+action fails this test. Zero-ring cases remain in every construction's tests.
+
+The native factories are imported baseline mathematics, not replanned
+generic structures. In the admitted suggested sketch, these two factories
+retain their explicit comultiplication/counit/antipode data and admit the
+law proofs. Admitting the entire structure opaquely changes its coefficient
+algebra and makes the proposed compatibility types ill-formed. The explicit
+factory scaffolds keep the inherited algebra while still using admitted
+proofs throughout the specification. The no-admission replay, separately,
+checks the actual root calculations and both factories' laws.
+
+Totals:276 nodes (11 definitions,51 constructions,165 lemmas,37 theorems,
+11 comparisons,1 application),229 API records,236 tests,190 baseline
+declarations,39 planets,8 gaps,13 requests. All ten stages remain partial;
+every implementation status remains unchecked. All historical source,
+correction, erratum and route records are preserved. The general reserved
+root-stack key, nonreduced fibres, relative roots and independent
+Yun–Zhang and symplectic source routes are unchanged.
+
+The universal factorial algebra coaction, native bialgebra/Hopf structures and fixed-universe natural equivalence of algebra-valued points with coherent unit families now have explicit signatures and separate no-admission native evidence. Identify H_A with the canonical diagonalizable coordinate Hopf algebra A[Q/Z] and its convolution group of points; transport the coaction through the full positive-divisibility equivalence; prove coefficient-base-change/coaction compatibility and higher-universe adapters; construct coherent root-object groupoid reindexing, affine Spec limits, fpqc frame torsors and the infinite quotient comparison. Preserve TOWER-AFF, KUMMER-FINITE, TOWER-TYPING, DVR/Kummer, the all-roots-of2 non-fppf counterexample and both Yun–Zhang and symplectic source routes. No stage or implementation closes.
+
+## Fresh reading and exact pins
+
+Full governing WORKERS/blueprint PROTOCOL/expansion PROTOCOL/upstream guide,
+whole issue before/after the winning claim, complete ten-stage roadmap,
+current handoff/recovery/resume portion, exact root-stack key, reviewed
+FA.0–FA.7 audit rows and accepted REV-AUDIT-20 correction were read.
+The complete Jacobian and StableReduction upstream README documents were
+read in this job. Selected inherited root-lift, extensionality, universal
+scalar and scaling declarations and all newly consumed native statements
+were personally read at their pins. The inherited244-node proof/source
+coverage has not been freshly re-audited in full; no such claim is made.
+
+Fresh primary source: [Talpo–Vistoli v2](https://arxiv.org/pdf/1410.1164v2),
+complete printed/PDF pp.14–16: Proposition3.5 proof and cofinality remark,
+Cartier-dual tower, grading-equivariant projections, Lemma3.7 proof,
+Definition3.8, Proposition3.10 complete statement/proof, Lemma3.12 proof
+and Corollary3.13. Exact PDF:715504 bytes, SHA-256
+92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2.
+The coordinate formulas above are authored deductions, not printed theorem
+names and not a certificate of the quotient-stack comparison. Historical
+other-source receipts remain attributed to their original workers.
+
+Tau Ceti source pin f790474821cf4256814db967cb154e7af3d0c369;
+Mathlib source/build pin082e2d37e8b0463410cdb532e111cd43d5a66174;
+Lean4.34.0-rc2. The exact existing dependency build was reused, without
+setup, updating, caches, builds or LSPs. A bounded source/index search
+found no existing specific factorial universal coaction; generic tensor,
+bialgebra and Hopf factories are positive existing suppliers. Open Mathlib
+PR and Zulip root-stack screens found no specific replacement construction;
+absence of a screen hit is not a whole-upstream audit.
+
+## Checked-file evidence
+
+Full canonical suggested file: uncompiled, since its actual native geometric
+supplier imports have no existing exact-pin compiled build.
+Canonical SHA-256: 1a14ceab251db9eab509b03b19bcc694e3d2ef0951bc93a4c970ee72ad5baf64.
+Its Mathlib-only algebra projection does compile, with only admitted-proof
+warnings. The two structural factory scaffolds retain their actual data.
+Sketch SHA-256: b0b836f24b42a48e12a27b696d1ca2b3c92cf5f77d78834bb8f3fbeb51751363.
+The native no-admission proof compiles with no errors or warnings, all167
+named axiom audits limited to propext/Classical.choice/Quot.sound, and161
+typed examples. Native SHA-256: 22882a03c3d2f4d517dc9c60f90b7c764538157bf92e647fd778d2c4a075afcc; its incoming3285-line
+prefix is exact, SHA-256
+9c200f01b15ff2b0f286ae8a0798db9f7c68fcd9965e9a30fe428dd3c38c05c0.
+The public proof archive and exact validation replay are linked below
+before publication. Scratch paths are deliberately not publication evidence.
+
+## Resume
+
+Start from the actual H_A, coaction and native Hopf structures, not a replacement
+carrier or field-valued points. Next prove the canonical diagonalizable
+coordinate Hopf-algebra and point-convolution comparisons; then transport
+through the positive-divisibility/factorial algebra equivalence and supply
+coaction/base-change compatibility. Keep coherent root-object reindexing,
+Spec-limit transport, fpqc frame torsors and quotient groupoids explicit.
+None of TOWER-AFF, KUMMER-FINITE, TOWER-TYPING, DVR/Kummer or the non-fppf
+all-roots-of2 example is discharged by these algebra formulas.
+
+
+## Immutable public proof archive
+
+[Exact checked native source](https://github.com/CBirkbeck/tauceti-explorer/blob/786bad00199efcb0855a2c7fe28edc403d77a30d/research/blueprint/suggested/FunctionFieldArithmeticPartII.lean) and [exact recovery/validator/transcripts](https://github.com/CBirkbeck/tauceti-explorer/blob/786bad00199efcb0855a2c7fe28edc403d77a30d/research/blueprint/handoff/DESIGN-FunctionFieldArithmeticPartII.md) are preserved in the final commit ancestry. The archived block and canonical prefix were round-tripped through GitHub and compared exactly before submission.
+
+## Public proof and immutable validation replay
+
+The checked native source is an inert block in this public ancestor's suggested file, delimited by BEGIN/END ARCHIVED CHECKED FACTORIAL UNIVERSAL COACTION. Recover it with the exact functions below; all final public signatures are separately admitted, and all implementation statuses stay unchecked. The source archive and validation replay remain in the final commit ancestry so scratch cleanup removes no sole proof evidence.
+
+The actual checker reports zero errors and warnings:224 required API records and209 required unit tests (229/236 records when optional-kind records are included). The actual intake file-problems check passes. Public/native parity checks32 full declaration headers and23 full typed example headers. Exact incoming contracts, key, routes, sources, requests, gaps, planets, roadmaps and foreign skipped/pending records are preserved. Real build.assemble, not a reduced substitute, projects276 declarations; own/stage/combined DAGs are acyclic and all54 required supplier paths are reachable. There are no unresolved prerequisites or skipped/pending links for this roadmap. The unchanged incoming244-node control is checked on the same immutable main.
+
+Validation base63e075ba56ab990cc3a79c51c45fe6d6881e99ac was freshly fetched. All five authorized input blobs and the governing instructions/reservation file are unchanged from the mathematical read base. The read-only Git view below overlays only these five candidate texts and imports the actual scripts directly from that immutable commit. It creates no checkout or repository snapshot.
+
+Native Lean: exit0, no warnings/errors/admissions,167 standard-axiom audits,161 examples,30.51s wall time,3657844KB peak RSS. Admitted algebra projection: exit0,372 admitted-proof warnings only,161 examples,11.40s wall time,3398932KB peak RSS. Full canonical geometric file remains uncompiled; do not confuse the projection with full-file elaboration.
+
+For replay, provide the existing exact-pin dependency build's Lean executable and package LEAN_PATH; never run setup, updates, builds, caches or an LSP. Check free -g for at least20GB available before each one-at-a-time invocation. Use /usr/bin/time -v timeout1200 on Native.lean then Sketch.lean, redirecting to Native.log and Sketch-final.log. Set TAUCETI_REPO to the read-only Git clone, TAUCETI_BASELINE to the pinned source/index directory, N10_VALIDATE_BASE to63e075ba56ab990cc3a79c51c45fe6d6881e99ac, and PYTHONDONTWRITEBYTECODE=1. Recover the public five file texts to roadmap.json/packet.json/reader.md/Canonical.lean/handoff.md in one owned scratch directory, plus Native.lean/Sketch.lean and the scripts below. Run python3 verify.py. These are explicit replay inputs, not a claim of a clean full-canonical build.
+
+# BEGIN FACTORIAL COACTION RECOVERY
+```python
+"""Recover exact native/canonical texts and the admitted algebra projection."""
+import hashlib
+START="\n/- BEGIN ARCHIVED CHECKED FACTORIAL UNIVERSAL COACTION\n"
+END="\nEND ARCHIVED CHECKED FACTORIAL UNIVERSAL COACTION -/\n"
+def recover(archived):
+ canonical,tail=archived.split(START,1)
+ native=tail.split(END,1)[0]
+ assert hashlib.sha256(native.encode()).hexdigest()=="22882a03c3d2f4d517dc9c60f90b7c764538157bf92e647fd778d2c4a075afcc"
+ assert hashlib.sha256(canonical.encode()).hexdigest()=="1a14ceab251db9eab509b03b19bcc694e3d2ef0951bc93a4c970ee72ad5baf64"
+ return native,canonical
+def project(can):
+ imports="\n".join(l for l in can.splitlines() if l.startswith("import Mathlib"))
+ initial=can[can.index("abbrev AffineRing (f : A)"):can.index("-- TauCeti.RootStack.affineCoaction.nativePoint")]
+ one=can[can.index("-- TauCeti.RootStack.affineCoaction.test_one"):can.index("-- TauCeti.RootStack.affineCoaction.test_sign")]
+ comparison=can[can.index("section AffineTorsorComparison"):can.index("-- Native acceptance computations")]
+ own=can[can.index("/-! Native factorial chart diagram continuation"):]
+ extra=can[can.index("-- Native acceptance computations"):can.index("/-! Native factorial chart diagram continuation")]
+ finite=can.split("/- BEGIN NATIVE FINITE ROOT TRANSITIONS -/\n",1)[1].split("/- END NATIVE FINITE ROOT TRANSITIONS -/\n",1)[0]
+ pre="\nnoncomputable section\nuniverse u\nnamespace TauCeti.RootStack\nvariable {A : Type u} [CommRing A]\nopen scoped TensorProduct\n"
+ sketch=imports+pre+initial+one+comparison+extra+"\nnamespace TauCeti.RootStack\nvariable {A : Type u} [CommRing A]\n"+finite+"\nend TauCeti.RootStack\n"+own
+ sketch=sketch.replace("TauCeti.RootsOfUnityGroup.generator n","Multiplicative.ofAdd (1 : ZMod n)")
+ assert hashlib.sha256(sketch.encode()).hexdigest()=="b0b836f24b42a48e12a27b696d1ca2b3c92cf5f77d78834bb8f3fbeb51751363"
+ return sketch
+```
+# END FACTORIAL COACTION RECOVERY
+
+# BEGIN FACTORIAL COACTION IMMUTABLE VIEW
+```python
+"""Read the immutable audit tree without creating a repository snapshot."""
+import fnmatch
+import importlib.abc
+import importlib.util
+import io
+from pathlib import Path
+import subprocess
+import sys
+
+import os
+REPO = Path(os.environ.get('TAUCETI_REPO', str(Path.cwd())))
+BASE = os.environ.get('N10_VALIDATE_BASE', 'd66f0b304e762d1fff6864197a34cd309b359a34')
+TRACKED = set(subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', BASE], cwd=REPO, text=True).splitlines())
+CACHE = {}
+READS = set()
+ORIGINAL = {name: getattr(Path, name) for name in ('read_text', 'read_bytes', 'exists', 'is_file', 'is_dir', 'glob', 'rglob', 'open', 'write_text', 'write_bytes')}
+
+def relative(path):
+    try:
+        return str(path.relative_to(REPO))
+    except ValueError:
+        return None
+
+def blob(key):
+    if key not in TRACKED:
+        raise FileNotFoundError(key)
+    READS.add(key)
+    if key not in CACHE:
+        CACHE[key] = subprocess.check_output(['git', 'show', BASE + ':' + key], cwd=REPO)
+    return CACHE[key]
+
+def read_text(path, encoding=None, errors=None):
+    key = relative(path)
+    if key is None:
+        return ORIGINAL['read_text'](path, encoding=encoding, errors=errors)
+    return blob(key).decode(encoding or 'utf-8', errors or 'strict')
+
+def read_bytes(path):
+    key = relative(path)
+    return ORIGINAL['read_bytes'](path) if key is None else blob(key)
+
+def is_file(path):
+    key = relative(path)
+    return ORIGINAL['is_file'](path) if key is None else key in TRACKED
+
+def is_dir(path):
+    key = relative(path)
+    return ORIGINAL['is_dir'](path) if key is None else any(s.startswith(key.rstrip('/') + '/') for s in TRACKED) or key == '.'
+
+def exists(path):
+    key = relative(path)
+    return ORIGINAL['exists'](path) if key is None else is_file(path) or is_dir(path)
+
+def glob(path, pattern, recursive=False):
+    key = relative(path)
+    if key is None:
+        yield from ORIGINAL['rglob' if recursive else 'glob'](path, pattern)
+        return
+    prefix = '' if key == '.' else key.rstrip('/') + '/'
+    for candidate in sorted(TRACKED):
+        if not candidate.startswith(prefix):
+            continue
+        tail = candidate[len(prefix):]
+        if fnmatch.fnmatch(tail, pattern) and (recursive or '/' not in tail):
+            yield REPO / candidate
+
+def open_path(path, mode='r', buffering=-1, encoding=None, errors=None, newline=None):
+    key = relative(path)
+    if key is None:
+        return ORIGINAL['open'](path, mode, buffering, encoding, errors, newline)
+    if mode not in ('r', 'rb'):
+        raise PermissionError('audit tree is read-only')
+    return io.BytesIO(blob(key)) if mode == 'rb' else io.StringIO(blob(key).decode(encoding or 'utf-8', errors or 'strict'))
+
+def write_text(path, *args, **kwargs):
+    if relative(path) is not None:
+        raise PermissionError('audit tree is read-only')
+    return ORIGINAL['write_text'](path, *args, **kwargs)
+
+def write_bytes(path, *args, **kwargs):
+    if relative(path) is not None:
+        raise PermissionError('audit tree is read-only')
+    return ORIGINAL['write_bytes'](path, *args, **kwargs)
+
+class Loader(importlib.abc.Loader):
+    def __init__(self, key):
+        self.key = key
+    def create_module(self, spec):
+        return None
+    def exec_module(self, module):
+        module.__file__ = str(REPO / self.key)
+        exec(compile(blob(self.key), module.__file__, 'exec'), module.__dict__)
+
+class Finder(importlib.abc.MetaPathFinder):
+    def find_spec(self, fullname, path=None, target=None):
+        key = 'scripts/' + fullname + '.py'
+        if '.' not in fullname and key in TRACKED:
+            return importlib.util.spec_from_loader(fullname, Loader(key))
+
+def install():
+    for name, function in [('read_text', read_text), ('read_bytes', read_bytes), ('exists', exists), ('is_file', is_file), ('is_dir', is_dir), ('glob', glob), ('rglob', lambda path, pattern: glob(path, pattern, True)), ('open', open_path), ('write_text', write_text), ('write_bytes', write_bytes)]:
+        setattr(Path, name, function)
+    sys.meta_path.insert(0, Finder())
+```
+# END FACTORIAL COACTION IMMUTABLE VIEW
+
+# BEGIN FACTORIAL COACTION VALIDATOR
+```python
+"""Actual immutable checker, intake, native parity, preservation and assembled graph checks."""
+from pathlib import Path
+import os,sys,json,re,ast,hashlib,collections,copy
+import immutable_view as gv
+HERE=Path(__file__).resolve().parent
+RID="FunctionFieldArithmeticPartII";STEM=RID
+FILES={"research/blueprint/roadmaps/"+RID+".json":"roadmap.json",
+"research/blueprint/packets/"+RID+".json":"packet.json",
+"research/blueprint/readmes/"+RID+".md":"reader.md",
+"research/blueprint/suggested/"+RID+".lean":"Canonical.lean",
+"research/blueprint/handoff/DESIGN-"+RID+".md":"handoff.md"}
+PACKET="research/blueprint/packets/"+RID+".json"
+original=json.loads(gv.blob(PACKET))
+oldroadmap=json.loads(gv.blob("research/blueprint/roadmaps/"+RID+".json"))
+oldreader=gv.blob("research/blueprint/readmes/"+RID+".md").decode()
+oldlean=gv.blob("research/blueprint/suggested/"+RID+".lean").decode()
+oldhandoff=gv.blob("research/blueprint/handoff/DESIGN-"+RID+".md").decode()
+for dst,name in FILES.items():gv.CACHE[dst]=(HERE/name).read_bytes()
+gv.install()
+import check_blueprint
+errors,warnings,summary=check_blueprint.check(gv.REPO/PACKET,
+check_blueprint.load_index(Path(os.environ["TAUCETI_BASELINE"])/"declarations.tsv"),check_blueprint.world())
+print(json.dumps({"checker":summary,"errors":errors,"warnings":warnings}),flush=True)
+assert not errors and not warnings,(errors,warnings)
+p=json.loads((HERE/"packet.json").read_text())
+reader=(HERE/"reader.md").read_text();lean=(HERE/"Canonical.lean").read_text()
+old={n["id"]:n for n in original["nodes"]};new={n["id"]:n for n in p["nodes"]}
+assert len(old)==244 and len(new)==276 and set(old)<=set(new)
+consumer=RID+":RS.2/infinite-affine-quotient"
+for nid,node in old.items():
+ if nid!=consumer:assert new[nid]==node,nid
+ else:
+  for key,value in node.items():
+   if key=="prerequisites":assert new[nid][key][:len(value)]==value and len(new[nid][key])==len(value)+5
+   elif key=="proofSteps":assert new[nid][key][:-1]==value
+   else:assert new[nid][key]==value,key
+allowed={"summary","sources","nodes","baseline","coverage","auditEvidence","continuationHistory"}
+for key in original:
+ if key not in allowed:assert p[key]==original[key],key
+assert p["sources"][:-2]==original["sources"]
+assert p["baseline"]["declarations"][:181]==original["baseline"]["declarations"]
+assert len(p["baseline"]["declarations"])==190
+for key,value in original["baseline"].items():
+ if key!="declarations":assert p["baseline"][key]==value,key
+assert p["summary"].startswith(original["summary"])
+for a,b in zip(p["coverage"],original["coverage"]):
+ for key,value in b.items():
+  if key=="remaining" and b["stageId"]==RID+":RS.2":assert a[key][:-1]==value
+  else:assert a[key]==value,key
+for key,value in original["auditEvidence"].items():assert p["auditEvidence"][key]==value,key
+assert p["continuationHistory"][:-1]==original["continuationHistory"]
+assert p["status"]=="partial" and all(n["implementationStatus"]=="unchecked" for n in new.values())
+assert all(c["status"]=="partial" for c in p["coverage"])
+assert new[RID+":key/root-stacks"]==old[RID+":key/root-stacks"]
+r=json.loads((HERE/"roadmap.json").read_text());assert r==oldroadmap
+assert (HERE/"roadmap.json").read_bytes()==gv.blob("research/blueprint/roadmaps/"+RID+".json")
+assert reader.startswith(oldreader) and lean.startswith(oldlean)
+assert (HERE/"handoff.md").read_text().endswith(oldhandoff)
+for nid,node in new.items():
+ if nid in old:continue
+ assert node["statement"] in reader and node["declarationName"] in reader,nid
+ assert node["declarationName"].split(".")[-1] in lean,nid
+ for test in node.get("tests",[]):assert test["name"] in lean and test["statement"] in reader,test
+tree=ast.parse(gv.blob("research/blueprint/intake.py").decode())
+picked=[n for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id in {"ALLOWED","PRIVATE"} for t in n.targets) or isinstance(n,ast.FunctionDef) and n.name=="file_problems"]
+env={"json":json,"re":re};exec(compile(ast.Module(body=picked,type_ignores=[]),"actual-intake","exec"),env)
+problems=[v for dst,name in FILES.items() for v in env["file_problems"](dst,(HERE/name).read_text())]
+assert not problems,problems
+for name in FILES.values():
+ txt=(HERE/name).read_text()
+ assert not re.search(r"[ \t]+$",txt,re.M),name
+ assert not re.search(r"/(?:home|Users)/[^/\s]+/",txt),name
+native=(HERE/"Native.lean").read_text();sketch=(HERE/"Sketch.lean").read_text()
+assert hashlib.sha256(native.encode()).hexdigest()=="22882a03c3d2f4d517dc9c60f90b7c764538157bf92e647fd778d2c4a075afcc"
+assert hashlib.sha256(lean.encode()).hexdigest()=="1a14ceab251db9eab509b03b19bcc694e3d2ef0951bc93a4c970ee72ad5baf64"
+assert hashlib.sha256(native[:157167].encode()).hexdigest()=="9c200f01b15ff2b0f286ae8a0798db9f7c68fcd9965e9a30fe428dd3c38c05c0"
+nlog=(HERE/"Native.log").read_text();clog=(HERE/"Sketch-final.log").read_text()
+assert nlog.count("depends on axioms:")==167 and not re.search(r"error:|warning:|sorryAx",nlog)
+for audit in re.finditer(r"depends on axioms:\s*\[([\s\S]*?)\]",nlog):
+ assert set(a.strip() for a in audit.group(1).split(",") if a.strip())<={"propext","Classical.choice","Quot.sound"}
+assert "Exit status: 0" in nlog
+assert "error:" not in clog and clog.count("warning:")==clog.count("warning: declaration uses")
+assert "Exit status: 0" in clog
+assert len(re.findall(r"^example\b",native,re.M))==161
+assert len(re.findall(r"^example\b",lean,re.M))==181
+assert len(re.findall(r"^example\b",sketch,re.M))==161
+assert not re.search(r"\bsorry\b|sorryAx|^axiom\b",native,re.M)
+def header(code):
+ lines=[]
+ for line in code.splitlines():
+  if re.search(r"\s:= (?:by|rfl|map_zero _)$",line) or line.endswith(":=") or line.endswith("where"):
+   pos=line.rfind("where") if line.endswith("where") else line.rfind(":=")
+   lines.append(line[:pos].rstrip())
+   return "\n".join(lines)
+  lines.append(line)
+ raise AssertionError(code[:200])
+nextra=native[157167:];cextra=lean[len(oldlean):]
+for node in p["nodes"][244:]:
+ name=node["declarationName"].removeprefix("TauCeti.RootStack.")
+ pattern=r"^(?:def|abbrev|lemma) "+re.escape(name)+r"(?=\s|\{)"
+ m=re.search(pattern,nextra,re.M);c=re.search(pattern,cextra,re.M)
+ assert m and c,name
+ assert header(nextra[m.start():])==header(cextra[c.start():]),name
+ for test in node.get("tests",[]):
+  marker="-- "+test["name"]+"\n"
+  assert marker in nextra and marker in cextra,test
+  assert header(nextra.split(marker,1)[1])==header(cextra.split(marker,1)[1]),test
+print(json.dumps({"preservedContracts":244,"unchangedWholeNodeObjects":243,"newNodes":32,
+"api":sum(len(n.get("api",[])) for n in p["nodes"]),
+"tests":sum(len(n.get("tests",[])) for n in p["nodes"]),
+"nativeExamples":161,"nativeAxiomAudits":167,"admittedSketchExamples":161,
+"admittedSketchWarnings":clog.count("warning:"),"canonicalExamples":181,
+"intake":"pass","newHeadersMatched":32,"newTypedTestsMatched":23}),flush=True)
+import build,blueprints
+root=gv.REPO
+a0=json.loads((root/"data/atlas.json").read_text())
+packets,documents,definitions=blueprints.load_promoted(root)
+otherparts=[(stem,q) for stem,q in packets if q.get("roadmapId")==RID and stem!=STEM]
+assert not otherparts
+own_definition=json.loads((HERE/"roadmap.json").read_text())
+old_definition=json.loads(gv.blob("research/blueprint/roadmaps/"+RID+".json"))
+definitions=[q for q in definitions if q.get("id")!=RID]+[own_definition]
+
+keep=[x for x in packets if x[0]!=STEM]
+documents[STEM]="research/blueprint/readmes/"+STEM+".md"
+def assemble(candidate, definition):
+ build.load_promoted=lambda *args:(copy.deepcopy(keep+[(STEM,candidate)]),copy.deepcopy(documents),copy.deepcopy([q for q in definitions if q.get('id')!=RID]+[definition]))
+ return build.assemble(require_distances=False)[0]
+a=assemble(p,own_definition);b=assemble(original,old_definition)
+world={}
+for folder in ["data/decompositions","data/blueprints","research/blueprint/packets"]:
+ for path in sorted((root/folder).glob("*.json")):
+  q=json.loads(path.read_text())
+  for n in q.get("nodes",[]):world.setdefault(n["id"],n)
+world.update(new)
+stages={x["id"]:x for x in a["stages"]}
+stageids=set(stages)|set(check_blueprint.world()[1])
+stageedges={(e["source"],e["target"]) for e in a["stageEdges"]}
+def dag(vertices,edges):
+ vertices=set(vertices)|{v for edge in edges for v in edge}
+ out=collections.defaultdict(set);indeg={v:0 for v in vertices}
+ for source,target in edges:
+  if target not in out[source]:out[source].add(target);indeg[target]+=1
+ stack=[v for v,count in indeg.items() if count==0];count=0
+ while stack:
+  v=stack.pop();count+=1
+  for w in out[v]:
+   indeg[w]-=1
+   if indeg[w]==0:stack.append(w)
+ assert count==len(vertices),[v for v,count in indeg.items() if count][:15]
+ return {"vertices":len(vertices),"edges":len(edges),"acyclic":True}
+ownedges={(q,nid) for nid,node in new.items() for q in node.get("prerequisites",[]) if q in new}
+stack=list(new);seen=set();dep=set();unresolved=set();baseref=set()
+while stack:
+ nid=stack.pop()
+ if nid in seen:continue
+ seen.add(nid)
+ for q in world[nid].get("prerequisites",[]):
+  if q.startswith(("mathlib:","tauceti:")) and q not in stageids:baseref.add(q);continue
+  dep.add((q,nid))
+  if q in world:stack.append(q)
+  elif q not in stageids:unresolved.add(q)
+assert not unresolved,sorted(unresolved)
+dep|={(n["parentStageId"],nid) for nid,n in new.items() if n.get("parentStageId") in new}
+dep|={(request["supplier"],consumer) for request in p.get("requests",[]) for consumer in request.get("neededBy",[]) if consumer in new or consumer in stageids}
+roadmap=next(r for r in a["roadmaps"] if r["id"]==RID)
+expected_decl=len(new)+sum(len(q["nodes"]) for _,q in otherparts)
+assert roadmap["blueprint"]["declarations"]==expected_decl,(roadmap["blueprint"],expected_decl)
+assert not roadmap["blueprint"]["skippedLinks"] and not roadmap.get("pendingLinks",[])
+assert stageedges=={(e["source"],e["target"]) for e in b["stageEdges"]}
+def skips(atlas):
+ return {r["id"]:(r.get("blueprint",{}).get("skippedLinks",[]),r.get("pendingLinks",[])) for r in atlas["roadmaps"] if r["id"]!=RID}
+assert skips(a)==skips(b)
+out=collections.defaultdict(set)
+for source,target in stageedges:out[source].add(target)
+def reachable(source,target):
+ stack=[source];seen=set()
+ while stack:
+  v=stack.pop()
+  if v==target:return True
+  if v in seen:continue
+  seen.add(v);stack.extend(out[v]-seen)
+ return False
+pairs={(e["source"],e["target"]) for e in a0["stageEdges"] if e["target"].startswith(RID+":")}
+pairs |= {(source,RID+":"+row["key"]) for row in own_definition["stages"] for source in row.get("requires",[])}
+for node in p["nodes"]:
+ for q in node.get("prerequisites",[]):
+  if q in stageids and q not in world and q!=node["parentStageId"]:pairs.add((q,node["parentStageId"]))
+for req in p.get("requests",[]):
+ for consumer in req.get("neededBy",[]):
+  if consumer in new:pairs.add((req["supplier"],new[consumer]["parentStageId"]))
+  elif consumer in stageids:pairs.add((req["supplier"],consumer))
+missingpairs={(s,t) for s,t in pairs if not reachable(s,t)}
+oldout=collections.defaultdict(set)
+for edge in b['stageEdges']:oldout[edge['source']].add(edge['target'])
+def reachable0(source,target):
+ stack=[source];seen=set()
+ while stack:
+  v=stack.pop()
+  if v==target:return True
+  if v in seen:continue
+  seen.add(v);stack.extend(oldout[v]-seen)
+ return False
+assert missingpairs=={(s,t) for s,t in pairs if not reachable0(s,t)}
+assert not missingpairs, missingpairs
+# Independently retain all accepted restructure links touching the whole roadmap.
+acceptedpairs=set()
+for path in (root/"research/blueprint/restructure").glob("*.result.json"):
+ q=json.loads(path.read_text())
+ if q.get("review",{}).get("status")!="accepted":continue
+ for row in q.get("links",[]):
+  if any(row.get(k,"").startswith(RID+":") for k in ["source","target"]):
+   acceptedpairs.add((row["source"],row["target"]))
+assert all(reachable(s,t) for s,t in acceptedpairs),[(s,t) for s,t in acceptedpairs if not reachable(s,t)]
+report={"stageDAG":dag(stages,stageedges),"ownDAG":dag(new,ownedges),
+ "combinedDAG":dag(set(stages)|seen,stageedges|dep),"reachableDeclarations":len(seen),
+ "externalDeclarations":sorted(seen-set(new)),"reachableBaselineReferences":len(baseref),
+ "unresolved":sorted(unresolved),"otherPartsRetained":[stem for stem,_ in otherparts],
+ "partDeclarations":len(new),"partPlanets":sum("planet" in n for n in p["nodes"]),
+ "roadmapDeclarations":roadmap["blueprint"]["declarations"],
+ "requiredStagePairs":len(pairs),"requiredStagePairsReachable":len(pairs)-len(missingpairs),
+ "inheritedMissingStagePairs":sorted(missingpairs),
+ "acceptedRestructurePairs":len(acceptedpairs),"acceptedRestructurePairsReachable":len(acceptedpairs),
+ "stageEdgesUnchanged":True,"otherSkippedPendingUnchanged":True,"ownSkippedPendingEmpty":True}
+print(json.dumps(report,ensure_ascii=False,indent=2),flush=True)
+controlnew={n["id"]:n for n in original["nodes"]}
+controledges={(q,nid) for nid,node in controlnew.items() for q in node.get("prerequisites",[]) if q in controlnew}
+print(json.dumps({"controlOwnDAG":dag(controlnew,controledges),"incomingDeclarations":len(controlnew),"incomingPlanets":sum("planet" in n for n in original["nodes"])}),flush=True)
+
+print(json.dumps({"readPathCount":len(gv.READS),"readPathsSha256":hashlib.sha256("\\n".join(sorted(gv.READS)).encode()).hexdigest()}),flush=True)
+```
+# END FACTORIAL COACTION VALIDATOR
+
+### Actual native axiom/resource transcript
+
+```text
+'TauCeti.RootStack.affineTorsorComparison.coefficientPermutation_rows' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.coefficientPermutation_sign' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.weight_exponent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.weight_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.matrix_reindex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.determinant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.kernel_coordinate_condition' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.kernelCoordinateEquiv' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.kernelCoordinateEquiv_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.kernelCoordinateEquiv_symm_coordinates' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.kernelCoordinateEquiv_nonwrap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.kernel_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.cokernelResidue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.cokernelResidue_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.cokernelResidue_surjective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.cokernelResidue_ker' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.cokernelCoordinateEquiv' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.cokernelCoordinateEquiv_mk' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.cokernelCoordinateEquiv_symm_residue' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.cokernelCoordinateEquiv_eq_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.cokernel_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineRoot.unit_mul_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.unitEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.unitEquiv_toAlgHom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.unitEquiv_symm_character' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.unitEquiv_symm_right' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.unitEquiv_symm_character_tmul' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.unit_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.wrappingEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.wrappingEquiv_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.wrappingEquiv_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.wrappingEquiv_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.lower_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.wrapping_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv_symm_coordinates' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.source_finrank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.kernel_zero_finrank' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.range_zero_finrank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.zero_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransition.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransition.constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransition.unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransition.comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineIteratedReverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineIteratedReverse.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineIteratedReverse.constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineIteratedReverse.coefficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransitionIterated' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransitionIterated.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransitionIterated.coefficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransitionBasis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransitionBasis.apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransitionBasis.repr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransitionBasis.repr_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransitionSpecProperties' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransitionFaithfullyFlat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineDivisibility' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineDivisibility.constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineDivisibility.unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineDivisibility.multiplicative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineDivisibility.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineDivisibility.identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineDivisibility.composition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineTower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineTower.chart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineTower.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineTower.constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineDivisibility.injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineCocone.isColimit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineRootLift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineInclusion.injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineDirected' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineInclusion.transition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineInclusion.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineInclusion.pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineColimit.exists_level' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineColimit.hom_ext' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineRootLift.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineRootLift.unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineRootLift.postcomp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineCocone.point' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineCocone.leg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.RootDivIndex.cofinal' depends on axioms: [propext]
+'TauCeti.RootStack.RootDivIndex.factorial_mono' depends on axioms: [propext]
+'TauCeti.RootStack.factorialAffineInclusion.comp_transition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineExtension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineExtension.at_level' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineExtension.transition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineExtension.factorial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineExtension.injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityAffineDirected' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityAffineInclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityAffineInclusion.transition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityAffineInclusion.injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityAffineColimit.exists_level' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityAffineColimit.hom_ext' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityToFactorial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityToFactorial.inclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialToDivisibility' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialToDivisibility.inclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityToFactorial.left_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityToFactorial.right_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityFactorialEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityFactorialEquiv.inclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityFactorialEquiv.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityAffineInclusion.pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityAffineInclusion.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialRootScalars.transition' depends on axioms: [propext, Quot.sound]
+'TauCeti.RootStack.factorialScale' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScale.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScale.constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScale.one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScale.mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScaleEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScaleEquiv.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScaleEquiv.inverse_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialUniversalScalars' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialUniversalScalars.value' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialRootScalars.map' depends on axioms: [propext, Quot.sound]
+'TauCeti.RootStack.factorialRootScalars.map_value' depends on axioms: [propext, Quot.sound]
+'TauCeti.RootStack.factorialRootScalars.map_id' depends on axioms: [propext, Quot.sound]
+'TauCeti.RootStack.factorialRootScalars.map_comp' depends on axioms: [propext, Quot.sound]
+'TauCeti.RootStack.factorialAffineColimit.ringHom_ext' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCoefficientMap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCoefficientMap.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCoefficientMap.constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCoefficientMap.id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCoefficientMap.comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScale.coefficient_naturality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScaleEquiv.coefficient_naturality' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.factorialScaleEquiv.inverse_coefficient_naturality' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.factorialCoaction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCoaction.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCoaction.constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCounit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCounit.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCoaction.counit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCoaction.coassoc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCoaction.right_counit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCoaction.cocomm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAntipode' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAntipode.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAntipode.left_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAntipode.right_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAntipode.involutive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScalarEvaluation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScalarEvaluation.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScalarPoints' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScalarPoints.value' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScalarPoints.naturality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCoaction.specialization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCoaction.injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialBialgebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialBialgebra.comul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialBialgebra.counit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialHopfAlgebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialHopfAlgebra.antipode' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCounit.constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCounit.surjective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScalarEvaluation.constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScalarEvaluation.universal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScalarPoints.left_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScalarPoints.right_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+	User time (seconds): 51.99
+	System time (seconds): 0.50
+	Percent of CPU this job got: 172%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:30.51
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 3657844
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 117211
+	Voluntary context switches: 28870
+	Involuntary context switches: 1940
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 40
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+```
+
+### Actual immutable validation transcript
+
+```json
+{"checker": {"packet": "{repository}/research/blueprint/packets/FunctionFieldArithmeticPartII.json", "roadmap": "FunctionFieldArithmeticPartII", "status": "partial", "nodes": 276, "kinds": {"construction": 51, "definition": 11, "comparison": 11, "lemma": 165, "theorem": 37, "application": 1}, "apiItems": 224, "unitTests": 209, "planets": 39, "baselineDeclarations": 190, "prerequisites": {"baseline": 308, "node (this packet)": 602, "stage": 64, "node (blueprint)": 16}, "gaps": 8, "requests": 13, "stagesInScope": 10, "stagesClosed": 0}, "errors": [], "warnings": []}
+{"preservedContracts": 244, "unchangedWholeNodeObjects": 243, "newNodes": 32, "api": 229, "tests": 236, "nativeExamples": 161, "nativeAxiomAudits": 167, "admittedSketchExamples": 161, "admittedSketchWarnings": 372, "canonicalExamples": 181, "intake": "pass", "newHeadersMatched": 32, "newTypedTestsMatched": 23}
+{
+  "stageDAG": {
+    "vertices": 3056,
+    "edges": 8723,
+    "acyclic": true
+  },
+  "ownDAG": {
+    "vertices": 276,
+    "edges": 602,
+    "acyclic": true
+  },
+  "combinedDAG": {
+    "vertices": 3344,
+    "edges": 9485,
+    "acyclic": true
+  },
+  "reachableDeclarations": 327,
+  "externalDeclarations": [
+    "AlgebraicModuliForArithmeticGeometry:R09.3/affine-fpqc-quasicoherent-descent",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/affine-module-descent-equivalence",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/affine-pullback-tensor",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/canonical-overlap-functor",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-descent-to-overlap",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-equivalence",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-morphisms",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-roundtrips",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-cocycle",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-inverses",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-maps",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/coalgebra-to-overlap",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/descent-equalizer-module-coordinates",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/finite-locally-free-descent",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/finite-presentation-module-descent",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-effective",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-faithful",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-full",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/module-descent-coaction",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/module-overlap-datum",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/native-module-canonical-comparison",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/native-module-descent-coalgebra",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coaction-roundtrips",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coalgebra-equivalence",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coalgebra-morphisms",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-comparison-canonical",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-diagonal",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-coordinates",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-diagonal",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-triple",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-to-chosen-descent",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-to-coalgebra",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pseudofunctor",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pullback",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/tensor-comonad-coordinates",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-essential-surjective",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-full-faithful",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/classifying-abelian-gerbe",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/compatible-limit-family",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/isom-torsor",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/limit-stack-descent",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/neutralization",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/neutralization-equivalence",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/nonempty-affine-limit-gerbe",
+    "AlgebraicModuliForArithmeticGeometry:key/gerbes",
+    "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+    "DiamondsAndVStacks:D0/stackification"
+  ],
+  "reachableBaselineReferences": 238,
+  "unresolved": [],
+  "otherPartsRetained": [],
+  "partDeclarations": 276,
+  "partPlanets": 39,
+  "roadmapDeclarations": 276,
+  "requiredStagePairs": 54,
+  "requiredStagePairsReachable": 54,
+  "inheritedMissingStagePairs": [],
+  "acceptedRestructurePairs": 0,
+  "acceptedRestructurePairsReachable": 0,
+  "stageEdgesUnchanged": true,
+  "otherSkippedPendingUnchanged": true,
+  "ownSkippedPendingEmpty": true
+}
+{"controlOwnDAG": {"vertices": 244, "edges": 513, "acyclic": true}, "incomingDeclarations": 244, "incomingPlanets": 39}
+{"readPathCount": 847, "readPathsSha256": "cf941d5fd2cebb3ded328458b16cd5c6f5082ceb4fbc8d13328a3c044aaa90da"}
+```
+
+## Preserved incoming handoff
+
 # Natural coefficient changes for coherent root-chart scaling
 
 Codex (GPT-6), session codex-5ebb6f. Refs #3403. Claim5964404553 explicitly
