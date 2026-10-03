@@ -1,3 +1,5 @@
+import Mathlib.Algebra.Category.ModuleCat.Projective
+import Mathlib.CategoryTheory.Abelian.Projective.Resolution
 import Mathlib.Algebra.Homology.ShortComplex.ModuleCat
 import Mathlib.LinearAlgebra.LeftExact
 import Mathlib.Algebra.Homology.ShortComplex.HomologicalComplex
@@ -2923,6 +2925,247 @@ example (h : H₀) : sectionHomDifferential A γ δ s t M false 0 h = 0 ↔
 -- test: NodeSectionFactorization.PolynomialModel.sectionHomCochain.test_degree_zero_dual
 example (h : H₀) : sectionHomDifferential A γ δ s t M true 0 h = 0 ↔
     ∃ f : Module.Dual R₀ (Ideal.span {u₀ - ι₀ s, v₀ - ι₀ t} : Ideal R₀) →ₗ[R₀] N₀, f.comp (dualPresentation A γ δ s t) = h := by sorry
+
+end
+end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+
+-- Native actual section projective resolutions; all bodies admitted under §13.
+namespace TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+noncomputable section
+universe u_resolution
+open CategoryTheory TensorProduct
+variable (A : Type u_resolution) [CommRing A] (γ δ s t : A)
+local notation "R₀" => Ring A γ δ s t
+local notation "ι₀" => coefficientHom A γ δ s t
+local notation "u₀" => AdjoinRoot.root (polynomial A γ δ s t)
+local notation "v₀" => AdjoinRoot.of (polynomial A γ δ s t) (Polynomial.X : Polynomial A)
+local notation "Φ₀" => left (ι₀ γ) (ι₀ δ) u₀ v₀ (ι₀ s) (ι₀ t)
+local notation "Ψ₀" => right (ι₀ γ) (ι₀ δ) u₀ v₀ (ι₀ s) (ι₀ t)
+local notation "J₀" => (Ideal.span {u₀ - ι₀ s, v₀ - ι₀ t} : Ideal R₀)
+local notation "D₀" => Module.Dual R₀ J₀
+local notation "F₀" => (Fin 2 → R₀)
+
+def sectionChainDifferential (dual : Bool) (n : ℕ) : F₀ →ₗ[R₀] F₀ := by
+  sorry
+
+lemma sectionChainDifferential_exact (dual : Bool) (n : ℕ) :
+    Function.Exact (sectionChainDifferential A γ δ s t dual (n+1))
+      (sectionChainDifferential A γ δ s t dual n) := by
+  sorry
+
+lemma sectionChainDifferential_sq (dual : Bool) (n : ℕ) :
+    (sectionChainDifferential A γ δ s t dual n).comp
+      (sectionChainDifferential A γ δ s t dual (n+1)) = 0 := by
+  sorry
+
+def sectionChain (dual : Bool) : ChainComplex (ModuleCat.{u_resolution} R₀) ℕ := by
+  sorry
+
+lemma sectionChain_d (dual : Bool) (n : ℕ) :
+    HEq ((sectionChain A γ δ s t dual).d (n+1) n)
+      (ModuleCat.ofHom (R := R₀) (X := F₀) (Y := F₀) (sectionChainDifferential A γ δ s t dual n)) := by
+  sorry
+
+lemma sectionChain_exactAt (dual : Bool) (n : ℕ) :
+    (sectionChain A γ δ s t dual).ExactAt (n+1) := by
+  sorry
+
+lemma sectionChain_projective (dual : Bool) (n : ℕ) :
+    CategoryTheory.Projective ((sectionChain A γ δ s t dual).X n) := by
+  sorry
+
+lemma sectionChainIdeal_augmentation_zero :
+    (idealPresentation A γ δ s t).comp
+      (sectionChainDifferential A γ δ s t false 0) = 0 := by
+  sorry
+
+lemma sectionChainDual_augmentation_zero :
+    (dualPresentation A γ δ s t).comp
+      (sectionChainDifferential A γ δ s t true 0) = 0 := by
+  sorry
+
+def sectionIdealAugmentation : sectionChain A γ δ s t false ⟶
+    (ChainComplex.single₀ (ModuleCat.{u_resolution} R₀)).obj (ModuleCat.of R₀ J₀) := by
+  sorry
+
+def sectionDualAugmentation : sectionChain A γ δ s t true ⟶
+    (ChainComplex.single₀ (ModuleCat.{u_resolution} R₀)).obj (ModuleCat.of R₀ D₀) := by
+  sorry
+
+lemma sectionIdealAugmentation_zero :
+    HEq ((sectionIdealAugmentation A γ δ s t).f 0)
+      (ModuleCat.ofHom (R := R₀) (X := F₀) (Y := J₀) (idealPresentation A γ δ s t)) := by
+  sorry
+
+lemma sectionDualAugmentation_zero :
+    HEq ((sectionDualAugmentation A γ δ s t).f 0)
+      (ModuleCat.ofHom (R := R₀) (X := F₀) (Y := D₀) (dualPresentation A γ δ s t)) := by
+  sorry
+
+set_option backward.isDefEq.respectTransparency false in
+lemma sectionIdealAugmentation_quasiIso : QuasiIso (sectionIdealAugmentation A γ δ s t) := by
+  sorry
+
+set_option backward.isDefEq.respectTransparency false in
+lemma sectionDualAugmentation_quasiIso : QuasiIso (sectionDualAugmentation A γ δ s t) := by
+  sorry
+
+def sectionIdealResolution : ProjectiveResolution (ModuleCat.of R₀ J₀) := by
+  sorry
+
+def sectionDualResolution : ProjectiveResolution (ModuleCat.of R₀ D₀) := by
+  sorry
+
+lemma sectionChainDifferential_ideal_zero :
+    sectionChainDifferential A γ δ s t false 0 = (Ψ₀).mulVecLin := by
+  sorry
+
+lemma sectionChainDifferential_dual_zero :
+    sectionChainDifferential A γ δ s t true 0 = (Φ₀).mulVecLin := by
+  sorry
+
+lemma sectionChainDifferential_periodic (dual : Bool) (n : ℕ) :
+    sectionChainDifferential A γ δ s t dual (n+2) =
+      sectionChainDifferential A γ δ s t dual n := by
+  sorry
+
+lemma sectionChain_X (dual : Bool) (n : ℕ) :
+    (sectionChain A γ δ s t dual).X n = ModuleCat.of R₀ F₀ := by
+  sorry
+
+lemma sectionChain_finiteFree (dual : Bool) (n : ℕ) :
+    Module.Free R₀ ((sectionChain A γ δ s t dual).X n) ∧
+      Module.Finite R₀ ((sectionChain A γ δ s t dual).X n) := by
+  sorry
+
+lemma sectionChain_shape (dual : Bool) (i j : ℕ) (h : j+1 ≠ i) :
+    (sectionChain A γ δ s t dual).d i j = 0 := by
+  sorry
+
+lemma sectionResolutionHom_d (M : Type*) [AddCommGroup M] [Module A M]
+    (dual : Bool) (n : ℕ) :
+    HEq (LinearMap.lcomp R₀ (R₀ ⊗[A] M) ((sectionChain A γ δ s t dual).d (n+1) n).hom)
+      (sectionHomDifferential A γ δ s t M dual n) := by
+  sorry
+
+lemma sectionIdealResolution_complex :
+    (sectionIdealResolution A γ δ s t).complex = sectionChain A γ δ s t false := by
+  sorry
+
+lemma sectionIdealResolution_augmentation :
+    HEq ((sectionIdealResolution A γ δ s t).π) (sectionIdealAugmentation A γ δ s t) := by
+  sorry
+
+lemma sectionDualResolution_complex :
+    (sectionDualResolution A γ δ s t).complex = sectionChain A γ δ s t true := by
+  sorry
+
+lemma sectionDualResolution_augmentation :
+    HEq ((sectionDualResolution A γ δ s t).π) (sectionDualAugmentation A γ δ s t) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionChainDifferential.test_ideal_signed_column
+example : sectionChainDifferential A 0 0 0 0 false 0 (![1,0]) 1 =
+    AdjoinRoot.root (polynomial A 0 0 0 0) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionChainDifferential.test_dual_negative_column
+example : sectionChainDifferential A 0 0 0 0 true 0 (![1,0]) 1 =
+    -AdjoinRoot.root (polynomial A 0 0 0 0) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionChainDifferential.test_two_period
+example (dual : Bool) (n : ℕ) : sectionChainDifferential A γ δ s t dual (n+2) =
+    sectionChainDifferential A γ δ s t dual n := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionChain.test_nonreduced_exact
+example : (sectionChain (ZMod 4) 0 0 1 0 false).ExactAt 2 := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionChain.test_finite_projective
+example (dual : Bool) (n : ℕ) :
+    CategoryTheory.Projective ((sectionChain A γ δ s t dual).X n) ∧
+      Module.Finite R₀ ((sectionChain A γ δ s t dual).X n) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionChain.test_hom_coefficient_differential
+example (M : Type*) [AddCommGroup M] [Module A M] (dual : Bool) (n : ℕ) :
+    HEq (LinearMap.lcomp R₀ (R₀ ⊗[A] M) ((sectionChain A γ δ s t dual).d (n+1) n).hom)
+      (sectionHomDifferential A γ δ s t M dual n) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionIdealAugmentation.test_first_generator
+example :
+    HEq ((sectionIdealAugmentation A γ δ s t).f 0)
+      (ModuleCat.ofHom (R := R₀) (X := F₀) (Y := J₀) (idealPresentation A γ δ s t)) ∧
+      (idealPresentation A γ δ s t (![1,0]) : R₀) = u₀ - ι₀ s := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionIdealAugmentation.test_second_signed_generator
+example :
+    HEq ((sectionIdealAugmentation A γ δ s t).f 0)
+      (ModuleCat.ofHom (R := R₀) (X := F₀) (Y := J₀) (idealPresentation A γ δ s t)) ∧
+      (idealPresentation A γ δ s t (![0,1]) : R₀) = -(v₀ - ι₀ t) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionIdealAugmentation.test_positive_component_zero
+example (n : ℕ) : (sectionIdealAugmentation A γ δ s t).f (n+1) = 0 := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionDualAugmentation.test_first_generator
+example (j : J₀) :
+    HEq ((sectionDualAugmentation A γ δ s t).f 0)
+      (ModuleCat.ofHom (R := R₀) (X := F₀) (Y := D₀) (dualPresentation A γ δ s t)) ∧
+      dualPresentation A γ δ s t (![1,0]) j = (j : R₀) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionDualAugmentation.test_second_signed_generator
+example (j : J₀) :
+    HEq ((sectionDualAugmentation A γ δ s t).f 0)
+      (ModuleCat.ofHom (R := R₀) (X := F₀) (Y := D₀) (dualPresentation A γ δ s t)) ∧
+      dualPresentation A γ δ s t (![0,1]) j = -dualGenerator A γ δ s t j := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionDualAugmentation.test_positive_component_zero
+example (n : ℕ) : (sectionDualAugmentation A γ δ s t).f (n+1) = 0 := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionIdealResolution.test_starting_psi
+example : HEq ((sectionIdealResolution A γ δ s t).complex.d 1 0)
+    (ModuleCat.ofHom (R := R₀) (X := F₀) (Y := F₀) (Ψ₀).mulVecLin) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionIdealResolution.test_next_phi
+example : HEq ((sectionIdealResolution A γ δ s t).complex.d 2 1)
+    (ModuleCat.ofHom (R := R₀) (X := F₀) (Y := F₀) (Φ₀).mulVecLin) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionIdealResolution.test_zero_ring_quasiIso
+example : QuasiIso (sectionIdealResolution (ZMod 1) 0 0 0 0).π := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionDualResolution.test_starting_phi
+example : HEq ((sectionDualResolution A γ δ s t).complex.d 1 0)
+    (ModuleCat.ofHom (R := R₀) (X := F₀) (Y := F₀) (Φ₀).mulVecLin) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionDualResolution.test_next_psi
+example : HEq ((sectionDualResolution A γ δ s t).complex.d 2 1)
+    (ModuleCat.ofHom (R := R₀) (X := F₀) (Y := F₀) (Ψ₀).mulVecLin) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionDualResolution.test_nonreduced_quasiIso
+example : QuasiIso (sectionDualResolution (ZMod 4) 0 0 1 0).π := by
+  sorry
+
+lemma sectionIdealResolution_quasiIso :
+    QuasiIso (sectionIdealResolution A γ δ s t).π := by
+  sorry
+
+lemma sectionDualResolution_quasiIso :
+    QuasiIso (sectionDualResolution A γ δ s t).π := by
+  sorry
 
 end
 end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel

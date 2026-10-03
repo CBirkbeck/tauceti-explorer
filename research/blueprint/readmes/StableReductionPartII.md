@@ -5611,3 +5611,396 @@ Proof: Reuse the existing exact presentation Φ→R²→D and its actual surject
 Acceptance: Use actual R-linear Hom maps, the signed P_J/P_D presentations and native ModuleCat homology. Do not infer Ext vanishing, relative stable reflexivity, completed-local comparisons or family/sheaf descent from this cochain result alone.
 
 Source: Knudsen2012 §3 Key Example and Proposition3.1, with §4’s separate completed-local comparison; the general-ring native cochain result is an authored deduction on the preceding local model. Native machinery is cited at the selected pinned statements, without replanning generic homological algebra.
+
+
+## Actual polynomial section projective resolutions
+
+Codex — codex-5ebb6f; 2026-10-03. This partial continuation packages the actual matrices into native projective resolutions. It preserves the general reserved moduli-stack definition, six key consumers, all routed paper requirements and inherited geometric gaps.
+
+The actual augmented finite-free R-projective resolutions of J and D are now specified and separately checked with native QuasiIso. Their Hom precomposition differentials equal the existing arbitrary-coefficient cochain maps. Next identify the categorical Hom complex and native higher Ext; then apply the exact Appendix/Ile relative stable-reflexivity and two-base completion theorems, pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. The differential equality alone is not an Ext comparison.
+
+### The polynomial section chain differential
+
+`StableReductionPartII:MC.2/section-chain-differential` · `NodeSectionFactorization.PolynomialModel.sectionChainDifferential` · construction
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. Define B(e,n) as the actual R-linear matrix map F→F; false starts with Ψ and true with Φ.
+
+Proof: Select the actual matrix by parity; retain its signs and source/target order.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+API `NodeSectionFactorization.PolynomialModel.sectionChainDifferential_ideal_zero`: For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. B(false,0)=Ψ as an actual R-linear map.
+
+API `NodeSectionFactorization.PolynomialModel.sectionChainDifferential_dual_zero`: For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. B(true,0)=Φ as an actual R-linear map.
+
+API `NodeSectionFactorization.PolynomialModel.sectionChainDifferential_periodic`: For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. B(e,n+2)=B(e,n) for every e,n as actual R-linear maps.
+
+API `NodeSectionFactorization.PolynomialModel.sectionChainDifferential_exact`: For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. For every e and n≥0, B(e,n+1) followed by B(e,n) is exact.
+
+API `NodeSectionFactorization.PolynomialModel.sectionChainDifferential_sq`: For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. For every e and n≥0, B(e,n)∘B(e,n+1)=0 as R-linear maps.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionChainDifferential.test_ideal_signed_column` (computation): For γ=δ=s=t=0 over every A, B(false,0)(1,0) has second coordinate u.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionChainDifferential.test_dual_negative_column` (computation): For γ=δ=s=t=0 over every A, B(true,0)(1,0) has second coordinate −u.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionChainDifferential.test_two_period` (compatibility): For every phase and n, B(e,n+2)=B(e,n).
+
+### Exactness of consecutive section chain maps
+
+`StableReductionPartII:MC.2/section-chain-differential-exact` · `NodeSectionFactorization.PolynomialModel.sectionChainDifferential_exact` · lemma
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. For every e and n≥0, B(e,n+1) followed by B(e,n) is exact.
+
+Proof: Separate the two parity values and phases. Apply ker Φ=im Ψ or ker Ψ=im Φ in the indicated order.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+### The section chain differential squares to zero
+
+`StableReductionPartII:MC.2/section-chain-differential-square` · `NodeSectionFactorization.PolynomialModel.sectionChainDifferential_sq` · lemma
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. For every e and n≥0, B(e,n)∘B(e,n+1)=0 as R-linear maps.
+
+Proof: Apply the native zero-composite theorem to the exact pair.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+### The native polynomial section chain complex
+
+`StableReductionPartII:MC.2/section-chain` · `NodeSectionFactorization.PolynomialModel.sectionChain` · construction
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. Construct C(e) as a native ℕ-indexed ChainComplex of ModuleCat R with its actual successor maps.
+
+Proof: Bundle F and each actual B(e,n); supply the proven square-zero equation.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+API `NodeSectionFactorization.PolynomialModel.sectionChain_X`: For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. For every e,n, C(e).X n is the native object ModuleCat.of R F.
+
+API `NodeSectionFactorization.PolynomialModel.sectionChain_d`: For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. For every e,n, C(e).d(n+1,n)=ModuleCat.ofHom(B(e,n)).
+
+API `NodeSectionFactorization.PolynomialModel.sectionChain_shape`: For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. C(e).d(i,j)=0 whenever j+1≠i; there is no upward differential or negative degree.
+
+API `NodeSectionFactorization.PolynomialModel.sectionChain_exactAt`: For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. C(e) is natively ExactAt(n+1) for every e and n≥0.
+
+API `NodeSectionFactorization.PolynomialModel.sectionChain_projective`: For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. Every C(e).X n is a projective object of ModuleCat R.
+
+API `NodeSectionFactorization.PolynomialModel.sectionChain_finiteFree`: For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. For every e,n, the native module underlying C(e).X n has both Module.Free R and Module.Finite R instances; it is the actual F=Fin 2→R.
+
+API `NodeSectionFactorization.PolynomialModel.sectionResolutionHom_d`: For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. For every A-module M, every phase e and n≥0, native R-linear precomposition by the underlying C(e).d(n+1,n) equals exactly the existing sectionHomDifferential(A,γ,δ,s,t,M,e,n) on Hom_R(F,R⊗_A M). This fixes the actual coefficient cochain differential, without yet constructing a categorical Hom-complex isomorphism or native Ext comparison.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionChain.test_nonreduced_exact` (degenerate): For A=Z/4 and γ=δ=t=0,s=1, C(false) is ExactAt 2.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionChain.test_finite_projective` (compatibility): Every chain term is simultaneously a native projective ModuleCat object and a finite R-module.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionChain.test_hom_coefficient_differential` (compatibility): For every A-module M, native Hom precomposition by C(e).d(n+1,n) is the specified sectionHomDifferential.
+
+### The native section chain successor map
+
+`StableReductionPartII:MC.2/section-chain-successor-map` · `NodeSectionFactorization.PolynomialModel.sectionChain_d` · lemma
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. For every e,n, C(e).d(n+1,n)=ModuleCat.ofHom(B(e,n)).
+
+Proof: Use the native constructor evaluation theorem.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+### Positive-degree exactness of the section chain
+
+`StableReductionPartII:MC.2/section-chain-positive-exact` · `NodeSectionFactorization.PolynomialModel.sectionChain_exactAt` · lemma
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. C(e) is natively ExactAt(n+1) for every e and n≥0.
+
+Proof: Identify the actual associated short complex with B(e,n+1), B(e,n). Use the proven kernel/image exactness and native module exactness criterion.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+### Degreewise native projectivity of the section chain
+
+`StableReductionPartII:MC.2/section-chain-projective` · `NodeSectionFactorization.PolynomialModel.sectionChain_projective` · lemma
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. Every C(e).X n is a projective object of ModuleCat R.
+
+Proof: F is the finite product of two free rank-one R-modules. Reuse native free-module projectivity and its categorical wrapper.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+### The section-ideal augmentation kills the first chain map
+
+`StableReductionPartII:MC.2/section-chain-ideal-augmentation-zero` · `NodeSectionFactorization.PolynomialModel.sectionChainIdeal_augmentation_zero` · lemma
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. P_J∘B(false,0)=P_J∘Ψ=0.
+
+Proof: The actual signed presentation has kernel im Ψ; apply its exact-pair composite.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+### The dual augmentation kills the first chain map
+
+`StableReductionPartII:MC.2/section-chain-dual-augmentation-zero` · `NodeSectionFactorization.PolynomialModel.sectionChainDual_augmentation_zero` · lemma
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. P_D∘B(true,0)=P_D∘Φ=0.
+
+Proof: The actual signed dual presentation has kernel im Φ; apply its exact-pair composite.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+### The native augmentation to the actual section ideal
+
+`StableReductionPartII:MC.2/section-ideal-augmentation` · `NodeSectionFactorization.PolynomialModel.sectionIdealAugmentation` · construction
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. Construct π_J:C(false)→single₀(J) as the native chain map whose degree-zero component is P_J.
+
+Proof: Use the native chain-map equivalence with a map in degree zero annihilating d(1,0).
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+API `NodeSectionFactorization.PolynomialModel.sectionChainIdeal_augmentation_zero`: For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. P_J∘B(false,0)=P_J∘Ψ=0.
+
+API `NodeSectionFactorization.PolynomialModel.sectionIdealAugmentation_zero`: For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. π_J.f 0=ModuleCat.ofHom(P_J), including the prescribed negative second generator.
+
+API `NodeSectionFactorization.PolynomialModel.sectionIdealAugmentation_quasiIso`: For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. π_J is a QuasiIso: its map on native homology is an isomorphism in every degree.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionIdealAugmentation.test_first_generator` (computation): π_J.f 0 sends (1,0) to the actual ideal generator c=u−ιs.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionIdealAugmentation.test_second_signed_generator` (computation): π_J.f 0 sends (0,1) to −d=−(v−ιt), retaining the signed presentation.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionIdealAugmentation.test_positive_component_zero` (degenerate): Every positive component π_J.f(n+1) is the zero morphism.
+
+### The native augmentation to the actual dual
+
+`StableReductionPartII:MC.2/section-dual-augmentation` · `NodeSectionFactorization.PolynomialModel.sectionDualAugmentation` · construction
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. Construct π_D:C(true)→single₀(D) as the native chain map whose degree-zero component is P_D.
+
+Proof: Use the native chain-map equivalence with a map in degree zero annihilating d(1,0).
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+API `NodeSectionFactorization.PolynomialModel.sectionChainDual_augmentation_zero`: For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. P_D∘B(true,0)=P_D∘Φ=0.
+
+API `NodeSectionFactorization.PolynomialModel.sectionDualAugmentation_zero`: For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. π_D.f 0=ModuleCat.ofHom(P_D), including the prescribed negative ε generator.
+
+API `NodeSectionFactorization.PolynomialModel.sectionDualAugmentation_quasiIso`: For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. π_D is a QuasiIso: its map on native homology is an isomorphism in every degree.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionDualAugmentation.test_first_generator` (computation): π_D.f 0 sends (1,0) to the inclusion J→R.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionDualAugmentation.test_second_signed_generator` (computation): π_D.f 0 sends (0,1) to −ε, evaluated on each actual j∈J.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionDualAugmentation.test_positive_component_zero` (degenerate): Every positive component π_D.f(n+1) is the zero morphism.
+
+### Degree zero of the section-ideal augmentation
+
+`StableReductionPartII:MC.2/section-ideal-augmentation-degree-zero` · `NodeSectionFactorization.PolynomialModel.sectionIdealAugmentation_zero` · lemma
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. π_J.f 0=ModuleCat.ofHom(P_J), including the prescribed negative second generator.
+
+Proof: Evaluate the native chain-map equivalence at degree zero.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+### Degree zero of the dual augmentation
+
+`StableReductionPartII:MC.2/section-dual-augmentation-degree-zero` · `NodeSectionFactorization.PolynomialModel.sectionDualAugmentation_zero` · lemma
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. π_D.f 0=ModuleCat.ofHom(P_D), including the prescribed negative ε generator.
+
+Proof: Evaluate the native chain-map equivalence at degree zero.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+### The section-ideal augmentation is a native quasi-isomorphism
+
+`StableReductionPartII:MC.2/section-ideal-augmentation-quasi-isomorphism` · `NodeSectionFactorization.PolynomialModel.sectionIdealAugmentation_quasiIso` · lemma
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. π_J is a QuasiIso: its map on native homology is an isomorphism in every degree.
+
+Proof: In degree zero use the actual augmented short complex; ker P_J=im Ψ and surjectivity give exactness and epi. Identify that short complex through a native isomorphism and apply the degree-zero quasi-isomorphism criterion. At n+1 both complexes are exact, so the native criterion gives QuasiIsoAt.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+### The dual augmentation is a native quasi-isomorphism
+
+`StableReductionPartII:MC.2/section-dual-augmentation-quasi-isomorphism` · `NodeSectionFactorization.PolynomialModel.sectionDualAugmentation_quasiIso` · lemma
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. π_D is a QuasiIso: its map on native homology is an isomorphism in every degree.
+
+Proof: In degree zero use the actual augmented short complex; ker P_D=im Φ and surjectivity give exactness and epi. Identify that short complex through a native isomorphism and apply the degree-zero quasi-isomorphism criterion. At n+1 both complexes are exact, so the native criterion gives QuasiIsoAt.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+### The actual section-ideal projective resolution
+
+`StableReductionPartII:MC.2/section-ideal-projective-resolution` · `NodeSectionFactorization.PolynomialModel.sectionIdealResolution` · construction
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. Bundle C(false), its degreewise projectivity and π_J into the native ProjectiveResolution of J. This is the actual signed two-periodic resolution, not an arbitrarily chosen generic resolution.
+
+Proof: Supply the actual complex, augmentation, projectivity and QuasiIso to the existing native structure.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+API `NodeSectionFactorization.PolynomialModel.sectionIdealResolution_complex`: For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. The native sectionIdealResolution.complex is exactly C(false).
+
+API `NodeSectionFactorization.PolynomialModel.sectionIdealResolution_augmentation`: For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. The native sectionIdealResolution.π is exactly π_J.
+
+API `NodeSectionFactorization.PolynomialModel.sectionIdealResolution_quasiIso`: For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. The actual bundled sectionIdealResolution.π is a native QuasiIso in every degree.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionIdealResolution.test_starting_psi` (compatibility): The native section-ideal resolution differential d(1,0) is exactly Ψ.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionIdealResolution.test_next_phi` (compatibility): Its next native differential d(2,1) is exactly Φ.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionIdealResolution.test_zero_ring_quasiIso` (degenerate): Over the zero ring Z/1 with all parameters zero, the actual ideal-resolution augmentation is a native QuasiIso.
+
+### The actual dual projective resolution
+
+`StableReductionPartII:MC.2/section-dual-projective-resolution` · `NodeSectionFactorization.PolynomialModel.sectionDualResolution` · construction
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. Bundle C(true), its degreewise projectivity and π_D into the native ProjectiveResolution of D. This is the actual signed two-periodic resolution, not an arbitrarily chosen generic resolution.
+
+Proof: Supply the actual complex, augmentation, projectivity and QuasiIso to the existing native structure.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+API `NodeSectionFactorization.PolynomialModel.sectionDualResolution_complex`: For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. The native sectionDualResolution.complex is exactly C(true).
+
+API `NodeSectionFactorization.PolynomialModel.sectionDualResolution_augmentation`: For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. The native sectionDualResolution.π is exactly π_D.
+
+API `NodeSectionFactorization.PolynomialModel.sectionDualResolution_quasiIso`: For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. The actual bundled sectionDualResolution.π is a native QuasiIso in every degree.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionDualResolution.test_starting_phi` (compatibility): The native dual-resolution differential d(1,0) is exactly Φ.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionDualResolution.test_next_psi` (compatibility): Its next native differential d(2,1) is exactly Ψ.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionDualResolution.test_nonreduced_quasiIso` (degenerate): Over Z/4 with γ=δ=t=0,s=1, the actual dual-resolution augmentation is a native QuasiIso.
+
+### The section-ideal resolution starts with Ψ
+
+`StableReductionPartII:MC.2/section-chain-ideal-start` · `NodeSectionFactorization.PolynomialModel.sectionChainDifferential_ideal_zero` · lemma
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. B(false,0)=Ψ as an actual R-linear map.
+
+Proof: Evaluate the false phase at zero.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+### The dual resolution starts with Φ
+
+`StableReductionPartII:MC.2/section-chain-dual-start` · `NodeSectionFactorization.PolynomialModel.sectionChainDifferential_dual_zero` · lemma
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. B(true,0)=Φ as an actual R-linear map.
+
+Proof: Evaluate the true phase at zero.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+### Two-periodicity of the section chain maps
+
+`StableReductionPartII:MC.2/section-chain-differential-periodic` · `NodeSectionFactorization.PolynomialModel.sectionChainDifferential_periodic` · lemma
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. B(e,n+2)=B(e,n) for every e,n as actual R-linear maps.
+
+Proof: Use the native modulo-two calculation.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+### The actual section chain objects
+
+`StableReductionPartII:MC.2/section-chain-objects` · `NodeSectionFactorization.PolynomialModel.sectionChain_X` · lemma
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. For every e,n, C(e).X n is the native object ModuleCat.of R F.
+
+Proof: Evaluate the native chain constructor.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+### The section chain terms are finite free
+
+`StableReductionPartII:MC.2/section-chain-finite-free` · `NodeSectionFactorization.PolynomialModel.sectionChain_finiteFree` · lemma
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. For every e,n, the native module underlying C(e).X n has both Module.Free R and Module.Finite R instances; it is the actual F=Fin 2→R.
+
+Proof: Use the existing finite-product free and finite-module instances, including for the zero ring.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+### The downward section chain shape
+
+`StableReductionPartII:MC.2/section-chain-shape` · `NodeSectionFactorization.PolynomialModel.sectionChain_shape` · lemma
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. C(e).d(i,j)=0 whenever j+1≠i; there is no upward differential or negative degree.
+
+Proof: Apply the native complex shape field.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+### Native Hom precomposition by the section resolution differential
+
+`StableReductionPartII:MC.2/section-resolution-hom-differential` · `NodeSectionFactorization.PolynomialModel.sectionResolutionHom_d` · lemma
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. For every A-module M, every phase e and n≥0, native R-linear precomposition by the underlying C(e).d(n+1,n) equals exactly the existing sectionHomDifferential(A,γ,δ,s,t,M,e,n) on Hom_R(F,R⊗_A M). This fixes the actual coefficient cochain differential, without yet constructing a categorical Hom-complex isomorphism or native Ext comparison.
+
+Proof: Evaluate the native chain differential. Resolve the two parity values and phases; precomposition is exactly the existing Hom differential.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+### Underlying complex of the section-ideal resolution
+
+`StableReductionPartII:MC.2/section-ideal-resolution-complex` · `NodeSectionFactorization.PolynomialModel.sectionIdealResolution_complex` · lemma
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. The native sectionIdealResolution.complex is exactly C(false).
+
+Proof: Evaluate the specified native resolution data.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+### Augmentation of the section-ideal resolution
+
+`StableReductionPartII:MC.2/section-ideal-resolution-augmentation` · `NodeSectionFactorization.PolynomialModel.sectionIdealResolution_augmentation` · lemma
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. The native sectionIdealResolution.π is exactly π_J.
+
+Proof: Evaluate the specified native resolution data.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+### Underlying complex of the dual resolution
+
+`StableReductionPartII:MC.2/section-dual-resolution-complex` · `NodeSectionFactorization.PolynomialModel.sectionDualResolution_complex` · lemma
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. The native sectionDualResolution.complex is exactly C(true).
+
+Proof: Evaluate the specified native resolution data.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+### Augmentation of the dual resolution
+
+`StableReductionPartII:MC.2/section-dual-resolution-augmentation` · `NodeSectionFactorization.PolynomialModel.sectionDualResolution_augmentation` · lemma
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. The native sectionDualResolution.π is exactly π_D.
+
+Proof: Evaluate the specified native resolution data.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+### The bundled section-ideal resolution is augmented by a quasi-isomorphism
+
+`StableReductionPartII:MC.2/section-ideal-resolution-quasi-isomorphism` · `NodeSectionFactorization.PolynomialModel.sectionIdealResolution_quasiIso` · lemma
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. The actual bundled sectionIdealResolution.π is a native QuasiIso in every degree.
+
+Proof: Use the native certified quasi-isomorphism field of this actual resolution.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+### The bundled dual resolution is augmented by a quasi-isomorphism
+
+`StableReductionPartII:MC.2/section-dual-resolution-quasi-isomorphism` · `NodeSectionFactorization.PolynomialModel.sectionDualResolution_quasiIso` · lemma
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. The actual bundled sectionDualResolution.π is a native QuasiIso in every degree.
+
+Proof: Use the native certified quasi-isomorphism field of this actual resolution.
+
+Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
+
+The native Lean comparison signatures use HEq when the §13 admitted constructor bodies leave chain objects opaque. The checked native constructors identify those objects with the actual F=Fin2→R, and the comparisons preserve the same maps and signs.

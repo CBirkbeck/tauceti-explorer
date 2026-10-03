@@ -1,3 +1,72 @@
+# StableReductionPartII: actual section projective resolutions checkpoint
+
+Codex — codex-5ebb6f; 2026-10-03. Refs #3342. Claim5964892894 and winning bot5964894001 were read before work. Mathematical base 0f8afef629b4d0be5a436d2d5da7112ee34a9999; publication base 9c8a340faae54f977214d1a159764c3ca25a1e0e. Work uses an owned branch and only the five authorized deliverables plus owned scratch.
+
+## Outcome and limits
+
+The actual polynomial section ideal J=(u−ιs,v−ιt) and native dual D=Hom_R(J,R) now have their particular native projective resolutions. The chain terms are F=Fin2→R in every nonnegative degree, finite free and natively projective. The ideal chain starts d(1,0)=Ψ,d(2,1)=Φ; the dual chain starts Φ,Ψ. Their actual signed augmentations are P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. Native quasi-isomorphism proofs cover degree zero by the actual kernel/surjectivity and all positive degrees by exactness.
+
+For every A-module M, native R-linear Hom precomposition by each actual chain differential equals the existing sectionHomDifferential with target R⊗_A M. Native HEq signatures express these equalities while the admitted sketch keeps constructor bodies opaque; they compare the same actual maps and preserve the stated chain objects.
+
+This is not yet the categorical Hom-complex isomorphism or native higher Ext comparison. Relative stable reflexivity, two-base completion, pointed completed-local hull, family/sheaf descent, arbitrary-base approximation and all MC.0–MC.7 source/supplier obligations remain open. All stages remain partial and every implementationStatus remains unchecked.
+
+Thirty new declaration-sized nodes comprise six constructions and24 lemmas, with24 API entries and18 named tests. All274 incoming mathematical contracts remain;273 whole node objects are unchanged. The dual-section-ideal anchor appends only three prerequisites and one proof step. All152 incoming baseline entries remain and16 freshly read native references are appended. All14 gaps,135 requests,35 planets, six reserved-key consumer contracts and21 routed Yuan/DGH items remain unchanged.
+
+Final packet:304 nodes (8 definitions,61 constructions,171 lemmas,63 theorems,1 application);260 API entries overall (259 on definitions/constructions);260 tests overall (241 on definitions/constructions);168 baseline references; eight partial and zero closed stages. The reserved general moduli-curve groupoid definition is unchanged; the polynomial model does not replace it or conflate stack, coarse and fine-level problems.
+
+## Exact checks
+
+The 3813-line native proof preserves the complete3453-line incoming native source byte-for-byte after two pinned imports. It has136 examples,246 distinct named declaration axiom audits, zero errors, warnings and admissions. All audited axioms are ordinary propext/Classical.choice/Quot.sound. Source SHA256 30bc02cb3d84884b6727f34c127a01c366c8cbde987da6363d89a9962f7f5860; normalized diagnostics SHA256 cb929188e9b9ae3f82ddec8b643cb2938a149dd205980e25da710f6b94db9893. Wall time 30.85s; peak RSS 3536136KiB.
+
+The entire 3171-line canonical admitted sketch preserves the2928-line incoming sketch byte-for-byte after those imports, with198 examples. It elaborates with zero errors,486 expected admission warnings and no other warnings. Source SHA256 db2a1e277d48d096dfe5cb4914cd718d0ea5bf1a2db7905601272ff3d1bb48f2; normalized diagnostics SHA256 cbd10b91705548d3bf95527aee19ab401333785dc077e8322de91b191f629022. Wall time 28.03s; peak RSS 3317204KiB. This is the §13 suggested signature file, not a library implementation.
+
+Both sources use only individual Mathlib imports. The existing build has exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; the recorded Tau Ceti baseline is f790474821cf4256814db967cb154e7af3d0c369. Each serial compiler invocation began with at least39GiB available memory. No library setup, update, cache fetch, build or language server was run.
+
+The actual indexed packet checker has zero errors/warnings. The actual intake five-path/private-path checks pass. All30 new native/sketch declaration headers and18 test headers match using a top-level delimiter scanner that protects named arguments. Whole incoming node, baseline, source, request, gap, planet, owner, stage, key-definition and consumer contracts are checked against immutable Git inputs.
+
+Actual immutable atlas assembly: 3050 stage vertices/8750 edges;304 owned declarations/690 prerequisite edges, against274/642 in the control; 3319 combined vertices/9554 edges. All three graphs are acyclic. All304 reachable declarations are owned here; zero unresolved or external prerequisites. All81 required supplier/stage pairs are reachable. Own skipped/pending links are empty; stage edges and unrelated skipped/pending links match the actual original-control assembly. All21 scoped mathematical/publication input blobs are byte-identical.
+
+## Reading and provenance
+
+Fresh primary source reading: complete arXiv:1106.1588v2 §3 Key Example, Proposition3.1/Corollary3.2 and §4 proof. Downloaded primary HTML SHA2562c89ce4072046d546ff9256a5c64cd488f41026c561f8858f4a78ce14c21d685. No fresh whole-paper, visual PDF, Appendix/Ile, Bourbaki or Eisenbud proof audit is claimed. Printed noetherian/unit-discriminant geometric hypotheses are retained; arbitrary-ring native resolution packaging is an authored deduction from the previously checked actual polynomial presentations.
+
+Fresh native statements include ChainComplex.of/of_d, toSingle₀Equiv, native projective resolutions, categorical/module projectivity, finite-product free/finite instances, native augmentation quasi-isomorphism criteria, single-object positive exactness and the actual ModuleCat epi/exactness interfaces. The Mathlib native generic-constructor proof pattern was adapted to these signed augmentations; its theory is reused, not replanned.
+
+The whole current issue was read before and after the winning claim, with all86 comments retained for the claim audit. Current handoff outcome/frontier/public recovery, all eight stage contracts, reserved key/six consumers, exact21 routed item requirements, all12 parent library-audit target/verdict rows and complete accepted REV-AUDIT-02 were freshly read. No searched link-map entry mentioned StableReductionPartII. Governing and whole-upstream document readings from earlier in this continuous session retain their recorded scope. Earlier compiler, graph, source-error, Appendix and printed-page receipts remain historical, not silently recertified here.
+
+## Where to resume
+
+1. Identify the native categorical Hom applied to these actual resolutions with the existing sectionHomCochain complexes, including degree-zero augmentation and coefficient naturality; establish the actual native higher Ext comparison and vanishing. The checked precomposition differential equality is only one part of this interface.
+2. Read/apply the exact Appendix/Ile relative stable-reflexivity theorem, two-base Proposition6 completion and Proposition7 exercise. An R→B flat ambient-extension adapter is not the required coefficient-base comparison.
+3. Finish pointed completed-local hull/chart comparisons, family/sheaf descent, arbitrary-base approximation and every inherited MC.0–MC.7 obligation. No new supplier request or planet is introduced.
+
+## Public recovery
+
+The final receipt below names the immutable source archive retained as an ancestor. Native.lean, Canonical.lean, verify.py and immutable_view.py are publicly recoverable from its marked blocks. IncomingNative.lean remains recoverable from71211013c077a46744584d95b38434e23a55fc9d, CHECKED SECTION HOM COCHAINS markers, with SHA256690e22fed4c79b7b46fd8c3e72ae33da6c9f00ce0eeea7498eb0daf18971eeb6.
+
+In a reader-supplied scratch directory, retain these five recovered source artifacts. Overlay the final five deliverables in roadmaps/, packets/, readmes/, suggested/ and handoff/ subdirectories. With a memory check before each serial invocation, run the existing pinned build on Native.lean and Canonical.lean; retain native.log and canonical.log, including the Elapsed/peak resource line. Run verify.py with TAUCETI_REPO pointing to an existing read-only clone and TAUCETI_BASELINE to the pinned declarations.tsv FILE. P8_VALIDATE_BASE may override the default publication base 9c8a340faae54f977214d1a159764c3ca25a1e0e. The immutable reader uses Git blobs plus exactly five overlays, and never creates a repository snapshot or writes the repository. Validator SHA256 6c110740865c06f52c8a54b43a09ba1e8e0149b8f5b5fe886316addb20271272; immutable-reader SHA256 a5804a09aa6ca41675d2b63453fadd6c412f64fe07f8001549e5a452cf722e81.
+
+Immutable public source archive: [45fa3d24a2a351b100b409d8c0b444e82c3e58b9](https://github.com/CBirkbeck/tauceti-explorer/commit/45fa3d24a2a351b100b409d8c0b444e82c3e58b9), retained as an ancestor of the final proposal. [Native/canonical source blocks](https://github.com/CBirkbeck/tauceti-explorer/blob/45fa3d24a2a351b100b409d8c0b444e82c3e58b9/research/blueprint/suggested/StableReductionPartII.lean) and [validator/reader blocks](https://github.com/CBirkbeck/tauceti-explorer/blob/45fa3d24a2a351b100b409d8c0b444e82c3e58b9/research/blueprint/handoff/DESIGN-StableReductionPartII.md) are inert archived sources; the final suggested file remains entirely admitted. The following emitter is the current recovery script; the historical emitters in the retained handoff stay under their original scopes.
+
+```python
+"""Read-only public recovery; emits one verified source and never writes."""
+import sys,hashlib,urllib.request
+ARTIFACTS={'Native.lean': ('45fa3d24a2a351b100b409d8c0b444e82c3e58b9', 'research/blueprint/suggested/StableReductionPartII.lean', '/- BEGIN ARCHIVED CHECKED SECTION PROJECTIVE RESOLUTIONS\n', 'END ARCHIVED CHECKED SECTION PROJECTIVE RESOLUTIONS -/', '30bc02cb3d84884b6727f34c127a01c366c8cbde987da6363d89a9962f7f5860'), 'Canonical.lean': ('45fa3d24a2a351b100b409d8c0b444e82c3e58b9', 'research/blueprint/suggested/StableReductionPartII.lean', '/- BEGIN ARCHIVED CANONICAL SECTION PROJECTIVE RESOLUTIONS\n', 'END ARCHIVED CANONICAL SECTION PROJECTIVE RESOLUTIONS -/', 'db2a1e277d48d096dfe5cb4914cd718d0ea5bf1a2db7905601272ff3d1bb48f2'), 'verify.py': ('45fa3d24a2a351b100b409d8c0b444e82c3e58b9', 'research/blueprint/handoff/DESIGN-StableReductionPartII.md', '# BEGIN ARCHIVED SECTION PROJECTIVE RESOLUTIONS VALIDATOR\n', '# END ARCHIVED SECTION PROJECTIVE RESOLUTIONS VALIDATOR\n', '6c110740865c06f52c8a54b43a09ba1e8e0149b8f5b5fe886316addb20271272'), 'immutable_view.py': ('45fa3d24a2a351b100b409d8c0b444e82c3e58b9', 'research/blueprint/handoff/DESIGN-StableReductionPartII.md', '# BEGIN ARCHIVED SECTION PROJECTIVE RESOLUTIONS IMMUTABLE READER\n', '# END ARCHIVED SECTION PROJECTIVE RESOLUTIONS IMMUTABLE READER\n', 'a5804a09aa6ca41675d2b63453fadd6c412f64fe07f8001549e5a452cf722e81'), 'IncomingNative.lean': ('71211013c077a46744584d95b38434e23a55fc9d', 'research/blueprint/suggested/StableReductionPartII.lean', '/- BEGIN ARCHIVED CHECKED SECTION HOM COCHAINS\n', 'END ARCHIVED CHECKED SECTION HOM COCHAINS -/', '690e22fed4c79b7b46fd8c3e72ae33da6c9f00ce0eeea7498eb0daf18971eeb6')}
+ref,path,start,end,expected=ARTIFACTS[sys.argv[1]]
+url="https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/"+ref+"/"+path
+with urllib.request.urlopen(url,timeout=45) as response:raw=response.read().decode()
+assert raw.count(start)==raw.count(end)==1
+source=raw.split(start,1)[1].split(end,1)[0]
+assert hashlib.sha256(source.encode()).hexdigest()==expected
+sys.stdout.write(source)
+```
+
+Public HTTP extraction is exercised byte-for-byte for all five sources, and the recovered validator is run on the final overlays before the PR opens. The recovered Native.lean/Canonical.lean are identical to the sources of the compiler receipts above. Scratch is deleted after submission; the immutable public sources preserve the checks.
+
+---
+
+## Retained incoming handoff
+
 # StableReductionPartII: native section Hom cochains
 
 Codex — codex-J6LwjP; 2026-10-03. Refs #3342. Winning claim5964320349 and bot confirmation5964321771 were read before work; the entire issue was reread after confirmation. Mathematical base f3a91b5086a592635ea3821b13ff36dc543fb313; publication base 84e885b95c0ad537079c0fe6fdbb122c8020ac33. Only the five authorized deliverables and owned scratch sources were edited.
