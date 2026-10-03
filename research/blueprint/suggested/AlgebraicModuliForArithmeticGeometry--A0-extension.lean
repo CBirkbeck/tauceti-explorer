@@ -1,3 +1,4 @@
+import Mathlib.CategoryTheory.Core
 import Mathlib.CategoryTheory.Action.Basic
 import Mathlib.CategoryTheory.ObjectProperty.FullSubcategory
 import Mathlib.CategoryTheory.Groupoid
@@ -7122,3 +7123,221 @@ example (X : HomCategory bF bG) (T : Over U)
   sorry
 
 end TauCeti.AlgebraicGeometry.SheafAssemblyTests
+
+namespace TauCeti.AlgebraicGeometry.BandedMorphism
+open CategoryTheory Opposite Bicategory
+open scoped Pseudofunctor.StrongTrans
+open Pseudofunctor.LocallyDiscreteOpToCat
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
+  {F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}} [IsGerbe F J]
+  {A : Sheaf J AddCommGrpCat.{w}} (b : AbelianBanding F J A)
+  {U : C} {x x' x'' : F.obj (.mk (op U))}
+local instance : Category (Pseudofunctor.StrongTrans F F) :=
+  Pseudofunctor.StrongTrans.homCategory (F := F) (G := F)
+
+def selfHomSheafTransport (X : HomCategory b b) (e : x ≅ x') :
+    fibreHomSheaf b b U x x X ⟶ fibreHomSheaf b b U x' x' X where
+  hom :=
+    { app := fun T => TypeCat.ofHom (fun p =>
+        (F.map T.unop.hom.op.toLoc).toFunctor.map e.inv ≫ p ≫
+        (F.map T.unop.hom.op.toLoc).toFunctor.map
+          ((X.obj.app (.mk (op U))).toFunctor.map e.hom))
+      naturality := by sorry }
+
+lemma selfHomSheafTransport_apply (X : HomCategory b b) (e : x ≅ x')
+    (T : Over U) (p : (fibreHomSheaf b b U x x X).obj.obj (op T)) :
+    (selfHomSheafTransport b X e).hom.app (op T) p =
+      (F.map T.hom.op.toLoc).toFunctor.map e.inv ≫ p ≫
+      (F.map T.hom.op.toLoc).toFunctor.map
+        ((X.obj.app (.mk (op U))).toFunctor.map e.hom) := by
+  sorry
+
+lemma selfHomSheafTransport_id (X : HomCategory b b) :
+    selfHomSheafTransport b X (Iso.refl x) = 𝟙 _ := by
+  sorry
+
+lemma selfHomSheafTransport_comp (X : HomCategory b b) (e : x ≅ x') (f : x' ≅ x'') :
+    selfHomSheafTransport b X (e ≪≫ f) =
+      selfHomSheafTransport b X e ≫ selfHomSheafTransport b X f := by
+  sorry
+
+def selfHomSheafTransportIso (X : HomCategory b b) (e : x ≅ x') :
+    fibreHomSheaf b b U x x X ≅ fibreHomSheaf b b U x' x' X where
+  hom := selfHomSheafTransport b X e
+  inv := selfHomSheafTransport b X e.symm
+  hom_inv_id := by sorry
+  inv_hom_id := by sorry
+
+lemma selfHomSheafTransport_transport (X : HomCategory b b) (e : x ≅ x')
+    (T : Over U) (p : (fibreHomSheaf b b U x x X).obj.obj (op T)) :
+    fibreHomTransportIsoEquiv b b U x' x' X T
+        ((selfHomSheafTransport b X e).hom.app (op T) p) =
+      (selfTransportActionIso b X ((F.map T.hom.op.toLoc).toFunctor.mapIso e)).hom.hom
+        (fibreHomTransportIsoEquiv b b U x x X T p) := by
+  sorry
+
+lemma selfHomSheafTransport_independent (X : HomCategory b b) (e f : x ≅ x') :
+    selfHomSheafTransport b X e = selfHomSheafTransport b X f := by
+  sorry
+
+lemma selfHomSheafTransport_equivariant (X : HomCategory b b) (e : x ≅ x')
+    (T : Over U) (a : Multiplicative (A.obj.obj (op T.left)))
+    (p : (fibreHomSheaf b b U x x X).obj.obj (op T)) :
+    (selfHomSheafTransport b X e).hom.app (op T)
+        (((fibreHomSectionAction b b U x x X T).ρ a).hom p) =
+      ((fibreHomSectionAction b b U x' x' X T).ρ a).hom
+        ((selfHomSheafTransport b X e).hom.app (op T) p) := by
+  sorry
+
+noncomputable def selfHomSheafTransportNatIso (e : x ≅ x') :
+    fibreHomSheafFunctor b b U x x ≅ fibreHomSheafFunctor b b U x' x' :=
+  NatIso.ofComponents (fun X => selfHomSheafTransportIso b X e) (by sorry)
+
+lemma selfHomSheafTransportNatIso_app (e : x ≅ x') (X : HomCategory b b) :
+    (selfHomSheafTransportNatIso b e).app X = selfHomSheafTransportIso b X e := by
+  sorry
+
+lemma selfHomSheafTransportNatIso_independent (e f : x ≅ x') :
+    selfHomSheafTransportNatIso b e = selfHomSheafTransportNatIso b f := by
+  sorry
+
+lemma selfHomSheafTransportNatIso_id :
+    selfHomSheafTransportNatIso b (Iso.refl x) = Iso.refl _ := by
+  sorry
+
+lemma selfHomSheafTransportNatIso_comp (e : x ≅ x') (f : x' ≅ x'') :
+    selfHomSheafTransportNatIso b (e ≪≫ f) =
+      selfHomSheafTransportNatIso b e ≪≫ selfHomSheafTransportNatIso b f := by
+  sorry
+
+lemma selfHomSheafTransportIso_hom (X : HomCategory b b) (e : x ≅ x') :
+    (selfHomSheafTransportIso b X e).hom = selfHomSheafTransport b X e := by
+  sorry
+
+lemma selfHomSheafTransportIso_inv (X : HomCategory b b) (e : x ≅ x') :
+    (selfHomSheafTransportIso b X e).inv = selfHomSheafTransport b X e.symm := by
+  sorry
+
+lemma selfHomSheafTransportIso_independent (X : HomCategory b b) (e f : x ≅ x') :
+    selfHomSheafTransportIso b X e = selfHomSheafTransportIso b X f := by
+  sorry
+
+noncomputable def selfHomSheafObjectFunctor (U : C) :
+    Core (F.obj (.mk (op U))) ⥤ (HomCategory b b ⥤ Sheaf (J.over U) (Type v')) where
+  obj x := fibreHomSheafFunctor b b U x.of x.of
+  map e := (selfHomSheafTransportNatIso b e.iso).hom
+  map_id x := by sorry
+  map_comp e f := by sorry
+
+lemma selfHomSheafObjectFunctor_obj (U : C) (x : Core (F.obj (.mk (op U)))) :
+    (selfHomSheafObjectFunctor b U).obj x = fibreHomSheafFunctor b b U x.of x.of := by
+  sorry
+
+lemma selfHomSheafObjectFunctor_map (U : C) {x y : Core (F.obj (.mk (op U)))}
+    (e : x ⟶ y) :
+    (selfHomSheafObjectFunctor b U).map e = (selfHomSheafTransportNatIso b e.iso).hom := by
+  sorry
+
+lemma selfHomSheafObjectFunctor_parallel (U : C) {x y : Core (F.obj (.mk (op U)))}
+    (e f : x ⟶ y) :
+    (selfHomSheafObjectFunctor b U).map e = (selfHomSheafObjectFunctor b U).map f := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.BandedMorphism
+
+namespace TauCeti.AlgebraicGeometry.BandedMorphism
+open CategoryTheory Opposite Bicategory
+open scoped Pseudofunctor.StrongTrans
+open Pseudofunctor.LocallyDiscreteOpToCat
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
+  {F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}} [IsGerbe F J]
+  {A : Sheaf J AddCommGrpCat.{w}} (b : AbelianBanding F J A)
+  {U : C} {x x' x'' x3 : F.obj (.mk (op U))}
+local instance : Category (Pseudofunctor.StrongTrans F F) :=
+  Pseudofunctor.StrongTrans.homCategory (F := F) (G := F)
+
+-- test: SheafTransportTests.automorphism_trivial
+example (X : HomCategory b b) (e : x ≅ x) :
+    selfHomSheafTransport b X e = 𝟙 _ := by
+  sorry
+
+-- test: SheafTransportTests.modification_square
+example (e : x ≅ x') {X Y : HomCategory b b} (m : X ⟶ Y) :
+    fibreHomSheafMap b b U x x m ≫ selfHomSheafTransport b Y e =
+      selfHomSheafTransport b X e ≫ fibreHomSheafMap b b U x' x' m := by
+  sorry
+
+-- test: SheafTransportTests.scalar_compatibility
+example (X : HomCategory b b) (e : x ≅ x') (T : Over U)
+    (a : Multiplicative (A.obj.obj (op T.left)))
+    (p : (fibreHomSheaf b b U x x X).obj.obj (op T)) :
+    (selfHomSheafTransport b X e).hom.app (op T)
+        (((fibreHomSectionAction b b U x x X T).ρ a).hom p) =
+      ((fibreHomSectionAction b b U x' x' X T).ρ a).hom
+        ((selfHomSheafTransport b X e).hom.app (op T) p) := by
+  sorry
+
+-- test: SheafTransportTests.inverse_roundtrip
+example (X : HomCategory b b) (e : x ≅ x') (T : Over U)
+    (p : (fibreHomSheaf b b U x x X).obj.obj (op T)) :
+    (selfHomSheafTransportIso b X e).inv.hom.app (op T)
+        ((selfHomSheafTransportIso b X e).hom.hom.app (op T) p) = p := by
+  sorry
+
+-- test: SheafTransportTests.empty_sections
+example (X : HomCategory b b) (e : x ≅ x') (T : Over U)
+    [IsEmpty ((fibreHomSheaf b b U x x X).obj.obj (op T))] :
+    IsEmpty ((fibreHomSheaf b b U x' x' X).obj.obj (op T)) := by
+  sorry
+
+-- test: SheafTransportTests.iso_choice_independence
+example (X : HomCategory b b) (e f : x ≅ x') :
+    selfHomSheafTransportIso b X e = selfHomSheafTransportIso b X f := by
+  sorry
+
+-- test: SheafTransportTests.inverse_modification
+example (e : x ≅ x') {X Y : HomCategory b b} (m : X ⟶ Y) :
+    (fibreHomSheafMapIso b b U x x m).inv ≫ selfHomSheafTransport b X e =
+      selfHomSheafTransport b Y e ≫ (fibreHomSheafMapIso b b U x' x' m).inv := by
+  sorry
+
+-- test: SheafTransportTests.three_objects
+example (e : x ≅ x') (f : x' ≅ x'') (g : x'' ≅ x3) :
+    selfHomSheafTransportNatIso b ((e ≪≫ f) ≪≫ g) =
+      (selfHomSheafTransportNatIso b e ≪≫ selfHomSheafTransportNatIso b f) ≪≫
+        selfHomSheafTransportNatIso b g := by
+  sorry
+
+-- test: SheafTransportTests.actual_restriction
+example (X : HomCategory b b) (e : x ≅ x') {T V : Over U} (f : V ⟶ T)
+    (p : (fibreHomSheaf b b U x x X).obj.obj (op T)) :
+    (fibreHomSheaf b b U x' x' X).obj.map f.op
+        ((selfHomSheafTransport b X e).hom.app (op T) p) =
+      (selfHomSheafTransport b X e).hom.app (op V)
+        ((fibreHomSheaf b b U x x X).obj.map f.op p) := by
+  sorry
+
+-- test: SheafTransportTests.nonfaithful_with_parallel_arrows
+example {a c : Core (F.obj (.mk (op U)))} (e f : a ⟶ c) (hne : e ≠ f) :
+    ¬ (selfHomSheafObjectFunctor b U).Faithful := by
+  sorry
+
+-- test: SheafTransportTests.native_object
+example (a : Core (F.obj (.mk (op U)))) (X : HomCategory b b) :
+    (((selfHomSheafObjectFunctor b U).obj a).obj X).obj =
+      F.presheafHom a.of ((X.obj.app (.mk (op U))).toFunctor.obj a.of) := by
+  sorry
+
+-- test: SheafTransportTests.native_composition
+example {a c d : Core (F.obj (.mk (op U)))} (e : a ⟶ c) (f : c ⟶ d)
+    (X : HomCategory b b) :
+    ((selfHomSheafObjectFunctor b U).map (e ≫ f)).app X =
+      ((selfHomSheafObjectFunctor b U).map e).app X ≫
+        ((selfHomSheafObjectFunctor b U).map f).app X := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.BandedMorphism
