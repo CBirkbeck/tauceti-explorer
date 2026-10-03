@@ -13,7 +13,7 @@
     "StableReductionPartII:MC.7"
   ],
   "status": "partial",
-  "summary": "Partial pointed-moduli roadmap. Adds twelve consumed declaration-sized inputs for ordinary R-bidual reflexivity of the actual polynomial section ideal, with explicit inverse F↦F(incl), native evaluation equivalence and dual reflexivity through the existing Mathlib instance. All inherited contracts remain, all eight stages stay partial, and arbitrary coefficient-module Hom exchange, higher Ext, completion and family geometry remain required.",
+  "summary": "Partial pointed-moduli roadmap. Adds twelve consumed declaration-sized inputs for ordinary R-bidual reflexivity of the actual polynomial section ideal, with explicit inverse F↦F(incl), native evaluation equivalence and dual reflexivity through the existing Mathlib instance. All inherited contracts remain, all eight stages stay partial, and arbitrary coefficient-module Hom exchange, higher Ext, completion and family geometry remain required. The actual polynomial coefficient-module Hom comparisons D⊗_A M≃Hom_R(J,R⊗_A M) and J⊗_A M≃Hom_R(D,R⊗_A M) are R-linear, canonical on pure tensors, natural for arbitrary A-linear coefficient maps and compatible with native bidual evaluation when M=A. Signed coordinate lemmas and universal transpose exactness give bijectivity for every M without a flatness assumption; no higher Ext, relative stable-reflexivity or geometric closure is inferred.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -912,6 +912,142 @@
         "module": "Mathlib/LinearAlgebra/Dual/Defs.lean",
         "provides": "The dual of a reflexive module is reflexive; native instance at line264.",
         "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:LinearMap.restrictScalars_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
+        "line": 442,
+        "provides": "Restriction retains the actual underlying function.",
+        "checked": "Actual declaration statement and surrounding scalar/module hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; unchanged pinned working source and indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:LinearMap.lcomp",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/BilinearMap.lean",
+        "line": 185,
+        "provides": "Native linear precomposition on actual Hom spaces.",
+        "checked": "Actual declaration statement and surrounding scalar/module hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; unchanged pinned working source and indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:LinearMap.lcomp_injective_of_surjective",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/BilinearMap.lean",
+        "line": 195,
+        "provides": "Native precomposition by a surjective linear map is injective.",
+        "checked": "Actual declaration statement and surrounding scalar/module hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; unchanged pinned working source and indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.piRing",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Pi.lean",
+        "line": 547,
+        "provides": "Native finite-free Hom coordinates with a commuting scalar action.",
+        "checked": "Actual declaration statement and surrounding scalar/module hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; unchanged pinned working source and indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.piRing_symm_apply",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Pi.lean",
+        "line": 558,
+        "provides": "Inverse finite-free Hom coordinates evaluate by the finite scalar sum.",
+        "checked": "Actual declaration statement and surrounding scalar/module hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; unchanged pinned working source and indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:LinearMap.rTensor_comp",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
+        "line": 471,
+        "provides": "Right tensoring preserves composition of coefficient-linear maps.",
+        "checked": "Actual declaration statement and surrounding scalar/module hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; unchanged pinned working source and indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.rTensor",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
+        "line": 606,
+        "provides": "Native right tensor of a coefficient-linear equivalence.",
+        "checked": "Actual declaration statement and surrounding scalar/module hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; unchanged pinned working source and indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.coe_rTensor",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
+        "line": 619,
+        "provides": "The right-tensor equivalence has the right-tensor linear map as its underlying map.",
+        "checked": "Actual declaration statement and surrounding scalar/module hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; unchanged pinned working source and indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.rTensor_tmul",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
+        "line": 629,
+        "provides": "Right tensoring an equivalence sends x⊗m to e(x)⊗m.",
+        "checked": "Actual declaration statement and surrounding scalar/module hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; unchanged pinned working source and indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:TensorProduct.piLeft",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Pi.lean",
+        "line": 115,
+        "provides": "Native finite-product tensor comparison on the first tensor factor; only coefficient-ring linearity is claimed here.",
+        "checked": "Actual declaration statement and surrounding scalar/module hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; unchanged pinned working source and indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:LinearMap.rTensor_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/RightExactness.lean",
+        "line": 148,
+        "provides": "Right tensoring a surjective coefficient-linear map remains surjective for any coefficient module.",
+        "checked": "Actual declaration statement and surrounding scalar/module hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; unchanged pinned working source and indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:LinearMap.rTensor_exact_iff_lTensor_exact",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/RightExactness.lean",
+        "line": 172,
+        "provides": "Native commutation of tensor factors preserves and reflects exactness of the same coefficient-linear pair.",
+        "checked": "Actual declaration statement and surrounding scalar/module hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; unchanged pinned working source and indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:TensorProduct.AlgebraTensorModule.ext",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "line": 102,
+        "provides": "Native heterobasic tensor-map extensionality by pure tensors.",
+        "checked": "Actual declaration statement and surrounding scalar/module hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; unchanged pinned working source and indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:TensorProduct.AlgebraTensorModule.lift",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "line": 110,
+        "provides": "Native heterobasic tensor lift of an R-linear/A-balanced pairing, with the upper-ring action retained.",
+        "checked": "Actual declaration statement and surrounding scalar/module hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; unchanged pinned working source and indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:TensorProduct.AlgebraTensorModule.map",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "line": 183,
+        "provides": "Native R-linear coefficient-module tensor maps with an A-linear second factor.",
+        "checked": "Actual declaration statement and surrounding scalar/module hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; unchanged pinned working source and indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:TensorProduct.AlgebraTensorModule.map_tmul",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "line": 189,
+        "provides": "The native coefficient tensor map sends x⊗m to f(x)⊗g(m).",
+        "checked": "Actual declaration statement and surrounding scalar/module hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; unchanged pinned working source and indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:TensorProduct.AlgebraTensorModule.rid_tmul",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "line": 369,
+        "provides": "The heterobasic right-unit equivalence sends x⊗a to a·x.",
+        "checked": "Actual declaration statement and surrounding scalar/module hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; unchanged pinned working source and indexed name confirmed."
       }
     ]
   },
@@ -1084,6 +1220,41 @@
         "Introduction base-change requirement; full §3 Key Example through Proposition3.1 and the Corollary3.2 proof. Earlier whole-paper and visual receipts keep their predecessor attribution."
       ],
       "readingScope": "Fresh selected passages only. The arbitrary-ring native coefficient maps and cancellation proofs are authored deductions, not a claim that the printed noetherian/unit-discriminant stable-reflexivity theorem has broader geometric hypotheses."
+    },
+    {
+      "id": "mathlib-a71f92-heterobasic-tensor",
+      "title": "Mathlib heterobasic tensor products and scalar actions",
+      "authors": "Kim Morrison, Johan Commelin, Eric Wieser and Mathlib contributors",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Apache-2.0",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+      "sha256": "2cc909974909b6b519388f8d7255361d25ad58d053a72c5983c526edbed9b249",
+      "readSections": [
+        "Selected native scalar-tower/module setup, left-module action, curry/ext/lift, tensor maps, homTensorHomMap and right-unit equivalence; lines1–260,280–327,340–373.",
+        "Companion Map.lean lines465–479,600–635 and native LinearMap restriction/precomposition statements at their recorded baseline locators. No whole-file theorem audit."
+      ]
+    },
+    {
+      "id": "mathlib-a71f92-finite-free-coordinates",
+      "title": "Mathlib finite-product tensor and finite-free Hom coordinates",
+      "authors": "Judith Ludwig, Christian Merten and Mathlib contributors",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Apache-2.0",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/TensorProduct/Pi.lean",
+      "sha256": "0dbf8b30e9a3f480663561b654ebccf106373131e13a7d9b89100c9c6e50bd95",
+      "readSections": [
+        "Selected header and tensor product/product comparison definitions and proofs, lines1–116.",
+        "Companion Mathlib/LinearAlgebra/Pi.lean lines538–559: actual piRing and its inverse evaluation. No entire source-file audit."
+      ]
+    },
+    {
+      "id": "mathlib-a71f92-right-tensor-exactness",
+      "title": "Mathlib tensor-product right exactness and tensor-factor commutation",
+      "authors": "Antoine Chambert-Loir and Mathlib contributors",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Apache-2.0",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/TensorProduct/RightExactness.lean",
+      "sha256": "e61bb2ecd812e7ffaedd99ec1492e9b9d962e044a83bdaf21d484048b536de84",
+      "readSections": [
+        "Selected header, native right-tensor surjectivity and exactness orientation comparison, lines133–179; no whole-file proof audit."
+      ]
     }
   ],
   "nodes": [
@@ -3729,14 +3900,20 @@
         "StableReductionPartII:MC.2/section-ideal-ordinary-reflexive",
         "StableReductionPartII:MC.2/section-bidual-equivalence-apply",
         "StableReductionPartII:MC.2/section-bidual-equivalence-inverse",
-        "StableReductionPartII:MC.2/section-bidual-equivalence-native"
+        "StableReductionPartII:MC.2/section-bidual-equivalence-native",
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-equivalence",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-equivalence",
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-naturality",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-naturality",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-unit"
       ],
       "proofSteps": [
         "Apply the separately named polynomial dual, residue, coefficient-flatness, ring-linear tensor and actual quotient-base-change calculations; these are inputs to the completed-local comparison, not the global conclusion.",
         "Use the named flat ambient ideal/Hom/multiplication-quotient and actual module-completion adapters where their hypotheses hold. Separately prove/import Knudsen Appendix Theorem2, Proposition6, the pointed completed-local hull identification, and coefficient-compatible descent; the ambient adapters alone do not discharge these relative S→R requirements.",
         "Use the invertible-ideal calculation at smooth points and descend the fibrewise-compatible local identifications.",
         "Use the four separately proved coefficient-universal matrix tensor pairs and the two actual tensorized cokernel identifications. Arbitrary coefficient-module Hom exchange, bidual evaluation and higher Ext require their own comparison proofs before invoking the exact relative stable-reflexivity input.",
-        "The ordinary polynomial R-bidual step now has its own explicit calculation: ψ(F)=F(incl) lies in J by the dual syzygy, cancels against η on both sides, and identifies native Module.evalEquiv and its inverse. The dual D is reflexive by the native dual-of-reflexive instance. The preceding broader Hom/Ext and relative stable-reflexivity obligations still require arbitrary coefficient modules and the completion/sheaf comparison; ordinary reflexivity alone does not discharge them."
+        "The ordinary polynomial R-bidual step now has its own explicit calculation: ψ(F)=F(incl) lies in J by the dual syzygy, cancels against η on both sides, and identifies native Module.evalEquiv and its inverse. The dual D is reflexive by the native dual-of-reflexive instance. The preceding broader Hom/Ext and relative stable-reflexivity obligations still require arbitrary coefficient modules and the completion/sheaf comparison; ordinary reflexivity alone does not discharge them.",
+        "Use the two separately constructed actual R-linear coefficient-module Hom equivalences Θ_D,M and Θ_J,M for every A-module M, their A-linear coefficient naturality and the M=A native-bidual comparison. They are proved through the signed presentation coordinates and coefficient-universal transpose exactness. This discharges the explicit polynomial Hom-exchange calculation without M-flatness; higher Ext/cochain interpretation, the exact relative stable-reflexivity input, two-base completion, pointed hull and family/sheaf descent remain separate."
       ],
       "acceptance": [
         "Do not strengthen this to J·J∨=J throughout a smoothing family: that equality holds only on the nodal-section locus."
@@ -13490,6 +13667,1597 @@
           "how": "Supplies the ordinary polynomial bidual calculation required before the relative stable-reflexivity and completed-local comparison."
         }
       ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-coefficient-hom-map",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The actual dual coefficient-Hom map",
+      "kind": "construction",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. Construct the R-linear map θ_D,M:D⊗_A M→Hom_R(J,N_M), characterized on pure tensors by θ_D,M(h⊗m)(j)=h(j)⊗m.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-multiplication",
+        "StableReductionPartII:MC.2/coefficient-inclusion-action",
+        "mathlib:TensorProduct.AlgebraTensorModule.lift"
+      ],
+      "proofSteps": [
+        "Apply the pinned heterobasic tensor lift to (h,m)↦(j↦h(j)⊗m). Verify R-linearity in h and j and A-balancing in m using the inherited scalar tower.",
+        "The source is the actual R-linear dual D; the target has the inherited left R-action on R⊗_A M."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-heterobasic-tensor",
+          "locator": "Pinned TensorProduct/Tower.lean lines79–123,183–202,312–319,356–373, together with the exactness and matrix prerequisites named below",
+          "match": "Native heterobasic tensor lift, maps, extensionality and unit structures are reused. The stated actual-section comparison is a specialized construction or authored deduction on the existing native carriers, not a new generic tensor–Hom theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualTensorHom",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualTensorHom.test_zero",
+          "kind": "degenerate",
+          "statement": "The actual canonical map θ_D,M sends the zero tensor to the zero R-linear homomorphism."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualTensorHom.test_inclusion",
+          "kind": "computation",
+          "statement": "For every j∈J and m∈M, θ_D,M(incl⊗m)(j)=j⊗m in the actual R⊗_A M."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualTensorHom.test_negative_epsilon",
+          "kind": "computation",
+          "statement": "For every m∈M, θ_D,M(−ε⊗m)(c)=a⊗m; the ordered negative second generator is not silently replaced by ε."
+        }
+      ],
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualTensorHom_tmul",
+          "role": "simp",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. For h∈D,m∈M,j∈J, θ_D,M(h⊗m)(j)=h(j)⊗m."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualTensorHom_natural",
+          "role": "functoriality",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. For any A-linear f:M→M′, tensor x∈D⊗_A M and j∈J, θ_D,M′((id_D⊗f)x)(j)=(id_R⊗f)(θ_D,M(x)(j)). All tensor maps are the native R-linear heterobasic maps."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualTensorHom_unit",
+          "role": "compatibility",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. For M=A and every x∈D⊗_A A, postcompose θ_D,A(x) with the native R-linear unit R⊗_A A≃R. The result equals the native unit D⊗_A A≃D applied to x."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Knudsen arXiv:1106.1588v2 §3 Proposition3.1, Corollary3.2; the MC.2 arbitrary-section expansion",
+          "how": "Supplies the actual module-valued Hom exchange calculation needed before relative stable-reflexivity and completed-local/sheaf descent."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Use the separately identified canonical map, signed coordinates and coefficient-module naturality, without inferring higher Ext or geometry."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-coefficient-hom-pure",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Pure tensors in the dual Hom comparison",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. For h∈D,m∈M,j∈J, θ_D,M(h⊗m)(j)=h(j)⊗m.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-map"
+      ],
+      "proofSteps": [
+        "Evaluate the native lift on a pure tensor."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-heterobasic-tensor",
+          "locator": "Pinned TensorProduct/Tower.lean lines79–123,183–202,312–319,356–373, together with the exactness and matrix prerequisites named below",
+          "match": "Native heterobasic tensor lift, maps, extensionality and unit structures are reused. The stated actual-section comparison is a specialized construction or authored deduction on the existing native carriers, not a new generic tensor–Hom theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualTensorHom_tmul",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-free-coefficient-hom-transpose",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Coefficient Hom and matrix transpose",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. For every 2×2 matrix W over R and every tensor z∈R²⊗_A M, E_M(U_M(Wᵀ)z)=E_M(z)∘W, where W is its native matrix-to-linear map.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "mathlib:TensorProduct.piLeft",
+        "mathlib:LinearEquiv.piRing",
+        "mathlib:LinearEquiv.piRing_symm_apply"
+      ],
+      "proofSteps": [
+        "Use tensor induction. The pure-tensor case evaluates E_M via the native finite-free Hom formula, expands the two finite sums and rearranges ring multiplication; addition and zero follow from linearity."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-finite-free-coordinates",
+          "locator": "Pinned Mathlib: TensorProduct/Pi.lean lines50–116 and LinearAlgebra/Pi.lean lines538–559; actual section presentations as listed prerequisites",
+          "match": "Reuse the native finite-product tensor and finite-free Hom coordinates. The listed model-specific presentation and transpose calculation is the authored deduction; no generic tensor/product or Hom construction is replanned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionFreeTensorHom_matrix",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-coefficient-hom-coordinates",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Ideal Hom coordinates with coefficients",
+      "kind": "construction",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. Construct the A-linear map C_J,M:Hom_R(J,N_M)→R²⊗_A M as C_J,M(h)=E_M⁻¹(h∘P_J). In ordinary pair coordinates this uses (h(c),−h(d)).",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-presentation",
+        "mathlib:LinearMap.lcomp",
+        "mathlib:TensorProduct.piLeft",
+        "mathlib:LinearEquiv.piRing"
+      ],
+      "proofSteps": [
+        "Compose the pinned Hom precomposition map for P_J with E_M⁻¹.",
+        "Use the ordered negative second generator of the actual ideal presentation."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-finite-free-coordinates",
+          "locator": "Pinned Mathlib: TensorProduct/Pi.lean lines50–116 and LinearAlgebra/Pi.lean lines538–559; actual section presentations as listed prerequisites",
+          "match": "Reuse the native finite-product tensor and finite-free Hom coordinates. The listed model-specific presentation and transpose calculation is the authored deduction; no generic tensor/product or Hom construction is replanned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealHomCoordinates",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealHomCoordinates.test_zero",
+          "kind": "degenerate",
+          "statement": "The ideal-Hom coordinate map C_J sends zero to the zero tensor in R²⊗_A M."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealHomCoordinates.test_negative_second",
+          "kind": "computation",
+          "statement": "Under the native finite-free coordinate equivalence E_M, C_J(h) evaluated at the second standard basis vector equals −h(d), not h(d)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealHomCoordinates.test_faithful",
+          "kind": "characterisation",
+          "statement": "Equality of the actual ideal-Hom coordinates implies equality of the R-linear maps, for every coefficient module M."
+        }
+      ],
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealHomCoordinates_injective",
+          "role": "extensionality",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. The map C_J,M is injective."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealHomCoordinates_relation",
+          "role": "relation",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. U_M(Ψᵀ) C_J,M(h)=0 for every h:J→N_M."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealHomCoordinates_presentation",
+          "role": "projection",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. C_J,M(θ_D,M(U_M(P_D)z))=−U_M(p)U_M(Ψ)z for every tensor z∈R²⊗_A M."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Knudsen arXiv:1106.1588v2 §3 Proposition3.1, Corollary3.2; the MC.2 arbitrary-section expansion",
+          "how": "Supplies the actual module-valued Hom exchange calculation needed before relative stable-reflexivity and completed-local/sheaf descent."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Use the separately identified canonical map, signed coordinates and coefficient-module naturality, without inferring higher Ext or geometry."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-coefficient-hom-coordinates-injective",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Faithful ideal Hom coordinates",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. The map C_J,M is injective.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-coordinates",
+        "StableReductionPartII:MC.2/section-ideal-presentation-surjective",
+        "mathlib:LinearMap.lcomp_injective_of_surjective"
+      ],
+      "proofSteps": [
+        "Cancel E_M⁻¹ and use the listed surjectivity of P_J to compare homomorphisms on every element of J."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-heterobasic-tensor",
+          "locator": "Pinned TensorProduct/Tower.lean lines79–123,183–202,312–319,356–373, together with the exactness and matrix prerequisites named below",
+          "match": "Native heterobasic tensor lift, maps, extensionality and unit structures are reused. The stated actual-section comparison is a specialized construction or authored deduction on the existing native carriers, not a new generic tensor–Hom theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealHomCoordinates_injective",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-coefficient-hom-relations",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Ideal Hom relations after coefficient tensoring",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. U_M(Ψᵀ) C_J,M(h)=0 for every h:J→N_M.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-coordinates",
+        "StableReductionPartII:MC.2/section-free-coefficient-hom-transpose",
+        "StableReductionPartII:MC.2/section-ideal-presentation-kernel",
+        "mathlib:LinearMap.exact_iff"
+      ],
+      "proofSteps": [
+        "Use the coefficient-Hom transpose bridge to identify the image under E_M with h∘P_J∘Ψ.",
+        "The listed ideal presentation kernel implies P_J∘Ψ=0; apply h to this actual zero relation."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-heterobasic-tensor",
+          "locator": "Pinned TensorProduct/Tower.lean lines79–123,183–202,312–319,356–373, together with the exactness and matrix prerequisites named below",
+          "match": "Native heterobasic tensor lift, maps, extensionality and unit structures are reused. The stated actual-section comparison is a specialized construction or authored deduction on the existing native carriers, not a new generic tensor–Hom theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealHomCoordinates_relation",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-presentation-generators",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The signed section-ideal generators",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. P_J(z)=z₀·c−z₁·d as an equality in the actual ideal subtype J, not only after inclusion into R.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-presentation-formula",
+        "StableReductionPartII:MC.2/section-dual-generator-values"
+      ],
+      "proofSteps": [
+        "Use the actual P_J formula, ideal subtype extensionality and commutativity of ring multiplication."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-heterobasic-tensor",
+          "locator": "Pinned TensorProduct/Tower.lean lines79–123,183–202,312–319,356–373, together with the exactness and matrix prerequisites named below",
+          "match": "Native heterobasic tensor lift, maps, extensionality and unit structures are reused. The stated actual-section comparison is a specialized construction or authored deduction on the existing native carriers, not a new generic tensor–Hom theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealPresentation_generators",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-coefficient-hom-presentation",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Dual-Hom coordinates on its tensor presentation",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. C_J,M(θ_D,M(U_M(P_D)z))=−U_M(p)U_M(Ψ)z for every tensor z∈R²⊗_A M.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-coordinates",
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-pure",
+        "StableReductionPartII:MC.2/section-ideal-presentation-generators",
+        "StableReductionPartII:MC.2/section-dual-presentation-formula",
+        "StableReductionPartII:MC.2/section-dual-generator-values",
+        "StableReductionPartII:MC.2/section-matrix-right-action",
+        "StableReductionPartII:MC.2/section-matrix-rotation-formula",
+        "mathlib:LinearEquiv.rTensor_tmul"
+      ],
+      "proofSteps": [
+        "Cancel E_M and use tensor induction.",
+        "For a pure tensor evaluate the actual P_D on the signed P_J expansion; use ε(c)=−a and ε(d)=b, then the explicit Ψ and p formulas.",
+        "The equality holds on arbitrary tensors by linearity; the minus sign is essential."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-heterobasic-tensor",
+          "locator": "Pinned TensorProduct/Tower.lean lines79–123,183–202,312–319,356–373, together with the exactness and matrix prerequisites named below",
+          "match": "Native heterobasic tensor lift, maps, extensionality and unit structures are reused. The stated actual-section comparison is a specialized construction or authored deduction on the existing native carriers, not a new generic tensor–Hom theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealHomCoordinates_presentation",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-transpose-left-right-tensor-rotation",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Right-tensor rotation of the first transpose",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. U_M(Φᵀ)∘U_M(p)=U_M(p)∘U_M(Ψ), using the native tensor of the coefficient-restricted rotation equivalence.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-transpose-left-rotation",
+        "mathlib:LinearMap.rTensor_comp",
+        "mathlib:LinearEquiv.coe_rTensor"
+      ],
+      "proofSteps": [
+        "Apply the native right-tensor map to Φᵀ∘p=p∘Ψ and the pinned composition/coercion formulas."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-heterobasic-tensor",
+          "locator": "Pinned TensorProduct/Tower.lean lines79–123,183–202,312–319,356–373, together with the exactness and matrix prerequisites named below",
+          "match": "Native heterobasic tensor lift, maps, extensionality and unit structures are reused. The stated actual-section comparison is a specialized construction or authored deduction on the existing native carriers, not a new generic tensor–Hom theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.transposeLeft_rTensor_rotation",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-coefficient-hom-injective",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Injectivity of the dual coefficient-Hom map",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. The actual R-linear map θ_D,M is injective for every coefficient module M.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-presentation",
+        "StableReductionPartII:MC.2/section-dual-presentation-surjective",
+        "StableReductionPartII:MC.2/section-complex-right-tensor-exact",
+        "StableReductionPartII:MC.2/section-dual-presentation-tensor-exact",
+        "mathlib:LinearMap.rTensor_surjective",
+        "mathlib:LinearMap.rTensor_exact_iff_lTensor_exact"
+      ],
+      "proofSteps": [
+        "By tensor surjectivity of P_D, write a difference tensor as U_M(P_D)z.",
+        "If its θ_D image vanishes, the coordinate-presentation formula and invertibility of U_M(p) give U_M(Ψ)z=0.",
+        "Use the listed coefficient-universal exactness, transported through native tensor commutation, to write z in im U_M(Φ). The tensor presentation exactness then gives U_M(P_D)z=0."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-right-tensor-exactness",
+          "locator": "Pinned TensorProduct/RightExactness.lean lines148–179; actual section presentation/universal exactness inputs listed as prerequisites",
+          "match": "Reuses native tensor surjectivity and equivalence of left/right tensor exactness. The actual canonical coefficient-Hom bijectivity is the authored signed-presentation deduction, not a consequence of coefficient flatness alone."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualTensorHom_injective",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualTensorHomEquiv.test_nonreduced",
+          "kind": "compatibility",
+          "statement": "Both comparisons apply over the nonreduced coefficient ring Z/4; for the dual take M=Z/4 and all parameters zero."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-coefficient-hom-surjective",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Surjectivity of the dual coefficient-Hom map",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. The actual R-linear map θ_D,M is surjective for every coefficient module M.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-relations",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-coordinates-injective",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-presentation",
+        "StableReductionPartII:MC.2/section-transpose-left-right-tensor-rotation",
+        "StableReductionPartII:MC.2/section-complex-transpose-right-tensor-exact",
+        "mathlib:LinearMap.rTensor_exact_iff_lTensor_exact"
+      ],
+      "proofSteps": [
+        "For h:J→N_M, its coordinates y=C_J,M(h) lie in ker U_M(Ψᵀ). Universal transpose exactness supplies w with U_M(Φᵀ)w=y.",
+        "The right-tensor rotation identity and coordinate-presentation formula show that U_M(P_D)(−U_M(p)⁻¹w) maps to h; cancel the injective C_J,M."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-right-tensor-exactness",
+          "locator": "Pinned TensorProduct/RightExactness.lean lines148–179; actual section presentation/universal exactness inputs listed as prerequisites",
+          "match": "Reuses native tensor surjectivity and equivalence of left/right tensor exactness. The actual canonical coefficient-Hom bijectivity is the authored signed-presentation deduction, not a consequence of coefficient flatness alone."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualTensorHom_surjective",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-coefficient-hom-equivalence",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Coefficient tensor–Hom equivalence for the dual",
+      "kind": "construction",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. Construct the R-linear equivalence Θ_D,M:D⊗_A M≃Hom_R(J,N_M) whose forward map is θ_D,M. It holds for every M, including nonflat torsion modules.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-map",
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-injective",
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-surjective",
+        "mathlib:LinearEquiv.ofBijective"
+      ],
+      "proofSteps": [
+        "Use the separately proved injectivity and surjectivity of the actual canonical θ_D,M and the native bijective-linear-map equivalence.",
+        "Do not use finite-projectivity over R or impose flatness on M."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Proposition3.1 and Corollary3.2, with §4 Main Lemma proof; arXiv:1106.1588v2",
+          "match": "Motivates the polynomial dual and coefficient-universal complexes. The displayed module-valued Hom comparison in this arbitrary-ring range is an authored deduction through the separately listed coordinate and exactness lemmas; it does not assert the printed relative stable-reflexivity conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualTensorHomEquiv",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualTensorHomEquiv.test_inverse",
+          "kind": "characterisation",
+          "statement": "The inverse of the actual dual tensor–Hom equivalence sends θ_D,M(h⊗m) to h⊗m."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualTensorHomEquiv.test_ring_action",
+          "kind": "compatibility",
+          "statement": "For actual r∈R, x∈D⊗_A M and j∈J, θ_D,M(rx)(j)=rθ_D,M(x)(j) for the inherited left R-action on both tensors."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualTensorHomEquiv.test_torsion",
+          "kind": "compatibility",
+          "statement": "For A=Z, γ=δ=s=t=0 and M=Z/3, the canonical dual tensor–Hom map is bijective; no flatness of the coefficient module is required."
+        }
+      ],
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualTensorHomEquiv_tmul",
+          "role": "simp",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. Θ_D,M(h⊗m)(j)=h(j)⊗m."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualTensorHomEquiv_inverse",
+          "role": "equivalence",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. Θ_D,M⁻¹(θ_D,M(h⊗m))=h⊗m."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualTensorHomEquiv_unique",
+          "role": "characterisation",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. Any R-linear equivalence e:D⊗_A M≃Hom_R(J,N_M) satisfying e(h⊗m)(j)=h(j)⊗m for all h,m,j equals Θ_D,M."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Knudsen arXiv:1106.1588v2 §3 Proposition3.1, Corollary3.2; the MC.2 arbitrary-section expansion",
+          "how": "Supplies the actual module-valued Hom exchange calculation needed before relative stable-reflexivity and completed-local/sheaf descent."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Use the separately identified canonical map, signed coordinates and coefficient-module naturality, without inferring higher Ext or geometry."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-coefficient-hom-equivalence-pure",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The dual Hom equivalence on generators",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. Θ_D,M(h⊗m)(j)=h(j)⊗m.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-equivalence",
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-pure"
+      ],
+      "proofSteps": [
+        "The native equivalence retains θ_D,M as its actual forward map."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-heterobasic-tensor",
+          "locator": "Pinned TensorProduct/Tower.lean lines79–123,183–202,312–319,356–373, together with the exactness and matrix prerequisites named below",
+          "match": "Native heterobasic tensor lift, maps, extensionality and unit structures are reused. The stated actual-section comparison is a specialized construction or authored deduction on the existing native carriers, not a new generic tensor–Hom theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualTensorHomEquiv_tmul",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-coefficient-hom-naturality",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Coefficient-module naturality of the dual comparison",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. For any A-linear f:M→M′, tensor x∈D⊗_A M and j∈J, θ_D,M′((id_D⊗f)x)(j)=(id_R⊗f)(θ_D,M(x)(j)). All tensor maps are the native R-linear heterobasic maps.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-pure",
+        "mathlib:TensorProduct.AlgebraTensorModule.map",
+        "mathlib:TensorProduct.AlgebraTensorModule.map_tmul"
+      ],
+      "proofSteps": [
+        "Use tensor induction; on h⊗m both sides equal h(j)⊗f(m), then use additivity and zero.",
+        "Naturality is for arbitrary coefficient modules and A-linear maps, not just scalar-algebra extensions."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-heterobasic-tensor",
+          "locator": "Pinned TensorProduct/Tower.lean lines79–123,183–202,312–319,356–373, together with the exactness and matrix prerequisites named below",
+          "match": "Native heterobasic tensor lift, maps, extensionality and unit structures are reused. The stated actual-section comparison is a specialized construction or authored deduction on the existing native carriers, not a new generic tensor–Hom theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualTensorHom_natural",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualTensorHom.test_naturality",
+          "kind": "compatibility",
+          "statement": "Postcomposing the coefficient module by any A-linear f:M→M′ commutes with θ_D on arbitrary tensors, not only pure tensors."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-coefficient-hom-map",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The coefficient-valued bidual evaluation map",
+      "kind": "construction",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. Construct the R-linear map θ_J,M:J⊗_A M→Hom_R(D,N_M), θ_J,M(j⊗m)(h)=h(j)⊗m.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-multiplication",
+        "StableReductionPartII:MC.2/coefficient-inclusion-action",
+        "mathlib:TensorProduct.AlgebraTensorModule.lift",
+        "mathlib:Module.Dual.eval"
+      ],
+      "proofSteps": [
+        "Use the pinned heterobasic lift of the actual evaluation pairing, checking R-linearity in j and h and A-balancing in m.",
+        "No substitute dual carrier, completed ring or chosen tensor action is introduced."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-heterobasic-tensor",
+          "locator": "Pinned TensorProduct/Tower.lean lines79–123,183–202,312–319,356–373, together with the exactness and matrix prerequisites named below",
+          "match": "Native heterobasic tensor lift, maps, extensionality and unit structures are reused. The stated actual-section comparison is a specialized construction or authored deduction on the existing native carriers, not a new generic tensor–Hom theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHom",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHom.test_zero",
+          "kind": "degenerate",
+          "statement": "The actual canonical evaluation map θ_J,M sends the zero tensor to zero."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHom.test_inclusion",
+          "kind": "computation",
+          "statement": "For every j∈J and m∈M, θ_J,M(j⊗m)(incl)=j⊗m."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHom.test_negative_second",
+          "kind": "computation",
+          "statement": "For every m∈M, θ_J,M(−d⊗m)(ε)=−b⊗m in R⊗_A M."
+        }
+      ],
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHom_tmul",
+          "role": "simp",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. θ_J,M(j⊗m)(h)=h(j)⊗m."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHom_natural",
+          "role": "functoriality",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. For any A-linear f:M→M′, x∈J⊗_A M and h∈D, θ_J,M′((id_J⊗f)x)(h)=(id_R⊗f)(θ_J,M(x)(h))."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHom_unit",
+          "role": "compatibility",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. For M=A and x∈J⊗_A A, postcomposing θ_J,A(x) by the native unit R⊗_A A≃R equals Module.Dual.eval R J applied to the native unit J⊗_A A≃J of x."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Knudsen arXiv:1106.1588v2 §3 Proposition3.1, Corollary3.2; the MC.2 arbitrary-section expansion",
+          "how": "Supplies the actual module-valued Hom exchange calculation needed before relative stable-reflexivity and completed-local/sheaf descent."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Use the separately identified canonical map, signed coordinates and coefficient-module naturality, without inferring higher Ext or geometry."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-coefficient-hom-pure",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Pure coefficient-valued bidual evaluations",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. θ_J,M(j⊗m)(h)=h(j)⊗m.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-map"
+      ],
+      "proofSteps": [
+        "Evaluate the native lift on pure tensors."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-heterobasic-tensor",
+          "locator": "Pinned TensorProduct/Tower.lean lines79–123,183–202,312–319,356–373, together with the exactness and matrix prerequisites named below",
+          "match": "Native heterobasic tensor lift, maps, extensionality and unit structures are reused. The stated actual-section comparison is a specialized construction or authored deduction on the existing native carriers, not a new generic tensor–Hom theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHom_tmul",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-coefficient-hom-coordinates",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Dual Hom coordinates with coefficients",
+      "kind": "construction",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. Construct the A-linear map C_D,M:Hom_R(D,N_M)→R²⊗_A M by C_D,M(h)=E_M⁻¹(h∘P_D). Its pair coordinates are (h(incl),−h(ε)).",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-presentation",
+        "mathlib:LinearMap.lcomp",
+        "mathlib:TensorProduct.piLeft",
+        "mathlib:LinearEquiv.piRing"
+      ],
+      "proofSteps": [
+        "Compose native precomposition by the actual signed P_D with E_M⁻¹."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-finite-free-coordinates",
+          "locator": "Pinned Mathlib: TensorProduct/Pi.lean lines50–116 and LinearAlgebra/Pi.lean lines538–559; actual section presentations as listed prerequisites",
+          "match": "Reuse the native finite-product tensor and finite-free Hom coordinates. The listed model-specific presentation and transpose calculation is the authored deduction; no generic tensor/product or Hom construction is replanned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualHomCoordinates",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualHomCoordinates.test_zero",
+          "kind": "degenerate",
+          "statement": "The dual-Hom coordinate map C_D sends zero to zero."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualHomCoordinates.test_negative_epsilon",
+          "kind": "computation",
+          "statement": "Under E_M, C_D(h) at the second standard basis vector equals −h(ε), not h(ε)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualHomCoordinates.test_faithful",
+          "kind": "characterisation",
+          "statement": "Equality of C_D coordinates implies equality of homomorphisms from the actual R-dual D."
+        }
+      ],
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualHomCoordinates_injective",
+          "role": "extensionality",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. C_D,M is injective."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualHomCoordinates_relation",
+          "role": "relation",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. U_M(Φᵀ) C_D,M(h)=0 for every h:D→N_M."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualHomCoordinates_presentation",
+          "role": "projection",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. For every tensor z∈R²⊗_A M, C_D,M(θ_J,M(U_M(P_J)z))=U_M(p)U_M(Φ)z."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Knudsen arXiv:1106.1588v2 §3 Proposition3.1, Corollary3.2; the MC.2 arbitrary-section expansion",
+          "how": "Supplies the actual module-valued Hom exchange calculation needed before relative stable-reflexivity and completed-local/sheaf descent."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Use the separately identified canonical map, signed coordinates and coefficient-module naturality, without inferring higher Ext or geometry."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-coefficient-hom-coordinates-injective",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Faithful coefficient-valued dual Hom coordinates",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. C_D,M is injective.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-coordinates",
+        "StableReductionPartII:MC.2/section-dual-presentation-surjective",
+        "mathlib:LinearMap.lcomp_injective_of_surjective"
+      ],
+      "proofSteps": [
+        "Cancel E_M⁻¹ and use the separately listed surjectivity of P_D."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-heterobasic-tensor",
+          "locator": "Pinned TensorProduct/Tower.lean lines79–123,183–202,312–319,356–373, together with the exactness and matrix prerequisites named below",
+          "match": "Native heterobasic tensor lift, maps, extensionality and unit structures are reused. The stated actual-section comparison is a specialized construction or authored deduction on the existing native carriers, not a new generic tensor–Hom theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualHomCoordinates_injective",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-coefficient-hom-relations",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Dual Hom relations after coefficient tensoring",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. U_M(Φᵀ) C_D,M(h)=0 for every h:D→N_M.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-coordinates",
+        "StableReductionPartII:MC.2/section-free-coefficient-hom-transpose",
+        "StableReductionPartII:MC.2/section-dual-presentation-kernel",
+        "mathlib:LinearMap.exact_iff"
+      ],
+      "proofSteps": [
+        "Under E_M the coefficient-Hom transpose bridge gives h∘P_D∘Φ.",
+        "The actual dual presentation kernel gives P_D∘Φ=0."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-heterobasic-tensor",
+          "locator": "Pinned TensorProduct/Tower.lean lines79–123,183–202,312–319,356–373, together with the exactness and matrix prerequisites named below",
+          "match": "Native heterobasic tensor lift, maps, extensionality and unit structures are reused. The stated actual-section comparison is a specialized construction or authored deduction on the existing native carriers, not a new generic tensor–Hom theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualHomCoordinates_relation",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-coefficient-hom-presentation",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Bidual-Hom coordinates on the ideal tensor presentation",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. For every tensor z∈R²⊗_A M, C_D,M(θ_J,M(U_M(P_J)z))=U_M(p)U_M(Φ)z.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-coordinates",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-pure",
+        "StableReductionPartII:MC.2/section-ideal-presentation-generators",
+        "StableReductionPartII:MC.2/section-dual-presentation-formula",
+        "StableReductionPartII:MC.2/section-dual-generator-values",
+        "StableReductionPartII:MC.2/section-matrix-left-action",
+        "StableReductionPartII:MC.2/section-matrix-rotation-formula",
+        "mathlib:LinearEquiv.rTensor_tmul"
+      ],
+      "proofSteps": [
+        "Cancel E_M and use tensor induction.",
+        "Evaluate the actual P_D on the signed P_J expansion, substitute ε(c)=−a and ε(d)=b, and compare with pΦ.",
+        "Unlike the dual-Hom coordinate formula, this formula has no leading minus sign."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-heterobasic-tensor",
+          "locator": "Pinned TensorProduct/Tower.lean lines79–123,183–202,312–319,356–373, together with the exactness and matrix prerequisites named below",
+          "match": "Native heterobasic tensor lift, maps, extensionality and unit structures are reused. The stated actual-section comparison is a specialized construction or authored deduction on the existing native carriers, not a new generic tensor–Hom theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualHomCoordinates_presentation",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-transpose-right-right-tensor-rotation",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Right-tensor rotation of the second transpose",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. U_M(Ψᵀ)∘U_M(p)=U_M(p)∘U_M(Φ).",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-transpose-right-rotation",
+        "mathlib:LinearMap.rTensor_comp",
+        "mathlib:LinearEquiv.coe_rTensor"
+      ],
+      "proofSteps": [
+        "Apply the native right tensor to the listed Ψᵀ∘p=p∘Φ relation; use the pinned composition/coercion formulas."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-heterobasic-tensor",
+          "locator": "Pinned TensorProduct/Tower.lean lines79–123,183–202,312–319,356–373, together with the exactness and matrix prerequisites named below",
+          "match": "Native heterobasic tensor lift, maps, extensionality and unit structures are reused. The stated actual-section comparison is a specialized construction or authored deduction on the existing native carriers, not a new generic tensor–Hom theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.transposeRight_rTensor_rotation",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-coefficient-hom-injective",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Injectivity of coefficient-valued bidual evaluation",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. θ_J,M is injective for every A-module M.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-presentation",
+        "StableReductionPartII:MC.2/section-ideal-presentation-surjective",
+        "StableReductionPartII:MC.2/section-complex-left-tensor-exact",
+        "StableReductionPartII:MC.2/section-ideal-presentation-tensor-exact",
+        "mathlib:LinearMap.rTensor_surjective",
+        "mathlib:LinearMap.rTensor_exact_iff_lTensor_exact"
+      ],
+      "proofSteps": [
+        "Lift a difference tensor through the tensor-surjective P_J.",
+        "The coordinate-presentation formula and invertible U_M(p) reduce vanishing to U_M(Φ)z=0.",
+        "Universal exactness gives z∈im U_M(Ψ), and tensor presentation exactness gives U_M(P_J)z=0."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-right-tensor-exactness",
+          "locator": "Pinned TensorProduct/RightExactness.lean lines148–179; actual section presentation/universal exactness inputs listed as prerequisites",
+          "match": "Reuses native tensor surjectivity and equivalence of left/right tensor exactness. The actual canonical coefficient-Hom bijectivity is the authored signed-presentation deduction, not a consequence of coefficient flatness alone."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHom_injective",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHomEquiv.test_zero_ring",
+          "kind": "degenerate",
+          "statement": "The ideal tensor–Hom comparison also holds over the zero coefficient ring Z/1 with its actual native carriers."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-coefficient-hom-surjective",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Surjectivity of coefficient-valued bidual evaluation",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. θ_J,M is surjective for every A-module M.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-relations",
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-coordinates-injective",
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-presentation",
+        "StableReductionPartII:MC.2/section-transpose-right-right-tensor-rotation",
+        "StableReductionPartII:MC.2/section-complex-transpose-left-tensor-exact",
+        "mathlib:LinearMap.rTensor_exact_iff_lTensor_exact"
+      ],
+      "proofSteps": [
+        "Coordinates y=C_D,M(h) lie in ker U_M(Φᵀ); universal transpose exactness supplies w with U_M(Ψᵀ)w=y.",
+        "Use the right-tensor rotation identity and coordinate-presentation formula to obtain θ_J,M(U_M(P_J)(U_M(p)⁻¹w))=h, then cancel C_D,M."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-right-tensor-exactness",
+          "locator": "Pinned TensorProduct/RightExactness.lean lines148–179; actual section presentation/universal exactness inputs listed as prerequisites",
+          "match": "Reuses native tensor surjectivity and equivalence of left/right tensor exactness. The actual canonical coefficient-Hom bijectivity is the authored signed-presentation deduction, not a consequence of coefficient flatness alone."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHom_surjective",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-coefficient-hom-equivalence",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Coefficient-valued bidual equivalence",
+      "kind": "construction",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. Construct the R-linear equivalence Θ_J,M:J⊗_A M≃Hom_R(D,N_M) with forward map θ_J,M, for every A-module M.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-map",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-injective",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-surjective",
+        "mathlib:LinearEquiv.ofBijective"
+      ],
+      "proofSteps": [
+        "Use the proved injectivity and surjectivity and the native equivalence of a bijective linear map.",
+        "This is the explicit coefficient-valued evaluation comparison; it does not assert relative stable reflexivity or higher Ext."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Proposition3.1 and Corollary3.2, with §4 Main Lemma proof; arXiv:1106.1588v2",
+          "match": "Motivates the polynomial dual and coefficient-universal complexes. The displayed module-valued Hom comparison in this arbitrary-ring range is an authored deduction through the separately listed coordinate and exactness lemmas; it does not assert the printed relative stable-reflexivity conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHomEquiv",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHomEquiv.test_inverse",
+          "kind": "characterisation",
+          "statement": "The inverse of θ_J,M sends the pure evaluation homomorphism h↦h(j)⊗m to j⊗m."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHomEquiv.test_ring_action",
+          "kind": "compatibility",
+          "statement": "For r∈R, x∈J⊗_A M and h∈D, θ_J,M(rx)(h)=rθ_J,M(x)(h), with no auxiliary action chosen."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHomEquiv.test_torsion",
+          "kind": "compatibility",
+          "statement": "For A=Z, M=Z/3 and zero parameters in the degenerate quadratic polynomial model, the actual J tensor–Hom map is bijective without a nondegeneracy assumption."
+        }
+      ],
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHomEquiv_tmul",
+          "role": "simp",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. Θ_J,M(j⊗m)(h)=h(j)⊗m."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHomEquiv_inverse",
+          "role": "equivalence",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. Θ_J,M⁻¹(θ_J,M(j⊗m))=j⊗m."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHomEquiv_unique",
+          "role": "characterisation",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. Any R-linear equivalence e:J⊗_A M≃Hom_R(D,N_M) with e(j⊗m)(h)=h(j)⊗m for all j,m,h equals Θ_J,M."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Knudsen arXiv:1106.1588v2 §3 Proposition3.1, Corollary3.2; the MC.2 arbitrary-section expansion",
+          "how": "Supplies the actual module-valued Hom exchange calculation needed before relative stable-reflexivity and completed-local/sheaf descent."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Use the separately identified canonical map, signed coordinates and coefficient-module naturality, without inferring higher Ext or geometry."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-coefficient-hom-equivalence-pure",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Coefficient-valued bidual equivalence on pure tensors",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. Θ_J,M(j⊗m)(h)=h(j)⊗m.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-equivalence",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-pure"
+      ],
+      "proofSteps": [
+        "The native equivalence keeps the actual evaluation map as its forward map."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-heterobasic-tensor",
+          "locator": "Pinned TensorProduct/Tower.lean lines79–123,183–202,312–319,356–373, together with the exactness and matrix prerequisites named below",
+          "match": "Native heterobasic tensor lift, maps, extensionality and unit structures are reused. The stated actual-section comparison is a specialized construction or authored deduction on the existing native carriers, not a new generic tensor–Hom theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHomEquiv_tmul",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-coefficient-hom-naturality",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Coefficient-module naturality of bidual evaluation",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. For any A-linear f:M→M′, x∈J⊗_A M and h∈D, θ_J,M′((id_J⊗f)x)(h)=(id_R⊗f)(θ_J,M(x)(h)).",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-pure",
+        "mathlib:TensorProduct.AlgebraTensorModule.map",
+        "mathlib:TensorProduct.AlgebraTensorModule.map_tmul"
+      ],
+      "proofSteps": [
+        "Tensor induction reduces the square to h(j)⊗f(m), then additivity handles arbitrary tensors."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-heterobasic-tensor",
+          "locator": "Pinned TensorProduct/Tower.lean lines79–123,183–202,312–319,356–373, together with the exactness and matrix prerequisites named below",
+          "match": "Native heterobasic tensor lift, maps, extensionality and unit structures are reused. The stated actual-section comparison is a specialized construction or authored deduction on the existing native carriers, not a new generic tensor–Hom theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHom_natural",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHom.test_naturality",
+          "kind": "compatibility",
+          "statement": "Coefficient-module naturality of θ_J holds for every A-linear f on arbitrary tensors."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-coefficient-hom-equivalence-inverse",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Inverse dual Hom comparison on pure tensors",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. Θ_D,M⁻¹(θ_D,M(h⊗m))=h⊗m.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-equivalence"
+      ],
+      "proofSteps": [
+        "Use the native equivalence inverse identity, with its actual forward map."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-heterobasic-tensor",
+          "locator": "Pinned TensorProduct/Tower.lean lines79–123,183–202,312–319,356–373, together with the exactness and matrix prerequisites named below",
+          "match": "Native heterobasic tensor lift, maps, extensionality and unit structures are reused. The stated actual-section comparison is a specialized construction or authored deduction on the existing native carriers, not a new generic tensor–Hom theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualTensorHomEquiv_inverse",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-coefficient-hom-equivalence-inverse",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Inverse coefficient-valued bidual on pure tensors",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. Θ_J,M⁻¹(θ_J,M(j⊗m))=j⊗m.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-equivalence"
+      ],
+      "proofSteps": [
+        "Use the native inverse identity."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-heterobasic-tensor",
+          "locator": "Pinned TensorProduct/Tower.lean lines79–123,183–202,312–319,356–373, together with the exactness and matrix prerequisites named below",
+          "match": "Native heterobasic tensor lift, maps, extensionality and unit structures are reused. The stated actual-section comparison is a specialized construction or authored deduction on the existing native carriers, not a new generic tensor–Hom theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHomEquiv_inverse",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-coefficient-hom-equivalence-unique",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Uniqueness of the canonical dual Hom equivalence",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. Any R-linear equivalence e:D⊗_A M≃Hom_R(J,N_M) satisfying e(h⊗m)(j)=h(j)⊗m for all h,m,j equals Θ_D,M.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-equivalence-pure",
+        "mathlib:TensorProduct.AlgebraTensorModule.ext"
+      ],
+      "proofSteps": [
+        "Use native heterobasic tensor extensionality, then Hom extensionality; the pure formula fixes the actual forward map."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-heterobasic-tensor",
+          "locator": "Pinned TensorProduct/Tower.lean lines79–123,183–202,312–319,356–373, together with the exactness and matrix prerequisites named below",
+          "match": "Native heterobasic tensor lift, maps, extensionality and unit structures are reused. The stated actual-section comparison is a specialized construction or authored deduction on the existing native carriers, not a new generic tensor–Hom theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualTensorHomEquiv_unique",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-coefficient-hom-equivalence-unique",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Uniqueness of coefficient-valued bidual evaluation",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. Any R-linear equivalence e:J⊗_A M≃Hom_R(D,N_M) with e(j⊗m)(h)=h(j)⊗m for all j,m,h equals Θ_J,M.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-equivalence-pure",
+        "mathlib:TensorProduct.AlgebraTensorModule.ext"
+      ],
+      "proofSteps": [
+        "Apply native heterobasic tensor extensionality and then Hom extensionality."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-heterobasic-tensor",
+          "locator": "Pinned TensorProduct/Tower.lean lines79–123,183–202,312–319,356–373, together with the exactness and matrix prerequisites named below",
+          "match": "Native heterobasic tensor lift, maps, extensionality and unit structures are reused. The stated actual-section comparison is a specialized construction or authored deduction on the existing native carriers, not a new generic tensor–Hom theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHomEquiv_unique",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-coefficient-hom-unit",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The coefficient-unit dual Hom comparison",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. For M=A and every x∈D⊗_A A, postcompose θ_D,A(x) with the native R-linear unit R⊗_A A≃R. The result equals the native unit D⊗_A A≃D applied to x.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-coefficient-hom-pure",
+        "mathlib:TensorProduct.AlgebraTensorModule.rid",
+        "mathlib:TensorProduct.AlgebraTensorModule.rid_tmul"
+      ],
+      "proofSteps": [
+        "Use tensor induction and the native heterobasic right-unit formula; at h⊗a both sides evaluate to a·h(j)."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-heterobasic-tensor",
+          "locator": "Pinned TensorProduct/Tower.lean lines79–123,183–202,312–319,356–373, together with the exactness and matrix prerequisites named below",
+          "match": "Native heterobasic tensor lift, maps, extensionality and unit structures are reused. The stated actual-section comparison is a specialized construction or authored deduction on the existing native carriers, not a new generic tensor–Hom theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualTensorHom_unit",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualTensorHom.test_unit",
+          "kind": "compatibility",
+          "statement": "For M=A, both native right-unit equivalences identify θ_D with the actual identity of D."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-coefficient-hom-unit",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The coefficient-unit native bidual evaluation",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, let q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the actual coefficient algebra map, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R and ε∈D with dε(j)=bj. Put Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε and p(z)=(-z₁,z₀). For any A-module M, set N_M=R⊗_A M with the inherited left R-action, and U_M(f)=f⊗_A id_M on the actual native tensors. Use the already-built finite-product tensor and finite-free Hom coordinates E_M:R²⊗_A M≃ₗ[A]Hom_R(R²,N_M), E_M(z⊗m)(w)=(w₀z₀+w₁z₁)⊗m. For M=A and x∈J⊗_A A, postcomposing θ_J,A(x) by the native unit R⊗_A A≃R equals Module.Dual.eval R J applied to the native unit J⊗_A A≃J of x.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring; M is an arbitrary A-module, with no flatness hypothesis.",
+        "All tensor actions and Hom spaces are the actual native inherited ones; no noetherianity, nontriviality or unit-discriminant assumption is imposed for this polynomial calculation."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-pure",
+        "mathlib:TensorProduct.AlgebraTensorModule.rid",
+        "mathlib:TensorProduct.AlgebraTensorModule.rid_tmul",
+        "mathlib:Module.Dual.eval",
+        "mathlib:LinearMap.restrictScalars"
+      ],
+      "proofSteps": [
+        "Tensor induction reduces to h(a·j)=a·h(j), using the actual restriction of the R-linear h to A.",
+        "The resulting map is the native bidual evaluation, not a separately chosen abstract isomorphism."
+      ],
+      "acceptance": [
+        "The statement uses the actual section ideal and actual R-linear dual in the untruncated polynomial ring.",
+        "Keep this algebra calculation separate from higher Ext, relative stable-reflexivity, completed-local and family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-a71f92-heterobasic-tensor",
+          "locator": "Pinned TensorProduct/Tower.lean lines79–123,183–202,312–319,356–373, together with the exactness and matrix prerequisites named below",
+          "match": "Native heterobasic tensor lift, maps, extensionality and unit structures are reused. The stated actual-section comparison is a specialized construction or authored deduction on the existing native carriers, not a new generic tensor–Hom theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHom_unit",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHom.test_bidual",
+          "kind": "compatibility",
+          "statement": "For M=A, the unit identifications turn θ_J into the native Module.Dual.eval R J, not a chosen abstract bidual isomorphism."
+        }
+      ]
     }
   ],
   "requests": [
@@ -14467,7 +16235,8 @@
         "The specified ideal/dual cokernel identifications, including the negative second generator and transpose complexes, now have admission-free native proof checks; preserve their contracts. Prove the remaining arbitrary coefficient-module Hom/Ext, tensor, completion and family comparisons without assuming them from the dual coordinates.",
         "The actual coefficient projectivity/freeness, section tensor retraction and both matrix-image tensor injections are checked, including torsion M=Z/2 over Z. Complete actual coefficient-module Hom exchange, bidual evaluation and higher Ext comparisons; no flatness of M may be imposed.",
         "All four alternating polynomial matrix pairs are now checked after tensoring with every A-module M, and both ordered tensor cokernel equivalences are checked. Supply the actual module-valued Hom and bidual maps and cochain/Ext interpretation, then the relative stable-reflexivity, two-base completion and family/sheaf comparisons.",
-        "Ordinary R-linear bidual evaluation of the actual polynomial ideal is now checked with inverse F↦F(incl), and the native instance supplies ordinary reflexivity of its dual. In the earlier remaining entries, the open bidual work is the relative/module-valued Hom comparison and its base-change/completion naturality, followed by higher Ext and family descent."
+        "Ordinary R-linear bidual evaluation of the actual polynomial ideal is now checked with inverse F↦F(incl), and the native instance supplies ordinary reflexivity of its dual. In the earlier remaining entries, the open bidual work is the relative/module-valued Hom comparison and its base-change/completion naturality, followed by higher Ext and family descent.",
+        "Both actual coefficient-module Hom comparisons and their naturality are now supplied for every A-module M, with inherited R-actions, prescribed negative generators and the M=A native bidual specialization. The earlier open polynomial Hom exchange is discharged by these new nodes. What remains is the native finite-free-resolution/Hom-cochain and higher Ext interpretation, then the exact Appendix/Ile relative stable-reflexivity and two-base completion comparison, pointed completed-local hull, family/sheaf descent and arbitrary-base approximation."
       ]
     },
     {
@@ -14680,7 +16449,7 @@
         "StableReductionPartII:MC.2/expansion-stable",
         "StableReductionPartII:MC.2/expansion-contraction-inverses"
       ],
-      "detail": "Fresh KnudsenII Appendix PDF31–39/printed191–199 supplies the exact relative stable-reflexivity conditions for a flat noetherian S→R: arbitrary S-module Hom comparison and higher Ext vanishing for both M and M∨, equivalently a universally acyclic finite-locally-free bi-infinite complex with universally acyclic dual. Proposition6 compares M with its R-maximal-ideal completion as S-stably and Ŝ-stably reflexive, but cites Bourbaki III5.4.4 without a proof; Proposition7 is left as an exercise. The new actual-ideal/Hom/quotient completion adapters only treat flat ambient change R→B. They do not prove universal S-coefficient change, compatibility of the different base/source completions, a pointed completed-local hull, sheaf globalization or noetherian approximation for arbitrary bases. Require those exact inputs before closing dual-section-ideal. Generic relative stable-reflexivity ownership remains a proposed extension, not an imported closed result."
+      "detail": "Fresh KnudsenII Appendix PDF31–39/printed191–199 supplies the exact relative stable-reflexivity conditions for a flat noetherian S→R: arbitrary S-module Hom comparison and higher Ext vanishing for both M and M∨, equivalently a universally acyclic finite-locally-free bi-infinite complex with universally acyclic dual. Proposition6 compares M with its R-maximal-ideal completion as S-stably and Ŝ-stably reflexive, but cites Bourbaki III5.4.4 without a proof; Proposition7 is left as an exercise. The new actual-ideal/Hom/quotient completion adapters only treat flat ambient change R→B. They do not prove universal S-coefficient change, compatibility of the different base/source completions, a pointed completed-local hull, sheaf globalization or noetherian approximation for arbitrary bases. Require those exact inputs before closing dual-section-ideal. Generic relative stable-reflexivity ownership remains a proposed extension, not an imported closed result. The two polynomial arbitrary-coefficient-module Hom comparisons are now separate exact nodes, with native R-actions and coefficient naturality. They do not discharge the still-open higher Ext/resolution interpretation or any of the stated two-base completion, completed-local, family or approximation requirements."
     },
     {
       "title": "Rigid genus-one locus and boundary normalization details",
@@ -15110,6 +16879,14 @@
       "url": "https://annals.math.princeton.edu/2026/203-1/p02",
       "read": "2026-10-02",
       "citation": "Publisher landing page read; full published PDF not acquired. Findings are scoped to the hashed author manuscript."
+    },
+    {
+      "source": "knudsen2012",
+      "kind": "preprint",
+      "url": "https://arxiv.org/html/1106.1588v2",
+      "read": "2026-10-03",
+      "sha256": "2c89ce4072046d546ff9256a5c64cd488f41026c561f8858f4a78ce14c21d685",
+      "citation": "arXiv:1106.1588v2 primary HTML; selected scope in the fresh codex-a71f92 receipt only"
     }
   ],
   "restructure": [
@@ -15371,7 +17148,7 @@
   "prototypeCoverage": {
     "status": "partial",
     "compiled": true,
-    "reason": "Full Mathlib-only admitted sketch; separate admission-free archive verifies the prior polynomial and tensor calculations plus ordinary bidual evaluation with explicit inverse. This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent.",
+    "reason": "The entire current Mathlib-only admitted sketch elaborates. A separately checked admission-free native archive preserves all prior polynomial/tensor/bidual bodies and supplies the actual arbitrary-coefficient-module Hom maps, signed coordinate proofs, R-linear isomorphisms, coefficient naturality and M=A unit/bidual comparisons. Higher Ext, relative stable reflexivity, two-base completion and all geometry remain open.",
     "expressedNodes": [
       "StableReductionPartII:MC.2/binary-node-form",
       "StableReductionPartII:MC.2/node-factorization-products",
@@ -15490,7 +17267,39 @@
       "StableReductionPartII:MC.2/section-bidual-equivalence",
       "StableReductionPartII:MC.2/section-bidual-equivalence-apply",
       "StableReductionPartII:MC.2/section-bidual-equivalence-inverse",
-      "StableReductionPartII:MC.2/section-bidual-equivalence-native"
+      "StableReductionPartII:MC.2/section-bidual-equivalence-native",
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-map",
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-pure",
+      "StableReductionPartII:MC.2/section-free-coefficient-hom-transpose",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-coordinates",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-coordinates-injective",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-relations",
+      "StableReductionPartII:MC.2/section-ideal-presentation-generators",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-presentation",
+      "StableReductionPartII:MC.2/section-transpose-left-right-tensor-rotation",
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-injective",
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-surjective",
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-equivalence",
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-equivalence-pure",
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-naturality",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-map",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-pure",
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-coordinates",
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-coordinates-injective",
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-relations",
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-presentation",
+      "StableReductionPartII:MC.2/section-transpose-right-right-tensor-rotation",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-injective",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-surjective",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-equivalence",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-equivalence-pure",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-naturality",
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-equivalence-inverse",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-equivalence-inverse",
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-equivalence-unique",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-equivalence-unique",
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-unit",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-unit"
     ],
     "expressedApi": [
       "NodeForm.eval",
@@ -15616,7 +17425,25 @@
       "NodeSectionFactorization.PolynomialModel.sectionBidual_eval_inverse",
       "NodeSectionFactorization.PolynomialModel.sectionBidualEquiv_apply",
       "NodeSectionFactorization.PolynomialModel.sectionBidualEquiv_inverse",
-      "NodeSectionFactorization.PolynomialModel.sectionBidualEquiv_native"
+      "NodeSectionFactorization.PolynomialModel.sectionBidualEquiv_native",
+      "NodeSectionFactorization.PolynomialModel.sectionDualTensorHom_tmul",
+      "NodeSectionFactorization.PolynomialModel.sectionDualTensorHom_natural",
+      "NodeSectionFactorization.PolynomialModel.sectionDualTensorHom_unit",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealHomCoordinates_injective",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealHomCoordinates_relation",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealHomCoordinates_presentation",
+      "NodeSectionFactorization.PolynomialModel.sectionDualTensorHomEquiv_tmul",
+      "NodeSectionFactorization.PolynomialModel.sectionDualTensorHomEquiv_inverse",
+      "NodeSectionFactorization.PolynomialModel.sectionDualTensorHomEquiv_unique",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHom_tmul",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHom_natural",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHom_unit",
+      "NodeSectionFactorization.PolynomialModel.sectionDualHomCoordinates_injective",
+      "NodeSectionFactorization.PolynomialModel.sectionDualHomCoordinates_relation",
+      "NodeSectionFactorization.PolynomialModel.sectionDualHomCoordinates_presentation",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHomEquiv_tmul",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHomEquiv_inverse",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHomEquiv_unique"
     ],
     "expressedTests": [
       "NodeForm.characteristicTwo",
@@ -15739,7 +17566,31 @@
       "NodeSectionFactorization.PolynomialModel.sectionBidualEquiv.test_epsilon_first",
       "NodeSectionFactorization.PolynomialModel.sectionBidualEquiv.test_epsilon_second",
       "NodeSectionFactorization.PolynomialModel.sectionBidualEquiv.test_negative_generator",
-      "NodeSectionFactorization.PolynomialModel.sectionBidualEquiv.test_roundtrip"
+      "NodeSectionFactorization.PolynomialModel.sectionBidualEquiv.test_roundtrip",
+      "NodeSectionFactorization.PolynomialModel.sectionDualTensorHom.test_zero",
+      "NodeSectionFactorization.PolynomialModel.sectionDualTensorHom.test_inclusion",
+      "NodeSectionFactorization.PolynomialModel.sectionDualTensorHom.test_negative_epsilon",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHom.test_zero",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHom.test_inclusion",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHom.test_negative_second",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealHomCoordinates.test_zero",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealHomCoordinates.test_negative_second",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealHomCoordinates.test_faithful",
+      "NodeSectionFactorization.PolynomialModel.sectionDualHomCoordinates.test_zero",
+      "NodeSectionFactorization.PolynomialModel.sectionDualHomCoordinates.test_negative_epsilon",
+      "NodeSectionFactorization.PolynomialModel.sectionDualHomCoordinates.test_faithful",
+      "NodeSectionFactorization.PolynomialModel.sectionDualTensorHomEquiv.test_inverse",
+      "NodeSectionFactorization.PolynomialModel.sectionDualTensorHomEquiv.test_ring_action",
+      "NodeSectionFactorization.PolynomialModel.sectionDualTensorHomEquiv.test_torsion",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHomEquiv.test_inverse",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHomEquiv.test_ring_action",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHomEquiv.test_torsion",
+      "NodeSectionFactorization.PolynomialModel.sectionDualTensorHom.test_naturality",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHom.test_naturality",
+      "NodeSectionFactorization.PolynomialModel.sectionDualTensorHom.test_unit",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHom.test_bidual",
+      "NodeSectionFactorization.PolynomialModel.sectionDualTensorHomEquiv.test_nonreduced",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealTensorHomEquiv.test_zero_ring"
     ],
     "omissions": [
       {
@@ -17751,6 +19602,30 @@
       "archiveCommit": "5cf0343f7edeab7223ed8366d75a3a502e7b0181",
       "marker": "ARCHIVED CHECKED SECTION MATRIX PRESENTATIONS",
       "predecessorPrefixPreserved": true
+    },
+    "coefficientModuleHomPreviousReason": "Full Mathlib-only admitted sketch; separate admission-free archive verifies the prior polynomial and tensor calculations plus ordinary bidual evaluation with explicit inverse. This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent.",
+    "coefficientModuleHomCompilation": {
+      "lines": 2809,
+      "sha256": "cee923e71ffc381319f1ca3080b23fcb129e7bbe1b6738cbce9e4fe487ecc5d9",
+      "diagnosticsSha256": "49e023599443b57ccbae7418a1794846216d549060c548a9bbdb7fbe03e8fde9",
+      "examples": 171,
+      "errors": 0,
+      "warnings": 413,
+      "admissions": 413,
+      "audits": 0,
+      "seconds": "0:24.61",
+      "peakRSSKiB": 3170080,
+      "exit": 0,
+      "reader": "Codex — codex-a71f92",
+      "date": "2026-10-03",
+      "wholeFile": true,
+      "imports": "Mathlib only",
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "toolchain": "Lean v4.34.0-rc2",
+      "availableMemoryGiB": 42,
+      "existingArtifactsReused": true,
+      "noSetupCacheLibraryBuildOrServer": true,
+      "warningMeaning": "All 413 warnings are declaration-admission warnings under PROTOCOL §13; no other warning or error."
     }
   },
   "upstreamImportEncoding": {
@@ -17923,6 +19798,16 @@
       "url": "https://arxiv.org/html/1106.1588v2#S3",
       "sha256": "2c89ce4072046d546ff9256a5c64cd488f41026c561f8858f4a78ce14c21d685",
       "scope": "Fresh introduction/Main Lemma, complete §3 Key Example, Proposition3.1, Corollary3.2 and §4 proof. No new whole-paper or Appendix/Ile proof audit. Ordinary bidual inverse is an authored deduction."
+    },
+    {
+      "sourceId": "knudsen2012",
+      "reader": "Codex — codex-a71f92",
+      "date": "2026-10-03",
+      "url": "https://arxiv.org/html/1106.1588v2",
+      "version": "arXiv:1106.1588v2 primary HTML",
+      "sha256": "2c89ce4072046d546ff9256a5c64cd488f41026c561f8858f4a78ce14c21d685",
+      "scope": "Fresh introduction/Main Lemma, full §3 Key Example with Proposition3.1 and Corollary3.2 proofs, and §4 Main Lemma proof. No fresh whole-paper, visual PDF, Appendix/Ile, Bourbaki or Eisenbud proof audit.",
+      "use": "The paper motivates the actual section ideal/dual and coefficient-universal complexes. The two arbitrary-ring coefficient-module tensor–Hom isomorphisms and their native scalar/naturality/unit checks are authored deductions, separate from the printed noetherian/unit-discriminant geometric hypotheses."
     }
   ],
   "coefficientChangeContinuation": {
@@ -18577,5 +20462,194 @@
     },
     "checkDate": "2026-10-03",
     "nativePrefix": "The entire preceding 2434-line proof is preserved exactly after one added pinned import; the 151-line authored continuation proves ordinary biduality and adds ten examples."
+  },
+  "coefficientModuleHomContinuation": {
+    "agent": "Codex",
+    "session": "codex-a71f92",
+    "issue": 3342,
+    "claimComment": 5963812041,
+    "claimBot": 5963813232,
+    "mathematicalBase": "aeae47c9a675600efe5c88a0b7ab4cc82b9d13f3",
+    "addedNodes": [
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-map",
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-pure",
+      "StableReductionPartII:MC.2/section-free-coefficient-hom-transpose",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-coordinates",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-coordinates-injective",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-relations",
+      "StableReductionPartII:MC.2/section-ideal-presentation-generators",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-presentation",
+      "StableReductionPartII:MC.2/section-transpose-left-right-tensor-rotation",
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-injective",
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-surjective",
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-equivalence",
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-equivalence-pure",
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-naturality",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-map",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-pure",
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-coordinates",
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-coordinates-injective",
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-relations",
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-presentation",
+      "StableReductionPartII:MC.2/section-transpose-right-right-tensor-rotation",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-injective",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-surjective",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-equivalence",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-equivalence-pure",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-naturality",
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-equivalence-inverse",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-equivalence-inverse",
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-equivalence-unique",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-equivalence-unique",
+      "StableReductionPartII:MC.2/section-dual-coefficient-hom-unit",
+      "StableReductionPartII:MC.2/section-ideal-coefficient-hom-unit"
+    ],
+    "newTests": 24,
+    "newApiEntries": 18,
+    "inheritedContracts": 226,
+    "wholeInheritedNodesUnchanged": 225,
+    "scope": "Actual untruncated polynomial model over arbitrary commutative A and arbitrary coefficient module M; both canonical R-linear tensor–Hom isomorphisms, coefficient naturality and native bidual unit specialization. No M-flatness; no higher Ext or geometric closure.",
+    "sourceRead": {
+      "sourceId": "knudsen2012",
+      "reader": "Codex — codex-a71f92",
+      "date": "2026-10-03",
+      "url": "https://arxiv.org/html/1106.1588v2",
+      "version": "arXiv:1106.1588v2 primary HTML",
+      "sha256": "2c89ce4072046d546ff9256a5c64cd488f41026c561f8858f4a78ce14c21d685",
+      "scope": "Fresh introduction/Main Lemma, full §3 Key Example with Proposition3.1 and Corollary3.2 proofs, and §4 Main Lemma proof. No fresh whole-paper, visual PDF, Appendix/Ile, Bourbaki or Eisenbud proof audit.",
+      "use": "The paper motivates the actual section ideal/dual and coefficient-universal complexes. The two arbitrary-ring coefficient-module tensor–Hom isomorphisms and their native scalar/naturality/unit checks are authored deductions, separate from the printed noetherian/unit-discriminant geometric hypotheses."
+    },
+    "baselineAdditions": [
+      "mathlib:LinearMap.restrictScalars_apply",
+      "mathlib:LinearMap.lcomp",
+      "mathlib:LinearMap.lcomp_injective_of_surjective",
+      "mathlib:LinearEquiv.piRing",
+      "mathlib:LinearEquiv.piRing_symm_apply",
+      "mathlib:LinearMap.rTensor_comp",
+      "mathlib:LinearEquiv.rTensor",
+      "mathlib:LinearEquiv.coe_rTensor",
+      "mathlib:LinearEquiv.rTensor_tmul",
+      "mathlib:TensorProduct.piLeft",
+      "mathlib:LinearMap.rTensor_surjective",
+      "mathlib:LinearMap.rTensor_exact_iff_lTensor_exact",
+      "mathlib:TensorProduct.AlgebraTensorModule.ext",
+      "mathlib:TensorProduct.AlgebraTensorModule.lift",
+      "mathlib:TensorProduct.AlgebraTensorModule.map",
+      "mathlib:TensorProduct.AlgebraTensorModule.map_tmul",
+      "mathlib:TensorProduct.AlgebraTensorModule.rid_tmul"
+    ],
+    "baselineAdapters": [
+      {
+        "declarationName": "NodeSectionFactorization.PolynomialModel.sectionFreeTensorHom",
+        "suppliedBy": [
+          "mathlib:TensorProduct.piLeft",
+          "mathlib:LinearEquiv.piRing"
+        ],
+        "meaning": "Abbreviation for the already-built finite-product tensor/Hom equivalence E_M; no new generic construction node."
+      },
+      {
+        "declarationName": "NodeSectionFactorization.PolynomialModel.sectionFreeTensorHom_tmul",
+        "suppliedBy": [
+          "mathlib:TensorProduct.piLeft",
+          "mathlib:LinearEquiv.piRing_symm_apply"
+        ],
+        "meaning": "Routine native pure-tensor coordinate evaluation; no replanning of its generic API."
+      }
+    ],
+    "priorArt": {
+      "openMathlibPrQuery": "gh search prs 'tensor hom' --repo leanprover-community/mathlib4 --state open --limit 10",
+      "selectedPr": "https://github.com/leanprover-community/mathlib4/pull/8495",
+      "reading": "Open categorical Tensor-Hom adjunction PR body and file inventory read; it does not establish these particular arbitrary-coefficient-module section-ideal Hom isomorphisms. No pending PR code copied.",
+      "zulip": "https://leanprover-community.github.io/archive/stream/217875-Is-there-code-for-X%3F/topic/Tensor.20product.20on.20linear.20maps.html",
+      "zulipReading": "Complete Apr23 2025 thread read: native TensorProduct.map and homTensorHomMap supply the map, whereas bijectivity is a separate claim. Adopt native tensor/linear-map vocabulary, not a private carrier."
+    },
+    "nativeProof": {
+      "lines": 3246,
+      "sha256": "03240fdfbc18f39e88621d22efed1d0a0433df5feb3beb7162f630090c77515d",
+      "diagnosticsSha256": "c3689dc9c2d9fa4e7542d28350ffb634b35f3eb7c027d2fe9c01df9a92a2760f",
+      "examples": 109,
+      "errors": 0,
+      "warnings": 0,
+      "admissions": 0,
+      "audits": 200,
+      "seconds": "0:25.61",
+      "peakRSSKiB": 3368176,
+      "exit": 0,
+      "availableGiB": 42,
+      "ordinaryAxiomsOnly": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "predecessorArchive": "ca039d9d67f5465b9218b5e8d0d171ec85fe6b57",
+      "predecessorSourceSha256": "de4a6b846c7e33b576a7e9119947292ab5bd513e70b67c094b8a4303627904e5",
+      "predecessorPrefixPreserved": true
+    },
+    "fullCanonicalProofSketch": {
+      "lines": 2809,
+      "sha256": "cee923e71ffc381319f1ca3080b23fcb129e7bbe1b6738cbce9e4fe487ecc5d9",
+      "diagnosticsSha256": "49e023599443b57ccbae7418a1794846216d549060c548a9bbdb7fbe03e8fde9",
+      "examples": 171,
+      "errors": 0,
+      "warnings": 413,
+      "admissions": 413,
+      "audits": 0,
+      "seconds": "0:24.61",
+      "peakRSSKiB": 3170080,
+      "exit": 0
+    },
+    "remaining": [
+      "Identify the actual native finite-free resolutions and Hom cochain complexes and prove higher Ext vanishing for J and D with arbitrary coefficient modules.",
+      "Use the exact Appendix/Ile stable-reflexivity theorem and two-base Proposition6 completion interface; do not conflate flat ambient R→B with coefficient-base completion.",
+      "Finish pointed completed-local hull, family/sheaf descent, noetherian approximation and all inherited MC.0–MC.7, source and supplier obligations."
+    ],
+    "archiveCommit": "76fa936508b28cd0e592b0fd580ae460bda613cf",
+    "publicationBase": "14122f5410315c7254b29874b6b80bf3f7bdd159",
+    "graph": {
+      "stageDAG": {
+        "vertices": 3050,
+        "edges": 8750,
+        "acyclic": true
+      },
+      "ownDAG": {
+        "vertices": 258,
+        "edges": 612,
+        "acyclic": true
+      },
+      "combinedDAG": {
+        "vertices": 3273,
+        "edges": 9476,
+        "acyclic": true
+      },
+      "reachableDeclarations": 258,
+      "externalDeclarations": [],
+      "reachableBaselineReferences": 129,
+      "unresolved": [],
+      "otherPartsRetained": [],
+      "partDeclarations": 258,
+      "partPlanets": 35,
+      "roadmapDeclarations": 258,
+      "requiredStagePairs": 81,
+      "requiredStagePairsReachable": 81,
+      "inheritedMissingStagePairs": [],
+      "acceptedRestructurePairs": 0,
+      "acceptedRestructurePairsReachable": 0,
+      "stageEdgesUnchanged": true,
+      "otherSkippedPendingUnchanged": true,
+      "ownSkippedPendingEmpty": true
+    },
+    "publicationChecks": "Twenty-one owner, governing, audit, key, source-route and validator inputs were byte-identical between mathematical and publication bases. Actual immutable atlas assembly and preservation checks were rerun at the publication base.",
+    "publicRecovery": {
+      "nativeSha256": "03240fdfbc18f39e88621d22efed1d0a0433df5feb3beb7162f630090c77515d",
+      "canonicalSha256": "cee923e71ffc381319f1ca3080b23fcb129e7bbe1b6738cbce9e4fe487ecc5d9",
+      "validatorSha256": "ea180d5aa51c1725dd999a65f2c47acd835010ee6dc85cf928fea2497216f41d",
+      "immutableReaderSha256": "8e881b1dd24943d907fc9be9ca0ed730c8afd819257b4d72535f0e63b15829a8",
+      "readOnlyRecovery": true,
+      "archivePaths": [
+        "research/blueprint/suggested/StableReductionPartII.lean",
+        "research/blueprint/handoff/DESIGN-StableReductionPartII.md"
+      ],
+      "archiveFetchedByteParity": true
+    }
   }
 }
