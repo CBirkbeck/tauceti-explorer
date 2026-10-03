@@ -15,7 +15,7 @@
     "FunctionFieldArithmeticPartII:GC.5",
     "FunctionFieldArithmeticPartII:GC.6"
   ],
-  "summary": "Partial roadmap with 388 declaration-sized nodes. Arbitrary-section rational-character LEFT coaction now has the explicit heterobasic coefficient square, identity/composition and unchanged-weight formulas, and one-way preservation of universal coinvariance. New conditional proof bodies are checked against incoming admitted coordinate/coaction contracts. All incoming source routes, general root-stack scope, nonreduced fibres and geometric/sheaf boundaries remain; no implementation or stage is certified closed.",
+  "summary": "Partial roadmap with 388 declaration-sized nodes. Arbitrary-section rational-character LEFT coaction now has the explicit heterobasic coefficient square, identity/composition and unchanged-weight formulas, and one-way preservation of universal coinvariance. New conditional proof bodies are checked against incoming admitted coordinate/coaction contracts. All incoming source routes, general root-stack scope, nonreduced fibres and geometric/sheaf boundaries remain; no implementation or stage is certified closed. Separate native evidence proves the existing rational-character/infinite unity-root coordinate block; three computation lemmas expose natural representatives and factorial levels. No geometric or stage closure is asserted.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1656,6 +1656,54 @@
         "module": "Mathlib/RingTheory/TensorProduct/Basic.lean",
         "provides": "Native coefficient-ring functor laws or tensor algebra constant formula; use these existing general laws rather than replan them.",
         "checked": "Complete declaration statement and proof read at exact pinned Mathlib commit on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:AddCircle.coe_eq_coe_iff_of_mem_Ico",
+        "module": "Mathlib/Topology/Instances/AddCircle/Defs.lean",
+        "provides": "Equality in an additive circle is equality of representatives lying in one half-open period interval, with the stated ordered-field and positive-period hypotheses.",
+        "checked": "Full declaration and surrounding hypotheses read at exact pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-7e92bd. The generic result is reused, not replanned."
+      },
+      {
+        "ref": "mathlib:ZMod.val_injective",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "For a nonzero modulus, the canonical natural representative is injective.",
+        "checked": "Full declaration and surrounding hypotheses read at exact pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-7e92bd. The generic result is reused, not replanned."
+      },
+      {
+        "ref": "mathlib:ZMod.val_lt",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "For a nonzero modulus n every canonical representative is less than n.",
+        "checked": "Full declaration and surrounding hypotheses read at exact pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-7e92bd. The generic result is reused, not replanned."
+      },
+      {
+        "ref": "mathlib:Nat.cast_div",
+        "module": "Mathlib/Data/Nat/Cast/Field.lean",
+        "provides": "In a division semiring the cast of an exact natural quotient agrees with division if the divisor cast is nonzero.",
+        "checked": "Full declaration and surrounding hypotheses read at exact pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-7e92bd. The generic result is reused, not replanned."
+      },
+      {
+        "ref": "mathlib:AddMonoidHom.toMultiplicative",
+        "module": "Mathlib/Algebra/Group/TypeTags/Hom.lean",
+        "provides": "The native equivalence turning an additive homomorphism into a monoid homomorphism on multiplicative type tags.",
+        "checked": "Full declaration and surrounding hypotheses read at exact pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-7e92bd. The generic result is reused, not replanned."
+      },
+      {
+        "ref": "mathlib:Rat.num_div_den",
+        "module": "Mathlib/Algebra/Ring/Rat.lean",
+        "provides": "A rational number equals its integer numerator divided by its positive natural denominator.",
+        "checked": "Full declaration and surrounding hypotheses read at exact pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-7e92bd. The generic result is reused, not replanned."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.induction",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
+        "provides": "Induction by zero and adjoining one finitely supported basis coefficient; includes the support and nonzero-coefficient hypotheses.",
+        "checked": "Full declaration and surrounding hypotheses read at exact pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-7e92bd. The generic result is reused, not replanned."
+      },
+      {
+        "ref": "mathlib:HopfAlgebra.antipodeAlgHom",
+        "module": "Mathlib/RingTheory/HopfAlgebra/Convolution.lean",
+        "provides": "The existing antipode algebra homomorphism of a commutative Hopf algebra. Commutativity is essential; no general noncommutative multiplicativity is asserted.",
+        "checked": "Full declaration and surrounding hypotheses read at exact pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-7e92bd. The generic result is reused, not replanned."
       }
     ]
   },
@@ -1873,6 +1921,16 @@
       "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/codex-rtOQ9t/function-field-after-5974-3403/research/blueprint/readmes/FunctionFieldArithmeticPartII.md",
       "readSections": [
         "Fresh complete Talpo–Vistoli arXiv1410.1164v2 printed/PDF pp.14–16, including grading action, Lemma3.7 proof, Definition3.8, Lemma3.12 proof, Proposition3.10 proof and Corollary3.13. Exact PDF SHA256 92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2. Selected consumed pinned native tensor/monoid coefficient declarations and inherited coefficient/coaction contracts read in full. No whole-paper, source-errata or complete upstream-absence audit is asserted."
+      ]
+    },
+    {
+      "id": "QZNative-codex-7e92bd",
+      "title": "Native rational-character and infinite unity-root coordinate proofs",
+      "authors": "Codex — codex-7e92bd",
+      "edition": "Authored proofs and API refinements, 2026-10-03; separate native Mathlib extraction",
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/codex-7e92bd-function-cyclic-kummer/research/blueprint/handoff/DESIGN-FunctionFieldArithmeticPartII.md",
+      "readSections": [
+        "Selected Talpo–Vistoli arXiv1410.1164v2 printed14–16 motivate the character coordinate group. The concrete normalized maps, factorial colimit comparison and Hopf/coefficient formulas are authored deductions; the paper does not state these named Lean adapters. Pinned rational-circle, residue, monoid-algebra, colimit and commutative-antipode statements supply the native proof route."
       ]
     }
   ],
@@ -20566,7 +20624,7 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "mathlib:ZMod.lift",
@@ -20599,6 +20657,14 @@
         {
           "where": "FunctionFieldArithmeticPartII:RS.2/qz-character-exhaustive",
           "how": "For every u∈Q/Z there are n>0 and k∈Z/n with c_n(k)=u."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/qz-character-natcast",
+          "how": "For every n>0 and k∈N, c_n([k])=[k/n], without reducing k before forming the rational quotient."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/qz-character-representative",
+          "how": "For n>0 and k∈Z/n, c_n(k)=[val(k)/n], where 0≤val(k)<n."
         }
       ],
       "library": {
@@ -20640,6 +20706,16 @@
           "name": "TauCeti.RootStack.affineQZCharacter.exhaustive",
           "role": "compatibility",
           "statement": "For every u∈Q/Z there are n>0 and k∈Z/n with c_n(k)=u."
+        },
+        {
+          "name": "TauCeti.RootStack.affineQZCharacter.natCast",
+          "role": "simp",
+          "statement": "For every n>0 and k∈N, c_n([k])=[k/n], without reducing k before forming the rational quotient."
+        },
+        {
+          "name": "TauCeti.RootStack.affineQZCharacter.apply",
+          "role": "simp",
+          "statement": "For n>0 and k∈Z/n, c_n(k)=[val(k)/n], where 0≤val(k)<n."
         }
       ],
       "tests": [
@@ -20657,6 +20733,16 @@
           "name": "TauCeti.RootStack.affineQZCharacter.test_two_six",
           "kind": "computation",
           "statement": "The 2-to-6 transition sends [1] to [3], whose image is [1/2]."
+        },
+        {
+          "name": "TauCeti.RootStack.affineQZCharacter.test_natcast_period",
+          "kind": "computation",
+          "statement": "At n=3 the unreduced natural representative 7 maps to [7/3]."
+        },
+        {
+          "name": "TauCeti.RootStack.affineQZCharacter.test_negative_representative",
+          "kind": "computation",
+          "statement": "At n=3 the canonical natural representative of −1 is 2, and its character is [2/3]."
         }
       ]
     },
@@ -20673,7 +20759,7 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/qz-character",
@@ -20735,14 +20821,16 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/qz-character",
-        "FunctionFieldArithmeticPartII:RS.2/qz-character-intcast"
+        "FunctionFieldArithmeticPartII:RS.2/qz-character-intcast",
+        "FunctionFieldArithmeticPartII:RS.2/qz-character-natcast"
       ],
       "proofSteps": [
-        "Specialize the integer representative to one."
+        "Specialize the integer representative to one.",
+        "The native proof specializes the natural-character formula at 1."
       ],
       "acceptance": [
         "The chosen character sends [1] to [1/n]."
@@ -20781,17 +20869,22 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/qz-character",
         "FunctionFieldArithmeticPartII:RS.2/qz-character-intcast",
         "mathlib:ZMod.lift_injective",
         "mathlib:AddCircle.coe_eq_zero_iff",
-        "mathlib:ZMod.intCast_zmod_eq_zero_iff_dvd"
+        "mathlib:ZMod.intCast_zmod_eq_zero_iff_dvd",
+        "FunctionFieldArithmeticPartII:RS.2/qz-character-representative",
+        "mathlib:AddCircle.coe_eq_coe_iff_of_mem_Ico",
+        "mathlib:ZMod.val_injective",
+        "mathlib:ZMod.val_lt"
       ],
       "proofSteps": [
-        "The kernel consists of k with k/n integral, exactly the integers divisible by n. Use ZMod.lift_injective and the integer divisibility criterion. This proof concerns the character group and has no coefficient-ring assumption."
+        "The kernel consists of k with k/n integral, exactly the integers divisible by n. Use ZMod.lift_injective and the integer divisibility criterion. This proof concerns the character group and has no coefficient-ring assumption.",
+        "Alternative checked native route: both val(k)/n representatives lie in [0,1); injectivity of the quotient on that interval gives equality of rational quotients, then of natural representatives, then of the original residue classes. This directly reuses the interval theorem; it does not require a coefficient-ring assumption."
       ],
       "acceptance": [
         "The homomorphism c_n is injective for every n>0."
@@ -20830,15 +20923,19 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/qz-character",
         "FunctionFieldArithmeticPartII:RS.2/qz-character-intcast",
-        "mathlib:ZMod.natCast_zmod_val"
+        "mathlib:ZMod.natCast_zmod_val",
+        "FunctionFieldArithmeticPartII:RS.2/qz-character-natcast",
+        "FunctionFieldArithmeticPartII:RS.2/qz-character-representative",
+        "mathlib:Nat.cast_div"
       ],
       "proofSteps": [
-        "Choose the natural representative val(k). The rational identity ((N/n)val(k))/N=val(k)/n uses n>0,N>0 and exact divisibility. Integer-lift computations give equality in Q/Z. This is the scaled transition, not the map [k]↦[k]."
+        "Choose the natural representative val(k). The rational identity ((N/n)val(k))/N=val(k)/n uses n>0,N>0 and exact divisibility. Integer-lift computations give equality in Q/Z. This is the scaled transition, not the map [k]↦[k].",
+        "Use the two explicit representative formulas. Exact natural division casts to rational division; nonzero n and N allow cancellation of ((N/n) val(k))/N to val(k)/n. This proves the scaled divisibility formula over the actual quotient."
       ],
       "acceptance": [
         "If n divides N, then c_N([(N/n) val(k)])=c_n(k) for k∈Z/n. Thus c_N([N/n])=[1/n]."
@@ -20877,16 +20974,18 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/qz-character",
         "FunctionFieldArithmeticPartII:RS.2/qz-character-intcast",
         "tauceti:AddCircle.exists_mem_torsionBy_rat",
-        "tauceti:AddCircle.exists_zsmul_eq_of_mem_torsionBy"
+        "tauceti:AddCircle.exists_zsmul_eq_of_mem_torsionBy",
+        "mathlib:Rat.num_div_den"
       ],
       "proofSteps": [
-        "Import Tau Ceti rational torsion exhaustion to choose n. Import its normalized torsion generator lemma to write u as an integer multiple of [1/n]. The integer-lift formula supplies k. No new generic finite-subgroup or torsion theorem is planned."
+        "Import Tau Ceti rational torsion exhaustion to choose n. Import its normalized torsion generator lemma to write u as an integer multiple of [1/n]. The integer-lift formula supplies k. No new generic finite-subgroup or torsion theorem is planned.",
+        "Alternative checked Mathlib-only route for this normalized period-one adapter: choose a rational representative q of the quotient, take n=den(q)>0 and k=num(q) mod n, and apply the integer-character formula and num_div_den. The existing Tau Ceti torsion exhaustion/generator route remains available; no new generic torsion theorem is claimed."
       ],
       "acceptance": [
         "For every u∈Q/Z there are n>0 and k∈Z/n with c_n(k)=u."
@@ -20925,14 +21024,16 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/qz-character",
-        "mathlib:MonoidAlgebra.mapDomainAlgHom"
+        "mathlib:MonoidAlgebra.mapDomainAlgHom",
+        "mathlib:AddMonoidHom.toMultiplicative"
       ],
       "proofSteps": [
-        "Pass the additive character to Multiplicative and use the existing group-algebra domain map. Import the generic functor rather than defining a new group-algebra carrier."
+        "Pass the additive character to Multiplicative and use the existing group-algebra domain map. Import the generic functor rather than defining a new group-algebra carrier.",
+        "Use the native additive-to-multiplicative type-tag equivalence as the input of the existing group-algebra domain map."
       ],
       "acceptance": [
         "Define j_n:A[Z/n]→A[Q/Z] as the actual mapDomainAlgHom induced by the multiplicative form of c_n."
@@ -21013,7 +21114,7 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-map",
@@ -21071,7 +21172,7 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-map",
@@ -21118,7 +21219,7 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-map",
@@ -21165,7 +21266,7 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-map",
@@ -21253,7 +21354,7 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-map",
@@ -21309,7 +21410,7 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-map",
@@ -21356,7 +21457,7 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-map",
@@ -21408,7 +21509,7 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-root",
@@ -21454,7 +21555,7 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-transition",
@@ -21501,7 +21602,7 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/factorial-qz-root-power",
@@ -21530,6 +21631,10 @@
         {
           "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-surjective",
           "how": "F:U_A→A[Q/Z] is surjective for arbitrary A."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-level",
+          "how": "For every i∈N and x∈A[t]/(t^((i+1)!)−1), F(ι_i(x))=F_((i+1)!)(x), with the actual factorial inclusion and finite root map."
         }
       ],
       "library": {
@@ -21566,6 +21671,11 @@
           "name": "TauCeti.RootStack.factorialUnitQZMap.surjective",
           "role": "characterisation",
           "statement": "F:U_A→A[Q/Z] is surjective for arbitrary A."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialUnitQZMap.level",
+          "role": "compatibility",
+          "statement": "For every i∈N and x∈A[t]/(t^((i+1)!)−1), F(ι_i(x))=F_((i+1)!)(x), with the actual factorial inclusion and finite root map."
         }
       ],
       "tests": [
@@ -21583,6 +21693,11 @@
           "name": "TauCeti.RootStack.factorialUnitQZMap.test_torsion_coefficients",
           "kind": "compatibility",
           "statement": "Over Z/4 the coefficient 2 times the level-one root maps to 2 e_[1/2]."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialUnitQZMap.test_level_basis",
+          "kind": "computation",
+          "statement": "For every coefficient a∈A, the level-two inclusion of the inverse cyclic basis element a e_[2] maps to a e_[1/3]."
         }
       ]
     },
@@ -21599,7 +21714,7 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-map",
@@ -21649,7 +21764,7 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-map",
@@ -21657,10 +21772,12 @@
         "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-root",
         "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-transition",
         "FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension-choice",
-        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension-transition"
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension-transition",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-level"
       ],
       "proofSteps": [
-        "First compare the two A-algebra maps at a factorial level by root extensionality. Extend an arbitrary positive n to its specified factorial multiple and apply the finite transition square. The existing at-level independence removes the choice of multiple."
+        "First compare the two A-algebra maps at a factorial level by root extensionality. Extend an arbitrary positive n to its specified factorial multiple and apply the finite transition square. The existing at-level independence removes the choice of multiple.",
+        "The factorial-level comparison is now its own explicit lemma. Unfold the chosen positive-index extension, apply that comparison and the finite divisibility square; the incoming independence-of-level contract is retained."
       ],
       "acceptance": [
         "For a positive divisibility index n and x∈E_n(1), F(ι_n(x))=F_n(x), where ι_n is the inherited factorialAffineExtension."
@@ -21707,17 +21824,19 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-map",
         "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-leg",
         "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-injective",
         "FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-elements",
-        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension-factorial"
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension-factorial",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-level"
       ],
       "proofSteps": [
-        "For F(x)=F(y), represent x−y at one factorial level using the inherited exists-level result. Its finite image is zero by the leg theorem. Finite injectivity makes the representative zero, hence x−y=0. This avoids an unproved common-stage assertion for two representatives."
+        "For F(x)=F(y), represent x−y at one factorial level using the inherited exists-level result. Its finite image is zero by the leg theorem. Finite injectivity makes the representative zero, hence x−y=0. This avoids an unproved common-stage assertion for two representatives.",
+        "The checked proof uses the factorial-level comparison directly on a representative of x−y, then finite-root-map injectivity. No simultaneous representative choice is required."
       ],
       "acceptance": [
         "F:U_A→A[Q/Z] is injective for arbitrary A."
@@ -21756,7 +21875,7 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-map",
@@ -21765,10 +21884,12 @@
         "FunctionFieldArithmeticPartII:RS.2/qz-character-exhaustive",
         "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-map",
         "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-inverse",
-        "mathlib:MonoidAlgebra.induction_linear"
+        "mathlib:MonoidAlgebra.induction_linear",
+        "mathlib:MonoidAlgebra.induction"
       ],
       "proofSteps": [
-        "For a basis element a e_u, choose n,k with c_n(k)=u using imported torsion exhaustion through the normalized character adapter. Pull a e_k back through the finite cyclic equivalence and include that chart by ι_n. The leg and single formulas give the desired preimage. Native group-algebra linear induction extends this to zero and sums; each summand may use its own finite level. No infinite support or geometric-point assertion occurs."
+        "For a basis element a e_u, choose n,k with c_n(k)=u using imported torsion exhaustion through the normalized character adapter. Pull a e_k back through the finite cyclic equivalence and include that chart by ι_n. The leg and single formulas give the desired preimage. Native group-algebra linear induction extends this to zero and sums; each summand may use its own finite level. No infinite support or geometric-point assertion occurs.",
+        "The checked proof uses finite-support single-add induction. Each label is represented by the explicit rational character; include the inverse finite cyclic basis element and add it to the inductive preimage. The original linear-induction route is equivalent."
       ],
       "acceptance": [
         "F:U_A→A[Q/Z] is surjective for arbitrary A."
@@ -21807,7 +21928,7 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-map",
@@ -21927,7 +22048,7 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence",
@@ -21986,7 +22107,7 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence",
@@ -21994,10 +22115,12 @@
         "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-map",
         "FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-single",
         "FunctionFieldArithmeticPartII:RS.2/qz-character-intcast",
-        "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-inverse"
+        "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-inverse",
+        "mathlib:Rat.num_div_den"
       ],
       "proofSteps": [
-        "Map the displayed preimage forward. The finite leg and single formulas yield [num(q)/den(q)]=[q]. Use the equivalence inverse law to identify the preimage. Different rational representatives of the same circle class give the same inverse because their forward images coincide and F is injective."
+        "Map the displayed preimage forward. The finite leg and single formulas yield [num(q)/den(q)]=[q]. Use the equivalence inverse law to identify the preimage. Different rational representatives of the same circle class give the same inverse because their forward images coincide and F is injective.",
+        "Apply the actual algebra equivalence forward to both proposed preimages. Use the leg, inverse finite cyclic map, single and integer-character formulas and num_div_den; injectivity identifies the inverse."
       ],
       "acceptance": [
         "For q∈Q and a∈A, E⁻¹(a e_[q]) is ι_{den(q)} applied to the inverse finite cyclic image of a e_[num(q) mod den(q)]. This includes negative q and q=0."
@@ -22036,7 +22159,7 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence",
@@ -22085,7 +22208,7 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence",
@@ -22134,7 +22257,7 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence",
@@ -22143,10 +22266,12 @@
         "FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext",
         "mathlib:MonoidAlgebra.antipode_single",
         "mathlib:MonoidAlgebra.mapDomainAlgHom",
-        "mathlib:MonoidAlgebra.induction_linear"
+        "mathlib:MonoidAlgebra.induction_linear",
+        "mathlib:HopfAlgebra.antipodeAlgHom"
       ],
       "proofSteps": [
-        "The inherited root inverse formula identifies S_U(u_i) with the inverse of the universal factorial unit. An algebra equivalence preserves inverses of these units, and the native antipode sends e_[1/d_i] to e_[−1/d_i]. Package the antipode on a commutative group algebra as the algebra hom induced by group inversion using the existing mapDomainAlgHom, then use root extensionality. Native single induction identifies that map with the native linear antipode."
+        "The inherited root inverse formula identifies S_U(u_i) with the inverse of the universal factorial unit. An algebra equivalence preserves inverses of these units, and the native antipode sends e_[1/d_i] to e_[−1/d_i]. Package the antipode on a commutative group algebra as the algebra hom induced by group inversion using the existing mapDomainAlgHom, then use root extensionality. Native single induction identifies that map with the native linear antipode.",
+        "Use the already-existing native antipodeAlgHom for this commutative Hopf algebra, avoiding a new generic inversion map. Root extensionality reduces to included universal units. Their images are units, so cancel the common character basis element from the two inverse equations. The native single-antipode formula identifies the negative character."
       ],
       "acceptance": [
         "For x∈U_A, S_{A[Q/Z]}(E(x))=E(S_U(x)), with inherited factorialAntipode and native group-algebra antipode e_u↦e_{−u}."
@@ -22185,7 +22310,7 @@
       "hypotheses": [
         "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
         "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
-        "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+        "Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence",
@@ -23253,6 +23378,132 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/qz-character-natcast",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Natural representative of the finite rational character",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineQZCharacter.natCast",
+      "statement": "For every n>0 and k∈N, c_n([k])=[k/n], without reducing k before forming the rational quotient.",
+      "hypotheses": [
+        "All displayed finite exponents are positive. A is an arbitrary commutative ring in the fixed universe; no nontriviality, reducedness, flatness or invertibility hypothesis is imposed.",
+        "The character group is the native rational AddCircle of period 1. The source and target algebra maps are the actual inherited quotient, factorial colimit and group-algebra constructions."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/qz-character-intcast"
+      ],
+      "proofSteps": [
+        "Cast k to an integer and apply the existing integer-character computation; the natural/integer casts agree."
+      ],
+      "acceptance": [
+        "For every n>0 and k∈N, c_n([k])=[k/n], without reducing k before forming the rational quotient."
+      ],
+      "uses": [],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack",
+        "name": "TauCeti.RootStack.affineQZCharacter.natCast"
+      },
+      "sources": [
+        {
+          "sourceId": "QZNative-codex-7e92bd",
+          "locator": "Authored computation affineQZCharacter.natCast",
+          "excerpt": "Use the normalized rational character and the actual factorial inclusion.",
+          "match": "A root-coordinate deduction from the listed pinned declarations and inherited constructions, motivated by Talpo–Vistoli §3.1; not a named theorem printed there."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [],
+      "tests": []
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/qz-character-representative",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Canonical representative of the finite rational character",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineQZCharacter.apply",
+      "statement": "For n>0 and k∈Z/n, c_n(k)=[val(k)/n], where 0≤val(k)<n.",
+      "hypotheses": [
+        "All displayed finite exponents are positive. A is an arbitrary commutative ring in the fixed universe; no nontriviality, reducedness, flatness or invertibility hypothesis is imposed.",
+        "The character group is the native rational AddCircle of period 1. The source and target algebra maps are the actual inherited quotient, factorial colimit and group-algebra constructions."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/qz-character-natcast",
+        "mathlib:ZMod.natCast_zmod_val"
+      ],
+      "proofSteps": [
+        "Apply the natural-character computation to val(k), then use the native reduction identity. This form puts the rational value in [0,1) for injectivity."
+      ],
+      "acceptance": [
+        "For n>0 and k∈Z/n, c_n(k)=[val(k)/n], where 0≤val(k)<n."
+      ],
+      "uses": [],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack",
+        "name": "TauCeti.RootStack.affineQZCharacter.apply"
+      },
+      "sources": [
+        {
+          "sourceId": "QZNative-codex-7e92bd",
+          "locator": "Authored computation affineQZCharacter.apply",
+          "excerpt": "Use the normalized rational character and the actual factorial inclusion.",
+          "match": "A root-coordinate deduction from the listed pinned declarations and inherited constructions, motivated by Talpo–Vistoli §3.1; not a named theorem printed there."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [],
+      "tests": []
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-level",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Factorial-level rational character comparison",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.factorialUnitQZMap.level",
+      "statement": "For every i∈N and x∈A[t]/(t^((i+1)!)−1), F(ι_i(x))=F_((i+1)!)(x), with the actual factorial inclusion and finite root map.",
+      "hypotheses": [
+        "All displayed finite exponents are positive. A is an arbitrary commutative ring in the fixed universe; no nontriviality, reducedness, flatness or invertibility hypothesis is imposed.",
+        "The character group is the native rational AddCircle of period 1. The source and target algebra maps are the actual inherited quotient, factorial colimit and group-algebra constructions."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-root",
+        "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-root",
+        "mathlib:AdjoinRoot.algHom_ext"
+      ],
+      "proofSteps": [
+        "Compare the two actual A-algebra homomorphisms out of the finite quotient by their root images. Both send the root to e_[1/((i+1)!)]; evaluate the resulting map equality at x."
+      ],
+      "acceptance": [
+        "For every i∈N and x∈A[t]/(t^((i+1)!)−1), F(ι_i(x))=F_((i+1)!)(x), with the actual factorial inclusion and finite root map."
+      ],
+      "uses": [],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack",
+        "name": "TauCeti.RootStack.factorialUnitQZMap.level"
+      },
+      "sources": [
+        {
+          "sourceId": "QZNative-codex-7e92bd",
+          "locator": "Authored computation factorialUnitQZMap.level",
+          "excerpt": "Use the normalized rational character and the actual factorial inclusion.",
+          "match": "A root-coordinate deduction from the listed pinned declarations and inherited constructions, motivated by Talpo–Vistoli §3.1; not a named theorem printed there."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [],
+      "tests": []
     }
   ],
   "requests": [
@@ -23454,7 +23705,8 @@
         "The actual finite unity-root/cyclic equivalence and its divisibility, coaction, counit and root-antipode comparisons now have explicit signatures and separate native evidence. Next construct compatible Z/n→Q/Z character embeddings, prove that their group-algebra colimit is A[Q/Z], and compare all infinite Hopf maps; retain index/universe transports, root-groupoid reindexing, affine Spec limits, fpqc frame torsors and quotient comparison, TOWER-AFF/KUMMER-FINITE/TOWER-TYPING/DVR and the roots-of2 non-fppf counterexample. No stage or implementation closes.",
         "The normalized Z/n→Q/Z characters, finite group-algebra/chart maps, actual unity-root colimit equivalence with A[Q/Z] and all three infinite Hopf maps now have separate explicit planning declarations and tests. Elaborate and check the new admitted signatures when the existing exact-pin build and memory threshold permit; no new compilation occurred. Construct higher-universe and full positive-index transports, coherent root-object groupoid reindexing, affine Spec limits, fpqc frame torsors and the infinite quotient, retaining TOWER-AFF/KUMMER-FINITE/TOWER-TYPING/DVR, the roots-of2 non-fppf counterexample, all eight gaps/thirteen requests and both complete Yun–Zhang/symplectic routes.",
         "The arbitrary-section rational-character LEFT coaction and its native algebra laws now have explicit declaration-sized planning nodes. New admitted signatures elaborate in the authenticated Mathlib-only native fragment; the complete canonical file remains UNCOMPILED. Establish its heterobasic coefficient-naturality square, higher-universe/full-index transports and the geometric inverse-limit/fpqc frame quotient; universal coinvariance equivalence alone is not an invariant-algebra computation.",
-        "The arbitrary-section rational coefficient square now has ten explicit planning nodes and a conditional proof check over admitted incoming coordinate/coaction contracts. Implement those admitted contracts, check the complete exact-pin canonical file, and separately construct higher-universe/full-index transport, Spec limits, fpqc frame torsors and quotient comparison. Arbitrary coefficient maps only preserve coinvariance; no reflection or invariant-algebra conclusion is inferred."
+        "The arbitrary-section rational coefficient square now has ten explicit planning nodes and a conditional proof check over admitted incoming coordinate/coaction contracts. Implement those admitted contracts, check the complete exact-pin canonical file, and separately construct higher-universe/full-index transport, Spec limits, fpqc frame torsors and quotient comparison. Arbitrary coefficient maps only preserve coinvariance; no reflection or invariant-algebra conclusion is inferred.",
+        "The 28 rational-coordinate declarations and three computation lemmas now have separate exact-Mathlib native proof evidence, including arbitrary coefficients and wild nilpotents. Next prove the admitted arbitrary-section rational coaction contracts over this actual equivalence, then replay the inherited conditional coefficient square without those admissions. Full canonical Tau typing, higher-universe/full-positive-index transport, coherent root-groupoid reindexing, affine Spec limits, fpqc frame torsors and the quotient/DVR/Kummer comparisons remain open. Preserve all eight gaps, thirteen requests and both source routes."
       ]
     },
     {
@@ -25233,6 +25485,55 @@
       "primaryReadExtent": "Fresh complete TV17 v2 printed/PDF pp.14–16, hash92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2. This is a selected passage read, not whole-paper coverage.",
       "libraryReadExtent": "Pinned TensorProduct mapRingHom variables/body/mapRingHom_tmul; pinned MonoidAlgebra coefficient map/id/composition/single statements and Algebra instance; inherited actual coefficient-map and coaction-naturality bodies and complete incoming Q/Z/coaction prototypes.",
       "boundary": "New bodies are conditional deductions from admitted incoming E_A and η contracts. All388 nodes remain unchecked. Archive/hash/compiler and actual indexed checker/intake/graph receipts are in the handoff."
+    },
+    "rationalCoordinateNative": {
+      "agent": "Codex — codex-7e92bd",
+      "date": "2026-10-03",
+      "declarations": [
+        "TauCeti.RootStack.affineQZCharacter",
+        "TauCeti.RootStack.affineQZCharacter.intCast",
+        "TauCeti.RootStack.affineQZCharacter.natCast",
+        "TauCeti.RootStack.affineQZCharacter.apply",
+        "TauCeti.RootStack.affineQZCharacter.one",
+        "TauCeti.RootStack.affineQZCharacter.injective",
+        "TauCeti.RootStack.affineQZCharacter.divisibility",
+        "TauCeti.RootStack.affineQZCharacter.exhaustive",
+        "TauCeti.RootStack.finiteQZAlgMap",
+        "TauCeti.RootStack.finiteQZAlgMap.single",
+        "TauCeti.RootStack.finiteQZAlgMap.injective",
+        "TauCeti.RootStack.finiteQZAlgMap.transition",
+        "TauCeti.RootStack.finiteRootQZMap",
+        "TauCeti.RootStack.finiteRootQZMap.root",
+        "TauCeti.RootStack.finiteRootQZMap.injective",
+        "TauCeti.RootStack.finiteRootQZMap.transition",
+        "TauCeti.RootStack.factorialQZRoot_power",
+        "TauCeti.RootStack.factorialQZRoot_transition",
+        "TauCeti.RootStack.factorialUnitQZMap",
+        "TauCeti.RootStack.factorialUnitQZMap.root",
+        "TauCeti.RootStack.factorialUnitQZMap.level",
+        "TauCeti.RootStack.factorialUnitQZMap.leg",
+        "TauCeti.RootStack.factorialUnitQZMap.injective",
+        "TauCeti.RootStack.factorialUnitQZMap.surjective",
+        "TauCeti.RootStack.factorialUnitQZEquiv",
+        "TauCeti.RootStack.factorialUnitQZEquiv.root",
+        "TauCeti.RootStack.factorialUnitQZEquiv.inverse_single_den",
+        "TauCeti.RootStack.factorialUnitQZEquiv.comul",
+        "TauCeti.RootStack.factorialUnitQZEquiv.counit",
+        "TauCeti.RootStack.factorialUnitQZEquiv.antipode",
+        "TauCeti.RootStack.factorialUnitQZEquiv.coefficient_natural"
+      ],
+      "scope": "Separate exact-Mathlib native proofs of the 28 incoming rational-coordinate declarations and three computation lemmas, with 18 actual examples. Full canonical Tau geometry remains uncompiled; all implementation statuses remain unchecked.",
+      "nearMatch": {
+        "name": "ZMod.toAddCircle",
+        "module": "Mathlib/Topology/Instances/AddCircle/Real.lean",
+        "reason": "Existing real-circle specialization read and credited; it does not supply the rational-circle target. Its ZMod.lift and interval-injectivity strategy is adapted over Q."
+      },
+      "priorArt": {
+        "openPRQuery": "group algebra rational in:title; limit30; no matches",
+        "zulip": "https://leanprover-community.github.io/archive/stream/113489-new-members/topic/Q.2FZ.20as.20colimit.20of.20Z.2FnZ.html",
+        "finding": "Read the indexed 2025 discussion recommending DirectLimit and noting missing comparison APIs. No code was adopted and no complete absence claim is made."
+      },
+      "reading": "Talpo–Vistoli arXiv1410.1164v2 complete printed14–16, including Lemma3.7, Lemma3.12, Proposition3.10 and Corollary3.13 via extracted PDF text; selected passage only. All newly cited library statements read at the exact pins. Original AlgebraicCurves/JacobianChallenge full reads reused after byte guards."
     }
   },
   "continuationBoundary": {
@@ -26426,6 +26727,16 @@
       "base": "8c30afe02077e5b8923d4d71b823b6c574606a15",
       "strand": "Ten nodes: one native heterobasic rational tensor-map adapter and nine lemmas; nine API items and nine typed regression examples. Preserve all378 incoming mathematical contracts and all routes/gaps/requests.",
       "remaining": "The Q/Z equivalence and rational coaction remain admitted dependencies in the conditional prototype. Full canonical file uncompiled absent exact-pin compiled Tau Ceti suppliers. Retain higher universes, complete index/root-groupoid coherence, Spec limits, fpqc frame torsors and quotient comparison; all eight gaps, thirteen requests and both complete source routes remain."
+    },
+    {
+      "agent": "Codex — codex-7e92bd",
+      "date": "2026-10-03",
+      "scope": "Native rational-coordinate proof completion with three computation API lemmas",
+      "addedNodes": 3,
+      "preservedMathematicalContracts": 388,
+      "existingCoordinateProofs": 28,
+      "newTests": 3,
+      "remaining": "The 28 rational-coordinate declarations and three computation lemmas now have separate exact-Mathlib native proof evidence, including arbitrary coefficients and wild nilpotents. Next prove the admitted arbitrary-section rational coaction contracts over this actual equivalence, then replay the inherited conditional coefficient square without those admissions. Full canonical Tau typing, higher-universe/full-positive-index transport, coherent root-groupoid reindexing, affine Spec limits, fpqc frame torsors and the quotient/DVR/Kummer comparisons remain open. Preserve all eight gaps, thirteen requests and both source routes."
     }
   ]
 }
