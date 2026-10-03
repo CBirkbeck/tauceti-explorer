@@ -8727,3 +8727,542 @@ The actual compatible-section type at the C2 target of the chain has exactly two
 C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
 
 Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Transport cardinality through the actual section equivalence and compute the native finite coefficient type.
+
+
+## Isom sheaves and their principal band comparison
+
+The following 36 declaration leaves are authored native-library deductions from the banding conditions and the Isom-torsor argument in Olsson’s notes, PDF pp.122–123. They use arbitrary specified J; a native section torsor has an explicit Nonempty hypothesis and coordinates have an actual anchor. The presheaf and sheaf principal comparisons need neither global choice. Generic sheaf products and the sheaf condition are imported from Mathlib. All earlier contracts, source coverage, ownership, gaps and requests remain.
+
+### Postcomposition by the band
+
+TauCeti.AlgebraicGeometry.BandedIsom.act — For p:x≅y and a in the multiplicative tag of A(U), act(p,a) is p followed by the actual band automorphism b_y(a). No global isomorphism or neutralization is chosen.
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. Construct the stated data, and prove the inverse or structure laws from the listed lemmas.
+
+API:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.act_one — act(p,1)=p; multiplicative one is additive zero.
+- TauCeti.AlgebraicGeometry.BandedIsom.act_mul — act(p,a*c)=act(act(p,c),a), retaining the native reversed-composition convention for automorphisms.
+- TauCeti.AlgebraicGeometry.BandedIsom.act_precompose — Postcomposition of p with b_y(a) equals precomposition with b_x(a), using the stored conjugation equation.
+
+Tests:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.zeroAction — The additive-zero coefficient fixes an arbitrary actual isomorphism.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.actionOrder — Two successive actions use the native automorphism multiplication order.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.precomposition — Postcomposition and precomposition use the same band coefficient.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.composition — Composition with y to z preserves the same action coefficient.
+
+### The zero band coefficient fixes an isomorphism
+
+TauCeti.AlgebraicGeometry.BandedIsom.act_one — act(p,1)=p; multiplicative one is additive zero.
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. act(p,1)=p; multiplicative one is additive zero.
+
+### The band action composition law
+
+TauCeti.AlgebraicGeometry.BandedIsom.act_mul — act(p,a*c)=act(act(p,c),a), retaining the native reversed-composition convention for automorphisms.
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. act(p,a*c)=act(act(p,c),a), retaining the native reversed-composition convention for automorphisms.
+
+### The unique band difference
+
+TauCeti.AlgebraicGeometry.BandedIsom.difference — difference(p,q)=b_y inverse(p inverse followed by q), an actual coefficient in A(U).
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. Construct the stated data, and prove the inverse or structure laws from the listed lemmas.
+
+API:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.act_difference — act(p,difference(p,q))=q.
+- TauCeti.AlgebraicGeometry.BandedIsom.difference_act — difference(p,act(p,a))=a.
+- TauCeti.AlgebraicGeometry.BandedIsom.difference_self — difference(p,p)=1.
+
+Tests:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.differenceZero — An actual isomorphism has zero self-difference.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.differenceRecovery — The computed difference recovers the actual target isomorphism.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.differenceCocycle — Three actual isomorphisms satisfy the ordered difference cocycle.
+
+### The difference coefficient recovers the target
+
+TauCeti.AlgebraicGeometry.BandedIsom.act_difference — act(p,difference(p,q))=q.
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-difference.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. act(p,difference(p,q))=q.
+
+### The action coefficient is recovered uniquely
+
+TauCeti.AlgebraicGeometry.BandedIsom.difference_act — difference(p,act(p,a))=a.
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-difference.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. difference(p,act(p,a))=a.
+
+### An isomorphism has zero self-difference
+
+TauCeti.AlgebraicGeometry.BandedIsom.difference_self — difference(p,p)=1.
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-difference.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. difference(p,p)=1.
+
+### The two band actions agree
+
+TauCeti.AlgebraicGeometry.BandedIsom.act_precompose — Postcomposition of p with b_y(a) equals precomposition with b_x(a), using the stored conjugation equation.
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. Postcomposition of p with b_y(a) equals precomposition with b_x(a), using the stored conjugation equation.
+
+### Composition preserves the band action
+
+TauCeti.AlgebraicGeometry.BandedIsom.act_postcompose — For q:y≅z, act(p,a) followed by q equals act(p followed by q,a).
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act-precompose.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. For q:y≅z, act(p,a) followed by q equals act(p followed by q,a).
+
+### The principal comparison on isomorphisms
+
+TauCeti.AlgebraicGeometry.BandedIsom.principalEquiv — The map (p,a) to (p,act(p,a)) is an equivalence Isom(x,y)×A(U) to Isom(x,y)×Isom(x,y). Its inverse sends (p,q) to (p,difference(p,q)); this works even if Isom(x,y) is empty.
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-difference, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act-difference, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-difference-act.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. Construct the stated data, and prove the inverse or structure laws from the listed lemmas.
+
+API:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.principalEquiv_apply — principalEquiv sends (p,a) exactly to (p,act(p,a)).
+- TauCeti.AlgebraicGeometry.BandedIsom.principalEquiv_symm_apply — The inverse principal comparison sends (p,q) exactly to (p,difference(p,q)).
+- TauCeti.AlgebraicGeometry.BandedIsom.act_difference — act(p,difference(p,q))=q.
+
+Tests:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.principalLeft — The principal comparison followed by its inverse fixes every isomorphism-coefficient pair.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.principalRight — The inverse followed by the principal comparison fixes every pair of isomorphisms.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.principalWithoutAnchor — The principal equivalence exists without a Nonempty hypothesis on the global isomorphism type.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.uniqueCoefficient — For actual p and q there is exactly one coefficient sending p to q.
+
+### The native torsor of nonempty sections
+
+TauCeti.AlgebraicGeometry.BandedIsom.isomTorsor — Under the explicit hypothesis Nonempty(Isom(x,y)), the actual isomorphism type carries Mathlib Torsor for A(U), with a acting by act(p,a) and p divided by q equal to difference(q,p). Local nonemptiness alone is not used as global nonemptiness.
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act-one, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act-mul, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-difference, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act-difference, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-difference-act, mathlib:Torsor.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. Construct the stated data, and prove the inverse or structure laws from the listed lemmas.
+
+API:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.act_mul — act(p,a*c)=act(act(p,c),a), retaining the native reversed-composition convention for automorphisms.
+- TauCeti.AlgebraicGeometry.BandedIsom.act_difference — act(p,difference(p,q))=q.
+- TauCeti.AlgebraicGeometry.BandedIsom.difference_act — difference(p,act(p,a))=a.
+
+Tests:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.torsorDivision — For actual p and q the native torsor division coefficient acts on q to give p.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.nonzeroMoves — Every nonzero coefficient moves every actual isomorphism; the action is not trivial.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.zeroBandUnique — When the coefficient group at U is subsingleton, any two actual isomorphisms coincide.
+
+### A chosen isomorphism trivializes its section torsor
+
+TauCeti.AlgebraicGeometry.BandedIsom.coordinateEquiv — An actual anchor p:x≅y gives the equivalence A(U) to Isom(x,y), a mapped to act(p,a), with inverse difference(p,-).
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-difference, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act-difference, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-difference-act.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. Construct the stated data, and prove the inverse or structure laws from the listed lemmas.
+
+API:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.coordinate_apply — coordinateEquiv(p)(a)=act(p,a).
+- TauCeti.AlgebraicGeometry.BandedIsom.coordinate_symm_apply — The inverse coordinate map based at p sends q to difference(p,q).
+- TauCeti.AlgebraicGeometry.BandedIsom.coordinate_change — The coordinates based at q send a to the coordinates based at p evaluated at a*difference(p,q).
+
+Tests:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.selfCoefficient — For the identity anchor on x, the coordinate image of a is the actual band automorphism b_x(a).
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.selfZero — The identity anchor sends zero to the actual identity isomorphism.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.changedAnchor — The difference from p to q is the coordinate of q in the trivialization based at p.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.nonzeroMoves — Every nonzero coefficient moves every actual isomorphism; the action is not trivial.
+
+### The coordinate origin is the actual anchor
+
+TauCeti.AlgebraicGeometry.BandedIsom.coordinate_one — coordinateEquiv(p)(1)=p.
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-coordinate-equiv, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act-one.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. coordinateEquiv(p)(1)=p.
+
+### Changing the section-torsor anchor
+
+TauCeti.AlgebraicGeometry.BandedIsom.coordinate_change — The coordinates based at q send a to the coordinates based at p evaluated at a*difference(p,q).
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-coordinate-equiv, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act-mul, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act-difference.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. The coordinates based at q send a to the coordinates based at p evaluated at a*difference(p,q).
+
+### The difference cocycle on three actual isomorphisms
+
+TauCeti.AlgebraicGeometry.BandedIsom.difference_cocycle — difference(p,r)=difference(q,r)*difference(p,q); no coherent global choice of anchors is imposed.
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-coordinate-equiv, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act-mul, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act-difference.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. difference(p,r)=difference(q,r)*difference(p,q); no coherent global choice of anchors is imposed.
+
+### Restriction preserves the action coefficient
+
+TauCeti.AlgebraicGeometry.BandedIsom.restrict_act — The actual restriction functor maps act(p,a) to the action on its image of p by the coefficient A(f opposite)(a).
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act, mathlib:CategoryTheory.Functor.mapAut.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. The actual restriction functor maps act(p,a) to the action on its image of p by the coefficient A(f opposite)(a).
+
+### Restriction preserves the difference coefficient
+
+TauCeti.AlgebraicGeometry.BandedIsom.restrict_difference — The difference between restricted p and q is A(f opposite) applied to their original difference.
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-restrict-act, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act-difference, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-difference-act.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. The difference between restricted p and q is A(f opposite) applied to their original difference.
+
+### Isomorphisms are the existing Hom sections
+
+TauCeti.AlgebraicGeometry.BandedIsom.homEquiv — The actual isomorphism type is equivalent to the native Hom type, via Iso.hom and asIso; every fibre arrow is invertible by IsGerbe.
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:key/gerbes.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. Construct the stated data, and prove the inverse or structure laws from the listed lemmas.
+
+API:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.homPrincipalEquiv — Transport the isomorphism principal equivalence through the Hom-Isom equivalence to obtain Hom(x,y)×A(U) equivalent to Hom(x,y)×Hom(x,y).
+- TauCeti.AlgebraicGeometry.BandedIsom.homPrincipalEquiv_apply — The Hom comparison sends (p,a) to (p,p composed with b_y(a)), retaining the existing fibre arrow.
+- TauCeti.AlgebraicGeometry.BandedIsom.hom_localNonempty — There is a J-covering sieve R on U such that every arrow f:V→U in R has a section of Hom(x restricted to V,y restricted to V). This is obtained from local isomorphism and does not assert a global section.
+
+Tests:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.homUsesActualArrow — The Hom-Isom equivalence sends p to its actual hom arrow.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.homComparison — The Hom principal map is actual postcomposition, not a separately chosen arrow.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.principalWithoutAnchor — The principal equivalence exists without a Nonempty hypothesis on the global isomorphism type.
+
+### The band action on existing Hom sections
+
+TauCeti.AlgebraicGeometry.BandedIsom.homAct — For an actual fibre arrow p:x→y, homAct(p,a)=p composed with the hom of b_y(a).
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. Construct the stated data, and prove the inverse or structure laws from the listed lemmas.
+
+API:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.homPrincipalEquiv_apply — The Hom comparison sends (p,a) to (p,p composed with b_y(a)), retaining the existing fibre arrow.
+- TauCeti.AlgebraicGeometry.BandedIsom.pullHom_act — For f:V→U, h:W→V and hf:W→U with h composed with f equal to hf, native pullHom sends homAct(p,a) to homAct(pullHom(p),A(h opposite)(a)). The actual pseudofunctor comparison maps at both objects are retained.
+- TauCeti.AlgebraicGeometry.BandedIsom.act_precompose — Postcomposition of p with b_y(a) equals precomposition with b_x(a), using the stored conjugation equation.
+
+Tests:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.homComparison — The Hom principal map is actual postcomposition, not a separately chosen arrow.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.restrictionAction — Restriction acts on both the isomorphism and its actual coefficient.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.precomposition — Postcomposition and precomposition use the same band coefficient.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.restrictionDifference — Restriction carries the difference coefficient to the difference of the restricted arrows.
+
+### The principal comparison uses the native Hom type
+
+TauCeti.AlgebraicGeometry.BandedIsom.homPrincipalEquiv — Transport the isomorphism principal equivalence through the Hom-Isom equivalence to obtain Hom(x,y)×A(U) equivalent to Hom(x,y)×Hom(x,y).
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-hom-equiv, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-principal-equiv.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. Construct the stated data, and prove the inverse or structure laws from the listed lemmas.
+
+API:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.homPrincipalEquiv_apply — The Hom comparison sends (p,a) to (p,p composed with b_y(a)), retaining the existing fibre arrow.
+- TauCeti.AlgebraicGeometry.BandedIsom.principalPresheafIso — The native Hom principal equivalences assemble into a natural isomorphism from the Hom-times-band presheaf to the Hom-pair presheaf. Naturality uses pullHom_act, including all pseudofunctor coherence maps.
+- TauCeti.AlgebraicGeometry.BandedIsom.principalSheafIso — The principal comparison is an isomorphism in the native Sheaf category on J over U, between the Hom-times-band sheaf and the Hom-pair sheaf. Its underlying presheaf map is the specified native principal map.
+
+Tests:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.homComparison — The Hom principal map is actual postcomposition, not a separately chosen arrow.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.homUsesActualArrow — The Hom-Isom equivalence sends p to its actual hom arrow.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.principalRight — The inverse followed by the principal comparison fixes every pair of isomorphisms.
+
+### The Hom comparison is the prescribed composition
+
+TauCeti.AlgebraicGeometry.BandedIsom.homPrincipalEquiv_apply — The Hom comparison sends (p,a) to (p,p composed with b_y(a)), retaining the existing fibre arrow.
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-hom-principal-equiv, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-hom-act.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. The Hom comparison sends (p,a) to (p,p composed with b_y(a)), retaining the existing fibre arrow.
+
+### The slice restriction respects the band action
+
+TauCeti.AlgebraicGeometry.BandedIsom.pullHom_act — For f:V→U, h:W→V and hf:W→U with h composed with f equal to hf, native pullHom sends homAct(p,a) to homAct(pullHom(p),A(h opposite)(a)). The actual pseudofunctor comparison maps at both objects are retained.
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-hom-act, mathlib:CategoryTheory.Pseudofunctor.LocallyDiscreteOpToCat.pullHom.
+
+Proof outline: Expand the native pullHom with both pseudofunctor comparison morphisms. Apply the stored band pullback equation to the restricted target automorphism. Apply band conjugation to the actual comparison isomorphism at y; cancel its inverse to obtain the commutation relation. Associativity gives exactly the required restricted composition; no comparison map is discarded.
+
+### The pair of native Hom presheaves
+
+TauCeti.AlgebraicGeometry.BandedIsom.pairPresheaf — On the actual opposite slice category C/U, take pairs of sections of the existing presheafHom(x,y); every map restricts both arrows by its native map.
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:key/gerbes, mathlib:CategoryTheory.Pseudofunctor.presheafHom.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. Construct the stated data, and prove the inverse or structure laws from the listed lemmas.
+
+API:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.pair_isSheaf — The pair presheaf is a sheaf for J over U by the already built tensor-product sheaf result applied to the native sheafHom twice. This imports generic product descent rather than planning it again.
+- TauCeti.AlgebraicGeometry.BandedIsom.pairSheaf — Package the actual Hom-pair presheaf with its proved property in the existing Sheaf category on J over U.
+- TauCeti.AlgebraicGeometry.BandedIsom.principalPresheafIso — The native Hom principal equivalences assemble into a natural isomorphism from the Hom-times-band presheaf to the Hom-pair presheaf. Naturality uses pullHom_act, including all pseudofunctor coherence maps.
+
+Tests:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.pairSheafNative — The actual Hom-pair presheaf satisfies the native sheaf condition on J over U.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.sheafRight — Its inverse followed by the morphism is the identity on the pair sheaf.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.noPointCreated — If the actual global isomorphism type is empty, its product with coefficients remains empty.
+
+### The Hom presheaf with the restricted band
+
+TauCeti.AlgebraicGeometry.BandedIsom.actionPresheaf — On the same slice category, sections over f:V→U are a native Hom section together with a coefficient of A(V). Maps use native Hom restriction and the actual coefficient restriction.
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, mathlib:CategoryTheory.Pseudofunctor.presheafHom.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. Construct the stated data, and prove the inverse or structure laws from the listed lemmas.
+
+API:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.principalPresheafIso — The native Hom principal equivalences assemble into a natural isomorphism from the Hom-times-band presheaf to the Hom-pair presheaf. Naturality uses pullHom_act, including all pseudofunctor coherence maps.
+- TauCeti.AlgebraicGeometry.BandedIsom.action_isSheaf — Transport the proved Hom-pair sheaf property through the actual principal presheaf isomorphism; the specified banding is retained as a parameter.
+- TauCeti.AlgebraicGeometry.BandedIsom.actionSheaf — Package the actual Hom-times-band presheaf with its proved sheaf property in the same existing Sheaf category.
+
+Tests:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.actionSheafNative — The actual Hom-times-band presheaf satisfies the native sheaf condition.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.sheafLeft — The principal native sheaf morphism followed by its inverse is the identity on the action sheaf.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.sheafUnderlying — The underlying presheaf morphism is the actual principal morphism, with explicit carrier transport.
+
+### The natural principal comparison of presheaves
+
+TauCeti.AlgebraicGeometry.BandedIsom.principalPresheafIso — The native Hom principal equivalences assemble into a natural isomorphism from the Hom-times-band presheaf to the Hom-pair presheaf. Naturality uses pullHom_act, including all pseudofunctor coherence maps.
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-hom-principal-equiv, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-hom-principal-equiv-apply, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-pull-hom-act, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-action-presheaf, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-pair-presheaf.
+
+Proof outline: Use each actual fibre Hom principal equivalence as a component. The first pair coordinate restricts by definition. For the second coordinate use pullHom_act, with the slice triangle equation Over.w. Use native NatIso.ofComponents; inverse naturality follows from the native isomorphism API.
+
+API:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.action_isSheaf — Transport the proved Hom-pair sheaf property through the actual principal presheaf isomorphism; the specified banding is retained as a parameter.
+- TauCeti.AlgebraicGeometry.BandedIsom.principalSheafIso — The principal comparison is an isomorphism in the native Sheaf category on J over U, between the Hom-times-band sheaf and the Hom-pair sheaf. Its underlying presheaf map is the specified native principal map.
+- TauCeti.AlgebraicGeometry.BandedIsom.principalSheafIso_hom — The underlying presheaf morphism of principalSheafIso is heterogeneously equal to the explicit principalPresheafIso morphism. Heterogeneous equality keeps the admitted prototype constructors opaque.
+
+Tests:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.sheafUnderlying — The underlying presheaf morphism is the actual principal morphism, with explicit carrier transport.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.sheafLeft — The principal native sheaf morphism followed by its inverse is the identity on the action sheaf.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.sheafRight — Its inverse followed by the morphism is the identity on the pair sheaf.
+
+### The native Hom-pair presheaf is a sheaf
+
+TauCeti.AlgebraicGeometry.BandedIsom.pair_isSheaf — The pair presheaf is a sheaf for J over U by the already built tensor-product sheaf result applied to the native sheafHom twice. This imports generic product descent rather than planning it again.
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-pair-presheaf, mathlib:CategoryTheory.Sheaf.tensorProd_isSheaf, mathlib:CategoryTheory.Pseudofunctor.sheafHom.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. The pair presheaf is a sheaf for J over U by the already built tensor-product sheaf result applied to the native sheafHom twice. This imports generic product descent rather than planning it again.
+
+### The Hom-times-band presheaf is a sheaf
+
+TauCeti.AlgebraicGeometry.BandedIsom.action_isSheaf — Transport the proved Hom-pair sheaf property through the actual principal presheaf isomorphism; the specified banding is retained as a parameter.
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-pair-is-sheaf, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-principal-presheaf-iso, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-action-presheaf, mathlib:CategoryTheory.Presheaf.isSheaf_of_iso_iff.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. Transport the proved Hom-pair sheaf property through the actual principal presheaf isomorphism; the specified banding is retained as a parameter.
+
+### The native sheaf of Hom pairs
+
+TauCeti.AlgebraicGeometry.BandedIsom.pairSheaf — Package the actual Hom-pair presheaf with its proved property in the existing Sheaf category on J over U.
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-pair-presheaf, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-pair-is-sheaf.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. Construct the stated data, and prove the inverse or structure laws from the listed lemmas.
+
+API:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.pair_isSheaf — The pair presheaf is a sheaf for J over U by the already built tensor-product sheaf result applied to the native sheafHom twice. This imports generic product descent rather than planning it again.
+- TauCeti.AlgebraicGeometry.BandedIsom.principalSheafIso — The principal comparison is an isomorphism in the native Sheaf category on J over U, between the Hom-times-band sheaf and the Hom-pair sheaf. Its underlying presheaf map is the specified native principal map.
+- TauCeti.AlgebraicGeometry.BandedIsom.principalSheafIso_hom — The underlying presheaf morphism of principalSheafIso is heterogeneously equal to the explicit principalPresheafIso morphism. Heterogeneous equality keeps the admitted prototype constructors opaque.
+
+Tests:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.pairSheafNative — The actual Hom-pair presheaf satisfies the native sheaf condition on J over U.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.sheafRight — Its inverse followed by the morphism is the identity on the pair sheaf.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.sheafUnderlying — The underlying presheaf morphism is the actual principal morphism, with explicit carrier transport.
+
+### The native sheaf of Hom-band pairs
+
+TauCeti.AlgebraicGeometry.BandedIsom.actionSheaf — Package the actual Hom-times-band presheaf with its proved sheaf property in the same existing Sheaf category.
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-action-presheaf, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-action-is-sheaf.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. Construct the stated data, and prove the inverse or structure laws from the listed lemmas.
+
+API:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.action_isSheaf — Transport the proved Hom-pair sheaf property through the actual principal presheaf isomorphism; the specified banding is retained as a parameter.
+- TauCeti.AlgebraicGeometry.BandedIsom.principalSheafIso — The principal comparison is an isomorphism in the native Sheaf category on J over U, between the Hom-times-band sheaf and the Hom-pair sheaf. Its underlying presheaf map is the specified native principal map.
+- TauCeti.AlgebraicGeometry.BandedIsom.principalSheafIso_hom — The underlying presheaf morphism of principalSheafIso is heterogeneously equal to the explicit principalPresheafIso morphism. Heterogeneous equality keeps the admitted prototype constructors opaque.
+
+Tests:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.actionSheafNative — The actual Hom-times-band presheaf satisfies the native sheaf condition.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.sheafLeft — The principal native sheaf morphism followed by its inverse is the identity on the action sheaf.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.sheafUnderlying — The underlying presheaf morphism is the actual principal morphism, with explicit carrier transport.
+
+### The principal isomorphism of actual sheaves
+
+TauCeti.AlgebraicGeometry.BandedIsom.principalSheafIso — The principal comparison is an isomorphism in the native Sheaf category on J over U, between the Hom-times-band sheaf and the Hom-pair sheaf. Its underlying presheaf map is the specified native principal map.
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-pair-sheaf, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-action-sheaf, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-principal-presheaf-iso.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. Construct the stated data, and prove the inverse or structure laws from the listed lemmas.
+
+API:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.principalSheafIso_hom — The underlying presheaf morphism of principalSheafIso is heterogeneously equal to the explicit principalPresheafIso morphism. Heterogeneous equality keeps the admitted prototype constructors opaque.
+- TauCeti.AlgebraicGeometry.BandedIsom.homPrincipalEquiv_apply — The Hom comparison sends (p,a) to (p,p composed with b_y(a)), retaining the existing fibre arrow.
+- TauCeti.AlgebraicGeometry.BandedIsom.pullHom_act — For f:V→U, h:W→V and hf:W→U with h composed with f equal to hf, native pullHom sends homAct(p,a) to homAct(pullHom(p),A(h opposite)(a)). The actual pseudofunctor comparison maps at both objects are retained.
+
+Tests:
+
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.sheafLeft — The principal native sheaf morphism followed by its inverse is the identity on the action sheaf.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.sheafRight — Its inverse followed by the morphism is the identity on the pair sheaf.
+- TauCeti.AlgebraicGeometry.BandedIsom.Tests.sheafUnderlying — The underlying presheaf morphism is the actual principal morphism, with explicit carrier transport.
+
+### The Hom sheaf has local sections
+
+TauCeti.AlgebraicGeometry.BandedIsom.hom_localNonempty — There is a J-covering sieve R on U such that every arrow f:V→U in R has a section of Hom(x restricted to V,y restricted to V). This is obtained from local isomorphism and does not assert a global section.
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:key/gerbes, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-hom-equiv.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. There is a J-covering sieve R on U such that every arrow f:V→U in R has a section of Hom(x restricted to V,y restricted to V). This is obtained from local isomorphism and does not assert a global section.
+
+### The forward principal comparison formula
+
+TauCeti.AlgebraicGeometry.BandedIsom.principalEquiv_apply — principalEquiv sends (p,a) exactly to (p,act(p,a)).
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-principal-equiv.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. principalEquiv sends (p,a) exactly to (p,act(p,a)).
+
+### The inverse principal comparison formula
+
+TauCeti.AlgebraicGeometry.BandedIsom.principalEquiv_symm_apply — The inverse principal comparison sends (p,q) exactly to (p,difference(p,q)).
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-principal-equiv.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. The inverse principal comparison sends (p,q) exactly to (p,difference(p,q)).
+
+### The forward anchor coordinate formula
+
+TauCeti.AlgebraicGeometry.BandedIsom.coordinate_apply — coordinateEquiv(p)(a)=act(p,a).
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-coordinate-equiv.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. coordinateEquiv(p)(a)=act(p,a).
+
+### The inverse anchor coordinate formula
+
+TauCeti.AlgebraicGeometry.BandedIsom.coordinate_symm_apply — The inverse coordinate map based at p sends q to difference(p,q).
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-coordinate-equiv.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. The inverse coordinate map based at p sends q to difference(p,q).
+
+### The sheaf comparison retains the native presheaf map
+
+TauCeti.AlgebraicGeometry.BandedIsom.principalSheafIso_hom — The underlying presheaf morphism of principalSheafIso is heterogeneously equal to the explicit principalPresheafIso morphism. Heterogeneous equality keeps the admitted prototype constructors opaque.
+
+An arbitrary specified site (C,J), an actual Cat-valued pseudofunctor F with the existing IsGerbe condition, and a specified AbelianBanding of F by the native abelian sheaf A. No bottom-topology, finite, terminal-object or neutralization hypothesis is imposed. The coefficient and fibre-hom types use the same explicit universe v′ in these native sheaf prototypes; object and base universes are arbitrary. No unrecorded universe-resizing comparison is claimed. All arrows and restriction maps are those of the existing native categories. Global nonemptiness is required only by the native section-torsor constructor; a chosen anchor is required only by coordinateEquiv.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-principal-sheaf-iso, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-principal-presheaf-iso.
+
+Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. The underlying presheaf morphism of principalSheafIso is heterogeneously equal to the explicit principalPresheafIso morphism. Heterogeneous equality keeps the admitted prototype constructors opaque.
+
+The comparison is an actual isomorphism in the existing Sheaf category on J over U. Local sections follow from the gerbe’s covering-sieve condition. Translating these data into D0’s prescribed torsor/classifying-stack carrier, and the other inherited general-gerbe obligations, remains open. No stage, key, gap, request or whole-source coverage entry is closed.
