@@ -112,8 +112,11 @@ native source and the exact canonical prefix. Fetch this PR branch in the
 existing repository, save recover.py below to one owned disk scratch directory,
 and run it from the repository root. It recovers four Lean inputs, five
 incoming controls and all public scripts, with exact hashes. It creates no
-repository snapshot. Prior archive786bad00199efcb0855a2c7fe28edc403d77a30d
-is used only to independently recover/hash the inherited full proof prefix.
+repository snapshot. The inherited3767-line proof prefix is extracted from the complete new
+archive and checked against its independently recorded public predecessor hash.
+The preceding public archive786bad00199efcb0855a2c7fe28edc403d77a30d
+was personally recovered and hashed during this job; it need not be present
+in the reviewer’s local Git object store.
 
 ```python
 # BEGIN COEFFICIENT RECOVERY
@@ -128,9 +131,7 @@ start='\n/- BEGIN ARCHIVED CHECKED COEFFICIENT COACTION NATURALITY\n'
 end='\nEND ARCHIVED CHECKED COEFFICIENT COACTION NATURALITY -/\n'
 canonical,tail=archive.split(start,1);native=tail.split(end,1)[0]
 check(canonical,'d288d19e1218e4632cd4cb1abf06701436d9b21391e7df6925c4471e7f4f347b');check(native,'d418a342fe5852ce1241dda4189b3afdc153d27efbc184cb93e1bf1db2ce88c4')
-priorarchive=blob('786bad00199efcb0855a2c7fe28edc403d77a30d',path)
-oldcanonical,tail=priorarchive.split('\n/- BEGIN ARCHIVED CHECKED FACTORIAL UNIVERSAL COACTION\n',1)
-prior=tail.split('\nEND ARCHIVED CHECKED FACTORIAL UNIVERSAL COACTION -/\n',1)[0]
+prior=''.join(native.splitlines(keepends=True)[:3767])
 check(prior,'22882a03c3d2f4d517dc9c60f90b7c764538157bf92e647fd778d2c4a075afcc')
 assert native.startswith(prior)
 for name,text in [('Canonical.lean',canonical),('Native.lean',native),('Predecessor.lean',prior)]: (s/name).write_text(text)
