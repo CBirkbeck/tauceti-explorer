@@ -1908,3 +1908,94 @@ example {R Q : Type*} [CommRing R] [Nontrivial R] [AddCommGroup Q] [Module R Q]
 
 end
 end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+variable {R E Q : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E] [AddCommGroup Q] [Module R Q]
+variable (S : Type*) [CommRing S] [Algebra R S]
+variable {F₁ F₂ P₁ P₂ : Type*}
+variable [AddCommGroup F₁] [Module S F₁] [AddCommGroup F₂] [Module S F₂]
+variable [AddCommGroup P₁] [Module S P₁] [AddCommGroup P₂] [Module S P₂]
+
+
+lemma affineChartField_eq_iff_horizontal (θ : E →ₗ[R] E ⊗[R] Q)
+    (e : S ⊗[R] E ≃ₗ[S] F₁) (q : S ⊗[R] Q ≃ₗ[S] P₁)
+    (ψ : F₁ →ₗ[S] F₁ ⊗[S] P₁) :
+    ψ = affineChartField S θ e q ↔
+      ψ.comp e.toLinearMap =
+        (TensorProduct.map e.toLinearMap q.toLinearMap).comp (affineBaseChange S θ) := by sorry
+
+lemma affineChartField_transition (θ : E →ₗ[R] E ⊗[R] Q)
+    (e₁ : S ⊗[R] E ≃ₗ[S] F₁) (q₁ : S ⊗[R] Q ≃ₗ[S] P₁)
+    (e₂ : S ⊗[R] E ≃ₗ[S] F₂) (q₂ : S ⊗[R] Q ≃ₗ[S] P₂) :
+    (affineChartField S θ e₂ q₂).comp (e₁.symm.trans e₂).toLinearMap =
+      (TensorProduct.map (e₁.symm.trans e₂).toLinearMap
+        (q₁.symm.trans q₂).toLinearMap).comp (affineChartField S θ e₁ q₁) := by sorry
+
+lemma affineOrderedIterate_chart_transition (θ : E →ₗ[R] E ⊗[R] Q)
+    (e₁ : S ⊗[R] E ≃ₗ[S] F₁) (q₁ : S ⊗[R] Q ≃ₗ[S] P₁)
+    (e₂ : S ⊗[R] E ≃ₗ[S] F₂) (q₂ : S ⊗[R] Q ≃ₗ[S] P₂) (n : ℕ) :
+    (affineOrderedIterate (affineChartField S θ e₂ q₂) n).comp
+        (e₁.symm.trans e₂).toLinearMap =
+      (TensorProduct.map (e₁.symm.trans e₂).toLinearMap
+        (PiTensorProduct.map (fun _ : Fin n => (q₁.symm.trans q₂).toLinearMap))).comp
+          (affineOrderedIterate (affineChartField S θ e₁ q₁) n) := by sorry
+
+-- test: TwistedHiggsBundle.affineChartField.test_horizontal_unique
+example (θ : E →ₗ[R] E ⊗[R] Q)
+    (e : S ⊗[R] E ≃ₗ[S] F₁) (q : S ⊗[R] Q ≃ₗ[S] P₁)
+    (ψ χ : F₁ →ₗ[S] F₁ ⊗[S] P₁)
+    (hψ : ψ.comp e.toLinearMap =
+      (TensorProduct.map e.toLinearMap q.toLinearMap).comp (affineBaseChange S θ))
+    (hχ : χ.comp e.toLinearMap =
+      (TensorProduct.map e.toLinearMap q.toLinearMap).comp (affineBaseChange S θ)) :
+    ψ = χ := by sorry
+
+-- test: TwistedHiggsBundle.affineChartField.test_chart_roundtrip
+example (θ : E →ₗ[R] E ⊗[R] Q)
+    (e₁ : S ⊗[R] E ≃ₗ[S] F₁) (q₁ : S ⊗[R] Q ≃ₗ[S] P₁)
+    (e₂ : S ⊗[R] E ≃ₗ[S] F₂) (q₂ : S ⊗[R] Q ≃ₗ[S] P₂) (n : ℕ) :
+    (affineOrderedIterate (affineChartField S θ e₁ q₁) n).comp
+        (e₂.symm.trans e₁).toLinearMap =
+      (TensorProduct.map (e₂.symm.trans e₁).toLinearMap
+        (PiTensorProduct.map (fun _ : Fin n => (q₂.symm.trans q₁).toLinearMap))).comp
+          (affineOrderedIterate (affineChartField S θ e₂ q₂) n) := by sorry
+
+-- test: TwistedHiggsBundle.affineChartField.test_empty_word_transition
+example (θ : E →ₗ[R] E ⊗[R] Q)
+    (e₁ : S ⊗[R] E ≃ₗ[S] F₁) (_q₁ : S ⊗[R] Q ≃ₗ[S] P₁)
+    (e₂ : S ⊗[R] E ≃ₗ[S] F₂) (q₂ : S ⊗[R] Q ≃ₗ[S] P₂) (x : F₁) :
+    affineOrderedIterate (affineChartField S θ e₂ q₂) 0 ((e₁.symm.trans e₂) x) =
+      ((e₁.symm.trans e₂) x) ⊗ₜ[S]
+        (TensorPower.algebraMap₀ (R := S) (M := P₂) 1) := by sorry
+
+-- test: TwistedHiggsBundle.affineChartField.test_sign_overlap
+example (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+    affineOrderedIterate (affineChartField S θ (LinearEquiv.refl S _)
+      (LinearEquiv.neg S)) n =
+      (TensorProduct.map (LinearMap.id : S ⊗[R] E →ₗ[S] S ⊗[R] E)
+        (PiTensorProduct.map (fun _ : Fin n => (LinearEquiv.neg S).toLinearMap))).comp
+          (affineOrderedIterate (affineBaseChange S θ) n) := by sorry
+
+-- test: TwistedHiggsBundle.affineChartField.test_missing_coefficient_transition
+example :
+    (TensorProduct.map (LinearMap.id : ℤ →ₗ[ℤ] ℤ) (LinearEquiv.neg ℤ).toLinearMap)
+      ((1 : ℤ) ⊗ₜ[ℤ] (1 : ℤ)) ≠ (1 : ℤ) ⊗ₜ[ℤ] (1 : ℤ) := by sorry
+
+-- test: TwistedHiggsBundle.affineChartField.test_triple_overlap
+example {F₃ P₃ : Type*} [AddCommGroup F₃] [Module S F₃]
+    [AddCommGroup P₃] [Module S P₃]
+    (θ : E →ₗ[R] E ⊗[R] Q)
+    (e₁ : S ⊗[R] E ≃ₗ[S] F₁) (q₁ : S ⊗[R] Q ≃ₗ[S] P₁)
+    (e₂ : S ⊗[R] E ≃ₗ[S] F₂) (q₂ : S ⊗[R] Q ≃ₗ[S] P₂)
+    (e₃ : S ⊗[R] E ≃ₗ[S] F₃) (q₃ : S ⊗[R] Q ≃ₗ[S] P₃) (n : ℕ) :
+    (affineOrderedIterate (affineChartField S θ e₃ q₃) n).comp
+        (((e₁.symm.trans e₂).trans (e₂.symm.trans e₃)).toLinearMap) =
+      (TensorProduct.map ((e₁.symm.trans e₂).trans (e₂.symm.trans e₃)).toLinearMap
+        (PiTensorProduct.map (fun _ : Fin n =>
+          ((q₁.symm.trans q₂).trans (q₂.symm.trans q₃)).toLinearMap))).comp
+          (affineOrderedIterate (affineChartField S θ e₁ q₁) n) := by sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle

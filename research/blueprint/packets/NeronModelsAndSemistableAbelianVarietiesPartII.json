@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-stage partial design with 224 declaration nodes. This continuation gives specified normalization module coefficients, their native reconstruction, the two-element spanning family, finite ring inclusion and actual affine Spec-map finiteness, a canonical shared fraction field for every nonzero q, and the native integral closure for monic quadratic q. The coefficient map has a nonzero relation, so no module freeness or flatness is asserted. Projective normalization charts, conductor ideal sheaves, finite pushforward cohomology and all later-stage/source closure obligations remain required.",
+  "summary": "Seven-stage partial design with 224 declaration nodes. This continuation gives specified normalization module coefficients, their native reconstruction, the two-element spanning family, finite ring inclusion and actual affine Spec-map finiteness, a canonical shared fraction field for every nonzero q, and the native integral closure for monic quadratic q. The coefficient map has a nonzero relation, so no module freeness or flatness is asserted. Projective normalization charts, conductor ideal sheaves, finite pushforward cohomology and all later-stage/source closure obligations remain required. The specified native affine A_q-linear B/(A_q·1)≃E/(A_q·1), its actual k-linear B/A_q≃E/k, both representative equations, residue scalar actions, one-dimensional quadratic defect and actual conductor annihilators are now separately checked prototypes. Projective chart gluing, the global normalization comparison, conductor ideal sheaf, the actual structure-sheaf sequence and finite-pushforward H0/H1 remain open, as does the independent I₂ geometry. The full Tau Ceti-importing file is uncompiled; all implementation statuses and all seven coverage rows remain partial/unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1619,6 +1619,249 @@
         "provides": "Actual integral-closure carrier and polynomial-image characterization.",
         "checked": "Codex codex-rtOQ9t read the actual statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-02; the native prototype is checked at this pin.",
         "sourceSha256": "c2a593953a65a8d428df050eaeb06da2b871a506867193c18e74df7625526061"
+      },
+      {
+        "ref": "mathlib:Submodule.quotEquivOfEq",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "line": 252,
+        "provides": "Native linear equivalence between quotients by equal submodules.",
+        "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; native and admitted affine extraction checked at the pin.",
+        "sourceSha256": "ddb08efd66c7dd6f5e142ac3e1edc1189ea30de276f1e78f4193d6ee80676fb3"
+      },
+      {
+        "ref": "mathlib:Submodule.quotEquivOfEq_mk",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "line": 264,
+        "provides": "The quotient transport leaves each representative unchanged.",
+        "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; native and admitted affine extraction checked at the pin.",
+        "sourceSha256": "ddb08efd66c7dd6f5e142ac3e1edc1189ea30de276f1e78f4193d6ee80676fb3"
+      },
+      {
+        "ref": "mathlib:LinearMap.quotKerEquivOfSurjective",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Isomorphisms.lean",
+        "line": 47,
+        "provides": "A surjective linear map identifies its kernel quotient with its target.",
+        "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; native and admitted affine extraction checked at the pin.",
+        "sourceSha256": "9b09cba140051ca8b9aa93f6cf22a85c3d9fd4d1c108939c6a6e0b44a0192d73"
+      },
+      {
+        "ref": "mathlib:LinearMap.quotKerEquivOfSurjective_apply_mk",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Isomorphisms.lean",
+        "line": 57,
+        "provides": "The native first-isomorphism map on a class is the original linear map.",
+        "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; native and admitted affine extraction checked at the pin.",
+        "sourceSha256": "9b09cba140051ca8b9aa93f6cf22a85c3d9fd4d1c108939c6a6e0b44a0192d73"
+      },
+      {
+        "ref": "mathlib:LinearMap.quotKerEquivOfSurjective_symm_apply",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Isomorphisms.lean",
+        "line": 67,
+        "provides": "The inverse returns the class of each source representative.",
+        "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; native and admitted affine extraction checked at the pin.",
+        "sourceSha256": "9b09cba140051ca8b9aa93f6cf22a85c3d9fd4d1c108939c6a6e0b44a0192d73"
+      },
+      {
+        "ref": "mathlib:IsScalarTower.toAlgHom",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Algebra/Hom.lean",
+        "line": 382,
+        "provides": "The actual upper algebra map as an algebra homomorphism over the lower scalar ring.",
+        "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; native and admitted affine extraction checked at the pin.",
+        "sourceSha256": "0cc5cf0d3af02f98ad61aea11c5298547f190d551eee978ea46a48f303fd3af0"
+      },
+      {
+        "ref": "mathlib:RingHom.toAlgebra",
+        "kind": "abbrev",
+        "module": "Mathlib/Algebra/Algebra/Defs.lean",
+        "line": 197,
+        "provides": "Algebra structure induced by a specified homomorphism of commutative semirings.",
+        "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; native and admitted affine extraction checked at the pin.",
+        "sourceSha256": "8cd3931aa8f1e5295c6b7892a70dcf8f7e231df28ff0b6bed1a20b14a5f5a64c"
+      },
+      {
+        "ref": "mathlib:Submodule.mkQ",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "line": 227,
+        "provides": "The actual linear projection onto a submodule quotient.",
+        "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; native and admitted affine extraction checked at the pin.",
+        "sourceSha256": "ddb08efd66c7dd6f5e142ac3e1edc1189ea30de276f1e78f4193d6ee80676fb3"
+      },
+      {
+        "ref": "mathlib:Submodule.mkQ_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "line": 236,
+        "provides": "The actual quotient projection is surjective.",
+        "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; native and admitted affine extraction checked at the pin.",
+        "sourceSha256": "ddb08efd66c7dd6f5e142ac3e1edc1189ea30de276f1e78f4193d6ee80676fb3"
+      },
+      {
+        "ref": "mathlib:Submodule.Quotient.induction_on",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "line": 204,
+        "provides": "Proof of a quotient proposition by actual module representatives.",
+        "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; native and admitted affine extraction checked at the pin.",
+        "sourceSha256": "ddb08efd66c7dd6f5e142ac3e1edc1189ea30de276f1e78f4193d6ee80676fb3"
+      },
+      {
+        "ref": "mathlib:Submodule.restrictScalars",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Submodule/RestrictScalars.lean",
+        "line": 35,
+        "provides": "The same additive submodule with its lower scalar-ring action.",
+        "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; native and admitted affine extraction checked at the pin.",
+        "sourceSha256": "98c0e6429913c93677dd0fb122eb014f9a9b089bbacd288b79003e036c380f1e"
+      },
+      {
+        "ref": "mathlib:Subalgebra.toSubmodule",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Algebra/Subalgebra/Basic.lean",
+        "line": 291,
+        "provides": "The actual underlying coefficient submodule of a subalgebra.",
+        "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; native and admitted affine extraction checked at the pin.",
+        "sourceSha256": "09e4fbcd2699ec63c989f526f002a9208420df1ef47a341a28bf022b76eb8858"
+      },
+      {
+        "ref": "mathlib:Submodule.Quotient.eq",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "line": 81,
+        "provides": "Two representatives have equal classes exactly when their difference belongs to the submodule.",
+        "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; native and admitted affine extraction checked at the pin.",
+        "sourceSha256": "ddb08efd66c7dd6f5e142ac3e1edc1189ea30de276f1e78f4193d6ee80676fb3"
+      },
+      {
+        "ref": "mathlib:Submodule.Quotient.mk_smul",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "line": 114,
+        "provides": "The quotient projection respects compatible scalar multiplication.",
+        "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; native and admitted affine extraction checked at the pin.",
+        "sourceSha256": "ddb08efd66c7dd6f5e142ac3e1edc1189ea30de276f1e78f4193d6ee80676fb3"
+      },
+      {
+        "ref": "mathlib:Submodule.Quotient.mk_add",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "line": 141,
+        "provides": "The quotient projection respects addition.",
+        "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; native and admitted affine extraction checked at the pin.",
+        "sourceSha256": "ddb08efd66c7dd6f5e142ac3e1edc1189ea30de276f1e78f4193d6ee80676fb3"
+      },
+      {
+        "ref": "mathlib:LinearEquiv.annihilator_eq",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "line": 882,
+        "provides": "A native linear equivalence preserves the module annihilator ideal.",
+        "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; native and admitted affine extraction checked at the pin.",
+        "sourceSha256": "a6cde2f875c2c8b9ea1aa57cf3aa654d5fd80981349de49f28556c77b56d9c11"
+      },
+      {
+        "ref": "mathlib:LinearMapClass.map_smul_of_tower",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
+        "line": 380,
+        "provides": "A linear-map-class map respects the lower compatible scalar action.",
+        "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; native and admitted affine extraction checked at the pin.",
+        "sourceSha256": "242ce4f144fbc775bc424e6b9e088f583fb485fa72f89135d157b5586a987ae7"
+      },
+      {
+        "ref": "mathlib:finrank_eq_one_iff_of_nonzero'",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/FiniteDimensional/Basic.lean",
+        "line": 602,
+        "provides": "For a nonzero vector over a division ring, dimension one is equivalent to every vector being its scalar multiple; finite-dimensionality is not a premise.",
+        "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; native and admitted affine extraction checked at the pin.",
+        "sourceSha256": "033ff059870ce0ec5ee132f4aaa5fb97afe74c5a3c4b95535e4276093853b17f"
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.mk_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "line": 622,
+        "provides": "The actual polynomial-to-principal-quotient map is surjective.",
+        "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; native and admitted affine extraction checked at the pin.",
+        "sourceSha256": "2017f684513d82c3442b1db83fdb398f41efab045892816f93ef41a8eef503ef"
+      },
+      {
+        "ref": "mathlib:Submodule.Quotient.restrictScalarsEquiv",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+        "line": 53,
+        "provides": "Native lower-ring linear equivalence between the quotient by a restricted submodule and the original quotient.",
+        "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; native and admitted affine extraction checked at the pin.",
+        "sourceSha256": "564aad5ee0111df700cb30aca030018f26939ed1c307f19ee6d9ac02b6bc4312"
+      },
+      {
+        "ref": "mathlib:Submodule.Quotient.restrictScalarsEquiv_mk",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+        "line": 60,
+        "provides": "The quotient restriction-of-scalars map preserves representatives.",
+        "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; native and admitted affine extraction checked at the pin.",
+        "sourceSha256": "564aad5ee0111df700cb30aca030018f26939ed1c307f19ee6d9ac02b6bc4312"
+      },
+      {
+        "ref": "mathlib:Submodule.Quotient.restrictScalarsEquiv_symm_mk",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+        "line": 66,
+        "provides": "Its inverse preserves representatives.",
+        "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; native and admitted affine extraction checked at the pin.",
+        "sourceSha256": "564aad5ee0111df700cb30aca030018f26939ed1c307f19ee6d9ac02b6bc4312"
+      },
+      {
+        "ref": "mathlib:LinearEquiv.restrictScalars",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Equiv/Basic.lean",
+        "line": 48,
+        "provides": "A linear equivalence is linear over a lower compatible scalar ring.",
+        "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; native and admitted affine extraction checked at the pin.",
+        "sourceSha256": "615dd4b292377107d8e1354f237a50d07401a999983cf8bda806a28d9a236404"
+      },
+      {
+        "ref": "mathlib:IsScalarTower.of_algebraMap_eq",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Algebra/Tower.lean",
+        "line": 114,
+        "provides": "Compatible structure maps give the actual algebra scalar tower.",
+        "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; native and admitted affine extraction checked at the pin.",
+        "sourceSha256": "80c681c1674d180828b520f3533b549f302153ee5042c2e65ea7733c8c8c9e38"
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.mk",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "line": 99,
+        "provides": "The actual commutative-ring map from polynomials to their principal-ideal quotient.",
+        "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; actual quotient action checked in the native prototype.",
+        "sourceSha256": "2017f684513d82c3442b1db83fdb398f41efab045892816f93ef41a8eef503ef"
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.mk_C",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "line": 226,
+        "provides": "The polynomial quotient image of a constant is its actual coefficient-ring image.",
+        "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; actual quotient action checked in the native prototype.",
+        "sourceSha256": "2017f684513d82c3442b1db83fdb398f41efab045892816f93ef41a8eef503ef"
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.algebraMap_eq",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "line": 152,
+        "provides": "The coefficient algebra map to the polynomial quotient is the native coefficient ring homomorphism.",
+        "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; actual quotient action checked in the native prototype.",
+        "sourceSha256": "2017f684513d82c3442b1db83fdb398f41efab045892816f93ef41a8eef503ef"
       }
     ]
   },
@@ -1998,6 +2241,19 @@
         "§3 conductor diagrams and complete Proposition3.1–3.2 statements/proofs and count table"
       ],
       "readingExtent": "Scoped primary-source reading; the native affine normalization comparisons are authored deductions at the inherited polynomial chart. No full-paper/erratum collation or inherited regression rerun is claimed.",
+      "sha256": "d14049912dcab6a438ed62363e246d0087c61342c51813ac482f5aba48d92456"
+    },
+    {
+      "id": "schroer-a71f92-cokernel",
+      "title": "There is no Enriques surface over the integers",
+      "authors": "Stefan Schröer",
+      "edition": "arXiv2004.07025v3, distinct from the published Annals version",
+      "url": "https://arxiv.org/html/2004.07025v3",
+      "accessed": "2026-10-03",
+      "readSections": [
+        "§3 conductor diagrams and complete Proposition3.1–3.2 statements, proofs and adjoining count table"
+      ],
+      "readingExtent": "Scoped fresh primary-source reading. All new native cokernel statements are authored affine deductions, not printed geometric/sheaf/cohomology theorems. No full-paper/Annals erratum collation or inherited finite-field regression rerun is claimed.",
       "sha256": "d14049912dcab6a438ed62363e246d0087c61342c51813ac482f5aba48d92456"
     }
   ],
@@ -9122,7 +9378,8 @@
         "Apply proper-point-pushout and identify the selected affine chart with A_q; the complement is unchanged.",
         "The normalization exact sequence is 0→O_C→ν_*O_P¹→j_*(E/k)→0. On global constants the quotient map is zero.",
         "Import H⁰(P¹,O)=k and H¹(P¹,O)=0; the long exact sequence gives the stated natural vector-space comparison, not a preferred basis of E/k.",
-        "After a separable splitting extension the chart has one ordinary node and integral normalization, giving geometric integrality and the branch assertion."
+        "After a separable splitting extension the chart has one ordinary node and integral normalization, giving geometric integrality and the branch assertion.",
+        "Use the specified native affine k-linear B/A_q≃E/k and its one-dimensional quadratic normalization defect. This identifies only the affine quotient: the original projective normalization, actual conductor ideal-sheaf, structure-sheaf exact sequence and finite-pushforward H0/H1 steps remain required."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-point-proper-pushout",
@@ -9130,7 +9387,9 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-tangent",
         "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
         "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
-        "SchemeAndStackFoundations:SF.3"
+        "SchemeAndStackFoundations:SF.3",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-equiv-over-k",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-dimension"
       ],
       "sources": [
         {
@@ -13108,6 +13367,1235 @@
           "statement": "For every monic quadratic q, the actual coefficient map A_q×A_q→k[X], (a,b)↦a•1+b•X, is not injective; the spanning pair is not a basis over A_q."
         }
       ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-image-span",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The actual normalization image",
+      "kind": "lemma",
+      "statement": "For every q and f, f lies in the A_q-submodule of B generated by 1 if and only if f∈A_q.",
+      "hypotheses": [
+        "k is any field; B=k[X], E is the native polynomial quotient AdjoinRoot(q), and A_q is the existing scalar-preimage subalgebra of B. The B-action on E is induced by the actual quotient ring homomorphism; A_q acts by restriction. Both quotient modules use the actual native submodule quotient structures. No separability, irreducibility, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Use the singleton-span witness a•1=f and the actual restricted multiplication action; conversely take the subtype element f."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra",
+        "mathlib:Submodule.mem_span_singleton",
+        "mathlib:Subalgebra.smul_def"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-cokernel",
+          "locator": "§3, printed p10, one-component conductor diagram; complete Proposition3.1–3.2 and adjoining proofs/table, pp10–11. Authored affine quotient deductions at the existing quadratic chart.",
+          "excerpt": "conductor",
+          "match": "The source motivates the normalization/conductor comparison. It does not print these polynomial quotient signatures or prove their projective sheaf/cohomology identification."
+        }
+      ],
+      "acceptance": [
+        "For every q and f, f lies in the A_q-submodule of B generated by 1 if and only if f∈A_q."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.normalization_image_span",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the actual affine B/A_q to E/k comparison; projective normalization, conductor ideal-sheaf and finite-pushforward H0/H1 remain required."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Identify the normalization defect module and its actual conductor annihilator at the finite affine chart; not a replacement for global scheme normalization."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-residue-image-span",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The actual constant image",
+      "kind": "lemma",
+      "statement": "For every q and z∈E, z lies in the A_q-submodule of E generated by 1 if and only if z belongs to the bottom k-subalgebra of E.",
+      "hypotheses": [
+        "k is any field; B=k[X], E is the native polynomial quotient AdjoinRoot(q), and A_q is the existing scalar-preimage subalgebra of B. The B-action on E is induced by the actual quotient ring homomorphism; A_q acts by restriction. Both quotient modules use the actual native submodule quotient structures. No separability, irreducibility, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "A singleton-span witness has scalar quotient image by the definition of A_q. Conversely lift a scalar c through the actual polynomial C(c)∈A_q."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra",
+        "mathlib:Submodule.mem_span_singleton",
+        "mathlib:Algebra.mem_bot",
+        "mathlib:AdjoinRoot.mk_C",
+        "mathlib:AdjoinRoot.algebraMap_eq",
+        "mathlib:RingHom.toAlgebra",
+        "mathlib:IsScalarTower.of_algebraMap_eq"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-cokernel",
+          "locator": "§3, printed p10, one-component conductor diagram; complete Proposition3.1–3.2 and adjoining proofs/table, pp10–11. Authored affine quotient deductions at the existing quadratic chart.",
+          "excerpt": "conductor",
+          "match": "The source motivates the normalization/conductor comparison. It does not print these polynomial quotient signatures or prove their projective sheaf/cohomology identification."
+        }
+      ],
+      "acceptance": [
+        "For every q and z∈E, z lies in the A_q-submodule of E generated by 1 if and only if z belongs to the bottom k-subalgebra of E."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.conductor_image_span",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the actual affine B/A_q to E/k comparison; projective normalization, conductor ideal-sheaf and finite-pushforward H0/H1 remain required."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Identify the normalization defect module and its actual conductor annihilator at the finite affine chart; not a replacement for global scheme normalization."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-map",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The polynomial-to-residue cokernel map",
+      "kind": "definition",
+      "statement": "For every q, define the specified A_q-linear map η_q:B→E/(A_q·1) as the actual polynomial quotient map followed by the native submodule quotient projection. Its A_q action is restriction of polynomial multiplication through the actual quotient ring homomorphism.",
+      "hypotheses": [
+        "k is any field; B=k[X], E is the native polynomial quotient AdjoinRoot(q), and A_q is the existing scalar-preimage subalgebra of B. The B-action on E is induced by the actual quotient ring homomorphism; A_q acts by restriction. Both quotient modules use the actual native submodule quotient structures. No separability, irreducibility, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Equip E with the actual polynomial quotient action and its compatible k-polynomial scalar tower; restrict to A_q and compose the tower algebra map with the native quotient projection."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra",
+        "mathlib:AdjoinRoot.mk",
+        "mathlib:RingHom.toAlgebra",
+        "mathlib:IsScalarTower.of_algebraMap_eq",
+        "mathlib:IsScalarTower.toAlgHom",
+        "mathlib:Submodule.mkQ"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-cokernel",
+          "locator": "§3, printed p10, one-component conductor diagram; complete Proposition3.1–3.2 and adjoining proofs/table, pp10–11. Authored affine quotient deductions at the existing quadratic chart.",
+          "excerpt": "conductor",
+          "match": "The source motivates the normalization/conductor comparison. It does not print these polynomial quotient signatures or prove their projective sheaf/cohomology identification."
+        }
+      ],
+      "acceptance": [
+        "For every q, define the specified A_q-linear map η_q:B→E/(A_q·1) as the actual polynomial quotient map followed by the native submodule quotient projection. Its A_q action is restriction of polynomial multiplication through the actual quotient ring homomorphism."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.residueCokernelMap",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the actual affine B/A_q to E/k comparison; projective normalization, conductor ideal-sheaf and finite-pushforward H0/H1 remain required."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Identify the normalization defect module and its actual conductor annihilator at the finite affine chart; not a replacement for global scheme normalization."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.residueCokernelMap_apply",
+          "role": "simp",
+          "statement": "For every q and f∈B, η_q(f) is the class of the actual polynomial quotient image of f in E/(A_q·1)."
+        },
+        {
+          "name": "QuadraticPinch.residueCokernelMap_ker",
+          "role": "structure",
+          "statement": "For every q, the native A_q-linear kernel of η_q is exactly A_q·1⊂B."
+        },
+        {
+          "name": "QuadraticPinch.residueCokernelMap_surjective",
+          "role": "structure",
+          "statement": "For every q, η_q:B→E/(A_q·1) is surjective."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.residueCokernelMap.constant",
+          "kind": "computation",
+          "statement": "For every q and c∈k, η_q(C(c))=0 in the actual residue quotient."
+        },
+        {
+          "name": "QuadraticPinch.residueCokernelMap.multiple",
+          "kind": "compatibility",
+          "statement": "For every q,h∈B, η_q(qh)=0 in the actual residue quotient."
+        },
+        {
+          "name": "QuadraticPinch.residueCokernelMap.cusp_root",
+          "kind": "non-example",
+          "statement": "For k=F₂ and q=X², η_q(X) is nonzero; the cokernel map is not the zero map."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-map-apply",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The cokernel map on representatives",
+      "kind": "lemma",
+      "statement": "For every q and f∈B, η_q(f) is the class of the actual polynomial quotient image of f in E/(A_q·1).",
+      "hypotheses": [
+        "k is any field; B=k[X], E is the native polynomial quotient AdjoinRoot(q), and A_q is the existing scalar-preimage subalgebra of B. The B-action on E is induced by the actual quotient ring homomorphism; A_q acts by restriction. Both quotient modules use the actual native submodule quotient structures. No separability, irreducibility, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Unfold the specified tower algebra map and quotient projection."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-map"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-cokernel",
+          "locator": "§3, printed p10, one-component conductor diagram; complete Proposition3.1–3.2 and adjoining proofs/table, pp10–11. Authored affine quotient deductions at the existing quadratic chart.",
+          "excerpt": "conductor",
+          "match": "The source motivates the normalization/conductor comparison. It does not print these polynomial quotient signatures or prove their projective sheaf/cohomology identification."
+        }
+      ],
+      "acceptance": [
+        "For every q and f∈B, η_q(f) is the class of the actual polynomial quotient image of f in E/(A_q·1)."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.residueCokernelMap_apply",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the actual affine B/A_q to E/k comparison; projective normalization, conductor ideal-sheaf and finite-pushforward H0/H1 remain required."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Identify the normalization defect module and its actual conductor annihilator at the finite affine chart; not a replacement for global scheme normalization."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-map-kernel",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Kernel of the specified cokernel map",
+      "kind": "lemma",
+      "statement": "For every q, the native A_q-linear kernel of η_q is exactly A_q·1⊂B.",
+      "hypotheses": [
+        "k is any field; B=k[X], E is the native polynomial quotient AdjoinRoot(q), and A_q is the existing scalar-preimage subalgebra of B. The B-action on E is induced by the actual quotient ring homomorphism; A_q acts by restriction. Both quotient modules use the actual native submodule quotient structures. No separability, irreducibility, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Kernel membership is vanishing of the quotient class. The residue-image span criterion and the definition of A_q identify it with the normalization-image span criterion."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-map-apply",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-residue-image-span",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-image-span",
+        "mathlib:Submodule.Quotient.mk_eq_zero"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-cokernel",
+          "locator": "§3, printed p10, one-component conductor diagram; complete Proposition3.1–3.2 and adjoining proofs/table, pp10–11. Authored affine quotient deductions at the existing quadratic chart.",
+          "excerpt": "conductor",
+          "match": "The source motivates the normalization/conductor comparison. It does not print these polynomial quotient signatures or prove their projective sheaf/cohomology identification."
+        }
+      ],
+      "acceptance": [
+        "For every q, the native A_q-linear kernel of η_q is exactly A_q·1⊂B."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.residueCokernelMap_ker",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the actual affine B/A_q to E/k comparison; projective normalization, conductor ideal-sheaf and finite-pushforward H0/H1 remain required."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Identify the normalization defect module and its actual conductor annihilator at the finite affine chart; not a replacement for global scheme normalization."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-map-surjective",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Surjectivity of the specified cokernel map",
+      "kind": "lemma",
+      "statement": "For every q, η_q:B→E/(A_q·1) is surjective.",
+      "hypotheses": [
+        "k is any field; B=k[X], E is the native polynomial quotient AdjoinRoot(q), and A_q is the existing scalar-preimage subalgebra of B. The B-action on E is induced by the actual quotient ring homomorphism; A_q acts by restriction. Both quotient modules use the actual native submodule quotient structures. No separability, irreducibility, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Lift a quotient class to its actual E representative using the native quotient projection, then lift that representative through the surjective polynomial quotient map."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-map-apply",
+        "mathlib:Submodule.mkQ_surjective",
+        "mathlib:AdjoinRoot.mk_surjective"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-cokernel",
+          "locator": "§3, printed p10, one-component conductor diagram; complete Proposition3.1–3.2 and adjoining proofs/table, pp10–11. Authored affine quotient deductions at the existing quadratic chart.",
+          "excerpt": "conductor",
+          "match": "The source motivates the normalization/conductor comparison. It does not print these polynomial quotient signatures or prove their projective sheaf/cohomology identification."
+        }
+      ],
+      "acceptance": [
+        "For every q, η_q:B→E/(A_q·1) is surjective."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.residueCokernelMap_surjective",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the actual affine B/A_q to E/k comparison; projective normalization, conductor ideal-sheaf and finite-pushforward H0/H1 remain required."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Identify the normalization defect module and its actual conductor annihilator at the finite affine chart; not a replacement for global scheme normalization."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-equiv",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Affine normalization cokernel comparison",
+      "kind": "construction",
+      "statement": "For every q, construct the specified A_q-linear equivalence ε_q:B/(A_q·1)≃E/(A_q·1) from η_q by the native first isomorphism theorem and its proved kernel equality.",
+      "hypotheses": [
+        "k is any field; B=k[X], E is the native polynomial quotient AdjoinRoot(q), and A_q is the existing scalar-preimage subalgebra of B. The B-action on E is induced by the actual quotient ring homomorphism; A_q acts by restriction. Both quotient modules use the actual native submodule quotient structures. No separability, irreducibility, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Transport the source quotient along the proved kernel equality, then compose with the native quotient-kernel equivalence of a surjective linear map."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-map-kernel",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-map-surjective",
+        "mathlib:Submodule.quotEquivOfEq",
+        "mathlib:LinearMap.quotKerEquivOfSurjective"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-cokernel",
+          "locator": "§3, printed p10, one-component conductor diagram; complete Proposition3.1–3.2 and adjoining proofs/table, pp10–11. Authored affine quotient deductions at the existing quadratic chart.",
+          "excerpt": "conductor",
+          "match": "The source motivates the normalization/conductor comparison. It does not print these polynomial quotient signatures or prove their projective sheaf/cohomology identification."
+        }
+      ],
+      "acceptance": [
+        "For every q, construct the specified A_q-linear equivalence ε_q:B/(A_q·1)≃E/(A_q·1) from η_q by the native first isomorphism theorem and its proved kernel equality."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.residueCokernelEquiv",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the actual affine B/A_q to E/k comparison; projective normalization, conductor ideal-sheaf and finite-pushforward H0/H1 remain required."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Identify the normalization defect module and its actual conductor annihilator at the finite affine chart; not a replacement for global scheme normalization."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.residueCokernelEquiv_apply",
+          "role": "simp",
+          "statement": "For every q and f∈B, ε_q([f])=[mk_q(f)] in E/(A_q·1)."
+        },
+        {
+          "name": "QuadraticPinch.residueCokernelEquiv_symm_apply",
+          "role": "simp",
+          "statement": "For every q and f∈B, ε_q⁻¹([mk_q(f)])=[f] in B/(A_q·1)."
+        },
+        {
+          "name": "QuadraticPinch.residueCokernelEquiv_annihilator",
+          "role": "structure",
+          "statement": "For monic quadratic q, Ann_Aq(E/(A_q·1)) equals the contraction of(q) along the actual inclusion A_q⊂B."
+        },
+        {
+          "name": "QuadraticPinch.residueCokernelEquiv_scalar_action",
+          "role": "compatibility",
+          "statement": "For monic quadratic q, a∈A_q and z∈E, a•[z]=ρ_q(a)•[z] in E/(A_q·1)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.residueCokernelEquiv.representatives",
+          "kind": "compatibility",
+          "statement": "For every q and f∈B, ε_q([f])=[mk_q(f)] using the actual quotient representatives."
+        },
+        {
+          "name": "QuadraticPinch.residueCokernelEquiv.unit",
+          "kind": "degenerate",
+          "statement": "For q=1 and every f∈B, ε_q([f])=0; the actual source quotient vanishes."
+        },
+        {
+          "name": "QuadraticPinch.residueCokernelEquiv.zero",
+          "kind": "degenerate",
+          "statement": "For q=0 and every f∈B, ε_q⁻¹([mk_q(f)])=[f]; the comparison still holds without monicity or a quadratic degree."
+        },
+        {
+          "name": "QuadraticPinch.residueCokernelEquiv.repeated_char3",
+          "kind": "compatibility",
+          "statement": "For k=F₃ and q=X²+X+1=(X−1)², the actual annihilator of E/(A_q·1) equals the contraction of(q); the double root does not invalidate this affine comparison."
+        },
+        {
+          "name": "QuadraticPinch.residueCokernelEquiv.scalar_action",
+          "kind": "compatibility",
+          "statement": "For every monic quadratic q, a∈A_q and z∈E, the actual A_q action on [z] equals multiplication by its scalar residue ρ_q(a)."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-equiv-apply",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Forward quotient representatives",
+      "kind": "lemma",
+      "statement": "For every q and f∈B, ε_q([f])=[mk_q(f)] in E/(A_q·1).",
+      "hypotheses": [
+        "k is any field; B=k[X], E is the native polynomial quotient AdjoinRoot(q), and A_q is the existing scalar-preimage subalgebra of B. The B-action on E is induced by the actual quotient ring homomorphism; A_q acts by restriction. Both quotient modules use the actual native submodule quotient structures. No separability, irreducibility, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Use the actual quotient transport and quotient-kernel construction on representatives."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-equiv",
+        "mathlib:Submodule.quotEquivOfEq_mk",
+        "mathlib:LinearMap.quotKerEquivOfSurjective_apply_mk"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-cokernel",
+          "locator": "§3, printed p10, one-component conductor diagram; complete Proposition3.1–3.2 and adjoining proofs/table, pp10–11. Authored affine quotient deductions at the existing quadratic chart.",
+          "excerpt": "conductor",
+          "match": "The source motivates the normalization/conductor comparison. It does not print these polynomial quotient signatures or prove their projective sheaf/cohomology identification."
+        }
+      ],
+      "acceptance": [
+        "For every q and f∈B, ε_q([f])=[mk_q(f)] in E/(A_q·1)."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.residueCokernelEquiv_apply",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the actual affine B/A_q to E/k comparison; projective normalization, conductor ideal-sheaf and finite-pushforward H0/H1 remain required."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Identify the normalization defect module and its actual conductor annihilator at the finite affine chart; not a replacement for global scheme normalization."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-equiv-inverse",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Inverse quotient representatives",
+      "kind": "lemma",
+      "statement": "For every q and f∈B, ε_q⁻¹([mk_q(f)])=[f] in B/(A_q·1).",
+      "hypotheses": [
+        "k is any field; B=k[X], E is the native polynomial quotient AdjoinRoot(q), and A_q is the existing scalar-preimage subalgebra of B. The B-action on E is induced by the actual quotient ring homomorphism; A_q acts by restriction. Both quotient modules use the actual native submodule quotient structures. No separability, irreducibility, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Rewrite the forward representative equation and apply the native inverse law."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-equiv-apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-cokernel",
+          "locator": "§3, printed p10, one-component conductor diagram; complete Proposition3.1–3.2 and adjoining proofs/table, pp10–11. Authored affine quotient deductions at the existing quadratic chart.",
+          "excerpt": "conductor",
+          "match": "The source motivates the normalization/conductor comparison. It does not print these polynomial quotient signatures or prove their projective sheaf/cohomology identification."
+        }
+      ],
+      "acceptance": [
+        "For every q and f∈B, ε_q⁻¹([mk_q(f)])=[f] in B/(A_q·1)."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.residueCokernelEquiv_symm_apply",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the actual affine B/A_q to E/k comparison; projective normalization, conductor ideal-sheaf and finite-pushforward H0/H1 remain required."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Identify the normalization defect module and its actual conductor annihilator at the finite affine chart; not a replacement for global scheme normalization."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-residue-restrict-scalars",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The residue quotient denominator over k",
+      "kind": "comparison",
+      "statement": "For every q, restriction to k of the A_q-submodule A_q·1⊂E equals the actual underlying k-submodule of the bottom k-subalgebra of E.",
+      "hypotheses": [
+        "k is any field; B=k[X], E is the native polynomial quotient AdjoinRoot(q), and A_q is the existing scalar-preimage subalgebra of B. The B-action on E is induced by the actual quotient ring homomorphism; A_q acts by restriction. Both quotient modules use the actual native submodule quotient structures. No separability, irreducibility, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Apply extensionality to the residue-image span criterion; restriction of scalars does not change membership."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-residue-image-span",
+        "mathlib:Submodule.restrictScalars",
+        "mathlib:Subalgebra.toSubmodule"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-cokernel",
+          "locator": "§3, printed p10, one-component conductor diagram; complete Proposition3.1–3.2 and adjoining proofs/table, pp10–11. Authored affine quotient deductions at the existing quadratic chart.",
+          "excerpt": "conductor",
+          "match": "The source motivates the normalization/conductor comparison. It does not print these polynomial quotient signatures or prove their projective sheaf/cohomology identification."
+        }
+      ],
+      "acceptance": [
+        "For every q, restriction to k of the A_q-submodule A_q·1⊂E equals the actual underlying k-submodule of the bottom k-subalgebra of E."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.conductor_span_restrictScalars",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the actual affine B/A_q to E/k comparison; projective normalization, conductor ideal-sheaf and finite-pushforward H0/H1 remain required."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Identify the normalization defect module and its actual conductor annihilator at the finite affine chart; not a replacement for global scheme normalization."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-generator",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The affine quotient is generated by the root class",
+      "kind": "lemma",
+      "statement": "For monic quadratic q and every f∈B, [f]=M_q(f).2•[X] in the native A_q-module B/(A_q·1), where M_q is the existing specified normalization coefficient pair.",
+      "hypotheses": [
+        "k is any field; B=k[X], E is the native polynomial quotient AdjoinRoot(q), and A_q is the existing scalar-preimage subalgebra of B. The B-action on E is induced by the actual quotient ring homomorphism; A_q acts by restriction. Both quotient modules use the actual native submodule quotient structures. No separability, irreducibility, perfectness or characteristic assumption is imposed.",
+        "q is monic and its native natural degree is exactly two."
+      ],
+      "proofSteps": [
+        "Apply the existing reconstruction of f by 1 and X. The native quotient kills 1 and respects sums and scalar multiplication."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-reconstruction",
+        "mathlib:Submodule.Quotient.mk_add",
+        "mathlib:Submodule.Quotient.mk_smul",
+        "mathlib:Submodule.Quotient.mk_eq_zero"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-cokernel",
+          "locator": "§3, printed p10, one-component conductor diagram; complete Proposition3.1–3.2 and adjoining proofs/table, pp10–11. Authored affine quotient deductions at the existing quadratic chart.",
+          "excerpt": "conductor",
+          "match": "The source motivates the normalization/conductor comparison. It does not print these polynomial quotient signatures or prove their projective sheaf/cohomology identification."
+        }
+      ],
+      "acceptance": [
+        "For monic quadratic q and every f∈B, [f]=M_q(f).2•[X] in the native A_q-module B/(A_q·1), where M_q is the existing specified normalization coefficient pair."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.normalization_quotient_reconstruction",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the actual affine B/A_q to E/k comparison; projective normalization, conductor ideal-sheaf and finite-pushforward H0/H1 remain required."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Identify the normalization defect module and its actual conductor annihilator at the finite affine chart; not a replacement for global scheme normalization."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-scalar-action",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The actual quotient action factors through the residue",
+      "kind": "lemma",
+      "statement": "For monic quadratic q, a∈A_q and f∈B, a•[f]=ρ_q(a)•[f] in B/(A_q·1), where ρ_q is the existing native scalar-remainder k-algebra homomorphism.",
+      "hypotheses": [
+        "k is any field; B=k[X], E is the native polynomial quotient AdjoinRoot(q), and A_q is the existing scalar-preimage subalgebra of B. The B-action on E is induced by the actual quotient ring homomorphism; A_q acts by restriction. Both quotient modules use the actual native submodule quotient structures. No separability, irreducibility, perfectness or characteristic assumption is imposed.",
+        "q is monic and its native natural degree is exactly two."
+      ],
+      "proofSteps": [
+        "Write the actual ambient a=C(c)+qh using membership. The existing residue normal-form API gives ρ_q(a)=c. The two polynomial products differ by qhf∈A_q, so native quotient equality proves the result."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-membership",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-residue",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-image-span",
+        "mathlib:Submodule.Quotient.eq",
+        "mathlib:Submodule.Quotient.mk_smul",
+        "mathlib:Subalgebra.smul_def"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-cokernel",
+          "locator": "§3, printed p10, one-component conductor diagram; complete Proposition3.1–3.2 and adjoining proofs/table, pp10–11. Authored affine quotient deductions at the existing quadratic chart.",
+          "excerpt": "conductor",
+          "match": "The source motivates the normalization/conductor comparison. It does not print these polynomial quotient signatures or prove their projective sheaf/cohomology identification."
+        }
+      ],
+      "acceptance": [
+        "For monic quadratic q, a∈A_q and f∈B, a•[f]=ρ_q(a)•[f] in B/(A_q·1), where ρ_q is the existing native scalar-remainder k-algebra homomorphism."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.normalization_quotient_scalar_action",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the actual affine B/A_q to E/k comparison; projective normalization, conductor ideal-sheaf and finite-pushforward H0/H1 remain required."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Identify the normalization defect module and its actual conductor annihilator at the finite affine chart; not a replacement for global scheme normalization."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.normalizationCokernel.conductor_action",
+          "kind": "computation",
+          "statement": "For every monic quadratic q and f∈B, the actual subtype element q∈A_q kills [f] in B/(A_q·1)."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-generator-nonzero",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The root quotient class is nonzero",
+      "kind": "lemma",
+      "statement": "For monic quadratic q, [X]≠0 in B/(A_q·1).",
+      "hypotheses": [
+        "k is any field; B=k[X], E is the native polynomial quotient AdjoinRoot(q), and A_q is the existing scalar-preimage subalgebra of B. The B-action on E is induced by the actual quotient ring homomorphism; A_q acts by restriction. Both quotient modules use the actual native submodule quotient structures. No separability, irreducibility, perfectness or characteristic assumption is imposed.",
+        "q is monic and its native natural degree is exactly two."
+      ],
+      "proofSteps": [
+        "Vanishing would place X in A_q. The existing scalar-remainder lemma and linear remainder computation then equate X with a constant; coefficient 1 gives a contradiction."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-image-span",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-remainder-scalar",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-linear-remainder",
+        "mathlib:Submodule.Quotient.mk_eq_zero"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-cokernel",
+          "locator": "§3, printed p10, one-component conductor diagram; complete Proposition3.1–3.2 and adjoining proofs/table, pp10–11. Authored affine quotient deductions at the existing quadratic chart.",
+          "excerpt": "conductor",
+          "match": "The source motivates the normalization/conductor comparison. It does not print these polynomial quotient signatures or prove their projective sheaf/cohomology identification."
+        }
+      ],
+      "acceptance": [
+        "For monic quadratic q, [X]≠0 in B/(A_q·1)."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.normalization_quotient_generator_ne_zero",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the actual affine B/A_q to E/k comparison; projective normalization, conductor ideal-sheaf and finite-pushforward H0/H1 remain required."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Identify the normalization defect module and its actual conductor annihilator at the finite affine chart; not a replacement for global scheme normalization."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-annihilator-membership",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Annihilator membership through the residue",
+      "kind": "lemma",
+      "statement": "For monic quadratic q and a∈A_q, a annihilates B/(A_q·1) if and only if ρ_q(a)=0.",
+      "hypotheses": [
+        "k is any field; B=k[X], E is the native polynomial quotient AdjoinRoot(q), and A_q is the existing scalar-preimage subalgebra of B. The B-action on E is induced by the actual quotient ring homomorphism; A_q acts by restriction. Both quotient modules use the actual native submodule quotient structures. No separability, irreducibility, perfectness or characteristic assumption is imposed.",
+        "q is monic and its native natural degree is exactly two."
+      ],
+      "proofSteps": [
+        "An annihilator element kills the nonzero root class. The actual residue scalar action and field scalar cancellation force residue zero. Conversely quotient induction and the scalar action show residue zero kills every class."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-scalar-action",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-generator-nonzero",
+        "mathlib:Module.mem_annihilator",
+        "mathlib:Submodule.Quotient.induction_on"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-cokernel",
+          "locator": "§3, printed p10, one-component conductor diagram; complete Proposition3.1–3.2 and adjoining proofs/table, pp10–11. Authored affine quotient deductions at the existing quadratic chart.",
+          "excerpt": "conductor",
+          "match": "The source motivates the normalization/conductor comparison. It does not print these polynomial quotient signatures or prove their projective sheaf/cohomology identification."
+        }
+      ],
+      "acceptance": [
+        "For monic quadratic q and a∈A_q, a annihilates B/(A_q·1) if and only if ρ_q(a)=0."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.normalization_quotient_annihilator_mem",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the actual affine B/A_q to E/k comparison; projective normalization, conductor ideal-sheaf and finite-pushforward H0/H1 remain required."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Identify the normalization defect module and its actual conductor annihilator at the finite affine chart; not a replacement for global scheme normalization."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.normalizationCokernel.unit_not_annihilator",
+          "kind": "non-example",
+          "statement": "For every monic quadratic q, the unit of A_q does not annihilate B/(A_q·1)."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-annihilator",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The affine conductor as cokernel annihilator",
+      "kind": "comparison",
+      "statement": "For monic quadratic q, Ann_Aq(B/(A_q·1)) equals the contraction of the actual polynomial ideal(q) along A_q⊂B.",
+      "hypotheses": [
+        "k is any field; B=k[X], E is the native polynomial quotient AdjoinRoot(q), and A_q is the existing scalar-preimage subalgebra of B. The B-action on E is induced by the actual quotient ring homomorphism; A_q acts by restriction. Both quotient modules use the actual native submodule quotient structures. No separability, irreducibility, perfectness or characteristic assumption is imposed.",
+        "q is monic and its native natural degree is exactly two."
+      ],
+      "proofSteps": [
+        "Combine annihilator membership with the existing residue-kernel API identifying ker(ρ_q) with the actual contraction of(q), then apply ideal extensionality."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-annihilator-membership",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-residue",
+        "mathlib:Module.annihilator"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-cokernel",
+          "locator": "§3, printed p10, one-component conductor diagram; complete Proposition3.1–3.2 and adjoining proofs/table, pp10–11. Authored affine quotient deductions at the existing quadratic chart.",
+          "excerpt": "conductor",
+          "match": "The source motivates the normalization/conductor comparison. It does not print these polynomial quotient signatures or prove their projective sheaf/cohomology identification."
+        }
+      ],
+      "acceptance": [
+        "For monic quadratic q, Ann_Aq(B/(A_q·1)) equals the contraction of the actual polynomial ideal(q) along A_q⊂B."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.normalization_quotient_annihilator",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the actual affine B/A_q to E/k comparison; projective normalization, conductor ideal-sheaf and finite-pushforward H0/H1 remain required."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Identify the normalization defect module and its actual conductor annihilator at the finite affine chart; not a replacement for global scheme normalization."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-dimension",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "One-dimensional affine normalization cokernel",
+      "kind": "lemma",
+      "statement": "For monic quadratic q, the native k-dimension of B/(A_q·1) is exactly one.",
+      "hypotheses": [
+        "k is any field; B=k[X], E is the native polynomial quotient AdjoinRoot(q), and A_q is the existing scalar-preimage subalgebra of B. The B-action on E is induced by the actual quotient ring homomorphism; A_q acts by restriction. Both quotient modules use the actual native submodule quotient structures. No separability, irreducibility, perfectness or characteristic assumption is imposed.",
+        "q is monic and its native natural degree is exactly two."
+      ],
+      "proofSteps": [
+        "The class of X is nonzero. Quotient induction, the specified normalization coefficient reconstruction and actual residue scalar action express every class as a k-multiple of [X]. Apply the pinned dimension-one characterization, which requires no assumed finite-dimensional instance."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-generator-nonzero",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-generator",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-scalar-action",
+        "mathlib:Submodule.Quotient.induction_on",
+        "mathlib:finrank_eq_one_iff_of_nonzero'"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-cokernel",
+          "locator": "§3, printed p10, one-component conductor diagram; complete Proposition3.1–3.2 and adjoining proofs/table, pp10–11. Authored affine quotient deductions at the existing quadratic chart.",
+          "excerpt": "conductor",
+          "match": "The source motivates the normalization/conductor comparison. It does not print these polynomial quotient signatures or prove their projective sheaf/cohomology identification."
+        }
+      ],
+      "acceptance": [
+        "For monic quadratic q, the native k-dimension of B/(A_q·1) is exactly one."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.normalization_quotient_finrank",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the actual affine B/A_q to E/k comparison; projective normalization, conductor ideal-sheaf and finite-pushforward H0/H1 remain required."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Identify the normalization defect module and its actual conductor annihilator at the finite affine chart; not a replacement for global scheme normalization."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.normalizationCokernel.cusp_dimension",
+          "kind": "computation",
+          "statement": "For k=F₂ and q=X², the actual k-dimension of B/(A_q·1) is one, without a separability hypothesis."
+        },
+        {
+          "name": "QuadraticPinch.normalizationCokernel.nonsplit_dimension",
+          "kind": "computation",
+          "statement": "For k=F₂ and q=X²+X+1, the actual k-dimension of B/(A_q·1) is one, without a rational conductor root."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-residue-annihilator",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The residue-side conductor annihilator",
+      "kind": "lemma",
+      "statement": "For monic quadratic q, Ann_Aq(E/(A_q·1)) equals the contraction of(q) along the actual inclusion A_q⊂B.",
+      "hypotheses": [
+        "k is any field; B=k[X], E is the native polynomial quotient AdjoinRoot(q), and A_q is the existing scalar-preimage subalgebra of B. The B-action on E is induced by the actual quotient ring homomorphism; A_q acts by restriction. Both quotient modules use the actual native submodule quotient structures. No separability, irreducibility, perfectness or characteristic assumption is imposed.",
+        "q is monic and its native natural degree is exactly two."
+      ],
+      "proofSteps": [
+        "The native equivalence ε_q preserves annihilators. Apply the normalization-side annihilator equality; do not introduce another module action."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-annihilator",
+        "mathlib:LinearEquiv.annihilator_eq"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-cokernel",
+          "locator": "§3, printed p10, one-component conductor diagram; complete Proposition3.1–3.2 and adjoining proofs/table, pp10–11. Authored affine quotient deductions at the existing quadratic chart.",
+          "excerpt": "conductor",
+          "match": "The source motivates the normalization/conductor comparison. It does not print these polynomial quotient signatures or prove their projective sheaf/cohomology identification."
+        }
+      ],
+      "acceptance": [
+        "For monic quadratic q, Ann_Aq(E/(A_q·1)) equals the contraction of(q) along the actual inclusion A_q⊂B."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.residueCokernelEquiv_annihilator",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the actual affine B/A_q to E/k comparison; projective normalization, conductor ideal-sheaf and finite-pushforward H0/H1 remain required."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Identify the normalization defect module and its actual conductor annihilator at the finite affine chart; not a replacement for global scheme normalization."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-residue-scalar-action",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The actual residue quotient action",
+      "kind": "lemma",
+      "statement": "For monic quadratic q, a∈A_q and z∈E, a•[z]=ρ_q(a)•[z] in E/(A_q·1).",
+      "hypotheses": [
+        "k is any field; B=k[X], E is the native polynomial quotient AdjoinRoot(q), and A_q is the existing scalar-preimage subalgebra of B. The B-action on E is induced by the actual quotient ring homomorphism; A_q acts by restriction. Both quotient modules use the actual native submodule quotient structures. No separability, irreducibility, perfectness or characteristic assumption is imposed.",
+        "q is monic and its native natural degree is exactly two."
+      ],
+      "proofSteps": [
+        "Lift z through the actual polynomial quotient map. Transport the normalization-side action through ε_q, using its A_q linearity and native k-scalar-tower compatibility."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-scalar-action",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-equiv-apply",
+        "mathlib:AdjoinRoot.mk_surjective",
+        "mathlib:LinearMapClass.map_smul_of_tower"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-cokernel",
+          "locator": "§3, printed p10, one-component conductor diagram; complete Proposition3.1–3.2 and adjoining proofs/table, pp10–11. Authored affine quotient deductions at the existing quadratic chart.",
+          "excerpt": "conductor",
+          "match": "The source motivates the normalization/conductor comparison. It does not print these polynomial quotient signatures or prove their projective sheaf/cohomology identification."
+        }
+      ],
+      "acceptance": [
+        "For monic quadratic q, a∈A_q and z∈E, a•[z]=ρ_q(a)•[z] in E/(A_q·1)."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.residueCokernelEquiv_scalar_action",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the actual affine B/A_q to E/k comparison; projective normalization, conductor ideal-sheaf and finite-pushforward H0/H1 remain required."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Identify the normalization defect module and its actual conductor annihilator at the finite affine chart; not a replacement for global scheme normalization."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-normalization-restrict-scalars",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The actual normalization quotient denominator over k",
+      "kind": "comparison",
+      "statement": "For every q, restriction to k of A_q·1⊂B equals the actual underlying k-submodule of the existing subalgebra A_q⊂B.",
+      "hypotheses": [
+        "k is any field; B=k[X], E is the native polynomial quotient AdjoinRoot(q), and A_q is the existing scalar-preimage subalgebra of B. The B-action on E is induced by the actual quotient ring homomorphism; A_q acts by restriction. Both quotient modules use the actual native submodule quotient structures. No separability, irreducibility, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Apply extensionality to the normalization-image span criterion; restriction of scalars does not change membership."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-image-span",
+        "mathlib:Submodule.restrictScalars",
+        "mathlib:Subalgebra.toSubmodule"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-cokernel",
+          "locator": "§3, printed p10, one-component conductor diagram; complete Proposition3.1–3.2 and adjoining proofs/table, pp10–11. Authored affine quotient deductions at the existing quadratic chart.",
+          "excerpt": "conductor",
+          "match": "The source motivates the normalization/conductor comparison. It does not print these polynomial quotient signatures or prove their projective sheaf/cohomology identification."
+        }
+      ],
+      "acceptance": [
+        "For every q, restriction to k of A_q·1⊂B equals the actual underlying k-submodule of the existing subalgebra A_q⊂B."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.normalization_span_restrictScalars",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the actual affine B/A_q to E/k comparison; projective normalization, conductor ideal-sheaf and finite-pushforward H0/H1 remain required."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Identify the normalization defect module and its actual conductor annihilator at the finite affine chart; not a replacement for global scheme normalization."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-equiv-over-k",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The comparison B/A_q with E/k",
+      "kind": "construction",
+      "statement": "For every q, construct the specified k-linear equivalence B/A_q≃E/k, with quotients by the actual underlying k-submodules of A_q and the bottom k-subalgebra of E, by restricting ε_q and the two proved denominator equalities.",
+      "hypotheses": [
+        "k is any field; B=k[X], E is the native polynomial quotient AdjoinRoot(q), and A_q is the existing scalar-preimage subalgebra of B. The B-action on E is induced by the actual quotient ring homomorphism; A_q acts by restriction. Both quotient modules use the actual native submodule quotient structures. No separability, irreducibility, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Transport the source denominator, apply the native quotient restriction-of-scalars equivalence, restrict ε_q to k, then invert the target restriction-of-scalars equivalence and transport its denominator."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-normalization-restrict-scalars",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-residue-restrict-scalars",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-equiv",
+        "mathlib:Submodule.quotEquivOfEq",
+        "mathlib:Submodule.Quotient.restrictScalarsEquiv",
+        "mathlib:LinearEquiv.restrictScalars"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-cokernel",
+          "locator": "§3, printed p10, one-component conductor diagram; complete Proposition3.1–3.2 and adjoining proofs/table, pp10–11. Authored affine quotient deductions at the existing quadratic chart.",
+          "excerpt": "conductor",
+          "match": "The source motivates the normalization/conductor comparison. It does not print these polynomial quotient signatures or prove their projective sheaf/cohomology identification."
+        }
+      ],
+      "acceptance": [
+        "For every q, construct the specified k-linear equivalence B/A_q≃E/k, with quotients by the actual underlying k-submodules of A_q and the bottom k-subalgebra of E, by restricting ε_q and the two proved denominator equalities."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.residueCokernelEquiv_over_k",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the actual affine B/A_q to E/k comparison; projective normalization, conductor ideal-sheaf and finite-pushforward H0/H1 remain required."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Identify the normalization defect module and its actual conductor annihilator at the finite affine chart; not a replacement for global scheme normalization."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.residueCokernelEquiv_over_k_apply",
+          "role": "simp",
+          "statement": "For every q and f∈B, the specified k-linear B/A_q≃E/k sends [f] to [mk_q(f)]."
+        },
+        {
+          "name": "QuadraticPinch.residueCokernelEquiv_over_k_symm_apply",
+          "role": "simp",
+          "statement": "For every q and f∈B, the inverse of the specified k-linear B/A_q≃E/k sends [mk_q(f)] to [f]."
+        },
+        {
+          "name": "QuadraticPinch.normalization_span_restrictScalars",
+          "role": "compatibility",
+          "statement": "For every q, restriction to k of A_q·1⊂B equals the actual underlying k-submodule of the existing subalgebra A_q⊂B."
+        },
+        {
+          "name": "QuadraticPinch.conductor_span_restrictScalars",
+          "role": "compatibility",
+          "statement": "For every q, restriction to k of the A_q-submodule A_q·1⊂E equals the actual underlying k-submodule of the bottom k-subalgebra of E."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.residueCokernelEquiv_over_k.cusp",
+          "kind": "compatibility",
+          "statement": "For k=F₂, q=X² and every f∈B, the specified k-linear B/A_q≃E/k sends [f] to [mk_q(f)] in the quotient by the actual constant k-submodule."
+        },
+        {
+          "name": "QuadraticPinch.residueCokernelEquiv_over_k.unit",
+          "kind": "degenerate",
+          "statement": "For q=1 and every f∈B, the specified k-linear B/A_q≃E/k sends [f] to zero."
+        },
+        {
+          "name": "QuadraticPinch.residueCokernelEquiv_over_k.zero",
+          "kind": "degenerate",
+          "statement": "For q=0 and every f∈B, the inverse of the specified k-linear B/A_q≃E/k sends [mk_q(f)] to [f]."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-equiv-over-k-apply",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The k-linear comparison on representatives",
+      "kind": "lemma",
+      "statement": "For every q and f∈B, the specified k-linear B/A_q≃E/k sends [f] to [mk_q(f)].",
+      "hypotheses": [
+        "k is any field; B=k[X], E is the native polynomial quotient AdjoinRoot(q), and A_q is the existing scalar-preimage subalgebra of B. The B-action on E is induced by the actual quotient ring homomorphism; A_q acts by restriction. Both quotient modules use the actual native submodule quotient structures. No separability, irreducibility, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Apply native quotient transports and restriction-of-scalars maps on representatives; the middle comparison is the specified ε_q."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-equiv-over-k",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-equiv-apply",
+        "mathlib:Submodule.quotEquivOfEq_mk",
+        "mathlib:Submodule.Quotient.restrictScalarsEquiv_mk",
+        "mathlib:Submodule.Quotient.restrictScalarsEquiv_symm_mk"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-cokernel",
+          "locator": "§3, printed p10, one-component conductor diagram; complete Proposition3.1–3.2 and adjoining proofs/table, pp10–11. Authored affine quotient deductions at the existing quadratic chart.",
+          "excerpt": "conductor",
+          "match": "The source motivates the normalization/conductor comparison. It does not print these polynomial quotient signatures or prove their projective sheaf/cohomology identification."
+        }
+      ],
+      "acceptance": [
+        "For every q and f∈B, the specified k-linear B/A_q≃E/k sends [f] to [mk_q(f)]."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.residueCokernelEquiv_over_k_apply",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the actual affine B/A_q to E/k comparison; projective normalization, conductor ideal-sheaf and finite-pushforward H0/H1 remain required."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Identify the normalization defect module and its actual conductor annihilator at the finite affine chart; not a replacement for global scheme normalization."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-equiv-over-k-inverse",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The inverse k-linear comparison on representatives",
+      "kind": "lemma",
+      "statement": "For every q and f∈B, the inverse of the specified k-linear B/A_q≃E/k sends [mk_q(f)] to [f].",
+      "hypotheses": [
+        "k is any field; B=k[X], E is the native polynomial quotient AdjoinRoot(q), and A_q is the existing scalar-preimage subalgebra of B. The B-action on E is induced by the actual quotient ring homomorphism; A_q acts by restriction. Both quotient modules use the actual native submodule quotient structures. No separability, irreducibility, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Rewrite the forward representative formula and apply the native inverse law."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-equiv-over-k-apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-cokernel",
+          "locator": "§3, printed p10, one-component conductor diagram; complete Proposition3.1–3.2 and adjoining proofs/table, pp10–11. Authored affine quotient deductions at the existing quadratic chart.",
+          "excerpt": "conductor",
+          "match": "The source motivates the normalization/conductor comparison. It does not print these polynomial quotient signatures or prove their projective sheaf/cohomology identification."
+        }
+      ],
+      "acceptance": [
+        "For every q and f∈B, the inverse of the specified k-linear B/A_q≃E/k sends [mk_q(f)] to [f]."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.residueCokernelEquiv_over_k_symm_apply",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the actual affine B/A_q to E/k comparison; projective normalization, conductor ideal-sheaf and finite-pushforward H0/H1 remain required."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+          "how": "Identify the normalization defect module and its actual conductor annihilator at the finite affine chart; not a replacement for global scheme normalization."
+        }
+      ]
     }
   ],
   "requests": [
@@ -13481,7 +14969,8 @@
         "Native nonzero-quadratic-discriminant root/cardinality and split/nonsplit pointCount/frobeniusTrace branches, including receiving finite fields under actual field homomorphisms, are separately checked. The finite-field odd/even embedding criterion, scheme/projective normalization identification, conductor/sheaf/cohomology and independent I₂ count remain required; all G.0–G.6 obligations stay partial.",
         "Current finite-extension checkpoint supersedes the earlier native odd/even-criterion frontier: the irreducible quadratic root existence, distinct-root count, pointCount, cardinal-power and numerical trace-defect formulas have checked prototypes. Their geometric identification with the projective pinching/conductor schemes, nilpotent reduction and separate fixed-component I₂ calculation remain open; no other source obligations are discharged.",
         "The polynomial pinch localization and inverse coordinate are explicit. Prove finite generation of the normalization module, the fraction-field/normalization comparison, two projective charts and actual conductor-sheaf/cohomology sequence; retain the separate cusp, I₁ and I₂ distinctions.",
-        "The native affine finite-module, shared-fraction-field and integral-closure frontiers now have separately checked carrier signatures, including the actual finite Spec map. Construct the projective two-chart normalization comparison and conductor ideal sheaf, then the actual E/k structure-sheaf sequence and finite-pushforward H0/H1. Keep the unrelated k[q]-freeness target and all nodal/inseparable/I2 distinctions."
+        "The native affine finite-module, shared-fraction-field and integral-closure frontiers now have separately checked carrier signatures, including the actual finite Spec map. Construct the projective two-chart normalization comparison and conductor ideal sheaf, then the actual E/k structure-sheaf sequence and finite-pushforward H0/H1. Keep the unrelated k[q]-freeness target and all nodal/inseparable/I2 distinctions.",
+        "The specified native affine A_q-linear B/(A_q·1)≃E/(A_q·1), its actual k-linear B/A_q≃E/k, both representative equations, residue scalar actions, one-dimensional quadratic defect and actual conductor annihilators are now separately checked prototypes. Projective chart gluing, the global normalization comparison, conductor ideal sheaf, the actual structure-sheaf sequence and finite-pushforward H0/H1 remain open, as does the independent I₂ geometry. The full Tau Ceti-importing file is uncompiled; all implementation statuses and all seven coverage rows remain partial/unchecked."
       ]
     },
     {
@@ -16865,6 +18354,95 @@
         "partPlanets": 29,
         "roadmapDeclarations": 224,
         "scriptSha256": "9c259f46e82f6c246ad606c8ab22a85e0d8c7219aec506dafdf2b329b4289ced"
+      }
+    }
+  },
+  "affineCokernelContinuation": {
+    "date": "2026-10-03",
+    "agent": "Codex codex-a71f92",
+    "readBase": "f0401e396395a306b58cb28db79f3b24721e6fb3",
+    "incomingDeclarations": 224,
+    "addedDeclarations": 22,
+    "newDeclarationNames": [
+      "QuadraticPinch.normalization_image_span",
+      "QuadraticPinch.conductor_image_span",
+      "QuadraticPinch.residueCokernelMap",
+      "QuadraticPinch.residueCokernelMap_apply",
+      "QuadraticPinch.residueCokernelMap_ker",
+      "QuadraticPinch.residueCokernelMap_surjective",
+      "QuadraticPinch.residueCokernelEquiv",
+      "QuadraticPinch.residueCokernelEquiv_apply",
+      "QuadraticPinch.residueCokernelEquiv_symm_apply",
+      "QuadraticPinch.conductor_span_restrictScalars",
+      "QuadraticPinch.normalization_quotient_reconstruction",
+      "QuadraticPinch.normalization_quotient_scalar_action",
+      "QuadraticPinch.normalization_quotient_generator_ne_zero",
+      "QuadraticPinch.normalization_quotient_annihilator_mem",
+      "QuadraticPinch.normalization_quotient_annihilator",
+      "QuadraticPinch.normalization_quotient_finrank",
+      "QuadraticPinch.residueCokernelEquiv_annihilator",
+      "QuadraticPinch.residueCokernelEquiv_scalar_action",
+      "QuadraticPinch.normalization_span_restrictScalars",
+      "QuadraticPinch.residueCokernelEquiv_over_k",
+      "QuadraticPinch.residueCokernelEquiv_over_k_apply",
+      "QuadraticPinch.residueCokernelEquiv_over_k_symm_apply"
+    ],
+    "frontier": "The specified native affine A_q-linear B/(A_q·1)≃E/(A_q·1), its actual k-linear B/A_q≃E/k, both representative equations, residue scalar actions, one-dimensional quadratic defect and actual conductor annihilators are now separately checked prototypes. Projective chart gluing, the global normalization comparison, conductor ideal sheaf, the actual structure-sheaf sequence and finite-pushforward H0/H1 remain open, as does the independent I₂ geometry. The full Tau Ceti-importing file is uncompiled; all implementation statuses and all seven coverage rows remain partial/unchecked.",
+    "libraryAudit": "Reviewed parent R11.1–R11.6 rows and accepted AUDIT10 review read; no reviewed Part II row is present. Native quotient, scalar-tower, first-isomorphism and annihilator foundations are imported, not replanned.",
+    "ownership": "Reserved Ferrand key, all 78 routes, 21 source findings, 23 requests and 17 gaps retained. New signatures are specific affine polynomial-preimage adapters; no new supplier object, global sheaf result or I₂ comparison is asserted.",
+    "librarySearch": "Pinned Mathlib and Tau Ceti source searches found no existing declarations under the exact new names. Actual native API statements and ambient hypotheses read; scoped public Mathlib/Zulip search did not identify a matching change, not an exhaustive absence claim.",
+    "checks": {
+      "native": {
+        "lines": 793,
+        "examples": 34,
+        "axiomAudits": 52,
+        "errors": 0,
+        "warnings": 0,
+        "admissions": 0,
+        "sha256": "fb78e8d07d5a68f118f5ff3b1ac4e2f9571dd09ef9d921f3619af7e08e99a8a3"
+      },
+      "admittedExtraction": {
+        "lines": 606,
+        "newHeaders": 22,
+        "newNamedExamples": 15,
+        "errors": 0,
+        "admissionWarnings": 37,
+        "scope": "Inherited 275-line actual carrier prefix, eight reused actual scalar-remainder helper bodies and exactly the new admitted headers/examples. Not the full suggested file.",
+        "sha256": "f24da6f72e809606398333b878267bb590cef80363d4b8cd9c68f2787f47d8cc"
+      },
+      "fullSuggestedFile": "Uncompiled: pinned Tau Ceti PointCount, point-variable-change, WeilDivisor scheme and stable-model artifacts unavailable; no library build attempted.",
+      "graph": {
+        "stageDAG": {
+          "vertices": 3043,
+          "edges": 8727,
+          "acyclic": true
+        },
+        "ownDAG": {
+          "vertices": 246,
+          "edges": 559,
+          "acyclic": true
+        },
+        "combinedDAG": {
+          "vertices": 3260,
+          "edges": 9474,
+          "acyclic": true
+        },
+        "reachableDeclarations": 246,
+        "externalDeclarations": [],
+        "reachableBaselineReferences": 201,
+        "unresolved": [],
+        "otherPartsRetained": [],
+        "partDeclarations": 246,
+        "partPlanets": 29,
+        "roadmapDeclarations": 246,
+        "requiredStagePairs": 69,
+        "requiredStagePairsReachable": 69,
+        "inheritedMissingStagePairs": [],
+        "acceptedRestructurePairs": 0,
+        "acceptedRestructurePairsReachable": 0,
+        "stageEdgesUnchanged": true,
+        "otherSkippedPendingUnchanged": true,
+        "ownSkippedPendingEmpty": true
       }
     }
   }
