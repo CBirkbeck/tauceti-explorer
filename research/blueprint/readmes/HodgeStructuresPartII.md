@@ -1,3 +1,290 @@
+# Coefficient-ring transport for parameter connections
+
+This continuation develops actual maps of the supplied affine differential calculi over a coefficient-ring homomorphism. The map on one-forms and the map on two-forms are native semilinear maps, with explicit equations for both differentials and wedge. They are not independent naturality flags. The generic global differential calculus remains the CR.1 supplier's work. These adapters isolate the affine equations needed by the existing pullback and restriction contracts.
+
+For f:R→S, the target parameter is f(λ). A horizontal semilinear map h:E→F satisfies C(h(e))=(h⊗β₁)D(e). Expanding the actual degree-one extension on e⊗ω gives D(e)∧ω+λe⊗d₁ω. The wedge comparison and d₁ comparison identify its image with the target extension. Semilinearity is essential: the last coefficient becomes f(λ). Tensor induction proves the equation on arbitrary tensors. Applying it to D(e) proves curvature naturality for arbitrary λ, including variable parameters. When d₀λ=0, the calculus equation supplies d₀f(λ)=0 and identifies the actual linear curvature maps.
+
+The degree-zero/one/two comparison has native identity and composition. Composing two horizontal maps is horizontal over the actual composite ring map because the native tensor map composes on elementary tensors and therefore on every tensor. This prepares compatibility of restriction chains; it does not construct genuine module-sheaf restrictions.
+
+Flatness transport keeps its quantifiers. Flatness of D gives zero target curvature on the image of h. A surjective h gives zero target curvature everywhere. Reflection uses injectivity of h⊗β₂ itself, rather than injectivity of h or f alone. Neither faithful scalar extension nor source curvature detection follows from an arbitrary change of coefficients. The scalar-extension unit E→S⊗_R E is generally not surjective, so the surjective theorem is not a proof that a pullback connection is flat. The balanced construction of that connection and the additional target-generation argument remain mandatory next steps.
+
+The worked ramified example uses A=ℤ[x], f(a)=a(x²), the native formal derivative, and the genuine zero degree-two module. Its one-form map is β₁(a)=2x·a(x²). It sends 1 to 2x, which is not1; the full polynomial chain rule proves d₀f(a)=β₁d₀a for every polynomial. The actual f-semilinear map is horizontal between the unit(2) and unit(f(2)) preconnections. Replacing the differential comparison by an identity would fail this computed value. The tests also cover the zero horizontal map, both identity degrees, and composition. No basis of the connection module is used.
+
+The source convention is Esnault–Groechenig's author-hosted44-page preprint, §4.2 author pp.23–24, and the entire [Stacks connection section](https://stacks.math.columbia.edu/tag/07J5). Both texts were freshly read at the recorded source hashes. The cross-ring arbitrary-module statements below are authored deductions from their equations and native tensor universal properties, not quotations of source theorems. The inherited published-version receipt and EG20/E10 finding remain unchanged; no new version-independent assertion about rigid moduli or the cited Simpson results is made.
+
+The nine-stage plan retains its scope. All149 routed source items and all five supplier requests remain. The reserved definition is still finite locally free on a ringed differential site. Actual sheaf tensor restrictions, equality detection and effective descent are required before globalizing these affine identities. The following declaration-sized specifications extend that frontier; the complete preceding roadmap follows unchanged.
+
+## Maps of supplied affine differential calculi
+
+**TwoForms.Morphism** — For a ring homomorphism f:R→S, Morphism(f,Ω,Γ) consists of native f-semilinear maps β₁:W→V and β₂:Z→Y with dΓ,₀(f(a))=β₁(dΩ,₀a), dΓ,₁(β₁ω)=β₂(dΩ,₁ω), and β₁ω∧Γβ₁α=β₂(ω∧Ωα). The equations specify the actual degree-zero/one/two comparison, not an arbitrary naturality oracle.
+
+Hypotheses: k,R,S (and T for composition) are commutative rings; R,S,T are k-algebras. W,V,P are degree-one modules with their specified k-module actions, and Z,Y,Q are degree-two modules. E,F,G are native modules over their respective coefficient rings with additive commutative groups. No finite generation, basis, field, characteristic, smoothness, projectivity or flatness hypothesis is imposed. Ω,Γ,Δ are the existing supplied TwoForms calculi: derivation d₀, additive d₁, alternating bilinear wedge, the degree-one Leibniz identity, and d₁d₀=0. The ring maps f,g are genuine ring homomorphisms. The three compatibility equations are explicit input data on native semilinear maps; universal forms and sheaf pullback remain supplier obligations. D,C,B are actual additive preconnections with parameters λ,f(λ),(g∘f)(λ). Their k-module scalar towers are compatible. No relatively constant parameter is needed for additive exterior-extension or curvature naturality; only curvatureLinear requires the explicit condition d₀λ=0. Flatness on the image is distinct from flatness on every target section. The forward all-target implication states surjectivity of h; reflection states injectivity of the actual degree-two tensor comparison. No nonfaithful scalar extension is claimed to detect curvature.
+
+Prerequisites: HodgeStructuresPartII:H.0/intrinsic-preconnection.
+
+Proof outline: Bundle the two native semilinear maps and the three explicit compatibility equations. This is an adapter between supplied calculi; it neither constructs universal forms nor duplicates the global CR.1 calculus supplier.
+
+API:
+
+- **TwoForms.Morphism.one**: The actual f-semilinear map W→V.
+- **TwoForms.Morphism.two**: The actual f-semilinear map Z→Y.
+- **TwoForms.Morphism.d0_map**: dΓ,₀(f(a))=β₁(dΩ,₀a).
+- **TwoForms.Morphism.d1_map**: dΓ,₁(β₁ω)=β₂(dΩ,₁ω).
+- **TwoForms.Morphism.wedge_map**: β₁ω∧Γβ₁α=β₂(ω∧Ωα).
+
+Unit tests:
+
+- **TwoForms.Morphism.test_balanced**: For m, a and ω, β₁(aω)=f(a)β₁ω.
+- **TwoForms.Morphism.test_wedge**: For m, ω and α, wedgeΓ(β₁ω,β₁α)=β₂(wedgeΩ(ω,α)).
+- **TwoForms.Morphism.test_ramified_chain_rule**: For A=ℤ[x], ordinary formal derivative, zero degree-two module and f(a)=a(x²), construct β₁(a)=2x·a(x²) and β₂=0. Then β₁(1)=2x≠1, d₀f(a)=β₁d₀a for every a, and f is horizontal from unit(2) to unit(f(2)). This is a nonidentity coefficient-ring map with its nontrivial differential correction.
+
+## Identity differential-calculus comparison
+
+**TwoForms.Morphism.refl** — The identity comparison over id_R has β₁=id_W and β₂=id_Z. Its three differential/wedge equations are the reflexive equations on the supplied calculus Ω.
+
+Hypotheses: k,R,S (and T for composition) are commutative rings; R,S,T are k-algebras. W,V,P are degree-one modules with their specified k-module actions, and Z,Y,Q are degree-two modules. E,F,G are native modules over their respective coefficient rings with additive commutative groups. No finite generation, basis, field, characteristic, smoothness, projectivity or flatness hypothesis is imposed. Ω,Γ,Δ are the existing supplied TwoForms calculi: derivation d₀, additive d₁, alternating bilinear wedge, the degree-one Leibniz identity, and d₁d₀=0. The ring maps f,g are genuine ring homomorphisms. The three compatibility equations are explicit input data on native semilinear maps; universal forms and sheaf pullback remain supplier obligations. D,C,B are actual additive preconnections with parameters λ,f(λ),(g∘f)(λ). Their k-module scalar towers are compatible. No relatively constant parameter is needed for additive exterior-extension or curvature naturality; only curvatureLinear requires the explicit condition d₀λ=0. Flatness on the image is distinct from flatness on every target section. The forward all-target implication states surjectivity of h; reflection states injectivity of the actual degree-two tensor comparison. No nonfaithful scalar extension is claimed to detect curvature.
+
+Prerequisites: HodgeStructuresPartII:H.0/calculus-ring-morphism.
+
+Proof outline: Use native identity linear maps as identity-semilinear maps and reflexivity for all three defining equations.
+
+API:
+
+- **TwoForms.Morphism.refl_one**: The degree-one map of refl(Ω) sends every ω∈W to ω.
+- **TwoForms.Morphism.refl_two**: The degree-two map of refl(Ω) sends every η∈Z to η.
+- **Preconnection.semilinearHorizontal_refl**: The identity module map is horizontal from D to D over refl(Ω).
+
+Unit tests:
+
+- **TwoForms.Morphism.refl.test_degree_one**: The identity comparison sends ω to ω in degree one.
+- **TwoForms.Morphism.refl.test_degree_two**: The identity comparison sends η to η in degree two.
+- **TwoForms.Morphism.refl.test_differential**: The identity ring map and identity one-form map commute with d₀ on every a.
+
+## Identity on one-forms
+
+**TwoForms.Morphism.refl_one** — The degree-one map of refl(Ω) sends every ω∈W to ω.
+
+Hypotheses: k,R,S (and T for composition) are commutative rings; R,S,T are k-algebras. W,V,P are degree-one modules with their specified k-module actions, and Z,Y,Q are degree-two modules. E,F,G are native modules over their respective coefficient rings with additive commutative groups. No finite generation, basis, field, characteristic, smoothness, projectivity or flatness hypothesis is imposed. Ω,Γ,Δ are the existing supplied TwoForms calculi: derivation d₀, additive d₁, alternating bilinear wedge, the degree-one Leibniz identity, and d₁d₀=0. The ring maps f,g are genuine ring homomorphisms. The three compatibility equations are explicit input data on native semilinear maps; universal forms and sheaf pullback remain supplier obligations. D,C,B are actual additive preconnections with parameters λ,f(λ),(g∘f)(λ). Their k-module scalar towers are compatible. No relatively constant parameter is needed for additive exterior-extension or curvature naturality; only curvatureLinear requires the explicit condition d₀λ=0. Flatness on the image is distinct from flatness on every target section. The forward all-target implication states surjectivity of h; reflection states injectivity of the actual degree-two tensor comparison. No nonfaithful scalar extension is claimed to detect curvature.
+
+Prerequisites: HodgeStructuresPartII:H.0/calculus-ring-identity.
+
+Proof outline: Evaluate the actual identity map.
+
+## Identity on two-forms
+
+**TwoForms.Morphism.refl_two** — The degree-two map of refl(Ω) sends every η∈Z to η.
+
+Hypotheses: k,R,S (and T for composition) are commutative rings; R,S,T are k-algebras. W,V,P are degree-one modules with their specified k-module actions, and Z,Y,Q are degree-two modules. E,F,G are native modules over their respective coefficient rings with additive commutative groups. No finite generation, basis, field, characteristic, smoothness, projectivity or flatness hypothesis is imposed. Ω,Γ,Δ are the existing supplied TwoForms calculi: derivation d₀, additive d₁, alternating bilinear wedge, the degree-one Leibniz identity, and d₁d₀=0. The ring maps f,g are genuine ring homomorphisms. The three compatibility equations are explicit input data on native semilinear maps; universal forms and sheaf pullback remain supplier obligations. D,C,B are actual additive preconnections with parameters λ,f(λ),(g∘f)(λ). Their k-module scalar towers are compatible. No relatively constant parameter is needed for additive exterior-extension or curvature naturality; only curvatureLinear requires the explicit condition d₀λ=0. Flatness on the image is distinct from flatness on every target section. The forward all-target implication states surjectivity of h; reflection states injectivity of the actual degree-two tensor comparison. No nonfaithful scalar extension is claimed to detect curvature.
+
+Prerequisites: HodgeStructuresPartII:H.0/calculus-ring-identity.
+
+Proof outline: Evaluate the actual identity map.
+
+## Constant parameters survive calculus comparison
+
+**TwoForms.Morphism.constant_parameter** — For m:Morphism(f,Ω,Γ), dΩ,₀λ=0 implies dΓ,₀(f(λ))=0.
+
+Hypotheses: k,R,S (and T for composition) are commutative rings; R,S,T are k-algebras. W,V,P are degree-one modules with their specified k-module actions, and Z,Y,Q are degree-two modules. E,F,G are native modules over their respective coefficient rings with additive commutative groups. No finite generation, basis, field, characteristic, smoothness, projectivity or flatness hypothesis is imposed. Ω,Γ,Δ are the existing supplied TwoForms calculi: derivation d₀, additive d₁, alternating bilinear wedge, the degree-one Leibniz identity, and d₁d₀=0. The ring maps f,g are genuine ring homomorphisms. The three compatibility equations are explicit input data on native semilinear maps; universal forms and sheaf pullback remain supplier obligations. D,C,B are actual additive preconnections with parameters λ,f(λ),(g∘f)(λ). Their k-module scalar towers are compatible. No relatively constant parameter is needed for additive exterior-extension or curvature naturality; only curvatureLinear requires the explicit condition d₀λ=0. Flatness on the image is distinct from flatness on every target section. The forward all-target implication states surjectivity of h; reflection states injectivity of the actual degree-two tensor comparison. No nonfaithful scalar extension is claimed to detect curvature.
+
+Prerequisites: HodgeStructuresPartII:H.0/calculus-ring-morphism.
+
+Proof outline: Apply the degree-zero differential equation to λ and preservation of zero by β₁.
+
+## Composition of coefficient-ring comparisons
+
+**TwoForms.Morphism.comp** — For m:Morphism(f,Ω,Γ) and n:Morphism(g,Γ,Δ), n.comp(m) is the actual comparison over g∘f, with one-form map n₁∘m₁ and two-form map n₂∘m₂. Every differential/wedge equation follows by composition of the corresponding two equations.
+
+Hypotheses: k,R,S (and T for composition) are commutative rings; R,S,T are k-algebras. W,V,P are degree-one modules with their specified k-module actions, and Z,Y,Q are degree-two modules. E,F,G are native modules over their respective coefficient rings with additive commutative groups. No finite generation, basis, field, characteristic, smoothness, projectivity or flatness hypothesis is imposed. Ω,Γ,Δ are the existing supplied TwoForms calculi: derivation d₀, additive d₁, alternating bilinear wedge, the degree-one Leibniz identity, and d₁d₀=0. The ring maps f,g are genuine ring homomorphisms. The three compatibility equations are explicit input data on native semilinear maps; universal forms and sheaf pullback remain supplier obligations. D,C,B are actual additive preconnections with parameters λ,f(λ),(g∘f)(λ). Their k-module scalar towers are compatible. No relatively constant parameter is needed for additive exterior-extension or curvature naturality; only curvatureLinear requires the explicit condition d₀λ=0. Flatness on the image is distinct from flatness on every target section. The forward all-target implication states surjectivity of h; reflection states injectivity of the actual degree-two tensor comparison. No nonfaithful scalar extension is claimed to detect curvature.
+
+Prerequisites: HodgeStructuresPartII:H.0/calculus-ring-morphism, mathlib:LinearMap.comp, mathlib:RingHomCompTriple.
+
+Proof outline: Use the native semilinear composition and the reflexive ring-hom composition witness. Substitute the first comparison equation into the second in each of the three defining laws.
+
+API:
+
+- **TwoForms.Morphism.comp_one**: The degree-one map of n.comp(m) sends ω to n₁(m₁ω).
+- **TwoForms.Morphism.comp_two**: The degree-two map of n.comp(m) sends η to n₂(m₂η).
+- **Preconnection.semilinearHorizontal_comp**: If h is horizontal from D to C over m and i is horizontal from C to B over n, then i∘h is horizontal from D to B over n.comp(m). The final parameter is (g∘f)(λ).
+
+Unit tests:
+
+- **TwoForms.Morphism.comp.test_left_identity**: Composing m with the target identity leaves its one-form map unchanged on ω.
+- **TwoForms.Morphism.comp.test_right_identity**: Composing m with the source identity leaves its two-form map unchanged on η.
+- **TwoForms.Morphism.comp.test_differential**: The left identity composite commutes with d₀ at the actual composite coefficient-ring map.
+
+## Composed one-form evaluation
+
+**TwoForms.Morphism.comp_one** — The degree-one map of n.comp(m) sends ω to n₁(m₁ω).
+
+Hypotheses: k,R,S (and T for composition) are commutative rings; R,S,T are k-algebras. W,V,P are degree-one modules with their specified k-module actions, and Z,Y,Q are degree-two modules. E,F,G are native modules over their respective coefficient rings with additive commutative groups. No finite generation, basis, field, characteristic, smoothness, projectivity or flatness hypothesis is imposed. Ω,Γ,Δ are the existing supplied TwoForms calculi: derivation d₀, additive d₁, alternating bilinear wedge, the degree-one Leibniz identity, and d₁d₀=0. The ring maps f,g are genuine ring homomorphisms. The three compatibility equations are explicit input data on native semilinear maps; universal forms and sheaf pullback remain supplier obligations. D,C,B are actual additive preconnections with parameters λ,f(λ),(g∘f)(λ). Their k-module scalar towers are compatible. No relatively constant parameter is needed for additive exterior-extension or curvature naturality; only curvatureLinear requires the explicit condition d₀λ=0. Flatness on the image is distinct from flatness on every target section. The forward all-target implication states surjectivity of h; reflection states injectivity of the actual degree-two tensor comparison. No nonfaithful scalar extension is claimed to detect curvature.
+
+Prerequisites: HodgeStructuresPartII:H.0/calculus-ring-composition.
+
+Proof outline: Unfold native semilinear composition.
+
+## Composed two-form evaluation
+
+**TwoForms.Morphism.comp_two** — The degree-two map of n.comp(m) sends η to n₂(m₂η).
+
+Hypotheses: k,R,S (and T for composition) are commutative rings; R,S,T are k-algebras. W,V,P are degree-one modules with their specified k-module actions, and Z,Y,Q are degree-two modules. E,F,G are native modules over their respective coefficient rings with additive commutative groups. No finite generation, basis, field, characteristic, smoothness, projectivity or flatness hypothesis is imposed. Ω,Γ,Δ are the existing supplied TwoForms calculi: derivation d₀, additive d₁, alternating bilinear wedge, the degree-one Leibniz identity, and d₁d₀=0. The ring maps f,g are genuine ring homomorphisms. The three compatibility equations are explicit input data on native semilinear maps; universal forms and sheaf pullback remain supplier obligations. D,C,B are actual additive preconnections with parameters λ,f(λ),(g∘f)(λ). Their k-module scalar towers are compatible. No relatively constant parameter is needed for additive exterior-extension or curvature naturality; only curvatureLinear requires the explicit condition d₀λ=0. Flatness on the image is distinct from flatness on every target section. The forward all-target implication states surjectivity of h; reflection states injectivity of the actual degree-two tensor comparison. No nonfaithful scalar extension is claimed to detect curvature.
+
+Prerequisites: HodgeStructuresPartII:H.0/calculus-ring-composition.
+
+Proof outline: Unfold native semilinear composition.
+
+## Horizontal maps across coefficient rings
+
+**Preconnection.SemilinearHorizontal** — For D a λ-preconnection over Ω, C an f(λ)-preconnection over Γ, and an actual f-semilinear h:E→F, SemilinearHorizontal(m,D,C,h) means C(h(e))=(h⊗β₁)(D(e)) for every e. Both tensors and their comparison are the native tensor product and native semilinear tensor map.
+
+Hypotheses: k,R,S (and T for composition) are commutative rings; R,S,T are k-algebras. W,V,P are degree-one modules with their specified k-module actions, and Z,Y,Q are degree-two modules. E,F,G are native modules over their respective coefficient rings with additive commutative groups. No finite generation, basis, field, characteristic, smoothness, projectivity or flatness hypothesis is imposed. Ω,Γ,Δ are the existing supplied TwoForms calculi: derivation d₀, additive d₁, alternating bilinear wedge, the degree-one Leibniz identity, and d₁d₀=0. The ring maps f,g are genuine ring homomorphisms. The three compatibility equations are explicit input data on native semilinear maps; universal forms and sheaf pullback remain supplier obligations. D,C,B are actual additive preconnections with parameters λ,f(λ),(g∘f)(λ). Their k-module scalar towers are compatible. No relatively constant parameter is needed for additive exterior-extension or curvature naturality; only curvatureLinear requires the explicit condition d₀λ=0. Flatness on the image is distinct from flatness on every target section. The forward all-target implication states surjectivity of h; reflection states injectivity of the actual degree-two tensor comparison. No nonfaithful scalar extension is claimed to detect curvature.
+
+Prerequisites: HodgeStructuresPartII:H.0/calculus-ring-morphism, HodgeStructuresPartII:H.0/intrinsic-preconnection, mathlib:TensorProduct.map.
+
+Proof outline: Specify the displayed equality of actual additive operators. The target parameter is f(λ); horizontality is a separate relation and does not make D R-linear.
+
+API:
+
+- **Preconnection.semilinearHorizontal_refl**: The identity module map is horizontal from D to D over refl(Ω).
+- **Preconnection.semilinearHorizontal_unit**: For any m:Morphism(f,Ω,Γ), the native semilinear map f:R→S is horizontal from unit(Ω,λ) to unit(Γ,f(λ)). No injectivity, surjectivity or flatness of f is required.
+- **Preconnection.extend_semilinear**: If h is semilinearly horizontal over m, then C.extend((h⊗β₁)x)=(h⊗β₂)(D.extend(x)) for every x∈E⊗_R W. This is equality of actual additive maps; neither extension is assumed linear.
+- **Preconnection.curvature_semilinear**: If h is semilinearly horizontal over m, then κ_C(h(e))=(h⊗β₂)(κ_D(e)) for every e. The equation holds for arbitrary λ and requires no d₀λ=0.
+- **Preconnection.flat_reflect**: If h is semilinearly horizontal, h⊗β₂:E⊗_R Z→F⊗_S Y is injective, and κ_C=0, then κ_D=0. Injectivity of h or of f alone is not asserted to imply injectivity of this tensor map.
+- **Preconnection.semilinearHorizontal_comp**: If h is horizontal from D to C over m and i is horizontal from C to B over n, then i∘h is horizontal from D to B over n.comp(m). The final parameter is (g∘f)(λ).
+
+Unit tests:
+
+- **Preconnection.SemilinearHorizontal.test_identity**: The native identity map is horizontal for every D.
+- **Preconnection.SemilinearHorizontal.test_unit**: For every m, native f is horizontal between the unit λ and f(λ) preconnections.
+- **Preconnection.SemilinearHorizontal.test_zero_map**: The native zero semilinear map is horizontal between arbitrary D and C with the matching parameters.
+
+## Identity is horizontal
+
+**Preconnection.semilinearHorizontal_refl** — The identity module map is horizontal from D to D over refl(Ω).
+
+Hypotheses: k,R,S (and T for composition) are commutative rings; R,S,T are k-algebras. W,V,P are degree-one modules with their specified k-module actions, and Z,Y,Q are degree-two modules. E,F,G are native modules over their respective coefficient rings with additive commutative groups. No finite generation, basis, field, characteristic, smoothness, projectivity or flatness hypothesis is imposed. Ω,Γ,Δ are the existing supplied TwoForms calculi: derivation d₀, additive d₁, alternating bilinear wedge, the degree-one Leibniz identity, and d₁d₀=0. The ring maps f,g are genuine ring homomorphisms. The three compatibility equations are explicit input data on native semilinear maps; universal forms and sheaf pullback remain supplier obligations. D,C,B are actual additive preconnections with parameters λ,f(λ),(g∘f)(λ). Their k-module scalar towers are compatible. No relatively constant parameter is needed for additive exterior-extension or curvature naturality; only curvatureLinear requires the explicit condition d₀λ=0. Flatness on the image is distinct from flatness on every target section. The forward all-target implication states surjectivity of h; reflection states injectivity of the actual degree-two tensor comparison. No nonfaithful scalar extension is claimed to detect curvature.
+
+Prerequisites: HodgeStructuresPartII:H.0/semilinear-horizontal, HodgeStructuresPartII:H.0/calculus-ring-identity, mathlib:TensorProduct.map.
+
+Proof outline: Reduce the native tensor of the two identity maps to the identity.
+
+## Unit parameter connections are horizontal
+
+**Preconnection.semilinearHorizontal_unit** — For any m:Morphism(f,Ω,Γ), the native semilinear map f:R→S is horizontal from unit(Ω,λ) to unit(Γ,f(λ)). No injectivity, surjectivity or flatness of f is required.
+
+Hypotheses: k,R,S (and T for composition) are commutative rings; R,S,T are k-algebras. W,V,P are degree-one modules with their specified k-module actions, and Z,Y,Q are degree-two modules. E,F,G are native modules over their respective coefficient rings with additive commutative groups. No finite generation, basis, field, characteristic, smoothness, projectivity or flatness hypothesis is imposed. Ω,Γ,Δ are the existing supplied TwoForms calculi: derivation d₀, additive d₁, alternating bilinear wedge, the degree-one Leibniz identity, and d₁d₀=0. The ring maps f,g are genuine ring homomorphisms. The three compatibility equations are explicit input data on native semilinear maps; universal forms and sheaf pullback remain supplier obligations. D,C,B are actual additive preconnections with parameters λ,f(λ),(g∘f)(λ). Their k-module scalar towers are compatible. No relatively constant parameter is needed for additive exterior-extension or curvature naturality; only curvatureLinear requires the explicit condition d₀λ=0. Flatness on the image is distinct from flatness on every target section. The forward all-target implication states surjectivity of h; reflection states injectivity of the actual degree-two tensor comparison. No nonfaithful scalar extension is claimed to detect curvature.
+
+Prerequisites: HodgeStructuresPartII:H.0/semilinear-horizontal, HodgeStructuresPartII:H.0/unit-connection, mathlib:RingHom.toSemilinearMap, mathlib:TensorProduct.map_tmul.
+
+Proof outline: Evaluate the unit formula λ(1⊗d₀a). Semilinearity sends λ to f(λ), f(1)=1, and the degree-zero compatibility gives dΓ,₀f(a)=β₁dΩ,₀a.
+
+## Right wedge commutes with ring comparison
+
+**TwoForms.Morphism.wedgeRight_natural** — For every x∈E⊗_R W and ω∈W, wedgeRightΓ(β₁ω)((h⊗β₁)x)=(h⊗β₂)(wedgeRightΩ(ω)x). The convention is α∧ω on e⊗α.
+
+Hypotheses: k,R,S (and T for composition) are commutative rings; R,S,T are k-algebras. W,V,P are degree-one modules with their specified k-module actions, and Z,Y,Q are degree-two modules. E,F,G are native modules over their respective coefficient rings with additive commutative groups. No finite generation, basis, field, characteristic, smoothness, projectivity or flatness hypothesis is imposed. Ω,Γ,Δ are the existing supplied TwoForms calculi: derivation d₀, additive d₁, alternating bilinear wedge, the degree-one Leibniz identity, and d₁d₀=0. The ring maps f,g are genuine ring homomorphisms. The three compatibility equations are explicit input data on native semilinear maps; universal forms and sheaf pullback remain supplier obligations. D,C,B are actual additive preconnections with parameters λ,f(λ),(g∘f)(λ). Their k-module scalar towers are compatible. No relatively constant parameter is needed for additive exterior-extension or curvature naturality; only curvatureLinear requires the explicit condition d₀λ=0. Flatness on the image is distinct from flatness on every target section. The forward all-target implication states surjectivity of h; reflection states injectivity of the actual degree-two tensor comparison. No nonfaithful scalar extension is claimed to detect curvature.
+
+Prerequisites: HodgeStructuresPartII:H.0/calculus-ring-morphism, HodgeStructuresPartII:H.0/wedge-right, HodgeStructuresPartII:H.0/wedge-right-tmul, mathlib:TensorProduct.map, mathlib:TensorProduct.map_tmul, mathlib:TensorProduct.induction_on.
+
+Proof outline: Induct on the actual tensor. The elementary-tensor case is exactly the defining wedge comparison; zero and sums follow by additivity.
+
+## Exterior extension across coefficient rings
+
+**Preconnection.extend_semilinear** — If h is semilinearly horizontal over m, then C.extend((h⊗β₁)x)=(h⊗β₂)(D.extend(x)) for every x∈E⊗_R W. This is equality of actual additive maps; neither extension is assumed linear.
+
+Hypotheses: k,R,S (and T for composition) are commutative rings; R,S,T are k-algebras. W,V,P are degree-one modules with their specified k-module actions, and Z,Y,Q are degree-two modules. E,F,G are native modules over their respective coefficient rings with additive commutative groups. No finite generation, basis, field, characteristic, smoothness, projectivity or flatness hypothesis is imposed. Ω,Γ,Δ are the existing supplied TwoForms calculi: derivation d₀, additive d₁, alternating bilinear wedge, the degree-one Leibniz identity, and d₁d₀=0. The ring maps f,g are genuine ring homomorphisms. The three compatibility equations are explicit input data on native semilinear maps; universal forms and sheaf pullback remain supplier obligations. D,C,B are actual additive preconnections with parameters λ,f(λ),(g∘f)(λ). Their k-module scalar towers are compatible. No relatively constant parameter is needed for additive exterior-extension or curvature naturality; only curvatureLinear requires the explicit condition d₀λ=0. Flatness on the image is distinct from flatness on every target section. The forward all-target implication states surjectivity of h; reflection states injectivity of the actual degree-two tensor comparison. No nonfaithful scalar extension is claimed to detect curvature.
+
+Prerequisites: HodgeStructuresPartII:H.0/semilinear-horizontal, HodgeStructuresPartII:H.0/calculus-ring-wedge-right, HodgeStructuresPartII:H.0/exterior-extension, HodgeStructuresPartII:H.0/affine-exterior-extension-tmul, mathlib:TensorProduct.map_tmul, mathlib:TensorProduct.induction_on.
+
+Proof outline: Induct on tensors. On e⊗ω, expand D.extend as D(e)∧ω+λe⊗d₁ω; use horizontality, wedge naturality, d₁ compatibility and the f-semilinear image of λ.
+
+## Curvature across coefficient rings
+
+**Preconnection.curvature_semilinear** — If h is semilinearly horizontal over m, then κ_C(h(e))=(h⊗β₂)(κ_D(e)) for every e. The equation holds for arbitrary λ and requires no d₀λ=0.
+
+Hypotheses: k,R,S (and T for composition) are commutative rings; R,S,T are k-algebras. W,V,P are degree-one modules with their specified k-module actions, and Z,Y,Q are degree-two modules. E,F,G are native modules over their respective coefficient rings with additive commutative groups. No finite generation, basis, field, characteristic, smoothness, projectivity or flatness hypothesis is imposed. Ω,Γ,Δ are the existing supplied TwoForms calculi: derivation d₀, additive d₁, alternating bilinear wedge, the degree-one Leibniz identity, and d₁d₀=0. The ring maps f,g are genuine ring homomorphisms. The three compatibility equations are explicit input data on native semilinear maps; universal forms and sheaf pullback remain supplier obligations. D,C,B are actual additive preconnections with parameters λ,f(λ),(g∘f)(λ). Their k-module scalar towers are compatible. No relatively constant parameter is needed for additive exterior-extension or curvature naturality; only curvatureLinear requires the explicit condition d₀λ=0. Flatness on the image is distinct from flatness on every target section. The forward all-target implication states surjectivity of h; reflection states injectivity of the actual degree-two tensor comparison. No nonfaithful scalar extension is claimed to detect curvature.
+
+Prerequisites: HodgeStructuresPartII:H.0/semilinear-extension, HodgeStructuresPartII:H.0/intrinsic-curvature, HodgeStructuresPartII:H.0/affine-curvature-apply.
+
+Proof outline: Unfold curvature as the composite of the actual exterior extension with D; apply horizontality and extension naturality.
+
+Unit tests:
+
+- **Preconnection.curvature_semilinear.test_identity**: The identity tensor comparison sends κ_D(e) to κ_D(e).
+
+## Flatness on the horizontal image
+
+**Preconnection.flat_on_image** — If κ_D=0 and h is semilinearly horizontal over m, then κ_C(h(e))=0 for every e. This only asserts flatness on the image of h.
+
+Hypotheses: k,R,S (and T for composition) are commutative rings; R,S,T are k-algebras. W,V,P are degree-one modules with their specified k-module actions, and Z,Y,Q are degree-two modules. E,F,G are native modules over their respective coefficient rings with additive commutative groups. No finite generation, basis, field, characteristic, smoothness, projectivity or flatness hypothesis is imposed. Ω,Γ,Δ are the existing supplied TwoForms calculi: derivation d₀, additive d₁, alternating bilinear wedge, the degree-one Leibniz identity, and d₁d₀=0. The ring maps f,g are genuine ring homomorphisms. The three compatibility equations are explicit input data on native semilinear maps; universal forms and sheaf pullback remain supplier obligations. D,C,B are actual additive preconnections with parameters λ,f(λ),(g∘f)(λ). Their k-module scalar towers are compatible. No relatively constant parameter is needed for additive exterior-extension or curvature naturality; only curvatureLinear requires the explicit condition d₀λ=0. Flatness on the image is distinct from flatness on every target section. The forward all-target implication states surjectivity of h; reflection states injectivity of the actual degree-two tensor comparison. No nonfaithful scalar extension is claimed to detect curvature.
+
+Prerequisites: HodgeStructuresPartII:H.0/semilinear-curvature.
+
+Proof outline: Apply curvature naturality to κ_D(e)=0 and map zero.
+
+## Surjective horizontal maps preserve flatness
+
+**Preconnection.flat_of_surjective** — If h is semilinearly horizontal and surjective as a function, and κ_D=0, then κ_C=0 on all of F.
+
+Hypotheses: k,R,S (and T for composition) are commutative rings; R,S,T are k-algebras. W,V,P are degree-one modules with their specified k-module actions, and Z,Y,Q are degree-two modules. E,F,G are native modules over their respective coefficient rings with additive commutative groups. No finite generation, basis, field, characteristic, smoothness, projectivity or flatness hypothesis is imposed. Ω,Γ,Δ are the existing supplied TwoForms calculi: derivation d₀, additive d₁, alternating bilinear wedge, the degree-one Leibniz identity, and d₁d₀=0. The ring maps f,g are genuine ring homomorphisms. The three compatibility equations are explicit input data on native semilinear maps; universal forms and sheaf pullback remain supplier obligations. D,C,B are actual additive preconnections with parameters λ,f(λ),(g∘f)(λ). Their k-module scalar towers are compatible. No relatively constant parameter is needed for additive exterior-extension or curvature naturality; only curvatureLinear requires the explicit condition d₀λ=0. Flatness on the image is distinct from flatness on every target section. The forward all-target implication states surjectivity of h; reflection states injectivity of the actual degree-two tensor comparison. No nonfaithful scalar extension is claimed to detect curvature.
+
+Prerequisites: HodgeStructuresPartII:H.0/semilinear-flat-image.
+
+Proof outline: For each x∈F choose e with h(e)=x and apply flatness on the image. No surjectivity of the ring map alone is substituted for surjectivity of h.
+
+## Injective curvature comparison reflects flatness
+
+**Preconnection.flat_reflect** — If h is semilinearly horizontal, h⊗β₂:E⊗_R Z→F⊗_S Y is injective, and κ_C=0, then κ_D=0. Injectivity of h or of f alone is not asserted to imply injectivity of this tensor map.
+
+Hypotheses: k,R,S (and T for composition) are commutative rings; R,S,T are k-algebras. W,V,P are degree-one modules with their specified k-module actions, and Z,Y,Q are degree-two modules. E,F,G are native modules over their respective coefficient rings with additive commutative groups. No finite generation, basis, field, characteristic, smoothness, projectivity or flatness hypothesis is imposed. Ω,Γ,Δ are the existing supplied TwoForms calculi: derivation d₀, additive d₁, alternating bilinear wedge, the degree-one Leibniz identity, and d₁d₀=0. The ring maps f,g are genuine ring homomorphisms. The three compatibility equations are explicit input data on native semilinear maps; universal forms and sheaf pullback remain supplier obligations. D,C,B are actual additive preconnections with parameters λ,f(λ),(g∘f)(λ). Their k-module scalar towers are compatible. No relatively constant parameter is needed for additive exterior-extension or curvature naturality; only curvatureLinear requires the explicit condition d₀λ=0. Flatness on the image is distinct from flatness on every target section. The forward all-target implication states surjectivity of h; reflection states injectivity of the actual degree-two tensor comparison. No nonfaithful scalar extension is claimed to detect curvature.
+
+Prerequisites: HodgeStructuresPartII:H.0/semilinear-curvature.
+
+Proof outline: Curvature naturality identifies the image of κ_D(e) with zero. Use injectivity of the actual degree-two tensor map to detect zero.
+
+Unit tests:
+
+- **Preconnection.flat_reflect.test_identity**: Identity comparison has an injective degree-two tensor map and reflects the actual curvature-zero equation.
+
+## Flatness equivalence with explicit detection
+
+**Preconnection.flat_semilinear_iff** — When h is semilinearly horizontal and surjective, and h⊗β₂ is injective, κ_C=0 if and only if κ_D=0.
+
+Hypotheses: k,R,S (and T for composition) are commutative rings; R,S,T are k-algebras. W,V,P are degree-one modules with their specified k-module actions, and Z,Y,Q are degree-two modules. E,F,G are native modules over their respective coefficient rings with additive commutative groups. No finite generation, basis, field, characteristic, smoothness, projectivity or flatness hypothesis is imposed. Ω,Γ,Δ are the existing supplied TwoForms calculi: derivation d₀, additive d₁, alternating bilinear wedge, the degree-one Leibniz identity, and d₁d₀=0. The ring maps f,g are genuine ring homomorphisms. The three compatibility equations are explicit input data on native semilinear maps; universal forms and sheaf pullback remain supplier obligations. D,C,B are actual additive preconnections with parameters λ,f(λ),(g∘f)(λ). Their k-module scalar towers are compatible. No relatively constant parameter is needed for additive exterior-extension or curvature naturality; only curvatureLinear requires the explicit condition d₀λ=0. Flatness on the image is distinct from flatness on every target section. The forward all-target implication states surjectivity of h; reflection states injectivity of the actual degree-two tensor comparison. No nonfaithful scalar extension is claimed to detect curvature.
+
+Prerequisites: HodgeStructuresPartII:H.0/semilinear-flat-surjective, HodgeStructuresPartII:H.0/semilinear-flat-reflection.
+
+Proof outline: Combine the two preceding implications, retaining both separate hypotheses.
+
+## Constant-parameter curvature-map comparison
+
+**Preconnection.curvatureLinear_semilinear** — If dΩ,₀λ=0 and h is semilinearly horizontal over m, then curvatureLinear_C(h(e))=(h⊗β₂)(curvatureLinear_D(e)). The target constant-parameter proof is the actual consequence dΓ,₀f(λ)=0.
+
+Hypotheses: k,R,S (and T for composition) are commutative rings; R,S,T are k-algebras. W,V,P are degree-one modules with their specified k-module actions, and Z,Y,Q are degree-two modules. E,F,G are native modules over their respective coefficient rings with additive commutative groups. No finite generation, basis, field, characteristic, smoothness, projectivity or flatness hypothesis is imposed. Ω,Γ,Δ are the existing supplied TwoForms calculi: derivation d₀, additive d₁, alternating bilinear wedge, the degree-one Leibniz identity, and d₁d₀=0. The ring maps f,g are genuine ring homomorphisms. The three compatibility equations are explicit input data on native semilinear maps; universal forms and sheaf pullback remain supplier obligations. D,C,B are actual additive preconnections with parameters λ,f(λ),(g∘f)(λ). Their k-module scalar towers are compatible. No relatively constant parameter is needed for additive exterior-extension or curvature naturality; only curvatureLinear requires the explicit condition d₀λ=0. Flatness on the image is distinct from flatness on every target section. The forward all-target implication states surjectivity of h; reflection states injectivity of the actual degree-two tensor comparison. No nonfaithful scalar extension is claimed to detect curvature.
+
+Prerequisites: HodgeStructuresPartII:H.0/semilinear-curvature, HodgeStructuresPartII:H.0/calculus-ring-constant-parameter, HodgeStructuresPartII:H.0/affine-curvature-linear-map.
+
+Proof outline: Use constant-parameter preservation and the exact curvature naturality equation; the existing curvatureLinear evaluation identifies each linear map with its additive curvature.
+
+## Native tensor comparison composes
+
+**TwoForms.Morphism.tensorMap_comp** — For semilinear h over f and i over g, ((i∘h)⊗(n.comp(m))₁)(x)=(i⊗n₁)((h⊗m₁)(x)) for every x∈E⊗_R W.
+
+Hypotheses: k,R,S (and T for composition) are commutative rings; R,S,T are k-algebras. W,V,P are degree-one modules with their specified k-module actions, and Z,Y,Q are degree-two modules. E,F,G are native modules over their respective coefficient rings with additive commutative groups. No finite generation, basis, field, characteristic, smoothness, projectivity or flatness hypothesis is imposed. Ω,Γ,Δ are the existing supplied TwoForms calculi: derivation d₀, additive d₁, alternating bilinear wedge, the degree-one Leibniz identity, and d₁d₀=0. The ring maps f,g are genuine ring homomorphisms. The three compatibility equations are explicit input data on native semilinear maps; universal forms and sheaf pullback remain supplier obligations. D,C,B are actual additive preconnections with parameters λ,f(λ),(g∘f)(λ). Their k-module scalar towers are compatible. No relatively constant parameter is needed for additive exterior-extension or curvature naturality; only curvatureLinear requires the explicit condition d₀λ=0. Flatness on the image is distinct from flatness on every target section. The forward all-target implication states surjectivity of h; reflection states injectivity of the actual degree-two tensor comparison. No nonfaithful scalar extension is claimed to detect curvature.
+
+Prerequisites: HodgeStructuresPartII:H.0/calculus-ring-composition, mathlib:LinearMap.comp, mathlib:RingHomCompTriple, mathlib:TensorProduct.map_tmul, mathlib:TensorProduct.induction_on.
+
+Proof outline: Induct on the native tensor; both sides evaluate to i(h(e))⊗n₁(m₁ω) on e⊗ω.
+
+## Horizontal coefficient-ring maps compose
+
+**Preconnection.semilinearHorizontal_comp** — If h is horizontal from D to C over m and i is horizontal from C to B over n, then i∘h is horizontal from D to B over n.comp(m). The final parameter is (g∘f)(λ).
+
+Hypotheses: k,R,S (and T for composition) are commutative rings; R,S,T are k-algebras. W,V,P are degree-one modules with their specified k-module actions, and Z,Y,Q are degree-two modules. E,F,G are native modules over their respective coefficient rings with additive commutative groups. No finite generation, basis, field, characteristic, smoothness, projectivity or flatness hypothesis is imposed. Ω,Γ,Δ are the existing supplied TwoForms calculi: derivation d₀, additive d₁, alternating bilinear wedge, the degree-one Leibniz identity, and d₁d₀=0. The ring maps f,g are genuine ring homomorphisms. The three compatibility equations are explicit input data on native semilinear maps; universal forms and sheaf pullback remain supplier obligations. D,C,B are actual additive preconnections with parameters λ,f(λ),(g∘f)(λ). Their k-module scalar towers are compatible. No relatively constant parameter is needed for additive exterior-extension or curvature naturality; only curvatureLinear requires the explicit condition d₀λ=0. Flatness on the image is distinct from flatness on every target section. The forward all-target implication states surjectivity of h; reflection states injectivity of the actual degree-two tensor comparison. No nonfaithful scalar extension is claimed to detect curvature.
+
+Prerequisites: HodgeStructuresPartII:H.0/semilinear-horizontal, HodgeStructuresPartII:H.0/semilinear-tensor-map-composition.
+
+Proof outline: Substitute the two actual horizontal equations and apply the native tensor-composition equation. The composite is a native semilinear map, not a stored assertion of naturality.
+
 # Hodge Structures Part II: affine coordinate and curvature continuation
 
 Codex — codex-5ebb6f; Refs #3371. This is a partial plan at immutable input bc09ee60ffaaf17ea3a32ae1dce51b92a58430ad.
