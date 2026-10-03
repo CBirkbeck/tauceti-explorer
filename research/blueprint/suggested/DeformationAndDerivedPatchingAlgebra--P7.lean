@@ -4900,3 +4900,195 @@ example (q : Ideal A) {ι : Type*} (a : ι → q)
 
 end
 end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+noncomputable section
+set_option backward.isDefEq.respectTransparency.types false
+variable {A : Type*} [CommRing A]
+variable (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M]
+
+noncomputable def adicReesMonomial (n : ℕ) :
+    ↥(q ^ n • (⊤ : Submodule A M)) →ₗ[A] adicReesModule q M :=
+  LinearMap.codRestrict
+    (((q.stableFiltration (⊤ : Submodule A M)).submodule).restrictScalars A)
+    ((PolynomialModule.lsingle A n).domRestrict (q ^ n • (⊤ : Submodule A M))) (by
+    intro m i
+    dsimp only [Ideal.stableFiltration]
+    change (PolynomialModule.single A n (m : M)).coeff i ∈ _
+    by_cases h : n = i
+    · subst i; simp only [PolynomialModule.coeff_single, Finsupp.single_eq_same]; exact m.property
+    · simp [PolynomialModule.coeff_single, h])
+
+lemma adicReesMonomial_coe (n : ℕ) (m : ↥(q ^ n • (⊤ : Submodule A M))) :
+    (adicReesMonomial q M n m : PolynomialModule A M) = PolynomialModule.single A n (m : M) := by
+  sorry
+
+lemma adicReesMonomial_add (n : ℕ) (m m' : ↥(q ^ n • (⊤ : Submodule A M))) :
+    adicReesMonomial q M n (m + m') = adicReesMonomial q M n m + adicReesMonomial q M n m' := by
+  sorry
+
+lemma adicReesMonomial_smul (n : ℕ) (a : A) (m : ↥(q ^ n • (⊤ : Submodule A M))) :
+    adicReesMonomial q M n (a • m) = a • adicReesMonomial q M n m := by
+  sorry
+
+noncomputable def adicReesConstant : M →ₗ[A] adicReesModule q M :=
+  LinearMap.codRestrict
+    (((q.stableFiltration (⊤ : Submodule A M)).submodule).restrictScalars A)
+    (PolynomialModule.lsingle A 0) (by
+    intro m i
+    change (PolynomialModule.single A 0 m).coeff i ∈ q ^ i • (⊤ : Submodule A M)
+    by_cases h : 0 = i
+    · subst i; simp
+    · simp [h])
+
+lemma adicReesConstant_coe (m : M) :
+    (adicReesConstant q M m : PolynomialModule A M) = PolynomialModule.single A 0 m := by
+  sorry
+
+lemma adicReesConstant_injective : Function.Injective (adicReesConstant q M) := by
+  sorry
+
+lemma adicReesConstant_span :
+    Submodule.span (reesAlgebra q) (Set.range (adicReesConstant q M)) = ⊤ := by
+  sorry
+
+noncomputable def adicReesToGradedModule :
+    adicReesModule q M →ₛₗ[Ideal.Quotient.mk (reesCoefficientIdeal q)] adicGradedModule q M where
+  toFun := fun f => Submodule.Quotient.mk (R := reesAlgebra q) f
+  map_add' := fun _ _ => rfl
+  map_smul' := fun _ _ => rfl
+
+lemma adicReesToGradedModule_surjective : Function.Surjective (adicReesToGradedModule q M) := by
+  sorry
+
+lemma adicReesToGradedModule_eq_iff (f g : adicReesModule q M) :
+    adicReesToGradedModule q M f = adicReesToGradedModule q M g ↔
+      (adicModuleDenominator q M).quotientRel f g := by
+  sorry
+
+lemma adicReesToGradedModule_smul (r : reesAlgebra q) (f : adicReesModule q M) :
+    adicReesToGradedModule q M (r • f) =
+      Ideal.Quotient.mk (reesCoefficientIdeal q) r • adicReesToGradedModule q M f := by
+  sorry
+
+noncomputable def adicGradedConstant : M →ₗ[A] adicGradedModule q M :=
+  (adicModuleMonomial q M 0).comp
+    (LinearMap.codRestrict (q ^ 0 • (⊤ : Submodule A M)) (LinearMap.id) (by simp))
+
+lemma adicGradedConstant_eq (m : M) :
+    adicGradedConstant q M m = adicModuleMonomial q M 0 ⟨m, by simp⟩ := by
+  sorry
+
+lemma adicGradedConstant_projection (m : M) :
+    adicGradedConstant q M m = adicReesToGradedModule q M (adicReesConstant q M m) := by
+  sorry
+
+lemma adicGradedConstant_span :
+    Submodule.span (adicGradedRing q) (Set.range (adicGradedConstant q M)) = ⊤ := by
+  sorry
+
+lemma adicReesConstant_span_family {ι : Type*} (v : ι → M)
+    (hv : Submodule.span A (Set.range v) = ⊤) :
+    Submodule.span (reesAlgebra q) (Set.range (fun i => adicReesConstant q M (v i))) = ⊤ := by
+  sorry
+
+lemma adicReesModule_finite [Module.Finite A M] : Module.Finite (reesAlgebra q) (adicReesModule q M) := by
+  sorry
+
+lemma adicGradedConstant_span_family {ι : Type*} (v : ι → M)
+    (hv : Submodule.span A (Set.range v) = ⊤) :
+    Submodule.span (adicGradedRing q) (Set.range (fun i => adicGradedConstant q M (v i))) = ⊤ := by
+  sorry
+
+lemma adicGradedModule_finite_of_generators {ι : Type*} [Finite ι] (v : ι → M)
+    (hv : Submodule.span A (Set.range v) = ⊤) :
+    Module.Finite (adicGradedRing q) (adicGradedModule q M) := by
+  sorry
+
+end
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+noncomputable section
+set_option backward.isDefEq.respectTransparency.types false
+variable {A : Type*} [CommRing A]
+
+-- test: AdicReesMonomial.degree_separation
+example (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M]
+    (n i : ℕ) (m : ↥(q ^ n • (⊤ : Submodule A M))) (h : n ≠ i) :
+    (adicReesMonomial q M n m : PolynomialModule A M).coeff n = (m : M) ∧
+    (adicReesMonomial q M n m : PolynomialModule A M).coeff i = 0 := by
+  sorry
+
+-- test: AdicReesConstant.unit_ideal_survives
+example : adicReesConstant (⊤ : Ideal ℤ) ℤ 1 ≠ 0 := by
+  sorry
+
+-- test: AdicGradedConstant.unit_ideal_vanishes
+example (M : Type*) [AddCommGroup M] [Module A M] (m : M) :
+    adicGradedConstant (⊤ : Ideal A) M m = 0 := by
+  sorry
+
+-- test: AdicGradedConstant.nonfree_integer_module
+example :
+    ¬ Module.Free ℤ (ZMod 4) ∧
+    (4 : ℕ) • adicGradedConstant (⊥ : Ideal ℤ) (ZMod 4) 1 = 0 := by
+  sorry
+
+-- test: AdicReesToGradedModule.actual_scalar_descent
+example (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M]
+    (r : reesAlgebra q) (f : adicReesModule q M) :
+    adicReesToGradedModule q M (r • f) =
+      Ideal.Quotient.mk (reesCoefficientIdeal q) r • adicReesToGradedModule q M f := by
+  sorry
+
+-- test: AdicGradedConstant.empty_family_zero_module
+example (q : Ideal A) :
+    Submodule.span (adicGradedRing q)
+      (Set.range (fun i : Fin 0 => adicGradedConstant q (Fin 0 → A) (Fin.elim0 i))) = ⊤ := by
+  sorry
+
+-- test: AdicGradedModule.finite_nonfree
+example :
+    Module.Finite (adicGradedRing (⊥ : Ideal ℤ)) (adicGradedModule (⊥ : Ideal ℤ) (ZMod 4)) ∧
+    Module.Finite (adicGradedRing (Ideal.span {(2 : ℤ)}))
+      (adicGradedModule (Ideal.span {(2 : ℤ)}) (ZMod 4)) := by
+  sorry
+
+-- test: AdicGradedModule.regular_module_arbitrary_ideal
+example (q : Ideal A) :
+    Module.Finite (adicGradedRing q) (adicGradedModule q A) := by
+  sorry
+
+-- test: AdicReesMonomial.zero_ideal_positive_degree
+example (M : Type*) [AddCommGroup M] [Module A M]
+    (m : ↥((⊥ : Ideal A) ^ 1 • (⊤ : Submodule A M))) :
+    adicReesMonomial (⊥ : Ideal A) M 1 m = 0 := by
+  sorry
+
+-- test: AdicReesMonomial.unit_ideal_positive_degree
+example : adicReesMonomial (⊤ : Ideal ℤ) ℤ 2 ⟨1, by simp [pow_two]⟩ ≠ 0 := by
+  sorry
+
+-- test: AdicReesConstant.zero_ideal_nonfree_input
+example : adicReesConstant (⊥ : Ideal ℤ) (ZMod 4) 1 ≠ 0 := by
+  sorry
+
+-- test: AdicReesConstant.zero_module
+example (q : Ideal A) : Subsingleton (adicReesModule q (Fin 0 → A)) := by
+  sorry
+
+-- test: AdicReesToGradedModule.unit_ideal_loses_constants
+example :
+    adicReesToGradedModule (⊤ : Ideal ℤ) ℤ (adicReesConstant (⊤ : Ideal ℤ) ℤ 1) =
+      adicReesToGradedModule (⊤ : Ideal ℤ) ℤ 0 ∧
+    adicReesConstant (⊤ : Ideal ℤ) ℤ 1 ≠ 0 := by
+  sorry
+
+-- test: AdicReesToGradedModule.zero_module
+example (q : Ideal A) (x : adicGradedModule q (Fin 0 → A)) :
+    adicReesToGradedModule q (Fin 0 → A) 0 = x := by
+  sorry
+
+end
+end TauCeti.HilbertSamuel
