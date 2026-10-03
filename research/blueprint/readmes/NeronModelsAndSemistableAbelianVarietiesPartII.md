@@ -6480,3 +6480,577 @@ Use the actual native projective Equation and partial-derivative criterion. Its 
 Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-curve`, `mathlib:WeierstrassCurve.Projective.nonsingular_iff`.
 
 Acceptance: For every field k and a,b∈k, the native Weierstrass projective Nonsingular condition holds at [0:1:0], because the Z partial derivative equals one. This includes characteristic two and the singular finite cusp.
+
+## Specified quadratic overlap comparison
+
+The specified reciprocal polynomial localization equivalence is checked over arbitrary commutative rings, with its actual affine Spec isomorphism. The finite pinch localization at tq is identified with the normalized overlap; the infinity quotient localization at u is identified with the reversed polynomial overlap, and D(z)=D(u) is proved in its actual prime spectrum. Their composite gives the specified chart transition, and the homogeneous normalization tuples agree by the unit factor t⁻³. The global Proj identification, gluing of the normalization morphism, projective finiteness, conductor ideal sheaf, structure-sheaf exact sequence, finite-pushforward H0/H1 and separate I₂ geometry remain required. All stages remain partial and implementation statuses unchecked; the full Tau Ceti-importing file is uncompiled.
+
+Let Q(c,a,b)=cX²+aX+b and L(c,a,b)=R[X,1/(XQ)]. Its coordinate t has the specified inverse v=Q/(XQ). Evaluating at v exchanges c and b and gives mutually inverse R-algebra maps. The construction allows nilpotents and the zero ring. Over a field, the actual finite pinch open at tq and infinity quotient open at u are compared through these maps; D(z)=D(u) follows from Q∞z=u³ and the explicit unit Q∞. The global projective normalization still requires the existing SF.0 chart and gluing supplier.
+
+### Quadratic
+
+`QuadraticPinch.Overlap.quadratic` — The coefficient polynomial Q(c,a,b)=cX²+aX+b over an arbitrary commutative ring.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+API:
+
+- `QuadraticPinch.Overlap.quadratic_monic`: Specializing c=1 gives the existing monic expression X²+aX+b, with no hypothesis on a or b.
+- `QuadraticPinch.Overlap.quadratic_reversed`: Specializing the reversed polynomial Q(b,a,1) gives exactly the existing infinity denominator 1+aX+bX².
+- `QuadraticPinch.Overlap.quadratic_aeval`: Evaluation of the coefficient polynomial at x is exactly cx²+ax+b.
+
+Tests:
+
+- `Overlap.quadratic.zero` (degenerate): With all coefficients zero, the specified polynomial is zero.
+- `Overlap.quadratic.nonreduced` (degenerate): Over Z/4, evaluating Q(2,1,1) at 2 gives 3.
+- `Overlap.quadratic.reversal_not_equal` (non-example): Over the integers, Q(1,0,2) and Q(2,0,1) differ; the reversal is not a coefficientwise identity.
+
+### Ring
+
+`QuadraticPinch.Overlap.Ring` — The actual native localization R[X,1/(XQ(c,a,b))], with its specified polynomial algebra map.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+API:
+
+- `QuadraticPinch.Overlap.coordinate_isUnit`: The polynomial coordinate t is a unit in the overlap ring, with the specified inverse v.
+- `QuadraticPinch.Overlap.inverse_isUnit`: The specified inverse coordinate v is a unit, with inverse t.
+- `QuadraticPinch.Overlap.quadratic_isUnit`: The image of Q(c,a,b) is a unit in R[X,1/(XQ)].
+
+Tests:
+
+- `Overlap.Ring.zero_polynomial` (degenerate): When Q=0, the actual overlap localization has zero equal to one.
+- `Overlap.Ring.coordinate_unit_nonreduced` (degenerate): The polynomial coordinate is a unit for coefficients (2,2,1) over Z/4.
+- `Overlap.Ring.quadratic_unit_nonsplit` (compatibility): The actual image of X²+X+1 is a unit in its F₂ overlap localization.
+
+### Coordinate
+
+`QuadraticPinch.Overlap.coordinate` — The image t of X under the specified polynomial algebra map into R[X,1/(XQ)].
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+API:
+
+- `QuadraticPinch.Overlap.coordinate_algebraMap`: The overlap coordinate is exactly the native polynomial algebra-map image of X.
+- `QuadraticPinch.Overlap.coordinate_mul_inverse`: The product t·v equals one in the specified overlap ring, without cancellation or a domain hypothesis.
+- `QuadraticPinch.Overlap.coordinate_isUnit`: The polynomial coordinate t is a unit in the overlap ring, with the specified inverse v.
+
+Tests:
+
+- `Overlap.coordinate.cusp` (degenerate): For the characteristic-two cusp q=X², the specified coordinate and reciprocal multiply to one.
+- `Overlap.coordinate.nonreduced` (degenerate): For coefficients (2,2,1) over Z/4, the specified coordinate and reciprocal multiply to one.
+- `Overlap.coordinate.generator` (compatibility): Evaluation of X at the specified overlap coordinate agrees with the actual polynomial algebra map.
+
+### Inverse variable
+
+`QuadraticPinch.Overlap.inverseVariable` — The specified inverse v=Q/(XQ) of t in the actual overlap localization.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+API:
+
+- `QuadraticPinch.Overlap.inverseVariable_formula`: The inverse coordinate is exactly the polynomial image of Q multiplied by the native localization inverse of XQ.
+- `QuadraticPinch.Overlap.coordinate_mul_inverse`: The product t·v equals one in the specified overlap ring, without cancellation or a domain hypothesis.
+- `QuadraticPinch.Overlap.inverse_isUnit`: The specified inverse coordinate v is a unit, with inverse t.
+
+Tests:
+
+- `Overlap.inverseVariable.left_inverse` (compatibility): The specified reciprocal is also a left inverse of the coordinate over every commutative ring.
+- `Overlap.inverseVariable.unit_split` (compatibility): The inverse coordinate is a unit for the split polynomial X²−1 over the rationals.
+- `Overlap.inverseVariable.zero_ring` (degenerate): In the overlap localization over Z/1, the specified inverse coordinate equals one.
+
+### Coordinate mul inverse
+
+`QuadraticPinch.Overlap.coordinate_mul_inverse` — The product t·v equals one in the specified overlap ring, without cancellation or a domain hypothesis.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Inverse is unit
+
+`QuadraticPinch.Overlap.inverse_isUnit` — The specified inverse coordinate v is a unit, with inverse t.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Quadratic is unit
+
+`QuadraticPinch.Overlap.quadratic_isUnit` — The image of Q(c,a,b) is a unit in R[X,1/(XQ)].
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Reciprocal quadratic
+
+`QuadraticPinch.Overlap.reciprocal_quadratic` — Evaluation of Q(c,a,b) at the inverse coordinate in the coefficient-reversed overlap equals v² times the polynomial image of Q(b,a,c).
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Reciprocal denominator is unit
+
+`QuadraticPinch.Overlap.reciprocal_denominator_isUnit` — Evaluation of XQ(c,a,b) at the inverse coordinate in the coefficient-reversed overlap is a unit.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Reciprocal
+
+`QuadraticPinch.Overlap.reciprocal` — The specified R-algebra map from R[X,1/(XQ(c,a,b))] to R[X,1/(XQ(b,a,c))] induced by polynomial evaluation at the inverse coordinate.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+API:
+
+- `QuadraticPinch.Overlap.reciprocal_algebraMap`: The reciprocal map sends the image of every polynomial f to its evaluation at the target inverse coordinate.
+- `QuadraticPinch.Overlap.reciprocal_coordinate`: The reciprocal map sends the source polynomial coordinate to the target inverse coordinate.
+- `QuadraticPinch.Overlap.reciprocal_inverse`: The reciprocal map sends the source inverse coordinate to the target polynomial coordinate.
+- `QuadraticPinch.Overlap.reciprocal_comp`: Composing the reciprocal map with its coefficient-reversed reciprocal gives the identity R-algebra homomorphism.
+
+Tests:
+
+- `Overlap.reciprocal.coefficient` (compatibility): The specified reciprocal homomorphism fixes every actual coefficient-ring image.
+- `Overlap.reciprocal.general_quadratic` (compatibility): The image of Q under the reciprocal map is precisely v²Q with reversed coefficients.
+- `Overlap.reciprocal.twice` (compatibility): Applying the reciprocal map twice, with coefficients reversed for the second map, recovers every element.
+
+### Reciprocal algebra map
+
+`QuadraticPinch.Overlap.reciprocal_algebraMap` — The reciprocal map sends the image of every polynomial f to its evaluation at the target inverse coordinate.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Reciprocal coordinate
+
+`QuadraticPinch.Overlap.reciprocal_coordinate` — The reciprocal map sends the source polynomial coordinate to the target inverse coordinate.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Reciprocal inverse
+
+`QuadraticPinch.Overlap.reciprocal_inverse` — The reciprocal map sends the source inverse coordinate to the target polynomial coordinate.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Reciprocal comp
+
+`QuadraticPinch.Overlap.reciprocal_comp` — Composing the reciprocal map with its coefficient-reversed reciprocal gives the identity R-algebra homomorphism.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Use native localization algebra-hom extensionality, then polynomial generator extensionality and the two coordinate image formulas.
+
+### Equiv
+
+`QuadraticPinch.Overlap.equiv` — The specified reciprocal maps give an R-algebra equivalence between the two coefficient-reversed polynomial overlap localizations.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+API:
+
+- `QuadraticPinch.Overlap.equiv_coordinate`: The reciprocal equivalence sends the source polynomial coordinate to the target inverse coordinate.
+- `QuadraticPinch.Overlap.equiv_inverse`: The reciprocal equivalence sends the source inverse coordinate to the target polynomial coordinate.
+- `QuadraticPinch.Overlap.equiv_algebraMap`: The reciprocal equivalence sends every polynomial image to evaluation at the target inverse coordinate.
+- `QuadraticPinch.Overlap.equiv_symm`: The inverse of the reciprocal equivalence is exactly the same construction with leading and constant coefficients exchanged.
+
+Tests:
+
+- `Overlap.equiv.cusp` (degenerate): For the characteristic-two cusp, the reciprocal equivalence sends the coordinate to the specified inverse in the reversed overlap.
+- `Overlap.equiv.nonsplit` (compatibility): For X²+X+1 over F₂, the reciprocal equivalence sends the inverse coordinate to the coordinate.
+- `Overlap.equiv.nonreduced_roundtrip` (degenerate): The reciprocal equivalence and its coefficient-reversed map recover each element for (2,2,1) over Z/4.
+
+### Equiv coordinate
+
+`QuadraticPinch.Overlap.equiv_coordinate` — The reciprocal equivalence sends the source polynomial coordinate to the target inverse coordinate.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Equiv inverse
+
+`QuadraticPinch.Overlap.equiv_inverse` — The reciprocal equivalence sends the source inverse coordinate to the target polynomial coordinate.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Equiv algebra map
+
+`QuadraticPinch.Overlap.equiv_algebraMap` — The reciprocal equivalence sends every polynomial image to evaluation at the target inverse coordinate.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Equiv symm
+
+`QuadraticPinch.Overlap.equiv_symm` — The inverse of the reciprocal equivalence is exactly the same construction with leading and constant coefficients exchanged.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Quadratic monic
+
+`QuadraticPinch.Overlap.quadratic_monic` — Specializing c=1 gives the existing monic expression X²+aX+b, with no hypothesis on a or b.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Quadratic reversed
+
+`QuadraticPinch.Overlap.quadratic_reversed` — Specializing the reversed polynomial Q(b,a,1) gives exactly the existing infinity denominator 1+aX+bX².
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Coordinate is unit
+
+`QuadraticPinch.Overlap.coordinate_isUnit` — The polynomial coordinate t is a unit in the overlap ring, with the specified inverse v.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Normalization overlap
+
+`QuadraticPinch.Overlap.normalization_overlap` — In R[t,1/(t(t²+at+b))], the actual homogeneous normalization tuple at (1,v) equals v³ times its tuple at (t,1), with coefficients transported by the actual R-algebra map. All three coordinates agree after this unit scaling.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+Tests:
+
+- `Overlap.normalization_overlap.nonreduced` (degenerate): For a=b=2 over Z/4, all three homogeneous normalization coordinates agree on the overlap after multiplication by the specified inverse coordinate cubed.
+
+### Spec iso
+
+`QuadraticPinch.Overlap.specIso` — Applying the native contravariant Spec functor to the reciprocal ring equivalence gives an actual scheme isomorphism between the two affine overlap spectra.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+API:
+
+- `QuadraticPinch.Overlap.specIso_hom`: The forward morphism of the affine overlap scheme isomorphism is exactly Spec of the specified reciprocal ring homomorphism.
+- `QuadraticPinch.Overlap.specIso_inv`: The inverse morphism of the affine overlap scheme isomorphism is exactly Spec of the coefficient-reversed reciprocal ring homomorphism.
+- `QuadraticPinch.Overlap.specIso_hom_inv`: The composite of the specified forward and inverse affine scheme morphisms is the actual identity morphism.
+
+Tests:
+
+- `Overlap.specIso.cusp` (degenerate): The actual forward/inverse Spec morphisms compose to the identity for the characteristic-two cusp.
+- `Overlap.specIso.nonreduced` (degenerate): The actual inverse/forward Spec morphisms compose to the identity for coefficients (2,2,1) over Z/4.
+- `Overlap.specIso.actual_map` (compatibility): The forward scheme morphism is exactly native Spec.map of the specified reciprocal homomorphism.
+
+### Spec iso hom
+
+`QuadraticPinch.Overlap.specIso_hom` — The forward morphism of the affine overlap scheme isomorphism is exactly Spec of the specified reciprocal ring homomorphism.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Spec iso inv
+
+`QuadraticPinch.Overlap.specIso_inv` — The inverse morphism of the affine overlap scheme isomorphism is exactly Spec of the coefficient-reversed reciprocal ring homomorphism.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Spec iso hom inv
+
+`QuadraticPinch.Overlap.specIso_hom_inv` — The composite of the specified forward and inverse affine scheme morphisms is the actual identity morphism.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Finite denominator
+
+`QuadraticPinch.Overlap.finiteDenominator` — The specified element XQ(c,a,b) of the existing pinch subring A_Q=k+Qk[X], with its actual membership witness.
+
+k is a field; c,a,b∈k. The chart transition specializes c=1. No separability, perfectness, distinct-root or characteristic restriction; the finite localization comparison allows the zero polynomial.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+API:
+
+- `QuadraticPinch.Overlap.finiteDenominator_val`: The underlying polynomial of the finite overlap denominator is exactly XQ(c,a,b).
+- `QuadraticPinch.Overlap.finiteDenominator_conductor`: The specified finite overlap denominator belongs to the existing arbitrary-subring conductor of A_Q in k[X].
+- `QuadraticPinch.Overlap.finite_localization`: The actual normalized polynomial overlap ring has the native Away-localization property at the image of the specified finite denominator under the pinch inclusion.
+
+Tests:
+
+- `Overlap.finiteDenominator.cusp` (degenerate): For q=X² over F₂, the underlying finite overlap denominator is X³.
+- `Overlap.finiteDenominator.split` (computation): For q=X²−1 over the rationals, the underlying finite overlap denominator is X³−X.
+- `Overlap.finiteDenominator.zero` (degenerate): For q=0 over the rationals, the underlying finite overlap denominator is zero.
+
+### Finite denominator val
+
+`QuadraticPinch.Overlap.finiteDenominator_val` — The underlying polynomial of the finite overlap denominator is exactly XQ(c,a,b).
+
+k is a field; c,a,b∈k. The chart transition specializes c=1. No separability, perfectness, distinct-root or characteristic restriction; the finite localization comparison allows the zero polynomial.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Finite denominator conductor
+
+`QuadraticPinch.Overlap.finiteDenominator_conductor` — The specified finite overlap denominator belongs to the existing arbitrary-subring conductor of A_Q in k[X].
+
+k is a field; c,a,b∈k. The chart transition specializes c=1. No separability, perfectness, distinct-root or characteristic restriction; the finite localization comparison allows the zero polynomial.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Finite localization
+
+`QuadraticPinch.Overlap.finite_localization` — The actual normalized polynomial overlap ring has the native Away-localization property at the image of the specified finite denominator under the pinch inclusion.
+
+k is a field; c,a,b∈k. The chart transition specializes c=1. No separability, perfectness, distinct-root or characteristic restriction; the finite localization comparison allows the zero polynomial.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Finite away bijective
+
+`QuadraticPinch.Overlap.finite_away_bijective` — The native localization map induced by A_Q⊂k[X], after inverting the specified XQ in both rings, is bijective. This uses the existing G.0 conductor-localization theorem.
+
+k is a field; c,a,b∈k. The chart transition specializes c=1. No separability, perfectness, distinct-root or characteristic restriction; the finite localization comparison allows the zero polynomial.
+
+Proof: Apply the existing G.0 conductor localization theorem to the actual pinch inclusion and the proved conductor membership of XQ. Do not assume original inclusion surjectivity.
+
+### Finite equiv
+
+`QuadraticPinch.Overlap.finiteEquiv` — The specified localized pinch inclusion gives a ring equivalence A_Q[1/(XQ)]≃k[X,1/(XQ)], for arbitrary coefficients, including Q=0.
+
+k is a field; c,a,b∈k. The chart transition specializes c=1. No separability, perfectness, distinct-root or characteristic restriction; the finite localization comparison allows the zero polynomial.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+API:
+
+- `QuadraticPinch.Overlap.finiteEquiv_apply`: The finite overlap equivalence has exactly the native Away.map induced by the existing pinch inclusion as its underlying map.
+- `QuadraticPinch.Overlap.finiteEquiv_algebraMap`: The finite overlap equivalence sends the canonical image of every actual pinch element f to the canonical image of its underlying polynomial.
+- `QuadraticPinch.Overlap.finiteEquiv_symm_algebraMap`: The inverse finite overlap equivalence recovers the canonical image of each pinch element from the corresponding polynomial image.
+
+Tests:
+
+- `Overlap.finiteEquiv.cusp` (degenerate): For the characteristic-two cusp, the finite overlap equivalence sends its denominator image to the polynomial image of X³.
+- `Overlap.finiteEquiv.nonsplit` (compatibility): For X²+X+1 over F₂, the inverse finite overlap equivalence recovers the actual image of every pinch element.
+- `Overlap.finiteEquiv.zero_roundtrip` (degenerate): The forward/inverse finite overlap maps recover every element even for the zero polynomial over the rationals.
+
+### Finite equiv apply
+
+`QuadraticPinch.Overlap.finiteEquiv_apply` — The finite overlap equivalence has exactly the native Away.map induced by the existing pinch inclusion as its underlying map.
+
+k is a field; c,a,b∈k. The chart transition specializes c=1. No separability, perfectness, distinct-root or characteristic restriction; the finite localization comparison allows the zero polynomial.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Finite equiv algebra map
+
+`QuadraticPinch.Overlap.finiteEquiv_algebraMap` — The finite overlap equivalence sends the canonical image of every actual pinch element f to the canonical image of its underlying polynomial.
+
+k is a field; c,a,b∈k. The chart transition specializes c=1. No separability, perfectness, distinct-root or characteristic restriction; the finite localization comparison allows the zero polynomial.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Finite equiv symm algebra map
+
+`QuadraticPinch.Overlap.finiteEquiv_symm_algebraMap` — The inverse finite overlap equivalence recovers the canonical image of each pinch element from the corresponding polynomial image.
+
+k is a field; c,a,b∈k. The chart transition specializes c=1. No separability, perfectness, distinct-root or characteristic restriction; the finite localization comparison allows the zero polynomial.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Infinity open
+
+`QuadraticPinch.Overlap.InfinityOpen` — The actual native localization of the existing infinity quotient chart at its polynomial coordinate u.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+API:
+
+- `QuadraticPinch.Overlap.infinity_localization`: The iterated infinity-chart localization is a native R[u]-localization away from uQ(b,a,1), using the existing chart localization away from Q∞ and the pinned iterated-localization theorem.
+- `QuadraticPinch.Overlap.infinity_basicOpen_root`: The principal open D(z) equals D(u) in the actual prime spectrum of the existing infinity quotient chart, including nonreduced coefficient rings.
+- `QuadraticPinch.Overlap.infinityOpen_coordinate_isUnit`: The image of the infinity chart polynomial coordinate is a unit in its actual coordinate localization.
+
+Tests:
+
+- `Overlap.InfinityOpen.root_cusp` (degenerate): For the characteristic-two cusp infinity chart, D(z)=D(u) in its actual prime spectrum.
+- `Overlap.InfinityOpen.root_nonreduced` (degenerate): For the infinity chart with a=2,b=1 over Z/4 and every receiving commutative ring, z maps to a unit exactly when u does.
+- `Overlap.InfinityOpen.coordinate_nonsplit` (compatibility): For the infinity chart a=b=1 over F₂, the coordinate becomes a unit in the specified open ring.
+
+### Infinity localization
+
+`QuadraticPinch.Overlap.infinity_localization` — The iterated infinity-chart localization is a native R[u]-localization away from uQ(b,a,1), using the existing chart localization away from Q∞ and the pinned iterated-localization theorem.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Infinity equiv
+
+`QuadraticPinch.Overlap.infinityEquiv` — The native uniqueness equivalence identifies the infinity-chart coordinate localization with R[u,1/(uQ∞)] as R[u]-algebras.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+API:
+
+- `QuadraticPinch.Overlap.infinityEquiv_algebraMap`: The infinity overlap equivalence preserves the canonical image of every coefficient polynomial in R[u].
+- `QuadraticPinch.Overlap.infinityEquiv_symm_algebraMap`: The inverse infinity overlap equivalence preserves the canonical image of every coefficient polynomial in R[u].
+- `QuadraticPinch.Overlap.infinityEquiv_roundtrip`: The inverse infinity overlap equivalence recovers every element after application of the forward equivalence.
+
+Tests:
+
+- `Overlap.infinityEquiv.polynomial` (compatibility): The infinity overlap equivalence preserves the actual polynomial image of X²+a.
+- `Overlap.infinityEquiv.inverse_coordinate` (compatibility): The inverse infinity overlap equivalence sends the normalized polynomial coordinate to its actual iterated-localization image.
+- `Overlap.infinityEquiv.nonreduced` (degenerate): The forward/inverse infinity overlap maps recover every element for a=2,b=1 over Z/4.
+
+### Infinity equiv algebra map
+
+`QuadraticPinch.Overlap.infinityEquiv_algebraMap` — The infinity overlap equivalence preserves the canonical image of every coefficient polynomial in R[u].
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Infinity equiv symm algebra map
+
+`QuadraticPinch.Overlap.infinityEquiv_symm_algebraMap` — The inverse infinity overlap equivalence preserves the canonical image of every coefficient polynomial in R[u].
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Infinity equiv roundtrip
+
+`QuadraticPinch.Overlap.infinityEquiv_roundtrip` — The inverse infinity overlap equivalence recovers every element after application of the forward equivalence.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Infinity root is unit iff
+
+`QuadraticPinch.Overlap.infinity_root_isUnit_iff` — For every ring homomorphism from the actual infinity quotient chart into any commutative ring S, the image of its root z is a unit if and only if the image of its polynomial coordinate u is a unit.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Infinity basic open root
+
+`QuadraticPinch.Overlap.infinity_basicOpen_root` — The principal open D(z) equals D(u) in the actual prime spectrum of the existing infinity quotient chart, including nonreduced coefficient rings.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: The explicit inverse of Q∞ gives D(Q∞)=top. Apply basicOpen to Q∞z=u³, then native basicOpen multiplication and positive-power identities.
+
+### Chart equiv
+
+`QuadraticPinch.Overlap.chartEquiv` — For q=t²+at+b over a field, the finite pinch localization A_q[1/(tq)] is identified by the specified composite ring equivalence with the actual infinity-chart localization at u. The latter principal open equals D(z).
+
+k is a field; c,a,b∈k. The chart transition specializes c=1. No separability, perfectness, distinct-root or characteristic restriction; the finite localization comparison allows the zero polynomial.
+
+Proof: Compose the specified finite localization equivalence, reciprocal coefficient-reversal equivalence and inverse infinity localization equivalence. Use D(z)=D(u) to identify the intended infinity open.
+
+API:
+
+- `QuadraticPinch.Overlap.chartEquiv_algebraMap`: On any finite pinch element f, the actual chart transition is inverse infinity-localization comparison applied to f evaluated at the reciprocal coordinate.
+- `QuadraticPinch.Overlap.chartEquiv_roundtrip`: The inverse of the specified chart transition recovers every element of the finite pinch overlap.
+- `QuadraticPinch.Overlap.chartEquiv_inverse_roundtrip`: The specified chart transition recovers every element of the infinity overlap after its inverse.
+
+Tests:
+
+- `Overlap.chartEquiv.cusp` (degenerate): The chart transition and its inverse recover every finite overlap element for the characteristic-two cusp.
+- `Overlap.chartEquiv.nonsplit` (compatibility): The chart transition recovers every infinity overlap element after its inverse for q=X²+X+1 over F₂.
+- `Overlap.chartEquiv.split_formula` (compatibility): For q=X²−1 over the rationals, the actual chart transition on each pinch element agrees with reciprocal polynomial evaluation and the inverse infinity comparison.
+
+### Chart equiv algebra map
+
+`QuadraticPinch.Overlap.chartEquiv_algebraMap` — On any finite pinch element f, the actual chart transition is inverse infinity-localization comparison applied to f evaluated at the reciprocal coordinate.
+
+k is a field; c,a,b∈k. The chart transition specializes c=1. No separability, perfectness, distinct-root or characteristic restriction; the finite localization comparison allows the zero polynomial.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Chart equiv roundtrip
+
+`QuadraticPinch.Overlap.chartEquiv_roundtrip` — The inverse of the specified chart transition recovers every element of the finite pinch overlap.
+
+k is a field; c,a,b∈k. The chart transition specializes c=1. No separability, perfectness, distinct-root or characteristic restriction; the finite localization comparison allows the zero polynomial.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Chart equiv inverse roundtrip
+
+`QuadraticPinch.Overlap.chartEquiv_inverse_roundtrip` — The specified chart transition recovers every element of the infinity overlap after its inverse.
+
+k is a field; c,a,b∈k. The chart transition specializes c=1. No separability, perfectness, distinct-root or characteristic restriction; the finite localization comparison allows the zero polynomial.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Quadratic aeval
+
+`QuadraticPinch.Overlap.quadratic_aeval` — Evaluation of the coefficient polynomial at x is exactly cx²+ax+b.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Coordinate algebra map
+
+`QuadraticPinch.Overlap.coordinate_algebraMap` — The overlap coordinate is exactly the native polynomial algebra-map image of X.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Inverse variable formula
+
+`QuadraticPinch.Overlap.inverseVariable_formula` — The inverse coordinate is exactly the polynomial image of Q multiplied by the native localization inverse of XQ.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+### Infinity open coordinate is unit
+
+`QuadraticPinch.Overlap.infinityOpen_coordinate_isUnit` — The image of the infinity chart polynomial coordinate is a unit in its actual coordinate localization.
+
+R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1.
+
+Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
+
+Source: [Schröer, arXiv2004.07025v3, §3](https://arxiv.org/html/2004.07025v3). The overlap formulas are authored deductions. Public checked proof, exact admitted extraction, baseline hashes and reproduction instructions are recorded in the handoff. No global Proj or sheaf conclusion follows from the affine comparison alone.
