@@ -1,3 +1,59 @@
+# Native rational characters and infinite unity-root coordinates
+
+This continuation supplies a separate native proof extraction for the 28 existing rational-character and unity-root coordinate contracts. Three computation lemmas expose the unreduced natural representative, the canonical residue representative and the comparison on every factorial-level element. The incoming statements, hypotheses, APIs, tests, source routes and reserved root-stack definition remain in force. Earlier checkpoint statements about uncompiled coordinate prototypes describe their own historical artifacts; the current execution boundary is recorded in the handoff.
+
+Write d_i=(i+1)!, U_A for the existing factorial colimit of A[t]/(t^d_i−1), and G_A=A[Q/Z] for the native group algebra of the rational additive circle. A is an arbitrary commutative ring in one fixed universe. No reducedness, nontriviality, flatness or invertibility of exponents is assumed. In particular the zero ring and wild characteristic remain valid inputs.
+
+The mathematical motivation is the Cartier-dual group and local grading in [Talpo–Vistoli §3.1, printed14–16](https://arxiv.org/pdf/1410.1164v2). Those pages, including the local quotient proofs, were freshly read. The following named coordinate maps and proof adapters are authored deductions. This is not a new reading receipt for the complete paper or for either arithmetic source route.
+
+The native construction of c_n:Z/n→Q/Z uses ZMod.lift on k↦[k/n]. Its integer formula fixes the sign. Mathlib already provides ZMod.toAddCircle for the real circle; the rational target requires this specialization of the same native quotient strategy. For injectivity, val(k)/n lies in [0,1), so the existing additive-circle interval-injectivity theorem reduces equality to equality of natural representatives. For n dividing N the exact fraction identity ((N/n)val(k))/N=val(k)/n proves the transition. Every rational circle class has a representative q; taking n=den(q), k=num(q) proves exhaustion directly. The pinned Tau Ceti torsion exhaustion and generator theorems still supply the earlier alternative route. None of these steps replans generic quotient, cyclic-subgroup or torsion machinery.
+
+Apply the native monoid-algebra domain map to the multiplicative form of c_n. Its injectivity follows from the native injective-domain-map theorem without assumptions on coefficients. Compose it with the inherited finite unity-root/cyclic-coordinate equivalence to obtain F_n. The transition equality is proved on the finite cyclic basis; it includes the coefficient algebra map and therefore is equality of actual algebra homomorphisms. Mapping the root equation and the finite transition gives the factorial power relations.
+
+The inherited universal root lift defines F:U_A→G_A. Root extensionality first proves its value on every element of a factorial chart; the chosen positive-index extension then proves the existing leg formula. For injectivity, represent x−y at one factorial level and apply finite injectivity. For surjectivity, finite-support induction lifts each coefficient-bearing basis element through its finite cyclic chart and adds the lifts. Promote F with the existing bijective-algebra-map constructor to E_A. Applying E_A verifies the stated inverse on a rational basis label, including negative rationals and zero.
+
+For comultiplication and counit use the native algebra maps and the inherited root-extensionality theorem. On a root the two comultiplications are the same pure tensor and both counits equal 1. The antipode uses the existing antipodeAlgHom for a commutative Hopf algebra; it is not a newly defined generic inversion map. The two candidate antipode values are inverses of the same image of a universal root unit, so cancel that unit. For an arbitrary coefficient map φ:A→B, the inherited ring-homomorphism extensionality theorem compares constants and roots. Both root images are e_[1/d_i] with coefficient φ(1)=1. This square needs no flatness or injectivity of φ.
+
+## Natural representative of the finite rational character
+
+`TauCeti.RootStack.affineQZCharacter.natCast` — For every n>0 and k∈N, c_n([k])=[k/n], without reducing k before forming the rational quotient.
+
+Cast k to an integer and apply the existing integer-character computation; the natural/integer casts agree.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/qz-character-intcast`.
+
+## Canonical representative of the finite rational character
+
+`TauCeti.RootStack.affineQZCharacter.apply` — For n>0 and k∈Z/n, c_n(k)=[val(k)/n], where 0≤val(k)<n.
+
+Apply the natural-character computation to val(k), then use the native reduction identity. This form puts the rational value in [0,1) for injectivity.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/qz-character-natcast`, `mathlib:ZMod.natCast_zmod_val`.
+
+## Factorial-level rational character comparison
+
+`TauCeti.RootStack.factorialUnitQZMap.level` — For every i∈N and x∈A[t]/(t^((i+1)!)−1), F(ι_i(x))=F_((i+1)!)(x), with the actual factorial inclusion and finite root map.
+
+Compare the two actual A-algebra homomorphisms out of the finite quotient by their root images. Both send the root to e_[1/((i+1)!)]; evaluate the resulting map equality at x.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-root`, `FunctionFieldArithmeticPartII:RS.2/finite-root-qz-root`, `mathlib:AdjoinRoot.algHom_ext`.
+
+## Added regression contracts
+
+- `TauCeti.RootStack.affineQZCharacter.test_natcast_period`: At n=3 the unreduced natural representative 7 maps to [7/3].
+- `TauCeti.RootStack.affineQZCharacter.test_negative_representative`: At n=3 the canonical natural representative of −1 is 2, and its character is [2/3].
+- `TauCeti.RootStack.factorialUnitQZMap.test_level_basis`: For every coefficient a∈A, the level-two inclusion of the inverse cyclic basis element a e_[2] maps to a e_[1/3].
+
+The separate native extraction also checks the fifteen inherited rational-coordinate examples: orientation, the 2-to-6 transition, negative basis labels, exponent one, arbitrary and torsion coefficients, zero-ring injectivity, a negative inverse and nonflat coefficient naturality. Both characteristic-two examples retain a nonzero element whose square is zero. The infinite example also checks its full three-term comultiplication. No reduced-fibre replacement is used.
+
+## Remaining construction
+
+The 28 rational-coordinate declarations and three computation lemmas now have separate exact-Mathlib native proof evidence, including arbitrary coefficients and wild nilpotents. Next prove the admitted arbitrary-section rational coaction contracts over this actual equivalence, then replay the inherited conditional coefficient square without those admissions. Full canonical Tau typing, higher-universe/full-positive-index transport, coherent root-groupoid reindexing, affine Spec limits, fpqc frame torsors and the quotient/DVR/Kummer comparisons remain open. Preserve all eight gaps, thirteen requests and both source routes.
+
+The complete canonical suggested file still imports unavailable exact-pin Tau geometric carriers and remains uncompiled. Its existing admitted signatures are preserved; the three new lemma and example signatures are appended and checked in the separate Mathlib harness. Native proof evidence does not change the packet's unchecked implementation statuses or partial stage coverage. The complete incoming reader and both source routes follow unchanged.
+
+---
+
 # Rational-character coefficient square — checkpoint codex-rtOQ9t
 
 This continuation adds ten explicit contracts to the incoming 378-node roadmap. All stages and declarations remain partial/unchecked. The ordinary coefficient tensor map is imported from pinned Mathlib. The new proof prototype is conditional on the incoming admitted Q/Z equivalence and rational coaction; it does not certify their implementations or the complete geometric suggested file.
