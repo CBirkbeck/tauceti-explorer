@@ -12,7 +12,7 @@
     "SchemeAndStackFoundations:SF.6"
   ],
   "status": "partial",
-  "summary": "Continuation of the existing SF.0 henselization strand: all twenty-five inherited IDs retained; four declaration-sized actual-section selector, kernel, product and localization adapters are added with native proofs, and the inherited etale-lift uniqueness statement now has a native proof. The generic unramified diagonal and idempotent/localization machinery are already built and imported. Lifted residue-selector localization, finite-data implementation, source criterion/universal cocone, ownership overlap, all other keys/stages/source routes and confirmed findings remain open; every implementation stays unchecked pending review. Flat-annihilator continuation: eight new lemma-sized supplier steps and seven tests, retaining the entire twenty-nine-node henselization strand. Quotient/cokernel continuation: thirteen native adapter declarations, three API items and eight tests, preserving all thirty-seven incoming whole nodes and every existing obligation. Affine ideal-pullback continuation: nine native adapters, three API items and five typed tests; all fifty incoming whole node objects and every prior obligation are preserved.",
+  "summary": "Continuation of the existing SF.0 henselization strand: all twenty-five inherited IDs retained; four declaration-sized actual-section selector, kernel, product and localization adapters are added with native proofs, and the inherited etale-lift uniqueness statement now has a native proof. The generic unramified diagonal and idempotent/localization machinery are already built and imported. Lifted residue-selector localization, finite-data implementation, source criterion/universal cocone, ownership overlap, all other keys/stages/source routes and confirmed findings remain open; every implementation stays unchecked pending review. Flat-annihilator continuation: eight new lemma-sized supplier steps and seven tests, retaining the entire twenty-nine-node henselization strand. Quotient/cokernel continuation: thirteen native adapter declarations, three API items and eight tests, preserving all thirty-seven incoming whole nodes and every existing obligation. Affine ideal-pullback continuation: nine native adapters, three API items and five typed tests; all fifty incoming whole node objects and every prior obligation are preserved. Affine quotient naturality continuation: fourteen declaration-sized nodes, nine API items and nine typed tests. All59 incoming whole node objects and every prior obligation are preserved.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -767,6 +767,62 @@
         "line": 495,
         "provides": "theorem map_symm {I : Ideal S} (f : R ≃+* S) : I.map f.symm = I.comap f :=",
         "checked": "Statement and relevant ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-7e92bd on2026-10-03. Native input, not planned again. File hashes and bounded read ranges are in Reading.json."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.naturality",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
+        "line": 188,
+        "provides": "lemma naturality (i : op U' ⟶ op U) :",
+        "checked": "Statement and relevant ambient hypotheses read at exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Read ranges and file hashes in Reading.json; this native input is not re-planned."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.map_ideal",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Basic.lean",
+        "line": 221,
+        "provides": "lemma map_ideal {U V : X.affineOpens} (h : U ≤ V) :",
+        "checked": "Statement and relevant ambient hypotheses read at exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Read ranges and file hashes in Reading.json; this native input is not re-planned."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeι_app_surjective",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean",
+        "line": 558,
+        "provides": "lemma subschemeι_app_surjective (U : X.affineOpens) :",
+        "checked": "Statement and relevant ambient hypotheses read at exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Read ranges and file hashes in Reading.json; this native input is not re-planned."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.NatIso.ofComponents",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/NatIso.lean",
+        "line": 179,
+        "provides": "def ofComponents (app : ∀ X : C, F.obj X ≅ G.obj X)",
+        "checked": "Statement and relevant ambient hypotheses read at exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Read ranges and file hashes in Reading.json; this native input is not re-planned."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.ringHom_ext",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "line": 98,
+        "provides": "theorem ringHom_ext [NonAssocSemiring S] ⦃f g : R ⧸ I →+* S⦄ (h : f.comp (mk I) = g.comp (mk I)) :",
+        "checked": "Statement and relevant ambient hypotheses read at exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Read ranges and file hashes in Reading.json; this native input is not re-planned."
+      },
+      {
+        "ref": "mathlib:Monotone.functor",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Category/Preorder.lean",
+        "line": 156,
+        "provides": "def Monotone.functor {f : X → Y} (h : Monotone f) : X ⥤ Y where",
+        "checked": "Statement and relevant ambient hypotheses read at exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Read ranges and file hashes in Reading.json; this native input is not re-planned."
+      },
+      {
+        "ref": "mathlib:TopologicalSpace.Opens.map",
+        "kind": "def",
+        "module": "Mathlib/Topology/Category/TopCat/Opens.lean",
+        "line": 159,
+        "provides": "def map (f : X ⟶ Y) : Opens Y ⥤ Opens X :=",
+        "checked": "Statement and relevant ambient hypotheses read at exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Read ranges and file hashes in Reading.json; this native input is not re-planned."
       }
     ]
   },
@@ -953,6 +1009,45 @@
       "readSections": [
         "Complete Lemma26.10.1 statement and displayed proof; closed subspaces of schemes and affine quotient description.",
         "Only the indicated block; no whole-chapter closure."
+      ]
+    },
+    {
+      "id": "STACKS-RT01JU",
+      "title": "Closed-subscheme context 01JU",
+      "authors": "The Stacks Project authors",
+      "edition": "Complete displayed mathematical statement and proof read2026-10-03",
+      "url": "https://stacks.math.columbia.edu/tag/01JU",
+      "sha256": "56d2f17cbb293a8b66a122d3c923d6b3fdaf1a3c5d507a12536397ec3c98d308",
+      "accessed": "2026-10-03T21:38:14.100022+00:00",
+      "readSections": [
+        "Complete mathematical statement and displayed proof; no HTML retained. New restriction formulas are authored deductions from pinned native API.",
+        "No recursive chapter closure; the new restriction formulas are authored deductions."
+      ]
+    },
+    {
+      "id": "STACKS-RT01IQ",
+      "title": "Closed-subscheme context 01IQ",
+      "authors": "The Stacks Project authors",
+      "edition": "Complete displayed mathematical statement and proof read2026-10-03",
+      "url": "https://stacks.math.columbia.edu/tag/01IQ",
+      "sha256": "0329016aa00c3919201c5c9df902eedb920a7d955af6928522c5dd0f5afac4a8",
+      "accessed": "2026-10-03T21:38:14.429342+00:00",
+      "readSections": [
+        "Complete mathematical statement and displayed proof; no HTML retained. New restriction formulas are authored deductions from pinned native API.",
+        "No recursive chapter closure; the new restriction formulas are authored deductions."
+      ]
+    },
+    {
+      "id": "STACKS-RT01IN",
+      "title": "Closed-subscheme context 01IN",
+      "authors": "The Stacks Project authors",
+      "edition": "Complete displayed mathematical statement and proof read2026-10-03",
+      "url": "https://stacks.math.columbia.edu/tag/01IN",
+      "sha256": "a285f245d0b5ee5bfae26e4bf59c4ddd3e6113072d6a729b6fd68cc081354326",
+      "accessed": "2026-10-03T21:38:14.773263+00:00",
+      "readSections": [
+        "Complete mathematical statement and displayed proof; no HTML retained. New restriction formulas are authored deductions from pinned native API.",
+        "No recursive chapter closure; the new restriction formulas are authored deductions."
       ]
     }
   ],
@@ -3778,6 +3873,656 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/extended-ideal-restriction",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Restriction of extended ideals",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.extendedIdeal_restrict",
+      "statement": "Let f:X→Y be an arbitrary scheme morphism, I native ideal data on Y, and U≤V affine opens of Y. Extending I(V) along f.app V and then along the actual restriction Γ(X,f⁻¹V)→Γ(X,f⁻¹U) gives I(U).map(f.app U). Neither preimage open is required to be affine; no flatness or finiteness is assumed.",
+      "hypotheses": [
+        "X and Y are schemes in the same universe; I is native IdealSheafData. Only the affineness hypotheses explicitly stated are used. Zero rings, nilpotents and nonflat maps are allowed."
+      ],
+      "prerequisites": [
+        "mathlib:AlgebraicGeometry.Scheme.Hom.naturality",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.map_ideal"
+      ],
+      "proofSteps": [
+        "Use naturality of the actual scheme section morphism to identify the two composite ring maps. Apply Ideal.map_map twice and transport the native ideal-data restriction equality along f.app U."
+      ],
+      "acceptance": [
+        "Let f:X→Y be an arbitrary scheme morphism, I native ideal data on Y, and U≤V affine opens of Y. Extending I(V) along f.app V and then along the actual restriction Γ(X,f⁻¹V)→Γ(X,f⁻¹U) gives I(U).map(f.app U). Neither preimage open is required to be affine; no flatness or finiteness is assumed.",
+        "Use the actual native ideals, quotient rings, presheaves and restriction morphisms. The roadmap remains partial and every node unchecked despite separate native proof evidence."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AffinePullback",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-RT01JU",
+          "locator": "Lemma26.17.6(1), complete displayed statement and proof",
+          "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/quotient-restriction",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "construction",
+      "title": "Restriction on the quotient section rings",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.quotientRestriction",
+      "statement": "For f:X→Y, native ideal data I and affine U≤V, define the ring homomorphism Q(V)→Q(U), where Q(T)=Γ(X,f⁻¹T)/I(T).map(f.app T), induced by the actual X restriction map. This is defined for every f, even when the inverse images are not affine.",
+      "hypotheses": [
+        "X and Y are schemes in the same universe; I is native IdealSheafData. Only the affineness hypotheses explicitly stated are used. Zero rings, nilpotents and nonflat maps are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/extended-ideal-restriction",
+        "mathlib:Ideal.quotientMap",
+        "mathlib:TopologicalSpace.Opens.map"
+      ],
+      "proofSteps": [
+        "Use the native Ideal.quotientMap with the actual restriction homomorphism. The preceding equality of extended ideals proves the required containment; keep the concrete quotient and map data."
+      ],
+      "acceptance": [
+        "For f:X→Y, native ideal data I and affine U≤V, define the ring homomorphism Q(V)→Q(U), where Q(T)=Γ(X,f⁻¹T)/I(T).map(f.app T), induced by the actual X restriction map. This is defined for every f, even when the inverse images are not affine.",
+        "Use the actual native ideals, quotient rings, presheaves and restriction morphisms. The roadmap remains partial and every node unchecked despite separate native proof evidence."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AffinePullback",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-RT01JU",
+          "locator": "Lemma26.17.6(1), complete displayed statement and proof",
+          "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.quotientRestriction_mk",
+          "role": "compatibility",
+          "statement": "For b∈Γ(X,f⁻¹V), quotientRestriction sends the class of b in Q(V) to the class of its actual restriction in Q(U).",
+          "proof": "Use SchemeAndStackFoundations:SF.0/quotient-restriction-representative with its exact stated hypotheses and native maps."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.quotientRestriction_id",
+          "role": "compatibility",
+          "statement": "For every affine U, quotientRestriction along U≤U is the identity ring homomorphism on Q(U).",
+          "proof": "Use SchemeAndStackFoundations:SF.0/quotient-restriction-identity with its exact stated hypotheses and native maps."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.quotientRestriction_comp",
+          "role": "compatibility",
+          "statement": "For affine U≤V≤W, the restriction Q(W)→Q(U) is quotientRestriction(U≤V) composed with quotientRestriction(V≤W), in this contravariant order.",
+          "proof": "Use SchemeAndStackFoundations:SF.0/quotient-restriction-composition with its exact stated hypotheses and native maps."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuotientRestrictionChecked.empty_target",
+          "kind": "degenerate",
+          "statement": "For arbitrary f and every quotient class on V, restricting to the empty target affine open gives zero. The preimage section ring is a subsingleton, without affineness of f."
+        },
+        {
+          "name": "QuotientRestrictionChecked.triple_overlap",
+          "kind": "compatibility",
+          "statement": "For a chain U≤V≤W≤T and any quotient class on T, the direct restriction equals three successive actual quotient restrictions in the contravariant order."
+        },
+        {
+          "name": "QuotientRestrictionChecked.nonreduced_identity",
+          "kind": "computation",
+          "statement": "On Spec(Z/4), with the zero ideal datum and identity morphism, the identity quotient restriction preserves the class of the actual section2: that class is nonzero and its square is zero. Full ideals retain this coordinate."
+        }
+      ],
+      "uses": [
+        {
+          "where": "SF.0 affine closed-subscheme restriction comparisons and NeronModelsAndSemistableAbelianVarietiesPartII:G.0 existing conductor/sheaf requests",
+          "how": "Compare actual quotient coordinates under restriction. The consumer-specific conductor and global sheaf comparisons remain separately owned and no multi-part request is closed."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/quotient-restriction-representative",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Restricted quotient representatives",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.quotientRestriction_mk",
+      "statement": "For b∈Γ(X,f⁻¹V), quotientRestriction sends the class of b in Q(V) to the class of its actual restriction in Q(U).",
+      "hypotheses": [
+        "X and Y are schemes in the same universe; I is native IdealSheafData. Only the affineness hypotheses explicitly stated are used. Zero rings, nilpotents and nonflat maps are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/quotient-restriction",
+        "mathlib:Ideal.quotientMap_mk"
+      ],
+      "proofSteps": [
+        "Apply the built quotientMap_mk formula with the exact restriction ring homomorphism."
+      ],
+      "acceptance": [
+        "For b∈Γ(X,f⁻¹V), quotientRestriction sends the class of b in Q(V) to the class of its actual restriction in Q(U).",
+        "Use the actual native ideals, quotient rings, presheaves and restriction morphisms. The roadmap remains partial and every node unchecked despite separate native proof evidence."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AffinePullback",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-RT01JU",
+          "locator": "Lemma26.17.6(1), complete displayed statement and proof",
+          "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/quotient-restriction-identity",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Identity quotient restriction",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.quotientRestriction_id",
+      "statement": "For every affine U, quotientRestriction along U≤U is the identity ring homomorphism on Q(U).",
+      "hypotheses": [
+        "X and Y are schemes in the same universe; I is native IdealSheafData. Only the affineness hypotheses explicitly stated are used. Zero rings, nilpotents and nonflat maps are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/quotient-restriction-representative",
+        "mathlib:Ideal.Quotient.ringHom_ext"
+      ],
+      "proofSteps": [
+        "Use quotient ring-homomorphism extensionality on representatives. The native X presheaf sends the identity inclusion to the identity section map."
+      ],
+      "acceptance": [
+        "For every affine U, quotientRestriction along U≤U is the identity ring homomorphism on Q(U).",
+        "Use the actual native ideals, quotient rings, presheaves and restriction morphisms. The roadmap remains partial and every node unchecked despite separate native proof evidence."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AffinePullback",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-RT01JU",
+          "locator": "Lemma26.17.6(1), complete displayed statement and proof",
+          "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/quotient-restriction-composition",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Composition of quotient restrictions",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.quotientRestriction_comp",
+      "statement": "For affine U≤V≤W, the restriction Q(W)→Q(U) is quotientRestriction(U≤V) composed with quotientRestriction(V≤W), in this contravariant order.",
+      "hypotheses": [
+        "X and Y are schemes in the same universe; I is native IdealSheafData. Only the affineness hypotheses explicitly stated are used. Zero rings, nilpotents and nonflat maps are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/quotient-restriction-representative",
+        "mathlib:Ideal.Quotient.ringHom_ext"
+      ],
+      "proofSteps": [
+        "Reduce equality to quotient representatives, use the representative formula twice, and apply composition of the actual X presheaf restriction maps."
+      ],
+      "acceptance": [
+        "For affine U≤V≤W, the restriction Q(W)→Q(U) is quotientRestriction(U≤V) composed with quotientRestriction(V≤W), in this contravariant order.",
+        "Use the actual native ideals, quotient rings, presheaves and restriction morphisms. The roadmap remains partial and every node unchecked despite separate native proof evidence."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AffinePullback",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-RT01JU",
+          "locator": "Lemma26.17.6(1), complete displayed statement and proof",
+          "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/quotient-comparison-naturality",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Naturality of the closed-subscheme quotient comparison",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.comapObjIso_naturality",
+      "statement": "Let U≤V be affine opens of Y whose inverse images under f:X→Y are affine. The actual restriction on the closed subscheme cut out by I.comap f, followed by comapObjIso at U, equals comapObjIso at V followed by quotientRestriction. This is equality of morphisms in CommRingCat, for the actual nested preimage opens. The ambient morphism need not be affine.",
+      "hypotheses": [
+        "X and Y are schemes in the same universe; I is native IdealSheafData. Only the affineness hypotheses explicitly stated are used. Zero rings, nilpotents and nonflat maps are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/ideal-comap-quotient-comparison",
+        "SchemeAndStackFoundations:SF.0/ideal-comap-quotient-representative",
+        "SchemeAndStackFoundations:SF.0/quotient-restriction-representative",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeι_app_surjective",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.naturality"
+      ],
+      "proofSteps": [
+        "Lift an arbitrary closed-subscheme section through the native surjective affine section map of its closed immersion. Apply the actual immersion naturality square to that representative, then the existing comapObjIso_mk and new quotientRestriction_mk formulas."
+      ],
+      "acceptance": [
+        "Let U≤V be affine opens of Y whose inverse images under f:X→Y are affine. The actual restriction on the closed subscheme cut out by I.comap f, followed by comapObjIso at U, equals comapObjIso at V followed by quotientRestriction. This is equality of morphisms in CommRingCat, for the actual nested preimage opens. The ambient morphism need not be affine.",
+        "Use the actual native ideals, quotient rings, presheaves and restriction morphisms. The roadmap remains partial and every node unchecked despite separate native proof evidence."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AffinePullback",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-RT01JU",
+          "locator": "Lemma26.17.6(1), complete displayed statement and proof",
+          "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/quotient-comparison-inverse-naturality",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Naturality of the inverse quotient comparison",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.comapObjIso_inv_naturality",
+      "statement": "Under exactly the preceding two local affineness hypotheses, quotientRestriction followed by comapObjIso at U inverse equals comapObjIso at V inverse followed by the actual closed-subscheme restriction, as morphisms in CommRingCat.",
+      "hypotheses": [
+        "X and Y are schemes in the same universe; I is native IdealSheafData. Only the affineness hypotheses explicitly stated are used. Zero rings, nilpotents and nonflat maps are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/quotient-comparison-naturality"
+      ],
+      "proofSteps": [
+        "Postcompose both sides with the invertible comapObjIso at U hom, cancel it, and simplify using the forward naturality square and the two inverse identities."
+      ],
+      "acceptance": [
+        "Under exactly the preceding two local affineness hypotheses, quotientRestriction followed by comapObjIso at U inverse equals comapObjIso at V inverse followed by the actual closed-subscheme restriction, as morphisms in CommRingCat.",
+        "Use the actual native ideals, quotient rings, presheaves and restriction morphisms. The roadmap remains partial and every node unchecked despite separate native proof evidence."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AffinePullback",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-RT01JU",
+          "locator": "Lemma26.17.6(1), complete displayed statement and proof",
+          "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/affine-quotient-presheaf",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "construction",
+      "title": "The affine quotient presheaf",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.quotientPresheaf",
+      "statement": "For arbitrary f:X→Y and native ideal data I, construct the functor from Y.affineOpens opposite to CommRingCat with value Q(U)=Γ(X,f⁻¹U)/I(U).map(f.app U) and actual quotientRestriction maps. No affine-morphism, flatness, Noetherian or finite-presentation assumption is required.",
+      "hypotheses": [
+        "X and Y are schemes in the same universe; I is native IdealSheafData. Only the affineness hypotheses explicitly stated are used. Zero rings, nilpotents and nonflat maps are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/quotient-restriction",
+        "SchemeAndStackFoundations:SF.0/quotient-restriction-identity",
+        "SchemeAndStackFoundations:SF.0/quotient-restriction-composition"
+      ],
+      "proofSteps": [
+        "Use the already-built affine-open category and CommRingCat functor carrier. Specify quotient ring objects and quotientRestriction morphisms concretely; prove the functor identity and composition fields with the two restriction laws. No new site or presheaf carrier is introduced."
+      ],
+      "acceptance": [
+        "For arbitrary f:X→Y and native ideal data I, construct the functor from Y.affineOpens opposite to CommRingCat with value Q(U)=Γ(X,f⁻¹U)/I(U).map(f.app U) and actual quotientRestriction maps. No affine-morphism, flatness, Noetherian or finite-presentation assumption is required.",
+        "Use the actual native ideals, quotient rings, presheaves and restriction morphisms. The roadmap remains partial and every node unchecked despite separate native proof evidence."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AffinePullback",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-RT01JU",
+          "locator": "Lemma26.17.6(1), complete displayed statement and proof",
+          "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.quotientPresheaf_obj",
+          "role": "compatibility",
+          "statement": "The value of quotientPresheaf at an affine open U is exactly the native CommRingCat object Q(U).",
+          "proof": "Use SchemeAndStackFoundations:SF.0/affine-quotient-presheaf-object with its exact stated hypotheses and native maps."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.quotientPresheaf_map",
+          "role": "compatibility",
+          "statement": "The map of quotientPresheaf on the opposite of the inclusion U≤V is exactly CommRingCat.ofHom(quotientRestriction I f (U≤V)).",
+          "proof": "Use SchemeAndStackFoundations:SF.0/affine-quotient-presheaf-map with its exact stated hypotheses and native maps."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.comapObjNatIso",
+          "role": "compatibility",
+          "statement": "If f:X→Y is an affine morphism, the actual presheaf of the closed subscheme cut out by I.comap f, restricted along affine opens of Y and both native preimage functors, is naturally isomorphic to quotientPresheaf I f. The component at U is the existing comapObjIso with the native affine-preimage witness. Affineness of f is used to provide every component, without flatness or finiteness.",
+          "proof": "Use SchemeAndStackFoundations:SF.0/closed-subscheme-quotient-natural-isomorphism with its exact stated hypotheses and native maps."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuotientPresheafChecked.basic_open_representative",
+          "kind": "compatibility",
+          "statement": "For an affine V, an actual section s on V and arbitrary f, the presheaf restriction to the native affine basic open D(s) sends every class to the class of its actual restricted section."
+        },
+        {
+          "name": "QuotientPresheafChecked.nonflat_surviving_unit",
+          "kind": "non-example",
+          "statement": "For the nonflat Spec(Z/2)→Spec(Z) and the ideal datum generated by2, the unit in the actual top quotient-presheaf value is nonzero, although the pulled-back full ideal is zero."
+        },
+        {
+          "name": "QuotientPresheafChecked.zero_ideal_path",
+          "kind": "compatibility",
+          "statement": "For the zero ideal datum and a two-step chain of affine opens, the two actual presheaf maps agree with the direct restriction on every representative."
+        }
+      ],
+      "uses": [
+        {
+          "where": "SF.0 affine closed-subscheme restriction comparisons and NeronModelsAndSemistableAbelianVarietiesPartII:G.0 existing conductor/sheaf requests",
+          "how": "Compare actual quotient coordinates under restriction. The consumer-specific conductor and global sheaf comparisons remain separately owned and no multi-part request is closed."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/affine-quotient-presheaf-object",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Affine quotient presheaf objects",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.quotientPresheaf_obj",
+      "statement": "The value of quotientPresheaf at an affine open U is exactly the native CommRingCat object Q(U).",
+      "hypotheses": [
+        "X and Y are schemes in the same universe; I is native IdealSheafData. Only the affineness hypotheses explicitly stated are used. Zero rings, nilpotents and nonflat maps are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/affine-quotient-presheaf"
+      ],
+      "proofSteps": [
+        "Unfold the concrete object field; the equality is reflexive."
+      ],
+      "acceptance": [
+        "The value of quotientPresheaf at an affine open U is exactly the native CommRingCat object Q(U).",
+        "Use the actual native ideals, quotient rings, presheaves and restriction morphisms. The roadmap remains partial and every node unchecked despite separate native proof evidence."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AffinePullback",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-RT01JU",
+          "locator": "Lemma26.17.6(1), complete displayed statement and proof",
+          "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/affine-quotient-presheaf-map",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Affine quotient presheaf maps",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.quotientPresheaf_map",
+      "statement": "The map of quotientPresheaf on the opposite of the inclusion U≤V is exactly CommRingCat.ofHom(quotientRestriction I f (U≤V)).",
+      "hypotheses": [
+        "X and Y are schemes in the same universe; I is native IdealSheafData. Only the affineness hypotheses explicitly stated are used. Zero rings, nilpotents and nonflat maps are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/affine-quotient-presheaf"
+      ],
+      "proofSteps": [
+        "Unfold the concrete map field and the preorder inclusion; the equality is reflexive."
+      ],
+      "acceptance": [
+        "The map of quotientPresheaf on the opposite of the inclusion U≤V is exactly CommRingCat.ofHom(quotientRestriction I f (U≤V)).",
+        "Use the actual native ideals, quotient rings, presheaves and restriction morphisms. The roadmap remains partial and every node unchecked despite separate native proof evidence."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AffinePullback",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-RT01JU",
+          "locator": "Lemma26.17.6(1), complete displayed statement and proof",
+          "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/closed-subscheme-quotient-natural-isomorphism",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "construction",
+      "title": "The closed-subscheme quotient natural isomorphism",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.comapObjNatIso",
+      "statement": "If f:X→Y is an affine morphism, the actual presheaf of the closed subscheme cut out by I.comap f, restricted along affine opens of Y and both native preimage functors, is naturally isomorphic to quotientPresheaf I f. The component at U is the existing comapObjIso with the native affine-preimage witness. Affineness of f is used to provide every component, without flatness or finiteness.",
+      "hypotheses": [
+        "X and Y are schemes in the same universe; I is native IdealSheafData. Only the affineness hypotheses explicitly stated are used. Zero rings, nilpotents and nonflat maps are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/quotient-comparison-naturality",
+        "SchemeAndStackFoundations:SF.0/affine-quotient-presheaf",
+        "SchemeAndStackFoundations:SF.0/ideal-comap-quotient-comparison",
+        "mathlib:Monotone.functor",
+        "mathlib:TopologicalSpace.Opens.map",
+        "mathlib:CategoryTheory.NatIso.ofComponents"
+      ],
+      "proofSteps": [
+        "Compose the built affine-open forgetful functor and native preimage functors with the native closed-subscheme presheaf. Apply NatIso.ofComponents to the existing comapObjIso components, using the proved restriction square. Preserve these actual components; this compares affine-indexed presheaves and does not assert a new all-open sheaf comparison."
+      ],
+      "acceptance": [
+        "If f:X→Y is an affine morphism, the actual presheaf of the closed subscheme cut out by I.comap f, restricted along affine opens of Y and both native preimage functors, is naturally isomorphic to quotientPresheaf I f. The component at U is the existing comapObjIso with the native affine-preimage witness. Affineness of f is used to provide every component, without flatness or finiteness.",
+        "Use the actual native ideals, quotient rings, presheaves and restriction morphisms. The roadmap remains partial and every node unchecked despite separate native proof evidence."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AffinePullback",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-RT01JU",
+          "locator": "Lemma26.17.6(1), complete displayed statement and proof",
+          "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.comapObjNatIso_app",
+          "role": "compatibility",
+          "statement": "For affine f and affine U, the component of comapObjNatIso at U is precisely comapObjIso I f U with the native preimage-affineness witness.",
+          "proof": "Use SchemeAndStackFoundations:SF.0/closed-subscheme-natural-isomorphism-component with its exact stated hypotheses and native maps."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.comapObjNatIso_hom_app",
+          "role": "compatibility",
+          "statement": "For affine f and affine U, the forward component of comapObjNatIso is exactly the forward native quotient comparison comapObjIso I f U.",
+          "proof": "Use SchemeAndStackFoundations:SF.0/closed-subscheme-natural-isomorphism-forward with its exact stated hypotheses and native maps."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.comapObjNatIso_inv_app",
+          "role": "compatibility",
+          "statement": "For affine f and affine U, the inverse component of comapObjNatIso is exactly the inverse native quotient comparison comapObjIso I f U.",
+          "proof": "Use SchemeAndStackFoundations:SF.0/closed-subscheme-natural-isomorphism-inverse with its exact stated hypotheses and native maps."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ComapObjNatIsoChecked.roundtrip",
+          "kind": "computation",
+          "statement": "For affine f, every actual closed-subscheme section is recovered by applying the forward and inverse natural-isomorphism components at the same affine open."
+        },
+        {
+          "name": "ComapObjNatIsoChecked.forward_overlap",
+          "kind": "compatibility",
+          "statement": "For affine f and U≤V≤W, the forward components intertwine the actual closed-subscheme restriction with two successive quotient-presheaf restrictions, as CommRingCat morphisms."
+        },
+        {
+          "name": "ComapObjNatIsoChecked.inverse_overlap",
+          "kind": "compatibility",
+          "statement": "For affine f and U≤V, the inverse components intertwine the actual quotient-presheaf restriction with the closed-subscheme restriction, as CommRingCat morphisms."
+        }
+      ],
+      "uses": [
+        {
+          "where": "SF.0 affine closed-subscheme restriction comparisons and NeronModelsAndSemistableAbelianVarietiesPartII:G.0 existing conductor/sheaf requests",
+          "how": "Compare actual quotient coordinates under restriction. The consumer-specific conductor and global sheaf comparisons remain separately owned and no multi-part request is closed."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/closed-subscheme-natural-isomorphism-component",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Natural isomorphism components",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.comapObjNatIso_app",
+      "statement": "For affine f and affine U, the component of comapObjNatIso at U is precisely comapObjIso I f U with the native preimage-affineness witness.",
+      "hypotheses": [
+        "X and Y are schemes in the same universe; I is native IdealSheafData. Only the affineness hypotheses explicitly stated are used. Zero rings, nilpotents and nonflat maps are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/closed-subscheme-quotient-natural-isomorphism"
+      ],
+      "proofSteps": [
+        "Unfold NatIso.ofComponents and the concrete component assignment; the equality is reflexive."
+      ],
+      "acceptance": [
+        "For affine f and affine U, the component of comapObjNatIso at U is precisely comapObjIso I f U with the native preimage-affineness witness.",
+        "Use the actual native ideals, quotient rings, presheaves and restriction morphisms. The roadmap remains partial and every node unchecked despite separate native proof evidence."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AffinePullback",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-RT01JU",
+          "locator": "Lemma26.17.6(1), complete displayed statement and proof",
+          "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/closed-subscheme-natural-isomorphism-forward",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Forward natural isomorphism components",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.comapObjNatIso_hom_app",
+      "statement": "For affine f and affine U, the forward component of comapObjNatIso is exactly the forward native quotient comparison comapObjIso I f U.",
+      "hypotheses": [
+        "X and Y are schemes in the same universe; I is native IdealSheafData. Only the affineness hypotheses explicitly stated are used. Zero rings, nilpotents and nonflat maps are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/closed-subscheme-quotient-natural-isomorphism"
+      ],
+      "proofSteps": [
+        "Unfold the concrete forward component; the equality is reflexive."
+      ],
+      "acceptance": [
+        "For affine f and affine U, the forward component of comapObjNatIso is exactly the forward native quotient comparison comapObjIso I f U.",
+        "Use the actual native ideals, quotient rings, presheaves and restriction morphisms. The roadmap remains partial and every node unchecked despite separate native proof evidence."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AffinePullback",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-RT01JU",
+          "locator": "Lemma26.17.6(1), complete displayed statement and proof",
+          "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/closed-subscheme-natural-isomorphism-inverse",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Inverse natural isomorphism components",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.comapObjNatIso_inv_app",
+      "statement": "For affine f and affine U, the inverse component of comapObjNatIso is exactly the inverse native quotient comparison comapObjIso I f U.",
+      "hypotheses": [
+        "X and Y are schemes in the same universe; I is native IdealSheafData. Only the affineness hypotheses explicitly stated are used. Zero rings, nilpotents and nonflat maps are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/closed-subscheme-quotient-natural-isomorphism"
+      ],
+      "proofSteps": [
+        "Unfold the concrete inverse component; the equality is reflexive."
+      ],
+      "acceptance": [
+        "For affine f and affine U, the inverse component of comapObjNatIso is exactly the inverse native quotient comparison comapObjIso I f U.",
+        "Use the actual native ideals, quotient rings, presheaves and restriction morphisms. The roadmap remains partial and every node unchecked despite separate native proof evidence."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AffinePullback",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-RT01JU",
+          "locator": "Lemma26.17.6(1), complete displayed statement and proof",
+          "match": "Context for the native inverse-image closed subscheme and its full image ideal. The restriction/naturality formulas are authored deductions from the pinned native API, not additional statements attributed literally to this source."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [],
@@ -3791,7 +4536,8 @@
         "Retain all SF.0 routed source obligations listed in sourceWorklist, including perfect geometry, coherent extension, standard coordinates and finite-presentation spreading. Weil restriction uses the confirmed MC0F → RG2.0a → R09.3 import, not a duplicate.",
         "The generic flat-annihilator supplier now has eight declaration-sized nodes and seven typed boundary tests. Native proofs establish the finite-module identity, arbitrary-element identity, unconditional inclusion and finite ideal-intersection comparison using the pinned kernel and tensor APIs. The Neron Part II consumer must still identify the actual base-changed quotient algebra/module and conductor/sheaf maps; its multi-part SF.0 request remains open. All existing henselization, reserved-key, source-route and other-stage obligations remain unchanged.",
         "The generic native quotient/cokernel comparison now has thirteen declaration-sized adapters and eight typed tests. Its actual quotient square and module-map naturality hold without flatness; full annihilator equality requires flatness and finiteness of the quotient/cokernel alone. The conductor consumer must still identify its particular algebra-image submodule, affine pullback ideals and section/sheaf maps. Existing henselization, reserved-key, all routed-source and other-stage obligations remain open.",
-        "Nine generic affine ideal-pullback adapters now identify the full extended ideal and the actual quotient section map, without flatness or finiteness. The conductor-specialized consumer comparison in PR6023 remains separately owned. General ideal pullback is the image ideal, not an assertion that pullback preserves injectivity of its module inclusion. The remaining global conductor/sheaf and flat-recomputation consumer obligations, henselization coherence and source leaves, reserved keys,62 routed sources and all other-stage obligations remain open."
+        "Nine generic affine ideal-pullback adapters now identify the full extended ideal and the actual quotient section map, without flatness or finiteness. The conductor-specialized consumer comparison in PR6023 remains separately owned. General ideal pullback is the image ideal, not an assertion that pullback preserves injectivity of its module inclusion. The remaining global conductor/sheaf and flat-recomputation consumer obligations, henselization coherence and source leaves, reserved keys,62 routed sources and all other-stage obligations remain open.",
+        "Fourteen affine quotient-restriction and naturality declarations now compare the actual closed-subscheme section maps and construct an affine-indexed quotient presheaf and natural isomorphism. Restriction maps require arbitrary f; the natural isomorphism requires affine f to supply all affine preimages. This is not an all-open sheafification or global structure-sheaf comparison. The separately owned conductor/sheaf and flat-recomputation consumer obligations, henselization coherence and source leaves, six reserved-key boundaries,62 routed sources and all other-stage obligations remain open."
       ]
     },
     {
@@ -4015,6 +4761,24 @@
       "url": "https://stacks.math.columbia.edu/tag/01HQ",
       "read": "2026-10-03",
       "sha256": "214dc3d26aafc7c81321777ca658ddc4856bbc9cb507185606415179e5c44cfd"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://stacks.math.columbia.edu/tag/01IN",
+      "read": "2026-10-03",
+      "sha256": "a285f245d0b5ee5bfae26e4bf59c4ddd3e6113072d6a729b6fd68cc081354326"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://stacks.math.columbia.edu/tag/01JU",
+      "read": "2026-10-03",
+      "sha256": "56d2f17cbb293a8b66a122d3c923d6b3fdaf1a3c5d507a12536397ec3c98d308"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://stacks.math.columbia.edu/tag/01IQ",
+      "read": "2026-10-03",
+      "sha256": "0329016aa00c3919201c5c9df902eedb920a7d955af6928522c5dd0f5afac4a8"
     },
     {
       "kind": "author copy",
@@ -4505,13 +5269,13 @@
     }
   ],
   "validationBoundary": {
-    "agent": "Codex — codex-7e92bd",
+    "agent": "Codex — codex-rtOQ9t",
     "date": "2026-10-03",
     "issue": 642,
-    "implementation": "All59 nodes remain unchecked and all7 stages partial/not_read. Native proof evidence covers the9 new declarations and5 tests, with21 incoming native proofs re-audited. No whole-roadmap implementation claim.",
-    "sourceRead": "Fresh complete Stacks01JU,01JV,01HQ,01IN statements and displayed proofs where present. All50 incoming nodes,62 routes,12 findings,8 gaps,6 key boundaries and inherited E1 preserved. Incoming6020 public recovery and verifier replay match exactly; historical reading claims retain original attribution.",
-    "elaboration": "Whole Mathlib-only canonical and native proof evidence checked at the exact pin. Native axioms restricted to propext, Classical.choice and Quot.sound; canonical warnings only admissions. Exact receipts in handoff.",
-    "remaining": "Nine generic affine ideal-pullback adapters now identify the full extended ideal and the actual quotient section map, without flatness or finiteness. The conductor-specialized consumer comparison in PR6023 remains separately owned. General ideal pullback is the image ideal, not an assertion that pullback preserves injectivity of its module inclusion. The remaining global conductor/sheaf and flat-recomputation consumer obligations, henselization coherence and source leaves, reserved keys,62 routed sources and all other-stage obligations remain open."
+    "implementation": "All73 nodes remain unchecked and all7 stages partial/not_read. Separate native evidence checks14 new declarations,9 new examples and the unchanged639-line incoming native prefix with30 prior declaration audits. No whole-roadmap implementation claim.",
+    "sourceRead": "Complete current issue, handoff, seven own reviewed library-audit rows, campaign reader, seven owned RS25 decisions, four touching links and both consumer requests read. Complete Stacks01JU,01IQ,01IN mathematical statements/proofs read. All59 nodes,62 routes,12 confirmed findings,8 gaps,6 key boundaries and inherited E1 preserved. Predecessor6025 publicly recovered and its actual verifier reproduced byte-for-byte. Historical source/finding scopes retain their original attribution; no new whole-paper or inherited erratum re-audit.",
+    "elaboration": "Whole Mathlib-only canonical and separate native proof evidence checked at exact pin. Native audits contain only propext, Classical.choice and Quot.sound. Canonical warnings are admissions only; recoverable receipts in handoff.",
+    "remaining": "Fourteen affine quotient-restriction and naturality declarations now compare the actual closed-subscheme section maps and construct an affine-indexed quotient presheaf and natural isomorphism. Restriction maps require arbitrary f; the natural isomorphism requires affine f to supply all affine preimages. This is not an all-open sheafification or global structure-sheaf comparison. The separately owned conductor/sheaf and flat-recomputation consumer obligations, henselization coherence and source leaves, six reserved-key boundaries,62 routed sources and all other-stage obligations remain open."
   },
   "restructure": [
     {
