@@ -4598,3 +4598,305 @@ end
 end TauCeti.GenusOne.QuadraticPinch.Global
 
 /- END NATIVE NORMALIZATION SECTION BRIDGE -/
+
+/-! Actual native-normalization restriction and scheme comparison. -/
+namespace TauCeti.GenusOne.QuadraticPinch.Global
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry TopologicalSpace
+noncomputable section
+set_option backward.isDefEq.respectTransparency false
+set_option linter.style.haveILetI false
+variable {k : Type u} [Field k]
+local instance (a b : k) : IsIntegral (curve a b) := curve_isIntegral a b
+local instance (a b : k) : IsIntegral (normalizationSource a b) := source_isIntegral a b
+local instance (a b : k) : IsAffineHom
+    ((curve a b).fromSpecStalk (genericPoint (curve a b))) := genericPointMorphism_isAffine a b
+local instance (a b : k) (U : (curve a b).Opens) :
+    Algebra Γ(curve a b, U)
+      Γ(Spec (curve a b).functionField,
+        (curve a b).fromSpecStalk (genericPoint (curve a b)) ⁻¹ᵁ U) :=
+  (((curve a b).fromSpecStalk (genericPoint (curve a b))).app U).hom.toAlgebra
+local instance (a b : k) (U : (curve a b).Opens) :
+    Algebra Γ(curve a b, U)
+      Γ(((curve a b).fromSpecStalk (genericPoint (curve a b))).normalization,
+        ((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization ⁻¹ᵁ U) :=
+  (((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization.app U).hom.toAlgebra
+local instance (a b : k) (U : (curve a b).Opens) :
+    Algebra Γ(curve a b, U) Γ(normalizationSource a b, normalization a b ⁻¹ᵁ U) :=
+  ((normalization a b).app U).hom.toAlgebra
+
+lemma absoluteNormalizationSectionsClosureEquiv_generic_value (a b : k)
+    (U : (curve a b).Opens) (hU : IsAffineOpen U) [Nonempty U]
+    (s : Γ(((curve a b).fromSpecStalk (genericPoint (curve a b))).normalization,
+      ((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization ⁻¹ᵁ U)) :
+    (absoluteNormalizationSectionsClosureEquiv a b U hU s).val =
+      normalizationGenericSectionsAlgEquiv a b U
+        ((((curve a b).fromSpecStalk (genericPoint (curve a b))).toNormalization.appLE
+          _ _ (by simp [← Scheme.Hom.comp_preimage])) s) := by sorry
+
+lemma absoluteNormalizationSectionsClosureEquiv_restrict (a b : k)
+    (U V : (curve a b).Opens) (hU : IsAffineOpen U) (hV : IsAffineOpen V)
+    [Nonempty U] [Nonempty V] (h : V ≤ U)
+    (s : Γ(((curve a b).fromSpecStalk (genericPoint (curve a b))).normalization,
+      ((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization ⁻¹ᵁ U)) :
+    (absoluteNormalizationSectionsClosureEquiv a b V hV
+      (((curve a b).fromSpecStalk (genericPoint (curve a b))).normalization.presheaf.map
+        (homOfLE (((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization.preimage_mono h)).op s)).val =
+      (absoluteNormalizationSectionsClosureEquiv a b U hU s).val := by sorry
+
+lemma absoluteNormalizationSourceSectionsEquiv_restrict (a b : k)
+    (U V : (curve a b).Opens) (hU : IsAffineOpen U) (hV : IsAffineOpen V)
+    [Nonempty U] [Nonempty V] (h : V ≤ U)
+    (s : Γ(((curve a b).fromSpecStalk (genericPoint (curve a b))).normalization,
+      ((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization ⁻¹ᵁ U)) :
+    absoluteNormalizationSourceSectionsEquiv a b V hV
+      (((curve a b).fromSpecStalk (genericPoint (curve a b))).normalization.presheaf.map
+        (homOfLE (((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization.preimage_mono h)).op s) =
+      (normalizationSource a b).presheaf.map
+        (homOfLE ((normalization a b).preimage_mono h)).op
+        (absoluteNormalizationSourceSectionsEquiv a b U hU s) := by sorry
+
+def absoluteNormalizationComparisonSections (a b : k) (U : (curve a b).Opens) :
+    Γ(normalizationSource a b, normalization a b ⁻¹ᵁ U) ⟶
+      Γ(((curve a b).fromSpecStalk (genericPoint (curve a b))).normalization,
+        ((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization ⁻¹ᵁ U) :=
+  (absoluteNormalizationComparison a b).appLE _ _ (by sorry)
+
+lemma absoluteNormalizationComparisonSections_generic_app (a b : k)
+    (U : (curve a b).Opens) :
+    absoluteNormalizationComparisonSections a b U ≫
+      (((curve a b).fromSpecStalk (genericPoint (curve a b))).toNormalization.appLE
+        _ _ (by simp [← Scheme.Hom.comp_preimage])) =
+      (Spec.map (normalizationFunctionFieldIso a b).inv ≫
+        (normalizationSource a b).fromSpecStalk (genericPoint (normalizationSource a b))).appLE
+        (normalization a b ⁻¹ᵁ U)
+        ((curve a b).fromSpecStalk (genericPoint (curve a b)) ⁻¹ᵁ U)
+        (by rw [← Scheme.Hom.comp_preimage, Category.assoc, normalizationFunctionFieldIso_spec_triangle]) := by sorry
+
+lemma absoluteNormalizationComparisonSections_generic_value (a b : k)
+    (U : (curve a b).Opens) (hU : IsAffineOpen U) [Nonempty U]
+    (s : Γ(normalizationSource a b, normalization a b ⁻¹ᵁ U)) :
+    (absoluteNormalizationSectionsClosureEquiv a b U hU
+      (absoluteNormalizationComparisonSections a b U s)).val =
+      normalizationGenericSectionsAlgEquiv a b U
+        ((Spec.map (normalizationFunctionFieldIso a b).inv ≫
+          (normalizationSource a b).fromSpecStalk (genericPoint (normalizationSource a b))).appLE
+          (normalization a b ⁻¹ᵁ U)
+          ((curve a b).fromSpecStalk (genericPoint (curve a b)) ⁻¹ᵁ U)
+          (by rw [← Scheme.Hom.comp_preimage, Category.assoc, normalizationFunctionFieldIso_spec_triangle]) s) := by sorry
+
+lemma genericPointLiftSections_value (a b : k)
+    (U : (curve a b).Opens) [Nonempty U]
+    (s : Γ(normalizationSource a b, normalization a b ⁻¹ᵁ U)) :
+    normalizationGenericSectionsAlgEquiv a b U
+      ((Spec.map (normalizationFunctionFieldIso a b).inv ≫
+        (normalizationSource a b).fromSpecStalk (genericPoint (normalizationSource a b))).appLE
+        (normalization a b ⁻¹ᵁ U)
+        ((curve a b).fromSpecStalk (genericPoint (curve a b)) ⁻¹ᵁ U)
+        (by rw [← Scheme.Hom.comp_preimage, Category.assoc,
+          normalizationFunctionFieldIso_spec_triangle]) s) =
+      (normalizationFunctionFieldIso a b).inv
+        (@Scheme.germToFunctionField (normalizationSource a b) _
+          (normalization a b ⁻¹ᵁ U) (normalization_preimage_nonempty a b U) s) := by sorry
+
+lemma absoluteNormalizationComparisonSections_closure (a b : k)
+    (U : (curve a b).Opens) (hU : IsAffineOpen U) [Nonempty U]
+    (s : Γ(normalizationSource a b, normalization a b ⁻¹ᵁ U)) :
+    absoluteNormalizationSectionsClosureEquiv a b U hU
+      (absoluteNormalizationComparisonSections a b U s) = absoluteSectionsClosureEquiv a b U hU s := by sorry
+
+lemma absoluteNormalizationComparisonSections_eq_inverse (a b : k)
+    (U : (curve a b).Opens) (hU : IsAffineOpen U) [Nonempty U]
+    (s : Γ(normalizationSource a b, normalization a b ⁻¹ᵁ U)) :
+    absoluteNormalizationComparisonSections a b U s =
+      (absoluteNormalizationSourceSectionsEquiv a b U hU).symm s := by sorry
+
+lemma absoluteNormalizationComparisonSections_coefficient (a b : k)
+    (U : (curve a b).Opens) (r : Γ(curve a b, U)) :
+    absoluteNormalizationComparisonSections a b U ((normalization a b).app U r) =
+      (((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization.app U r) := by sorry
+
+lemma absoluteNormalizationComparisonSections_restrict (a b : k)
+    (U V : (curve a b).Opens) (h : V ≤ U) :
+    (normalizationSource a b).presheaf.map (homOfLE ((normalization a b).preimage_mono h)).op ≫
+      absoluteNormalizationComparisonSections a b V =
+    absoluteNormalizationComparisonSections a b U ≫
+      ((curve a b).fromSpecStalk (genericPoint (curve a b))).normalization.presheaf.map
+        (homOfLE (((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization.preimage_mono h)).op := by sorry
+
+lemma absoluteNormalizationComparisonSections_bijective_nonempty (a b : k)
+    (U : (curve a b).Opens) (hU : IsAffineOpen U) [Nonempty U] :
+    Function.Bijective (absoluteNormalizationComparisonSections a b U) := by sorry
+
+lemma absoluteNormalizationComparisonSections_bijective_empty (a b : k) :
+    Function.Bijective (absoluteNormalizationComparisonSections a b ⊥) := by sorry
+
+lemma absoluteNormalizationComparisonSections_bijective (a b : k)
+    (U : (curve a b).Opens) (hU : IsAffineOpen U) :
+    Function.Bijective (absoluteNormalizationComparisonSections a b U) := by sorry
+
+lemma absoluteNormalizationComparison_affine_app_isIso (a b : k)
+    (U : (curve a b).Opens) (hU : IsAffineOpen U) :
+    IsIso ((absoluteNormalizationComparison a b).app (normalization a b ⁻¹ᵁ U)) := by sorry
+
+lemma absoluteNormalizationComparison_isIso (a b : k) :
+    IsIso (absoluteNormalizationComparison a b) := by sorry
+
+def absoluteNormalizationIso (a b : k) :
+    ((curve a b).fromSpecStalk (genericPoint (curve a b))).normalization ≅
+      normalizationSource a b := by
+  letI : IsIso (absoluteNormalizationComparison a b) := by sorry
+  exact asIso (absoluteNormalizationComparison a b)
+
+lemma absoluteNormalizationIso_hom (a b : k) :
+    (absoluteNormalizationIso a b).hom = absoluteNormalizationComparison a b := by sorry
+
+lemma absoluteNormalizationIso_hom_inv (a b : k) :
+    (absoluteNormalizationIso a b).hom ≫ (absoluteNormalizationIso a b).inv = 𝟙 _ := by sorry
+
+lemma absoluteNormalizationIso_inv_hom (a b : k) :
+    (absoluteNormalizationIso a b).inv ≫ (absoluteNormalizationIso a b).hom = 𝟙 _ := by sorry
+
+lemma absoluteNormalizationIso_inv_from (a b : k) :
+    (absoluteNormalizationIso a b).inv ≫
+      ((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization =
+        normalization a b := by sorry
+
+lemma absoluteNormalizationIso_point_inv (a b : k) :
+    (Spec.map (normalizationFunctionFieldIso a b).inv ≫
+      (normalizationSource a b).fromSpecStalk (genericPoint (normalizationSource a b))) ≫
+        (absoluteNormalizationIso a b).inv =
+      ((curve a b).fromSpecStalk (genericPoint (curve a b))).toNormalization := by sorry
+
+lemma absoluteNormalizationComparisonSections_bijective_all (a b : k)
+    (U : (curve a b).Opens) :
+    Function.Bijective (absoluteNormalizationComparisonSections a b U) := by sorry
+
+def absoluteNormalizationComparisonSectionsAlgEquiv (a b : k)
+    (U : (curve a b).Opens) :
+    Γ(normalizationSource a b, normalization a b ⁻¹ᵁ U) ≃ₐ[Γ(curve a b, U)]
+      Γ(((curve a b).fromSpecStalk (genericPoint (curve a b))).normalization,
+        ((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization ⁻¹ᵁ U) :=
+  { RingEquiv.ofBijective (absoluteNormalizationComparisonSections a b U).hom
+      (absoluteNormalizationComparisonSections_bijective_all a b U) with
+    commutes' := by sorry }
+
+lemma absoluteNormalizationComparisonSectionsAlgEquiv_apply (a b : k)
+    (U : (curve a b).Opens)
+    (s : Γ(normalizationSource a b, normalization a b ⁻¹ᵁ U)) :
+    absoluteNormalizationComparisonSectionsAlgEquiv a b U s =
+      absoluteNormalizationComparisonSections a b U s := by sorry
+
+lemma absoluteNormalizationComparisonSectionsAlgEquiv_symm_apply (a b : k)
+    (U : (curve a b).Opens)
+    (s : Γ(normalizationSource a b, normalization a b ⁻¹ᵁ U)) :
+    (absoluteNormalizationComparisonSectionsAlgEquiv a b U).symm
+      (absoluteNormalizationComparisonSections a b U s) = s := by sorry
+
+lemma absoluteNormalizationComparisonSectionsAlgEquiv_apply_symm (a b : k)
+    (U : (curve a b).Opens)
+    (s : Γ(((curve a b).fromSpecStalk (genericPoint (curve a b))).normalization,
+      ((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization ⁻¹ᵁ U)) :
+    absoluteNormalizationComparisonSections a b U
+      ((absoluteNormalizationComparisonSectionsAlgEquiv a b U).symm s) = s := by sorry
+
+lemma absoluteNormalizationComparisonSectionsAlgEquiv_inverse_coefficient (a b : k)
+    (U : (curve a b).Opens) (r : Γ(curve a b, U)) :
+    (absoluteNormalizationComparisonSectionsAlgEquiv a b U).symm
+      (((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization.app U r) =
+        (normalization a b).app U r := by sorry
+
+lemma absoluteNormalizationComparisonSectionsAlgEquiv_restrict (a b : k)
+    (U V : (curve a b).Opens) (h : V ≤ U)
+    (s : Γ(normalizationSource a b, normalization a b ⁻¹ᵁ U)) :
+    absoluteNormalizationComparisonSectionsAlgEquiv a b V
+      ((normalizationSource a b).presheaf.map
+        (homOfLE ((normalization a b).preimage_mono h)).op s) =
+      ((curve a b).fromSpecStalk (genericPoint (curve a b))).normalization.presheaf.map
+        (homOfLE (((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization.preimage_mono h)).op
+        (absoluteNormalizationComparisonSectionsAlgEquiv a b U s) := by sorry
+
+lemma absoluteNormalizationComparisonSectionsAlgEquiv_inverse_restrict (a b : k)
+    (U V : (curve a b).Opens) (h : V ≤ U)
+    (s : Γ(((curve a b).fromSpecStalk (genericPoint (curve a b))).normalization,
+      ((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization ⁻¹ᵁ U)) :
+    (absoluteNormalizationComparisonSectionsAlgEquiv a b V).symm
+      (((curve a b).fromSpecStalk (genericPoint (curve a b))).normalization.presheaf.map
+        (homOfLE (((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization.preimage_mono h)).op s) =
+      (normalizationSource a b).presheaf.map
+        (homOfLE ((normalization a b).preimage_mono h)).op
+        ((absoluteNormalizationComparisonSectionsAlgEquiv a b U).symm s) := by sorry
+
+lemma absoluteNormalizationComparisonSectionsAlgEquiv_eq_source_symm (a b : k)
+    (U : (curve a b).Opens) (hU : IsAffineOpen U) [Nonempty U] :
+    absoluteNormalizationComparisonSectionsAlgEquiv a b U =
+      (absoluteNormalizationSourceSectionsEquiv a b U hU).symm := by sorry
+
+
+-- test: QuadraticPinch.Global.test_comparisonSections_cusp_coefficient
+example (U : (curve (0 : k) 0).Opens) (r : Γ(curve (0 : k) 0, U)) :
+    absoluteNormalizationComparisonSections (0 : k) 0 U ((normalization 0 0).app U r) =
+      ((curve (0 : k) 0).fromSpecStalk
+        (genericPoint (curve (0 : k) 0))).fromNormalization.app U r := by sorry
+
+
+-- test: QuadraticPinch.Global.test_comparisonSections_char2_inverse
+example (U : (curve (1 : ZMod 2) 1).Opens) (hU : IsAffineOpen U) [Nonempty U]
+    (s : Γ(normalizationSource (1 : ZMod 2) 1, normalization 1 1 ⁻¹ᵁ U)) :
+    absoluteNormalizationComparisonSections (1 : ZMod 2) 1 U s =
+      (absoluteNormalizationSourceSectionsEquiv (1 : ZMod 2) 1 U hU).symm s := by sorry
+
+
+-- test: QuadraticPinch.Global.test_comparisonSections_empty
+example (a b : k) :
+    Function.Bijective (absoluteNormalizationComparisonSections a b ⊥) := by sorry
+
+
+-- test: QuadraticPinch.Global.test_absoluteNormalizationIso_cusp_from
+example : (absoluteNormalizationIso (0 : k) 0).hom ≫ normalization (0 : k) 0 =
+    ((curve (0 : k) 0).fromSpecStalk
+      (genericPoint (curve (0 : k) 0))).fromNormalization := by sorry
+
+
+-- test: QuadraticPinch.Global.test_absoluteNormalizationIso_char2_point
+example : (Spec.map (normalizationFunctionFieldIso (1 : ZMod 2) 1).inv ≫
+    (normalizationSource (1 : ZMod 2) 1).fromSpecStalk
+      (genericPoint (normalizationSource (1 : ZMod 2) 1))) ≫
+      (absoluteNormalizationIso (1 : ZMod 2) 1).inv =
+    ((curve (1 : ZMod 2) 1).fromSpecStalk
+      (genericPoint (curve (1 : ZMod 2) 1))).toNormalization := by sorry
+
+
+-- test: QuadraticPinch.Global.test_absoluteNormalizationIso_pinch_nonexample
+example (a b : k) : IsIso (absoluteNormalizationComparison a b) ∧
+    ¬ Function.Surjective ((algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X +
+      Polynomial.C b)).val) := by sorry
+
+
+-- test: QuadraticPinch.Global.test_comparisonAlgEquiv_cusp_inverse_coefficient
+example (U : (curve (0 : k) 0).Opens) (r : Γ(curve (0 : k) 0, U)) :
+    (absoluteNormalizationComparisonSectionsAlgEquiv (0 : k) 0 U).symm
+      (((curve (0 : k) 0).fromSpecStalk
+        (genericPoint (curve (0 : k) 0))).fromNormalization.app U r) =
+      (normalization (0 : k) 0).app U r := by sorry
+
+
+-- test: QuadraticPinch.Global.test_comparisonAlgEquiv_char2_restrict
+example (U V : (curve (1 : ZMod 2) 1).Opens) (h : V ≤ U)
+    (s : Γ(normalizationSource (1 : ZMod 2) 1, normalization 1 1 ⁻¹ᵁ U)) :
+    absoluteNormalizationComparisonSectionsAlgEquiv (1 : ZMod 2) 1 V
+      ((normalizationSource (1 : ZMod 2) 1).presheaf.map
+        (homOfLE ((normalization (1 : ZMod 2) 1).preimage_mono h)).op s) =
+      ((curve (1 : ZMod 2) 1).fromSpecStalk
+        (genericPoint (curve (1 : ZMod 2) 1))).normalization.presheaf.map
+        (homOfLE (((curve (1 : ZMod 2) 1).fromSpecStalk
+          (genericPoint (curve (1 : ZMod 2) 1))).fromNormalization.preimage_mono h)).op
+        (absoluteNormalizationComparisonSectionsAlgEquiv (1 : ZMod 2) 1 U s) := by sorry
+
+
+-- test: QuadraticPinch.Global.test_comparisonAlgEquiv_empty_nonexample
+example (a b : k) :
+    Function.Bijective (absoluteNormalizationComparisonSectionsAlgEquiv a b ⊥) ∧
+      ¬ Nonempty (⊥ : (curve a b).Opens) := by sorry
+
+end
+end TauCeti.GenusOne.QuadraticPinch.Global
