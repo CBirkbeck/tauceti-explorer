@@ -55,6 +55,10 @@ import TauCeti.AlgebraicGeometry.WeilDivisor.Scheme.Basic
 import TauCeti.AlgebraicGeometry.Curves.StableReduction.Model.Basic
 import TauCeti.AlgebraicGeometry.EllipticCurve.PointCount
 
+import Mathlib.RingTheory.Finiteness.Subalgebra
+import Mathlib.RingTheory.IntegralClosure.IntegrallyClosed
+import Mathlib.RingTheory.Polynomial.IsIntegral
+import Mathlib.RingTheory.Localization.FractionRing
 import Mathlib.RingTheory.AdjoinRoot
 import Mathlib.Algebra.MvPolynomial.Equiv
 import Mathlib.Algebra.Polynomial.Degree.SmallDegree
@@ -1667,8 +1671,9 @@ supplier requests. They have no invented Prop fields or opaque geometric predica
   chosen remainder has zero coefficients when its image vanishes.
 * QuadraticPinch.finite_normalization: the native finite-inclusion signature is above,
   admitted.
-  Add the canonical localization-at-q isomorphism commuting with the inclusion,
-  the fraction-field identification and SR.1's actual normalization comparison.
+  Native localization-at-q, specified finite module generation, shared fraction-field
+  identification and the affine integral-closure comparison are separately checked below.
+  Add SR.1's actual projective normalization comparison and its two chart maps.
 * QuadraticPinch.tangent_branches: the native hypersurface and quadratic equation
   are above. Add the local cotangent and associated-graded maps, SR.1's actual
   node predicate/chart comparison and its finite-etale branch scheme; exclude
@@ -2075,3 +2080,131 @@ example (At : Type w) (Bt : Type z) [CommRing At] [CommRing Bt]
 
 end TauCeti.GenusOne.QuadraticPinch
 /- END COMMON IDEAL LOCALIZATION -/
+
+/- BEGIN QUADRATIC AFFINE NORMALIZATION -/
+namespace TauCeti.GenusOne.QuadraticPinch
+variable {k : Type u} [Field k]
+universe v
+
+lemma normalization_remainder (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    (f : k[X]) :
+    f %ₘ q = Polynomial.C ((f %ₘ q).coeff 0) +
+      Polynomial.C ((f %ₘ q).coeff 1) * Polynomial.X := by sorry
+
+noncomputable def moduleCoefficients (q f : k[X]) : algebra q × algebra q := by sorry
+
+lemma moduleCoefficients_fst (q f : k[X]) :
+    ((moduleCoefficients q f).1 : k[X]) =
+      Polynomial.C ((f %ₘ q).coeff 0) + q * (f /ₘ q) := by sorry
+
+lemma moduleCoefficients_snd (q f : k[X]) :
+    ((moduleCoefficients q f).2 : k[X]) = Polynomial.C ((f %ₘ q).coeff 1) := by sorry
+
+lemma moduleCoefficients_reconstruct (q : k[X]) (hq : q.Monic)
+    (hd : q.natDegree = 2) (f : k[X]) :
+    (moduleCoefficients q f).1 • (1 : k[X]) +
+      (moduleCoefficients q f).2 • Polynomial.X = f := by sorry
+
+lemma normalization_span (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    Submodule.span (algebra q) ({1, Polynomial.X} : Set k[X]) = ⊤ := by sorry
+
+lemma normalization_module_finite (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    Module.Finite (algebra q) k[X] := by sorry
+
+lemma normalization_spec_finite (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    AlgebraicGeometry.IsFinite (AlgebraicGeometry.Spec.map
+      (CommRingCat.ofHom (algebra q).val.toRingHom)) := by sorry
+
+lemma fraction_ring (q : k[X]) (hq : q ≠ 0)
+    (K : Type v) [Field K] [Algebra k[X] K] [IsFractionRing k[X] K]
+    :
+    IsFractionRing (algebra q) K := by sorry
+
+lemma integral_closure (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    (K : Type v) [Field K] [Algebra k[X] K] [IsFractionRing k[X] K]
+    :
+    IsIntegralClosure k[X] (algebra q) K := by sorry
+
+lemma integral_iff_polynomial (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    (K : Type v) [Field K] [Algebra k[X] K] [IsFractionRing k[X] K] (z : K) :
+    IsIntegral (algebra q) z ↔ ∃ f : k[X], algebraMap k[X] K f = z := by sorry
+
+noncomputable def fractionEquiv (q : k[X]) (hq : q ≠ 0) :
+    FractionRing (algebra q) ≃ₐ[algebra q] FractionRing k[X] := by sorry
+
+lemma fractionEquiv_algebraMap (q : k[X]) (hq : q ≠ 0) (a : algebra q) :
+    fractionEquiv q hq (algebraMap (algebra q) (FractionRing (algebra q)) a) =
+      algebraMap k[X] (FractionRing k[X]) (a : k[X]) := by sorry
+
+lemma fractionEquiv_symm_algebraMap (q : k[X]) (hq : q ≠ 0) (a : algebra q) :
+    (fractionEquiv q hq).symm (algebraMap k[X] (FractionRing k[X]) (a : k[X])) =
+      algebraMap (algebra q) (FractionRing (algebra q)) a := by sorry
+
+lemma fractionEquiv_symm_X (q : k[X]) (hq : q ≠ 0) :
+    (fractionEquiv q hq).symm (algebraMap k[X] (FractionRing k[X]) Polynomial.X) =
+      algebraMap (algebra q) (FractionRing (algebra q))
+        (⟨q * Polynomial.X, (mem_algebra q _).mpr ⟨0, Polynomial.X, by simp⟩⟩ : algebra q) /
+      algebraMap (algebra q) (FractionRing (algebra q))
+        (⟨q, (mem_algebra q _).mpr ⟨0, 1, by simp⟩⟩ : algebra q) := by sorry
+
+lemma module_generator_map_not_injective (q : k[X]) (hq : q ≠ 0) :
+    ¬ Function.Injective (fun z : algebra q × algebra q =>
+      z.1 • (1 : k[X]) + z.2 • Polynomial.X) := by sorry
+
+-- test: QuadraticPinch.moduleCoefficients.zero
+example (q : k[X]) : moduleCoefficients q 0 = (0, 0) := by sorry
+
+-- test: QuadraticPinch.moduleCoefficients.generator
+example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    moduleCoefficients q Polynomial.X = (0, 1) := by sorry
+
+-- test: QuadraticPinch.moduleCoefficients.cusp
+example :
+    ((moduleCoefficients (Polynomial.X ^ 2 : (ZMod 2)[X])
+      (Polynomial.X ^ 3)).1 : (ZMod 2)[X]) = Polynomial.X ^ 3 ∧
+    ((moduleCoefficients (Polynomial.X ^ 2 : (ZMod 2)[X])
+      (Polynomial.X ^ 3)).2 : (ZMod 2)[X]) = 0 := by sorry
+
+-- test: QuadraticPinch.normalization.cusp_finite
+example : (algebra (Polynomial.X ^ 2 : (ZMod 2)[X])).val.toRingHom.Finite := by sorry
+
+-- test: QuadraticPinch.normalization.nonsplit_finite
+example : (algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 2)[X])).val.toRingHom.Finite := by sorry
+
+-- test: QuadraticPinch.normalization.not_basis
+example (q : k[X]) (hq : q.Monic) (_hd : q.natDegree = 2) :
+    ¬ Function.Injective (fun z : algebra q × algebra q =>
+      z.1 • (1 : k[X]) + z.2 • Polynomial.X) := by sorry
+
+-- test: QuadraticPinch.fractionEquiv.cusp
+example (a : algebra (Polynomial.X ^ 2 : (ZMod 2)[X])) :
+    fractionEquiv (Polynomial.X ^ 2 : (ZMod 2)[X]) (by simp)
+      (algebraMap (algebra (Polynomial.X ^ 2 : (ZMod 2)[X])) _ a) =
+        algebraMap (ZMod 2)[X] (FractionRing (ZMod 2)[X]) (a : (ZMod 2)[X]) := by sorry
+
+-- test: QuadraticPinch.fractionEquiv.unit
+example (a : algebra (1 : k[X])) :
+    (fractionEquiv (1 : k[X]) one_ne_zero).symm
+      (algebraMap k[X] (FractionRing k[X]) (a : k[X])) =
+      algebraMap (algebra (1 : k[X])) (FractionRing (algebra (1 : k[X]))) a := by sorry
+
+-- test: QuadraticPinch.fractionEquiv.fractions
+example (q : k[X]) (hq : q ≠ 0) (a b : algebra q) :
+    fractionEquiv q hq
+      (algebraMap (algebra q) (FractionRing (algebra q)) a /
+        algebraMap (algebra q) (FractionRing (algebra q)) b) =
+      algebraMap k[X] (FractionRing k[X]) (a : k[X]) /
+        algebraMap k[X] (FractionRing k[X]) (b : k[X]) := by sorry
+
+-- test: QuadraticPinch.normalization.repeated_char3
+example : (algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 3)[X])).val.toRingHom.Finite := by sorry
+
+-- test: QuadraticPinch.normalization.integral_coordinate
+example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    IsIntegral (algebra q) (algebraMap k[X] (FractionRing k[X]) Polynomial.X) := by sorry
+
+-- test: QuadraticPinch.normalization.zero_not_finite
+example : ¬ (algebra (0 : k[X])).val.toRingHom.Finite := by sorry
+
+end TauCeti.GenusOne.QuadraticPinch
+/- END QUADRATIC AFFINE NORMALIZATION -/

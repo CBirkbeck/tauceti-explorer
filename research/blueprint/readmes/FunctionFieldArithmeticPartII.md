@@ -1,3 +1,213 @@
+## Current checkpoint: factorial affine root algebra diagram
+
+Codex — codex-J6LwjP, 2026-10-02, issue #3403. The current packet contains 181 unchecked proposed nodes: 9 definitions, 30 constructions, 95 lemmas, 36 theorems, 10 comparisons and 1 application. It has 134 API records (132 required definition/construction records), 158 tests (134 required definition/construction tests), 159 baseline entries and 39 planets. All ten stages remain partial; the eight gaps and thirteen supplier requests remain unchanged.
+
+For any commutative ring A and any f∈A, put B_n=A[t_n]/(t_nⁿ−f). Positive indices n|N give an actual A-algebra map B_n→B_N, sending t_n to t_N^(N/n). Using fixed indices avoids choosing transports between quotient carriers. The native quotient lift fixes coefficients, is characterized by its root image, is the identity when n=N, and composes exactly for n|N|K. At N=nm it equals the previously planned finite-free transition. The prior finite-basis and faithful-flatness results are retained; they are not new declarations in this checkpoint.
+
+The resulting genuine functor from the natural-number preorder category to CommAlgCat(A) has level i equal to B_((i+1)!). Its native identity and composition fields are proved in the separate checked prototype. A specified A-algebra chart equivalence exposes each carrier in the planning signatures; the root and coefficient formulas are stated through that equivalence. The infinite-affine-quotient node consumes this diagram as one input. Cofinal reindexing of coherent root-object groupoids, the graded colimit and the fpqc quotient/torsor comparisons remain separate obligations.
+
+The eight added RS.2 nodes are the divisibility-map construction, its root formula, identity, composition and agreement with multiplicative transitions, followed by the factorial diagram construction and its root and coefficient formulas. Their companion packet gives the exact hypotheses, imports and proof steps. The two constructions expose eleven API items altogether. Eight additional tests cover the identity, 2-to-4 root image, all coefficients over Z/4Z, the first factorial level, 2!-to-3!, composition through 4!, a nonzero nilpotent image over F_2 with f=0, and the zero ring. The nilpotent test distinguishes this actual quotient map from one that wrongly kills nilpotents.
+
+All 173 inherited statement contracts and 172 entire node objects are preserved. The one changed old object, infinite-affine-quotient, gains the new diagram prerequisite and an explicit explanation of the remaining geometric comparisons. Existing APIs, tests, hypotheses, acceptances, source routes, ownership and planets are retained. The earlier reader below is preserved verbatim and describes its own historical checkpoint.
+
+Fresh source reading covers Talpo–Vistoli's root transition setup and factorial cofinal-system construction on printed pp.12–14 of arXiv:1410.1164v2, and the local chart setup and full Lemma 3.7 proof on p.15. The rank-one native algebra functor is an authored specialization, not a printed geometric comparison theorem. Earlier whole-paper and erratum receipts remain credited to their original workers.
+
+The separate native prototype passes with 84 proved examples and 71 axiom audits, without errors, warnings or admissions. The Mathlib-only extraction of the submitted signatures passes with 84 examples and 193 admission warnings. The complete geometric suggested file is uncompiled because the shared exact-pin build lacks required Tau Ceti imports. No status is promoted to implemented. The handoff provides immutable source receipts and reproducible extraction/assembly instructions.
+
+### Added RS.2 declaration plans
+
+#### Affine transitions at fixed divisibility indices
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/affine-divisibility. Proposed name: TauCeti.RootStack.affineDivisibility. Kind: construction.
+
+For positive n,N with h:n divides N, construct the actual A-algebra map B_n→B_N sending t_n to t_N^(N/n), on the native AdjoinRoot quotients. Its target is B_N itself, so its identity and composition need no quotient-carrier transports.
+
+Hypotheses: A is any commutative ring and f∈A; every divisibility exponent n,N,K is positive. Factorial levels are (i+1)! for i∈N, so none is zero. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-root-relation, mathlib:AdjoinRoot.liftAlgHom.
+
+Construction or proof:
+
+1. The exact divisibility identity (N/n)n=N makes the proposed root image solve T^n−f in B_N.
+2. Use the native quotient algebra lift, which fixes every A coefficient.
+
+Uses:
+
+- FunctionFieldArithmeticPartII:RS.2/factorial-affine-tower — Use exact factorial source/target carriers, with native identity/composition and no transport choices.
+- FunctionFieldArithmeticPartII:RS.2/affine-divisibility-multiplicative — Retain agreement with the finite-free multiplicative chart transition.
+
+API:
+
+- TauCeti.RootStack.affineDivisibility (constructor): For positive n,N with h:n divides N, construct the actual A-algebra map B_n→B_N sending t_n to t_N^(N/n), on the native AdjoinRoot quotients. Its target is B_N itself, so its identity and composition need no quotient-carrier transports.
+- TauCeti.RootStack.affineDivisibility.root (simp): The actual divisibility map sends the distinguished root t_n exactly to t_N^(N/n).
+- TauCeti.RootStack.affineDivisibility.constant (compatibility): The actual map fixes every coefficient from A.
+- TauCeti.RootStack.affineDivisibility.unique (extensionality): An A-algebra homomorphism with the specified root image equals the actual fixed-index transition.
+- TauCeti.RootStack.affineDivisibility.identity (simp): For every positive n the native map B_n→B_n is exactly the identity A-algebra homomorphism.
+- TauCeti.RootStack.affineDivisibility.composition (functoriality): For positive n dividing N dividing K, the actual composite B_n→B_N→B_K equals the native B_n→B_K map on exactly the same carriers.
+- TauCeti.RootStack.affineDivisibility.multiplicative (compatibility): At N=nm the fixed-index map B_n→B_(nm) equals the previously specified actual affine transition j_(n,m).
+
+Unit tests:
+
+- affineDivisibilityTests.identity (degenerate): At equal positive indices the exact map is the native identity algebra homomorphism.
+- affineDivisibilityTests.fourToTwo (computation): At 2 dividing 4 the actual image of t_2 is t_4 squared.
+- affineDivisibilityTests.coefficients (compatibility): Over Z/4Z, the 2-to-6 map fixes every coefficient, including nilpotent coefficients.
+
+Acceptance: Use actual AdjoinRoot and native algebra-category carriers; the maps preserve nilpotents and all coefficients. This constructs a chart algebra diagram only. The root-object groupoids, factorial cofinality equivalence and infinite affine fpqc quotient retain their independent geometric/coherence obligations.
+
+Source: TV17, Proposition 3.2 and divisibility maps, printed p.13; Proposition 3.5 and Remark 3.6, p.14; rank-one affine chart specialization. Authored rank-one quotient-algebra specialization of the transition and cofinal-system constructions. The native factorial algebra functor is constructed here, not a printed theorem about Lean carriers or a claimed geometric two-limit comparison.
+
+#### Root image of a divisibility transition
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/affine-divisibility-root. Proposed name: TauCeti.RootStack.affineDivisibility.root. Kind: lemma.
+
+The actual divisibility map sends the distinguished root t_n exactly to t_N^(N/n).
+
+Hypotheses: A is any commutative ring and f∈A; every divisibility exponent n,N,K is positive. Factorial levels are (i+1)! for i∈N, so none is zero. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/affine-divisibility.
+
+Construction or proof:
+
+1. Apply the native lift-root computation.
+
+Acceptance: Use actual AdjoinRoot and native algebra-category carriers; the maps preserve nilpotents and all coefficients. This constructs a chart algebra diagram only. The root-object groupoids, factorial cofinality equivalence and infinite affine fpqc quotient retain their independent geometric/coherence obligations.
+
+Source: TV17, Proposition 3.2 and divisibility maps, printed p.13; Proposition 3.5 and Remark 3.6, p.14; rank-one affine chart specialization. Authored rank-one quotient-algebra specialization of the transition and cofinal-system constructions. The native factorial algebra functor is constructed here, not a printed theorem about Lean carriers or a claimed geometric two-limit comparison.
+
+#### Identity of a divisibility transition
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/affine-divisibility-identity. Proposed name: TauCeti.RootStack.affineDivisibility.identity. Kind: lemma.
+
+For every positive n the native map B_n→B_n is exactly the identity A-algebra homomorphism.
+
+Hypotheses: A is any commutative ring and f∈A; every divisibility exponent n,N,K is positive. Factorial levels are (i+1)! for i∈N, so none is zero. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/affine-divisibility-root, mathlib:AdjoinRoot.algHom_ext.
+
+Construction or proof:
+
+1. Since n>0, n/n=1. Both maps fix coefficients and send t_n to t_n.
+2. Apply native quotient extensionality.
+
+Acceptance: Use actual AdjoinRoot and native algebra-category carriers; the maps preserve nilpotents and all coefficients. This constructs a chart algebra diagram only. The root-object groupoids, factorial cofinality equivalence and infinite affine fpqc quotient retain their independent geometric/coherence obligations.
+
+Source: TV17, Proposition 3.2 and divisibility maps, printed p.13; Proposition 3.5 and Remark 3.6, p.14; rank-one affine chart specialization. Authored rank-one quotient-algebra specialization of the transition and cofinal-system constructions. The native factorial algebra functor is constructed here, not a printed theorem about Lean carriers or a claimed geometric two-limit comparison.
+
+#### Composition at fixed root indices
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/affine-divisibility-composition. Proposed name: TauCeti.RootStack.affineDivisibility.composition. Kind: lemma.
+
+For positive n dividing N dividing K, the actual composite B_n→B_N→B_K equals the native B_n→B_K map on exactly the same carriers.
+
+Hypotheses: A is any commutative ring and f∈A; every divisibility exponent n,N,K is positive. Factorial levels are (i+1)! for i∈N, so none is zero. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/affine-divisibility-root, mathlib:Nat.div_mul_div, mathlib:AdjoinRoot.algHom_ext.
+
+Construction or proof:
+
+1. Compute the composite root image as t_K^((K/N)(N/n)).
+2. The imported exact-divisibility identity gives (K/N)(N/n)=K/n. Apply native quotient extensionality.
+
+Acceptance: Use actual AdjoinRoot and native algebra-category carriers; the maps preserve nilpotents and all coefficients. This constructs a chart algebra diagram only. The root-object groupoids, factorial cofinality equivalence and infinite affine fpqc quotient retain their independent geometric/coherence obligations.
+
+Source: TV17, Proposition 3.2 and divisibility maps, printed p.13; Proposition 3.5 and Remark 3.6, p.14; rank-one affine chart specialization. Authored rank-one quotient-algebra specialization of the transition and cofinal-system constructions. The native factorial algebra functor is constructed here, not a printed theorem about Lean carriers or a claimed geometric two-limit comparison.
+
+#### Agreement with multiplicative root transitions
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/affine-divisibility-multiplicative. Proposed name: TauCeti.RootStack.affineDivisibility.multiplicative. Kind: lemma.
+
+At N=nm the fixed-index map B_n→B_(nm) equals the previously specified actual affine transition j_(n,m).
+
+Hypotheses: A is any commutative ring and f∈A; every divisibility exponent n,N,K is positive. Factorial levels are (i+1)! for i∈N, so none is zero. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/affine-divisibility-root, FunctionFieldArithmeticPartII:RS.2/affine-transition-root, mathlib:AdjoinRoot.algHom_ext.
+
+Construction or proof:
+
+1. Use n>0 to compute nm/n=m, compare the exact root images and apply native quotient extensionality.
+
+Acceptance: Use actual AdjoinRoot and native algebra-category carriers; the maps preserve nilpotents and all coefficients. This constructs a chart algebra diagram only. The root-object groupoids, factorial cofinality equivalence and infinite affine fpqc quotient retain their independent geometric/coherence obligations.
+
+Source: TV17, Proposition 3.2 and divisibility maps, printed p.13; Proposition 3.5 and Remark 3.6, p.14; rank-one affine chart specialization. Authored rank-one quotient-algebra specialization of the transition and cofinal-system constructions. The native factorial algebra functor is constructed here, not a printed theorem about Lean carriers or a claimed geometric two-limit comparison.
+
+#### Factorial diagram of native root algebras
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-affine-tower. Proposed name: TauCeti.RootStack.factorialAffineTower. Kind: construction.
+
+Construct a genuine native functor from the natural-number preorder category to CommAlgCat(A). Level i is the actual root algebra B_((i+1)!). Its map i≤j is the fixed-index divisibility transition. Supply the specified A-algebra chart equivalence at every level and exact root/coefficient map laws; identity and composition are proved fields of the native functor.
+
+Hypotheses: A is any commutative ring and f∈A; every divisibility exponent n,N,K is positive. Factorial levels are (i+1)! for i∈N, so none is zero. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/affine-divisibility-identity, FunctionFieldArithmeticPartII:RS.2/affine-divisibility-composition, mathlib:Nat.factorial_dvd_factorial, mathlib:Nat.factorial_ne_zero, mathlib:CommAlgCat, mathlib:CommAlgCat.of, mathlib:CommAlgCat.ofHom, mathlib:CommAlgCat.hom_ext, mathlib:CategoryTheory.Functor, mathlib:CategoryTheory.leOfHom.
+
+Construction or proof:
+
+1. Native factorial nonvanishing supplies the exact positive-exponent instances.
+2. Bundle B_((i+1)!) as the existing commutative-algebra category object. Extract i≤j from the native preorder morphism, and factorial divisibility supplies the exact root map.
+3. The native identity and fixed-index composition lemmas prove the functor fields.
+4. The specified chart equivalence is the actual identity equivalence in the proof model. Its separate signature exposes the exact carriers even when the planning functor body is admitted.
+
+Uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the actual factorial affine algebra diagram whose colimit gives the affine-chart input after the separate cofinality and grading/quotient comparisons.
+
+API:
+
+- TauCeti.RootStack.factorialAffineTower (constructor): Construct a genuine native functor from the natural-number preorder category to CommAlgCat(A). Level i is the actual root algebra B_((i+1)!). Its map i≤j is the fixed-index divisibility transition. Supply the specified A-algebra chart equivalence at every level and exact root/coefficient map laws; identity and composition are proved fields of the native functor.
+- TauCeti.RootStack.factorialAffineTower.chart (compatibility): The specified actual A-algebra equivalence from the native functor object at i to B_((i+1)!) fixes its chosen chart carrier.
+- TauCeti.RootStack.factorialAffineTower.root (simp): After transporting through the specified chart equivalences, the map i≤j sends t_((i+1)!) to t_((j+1)!)^((j+1)!/(i+1)!).
+- TauCeti.RootStack.factorialAffineTower.constant (compatibility): Under the specified native chart identifications, every factorial transition fixes the image of each a∈A.
+
+Unit tests:
+
+- factorialAffineTowerTests.firstLevel (degenerate): The actual level-zero functor object is the native first-root algebra B_1.
+- factorialAffineTowerTests.twoToSix (computation): The 2!-to-3! root image is exactly t_6 cubed, through the specified chart equivalences.
+- factorialAffineTowerTests.composite (compatibility): Composing the 2!-to-3! and 3!-to-4! maps sends t_2 to t_24 to the twelfth power.
+- factorialAffineTowerTests.wildNilpotent (non-example): Over F_2 with f=0 the 2!-to-3! root image t_6 cubed is nonzero, despite being nilpotent. A map killing nilpotents fails.
+- factorialAffineTowerTests.zeroRing (degenerate): Over Z/1Z, every mapped element transports to zero in the actual target chart, with no nontrivial-ring hypothesis.
+
+Acceptance: Use actual AdjoinRoot and native algebra-category carriers; the maps preserve nilpotents and all coefficients. This constructs a chart algebra diagram only. The root-object groupoids, factorial cofinality equivalence and infinite affine fpqc quotient retain their independent geometric/coherence obligations.
+
+Source: TV17, Proposition 3.2 and divisibility maps, printed p.13; Proposition 3.5 and Remark 3.6, p.14; rank-one affine chart specialization. Authored rank-one quotient-algebra specialization of the transition and cofinal-system constructions. The native factorial algebra functor is constructed here, not a printed theorem about Lean carriers or a claimed geometric two-limit comparison.
+
+#### Factorial transition root formula
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-affine-tower-root. Proposed name: TauCeti.RootStack.factorialAffineTower.root. Kind: lemma.
+
+After transporting through the specified chart equivalences, the map i≤j sends t_((i+1)!) to t_((j+1)!)^((j+1)!/(i+1)!).
+
+Hypotheses: A is any commutative ring and f∈A; every divisibility exponent n,N,K is positive. Factorial levels are (i+1)! for i∈N, so none is zero. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-affine-tower, FunctionFieldArithmeticPartII:RS.2/affine-divisibility-root, mathlib:CategoryTheory.homOfLE.
+
+Construction or proof:
+
+1. Use the actual chart identifications and apply the native fixed-index root computation.
+
+Acceptance: Use actual AdjoinRoot and native algebra-category carriers; the maps preserve nilpotents and all coefficients. This constructs a chart algebra diagram only. The root-object groupoids, factorial cofinality equivalence and infinite affine fpqc quotient retain their independent geometric/coherence obligations.
+
+Source: TV17, Proposition 3.2 and divisibility maps, printed p.13; Proposition 3.5 and Remark 3.6, p.14; rank-one affine chart specialization. Authored rank-one quotient-algebra specialization of the transition and cofinal-system constructions. The native factorial algebra functor is constructed here, not a printed theorem about Lean carriers or a claimed geometric two-limit comparison.
+
+#### Factorial transitions preserve coefficients
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-affine-tower-constant. Proposed name: TauCeti.RootStack.factorialAffineTower.constant. Kind: lemma.
+
+Under the specified native chart identifications, every factorial transition fixes the image of each a∈A.
+
+Hypotheses: A is any commutative ring and f∈A; every divisibility exponent n,N,K is positive. Factorial levels are (i+1)! for i∈N, so none is zero. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-affine-tower, mathlib:CategoryTheory.homOfLE.
+
+Construction or proof:
+
+1. The inverse chart equivalence, actual algebra homomorphism and chart equivalence all commute with their A-algebra coefficient maps.
+
+Acceptance: Use actual AdjoinRoot and native algebra-category carriers; the maps preserve nilpotents and all coefficients. This constructs a chart algebra diagram only. The root-object groupoids, factorial cofinality equivalence and infinite affine fpqc quotient retain their independent geometric/coherence obligations.
+
+Source: TV17, Proposition 3.2 and divisibility maps, printed p.13; Proposition 3.5 and Remark 3.6, p.14; rank-one affine chart specialization. Authored rank-one quotient-algebra specialization of the transition and cofinal-system constructions. The native factorial algebra functor is constructed here, not a printed theorem about Lean carriers or a claimed geometric two-limit comparison.
+
+---
+
 # Global function fields, reciprocity and automorphic foundations, Part II: root stacks and ramified geometric class field theory
 
 This roadmap begins with FunctionFieldArithmetic’s arithmetic reciprocity and constructs its geometric rank-one refinement. Its principal output is a multiplicative local system on every degree of the Picard stack with square-root ramification. For a geometrically connected double cover, the Frobenius trace of that sheaf is the quadratic idele class character. The construction also gives the local systems on symmetric powers and on the entire hat section spaces needed by Yun–Zhang’s ramified comparison. Their matrix stacks, relative trace formula and cycle-intersection identities remain with ShtukaSpecialCyclesAndHigherSiegelWeil.

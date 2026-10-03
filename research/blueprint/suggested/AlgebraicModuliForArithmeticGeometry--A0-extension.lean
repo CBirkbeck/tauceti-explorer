@@ -3142,3 +3142,117 @@ example (U : C) (z : IntrinsicBandSection F U) (hz : z ≠ 1) :
   sorry
 
 end TauCeti.AlgebraicGeometry.IntrinsicBandSections
+
+/-! Chosen-band sheaf comparison continuation, Codex codex-a71f92. -/
+namespace TauCeti.AlgebraicGeometry.IntrinsicBandSections
+open CategoryTheory Opposite Bicategory
+variable {C : Type u} [Category.{v} C]
+variable (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
+variable (J : GrothendieckTopology C) [IsGerbe F J]
+variable (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A)
+
+noncomputable def fromBandingPresheafIso
+    (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
+    (J : GrothendieckTopology C) [IsGerbe F J]
+    (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A) :
+    A.obj ≅ presheaf F := by sorry
+
+lemma fromBandingPresheafIso_hom :
+    (fromBandingPresheafIso F J A b).hom = fromBandingPresheaf F J A b := by sorry
+
+lemma fromBandingPresheafIso_hom_app (U : C) (a : A.obj.obj (op U)) :
+    (((fromBandingPresheafIso F J A b).hom.app (op U)) a).toMul =
+      fromBanding F J A b U (Multiplicative.ofAdd a) := by sorry
+
+lemma fromBandingPresheafIso_inv_app (U : C) (z : IntrinsicBandSection F U) :
+    ((fromBandingPresheafIso F J A b).inv.app (op U)) (Additive.ofMul z) =
+      ((fromBandingEquiv F J A b U).symm z).toAdd := by sorry
+
+lemma fromBandingPresheafIso_inv_naturality {U V : C} (f : V ⟶ U)
+    (z : IntrinsicBandSection F U) :
+    A.obj.map f.op (((fromBandingPresheafIso F J A b).inv.app (op U)) (Additive.ofMul z)) =
+      ((fromBandingPresheafIso F J A b).inv.app (op V)) (Additive.ofMul (restrict F f z)) := by sorry
+
+variable (S : Sheaf J AddCommGrpCat.{max u v u' v'}) (hS : S.obj = presheaf F)
+
+noncomputable def fromBandingSheafIso
+    (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
+    (J : GrothendieckTopology C) [IsGerbe F J]
+    (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A)
+    (S : Sheaf J AddCommGrpCat.{max u v u' v'}) (hS : S.obj = presheaf F) :
+    A ≅ S := by sorry
+
+lemma fromBandingSheafIso_hom :
+    (fromBandingSheafIso F J A b S hS).hom.hom =
+      (fromBandingPresheafIso F J A b ≪≫ eqToIso hS.symm).hom := by sorry
+
+lemma fromBandingSheafIso_inv :
+    (fromBandingSheafIso F J A b S hS).inv.hom =
+      (fromBandingPresheafIso F J A b ≪≫ eqToIso hS.symm).inv := by sorry
+
+lemma fromBandingSheafIso_hom_transport :
+    (fromBandingSheafIso F J A b S hS).hom.hom ≫ eqToHom hS =
+      fromBandingPresheaf F J A b := by sorry
+
+lemma fromBandingSheafIso_inv_transport :
+    eqToHom hS.symm ≫ (fromBandingSheafIso F J A b S hS).inv.hom =
+      (fromBandingPresheafIso F J A b).inv := by sorry
+
+lemma fromBandingSheafIso_unique (e : A ≅ S)
+    (he : ∀ (U V : C) (f : V ⟶ U) (x : F.obj (.mk (op V)))
+      (a : A.obj.obj (op U)),
+      eval F f x (((e.hom.hom ≫ eqToHom hS).app (op U)) a).toMul =
+        b.autEquiv V x (Multiplicative.ofAdd (A.obj.map f.op a))) :
+    e = fromBandingSheafIso F J A b S hS := by sorry
+
+-- BandPresheafIsoTests.zero
+example (U : C) :
+    ((fromBandingPresheafIso F J A b).hom.app (op U)) 0 = 0 := by sorry
+
+-- BandPresheafIsoTests.coefficientRoundTrip
+example (U : C) (a : A.obj.obj (op U)) :
+    ((fromBandingPresheafIso F J A b).inv.app (op U))
+      (((fromBandingPresheafIso F J A b).hom.app (op U)) a) = a := by sorry
+
+-- BandPresheafIsoTests.sectionRoundTrip
+example (U : C) (z : IntrinsicBandSection F U) :
+    ((fromBandingPresheafIso F J A b).hom.app (op U))
+      (((fromBandingPresheafIso F J A b).inv.app (op U)) (Additive.ofMul z)) =
+      Additive.ofMul z := by sorry
+
+-- BandPresheafIsoTests.restriction
+example {U V : C} (f : V ⟶ U) (z : IntrinsicBandSection F U) :
+    A.obj.map f.op (((fromBandingPresheafIso F J A b).inv.app (op U)) (Additive.ofMul z)) =
+      ((fromBandingPresheafIso F J A b).inv.app (op V)) (Additive.ofMul (restrict F f z)) := by sorry
+
+-- BandPresheafIsoTests.nonzero
+example (U : C) (a : A.obj.obj (op U)) (ha : a ≠ 0) :
+    ((fromBandingPresheafIso F J A b).hom.app (op U)) a ≠ 0 := by sorry
+
+-- BandSheafIsoTests.forward
+example :
+    (fromBandingSheafIso F J A b S hS).hom.hom ≫ eqToHom hS =
+      fromBandingPresheaf F J A b := by sorry
+
+-- BandSheafIsoTests.backward
+example :
+    eqToHom hS.symm ≫ (fromBandingSheafIso F J A b S hS).inv.hom =
+      (fromBandingPresheafIso F J A b).inv := by sorry
+
+-- BandSheafIsoTests.coefficientRoundTrip
+example :
+    (fromBandingSheafIso F J A b S hS).hom ≫ (fromBandingSheafIso F J A b S hS).inv = 𝟙 A := by sorry
+
+-- BandSheafIsoTests.sectionRoundTrip
+example :
+    (fromBandingSheafIso F J A b S hS).inv ≫ (fromBandingSheafIso F J A b S hS).hom = 𝟙 S := by sorry
+
+-- BandSheafIsoTests.bandDeterminesComparison
+example (e : A ≅ S)
+    (he : ∀ (U V : C) (f : V ⟶ U) (x : F.obj (.mk (op V)))
+      (a : A.obj.obj (op U)),
+      eval F f x (((e.hom.hom ≫ eqToHom hS).app (op U)) a).toMul =
+        b.autEquiv V x (Multiplicative.ofAdd (A.obj.map f.op a))) :
+    e = fromBandingSheafIso F J A b S hS := by sorry
+
+end TauCeti.AlgebraicGeometry.IntrinsicBandSections
