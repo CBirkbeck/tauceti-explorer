@@ -1,6 +1,6 @@
 # BP-AlgebraicModuliForArithmeticGeometry--A0-extension — current handoff
 
-Codex — codex-rtOQ9t; 2026-10-03. Issue #672. Winning claim 5964536940; bot confirmation 5964538117. Mathematical/publication base: `84e885b95c0ad537079c0fe6fdbb122c8020ac33`. Partial checkpoint; all implementation statuses remain unchecked.
+Codex — codex-rtOQ9t; 2026-10-03. Issue #672. Winning claim 5964536940; bot confirmation 5964538117. Mathematical base: `84e885b95c0ad537079c0fe6fdbb122c8020ac33`; publication base: `7a0839ba10a362fba9724a9704e986412ea03aa8`. The latest main was merged on the owned branch; the four incoming job files were unchanged. Partial checkpoint; all implementation statuses remain unchecked.
 
 ## Current mathematical result
 
@@ -121,6 +121,86 @@ print(json.dumps({'nativeBytes':len(native),'nativeLines':len(lines),'predecesso
 
 ### verify.py
 
+```python
+from pathlib import Path
+import ast,collections,hashlib,json,re,subprocess,sys
+R=Path.cwd();S=Path(sys.argv[1]);RID='AlgebraicModuliForArithmeticGeometry';STEM=RID+'--A0-extension'
+files=['research/blueprint/'+folder+'/'+name for folder,name in [('packets',STEM+'.json'),('readmes',STEM+'.md'),('suggested',STEM+'.lean'),('handoff','BP-'+STEM+'.md')]]
+p=json.loads((R/files[0]).read_text());old=json.loads((S/'incoming-packets.json').read_text())
+nodes={n['id']:n for n in p['nodes']}
+assert len(old['nodes'])==240 and len(nodes)==282
+assert all(nodes[n['id']]==n for n in old['nodes'])
+for k,v in old.items():
+ if k not in ['summary','nodes','sources','baseline','coverage']:assert p[k]==v,k
+assert p['sources'][:-1]==old['sources']
+assert p['baseline']['declarations'][:130]==old['baseline']['declarations']
+assert len(p['coverage'])==len(old['coverage'])
+for a,b in zip(p['coverage'],old['coverage']):
+ if a['stageId']==RID+':R09.4':assert a['status']==b['status'] and a['remaining'][:-1]==b['remaining']
+ else:assert a==b
+assert p['status']=='partial' and all(n['implementationStatus']=='unchecked' for n in p['nodes'])
+full=(R/files[2]).read_text();reader=(R/files[1]).read_text()
+assert full.startswith((S/'Imports.lean').read_text()+(S/'incoming-suggested.lean').read_text())
+assert reader.startswith((S/'incoming-readmes.md').read_text())
+native=(S/'Native.lean').read_text()
+assert native==''.join((S/(n+'.lean')).read_text() for n in ['Imports','Predecessor','New','Tests','Audits'])
+assert hashlib.sha256(native.encode()).hexdigest()=='72641adf79dcbd169411f250f1c66a076bc2aa8ffb5d664cec86564d801fd00a'
+assert not re.search(r'\bsorry\b|\baxiom\b',native)
+def signatures(text):
+ lines=text.splitlines(keepends=True);out={};i=0
+ while i<len(lines):
+  m=re.match(r"^(?:noncomputable )?(def|lemma|theorem|abbrev) ([\w']+)",lines[i])
+  isexample=lines[i].startswith('example')
+  if not m and not isexample:i+=1;continue
+  j=i+1
+  while j<len(lines) and (not lines[j].strip() or lines[j][0].isspace()):j+=1
+  chunk=''.join(lines[i:j]);depth=0;sep=None
+  for k,c in enumerate(chunk):
+   if c in '([{':depth+=1
+   elif c in ')]}':depth-=1
+   if depth==0 and (chunk.startswith(' :=',k) or chunk.startswith(' where',k)):sep=k;break
+  assert sep is not None,chunk
+  name=m[2] if m else lines[i-1].removeprefix('-- RestrictionBandTests.').strip()
+  header=chunk[:sep].strip()
+  if m and m[1]=='theorem':header=re.sub('^theorem '+name,'example',header)
+  out[name]=' '.join(header.split());i=j
+ return out
+tail=full[full.index('namespace TauCeti.AlgebraicGeometry.RestrictionBandFixtures'):]
+nn=signatures((S/'New.lean').read_text());tt=signatures((S/'Tests.lean').read_text());cc=signatures(tail)
+assert all(cc[k]==v for k,v in (nn|tt).items())
+assert len(tt)==30
+decls=[k for k,v in nn.items() if not v.startswith('abbrev')]
+assert len(decls)==42
+for n in p['nodes'][240:]:
+ assert n['declarationName'].split('.')[-1] in decls
+ assert n['declarationName'] in reader and n['statement'] in reader
+ for a in n.get('api',[]):assert a['name'] in reader and a['statement'] in reader and a['name'].split('.')[-1] in decls
+ for t in n.get('tests',[]):assert t['name'].split('.')[-1] in tt and t['statement'] in reader
+assert {t['name'].split('.')[-1] for n in p['nodes'][240:] for t in n.get('tests',[])}==set(tt)
+for name,audits,warnings in [('Native',188,0),('Canonical',0,349)]:
+ log=(S/(name.lower()+'.log')).read_text()
+ assert 'EXIT 0' in log or 'Exit status: 0' in log
+ assert not re.search(r'error(?:\(|:)|sorryAx',log)
+ assert log.count('warning:')==log.count('warning: declaration uses')==warnings
+ assert log.count('depends on axioms:')==audits
+ if audits:assert len(set(re.findall(r"^'([^\n]+)' depends on axioms:",log,re.M)))==audits
+tree=ast.parse((R/'research/blueprint/intake.py').read_text())
+names={'file_problems','auto_refusals','own_files','independent_of'}
+picked=[n for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id in {'ALLOWED','PRIVATE'} for t in n.targets) or isinstance(n,ast.FunctionDef) and n.name in names]
+env={'json':json,'re':re};exec(compile(ast.Module(body=picked,type_ignores=[]),'actual-intake','exec'),env)
+job=next(j for j in json.loads((R/'research/blueprint/queue.json').read_text())['jobs'] if j['id']=='BP-'+STEM)
+problems=[x for path in files for x in env['file_problems'](path,(R/path).read_text())]
+refusals=env['auto_refusals'](job,files,False,{'codex-rtOQ9t'},set())
+assert not problems and not refusals,(problems,refusals)
+for path in files:
+ text=(R/path).read_text();assert not re.search(r'[ \t]+$',text,re.M),path
+ assert not re.search(r'/(?:home|Users)/[^/\s]+/',text),path
+changed=set(subprocess.check_output(['git','diff','--name-only','7a0839ba10a362fba9724a9704e986412ea03aa8'],text=True).splitlines())
+assert changed<=set(files),changed
+sys.path.insert(0,str(R/'scripts'));import check_blueprint
+errors,warnings,summary=check_blueprint.check(R/files[0],check_blueprint.load_index(Path(sys.argv[2])),check_blueprint.world())
+assert not errors and not warnings,(errors,warnings)
+print(json.dumps({'oldNodeObjectsPreserved':240,'newHeadersMatched':42,'newTestsMatched':30,'incomingProofPreserved':True,'canonicalPrefixPreserved':True,'readerPrefixPreserved':True,'intakeFileProblems':problems,'intakeAutoRefusals':refusals,'checker':summary,'rawApiItems':sum(len(n.get('api',[])) for n in p['nodes']),'rawTests':sum(len(n.get('tests',[])) for n in p['nodes'])},indent=2))
 ```python
 from pathlib import Path
 import ast,collections,hashlib,json,re,subprocess,sys
