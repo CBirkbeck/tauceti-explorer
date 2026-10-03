@@ -146,7 +146,7 @@ it downloads only the authorized job files, not a repository snapshot.
 
 Save the following exact script as recover.py in your own disk scratch;
 run it from the final repository root after publication. Its SHA-256 is
-`c8cba5f8233ad4118790c08424f0e0f37a48f2ce8716c1689e383c3961774392`. It recovers the
+`105fb5ec5ea355e073a4c1eda40f1877721ca507bf03e8311ab92b5e83a10a4b`. It recovers the
 native/incoming/canonical/projection sources and checks their hashes, retrieves
 the mathematical-base controls, and extracts the full new declaration/example
 headers plus both public validation scripts from this handoff.
@@ -182,7 +182,7 @@ for i,m in enumerate(starts):
 assert len(heads)==12 and len(examples)==5
 (out/'headers.json').write_text(json.dumps({'declarations':heads,'examples':examples},indent=2)+'\n')
 handoff=(root/f'research/blueprint/handoff/BP-{rid}.md').read_text()
-for name,start,end,digest in [('validate.py','# BEGIN COEFFICIENT TWISTING VALIDATOR\n','# END COEFFICIENT TWISTING VALIDATOR\n','79b3042f072ccd4e218a677db71cef82cd034799c9b6be9bc7f57b910144aeaa'),('graph.py','# BEGIN COEFFICIENT TWISTING GRAPH\n','# END COEFFICIENT TWISTING GRAPH\n','2cde142365b7fe571c2d3fa4b1a60e18eed1022f6e3243b31a0faaab55bdfc9a')]:
+for name,start,end,digest in [('validate.py','# BEGIN COEFFICIENT TWISTING VALIDATOR\n','# END COEFFICIENT TWISTING VALIDATOR\n','856699f24586f79f7003233a4188f399df6eb81fbec66b5ccf074885d627c22d'),('graph.py','# BEGIN COEFFICIENT TWISTING GRAPH\n','# END COEFFICIENT TWISTING GRAPH\n','2cde142365b7fe571c2d3fa4b1a60e18eed1022f6e3243b31a0faaab55bdfc9a')]:
  code=extract(handoff.encode(),start.encode(),end.encode())
  assert hashlib.sha256(code).hexdigest()==digest,name
  (out/name).write_bytes(code)
@@ -200,7 +200,7 @@ Run validate.py from the final repository root. It checks all preserved
 contracts/objects/metadata, exact native/canonical prefixes, new full headers,
 reader/API/test coverage, diagnostics and actual intake file/refusal rules.
 The available-memory fields are this worker's runs; measure your own.
-Its SHA-256 is`79b3042f072ccd4e218a677db71cef82cd034799c9b6be9bc7f57b910144aeaa`.
+Its SHA-256 is`856699f24586f79f7003233a4188f399df6eb81fbec66b5ccf074885d627c22d`.
 
 ```python
 # BEGIN COEFFICIENT TWISTING VALIDATOR
@@ -248,7 +248,7 @@ sketch='\n'.join(l for l in can.splitlines() if not l.startswith('import TauCeti
 spec=importlib.util.spec_from_file_location('intake',root/'research/blueprint/intake.py');intake=importlib.util.module_from_spec(spec);spec.loader.exec_module(intake)
 assert intake.check_files(paths)==0
 jobs,mapping=intake.load_queue();job=next(j for j in jobs if j['id']=='BP-'+rid);refusals=intake.auto_refusals(job,paths,False,set(),{'codex-5ebb6f'});assert not refusals,refusals
-base=os.environ.get('VALIDATE_BASE','14122f5410315c7254b29874b6b80bf3f7bdd159')
+base=os.environ.get('VALIDATE_BASE','17fb0fc1c60e0fa1d8fa600597c9945e94a808ec')
 assert set(subprocess.check_output(['git','diff','--name-only',base],text=True).splitlines())<=set(paths)
 report={'preservedContracts':144,'unchangedNodeObjects':143,'newNodes':12,'declarationHeadersMatched':12,'newExampleHeadersMatched':5,'incomingNativeBytes':len(prior),'kinds':dict(collections.Counter(n['kind'] for n in p['nodes'])),'apiOverall':sum(len(n.get('api',[])) for n in p['nodes']),'testsOverall':sum(len(n.get('tests',[])) for n in p['nodes'])}
 receipts={}
