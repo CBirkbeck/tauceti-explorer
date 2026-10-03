@@ -1,3 +1,7 @@
+import Mathlib.RingTheory.Flat.Equalizer
+import Mathlib.LinearAlgebra.TensorProduct.Pi
+import Mathlib.RingTheory.Ideal.Maps
+import Mathlib.RingTheory.Finiteness.Basic
 /-
 This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
 These statements suggest Lean forms so contributors and reviewers converge on names and
@@ -397,3 +401,108 @@ example (I : Ideal R) :
 example : ¬ IsUnit (((Polynomial.X ^ 2 - 1 : Polynomial (ZMod 2)).derivative).eval 1) := by sorry
 
 end TauCeti.Henselization
+
+open TensorProduct
+noncomputable section
+namespace TauCeti.SchemeFoundations.FlatAnnihilator
+universe faU faV faW faZ
+variable {R : Type faU} [CommRing R] (S : Type faV) [CommRing S] [Algebra R S]
+variable {M : Type faW} [AddCommGroup M] [Module R M]
+
+lemma ideal_map_eq_tensor_range (I : Ideal R) :
+    I.map (algebraMap R S) = LinearMap.range
+      ((AlgebraTensorModule.rid R S S).toLinearMap ∘ₗ I.subtype.baseChange S) := by
+  sorry
+
+lemma mem_map_kernel_iff [Module.Flat R S] (f : R →ₗ[R] M) (s : S) :
+    s ∈ Ideal.map (algebraMap R S) f.ker ↔ s ⊗ₜ[R] f 1 = 0 := by
+  sorry
+
+lemma annihilator_eq_generator_kernel {ι : Type faZ} (g : ι → M)
+    (hg : Submodule.span R (Set.range g) = ⊤) :
+    Module.annihilator R M =
+      (LinearMap.pi fun i => LinearMap.toSpanSingleton R M (g i)).ker := by
+  sorry
+
+lemma annihilator_flat_baseChange_generators [Module.Flat R S]
+    {ι : Type faZ} [Fintype ι] [DecidableEq ι] (g : ι → M)
+    (hg : Submodule.span R (Set.range g) = ⊤) :
+    (Module.annihilator R M).map (algebraMap R S) =
+      Module.annihilator S (S ⊗[R] M) := by
+  sorry
+
+lemma annihilator_flat_baseChange [Module.Flat R S] [Module.Finite R M] :
+    (Module.annihilator R M).map (algebraMap R S) =
+      Module.annihilator S (S ⊗[R] M) := by
+  sorry
+
+lemma element_annihilator_flat_baseChange [Module.Flat R S] (m : M) :
+    (Submodule.span R {m}).annihilator.map (algebraMap R S) =
+      (Submodule.span S {(1 : S) ⊗ₜ[R] m}).annihilator := by
+  sorry
+
+lemma annihilator_map_le_baseChange :
+    (Module.annihilator R M).map (algebraMap R S) ≤
+      Module.annihilator S (S ⊗[R] M) := by
+  sorry
+
+lemma ideal_map_iInf_finite [Module.Flat R S]
+    {ι : Type faZ} [Fintype ι] [DecidableEq ι] (I : ι → Ideal R) :
+    (⨅ i, I i).map (algebraMap R S) = ⨅ i, (I i).map (algebraMap R S) := by
+  sorry
+
+end TauCeti.SchemeFoundations.FlatAnnihilator
+
+namespace TauCeti.SchemeFoundations.FlatAnnihilator
+
+-- test: FlatAnnihilatorChecked.empty_family
+example {R S : Type*} [CommRing R] [CommRing S] [Algebra R S]
+    [Module.Flat R S] :
+    (⨅ i : Fin 0, (fun _ => (⊥ : Ideal R)) i).map (algebraMap R S) = ⊤ := by
+  sorry
+
+-- test: FlatAnnihilatorChecked.identity_extension
+example {R M : Type*} [CommRing R] [AddCommGroup M] [Module R M]
+    [Module.Finite R M] :
+    Module.annihilator R (R ⊗[R] M) = Module.annihilator R M := by
+  sorry
+
+-- test: FlatAnnihilatorChecked.zero_module
+example {R S : Type*} [CommRing R] [CommRing S] [Algebra R S]
+    [Module.Flat R S] :
+    Module.annihilator S (S ⊗[R] (⊥ : Submodule R R)) = ⊤ := by
+  sorry
+
+-- test: FlatAnnihilatorChecked.zero_element
+example {R S M : Type*} [CommRing R] [CommRing S] [Algebra R S]
+    [AddCommGroup M] [Module R M] [Module.Flat R S] :
+    (Submodule.span S {(1 : S) ⊗ₜ[R] (0 : M)}).annihilator = ⊤ := by
+  sorry
+
+-- test: FlatAnnihilatorChecked.nonreduced_element
+example : (2 : ZMod 4) ≠ 0 ∧
+    (2 : ZMod 4) ∈
+      (Submodule.span (ZMod 4) {(1 : ZMod 4) ⊗ₜ[ZMod 4] (2 : ZMod 4)}).annihilator := by
+  sorry
+
+-- test: FlatAnnihilatorChecked.nonreduced_diagonal
+example : ((2, 2) : ZMod 4 × ZMod 4) ≠ 0 ∧
+    ((2, 2) : ZMod 4 × ZMod 4) ∈
+      (Submodule.span (ZMod 4 × ZMod 4)
+        {(1 : ZMod 4 × ZMod 4) ⊗ₜ[ZMod 4] (2 : ZMod 4)}).annihilator := by
+  sorry
+
+section Nonflat
+local instance : Algebra (ZMod 4) (ZMod 2) :=
+  (ZMod.castHom (show 2 ∣ 4 by decide) (ZMod 2)).toAlgebra
+
+-- test: FlatAnnihilatorChecked.nonflat_element_failure
+example :
+    (Submodule.span (ZMod 4) {(2 : ZMod 4)}).annihilator.map
+      (algebraMap (ZMod 4) (ZMod 2)) = ⊥ ∧
+    (Submodule.span (ZMod 2) {(1 : ZMod 2) ⊗ₜ[ZMod 4] (2 : ZMod 4)}).annihilator = ⊤ ∧
+    (⊥ : Ideal (ZMod 2)) ≠ ⊤ := by
+  sorry
+
+end Nonflat
+end TauCeti.SchemeFoundations.FlatAnnihilator

@@ -12,7 +12,7 @@
     "SchemeAndStackFoundations:SF.6"
   ],
   "status": "partial",
-  "summary": "Continuation of the existing SF.0 henselization strand: all twenty-five inherited IDs retained; four declaration-sized actual-section selector, kernel, product and localization adapters are added with native proofs, and the inherited etale-lift uniqueness statement now has a native proof. The generic unramified diagonal and idempotent/localization machinery are already built and imported. Lifted residue-selector localization, finite-data implementation, source criterion/universal cocone, ownership overlap, all other keys/stages/source routes and confirmed findings remain open; every implementation stays unchecked pending review.",
+  "summary": "Continuation of the existing SF.0 henselization strand: all twenty-five inherited IDs retained; four declaration-sized actual-section selector, kernel, product and localization adapters are added with native proofs, and the inherited etale-lift uniqueness statement now has a native proof. The generic unramified diagonal and idempotent/localization machinery are already built and imported. Lifted residue-selector localization, finite-data implementation, source criterion/universal cocone, ownership overlap, all other keys/stages/source routes and confirmed findings remain open; every implementation stays unchecked pending review. Flat-annihilator continuation: eight new lemma-sized supplier steps and seven tests, retaining the entire twenty-nine-node henselization strand.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -415,6 +415,102 @@
         "module": "Mathlib/Algebra/Algebra/Prod.lean",
         "provides": "The first projection is the actual algebra homomorphism used by the two-sheet examples.",
         "checked": "Complete declaration and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by codex-J6LwjP; compiled native adapters use the stated hypotheses. Whole-file SHA-256 b6134f22a0e156e48f481972775e2d71b8277abd8965b433c4b00b89d0f5061b."
+      },
+      {
+        "ref": "mathlib:Module.Flat.ker_lTensor_eq",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Flat/Equalizer.lean",
+        "line": 35,
+        "provides": "lemma Module.Flat.ker_lTensor_eq [Module.Flat R M] :",
+        "checked": "Full statement and its relevant ambient assumptions personally read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-7e92bd on2026-10-03. Imported native result, not new planning work."
+      },
+      {
+        "ref": "mathlib:TensorProduct.piRight",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Pi.lean",
+        "line": 91,
+        "provides": "def piRight : N ⊗[R] (∀ i, M i) ≃ₗ[S] ∀ i, N ⊗[R] M i :=",
+        "checked": "Full statement and its relevant ambient assumptions personally read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-7e92bd on2026-10-03. Imported native result, not new planning work."
+      },
+      {
+        "ref": "mathlib:TensorProduct.AlgebraTensorModule.rid_tmul",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "line": 369,
+        "provides": "theorem rid_tmul (r : R) (m : M) : AlgebraTensorModule.rid R A M (m ⊗ₜ r) = r • m := rfl",
+        "checked": "Full statement and its relevant ambient assumptions personally read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-7e92bd on2026-10-03. Imported native result, not new planning work."
+      },
+      {
+        "ref": "mathlib:LinearMap.baseChange",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "line": 660,
+        "provides": "def baseChange (f : M →ₗ[R] N) : A ⊗[R] M →ₗ[A] A ⊗[R] N :=",
+        "checked": "Full statement and its relevant ambient assumptions personally read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-7e92bd on2026-10-03. Imported native result, not new planning work."
+      },
+      {
+        "ref": "mathlib:Submodule.baseChange_span",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "line": 863,
+        "provides": "lemma baseChange_span (s : Set M) :",
+        "checked": "Full statement and its relevant ambient assumptions personally read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-7e92bd on2026-10-03. Imported native result, not new planning work."
+      },
+      {
+        "ref": "mathlib:Submodule.baseChange_top",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "line": 852,
+        "provides": "lemma baseChange_top : (⊤ : Submodule R M).baseChange A = ⊤ := by",
+        "checked": "Full statement and its relevant ambient assumptions personally read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-7e92bd on2026-10-03. Imported native result, not new planning work."
+      },
+      {
+        "ref": "mathlib:Module.annihilator",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "line": 860,
+        "provides": "def Module.annihilator : Ideal R := RingHom.ker (Module.toAddMonoidEnd R M)",
+        "checked": "Full statement and its relevant ambient assumptions personally read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-7e92bd on2026-10-03. Imported native result, not new planning work."
+      },
+      {
+        "ref": "mathlib:Submodule.annihilator_top",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "line": 946,
+        "provides": "theorem annihilator_top : (⊤ : Submodule R M).annihilator = Module.annihilator R M :=",
+        "checked": "Full statement and its relevant ambient assumptions personally read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-7e92bd on2026-10-03. Imported native result, not new planning work."
+      },
+      {
+        "ref": "mathlib:Submodule.mem_annihilator_span",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "line": 996,
+        "provides": "theorem mem_annihilator_span (s : Set M) (r : R) :",
+        "checked": "Full statement and its relevant ambient assumptions personally read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-7e92bd on2026-10-03. Imported native result, not new planning work."
+      },
+      {
+        "ref": "mathlib:Submodule.annihilator_span_singleton",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "line": 1021,
+        "provides": "theorem annihilator_span_singleton (g : M) :",
+        "checked": "Full statement and its relevant ambient assumptions personally read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-7e92bd on2026-10-03. Imported native result, not new planning work."
+      },
+      {
+        "ref": "mathlib:Module.Finite.exists_fin",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Finiteness/Defs.lean",
+        "line": 147,
+        "provides": "lemma exists_fin [Module.Finite R M] : ∃ (n : ℕ) (s : Fin n → M), span R (range s) = ⊤ :=",
+        "checked": "Full statement and its relevant ambient assumptions personally read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-7e92bd on2026-10-03. Imported native result, not new planning work."
+      },
+      {
+        "ref": "mathlib:Submodule.ker_mkQ",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+        "line": 152,
+        "provides": "theorem ker_mkQ : ker p.mkQ = p := by ext; simp",
+        "checked": "Full statement and its relevant ambient assumptions personally read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-7e92bd on2026-10-03. Imported native result, not new planning work."
       }
     ]
   },
@@ -497,6 +593,32 @@
       "sha256": "9cc9e26369df8bae48364b390a3ac85bc49afeb917feea3c2813f14e00d44810",
       "readSections": [
         "Lemma 10.143.8, complete mathematical statement and displayed proof freshly read. Native section adapters below derive the actual selector/projection equations from already-built pinned ideal and localization facts; no generic diagonal or localization construction is re-planned."
+      ]
+    },
+    {
+      "id": "STACKS-07T8",
+      "title": "Annihilators and flat base change",
+      "authors": "The Stacks Project authors",
+      "edition": "Online lemma read2026-10-03",
+      "url": "https://stacks.math.columbia.edu/tag/07T8",
+      "sha256": "09f951f7a17951a7e273a51ec2520181edef236040a149e9d4d98e7d5cd0a19c",
+      "accessed": "2026-10-03T17:19:08.685221+00:00",
+      "readSections": [
+        "Complete displayed statement and proof of Lemma10.40.4.",
+        "Native statement and proof adapters are authored deductions. No whole-chapter or downstream source audit is claimed."
+      ]
+    },
+    {
+      "id": "STACKS-0BBY",
+      "title": "Flat tensor products and intersections",
+      "authors": "The Stacks Project authors",
+      "edition": "Online lemma read2026-10-03",
+      "url": "https://stacks.math.columbia.edu/tag/0BBY",
+      "sha256": "467b603439da657cd2cac75c94aaef5ddc4d7340c76b1d3e10c093f23cbef50f",
+      "accessed": "2026-10-03T17:19:09.010904+00:00",
+      "readSections": [
+        "Complete displayed statement and proof of Lemma10.39.2.",
+        "Native statement and proof adapters are authored deductions. No whole-chapter or downstream source audit is claimed."
       ]
     }
   ],
@@ -2010,6 +2132,355 @@
         "namespace": "TauCeti.Henselization"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/ideal-map-tensor-range",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Ideal extension as a tensor image",
+      "leanName": "TauCeti.SchemeFoundations.FlatAnnihilator.ideal_map_eq_tensor_range",
+      "statement": "For every ideal I of a commutative ring R and every commutative R-algebra S, I.map(algebraMap R S) is the image of S⊗I → S⊗R → S, using the actual subtype base-change map and heterobasic right-unit equivalence. No flatness is assumed.",
+      "hypotheses": [
+        "R and S are commutative rings, including zero rings, in independent universes. M is an additive commutative group with its R-module structure. Additional assumptions are exactly those in the statement; the finite-index Lean forms use Fintype and DecidableEq."
+      ],
+      "prerequisites": [
+        "mathlib:Ideal.map",
+        "mathlib:LinearMap.baseChange",
+        "mathlib:TensorProduct.AlgebraTensorModule.rid_tmul"
+      ],
+      "proofSteps": [
+        "Use Ideal.map_le_iff_le_comap. A generator r∈I is the image of 1⊗r. Conversely, tensor induction reduces membership of the image to closure of the mapped ideal under S-multiplication and addition."
+      ],
+      "acceptance": [
+        "For every ideal I of a commutative ring R and every commutative R-algebra S, I.map(algebraMap R S) is the image of S⊗I → S⊗R → S, using the actual subtype base-change map and heterobasic right-unit equivalence. No flatness is assumed.",
+        "The proof file must use native ideals, modules, quotient maps and tensor maps. It must pass the pinned compiler and an axiom audit without admitted dependencies."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Flat/Annihilator",
+        "namespace": "TauCeti.SchemeFoundations.FlatAnnihilator"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-07T8",
+          "locator": "Complete statement and proof of Lemma 10.40.4; the detailed native adapters are authored proof decompositions",
+          "match": "Preservation of kernels under flat tensor product supplies the comparison; the source motivates the exact assumptions, while the displayed native map identities are derived explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/flat-kernel-membership",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Membership in an extended kernel",
+      "leanName": "TauCeti.SchemeFoundations.FlatAnnihilator.mem_map_kernel_iff",
+      "statement": "For flat commutative R-algebra S, any R-linear f:R→M and s∈S, s belongs to the extension of ker(f) if and only if s⊗f(1)=0 in S⊗_R M. M is any R-module.",
+      "hypotheses": [
+        "R and S are commutative rings, including zero rings, in independent universes. M is an additive commutative group with its R-module structure. Additional assumptions are exactly those in the statement; the finite-index Lean forms use Fintype and DecidableEq."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/ideal-map-tensor-range",
+        "mathlib:Module.Flat.ker_lTensor_eq"
+      ],
+      "proofSteps": [
+        "The pinned flat-kernel theorem identifies ker(1⊗f) with the image of S⊗ker(f). The right-unit equivalence identifies s⊗1 with s; apply its injectivity to transport actual preimages."
+      ],
+      "acceptance": [
+        "For flat commutative R-algebra S, any R-linear f:R→M and s∈S, s belongs to the extension of ker(f) if and only if s⊗f(1)=0 in S⊗_R M. M is any R-module.",
+        "The proof file must use native ideals, modules, quotient maps and tensor maps. It must pass the pinned compiler and an axiom audit without admitted dependencies."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Flat/Annihilator",
+        "namespace": "TauCeti.SchemeFoundations.FlatAnnihilator"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-07T8",
+          "locator": "Complete statement and proof of Lemma 10.40.4; the detailed native adapters are authored proof decompositions",
+          "match": "Preservation of kernels under flat tensor product supplies the comparison; the source motivates the exact assumptions, while the displayed native map identities are derived explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/annihilator-generator-kernel",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Annihilator from a generating family",
+      "leanName": "TauCeti.SchemeFoundations.FlatAnnihilator.annihilator_eq_generator_kernel",
+      "statement": "For any R-module M and any family g:ι→M with span(range g)=top, Ann_R(M) is the kernel of R→Π_i M given by r↦(r•g_i)_i. The index type may be infinite.",
+      "hypotheses": [
+        "R and S are commutative rings, including zero rings, in independent universes. M is an additive commutative group with its R-module structure. Additional assumptions are exactly those in the statement; the finite-index Lean forms use Fintype and DecidableEq."
+      ],
+      "prerequisites": [
+        "mathlib:Module.annihilator",
+        "mathlib:Submodule.annihilator_top",
+        "mathlib:Submodule.mem_annihilator_span"
+      ],
+      "proofSteps": [
+        "Rewrite the annihilator of the whole module as the annihilator of the spanning submodule. Native span membership characterizes it by killing each generator, exactly membership in the kernel of the product action map."
+      ],
+      "acceptance": [
+        "For any R-module M and any family g:ι→M with span(range g)=top, Ann_R(M) is the kernel of R→Π_i M given by r↦(r•g_i)_i. The index type may be infinite.",
+        "The proof file must use native ideals, modules, quotient maps and tensor maps. It must pass the pinned compiler and an axiom audit without admitted dependencies."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Flat/Annihilator",
+        "namespace": "TauCeti.SchemeFoundations.FlatAnnihilator"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-07T8",
+          "locator": "Complete statement and proof of Lemma 10.40.4; the detailed native adapters are authored proof decompositions",
+          "match": "Preservation of kernels under flat tensor product supplies the comparison; the source motivates the exact assumptions, while the displayed native map identities are derived explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/flat-annihilator-generators",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Flat annihilator comparison on finite generators",
+      "leanName": "TauCeti.SchemeFoundations.FlatAnnihilator.annihilator_flat_baseChange_generators",
+      "statement": "For flat commutative R-algebra S and a finite family g:ι→M spanning M, the extension of Ann_R(M) is exactly Ann_S(S⊗_R M). The full ideals, including their nilpotent elements, are compared.",
+      "hypotheses": [
+        "R and S are commutative rings, including zero rings, in independent universes. M is an additive commutative group with its R-module structure. Additional assumptions are exactly those in the statement; the finite-index Lean forms use Fintype and DecidableEq."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/flat-kernel-membership",
+        "SchemeAndStackFoundations:SF.0/annihilator-generator-kernel",
+        "mathlib:TensorProduct.piRight",
+        "mathlib:Submodule.baseChange_span",
+        "mathlib:Submodule.baseChange_top"
+      ],
+      "proofSteps": [
+        "The native baseChange_span and baseChange_top laws show that 1⊗g_i span S⊗M. Express both annihilators as kernels. The finite-product tensor equivalence sends s⊗(g_i)_i to (s⊗g_i)_i, so the flat-kernel criterion gives equality. This finite-product step is precisely where finiteness of the generating family is used."
+      ],
+      "acceptance": [
+        "For flat commutative R-algebra S and a finite family g:ι→M spanning M, the extension of Ann_R(M) is exactly Ann_S(S⊗_R M). The full ideals, including their nilpotent elements, are compared.",
+        "The proof file must use native ideals, modules, quotient maps and tensor maps. It must pass the pinned compiler and an axiom audit without admitted dependencies."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Flat/Annihilator",
+        "namespace": "TauCeti.SchemeFoundations.FlatAnnihilator"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-07T8",
+          "locator": "Complete statement and proof of Lemma 10.40.4; the detailed native adapters are authored proof decompositions",
+          "match": "Preservation of kernels under flat tensor product supplies the comparison; the source motivates the exact assumptions, while the displayed native map identities are derived explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/flat-annihilator",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "theorem",
+      "title": "Flat base change of annihilators",
+      "leanName": "TauCeti.SchemeFoundations.FlatAnnihilator.annihilator_flat_baseChange",
+      "statement": "For commutative rings R,S with an R-algebra structure on S, an R-module M that is finitely generated, and S flat over R, (Ann_R M).map(algebraMap R S)=Ann_S(S⊗_R M). No Noetherian, injectivity, faithful-flatness, reducedness or finite-presentation assumption on S is made.",
+      "hypotheses": [
+        "R and S are commutative rings, including zero rings, in independent universes. M is an additive commutative group with its R-module structure. Additional assumptions are exactly those in the statement; the finite-index Lean forms use Fintype and DecidableEq."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/flat-annihilator-generators",
+        "mathlib:Module.Finite.exists_fin"
+      ],
+      "proofSteps": [
+        "Choose the finite generating family provided by the pinned Module.Finite.exists_fin theorem and apply the finite-generator comparison. The result is independent of that choice because both sides are the native annihilator ideals."
+      ],
+      "acceptance": [
+        "For commutative rings R,S with an R-algebra structure on S, an R-module M that is finitely generated, and S flat over R, (Ann_R M).map(algebraMap R S)=Ann_S(S⊗_R M). No Noetherian, injectivity, faithful-flatness, reducedness or finite-presentation assumption on S is made.",
+        "The proof file must use native ideals, modules, quotient maps and tensor maps. It must pass the pinned compiler and an axiom audit without admitted dependencies."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Flat/Annihilator",
+        "namespace": "TauCeti.SchemeFoundations.FlatAnnihilator"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-07T8",
+          "locator": "Complete statement and proof of Lemma 10.40.4; the detailed native adapters are authored proof decompositions",
+          "match": "Preservation of kernels under flat tensor product supplies the comparison; the source motivates the exact assumptions, while the displayed native map identities are derived explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Flat base change of annihilators"
+      },
+      "tests": [
+        {
+          "name": "FlatAnnihilatorChecked.empty_family",
+          "kind": "degenerate",
+          "statement": "The intersection over Fin 0 maps to the unit ideal, including zero rings."
+        },
+        {
+          "name": "FlatAnnihilatorChecked.identity_extension",
+          "kind": "compatibility",
+          "statement": "For every finitely generated R-module M, tensoring with R preserves its annihilator under the actual scalar extension."
+        },
+        {
+          "name": "FlatAnnihilatorChecked.zero_module",
+          "kind": "degenerate",
+          "statement": "For flat R→S, the annihilator of S⊗_R the zero submodule of R is the unit ideal."
+        },
+        {
+          "name": "FlatAnnihilatorChecked.zero_element",
+          "kind": "degenerate",
+          "statement": "The annihilator of the span of 1⊗0 is the unit ideal after flat extension."
+        },
+        {
+          "name": "FlatAnnihilatorChecked.nonreduced_element",
+          "kind": "computation",
+          "statement": "Over Z/4, the nonzero element 2 belongs to the annihilator of the span of 1⊗2 under the identity extension."
+        },
+        {
+          "name": "FlatAnnihilatorChecked.nonreduced_diagonal",
+          "kind": "computation",
+          "statement": "Under the actual flat diagonal Z/4→Z/4×Z/4, the nonzero element (2,2) kills the span of 1⊗2. The flat instance is synthesized from the native product module."
+        },
+        {
+          "name": "FlatAnnihilatorChecked.nonflat_element_failure",
+          "kind": "non-example",
+          "statement": "For the actual quotient algebra Z/4→Z/2 and the element 2 in the module Z/4, the extended element annihilator is zero, whereas the annihilator of span{1⊗2} is the unit ideal, and these ideals differ. This tests the element formula, not a failure of the finite-whole-module formula."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0, existing SF.0 supplier request for flat annihilators and affine base change",
+          "how": "Supply the generic finite-module annihilator identity once. The conductor specialization must separately identify its actual quotient module after base change. The multi-part consumer request and its sheaf comparisons are not closed here."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/flat-element-annihilator",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Flat base change of an element annihilator",
+      "leanName": "TauCeti.SchemeFoundations.FlatAnnihilator.element_annihilator_flat_baseChange",
+      "statement": "For any R-module M, m∈M and flat commutative R-algebra S, the extension of the annihilator of span_R{m} equals the annihilator of span_S{1⊗m} in S⊗_R M. M need not be finitely generated.",
+      "hypotheses": [
+        "R and S are commutative rings, including zero rings, in independent universes. M is an additive commutative group with its R-module structure. Additional assumptions are exactly those in the statement; the finite-index Lean forms use Fintype and DecidableEq."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/flat-kernel-membership",
+        "mathlib:Submodule.annihilator_span_singleton"
+      ],
+      "proofSteps": [
+        "The annihilator of span{m} is the kernel of r↦r•m. Apply the flat-kernel membership criterion, then the native singleton-span criterion and scalar multiplication of pure tensors."
+      ],
+      "acceptance": [
+        "For any R-module M, m∈M and flat commutative R-algebra S, the extension of the annihilator of span_R{m} equals the annihilator of span_S{1⊗m} in S⊗_R M. M need not be finitely generated.",
+        "The proof file must use native ideals, modules, quotient maps and tensor maps. It must pass the pinned compiler and an axiom audit without admitted dependencies."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Flat/Annihilator",
+        "namespace": "TauCeti.SchemeFoundations.FlatAnnihilator"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-07T8",
+          "locator": "Complete statement and proof of Lemma 10.40.4; the detailed native adapters are authored proof decompositions",
+          "match": "Preservation of kernels under flat tensor product supplies the comparison; the source motivates the exact assumptions, while the displayed native map identities are derived explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/annihilator-basechange-inclusion",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Unconditional annihilator inclusion",
+      "leanName": "TauCeti.SchemeFoundations.FlatAnnihilator.annihilator_map_le_baseChange",
+      "statement": "For every commutative R-algebra S and every R-module M, (Ann_R M).map(algebraMap R S) ≤ Ann_S(S⊗_R M). Neither flatness nor finite generation is needed for this inclusion.",
+      "hypotheses": [
+        "R and S are commutative rings, including zero rings, in independent universes. M is an additive commutative group with its R-module structure. Additional assumptions are exactly those in the statement; the finite-index Lean forms use Fintype and DecidableEq."
+      ],
+      "prerequisites": [
+        "mathlib:Ideal.map_le_iff_le_comap",
+        "mathlib:Module.annihilator"
+      ],
+      "proofSteps": [
+        "Reduce ideal extension to its R-generators. Tensor induction reduces annihilation to pure tensors. The balanced tensor relation transfers the scalar from S to M, where it acts as zero."
+      ],
+      "acceptance": [
+        "For every commutative R-algebra S and every R-module M, (Ann_R M).map(algebraMap R S) ≤ Ann_S(S⊗_R M). Neither flatness nor finite generation is needed for this inclusion.",
+        "The proof file must use native ideals, modules, quotient maps and tensor maps. It must pass the pinned compiler and an axiom audit without admitted dependencies."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Flat/Annihilator",
+        "namespace": "TauCeti.SchemeFoundations.FlatAnnihilator"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-07T8",
+          "locator": "Complete statement and proof of Lemma 10.40.4; the detailed native adapters are authored proof decompositions",
+          "match": "Preservation of kernels under flat tensor product supplies the comparison; the source motivates the exact assumptions, while the displayed native map identities are derived explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/flat-finite-ideal-intersections",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Flat extension of finite ideal intersections",
+      "leanName": "TauCeti.SchemeFoundations.FlatAnnihilator.ideal_map_iInf_finite",
+      "statement": "For flat commutative R-algebra S and any finite family of ideals I_i of R, extending their intersection to S equals the intersection of their extended ideals. The empty family is included, and the ideals need not be finitely generated.",
+      "hypotheses": [
+        "R and S are commutative rings, including zero rings, in independent universes. M is an additive commutative group with its R-module structure. Additional assumptions are exactly those in the statement; the finite-index Lean forms use Fintype and DecidableEq."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/flat-kernel-membership",
+        "mathlib:TensorProduct.piRight",
+        "mathlib:Submodule.ker_mkQ",
+        "mathlib:Ideal.Quotient.eq_zero_iff_mem"
+      ],
+      "proofSteps": [
+        "Realize the intersection as the kernel of R→Π_i R/I_i using the actual quotient linear maps. Flat-kernel membership and the native tensor finite-product equivalence identify its vanishing with the coordinate conditions. Apply the same kernel criterion to each quotient map. This finite ideal-extension form is an authored generalization of the binary kernel argument in Stacks 0BBY, not a claim to prove its arbitrary flat-module IM formulation."
+      ],
+      "acceptance": [
+        "For flat commutative R-algebra S and any finite family of ideals I_i of R, extending their intersection to S equals the intersection of their extended ideals. The empty family is included, and the ideals need not be finitely generated.",
+        "The proof file must use native ideals, modules, quotient maps and tensor maps. It must pass the pinned compiler and an axiom audit without admitted dependencies."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Flat/Annihilator",
+        "namespace": "TauCeti.SchemeFoundations.FlatAnnihilator"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-0BBY",
+          "locator": "Complete statement and proof of Lemma 10.39.2; the detailed native adapters are authored proof decompositions",
+          "match": "Preservation of kernels under flat tensor product supplies the comparison; the source motivates the exact assumptions, while the displayed native map identities are derived explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [],
@@ -2020,7 +2491,8 @@
       "remaining": [
         "Complete the twenty-nine-node henselization strand. Four finite-data adapters remain admitted. Four actual-section adapters and etale-lift uniqueness now have native proofs; lifted residue-selector quotient/localization coherence and the source criterion/universal cocone remain unfinished. Functorial maps and residue naturality remain conditional on universal-property closure.",
         "Plan the reserved excellent-schemes key. Reuse existing schemes/morphisms, smooth/etale/proper/flat predicates, QCoh and local algebra. Source-decompose relative Spec, general Proj/canonical comparison without unrestricted O(1) or properness claims.",
-        "Retain all SF.0 routed source obligations listed in sourceWorklist, including perfect geometry, coherent extension, standard coordinates and finite-presentation spreading. Weil restriction uses the confirmed MC0F → RG2.0a → R09.3 import, not a duplicate."
+        "Retain all SF.0 routed source obligations listed in sourceWorklist, including perfect geometry, coherent extension, standard coordinates and finite-presentation spreading. Weil restriction uses the confirmed MC0F → RG2.0a → R09.3 import, not a duplicate.",
+        "The generic flat-annihilator supplier now has eight declaration-sized nodes and seven typed boundary tests. Native proofs establish the finite-module identity, arbitrary-element identity, unconditional inclusion and finite ideal-intersection comparison using the pinned kernel and tensor APIs. The Neron Part II consumer must still identify the actual base-changed quotient algebra/module and conductor/sheaf maps; its multi-part SF.0 request remains open. All existing henselization, reserved-key, source-route and other-stage obligations remain unchanged."
       ]
     },
     {
@@ -2202,6 +2674,18 @@
       "url": "https://stacks.math.columbia.edu/tag/00U7",
       "read": "2026-10-02",
       "sha256": "9cc9e26369df8bae48364b390a3ac85bc49afeb917feea3c2813f14e00d44810"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://stacks.math.columbia.edu/tag/07T8",
+      "read": "2026-10-03",
+      "sha256": "09f951f7a17951a7e273a51ec2520181edef236040a149e9d4d98e7d5cd0a19c"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://stacks.math.columbia.edu/tag/0BBY",
+      "read": "2026-10-03",
+      "sha256": "467b603439da657cd2cac75c94aaef5ddc4d7340c76b1d3e10c093f23cbef50f"
     }
   ],
   "baselineCoverage": [
@@ -2686,12 +3170,12 @@
     }
   ],
   "validationBoundary": {
-    "agent": "Codex — codex-J6LwjP",
-    "date": "2026-10-02",
+    "agent": "Codex — codex-7e92bd",
+    "date": "2026-10-03",
     "issue": 642,
-    "implementation": "Every node unchecked pending independent review. Five declarations have native proofs with no admitted axiom dependencies; other admitted signatures do not prove the remaining mathematics.",
-    "sourceRead": "Fresh complete mathematical text/proofs of Stacks 0EM7 and complete statements/proofs of 02FL, 00U8 and 00U7. Other source and ownership receipts retain their explicitly inherited provenance. All 62 source routes, twelve unimplemented findings and source issue E1 are preserved unchanged.",
-    "elaboration": "Current full Mathlib-only elaboration and axiom-audit receipts are recorded in the handoff. No Tau Ceti imports or combined-build claim; no Lake setup, cache download, dependency/library build or language server."
+    "implementation": "All37 nodes remain unchecked. Eight new native proofs have no admitted dependencies; the five inherited native proofs are separately re-audited. The suggested file is an admitted plan and does not certify the remaining mathematics.",
+    "sourceRead": "Fresh complete Stacks07T8 and0BBY statements/proofs. All29 old node objects,62 source routes,12 unimplemented findings,8 gaps,6 reserved-key boundaries and inherited source issue E1 are unchanged; prior source readings retain their original attribution.",
+    "elaboration": "The entire final Mathlib-only canonical file elaborates at the pinned commit, with55 admission warnings only. Separate new native proofs and seven tests have no warnings; the canonical-plus-audit file rechecks the five inherited native proof axiom closures. No Tau Ceti import or library build."
   },
   "restructure": [
     {
