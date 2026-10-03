@@ -3694,3 +3694,199 @@ lemma characteristic_two_repeated_survives :
 end
 end TauCeti.HilbertSamuel.NativeCurveDegreeTests
 /- END ACTUAL CURVE DEGREE COMPARISON -/
+
+/- BEGIN FULL CURVE GRADED ASSEMBLY -/
+namespace TauCeti.HilbertSamuel
+noncomputable section FullCurveGraded
+open scoped DirectSum
+set_option backward.isDefEq.respectTransparency false
+variable {σ k : Type*} [CommRing k] [Finite σ]
+local notation "R" => MvPowerSeries σ k
+local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : σ → R))
+local notation "H" => MvPolynomial.homogeneousSubmodule σ k
+variable (f : R)
+local notation "F" => Ideal.span ({f} : Set R)
+local notation "π" => Ideal.Quotient.mk F
+local notation "q" => Ideal.map π v
+local notation "G" => adicGradedRing q
+attribute [local instance] MvPolynomial.gradedAlgebra
+
+lemma homogeneousCurveRepresentative_mem (n : ℕ) (p : ↥(H n)) :
+    π (p.val : R) ∈ q ^ n := by
+  sorry
+
+def curveHomogeneousToGraded (n : ℕ) : ↥(H n) →ₗ[k] G := by
+  sorry
+
+lemma curveHomogeneousToGraded_apply (n : ℕ) (p : ↥(H n)) :
+    curveHomogeneousToGraded f n p =
+      adicMonomial q n ⟨π (p.val : R), homogeneousCurveRepresentative_mem f n p⟩ := by
+  sorry
+
+lemma curveHomogeneousToGraded_piece (n : ℕ) (p : ↥(H n)) :
+    curveHomogeneousToGraded f n p =
+      adicPieceInclusion q n
+        (homogeneousNativeCurveDegreeEquiv f n (Submodule.Quotient.mk p)) := by
+  sorry
+
+lemma curveHomogeneousToGraded_one :
+    curveHomogeneousToGraded f 0 ⟨1, MvPolynomial.isHomogeneous_one σ k⟩ = 1 := by
+  sorry
+
+lemma curveHomogeneousToGraded_mul (n m : ℕ) (p : ↥(H n)) (r : ↥(H m)) :
+    curveHomogeneousToGraded f (n + m) (GradedMonoid.GMul.mul p r) =
+      curveHomogeneousToGraded f n p * curveHomogeneousToGraded f m r := by
+  sorry
+
+def curveGradedMap : MvPolynomial σ k →ₐ[k] G := by
+  sorry
+
+lemma curveGradedMap_homogeneous (n : ℕ) (p : ↥(H n)) :
+    curveGradedMap f p.val = curveHomogeneousToGraded f n p := by
+  sorry
+
+lemma curveGradedMap_X (i : σ) :
+    curveGradedMap f (MvPolynomial.X i) =
+      curveHomogeneousToGraded f 1 ⟨MvPolynomial.X i, MvPolynomial.isHomogeneous_X k i⟩ := by
+  sorry
+
+lemma curveGradedMap_C (a : k) :
+    curveGradedMap f (MvPolynomial.C a) = algebraMap k G a := by
+  sorry
+
+lemma curveGradedMap_surjective : Function.Surjective (curveGradedMap f) := by
+  sorry
+
+lemma curveGradedMap_projection (n : ℕ) (p : MvPolynomial σ k) :
+    adicRingProjection q n (curveGradedMap f p) =
+      curveGradedMap f (MvPolynomial.homogeneousComponent n p) := by
+  sorry
+
+lemma curveGradedMap_eq_zero_iff (p : MvPolynomial σ k) :
+    curveGradedMap f p = 0 ↔ ∀ n : ℕ,
+      curveHomogeneousToGraded f n
+        ⟨MvPolynomial.homogeneousComponent n p, MvPolynomial.homogeneousComponent_mem n p⟩ = 0 := by
+  sorry
+
+lemma curveHomogeneousToGraded_eq_zero (n : ℕ) (p : ↥(H n)) :
+    curveHomogeneousToGraded f n p = 0 ↔ homogeneousCurveProjection f n p = 0 := by
+  sorry
+
+lemma curveGradedMap_initial (d : ℕ) (hd : (d : WithTop ℕ) ≤ f.order) :
+    curveGradedMap f (homogeneousPolynomial d f) = 0 := by
+  sorry
+
+lemma curveGradedMap_ker [NoZeroDivisors k] (d : ℕ) (hd : f.order = d) :
+    RingHom.ker (curveGradedMap f).toRingHom =
+      Ideal.span ({homogeneousPolynomial d f} : Set (MvPolynomial σ k)) := by
+  sorry
+
+def curveTangentConeEquiv [NoZeroDivisors k] (d : ℕ) (hd : f.order = d) :
+    (MvPolynomial σ k ⧸ Ideal.span ({homogeneousPolynomial d f} : Set (MvPolynomial σ k))) ≃ₐ[k] G := by
+  sorry
+
+lemma curveTangentConeEquiv_mk [NoZeroDivisors k] (d : ℕ) (hd : f.order = d)
+    (p : MvPolynomial σ k) :
+    curveTangentConeEquiv f d hd (Ideal.Quotient.mk _ p) = curveGradedMap f p := by
+  sorry
+
+lemma curveTangentConeEquiv_homogeneous [NoZeroDivisors k] (d : ℕ) (hd : f.order = d)
+    (n : ℕ) (p : ↥(H n)) :
+    curveTangentConeEquiv f d hd (Ideal.Quotient.mk _ p.val) =
+      curveHomogeneousToGraded f n p := by
+  sorry
+
+lemma curveTangentConeEquiv_component [NoZeroDivisors k] (d : ℕ) (hd : f.order = d) (n : ℕ) :
+    Submodule.map ((curveTangentConeEquiv f d hd).toLinearMap.comp
+      (Ideal.Quotient.mkₐ k _).toLinearMap) (H n) =
+        (adicRingComponents q n).restrictScalars k := by
+  sorry
+
+end FullCurveGraded
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel.FullCurveGradedTests
+noncomputable section
+set_option backward.isDefEq.respectTransparency false
+variable {σ k : Type*} [CommRing k] [Finite σ]
+
+-- test: FullCurveGradedTests.zero_equation_injective
+example : Function.Injective (curveGradedMap (0 : MvPowerSeries σ k)) := by
+  sorry
+
+-- test: FullCurveGradedTests.unit_equation
+example (p : MvPolynomial σ k) : curveGradedMap (1 : MvPowerSeries σ k) p = 0 := by
+  sorry
+
+-- test: FullCurveGradedTests.native_representative
+example (f : MvPowerSeries σ k) (n : ℕ)
+    (p : ↥(MvPolynomial.homogeneousSubmodule σ k n)) :
+    curveHomogeneousToGraded f n p =
+      adicPieceInclusion
+        (Ideal.map (Ideal.Quotient.mk (Ideal.span {f}))
+          (Ideal.span (Set.range (MvPowerSeries.X : σ → MvPowerSeries σ k)))) n
+        (homogeneousNativeCurveDegreeEquiv f n (Submodule.Quotient.mk p)) := by
+  sorry
+
+-- test: FullCurveGradedTests.degree_zero_unit
+example (f : MvPowerSeries σ k) :
+    curveHomogeneousToGraded f 0 ⟨1, MvPolynomial.isHomogeneous_one σ k⟩ = 1 := by
+  sorry
+
+-- test: FullCurveGradedTests.mixed_degree_product
+example (f : MvPowerSeries (Fin 2) k) :
+    curveGradedMap f (MvPolynomial.X 0 * MvPolynomial.X 1 ^ 2) =
+      curveGradedMap f (MvPolynomial.X 0) * curveGradedMap f (MvPolynomial.X 1) ^ 2 := by
+  sorry
+
+-- test: FullCurveGradedTests.characteristic_two_repeated_equation
+example :
+    let f : MvPowerSeries (Fin 1) (ZMod 2) := MvPowerSeries.X 0 ^ 2
+    curveGradedMap f (MvPolynomial.X 0) ≠ 0 ∧
+      curveGradedMap f (MvPolynomial.X 0 ^ 2) = 0 := by
+  sorry
+
+-- test: FullCurveGradedTests.nilpotent_coefficients_extra_relation
+example :
+    let f : MvPowerSeries (Fin 1) (ZMod 4) := MvPowerSeries.C 2 + MvPowerSeries.X 0
+    curveGradedMap f (MvPolynomial.X 0 ^ 2) = 0 ∧
+      (MvPolynomial.X 0 ^ 2 : MvPolynomial (Fin 1) (ZMod 4)) ∉
+        Ideal.span ({MvPolynomial.C 2} : Set (MvPolynomial (Fin 1) (ZMod 4))) := by
+  sorry
+
+-- test: FullCurveGradedTests.order_zero_nonunit
+example :
+    let f : MvPowerSeries (Fin 1) ℤ := MvPowerSeries.C 2 + MvPowerSeries.X 0
+    curveGradedMap f (MvPolynomial.C 2) = 0 ∧ curveGradedMap f (MvPolynomial.X 0) ≠ 0 := by
+  sorry
+
+-- test: FullCurveGradedTests.no_variables
+example : curveGradedMap (2 : MvPowerSeries PEmpty ℤ) (MvPolynomial.C 1) ≠ 0 := by
+  sorry
+
+-- test: FullCurveGradedTests.quotient_generator
+example [NoZeroDivisors k] (f : MvPowerSeries σ k) (d : ℕ) (hd : f.order = d) (i : σ) :
+    curveTangentConeEquiv f d hd (Ideal.Quotient.mk _ (MvPolynomial.X i)) =
+      curveHomogeneousToGraded f 1 ⟨MvPolynomial.X i, MvPolynomial.isHomogeneous_X k i⟩ := by
+  sorry
+
+-- test: FullCurveGradedTests.quotient_constant
+example [NoZeroDivisors k] (f : MvPowerSeries σ k) (d : ℕ) (hd : f.order = d) (a : k) :
+    curveTangentConeEquiv f d hd (Ideal.Quotient.mk _ (MvPolynomial.C a)) =
+      curveGradedMap f (MvPolynomial.C a) := by
+  sorry
+
+-- test: FullCurveGradedTests.quotient_inverse
+example [NoZeroDivisors k] (f : MvPowerSeries σ k) (d : ℕ) (hd : f.order = d)
+    (p : MvPolynomial σ k) :
+    (curveTangentConeEquiv f d hd).symm (curveGradedMap f p) = Ideal.Quotient.mk _ p := by
+  sorry
+
+-- test: FullCurveGradedTests.zero_coefficients
+example (f : MvPowerSeries (Fin 1) (ZMod 1)) (p : MvPolynomial (Fin 1) (ZMod 1)) :
+    curveGradedMap f p = 0 := by
+  sorry
+
+end
+end TauCeti.HilbertSamuel.FullCurveGradedTests
+/- END FULL CURVE GRADED ASSEMBLY -/

@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open.",
+  "summary": "Full actual curve graded assembly checkpoint: 20 new declarations (3 constructions), 16 API items and 13 boundary/compatibility tests. The polynomial map lands in the inherited Rees quotient, with exact full principal-kernel and component-compatible quotient-equivalence plans. All 210 incoming node objects and all ownership, source and general multiplicity boundaries remain intact. New proof bodies remain admitted. This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2304,6 +2304,55 @@
         "module": "Mathlib/Algebra/Module/Equiv/Defs.lean",
         "provides": "A linear equivalence carries an element to zero precisely when the element is zero.",
         "checked": "Statement and ambient hypotheses personally read at the exact Mathlib pin."
+      },
+      {
+        "ref": "mathlib:DirectSum.toAlgebra",
+        "kind": "construction",
+        "module": "Mathlib/Algebra/DirectSum/Algebra.lean",
+        "provides": "A family of graded linear maps preserving the degree-zero unit and homogeneous products induces an algebra map from the direct sum.",
+        "checked": "Statement and ambient assumptions personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:DirectSum.decomposeAlgEquiv",
+        "kind": "construction",
+        "module": "Mathlib/RingTheory/GradedAlgebra/Basic.lean",
+        "provides": "The native homogeneous decomposition of a graded algebra is an algebra equivalence with its direct sum.",
+        "checked": "Statement and ambient assumptions personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.gradedAlgebra",
+        "kind": "construction",
+        "module": "Mathlib/RingTheory/MvPolynomial/Homogeneous.lean",
+        "provides": "Native polynomial homogeneous submodules carry a graded algebra; register the reducible abbreviation as a local instance.",
+        "checked": "Statement and ambient assumptions personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.isHomogeneous_one",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/MvPolynomial/Homogeneous.lean",
+        "provides": "The polynomial unit is homogeneous of degree zero.",
+        "checked": "Statement and ambient assumptions personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.isHomogeneous_X",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/MvPolynomial/Homogeneous.lean",
+        "provides": "Each polynomial variable is homogeneous of degree one.",
+        "checked": "Statement and ambient assumptions personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.homogeneousComponent_mem",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/MvPolynomial/Homogeneous.lean",
+        "provides": "The degree-n homogeneous component belongs to the native degree-n submodule.",
+        "checked": "Statement and ambient assumptions personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.sum_homogeneousComponent",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/MvPolynomial/Homogeneous.lean",
+        "provides": "The finite sum of components through totalDegree recovers the polynomial.",
+        "checked": "Statement and ambient assumptions personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
       }
     ]
   },
@@ -3238,6 +3287,29 @@
       "motivatingSourceHashes": {
         "https://stacks.math.columbia.edu/tag/00K4": "e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932",
         "https://github.com/CBirkbeck/tauceti-explorer/blob/eb645dc85df65608c56fafc4d9ed0e71ab0ca3ce/research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md": "d6bb818403e28967bc241c039a37fc503492d926159c6fcf89c8317ac7119f3c"
+      }
+    },
+    {
+      "id": "HS-FULL-GRADED-7e92bd",
+      "title": "Full multiplicative curve tangent-cone assembly in the native Rees quotient",
+      "authors": "Mathlib contributors; credited jet argument ChatGPT — gpt6astra-20261002-7d2f90; authored assembly and boundary analysis Codex — codex-7e92bd",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; authored proof plan 2026-10-03",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/DirectSum/Algebra.lean",
+      "accessDate": "2026-10-03",
+      "readSections": [
+        "Fresh complete credited DDPA-JET-HANDOFF §§2–5, especially §5 full homogeneous kernel and finite-sum assembly; immutable source hash d6bb818403e28967bc241c039a37fc503492d926159c6fcf89c8317ac7119f3c.",
+        "Fresh complete mathematical Stacks 00K4 section: actual associated graded ring/module and cumulative versus graded length conventions. Recursive general Hilbert–Serre and dimension references are not discharged.",
+        "Fresh pinned DirectSum.toAlgebra statement and ambient GAlgebra hypotheses; GradedAlgebra native decomposition/scalar restriction; polynomial local gradedAlgebra, homogeneous generator and finite component-sum statements; Ideal.quotientKerAlgEquivOfSurjective and representative formula; Subalgebra scalar-tower algebra instance.",
+        "Pinned Tau Ceti WordFiltration/AssociatedGraded.lean 80–155: its carrier is the ascending word-filtration quotient by the previous step. It is not the descending q-adic Rees quotient used here. Bounded source searches found no direct replacement for this specific adapter; no whole-library absence claim is made.",
+        "The nine audited DDPA rows, accepted review, campaign reader, stage objects, RS-08 and governing documents were personally read earlier in this continuous worker loop and checked unchanged against that recorded read base. Current requests and latest degree-comparison statements were freshly read.",
+        "Fresh bounded Mathlib open-PR search for homogeneous Rees; PR27307 OPEN at 0127706ca379b684697f3c95c8cc772537a21774, metadata/body/file list read. It concerns generic homogeneous relation quotients and is not imported. Bounded indexed Zulip search yielded no applicable adapter; no exhaustive absence claim."
+      ],
+      "sourceHashes": {
+        "Mathlib/Algebra/DirectSum/Algebra.lean": "f386b30d1850d263a1576e766f783211859a48eca32d6494359078176617ad62",
+        "Mathlib/RingTheory/GradedAlgebra/Basic.lean": "fff0d28336e4fa13b0a8e48bc9a490a50cb6f01a86dce1551f5b473e8bcede9b",
+        "Mathlib/RingTheory/MvPolynomial/Homogeneous.lean": "cc14ab54a1e88b37d838b98f7371540b9df545bdf071d8cb92740ddbea654335",
+        "Mathlib/RingTheory/Ideal/Quotient/Operations.lean": "25359917b64f9434dbff99f3033ecba35badb45d0a4e3468aead0ba87743d109",
+        "Mathlib/Algebra/Algebra/Subalgebra/Basic.lean": "09e4fbcd2699ec63c989f526f002a9208420df1ef47a341a28bf022b76eb8858"
       }
     }
   ],
@@ -15734,6 +15806,1126 @@
         "namespace": "TauCeti.HilbertSamuel"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-homogeneous-representative-membership",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Homogeneous representatives in the actual curve ideal power",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.homogeneousCurveRepresentative_mem",
+      "statement": "For p∈H_n, the actual quotient representative π(p) lies in q^n.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring. Put R=MvPowerSeries σ k, v=span(range X), F=(f), A=R/F, π the actual quotient map, q=Ideal.map π v and G=adicGradedRing q=(reesAlgebra q)/(q·reesAlgebra q). H_n is the native polynomial homogeneous submodule. All k-actions are the canonical algebra actions.",
+        "Only the full principal-kernel and tangent-cone equivalence nodes assume NoZeroDivisors k and exact finite order(f)=d. The polynomial map, surjectivity, component separation and initial-relation inclusion have no domain, field, reducedness or nonunit assumption; the initial-relation inclusion uses its stated order lower bound."
+      ],
+      "proofSteps": [
+        "The existing homogeneousLift gives p in v^n and its value is the native polynomial inclusion into R. Map its membership along π.",
+        "Rewrite Ideal.map π (v^n) as q^n using the existing curve power adapter. No chosen degree quotient or synthetic carrier enters the membership proof."
+      ],
+      "acceptance": [
+        "For p∈H_n, the actual quotient representative π(p) lies in q^n."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-polynomial-lift",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-polynomial-lift-value",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-ideal-power",
+        "mathlib:Ideal.mem_map_of_mem"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), homogeneous kernel and finite graded assembly",
+          "excerpt": "degreewise kernel",
+          "match": "Build on the credited degreewise argument using the existing actual Rees quotient and native degree comparisons. The arbitrary-coefficient map and no-zero-divisors kernel extension use the inherited exact signatures; they do not assert dimension or multiplicity."
+        },
+        {
+          "sourceId": "HS-FULL-GRADED-7e92bd",
+          "locator": "homogeneousCurveRepresentative_mem; authored proof plan and pinned direct-sum/quotient statements",
+          "excerpt": "graded algebra",
+          "match": "This is a mathematical blueprint with admitted Lean prototypes. No new admission-free implementation is claimed; historical Rees bodies remain prerequisites."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-homogeneous-graded-map",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Homogeneous polynomial classes in the Rees quotient",
+      "kind": "construction",
+      "declaration": "TauCeti.HilbertSamuel.curveHomogeneousToGraded",
+      "statement": "Define j_f,n:H_n→ₗ[k]G by the native quotient map H_n→H_n/ker(ψ_f,n), the existing homogeneousNativeCurveDegreeEquiv, and the existing degree-n adicPieceInclusion restricted to k.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring. Put R=MvPowerSeries σ k, v=span(range X), F=(f), A=R/F, π the actual quotient map, q=Ideal.map π v and G=adicGradedRing q=(reesAlgebra q)/(q·reesAlgebra q). H_n is the native polynomial homogeneous submodule. All k-actions are the canonical algebra actions.",
+        "Only the full principal-kernel and tangent-cone equivalence nodes assume NoZeroDivisors k and exact finite order(f)=d. The polynomial map, surjectivity, component separation and initial-relation inclusion have no domain, field, reducedness or nonunit assumption; the initial-relation inclusion uses its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Compose the three specified native linear maps. Restrict the last A-linear inclusion along k→A; the subalgebra and quotient scalar towers supply the same k-action on G.",
+        "The quotient-of-homogeneous-polynomials source is an intermediate carrier only. The codomain remains the existing Rees/qRees quotient."
+      ],
+      "acceptance": [
+        "Define j_f,n:H_n→ₗ[k]G by the native quotient map H_n→H_n/ker(ψ_f,n), the existing homogeneousNativeCurveDegreeEquiv, and the existing degree-n adicPieceInclusion restricted to k."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-native-curve-degree-equivalence",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-piece-inclusion",
+        "mathlib:LinearMap.restrictScalars"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), homogeneous kernel and finite graded assembly",
+          "excerpt": "degreewise kernel",
+          "match": "Build on the credited degreewise argument using the existing actual Rees quotient and native degree comparisons. The arbitrary-coefficient map and no-zero-divisors kernel extension use the inherited exact signatures; they do not assert dimension or multiplicity."
+        },
+        {
+          "sourceId": "HS-FULL-GRADED-7e92bd",
+          "locator": "curveHomogeneousToGraded; authored proof plan and pinned direct-sum/quotient statements",
+          "excerpt": "graded algebra",
+          "match": "This is a mathematical blueprint with admitted Lean prototypes. No new admission-free implementation is claimed; historical Rees bodies remain prerequisites."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.curveHomogeneousToGraded_apply",
+          "role": "characterisation",
+          "statement": "For p∈H_n, j_f,n(p)=adicMonomial q n ⟨π(p),homogeneousCurveRepresentative_mem f n p⟩."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.curveHomogeneousToGraded_piece",
+          "role": "compatibility",
+          "statement": "j_f,n(p)=adicPieceInclusion q n (homogeneousNativeCurveDegreeEquiv f n [p])."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.curveHomogeneousToGraded_one",
+          "role": "characterisation",
+          "statement": "j_f,0(1)=1 in the actual Rees quotient, including the zero quotient ring."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.curveHomogeneousToGraded_mul",
+          "role": "characterisation",
+          "statement": "For p∈H_n and r∈H_m, j_f,n+m(p·r)=j_f,n(p)·j_f,m(r), where the source product is the native GradedMonoid.GMul product."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.curveHomogeneousToGraded_eq_zero",
+          "role": "characterisation",
+          "statement": "j_f,n(p)=0 if and only if homogeneousCurveProjection f n p=0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "FullCurveGradedTests.native_representative",
+          "kind": "compatibility",
+          "statement": "For p∈H_n, j_f,n(p) equals adicPieceInclusion applied to the existing homogeneousNativeCurveDegreeEquiv on [p]."
+        },
+        {
+          "name": "FullCurveGradedTests.degree_zero_unit",
+          "kind": "computation",
+          "statement": "The homogeneous constant 1 in H_0 maps to 1 in G, even when G is the zero ring."
+        },
+        {
+          "name": "FullCurveGradedTests.mixed_degree_product",
+          "kind": "compatibility",
+          "statement": "In two variables, θ_f(X₀X₁²)=θ_f(X₀)θ_f(X₁)², mixing degrees one and two."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DDPA-JET-HANDOFF §5 and the R03.3 plane-curve tangent-cone target",
+          "how": "Assemble the already existing degreewise comparison into the actual multiplicative map and full principal kernel."
+        },
+        {
+          "where": "Stacks 00K4, Proposition 10.59.5; reserved general Hilbert–Samuel key",
+          "how": "Keep the actual associated graded ring and its degree pieces available to the future length/dimension comparison. This checkpoint does not prove general Hilbert–Serre, curve dimension or multiplicity identification."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-homogeneous-graded-representative",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The actual Rees monomial representative",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.curveHomogeneousToGraded_apply",
+      "statement": "For p∈H_n, j_f,n(p)=adicMonomial q n ⟨π(p),homogeneousCurveRepresentative_mem f n p⟩.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring. Put R=MvPowerSeries σ k, v=span(range X), F=(f), A=R/F, π the actual quotient map, q=Ideal.map π v and G=adicGradedRing q=(reesAlgebra q)/(q·reesAlgebra q). H_n is the native polynomial homogeneous submodule. All k-actions are the canonical algebra actions.",
+        "Only the full principal-kernel and tangent-cone equivalence nodes assume NoZeroDivisors k and exact finite order(f)=d. The polynomial map, surjectivity, component separation and initial-relation inclusion have no domain, field, reducedness or nonunit assumption; the initial-relation inclusion uses its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Evaluate the existing homogeneous comparison on the quotient class of p. Apply adicPieceInclusion_mk to obtain the literal Rees monomial of π(p) in degree n.",
+        "Proof irrelevance reconciles ideal-membership witnesses; no equality is inferred merely from dimensions."
+      ],
+      "acceptance": [
+        "For p∈H_n, j_f,n(p)=adicMonomial q n ⟨π(p),homogeneousCurveRepresentative_mem f n p⟩."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-homogeneous-graded-map",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-homogeneous-representative-membership",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-native-curve-degree-representative",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-piece-inclusion"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), homogeneous kernel and finite graded assembly",
+          "excerpt": "degreewise kernel",
+          "match": "Build on the credited degreewise argument using the existing actual Rees quotient and native degree comparisons. The arbitrary-coefficient map and no-zero-divisors kernel extension use the inherited exact signatures; they do not assert dimension or multiplicity."
+        },
+        {
+          "sourceId": "HS-FULL-GRADED-7e92bd",
+          "locator": "curveHomogeneousToGraded_apply; authored proof plan and pinned direct-sum/quotient statements",
+          "excerpt": "graded algebra",
+          "match": "This is a mathematical blueprint with admitted Lean prototypes. No new admission-free implementation is claimed; historical Rees bodies remain prerequisites."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-homogeneous-graded-piece",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Compatibility with the existing native degree equivalence",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.curveHomogeneousToGraded_piece",
+      "statement": "j_f,n(p)=adicPieceInclusion q n (homogeneousNativeCurveDegreeEquiv f n [p]).",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring. Put R=MvPowerSeries σ k, v=span(range X), F=(f), A=R/F, π the actual quotient map, q=Ideal.map π v and G=adicGradedRing q=(reesAlgebra q)/(q·reesAlgebra q). H_n is the native polynomial homogeneous submodule. All k-actions are the canonical algebra actions.",
+        "Only the full principal-kernel and tangent-cone equivalence nodes assume NoZeroDivisors k and exact finite order(f)=d. The polynomial map, surjectivity, component separation and initial-relation inclusion have no domain, field, reducedness or nonunit assumption; the initial-relation inclusion uses its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Unfold the composite defining j and the quotient map. This equality is the bridge to the already planned native ideal-power degree quotient."
+      ],
+      "acceptance": [
+        "j_f,n(p)=adicPieceInclusion q n (homogeneousNativeCurveDegreeEquiv f n [p])."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-homogeneous-graded-map"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), homogeneous kernel and finite graded assembly",
+          "excerpt": "degreewise kernel",
+          "match": "Build on the credited degreewise argument using the existing actual Rees quotient and native degree comparisons. The arbitrary-coefficient map and no-zero-divisors kernel extension use the inherited exact signatures; they do not assert dimension or multiplicity."
+        },
+        {
+          "sourceId": "HS-FULL-GRADED-7e92bd",
+          "locator": "curveHomogeneousToGraded_piece; authored proof plan and pinned direct-sum/quotient statements",
+          "excerpt": "graded algebra",
+          "match": "This is a mathematical blueprint with admitted Lean prototypes. No new admission-free implementation is claimed; historical Rees bodies remain prerequisites."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-homogeneous-graded-one",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The homogeneous constant one",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.curveHomogeneousToGraded_one",
+      "statement": "j_f,0(1)=1 in the actual Rees quotient, including the zero quotient ring.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring. Put R=MvPowerSeries σ k, v=span(range X), F=(f), A=R/F, π the actual quotient map, q=Ideal.map π v and G=adicGradedRing q=(reesAlgebra q)/(q·reesAlgebra q). H_n is the native polynomial homogeneous submodule. All k-actions are the canonical algebra actions.",
+        "Only the full principal-kernel and tangent-cone equivalence nodes assume NoZeroDivisors k and exact finite order(f)=d. The polynomial map, surjectivity, component separation and initial-relation inclusion have no domain, field, reducedness or nonunit assumption; the initial-relation inclusion uses its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Use the representative formula in degree zero. Polynomial.monomial 0 1 is the Rees unit and both quotient maps preserve it.",
+        "This statement does not infer that 1 is nonzero; f=1 and the zero coefficient ring remain allowed."
+      ],
+      "acceptance": [
+        "j_f,0(1)=1 in the actual Rees quotient, including the zero quotient ring."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-homogeneous-graded-representative",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-monomial-map",
+        "mathlib:MvPolynomial.isHomogeneous_one"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), homogeneous kernel and finite graded assembly",
+          "excerpt": "degreewise kernel",
+          "match": "Build on the credited degreewise argument using the existing actual Rees quotient and native degree comparisons. The arbitrary-coefficient map and no-zero-divisors kernel extension use the inherited exact signatures; they do not assert dimension or multiplicity."
+        },
+        {
+          "sourceId": "HS-FULL-GRADED-7e92bd",
+          "locator": "curveHomogeneousToGraded_one; authored proof plan and pinned direct-sum/quotient statements",
+          "excerpt": "graded algebra",
+          "match": "This is a mathematical blueprint with admitted Lean prototypes. No new admission-free implementation is claimed; historical Rees bodies remain prerequisites."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-homogeneous-graded-product",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Multiplication of homogeneous curve classes",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.curveHomogeneousToGraded_mul",
+      "statement": "For p∈H_n and r∈H_m, j_f,n+m(p·r)=j_f,n(p)·j_f,m(r), where the source product is the native GradedMonoid.GMul product.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring. Put R=MvPowerSeries σ k, v=span(range X), F=(f), A=R/F, π the actual quotient map, q=Ideal.map π v and G=adicGradedRing q=(reesAlgebra q)/(q·reesAlgebra q). H_n is the native polynomial homogeneous submodule. All k-actions are the canonical algebra actions.",
+        "Only the full principal-kernel and tangent-cone equivalence nodes assume NoZeroDivisors k and exact finite order(f)=d. The polynomial map, surjectivity, component separation and initial-relation inclusion have no domain, field, reducedness or nonunit assumption; the initial-relation inclusion uses its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Rewrite all three terms as Rees monomials. The existing adicMonomial_mul gives degree n+m and coefficient π(p)π(r).",
+        "The polynomial inclusion into power series and π are ring maps, so this coefficient is π(pr). Reconcile the subtype witnesses by extensionality."
+      ],
+      "acceptance": [
+        "For p∈H_n and r∈H_m, j_f,n+m(p·r)=j_f,n(p)·j_f,m(r), where the source product is the native GradedMonoid.GMul product."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-homogeneous-graded-representative",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-homogeneous-product",
+        "mathlib:MvPolynomial.gradedAlgebra"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), homogeneous kernel and finite graded assembly",
+          "excerpt": "degreewise kernel",
+          "match": "Build on the credited degreewise argument using the existing actual Rees quotient and native degree comparisons. The arbitrary-coefficient map and no-zero-divisors kernel extension use the inherited exact signatures; they do not assert dimension or multiplicity."
+        },
+        {
+          "sourceId": "HS-FULL-GRADED-7e92bd",
+          "locator": "curveHomogeneousToGraded_mul; authored proof plan and pinned direct-sum/quotient statements",
+          "excerpt": "graded algebra",
+          "match": "This is a mathematical blueprint with admitted Lean prototypes. No new admission-free implementation is claimed; historical Rees bodies remain prerequisites."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-graded-map",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The polynomial map to the actual tangent cone",
+      "kind": "construction",
+      "declaration": "TauCeti.HilbertSamuel.curveGradedMap",
+      "statement": "Construct the k-algebra map θ_f:k[σ]→ₐ[k]G by homogeneous decomposition followed by DirectSum.toAlgebra applied to j_f,n and its unit and multiplication laws.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring. Put R=MvPowerSeries σ k, v=span(range X), F=(f), A=R/F, π the actual quotient map, q=Ideal.map π v and G=adicGradedRing q=(reesAlgebra q)/(q·reesAlgebra q). H_n is the native polynomial homogeneous submodule. All k-actions are the canonical algebra actions.",
+        "Only the full principal-kernel and tangent-cone equivalence nodes assume NoZeroDivisors k and exact finite order(f)=d. The polynomial map, surjectivity, component separation and initial-relation inclusion have no domain, field, reducedness or nonunit assumption; the initial-relation inclusion uses its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Register MvPolynomial.gradedAlgebra locally; it is deliberately not a global instance in the pin.",
+        "Compose DirectSum.decomposeAlgEquiv for the native homogeneous submodules with DirectSum.toAlgebra. The latter requires exactly j_0(1)=1 and j_(n+m)(pr)=j_n(p)j_m(r), already separate prerequisites.",
+        "This constructs a multiplicative map on finite polynomial sums. It is not unquotiented truncation of formal series, which need not preserve multiplication."
+      ],
+      "acceptance": [
+        "Construct the k-algebra map θ_f:k[σ]→ₐ[k]G by homogeneous decomposition followed by DirectSum.toAlgebra applied to j_f,n and its unit and multiplication laws."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-homogeneous-graded-map",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-homogeneous-graded-one",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-homogeneous-graded-product",
+        "mathlib:DirectSum.toAlgebra",
+        "mathlib:DirectSum.decomposeAlgEquiv",
+        "mathlib:MvPolynomial.gradedAlgebra"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), homogeneous kernel and finite graded assembly",
+          "excerpt": "degreewise kernel",
+          "match": "Build on the credited degreewise argument using the existing actual Rees quotient and native degree comparisons. The arbitrary-coefficient map and no-zero-divisors kernel extension use the inherited exact signatures; they do not assert dimension or multiplicity."
+        },
+        {
+          "sourceId": "HS-FULL-GRADED-7e92bd",
+          "locator": "curveGradedMap; authored proof plan and pinned direct-sum/quotient statements",
+          "excerpt": "graded algebra",
+          "match": "This is a mathematical blueprint with admitted Lean prototypes. No new admission-free implementation is claimed; historical Rees bodies remain prerequisites."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.curveGradedMap_homogeneous",
+          "role": "compatibility",
+          "statement": "For p∈H_n, θ_f(p)=j_f,n(p)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.curveGradedMap_X",
+          "role": "characterisation",
+          "statement": "θ_f(X_i)=j_f,1(X_i), hence the class of the actual curve coordinate π(X_i) in degree one."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.curveGradedMap_C",
+          "role": "characterisation",
+          "statement": "θ_f(C(a))=algebraMap k G a for every a∈k."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.curveGradedMap_surjective",
+          "role": "characterisation",
+          "statement": "θ_f is surjective for every f and arbitrary commutative coefficient ring k with finite σ."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.curveGradedMap_projection",
+          "role": "compatibility",
+          "statement": "For every polynomial p and n, adicRingProjection q n (θ_f(p))=θ_f(homogeneousComponent n p)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.curveGradedMap_eq_zero_iff",
+          "role": "characterisation",
+          "statement": "θ_f(p)=0 if and only if j_f,n(p_n)=0 for every native homogeneous component p_n of p."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.curveGradedMap_initial",
+          "role": "characterisation",
+          "statement": "If d≤order(f), then θ_f(H_d(f))=0, including H_d(f)=0 when the order is larger than d."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.curveGradedMap_ker",
+          "role": "characterisation",
+          "statement": "If k has no zero divisors and order(f)=d is finite, ker(θ_f)=Ideal.span{H_d(f)} as ideals of the full polynomial ring."
+        }
+      ],
+      "tests": [
+        {
+          "name": "FullCurveGradedTests.zero_equation_injective",
+          "kind": "degenerate",
+          "statement": "For f=0, θ_f is injective over every commutative k, including rings with nilpotents. This branch does not assume a fictitious finite order for zero."
+        },
+        {
+          "name": "FullCurveGradedTests.unit_equation",
+          "kind": "degenerate",
+          "statement": "For f=1 every polynomial maps to zero in the actual associated graded ring."
+        },
+        {
+          "name": "FullCurveGradedTests.characteristic_two_repeated_equation",
+          "kind": "non-example",
+          "statement": "Over F₂ with f=X², θ_f(X) is nonzero and θ_f(X²)=0; replacing the cone by its reduction fails this test."
+        },
+        {
+          "name": "FullCurveGradedTests.nilpotent_coefficients_extra_relation",
+          "kind": "non-example",
+          "statement": "Over Z/4Z with f=2+X, θ_f(X²)=0 but X² does not lie in the polynomial ideal (2). A principal initial kernel without the no-zero-divisors hypothesis fails."
+        },
+        {
+          "name": "FullCurveGradedTests.order_zero_nonunit",
+          "kind": "non-example",
+          "statement": "Over ℤ with f=2+X, θ_f(C(2))=0 while θ_f(X) is nonzero. Finite order zero does not imply the equation is a unit over a general domain."
+        },
+        {
+          "name": "FullCurveGradedTests.no_variables",
+          "kind": "degenerate",
+          "statement": "With no variables over ℤ and f=2, θ_f(C(1)) is nonzero; the degree-zero quotient is retained."
+        },
+        {
+          "name": "FullCurveGradedTests.zero_coefficients",
+          "kind": "degenerate",
+          "statement": "Over Z/1Z, θ_f(p)=0 for every polynomial p and equation f."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DDPA-JET-HANDOFF §5 and the R03.3 plane-curve tangent-cone target",
+          "how": "Assemble the already existing degreewise comparison into the actual multiplicative map and full principal kernel."
+        },
+        {
+          "where": "Stacks 00K4, Proposition 10.59.5; reserved general Hilbert–Samuel key",
+          "how": "Keep the actual associated graded ring and its degree pieces available to the future length/dimension comparison. This checkpoint does not prove general Hilbert–Serre, curve dimension or multiplicity identification."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-graded-homogeneous",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Polynomial map on a homogeneous element",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.curveGradedMap_homogeneous",
+      "statement": "For p∈H_n, θ_f(p)=j_f,n(p).",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring. Put R=MvPowerSeries σ k, v=span(range X), F=(f), A=R/F, π the actual quotient map, q=Ideal.map π v and G=adicGradedRing q=(reesAlgebra q)/(q·reesAlgebra q). H_n is the native polynomial homogeneous submodule. All k-actions are the canonical algebra actions.",
+        "Only the full principal-kernel and tangent-cone equivalence nodes assume NoZeroDivisors k and exact finite order(f)=d. The polynomial map, surjectivity, component separation and initial-relation inclusion have no domain, field, reducedness or nonunit assumption; the initial-relation inclusion uses its stated order lower bound."
+      ],
+      "proofSteps": [
+        "A homogeneous polynomial decomposes into the single degree-n summand. Evaluate DirectSum.toAlgebra on that summand."
+      ],
+      "acceptance": [
+        "For p∈H_n, θ_f(p)=j_f,n(p)."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-graded-map"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), homogeneous kernel and finite graded assembly",
+          "excerpt": "degreewise kernel",
+          "match": "Build on the credited degreewise argument using the existing actual Rees quotient and native degree comparisons. The arbitrary-coefficient map and no-zero-divisors kernel extension use the inherited exact signatures; they do not assert dimension or multiplicity."
+        },
+        {
+          "sourceId": "HS-FULL-GRADED-7e92bd",
+          "locator": "curveGradedMap_homogeneous; authored proof plan and pinned direct-sum/quotient statements",
+          "excerpt": "graded algebra",
+          "match": "This is a mathematical blueprint with admitted Lean prototypes. No new admission-free implementation is claimed; historical Rees bodies remain prerequisites."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-graded-generator",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The prescribed degree-one generators",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.curveGradedMap_X",
+      "statement": "θ_f(X_i)=j_f,1(X_i), hence the class of the actual curve coordinate π(X_i) in degree one.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring. Put R=MvPowerSeries σ k, v=span(range X), F=(f), A=R/F, π the actual quotient map, q=Ideal.map π v and G=adicGradedRing q=(reesAlgebra q)/(q·reesAlgebra q). H_n is the native polynomial homogeneous submodule. All k-actions are the canonical algebra actions.",
+        "Only the full principal-kernel and tangent-cone equivalence nodes assume NoZeroDivisors k and exact finite order(f)=d. The polynomial map, surjectivity, component separation and initial-relation inclusion have no domain, field, reducedness or nonunit assumption; the initial-relation inclusion uses its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Apply the homogeneous formula to the native degree-one proof for X_i, then the actual Rees representative formula."
+      ],
+      "acceptance": [
+        "θ_f(X_i)=j_f,1(X_i), hence the class of the actual curve coordinate π(X_i) in degree one."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-graded-homogeneous",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-homogeneous-graded-representative",
+        "mathlib:MvPolynomial.isHomogeneous_X"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), homogeneous kernel and finite graded assembly",
+          "excerpt": "degreewise kernel",
+          "match": "Build on the credited degreewise argument using the existing actual Rees quotient and native degree comparisons. The arbitrary-coefficient map and no-zero-divisors kernel extension use the inherited exact signatures; they do not assert dimension or multiplicity."
+        },
+        {
+          "sourceId": "HS-FULL-GRADED-7e92bd",
+          "locator": "curveGradedMap_X; authored proof plan and pinned direct-sum/quotient statements",
+          "excerpt": "graded algebra",
+          "match": "This is a mathematical blueprint with admitted Lean prototypes. No new admission-free implementation is claimed; historical Rees bodies remain prerequisites."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-graded-coefficient",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Coefficients in degree zero",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.curveGradedMap_C",
+      "statement": "θ_f(C(a))=algebraMap k G a for every a∈k.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring. Put R=MvPowerSeries σ k, v=span(range X), F=(f), A=R/F, π the actual quotient map, q=Ideal.map π v and G=adicGradedRing q=(reesAlgebra q)/(q·reesAlgebra q). H_n is the native polynomial homogeneous submodule. All k-actions are the canonical algebra actions.",
+        "Only the full principal-kernel and tangent-cone equivalence nodes assume NoZeroDivisors k and exact finite order(f)=d. The polynomial map, surjectivity, component separation and initial-relation inclusion have no domain, field, reducedness or nonunit assumption; the initial-relation inclusion uses its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Use the AlgHom commutation law and the native coefficient algebra map. This preserves coefficients even when their images in A/q are zero or nilpotent."
+      ],
+      "acceptance": [
+        "θ_f(C(a))=algebraMap k G a for every a∈k."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-graded-map"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), homogeneous kernel and finite graded assembly",
+          "excerpt": "degreewise kernel",
+          "match": "Build on the credited degreewise argument using the existing actual Rees quotient and native degree comparisons. The arbitrary-coefficient map and no-zero-divisors kernel extension use the inherited exact signatures; they do not assert dimension or multiplicity."
+        },
+        {
+          "sourceId": "HS-FULL-GRADED-7e92bd",
+          "locator": "curveGradedMap_C; authored proof plan and pinned direct-sum/quotient statements",
+          "excerpt": "graded algebra",
+          "match": "This is a mathematical blueprint with admitted Lean prototypes. No new admission-free implementation is claimed; historical Rees bodies remain prerequisites."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-graded-surjective",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Surjectivity onto the actual graded ring",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.curveGradedMap_surjective",
+      "statement": "θ_f is surjective for every f and arbitrary commutative coefficient ring k with finite σ.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring. Put R=MvPowerSeries σ k, v=span(range X), F=(f), A=R/F, π the actual quotient map, q=Ideal.map π v and G=adicGradedRing q=(reesAlgebra q)/(q·reesAlgebra q). H_n is the native polynomial homogeneous submodule. All k-actions are the canonical algebra actions.",
+        "Only the full principal-kernel and tangent-cone equivalence nodes assume NoZeroDivisors k and exact finite order(f)=d. The polynomial map, surjectivity, component separation and initial-relation inclusion have no domain, field, reducedness or nonunit assumption; the initial-relation inclusion uses its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Use adicExpansion_bijective to express an element of G as a finite sum of images of actual ideal-power quotient classes.",
+        "For each class, invert homogeneousNativeCurveDegreeEquiv and choose a representative in H_n of its source quotient. The piece compatibility and homogeneous formula show θ maps that polynomial to the required summand.",
+        "Sum only the finitely many representatives from the direct-sum support. Neither Noetherianity nor an equation-order hypothesis is used."
+      ],
+      "acceptance": [
+        "θ_f is surjective for every f and arbitrary commutative coefficient ring k with finite σ."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-graded-homogeneous",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-homogeneous-graded-piece",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-native-curve-degree-equivalence",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-bijective"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), homogeneous kernel and finite graded assembly",
+          "excerpt": "degreewise kernel",
+          "match": "Build on the credited degreewise argument using the existing actual Rees quotient and native degree comparisons. The arbitrary-coefficient map and no-zero-divisors kernel extension use the inherited exact signatures; they do not assert dimension or multiplicity."
+        },
+        {
+          "sourceId": "HS-FULL-GRADED-7e92bd",
+          "locator": "curveGradedMap_surjective; authored proof plan and pinned direct-sum/quotient statements",
+          "excerpt": "graded algebra",
+          "match": "This is a mathematical blueprint with admitted Lean prototypes. No new admission-free implementation is claimed; historical Rees bodies remain prerequisites."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-graded-projection",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Compatibility with homogeneous projections",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.curveGradedMap_projection",
+      "statement": "For every polynomial p and n, adicRingProjection q n (θ_f(p))=θ_f(homogeneousComponent n p).",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring. Put R=MvPowerSeries σ k, v=span(range X), F=(f), A=R/F, π the actual quotient map, q=Ideal.map π v and G=adicGradedRing q=(reesAlgebra q)/(q·reesAlgebra q). H_n is the native polynomial homogeneous submodule. All k-actions are the canonical algebra actions.",
+        "Only the full principal-kernel and tangent-cone equivalence nodes assume NoZeroDivisors k and exact finite order(f)=d. The polynomial map, surjectivity, component separation and initial-relation inclusion have no domain, field, reducedness or nonunit assumption; the initial-relation inclusion uses its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Expand p as the finite sum of its native homogeneous components, then use linearity of θ and the native adic projection.",
+        "adicRingProjection_inclusion kills each degree other than n and fixes degree n. This is degree separation in the actual Rees quotient, not an assumed grading on a new carrier."
+      ],
+      "acceptance": [
+        "For every polynomial p and n, adicRingProjection q n (θ_f(p))=θ_f(homogeneousComponent n p)."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-graded-homogeneous",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-homogeneous-graded-piece",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-grading-registration",
+        "mathlib:MvPolynomial.sum_homogeneousComponent",
+        "mathlib:MvPolynomial.homogeneousComponent_mem"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), homogeneous kernel and finite graded assembly",
+          "excerpt": "degreewise kernel",
+          "match": "Build on the credited degreewise argument using the existing actual Rees quotient and native degree comparisons. The arbitrary-coefficient map and no-zero-divisors kernel extension use the inherited exact signatures; they do not assert dimension or multiplicity."
+        },
+        {
+          "sourceId": "HS-FULL-GRADED-7e92bd",
+          "locator": "curveGradedMap_projection; authored proof plan and pinned direct-sum/quotient statements",
+          "excerpt": "graded algebra",
+          "match": "This is a mathematical blueprint with admitted Lean prototypes. No new admission-free implementation is claimed; historical Rees bodies remain prerequisites."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-graded-vanishing",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Separation of the full kernel by degrees",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.curveGradedMap_eq_zero_iff",
+      "statement": "θ_f(p)=0 if and only if j_f,n(p_n)=0 for every native homogeneous component p_n of p.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring. Put R=MvPowerSeries σ k, v=span(range X), F=(f), A=R/F, π the actual quotient map, q=Ideal.map π v and G=adicGradedRing q=(reesAlgebra q)/(q·reesAlgebra q). H_n is the native polynomial homogeneous submodule. All k-actions are the canonical algebra actions.",
+        "Only the full principal-kernel and tangent-cone equivalence nodes assume NoZeroDivisors k and exact finite order(f)=d. The polynomial map, surjectivity, component separation and initial-relation inclusion have no domain, field, reducedness or nonunit assumption; the initial-relation inclusion uses its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Forward, apply every adic projection to θ(p)=0 and use the projection compatibility.",
+        "Backward, write p as the finite sum over n≤totalDegree p. Each summand maps to zero by the hypothesis, so θ(p)=0. This avoids an invalid cancellation argument between different degrees."
+      ],
+      "acceptance": [
+        "θ_f(p)=0 if and only if j_f,n(p_n)=0 for every native homogeneous component p_n of p."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-graded-projection",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-graded-homogeneous",
+        "mathlib:MvPolynomial.sum_homogeneousComponent"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), homogeneous kernel and finite graded assembly",
+          "excerpt": "degreewise kernel",
+          "match": "Build on the credited degreewise argument using the existing actual Rees quotient and native degree comparisons. The arbitrary-coefficient map and no-zero-divisors kernel extension use the inherited exact signatures; they do not assert dimension or multiplicity."
+        },
+        {
+          "sourceId": "HS-FULL-GRADED-7e92bd",
+          "locator": "curveGradedMap_eq_zero_iff; authored proof plan and pinned direct-sum/quotient statements",
+          "excerpt": "graded algebra",
+          "match": "This is a mathematical blueprint with admitted Lean prototypes. No new admission-free implementation is claimed; historical Rees bodies remain prerequisites."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-homogeneous-graded-vanishing",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The existing degree kernel inside the graded ring",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.curveHomogeneousToGraded_eq_zero",
+      "statement": "j_f,n(p)=0 if and only if homogeneousCurveProjection f n p=0.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring. Put R=MvPowerSeries σ k, v=span(range X), F=(f), A=R/F, π the actual quotient map, q=Ideal.map π v and G=adicGradedRing q=(reesAlgebra q)/(q·reesAlgebra q). H_n is the native polynomial homogeneous submodule. All k-actions are the canonical algebra actions.",
+        "Only the full principal-kernel and tangent-cone equivalence nodes assume NoZeroDivisors k and exact finite order(f)=d. The polynomial map, surjectivity, component separation and initial-relation inclusion have no domain, field, reducedness or nonunit assumption; the initial-relation inclusion uses its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Use injectivity and preservation of zero for adicPieceInclusion, then the existing homogeneous-native comparison vanishing criterion."
+      ],
+      "acceptance": [
+        "j_f,n(p)=0 if and only if homogeneousCurveProjection f n p=0."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-homogeneous-graded-piece",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-piece-inclusion",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-native-curve-degree-vanishing"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), homogeneous kernel and finite graded assembly",
+          "excerpt": "degreewise kernel",
+          "match": "Build on the credited degreewise argument using the existing actual Rees quotient and native degree comparisons. The arbitrary-coefficient map and no-zero-divisors kernel extension use the inherited exact signatures; they do not assert dimension or multiplicity."
+        },
+        {
+          "sourceId": "HS-FULL-GRADED-7e92bd",
+          "locator": "curveHomogeneousToGraded_eq_zero; authored proof plan and pinned direct-sum/quotient statements",
+          "excerpt": "graded algebra",
+          "match": "This is a mathematical blueprint with admitted Lean prototypes. No new admission-free implementation is claimed; historical Rees bodies remain prerequisites."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-graded-initial-relation",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The initial form vanishes",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.curveGradedMap_initial",
+      "statement": "If d≤order(f), then θ_f(H_d(f))=0, including H_d(f)=0 when the order is larger than d.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring. Put R=MvPowerSeries σ k, v=span(range X), F=(f), A=R/F, π the actual quotient map, q=Ideal.map π v and G=adicGradedRing q=(reesAlgebra q)/(q·reesAlgebra q). H_n is the native polynomial homogeneous submodule. All k-actions are the canonical algebra actions.",
+        "Only the full principal-kernel and tangent-cone equivalence nodes assume NoZeroDivisors k and exact finite order(f)=d. The polynomial map, surjectivity, component separation and initial-relation inclusion have no domain, field, reducedness or nonunit assumption; the initial-relation inclusion uses its stated order lower bound."
+      ],
+      "proofSteps": [
+        "The order lower bound places f in v^d; its degree-d homogeneous component also lies in v^d.",
+        "Their difference has zero degree-d component, hence lies in v^(d+1) by the existing next-power criterion. Thus H_d(f) lies in (f)+v^(d+1).",
+        "Use the actual equation-jet vanishing criterion, its homogeneous polynomial adapter and the graded homogeneous formula. No no-zero-divisors assumption is needed for this direction."
+      ],
+      "acceptance": [
+        "If d≤order(f), then θ_f(H_d(f))=0, including H_d(f)=0 when the order is larger than d."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-graded-homogeneous",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-homogeneous-graded-vanishing",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-degree",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-series",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/degree-component-next-power",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-vanishing",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), homogeneous kernel and finite graded assembly",
+          "excerpt": "degreewise kernel",
+          "match": "Build on the credited degreewise argument using the existing actual Rees quotient and native degree comparisons. The arbitrary-coefficient map and no-zero-divisors kernel extension use the inherited exact signatures; they do not assert dimension or multiplicity."
+        },
+        {
+          "sourceId": "HS-FULL-GRADED-7e92bd",
+          "locator": "curveGradedMap_initial; authored proof plan and pinned direct-sum/quotient statements",
+          "excerpt": "graded algebra",
+          "match": "This is a mathematical blueprint with admitted Lean prototypes. No new admission-free implementation is claimed; historical Rees bodies remain prerequisites."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-graded-principal-kernel",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The full principal initial ideal",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.curveGradedMap_ker",
+      "statement": "If k has no zero divisors and order(f)=d is finite, ker(θ_f)=Ideal.span{H_d(f)} as ideals of the full polynomial ring.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring. Put R=MvPowerSeries σ k, v=span(range X), F=(f), A=R/F, π the actual quotient map, q=Ideal.map π v and G=adicGradedRing q=(reesAlgebra q)/(q·reesAlgebra q). H_n is the native polynomial homogeneous submodule. All k-actions are the canonical algebra actions.",
+        "Only the full principal-kernel and tangent-cone equivalence nodes assume NoZeroDivisors k and exact finite order(f)=d. The polynomial map, surjectivity, component separation and initial-relation inclusion have no domain, field, reducedness or nonunit assumption; the initial-relation inclusion uses its stated order lower bound."
+      ],
+      "proofSteps": [
+        "For p in ker θ, the separation theorem places each p_n in the degreewise kernel. If n<d, the existing below-order criterion gives p_n=0. If d≤n, the principal degree criterion produces an actual homogeneous w_n with p_n=H_d(f)w_n.",
+        "Choose w_n only for the finite range n≤totalDegree p, assigning zero in the lower branch. Sum those equations and factor H_d(f) to show p lies in its principal ideal. This supplies a polynomial witness, rather than an unsupported infinite sum.",
+        "For the reverse inclusion, the initial-relation theorem puts H_d(f) in ker θ; kernel ideal closure gives every multiple. Retain NoZeroDivisors and exact finite order for the forward direction.",
+        "The Z/4Z example f=2+X has X² in ker θ but outside (2), showing why the domain-type hypothesis cannot simply be deleted. Order zero over the domain ℤ is allowed: f=2+X has initial ideal (2), not the unit ideal."
+      ],
+      "acceptance": [
+        "If k has no zero divisors and order(f)=d is finite, ker(θ_f)=Ideal.span{H_d(f)} as ideals of the full polynomial ring."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-graded-vanishing",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-homogeneous-graded-piece",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-piece-inclusion",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-principal-kernel",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-below-order",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-graded-initial-relation",
+        "mathlib:MvPolynomial.sum_homogeneousComponent"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), homogeneous kernel and finite graded assembly",
+          "excerpt": "degreewise kernel",
+          "match": "Build on the credited degreewise argument using the existing actual Rees quotient and native degree comparisons. The arbitrary-coefficient map and no-zero-divisors kernel extension use the inherited exact signatures; they do not assert dimension or multiplicity."
+        },
+        {
+          "sourceId": "HS-FULL-GRADED-7e92bd",
+          "locator": "curveGradedMap_ker; authored proof plan and pinned direct-sum/quotient statements",
+          "excerpt": "graded algebra",
+          "match": "This is a mathematical blueprint with admitted Lean prototypes. No new admission-free implementation is claimed; historical Rees bodies remain prerequisites."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-tangent-cone-equivalence",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The principal tangent-cone algebra equivalence",
+      "kind": "construction",
+      "declaration": "TauCeti.HilbertSamuel.curveTangentConeEquiv",
+      "statement": "If k has no zero divisors and order(f)=d is finite, construct k[σ]/(H_d(f)) ≃ₐ[k] adicGradedRing q from θ_f and its actual full kernel.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring. Put R=MvPowerSeries σ k, v=span(range X), F=(f), A=R/F, π the actual quotient map, q=Ideal.map π v and G=adicGradedRing q=(reesAlgebra q)/(q·reesAlgebra q). H_n is the native polynomial homogeneous submodule. All k-actions are the canonical algebra actions.",
+        "Only the full principal-kernel and tangent-cone equivalence nodes assume NoZeroDivisors k and exact finite order(f)=d. The polynomial map, surjectivity, component separation and initial-relation inclusion have no domain, field, reducedness or nonunit assumption; the initial-relation inclusion uses its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Apply the existing algebra first-isomorphism theorem to θ and its proved surjectivity.",
+        "Transport the source along the proved equality between ker θ and the principal ideal, using the native quotient equivalence and preserving the canonical k-action.",
+        "The target is the inherited Rees quotient. Do not define it to be k[σ]/(H_d(f)); that would make the comparison circular."
+      ],
+      "acceptance": [
+        "If k has no zero divisors and order(f)=d is finite, construct k[σ]/(H_d(f)) ≃ₐ[k] adicGradedRing q from θ_f and its actual full kernel."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-graded-map",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-graded-surjective",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-graded-principal-kernel",
+        "mathlib:Ideal.quotientKerAlgEquivOfSurjective",
+        "mathlib:Ideal.quotEquivOfEq",
+        "mathlib:AlgEquiv.ofRingEquiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), homogeneous kernel and finite graded assembly",
+          "excerpt": "degreewise kernel",
+          "match": "Build on the credited degreewise argument using the existing actual Rees quotient and native degree comparisons. The arbitrary-coefficient map and no-zero-divisors kernel extension use the inherited exact signatures; they do not assert dimension or multiplicity."
+        },
+        {
+          "sourceId": "HS-FULL-GRADED-7e92bd",
+          "locator": "curveTangentConeEquiv; authored proof plan and pinned direct-sum/quotient statements",
+          "excerpt": "graded algebra",
+          "match": "This is a mathematical blueprint with admitted Lean prototypes. No new admission-free implementation is claimed; historical Rees bodies remain prerequisites."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.curveTangentConeEquiv_mk",
+          "role": "characterisation",
+          "statement": "The tangent-cone equivalence sends the quotient class of every polynomial p to θ_f(p)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.curveTangentConeEquiv_homogeneous",
+          "role": "compatibility",
+          "statement": "For p∈H_n, the tangent-cone equivalence sends [p] to j_f,n(p), hence to the previously constructed actual degree quotient class of π(p)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.curveTangentConeEquiv_component",
+          "role": "compatibility",
+          "statement": "For each n, the image of H_n under polynomial quotient followed by the tangent-cone equivalence equals (adicRingComponents q n).restrictScalars k."
+        }
+      ],
+      "tests": [
+        {
+          "name": "FullCurveGradedTests.quotient_generator",
+          "kind": "compatibility",
+          "statement": "The tangent-cone equivalence sends [X_i] to j_f,1(X_i), the specified native degree-one coordinate class."
+        },
+        {
+          "name": "FullCurveGradedTests.quotient_constant",
+          "kind": "compatibility",
+          "statement": "The tangent-cone equivalence sends [C(a)] to θ_f(C(a)), the canonical scalar image."
+        },
+        {
+          "name": "FullCurveGradedTests.quotient_inverse",
+          "kind": "characterisation",
+          "statement": "Applying the inverse tangent-cone equivalence to θ_f(p) recovers the native quotient class [p]."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DDPA-JET-HANDOFF §5 and the R03.3 plane-curve tangent-cone target",
+          "how": "Assemble the already existing degreewise comparison into the actual multiplicative map and full principal kernel."
+        },
+        {
+          "where": "Stacks 00K4, Proposition 10.59.5; reserved general Hilbert–Samuel key",
+          "how": "Keep the actual associated graded ring and its degree pieces available to the future length/dimension comparison. This checkpoint does not prove general Hilbert–Serre, curve dimension or multiplicity identification."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-tangent-cone-representative",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The tangent-cone comparison on representatives",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.curveTangentConeEquiv_mk",
+      "statement": "The tangent-cone equivalence sends the quotient class of every polynomial p to θ_f(p).",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring. Put R=MvPowerSeries σ k, v=span(range X), F=(f), A=R/F, π the actual quotient map, q=Ideal.map π v and G=adicGradedRing q=(reesAlgebra q)/(q·reesAlgebra q). H_n is the native polynomial homogeneous submodule. All k-actions are the canonical algebra actions.",
+        "Only the full principal-kernel and tangent-cone equivalence nodes assume NoZeroDivisors k and exact finite order(f)=d. The polynomial map, surjectivity, component separation and initial-relation inclusion have no domain, field, reducedness or nonunit assumption; the initial-relation inclusion uses its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Unfold the quotient transport and use the native first-isomorphism representative formula. The equality is on the actual polynomial class."
+      ],
+      "acceptance": [
+        "The tangent-cone equivalence sends the quotient class of every polynomial p to θ_f(p)."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-tangent-cone-equivalence",
+        "mathlib:Ideal.quotientKerAlgEquivOfSurjective_mk"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), homogeneous kernel and finite graded assembly",
+          "excerpt": "degreewise kernel",
+          "match": "Build on the credited degreewise argument using the existing actual Rees quotient and native degree comparisons. The arbitrary-coefficient map and no-zero-divisors kernel extension use the inherited exact signatures; they do not assert dimension or multiplicity."
+        },
+        {
+          "sourceId": "HS-FULL-GRADED-7e92bd",
+          "locator": "curveTangentConeEquiv_mk; authored proof plan and pinned direct-sum/quotient statements",
+          "excerpt": "graded algebra",
+          "match": "This is a mathematical blueprint with admitted Lean prototypes. No new admission-free implementation is claimed; historical Rees bodies remain prerequisites."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-tangent-cone-homogeneous",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Compatibility with native curve degree pieces",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.curveTangentConeEquiv_homogeneous",
+      "statement": "For p∈H_n, the tangent-cone equivalence sends [p] to j_f,n(p), hence to the previously constructed actual degree quotient class of π(p).",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring. Put R=MvPowerSeries σ k, v=span(range X), F=(f), A=R/F, π the actual quotient map, q=Ideal.map π v and G=adicGradedRing q=(reesAlgebra q)/(q·reesAlgebra q). H_n is the native polynomial homogeneous submodule. All k-actions are the canonical algebra actions.",
+        "Only the full principal-kernel and tangent-cone equivalence nodes assume NoZeroDivisors k and exact finite order(f)=d. The polynomial map, surjectivity, component separation and initial-relation inclusion have no domain, field, reducedness or nonunit assumption; the initial-relation inclusion uses its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Combine the representative formula with θ on a homogeneous polynomial and j compatibility with homogeneousNativeCurveDegreeEquiv."
+      ],
+      "acceptance": [
+        "For p∈H_n, the tangent-cone equivalence sends [p] to j_f,n(p), hence to the previously constructed actual degree quotient class of π(p)."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-tangent-cone-representative",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-graded-homogeneous",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-homogeneous-graded-piece"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), homogeneous kernel and finite graded assembly",
+          "excerpt": "degreewise kernel",
+          "match": "Build on the credited degreewise argument using the existing actual Rees quotient and native degree comparisons. The arbitrary-coefficient map and no-zero-divisors kernel extension use the inherited exact signatures; they do not assert dimension or multiplicity."
+        },
+        {
+          "sourceId": "HS-FULL-GRADED-7e92bd",
+          "locator": "curveTangentConeEquiv_homogeneous; authored proof plan and pinned direct-sum/quotient statements",
+          "excerpt": "graded algebra",
+          "match": "This is a mathematical blueprint with admitted Lean prototypes. No new admission-free implementation is claimed; historical Rees bodies remain prerequisites."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-tangent-cone-components",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The comparison identifies every homogeneous component",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.curveTangentConeEquiv_component",
+      "statement": "For each n, the image of H_n under polynomial quotient followed by the tangent-cone equivalence equals (adicRingComponents q n).restrictScalars k.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring. Put R=MvPowerSeries σ k, v=span(range X), F=(f), A=R/F, π the actual quotient map, q=Ideal.map π v and G=adicGradedRing q=(reesAlgebra q)/(q·reesAlgebra q). H_n is the native polynomial homogeneous submodule. All k-actions are the canonical algebra actions.",
+        "Only the full principal-kernel and tangent-cone equivalence nodes assume NoZeroDivisors k and exact finite order(f)=d. The polynomial map, surjectivity, component separation and initial-relation inclusion have no domain, field, reducedness or nonunit assumption; the initial-relation inclusion uses its stated order lower bound."
+      ],
+      "proofSteps": [
+        "For the forward inclusion, the homogeneous representative formula factors through adicPieceInclusion, whose range defines the native target component.",
+        "For the reverse inclusion, choose a source of the range element, invert homogeneousNativeCurveDegreeEquiv, and choose a representative in H_n. The homogeneous formula maps its quotient class to the required element.",
+        "The source component is the image of the native H_n in k[σ]/(H_d(f)), expressed by Submodule.map. Thus the equality establishes grading compatibility without assuming a generic quotient-grading implementation from an unpinned PR."
+      ],
+      "acceptance": [
+        "For each n, the image of H_n under polynomial quotient followed by the tangent-cone equivalence equals (adicRingComponents q n).restrictScalars k."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-tangent-cone-homogeneous",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-homogeneous-graded-piece",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-native-curve-degree-equivalence",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-homogeneous-components"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), homogeneous kernel and finite graded assembly",
+          "excerpt": "degreewise kernel",
+          "match": "Build on the credited degreewise argument using the existing actual Rees quotient and native degree comparisons. The arbitrary-coefficient map and no-zero-divisors kernel extension use the inherited exact signatures; they do not assert dimension or multiplicity."
+        },
+        {
+          "sourceId": "HS-FULL-GRADED-7e92bd",
+          "locator": "curveTangentConeEquiv_component; authored proof plan and pinned direct-sum/quotient statements",
+          "excerpt": "graded algebra",
+          "match": "This is a mathematical blueprint with admitted Lean prototypes. No new admission-free implementation is claimed; historical Rees bodies remain prerequisites."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
     }
   ],
   "baselineCoverage": [
@@ -15869,7 +17061,8 @@
         "The actual native graded function, general quotient-transition length proof, exact rational postulation defect, sharp cumulative threshold, sharp graded threshold, unit defect just before agreement, and separate zero-equation graded branch now have admission-free proof prototypes. All ten new named tests use actual characteristic-two quotient modules or the exact native integer/rational count expressions. Canonical bodies remain admitted and all nodes unchecked. Still prove the full tangent-cone kernel and dimension of the actual curve ring, compare with the existing cumulative polynomial/intrinsic and ambient multiplicities without assuming generic existence, and discharge general Hilbert–Serre induction, support/degree, Artin–Rees, localization lengths, completion, associativity, all eight stage targets and every inherited routed-paper obligation. The graded and cumulative sharp thresholds are distinct; the zero equation has no finite order.",
         "The actual plane-curve and zero-equation functions now have independently proved unique eventual rational polynomials, explicit degree/leading-coefficient API and factorial coefficient arithmetic. Compare these with the existing general polynomial constructor through its proved specification, identify intrinsic/ambient multiplicities under proved support and dimension hypotheses, and prove the native tangent-cone kernel and curve dimension. General Hilbert–Serre induction, support/degree, Artin–Rees, completion, localization lengths, associativity, every routed source obligation and all eight stage targets remain required.",
         "The codex-a71f92 continuation proves the actual degree-wise series/ideal kernel adapters and coefficient-linear equation-jet projection, including both principal relation directions, small-index, zero/unit and characteristic-two nonreduced tests. It preserves the complete incoming proof prefix. Still construct the polynomial-valued homogeneous comparison, identify the map's image with the existing q^n/q^(n+1) carrier, and assemble the multiplicatively compatible full tangent-cone graded isomorphism. Curve/support dimension, comparison with the general Hilbert–Samuel constructor, intrinsic/ambient multiplicities, general Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed source obligation remain required; canonical bodies remain admitted and every node/stage retains unchecked/partial status.",
-        "The actual equation-jet image is now compared with the native q^n/(q·q^n) carrier in A=R/(f), using the pinned general quotient theorem, with homogeneous representative and principal degreewise kernel adapters. Assemble the generator-compatible multiplication and full graded tangent-cone isomorphism. Curve/support dimension, comparison with the general cumulative polynomial and intrinsic/ambient multiplicity remain open. General Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed-paper obligation remain required; canonical bodies remain admitted and all nodes unchecked."
+        "The actual equation-jet image is now compared with the native q^n/(q·q^n) carrier in A=R/(f), using the pinned general quotient theorem, with homogeneous representative and principal degreewise kernel adapters. Assemble the generator-compatible multiplication and full graded tangent-cone isomorphism. Curve/support dimension, comparison with the general cumulative polynomial and intrinsic/ambient multiplicity remain open. General Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed-paper obligation remain required; canonical bodies remain admitted and all nodes unchecked.",
+        "The full multiplicative map, surjectivity, homogeneous projection compatibility, finite-sum full principal kernel and generator/component-compatible tangent-cone equivalence now have explicit mathematical proof plans and admitted native Lean prototypes. Their new proof bodies have NOT been certified; historical Rees/ring-grading bodies remain required. This supersedes the missing assembly plan, not its implementation. Curve/support dimension, comparison with the general cumulative polynomial, intrinsic and ambient multiplicities, general Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and all routed-paper obligations remain open. Arbitrary commutative coefficients are allowed for the map; the principal kernel keeps NoZeroDivisors and exact finite order, with separate zero/unit and order-zero-nonunit branches."
       ]
     },
     {
@@ -16062,7 +17255,8 @@
       "detail": "The native series residue-field equivalence, coefficient surjectivity and length_R=length_k comparison now have separate nodes and an admission-free proof prototype using the built local-ring restriction formula, including infinite lengths. The existing jet-finiteness API is promoted and total-jet R-length/numerical adapters are planned. The inherited variable-ideal, shifted-map, jet kernel/equivalence/basis and two-variable count bodies are still unchecked; therefore the numerical jet-length adapters remain conditional on them. Integrate the already-built quotient/scalar maps with the shifted sequence to prove all-index curve lengths, the full tangent-cone kernel, eventual-polynomial/dimension and general intrinsic/ambient multiplicity comparisons. General Hilbert–Serre, completion and all routed-paper obligations remain open. Retain f=0 and unit boundaries, positive characteristic and nonreduced equations. An arbitrary finite R-module is not thereby finite over k. The actual curve-jet comparison, shifted length balance, all-index cumulative/graded formulas, rational defect, sharp agreement and explicit cumulative-polynomial specialization now have separate native signatures and mathematical proof plans. Their submitted bodies and inherited ideal-power/order, shifted-sequence and jet basis/count bodies remain unchecked. Prove those native bodies, the tangent-cone kernel, curve dimension and intrinsic/ambient multiplicity comparisons. General Hilbert–Serre induction, degree/dimension, completion, Artin–Rees, associativity suppliers and all routed-paper obligations remain open. Current codex-rtOQ9t continuation: The general quotient-ring comparison, equation-containment adapter, quotient antitonicity and exact existing plane-curve scalar comparison now have admission-free native proof prototypes and six checked boundary examples. Canonical signatures remain admitted and all nodes unchecked. The numerical jet counts, ideal-power/order theorem, shifted multiplication/exactness, tangent-cone kernel, curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre, completion, Artin–Rees, associativity and every inherited routed-paper obligation remain open. The current finite-variable continuation provides an admission-free native prototype for the algebraic ideal-power/order equivalence via three new proof lemmas, over arbitrary commutative coefficients. This resolves the predecessor's prototype omission for that one adapter, not canonical library implementation or any shifted-sequence/jet-basis/curve-multiplicity obligation; all node statuses and stage coverage remain unchecked/partial. The codex-7e92bd coefficient-coordinate continuation now supplies admission-free native prototypes for total truncation kernel/surjectivity, the actual polynomial equivalence, low-coefficient linear equivalence, monomial basis, finite generation and all-cutoff two-variable rank/cardinality. This supersedes the preceding prototype omissions for those adapters only. Canonical bodies and all implementation statuses stay unchecked. Shifted series exact-order injectivity/exactness, all-index curve lengths, tangent cone and curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre, Artin–Rees, degree/dimension, completion, associativity, all eight stage targets and all routed-paper obligations remain open. The combined native proof now establishes finite equation jets over arbitrary commutative coefficients, the field length/dimension adapter, ambient R-length, shifted length balance, all-index equation and actual cumulative curve lengths, and the separate zero equation. It includes the complete preceding jet/shifted, residue and quotient-comparison proof bodies. This supersedes their historical prototype omissions only; canonical bodies and all implementation statuses remain admitted/unchecked. The graded-function proof, postulation defect and sharp threshold, tangent-cone kernel, curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre induction, degree/dimension, Artin–Rees, associativity, completion and all eight stage/routed-paper obligations remain open.",
       "polynomialComponentContinuation": "The polynomial/series homogeneous comparison and actual polynomial equation-jet kernel now have checked native prototypes. Construct the actual image identification with q^n/q^(n+1), then assemble the generator-compatible and multiplicative full graded tangent-cone isomorphism. Curve/support dimension and comparison with the general cumulative polynomial and intrinsic/ambient multiplicity remain required. General Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed-paper obligation remain open; canonical bodies and implementation statuses remain admitted/unchecked.",
       "degreeQuotientContinuation": "The actual ambient degree quotient is compared with the native homogeneous polynomial submodule, and homogeneous polynomials modulo the principal degreewise kernel are compared with the existing equation-jet image. The actual image-to-q^n/q^(n+1) map for q in R/(f), multiplication on these quotient identifications, generator-compatible graded assembly and full principal ideal kernel still require separate declarations. Curve/support dimension and intrinsic/ambient multiplicity comparison remain open.",
-      "nativeCurveDegreeContinuation": "The actual equation-jet image is now compared with the native q^n/(q·q^n) carrier in A=R/(f), using the pinned general quotient theorem, with homogeneous representative and principal degreewise kernel adapters. Assemble the generator-compatible multiplication and full graded tangent-cone isomorphism. Curve/support dimension, comparison with the general cumulative polynomial and intrinsic/ambient multiplicity remain open. General Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed-paper obligation remain required; canonical bodies remain admitted and all nodes unchecked."
+      "nativeCurveDegreeContinuation": "The actual equation-jet image is now compared with the native q^n/(q·q^n) carrier in A=R/(f), using the pinned general quotient theorem, with homogeneous representative and principal degreewise kernel adapters. Assemble the generator-compatible multiplication and full graded tangent-cone isomorphism. Curve/support dimension, comparison with the general cumulative polynomial and intrinsic/ambient multiplicity remain open. General Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed-paper obligation remain required; canonical bodies remain admitted and all nodes unchecked.",
+      "fullGradedAssemblyContinuation": "The full multiplicative map, surjectivity, homogeneous projection compatibility, finite-sum full principal kernel and generator/component-compatible tangent-cone equivalence now have explicit mathematical proof plans and admitted native Lean prototypes. Their new proof bodies have NOT been certified; historical Rees/ring-grading bodies remain required. This supersedes the missing assembly plan, not its implementation. Curve/support dimension, comparison with the general cumulative polynomial, intrinsic and ambient multiplicities, general Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and all routed-paper obligations remain open. Arbitrary commutative coefficients are allowed for the map; the principal kernel keeps NoZeroDivisors and exact finite order, with separate zero/unit and order-zero-nonunit branches."
     }
   ],
   "sourceIssues": [],
