@@ -1,3 +1,395 @@
+# Absolute normalization of the quadratic pinch
+
+This continuation identifies the actual comparison morphism δ as a native scheme isomorphism over C. Its section map is exactly Ψ_U⁻¹ on nonempty affine opens; the empty open is handled using the native empty-open section rings. The global isomorphism supplies actual A_U-algebra equivalences on every open and restriction formulas in both directions.
+
+The actual comparison δ:η.normalization→N is now identified with Ψ_U⁻¹ on nonempty affine sections, with native closure and source restriction formulas. Empty-open sections are handled separately, the finite-map affine cover proves δ is a scheme isomorphism, and its inverse respects both triangles. The actual comparison upgrades to Λ_U:B_U≃ₐ[A_U]D_U on every open, commuting with forward and inverse restriction and the actual coefficients; on nonempty affine opens it recovers Ψ_U⁻¹. The native projective-line/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1, independent I₂ geometry and every inherited family/model/classification obligation remain required. All seven stages are partial and every mathematical implementation status is unchecked. The full canonical Tau Ceti-importing file is uncompiled; the bounded Mathlib artifacts with the consumed exact pinned Tau Ceti source excerpt are checked.
+
+Write C=curve(a,b), N=normalizationSource(a,b), ν:N→C, η=C.fromSpecStalk(η_C), σ:K_C≅K_N and ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N). The native section algebras are A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). Every coefficient action is the actual section map. Existing κ, θ, E and Ψ retain their stated nonempty/affine hypotheses; the new Δ and Λ maps allow every open.
+
+The source motivation is Schröer §3, the two conductor squares preceding Proposition3.1, in the [official v3 preprint](https://arxiv.org/html/2004.07025v3). The scheme isomorphism and section formulas are authored deductions from the incoming native chart constructions and the specified pinned section and target-local APIs. No new whole-paper or Ferrand reread is claimed.
+
+## Declaration contracts
+
+### Native closure value via the actual generic map
+
+**QuadraticPinch.Global.absoluteNormalizationSectionsClosureEquiv_generic_value**. For each nonempty affine U and s∈D_U, the ambient value of θ_U(s) is κ_U(η.toNormalization.appLE(s)).
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Use the existing θ value formula and native normalizationObjIso_hom_val; both maps have the same actual ambient generic section.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/native-normalization-sections-closure-value, mathlib:AlgebraicGeometry.Scheme.Hom.normalizationObjIso_hom_val.
+
+### Restriction of the native closure coordinates
+
+**QuadraticPinch.Global.absoluteNormalizationSectionsClosureEquiv_restrict**. For nonempty affine V⊆U and s∈D_U, θ_V(res_D(s)).val=θ_U(s).val in K_C.
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Express θ through the actual toNormalization section map, commute restriction using map_appLE and appLE_map, and apply the incoming κ restriction formula.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-sections-closure-equiv-generic-value, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/generic-normalization-sections-restrict, mathlib:AlgebraicGeometry.Scheme.Hom.map_appLE, mathlib:AlgebraicGeometry.Scheme.Hom.appLE_map.
+
+### Restriction of the source comparison
+
+**QuadraticPinch.Global.absoluteNormalizationSourceSectionsEquiv_restrict**. For nonempty affine V⊆U and s∈D_U, Ψ_V(res_D(s))=res_N(Ψ_U(s)).
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Apply the incoming inverse E restriction law to the θ restriction equality; the shared ambient K_C value determines the integral-closure element.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-sections-closure-equiv-restrict, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-sections-closure-inverse-restrict, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/native-normalization-source-sections-equivalence.
+
+### Sections of the actual normalization comparison
+
+**QuadraticPinch.Global.absoluteNormalizationComparisonSections**. For every open U⊂C, construct Δ_U:B_U→D_U as the actual δ.appLE on ν⁻¹U and η.fromNormalization⁻¹U, using δ≫ν=η.fromNormalization to transport the target open.
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Use the existing actual δ morphism and its from triangle; the construction retains the native ring homomorphism and actual open restriction.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison-from.
+
+API:
+
+- **QuadraticPinch.Global.absoluteNormalizationComparisonSections_generic_app** (compatibility): For every open U, Δ_U followed by the actual η.toNormalization section map equals the actual ζ section map B_U→S_U.
+- **QuadraticPinch.Global.absoluteNormalizationComparisonSections_closure** (compatibility): For nonempty affine U and s∈B_U, θ_U(Δ_U(s))=E_U(s) in integralClosure(A_U,K_C).
+- **QuadraticPinch.Global.absoluteNormalizationComparisonSections_eq_inverse** (equivalence): For nonempty affine U and s∈B_U, Δ_U(s)=Ψ_U⁻¹(s) in D_U.
+- **QuadraticPinch.Global.absoluteNormalizationComparisonSections_coefficient** (simp): For every open U and r∈A_U, Δ_U(ν.app(U)(r))=η.fromNormalization.app(U)(r).
+- **QuadraticPinch.Global.absoluteNormalizationComparisonSections_restrict** (functoriality): For every inclusion V⊆U, res_N followed by Δ_V equals Δ_U followed by res_D, as actual ring morphisms B_U→D_V.
+- **QuadraticPinch.Global.absoluteNormalizationComparisonSections_bijective** (characterisation): For every affine U, including U=∅, the actual map Δ_U is bijective.
+- **QuadraticPinch.Global.absoluteNormalizationComparisonSections_bijective_all** (characterisation): For every open U⊂C, the actual map Δ_U is bijective, with no affinity or nonemptiness assumption.
+
+Tests:
+
+- **QuadraticPinch.Global.test_comparisonSections_cusp_coefficient** (degenerate): For a=b=0 and every open U, Δ_U sends the actual ν pullback of r∈A_U to the actual η.fromNormalization pullback of r.
+- **QuadraticPinch.Global.test_comparisonSections_char2_inverse** (compatibility): For k=F₂ and a=b=1 and nonempty affine U, the actual Δ_U(s) equals Ψ_U⁻¹(s) for every s∈B_U.
+- **QuadraticPinch.Global.test_comparisonSections_empty** (degenerate): For every a,b, the actual Δ_∅ is bijective between the native empty-open section rings.
+
+### The generic-point section triangle
+
+**QuadraticPinch.Global.absoluteNormalizationComparisonSections_generic_app**. For every open U, Δ_U followed by the actual η.toNormalization section map equals the actual ζ section map B_U→S_U.
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Compose native appLE maps and substitute the already established η.toNormalization≫δ=ζ triangle, with the actual source and target opens fixed.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison-point, mathlib:AlgebraicGeometry.Scheme.Hom.appLE_comp_appLE.
+
+### The closure value of the actual comparison
+
+**QuadraticPinch.Global.absoluteNormalizationComparisonSections_generic_value**. For nonempty affine U and s∈B_U, θ_U(Δ_U(s)).val=κ_U(ζ.appLE(s)).
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Apply the θ generic-value formula to Δ_U(s), then the actual generic-point section triangle.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-sections-closure-equiv-generic-value, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-generic-app.
+
+### Generic-field value of the lifted generic point
+
+**QuadraticPinch.Global.genericPointLiftSections_value**. For every nonempty open U and s∈B_U, κ_U(ζ.appLE(s))=σ.inv(germ_N(s)). Affinity is not required.
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Use the native generic-point preimage theorem and generic-point membership for ν⁻¹U. Expand the actual fromSpecStalk section map; native ΓSpecIso naturality for Spec.map(σ.inv) gives the specified σ.inv value.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/generic-normalization-sections-algebra-equivalence, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-iso, tauceti:TauCeti.AlgebraicGeometry.Scheme.genericPoint_mem, tauceti:TauCeti.AlgebraicGeometry.Scheme.fromSpecFunctionField_preimage, mathlib:AlgebraicGeometry.Scheme.fromSpecStalk_app, mathlib:AlgebraicGeometry.Scheme.ΓSpecIso_naturality.
+
+### The actual comparison through integral closure
+
+**QuadraticPinch.Global.absoluteNormalizationComparisonSections_closure**. For nonempty affine U and s∈B_U, θ_U(Δ_U(s))=E_U(s) in integralClosure(A_U,K_C).
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Compare the ambient K_C values using the preceding lifted generic-value formula and the incoming E value formula; subtype extensionality identifies the actual closure elements.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-generic-value, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-generic-point-lift-sections-value, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-sections-closure-value.
+
+### Identification with the incoming inverse comparison
+
+**QuadraticPinch.Global.absoluteNormalizationComparisonSections_eq_inverse**. For nonempty affine U and s∈B_U, Δ_U(s)=Ψ_U⁻¹(s) in D_U.
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Apply injectivity of θ_U and its common-closure equality with E_U; use the incoming Ψ inverse-closure law.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-closure, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/native-normalization-source-sections-inverse-closure.
+
+### Coefficient compatibility of the actual comparison
+
+**QuadraticPinch.Global.absoluteNormalizationComparisonSections_coefficient**. For every open U and r∈A_U, Δ_U(ν.app(U)(r))=η.fromNormalization.app(U)(r).
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Compose actual appLE maps and use δ≫ν=η.fromNormalization. Evaluate the equality of native section morphisms on r.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison-from, mathlib:AlgebraicGeometry.Scheme.Hom.comp_appLE.
+
+### Restriction of the actual comparison map
+
+**QuadraticPinch.Global.absoluteNormalizationComparisonSections_restrict**. For every inclusion V⊆U, res_N followed by Δ_V equals Δ_U followed by res_D, as actual ring morphisms B_U→D_V.
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Use native map_appLE and appLE_map; this naturality statement uses the actual δ and requires neither affinity nor nonemptiness.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections, mathlib:AlgebraicGeometry.Scheme.Hom.map_appLE, mathlib:AlgebraicGeometry.Scheme.Hom.appLE_map.
+
+### Bijectivity on nonempty affine opens
+
+**QuadraticPinch.Global.absoluteNormalizationComparisonSections_bijective_nonempty**. For every nonempty affine U, the actual map Δ_U is bijective.
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Identify Δ_U with Ψ_U⁻¹ pointwise and use bijectivity of the existing algebra equivalence.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-eq-inverse, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/native-normalization-source-sections-equivalence.
+
+### The empty-open comparison
+
+**QuadraticPinch.Global.absoluteNormalizationComparisonSections_bijective_empty**. The actual map Δ_∅ is bijective between the two native empty-open section rings.
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Each preimage of the empty open is empty. Native scheme sections on the empty open are subsingleton; injectivity and surjectivity follow without any generic-point or nonempty witness.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections.
+
+### Bijectivity on every affine open
+
+**QuadraticPinch.Global.absoluteNormalizationComparisonSections_bijective**. For every affine U, including U=∅, the actual map Δ_U is bijective.
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Split on nonemptiness. Apply the nonempty affine result or identify U with the empty open and apply the native empty-open result.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-bijective-nonempty, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-bijective-empty.
+
+### The native affine comparison section isomorphism
+
+**QuadraticPinch.Global.absoluteNormalizationComparison_affine_app_isIso**. For every affine U⊂C, the actual δ.app(ν⁻¹U) is an isomorphism in CommRingCat.
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: The Δ_U bijection is a native ring-category isomorphism. Its factorization as δ.app followed by transport along the equality of preimages cancels the right-hand transport isomorphism.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-bijective, mathlib:CategoryTheory.ConcreteCategory.isIso_iff_bijective.
+
+### Absolute normalization of the glued source
+
+**QuadraticPinch.Global.absoluteNormalizationComparison_isIso**. For every field k and a,b∈k, the actual comparison δ:η.normalization→N is an isomorphism of schemes.
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: The finite map ν is affine, so the opens ν⁻¹U for affine U⊂C form an affine cover of N. The integral comparison δ is affine. The preceding actual section isomorphisms, including the empty open, give isomorphisms on the restrictions; target locality assembles δ as a scheme isomorphism.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-affine-app-is-iso, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison-integral, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-is-finite, mathlib:AlgebraicGeometry.IsZariskiLocalAtTarget.iff_of_iSup_eq_top, mathlib:AlgebraicGeometry.iSup_affineOpens_eq_top, mathlib:TopologicalSpace.IsOpenCover.comap, mathlib:AlgebraicGeometry.isIso_morphismRestrict_iff_isIso_app.
+
+### The absolute normalization scheme isomorphism
+
+**QuadraticPinch.Global.absoluteNormalizationIso**. Construct I:η.normalization≅N whose hom is exactly the existing actual comparison δ.
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Use the proved native IsIso instance for δ and the existing categorical asIso construction; its inverse is the categorical inverse of δ.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-is-iso, mathlib:CategoryTheory.asIso.
+
+API:
+
+- **QuadraticPinch.Global.absoluteNormalizationIso_hom** (projection): I.hom=δ as actual scheme morphisms.
+- **QuadraticPinch.Global.absoluteNormalizationIso_hom_inv** (simp): I.hom≫I.inv is the identity on η.normalization.
+- **QuadraticPinch.Global.absoluteNormalizationIso_inv_hom** (simp): I.inv≫I.hom is the identity on N.
+- **QuadraticPinch.Global.absoluteNormalizationIso_inv_from** (compatibility): I.inv≫η.fromNormalization=ν as actual scheme morphisms N→C.
+- **QuadraticPinch.Global.absoluteNormalizationIso_point_inv** (compatibility): ζ≫I.inv=η.toNormalization as actual scheme morphisms Spec K_C→η.normalization.
+
+Tests:
+
+- **QuadraticPinch.Global.test_absoluteNormalizationIso_cusp_from** (compatibility): For a=b=0, I.hom≫ν=η.fromNormalization as actual scheme morphisms.
+- **QuadraticPinch.Global.test_absoluteNormalizationIso_char2_point** (compatibility): For k=F₂ and a=b=1, ζ≫I.inv=η.toNormalization as actual scheme morphisms.
+- **QuadraticPinch.Global.test_absoluteNormalizationIso_pinch_nonexample** (non-example): For every a,b, the actual δ is a scheme isomorphism while the original affine pinch inclusion A_q→k[t] is not surjective; these are distinct morphisms.
+
+### The forward normalization isomorphism
+
+**QuadraticPinch.Global.absoluteNormalizationIso_hom**. I.hom=δ as actual scheme morphisms.
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Read the forward map of the native asIso construction.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-iso.
+
+### The source inverse triangle
+
+**QuadraticPinch.Global.absoluteNormalizationIso_hom_inv**. I.hom≫I.inv is the identity on η.normalization.
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Use the native scheme isomorphism hom/inverse identity.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-iso.
+
+### The target inverse triangle
+
+**QuadraticPinch.Global.absoluteNormalizationIso_inv_hom**. I.inv≫I.hom is the identity on N.
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Use the native scheme isomorphism inverse/hom identity.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-iso.
+
+### The inverse comparison over the curve
+
+**QuadraticPinch.Global.absoluteNormalizationIso_inv_from**. I.inv≫η.fromNormalization=ν as actual scheme morphisms N→C.
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Replace η.fromNormalization by δ≫ν, identify δ with I.hom, and cancel I.inv≫I.hom.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-iso, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison-from.
+
+### The inverse generic-point triangle
+
+**QuadraticPinch.Global.absoluteNormalizationIso_point_inv**. ζ≫I.inv=η.toNormalization as actual scheme morphisms Spec K_C→η.normalization.
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Replace ζ by η.toNormalization≫δ, identify δ with I.hom, and cancel I.hom≫I.inv.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-iso, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison-point.
+
+### Bijectivity on arbitrary opens
+
+**QuadraticPinch.Global.absoluteNormalizationComparisonSections_bijective_all**. For every open U⊂C, the actual map Δ_U is bijective, with no affinity or nonemptiness assumption.
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Use the proved scheme isomorphism δ. Its actual section maps are isomorphisms; the explicit preimage transport is also an isomorphism, so Δ_U is an isomorphism and hence bijective.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-is-iso, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections, mathlib:CategoryTheory.ConcreteCategory.isIso_iff_bijective.
+
+### The actual comparison on all section algebras
+
+**QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv**. For every open U⊂C, construct Λ_U:B_U≃ₐ[A_U]D_U from the actual bijective Δ_U and its actual coefficient compatibility. No affinity or nonemptiness assumption is imposed.
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Apply the native ring equivalence of the actual bijective Δ_U; equip it with the A_U commutation law already proved using the two actual section actions.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-bijective-all, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-coefficient, mathlib:RingEquiv.ofBijective.
+
+API:
+
+- **QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_apply** (coercion): For every open U and s∈B_U, Λ_U(s)=Δ_U(s).
+- **QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_symm_apply** (simp): For every open U and s∈B_U, Λ_U⁻¹(Δ_U(s))=s.
+- **QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_apply_symm** (simp): For every open U and s∈D_U, Δ_U(Λ_U⁻¹(s))=s.
+- **QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_inverse_coefficient** (simp): For every open U and r∈A_U, Λ_U⁻¹(η.fromNormalization.app(U)(r))=ν.app(U)(r).
+- **QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_restrict** (functoriality): For every V⊆U and s∈B_U, Λ_V(res_N(s))=res_D(Λ_U(s)).
+- **QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_inverse_restrict** (functoriality): For every V⊆U and s∈D_U, Λ_V⁻¹(res_D(s))=res_N(Λ_U⁻¹(s)).
+- **QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_eq_source_symm** (equivalence): For every nonempty affine U, Λ_U=Ψ_U⁻¹ as A_U-algebra equivalences.
+
+Tests:
+
+- **QuadraticPinch.Global.test_comparisonAlgEquiv_cusp_inverse_coefficient** (degenerate): For a=b=0 and every open U, Λ_U⁻¹ sends the actual η.fromNormalization pullback of r∈A_U to the actual ν pullback of r.
+- **QuadraticPinch.Global.test_comparisonAlgEquiv_char2_restrict** (compatibility): For k=F₂ and a=b=1 and every V⊆U, the actual Λ maps commute with native section restriction, without affinity or nonemptiness assumptions.
+- **QuadraticPinch.Global.test_comparisonAlgEquiv_empty_nonexample** (non-example): For every a,b, Λ_∅ is bijective even though the empty open has no Nonempty witness; it cannot be represented by a generic-field equivalence requiring such a witness.
+
+### Evaluation of the all-open algebra equivalence
+
+**QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_apply**. For every open U and s∈B_U, Λ_U(s)=Δ_U(s).
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: The native ring equivalence of the actual bijective morphism has its specified underlying function.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv.
+
+### The source section inverse law
+
+**QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_symm_apply**. For every open U and s∈B_U, Λ_U⁻¹(Δ_U(s))=s.
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Use the inverse/forward identity of the native algebra equivalence.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv.
+
+### The normalization section inverse law
+
+**QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_apply_symm**. For every open U and s∈D_U, Δ_U(Λ_U⁻¹(s))=s.
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Use the forward/inverse identity of the native algebra equivalence.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv.
+
+### Inverse coefficient compatibility on all opens
+
+**QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_inverse_coefficient**. For every open U and r∈A_U, Λ_U⁻¹(η.fromNormalization.app(U)(r))=ν.app(U)(r).
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Use the native A_U-algebra commutation law of the inverse equivalence, with the actual section actions.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv.
+
+### Restriction of the all-open algebra equivalence
+
+**QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_restrict**. For every V⊆U and s∈B_U, Λ_V(res_N(s))=res_D(Λ_U(s)).
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Evaluate the previously proved actual ring-morphism restriction equality; the new equivalence has Δ as its forward function.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-restrict.
+
+### Restriction of the inverse section equivalence
+
+**QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_inverse_restrict**. For every V⊆U and s∈D_U, Λ_V⁻¹(res_D(s))=res_N(Λ_U⁻¹(s)).
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Apply injectivity of Λ_V, use its restriction identity and both native inverse identities. The result holds even for empty or nonaffine opens.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv-restrict.
+
+### Recovery of the affine closure comparison
+
+**QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_eq_source_symm**. For every nonempty affine U, Λ_U=Ψ_U⁻¹ as A_U-algebra equivalences.
+
+Hypotheses: k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added. η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles. A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens.
+
+Proof: Use extensionality of the native algebra equivalences and the pointwise identification of Δ_U with Ψ_U⁻¹.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-eq-inverse.
+
+## Pinned baseline additions
+
+- **tauceti:TauCeti.AlgebraicGeometry.Scheme.genericPoint_mem** — The native generic point lies in every nonempty open of an irreducible scheme. Codex codex-5ebb6f read the complete relevant statement and ambient assumptions at the prescribed tauceti pin on 2026-10-03; source SHA256 ad3f624aeebc9e38ddc653d0d6d6c0ecdcd0ecdaa2a761923f6b251fc060f845.
+- **mathlib:AlgebraicGeometry.iSup_affineOpens_eq_top** — All affine opens of a scheme cover it. Codex codex-5ebb6f read the complete relevant statement and ambient assumptions at the prescribed mathlib pin on 2026-10-03; source SHA256 254525e3386b3548b09f297a7a815c21dd38b05d831e6c20edc65e76f2fe2d2a.
+- **mathlib:AlgebraicGeometry.isIso_morphismRestrict_iff_isIso_app** — For an affine morphism over an affine target open, isomorphism of the restriction is equivalent to isomorphism of its section map. Codex codex-5ebb6f read the complete relevant statement and ambient assumptions at the prescribed mathlib pin on 2026-10-03; source SHA256 5ee72a2f65e8964125275391b146668f0499a7285e543869a5f5b36e5ed8edd8.
+- **mathlib:AlgebraicGeometry.IsZariskiLocalAtTarget.iff_of_iSup_eq_top** — A target-local morphism property is equivalent to its restrictions over a covering family of target opens. Codex codex-5ebb6f read the complete relevant statement and ambient assumptions at the prescribed mathlib pin on 2026-10-03; source SHA256 683c025b547e6ba09a8b0cd63d95ade22af6ec62b21f9927a945148ba4e4405a.
+- **mathlib:AlgebraicGeometry.Scheme.Hom.appLE_map** — Restriction on the source after appLE is the appLE to the smaller source open. Codex codex-5ebb6f read the complete relevant statement and ambient assumptions at the prescribed mathlib pin on 2026-10-03; source SHA256 7252c65ef22e7b5fd516392a4e062f0d12150924ea055b65f08bc707db9d814a.
+- **mathlib:AlgebraicGeometry.Scheme.Hom.map_appLE** — Restriction on the target followed by appLE equals the map to the smaller target open. Codex codex-5ebb6f read the complete relevant statement and ambient assumptions at the prescribed mathlib pin on 2026-10-03; source SHA256 7252c65ef22e7b5fd516392a4e062f0d12150924ea055b65f08bc707db9d814a.
+- **mathlib:AlgebraicGeometry.Scheme.Hom.appLE_comp_appLE** — The actual section map of a composite agrees with the composite appLE maps, including the prescribed inclusion proofs. Codex codex-5ebb6f read the complete relevant statement and ambient assumptions at the prescribed mathlib pin on 2026-10-03; source SHA256 7252c65ef22e7b5fd516392a4e062f0d12150924ea055b65f08bc707db9d814a.
+- **mathlib:AlgebraicGeometry.Scheme.Hom.comp_appLE** — The actual section map of a composite factors into the target app and source appLE. Codex codex-5ebb6f read the complete relevant statement and ambient assumptions at the prescribed mathlib pin on 2026-10-03; source SHA256 7252c65ef22e7b5fd516392a4e062f0d12150924ea055b65f08bc707db9d814a.
+- **mathlib:AlgebraicGeometry.Scheme.ΓSpecIso_naturality** — Naturality of the native global-section identification for the actual Spec map. Codex codex-5ebb6f read the complete relevant statement and ambient assumptions at the prescribed mathlib pin on 2026-10-03; source SHA256 7252c65ef22e7b5fd516392a4e062f0d12150924ea055b65f08bc707db9d814a.
+- **mathlib:AlgebraicGeometry.Scheme.fromSpecStalk_app** — The actual generic-point stalk morphism section map factors through the germ and native spectrum global sections. Codex codex-5ebb6f read the complete relevant statement and ambient assumptions at the prescribed mathlib pin on 2026-10-03; source SHA256 6a8eb3a6fff5ad1acdb54342d5a4dae9cb8d98e8e1212d004702a21ba7ab6537.
+- **mathlib:CategoryTheory.ConcreteCategory.isIso_iff_bijective** — For a concrete category whose forgetful functor reflects isomorphisms, isomorphism is equivalent to bijectivity. Codex codex-5ebb6f read the complete relevant statement and ambient assumptions at the prescribed mathlib pin on 2026-10-03; source SHA256 f9292a333dd089609a858e0aaa7af2194ec9cf6135c7c88cedf01931adf88866.
+- **mathlib:TopologicalSpace.IsOpenCover.comap** — The continuous preimages of an open cover form an open cover. Codex codex-5ebb6f read the complete relevant statement and ambient assumptions at the prescribed mathlib pin on 2026-10-03; source SHA256 e34cf37779e5be6d6bfeb9699c70667f2dc59639ed1937a6c78a3dac2f7b374c.
+- **mathlib:AlgebraicGeometry.Scheme.Hom.normalizationObjIso_hom_val** — The inclusion of the actual affine normalization section closure is the actual toNormalization section map. Codex codex-5ebb6f read the complete relevant statement and ambient assumptions at the prescribed mathlib pin on 2026-10-03; source SHA256 0cdef8c30f638f287f5b16ae5d2fcc454e72fb90bad5ba56b2dc6e956f57dd48.
+
+## Validation and boundaries
+
+All31 new declarations, 19 API items and9 tests have matching native/admitted headers. The native artifact has 215 examples and397 axiom audits, with no warnings or admissions. The bounded planning artifact has 234 examples, with 557 admission warnings as its only warnings. The full canonical file imports the actual Tau Ceti RationalFunctions module and remains uncompiled because the exact pinned artifacts are absent. The checked bounded artifacts use the authenticated exact consumed pinned source excerpt; they do not certify the complete Tau Ceti import graph. Every implementation stays unchecked.
+
+The six existing G.1 planets already allocate the layer’s display; all incoming planets and mathematical contracts are retained below. The historical frontier paragraphs below are preserved provenance and are superseded only by the explicit current frontier above.
+
+---
+
 # Native normalization sections of the quadratic curve
 
 The curve C(a,b), chart source N(a,b), finite morphism ν and generic morphism η are the existing specified schemes and maps. Work over every field, without restrictions on characteristic, separability, perfectness or the quadratic discriminant. For nonempty U define A_U, S_U, D_U and B_U as follows.

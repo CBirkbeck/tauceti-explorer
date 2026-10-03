@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-stage partial design with 440 incoming declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked. For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain. This continuation adds23 nodes (6constructions17lemmas),19 consumed API items and22 exact examples for the specified ν: all-open section injectivity, zero kernel after flat pullback and the existing relative normalization comparison/descent. The affine inclusion A_q→k[t] is not surjective. The resulting packet has463 nodes; all7stages remain partial. New native and admitted sources are uncompiled in this turn because available memory is below20GiB; all implementation statuses remain unchecked. The actual generic-point function-field continuation specifies the genuine transported ν stalk map and its native field isomorphism, then the canonical integral comparison from normalization in K_C to N with both triangles and uniqueness. It does not identify that comparison as an isomorphism. For every nonempty affine U⊂C, the actual B_U=Γ(N,ν⁻¹U) is integrally closed and is the integral closure of A_U=Γ(C,U) in K_N. The specified σ upgrades to an A_U-algebra equivalence and gives E_U:B_U≃integralClosure(A_U,K_C), with exact forward/inverse generic-germ, coefficient and restriction laws. This settles the affine generic-field comparison. It does not identify E_U with the sections of the existing δ: compare against native normalizationDiagram/normalizationObjIso, handle the empty-open branch and assemble the scheme isomorphism. Preserve P¹/Proj identification, properness/projectivity, conductor ideal sheaf and exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry. All seven stages remain partial and every implementation unchecked. Twelve native-normalization section nodes (three constructions and nine lemmas) give κ_U:S_U≃ₐ[A_U]K_C for nonempty U, θ_U:D_U≃ₐ[A_U]integralClosure(A_U,K_C) and Ψ_U:D_U≃ₐ[A_U]B_U for nonempty affine U, with exact coefficients, ambient values, inverse formulas and κ restriction compatibility. General rational-function and normalization APIs are imported. Identification with δ.app, θ/Ψ restriction compatibility, empty opens and global scheme assembly remain required. The resulting packet has 513 nodes; all stages remain partial and all implementations unchecked.",
+  "summary": "Seven-stage partial design with 440 incoming declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked. For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain. This continuation adds23 nodes (6constructions17lemmas),19 consumed API items and22 exact examples for the specified ν: all-open section injectivity, zero kernel after flat pullback and the existing relative normalization comparison/descent. The affine inclusion A_q→k[t] is not surjective. The resulting packet has463 nodes; all7stages remain partial. New native and admitted sources are uncompiled in this turn because available memory is below20GiB; all implementation statuses remain unchecked. The actual generic-point function-field continuation specifies the genuine transported ν stalk map and its native field isomorphism, then the canonical integral comparison from normalization in K_C to N with both triangles and uniqueness. It does not identify that comparison as an isomorphism. For every nonempty affine U⊂C, the actual B_U=Γ(N,ν⁻¹U) is integrally closed and is the integral closure of A_U=Γ(C,U) in K_N. The specified σ upgrades to an A_U-algebra equivalence and gives E_U:B_U≃integralClosure(A_U,K_C), with exact forward/inverse generic-germ, coefficient and restriction laws. This settles the affine generic-field comparison. It does not identify E_U with the sections of the existing δ: compare against native normalizationDiagram/normalizationObjIso, handle the empty-open branch and assemble the scheme isomorphism. Preserve P¹/Proj identification, properness/projectivity, conductor ideal sheaf and exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry. All seven stages remain partial and every implementation unchecked. Twelve native-normalization section nodes (three constructions and nine lemmas) give κ_U:S_U≃ₐ[A_U]K_C for nonempty U, θ_U:D_U≃ₐ[A_U]integralClosure(A_U,K_C) and Ψ_U:D_U≃ₐ[A_U]B_U for nonempty affine U, with exact coefficients, ambient values, inverse formulas and κ restriction compatibility. General rational-function and normalization APIs are imported. Identification with δ.app, θ/Ψ restriction compatibility, empty opens and global scheme assembly remain required. The resulting packet has 513 nodes; all stages remain partial and all implementations unchecked. The actual comparison δ:η.normalization→N is now identified with Ψ_U⁻¹ on nonempty affine sections, with native closure and source restriction formulas. Empty-open sections are handled separately, the finite-map affine cover proves δ is a scheme isomorphism, and its inverse respects both triangles. The actual comparison upgrades to Λ_U:B_U≃ₐ[A_U]D_U on every open, commuting with forward and inverse restriction and the actual coefficients; on nonempty affine opens it recovers Ψ_U⁻¹. The native projective-line/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1, independent I₂ geometry and every inherited family/model/classification obligation remain required. All seven stages are partial and every mathematical implementation status is unchecked. The full canonical Tau Ceti-importing file is uncompiled; the bounded Mathlib artifacts with the consumed exact pinned Tau Ceti source excerpt are checked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2810,6 +2810,97 @@
         "module": "Mathlib/AlgebraicGeometry/Normalization.lean",
         "provides": "The actual base section map factors as the coefficient algebra map followed by the inverse native normalizationObjIso.",
         "checked": "Codex codex-rtOQ9t read the complete relevant declaration and ambient assumptions at the prescribed Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; source SHA256 0cdef8c30f638f287f5b16ae5d2fcc454e72fb90bad5ba56b2dc6e956f57dd48. Public declarations are imported; private helpers are not public baseline prerequisites."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.Scheme.genericPoint_mem",
+        "kind": "theorem",
+        "module": "TauCeti/AlgebraicGeometry/Modules/RationalFunctions.lean",
+        "provides": "The native generic point lies in every nonempty open of an irreducible scheme.",
+        "checked": "Codex codex-5ebb6f read the complete relevant statement and ambient assumptions at the prescribed tauceti pin on 2026-10-03; source SHA256 ad3f624aeebc9e38ddc653d0d6d6c0ecdcd0ecdaa2a761923f6b251fc060f845."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.iSup_affineOpens_eq_top",
+        "kind": "theorem",
+        "module": "Mathlib/AlgebraicGeometry/AffineScheme.lean",
+        "provides": "All affine opens of a scheme cover it.",
+        "checked": "Codex codex-5ebb6f read the complete relevant statement and ambient assumptions at the prescribed mathlib pin on 2026-10-03; source SHA256 254525e3386b3548b09f297a7a815c21dd38b05d831e6c20edc65e76f2fe2d2a."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.isIso_morphismRestrict_iff_isIso_app",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/Affine.lean",
+        "provides": "For an affine morphism over an affine target open, isomorphism of the restriction is equivalent to isomorphism of its section map.",
+        "checked": "Codex codex-5ebb6f read the complete relevant statement and ambient assumptions at the prescribed mathlib pin on 2026-10-03; source SHA256 5ee72a2f65e8964125275391b146668f0499a7285e543869a5f5b36e5ed8edd8."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsZariskiLocalAtTarget.iff_of_iSup_eq_top",
+        "kind": "theorem",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/Basic.lean",
+        "provides": "A target-local morphism property is equivalent to its restrictions over a covering family of target opens.",
+        "checked": "Codex codex-5ebb6f read the complete relevant statement and ambient assumptions at the prescribed mathlib pin on 2026-10-03; source SHA256 683c025b547e6ba09a8b0cd63d95ade22af6ec62b21f9927a945148ba4e4405a."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.appLE_map",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
+        "provides": "Restriction on the source after appLE is the appLE to the smaller source open.",
+        "checked": "Codex codex-5ebb6f read the complete relevant statement and ambient assumptions at the prescribed mathlib pin on 2026-10-03; source SHA256 7252c65ef22e7b5fd516392a4e062f0d12150924ea055b65f08bc707db9d814a."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.map_appLE",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
+        "provides": "Restriction on the target followed by appLE equals the map to the smaller target open.",
+        "checked": "Codex codex-5ebb6f read the complete relevant statement and ambient assumptions at the prescribed mathlib pin on 2026-10-03; source SHA256 7252c65ef22e7b5fd516392a4e062f0d12150924ea055b65f08bc707db9d814a."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.appLE_comp_appLE",
+        "kind": "theorem",
+        "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
+        "provides": "The actual section map of a composite agrees with the composite appLE maps, including the prescribed inclusion proofs.",
+        "checked": "Codex codex-5ebb6f read the complete relevant statement and ambient assumptions at the prescribed mathlib pin on 2026-10-03; source SHA256 7252c65ef22e7b5fd516392a4e062f0d12150924ea055b65f08bc707db9d814a."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.comp_appLE",
+        "kind": "theorem",
+        "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
+        "provides": "The actual section map of a composite factors into the target app and source appLE.",
+        "checked": "Codex codex-5ebb6f read the complete relevant statement and ambient assumptions at the prescribed mathlib pin on 2026-10-03; source SHA256 7252c65ef22e7b5fd516392a4e062f0d12150924ea055b65f08bc707db9d814a."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.ΓSpecIso_naturality",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
+        "provides": "Naturality of the native global-section identification for the actual Spec map.",
+        "checked": "Codex codex-5ebb6f read the complete relevant statement and ambient assumptions at the prescribed mathlib pin on 2026-10-03; source SHA256 7252c65ef22e7b5fd516392a4e062f0d12150924ea055b65f08bc707db9d814a."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.fromSpecStalk_app",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Stalk.lean",
+        "provides": "The actual generic-point stalk morphism section map factors through the germ and native spectrum global sections.",
+        "checked": "Codex codex-5ebb6f read the complete relevant statement and ambient assumptions at the prescribed mathlib pin on 2026-10-03; source SHA256 6a8eb3a6fff5ad1acdb54342d5a4dae9cb8d98e8e1212d004702a21ba7ab6537."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ConcreteCategory.isIso_iff_bijective",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/ConcreteCategory/EpiMono.lean",
+        "provides": "For a concrete category whose forgetful functor reflects isomorphisms, isomorphism is equivalent to bijectivity.",
+        "checked": "Codex codex-5ebb6f read the complete relevant statement and ambient assumptions at the prescribed mathlib pin on 2026-10-03; source SHA256 f9292a333dd089609a858e0aaa7af2194ec9cf6135c7c88cedf01931adf88866."
+      },
+      {
+        "ref": "mathlib:TopologicalSpace.IsOpenCover.comap",
+        "kind": "lemma",
+        "module": "Mathlib/Topology/Sets/OpenCover.lean",
+        "provides": "The continuous preimages of an open cover form an open cover.",
+        "checked": "Codex codex-5ebb6f read the complete relevant statement and ambient assumptions at the prescribed mathlib pin on 2026-10-03; source SHA256 e34cf37779e5be6d6bfeb9699c70667f2dc59639ed1937a6c78a3dac2f7b374c."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.normalizationObjIso_hom_val",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Normalization.lean",
+        "provides": "The inclusion of the actual affine normalization section closure is the actual toNormalization section map.",
+        "checked": "Codex codex-5ebb6f read the complete relevant statement and ambient assumptions at the prescribed mathlib pin on 2026-10-03; source SHA256 0cdef8c30f638f287f5b16ae5d2fcc454e72fb90bad5ba56b2dc6e956f57dd48."
       }
     ]
   },
@@ -3323,6 +3414,17 @@
         "Fresh §3 terminology, both conductor squares, Propositions3.1–3.2 with proofs/count table, and Proposition3.3 statement/table. No new whole-paper or Ferrand reread is claimed."
       ],
       "note": "The native section bridge is an authored deduction motivated by the one-component conductor square. Browser reading only; no new download hash."
+    },
+    {
+      "id": "schroer-absolute-normalization-5ebb6f",
+      "title": "There is no Enriques surface over the integers",
+      "authors": "Stefan Schröer",
+      "edition": "arXiv:2004.07025v3; official HTML inspected 2026-10-03",
+      "url": "https://arxiv.org/html/2004.07025v3",
+      "readSections": [
+        "Fresh §§2–3: Theorem2.1 proof; §3 terminology, both conductor squares, Proposition3.1 and its proof, Proposition3.2 count table. Proposition3.3 and the remaining paper were not freshly reread for this continuation."
+      ],
+      "note": "Browser reading only, with no new download hash or source erratum. The absolute comparison isomorphism and all-open section APIs are authored deductions from incoming actual constructions and the pinned native section and target-local APIs, motivated by the conductor square. No whole-paper or Ferrand reread is claimed."
     }
   ],
   "nodes": [
@@ -10459,7 +10561,8 @@
         "Use the specified all-open section injection and native relative integral factorization of ν. Its section comparison and the affine nonsurjectivity regression keep the source and pinched curve distinct. These facts do not discharge the absolute generic-point normalization, projective-line/Proj, conductor ideal-sheaf exact sequence, finite-pushforward cohomology or independent I₂ obligations.",
         "Use the actual generic-point stalk isomorphism and its Spec triangle to form the integral comparison δ from normalization in K_C to N, with both universal-property triangles and uniqueness. Establish that δ is an isomorphism by genuine affine integral-closure comparisons before identifying N as absolute normalization; then still construct P¹/Proj, projectivity, conductor/sheaf and coherent-cohomology inputs. The current integral comparison alone supplies none of those remaining conclusions.",
         "Use the actual affine section equivalences in K_C and both restriction laws. Still compare this family with the native normalizationDiagram and normalizationObjIso, including the empty-open branch, and identify the resulting scheme comparison with δ before claiming absolute normalization or its cohomology sequence.",
-        "Use the actual native-normalization section equivalence θ_U and its comparison Ψ_U with the existing chart source on every nonempty affine U. Identify these section maps with the existing δ map, prove their restriction compatibility and the empty-open branch, and assemble the global scheme identification before the conductor-sheaf and cohomology steps; none of those global conclusions is supplied by section-ring bijectivity alone."
+        "Use the actual native-normalization section equivalence θ_U and its comparison Ψ_U with the existing chart source on every nonempty affine U. Identify these section maps with the existing δ map, prove their restriction compatibility and the empty-open branch, and assemble the global scheme identification before the conductor-sheaf and cohomology steps; none of those global conclusions is supplied by section-ring bijectivity alone.",
+        "Use the actual absolute normalization scheme isomorphism and its inverse over C, together with the actual all-open section algebra equivalences and their inverse restriction law. Continue with the native P¹ and Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, and finite-pushforward H0/H1; the separate I₂ construction and other inherited obligations are unchanged."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-point-proper-pushout",
@@ -10504,7 +10607,10 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-sections-closure-inverse-restrict",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/generic-normalization-sections-algebra-equivalence",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/native-normalization-sections-closure-equivalence",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/native-normalization-source-sections-equivalence"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/native-normalization-source-sections-equivalence",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-iso",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-iso-inv-from",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv-inverse-restrict"
       ],
       "sources": [
         {
@@ -29821,6 +29927,1811 @@
       },
       "implementationStatus": "unchecked",
       "declarationName": "QuadraticPinch.Global.absoluteNormalizationSourceSectionsEquiv_inverse_closure"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-sections-closure-equiv-generic-value",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Native closure value via the actual generic map",
+      "kind": "lemma",
+      "statement": "For each nonempty affine U and s∈D_U, the ambient value of θ_U(s) is κ_U(η.toNormalization.appLE(s)).",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Use the existing θ value formula and native normalizationObjIso_hom_val; both maps have the same actual ambient generic section."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/native-normalization-sections-closure-value",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.normalizationObjIso_hom_val"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "For each nonempty affine U and s∈D_U, the ambient value of θ_U(s) is κ_U(η.toNormalization.appLE(s))."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationSectionsClosureEquiv_generic_value"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-sections-closure-equiv-restrict",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Restriction of the native closure coordinates",
+      "kind": "lemma",
+      "statement": "For nonempty affine V⊆U and s∈D_U, θ_V(res_D(s)).val=θ_U(s).val in K_C.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Express θ through the actual toNormalization section map, commute restriction using map_appLE and appLE_map, and apply the incoming κ restriction formula."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-sections-closure-equiv-generic-value",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/generic-normalization-sections-restrict",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.map_appLE",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.appLE_map"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "For nonempty affine V⊆U and s∈D_U, θ_V(res_D(s)).val=θ_U(s).val in K_C."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationSectionsClosureEquiv_restrict"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-source-sections-equiv-restrict",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Restriction of the source comparison",
+      "kind": "lemma",
+      "statement": "For nonempty affine V⊆U and s∈D_U, Ψ_V(res_D(s))=res_N(Ψ_U(s)).",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Apply the incoming inverse E restriction law to the θ restriction equality; the shared ambient K_C value determines the integral-closure element."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-sections-closure-equiv-restrict",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-sections-closure-inverse-restrict",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/native-normalization-source-sections-equivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "For nonempty affine V⊆U and s∈D_U, Ψ_V(res_D(s))=res_N(Ψ_U(s))."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationSourceSectionsEquiv_restrict"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Sections of the actual normalization comparison",
+      "kind": "construction",
+      "statement": "For every open U⊂C, construct Δ_U:B_U→D_U as the actual δ.appLE on ν⁻¹U and η.fromNormalization⁻¹U, using δ≫ν=η.fromNormalization to transport the target open.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Use the existing actual δ morphism and its from triangle; the construction retains the native ring homomorphism and actual open restriction."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison-from"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "For every open U⊂C, construct Δ_U:B_U→D_U as the actual δ.appLE on ν⁻¹U and η.fromNormalization⁻¹U, using δ≫ν=η.fromNormalization to transport the target open."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationComparisonSections",
+      "api": [
+        {
+          "name": "QuadraticPinch.Global.absoluteNormalizationComparisonSections_generic_app",
+          "role": "compatibility",
+          "statement": "For every open U, Δ_U followed by the actual η.toNormalization section map equals the actual ζ section map B_U→S_U."
+        },
+        {
+          "name": "QuadraticPinch.Global.absoluteNormalizationComparisonSections_closure",
+          "role": "compatibility",
+          "statement": "For nonempty affine U and s∈B_U, θ_U(Δ_U(s))=E_U(s) in integralClosure(A_U,K_C)."
+        },
+        {
+          "name": "QuadraticPinch.Global.absoluteNormalizationComparisonSections_eq_inverse",
+          "role": "equivalence",
+          "statement": "For nonempty affine U and s∈B_U, Δ_U(s)=Ψ_U⁻¹(s) in D_U."
+        },
+        {
+          "name": "QuadraticPinch.Global.absoluteNormalizationComparisonSections_coefficient",
+          "role": "simp",
+          "statement": "For every open U and r∈A_U, Δ_U(ν.app(U)(r))=η.fromNormalization.app(U)(r)."
+        },
+        {
+          "name": "QuadraticPinch.Global.absoluteNormalizationComparisonSections_restrict",
+          "role": "functoriality",
+          "statement": "For every inclusion V⊆U, res_N followed by Δ_V equals Δ_U followed by res_D, as actual ring morphisms B_U→D_V."
+        },
+        {
+          "name": "QuadraticPinch.Global.absoluteNormalizationComparisonSections_bijective",
+          "role": "characterisation",
+          "statement": "For every affine U, including U=∅, the actual map Δ_U is bijective."
+        },
+        {
+          "name": "QuadraticPinch.Global.absoluteNormalizationComparisonSections_bijective_all",
+          "role": "characterisation",
+          "statement": "For every open U⊂C, the actual map Δ_U is bijective, with no affinity or nonemptiness assumption."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.Global.test_comparisonSections_cusp_coefficient",
+          "kind": "degenerate",
+          "statement": "For a=b=0 and every open U, Δ_U sends the actual ν pullback of r∈A_U to the actual η.fromNormalization pullback of r."
+        },
+        {
+          "name": "QuadraticPinch.Global.test_comparisonSections_char2_inverse",
+          "kind": "compatibility",
+          "statement": "For k=F₂ and a=b=1 and nonempty affine U, the actual Δ_U(s) equals Ψ_U⁻¹(s) for every s∈B_U."
+        },
+        {
+          "name": "QuadraticPinch.Global.test_comparisonSections_empty",
+          "kind": "degenerate",
+          "statement": "For every a,b, the actual Δ_∅ is bijective between the native empty-open section rings."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-generic-app",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The generic-point section triangle",
+      "kind": "lemma",
+      "statement": "For every open U, Δ_U followed by the actual η.toNormalization section map equals the actual ζ section map B_U→S_U.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Compose native appLE maps and substitute the already established η.toNormalization≫δ=ζ triangle, with the actual source and target opens fixed."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison-point",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.appLE_comp_appLE"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "For every open U, Δ_U followed by the actual η.toNormalization section map equals the actual ζ section map B_U→S_U."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationComparisonSections_generic_app"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-generic-value",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The closure value of the actual comparison",
+      "kind": "lemma",
+      "statement": "For nonempty affine U and s∈B_U, θ_U(Δ_U(s)).val=κ_U(ζ.appLE(s)).",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Apply the θ generic-value formula to Δ_U(s), then the actual generic-point section triangle."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-sections-closure-equiv-generic-value",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-generic-app"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "For nonempty affine U and s∈B_U, θ_U(Δ_U(s)).val=κ_U(ζ.appLE(s))."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationComparisonSections_generic_value"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-generic-point-lift-sections-value",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Generic-field value of the lifted generic point",
+      "kind": "lemma",
+      "statement": "For every nonempty open U and s∈B_U, κ_U(ζ.appLE(s))=σ.inv(germ_N(s)). Affinity is not required.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Use the native generic-point preimage theorem and generic-point membership for ν⁻¹U. Expand the actual fromSpecStalk section map; native ΓSpecIso naturality for Spec.map(σ.inv) gives the specified σ.inv value."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/generic-normalization-sections-algebra-equivalence",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-iso",
+        "tauceti:TauCeti.AlgebraicGeometry.Scheme.genericPoint_mem",
+        "tauceti:TauCeti.AlgebraicGeometry.Scheme.fromSpecFunctionField_preimage",
+        "mathlib:AlgebraicGeometry.Scheme.fromSpecStalk_app",
+        "mathlib:AlgebraicGeometry.Scheme.ΓSpecIso_naturality"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "For every nonempty open U and s∈B_U, κ_U(ζ.appLE(s))=σ.inv(germ_N(s)). Affinity is not required."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.genericPointLiftSections_value"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-closure",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The actual comparison through integral closure",
+      "kind": "lemma",
+      "statement": "For nonempty affine U and s∈B_U, θ_U(Δ_U(s))=E_U(s) in integralClosure(A_U,K_C).",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Compare the ambient K_C values using the preceding lifted generic-value formula and the incoming E value formula; subtype extensionality identifies the actual closure elements."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-generic-value",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-generic-point-lift-sections-value",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-sections-closure-value"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "For nonempty affine U and s∈B_U, θ_U(Δ_U(s))=E_U(s) in integralClosure(A_U,K_C)."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationComparisonSections_closure"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-eq-inverse",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Identification with the incoming inverse comparison",
+      "kind": "lemma",
+      "statement": "For nonempty affine U and s∈B_U, Δ_U(s)=Ψ_U⁻¹(s) in D_U.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Apply injectivity of θ_U and its common-closure equality with E_U; use the incoming Ψ inverse-closure law."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-closure",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/native-normalization-source-sections-inverse-closure"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "For nonempty affine U and s∈B_U, Δ_U(s)=Ψ_U⁻¹(s) in D_U."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationComparisonSections_eq_inverse"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-coefficient",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Coefficient compatibility of the actual comparison",
+      "kind": "lemma",
+      "statement": "For every open U and r∈A_U, Δ_U(ν.app(U)(r))=η.fromNormalization.app(U)(r).",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Compose actual appLE maps and use δ≫ν=η.fromNormalization. Evaluate the equality of native section morphisms on r."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison-from",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.comp_appLE"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "For every open U and r∈A_U, Δ_U(ν.app(U)(r))=η.fromNormalization.app(U)(r)."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationComparisonSections_coefficient"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-restrict",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Restriction of the actual comparison map",
+      "kind": "lemma",
+      "statement": "For every inclusion V⊆U, res_N followed by Δ_V equals Δ_U followed by res_D, as actual ring morphisms B_U→D_V.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Use native map_appLE and appLE_map; this naturality statement uses the actual δ and requires neither affinity nor nonemptiness."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.map_appLE",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.appLE_map"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "For every inclusion V⊆U, res_N followed by Δ_V equals Δ_U followed by res_D, as actual ring morphisms B_U→D_V."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationComparisonSections_restrict"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-bijective-nonempty",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Bijectivity on nonempty affine opens",
+      "kind": "lemma",
+      "statement": "For every nonempty affine U, the actual map Δ_U is bijective.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Identify Δ_U with Ψ_U⁻¹ pointwise and use bijectivity of the existing algebra equivalence."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-eq-inverse",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/native-normalization-source-sections-equivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "For every nonempty affine U, the actual map Δ_U is bijective."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationComparisonSections_bijective_nonempty"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-bijective-empty",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The empty-open comparison",
+      "kind": "lemma",
+      "statement": "The actual map Δ_∅ is bijective between the two native empty-open section rings.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Each preimage of the empty open is empty. Native scheme sections on the empty open are subsingleton; injectivity and surjectivity follow without any generic-point or nonempty witness."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "The actual map Δ_∅ is bijective between the two native empty-open section rings."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationComparisonSections_bijective_empty"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-bijective",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Bijectivity on every affine open",
+      "kind": "lemma",
+      "statement": "For every affine U, including U=∅, the actual map Δ_U is bijective.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Split on nonemptiness. Apply the nonempty affine result or identify U with the empty open and apply the native empty-open result."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-bijective-nonempty",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-bijective-empty"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "For every affine U, including U=∅, the actual map Δ_U is bijective."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationComparisonSections_bijective"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-affine-app-is-iso",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The native affine comparison section isomorphism",
+      "kind": "lemma",
+      "statement": "For every affine U⊂C, the actual δ.app(ν⁻¹U) is an isomorphism in CommRingCat.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "The Δ_U bijection is a native ring-category isomorphism. Its factorization as δ.app followed by transport along the equality of preimages cancels the right-hand transport isomorphism."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-bijective",
+        "mathlib:CategoryTheory.ConcreteCategory.isIso_iff_bijective"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "For every affine U⊂C, the actual δ.app(ν⁻¹U) is an isomorphism in CommRingCat."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationComparison_affine_app_isIso"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-is-iso",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Absolute normalization of the glued source",
+      "kind": "lemma",
+      "statement": "For every field k and a,b∈k, the actual comparison δ:η.normalization→N is an isomorphism of schemes.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "The finite map ν is affine, so the opens ν⁻¹U for affine U⊂C form an affine cover of N. The integral comparison δ is affine. The preceding actual section isomorphisms, including the empty open, give isomorphisms on the restrictions; target locality assembles δ as a scheme isomorphism."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-affine-app-is-iso",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison-integral",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-is-finite",
+        "mathlib:AlgebraicGeometry.IsZariskiLocalAtTarget.iff_of_iSup_eq_top",
+        "mathlib:AlgebraicGeometry.iSup_affineOpens_eq_top",
+        "mathlib:TopologicalSpace.IsOpenCover.comap",
+        "mathlib:AlgebraicGeometry.isIso_morphismRestrict_iff_isIso_app"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "For every field k and a,b∈k, the actual comparison δ:η.normalization→N is an isomorphism of schemes."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationComparison_isIso"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-iso",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The absolute normalization scheme isomorphism",
+      "kind": "construction",
+      "statement": "Construct I:η.normalization≅N whose hom is exactly the existing actual comparison δ.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Use the proved native IsIso instance for δ and the existing categorical asIso construction; its inverse is the categorical inverse of δ."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-is-iso",
+        "mathlib:CategoryTheory.asIso"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "Construct I:η.normalization≅N whose hom is exactly the existing actual comparison δ."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationIso",
+      "api": [
+        {
+          "name": "QuadraticPinch.Global.absoluteNormalizationIso_hom",
+          "role": "projection",
+          "statement": "I.hom=δ as actual scheme morphisms."
+        },
+        {
+          "name": "QuadraticPinch.Global.absoluteNormalizationIso_hom_inv",
+          "role": "simp",
+          "statement": "I.hom≫I.inv is the identity on η.normalization."
+        },
+        {
+          "name": "QuadraticPinch.Global.absoluteNormalizationIso_inv_hom",
+          "role": "simp",
+          "statement": "I.inv≫I.hom is the identity on N."
+        },
+        {
+          "name": "QuadraticPinch.Global.absoluteNormalizationIso_inv_from",
+          "role": "compatibility",
+          "statement": "I.inv≫η.fromNormalization=ν as actual scheme morphisms N→C."
+        },
+        {
+          "name": "QuadraticPinch.Global.absoluteNormalizationIso_point_inv",
+          "role": "compatibility",
+          "statement": "ζ≫I.inv=η.toNormalization as actual scheme morphisms Spec K_C→η.normalization."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.Global.test_absoluteNormalizationIso_cusp_from",
+          "kind": "compatibility",
+          "statement": "For a=b=0, I.hom≫ν=η.fromNormalization as actual scheme morphisms."
+        },
+        {
+          "name": "QuadraticPinch.Global.test_absoluteNormalizationIso_char2_point",
+          "kind": "compatibility",
+          "statement": "For k=F₂ and a=b=1, ζ≫I.inv=η.toNormalization as actual scheme morphisms."
+        },
+        {
+          "name": "QuadraticPinch.Global.test_absoluteNormalizationIso_pinch_nonexample",
+          "kind": "non-example",
+          "statement": "For every a,b, the actual δ is a scheme isomorphism while the original affine pinch inclusion A_q→k[t] is not surjective; these are distinct morphisms."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-iso-hom",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The forward normalization isomorphism",
+      "kind": "lemma",
+      "statement": "I.hom=δ as actual scheme morphisms.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Read the forward map of the native asIso construction."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-iso"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "I.hom=δ as actual scheme morphisms."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationIso_hom"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-iso-hom-inv",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The source inverse triangle",
+      "kind": "lemma",
+      "statement": "I.hom≫I.inv is the identity on η.normalization.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Use the native scheme isomorphism hom/inverse identity."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-iso"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "I.hom≫I.inv is the identity on η.normalization."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationIso_hom_inv"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-iso-inv-hom",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The target inverse triangle",
+      "kind": "lemma",
+      "statement": "I.inv≫I.hom is the identity on N.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Use the native scheme isomorphism inverse/hom identity."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-iso"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "I.inv≫I.hom is the identity on N."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationIso_inv_hom"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-iso-inv-from",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The inverse comparison over the curve",
+      "kind": "lemma",
+      "statement": "I.inv≫η.fromNormalization=ν as actual scheme morphisms N→C.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Replace η.fromNormalization by δ≫ν, identify δ with I.hom, and cancel I.inv≫I.hom."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-iso",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison-from"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "I.inv≫η.fromNormalization=ν as actual scheme morphisms N→C."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationIso_inv_from"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-iso-point-inv",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The inverse generic-point triangle",
+      "kind": "lemma",
+      "statement": "ζ≫I.inv=η.toNormalization as actual scheme morphisms Spec K_C→η.normalization.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Replace ζ by η.toNormalization≫δ, identify δ with I.hom, and cancel I.hom≫I.inv."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-iso",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison-point"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "ζ≫I.inv=η.toNormalization as actual scheme morphisms Spec K_C→η.normalization."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationIso_point_inv"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-bijective-all",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Bijectivity on arbitrary opens",
+      "kind": "lemma",
+      "statement": "For every open U⊂C, the actual map Δ_U is bijective, with no affinity or nonemptiness assumption.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Use the proved scheme isomorphism δ. Its actual section maps are isomorphisms; the explicit preimage transport is also an isomorphism, so Δ_U is an isomorphism and hence bijective."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-is-iso",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections",
+        "mathlib:CategoryTheory.ConcreteCategory.isIso_iff_bijective"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "For every open U⊂C, the actual map Δ_U is bijective, with no affinity or nonemptiness assumption."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationComparisonSections_bijective_all"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The actual comparison on all section algebras",
+      "kind": "construction",
+      "statement": "For every open U⊂C, construct Λ_U:B_U≃ₐ[A_U]D_U from the actual bijective Δ_U and its actual coefficient compatibility. No affinity or nonemptiness assumption is imposed.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Apply the native ring equivalence of the actual bijective Δ_U; equip it with the A_U commutation law already proved using the two actual section actions."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-bijective-all",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-coefficient",
+        "mathlib:RingEquiv.ofBijective"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "For every open U⊂C, construct Λ_U:B_U≃ₐ[A_U]D_U from the actual bijective Δ_U and its actual coefficient compatibility. No affinity or nonemptiness assumption is imposed."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv",
+      "api": [
+        {
+          "name": "QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_apply",
+          "role": "coercion",
+          "statement": "For every open U and s∈B_U, Λ_U(s)=Δ_U(s)."
+        },
+        {
+          "name": "QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_symm_apply",
+          "role": "simp",
+          "statement": "For every open U and s∈B_U, Λ_U⁻¹(Δ_U(s))=s."
+        },
+        {
+          "name": "QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_apply_symm",
+          "role": "simp",
+          "statement": "For every open U and s∈D_U, Δ_U(Λ_U⁻¹(s))=s."
+        },
+        {
+          "name": "QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_inverse_coefficient",
+          "role": "simp",
+          "statement": "For every open U and r∈A_U, Λ_U⁻¹(η.fromNormalization.app(U)(r))=ν.app(U)(r)."
+        },
+        {
+          "name": "QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_restrict",
+          "role": "functoriality",
+          "statement": "For every V⊆U and s∈B_U, Λ_V(res_N(s))=res_D(Λ_U(s))."
+        },
+        {
+          "name": "QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_inverse_restrict",
+          "role": "functoriality",
+          "statement": "For every V⊆U and s∈D_U, Λ_V⁻¹(res_D(s))=res_N(Λ_U⁻¹(s))."
+        },
+        {
+          "name": "QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_eq_source_symm",
+          "role": "equivalence",
+          "statement": "For every nonempty affine U, Λ_U=Ψ_U⁻¹ as A_U-algebra equivalences."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.Global.test_comparisonAlgEquiv_cusp_inverse_coefficient",
+          "kind": "degenerate",
+          "statement": "For a=b=0 and every open U, Λ_U⁻¹ sends the actual η.fromNormalization pullback of r∈A_U to the actual ν pullback of r."
+        },
+        {
+          "name": "QuadraticPinch.Global.test_comparisonAlgEquiv_char2_restrict",
+          "kind": "compatibility",
+          "statement": "For k=F₂ and a=b=1 and every V⊆U, the actual Λ maps commute with native section restriction, without affinity or nonemptiness assumptions."
+        },
+        {
+          "name": "QuadraticPinch.Global.test_comparisonAlgEquiv_empty_nonexample",
+          "kind": "non-example",
+          "statement": "For every a,b, Λ_∅ is bijective even though the empty open has no Nonempty witness; it cannot be represented by a generic-field equivalence requiring such a witness."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv-apply",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Evaluation of the all-open algebra equivalence",
+      "kind": "lemma",
+      "statement": "For every open U and s∈B_U, Λ_U(s)=Δ_U(s).",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "The native ring equivalence of the actual bijective morphism has its specified underlying function."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "For every open U and s∈B_U, Λ_U(s)=Δ_U(s)."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_apply"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv-symm-apply",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The source section inverse law",
+      "kind": "lemma",
+      "statement": "For every open U and s∈B_U, Λ_U⁻¹(Δ_U(s))=s.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Use the inverse/forward identity of the native algebra equivalence."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "For every open U and s∈B_U, Λ_U⁻¹(Δ_U(s))=s."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_symm_apply"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv-apply-symm",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The normalization section inverse law",
+      "kind": "lemma",
+      "statement": "For every open U and s∈D_U, Δ_U(Λ_U⁻¹(s))=s.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Use the forward/inverse identity of the native algebra equivalence."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "For every open U and s∈D_U, Δ_U(Λ_U⁻¹(s))=s."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_apply_symm"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv-inverse-coefficient",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Inverse coefficient compatibility on all opens",
+      "kind": "lemma",
+      "statement": "For every open U and r∈A_U, Λ_U⁻¹(η.fromNormalization.app(U)(r))=ν.app(U)(r).",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Use the native A_U-algebra commutation law of the inverse equivalence, with the actual section actions."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "For every open U and r∈A_U, Λ_U⁻¹(η.fromNormalization.app(U)(r))=ν.app(U)(r)."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_inverse_coefficient"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv-restrict",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Restriction of the all-open algebra equivalence",
+      "kind": "lemma",
+      "statement": "For every V⊆U and s∈B_U, Λ_V(res_N(s))=res_D(Λ_U(s)).",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Evaluate the previously proved actual ring-morphism restriction equality; the new equivalence has Δ as its forward function."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-restrict"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "For every V⊆U and s∈B_U, Λ_V(res_N(s))=res_D(Λ_U(s))."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_restrict"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv-inverse-restrict",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Restriction of the inverse section equivalence",
+      "kind": "lemma",
+      "statement": "For every V⊆U and s∈D_U, Λ_V⁻¹(res_D(s))=res_N(Λ_U⁻¹(s)).",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Apply injectivity of Λ_V, use its restriction identity and both native inverse identities. The result holds even for empty or nonaffine opens."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv-restrict"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "For every V⊆U and s∈D_U, Λ_V⁻¹(res_D(s))=res_N(Λ_U⁻¹(s))."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_inverse_restrict"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv-eq-source-symm",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Recovery of the affine closure comparison",
+      "kind": "lemma",
+      "statement": "For every nonempty affine U, Λ_U=Ψ_U⁻¹ as A_U-algebra equivalences.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k and q=t²+at+b. C=curve(a,b), N=normalizationSource(a,b) and ν:N→C are the actual incoming glued schemes and finite surjective map. No characteristic, perfectness, separability or discriminant hypothesis is added.",
+        "η=C.fromSpecStalk(η_C):Spec K_C→C, σ:K_C≅K_N is the incoming native stalk-field isomorphism, ζ=Spec.map(σ.inv)≫N.fromSpecStalk(η_N), and δ:η.normalization→N is the existing actual normalizationDesc comparison satisfying both triangles.",
+        "A_U=Γ(C,U), B_U=Γ(N,ν⁻¹U), S_U=Γ(Spec K_C,η⁻¹U), D_U=Γ(η.normalization,η.fromNormalization⁻¹U). All A_U-actions are the actual η.app(U), ν.app(U), η.fromNormalization.app(U) and native generic germ. E_U, θ_U, κ_U and Ψ_U refer to the existing actual algebra equivalences, with nonemptiness and affinity exactly where the statement says so. Δ and Λ allow every open; a generic-field value is used only on nonempty opens."
+      ],
+      "proofSteps": [
+        "Use extensionality of the native algebra equivalences and the pointwise identification of Δ_U with Ψ_U⁻¹."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-eq-inverse"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-absolute-normalization-5ebb6f",
+          "locator": "§3, terminology and both conductor squares immediately before Proposition 3.1; authored deduction using the specified pinned section and target-local APIs.",
+          "excerpt": "conductor square",
+          "match": "Motivation only: the actual δ isomorphism and its all-open section algebra APIs are authored deductions. This passage is not claimed to prove our native chart/Proj identification, projectivity or cohomology."
+        }
+      ],
+      "acceptance": [
+        "For every nonempty affine U, Λ_U=Ψ_U⁻¹ as A_U-algebra equivalences."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify the actual absolute normalization before the native projective-line/Proj comparison, conductor ideal sheaf and structure-sheaf exact sequence and finite-pushforward H0/H1."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Supply actual normalization maps uniformly for the cusp and split and nonsplit nodes; the comparison is an authored deduction from incoming constructions and pinned native APIs."
+        },
+        {
+          "where": "Native normalization section calculations",
+          "how": "Evaluate the actual forward/inverse maps, commute both directions with restriction on every open, and recover the previously derived affine closure coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_eq_source_symm"
     }
   ],
   "requests": [
@@ -30204,7 +32115,8 @@
         "For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked.",
         "The actual common infinity chart yields ν(η_N)=η_C and the specified native stalk-field isomorphism K_C≅K_N, with nonempty-open germ compatibility. Its inverse gives the actual generic-point lift and an integral comparison δ:(C.fromSpecStalk η_C).normalization→N satisfying both triangles and uniqueness. The existing Tau Ceti nonempty-preimage theorem is imported. Prove δ is an isomorphism using actual affine integral-closure comparisons before asserting absolute normalization; retain P¹/Proj identification, properness/projectivity, conductor ideal sheaf/exact sequence, finite-pushforward H0/H1, and the independent I₂ construction. Every stage remains partial and every implementation status unchecked.",
         "For every nonempty affine U⊂C, the actual B_U=Γ(N,ν⁻¹U) is integrally closed and is the integral closure of A_U=Γ(C,U) in K_N. The specified σ upgrades to an A_U-algebra equivalence and gives E_U:B_U≃integralClosure(A_U,K_C), with exact forward/inverse generic-germ, coefficient and restriction laws. This settles the affine generic-field comparison. It does not identify E_U with the sections of the existing δ: compare against native normalizationDiagram/normalizationObjIso, handle the empty-open branch and assemble the scheme isomorphism. Preserve P¹/Proj identification, properness/projectivity, conductor ideal sheaf and exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry. All seven stages remain partial and every implementation unchecked.",
-        "The actual native normalization affine section rings now have θ_U:D_U≃integralClosure(A_U,K_C) and Ψ_U:D_U≃B_U over A_U, with coefficient and forward/inverse closure formulas; κ_U uses the existing public rational-function section equivalences. Prove θ/Ψ restriction compatibility, identify Ψ_U with the existing δ on actual affine sections, handle empty opens and assemble δ as a scheme isomorphism. P¹/Proj identification, properness/projectivity, conductor sheaves/exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry remain required. All stages remain partial and every implementation unchecked; the full canonical Tau Ceti-importing file is uncompiled."
+        "The actual native normalization affine section rings now have θ_U:D_U≃integralClosure(A_U,K_C) and Ψ_U:D_U≃B_U over A_U, with coefficient and forward/inverse closure formulas; κ_U uses the existing public rational-function section equivalences. Prove θ/Ψ restriction compatibility, identify Ψ_U with the existing δ on actual affine sections, handle empty opens and assemble δ as a scheme isomorphism. P¹/Proj identification, properness/projectivity, conductor sheaves/exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry remain required. All stages remain partial and every implementation unchecked; the full canonical Tau Ceti-importing file is uncompiled.",
+        "The actual comparison δ:η.normalization→N is now identified with Ψ_U⁻¹ on nonempty affine sections, with native closure and source restriction formulas. Empty-open sections are handled separately, the finite-map affine cover proves δ is a scheme isomorphism, and its inverse respects both triangles. The actual comparison upgrades to Λ_U:B_U≃ₐ[A_U]D_U on every open, commuting with forward and inverse restriction and the actual coefficients; on nonempty affine opens it recovers Ψ_U⁻¹. The native projective-line/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1, independent I₂ geometry and every inherited family/model/classification obligation remain required. All seven stages are partial and every mathematical implementation status is unchecked. The full canonical Tau Ceti-importing file is uncompiled; the bounded Mathlib artifacts with the consumed exact pinned Tau Ceti source excerpt are checked."
       ]
     },
     {
@@ -34408,5 +36320,59 @@
     "pinnedRationalFunctionImport": "TauCeti.AlgebraicGeometry.Modules.RationalFunctions",
     "harnessBoundary": "Canonical imports the actual Tau Ceti module. The checked Mathlib-only native and admitted artifacts include the exact consumed pinned source body through rationalFunctionsEquiv, removing only its redundant universe declaration and replacing the module/import/public envelope. They do not certify the full Tau Ceti import graph.",
     "remaining": "The actual native normalization affine section rings now have θ_U:D_U≃integralClosure(A_U,K_C) and Ψ_U:D_U≃B_U over A_U, with coefficient and forward/inverse closure formulas; κ_U uses the existing public rational-function section equivalences. Prove θ/Ψ restriction compatibility, identify Ψ_U with the existing δ on actual affine sections, handle empty opens and assemble δ as a scheme isomorphism. P¹/Proj identification, properness/projectivity, conductor sheaves/exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry remain required. All stages remain partial and every implementation unchecked; the full canonical Tau Ceti-importing file is uncompiled."
+  },
+  "absoluteNormalizationIsoContinuation": {
+    "agent": "Codex codex-5ebb6f",
+    "issue": 3378,
+    "status": "partial",
+    "newDeclarations": 31,
+    "newConstructions": 3,
+    "newApiItems": 19,
+    "newTests": 9,
+    "matchedNewHeaders": 40,
+    "newBaseline": 13,
+    "compilation": {
+      "native": {
+        "time": "2026-10-03T12:01:14.593062+00:00",
+        "sha256": "b42050c75989ad0daa7fd8625d152402080f7aad0a6f08f1897478c1c76b67a1",
+        "availableGiB": 52,
+        "exit": 0,
+        "source": "Native.lean",
+        "lines": 5197,
+        "examples": 215,
+        "audits": 397,
+        "warnings": 0,
+        "admissionWarnings": 0,
+        "seconds": "0:59.93",
+        "peakRSSKiB": 7434372,
+        "diagnosticsSha256": "98b0236144b15cd1a73ebd78dfa36b9ce9930d483ad00e688141578c31a08f92"
+      },
+      "sketch": {
+        "time": "2026-10-03T12:02:39.775553+00:00",
+        "sha256": "c105f0f702861c54763a94f6ec173dc4d8dd3f2e087f805df72dec9b35824570",
+        "availableGiB": 52,
+        "exit": 0,
+        "source": "Sketch.lean",
+        "lines": 3503,
+        "examples": 234,
+        "audits": 20,
+        "warnings": 557,
+        "admissionWarnings": 557,
+        "seconds": "1:02.83",
+        "peakRSSKiB": 7065008,
+        "diagnosticsSha256": "b351a89fbac9e4acae654b24c68b286ca3f11f3fef547c940cf92c3361c9a54e"
+      },
+      "fullCanonical": {
+        "compiled": false,
+        "source": "Canonical.lean",
+        "sha256": "1bee45c4b88052bc72e4609e744855c0321eaf89cbdc5bab4b45ab746e9d28df",
+        "lines": 4902,
+        "examples": 315,
+        "reason": "Exact prescribed Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 compiled artifacts are absent; the available root Tau Ceti build is cf386627e9176a3827c1a5fe804989fd94a4d216 and its root RationalFunctions artifact is absent. The bounded Mathlib checks include the consumed exact pinned rational-function source excerpt; they do not certify the complete Tau Ceti import graph."
+      }
+    },
+    "pinnedRationalFunctionImport": "TauCeti.AlgebraicGeometry.Modules.RationalFunctions",
+    "harnessBoundary": "Canonical imports the actual Tau Ceti module. The checked Mathlib-only native and admitted artifacts preserve the authenticated incoming harness with the consumed exact pinned RationalFunctions source body through rationalFunctionsEquiv; only the module/import/public envelope and redundant universe declaration were adapted. They do not certify the full Tau Ceti import graph. Diagnostics replace only the artifact-directory prefix by REPLAY/.",
+    "remaining": "The actual comparison δ:η.normalization→N is now identified with Ψ_U⁻¹ on nonempty affine sections, with native closure and source restriction formulas. Empty-open sections are handled separately, the finite-map affine cover proves δ is a scheme isomorphism, and its inverse respects both triangles. The actual comparison upgrades to Λ_U:B_U≃ₐ[A_U]D_U on every open, commuting with forward and inverse restriction and the actual coefficients; on nonempty affine opens it recovers Ψ_U⁻¹. The native projective-line/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1, independent I₂ geometry and every inherited family/model/classification obligation remain required. All seven stages are partial and every mathematical implementation status is unchecked. The full canonical Tau Ceti-importing file is uncompiled; the bounded Mathlib artifacts with the consumed exact pinned Tau Ceti source excerpt are checked."
   }
 }
