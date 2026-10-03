@@ -11,6 +11,14 @@ The final omission ledger names every interface requiring an unavailable
 supplier. No desired theorem is encoded as an unspecified Prop-valued field.
 -/
 
+import Mathlib.CategoryTheory.SingleObj
+import Mathlib.CategoryTheory.Products.Basic
+import Mathlib.CategoryTheory.Discrete.Basic
+import Mathlib.CategoryTheory.Bicategory.Functor.LocallyDiscrete
+import Mathlib.Data.ZMod.Basic
+import Mathlib.SetTheory.Cardinal.Finite
+import Mathlib.Data.Fintype.Pi
+import Mathlib.Algebra.Group.TypeTags.Finite
 import Mathlib.CategoryTheory.Sites.Descent.IsStack
 import Mathlib.CategoryTheory.Sites.SheafCohomology.Basic
 import Mathlib.CategoryTheory.Endomorphism
@@ -3256,3 +3264,2382 @@ example (e : A ≅ S)
     e = fromBandingSheafIso F J A b S hS := by sorry
 
 end TauCeti.AlgebraicGeometry.IntrinsicBandSections
+
+/-! Constant point-site intrinsic-band fixtures. Native carrier aliases only; all new mathematical bodies are admissions under PROTOCOL section 13. -/
+
+namespace TauCeti.AlgebraicGeometry.BandFixtures
+open CategoryTheory Opposite Bicategory
+open IntrinsicBandSections
+universe fixture_u fixture_v
+variable (C : Type u) [Category.{v} C]
+variable (D : Type fixture_u) [Category.{fixture_v} D]
+
+abbrev constantDiagram : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{fixture_v, fixture_u} :=
+  ((Functor.const Cᵒᵖ).obj (Cat.of D)).toPseudofunctor'
+
+noncomputable def constantSection (U : C) (z : (CatCenter D)ˣ) :
+    IntrinsicBandSection (constantDiagram C D) U := by sorry
+
+lemma constantSection_val (U V : C) (f : V ⟶ U) (z : (CatCenter D)ˣ) :
+    val (constantDiagram C D) (constantSection C D U z) V f = z := by sorry
+
+noncomputable def constantSectionsEquiv (U : C) :
+    (CatCenter D)ˣ ≃* IntrinsicBandSection (constantDiagram C D) U := by sorry
+
+lemma constantSectionsEquiv_restrict {U V : C} (f : V ⟶ U) (z : (CatCenter D)ˣ) :
+    restrict (constantDiagram C D) f (constantSectionsEquiv C D U z) =
+      constantSectionsEquiv C D V z := by sorry
+
+variable (I : Type fixture_u) (G : Type fixture_v) [CommGroup G]
+
+abbrev Fibre := Discrete I × SingleObj G
+
+def componentCenter (a : I → G) : CatCenter (Fibre I G) := by sorry
+
+def componentCenterUnit (a : I → G) : (CatCenter (Fibre I G))ˣ := by sorry
+
+def componentCenterEquiv : (I → G) ≃* (CatCenter (Fibre I G))ˣ := by sorry
+
+noncomputable def componentSectionsEquiv (U : C) :
+    (I → G) ≃* IntrinsicBandSection (constantDiagram C (Fibre I G)) U := by sorry
+
+lemma componentSectionsEquiv_eval {U V : C} (f : V ⟶ U) (a : I → G) (i : I) :
+    (eval (constantDiagram C (Fibre I G)) f (Discrete.mk i, SingleObj.star G)
+      (componentSectionsEquiv C I G U a)).hom.2 = a i := by sorry
+
+lemma componentSectionsEquiv_restrict {U V : C} (f : V ⟶ U) (a : I → G) :
+    restrict (constantDiagram C (Fibre I G)) f (componentSectionsEquiv C I G U a) =
+      componentSectionsEquiv C I G V a := by sorry
+
+lemma component_eval_bijective [Subsingleton I] (U : C) (i : I) :
+    Function.Bijective (eval (constantDiagram C (Fibre I G)) (𝟙 U)
+      (Discrete.mk i, SingleObj.star G)) := by sorry
+
+lemma component_eval_not_injective (U : C) (g : G) (hg : g ≠ 1) :
+    ¬ Function.Injective (eval (constantDiagram C (Fibre Bool G)) (𝟙 U)
+      (Discrete.mk false, SingleObj.star G)) := by sorry
+
+lemma fibre_no_cross_iso :
+    ¬ Nonempty (((Discrete.mk false, SingleObj.star G) : Fibre Bool G) ≅
+      (Discrete.mk true, SingleObj.star G)) := by sorry
+
+lemma constant_two_components_not_gerbe (U : C) :
+    ¬ IsGerbe (constantDiagram C (Fibre Bool G)) (⊥ : GrothendieckTopology C) := by sorry
+
+set_option backward.isDefEq.respectTransparency false in
+lemma point_isStack :
+    (constantDiagram (Discrete PUnit) (Fibre I G)).IsStack ⊥ := by sorry
+
+lemma point_connected_gerbe :
+    IsGerbe (constantDiagram (Discrete PUnit) (Fibre PUnit G)) ⊥ := by sorry
+
+-- BandPointTests.stack
+example : (constantDiagram (Discrete PUnit) (Fibre Bool (Multiplicative (ZMod 3)))).IsStack ⊥ := by sorry
+
+-- BandPointTests.gerbe
+example : IsGerbe
+    (constantDiagram (Discrete PUnit) (Fibre PUnit (Multiplicative (ZMod 3)))) ⊥ := by sorry
+
+lemma constantSection_restrict {U V : C} (f : V ⟶ U) (z : (CatCenter D)ˣ) :
+    restrict (constantDiagram C D) f (constantSection C D U z) =
+      constantSection C D V z := by sorry
+
+lemma constantSectionsEquiv_apply (U : C) (z : (CatCenter D)ˣ) :
+    constantSectionsEquiv C D U z = constantSection C D U z := by sorry
+
+lemma constantSectionsEquiv_symm_apply (U : C)
+    (s : IntrinsicBandSection (constantDiagram C D) U) :
+    (constantSectionsEquiv C D U).symm s = val (constantDiagram C D) s U (𝟙 U) := by sorry
+
+lemma componentCenter_app (a : I → G) (x : Fibre I G) :
+    (componentCenter I G a).app x = (𝟙 x.1, a x.1.as) := by sorry
+
+lemma componentCenter_naturality (a : I → G) {x y : Fibre I G} (f : x ⟶ y) :
+    f ≫ (componentCenter I G a).app y = (componentCenter I G a).app x ≫ f := by sorry
+
+lemma componentCenterUnit_val (a : I → G) :
+    (componentCenterUnit I G a).val = componentCenter I G a := by sorry
+
+lemma componentCenterUnit_inv (a : I → G) :
+    (componentCenterUnit I G a).inv = componentCenter I G (fun i => (a i)⁻¹) := by sorry
+
+lemma componentCenterEquiv_apply (a : I → G) :
+    componentCenterEquiv I G a = componentCenterUnit I G a := by sorry
+
+lemma componentCenterEquiv_symm_apply (z : (CatCenter (Fibre I G))ˣ) (i : I) :
+    (componentCenterEquiv I G).symm z i =
+      (z.val.app (Discrete.mk i, SingleObj.star G)).2 := by sorry
+
+lemma componentSectionsEquiv_symm_apply (U : C)
+    (s : IntrinsicBandSection (constantDiagram C (Fibre I G)) U) (i : I) :
+    (componentSectionsEquiv C I G U).symm s i =
+      ((val (constantDiagram C (Fibre I G)) s U (𝟙 U)).val.app
+        (Discrete.mk i, SingleObj.star G)).2 := by sorry
+
+-- BandPointTests.generator
+example : (eval
+    (constantDiagram (Discrete PUnit) (Fibre PUnit (Multiplicative (ZMod 3))))
+    (𝟙 (Discrete.mk PUnit.unit)) (Discrete.mk PUnit.unit, SingleObj.star _)
+    (componentSectionsEquiv (Discrete PUnit) PUnit (Multiplicative (ZMod 3))
+      (Discrete.mk PUnit.unit) (fun _ => Multiplicative.ofAdd (1 : ZMod 3)))).hom.2 =
+        Multiplicative.ofAdd (1 : ZMod 3) := by sorry
+
+-- BandPointTests.trivialDiscreteTwoObjects
+example : (constantDiagram (Discrete PUnit) (Fibre Bool (Multiplicative (ZMod 1)))).IsStack ⊥ ∧
+    ¬ IsGerbe (constantDiagram (Discrete PUnit) (Fibre Bool (Multiplicative (ZMod 1)))) ⊥ := by sorry
+
+-- BandPointTests.disconnectedWitness
+example : ∃ s : IntrinsicBandSection
+    (constantDiagram (Discrete PUnit) (Fibre Bool (Multiplicative (ZMod 3))))
+      (Discrete.mk PUnit.unit), s ≠ 1 ∧
+    eval (constantDiagram (Discrete PUnit) (Fibre Bool (Multiplicative (ZMod 3))))
+      (𝟙 (Discrete.mk PUnit.unit)) (Discrete.mk false, SingleObj.star _) s =
+        Iso.refl ((Discrete.mk false, SingleObj.star _) : Fibre Bool (Multiplicative (ZMod 3))) := by sorry
+
+-- ConstantCentreTests.one
+example (U : C) : constantSection C D U 1 = 1 := by sorry
+
+-- ConstantCentreTests.multiply
+example (U : C) (z t : (CatCenter D)ˣ) :
+    constantSection C D U (z * t) = constantSection C D U z * constantSection C D U t := by sorry
+
+-- ConstantCentreTests.allArrows
+example (U V : C) (f : V ⟶ U) (z : (CatCenter D)ˣ) :
+    val (constantDiagram C D) (constantSection C D U z) V f = z := by sorry
+
+-- ConstantEquivTests.centreRoundTrip
+example (U : C) (z : (CatCenter D)ˣ) :
+    (constantSectionsEquiv C D U).symm (constantSectionsEquiv C D U z) = z := by sorry
+
+-- ConstantEquivTests.sectionRoundTrip
+example (U : C) (s : IntrinsicBandSection (constantDiagram C D) U) :
+    constantSectionsEquiv C D U ((constantSectionsEquiv C D U).symm s) = s := by sorry
+
+-- ConstantEquivTests.restriction
+example {U V : C} (f : V ⟶ U) (z : (CatCenter D)ˣ) :
+    restrict (constantDiagram C D) f (constantSectionsEquiv C D U z) =
+      constantSectionsEquiv C D V z := by sorry
+
+-- ComponentCentreTests.component
+example (a : I → G) (i : I) :
+    (componentCenter I G a).app (Discrete.mk i, SingleObj.star G) = (𝟙 _, a i) := by sorry
+
+-- ComponentCentreTests.unit
+example (i : I) : (componentCenter I G 1).app (Discrete.mk i, SingleObj.star G) = 𝟙 _ := by sorry
+
+-- ComponentCentreTests.naturality
+example (a : I → G) {x y : Fibre I G} (f : x ⟶ y) :
+    f ≫ (componentCenter I G a).app y = (componentCenter I G a).app x ≫ f := by sorry
+
+-- ComponentUnitTests.value
+example (a : I → G) : (componentCenterUnit I G a).val = componentCenter I G a := by sorry
+
+-- ComponentUnitTests.inverse
+example (a : I → G) : (componentCenterUnit I G a).inv =
+    componentCenter I G (fun i => (a i)⁻¹) := by sorry
+
+-- ComponentUnitTests.roundTrip
+example (a : I → G) : (componentCenterUnit I G a).val *
+    (componentCenterUnit I G a).inv = 1 := by sorry
+
+-- ComponentEquivTests.coefficientRoundTrip
+example (a : I → G) : (componentCenterEquiv I G).symm (componentCenterEquiv I G a) = a := by sorry
+
+-- ComponentEquivTests.centreRoundTrip
+example (z : (CatCenter (Fibre I G))ˣ) :
+    componentCenterEquiv I G ((componentCenterEquiv I G).symm z) = z := by sorry
+
+-- ComponentEquivTests.inertiaCoordinates
+example (a : I → G) (i : I) :
+    ((componentCenterEquiv I G a).val.app (Discrete.mk i, SingleObj.star G)).2 = a i := by sorry
+
+-- ComponentSectionTests.evaluation
+example {U V : C} (f : V ⟶ U) (a : I → G) (i : I) :
+    (eval (constantDiagram C (Fibre I G)) f (Discrete.mk i, SingleObj.star G)
+      (componentSectionsEquiv C I G U a)).hom.2 = a i := by sorry
+
+-- ComponentSectionTests.restriction
+example {U V : C} (f : V ⟶ U) (a : I → G) :
+    restrict (constantDiagram C (Fibre I G)) f (componentSectionsEquiv C I G U a) =
+      componentSectionsEquiv C I G V a := by sorry
+
+-- ComponentSectionTests.roundTrip
+example (U : C) (a : I → G) :
+    (componentSectionsEquiv C I G U).symm (componentSectionsEquiv C I G U a) = a := by sorry
+
+-- BandPointTests.connected
+example : Function.Bijective
+    (eval (constantDiagram (Discrete PUnit) (Fibre PUnit (Multiplicative (ZMod 3))))
+      (𝟙 (Discrete.mk PUnit.unit)) (Discrete.mk PUnit.unit, SingleObj.star _)) := by sorry
+
+-- BandPointTests.disconnected
+example : ¬ Function.Injective
+    (eval (constantDiagram (Discrete PUnit) (Fibre Bool (Multiplicative (ZMod 3))))
+      (𝟙 (Discrete.mk PUnit.unit)) (Discrete.mk false, SingleObj.star _)) := by sorry
+
+-- BandPointTests.notGerbe
+example : ¬ IsGerbe
+    (constantDiagram (Discrete PUnit) (Fibre Bool (Multiplicative (ZMod 3)))) ⊥ := by sorry
+
+-- BandPointTests.connectedCardinality
+example : Nat.card (IntrinsicBandSection
+    (constantDiagram (Discrete PUnit) (Fibre PUnit (Multiplicative (ZMod 3))))
+      (Discrete.mk PUnit.unit)) = 3 := by sorry
+
+-- BandPointTests.disconnectedCardinality
+example : Nat.card (IntrinsicBandSection
+    (constantDiagram (Discrete PUnit) (Fibre Bool (Multiplicative (ZMod 3))))
+      (Discrete.mk PUnit.unit)) = 9 := by sorry
+
+-- BandPointTests.terminalFibre
+example : Nat.card (IntrinsicBandSection
+    (constantDiagram (Discrete PUnit) (Fibre PUnit (Multiplicative (ZMod 1))))
+      (Discrete.mk PUnit.unit)) = 1 := by sorry
+
+end TauCeti.AlgebraicGeometry.BandFixtures
+
+/-
+BEGIN ARCHIVED CHECKED POINT BAND FIXTURES
+import Mathlib.CategoryTheory.SingleObj
+import Mathlib.CategoryTheory.Products.Basic
+import Mathlib.CategoryTheory.Discrete.Basic
+import Mathlib.CategoryTheory.Bicategory.Functor.LocallyDiscrete
+import Mathlib.Data.ZMod.Basic
+import Mathlib.SetTheory.Cardinal.Finite
+import Mathlib.Data.Fintype.Pi
+import Mathlib.Algebra.Group.TypeTags.Finite
+import Mathlib.Algebra.Category.Grp.Limits
+import Mathlib.Algebra.Category.Grp.Basic
+import Mathlib.CategoryTheory.Sites.SheafOfTypes
+import Mathlib.Algebra.Group.TypeTags.Hom
+import Mathlib.CategoryTheory.Center.Basic
+import Mathlib.Algebra.Group.Subgroup.Basic
+import Mathlib.CategoryTheory.Sites.Descent.IsStack
+import Mathlib.CategoryTheory.Endomorphism
+
+open CategoryTheory Opposite Bicategory
+universe u v u' v'
+namespace TauCeti.AlgebraicGeometry
+variable {C : Type u} [Category.{v} C]
+variable (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
+
+namespace GerbeAutTransport
+
+set_option backward.isDefEq.respectTransparency false
+
+open Pseudofunctor.LocallyDiscreteOpToCat
+
+variable {D : Type*} [Category D]
+
+/-- Abelian inertia makes conjugation independent of the chosen object isomorphism. -/
+theorem conjugation_independent {x y : D}
+    (hcomm : ∀ a b : Aut x, a * b = b * a) (e e' : x ≅ y) :
+    Aut.autMulEquivOfIso e = Aut.autMulEquivOfIso e' := by
+  apply MulEquiv.ext
+  intro a
+  apply Iso.ext
+  have h := congrArg Iso.hom (hcomm (e ≪≫ e'.symm) a)
+  change a.hom ≫ (e.hom ≫ e'.inv) = (e.hom ≫ e'.inv) ≫ a.hom at h
+  change e.inv ≫ a.hom ≫ e.hom = e'.inv ≫ a.hom ≫ e'.hom
+  rw [← cancel_epi e.hom, ← cancel_mono e'.inv]
+  simpa only [Category.assoc, Iso.hom_inv_id_assoc, Iso.hom_inv_id,
+    Category.comp_id] using h
+
+/-- The overlap equation uses arbitrary comparison isomorphisms, not a coherent choice. -/
+theorem conjugates_commute {x₁ x₂ y₁ y₂ : D}
+    (hcomm : ∀ a b : Aut x₁, a * b = b * a)
+    (e₁ : x₁ ≅ y₁) (e₂ : x₂ ≅ y₂) (c : x₁ ≅ x₂) (d : y₁ ≅ y₂)
+    (a₁ : Aut x₁) (a₂ : Aut x₂)
+    (ha : a₁.hom ≫ c.hom = c.hom ≫ a₂.hom) :
+    (Aut.autMulEquivOfIso e₁ a₁).hom ≫ d.hom =
+      d.hom ≫ (Aut.autMulEquivOfIso e₂ a₂).hom := by
+  have h := congrArg (fun e : Aut x₁ ≃* Aut y₂ => (e a₁).hom)
+    (conjugation_independent hcomm (e₁ ≪≫ d) (c ≪≫ e₂))
+  change (d.inv ≫ e₁.inv) ≫ a₁.hom ≫ (e₁.hom ≫ d.hom) =
+    (e₂.inv ≫ c.inv) ≫ a₁.hom ≫ (c.hom ≫ e₂.hom) at h
+  simp only [Category.assoc] at h
+  have hc : c.inv ≫ a₁.hom ≫ c.hom = a₂.hom := by
+    rw [ha, c.inv_hom_id_assoc]
+  change (e₁.inv ≫ a₁.hom ≫ e₁.hom) ≫ d.hom =
+    d.hom ≫ e₂.inv ≫ a₂.hom ≫ e₂.hom
+  rw [← cancel_epi d.inv]
+  have hc' : c.inv ≫ a₁.hom ≫ c.hom ≫ e₂.hom = a₂.hom ≫ e₂.hom := by
+    simpa only [Category.assoc] using congrArg (fun k => k ≫ e₂.hom) hc
+  rw [hc'] at h
+  simpa only [Category.assoc, Iso.inv_hom_id_assoc] using h
+
+variable {E : Type*} [Category E]
+
+theorem map_conjugation (K : D ⥤ E) {x y : D} (e : x ≅ y) (a : Aut x) :
+    K.mapAut y (Aut.autMulEquivOfIso e a) =
+      Aut.autMulEquivOfIso (K.mapIso e) (K.mapAut x a) := by
+  apply Iso.ext
+  change K.map (e.inv ≫ a.hom ≫ e.hom) = K.map e.inv ≫ K.map a.hom ≫ K.map e.hom
+  simp only [Functor.map_comp]
+
+theorem map_conjugation_hom (K : D ⥤ E) {x y : D} (e : x ≅ y) (a : Aut x) :
+    (Aut.autMulEquivOfIso (K.mapIso e) (K.mapAut x a)).hom =
+      K.map (Aut.autMulEquivOfIso e a).hom :=
+  congrArg Iso.hom (map_conjugation K e a).symm
+
+variable (hComm : ∀ (V : C) (z : F.obj (.mk (op V))),
+  ∀ a b : Aut z, a * b = b * a)
+
+include hComm
+
+set_option backward.isDefEq.respectTransparency.types false in
+/-- Conjugation on an arbitrary covering family is a native descent automorphism. -/
+noncomputable def conjugateDescentIso
+    (hComm : ∀ (V : C) (z : F.obj (.mk (op V))), ∀ a b : Aut z, a * b = b * a)
+    {U : C} (R : Sieve U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) (a : Aut x) :
+    Aut ((F.toDescentData (fun i : R.arrows.category => i.obj.hom)).obj y) :=
+  Pseudofunctor.DescentData.isoMk
+    (fun i => Aut.autMulEquivOfIso (e i)
+      ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a)) (by
+    intro V q i j f g hf hg
+    let Dx := (F.toDescentData (fun i : R.arrows.category => i.obj.hom)).obj x
+    let Dy := (F.toDescentData (fun i : R.arrows.category => i.obj.hom)).obj y
+    have ha := ((F.toDescentData (fun i : R.arrows.category => i.obj.hom)).mapIso a).hom.comm
+      q f g hf hg
+    have h := conjugates_commute (hComm V _)
+      ((F.map f.op.toLoc).toFunctor.mapIso (e i))
+      ((F.map g.op.toLoc).toFunctor.mapIso (e j))
+      (Dx.iso q f g hf hg) (Dy.iso q f g hf hg)
+      ((F.map f.op.toLoc).toFunctor.mapAut _
+        ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a))
+      ((F.map g.op.toLoc).toFunctor.mapAut _
+        ((F.map j.obj.hom.op.toLoc).toFunctor.mapAut x a)) ha
+    simpa only [map_conjugation_hom, Pseudofunctor.DescentData.iso_hom, Dy,
+      Pseudofunctor.toDescentData_obj, Pseudofunctor.DescentData.ofObj_obj] using h)
+
+/-- Lift the specific local conjugates, using native full faithfulness of morphism descent. -/
+noncomputable def conjugateCoverAut
+    (hComm : ∀ (V : C) (z : F.obj (.mk (op V))), ∀ a b : Aut z, a * b = b * a)
+    (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) (a : Aut x) : Aut y :=
+  (F.isPrestackFor' R hR).fullyFaithful.preimageIso
+    (conjugateDescentIso F hComm R x y e a)
+
+variable (J : GrothendieckTopology C) [F.IsPrestack J]
+
+theorem conjugateCoverAut_map {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) (a : Aut x) (i : R.arrows.category) :
+    (F.map i.obj.hom.op.toLoc).toFunctor.map (conjugateCoverAut F hComm J R hR x y e a).hom =
+      (Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a)).hom := by
+  exact congrArg (fun k => k.hom i)
+    ((F.isPrestackFor' R hR).fullyFaithful.map_preimage
+      (conjugateDescentIso F hComm R x y e a).hom)
+
+theorem conjugateCoverAut_mapIso {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) (a : Aut x) (i : R.arrows.category) :
+    (F.map i.obj.hom.op.toLoc).toFunctor.mapAut y
+        (conjugateCoverAut F hComm J R hR x y e a) =
+      Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a) := by
+  apply Iso.ext
+  exact conjugateCoverAut_map F hComm J R hR x y e a i
+
+theorem conjugateCoverAut_unique {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) (a : Aut x) (b : Aut y)
+    (hb : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.mapAut y b =
+        Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a)) :
+    b = conjugateCoverAut F hComm J R hR x y e a := by
+  apply Iso.ext
+  apply (F.isPrestackFor' R hR).fullyFaithful.map_injective
+  apply Pseudofunctor.DescentData.hom_ext
+  intro i
+  change (F.map i.obj.hom.op.toLoc).toFunctor.map b.hom =
+    (F.map i.obj.hom.op.toLoc).toFunctor.map (conjugateCoverAut F hComm J R hR x y e a).hom
+  rw [conjugateCoverAut_map]
+  exact congrArg Iso.hom (hb i)
+
+theorem conjugateCoverAut_independent {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e e' : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) (a : Aut x) :
+    conjugateCoverAut F hComm J R hR x y e a =
+      conjugateCoverAut F hComm J R hR x y e' a := by
+  apply conjugateCoverAut_unique
+  intro i
+  rw [conjugateCoverAut_mapIso]
+  exact congrArg (fun E => E ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a))
+    (conjugation_independent (hComm i.obj.left _) (e i) (e' i))
+
+/-- The descended conjugation is a group homomorphism, with its actual multiplication law. -/
+noncomputable def conjugateCoverHom
+    (hComm : ∀ (V : C) (z : F.obj (.mk (op V))), ∀ a b : Aut z, a * b = b * a)
+    (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) : Aut x →* Aut y where
+  toFun := conjugateCoverAut F hComm J R hR x y e
+  map_one' := by
+    symm
+    apply conjugateCoverAut_unique
+    intro i
+    simp only [map_one]
+  map_mul' a b := by
+    symm
+    apply conjugateCoverAut_unique
+    intro i
+    simp only [map_mul, conjugateCoverAut_mapIso]
+
+theorem conjugateCoverAut_of_iso {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) (a : Aut x) (d : x ≅ y) :
+    conjugateCoverAut F hComm J R hR x y e a = Aut.autMulEquivOfIso d a := by
+  symm
+  apply conjugateCoverAut_unique
+  intro i
+  rw [map_conjugation]
+  exact congrArg (fun E => E ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a))
+    (conjugation_independent (hComm i.obj.left _)
+      ((F.map i.obj.hom.op.toLoc).toFunctor.mapIso d) (e i))
+
+/-- A covering refinement may use entirely different local object isomorphisms. -/
+theorem conjugateCoverAut_refinement {U : C} (R S : Sieve U)
+    (hR : R ∈ J U) (hS : S ∈ J U) (hRS : R ≤ S)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y)
+    (d : ∀ i : S.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) (a : Aut x) :
+    conjugateCoverAut F hComm J R hR x y e a =
+      conjugateCoverAut F hComm J S hS x y d a := by
+  symm
+  apply conjugateCoverAut_unique
+  intro i
+  let j : S.arrows.category := ⟨i.obj, hRS _ i.property⟩
+  have hj := conjugateCoverAut_mapIso F hComm J S hS x y d a j
+  change (F.map i.obj.hom.op.toLoc).toFunctor.mapAut y
+    (conjugateCoverAut F hComm J S hS x y d a) = _ at hj
+  rw [hj]
+  exact congrArg (fun E => E ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a))
+    (conjugation_independent (hComm i.obj.left _) (d j) (e i))
+
+/-- Intersection of actual covering sieves compares unrelated covers. -/
+theorem conjugateCoverAut_cover_independent {U : C} (R S : Sieve U)
+    (hR : R ∈ J U) (hS : S ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y)
+    (d : ∀ i : S.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) (a : Aut x) :
+    conjugateCoverAut F hComm J R hR x y e a =
+      conjugateCoverAut F hComm J S hS x y d a := by
+  let T := R ⊓ S
+  have hT : T ∈ J U := J.intersection_covering hR hS
+  let c : ∀ i : T.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y :=
+    fun i => e ⟨i.obj, i.property.1⟩
+  exact (conjugateCoverAut_refinement F hComm J T R hT hR inf_le_left x y c e a).symm.trans
+    (conjugateCoverAut_refinement F hComm J T S hT hS inf_le_right x y c d a)
+
+/-- Reversing the local object isomorphisms reverses the descended transport. -/
+theorem conjugateCoverAut_reverse {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) (a : Aut x) :
+    conjugateCoverAut F hComm J R hR y x (fun i => (e i).symm)
+      (conjugateCoverAut F hComm J R hR x y e a) = a := by
+  apply Iso.ext
+  apply (F.isPrestackFor' R hR).fullyFaithful.map_injective
+  apply Pseudofunctor.DescentData.hom_ext
+  intro i
+  change (F.map i.obj.hom.op.toLoc).toFunctor.map
+      (conjugateCoverAut F hComm J R hR y x (fun i => (e i).symm)
+        (conjugateCoverAut F hComm J R hR x y e a)).hom =
+    (F.map i.obj.hom.op.toLoc).toFunctor.map a.hom
+  have h := conjugateCoverAut_mapIso F hComm J R hR y x (fun i => (e i).symm)
+    (conjugateCoverAut F hComm J R hR x y e a) i
+  rw [conjugateCoverAut_mapIso F hComm J R hR x y e a i] at h
+  have hc : Aut.autMulEquivOfIso (e i).symm
+      (Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a)) =
+      (F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a := by
+    apply Iso.ext
+    simp [Aut.autMulEquivOfIso, Category.assoc]
+  exact congrArg Iso.hom (h.trans hc)
+
+/-- The inverse is the descended transport through inverse local isomorphisms. -/
+noncomputable def conjugateCoverEquiv
+    (hComm : ∀ (V : C) (z : F.obj (.mk (op V))), ∀ a b : Aut z, a * b = b * a)
+    (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) : Aut x ≃* Aut y where
+  toFun := conjugateCoverHom F hComm J R hR x y e
+  invFun := conjugateCoverHom F hComm J R hR y x (fun i => (e i).symm)
+  left_inv := conjugateCoverAut_reverse F hComm J R hR x y e
+  right_inv b := by
+    exact conjugateCoverAut_reverse F hComm J R hR y x (fun i => (e i).symm) b
+  map_mul' := (conjugateCoverHom F hComm J R hR x y e).map_mul
+
+theorem conjugateCoverEquiv_cover_independent {U : C} (R S : Sieve U)
+    (hR : R ∈ J U) (hS : S ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y)
+    (d : ∀ i : S.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) :
+    conjugateCoverEquiv F hComm J R hR x y e =
+      conjugateCoverEquiv F hComm J S hS x y d := by
+  apply MulEquiv.ext
+  intro a
+  exact conjugateCoverAut_cover_independent F hComm J R S hR hS x y e d a
+
+/-- The same-base cocycle uses arbitrary local choices for all three object pairs. -/
+theorem conjugateCoverAut_comp {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (x y z : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y)
+    (d : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj y ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj z)
+    (c : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj z) (a : Aut x) :
+    conjugateCoverAut F hComm J R hR y z d
+      (conjugateCoverAut F hComm J R hR x y e a) =
+    conjugateCoverAut F hComm J R hR x z c a := by
+  apply conjugateCoverAut_unique
+  intro i
+  rw [conjugateCoverAut_mapIso F hComm J R hR y z d,
+    conjugateCoverAut_mapIso F hComm J R hR x y e]
+  have hc : Aut.autMulEquivOfIso (d i)
+      (Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a)) =
+      Aut.autMulEquivOfIso (e i ≪≫ d i)
+        ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a) := by
+    apply Iso.ext
+    simp [Aut.autMulEquivOfIso, Category.assoc]
+  exact hc.trans (congrArg (fun E => E ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a))
+    (conjugation_independent (hComm i.obj.left _) (e i ≪≫ d i) (c i)))
+
+variable {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y)
+
+theorem conjugateDescentIso_hom_apply (a : Aut x) (i : R.arrows.category) :
+    (conjugateDescentIso F hComm R x y e a).hom.hom i =
+      (Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a)).hom := rfl
+
+theorem conjugateDescentIso_one : conjugateDescentIso F hComm R x y e 1 = 1 := by
+  apply Iso.ext
+  apply Pseudofunctor.DescentData.hom_ext
+  intro i
+  change (Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x 1)).hom = 𝟙 _
+  simp only [map_one]
+  rfl
+
+theorem conjugateDescentIso_inv (a : Aut x) :
+    conjugateDescentIso F hComm R x y e a⁻¹ = (conjugateDescentIso F hComm R x y e a)⁻¹ := by
+  apply Iso.ext
+  apply Pseudofunctor.DescentData.hom_ext
+  intro i
+  change (Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a⁻¹)).hom =
+    (Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a)).inv
+  simp only [map_inv]
+  rfl
+
+theorem conjugateCoverHom_apply (a : Aut x) :
+    conjugateCoverHom F hComm J R hR x y e a = conjugateCoverAut F hComm J R hR x y e a := rfl
+
+theorem conjugateCoverHom_one : conjugateCoverHom F hComm J R hR x y e 1 = 1 :=
+  (conjugateCoverHom F hComm J R hR x y e).map_one
+
+theorem conjugateCoverHom_mul (a b : Aut x) :
+    conjugateCoverHom F hComm J R hR x y e (a * b) =
+      conjugateCoverHom F hComm J R hR x y e a * conjugateCoverHom F hComm J R hR x y e b :=
+  (conjugateCoverHom F hComm J R hR x y e).map_mul a b
+
+theorem conjugateCoverHom_inv (a : Aut x) :
+    conjugateCoverHom F hComm J R hR x y e a⁻¹ = (conjugateCoverHom F hComm J R hR x y e a)⁻¹ :=
+  (conjugateCoverHom F hComm J R hR x y e).map_inv a
+
+theorem conjugateCoverEquiv_apply (a : Aut x) :
+    conjugateCoverEquiv F hComm J R hR x y e a =
+      conjugateCoverAut F hComm J R hR x y e a := rfl
+
+theorem conjugateCoverEquiv_symm_apply (b : Aut y) :
+    (conjugateCoverEquiv F hComm J R hR x y e).symm b =
+      conjugateCoverAut F hComm J R hR y x (fun i => (e i).symm) b := rfl
+
+theorem conjugateCoverEquiv_mapIso (a : Aut x) (i : R.arrows.category) :
+    (F.map i.obj.hom.op.toLoc).toFunctor.mapAut y
+      (conjugateCoverEquiv F hComm J R hR x y e a) =
+      Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a) :=
+  conjugateCoverAut_mapIso F hComm J R hR x y e a i
+
+theorem conjugateCoverEquiv_of_iso (d : x ≅ y) :
+    conjugateCoverEquiv F hComm J R hR x y e = Aut.autMulEquivOfIso d := by
+  apply MulEquiv.ext
+  intro a
+  exact conjugateCoverAut_of_iso F hComm J R hR x y e a d
+
+theorem conjugateCoverEquiv_one : conjugateCoverEquiv F hComm J R hR x y e 1 = 1 :=
+  (conjugateCoverEquiv F hComm J R hR x y e).map_one
+
+theorem conjugateCoverEquiv_mul (a b : Aut x) :
+    conjugateCoverEquiv F hComm J R hR x y e (a * b) =
+      conjugateCoverEquiv F hComm J R hR x y e a * conjugateCoverEquiv F hComm J R hR x y e b :=
+  (conjugateCoverEquiv F hComm J R hR x y e).map_mul a b
+
+theorem conjugateCoverEquiv_inv (a : Aut x) :
+    conjugateCoverEquiv F hComm J R hR x y e a⁻¹ =
+      (conjugateCoverEquiv F hComm J R hR x y e a)⁻¹ :=
+  (conjugateCoverEquiv F hComm J R hR x y e).map_inv a
+
+-- GerbeCoverEquivTests.equalObject: arbitrary local automorphisms induce the identity equivalence.
+example (e₀ : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj x) :
+    conjugateCoverEquiv F hComm J R hR x x e₀ = MulEquiv.refl (Aut x) := by
+  rw [conjugateCoverEquiv_of_iso F hComm J R hR x x e₀ (Iso.refl x)]
+  apply MulEquiv.ext
+  intro a
+  apply Iso.ext
+  simp [Aut.autMulEquivOfIso]
+
+-- GerbeCoverEquivTests.roundTrip: the inverse must recover arbitrary source automorphisms.
+example (a : Aut x) :
+    (conjugateCoverEquiv F hComm J R hR x y e).symm
+      (conjugateCoverEquiv F hComm J R hR x y e a) = a :=
+  (conjugateCoverEquiv F hComm J R hR x y e).symm_apply_apply a
+
+-- GerbeCoverEquivTests.targetRoundTrip: no target automorphism may be lost.
+example (b : Aut y) :
+    conjugateCoverEquiv F hComm J R hR x y e
+      ((conjugateCoverEquiv F hComm J R hR x y e).symm b) = b :=
+  (conjugateCoverEquiv F hComm J R hR x y e).apply_symm_apply b
+
+-- GerbeCoverEquivTests.local: actual restrictions identify the equivalence with conjugation.
+example (a : Aut x) (i : R.arrows.category) :
+    (F.map i.obj.hom.op.toLoc).toFunctor.mapAut y
+      (conjugateCoverEquiv F hComm J R hR x y e a) =
+      Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a) :=
+  conjugateCoverEquiv_mapIso F hComm J R hR x y e a i
+
+-- GerbeCoverEquivTests.globalIso: retain the labelled native Mathlib conjugation map.
+example (d : x ≅ y) : conjugateCoverEquiv F hComm J R hR x y e = Aut.autMulEquivOfIso d :=
+  conjugateCoverEquiv_of_iso F hComm J R hR x y e d
+
+-- GerbeCoverEquivTests.changeCover: compare whole maps on unrelated actual covering sieves.
+example (S : Sieve U) (hS : S ∈ J U)
+    (d : ∀ i : S.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) :
+    conjugateCoverEquiv F hComm J R hR x y e = conjugateCoverEquiv F hComm J S hS x y d :=
+  conjugateCoverEquiv_cover_independent F hComm J R S hR hS x y e d
+
+-- GerbeCoverEquivTests.product: multiplication is the existing native Aut multiplication.
+example (a b : Aut x) : conjugateCoverEquiv F hComm J R hR x y e (a * b) =
+    conjugateCoverEquiv F hComm J R hR x y e a * conjugateCoverEquiv F hComm J R hR x y e b :=
+  (conjugateCoverEquiv F hComm J R hR x y e).map_mul a b
+
+-- GerbeConjugateDescentTests.local: the prescribed component is recovered.
+example (a : Aut x) (i : R.arrows.category) :
+    (conjugateDescentIso F hComm R x y e a).hom.hom i =
+      (Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a)).hom :=
+  conjugateDescentIso_hom_apply F hComm R x y e a i
+
+-- GerbeConjugateDescentTests.identity: no spurious local arrow appears at the unit.
+example : conjugateDescentIso F hComm R x y e 1 = 1 :=
+  conjugateDescentIso_one F hComm R x y e
+
+-- GerbeConjugateDescentTests.inverse: the actual inverse descent arrow is retained.
+example (a : Aut x) :
+    conjugateDescentIso F hComm R x y e a⁻¹ = (conjugateDescentIso F hComm R x y e a)⁻¹ :=
+  conjugateDescentIso_inv F hComm R x y e a
+
+-- GerbeConjugateCoverTests.local: full faithfulness recovers the actual local automorphism.
+example (a : Aut x) (i : R.arrows.category) :
+    (F.map i.obj.hom.op.toLoc).toFunctor.mapAut y (conjugateCoverAut F hComm J R hR x y e a) =
+      Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a) :=
+  conjugateCoverAut_mapIso F hComm J R hR x y e a i
+
+-- GerbeConjugateCoverTests.unique: descent must reflect all components.
+example (a : Aut x) (b : Aut y)
+    (hb : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.mapAut y b =
+        Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a)) :
+    b = conjugateCoverAut F hComm J R hR x y e a :=
+  conjugateCoverAut_unique F hComm J R hR x y e a b hb
+
+-- GerbeConjugateCoverTests.changeChoice: arbitrary local choices give the same result.
+example (a : Aut x)
+    (e' : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) :
+    conjugateCoverAut F hComm J R hR x y e a = conjugateCoverAut F hComm J R hR x y e' a :=
+  conjugateCoverAut_independent F hComm J R hR x y e e' a
+
+-- GerbeConjugateCoverTests.globalIso: compare with the existing Mathlib conjugation.
+example (a : Aut x) (d : x ≅ y) :
+    conjugateCoverAut F hComm J R hR x y e a = Aut.autMulEquivOfIso d a :=
+  conjugateCoverAut_of_iso F hComm J R hR x y e a d
+
+-- GerbeConjugateHomTests.identity: the group homomorphism preserves the unit.
+example : conjugateCoverHom F hComm J R hR x y e 1 = 1 :=
+  conjugateCoverHom_one F hComm J R hR x y e
+
+-- GerbeConjugateHomTests.product: multiplication order agrees with native Aut.
+example (a b : Aut x) :
+    conjugateCoverHom F hComm J R hR x y e (a * b) =
+      conjugateCoverHom F hComm J R hR x y e a * conjugateCoverHom F hComm J R hR x y e b :=
+  conjugateCoverHom_mul F hComm J R hR x y e a b
+
+-- GerbeConjugateHomTests.inverse: the inverse law belongs to the actual group homomorphism.
+example (a : Aut x) :
+    conjugateCoverHom F hComm J R hR x y e a⁻¹ = (conjugateCoverHom F hComm J R hR x y e a)⁻¹ :=
+  conjugateCoverHom_inv F hComm J R hR x y e a
+
+-- GerbeConjugateHomTests.equalObject: every choice of local x-to-x isomorphism fixes a.
+example (a : Aut x)
+    (e₀ : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj x) :
+    conjugateCoverHom F hComm J R hR x x e₀ a = a := by
+  rw [conjugateCoverHom_apply, conjugateCoverAut_of_iso F hComm J R hR x x e₀ a (Iso.refl x)]
+  apply Iso.ext
+  simp [Aut.autMulEquivOfIso]
+
+#print axioms conjugateCoverAut_refinement
+#print axioms conjugateCoverAut_cover_independent
+#print axioms conjugateCoverAut_reverse
+#print axioms conjugateCoverAut_comp
+#print axioms conjugateCoverEquiv
+#print axioms conjugateCoverEquiv_cover_independent
+#print axioms conjugateCoverEquiv_apply
+#print axioms conjugateCoverEquiv_symm_apply
+#print axioms conjugateCoverEquiv_mapIso
+#print axioms conjugateCoverEquiv_of_iso
+#print axioms conjugateCoverEquiv_one
+#print axioms conjugateCoverEquiv_mul
+#print axioms conjugateCoverEquiv_inv
+#print axioms conjugation_independent
+#print axioms conjugates_commute
+#print axioms map_conjugation
+#print axioms conjugateDescentIso
+#print axioms conjugateCoverAut
+#print axioms conjugateCoverAut_map
+#print axioms conjugateCoverAut_mapIso
+#print axioms conjugateCoverAut_unique
+#print axioms conjugateCoverAut_independent
+#print axioms conjugateCoverHom
+#print axioms conjugateCoverAut_of_iso
+#print axioms conjugateDescentIso_hom_apply
+#print axioms conjugateDescentIso_one
+#print axioms conjugateDescentIso_inv
+#print axioms conjugateCoverHom_apply
+#print axioms conjugateCoverHom_one
+#print axioms conjugateCoverHom_mul
+#print axioms conjugateCoverHom_inv
+
+end GerbeAutTransport
+
+theorem banding_iso_independent (U : C) {x y : F.obj (.mk (op U))}
+    (hcomm : ∀ a a' : Aut x, a * a' = a' * a) (e e' : x ≅ y) :
+    Aut.autMulEquivOfIso e = Aut.autMulEquivOfIso e' :=
+  GerbeAutTransport.conjugation_independent hcomm e e'
+
+#print axioms banding_iso_independent
+end TauCeti.AlgebraicGeometry
+
+namespace TauCeti.AlgebraicGeometry.GerbeAutTransport
+open CategoryTheory Opposite Bicategory
+open Pseudofunctor.LocallyDiscreteOpToCat
+variable {C : Type u} [Category.{v} C]
+variable (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
+variable (hComm : ∀ (V : C) (z : F.obj (.mk (op V))), ∀ a b : Aut z, a * b = b * a)
+variable (J : GrothendieckTopology C) [F.IsPrestack J]
+set_option backward.isDefEq.respectTransparency false
+
+/-- Native conjugation transport is compatible with every base arrow and unrelated covers. -/
+theorem conjugateCoverAut_baseChange {U V : C} (f : V ⟶ U)
+    (R : Sieve U) (hR : R ∈ J U) (S : Sieve V) (hS : S ∈ J V)
+    (x y : F.obj (.mk (op U)))
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y)
+    (d : ∀ i : S.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj ((F.map f.op.toLoc).toFunctor.obj x) ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj ((F.map f.op.toLoc).toFunctor.obj y))
+    (a : Aut x) :
+    (F.map f.op.toLoc).toFunctor.mapAut y (conjugateCoverAut F hComm J R hR x y e a) =
+      conjugateCoverAut F hComm J S hS
+        ((F.map f.op.toLoc).toFunctor.obj x) ((F.map f.op.toLoc).toFunctor.obj y) d
+        ((F.map f.op.toLoc).toFunctor.mapAut x a) := by
+  let T := R.pullback f ⊓ S
+  have hT : T ∈ J V := J.intersection_covering (J.pullback_stable f hR) hS
+  apply Iso.ext
+  apply (F.isPrestackFor' T hT).fullyFaithful.map_injective
+  apply Pseudofunctor.DescentData.hom_ext
+  intro i
+  let j : R.arrows.category := ⟨Over.mk (i.obj.hom ≫ f), i.property.1⟩
+  let k : S.arrows.category := ⟨i.obj, i.property.2⟩
+  let c := Cat.Hom.toNatIso
+    (F.mapComp' f.op.toLoc i.obj.hom.op.toLoc (i.obj.hom ≫ f).op.toLoc (by aesop))
+  let b := conjugateCoverAut F hComm J R hR x y e a
+  have ha := c.hom.naturality a.hom
+  have hb := c.hom.naturality b.hom
+  have hc := conjugates_commute (hComm i.obj.left _) (e j) (d k) (c.app x) (c.app y)
+    ((F.map (i.obj.hom ≫ f).op.toLoc).toFunctor.mapAut x a)
+    ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut _
+      ((F.map f.op.toLoc).toFunctor.mapAut x a)) ha
+  have he := conjugateCoverAut_map F hComm J R hR x y e a j
+  change (F.map (i.obj.hom ≫ f).op.toLoc).toFunctor.map b.hom =
+    (Aut.autMulEquivOfIso (e j)
+      ((F.map (i.obj.hom ≫ f).op.toLoc).toFunctor.mapAut x a)).hom at he
+  rw [← he] at hc
+  have hc' := hb.symm.trans hc
+  have hd := conjugateCoverAut_map F hComm J S hS
+    ((F.map f.op.toLoc).toFunctor.obj x) ((F.map f.op.toLoc).toFunctor.obj y) d
+    ((F.map f.op.toLoc).toFunctor.mapAut x a) k
+  change (F.map i.obj.hom.op.toLoc).toFunctor.map
+      ((F.map f.op.toLoc).toFunctor.map b.hom) =
+    (F.map i.obj.hom.op.toLoc).toFunctor.map
+      (conjugateCoverAut F hComm J S hS
+        ((F.map f.op.toLoc).toFunctor.obj x) ((F.map f.op.toLoc).toFunctor.obj y) d
+        ((F.map f.op.toLoc).toFunctor.mapAut x a)).hom
+  rw [hd]
+  exact (cancel_epi (c.app y).hom).mp hc'
+
+/-- Descent respects independent source and target isomorphisms and independent covers. -/
+theorem conjugateCoverAut_naturality
+    {U : C} (R : Sieve U) (hR : R ∈ J U) (S : Sieve U) (hS : S ∈ J U)
+    (x₁ x₂ y₁ y₂ : F.obj (.mk (op U)))
+    (e₁ : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x₁ ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y₁)
+    (e₂ : ∀ i : S.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj x₂ ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y₂)
+    (c : x₁ ≅ x₂) (d : y₁ ≅ y₂) (a₁ : Aut x₁) (a₂ : Aut x₂)
+    (ha : a₁.hom ≫ c.hom = c.hom ≫ a₂.hom) :
+    (conjugateCoverAut F hComm J R hR x₁ y₁ e₁ a₁).hom ≫ d.hom =
+      d.hom ≫ (conjugateCoverAut F hComm J S hS x₂ y₂ e₂ a₂).hom := by
+  let T := R ⊓ S
+  have hT : T ∈ J U := J.intersection_covering hR hS
+  apply (F.isPrestackFor' T hT).fullyFaithful.map_injective
+  apply Pseudofunctor.DescentData.hom_ext
+  intro i
+  let j : R.arrows.category := ⟨i.obj, i.property.1⟩
+  let k : S.arrows.category := ⟨i.obj, i.property.2⟩
+  let K := (F.map i.obj.hom.op.toLoc).toFunctor
+  have h := conjugates_commute (hComm i.obj.left _) (e₁ j) (e₂ k)
+    (K.mapIso c) (K.mapIso d) (K.mapAut x₁ a₁) (K.mapAut x₂ a₂) (by
+      change K.map a₁.hom ≫ K.map c.hom = K.map c.hom ≫ K.map a₂.hom
+      simpa only [Functor.map_comp] using congrArg K.map ha)
+  have he₁ := conjugateCoverAut_map F hComm J R hR x₁ y₁ e₁ a₁ j
+  have he₂ := conjugateCoverAut_map F hComm J S hS x₂ y₂ e₂ a₂ k
+  change K.map ((conjugateCoverAut F hComm J R hR x₁ y₁ e₁ a₁).hom ≫ d.hom) =
+    K.map (d.hom ≫ (conjugateCoverAut F hComm J S hS x₂ y₂ e₂ a₂).hom)
+  simp only [Functor.map_comp]
+  change K.map (conjugateCoverAut F hComm J R hR x₁ y₁ e₁ a₁).hom = _ at he₁
+  change K.map (conjugateCoverAut F hComm J S hS x₂ y₂ e₂ a₂).hom = _ at he₂
+  rw [he₁, he₂]
+  exact h
+
+#print axioms conjugateCoverAut_naturality
+
+#print axioms conjugateCoverAut_baseChange
+end TauCeti.AlgebraicGeometry.GerbeAutTransport
+
+namespace TauCeti.AlgebraicGeometry
+variable {C : Type u} [Category.{v} C]
+variable (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
+class IsGerbe (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
+    (J : GrothendieckTopology C) : Prop extends F.IsStack J where
+  isIso_hom : ∀ (U : C) {x y : F.obj (.mk (op U))} (f : x ⟶ y), IsIso f
+  locallyNonempty : ∀ U : C, ∃ R : Sieve U, R ∈ J U ∧
+    ∀ ⦃V : C⦄ (f : V ⟶ U), R f → Nonempty (F.obj (.mk (op V)))
+  locallyIsomorphic : ∀ (U : C) (x y : F.obj (.mk (op U))),
+    ∃ R : Sieve U, R ∈ J U ∧ ∀ ⦃V : C⦄ (f : V ⟶ U), R f →
+      Nonempty ((F.map f.op.toLoc).toFunctor.obj x ≅
+        (F.map f.op.toLoc).toFunctor.obj y)
+
+noncomputable def intrinsicBandSectionSubgroup (U : C) :
+    Subgroup (∀ (V : C), (V ⟶ U) → (CatCenter (F.obj (.mk (op V))))ˣ) where
+  carrier := {z | ∀ (V W : C) (f : V ⟶ U) (g : W ⟶ V)
+      (x : F.obj (.mk (op V))),
+    (F.map g.op.toLoc).toFunctor.map ((z V f).val.app x) =
+      (z W (g ≫ f)).val.app ((F.map g.op.toLoc).toFunctor.obj x)}
+  one_mem' := by
+    intro V W f g x
+    exact (F.map g.op.toLoc).toFunctor.map_id x
+  mul_mem' := by
+    intro s t hs ht V W f g x
+    change (F.map g.op.toLoc).toFunctor.map
+      ((t V f).val.app x ≫ (s V f).val.app x) =
+      (t W (g ≫ f)).val.app _ ≫ (s W (g ≫ f)).val.app _
+    rw [Functor.map_comp, hs V W f g x, ht V W f g x]
+  inv_mem' := by
+    intro s hs V W f g x
+    let e := (Aut.unitsEndEquivAut (𝟭 (F.obj (.mk (op V)))) (s V f)).app x
+    let e' := (Aut.unitsEndEquivAut (𝟭 (F.obj (.mk (op W)))) (s W (g ≫ f))).app
+      ((F.map g.op.toLoc).toFunctor.obj x)
+    have h : (F.map g.op.toLoc).toFunctor.mapIso e = e' := by
+      apply Iso.ext
+      exact hs V W f g x
+    exact congrArg Iso.inv h
+
+abbrev IntrinsicBandSection (U : C) := ↥(intrinsicBandSectionSubgroup F U)
+
+namespace IntrinsicBandSections
+
+def val {U : C} (s : IntrinsicBandSection F U) (V : C) (f : V ⟶ U) :
+    (CatCenter (F.obj (.mk (op V))))ˣ := s.val V f
+
+theorem compatible {U : C} (s : IntrinsicBandSection F U)
+    (V W : C) (f : V ⟶ U) (g : W ⟶ V) (x : F.obj (.mk (op V))) :
+    (F.map g.op.toLoc).toFunctor.map ((val F s V f).val.app x) =
+      (val F s W (g ≫ f)).val.app ((F.map g.op.toLoc).toFunctor.obj x) := by
+  exact s.property V W f g x
+
+/-- R09.4/band-center-ext. -/
+@[ext] theorem ext {U : C} (s t : IntrinsicBandSection F U)
+    (h : ∀ (V : C) (f : V ⟶ U) (x : F.obj (.mk (op V))),
+      (val F s V f).val.app x = (val F t V f).val.app x) : s = t := by
+  apply Subtype.ext
+  funext V f
+  apply Units.ext
+  exact CatCenter.ext _ _ (h V f)
+
+/-- R09.4/band-center-commute; subgroup operations come from existing groups. -/
+noncomputable instance commGroup (U : C) : CommGroup (IntrinsicBandSection F U) :=
+  { (inferInstance : Group (IntrinsicBandSection F U)) with
+    mul_comm := by
+      intro s t
+      apply Subtype.ext
+      funext V f
+      change s.val V f * t.val V f = t.val V f * s.val V f
+      apply Units.ext
+      apply CatCenter.ext
+      intro x
+      change ((s.val V f).val * (t.val V f).val).app x =
+        ((t.val V f).val * (s.val V f).val).app x
+      rw [CatCenter.mul_app', CatCenter.mul_app] }
+
+/-- R09.4/band-center-restrict: reindex the family, not the fibre functor. -/
+noncomputable def restrict {U V : C} (f : V ⟶ U) :
+    IntrinsicBandSection F U →* IntrinsicBandSection F V where
+  toFun s := ⟨fun W a ↦ s.val W (a ≫ f), by
+    intro W X a g x
+    simpa only [Category.assoc] using s.property W X (a ≫ f) g x⟩
+  map_one' := by rfl
+  map_mul' := by intros; rfl
+
+theorem restrict_apply {U V W : C} (f : V ⟶ U)
+    (s : IntrinsicBandSection F U) (a : W ⟶ V) :
+    val F (restrict F f s) W a = val F s W (a ≫ f) := rfl
+
+/-- R09.4/band-center-restrict-id. -/
+theorem restrict_id {U : C} (s : IntrinsicBandSection F U) :
+    restrict F (𝟙 U) s = s := by
+  apply ext
+  intro V f x
+  simp only [restrict_apply, Category.comp_id]
+
+/-- R09.4/band-center-restrict-comp. -/
+theorem restrict_comp {U V W : C} (f : V ⟶ U) (g : W ⟶ V)
+    (s : IntrinsicBandSection F U) :
+    restrict F g (restrict F f s) = restrict F (g ≫ f) s := by
+  apply ext
+  intro X a x
+  simp only [restrict_apply, Category.assoc]
+
+/-- R09.4/band-center-evaluation. -/
+noncomputable def eval {U V : C} (a : V ⟶ U) (x : F.obj (.mk (op V))) :
+    IntrinsicBandSection F U →* Aut x where
+  toFun s := (Aut.unitsEndEquivAut (𝟭 (F.obj (.mk (op V)))) (val F s V a)).app x
+  map_one' := by apply Iso.ext; rfl
+  map_mul' := by intros; apply Iso.ext; rfl
+
+end IntrinsicBandSections
+end TauCeti.AlgebraicGeometry
+
+namespace TauCeti.AlgebraicGeometry.GerbeAutTransport
+open Pseudofunctor.LocallyDiscreteOpToCat
+variable {C : Type u} [Category.{v} C]
+variable (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
+variable (hComm : ∀ (V : C) (z : F.obj (.mk (op V))), ∀ a b : Aut z, a * b = b * a)
+variable (J : GrothendieckTopology C) [IsGerbe F J]
+set_option backward.isDefEq.respectTransparency false
+
+private noncomputable def localTransport {U : C} (x y : F.obj (.mk (op U))) :
+    Aut x →* Aut y := by
+  classical
+  let h := IsGerbe.locallyIsomorphic (F := F) (J := J) U x y
+  let R := h.choose
+  let e (i : R.arrows.category) := (h.choose_spec.2 i.obj.hom i.property).some
+  exact conjugateCoverHom F hComm J R h.choose_spec.1 x y e
+
+private theorem localTransport_naturality {U : C}
+    (x₁ x₂ y₁ y₂ : F.obj (.mk (op U)))
+    (c : x₁ ≅ x₂) (d : y₁ ≅ y₂) (a₁ : Aut x₁) (a₂ : Aut x₂)
+    (ha : a₁.hom ≫ c.hom = c.hom ≫ a₂.hom) :
+    (localTransport F hComm J x₁ y₁ a₁).hom ≫ d.hom =
+      d.hom ≫ (localTransport F hComm J x₂ y₂ a₂).hom := by
+  unfold localTransport
+  exact conjugateCoverAut_naturality F hComm J _
+    (IsGerbe.locallyIsomorphic (F := F) (J := J) U x₁ y₁).choose_spec.1 _
+    (IsGerbe.locallyIsomorphic (F := F) (J := J) U x₂ y₂).choose_spec.1
+    _ _ _ _ _ _ c d a₁ a₂ ha
+
+private theorem localTransport_baseChange {U V : C} (f : V ⟶ U)
+    (x y : F.obj (.mk (op U))) (a : Aut x) :
+    (F.map f.op.toLoc).toFunctor.mapAut y (localTransport F hComm J x y a) =
+      localTransport F hComm J
+        ((F.map f.op.toLoc).toFunctor.obj x) ((F.map f.op.toLoc).toFunctor.obj y)
+        ((F.map f.op.toLoc).toFunctor.mapAut x a) := by
+  unfold localTransport
+  exact conjugateCoverAut_baseChange F hComm J f _
+    (IsGerbe.locallyIsomorphic (F := F) (J := J) U x y).choose_spec.1 _
+    (IsGerbe.locallyIsomorphic (F := F) (J := J) V
+      ((F.map f.op.toLoc).toFunctor.obj x) ((F.map f.op.toLoc).toFunctor.obj y)).choose_spec.1
+    x y _ _ a
+
+private theorem localTransport_of_iso {U : C} (x y : F.obj (.mk (op U)))
+    (d : x ≅ y) (a : Aut x) :
+    localTransport F hComm J x y a = Aut.autMulEquivOfIso d a := by
+  unfold localTransport
+  exact conjugateCoverAut_of_iso F hComm J _
+    (IsGerbe.locallyIsomorphic (F := F) (J := J) U x y).choose_spec.1 x y _ a d
+
+private noncomputable def transportCenter {U : C} (x : F.obj (.mk (op U)))
+    (a : Aut x) : (CatCenter (F.obj (.mk (op U))))ˣ :=
+  (Aut.unitsEndEquivAut (𝟭 (F.obj (.mk (op U))))).symm
+    (NatIso.ofComponents (fun y => localTransport F hComm J x y a) (by
+      intro y z f
+      let : IsIso f := IsGerbe.isIso_hom (F := F) (J := J) U f
+      exact (localTransport_naturality F hComm J x x y z (Iso.refl x) (asIso f) a a
+        (by simp)).symm))
+
+end TauCeti.AlgebraicGeometry.GerbeAutTransport
+
+namespace TauCeti.AlgebraicGeometry.IntrinsicBandSections
+open GerbeAutTransport Pseudofunctor.LocallyDiscreteOpToCat
+variable {C : Type u} [Category.{v} C]
+variable (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
+variable (J : GrothendieckTopology C) [IsGerbe F J]
+variable (hComm : ∀ (V : C) (z : F.obj (.mk (op V))), ∀ a b : Aut z, a * b = b * a)
+set_option backward.isDefEq.respectTransparency false
+
+/-- Extend one automorphism to the simultaneous compatible-centre section. -/
+noncomputable def lift (J : GrothendieckTopology C) [IsGerbe F J]
+    (hComm : ∀ (V : C) (z : F.obj (.mk (op V))), ∀ a b : Aut z, a * b = b * a)
+    {U : C} (x : F.obj (.mk (op U))) :
+    Aut x →* IntrinsicBandSection F U where
+  toFun a := ⟨fun V f => transportCenter F hComm J
+    ((F.map f.op.toLoc).toFunctor.obj x) ((F.map f.op.toLoc).toFunctor.mapAut x a), by
+      intro V W f g y
+      change (F.map g.op.toLoc).toFunctor.map
+          (localTransport F hComm J _ y ((F.map f.op.toLoc).toFunctor.mapAut x a)).hom =
+        (localTransport F hComm J _ _ ((F.map (g ≫ f).op.toLoc).toFunctor.mapAut x a)).hom
+      have h := congrArg Iso.hom (localTransport_baseChange F hComm J g
+        ((F.map f.op.toLoc).toFunctor.obj x) y ((F.map f.op.toLoc).toFunctor.mapAut x a))
+      refine h.trans ?_
+      let c := Cat.Hom.toNatIso
+        (F.mapComp' f.op.toLoc g.op.toLoc (g ≫ f).op.toLoc (by aesop))
+      have hc := localTransport_naturality F hComm J _ _ _ _
+        (c.app x) (Iso.refl ((F.map g.op.toLoc).toFunctor.obj y))
+        ((F.map (g ≫ f).op.toLoc).toFunctor.mapAut x a)
+        ((F.map g.op.toLoc).toFunctor.mapAut _ ((F.map f.op.toLoc).toFunctor.mapAut x a))
+        (c.hom.naturality a.hom)
+      simp only [Iso.refl_hom, Category.comp_id, Category.id_comp] at hc
+      exact hc.symm⟩
+  map_one' := by
+    apply ext
+    intro V f y
+    change (localTransport F hComm J _ y ((F.map f.op.toLoc).toFunctor.mapAut x 1)).hom = _
+    rw [map_one, map_one]
+    rfl
+  map_mul' := by
+    intro a b
+    apply ext
+    intro V f y
+    change (localTransport F hComm J _ y ((F.map f.op.toLoc).toFunctor.mapAut x (a * b))).hom = _
+    rw [map_mul, map_mul]
+    rfl
+
+/-- Evaluation at the identity recovers the chosen automorphism via the native unit constraint. -/
+theorem eval_lift {U : C} (x : F.obj (.mk (op U))) (a : Aut x) :
+    eval F (𝟙 U) x (lift F J hComm x a) = a := by
+  change localTransport F hComm J _ x ((F.map (𝟙 U).op.toLoc).toFunctor.mapAut x a) = a
+  let c := Cat.Hom.toNatIso (F.mapId' (𝟙 U).op.toLoc (by aesop))
+  rw [localTransport_of_iso F hComm J _ x (c.app x)]
+  apply Iso.ext
+  change (c.app x).inv ≫ (F.map (𝟙 U).op.toLoc).toFunctor.map a.hom ≫ (c.app x).hom = a.hom
+  have h := c.hom.naturality a.hom
+  change (F.map (𝟙 U).op.toLoc).toFunctor.map a.hom ≫ (c.app x).hom =
+    (c.app x).hom ≫ a.hom at h
+  rw [h, Iso.inv_hom_id_assoc]
+
+theorem lift_one {U : C} (x : F.obj (.mk (op U))) :
+    lift F J hComm x 1 = 1 := map_one _
+
+theorem lift_mul {U : C} (x : F.obj (.mk (op U))) (a b : Aut x) :
+    lift F J hComm x (a * b) = lift F J hComm x a * lift F J hComm x b := map_mul _ _ _
+
+theorem lift_inv {U : C} (x : F.obj (.mk (op U))) (a : Aut x) :
+    lift F J hComm x a⁻¹ = (lift F J hComm x a)⁻¹ := map_inv _ _
+
+/-- Recovery on any local isomorphism cover, independently of the construction's choices. -/
+theorem lift_app {U V : C} (f : V ⟶ U) (x : F.obj (.mk (op U)))
+    (a : Aut x) (y : F.obj (.mk (op V)))
+    (R : Sieve V) (hR : R ∈ J V)
+    (e : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.obj ((F.map f.op.toLoc).toFunctor.obj x) ≅
+        (F.map i.obj.hom.op.toLoc).toFunctor.obj y) :
+    eval F f y (lift F J hComm x a) =
+      conjugateCoverAut F hComm J R hR ((F.map f.op.toLoc).toFunctor.obj x) y e
+        ((F.map f.op.toLoc).toFunctor.mapAut x a) := by
+  change localTransport F hComm J _ y _ = _
+  unfold localTransport
+  exact conjugateCoverAut_cover_independent F hComm J _ R
+    (IsGerbe.locallyIsomorphic (F := F) (J := J) V
+      ((F.map f.op.toLoc).toFunctor.obj x) y).choose_spec.1 hR _ y _ e _
+
+theorem lift_globalIso {U V : C} (f : V ⟶ U) (x : F.obj (.mk (op U)))
+    (a : Aut x) (y : F.obj (.mk (op V)))
+    (d : (F.map f.op.toLoc).toFunctor.obj x ≅ y) :
+    eval F f y (lift F J hComm x a) =
+      Aut.autMulEquivOfIso d ((F.map f.op.toLoc).toFunctor.mapAut x a) := by
+  exact localTransport_of_iso F hComm J _ y d _
+
+/-- Restriction agrees with lifting the pulled automorphism, as whole sections. -/
+theorem lift_restrict {U V : C} (f : V ⟶ U) (x : F.obj (.mk (op U))) (a : Aut x) :
+    restrict F f (lift F J hComm x a) =
+      lift F J hComm ((F.map f.op.toLoc).toFunctor.obj x)
+        ((F.map f.op.toLoc).toFunctor.mapAut x a) := by
+  apply ext
+  intro W g y
+  change (localTransport F hComm J _ y
+      ((F.map (g ≫ f).op.toLoc).toFunctor.mapAut x a)).hom =
+    (localTransport F hComm J _ y
+      ((F.map g.op.toLoc).toFunctor.mapAut _ ((F.map f.op.toLoc).toFunctor.mapAut x a))).hom
+  let c := Cat.Hom.toNatIso
+    (F.mapComp' f.op.toLoc g.op.toLoc (g ≫ f).op.toLoc (by aesop))
+  have hc := localTransport_naturality F hComm J _ _ y y (c.app x) (Iso.refl y)
+    ((F.map (g ≫ f).op.toLoc).toFunctor.mapAut x a)
+    ((F.map g.op.toLoc).toFunctor.mapAut _ ((F.map f.op.toLoc).toFunctor.mapAut x a))
+    (c.hom.naturality a.hom)
+  simp only [Iso.refl_hom, Category.comp_id, Category.id_comp] at hc
+  exact hc
+
+theorem lift_injective {U : C} (x : F.obj (.mk (op U))) :
+    Function.Injective (lift F J hComm x) := by
+  intro a b h
+  have he := congrArg (eval F (𝟙 U) x) h
+  simpa only [eval_lift] using he
+
+-- GerbeBandLiftTests.identity
+example {U : C} (x : F.obj (.mk (op U))) : lift F J hComm x 1 = 1 := lift_one F J hComm x
+
+-- GerbeBandLiftTests.nontrivial
+example {U : C} (x : F.obj (.mk (op U))) (a : Aut x) (ha : a ≠ 1) :
+    lift F J hComm x a ≠ 1 := by
+  intro h
+  apply ha
+  apply lift_injective F J hComm x
+  simpa only [lift_one] using h
+
+-- GerbeBandLiftTests.globalIso
+example {U V : C} (f : V ⟶ U) (x : F.obj (.mk (op U))) (a : Aut x)
+    (y : F.obj (.mk (op V))) (d : (F.map f.op.toLoc).toFunctor.obj x ≅ y) :
+    eval F f y (lift F J hComm x a) =
+      Aut.autMulEquivOfIso d ((F.map f.op.toLoc).toFunctor.mapAut x a) :=
+  lift_globalIso F J hComm f x a y d
+
+-- GerbeBandLiftTests.restrictionChain
+example {U V W : C} (f : V ⟶ U) (g : W ⟶ V)
+    (x : F.obj (.mk (op U))) (a : Aut x) :
+    restrict F g (restrict F f (lift F J hComm x a)) =
+      lift F J hComm ((F.map (g ≫ f).op.toLoc).toFunctor.obj x)
+        ((F.map (g ≫ f).op.toLoc).toFunctor.mapAut x a) := by
+  rw [restrict_comp, lift_restrict]
+
+-- GerbeBandLiftTests.recovery
+example {U : C} (x : F.obj (.mk (op U))) (a : Aut x) :
+    eval F (𝟙 U) x (lift F J hComm x a) = a := eval_lift F J hComm x a
+
+include J hComm in
+theorem eval_surjective (U : C) (x : F.obj (.mk (op U))) :
+    Function.Surjective (eval F (𝟙 U) x) := by
+  intro a
+  exact ⟨lift F J hComm x a, eval_lift F J hComm x a⟩
+
+#print axioms lift
+#print axioms eval_lift
+#print axioms eval_surjective
+#print axioms lift_app
+#print axioms lift_globalIso
+#print axioms lift_restrict
+#print axioms lift_injective
+end TauCeti.AlgebraicGeometry.IntrinsicBandSections
+
+
+namespace TauCeti.AlgebraicGeometry
+variable {C : Type u} [Category.{v} C]
+structure AbelianBanding (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
+    (J : GrothendieckTopology C) (A : Sheaf J AddCommGrpCat.{w})
+    [IsGerbe F J] where
+  autEquiv : ∀ (U : C) (x : F.obj (.mk (op U))),
+    Multiplicative (A.obj.obj (op U)) ≃* Aut x
+  pullback : ∀ {U V : C} (f : V ⟶ U) (x : F.obj (.mk (op U)))
+      (a : Multiplicative (A.obj.obj (op U))),
+    (F.map f.op.toLoc).toFunctor.mapAut x (autEquiv U x a) =
+      autEquiv V ((F.map f.op.toLoc).toFunctor.obj x)
+        (Multiplicative.ofAdd ((A.obj.map f.op) (Multiplicative.toAdd a)))
+  conjugation : ∀ (U : C) {x y : F.obj (.mk (op U))} (e : x ≅ y)
+      (a : Multiplicative (A.obj.obj (op U))),
+    Aut.autMulEquivOfIso e (autEquiv U x a) = autEquiv U y a
+
+
+namespace IntrinsicBandSections
+variable (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
+theorem eval_conjugation {U V : C} (a : V ⟶ U)
+    {x y : F.obj (.mk (op V))} (e : x ≅ y) (s : IntrinsicBandSection F U) :
+    Aut.autMulEquivOfIso e (eval F a x s) = eval F a y s := by
+  apply Iso.ext
+  change e.inv ≫ (val F s V a).val.app x ≫ e.hom = (val F s V a).val.app y
+  rw [← CatCenter.naturality, e.inv_hom_id_assoc]
+
+theorem eval_restrict {U V W : C} (a : V ⟶ U) (g : W ⟶ V)
+    (x : F.obj (.mk (op V))) (s : IntrinsicBandSection F U) :
+    (F.map g.op.toLoc).toFunctor.mapAut x (eval F a x s) =
+      eval F (g ≫ a) ((F.map g.op.toLoc).toFunctor.obj x) s := by
+  apply Iso.ext
+  exact compatible F s V W a g x
+
+/-- R09.4/band-center-evaluation-central. No gerbe or abelian-inertia assumption. -/
+theorem eval_central {U V : C} (a : V ⟶ U) (x : F.obj (.mk (op V)))
+    (s : IntrinsicBandSection F U) (b : Aut x) :
+    eval F a x s * b = b * eval F a x s := by
+  apply Iso.ext
+  exact (val F s V a).val.naturality b.hom
+
+/-- R09.4/band-center-evaluation-reindex: the same arrow in two slice presentations. -/
+theorem eval_reindex {U V W : C} (f : V ⟶ U) (a : W ⟶ V)
+    (x : F.obj (.mk (op W))) (s : IntrinsicBandSection F U) :
+    eval F a x (restrict F f s) = eval F (a ≫ f) x s := rfl
+
+/-- Packaging used by R09.4/band-center-sheaf. -/
+noncomputable def presheaf : Cᵒᵖ ⥤ AddCommGrpCat.{max u v u' v'} where
+  obj U := AddCommGrpCat.of (Additive (IntrinsicBandSection F U.unop))
+  map f := AddCommGrpCat.ofHom (MonoidHom.toAdditive (restrict F f.unop))
+  map_id := by
+    intro U
+    apply AddCommGrpCat.ext
+    intro s
+    exact restrict_id F s
+  map_comp := by
+    intro U V W f g
+    apply AddCommGrpCat.ext
+    intro s
+    exact (restrict_comp F f.unop g.unop s).symm
+
+
+variable (J : GrothendieckTopology C)
+/-- Specific descent of evaluations, using the existing fully faithful descent functor. -/
+theorem eval_eq_of_cover [F.IsPrestack J] {U V : C} (a : V ⟶ U)
+    (x : F.obj (.mk (op V))) (s t : IntrinsicBandSection F U)
+    (R : Sieve V) (hR : R ∈ J V)
+    (h : ∀ (W : C) (g : W ⟶ V), R g →
+      eval F (g ≫ a) ((F.map g.op.toLoc).toFunctor.obj x) s =
+        eval F (g ≫ a) ((F.map g.op.toLoc).toFunctor.obj x) t) :
+    eval F a x s = eval F a x t := by
+  apply Iso.ext
+  apply (F.isPrestackFor' R hR).fullyFaithful.map_injective
+  apply Pseudofunctor.DescentData.hom_ext
+  intro i
+  change (F.map i.obj.hom.op.toLoc).toFunctor.map (eval F a x s).hom =
+    (F.map i.obj.hom.op.toLoc).toFunctor.map (eval F a x t).hom
+  have he := h i.obj.left i.obj.hom i.property
+  rw [← eval_restrict, ← eval_restrict] at he
+  exact congrArg Iso.hom he
+
+/-- Joint injectivity on an actual covering sieve, not on one arbitrary arrow. -/
+theorem ext_of_cover [F.IsPrestack J] {U : C} (s t : IntrinsicBandSection F U)
+    (R : Sieve U) (hR : R ∈ J U)
+    (h : ∀ (V : C) (f : V ⟶ U), R f → restrict F f s = restrict F f t) :
+    s = t := by
+  apply ext
+  intro V a x
+  have he := eval_eq_of_cover F J a x s t (Sieve.pullback a R)
+    (J.pullback_stable a hR) (by
+      intro W g hg
+      have he := congrArg (eval F (𝟙 W) ((F.map g.op.toLoc).toFunctor.obj x))
+        (h W (g ≫ a) hg)
+      simpa only [eval_reindex, Category.id_comp] using he)
+  exact congrArg Iso.hom he
+
+
+variable [hGerbe : IsGerbe F J]
+include hGerbe in
+/-- R09.4/band-center-evaluation-injective. -/
+theorem eval_injective (U : C) (x : F.obj (.mk (op U))) :
+    Function.Injective (eval F (𝟙 U) x) := by
+  intro s t h
+  apply ext
+  intro V a y
+  have hp : eval F a ((F.map a.op.toLoc).toFunctor.obj x) s =
+      eval F a ((F.map a.op.toLoc).toFunctor.obj x) t := by
+    have he := congrArg ((F.map a.op.toLoc).toFunctor.mapAut x) h
+    simpa only [eval_restrict, Category.comp_id] using he
+  obtain ⟨R, hR, hloc⟩ := IsGerbe.locallyIsomorphic (F := F) (J := J)
+    V ((F.map a.op.toLoc).toFunctor.obj x) y
+  have hy := eval_eq_of_cover F J a y s t R hR (by
+    intro W g hg
+    obtain ⟨e⟩ := hloc g hg
+    have he := congrArg ((F.map g.op.toLoc).toFunctor.mapAut
+      ((F.map a.op.toLoc).toFunctor.obj x)) hp
+    rw [eval_restrict, eval_restrict] at he
+    rw [← eval_conjugation F (g ≫ a) e s, ← eval_conjugation F (g ≫ a) e t]
+    exact congrArg (Aut.autMulEquivOfIso e) he)
+  exact congrArg Iso.hom hy
+
+
+variable (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A)
+/-- R09.4/band-coefficient-naturality: conjugation covers every fibre arrow. -/
+theorem coefficient_naturality (U : C) {x y : F.obj (.mk (op U))}
+    (f : x ⟶ y) (a : Multiplicative (A.obj.obj (op U))) :
+    f ≫ (b.autEquiv U y a).hom = (b.autEquiv U x a).hom ≫ f := by
+  let : IsIso f := IsGerbe.isIso_hom (F := F) (J := J) U f
+  have h := congrArg Iso.hom (b.conjugation U (asIso f) a)
+  change inv f ≫ (b.autEquiv U x a).hom ≫ f = (b.autEquiv U y a).hom at h
+  rw [← h]
+  simp only [← Category.assoc, IsIso.hom_inv_id, Category.id_comp]
+
+/-- R09.4/band-coefficient-center: a hom into existing units of CatCenter. -/
+noncomputable def coefficientCenter (U : C) :
+    Multiplicative (A.obj.obj (op U)) →* (CatCenter (F.obj (.mk (op U))))ˣ where
+  toFun a := (Aut.unitsEndEquivAut (𝟭 (F.obj (.mk (op U))))).symm
+    (NatIso.ofComponents (fun x ↦ b.autEquiv U x a)
+      (fun f ↦ coefficient_naturality F J A b U f a))
+  map_one' := by
+    apply Units.ext
+    apply CatCenter.ext
+    intro x
+    change (b.autEquiv U x 1).hom = (1 : Aut x).hom
+    rw [map_one]
+  map_mul' := by
+    intro a a'
+    apply Units.ext
+    apply CatCenter.ext
+    intro x
+    change (b.autEquiv U x (a * a')).hom = (b.autEquiv U x a').hom ≫
+      (b.autEquiv U x a).hom
+    rw [map_mul]
+    rfl
+
+/-- R09.4/band-coefficient-center-evaluation. -/
+theorem coefficientCenter_app (U : C) (x : F.obj (.mk (op U)))
+    (a : Multiplicative (A.obj.obj (op U))) :
+    (Aut.unitsEndEquivAut (𝟭 (F.obj (.mk (op U))))
+      (coefficientCenter F J A b U a)).app x = b.autEquiv U x a := by
+  apply Iso.ext
+  rfl
+
+theorem coefficientCenter_inv (U : C) (a : Multiplicative (A.obj.obj (op U))) :
+    coefficientCenter F J A b U a⁻¹ = (coefficientCenter F J A b U a)⁻¹ :=
+  map_inv (coefficientCenter F J A b U) a
+
+/-- R09.4/band-coefficient-restriction: the actual band pullback equation. -/
+theorem coefficientCenter_restrict {U V : C} (f : V ⟶ U)
+    (x : F.obj (.mk (op U))) (a : Multiplicative (A.obj.obj (op U))) :
+    (F.map f.op.toLoc).toFunctor.map ((coefficientCenter F J A b U a).val.app x) =
+      (coefficientCenter F J A b V
+        (Multiplicative.ofAdd (A.obj.map f.op a.toAdd))).val.app
+          ((F.map f.op.toLoc).toFunctor.obj x) := by
+  exact congrArg Iso.hom (b.pullback f x a)
+
+/-- R09.4/band-center-from-banding: its values are actual band automorphisms. -/
+noncomputable def fromBanding (b : AbelianBanding F J A) (U : C) :
+    Multiplicative (A.obj.obj (op U)) →* IntrinsicBandSection F U where
+  toFun a := ⟨fun V f ↦ coefficientCenter F J A b V
+    (Multiplicative.ofAdd (A.obj.map f.op a.toAdd)), by
+      intro V W f g x
+      rw [coefficientCenter_restrict]
+      congr 3
+      exact (congrArg (fun h ↦ h a.toAdd) (A.obj.map_comp f.op g.op)).symm⟩
+  map_one' := by
+    apply ext
+    intro V f x
+    change (b.autEquiv V x (Multiplicative.ofAdd (A.obj.map f.op 0))).hom =
+      (1 : Aut x).hom
+    rw [map_zero]
+    exact congrArg Iso.hom (b.autEquiv V x).map_one
+  map_mul' := by
+    intro a a'
+    apply ext
+    intro V f x
+    change (b.autEquiv V x (Multiplicative.ofAdd (A.obj.map f.op
+      (a.toAdd + a'.toAdd)))).hom =
+      (b.autEquiv V x (Multiplicative.ofAdd (A.obj.map f.op a'.toAdd))).hom ≫
+      (b.autEquiv V x (Multiplicative.ofAdd (A.obj.map f.op a.toAdd))).hom
+    rw [map_add]
+    exact congrArg Iso.hom ((b.autEquiv V x).map_mul
+      (Multiplicative.ofAdd (A.obj.map f.op a.toAdd))
+      (Multiplicative.ofAdd (A.obj.map f.op a'.toAdd)))
+
+/-- R09.4/band-center-from-banding-evaluation. -/
+theorem fromBanding_eval {U V : C} (f : V ⟶ U) (x : F.obj (.mk (op V)))
+    (a : Multiplicative (A.obj.obj (op U))) :
+    eval F f x (fromBanding F J A b U a) =
+      b.autEquiv V x (Multiplicative.ofAdd (A.obj.map f.op a.toAdd)) :=
+  coefficientCenter_app F J A b V x _
+
+/-- R09.4/band-center-from-banding-restriction. -/
+theorem fromBanding_restrict {U V : C} (f : V ⟶ U)
+    (a : Multiplicative (A.obj.obj (op U))) :
+    restrict F f (fromBanding F J A b U a) =
+      fromBanding F J A b V (Multiplicative.ofAdd (A.obj.map f.op a.toAdd)) := by
+  apply ext
+  intro W g x
+  change (b.autEquiv W x (Multiplicative.ofAdd (A.obj.map (g ≫ f).op a.toAdd))).hom =
+    (b.autEquiv W x (Multiplicative.ofAdd (A.obj.map g.op (A.obj.map f.op a.toAdd)))).hom
+  exact congrArg (fun z ↦ (b.autEquiv W x (Multiplicative.ofAdd z)).hom)
+    (congrArg (fun h ↦ h a.toAdd) (A.obj.map_comp f.op g.op))
+
+/-- Local nonemptiness detects the fixed-band coefficient, even if F(U) is empty. -/
+theorem fromBanding_injective (U : C) :
+    Function.Injective (fromBanding F J A b U) := by
+  intro a a' he
+  change a.toAdd = a'.toAdd
+  have hs := (isSheaf_iff_isSheaf_of_type J _).1
+    (Presheaf.isSheaf_comp_of_isSheaf J A.obj
+      (forget AddCommGrpCat.{max u v u' v'}) A.property)
+  obtain ⟨R, hR, hloc⟩ := IsGerbe.locallyNonempty (F := F) (J := J) U
+  apply (hs.isSeparated R hR).ext
+  intro V f hf
+  obtain ⟨x⟩ := hloc f hf
+  have hh := congrArg (eval F f x) he
+  rw [fromBanding_eval, fromBanding_eval] at hh
+  exact congrArg Multiplicative.toAdd ((b.autEquiv V x).injective hh)
+
+/-- R09.4/band-center-from-banding-ext: determine the actual comparison section. -/
+theorem fromBanding_ext (U : C) (a : Multiplicative (A.obj.obj (op U)))
+    (s : IntrinsicBandSection F U)
+    (h : ∀ (V : C) (f : V ⟶ U) (x : F.obj (.mk (op V))),
+      eval F f x s = b.autEquiv V x (Multiplicative.ofAdd (A.obj.map f.op a.toAdd))) :
+    s = fromBanding F J A b U a := by
+  apply ext
+  intro V f x
+  exact congrArg Iso.hom ((h V f x).trans (fromBanding_eval F J A b f x a).symm)
+
+/-- R09.4/band-center-from-banding-presheaf: an actual natural transformation. -/
+noncomputable def fromBandingPresheaf : A.obj ⟶ presheaf F where
+  app U := AddCommGrpCat.ofHom
+    { toFun a := Additive.ofMul (fromBanding F J A b U.unop (Multiplicative.ofAdd a))
+      map_zero' := (fromBanding F J A b U.unop).map_one
+      map_add' a a' := (fromBanding F J A b U.unop).map_mul
+        (Multiplicative.ofAdd a) (Multiplicative.ofAdd a') }
+  naturality U V f := by
+    apply AddCommGrpCat.ext
+    intro a
+    exact (fromBanding_restrict F J A b f.unop (Multiplicative.ofAdd a)).symm
+
+theorem fromBandingPresheaf_app (U : C) (a : A.obj.obj (op U)) :
+    ((fromBandingPresheaf F J A b).app (op U) a).toMul =
+      fromBanding F J A b U (Multiplicative.ofAdd a) := rfl
+
+theorem fromBandingPresheaf_naturality {U V : C} (f : V ⟶ U) :
+    A.obj.map f.op ≫ (fromBandingPresheaf F J A b).app (op V) =
+      (fromBandingPresheaf F J A b).app (op U) ≫ (presheaf F).map f.op :=
+  (fromBandingPresheaf F J A b).naturality f.op
+
+/-- R09.4/band-center-fixed-band-distinction: no quotient by coefficient symmetry. -/
+theorem fromBanding_ne_of_aut_ne (b' : AbelianBanding F J A) (U : C)
+    (x : F.obj (.mk (op U))) (a : Multiplicative (A.obj.obj (op U)))
+    (h : b.autEquiv U x a ≠ b'.autEquiv U x a) :
+    fromBanding F J A b U a ≠ fromBanding F J A b' U a := by
+  intro hs
+  apply h
+  have he := congrArg (eval F (𝟙 U) x) hs
+  rw [fromBanding_eval, fromBanding_eval] at he
+  rw [op_id, A.obj.map_id] at he
+  exact he
+
+
+-- Recover a coefficient on any base carrying an actual gerbe object.
+lemma fromBanding_surjective_of_object (U : C) (x : F.obj (.mk (op U))) :
+    Function.Surjective (fromBanding F J A b U) := by
+  intro z
+  refine ⟨(b.autEquiv U x).symm (eval F (𝟙 U) x z), ?_⟩
+  apply eval_injective F J U x
+  rw [fromBanding_eval]
+  simp only [op_id, A.obj.map_id, AddCommGrpCat.id_apply]
+  exact (b.autEquiv U x).apply_symm_apply _
+
+-- Local nonemptiness supplies these coefficients; no global object is chosen.
+noncomputable def localBandCoefficient (b : AbelianBanding F J A) {U : C} (R : Sieve U)
+    (objects : ∀ ⦃V : C⦄ (f : V ⟶ U), R f → F.obj (.mk (op V)))
+    (z : IntrinsicBandSection F U) :
+    Presieve.FamilyOfElements (A.obj ⋙ forget AddCommGrpCat.{max u v u' v'}) R.arrows :=
+  fun _ f hf => ((b.autEquiv _ (objects f hf)).symm (eval F f (objects f hf) z)).toAdd
+
+lemma localBandCoefficient_recovery {U V : C} (R : Sieve U)
+    (objects : ∀ ⦃W : C⦄ (f : W ⟶ U), R f → F.obj (.mk (op W)))
+    (z : IntrinsicBandSection F U) (f : V ⟶ U) (hf : R f) :
+    fromBanding F J A b V (Multiplicative.ofAdd
+      (localBandCoefficient F J A b R objects z f hf)) = restrict F f z := by
+  apply eval_injective F J V (objects f hf)
+  rw [fromBanding_eval, eval_reindex, Category.id_comp]
+  simp only [op_id, A.obj.map_id, AddCommGrpCat.id_apply]
+  exact (b.autEquiv V (objects f hf)).apply_symm_apply _
+
+lemma localBandCoefficient_compatible {U : C} (R : Sieve U)
+    (objects : ∀ ⦃V : C⦄ (f : V ⟶ U), R f → F.obj (.mk (op V)))
+    (z : IntrinsicBandSection F U) :
+    (localBandCoefficient F J A b R objects z).Compatible := by
+  intro V W X g h f k hf hk he
+  change A.obj.map g.op (localBandCoefficient F J A b R objects z f hf) =
+    A.obj.map h.op (localBandCoefficient F J A b R objects z k hk)
+  apply Multiplicative.ofAdd.injective
+  apply fromBanding_injective F J A b X
+  change fromBanding F J A b X (Multiplicative.ofAdd (A.obj.map g.op
+    (Multiplicative.ofAdd (localBandCoefficient F J A b R objects z f hf)).toAdd)) =
+    fromBanding F J A b X (Multiplicative.ofAdd (A.obj.map h.op
+    (Multiplicative.ofAdd (localBandCoefficient F J A b R objects z k hk)).toAdd))
+  rw [← fromBanding_restrict, ← fromBanding_restrict,
+    localBandCoefficient_recovery, localBandCoefficient_recovery,
+    restrict_comp, restrict_comp, he]
+
+lemma fromBanding_surjective (U : C) :
+    Function.Surjective (fromBanding F J A b U) := by
+  classical
+  intro z
+  obtain ⟨R,hR,hloc⟩ := IsGerbe.locallyNonempty (F := F) (J := J) U
+  let objects : ∀ ⦃V : C⦄ (f : V ⟶ U), R f → F.obj (.mk (op V)) :=
+    fun _ f hf => (hloc f hf).some
+  let family := localBandCoefficient F J A b R objects z
+  have matching : family.Compatible := localBandCoefficient_compatible F J A b R objects z
+  have hs := (isSheaf_iff_isSheaf_of_type J _).1
+    (Presheaf.isSheaf_comp_of_isSheaf J A.obj
+      (forget AddCommGrpCat.{max u v u' v'}) A.property)
+  obtain ⟨a,ha,-⟩ := hs R hR family matching
+  refine ⟨Multiplicative.ofAdd a, ?_⟩
+  apply ext_of_cover F J _ _ R hR
+  intro V f hf
+  rw [fromBanding_restrict]
+  have h := ha f hf
+  change A.obj.map f.op a = family f hf at h
+  change fromBanding F J A b V (Multiplicative.ofAdd (A.obj.map f.op a)) = restrict F f z
+  rw [h]
+  exact localBandCoefficient_recovery F J A b R objects z f hf
+
+end IntrinsicBandSections
+end TauCeti.AlgebraicGeometry
+
+namespace TauCeti.AlgebraicGeometry.IntrinsicBandSections
+variable {C : Type u} [Category.{v} C]
+variable (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
+variable (J : GrothendieckTopology C) [IsGerbe F J]
+variable (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A)
+
+noncomputable def fromBandingEquiv (b : AbelianBanding F J A) (U : C) :
+    Multiplicative (A.obj.obj (op U)) ≃* IntrinsicBandSection F U :=
+  MulEquiv.ofBijective (fromBanding F J A b U)
+    ⟨fromBanding_injective F J A b U, fromBanding_surjective F J A b U⟩
+
+lemma fromBandingEquiv_apply (U : C) (a : Multiplicative (A.obj.obj (op U))) :
+    fromBandingEquiv F J A b U a = fromBanding F J A b U a := rfl
+
+lemma fromBandingEquiv_symm_restrict {U V : C} (f : V ⟶ U)
+    (z : IntrinsicBandSection F U) :
+    Multiplicative.ofAdd (A.obj.map f.op ((fromBandingEquiv F J A b U).symm z).toAdd) =
+      (fromBandingEquiv F J A b V).symm (restrict F f z) := by
+  apply (fromBandingEquiv F J A b V).injective
+  rw [fromBandingEquiv_apply, ← fromBanding_restrict]
+  change restrict F f (fromBandingEquiv F J A b U ((fromBandingEquiv F J A b U).symm z)) = _
+  rw [MulEquiv.apply_symm_apply, MulEquiv.apply_symm_apply]
+
+-- All original choices of local objects give the same glued inverse.
+lemma fromBandingEquiv_symm_local {U V : C} (R : Sieve U)
+    (objects : ∀ ⦃W : C⦄ (f : W ⟶ U), R f → F.obj (.mk (op W)))
+    (z : IntrinsicBandSection F U) (f : V ⟶ U) (hf : R f) :
+    A.obj.map f.op ((fromBandingEquiv F J A b U).symm z).toAdd =
+      localBandCoefficient F J A b R objects z f hf := by
+  apply Multiplicative.ofAdd.injective
+  rw [fromBandingEquiv_symm_restrict]
+  apply (fromBandingEquiv F J A b V).injective
+  rw [MulEquiv.apply_symm_apply, fromBandingEquiv_apply, localBandCoefficient_recovery]
+
+-- LocalCoefficientTests.unit
+example {U V : C} (R : Sieve U)
+    (objects : ∀ ⦃W : C⦄ (f : W ⟶ U), R f → F.obj (.mk (op W)))
+    (f : V ⟶ U) (hf : R f) :
+    localBandCoefficient F J A b R objects 1 f hf = 0 := by
+  change ((b.autEquiv V (objects f hf)).symm ((eval F f (objects f hf)) 1)).toAdd = 0
+  rw [map_one, map_one]
+  rfl
+
+-- LocalCoefficientTests.existing
+example {U V : C} (R : Sieve U)
+    (objects : ∀ ⦃W : C⦄ (f : W ⟶ U), R f → F.obj (.mk (op W)))
+    (a : Multiplicative (A.obj.obj (op U))) (f : V ⟶ U) (hf : R f) :
+    localBandCoefficient F J A b R objects (fromBanding F J A b U a) f hf =
+      A.obj.map f.op a.toAdd := by
+  change ((b.autEquiv V (objects f hf)).symm
+    (eval F f (objects f hf) (fromBanding F J A b U a))).toAdd = _
+  rw [fromBanding_eval, MulEquiv.symm_apply_apply]
+  rfl
+
+-- LocalCoefficientTests.choiceIndependent
+example {U V : C} (R : Sieve U)
+    (objects objects' : ∀ ⦃W : C⦄ (f : W ⟶ U), R f → F.obj (.mk (op W)))
+    (z : IntrinsicBandSection F U) (f : V ⟶ U) (hf : R f) :
+    localBandCoefficient F J A b R objects z f hf =
+      localBandCoefficient F J A b R objects' z f hf := by
+  rw [← fromBandingEquiv_symm_local, ← fromBandingEquiv_symm_local]
+
+-- BandInverseTests.unit
+example (U : C) : (fromBandingEquiv F J A b U).symm 1 = 1 := map_one _
+
+-- BandInverseTests.coefficientRoundTrip
+example (U : C) (a : Multiplicative (A.obj.obj (op U))) :
+    (fromBandingEquiv F J A b U).symm (fromBanding F J A b U a) = a :=
+  (fromBandingEquiv F J A b U).symm_apply_apply a
+
+-- BandInverseTests.sectionRoundTrip
+example (U : C) (z : IntrinsicBandSection F U) :
+    fromBanding F J A b U ((fromBandingEquiv F J A b U).symm z) = z :=
+  (fromBandingEquiv F J A b U).apply_symm_apply z
+
+-- BandInverseTests.inverse
+example (U : C) (z : IntrinsicBandSection F U) :
+    (fromBandingEquiv F J A b U).symm z⁻¹ = ((fromBandingEquiv F J A b U).symm z)⁻¹ :=
+  map_inv _ z
+
+-- BandInverseTests.restriction
+example {U V : C} (f : V ⟶ U) (z : IntrinsicBandSection F U) :
+    Multiplicative.ofAdd (A.obj.map f.op ((fromBandingEquiv F J A b U).symm z).toAdd) =
+      (fromBandingEquiv F J A b V).symm (restrict F f z) :=
+  fromBandingEquiv_symm_restrict F J A b f z
+
+
+-- BandInverseTests.nontrivial
+example (U : C) (z : IntrinsicBandSection F U) (hz : z ≠ 1) :
+    (fromBandingEquiv F J A b U).symm z ≠ 1 := by
+  intro h
+  apply hz
+  have he := congrArg (fromBandingEquiv F J A b U) h
+  simpa only [MulEquiv.apply_symm_apply, map_one] using he
+
+#print axioms fromBanding_surjective_of_object
+#print axioms localBandCoefficient
+#print axioms localBandCoefficient_recovery
+#print axioms localBandCoefficient_compatible
+#print axioms fromBanding_surjective
+#print axioms fromBandingEquiv
+#print axioms fromBandingEquiv_apply
+#print axioms fromBandingEquiv_symm_restrict
+#print axioms fromBandingEquiv_symm_local
+end TauCeti.AlgebraicGeometry.IntrinsicBandSections
+
+namespace TauCeti.AlgebraicGeometry.IntrinsicBandSections
+open CategoryTheory Opposite Bicategory
+variable {C : Type u} [Category.{v} C]
+variable (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
+variable (J : GrothendieckTopology C) [IsGerbe F J]
+variable (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A)
+
+/-- The actual coefficient map and its compatible inverse, in the native presheaf category. -/
+noncomputable def fromBandingPresheafIso
+    (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
+    (J : GrothendieckTopology C) [IsGerbe F J]
+    (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A) :
+    A.obj ≅ presheaf F :=
+  NatIso.ofComponents (fun U =>
+    { hom := (fromBandingPresheaf F J A b).app U
+      inv := AddCommGrpCat.ofHom
+        { toFun z := ((fromBandingEquiv F J A b U.unop).symm z.toMul).toAdd
+          map_zero' := (fromBandingEquiv F J A b U.unop).symm.map_one
+          map_add' z z' := (fromBandingEquiv F J A b U.unop).symm.map_mul z.toMul z'.toMul }
+      hom_inv_id := by
+        apply AddCommGrpCat.ext
+        intro a
+        exact (fromBandingEquiv F J A b U.unop).symm_apply_apply (Multiplicative.ofAdd a)
+      inv_hom_id := by
+        apply AddCommGrpCat.ext
+        intro z
+        exact (fromBandingEquiv F J A b U.unop).apply_symm_apply z.toMul })
+    (fun f => (fromBandingPresheaf F J A b).naturality f)
+
+lemma fromBandingPresheafIso_hom :
+    (fromBandingPresheafIso F J A b).hom = fromBandingPresheaf F J A b := rfl
+
+lemma fromBandingPresheafIso_hom_app (U : C) (a : A.obj.obj (op U)) :
+    (((fromBandingPresheafIso F J A b).hom.app (op U)) a).toMul =
+      fromBanding F J A b U (Multiplicative.ofAdd a) := rfl
+
+lemma fromBandingPresheafIso_inv_app (U : C) (z : IntrinsicBandSection F U) :
+    ((fromBandingPresheafIso F J A b).inv.app (op U)) (Additive.ofMul z) =
+      ((fromBandingEquiv F J A b U).symm z).toAdd := rfl
+
+lemma fromBandingPresheafIso_inv_naturality {U V : C} (f : V ⟶ U)
+    (z : IntrinsicBandSection F U) :
+    A.obj.map f.op (((fromBandingPresheafIso F J A b).inv.app (op U)) (Additive.ofMul z)) =
+      ((fromBandingPresheafIso F J A b).inv.app (op V)) (Additive.ofMul (restrict F f z)) :=
+  fromBandingEquiv_symm_restrict F J A b f z
+
+variable (S : Sheaf J AddCommGrpCat.{max u v u' v'}) (hS : S.obj = presheaf F)
+
+/-- Lift to any existing sheaf packaging of the precise central-section presheaf. -/
+noncomputable def fromBandingSheafIso
+    (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
+    (J : GrothendieckTopology C) [IsGerbe F J]
+    (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A)
+    (S : Sheaf J AddCommGrpCat.{max u v u' v'}) (hS : S.obj = presheaf F) :
+    A ≅ S :=
+  (fullyFaithfulSheafToPresheaf J _).preimageIso
+    (fromBandingPresheafIso F J A b ≪≫ eqToIso hS.symm)
+
+lemma fromBandingSheafIso_hom :
+    (fromBandingSheafIso F J A b S hS).hom.hom =
+      (fromBandingPresheafIso F J A b ≪≫ eqToIso hS.symm).hom := by
+  exact (fullyFaithfulSheafToPresheaf J _).map_preimage _
+
+lemma fromBandingSheafIso_inv :
+    (fromBandingSheafIso F J A b S hS).inv.hom =
+      (fromBandingPresheafIso F J A b ≪≫ eqToIso hS.symm).inv := by
+  exact (fullyFaithfulSheafToPresheaf J _).map_preimage _
+
+lemma fromBandingSheafIso_hom_transport :
+    (fromBandingSheafIso F J A b S hS).hom.hom ≫ eqToHom hS =
+      fromBandingPresheaf F J A b := by
+  rw [fromBandingSheafIso_hom]
+  simp only [Iso.trans_hom, eqToIso.hom, Category.assoc,
+    eqToHom_trans, eqToHom_refl, Category.comp_id, fromBandingPresheafIso_hom]
+
+lemma fromBandingSheafIso_inv_transport :
+    eqToHom hS.symm ≫ (fromBandingSheafIso F J A b S hS).inv.hom =
+      (fromBandingPresheafIso F J A b).inv := by
+  rw [fromBandingSheafIso_inv]
+  simp only [Iso.trans_inv, eqToIso.inv, ← Category.assoc,
+    eqToHom_trans, eqToHom_refl, Category.id_comp]
+
+/-- All actual band evaluations uniquely determine the sheaf isomorphism. -/
+lemma fromBandingSheafIso_unique (e : A ≅ S)
+    (he : ∀ (U V : C) (f : V ⟶ U) (x : F.obj (.mk (op V)))
+      (a : A.obj.obj (op U)),
+      eval F f x (((e.hom.hom ≫ eqToHom hS).app (op U)) a).toMul =
+        b.autEquiv V x (Multiplicative.ofAdd (A.obj.map f.op a))) :
+    e = fromBandingSheafIso F J A b S hS := by
+  apply Iso.ext
+  apply Sheaf.hom_ext
+  apply (cancel_mono (eqToHom hS)).1
+  rw [fromBandingSheafIso_hom_transport]
+  apply NatTrans.ext
+  apply funext
+  intro U
+  apply AddCommGrpCat.ext
+  intro a
+  apply Additive.toMul.injective
+  apply ext
+  intro V f x
+  exact congrArg Iso.hom ((he U.unop V f x a).trans
+    (fromBanding_eval F J A b f x (Multiplicative.ofAdd a)).symm)
+
+-- BandPresheafIsoTests.zero
+example (U : C) :
+    ((fromBandingPresheafIso F J A b).hom.app (op U)) 0 = 0 := map_zero _
+
+-- BandPresheafIsoTests.coefficientRoundTrip
+example (U : C) (a : A.obj.obj (op U)) :
+    ((fromBandingPresheafIso F J A b).inv.app (op U))
+      (((fromBandingPresheafIso F J A b).hom.app (op U)) a) = a :=
+  (fromBandingEquiv F J A b U).symm_apply_apply (Multiplicative.ofAdd a)
+
+-- BandPresheafIsoTests.sectionRoundTrip
+example (U : C) (z : IntrinsicBandSection F U) :
+    ((fromBandingPresheafIso F J A b).hom.app (op U))
+      (((fromBandingPresheafIso F J A b).inv.app (op U)) (Additive.ofMul z)) =
+      Additive.ofMul z :=
+  (fromBandingEquiv F J A b U).apply_symm_apply z
+
+-- BandPresheafIsoTests.restriction
+example {U V : C} (f : V ⟶ U) (z : IntrinsicBandSection F U) :
+    A.obj.map f.op (((fromBandingPresheafIso F J A b).inv.app (op U)) (Additive.ofMul z)) =
+      ((fromBandingPresheafIso F J A b).inv.app (op V)) (Additive.ofMul (restrict F f z)) :=
+  fromBandingPresheafIso_inv_naturality F J A b f z
+
+-- BandPresheafIsoTests.nonzero
+example (U : C) (a : A.obj.obj (op U)) (ha : a ≠ 0) :
+    ((fromBandingPresheafIso F J A b).hom.app (op U)) a ≠ 0 := by
+  intro h
+  apply ha
+  apply Multiplicative.ofAdd.injective
+  apply (fromBandingEquiv F J A b U).injective
+  change fromBandingEquiv F J A b U (Multiplicative.ofAdd a) = fromBandingEquiv F J A b U 1
+  change fromBandingEquiv F J A b U (Multiplicative.ofAdd a) = 1 at h
+  simpa only [map_one] using h
+
+-- BandSheafIsoTests.forward
+example :
+    (fromBandingSheafIso F J A b S hS).hom.hom ≫ eqToHom hS =
+      fromBandingPresheaf F J A b := fromBandingSheafIso_hom_transport F J A b S hS
+
+-- BandSheafIsoTests.backward
+example :
+    eqToHom hS.symm ≫ (fromBandingSheafIso F J A b S hS).inv.hom =
+      (fromBandingPresheafIso F J A b).inv :=
+  fromBandingSheafIso_inv_transport F J A b S hS
+
+-- BandSheafIsoTests.coefficientRoundTrip
+example :
+    (fromBandingSheafIso F J A b S hS).hom ≫ (fromBandingSheafIso F J A b S hS).inv = 𝟙 A :=
+  Iso.hom_inv_id _
+
+-- BandSheafIsoTests.sectionRoundTrip
+example :
+    (fromBandingSheafIso F J A b S hS).inv ≫ (fromBandingSheafIso F J A b S hS).hom = 𝟙 S :=
+  Iso.inv_hom_id _
+
+-- BandSheafIsoTests.bandDeterminesComparison
+example (e : A ≅ S)
+    (he : ∀ (U V : C) (f : V ⟶ U) (x : F.obj (.mk (op V)))
+      (a : A.obj.obj (op U)),
+      eval F f x (((e.hom.hom ≫ eqToHom hS).app (op U)) a).toMul =
+        b.autEquiv V x (Multiplicative.ofAdd (A.obj.map f.op a))) :
+    e = fromBandingSheafIso F J A b S hS :=
+  fromBandingSheafIso_unique F J A b S hS e he
+
+-- Check the inherited identity-evaluation existence-and-uniqueness criterion.
+example : ∃! e : A ≅ S,
+    ∀ (U : C) (x : F.obj (.mk (op U))) (a : A.obj.obj (op U)),
+      eval F (𝟙 U) x (((e.hom.hom ≫ eqToHom hS).app (op U)) a).toMul =
+        b.autEquiv U x (Multiplicative.ofAdd a) := by
+  refine ⟨fromBandingSheafIso F J A b S hS, ?_, ?_⟩
+  · intro U x a
+    rw [fromBandingSheafIso_hom_transport]
+    rw [fromBandingPresheaf_app, fromBanding_eval]
+    simp only [op_id, A.obj.map_id, AddCommGrpCat.id_apply]
+    rfl
+  · intro e he
+    apply fromBandingSheafIso_unique F J A b S hS e
+    intro U V f x a
+    let z : IntrinsicBandSection F U :=
+      Additive.toMul (α := IntrinsicBandSection F U)
+        (((e.hom.hom ≫ eqToHom hS).app (op U)) a)
+    have hn := congrArg (fun k => k a) ((e.hom.hom ≫ eqToHom hS).naturality f.op)
+    change ((e.hom.hom ≫ eqToHom hS).app (op V)) (A.obj.map f.op a) =
+      Additive.ofMul (restrict F f (((e.hom.hom ≫ eqToHom hS).app (op U)) a).toMul) at hn
+    have hh := he V x (A.obj.map f.op a)
+    rw [hn] at hh
+    change eval F (𝟙 V) x (restrict F f (((e.hom.hom ≫ eqToHom hS).app (op U)) a).toMul) =
+      b.autEquiv V x (Multiplicative.ofAdd (A.obj.map f.op a)) at hh
+    change eval F (𝟙 V) x (restrict F f z) =
+      b.autEquiv V x (Multiplicative.ofAdd (A.obj.map f.op a)) at hh
+    have hr : eval F (𝟙 V) x (restrict F f z) = eval F f x z := by
+      simpa only [Category.id_comp] using eval_reindex F f (𝟙 V) x z
+    exact hr.symm.trans hh
+
+-- A concrete native sheaf exists from the proved coefficient isomorphism.
+-- This special-case witness does not replace the stronger prestack-sheaf proof.
+example : ∃ S : Sheaf J AddCommGrpCat.{max u v u' v'}, S.obj = presheaf F := by
+  exact ⟨⟨presheaf F, (Presheaf.isSheaf_of_iso_iff
+    (fromBandingPresheafIso F J A b)).1 A.property⟩, rfl⟩
+
+#print axioms fromBandingPresheafIso
+#print axioms fromBandingPresheafIso_hom
+#print axioms fromBandingPresheafIso_hom_app
+#print axioms fromBandingPresheafIso_inv_app
+#print axioms fromBandingPresheafIso_inv_naturality
+#print axioms fromBandingSheafIso
+#print axioms fromBandingSheafIso_hom
+#print axioms fromBandingSheafIso_inv
+#print axioms fromBandingSheafIso_hom_transport
+#print axioms fromBandingSheafIso_inv_transport
+#print axioms fromBandingSheafIso_unique
+end TauCeti.AlgebraicGeometry.IntrinsicBandSections
+
+namespace TauCeti.AlgebraicGeometry.BandFixtures
+open CategoryTheory Opposite Bicategory
+open IntrinsicBandSections
+universe fixture_u fixture_v
+variable (C : Type u) [Category.{v} C]
+variable (D : Type fixture_u) [Category.{fixture_v} D]
+
+abbrev constantDiagram : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{fixture_v, fixture_u} :=
+  ((Functor.const Cᵒᵖ).obj (Cat.of D)).toPseudofunctor'
+
+noncomputable def constantSection (U : C) (z : (CatCenter D)ˣ) :
+    IntrinsicBandSection (constantDiagram C D) U :=
+  ⟨fun _ _ => z, by
+    change ∀ (V W : C) (f : V ⟶ U) (g : W ⟶ V) (x : D),
+      z.val.app x = z.val.app x
+    intros
+    rfl⟩
+
+lemma constantSection_val (U V : C) (f : V ⟶ U) (z : (CatCenter D)ˣ) :
+    val (constantDiagram C D) (constantSection C D U z) V f = z := rfl
+
+noncomputable def constantSectionsEquiv (U : C) :
+    (CatCenter D)ˣ ≃* IntrinsicBandSection (constantDiagram C D) U where
+  toFun := constantSection C D U
+  invFun s := val (constantDiagram C D) s U (𝟙 U)
+  left_inv _ := rfl
+  right_inv s := by
+    apply IntrinsicBandSections.ext
+    intro V f x
+    have h := compatible (constantDiagram C D) s U V (𝟙 U) f x
+    change (val (constantDiagram C D) s U (𝟙 U)).val.app x =
+      (val (constantDiagram C D) s V (f ≫ 𝟙 U)).val.app x at h
+    change (val (constantDiagram C D) s U (𝟙 U)).val.app x =
+      (val (constantDiagram C D) s V f).val.app x
+    simpa only [constantSection_val, Category.comp_id] using h
+  map_mul' _ _ := rfl
+
+lemma constantSectionsEquiv_restrict {U V : C} (f : V ⟶ U) (z : (CatCenter D)ˣ) :
+    restrict (constantDiagram C D) f (constantSectionsEquiv C D U z) =
+      constantSectionsEquiv C D V z := rfl
+
+variable (I : Type fixture_u) (G : Type fixture_v) [CommGroup G]
+
+abbrev Fibre := Discrete I × SingleObj G
+
+def componentCenter (a : I → G) : CatCenter (Fibre I G) where
+  app x := ⟨𝟙 x.1, a x.1.as⟩
+  naturality {x y} f := by
+    apply CategoryTheory.Prod.hom_ext
+    · subsingleton
+    · change a y.1.as * f.2 = f.2 * a x.1.as
+      rw [f.1.eq]
+      exact mul_comm _ _
+
+def componentCenterUnit (a : I → G) : (CatCenter (Fibre I G))ˣ where
+  val := componentCenter I G a
+  inv := componentCenter I G (fun i => (a i)⁻¹)
+  val_inv := by
+    apply CatCenter.ext
+    intro x
+    apply CategoryTheory.Prod.hom_ext
+    · subsingleton
+    · exact mul_inv_cancel _
+  inv_val := by
+    apply CatCenter.ext
+    intro x
+    apply CategoryTheory.Prod.hom_ext
+    · subsingleton
+    · exact inv_mul_cancel _
+
+def componentCenterEquiv : (I → G) ≃* (CatCenter (Fibre I G))ˣ where
+  toFun := componentCenterUnit I G
+  invFun z i := (z.val.app (Discrete.mk i, SingleObj.star G)).2
+  left_inv _ := rfl
+  right_inv z := by
+    apply Units.ext
+    apply CatCenter.ext
+    intro x
+    apply CategoryTheory.Prod.hom_ext
+    · subsingleton
+    · have hx : x.2 = SingleObj.star G := Subsingleton.elim _ _
+      change (z.val.app (Discrete.mk x.1.as, SingleObj.star G)).2 = (z.val.app x).2
+      cases x
+      dsimp at hx ⊢
+      cases hx
+      rfl
+  map_mul' _ _ := by
+    apply Units.ext
+    apply CatCenter.ext
+    intro x
+    apply CategoryTheory.Prod.hom_ext
+    · subsingleton
+    · rfl
+
+noncomputable def componentSectionsEquiv (U : C) :
+    (I → G) ≃* IntrinsicBandSection (constantDiagram C (Fibre I G)) U :=
+  (componentCenterEquiv I G).trans (constantSectionsEquiv C (Fibre I G) U)
+
+lemma componentSectionsEquiv_eval {U V : C} (f : V ⟶ U) (a : I → G) (i : I) :
+    (eval (constantDiagram C (Fibre I G)) f (Discrete.mk i, SingleObj.star G)
+      (componentSectionsEquiv C I G U a)).hom.2 = a i := rfl
+
+lemma componentSectionsEquiv_restrict {U V : C} (f : V ⟶ U) (a : I → G) :
+    restrict (constantDiagram C (Fibre I G)) f (componentSectionsEquiv C I G U a) =
+      componentSectionsEquiv C I G V a := rfl
+
+lemma component_eval_bijective [Subsingleton I] (U : C) (i : I) :
+    Function.Bijective (eval (constantDiagram C (Fibre I G)) (𝟙 U)
+      (Discrete.mk i, SingleObj.star G)) := by
+  constructor
+  · intro s t h
+    obtain ⟨a, rfl⟩ := (componentSectionsEquiv C I G U).surjective s
+    obtain ⟨b, rfl⟩ := (componentSectionsEquiv C I G U).surjective t
+    apply congrArg (componentSectionsEquiv C I G U)
+    funext j
+    have hj : j = i := Subsingleton.elim _ _
+    subst j
+    exact congrArg (fun e => e.hom.2) h
+  · intro e
+    refine ⟨componentSectionsEquiv C I G U (fun _ => e.hom.2), ?_⟩
+    apply Iso.ext
+    apply CategoryTheory.Prod.hom_ext
+    · subsingleton
+    · rfl
+
+lemma component_eval_not_injective (U : C) (g : G) (hg : g ≠ 1) :
+    ¬ Function.Injective (eval (constantDiagram C (Fibre Bool G)) (𝟙 U)
+      (Discrete.mk false, SingleObj.star G)) := by
+  intro h
+  let a : Bool → G := fun i => if i then g else 1
+  have he : componentSectionsEquiv C Bool G U a = componentSectionsEquiv C Bool G U 1 := by
+    apply h
+    apply Iso.ext
+    apply CategoryTheory.Prod.hom_ext
+    · subsingleton
+    · rfl
+  have ha := (componentSectionsEquiv C Bool G U).injective he
+  exact hg (congrFun ha true)
+
+lemma fibre_no_cross_iso :
+    ¬ Nonempty (((Discrete.mk false, SingleObj.star G) : Fibre Bool G) ≅
+      (Discrete.mk true, SingleObj.star G)) := by
+  rintro ⟨e⟩
+  exact Bool.false_ne_true e.hom.1.eq
+
+lemma constant_two_components_not_gerbe (U : C) :
+    ¬ IsGerbe (constantDiagram C (Fibre Bool G)) (⊥ : GrothendieckTopology C) := by
+  intro h
+  let := h
+  obtain ⟨R, hR, hi⟩ := IsGerbe.locallyIsomorphic
+    (F := constantDiagram C (Fibre Bool G)) (J := ⊥) U
+    (Discrete.mk false, SingleObj.star G) (Discrete.mk true, SingleObj.star G)
+  have htop : R = ⊤ := GrothendieckTopology.bot_covering.mp hR
+  have he := hi (𝟙 U) (by rw [htop]; trivial)
+  exact fibre_no_cross_iso G he
+
+set_option backward.isDefEq.respectTransparency false in
+lemma point_isStack :
+    (constantDiagram (Discrete PUnit) (Fibre I G)).IsStack ⊥ := by
+  apply Pseudofunctor.IsStack.of_isStackFor
+  intro U R hR
+  have htop : R = ⊤ := GrothendieckTopology.bot_covering.mp hR
+  subst R
+  let F := constantDiagram (Discrete PUnit) (Fibre I G)
+  let R : Sieve U := ⊤
+  let i₀ : R.arrows.category := ⟨Over.mk (𝟙 U), trivial⟩
+  let : Subsingleton (Over U) := ⟨fun a b => by
+    cases a with | mk a ar ah =>
+      cases b with | mk b br bh =>
+        have hab : a = b := Subsingleton.elim _ _
+        subst b
+        have hr : ar = br := Subsingleton.elim _ _
+        subst br
+        congr 1
+        subsingleton⟩
+  let : Subsingleton R.arrows.category := ⟨fun i j => by
+    cases i
+    cases j
+    congr 1
+    subsingleton⟩
+  let K := F.toDescentData (fun i : R.arrows.category => i.obj.hom)
+  let hff : K.FullyFaithful :=
+    { preimage := fun k => k.hom i₀
+      map_preimage := fun k => by
+        apply Pseudofunctor.DescentData.hom_ext
+        intro i
+        change k.hom i₀ = k.hom i
+        congr 1
+        exact Subsingleton.elim _ _
+      preimage_map := fun k => rfl }
+  let := hff.full
+  let := hff.faithful
+  let : K.EssSurj :=
+    { mem_essImage := fun d => ⟨d.obj i₀, ⟨Pseudofunctor.DescentData.isoMk
+        (fun i => eqToIso (congrArg d.obj (Subsingleton.elim i₀ i))) (by
+          intro V q i j f g hf hg
+          have hij : j = i := Subsingleton.elim _ _
+          subst j
+          have hfg : g = f := Subsingleton.elim _ _
+          subst g
+          have hi : i = i₀ := Subsingleton.elim _ _
+          subst i
+          simp only [eqToIso_refl, Iso.refl_hom]
+          change 𝟙 _ ≫ d.hom q f f hf hg =
+            (K.obj (d.obj i₀)).hom q f f hf hg ≫ 𝟙 _
+          rw [d.hom_self q f hf,
+            (K.obj (d.obj i₀)).hom_self q f hf]
+          simp only [Category.comp_id]
+          rfl)⟩⟩ }
+  exact ⟨{ }⟩
+
+lemma point_connected_gerbe :
+    IsGerbe (constantDiagram (Discrete PUnit) (Fibre PUnit G)) ⊥ where
+  toIsStack := point_isStack PUnit G
+  isIso_hom U {x y} f := by
+    apply (CategoryTheory.isIso_prod_iff (Discrete PUnit) (SingleObj G)).mpr
+    exact ⟨inferInstance, inferInstance⟩
+  locallyNonempty U := ⟨⊤, GrothendieckTopology.top_mem ⊥ U,
+    fun _ _ _ => ⟨(Discrete.mk PUnit.unit, SingleObj.star G)⟩⟩
+  locallyIsomorphic U x y := ⟨⊤, GrothendieckTopology.top_mem ⊥ U,
+    fun _ _ _ => ⟨eqToIso (by
+      apply Prod.ext
+      · exact Subsingleton.elim _ _
+      · exact Subsingleton.elim _ _)⟩⟩
+
+-- BandPointTests.stack
+example : (constantDiagram (Discrete PUnit) (Fibre Bool (Multiplicative (ZMod 3)))).IsStack ⊥ :=
+  point_isStack _ _
+
+-- BandPointTests.gerbe
+example : IsGerbe
+    (constantDiagram (Discrete PUnit) (Fibre PUnit (Multiplicative (ZMod 3)))) ⊥ :=
+  point_connected_gerbe _
+
+lemma constantSection_restrict {U V : C} (f : V ⟶ U) (z : (CatCenter D)ˣ) :
+    restrict (constantDiagram C D) f (constantSection C D U z) =
+      constantSection C D V z := rfl
+
+lemma constantSectionsEquiv_apply (U : C) (z : (CatCenter D)ˣ) :
+    constantSectionsEquiv C D U z = constantSection C D U z := rfl
+
+lemma constantSectionsEquiv_symm_apply (U : C)
+    (s : IntrinsicBandSection (constantDiagram C D) U) :
+    (constantSectionsEquiv C D U).symm s = val (constantDiagram C D) s U (𝟙 U) := rfl
+
+lemma componentCenter_app (a : I → G) (x : Fibre I G) :
+    (componentCenter I G a).app x = (𝟙 x.1, a x.1.as) := rfl
+
+lemma componentCenter_naturality (a : I → G) {x y : Fibre I G} (f : x ⟶ y) :
+    f ≫ (componentCenter I G a).app y = (componentCenter I G a).app x ≫ f :=
+  (componentCenter I G a).naturality f
+
+lemma componentCenterUnit_val (a : I → G) :
+    (componentCenterUnit I G a).val = componentCenter I G a := rfl
+
+lemma componentCenterUnit_inv (a : I → G) :
+    (componentCenterUnit I G a).inv = componentCenter I G (fun i => (a i)⁻¹) := rfl
+
+lemma componentCenterEquiv_apply (a : I → G) :
+    componentCenterEquiv I G a = componentCenterUnit I G a := rfl
+
+lemma componentCenterEquiv_symm_apply (z : (CatCenter (Fibre I G))ˣ) (i : I) :
+    (componentCenterEquiv I G).symm z i =
+      (z.val.app (Discrete.mk i, SingleObj.star G)).2 := rfl
+
+lemma componentSectionsEquiv_symm_apply (U : C)
+    (s : IntrinsicBandSection (constantDiagram C (Fibre I G)) U) (i : I) :
+    (componentSectionsEquiv C I G U).symm s i =
+      ((val (constantDiagram C (Fibre I G)) s U (𝟙 U)).val.app
+        (Discrete.mk i, SingleObj.star G)).2 := rfl
+
+-- BandPointTests.generator
+example : (eval
+    (constantDiagram (Discrete PUnit) (Fibre PUnit (Multiplicative (ZMod 3))))
+    (𝟙 (Discrete.mk PUnit.unit)) (Discrete.mk PUnit.unit, SingleObj.star _)
+    (componentSectionsEquiv (Discrete PUnit) PUnit (Multiplicative (ZMod 3))
+      (Discrete.mk PUnit.unit) (fun _ => Multiplicative.ofAdd (1 : ZMod 3)))).hom.2 =
+        Multiplicative.ofAdd (1 : ZMod 3) := rfl
+
+-- BandPointTests.trivialDiscreteTwoObjects
+example : (constantDiagram (Discrete PUnit) (Fibre Bool (Multiplicative (ZMod 1)))).IsStack ⊥ ∧
+    ¬ IsGerbe (constantDiagram (Discrete PUnit) (Fibre Bool (Multiplicative (ZMod 1)))) ⊥ :=
+  ⟨point_isStack _ _, constant_two_components_not_gerbe _ _ (Discrete.mk PUnit.unit)⟩
+
+-- BandPointTests.disconnectedWitness
+example : ∃ s : IntrinsicBandSection
+    (constantDiagram (Discrete PUnit) (Fibre Bool (Multiplicative (ZMod 3))))
+      (Discrete.mk PUnit.unit), s ≠ 1 ∧
+    eval (constantDiagram (Discrete PUnit) (Fibre Bool (Multiplicative (ZMod 3))))
+      (𝟙 (Discrete.mk PUnit.unit)) (Discrete.mk false, SingleObj.star _) s =
+        Iso.refl ((Discrete.mk false, SingleObj.star _) : Fibre Bool (Multiplicative (ZMod 3))) := by
+  let a : Bool → Multiplicative (ZMod 3) := fun i =>
+    if i then Multiplicative.ofAdd (1 : ZMod 3) else 1
+  refine ⟨componentSectionsEquiv _ _ _ _ a, ?_, ?_⟩
+  · intro h
+    have he := congrArg (fun s => (eval
+      (constantDiagram (Discrete PUnit) (Fibre Bool (Multiplicative (ZMod 3))))
+      (𝟙 (Discrete.mk PUnit.unit)) (Discrete.mk true, SingleObj.star _) s).hom.2) h
+    exact (by decide : Multiplicative.ofAdd (1 : ZMod 3) ≠ 1) he
+  · apply Iso.ext
+    apply CategoryTheory.Prod.hom_ext
+    · subsingleton
+    · rfl
+
+-- ConstantCentreTests.one
+example (U : C) : constantSection C D U 1 = 1 := rfl
+
+-- ConstantCentreTests.multiply
+example (U : C) (z t : (CatCenter D)ˣ) :
+    constantSection C D U (z * t) = constantSection C D U z * constantSection C D U t := rfl
+
+-- ConstantCentreTests.allArrows
+example (U V : C) (f : V ⟶ U) (z : (CatCenter D)ˣ) :
+    val (constantDiagram C D) (constantSection C D U z) V f = z := rfl
+
+-- ConstantEquivTests.centreRoundTrip
+example (U : C) (z : (CatCenter D)ˣ) :
+    (constantSectionsEquiv C D U).symm (constantSectionsEquiv C D U z) = z :=
+  MulEquiv.symm_apply_apply _ _
+
+-- ConstantEquivTests.sectionRoundTrip
+example (U : C) (s : IntrinsicBandSection (constantDiagram C D) U) :
+    constantSectionsEquiv C D U ((constantSectionsEquiv C D U).symm s) = s :=
+  MulEquiv.apply_symm_apply _ _
+
+-- ConstantEquivTests.restriction
+example {U V : C} (f : V ⟶ U) (z : (CatCenter D)ˣ) :
+    restrict (constantDiagram C D) f (constantSectionsEquiv C D U z) =
+      constantSectionsEquiv C D V z := rfl
+
+-- ComponentCentreTests.component
+example (a : I → G) (i : I) :
+    (componentCenter I G a).app (Discrete.mk i, SingleObj.star G) = (𝟙 _, a i) := rfl
+
+-- ComponentCentreTests.unit
+example (i : I) : (componentCenter I G 1).app (Discrete.mk i, SingleObj.star G) = 𝟙 _ := rfl
+
+-- ComponentCentreTests.naturality
+example (a : I → G) {x y : Fibre I G} (f : x ⟶ y) :
+    f ≫ (componentCenter I G a).app y = (componentCenter I G a).app x ≫ f :=
+  (componentCenter I G a).naturality f
+
+-- ComponentUnitTests.value
+example (a : I → G) : (componentCenterUnit I G a).val = componentCenter I G a := rfl
+
+-- ComponentUnitTests.inverse
+example (a : I → G) : (componentCenterUnit I G a).inv =
+    componentCenter I G (fun i => (a i)⁻¹) := rfl
+
+-- ComponentUnitTests.roundTrip
+example (a : I → G) : (componentCenterUnit I G a).val *
+    (componentCenterUnit I G a).inv = 1 := Units.val_inv _
+
+-- ComponentEquivTests.coefficientRoundTrip
+example (a : I → G) : (componentCenterEquiv I G).symm (componentCenterEquiv I G a) = a :=
+  MulEquiv.symm_apply_apply _ _
+
+-- ComponentEquivTests.centreRoundTrip
+example (z : (CatCenter (Fibre I G))ˣ) :
+    componentCenterEquiv I G ((componentCenterEquiv I G).symm z) = z :=
+  MulEquiv.apply_symm_apply _ _
+
+-- ComponentEquivTests.inertiaCoordinates
+example (a : I → G) (i : I) :
+    ((componentCenterEquiv I G a).val.app (Discrete.mk i, SingleObj.star G)).2 = a i := rfl
+
+-- ComponentSectionTests.evaluation
+example {U V : C} (f : V ⟶ U) (a : I → G) (i : I) :
+    (eval (constantDiagram C (Fibre I G)) f (Discrete.mk i, SingleObj.star G)
+      (componentSectionsEquiv C I G U a)).hom.2 = a i := rfl
+
+-- ComponentSectionTests.restriction
+example {U V : C} (f : V ⟶ U) (a : I → G) :
+    restrict (constantDiagram C (Fibre I G)) f (componentSectionsEquiv C I G U a) =
+      componentSectionsEquiv C I G V a := rfl
+
+-- ComponentSectionTests.roundTrip
+example (U : C) (a : I → G) :
+    (componentSectionsEquiv C I G U).symm (componentSectionsEquiv C I G U a) = a :=
+  MulEquiv.symm_apply_apply _ _
+
+-- BandPointTests.connected
+example : Function.Bijective
+    (eval (constantDiagram (Discrete PUnit) (Fibre PUnit (Multiplicative (ZMod 3))))
+      (𝟙 (Discrete.mk PUnit.unit)) (Discrete.mk PUnit.unit, SingleObj.star _)) :=
+  component_eval_bijective _ _ _ _ _
+
+-- BandPointTests.disconnected
+example : ¬ Function.Injective
+    (eval (constantDiagram (Discrete PUnit) (Fibre Bool (Multiplicative (ZMod 3))))
+      (𝟙 (Discrete.mk PUnit.unit)) (Discrete.mk false, SingleObj.star _)) :=
+  component_eval_not_injective _ _ _ (Multiplicative.ofAdd (1 : ZMod 3)) (by decide)
+
+-- BandPointTests.notGerbe
+example : ¬ IsGerbe
+    (constantDiagram (Discrete PUnit) (Fibre Bool (Multiplicative (ZMod 3)))) ⊥ :=
+  constant_two_components_not_gerbe _ _ (Discrete.mk PUnit.unit)
+
+-- BandPointTests.connectedCardinality
+example : Nat.card (IntrinsicBandSection
+    (constantDiagram (Discrete PUnit) (Fibre PUnit (Multiplicative (ZMod 3))))
+      (Discrete.mk PUnit.unit)) = 3 := by
+  rw [← Nat.card_congr (componentSectionsEquiv (Discrete PUnit) PUnit
+    (Multiplicative (ZMod 3)) (Discrete.mk PUnit.unit)).toEquiv]
+  rw [Nat.card_eq_fintype_card]
+  decide
+
+-- BandPointTests.disconnectedCardinality
+example : Nat.card (IntrinsicBandSection
+    (constantDiagram (Discrete PUnit) (Fibre Bool (Multiplicative (ZMod 3))))
+      (Discrete.mk PUnit.unit)) = 9 := by
+  rw [← Nat.card_congr (componentSectionsEquiv (Discrete PUnit) Bool
+    (Multiplicative (ZMod 3)) (Discrete.mk PUnit.unit)).toEquiv]
+  rw [Nat.card_eq_fintype_card]
+  decide
+
+-- BandPointTests.terminalFibre
+example : Nat.card (IntrinsicBandSection
+    (constantDiagram (Discrete PUnit) (Fibre PUnit (Multiplicative (ZMod 1))))
+      (Discrete.mk PUnit.unit)) = 1 := by
+  rw [← Nat.card_congr (componentSectionsEquiv (Discrete PUnit) PUnit
+    (Multiplicative (ZMod 1)) (Discrete.mk PUnit.unit)).toEquiv]
+  rw [Nat.card_eq_fintype_card]
+  decide
+
+#print axioms constantSection
+#print axioms constantSection_val
+#print axioms constantSectionsEquiv
+#print axioms constantSectionsEquiv_restrict
+#print axioms componentCenter
+#print axioms componentCenterUnit
+#print axioms componentCenterEquiv
+#print axioms componentSectionsEquiv
+#print axioms componentSectionsEquiv_eval
+#print axioms componentSectionsEquiv_restrict
+#print axioms component_eval_bijective
+#print axioms component_eval_not_injective
+#print axioms fibre_no_cross_iso
+#print axioms constant_two_components_not_gerbe
+#print axioms point_isStack
+#print axioms point_connected_gerbe
+#print axioms constantSection_restrict
+#print axioms constantSectionsEquiv_apply
+#print axioms constantSectionsEquiv_symm_apply
+#print axioms componentCenter_app
+#print axioms componentCenter_naturality
+#print axioms componentCenterUnit_val
+#print axioms componentCenterUnit_inv
+#print axioms componentCenterEquiv_apply
+#print axioms componentCenterEquiv_symm_apply
+#print axioms componentSectionsEquiv_symm_apply
+end TauCeti.AlgebraicGeometry.BandFixtures
+END ARCHIVED CHECKED POINT BAND FIXTURES
+-/
