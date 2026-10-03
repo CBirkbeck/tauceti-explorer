@@ -1,3 +1,469 @@
+# Polynomial homogeneous comparison — current #551 checkpoint
+
+Codex — codex-7e92bd, 2026-10-03. Claim comment 5965260354 was confirmed by bot 5965261825. The entire 55002-character issue was read before claiming and reread unchanged afterward. Continue merged #5935; preserve its credited source and proof receipts. This is a partial planning checkpoint and every implementation status remains unchecked.
+
+## Result and mathematical boundary
+
+Sixteen declaration nodes (one construction and fifteen lemmas), fifteen API records and six tests provide the actual coefficient-linear polynomial component H_n, its coefficient formula, compatibility with native polynomial inclusion and both native component maps, homogeneity equivalence, unique polynomial representatives, vanishing, order-bounded truncation and multiplication, exact-order nonvanishing, and orthogonal projection laws. The actual equation-jet kernel now has a polynomial witness in both directions; the strict-below-order and zero-equation branches retain their weaker assumptions.
+
+All adapters are for finite variable sets and arbitrary commutative coefficient rings. Only the exact principal-equation upper kernel uses no-zero-divisors coefficients, exact finite order(f)=d and d≤n. No field, reducedness, irreducibility, characteristic or local-ring hypothesis is silently added. The empty-variable and F₂ tests distinguish exact-degree extraction from truncation. Over ℚ a fixed-degree component fails multiplicativity; over ℤ/4ℤ the nonzero polynomial 2X has zero square. These tests prevent strengthening the valid product identity to nonvanishing for arbitrary coefficients.
+
+All 157 incoming node objects are unchanged, including the reserved general Hilbert–Samuel definition. Totals are 173 nodes (8 definitions, 26 constructions, 123 lemmas, 16 theorems), 154 API records, 189 raw tests (135 required definition/construction tests), 13 planets, 304 baseline declarations, 15 gaps and two requests. P7/R03.3/R03.4 stay partial and the other five stages stay not_read. All old sources, route records, source issues, requests, coverage targets and boundary metadata remain intact.
+
+The full tangent-cone algebra is not yet assembled. Identify the degree projection's actual image with q^n/q^(n+1), construct the generator-compatible graded map, and prove multiplication and the full principal kernel. Then prove actual curve/support dimension before comparison with the existing general cumulative polynomial and intrinsic/ambient multiplicities. General Hilbert–Serre, Artin–Rees, completion, localization, associativity and every routed source/stage obligation remain required.
+
+## Reading and ownership
+
+Fresh: whole campaign reader, all nine reviewed AUDIT-17 roadmap rows and the complete accepted review, applicable accepted RS-08 narrowing and ownership records and its local algebra architecture/conservation, all 22 touching campaign edge identities, the one matching link/overlap record, both requests, and full reserved key/catalog entry. The generic local-algebra owner and its upstream ModularCurves special-case imports remain unchanged. No new supplier is requested. Upstream style documents were read earlier in this continuous loop; the current reading is not a new full audit of all historical proofs or routed papers.
+
+Primary mathematical reading: complete Stacks 00K4 mathematical section and the credited immutable DDPA-JET-HANDOFF §§2–5, including equation (9), both degreewise kernel directions and the graded-map boundary. The latter is the authored proof checkpoint at eb645dc85df65608c56fafc4d9ed0e71ab0ca3ce, already credited in the packet. Selected pinned polynomial Homogeneous.lean, series Basic.lean, Trunc.lean and Order.lean statements, ambient assumptions and proofs were read; source hashes and exact extents are in HS-POLYNOMIAL-COMPONENT-PIN-7e92bd. The new finite-variable coefficient generalization is an authored deduction, not a newly printed whole-paper theorem.
+
+Fresh bounded open-PR search found Mathlib PR9819, OPEN at 413e5b872a7c758e0eb91f99cb96d6a61c81f0a2. Its metadata, body and changed-file list describe graded finite generation, additive functions and Hilbert–Serre. No code was copied or unpinned theorem imported. That general backlog is distinct from this native polynomial/series adapter. A bounded web-indexed Zulip search returned no relevant API discussion; no whole-library or whole-Zulip absence claim is made.
+
+## Validation and resources
+
+Both files compiled serially in the existing Lean 4.34.0-rc2 build at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. The Tau Ceti source pin remains f790474821cf4256814db967cb154e7af3d0c369; neither file imports Tau Ceti. No language server, project setup, cache download or library build was used. Each run had timeout 1200 and more than 20 GiB available. No own compiler is left running.
+
+Native: 2473 lines, 64 inherited anonymous examples plus inherited named tests and six new named tests, 151 axiom audits, zero admissions/errors/warnings. Only propext,Classical.choice and Quot.sound appear. Available 36 GiB; 11.10 seconds; 3590856 KiB peak RSS. Canonical: 3275 lines, 213 examples, 433 expected admission warnings only; available 35 GiB; 28.21 seconds; 3592004 KiB peak RSS. All 2251 incoming native lines are exact after one added import. The entire incoming suggested file is preserved after the same added import. Every new declaration and complete test header matches, including type-level lets. The complete incoming reader is preserved as a suffix.
+
+Native SHA-256:6af365e82b4f3db615436237ee78b14c214e46509f8af8fcaa5653996c240139.
+Canonical SHA-256:269dfcb080265133bf2e1e2fc459e0e70ff36447303b5646fc228ee70e5d91b2.
+Normalized native log SHA-256:6ee3146d0fc0596d23dc6132cc647888803732481e38d5920b335780827c4f6c.
+Normalized canonical log SHA-256:c4682599b766c0723fd0b7463cfa6f95f4ab42dd5a82f3e9e3e3a7d8485fc365.
+Normalization changes only the evidence-directory prefix to EVIDENCE and retains resource footers.
+
+The indexed packet checker reports zero errors/warnings; actual intake ownership/file checks and preservation/header checks pass. Actual atlas assembly retains all other promoted packets, including this roadmap's R03.6 part (226 whole-roadmap declarations). Own DAG: 173 vertices/261 edges; stage DAG: 3003/8623; scoped combined DAG: 3164/9058, including every reached declaration's parent stage. All are acyclic, 174 declarations and 274 baseline leaves are reached, with zero unresolved references or own skipped/pending links. All 65 accepted restructure pairs are reachable. Twelve of 13 required supplier pairs are reachable; the missing LocalFieldsRamification layer 0→R03.4 path is inherited, documented and identical in the incoming control. No claim of complete supplier closure is made. Stage edges and every other roadmap's skipped/pending records remain control-equal.
+
+Read base 1a0342b3b20f9b2faae813b2f5a230890264eef8; publication base b725306dcef5613ca909fcaafaded4840e72777c. Governing/read inputs and all four own incoming deliverables were unchanged; only the preceding Anabelian checkpoint and queue advanced. Only the four issue-authorized files change.
+
+## Public recovery and continuation
+
+The preceding own commit [ad60c74c52d6e284558f4c3c87a435897e5eaa4f](https://github.com/CBirkbeck/tauceti-explorer/commit/ad60c74c52d6e284558f4c3c87a435897e5eaa4f) contains the exact checked native proof in an inert suggested-file block. The final file restores admitted planning bodies. The incoming proof is recoverable from archive 1ee3d626cd226cffc0ee869aff618df03e133c65 with SHA-256 695a088a82bfd4d432a4af5bf41d4f1b99d33138db2bcf86f3d9c08c9973a3a5.
+
+Save the following three blocks as recover.py, verify.py, graph.py in disk evidence storage. From a checkout of the submitted commit, run python3 EVIDENCE/recover.py SUBMITTED_COMMIT EVIDENCE, then python3 EVIDENCE/verify.py EVIDENCE PINNED_DECLARATIONS_TSV and python3 EVIDENCE/graph.py EVIDENCE/original-packet.json. The recovery checks immutable source hashes. Without local compiler logs, verification explicitly reports source/header validation only. To rerun compilation, check free memory and existing build pins, run the two recovered files serially with /usr/bin/time -v timeout 1200 lake env lean, redirecting to native.log and canonical.log; then rerun verification. Do not set up or build libraries.
+
+Resume at the actual quotient-image comparison and full graded assembly described above. Preserve general key-definition scope, all routed obligations and the documented missing supplier path. A polynomial-valued degreewise kernel is not a dimension theorem.
+
+### recover.py (SHA-256 eabd5b8003e4b82680d30f21bdd501e8f3bf8bb2430a994b0bf51a6c0bec7c23)
+
+```python
+from pathlib import Path
+from urllib.request import urlopen
+import hashlib,sys
+STEM='DeformationAndDerivedPatchingAlgebra--P7'
+PATH='research/blueprint/suggested/'+STEM+'.lean'
+ARCHIVE='ad60c74c52d6e284558f4c3c87a435897e5eaa4f'
+INCOMING='1ee3d626cd226cffc0ee869aff618df03e133c65'
+BASE='1a0342b3b20f9b2faae813b2f5a230890264eef8'
+PUBLICATION='b725306dcef5613ca909fcaafaded4840e72777c'
+def read(ref,path=PATH):return urlopen('https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'+ref+'/'+path).read().decode()
+def section(text,start,end):return text.split(start+'\n',1)[1].split(end,1)[0]
+def sha(text):return hashlib.sha256(text.encode()).hexdigest()
+def reconstruct(submitted_ref):
+ native=section(read(ARCHIVE),'/- BEGIN ARCHIVED CHECKED POLYNOMIAL HOMOGENEOUS COMPARISON','END ARCHIVED CHECKED POLYNOMIAL HOMOGENEOUS COMPARISON -/')
+ assert sha(native)=='6af365e82b4f3db615436237ee78b14c214e46509f8af8fcaa5653996c240139'
+ incoming=section(read(INCOMING),'/- BEGIN ARCHIVED CHECKED INITIAL RELATIONS codex-a71f92','END ARCHIVED CHECKED INITIAL RELATIONS codex-a71f92 -/')
+ assert sha(incoming)=='695a088a82bfd4d432a4af5bf41d4f1b99d33138db2bcf86f3d9c08c9973a3a5'
+ extra='import Mathlib.RingTheory.MvPolynomial.Homogeneous\n'
+ assert native.startswith(extra+incoming)
+ tail=native[len(extra+incoming):];i=tail.index('\n#print axioms TauCeti.HilbertSamuel.homogeneousPolynomial\n');new,audits=tail[:i],tail[i:]
+ full=read(submitted_ref);assert sha(full)=='269dfcb080265133bf2e1e2fc459e0e70ff36447303b5646fc228ee70e5d91b2'
+ admitted=section(full,'/- BEGIN POLYNOMIAL HOMOGENEOUS COMPARISON -/','/- END POLYNOMIAL HOMOGENEOUS COMPARISON -/')
+ assert full.startswith(extra+read(BASE))
+ return {'Native.lean':native,'IncomingNative.lean':incoming,'New.lean':new,'Audits.lean':audits,
+  'Canonical.lean':full,'NewAdmitted.lean':admitted,'base.txt':BASE+'\n','publication-base.txt':PUBLICATION+'\n',
+  'original-packet.json':read(BASE,'research/blueprint/packets/'+STEM+'.json')}
+if __name__=='__main__':
+ out=Path(sys.argv[2]);out.mkdir(parents=True,exist_ok=True)
+ for name,text in reconstruct(sys.argv[1]).items():(out/name).write_text(text)
+```
+
+### verify.py (SHA-256 9d9baacd7d52af6501266d458ab4c25f7881efb3e800c5c49616e1c110df092f)
+
+```python
+from pathlib import Path
+import ast,hashlib,json,re,subprocess,sys
+R=Path.cwd();S=Path(sys.argv[1]);RID='DeformationAndDerivedPatchingAlgebra';STEM=RID+'--P7';NS='TauCeti.HilbertSamuel.'
+files=['research/blueprint/'+f+'/'+('BP-' if f=='handoff' else '')+STEM+'.'+ext for f,ext in [('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]]
+p=json.loads((R/files[0]).read_text());old=json.loads((S/'original-packet.json').read_text());nodes={n['id']:n for n in p['nodes']}
+assert len(old['nodes'])==157 and len(nodes)==173 and p['nodes'][:157]==old['nodes']
+for k in old:
+ if k not in ['summary','nodes','sources','baseline','coverage','gaps']:assert p[k]==old[k],k
+assert p['sources'][:-1]==old['sources'] and p['baseline']['declarations'][:292]==old['baseline']['declarations']
+assert {k:v for k,v in p['baseline'].items() if k!='declarations'}=={k:v for k,v in old['baseline'].items() if k!='declarations'}
+assert p['gaps'][:-1]==old['gaps'][:-1]
+assert {k:v for k,v in p['gaps'][-1].items() if k!='polynomialComponentContinuation'}==old['gaps'][-1]
+for a,b in zip(p['coverage'],old['coverage']):
+ if a['stageId']==RID+':R03.3':
+  assert a['remaining'][:-1]==b['remaining'] and {k:v for k,v in a.items() if k!='remaining'}=={k:v for k,v in b.items() if k!='remaining'}
+ else:assert a==b
+assert all(n['implementationStatus']=='unchecked' for n in p['nodes']) and p['status']=='partial'
+base=(S/'base.txt').read_text().strip()
+def blob(path):return subprocess.check_output(['git','show',base+':'+path],text=True)
+full=(R/files[2]).read_text();reader=(R/files[1]).read_text();extra='import Mathlib.RingTheory.MvPolynomial.Homogeneous\n'
+incoming=(S/'IncomingNative.lean').read_text();new=(S/'New.lean').read_text();native=(S/'Native.lean').read_text();audits=(S/'Audits.lean').read_text()
+assert hashlib.sha256(incoming.encode()).hexdigest()=='695a088a82bfd4d432a4af5bf41d4f1b99d33138db2bcf86f3d9c08c9973a3a5'
+assert native==extra+incoming+new+audits and not re.search(r'\bsorry\b|\baxiom\b',native)
+assert full.startswith(extra+blob(files[2])) and reader.endswith(blob(files[1]))
+admitted=full.split('/- BEGIN POLYNOMIAL HOMOGENEOUS COMPARISON -/\n')[1].split('/- END POLYNOMIAL HOMOGENEOUS COMPARISON -/')[0]
+def headers(text):
+ matches=list(re.finditer(r'^(def|lemma|example)\b(?: (\w+))?',text,re.M));out=[]
+ for i,m in enumerate(matches):
+  raw=text[m.start():matches[i+1].start() if i+1<len(matches) else len(text)]
+  sep=re.search(r' :=(?= by(?:\s)|\n| map_zero)',raw).start();header=raw[:sep]
+  if i>=16:header=re.sub(r'^lemma \w+','example',header)
+  out.append(' '.join(header.split()))
+ return out
+assert len(headers(new))==22 and headers(new)==headers(admitted)
+for n in p['nodes'][157:]:
+ assert n['declaration'] in reader and n['statement'] in reader
+ assert re.search(r'^(def|lemma) '+re.escape(n['declaration'].removeprefix(NS))+r'\b',new,re.M)
+ for a in n.get('api',[]):assert a['name'] in reader and a['statement'] in reader
+ for t in n.get('tests',[]):assert t['statement'] in reader and '-- test: '+t['name'] in admitted
+assert (S/'Canonical.lean').read_text()==full and (S/'NewAdmitted.lean').read_text()==admitted
+lean={}
+for name,count,warnings in [('Native',151,0),('Canonical',0,433)]:
+ path=S/(name.lower()+'.log')
+ if not path.exists():lean[name]='No local execution log supplied; source/header validation only.';continue
+ log=path.read_text();assert 'Exit status: 0' in log and not re.search(r'error(?:\(|:)|sorryAx',log)
+ assert log.count('warning:')==log.count('warning: declaration uses')==warnings
+ assert log.count('depends on axioms:')+log.count('does not depend on any axioms')==count
+ found=re.findall(r'depends on axioms: \[(.*?)\]',log,re.S)
+ assert all(set(re.findall(r'\b(?:\w+\.)*\w+\b',v))<={'propext','Classical.choice','Quot.sound'} for v in found)
+ lean[name]={'warnings':warnings,'audits':count,'exit':0}
+tree=ast.parse((R/'research/blueprint/intake.py').read_text());names={'file_problems','auto_refusals','own_files','independent_of'}
+picked=[n for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id in {'ALLOWED','PRIVATE'} for t in n.targets) or isinstance(n,ast.FunctionDef) and n.name in names]
+env={'json':json,'re':re};exec(compile(ast.Module(body=picked,type_ignores=[]),'actual-intake','exec'),env)
+job=next(j for j in json.loads((R/'research/blueprint/queue.json').read_text())['jobs'] if j['id']=='BP-'+STEM)
+problems=[x for path in files for x in env['file_problems'](path,(R/path).read_text())]
+refusals=env['auto_refusals'](job,files,False,{'codex-7e92bd'},set());assert not problems and not refusals,(problems,refusals)
+for path in files:
+ text=(R/path).read_text();assert not re.search(r'[ \t]+$',text,re.M),path
+ assert not re.search(r'/(?:home|Users)/[^/\s]+/',text),path
+pub=(S/'publication-base.txt').read_text().strip() if (S/'publication-base.txt').exists() else base
+changed=set(subprocess.check_output(['git','diff','--name-only',pub],text=True).splitlines());assert changed<=set(files),changed
+sys.path.insert(0,str(R/'scripts'));import check_blueprint
+errors,warnings,summary=check_blueprint.check(R/files[0],check_blueprint.load_index(Path(sys.argv[2])),check_blueprint.world());assert not errors and not warnings,(errors,warnings)
+summary['packet']=files[0]
+report={'oldNodeObjectsPreserved':157,'newHeadersMatched':16,'newTestsMatched':6,'incomingProofPreservedAfterOneImport':True,'canonicalPrefixPreservedAfterOneImport':True,'readerSuffixPreserved':True,'intakeFileProblems':problems,'intakeAutoRefusals':refusals,'checker':summary,'rawApiItems':sum(len(n.get('api',[])) for n in p['nodes']),'rawTests':sum(len(n.get('tests',[])) for n in p['nodes']),'lean':lean,'fullCanonicalCompiled':True,'scriptSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+print(json.dumps(report,indent=2))
+```
+
+### graph.py (SHA-256 2ab5184487d1061bb9dde1ddb2b3f823e7ae4b9729eef348f694649fa0820292)
+
+```python
+from pathlib import Path
+import sys,json,copy,collections
+sys.path.insert(0,str(Path.cwd()/'scripts'))
+import build,blueprints,check_blueprint
+RID='DeformationAndDerivedPatchingAlgebra';STEM=RID+'--P7'
+p=json.loads((Path.cwd()/'research/blueprint/packets'/f'{STEM}.json').read_text())
+original=json.loads(Path(sys.argv[1]).read_text())
+new={n['id']:n for n in p['nodes']}
+root=Path.cwd()
+a0=json.loads((root/"data/atlas.json").read_text())
+packets,documents,definitions=blueprints.load_promoted(root)
+otherparts=[(stem,q) for stem,q in packets if q.get("roadmapId")==RID and stem!=STEM]
+assert otherparts, "must preserve other promoted roadmap parts"
+keep=[x for x in packets if x[0]!=STEM]
+documents[STEM]="research/blueprint/readmes/"+STEM+".md"
+def assemble(candidate):
+ build.load_promoted=lambda *args:(copy.deepcopy(keep+[(STEM,candidate)]),copy.deepcopy(documents),copy.deepcopy(definitions))
+ return build.assemble(require_distances=False)[0]
+a=assemble(p);b=assemble(original)
+world={}
+for folder in ["data/decompositions","data/blueprints","research/blueprint/packets"]:
+ for path in sorted((root/folder).glob("*.json")):
+  q=json.loads(path.read_text())
+  for n in q.get("nodes",[]):world.setdefault(n["id"],n)
+world.update(new)
+stages={x["id"]:x for x in a["stages"]}
+stageids=set(stages)|set(check_blueprint.world()[1])
+stageedges={(e["source"],e["target"]) for e in a["stageEdges"]}
+def dag(vertices,edges):
+ vertices=set(vertices)|{v for edge in edges for v in edge}
+ out=collections.defaultdict(set);indeg={v:0 for v in vertices}
+ for source,target in edges:
+  if target not in out[source]:out[source].add(target);indeg[target]+=1
+ stack=[v for v,count in indeg.items() if count==0];count=0
+ while stack:
+  v=stack.pop();count+=1
+  for w in out[v]:
+   indeg[w]-=1
+   if indeg[w]==0:stack.append(w)
+ assert count==len(vertices),[v for v,count in indeg.items() if count][:15]
+ return {"vertices":len(vertices),"edges":len(edges),"acyclic":True}
+ownedges={(q,nid) for nid,node in new.items() for q in node.get("prerequisites",[]) if q in new}
+stack=list(new);seen=set();dep=set();unresolved=set();baseref=set()
+while stack:
+ nid=stack.pop()
+ if nid in seen:continue
+ seen.add(nid)
+ for q in world[nid].get("prerequisites",[]):
+  if q.startswith(("mathlib:","tauceti:")) and q not in stageids:baseref.add(q);continue
+  dep.add((q,nid))
+  if q in world:stack.append(q)
+  elif q not in stageids:unresolved.add(q)
+assert not unresolved,sorted(unresolved)
+dep|={(world[nid]["parentStageId"],nid) for nid in seen if world[nid].get("parentStageId") in stageids or world[nid].get("parentStageId") in world}
+dep|={(request["supplier"],consumer) for request in p.get("requests",[]) for consumer in request.get("neededBy",[]) if consumer in new or consumer in stageids}
+roadmap=next(r for r in a["roadmaps"] if r["id"]==RID)
+expected_decl=len(new)+sum(len(q["nodes"]) for _,q in otherparts)
+assert roadmap["blueprint"]["declarations"]==expected_decl,(roadmap["blueprint"],expected_decl)
+assert not roadmap["blueprint"]["skippedLinks"] and not roadmap.get("pendingLinks",[])
+assert stageedges=={(e["source"],e["target"]) for e in b["stageEdges"]}
+def skips(atlas):
+ return {r["id"]:(r.get("blueprint",{}).get("skippedLinks",[]),r.get("pendingLinks",[])) for r in atlas["roadmaps"] if r["id"]!=RID}
+assert skips(a)==skips(b)
+out=collections.defaultdict(set)
+for source,target in stageedges:out[source].add(target)
+def reachable(source,target):
+ stack=[source];seen=set()
+ while stack:
+  v=stack.pop()
+  if v==target:return True
+  if v in seen:continue
+  seen.add(v);stack.extend(out[v]-seen)
+ return False
+pairs={(e["source"],e["target"]) for e in a0["stageEdges"] if e["target"].startswith(RID+":")}
+for node in p["nodes"]:
+ for q in node.get("prerequisites",[]):
+  if q in stageids and q not in world and q!=node["parentStageId"]:pairs.add((q,node["parentStageId"]))
+for req in p.get("requests",[]):
+ for consumer in req.get("neededBy",[]):
+  if consumer in new:pairs.add((req["supplier"],new[consumer]["parentStageId"]))
+  elif consumer in stageids:pairs.add((req["supplier"],consumer))
+missingpairs={(s,t) for s,t in pairs if not reachable(s,t)}
+oldout=collections.defaultdict(set)
+for edge in b['stageEdges']:oldout[edge['source']].add(edge['target'])
+def reachable0(source,target):
+ stack=[source];seen=set()
+ while stack:
+  v=stack.pop()
+  if v==target:return True
+  if v in seen:continue
+  seen.add(v);stack.extend(oldout[v]-seen)
+ return False
+assert missingpairs=={(s,t) for s,t in pairs if not reachable0(s,t)}
+assert missingpairs=={('tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions',RID+':R03.4')}
+assert any('LocalFieldsRamification layer 0 to R03.4' in gap['detail'] for gap in p['gaps'])
+# Independently retain all accepted restructure links touching the whole roadmap.
+acceptedpairs=set()
+for path in (root/"research/blueprint/restructure").glob("*.result.json"):
+ q=json.loads(path.read_text())
+ if q.get("review",{}).get("status")!="accepted":continue
+ for row in q.get("links",[]):
+  if any(row.get(k,"").startswith(RID+":") for k in ["source","target"]):
+   acceptedpairs.add((row["source"],row["target"]))
+assert all(reachable(s,t) for s,t in acceptedpairs),[(s,t) for s,t in acceptedpairs if not reachable(s,t)]
+report={"stageDAG":dag(stages,stageedges),"ownDAG":dag(new,ownedges),
+ "combinedDAG":dag(set(stages)|seen,stageedges|dep),"reachableDeclarations":len(seen),
+ "externalDeclarations":sorted(seen-set(new)),"reachableBaselineReferences":len(baseref),
+ "unresolved":sorted(unresolved),"otherPartsRetained":[stem for stem,_ in otherparts],
+ "partDeclarations":len(new),"partPlanets":sum("planet" in n for n in p["nodes"]),
+ "roadmapDeclarations":roadmap["blueprint"]["declarations"],
+ "requiredStagePairs":len(pairs),"requiredStagePairsReachable":len(pairs)-len(missingpairs),
+ "inheritedMissingStagePairs":sorted(missingpairs),
+ "acceptedRestructurePairs":len(acceptedpairs),"acceptedRestructurePairsReachable":len(acceptedpairs),
+ "stageEdgesUnchanged":True,"otherSkippedPendingUnchanged":True,"ownSkippedPendingEmpty":True}
+print(json.dumps(report,ensure_ascii=False,indent=2),flush=True)
+```
+
+---
+
+The complete incoming handoff follows as credited historical evidence. Its earlier source and verification receipts remain attributed to their authors.
+
+# Degree-wise actual initial relations — #551 checkpoint
+
+Codex — codex-a71f92, 2026-10-03. Claim 5964959432 was confirmed explicitly
+by bot 5964960489 after the whole issue was reread.
+Mathematical base: `7a0839ba10a362fba9724a9704e986412ea03aa8`.
+Publication base: `9c8a340faae54f977214d1a159764c3ca25a1e0e`.
+Only the four issue-authorized deliverables change. The shared checkout
+was read-only; no repository snapshot, library build, new Lake project,
+cache fetch, language server, manual merge/label change or worker delegation
+was used.
+
+## Result and remaining boundary
+
+Ten new declaration nodes (one actual coefficient-linear projection and nine
+lemmas), five API items and six typed tests provide the two directions of
+the principal-equation degree relation and actual projection kernel.
+For finite σ, R=k[[X_i]], v=span(X_i) and g∈v^n, HC_n(g)=0 iff
+g∈v^(n+1). With no-zero-divisors k, exact order(f)=d≤n, actual
+denominator membership is equivalent to HC_n(g)=HC_d(f)·w for a
+homogeneous degree-(n−d) series w. The strict-below-order and zero-equation
+branches require no domain. The projection definition and its quotient
+representative API need no finiteness of σ.
+
+The codex-a71f92 continuation proves the actual degree-wise series/ideal kernel adapters and coefficient-linear equation-jet projection, including both principal relation directions, small-index, zero/unit and characteristic-two nonreduced tests. It preserves the complete incoming proof prefix. Still construct the polynomial-valued homogeneous comparison, identify the map's image with the existing q^n/q^(n+1) carrier, and assemble the multiplicatively compatible full tangent-cone graded isomorphism. Curve/support dimension, comparison with the general Hilbert–Samuel constructor, intrinsic/ambient multiplicities, general Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed source obligation remain required; canonical bodies remain admitted and every node remains unchecked and every stage retains its incoming partial or not_read status.
+
+All 147 incoming node objects and the reserved general multiplicity node
+are unchanged. No existing gap, request, source issue, route, supplier,
+boundary field or source receipt is deleted or reattributed. Preserve all
+eight stage statuses exactly: P7/R03.3/R03.4 partial; the other five not_read.
+Every mathematical implementation status remains unchecked, and the whole
+packet remains partial. The reader append supplies individual statements,
+proof steps, inputs, API and discriminating tests; the suggested append
+has matching native mathematical headers and six typed examples.
+
+## Reading and source discipline
+
+The current WORKERS and governing protocols were hash-confirmed at the
+immutable base. The accepted scoped AUDIT-17 rows and complete accepted
+review were read before math planning, as were applicable accepted RS-08
+ownership and narrowing records, its architecture/conservation text and
+whole campaign document. The two whole upstream style examples read in
+this continuous session are JacobianChallenge and StableReduction;
+their blobs at this base match the previously read exact blobs.
+
+Credited DDPA-JET-HANDOFF §§3–5 were personally read with the actual
+equation (9), both kernel directions and the remaining full graded map.
+The generalized series/ideal adapters are authored deductions from that
+proof and the already proved native finite-variable order equivalence;
+they are not claimed as a newly printed theorem. Selected pinned native
+homogeneous-component, order, ideal-sum and quotient/linear-map statements
+were read with their hypotheses. Complete Stacks 00K4 mathematical content
+was read for its conventions. Bounded pinned concept, open Mathlib issue/PR
+and Zulip screens supply no additional implementation assumption. Source
+hashes and exact reading extent are in HS-INITIAL-RELATION-PIN-a71f92;
+all whole-paper/routed-source backlog stays attributed and open.
+
+## Checks and resources
+
+Native proof SHA-256:
+`695a088a82bfd4d432a4af5bf41d4f1b99d33138db2bcf86f3d9c08c9973a3a5`.
+Canonical suggested SHA-256:
+`d4436ea6117da50ee365d6886425697862cfebae297be2f735cfdca3a279bc6e`.
+Incoming native prefix SHA-256:
+`5a8f33443d5002d6d11eb5a4b513cfdafc36fa8fd4cf0a2874ea4b2b504a0389`.
+
+The complete 2251-line native proof passes with 129 distinct axiom audits,
+only propext/Classical.choice/Quot.sound, no admissions and no warnings/errors.
+Its complete 2018-line incoming prefix is byte-preserved. Six new named tests
+cover zero input, units, zero equation survival, characteristic-two degree-one
+survival and degree-two equation annihilation, and the exact n=d boundary.
+The complete 3134-line canonical file passes with 411 placeholder warnings
+only and 207 examples. The native file contains 64 anonymous inherited
+examples in addition to its inherited/new named tests.
+
+Both compiles used the already existing Lean 4.34.0-rc2 / Mathlib
+082e2d37e8b0463410cdb532e111cd43d5a66174 build. Tau Ceti source pin
+f790474821cf4256814db967cb154e7af3d0c369 was checked; no Tau Ceti import is
+required by this suggested file. Available memory was 38–39 GiB before
+each compile. One Lean process ran at a time under a 1200-second limit.
+Final native time was 10.70 seconds, peak RSS 3567696 KiB. No process is
+left running. Source/log scratch remained under 2 MiB before replay and
+is removed recoverably after the PR opens.
+
+Actual indexed scripts/check_blueprint.py logic returns no errors/warnings:
+157 nodes, 139 API items, 129 required definition/construction tests,
+13 planets, 292 baseline declarations, 15 gaps and 2 requests.
+(The all-node test count, including lemma fixtures, is printed by the
+supplementary validator.) Actual intake file rules pass. The actual
+immutable build.assemble output retains R03.6 and 210 whole-roadmap
+declarations. Own and scoped combined DAGs are acyclic, with no unresolved
+references; all incoming stage edges and other roadmap skipped/pending
+records are unchanged. All 65 accepted restructure pairs are reachable.
+Of 13 required supplier pairs, 12 are reachable. The one missing
+LocalFieldsRamification layer 0 → R03.4 pair is inherited and control-equal;
+it is a separate ownership/integration boundary, not repaired here.
+
+## Durable public replay
+
+[Public proof/check archive 1ee3d626cd226cffc0ee869aff618df03e133c65](https://github.com/CBirkbeck/tauceti-explorer/commit/1ee3d626cd226cffc0ee869aff618df03e133c65)
+is the final head's second parent and changes only the same four authorized
+paths. Its suggested-file comment contains the exact full native proof
+between BEGIN/END ARCHIVED CHECKED INITIAL RELATIONS codex-a71f92 markers.
+Its handoff contains full path-normalized native/canonical logs, the actual
+validation receipt, and complete immutable_view.py / validate.py scripts.
+No private scratch directory is needed to resume.
+
+The recovery program below extracts only the issue's four files and exact
+proof/check evidence, using apply_patch for writes. Supply REPO as the
+existing clone, REPLAY_SCRATCH as a new empty disk scratch directory, ARCHIVE
+as 1ee3d626cd226cffc0ee869aff618df03e133c65, and CANDIDATE as the immutable PR head. Read-only git fetch
+of those exact commits is permitted; never clone/copy the repository.
+
+```python
+"""Recover only the four issue deliverables and their exact native replay evidence."""
+import hashlib,sys,subprocess
+from pathlib import Path
+repo=Path(sys.argv[1]).resolve();dst=Path(sys.argv[2]).resolve()
+archive=sys.argv[3];candidate=sys.argv[4]
+stem="DeformationAndDerivedPatchingAlgebra--P7"
+paths={
+"research/blueprint/packets/"+stem+".json":"packet.json",
+"research/blueprint/readmes/"+stem+".md":"reader.md",
+"research/blueprint/suggested/"+stem+".lean":"Canonical.lean",
+"research/blueprint/handoff/BP-"+stem+".md":"handoff.md"}
+def blob(commit,path):
+ return subprocess.check_output(["git","show",commit+":"+path],cwd=repo).decode()
+archlean=blob(archive,"research/blueprint/suggested/"+stem+".lean")
+marker="\n/- BEGIN ARCHIVED CHECKED INITIAL RELATIONS codex-a71f92\n"
+end="END ARCHIVED CHECKED INITIAL RELATIONS codex-a71f92 -/\n"
+assert archlean.count(marker)==1
+canonical,native=archlean.split(marker);native=native.rsplit(end,1)[0]
+assert hashlib.sha256(native.encode()).hexdigest()=="695a088a82bfd4d432a4af5bf41d4f1b99d33138db2bcf86f3d9c08c9973a3a5"
+assert hashlib.sha256(canonical.encode()).hexdigest()=="d4436ea6117da50ee365d6886425697862cfebae297be2f735cfdca3a279bc6e"
+hand=blob(archive,"research/blueprint/handoff/BP-"+stem+".md")
+def section(heading,language):
+ tail=hand.split("\n## "+heading+"\n",1)[1]
+ data=tail.split("\n```"+language+"\n",1)[1].split("\n```\n",1)[0]
+ return data if data.endswith("\n") else data+"\n"
+files={name:blob(candidate,path)for path,name in paths.items()}
+assert files["Canonical.lean"]==canonical
+files.update({"Native.lean":native,
+"Native.log":section("Native log (machine paths normalized)","text"),
+"Canonical.log":section("Canonical log (machine paths normalized)","text"),
+"validation.log":section("Actual immutable validation log (path normalized)","text"),
+"immutable_view.py":section("Exact immutable view","python"),
+"validate.py":section("Exact validator","python")})
+assert dst.is_dir() and not any((dst/name).exists()for name in files)
+patch="*** Begin Patch\n"
+for name,data in files.items():
+ assert data.endswith("\n"),name
+ patch+="*** Add File: "+str(dst/name)+"\n"+"\n".join("+"+line for line in data[:-1].split("\n"))+"\n"
+patch+="*** End Patch\n"
+subprocess.run(["apply_patch"],input=patch,text=True,check=True,stdout=subprocess.DEVNULL)
+print("Recovered exact issue files, native proof, normalized logs and actual validator; no repository snapshot.")
+
+```
+
+Run recovery and the actual validator against the stated immutable
+publication base. The recovered compile logs document the exact checked
+bytes; to rerun Lean, first verify the existing build pins and free -g,
+then run Native.lean and Canonical.lean sequentially, each with timeout 1200.
+Do not compile below 20 GiB available, set up a project, build libraries,
+or start a language server.
+
+```bash
+python3 recover.py "$REPO" "$REPLAY_SCRATCH" "$ARCHIVE" "$CANDIDATE"
+TAUCETI_REPO="$REPO" N11_VALIDATE_BASE=9c8a340faae54f977214d1a159764c3ca25a1e0e TAUCETI_BASELINE="$PINNED_BASELINE" python3 "$REPLAY_SCRATCH/validate.py"
+```
+
+The publication replay is exercised byte-for-byte before opening the PR;
+the validator is rerun on the recovered files without repeating the
+unchanged compiler run. Submission uses Refs #551, not a closing keyword.
+The bot performs intake; no manual merge or labels.
+
+## Where to resume
+
+First compare native homogeneous series with homogeneous polynomials,
+then identify the actual projection image with the existing q^n/q^(n+1)
+carrier and assemble the full graded algebra map/isomorphism with generator,
+component and multiplication specifications. Only after native curve/support
+dimension is proved, compare the actual unique eventual polynomial with
+the existing general constructor and extract intrinsic/ambient multiplicity.
+Do not change the general reserved key into this special case. General
+Hilbert–Serre, support/degree, Artin–Rees, completion, localization, associativity,
+all stage targets and every routed-paper/source correction remain required.
+
+---
+
+The complete incoming handoff follows as credited historical evidence;
+its earlier reading and check receipts belong to their respective authors.
+
 # Actual plane quotient lengths determine unique rational polynomials — #551 checkpoint
 
 Codex — codex-5ebb6f, 2026-10-03. Winning [claim 5964618237](https://github.com/CBirkbeck/tauceti-explorer/issues/551#issuecomment-5964618237), confirmed by [bot 5964619220](https://github.com/CBirkbeck/tauceti-explorer/issues/551#issuecomment-5964619220).

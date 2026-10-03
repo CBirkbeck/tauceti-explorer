@@ -2997,3 +2997,322 @@ example : InfinityChart.normalizationCoordinates
 
 end TauCeti.GenusOne.QuadraticPinch.Overlap
 /- END QUADRATIC OVERLAP COMPARISON -/
+
+/- BEGIN TWO CHART SCHEME GLUING -/
+namespace TauCeti.GenusOne.QuadraticPinch.Global
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
+open Overlap
+variable {k : Type u} [Field k]
+
+abbrev finiteChart (a b : k) : Scheme := Spec (.of (algebra (quadratic 1 a b)))
+abbrev infinityChart (a b : k) : Scheme := Spec (.of (InfinityChart.Chart a b))
+abbrev overlapChart (a b : k) : Scheme := Spec (.of (Ring 1 a b))
+
+-- node: G.1/global-finite-open
+/-- The specified finite principal open, expressed in normalized overlap coordinates. -/
+def finiteOpen (a b : k) : overlapChart a b ⟶ finiteChart a b := by sorry
+
+lemma finiteOpen_eq (a b : k) : finiteOpen a b =
+    (Scheme.Spec.mapIso (finiteEquiv 1 a b).toCommRingCatIso.op).hom ≫
+      Spec.map (CommRingCat.ofHom (algebraMap (algebra (quadratic 1 a b))
+        (Localization.Away (finiteDenominator 1 a b)))) := by sorry
+
+lemma finiteOpen_isOpenImmersion (a b : k) : IsOpenImmersion (finiteOpen a b) := by sorry
+
+attribute [instance] finiteOpen_isOpenImmersion
+
+lemma finiteOpen_range (a b : k) :
+    (finiteOpen a b).opensRange = PrimeSpectrum.basicOpen (finiteDenominator 1 a b) := by sorry
+
+-- node: G.1/global-infinity-open
+def infinityOpen (a b : k) : overlapChart a b ⟶ infinityChart a b := by sorry
+
+lemma infinityOpen_isOpenImmersion (a b : k) : IsOpenImmersion (infinityOpen a b) := by sorry
+
+attribute [instance] infinityOpen_isOpenImmersion
+
+lemma infinityOpen_range (a b : k) :
+    (infinityOpen a b).opensRange = PrimeSpectrum.basicOpen
+      (algebraMap k[X] (InfinityChart.Chart a b) X) := by sorry
+
+-- node: G.1/global-curve
+/-- The actual two-chart scheme, with the specified reciprocal transition. -/
+def curve (a b : k) : Scheme := by sorry
+
+abbrev finiteι (a b : k) : finiteChart a b ⟶ curve a b := by sorry
+
+abbrev infinityι (a b : k) : infinityChart a b ⟶ curve a b := by sorry
+
+lemma finiteι_isOpenImmersion (a b : k) : IsOpenImmersion (finiteι a b) := by sorry
+
+lemma infinityι_isOpenImmersion (a b : k) : IsOpenImmersion (infinityι a b) := by sorry
+
+attribute [instance] finiteι_isOpenImmersion infinityι_isOpenImmersion
+
+lemma chart_condition (a b : k) :
+    finiteOpen a b ≫ finiteι a b = infinityOpen a b ≫ infinityι a b := by sorry
+
+lemma curve_hom_ext (a b : k) {Y : Scheme} (f g : curve a b ⟶ Y)
+    (h₀ : finiteι a b ≫ f = finiteι a b ≫ g)
+    (h₁ : infinityι a b ≫ f = infinityι a b ≫ g) : f = g := by sorry
+
+lemma charts_cover (a b : k) (x : curve a b) :
+    (∃ y : finiteChart a b, finiteι a b y = x) ∨
+      (∃ y : infinityChart a b, infinityι a b y = x) := by sorry
+
+lemma charts_intersection (a b : k) (x : finiteChart a b) (y : infinityChart a b) :
+    finiteι a b x = infinityι a b y ↔
+      ∃ z : overlapChart a b, finiteOpen a b z = x ∧ infinityOpen a b z = y := by sorry
+
+lemma chart_preimage (a b : k) :
+    finiteι a b ⁻¹ᵁ (infinityι a b).opensRange = (finiteOpen a b).opensRange := by sorry
+
+lemma chart_isPullback (a b : k) :
+    IsPullback (infinityOpen a b) (finiteOpen a b) (infinityι a b) (finiteι a b) := by sorry
+
+-- node: G.1/global-curve-desc
+def desc (a b : k) {Y : Scheme} (f : finiteChart a b ⟶ Y)
+    (g : infinityChart a b ⟶ Y) (h : finiteOpen a b ≫ f = infinityOpen a b ≫ g) :
+    curve a b ⟶ Y := by sorry
+
+lemma finiteι_desc (a b : k) {Y : Scheme} (f : finiteChart a b ⟶ Y)
+    (g : infinityChart a b ⟶ Y) (h : finiteOpen a b ≫ f = infinityOpen a b ≫ g) :
+    finiteι a b ≫ desc a b f g h = f := by sorry
+
+lemma infinityι_desc (a b : k) {Y : Scheme} (f : finiteChart a b ⟶ Y)
+    (g : infinityChart a b ⟶ Y) (h : finiteOpen a b ≫ f = infinityOpen a b ≫ g) :
+    infinityι a b ≫ desc a b f g h = g := by sorry
+
+-- node: G.1/global-normalization-chart
+def normalizationChart (a b : k) : Spec (.of k[X]) ⟶ finiteChart a b := by sorry
+
+lemma normalizationChart_isFinite (a b : k) : AlgebraicGeometry.IsFinite (normalizationChart a b) := by sorry
+
+-- node: G.1/global-normalization-open
+def normalizationOpen (a b : k) : overlapChart a b ⟶ Spec (.of k[X]) := by sorry
+
+lemma normalizationOpen_isOpenImmersion (a b : k) :
+    IsOpenImmersion (normalizationOpen a b) := by sorry
+
+attribute [instance] normalizationOpen_isOpenImmersion
+
+lemma normalizationOpen_range (a b : k) :
+    (normalizationOpen a b).opensRange = PrimeSpectrum.basicOpen (X * quadratic 1 a b) := by sorry
+
+lemma normalizationChart_preimage (a b : k) :
+    normalizationChart a b ⁻¹ᵁ (finiteOpen a b).opensRange =
+      (normalizationOpen a b).opensRange := by sorry
+
+lemma normalization_chart_condition (a b : k) :
+    normalizationOpen a b ≫ normalizationChart a b = finiteOpen a b := by sorry
+
+-- node: G.1/global-normalization-source
+/-- Glued normalization charts, before their comparison with the native projective line. -/
+def normalizationSource (a b : k) : Scheme := by sorry
+
+abbrev sourceFiniteι (a b : k) : Spec (.of k[X]) ⟶ normalizationSource a b := by sorry
+
+abbrev sourceInfinityι (a b : k) : infinityChart a b ⟶ normalizationSource a b := by sorry
+
+lemma sourceFiniteι_isOpenImmersion (a b : k) : IsOpenImmersion (sourceFiniteι a b) := by sorry
+
+lemma sourceInfinityι_isOpenImmersion (a b : k) : IsOpenImmersion (sourceInfinityι a b) := by sorry
+
+attribute [instance] sourceFiniteι_isOpenImmersion sourceInfinityι_isOpenImmersion
+
+lemma source_chart_condition (a b : k) :
+    normalizationOpen a b ≫ sourceFiniteι a b = infinityOpen a b ≫ sourceInfinityι a b := by sorry
+
+lemma source_hom_ext (a b : k) {Y : Scheme} (f g : normalizationSource a b ⟶ Y)
+    (h₀ : sourceFiniteι a b ≫ f = sourceFiniteι a b ≫ g)
+    (h₁ : sourceInfinityι a b ≫ f = sourceInfinityι a b ≫ g) : f = g := by sorry
+
+lemma source_charts_cover (a b : k) (x : normalizationSource a b) :
+    (∃ y : Spec (.of k[X]), sourceFiniteι a b y = x) ∨
+      (∃ y : infinityChart a b, sourceInfinityι a b y = x) := by sorry
+
+-- node: G.1/global-normalization-morphism
+def normalization (a b : k) : normalizationSource a b ⟶ curve a b := by sorry
+
+lemma normalization_finite_chart (a b : k) :
+    sourceFiniteι a b ≫ normalization a b = normalizationChart a b ≫ finiteι a b := by sorry
+
+lemma normalization_infinity_chart (a b : k) :
+    sourceInfinityι a b ≫ normalization a b = infinityι a b := by sorry
+
+lemma normalization_unique (a b : k) (f : normalizationSource a b ⟶ curve a b)
+    (h₀ : sourceFiniteι a b ≫ f = normalizationChart a b ≫ finiteι a b)
+    (h₁ : sourceInfinityι a b ≫ f = infinityι a b) : f = normalization a b := by sorry
+
+lemma normalization_preimage_finite (a b : k) :
+    normalization a b ⁻¹ᵁ (finiteι a b).opensRange = (sourceFiniteι a b).opensRange := by sorry
+
+lemma normalization_preimage_infinity (a b : k) :
+    normalization a b ⁻¹ᵁ (infinityι a b).opensRange = (sourceInfinityι a b).opensRange := by sorry
+
+lemma normalization_finite_isPullback (a b : k) :
+    IsPullback (normalizationChart a b) (sourceFiniteι a b) (finiteι a b) (normalization a b) := by sorry
+
+lemma normalization_infinity_isPullback (a b : k) :
+    IsPullback (𝟙 (infinityChart a b)) (sourceInfinityι a b) (infinityι a b) (normalization a b) := by sorry
+
+-- node: G.1/global-open-cover
+def openCover (a b : k) : (curve a b).OpenCover := by sorry
+
+lemma openCover_index (a b : k) : (openCover a b).I₀ = Bool := by sorry
+
+lemma openCover_finite (a b : k) :
+    HEq ((openCover a b).f (cast (openCover_index a b).symm false)) (finiteι a b) := by sorry
+
+lemma openCover_infinity (a b : k) :
+    HEq ((openCover a b).f (cast (openCover_index a b).symm true)) (infinityι a b) := by sorry
+
+set_option backward.isDefEq.respectTransparency.types false in
+lemma normalization_isFinite (a b : k) : AlgebraicGeometry.IsFinite (normalization a b) := by sorry
+
+lemma finiteOpen_to_base (a b : k) :
+    finiteOpen a b ≫ Spec.map (CommRingCat.ofHom (algebraMap k (algebra (quadratic 1 a b)))) =
+      Spec.map (CommRingCat.ofHom (algebraMap k (Ring 1 a b))) := by sorry
+
+lemma infinityOpen_to_base (a b : k) :
+    infinityOpen a b ≫ Spec.map (CommRingCat.ofHom (algebraMap k (InfinityChart.Chart a b))) =
+      Spec.map (CommRingCat.ofHom (algebraMap k (Ring 1 a b))) := by sorry
+
+-- node: G.1/global-structure-map
+def structureMap (a b : k) : curve a b ⟶ Spec (.of k) := by sorry
+
+lemma structureMap_finite (a b : k) :
+    finiteι a b ≫ structureMap a b =
+      Spec.map (CommRingCat.ofHom (algebraMap k (algebra (quadratic 1 a b)))) := by sorry
+
+lemma structureMap_infinity (a b : k) :
+    infinityι a b ≫ structureMap a b =
+      Spec.map (CommRingCat.ofHom (algebraMap k (InfinityChart.Chart a b))) := by sorry
+
+lemma normalization_to_base_finite (a b : k) :
+    sourceFiniteι a b ≫ normalization a b ≫ structureMap a b =
+      Spec.map (CommRingCat.ofHom (algebraMap k k[X])) := by sorry
+
+lemma normalization_to_base_infinity (a b : k) :
+    sourceInfinityι a b ≫ normalization a b ≫ structureMap a b =
+      Spec.map (CommRingCat.ofHom (algebraMap k (InfinityChart.Chart a b))) := by sorry
+
+-- node: G.1/global-infinity-transition
+def infinityTransition (a b : k) : InfinityChart.Chart a b →+* Ring 1 a b := by sorry
+
+lemma infinityOpen_spec (a b : k) :
+    infinityOpen a b = Spec.map (CommRingCat.ofHom (infinityTransition a b)) := by sorry
+
+lemma infinityTransition_coordinate (a b : k) :
+    infinityTransition a b (algebraMap k[X] (InfinityChart.Chart a b) X) =
+      inverseVariable 1 a b := by sorry
+
+lemma infinityTransition_constants (a b r : k) :
+    infinityTransition a b (algebraMap k (InfinityChart.Chart a b) r) =
+      algebraMap k (Ring 1 a b) r := by sorry
+
+lemma infinityTransition_root (a b : k) :
+    infinityTransition a b (AdjoinRoot.root (InfinityChart.relation a b)) =
+      IsLocalization.Away.invSelf (X * quadratic 1 a b) := by sorry
+
+-- test: Global.finiteOpen.cusp_range
+example : (finiteOpen (0 : ZMod 2) 0).opensRange = PrimeSpectrum.basicOpen (finiteDenominator 1 (0 : ZMod 2) 0) := by sorry
+
+-- test: Global.finiteOpen.nonsplit_range
+example : (finiteOpen (1 : ZMod 2) 1).opensRange = PrimeSpectrum.basicOpen (finiteDenominator 1 (1 : ZMod 2) 1) := by sorry
+
+-- test: Global.finiteOpen.split_range
+example : (finiteOpen (0 : ℚ) (-1)).opensRange = PrimeSpectrum.basicOpen (finiteDenominator 1 (0 : ℚ) (-1)) := by sorry
+
+-- test: Global.infinityOpen.cusp_range
+example : (infinityOpen (0 : ZMod 2) 0).opensRange = PrimeSpectrum.basicOpen (algebraMap (ZMod 2)[X] (InfinityChart.Chart 0 0) X) := by sorry
+
+-- test: Global.infinityOpen.nonsplit_root_open
+example : (infinityOpen (1 : ZMod 2) 1).opensRange = PrimeSpectrum.basicOpen (AdjoinRoot.root (InfinityChart.relation 1 1)) := by sorry
+
+-- test: Global.infinityOpen.split_spec
+example : infinityOpen (0 : ℚ) (-1) = Spec.map (CommRingCat.ofHom (infinityTransition 0 (-1))) := by sorry
+
+-- test: Global.curve.cusp_gluing
+example : finiteOpen (0 : ZMod 2) 0 ≫ finiteι 0 0 = infinityOpen 0 0 ≫ infinityι 0 0 := by sorry
+
+-- test: Global.curve.nonsplit_cover
+example (x : curve (1 : ZMod 2) 1) : (∃ y, finiteι (1 : ZMod 2) 1 y = x) ∨ (∃ y, infinityι (1 : ZMod 2) 1 y = x) := by sorry
+
+-- test: Global.curve.split_intersection
+example (x : finiteChart (0 : ℚ) (-1)) (y : infinityChart (0 : ℚ) (-1)) : finiteι 0 (-1) x = infinityι 0 (-1) y ↔ ∃ z, finiteOpen 0 (-1) z = x ∧ infinityOpen 0 (-1) z = y := by sorry
+
+-- test: Global.desc.finite_restriction
+example (a b : k) {Y : Scheme} (f : finiteChart a b ⟶ Y) (g : infinityChart a b ⟶ Y) (h : finiteOpen a b ≫ f = infinityOpen a b ≫ g) : finiteι a b ≫ desc a b f g h = f := by sorry
+
+-- test: Global.desc.infinity_restriction
+example (a b : k) {Y : Scheme} (f : finiteChart a b ⟶ Y) (g : infinityChart a b ⟶ Y) (h : finiteOpen a b ≫ f = infinityOpen a b ≫ g) : infinityι a b ≫ desc a b f g h = g := by sorry
+
+-- test: Global.desc.identity
+example (a b : k) : desc a b (finiteι a b) (infinityι a b) (chart_condition a b) = 𝟙 (curve a b) := by sorry
+
+-- test: Global.normalizationChart.cusp_finite
+example : AlgebraicGeometry.IsFinite (normalizationChart (0 : ZMod 2) 0) := by sorry
+
+-- test: Global.normalizationChart.nonsplit_finite
+example : AlgebraicGeometry.IsFinite (normalizationChart (1 : ZMod 2) 1) := by sorry
+
+-- test: Global.normalizationChart.split_finite
+example : AlgebraicGeometry.IsFinite (normalizationChart (0 : ℚ) (-1)) := by sorry
+
+-- test: Global.normalizationOpen.cusp_range
+example : (normalizationOpen (0 : ZMod 2) 0).opensRange = PrimeSpectrum.basicOpen (X ^ 3 : (ZMod 2)[X]) := by sorry
+
+-- test: Global.normalizationOpen.nonsplit_preimage
+example : normalizationChart (1 : ZMod 2) 1 ⁻¹ᵁ (finiteOpen 1 1).opensRange = (normalizationOpen 1 1).opensRange := by sorry
+
+-- test: Global.normalizationOpen.split_compatibility
+example : normalizationOpen (0 : ℚ) (-1) ≫ normalizationChart 0 (-1) = finiteOpen 0 (-1) := by sorry
+
+-- test: Global.normalizationSource.cusp_cover
+example (x : normalizationSource (0 : ZMod 2) 0) : (∃ y, sourceFiniteι (0 : ZMod 2) 0 y = x) ∨ (∃ y, sourceInfinityι (0 : ZMod 2) 0 y = x) := by sorry
+
+-- test: Global.normalizationSource.nonsplit_gluing
+example : normalizationOpen (1 : ZMod 2) 1 ≫ sourceFiniteι 1 1 = infinityOpen 1 1 ≫ sourceInfinityι 1 1 := by sorry
+
+-- test: Global.normalizationSource.split_open
+example : IsOpenImmersion (sourceFiniteι (0 : ℚ) (-1)) := by sorry
+
+-- test: Global.normalization.cusp_finite
+example : AlgebraicGeometry.IsFinite (normalization (0 : ZMod 2) 0) := by sorry
+
+-- test: Global.normalization.nonsplit_finite
+example : AlgebraicGeometry.IsFinite (normalization (1 : ZMod 2) 1) := by sorry
+
+-- test: Global.normalization.split_infinity_pullback
+example : IsPullback (𝟙 (infinityChart (0 : ℚ) (-1))) (sourceInfinityι 0 (-1)) (infinityι 0 (-1)) (normalization 0 (-1)) := by sorry
+
+-- test: Global.openCover.finite_index
+example (a b : k) : HEq ((openCover a b).f (cast (openCover_index a b).symm false)) (finiteι a b) := by sorry
+
+-- test: Global.openCover.infinity_index
+example (a b : k) : HEq ((openCover a b).f (cast (openCover_index a b).symm true)) (infinityι a b) := by sorry
+
+-- test: Global.openCover.nonsplit_surjective
+example (x : curve (1 : ZMod 2) 1) : ∃ i y, (openCover (1 : ZMod 2) 1).f i y = x := by sorry
+
+-- test: Global.structureMap.finite_chart
+example (a b : k) : finiteι a b ≫ structureMap a b = Spec.map (CommRingCat.ofHom (algebraMap k (algebra (quadratic 1 a b)))) := by sorry
+
+-- test: Global.structureMap.infinity_chart
+example (a b : k) : infinityι a b ≫ structureMap a b = Spec.map (CommRingCat.ofHom (algebraMap k (InfinityChart.Chart a b))) := by sorry
+
+-- test: Global.structureMap.cusp_normalization
+example : sourceFiniteι (0 : ZMod 2) 0 ≫ normalization 0 0 ≫ structureMap 0 0 = Spec.map (CommRingCat.ofHom (algebraMap (ZMod 2) (ZMod 2)[X])) := by sorry
+
+-- test: Global.infinityTransition.cusp_reciprocal
+example : infinityTransition (0 : ZMod 2) 0 (algebraMap (ZMod 2)[X] (InfinityChart.Chart 0 0) X) = inverseVariable 1 0 0 := by sorry
+
+-- test: Global.infinityTransition.nonsplit_root
+example : infinityTransition (1 : ZMod 2) 1 (AdjoinRoot.root (InfinityChart.relation 1 1)) = IsLocalization.Away.invSelf (X * quadratic (1 : ZMod 2) 1 1) := by sorry
+
+-- test: Global.infinityTransition.split_constants
+example (r : ℚ) : infinityTransition (0 : ℚ) (-1) (algebraMap ℚ (InfinityChart.Chart 0 (-1)) r) = algebraMap ℚ (Ring 1 0 (-1)) r := by sorry
+
+end TauCeti.GenusOne.QuadraticPinch.Global
+/- END TWO CHART SCHEME GLUING -/

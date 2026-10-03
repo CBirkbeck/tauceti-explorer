@@ -1,3 +1,162 @@
+# Polynomial representatives of homogeneous series
+
+Let σ be finite, k a commutative ring, R=k[[X_i]] and P=k[X_i]. Write ι:P→R for the native injective polynomial inclusion, v for the algebraically generated variable ideal, HC_n for the native series component and H_n for the polynomial-valued component. All degree indices are natural numbers; order takes values in the extended naturals. The zero series keeps its infinite order.
+
+The coefficient comparison uses the native polynomial and formal-series carriers. It applies to arbitrary commutative coefficients, including zero divisors, to zero polynomials and to the empty variable set. Exact principal-equation kernel factorization additionally assumes no zero divisors and a specified finite equation order. No field, reducedness, irreducibility, characteristic or local-ring instance is hidden in these adapters.
+
+## Construction and exact API
+
+### Polynomial-valued homogeneous component
+
+`TauCeti.HilbertSamuel.homogeneousPolynomial` — For finite σ and a commutative ring k, H_n:R=k[[X_i]]→k[X_i] is the k-linear composite of native total truncation at n+1 with the native polynomial degree-n component. It keeps exactly the coefficients of total degree n.
+
+Compose the two native linear maps. Finite σ ensures that each degree has finitely many monomials. Do not identify this map with total truncation on arbitrary series or equip a fixed component projection with a ring-homomorphism structure.
+
+Inputs: `mathlib:MvPolynomial.homogeneousComponent`, `mathlib:MvPowerSeries.truncTotal`, `mathlib:LinearMap.comp`.
+
+### Coefficients of the polynomial component
+
+`TauCeti.HilbertSamuel.homogeneousPolynomial_coeff` — For every exponent β, coeff_β(H_n(f)) equals coeff_β(f) when totalDegree(β)=n, and zero otherwise.
+
+Apply the polynomial-component and total-truncation coefficient formulas. If degree β=n, the cutoff n+1 retains that coefficient; otherwise the component kills it.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-component`, `mathlib:MvPolynomial.coeff_homogeneousComponent`, `mathlib:MvPowerSeries.coeff_truncTotal_eq_ite`.
+
+### Polynomial inclusion recovers the native series component
+
+`TauCeti.HilbertSamuel.coe_homogeneousPolynomial` — Under the native injective polynomial inclusion ι:k[X_i]→k[[X_i]], ι(H_n(f))=HC_n(f), the existing series-valued homogeneous component.
+
+Compare every coefficient using polynomial inclusion and the two exact degree formulas.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-coeff`, `mathlib:MvPolynomial.coeff_coe`, `mathlib:MvPowerSeries.coeff_homogeneousComponent`.
+
+### Homogeneity of the polynomial component
+
+`TauCeti.HilbertSamuel.homogeneousPolynomial_isHomogeneous` — For every f and n, H_n(f) satisfies native MvPolynomial.IsHomogeneous of degree n, including the zero polynomial.
+
+Use native homogeneity of a polynomial homogeneous component on the truncated polynomial.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-component`, `mathlib:MvPolynomial.homogeneousComponent_isHomogeneous`.
+
+### Compatibility with the native polynomial component
+
+`TauCeti.HilbertSamuel.homogeneousPolynomial_coe` — For every polynomial p, H_n(ι(p)) is exactly its native polynomial homogeneousComponent n p.
+
+Compare coefficients; polynomial inclusion preserves each coefficient.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-coeff`, `mathlib:MvPolynomial.coeff_coe`, `mathlib:MvPolynomial.coeff_homogeneousComponent`.
+
+### Polynomial and series homogeneity agree
+
+`TauCeti.HilbertSamuel.coe_isHomogeneous_iff` — For every polynomial p and n, the included series ι(p) is homogeneous of degree n if and only if p is homogeneous of degree n.
+
+Translate series homogeneity to equality with HC_n, use the component comparison and injectivity of inclusion, and recover polynomial homogeneity. Conversely a homogeneous polynomial is fixed by its native component; include this equality and use the native series characterization.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-series`, `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-inclusion`, `mathlib:MvPolynomial.coe_injective`, `mathlib:MvPowerSeries.isHomogeneous_iff_eq_homogeneousComponent`, `mathlib:MvPolynomial.homogeneousComponent_eq_self`, `mathlib:MvPolynomial.homogeneousComponent_isHomogeneous`.
+
+### Retraction on homogeneous polynomials
+
+`TauCeti.HilbertSamuel.homogeneousPolynomial_coe_of_homogeneous` — If p is a native homogeneous polynomial of degree n, then H_n(ι(p))=p.
+
+Apply compatibility with the polynomial component and its existing fixed-point theorem.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-inclusion`, `mathlib:MvPolynomial.homogeneousComponent_eq_self`.
+
+### Unique polynomial representative of a homogeneous series
+
+`TauCeti.HilbertSamuel.homogeneous_existsUnique_polynomial` — For every native degree-n homogeneous series f in finitely many variables, there exists a unique polynomial p with native degree-n homogeneity and ι(p)=f. The representative is H_n(f).
+
+Use H_n(f), its homogeneity and the series fixed-point characterization for existence. Injectivity of the native polynomial inclusion proves uniqueness; no new series or polynomial carrier is introduced.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-degree`, `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-series`, `mathlib:MvPolynomial.coe_injective`, `mathlib:MvPowerSeries.isHomogeneous_iff_eq_homogeneousComponent`.
+
+### Vanishing comparison for homogeneous components
+
+`TauCeti.HilbertSamuel.homogeneousPolynomial_eq_zero_iff` — For every n and f, H_n(f)=0 if and only if HC_n(f)=0.
+
+Include the polynomial and use the native injective inclusion zero criterion.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-series`, `mathlib:MvPolynomial.coe_eq_zero_iff`.
+
+### Initial polynomial as total truncation
+
+`TauCeti.HilbertSamuel.homogeneousPolynomial_eq_truncTotal` — If n≤order(f), with order in extended naturals, then H_n(f)=truncTotal(n+1,f). This assertion retains its order hypothesis and includes f=0.
+
+For degree below n, the native order bound kills the coefficient. At degree n both formulas retain it, and above n both vanish.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-coeff`, `mathlib:MvPowerSeries.coeff_truncTotal_eq_ite`, `mathlib:MvPowerSeries.coeff_of_lt_order`.
+
+### Nonzero initial polynomial at exact finite order
+
+`TauCeti.HilbertSamuel.homogeneousPolynomial_ne_zero_of_order` — If order(f)=n in extended naturals, then H_n(f)≠0. No no-zero-divisors assumption is needed for this single-series statement.
+
+Transfer a hypothetical polynomial vanishing to HC_n and contradict the native exact-order nonvanishing theorem.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-vanishing`, `mathlib:MvPowerSeries.homogeneousComponent_of_order`.
+
+### Multiplication of polynomial initial components
+
+`TauCeti.HilbertSamuel.homogeneousPolynomial_mul_of_le_order` — If m≤order(f) and n≤order(g), then H_(m+n)(fg)=H_m(f)H_n(g). This identity holds over arbitrary commutative coefficients; it does not assert that the product is nonzero.
+
+Include both sides into series, preserve multiplication under inclusion and apply the existing native homogeneous-component product formula with both order bounds. Use injectivity of polynomial inclusion. Distinguish the identity from additive equality of exact orders in the presence of zero divisors.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-series`, `mathlib:MvPolynomial.coe_injective`, `mathlib:MvPolynomial.coe_mul`, `mathlib:MvPowerSeries.homogeneousComponent_mul_of_le_order`.
+
+### Orthogonality and idempotence of polynomial components
+
+`TauCeti.HilbertSamuel.homogeneousPolynomial_component` — For every m,n,f, H_m(ι(H_n(f))) is H_n(f) when m=n, and zero otherwise.
+
+Use polynomial compatibility and the native component formula on the degree-n homogeneous polynomial H_n(f).
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-inclusion`, `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-degree`, `mathlib:MvPolynomial.homogeneousComponent_of_mem`.
+
+### Polynomial equation-jet kernel above equation order
+
+`TauCeti.HilbertSamuel.curveDegreeProjection_polynomial_kernel` — Let v=(X_i)⊂R, k have no zero divisors, order(f)=d≤n and g∈v^n. Its actual image φ_f,n(g) in R/((f)+v^(n+1)) is zero iff H_n(g)=H_d(f)w for some native homogeneous polynomial w of degree n−d.
+
+Invoke the existing actual series-valued kernel equivalence. Replace its homogeneous series witness by the unique polynomial representative and reflect the product equality through native polynomial inclusion. Conversely include a polynomial witness, use the homogeneity equivalence and product compatibility, then apply the old kernel theorem. Both directions retain d≤n and exact order.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-kernel`, `DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-series-unique-polynomial`, `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-series-homogeneity`, `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-series`, `mathlib:MvPolynomial.coe_injective`, `mathlib:MvPolynomial.coe_mul`.
+
+### Polynomial equation-jet kernel below equation order
+
+`TauCeti.HilbertSamuel.curveDegreeProjection_polynomial_below_order` — For arbitrary commutative k, n<d≤order(f) and g∈v^n, the actual image φ_f,n(g) vanishes if and only if H_n(g)=0. No finite exact order or no-zero-divisors assumption is required.
+
+Use the existing lower-degree kernel theorem and transfer homogeneous-component vanishing through the native polynomial inclusion.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-below-order`, `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-vanishing`.
+
+### Polynomial kernel for the zero equation
+
+`TauCeti.HilbertSamuel.curveDegreeProjection_polynomial_zero_equation` — For f=0 and every n and g∈v^n, the actual image φ_0,n(g) vanishes if and only if H_n(g)=0. The zero equation retains its infinite order.
+
+Use the existing zero-equation kernel theorem and the polynomial/series vanishing equivalence, without converting infinite order to a natural number.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-zero-equation`, `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-vanishing`.
+
+## Distinguishing tests
+
+- `HomogeneousPolynomialTests.zero_input` (degenerate): For every finite variable type, commutative coefficient ring and n, H_n(0)=0.
+- `HomogeneousPolynomialTests.native_polynomial` (compatibility): For every native degree-n homogeneous polynomial p, H_n(ι(p))=p.
+- `HomogeneousPolynomialTests.no_variables` (degenerate): With no variables and coefficient a∈ℚ, H_0(C(a))=C(a) and H_1(C(a))=0.
+- `HomogeneousPolynomialTests.exact_degree_not_truncation` (computation): In two variables over F₂, H_1(1+X₀+X₀²)=X₀; the constant term must be discarded as well as the square.
+- `HomogeneousPolynomialTests.not_multiplicative_in_fixed_degree` (non-example): In two variables over ℚ, H_1(X₀X₀)=0 differs from H_1(X₀)H_1(X₀)=X₀². A fixed-degree component is not a ring map.
+- `HomogeneousPolynomialTests.nilpotent_coefficients` (non-example): In two variables over ℤ/4ℤ, for p=2X₀, H_1(ι(p))≠0 but H_2(ι(p)²)=0. The product identity must not be strengthened to nonzero products for all coefficient rings.
+
+The linear map already carries additivity and scalar compatibility through native composition. Its polynomial inclusion, retraction, unique-representative and orthogonal-component formulas allow consumers to work without unfolding it. The product formula uses degree m+n and both order bounds; it neither makes H_n a ring map nor asserts nonvanishing over zero-divisor coefficients.
+
+## Consumers and remaining mathematical work
+
+The actual degree projection is the previously defined map from v^n to R/((f)+v^(n+1)). Its polynomial kernel assertion is an equality of actual representatives, not a prescribed Hilbert function. The arbitrary series witness in its existing kernel proof becomes a unique homogeneous polynomial through ι; the converse includes this polynomial witness and returns to the same native quotient. The strict-below-order and zero-equation branches preserve their weaker assumptions.
+
+The polynomial/series homogeneous comparison and actual polynomial equation-jet kernel now have checked native prototypes. Construct the actual image identification with q^n/q^(n+1), then assemble the generator-compatible and multiplicative full graded tangent-cone isomorphism. Curve/support dimension and comparison with the general cumulative polynomial and intrinsic/ambient multiplicity remain required. General Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed-paper obligation remain open; canonical bodies and implementation statuses remain admitted/unchecked.
+
+The reserved intrinsic Hilbert–Samuel construction retains arbitrary Noetherian local rings, primary ideals and finite modules. Its intrinsic support-dimension normalization and the separate ambient-dimension normalization remain distinct. This finite-variable comparison supplies a source-proof input to that general theory and does not define a second multiplicity. The existing thirteen planets and all other stage/owner boundaries remain as specified below.
+
+Sources: the credited [plane-curve jet source-proof checkpoint, §§2–5](https://github.com/CBirkbeck/tauceti-explorer/blob/eb645dc85df65608c56fafc4d9ed0e71ab0ca3ce/research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md), especially equation (9); native pinned polynomial homogeneous components and series truncation/inclusion; [Stacks 00K4](https://stacks.math.columbia.edu/tag/00K4) for the distinction between graded and cumulative lengths. The finite-variable, commutative-coefficient comparisons above are authored deductions from those native formulas and the credited proof, not newly quoted whole-paper theorems.
+
+---
+
 # Finite equation jets and cumulative curve lengths
 
 Continuation of the partial R03.3 blueprint, 3 October 2026. All eight stages
@@ -4169,3 +4328,264 @@ Proof: Supply Q and the proved all-index actual evaluation theorem. Any second e
 Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/plane-zero-equation-polynomial-eval, DeformationAndDerivedPatchingAlgebra:R03.3/plane-zero-equation-polynomial-unique.
 
 All eight stages remain partial and every implementation status remains unchecked. The native unique-polynomial proof boundary is distinct from the still-required general Hilbert–Serre theorem, native curve dimension, tangent-cone kernel, completion and the full intrinsic/ambient multiplicity comparison. No inherited target, supplier request, gap, source finding or planet is removed.
+
+## Degree-wise initial relations on actual equation jets
+
+Codex — codex-a71f92, 3 October 2026; continuation of #551 at mathematical
+base `7a0839ba10a362fba9724a9704e986412ea03aa8`. This section adds ten
+declaration nodes, one actual projection construction, five API items and six
+typed acceptance examples. It preserves all eight incoming stage statuses (three partial and five
+not_read), with every implementation status unchecked. The full suggested file remains an admitted
+planning interface; a separately archived native prototype proves these adapters
+together with the complete incoming finite-jet and polynomial proof prefix.
+
+Let σ be finite, k a commutative ring, R=k[[X_i]] and v the actual algebraic
+ideal generated by the variables. Write HC_n for Mathlib's existing
+power-series-valued homogeneous component. No generic component operation,
+quotient carrier, Rees algebra, or graded ring is replanned.
+
+The coefficient criterion first gives, for g∈v^n,
+
+    HC_n(g)=0  iff  g∈v^(n+1).
+
+The membership assumption matters: a lower-degree term has zero degree-n
+component but need not belong to the next ideal power. A homogeneous w of
+degree r belongs to v^r by the already checked algebraic ideal/order
+equivalence, not by treating an ideal as closed under an unspecified infinite
+sum. These adapters work with zero divisors in the coefficient ring.
+
+Now impose NoZeroDivisors k, native order(f)=d, and d≤n. For g∈v^n,
+
+    g∈(f)+v^(n+1)
+      iff HC_n(g)=HC_d(f)·w for some homogeneous w of degree n−d.
+
+For the forward direction write g=f·a+b. The actual next-power term b
+has zero degree-n component. Because f·a∈v^n, exact-order cancellation
+puts a in v^(n−d); then take w=HC_(n−d)(a). Native component
+multiplicativity supplies the equality. For the reverse direction, w
+lies in v^(n−d), so f·w∈v^n. The component equality makes
+g−f·w belong to v^(n+1), giving actual ideal-sum membership. Both
+directions are proved, including a=0, n=d, n=0 and unit equations when
+the exact-order premise applies. No division in the coefficient ring is used.
+
+When n<d and only d≤order(f) is known, f already lies in v^(n+1).
+Thus the denominator is simply v^(n+1), and vanishing is HC_n(g)=0.
+This branch needs neither product-order cancellation nor a domain. The zero
+equation is handled separately at every index without replacing its infinite
+order by order.toNat.
+
+The actual map used in the statement is
+
+    φ_f,n : ↥(v^n) →ₗ[k] R/((f)+v^(n+1)),   g ↦ [g].
+
+It is the composition of the native subtype and quotient maps with scalar
+restriction. Its definition and representative/denominator API need no
+finiteness of σ. It is not an algebra homomorphism, and it is not claimed
+surjective onto the whole cumulative jet. Its degree-wise kernel is now
+characterized, but identifying its image with the existing q^n/q^(n+1)
+layer of A=R/(f), converting series components to homogeneous polynomials,
+and assembling a multiplicatively compatible graded algebra map remain
+separate obligations. This checkpoint does not assert the full tangent-cone
+isomorphism, curve dimension, or intrinsic/ambient multiplicity comparison.
+
+The mathematical source is the credited DDPA-JET-HANDOFF §5, equation (9)
+and both directions of its degree-wise argument, with §§3–4 supplying actual
+powers and native initial components. The finite-variable and no-zero-divisors
+generalization is an authored deduction from the inherited exact-order
+preimage theorem and pinned component formula. This is not presented as a
+printed general theorem or as a fresh full-paper extraction. Selected native
+declarations were read with their ambient assumptions at Mathlib
+082e2d37e8b0463410cdb532e111cd43d5a66174; exact source hashes and bounded
+upstream screens are recorded in HS-INITIAL-RELATION-PIN-a71f92.
+
+### Declaration-by-declaration proof boundary
+
+#### Homogeneous series in the matching ideal power
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-variable-ideal-membership` — `TauCeti.HilbertSamuel.homogeneous_mem_variableIdeal_pow`.
+
+For finite σ, every degree-n homogeneous series g over any commutative ring belongs to the algebraic variable-ideal power v^n, including zero, n=0 and zero-divisor coefficients.
+
+1. Use native IsHomogeneous.coeff_eq_zero to kill every coefficient of degree strictly below n.
+
+2. Apply native nat_le_order, then the existing algebraic variable-ideal-power/order equivalence. No topological closure or infinite ideal sum is introduced.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order`, `mathlib:MvPowerSeries.IsHomogeneous.coeff_eq_zero`, `mathlib:MvPowerSeries.nat_le_order`.
+
+#### Degree component detects the next variable-ideal power
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/degree-component-next-power` — `TauCeti.HilbertSamuel.homogeneousComponent_eq_zero_iff_mem_next`.
+
+For finite σ, any commutative ring k and g∈v^n, HC_n(g)=0 if and only if g∈v^(n+1), where HC is the existing power-series-valued homogeneous-component linear map.
+
+1. Convert g∈v^n to its order lower bound. For HC_n(g)=0, coefficients below n vanish by order and degree-n coefficients vanish by the native component coefficient formula.
+
+2. For a coefficient degree below n+1, split strictly below n from degree exactly n; apply native nat_le_order and the existing ideal-power equivalence.
+
+3. Conversely membership in v^(n+1) gives n<order(g), so the already built homogeneous component vanishes. The g∈v^n premise is essential.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order`, `mathlib:MvPowerSeries.coeff_of_lt_order`, `mathlib:MvPowerSeries.coeff_homogeneousComponent`, `mathlib:MvPowerSeries.homogeneousComponent_of_lt_order_eq_zero`, `mathlib:MvPowerSeries.nat_le_order`.
+
+#### Principal equation relation in a fixed degree
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/principal-degree-initial-relation` — `TauCeti.HilbertSamuel.mem_principal_add_next_iff_initial`.
+
+For finite σ and no-zero-divisors commutative coefficients, if order(f)=d, d≤n and g∈v^n, then g∈(f)+v^(n+1) iff there is a degree-(n−d) homogeneous series w with HC_n(g)=HC_d(f)·w.
+
+1. Write g=a·f+b with b∈v^(n+1) using native principal-ideal sum membership. Since g and b lie in v^n, f·a lies in v^n.
+
+2. Use the exact-order ideal preimage to obtain a∈v^(n−d), with d+(n−d)=n justified by d≤n. Select the native homogeneous component w=HC_(n−d)(a).
+
+3. Apply native component multiplicativity at the two order lower bounds, and kill HC_n(b) by the next-power adapter. This proves the forward implication even when a=0.
+
+4. Conversely homogeneity puts w in v^(n−d). Hence f·w∈v^n, and native component multiplicativity identifies its degree-n component with HC_d(f)·w.
+
+5. The assumed component equality makes HC_n(g−f·w)=0. The next-power adapter yields g−f·w∈v^(n+1), supplying an actual witness of principal-ideal sum membership.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order`, `DeformationAndDerivedPatchingAlgebra:R03.3/exact-order-mul-ideal-preimage`, `DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-variable-ideal-membership`, `DeformationAndDerivedPatchingAlgebra:R03.3/degree-component-next-power`, `mathlib:Ideal.mem_span_singleton_sup`, `mathlib:Ideal.pow_le_pow_right`, `mathlib:MvPowerSeries.isHomogeneous_homogeneousComponent`, `mathlib:MvPowerSeries.isHomogeneous_iff_eq_homogeneousComponent`, `mathlib:MvPowerSeries.homogeneousComponent_mul_of_le_order`.
+
+#### Equation invisible strictly below its order
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/principal-degree-below-order` — `TauCeti.HilbertSamuel.mem_principal_add_next_below_order`.
+
+For finite σ and arbitrary commutative k, n<d≤order(f) and g∈v^n imply g∈(f)+v^(n+1) iff HC_n(g)=0. Only an order lower bound is needed; no product-order cancellation or domain hypothesis is used.
+
+1. From n<d obtain n+1≤d≤order(f), so f belongs to v^(n+1). Native principal-ideal containment collapses (f)+v^(n+1) to v^(n+1).
+
+2. Apply the next-power component criterion. Do not use truncated n−d to assert the upper-branch witness theorem at a small index.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order`, `DeformationAndDerivedPatchingAlgebra:R03.3/degree-component-next-power`, `mathlib:Ideal.span_singleton_le_iff_mem`.
+
+#### Actual degree-n projection into the equation jet
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection` — `TauCeti.HilbertSamuel.curveDegreeProjection`.
+
+For every variable type σ and commutative k, φ_f,n:↥(v^n)→ₗ[k]R/((f)+v^(n+1)) sends a native ideal-power element g to its actual quotient class. This is a coefficient-linear map, not an algebra homomorphism or a claimed surjection onto the entire jet.
+
+1. Compose the native submodule subtype with the native quotient projection, restricting both scalar structures from R to k.
+
+2. The target is the existing equation-jet quotient, not a prescribed Hilbert function or an alternative definition of the associated graded ring. Constructing its image comparison with the q^n/q^(n+1) layer remains a separate leaf.
+
+Inputs: `mathlib:Submodule.subtype`, `mathlib:Submodule.mkQ`, `mathlib:LinearMap.restrictScalars`, `mathlib:LinearMap.comp`.
+
+#### Projection on its actual representative
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-apply` — `TauCeti.HilbertSamuel.curveDegreeProjection_apply`.
+
+For every σ, CommRing k, n and g∈v^n as a native subtype element, φ_f,n(g) is Submodule.mkQ((f)+v^(n+1))(g).
+
+1. Unfold the composition and scalar restriction; both preserve the underlying native functions, so the representative formula is definitional.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection`.
+
+#### Projection vanishes exactly on the actual denominator
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-vanishing` — `TauCeti.HilbertSamuel.curveDegreeProjection_eq_zero_iff`.
+
+For every σ and commutative k, φ_f,n(g)=0 iff the ambient representative g belongs to the actual ideal (f)+v^(n+1).
+
+1. Apply the native Submodule.Quotient.mk_eq_zero statement to the actual representative formula; no field or finite-length assumption is needed.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection`, `DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-apply`, `mathlib:Submodule.Quotient.mk_eq_zero`.
+
+#### Actual projection kernel above equation order
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-kernel` — `TauCeti.HilbertSamuel.curveDegreeProjection_kernel`.
+
+For finite σ and no-zero-divisors commutative k, order(f)=d≤n and g:↥(v^n), φ_f,n(g)=0 iff HC_n(g)=HC_d(f)·w for some degree-(n−d) homogeneous series w.
+
+1. Use the actual quotient vanishing API, then apply the proved principal-degree initial relation to the subtype's own membership proof.
+
+2. This characterizes the full kernel of the specified coefficient-linear degree map. It is not yet ker(k[X_i]→gr_q(R/(f)))=(in(f)); that statement still needs polynomial comparison, assembly, multiplicative compatibility and native graded quotient interfaces.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-vanishing`, `DeformationAndDerivedPatchingAlgebra:R03.3/principal-degree-initial-relation`.
+
+#### Actual projection kernel below equation order
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-below-order` — `TauCeti.HilbertSamuel.curveDegreeProjection_below_order`.
+
+For finite σ, arbitrary commutative k, n<d≤order(f) and g:↥(v^n), φ_f,n(g)=0 iff HC_n(g)=0.
+
+1. Combine the actual quotient vanishing API and the small-index principal-ideal collapse. A weak order bound is sufficient and is kept distinct from exact finite order in the upper branch.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-vanishing`, `DeformationAndDerivedPatchingAlgebra:R03.3/principal-degree-below-order`.
+
+#### Zero-equation degree projection without finite order
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-zero-equation` — `TauCeti.HilbertSamuel.curveDegreeProjection_zero_equation`.
+
+For finite σ and every commutative coefficient ring, φ_0,n(g)=0 iff HC_n(g)=0 for every g:↥(v^n). This includes the zero equation of infinite order without order.toNat.
+
+1. The actual ideal generated by zero is bottom. Reduce its denominator sum to v^(n+1) and apply the next-power component criterion.
+
+2. Keep this statement separate from the finite-order principal equation argument; no nontrivial local-ring instance on a unit quotient is required.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-vanishing`, `DeformationAndDerivedPatchingAlgebra:R03.3/degree-component-next-power`, `mathlib:Ideal.span_singleton_eq_bot`.
+
+### Projection API and discriminating examples
+
+`TauCeti.HilbertSamuel.curveDegreeProjection_apply` (simp): For every σ, CommRing k, n and g∈v^n as a native subtype element, φ_f,n(g) is Submodule.mkQ((f)+v^(n+1))(g).
+
+`TauCeti.HilbertSamuel.curveDegreeProjection_eq_zero_iff` (characterisation): For every σ and commutative k, φ_f,n(g)=0 iff the ambient representative g belongs to the actual ideal (f)+v^(n+1).
+
+`TauCeti.HilbertSamuel.curveDegreeProjection_kernel` (characterisation): For finite σ and no-zero-divisors commutative k, order(f)=d≤n and g:↥(v^n), φ_f,n(g)=0 iff HC_n(g)=HC_d(f)·w for some degree-(n−d) homogeneous series w.
+
+`TauCeti.HilbertSamuel.curveDegreeProjection_below_order` (compatibility): For finite σ, arbitrary commutative k, n<d≤order(f) and g:↥(v^n), φ_f,n(g)=0 iff HC_n(g)=0.
+
+`TauCeti.HilbertSamuel.curveDegreeProjection_zero_equation` (compatibility): For finite σ and every commutative coefficient ring, φ_0,n(g)=0 iff HC_n(g)=0 for every g:↥(v^n). This includes the zero equation of infinite order without order.toNat.
+
+`InitialRelationTests.zero_input` (degenerate): For every commutative k, equation f and index n, the actual map φ_f,n sends the zero element of the native v^n subtype to zero.
+
+`InitialRelationTests.unit_equation` (degenerate): For f=1, every actual ideal-power representative maps to zero, for every index, because the equation ideal is top; no IsLocalRing instance on the zero quotient is assumed.
+
+`InitialRelationTests.zero_equation_survives` (computation): For k=ℚ, f=0 and n=1, the actual class of X₀ from v survives in R/v²; zero equation is not interpreted as a finite-order unit.
+
+`InitialRelationTests.nonreduced_survives` (non-example): For k=F₂, f=X₀² and n=1, the actual class of X₀ survives in R/(X₀²,v²). Passing to a radical equation ideal would wrongly kill it.
+
+`InitialRelationTests.nonreduced_square_vanishes` (computation): For k=F₂, f=X₀² and n=2, the actual degree-two representative X₀² belongs to v² and maps to zero in R/(X₀²,v³); both this and the surviving degree-one class are required.
+
+`InitialRelationTests.equation_order_boundary` (compatibility): For every finite-order equation f over no-zero-divisors commutative k in two variables, at n=d its actual representative maps to zero and HC_d(f) is a homogeneous degree-zero multiple of itself. The boundary is d≤n, not d<n.
+
+These tests use native series and ideal quotients, not a record storing its
+expected answer. In characteristic two, the surviving degree-one X₀ class
+and the vanishing degree-two X₀² relation are checked separately. They
+reject radicalization; they do not independently assemble the still-missing
+graded multiplication comparison. Unit and zero equations remain distinct,
+and the n=d example rejects the incorrect strict-boundary rule.
+
+### Closure and next mathematical work
+
+The codex-a71f92 continuation proves the actual degree-wise series/ideal kernel adapters and coefficient-linear equation-jet projection, including both principal relation directions, small-index, zero/unit and characteristic-two nonreduced tests. It preserves the complete incoming proof prefix. Still construct the polynomial-valued homogeneous comparison, identify the map's image with the existing q^n/q^(n+1) carrier, and assemble the multiplicatively compatible full tangent-cone graded isomorphism. Curve/support dimension, comparison with the general Hilbert–Samuel constructor, intrinsic/ambient multiplicities, general Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed source obligation remain required; canonical bodies remain admitted and every node remains unchecked and every stage retains its incoming partial or not_read status.
+
+All 147 incoming node objects, source issues, requests, gaps, route records,
+accepted ownership boundaries and the sibling R03.6 packet are retained.
+This section supersedes historical omissions only for these native
+degree-wise adapters. The earlier reader and handoff remain available as
+credited history. No canonical implementation, mathematical closure of
+the roadmap, or blanket source coverage is inferred from elaboration.
+
+### Public checked evidence and assembly receipt
+
+The [exact proof and check archive](https://github.com/CBirkbeck/tauceti-explorer/commit/1ee3d626cd226cffc0ee869aff618df03e133c65)
+is retained as the PR head's second parent. Its suggested-file comment contains
+the complete 2251-line native proof, including the unchanged 2018-line
+incoming prefix. The archive handoff retains normalized compiler logs and
+the exact immutable-view and actual-checker/intake/assembly validator scripts.
+It adds no artifact path outside the issue's four permitted deliverables.
+
+The native file passed at the exact existing Mathlib pin with 129 axiom
+audits limited to propext, Classical.choice and Quot.sound, no warnings,
+no errors and no admissions. The complete 3134-line canonical suggested
+file elaborated with 411 expected placeholder warnings and 207 examples.
+The separate native file retains 64 anonymous inherited examples and all
+named tests; canonical admission is not represented as library implementation.
+
+At publication base `9c8a340faae54f977214d1a159764c3ca25a1e0e`, the actual indexed
+packet checker and intake file rules pass. Actual build.assemble retains
+the R03.6 sibling and gives 210 declarations for the whole roadmap.
+Both own and scoped combined dependency DAGs are acyclic, with no unresolved
+references. All 65 applicable accepted restructure pairs are reachable;
+12 of 13 required supplier pairs are reachable. The inherited missing
+LocalFieldsRamification layer-0 → R03.4 path is unchanged. Incoming and
+candidate stage edges and other roadmaps' skipped/pending links compare
+equal. These checks validate structure and preservation, not source closure.

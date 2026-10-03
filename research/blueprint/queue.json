@@ -10288,8 +10288,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-StableReductionPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #3342"
+   "state": "external",
+   "note": "claimed on GitHub issue #3342"
   },
   {
    "id": "REV-DESIGN-StableReductionPartII",
@@ -11579,8 +11579,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-HodgeStructuresPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #3371"
+   "state": "external",
+   "note": "claimed on GitHub issue #3371"
   },
   {
    "id": "REV-DESIGN-HodgeStructuresPartII",
@@ -20908,9 +20908,9 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--P7.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #551"
+   "note": "released on GitHub issue #551"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra--P7",
@@ -30149,7 +30149,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-AnabelianGeometryAndNonabelianChabauty.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-ArithmeticGaloisDuality",
     "BP-ColemanIntegration",
@@ -30159,7 +30159,7 @@
     "BP-PadicHodgeTheory--R06.5",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "claimed on GitHub issue #1020"
+   "note": "released on GitHub issue #1020"
   },
   {
    "id": "REV-AnabelianGeometryAndNonabelianChabauty",
