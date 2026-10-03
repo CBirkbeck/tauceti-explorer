@@ -1,3 +1,168 @@
+# Coherence of local self-Hom sheaf restrictions
+
+Codex — codex-7e92bd,3 October2026. This partial continuation retains all incoming mathematical contracts.
+
+For a fixed-band self transformation X:F→F, the identity and composition laws now compare actual slice sheaf isomorphisms. Their statements include Mathlib’s Over pullback comparisons and the gerbe’s object comparison isomorphisms. The same equalities hold naturally in all native modifications, with the functor associator, right unitor and whiskering retained. The proof first relates sections to actual fibre isomorphisms for arbitrary F→G, then uses the existing abelian-band self-transport independence in the self-gerbe case. No strictness or global object is assumed, and the coefficient universe remains independent.
+
+The native identity/composition laws are now supplied for the self-gerbe Hom-sheaf comparison, natural in all native modifications. The general F-to-G family still needs its two-object endpoint transport and coherence. Actual covers, overlap refinements, gluing of sheaves/actions/maps, D0 torsor packaging, full faithfulness and a coherent inverse/unit/counit remain open. No concrete nonconstant-site or nonneutral geometric fixture is added; the intrinsic descended band, root-gerbe/H² and fpqc stack obligations are unchanged.
+
+## Restriction comparison in the actual fibre
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeIso_transport**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-coherence/transport**.
+
+For arbitrary banded gerbes F,G, fixed-band strong transformation X:F→G, f:V→U, x∈F(U), y∈G(U), t:T→V and a supplied Hom-sheaf section p at t≫f, transporting the compared section to an isomorphism G(t)G(f)y≅X_T(F(t)F(f)x) gives c_G(f,t,y)⁻¹ followed by the transported original section, then X_T(c_F(f,t,x)). Here c_F and c_G are the actual native pseudofunctor composition isomorphisms; no endpoint factor is discarded.
+
+Hypotheses: Fix a site (C,J), native Cat-valued pseudofunctors with IsGerbe predicates and fixed object/fibre-hom universes; the coefficient sheaf A:Sheaf(J,AddCommGrpCat) has independent universe w. Bandings, fixed-band strong transformations and native modifications are actual data. The transport formula allows F,G; the identity/composition/choice laws require F=G and the same abelian banding b. Every local object, base arrow, section and connecting isomorphism is an explicit parameter. No terminal object, neutrality, global section, strict pseudofunctor or global nonemptiness is assumed.
+
+Proof plan: Expand the native section-to-isomorphism equivalence and the existing sheaf comparison formula. Use the proved composition law for the strong transformation restriction isomorphism and cancel the actual inverse endpoint comparison.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/formula, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/transport-iso-equiv, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso-comp.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply coherent restrictions of the local self-Hom sheaves before choosing covers, refining overlaps and gluing torsors. AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences: Retain modification naturality and actual banded self-object transport in the eventual supplied torsor-groupoid comparison.
+
+Acceptance: Retain both the native Over pullback comparisons and actual gerbe endpoint comparisons, with their inverse maps and native modification naturality. The native identity/composition laws are now supplied for the self-gerbe Hom-sheaf comparison, natural in all native modifications. The general F-to-G family still needs its two-object endpoint transport and coherence. Actual covers, overlap refinements, gluing of sheaves/actions/maps, D0 torsor packaging, full faithfulness and a coherent inverse/unit/counit remain open. No concrete nonconstant-site or nonneutral geometric fixture is added; the intrinsic descended band, root-gerbe/H² and fpqc stack obligations are unchanged.
+
+Source: [Olsson’s notes, Remark31.5](https://stacky.net/files/written/Stacks/Stacks.pdf), printed123, and authored native coherence deductions. The displayed warning in31.6 remains a source gap.
+
+## Self-gerbe section transport
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomBaseChangeIso_transport**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-coherence/self-transport**.
+
+For F=G and bF=bG=b, the preceding actual fibre-isomorphism formula is exactly selfTransportActionIso(X,c_F(f,t,x)) applied to the transported section. The equality is in the actual self-Hom fibre carrier over T.
+
+Hypotheses: Fix a site (C,J), native Cat-valued pseudofunctors with IsGerbe predicates and fixed object/fibre-hom universes; the coefficient sheaf A:Sheaf(J,AddCommGrpCat) has independent universe w. Bandings, fixed-band strong transformations and native modifications are actual data. The transport formula allows F,G; the identity/composition/choice laws require F=G and the same abelian banding b. Every local object, base arrow, section and connecting isomorphism is an explicit parameter. No terminal object, neutrality, global section, strict pseudofunctor or global nonemptiness is assumed.
+
+Proof plan: Specialize the two-gerbe transport formula and identify the native conjugation action.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-coherence/transport, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply coherent restrictions of the local self-Hom sheaves before choosing covers, refining overlaps and gluing torsors. AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences: Retain modification naturality and actual banded self-object transport in the eventual supplied torsor-groupoid comparison.
+
+Acceptance: Retain both the native Over pullback comparisons and actual gerbe endpoint comparisons, with their inverse maps and native modification naturality. The native identity/composition laws are now supplied for the self-gerbe Hom-sheaf comparison, natural in all native modifications. The general F-to-G family still needs its two-object endpoint transport and coherence. Actual covers, overlap refinements, gluing of sheaves/actions/maps, D0 torsor packaging, full faithfulness and a coherent inverse/unit/counit remain open. No concrete nonconstant-site or nonneutral geometric fixture is added; the intrinsic descended band, root-gerbe/H² and fpqc stack obligations are unchanged.
+
+Source: [Olsson’s notes, Remark31.5](https://stacky.net/files/written/Stacks/Stacks.pdf), printed123, and authored native coherence deductions. The displayed warning in31.6 remains a source gap.
+
+## Equal slice arrows and their actual restriction map
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomTransport_over_eq**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-coherence/equal-over**.
+
+For h,k:T→U with h=k, a supplied section at Over.mk(h), and any supplied isomorphism e:F(h)x≅F(k)x, transport after the native Hom-sheaf restriction along the actual Over.homMk(𝟙_T):Over.mk(k)→Over.mk(h) equals selfTransportActionIso(X,e) of the original transported section. The connecting isomorphism is arbitrary, not a selected equality proof or strictness axiom.
+
+Hypotheses: Fix a site (C,J), native Cat-valued pseudofunctors with IsGerbe predicates and fixed object/fibre-hom universes; the coefficient sheaf A:Sheaf(J,AddCommGrpCat) has independent universe w. Bandings, fixed-band strong transformations and native modifications are actual data. The transport formula allows F,G; the identity/composition/choice laws require F=G and the same abelian banding b. Every local object, base arrow, section and connecting isomorphism is an explicit parameter. No terminal object, neutrality, global section, strict pseudofunctor or global nonemptiness is assumed.
+
+Proof plan: Eliminate the supplied arrow equality and identify the Over arrow with the actual identity. Use self-transport independence to replace e by the identity; apply the native Hom-sheaf functor identity law.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/transport-iso-equiv, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso-independent, mathlib:CategoryTheory.Over.homMk.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply coherent restrictions of the local self-Hom sheaves before choosing covers, refining overlaps and gluing torsors. AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences: Retain modification naturality and actual banded self-object transport in the eventual supplied torsor-groupoid comparison.
+
+Acceptance: Retain both the native Over pullback comparisons and actual gerbe endpoint comparisons, with their inverse maps and native modification naturality. The native identity/composition laws are now supplied for the self-gerbe Hom-sheaf comparison, natural in all native modifications. The general F-to-G family still needs its two-object endpoint transport and coherence. Actual covers, overlap refinements, gluing of sheaves/actions/maps, D0 torsor packaging, full faithfulness and a coherent inverse/unit/counit remain open. No concrete nonconstant-site or nonneutral geometric fixture is added; the intrinsic descended band, root-gerbe/H² and fpqc stack obligations are unchanged.
+
+Source: [Olsson’s notes, Remark31.5](https://stacky.net/files/written/Stacks/Stacks.pdf), printed123, and authored native coherence deductions. The displayed warning in31.6 remains a source gap.
+
+## Identity coherence of the self-Hom sheaf comparison
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomBaseChangeIso_id**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-coherence/unit**.
+
+For a fixed-band self transformation X:F→F and x∈F(U), fibreHomBaseChangeIso(X,𝟙_U,x,x) followed by selfHomSheafTransportIso(X,F.mapId_U(x)) equals the component at H_U(x,x;X) of the native overMapPullbackId natural isomorphism. This is equality of actual sheaf isomorphisms, with their real inverse maps.
+
+Hypotheses: Fix a site (C,J), native Cat-valued pseudofunctors with IsGerbe predicates and fixed object/fibre-hom universes; the coefficient sheaf A:Sheaf(J,AddCommGrpCat) has independent universe w. Bandings, fixed-band strong transformations and native modifications are actual data. The transport formula allows F,G; the identity/composition/choice laws require F=G and the same abelian banding b. Every local object, base arrow, section and connecting isomorphism is an explicit parameter. No terminal object, neutrality, global section, strict pseudofunctor or global nonemptiness is assumed.
+
+Proof plan: Apply the injective native section-to-fibre-isomorphism equivalence at every slice object. Use the section comparison and local-object transport formulas. Match the native Over.mapId restriction with the equal-arrow lemma using the composite of F.mapComp and the pulled-back F.mapId isomorphism.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-coherence/self-transport, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-coherence/equal-over, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/transport-comparison, mathlib:CategoryTheory.GrothendieckTopology.overMapPullbackId.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply coherent restrictions of the local self-Hom sheaves before choosing covers, refining overlaps and gluing torsors. AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences: Retain modification naturality and actual banded self-object transport in the eventual supplied torsor-groupoid comparison.
+
+Acceptance: Retain both the native Over pullback comparisons and actual gerbe endpoint comparisons, with their inverse maps and native modification naturality. The native identity/composition laws are now supplied for the self-gerbe Hom-sheaf comparison, natural in all native modifications. The general F-to-G family still needs its two-object endpoint transport and coherence. Actual covers, overlap refinements, gluing of sheaves/actions/maps, D0 torsor packaging, full faithfulness and a coherent inverse/unit/counit remain open. No concrete nonconstant-site or nonneutral geometric fixture is added; the intrinsic descended band, root-gerbe/H² and fpqc stack obligations are unchanged.
+
+Source: [Olsson’s notes, Remark31.5](https://stacky.net/files/written/Stacks/Stacks.pdf), printed123, and authored native coherence deductions. The displayed warning in31.6 remains a source gap.
+
+## Independence of the connecting fibre isomorphism
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomBaseChangeIso_transport_choice**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-coherence/choice**.
+
+In the self-gerbe section comparison, any supplied isomorphism e:F(t≫f)x≅F(t)F(f)x may replace the native composition isomorphism in the transported-section formula. This uses the fixed abelian band and actual band preservation; it does not identify the isomorphisms e themselves.
+
+Hypotheses: Fix a site (C,J), native Cat-valued pseudofunctors with IsGerbe predicates and fixed object/fibre-hom universes; the coefficient sheaf A:Sheaf(J,AddCommGrpCat) has independent universe w. Bandings, fixed-band strong transformations and native modifications are actual data. The transport formula allows F,G; the identity/composition/choice laws require F=G and the same abelian banding b. Every local object, base arrow, section and connecting isomorphism is an explicit parameter. No terminal object, neutrality, global section, strict pseudofunctor or global nonemptiness is assumed.
+
+Proof plan: Apply the self-gerbe transport formula and the existing equality of self-transport action isomorphisms for any two connecting arrows.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-coherence/self-transport, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso-independent.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply coherent restrictions of the local self-Hom sheaves before choosing covers, refining overlaps and gluing torsors. AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences: Retain modification naturality and actual banded self-object transport in the eventual supplied torsor-groupoid comparison.
+
+Acceptance: Retain both the native Over pullback comparisons and actual gerbe endpoint comparisons, with their inverse maps and native modification naturality. The native identity/composition laws are now supplied for the self-gerbe Hom-sheaf comparison, natural in all native modifications. The general F-to-G family still needs its two-object endpoint transport and coherence. Actual covers, overlap refinements, gluing of sheaves/actions/maps, D0 torsor packaging, full faithfulness and a coherent inverse/unit/counit remain open. No concrete nonconstant-site or nonneutral geometric fixture is added; the intrinsic descended band, root-gerbe/H² and fpqc stack obligations are unchanged.
+
+Source: [Olsson’s notes, Remark31.5](https://stacky.net/files/written/Stacks/Stacks.pdf), printed123, and authored native coherence deductions. The displayed warning in31.6 remains a source gap.
+
+## Composition coherence of the self-Hom sheaf comparison
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomBaseChangeIso_comp**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-coherence/composition**.
+
+For f:V→U and g:W→V, start from g⁎f⁎H_U(x,x;X). The component of native overMapPullbackComp(g,f), followed by comparison for g≫f and local-object transport along F.mapComp(f,g)(x), equals g⁎ of the comparison for f followed by comparison for g at F(f)x. Equality holds as actual sheaf isomorphisms, retaining the source slice comparison and the target gerbe comparison.
+
+Hypotheses: Fix a site (C,J), native Cat-valued pseudofunctors with IsGerbe predicates and fixed object/fibre-hom universes; the coefficient sheaf A:Sheaf(J,AddCommGrpCat) has independent universe w. Bandings, fixed-band strong transformations and native modifications are actual data. The transport formula allows F,G; the identity/composition/choice laws require F=G and the same abelian banding b. Every local object, base arrow, section and connecting isomorphism is an explicit parameter. No terminal object, neutrality, global section, strict pseudofunctor or global nonemptiness is assumed.
+
+Proof plan: Test equality on actual sections and then through the injective fibre-isomorphism transport. Use the native Over.mapComp component, whose underlying map is identity, and the equal-arrow transport lemma for the associativity equality of base arrows. Express both paths as composite self-transport action isomorphisms with the same endpoints. Their equality follows from banded self-transport independence; neither source nor target comparison is erased from the statement.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-coherence/self-transport, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-coherence/equal-over, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/transport-comparison, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso-comp, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso-independent, mathlib:CategoryTheory.GrothendieckTopology.overMapPullbackComp.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply coherent restrictions of the local self-Hom sheaves before choosing covers, refining overlaps and gluing torsors. AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences: Retain modification naturality and actual banded self-object transport in the eventual supplied torsor-groupoid comparison.
+
+Acceptance: Retain both the native Over pullback comparisons and actual gerbe endpoint comparisons, with their inverse maps and native modification naturality. The native identity/composition laws are now supplied for the self-gerbe Hom-sheaf comparison, natural in all native modifications. The general F-to-G family still needs its two-object endpoint transport and coherence. Actual covers, overlap refinements, gluing of sheaves/actions/maps, D0 torsor packaging, full faithfulness and a coherent inverse/unit/counit remain open. No concrete nonconstant-site or nonneutral geometric fixture is added; the intrinsic descended band, root-gerbe/H² and fpqc stack obligations are unchanged.
+
+Source: [Olsson’s notes, Remark31.5](https://stacky.net/files/written/Stacks/Stacks.pdf), printed123, and authored native coherence deductions. The displayed warning in31.6 remains a source gap.
+
+## Identity coherence natural in native modifications
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomBaseChangeNatIso_id**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-coherence/natural-unit**.
+
+On the actual category HomCategory(b,b), the identity restriction natural isomorphism followed by local-object transport along F.mapId(x) equals whiskering the native overMapPullbackId by the local Hom-sheaf functor and then its native right unitor. This retains every fixed-band strong transformation and modification.
+
+Hypotheses: Fix a site (C,J), native Cat-valued pseudofunctors with IsGerbe predicates and fixed object/fibre-hom universes; the coefficient sheaf A:Sheaf(J,AddCommGrpCat) has independent universe w. Bandings, fixed-band strong transformations and native modifications are actual data. The transport formula allows F,G; the identity/composition/choice laws require F=G and the same abelian banding b. Every local object, base arrow, section and connecting isomorphism is an explicit parameter. No terminal object, neutrality, global section, strict pseudofunctor or global nonemptiness is assumed.
+
+Proof plan: Extensionality in the actual modification category reduces to the proved sheaf identity law at each X.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-coherence/unit, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/nat-iso, mathlib:CategoryTheory.Functor.isoWhiskerLeft, mathlib:CategoryTheory.Functor.rightUnitor.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply coherent restrictions of the local self-Hom sheaves before choosing covers, refining overlaps and gluing torsors. AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences: Retain modification naturality and actual banded self-object transport in the eventual supplied torsor-groupoid comparison.
+
+Acceptance: Retain both the native Over pullback comparisons and actual gerbe endpoint comparisons, with their inverse maps and native modification naturality. The native identity/composition laws are now supplied for the self-gerbe Hom-sheaf comparison, natural in all native modifications. The general F-to-G family still needs its two-object endpoint transport and coherence. Actual covers, overlap refinements, gluing of sheaves/actions/maps, D0 torsor packaging, full faithfulness and a coherent inverse/unit/counit remain open. No concrete nonconstant-site or nonneutral geometric fixture is added; the intrinsic descended band, root-gerbe/H² and fpqc stack obligations are unchanged.
+
+Source: [Olsson’s notes, Remark31.5](https://stacky.net/files/written/Stacks/Stacks.pdf), printed123, and authored native coherence deductions. The displayed warning in31.6 remains a source gap.
+
+## Composition coherence natural in native modifications
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomBaseChangeNatIso_comp**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-coherence/natural-composition**.
+
+The native functor associator, whiskered overMapPullbackComp(g,f), comparison for g≫f and target local-object transport compose to the same natural isomorphism as right-whiskering the comparison for f by g⁎ and then comparing along g at F(f)x. All functors have domain HomCategory(b,b); the equality is of native natural isomorphisms, not only of their isomorphism classes.
+
+Hypotheses: Fix a site (C,J), native Cat-valued pseudofunctors with IsGerbe predicates and fixed object/fibre-hom universes; the coefficient sheaf A:Sheaf(J,AddCommGrpCat) has independent universe w. Bandings, fixed-band strong transformations and native modifications are actual data. The transport formula allows F,G; the identity/composition/choice laws require F=G and the same abelian banding b. Every local object, base arrow, section and connecting isomorphism is an explicit parameter. No terminal object, neutrality, global section, strict pseudofunctor or global nonemptiness is assumed.
+
+Proof plan: Apply natural-transformation extensionality, retain the actual functor associator component, and use the proved composition law at X.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-coherence/composition, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/nat-iso, mathlib:CategoryTheory.Functor.isoWhiskerLeft, mathlib:CategoryTheory.Functor.isoWhiskerRight, mathlib:CategoryTheory.Functor.associator.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply coherent restrictions of the local self-Hom sheaves before choosing covers, refining overlaps and gluing torsors. AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences: Retain modification naturality and actual banded self-object transport in the eventual supplied torsor-groupoid comparison.
+
+Acceptance: Retain both the native Over pullback comparisons and actual gerbe endpoint comparisons, with their inverse maps and native modification naturality. The native identity/composition laws are now supplied for the self-gerbe Hom-sheaf comparison, natural in all native modifications. The general F-to-G family still needs its two-object endpoint transport and coherence. Actual covers, overlap refinements, gluing of sheaves/actions/maps, D0 torsor packaging, full faithfulness and a coherent inverse/unit/counit remain open. No concrete nonconstant-site or nonneutral geometric fixture is added; the intrinsic descended band, root-gerbe/H² and fpqc stack obligations are unchanged.
+
+Source: [Olsson’s notes, Remark31.5](https://stacky.net/files/written/Stacks/Stacks.pdf), printed123, and authored native coherence deductions. The displayed warning in31.6 remains a source gap.
+
+## API and typed checks
+
+The first six lemmas extend fibreHomBaseChangeIso’s planning API; the final two extend fibreHomBaseChangeNatIso’s API. All existing API and test entries remain.
+
+- **TauCeti.AlgebraicGeometry.SheafCoherenceTests.unit_inverse** (degenerate): The corrected identity comparison has exactly the inverse of the native slice pullback identity component; inverse factors occur in reverse order.
+- **TauCeti.AlgebraicGeometry.SheafCoherenceTests.composite_inverse** (compatibility): Both composite paths have equal actual inverse sheaf arrows, with the inverse Over comparison and inverse object transport in the correct order.
+- **TauCeti.AlgebraicGeometry.SheafCoherenceTests.endpoint_choice** (compatibility): Any supplied isomorphism F(g≫f)x≅F(g)F(f)x can replace the native target comparison in the complete sheaf composition law.
+- **TauCeti.AlgebraicGeometry.SheafCoherenceTests.coefficient_composite** (compatibility): Two successive restriction comparisons preserve the same arbitrary coefficient a∈Multiplicative A(T); no incorrect restriction of a along f or g is inserted.
+- **TauCeti.AlgebraicGeometry.SheafCoherenceTests.native_modification** (compatibility): Every native modification commutes with the iterated restriction natural isomorphism on actual sheaf arrows.
+- **TauCeti.AlgebraicGeometry.SheafCoherenceTests.third_pullback** (compatibility): The complete two-step coherence equality remains valid after applying the native sheaf pullback along a third arbitrary arrow. This checks stability under a third pullback, not a separately established full descent pentagon.
+
+These six checks are parameterized native assertions. No new concrete nonconstant-site or nonneutral geometric fixture is instantiated. All10 inherited gaps,22 supplier requests,8 source issues,10 planets and8 partial stages remain. Historical frontier entries are preserved; the new self-gerbe laws discharge only the bounded portion described above.
+
 # Native restriction of the local gerbe Hom sheaf
 
 Codex — codex-rtOQ9t,3 October2026. This partial continuation retains the complete incoming treatment.
