@@ -11881,8 +11881,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #3378"
+   "state": "external",
+   "note": "claimed on GitHub issue #3378"
   },
   {
    "id": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
@@ -13129,8 +13129,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-FunctionFieldArithmeticPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #3403"
+   "state": "external",
+   "note": "claimed on GitHub issue #3403"
   },
   {
    "id": "REV-DESIGN-FunctionFieldArithmeticPartII",
@@ -21205,11 +21205,11 @@
     "REV-RS-25"
    ],
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration"
    ],
-   "note": "claimed on GitHub issue #642"
+   "note": "released on GitHub issue #642"
   },
   {
    "id": "REV-SchemeAndStackFoundations",
