@@ -9602,3 +9602,224 @@ Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/relative-gerbe, Algebra
 Proof outline: For every x,y over U, there is R∈J(U) such that for every f:V→U in R there is an actual equivalence between Isom(F(f)x,F(f)y) and Isom(ηV(F(f)x),ηV(F(f)y)), whose forward map is ηV.mapIso. The locallyIsomorphic field supplies each actual anchor. This statement does not yet identify the target with G(f)(ηU(x),ηU(y)) through strong naturality or glue the inverse sheaf map.
 
 Fresh source reading: [Olsson notes](https://stacky.net/files/written/Stacks/Stacks.pdf), complete pp.122–123 as scoped above, and [Stacks06NZ](https://stacks.math.columbia.edu/tag/06NZ), [0CJY](https://stacks.math.columbia.edu/tag/0CJY). The exact inverse formulas are authored deductions, rather than printed source statements. Generic stackification and classifying carriers belong to D0; descended-slice sheaf foundations belong to SF1. All statuses remain partial/unchecked.
+
+## Strong naturality and the actual target pullbacks
+
+For a banded-gerbe morphism η and f:V→U, its strong-naturality component c_f(x) identifies ηV(F(f)x) with G(f)(ηUx). The transported map must use c_f(x) inverse on the source and c_f(y) forward on the target. The local inverse reverses those two components before applying the component inverse. This correction keeps actual isomorphisms and actual coefficient sections; isomorphism classes cannot express these formulas.
+
+The five new constructions use the existing native strong transformation, natural-isomorphism conversion, Hom conjugation and Isom conjugation. They do not introduce a second generic transport interface. Their site is arbitrary, and no finite presentation, neutralization, terminal object or trivial topology is assumed. The native prototype retains the incoming explicit coefficient/fibre-hom universe convention; the reserved general gerbe node remains unchanged.
+
+### Strong-naturality comparison on the actual pullback object
+
+**TauCeti.AlgebraicGeometry.GerbeMorphismPullback.comparison** (AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/comparison). For f:V→U and x∈F(U), c_f(x) is the component of the native strong-naturality isomorphism η(f):F(f)⋙ηV≅ηU⋙G(f). Its source is ηV(F(f)x) and its target is G(f)(ηUx). No band-preservation hypothesis is required for this construction.
+
+Proof/construction: Read the actual η.naturality field and apply the existing Cat.Hom.toNatIso conversion, then take its component at x.
+
+API:
+
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.comparison_native**: The component agrees exactly with Cat.Hom.toNatIso(η.naturality(f)).app(x).
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.comparison_inv_hom_id**: The inverse comparison followed by its forward comparison is the identity arrow.
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.comparison_band**: Conjugation by c_f(x) preserves the specified target-band coefficient.
+
+Acceptance tests:
+
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.nativeComparison**: The component agrees exactly with Cat.Hom.toNatIso(η.naturality(f)).app(x).
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.zeroComparison**: The inverse comparison followed by its forward comparison is the identity arrow.
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.comparisonBand**: Conjugation by c_f(x) preserves the specified target-band coefficient.
+
+### Transport the local Isom map to target pullbacks
+
+**TauCeti.AlgebraicGeometry.GerbeMorphismPullback.mapIso** (AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/map-isom). For actual p:F(f)x≅F(f)y define M_f(p)=c_f(x)⁻¹ ∘ ηV(p) ∘ c_f(y), an actual isomorphism G(f)(ηUx)≅G(f)(ηUy). Use Mathlib Iso.isoCongr with c_f(x),c_f(y); no replacement generic conjugation equivalence is planned, and band preservation is not needed to define M_f.
+
+Proof/construction: Apply the component functor ηV.mapIso, followed by the existing Iso.isoCongr equivalence with both comparison components.
+
+API:
+
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.mapIso_hom**: For actual local p:F(f)x≅F(f)y, the hom arrow of M_f(p) is exactly h_f(p.hom), including both strong-naturality comparison components.
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.mapIso_restrict**: For every actual global p:x≅y, M_f(F(f).mapIso(p))=G(f).mapIso(ηU.mapIso(p)). The equality is between actual isomorphisms, not classes.
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.mapIso_act**: For fixed-band η, actual local p:F(f)x≅F(f)y and a∈A(V), M_f(actF(p,a))=actG(M_f(p),a). The coefficient is unchanged in A(V), even when c_f(y) is not an identity.
+
+Acceptance tests:
+
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.reflexiveImage**: The image of the actual identity isomorphism is the identity at G(f)(ηUx).
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.actualHomImage**: The hom arrow of the transported Isom image equals the transported Hom image.
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.globalIsoRestriction**: For global actual p:x≅y, M_f(F(f)p)=G(f)(ηU(p)).
+
+### Objectwise map on the native slice Hom carriers
+
+**TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homMap** (AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/hom-map). For p:F(f)x→F(f)y, h_f(p)=c_f(x).inv ≫ ηV.map(p) ≫ c_f(y).hom lands in G(f)(ηUx)→G(f)(ηUy). At T∈(C/U)ᵒᵖ and f=T.hom this is precisely a function from the native F.presheafHom(x,y).obj(T) to G.presheafHom(ηUx,ηUy).obj(T). This statement alone is not a natural transformation on the entire slice.
+
+Proof/construction: Apply the component Hom map and the existing Iso.homCongr equivalence. Identify its objects with the actual native slice Hom-presheaf carriers by unfolding their object definitions only.
+
+API:
+
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homMap_restrict**: For any global actual arrow p:x→y, h_f(F(f).map(p))=G(f).map(ηU.map(p)). This is naturality of the native strong-naturality isomorphism at p; it does not prove compatibility along arbitrary deeper slice arrows.
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homMap_injective**: For fixed-band η, h_f is injective on the actual native Hom carrier for every f,x,y, without an anchor.
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homMap_surjective_of_anchor**: For fixed-band η and actual local p:F(f)x≅F(f)y, h_f is surjective on the actual Hom carrier. The target arrows are invertible by IsGerbe(G,J), so the transported Isom inverse provides their actual preimage hom arrows.
+
+Acceptance tests:
+
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.sliceHomCarrier**: The objectwise Hom map has exactly the native target Hom-presheaf carrier at each slice object.
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.identityHomImage**: The actual identity arrow maps to the actual target identity arrow.
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.globalHomRestriction**: For a global actual arrow p:x→y, h_f(F(f)p)=G(f)(ηU(p)).
+
+### The transported Isom map has the specified Hom arrow
+
+**TauCeti.AlgebraicGeometry.GerbeMorphismPullback.mapIso_hom** (AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-hom). For actual local p:F(f)x≅F(f)y, the hom arrow of M_f(p) is exactly h_f(p.hom), including both strong-naturality comparison components.
+
+Proof/construction: Unfold only the existing conjugation constructions; both hom arrows are definitionally equal.
+
+### Transport commutes with restriction of a supplied global arrow
+
+**TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homMap_restrict** (AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/hom-restrict). For any global actual arrow p:x→y, h_f(F(f).map(p))=G(f).map(ηU.map(p)). This is naturality of the native strong-naturality isomorphism at p; it does not prove compatibility along arbitrary deeper slice arrows.
+
+Proof/construction: Apply NatIso.naturality_1 to Cat.Hom.toNatIso(η.naturality(f)) and the actual global arrow p.
+
+### Transport commutes with restriction of a supplied global isomorphism
+
+**TauCeti.AlgebraicGeometry.GerbeMorphismPullback.mapIso_restrict** (AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-restrict). For every actual global p:x≅y, M_f(F(f).mapIso(p))=G(f).mapIso(ηU.mapIso(p)). The equality is between actual isomorphisms, not classes.
+
+Proof/construction: Use Iso extensionality and the transported Hom restriction equality on p.hom.
+
+### The transported local Isom map is injective
+
+**TauCeti.AlgebraicGeometry.GerbeMorphismPullback.mapIso_injective** (AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-injective). If η preserves the fixed band, M_f is injective for every f,x,y, even when F(f)x≅F(f)y is empty. No source anchor is assumed.
+
+Proof/construction: Compose native component mapIso injectivity with the injectivity of the existing Iso.isoCongr equivalence.
+
+### The transported local Hom map is injective
+
+**TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homMap_injective** (AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/hom-injective). For fixed-band η, h_f is injective on the actual native Hom carrier for every f,x,y, without an anchor.
+
+Proof/construction: Install the already established Faithful component ηV, then compose its map injectivity with Iso.homCongr injectivity.
+
+### Strong-naturality transport preserves band actions
+
+**TauCeti.AlgebraicGeometry.GerbeMorphismPullback.mapIso_act** (AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-act). For fixed-band η, actual local p:F(f)x≅F(f)y and a∈A(V), M_f(actF(p,a))=actG(M_f(p),a). The coefficient is unchanged in A(V), even when c_f(y) is not an identity.
+
+Proof/construction: Use component map_act, then the target band conjugation equation for c_f(y). Cancel its inverse to move the band automorphism across c_f(y), retaining the actual arrow orientation.
+
+### Strong-naturality transport preserves differences
+
+**TauCeti.AlgebraicGeometry.GerbeMorphismPullback.mapIso_difference** (AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-difference). For fixed-band η and actual local p,q:F(f)x≅F(f)y, differenceG(M_f(p),M_f(q))=differenceF(p,q) as actual coefficients in A(V).
+
+Proof/construction: Express q as actF(p,differenceF(p,q)), apply action compatibility, then use target difference cancellation.
+
+### Inverse into the actual source pullback Isom type
+
+**TauCeti.AlgebraicGeometry.GerbeMorphismPullback.preimageIso** (AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/preimage-isom). Given an actual local anchor p:F(f)x≅F(f)y and q:G(f)(ηUx)≅G(f)(ηUy), define P_f(p,q)=BandedMorphism.preimageIso(p,c_f(x) ∘ q ∘ c_f(y)⁻¹). Both comparison components are reversed before applying the inherited actual component inverse. The local anchor remains explicit data.
+
+Proof/construction: Apply the inverse of the existing Iso.isoCongr equivalence to q, then the inherited anchored component preimage. Band preservation is needed for its inverse laws, not to write this formula.
+
+API:
+
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.map_preimageIso**: For fixed-band η and an actual local anchor p, M_f(P_f(p,q))=q for every actual target q.
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.preimageIso_map**: For fixed-band η and actual local p,q, P_f(p,M_f(q))=q.
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.preimageIso_anchor**: For actual local anchors p,p′ and any actual target q, P_f(p,q)=P_f(p′,q) when η preserves the fixed band. This compares supplied anchors and never chooses a global one.
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.preimageIso_restrict**: For actual global p:x≅y and actual target q:ηUx≅ηUy, P_f(F(f)p,G(f)q)=F(f)(BandedMorphism.preimageIso(p,q)). No global p is inferred from the gerbe axioms.
+
+Acceptance tests:
+
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.targetRoundTrip**: Mapping P_f(p,q) returns the supplied actual target q.
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.anchorRecovered**: P_f(p,M_f(p)) returns exactly the supplied anchor p.
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.differentAnchors**: Any two actual local anchors yield the same inverse on every target q.
+
+### The transported inverse returns the target
+
+**TauCeti.AlgebraicGeometry.GerbeMorphismPullback.map_preimageIso** (AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/map-preimage). For fixed-band η and an actual local anchor p, M_f(P_f(p,q))=q for every actual target q.
+
+Proof/construction: Apply the component forward-after-inverse law, then Iso.isoCongr.apply_symm_apply.
+
+### The transported inverse returns the source
+
+**TauCeti.AlgebraicGeometry.GerbeMorphismPullback.preimageIso_map** (AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/preimage-map). For fixed-band η and actual local p,q, P_f(p,M_f(q))=q.
+
+Proof/construction: Cancel Iso.isoCongr.symm_apply_apply, then use the component inverse-after-forward law.
+
+### The transported inverse is independent of the local anchor
+
+**TauCeti.AlgebraicGeometry.GerbeMorphismPullback.preimageIso_anchor** (AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/preimage-anchor). For actual local anchors p,p′ and any actual target q, P_f(p,q)=P_f(p′,q) when η preserves the fixed band. This compares supplied anchors and never chooses a global one.
+
+Proof/construction: Apply inherited component anchor independence to the same reverse-transported target.
+
+### The transported inverse respects band actions
+
+**TauCeti.AlgebraicGeometry.GerbeMorphismPullback.preimageIso_act** (AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/preimage-act). For fixed-band η, an actual local anchor p, target q and a∈A(V), P_f(p,actG(q,a))=actF(P_f(p,q),a).
+
+Proof/construction: Apply transported map injectivity; compare images using the target round trip and transported action compatibility.
+
+### The inverse commutes with restriction of a supplied global anchor
+
+**TauCeti.AlgebraicGeometry.GerbeMorphismPullback.preimageIso_restrict** (AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/preimage-restrict). For actual global p:x≅y and actual target q:ηUx≅ηUy, P_f(F(f)p,G(f)q)=F(f)(BandedMorphism.preimageIso(p,q)). No global p is inferred from the gerbe axioms.
+
+Proof/construction: Apply transported map injectivity. The first image is G(f)q by the transported round trip; the second is the same by strong naturality on the actual component inverse and its component round trip.
+
+### Actual local equivalence with the correct target pullbacks
+
+**TauCeti.AlgebraicGeometry.GerbeMorphismPullback.isomEquiv** (AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-equiv). For fixed-band η and an actual local anchor p, E_f(p) is an actual Equiv from F(f)x≅F(f)y to G(f)(ηUx)≅G(f)(ηUy). It is the inherited anchored component Equiv followed by Mathlib Iso.isoCongr; its forward map is M_f and inverse P_f(p).
+
+Proof/construction: Compose the inherited actual component equivalence with the existing conjugation equivalence. Keep its inverse data and correct target objects.
+
+API:
+
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.isomEquiv_apply**: E_f(p)(q)=M_f(q) for every actual local anchor p and local isomorphism q.
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.isomEquiv_symm_apply**: E_f(p)⁻¹(q)=P_f(p,q) for every actual target isomorphism q.
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.isomEquiv_anchor**: For any actual local anchors p,p′, E_f(p)=E_f(p′) as Equiv values, since both forward maps are exactly M_f.
+
+Acceptance tests:
+
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.forwardOrientation**: The forward map uses c_f(x) inverse, the actual component mapIso, and c_f(y) forward.
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.reverseOrientation**: The inverse transports q using c_f(x) forward and c_f(y) inverse before the component preimage.
+- **TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.actedImage**: The equivalence retains every coefficient of the actual A(V) action.
+
+### Forward formula for the actual pullback equivalence
+
+**TauCeti.AlgebraicGeometry.GerbeMorphismPullback.isomEquiv_apply** (AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-equiv-apply). E_f(p)(q)=M_f(q) for every actual local anchor p and local isomorphism q.
+
+Proof/construction: Unfold the composite equivalence once; its forward map is definitionally M_f.
+
+### Inverse formula for the actual pullback equivalence
+
+**TauCeti.AlgebraicGeometry.GerbeMorphismPullback.isomEquiv_symm_apply** (AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-equiv-symm). E_f(p)⁻¹(q)=P_f(p,q) for every actual target isomorphism q.
+
+Proof/construction: Unfold the composite inverse once, retaining the reverse Iso.isoCongr transport.
+
+### The actual pullback equivalence is independent of the local anchor
+
+**TauCeti.AlgebraicGeometry.GerbeMorphismPullback.isomEquiv_anchor** (AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-equiv-anchor). For any actual local anchors p,p′, E_f(p)=E_f(p′) as Equiv values, since both forward maps are exactly M_f.
+
+Proof/construction: Use Equiv extensionality on the forward maps. No comparison of chosen representatives is omitted.
+
+### The transported Hom map is surjective with an actual local anchor
+
+**TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homMap_surjective_of_anchor** (AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/hom-surjective-anchor). For fixed-band η and actual local p:F(f)x≅F(f)y, h_f is surjective on the actual Hom carrier. The target arrows are invertible by IsGerbe(G,J), so the transported Isom inverse provides their actual preimage hom arrows.
+
+Proof/construction: Turn each target arrow into its actual asIso using the target gerbe groupoid field, take P_f(p,asIso(q)).hom, and use the target round trip on hom arrows.
+
+### Correct target equivalences on a gerbe covering sieve
+
+**TauCeti.AlgebraicGeometry.GerbeMorphismPullback.locallyIsomEquiv** (AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/cover-equiv). For any U and actual x,y∈F(U), there is a J-covering sieve R such that for every f:V→U in R the actual Isom types F(f)x≅F(f)y and G(f)(ηUx)≅G(f)(ηUy) are equivalent. The source local anchor is obtained only on each covering arrow. No global anchor, finite cover or terminal object is chosen.
+
+Proof/construction: Use IsGerbe.locallyIsomorphic to obtain the actual covering sieve and a local anchor at each member, then take E_f of that anchor. This supplies objectwise local equivalences, not a sheaf isomorphism.
+
+### The pullback comparison is the native strong-naturality component
+
+**TauCeti.AlgebraicGeometry.GerbeMorphismPullback.comparison_native** (AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/comparison-native). c_f(x) equals Cat.Hom.toNatIso(η.naturality(f)).app(x), with the exact native comparison orientation.
+
+Proof/construction: Unfold the component definition; the equality is reflexive.
+
+### The pullback comparison inverse cancels its forward arrow
+
+**TauCeti.AlgebraicGeometry.GerbeMorphismPullback.comparison_inv_hom_id** (AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/comparison-inverse). c_f(x).inv ≫ c_f(x).hom is the identity on G(f)(ηUx), using the native isomorphism inverse law.
+
+Proof/construction: Apply the existing inv_hom_id law to the actual comparison isomorphism.
+
+### The pullback comparison preserves the target band coordinate
+
+**TauCeti.AlgebraicGeometry.GerbeMorphismPullback.comparison_band** (AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/comparison-band). Conjugation by c_f(x) sends bG(ηV(F(f)x),a) to bG(G(f)(ηUx),a) for every a∈A(V). This uses target band conjugation alone; band preservation by η is not required.
+
+Proof/construction: Apply the target AbelianBanding.conjugation law to the actual comparison component.
+
+Actual strong-naturality transport now lands in G(f)(ηUx) and G(f)(ηUy), with inverse round trips, anchor independence, coefficients, injectivity and covering-sieve equivalences. Compatibility along arbitrary g:W→V in the slice still requires the native η.naturality_comp and both pseudofunctor comparison maps; the supplied-global-anchor restriction law is only a special case. Build that coherent Hom-presheaf map, then glue local inverses using the native Hom sheaf before claiming fibrewise fullness. All inherited frontiers and supplier requests remain open.
+
+Source: the complete mathematical text of Olsson’s PDF pages 122–123 and Stacks 06NZ/0CJY were freshly read on 2026-10-03. These transport equations are authored deductions motivated by the full-faithfulness paragraph of §31. The printed self-reference does not supply a proof, and the visible start of Lemma 31.6 is not its completed proof. Existing source-issue and version records are preserved.
