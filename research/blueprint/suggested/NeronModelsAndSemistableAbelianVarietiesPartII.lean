@@ -5741,3 +5741,186 @@ example :
   sorry
 
 end TauCeti.GenusOne.FerrandPushout
+
+noncomputable section
+namespace TauCeti.GenusOne.FerrandPushout
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry TopologicalSpace Opposite
+variable {Y P : Scheme.{u}}
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+
+lemma conductorChart_ideal_map (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.affineOpens) :
+    ((conductorIdealSheaf f).ideal U).map (f.app U).hom =
+      (f.app U).hom.range.conductor := by
+  sorry
+
+lemma conductorChart_ideal_image (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.affineOpens) :
+    (((conductorIdealSheaf f).ideal U).map (f.app U).hom : Set Γ(Y, f ⁻¹ᵁ U)) =
+      (f.app U).hom '' ((conductorIdealSheaf f).ideal U : Set Γ(P, U)) := by
+  sorry
+
+lemma conductor_affine_isPullback (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.affineOpens) :
+    IsPullback (f.app U) ((conductorIdealSheaf f).subschemeι.app U)
+      (((conductorIdealSheaf f).comap f).subschemeι.app (f ⁻¹ᵁ U))
+      (conductorChartMap f U) := by
+  sorry
+
+def conductorSectionsIso (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.affineOpens) :
+    Γ(P, U) ≅ (CommRingCat.pullbackCone
+      (((conductorIdealSheaf f).comap f).subschemeι.app (f ⁻¹ᵁ U))
+      (conductorChartMap f U)).pt :=
+  (conductor_affine_isPullback f U).isLimit.conePointUniqueUpToIso
+    (CommRingCat.pullbackConeIsLimit _ _)
+
+lemma conductorSectionsIso_fst (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.affineOpens) :
+    (conductorSectionsIso f U).hom ≫ (CommRingCat.pullbackCone
+      (((conductorIdealSheaf f).comap f).subschemeι.app (f ⁻¹ᵁ U))
+      (conductorChartMap f U)).fst = f.app U := by
+  sorry
+
+lemma conductorSectionsIso_snd (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.affineOpens) :
+    (conductorSectionsIso f U).hom ≫ (CommRingCat.pullbackCone
+      (((conductorIdealSheaf f).comap f).subschemeι.app (f ⁻¹ᵁ U))
+      (conductorChartMap f U)).snd = (conductorIdealSheaf f).subschemeι.app U := by
+  sorry
+
+lemma conductorSectionsIso_inv_fst (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.affineOpens) :
+    (conductorSectionsIso f U).inv ≫ f.app U = (CommRingCat.pullbackCone
+      (((conductorIdealSheaf f).comap f).subschemeι.app (f ⁻¹ᵁ U))
+      (conductorChartMap f U)).fst := by
+  sorry
+
+lemma conductorSectionsIso_inv_snd (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.affineOpens) :
+    (conductorSectionsIso f U).inv ≫ (conductorIdealSheaf f).subschemeι.app U =
+      (CommRingCat.pullbackCone
+        (((conductorIdealSheaf f).comap f).subschemeι.app (f ⁻¹ᵁ U))
+        (conductorChartMap f U)).snd := by
+  sorry
+
+lemma conductorSectionsIso_inv_unique (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.affineOpens)
+    (p : (CommRingCat.pullbackCone
+      (((conductorIdealSheaf f).comap f).subschemeι.app (f ⁻¹ᵁ U))
+      (conductorChartMap f U)).pt) (a : Γ(P, U))
+    (ha : (f.app U) a = (CommRingCat.pullbackCone
+      (((conductorIdealSheaf f).comap f).subschemeι.app (f ⁻¹ᵁ U))
+      (conductorChartMap f U)).fst p) :
+    (conductorSectionsIso f U).inv p = a := by
+  sorry
+
+def conductorSectionDifference (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.Opens) :
+    (Γ(Y, f ⁻¹ᵁ U) × Γ((conductorIdealSheaf f).subscheme,
+      (conductorIdealSheaf f).subschemeι ⁻¹ᵁ U)) →+
+        Γ(((conductorIdealSheaf f).comap f).subscheme,
+          ((conductorIdealSheaf f).comap f).subschemeι ⁻¹ᵁ (f ⁻¹ᵁ U)) :=
+  (((conductorIdealSheaf f).comap f).subschemeι.app (f ⁻¹ᵁ U)).hom.toAddMonoidHom.comp
+    (AddMonoidHom.fst _ _) -
+      (conductorChartMap f U).hom.toAddMonoidHom.comp (AddMonoidHom.snd _ _)
+
+lemma conductorSectionDifference_apply (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.Opens)
+    (b : Γ(Y, f ⁻¹ᵁ U))
+    (c : Γ((conductorIdealSheaf f).subscheme, (conductorIdealSheaf f).subschemeι ⁻¹ᵁ U)) :
+    conductorSectionDifference f U (b, c) =
+      ((conductorIdealSheaf f).comap f).subschemeι.app (f ⁻¹ᵁ U) b -
+        conductorChartMap f U c := by
+  sorry
+
+lemma conductorSectionDifference_zero (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.Opens) (a : Γ(P, U)) :
+    conductorSectionDifference f U
+      ((f.app U) a, (conductorIdealSheaf f).subschemeι.app U a) = 0 := by
+  sorry
+
+lemma conductorSectionDifference_surjective (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.affineOpens) :
+    Function.Surjective (conductorSectionDifference f U) := by
+  sorry
+
+lemma conductorSectionPair_injective (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.Opens) :
+    Function.Injective ((f.app U).hom.prod
+      ((conductorIdealSheaf f).subschemeι.app U).hom) := by
+  sorry
+
+lemma conductorSectionDifference_exact (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.affineOpens) :
+    Function.Exact ((f.app U).hom.prod ((conductorIdealSheaf f).subschemeι.app U).hom)
+      (conductorSectionDifference f U) := by
+  sorry
+
+lemma conductorSectionDifference_restrict (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] {U V : P.Opens} (h : U ≤ V)
+    (b : Γ(Y, f ⁻¹ᵁ V))
+    (c : Γ((conductorIdealSheaf f).subscheme, (conductorIdealSheaf f).subschemeι ⁻¹ᵁ V)) :
+    (((conductorIdealSheaf f).comap f).subscheme.presheaf.map
+      ((Opens.map ((conductorIdealSheaf f).comap f).subschemeι.base).map
+        ((Opens.map f.base).map (homOfLE h))).op) (conductorSectionDifference f V (b, c)) =
+      conductorSectionDifference f U
+        ((Y.presheaf.map ((Opens.map f.base).map (homOfLE h)).op) b,
+          ((conductorIdealSheaf f).subscheme.presheaf.map
+            ((Opens.map (conductorIdealSheaf f).subschemeι.base).map (homOfLE h)).op) c) := by
+  sorry
+
+end TauCeti.GenusOne.FerrandPushout
+
+namespace TauCeti.GenusOne.FerrandPushout
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry TopologicalSpace Opposite
+variable {Y P : Scheme.{u}}
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+
+-- test: ConductorSectionsChecked.empty_open
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (a : Γ(P, (⊥ : P.Opens))) :
+    (conductorSectionsIso f ⟨⊥, isAffineOpen_bot P⟩).hom a = 0 := by
+  sorry
+
+-- test: ConductorSectionsChecked.reconstruction
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (U : P.affineOpens) (a : Γ(P, U)) :
+    (conductorSectionsIso f U).inv ((conductorSectionsIso f U).hom a) = a := by
+  sorry
+
+-- test: ConductorSectionsChecked.nonreduced_identity
+example :
+    let P := Spec (.of (ZMod 4))
+    let U : P.affineOpens := ⟨⊤, isAffineOpen_top _⟩
+    let a := (Scheme.ΓSpecIso (.of (ZMod 4))).inv 2
+    let p := (conductorSectionsIso (𝟙 P) U).hom a
+    p ≠ 0 ∧ p ^ 2 = 0 := by
+  sorry
+
+-- test: ConductorDifferenceChecked.signed_units
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (U : P.Opens) :
+    conductorSectionDifference f U (1, 0) = 1 ∧
+      conductorSectionDifference f U (0, 1) = -1 := by
+  sorry
+
+-- test: ConductorDifferenceChecked.exact_lifting
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (U : P.affineOpens)
+    (b : Γ(Y, f ⁻¹ᵁ U))
+    (c : Γ((conductorIdealSheaf f).subscheme, (conductorIdealSheaf f).subschemeι ⁻¹ᵁ U))
+    (h : conductorSectionDifference f U (b, c) = 0) :
+    ∃! a : Γ(P, U), (f.app U) a = b ∧ (conductorIdealSheaf f).subschemeι.app U a = c := by
+  sorry
+
+-- test: ConductorDifferenceChecked.empty_open
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (b : Γ(Y, f ⁻¹ᵁ (⊥ : P.Opens)))
+    (c : Γ((conductorIdealSheaf f).subscheme, (conductorIdealSheaf f).subschemeι ⁻¹ᵁ (⊥ : P.Opens))) :
+    conductorSectionDifference f ⊥ (b, c) = 0 := by
+  sorry
+
+end TauCeti.GenusOne.FerrandPushout
