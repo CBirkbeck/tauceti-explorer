@@ -1,3 +1,67 @@
+# Exact-order shifted jet multiplication — R03.3 continuation
+
+For finite σ, commutative k and R=k[[σ]], retain the algebraic variable ideal v.
+If k has no zero divisors and f has exact native finite order d, then
+fg belongs to v^(d+r) exactly when g belongs to v^r, including g=0 and r=0.
+This cancels the finite addend d in ℕ∞. Native order multiplicativity is already
+in Mathlib; the new declaration only compares its inequalities with algebraic ideals.
+
+For d≤N the actual source is R/v^(N+1−d), and multiplication sends [g] to [fg]
+in R/v^(N+1). It agrees with the existing principal quotient multiplication.
+The projection to R/((f)+v^(N+1)) agrees with the existing principal projection.
+Their range–kernel equality and projection surjectivity require only the lower
+order bound over arbitrary commutative k. Left injectivity additionally requires
+exact finite order and no-zero-divisors coefficients. For N<d the projection
+is bijective instead; no shifted injection is asserted in that range.
+
+The F₂ equation X_0⁴ at N=d=4 has a nonzero image of [1] and an injective map.
+A loose d=1 bound for X_0² at N=1 fails injectivity even over ℚ. The ℤ/4
+multiplier 2X_0 kills the nonzero class of 2. Unshifted multiplication by X_0
+on R/v² also fails injectivity. These tests use actual native quotient classes.
+
+Dependencies are the retained variable-ideal-power/order equivalence and
+principal-quotient denominator, exactness, injectivity and projection proofs.
+All are R03.3 declarations or exact pinned baseline imports; no new stage supplier
+is introduced. The existing general multiplicity object, both normalization
+conventions and every source-route obligation remain unchanged. All eight
+stages remain open. The next proof is the length balance using these maps,
+the checked total-jet count and the actual quotient/scalar comparison.
+
+The source is the credited [DDPA-JET-HANDOFF §4](https://github.com/CBirkbeck/tauceti-explorer/blob/eb645dc85df65608c56fafc4d9ed0e71ab0ca3ce/research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md),
+with the generalization explicitly proved from [pinned native order multiplication](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/MvPowerSeries/NoZeroDivisors.lean)
+and [finite ENat cancellation](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/ENat/Basic.lean).
+Canonical signatures remain admitted; no implementation status is promoted.
+
+## Exact-order preimage of a variable-ideal power
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/exact-order-mul-ideal-preimage` — `TauCeti.HilbertSamuel.mul_mem_variableIdeal_pow_iff`.
+
+For finite σ, a commutative coefficient ring k with no zero divisors, R=MvPowerSeries σ k and v=span{X_i}, if native order(f)=(d:ℕ∞), then fg∈v^(d+r) if and only if g∈v^r, for every g∈R and d,r∈ℕ. The zero argument and r=0 are included.
+
+- σ is finite; k is a commutative ring with NoZeroDivisors. All ideals and series are the native library objects.
+- The multiplier has exact finite native order d. No field, nontriviality, completeness, local-ring, irreducibility or reducedness hypothesis is added.
+
+Proof: Use variable-ideal-power-order to convert both memberships to inequalities in ℕ∞. Rewrite native order_mul and the exact order of f. Natural addition casts to extended-natural addition. Cancel only the finite left addend d using ENat.add_le_add_iff_left. The other addend order(g) may be infinite; no order.toNat or unjustified truncated subtraction is used. This supplies the reverse-membership condition of principal-quotient-injectivity with r=N+1−d and d≤N. Right exactness uses the weaker lower-order bound separately.
+
+- `HilbertSamuelShiftedOrderTest.zero_multiplier` (non-example): For arbitrary finite σ and commutative k, the zero series times 1 belongs to every v^(1+r), but its order is not the finite value 1; it cannot satisfy the exact-order premise.
+- `HilbertSamuelShiftedOrderTest.membership_zero_argument` (degenerate): With no-zero-divisors coefficients and exact order(f)=d, f·0∈v^(d+r) iff 0∈v^r, including the infinite order of the zero argument.
+- `HilbertSamuelShiftedOrderTest.membership_zero_cutoff` (degenerate): For exact order(f)=d and every g, f·g∈v^d; the cancellation statement includes r=0.
+
+## Shifted multiplication on finite jets
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-map` — `TauCeti.HilbertSamuel.shiftedJetMap`.
+
+Under d≤N and (d:ℕ∞)≤order(f), construct the actual R-linear map μ_f:R/v^(N+1−d)→R/v^(N+1), [g]↦[fg], by native Submodule.mapQ of LinearMap.mulLeft R f and shifted-jet-denominator. Its projection API is the native factor π_f:R/v^(N+1)→R/((f)+v^(N+1)), [g]↦[g]. No jet carrier, dimension datum, or algebra-homomorphism multiplication stand-in is introduced.
+
+- `TauCeti.HilbertSamuel.shiftedJetMap_eq_quotientMulMap`: For d≤N and d≤order(f), shiftedJetMap is exactly quotientMulMap with J=v^(N+1−d), K=v^(N+1), multiplier f and the actual shifted denominator proof.
+- `TauCeti.HilbertSamuel.jetProjection_eq_principalQuotientProjection`: For every f and N, jetProjection is exactly principalQuotientProjection for K=v^(N+1); this equality does not require a finite variable set.
+
+- `HilbertSamuelShiftedOrderTest.loose_order_bound` (non-example): Over ℚ in two variables, f=X_0² satisfies the lower bound d=1 at N=1, but shiftedJetMap is not injective: the nonzero class of 1 modulo v maps to zero modulo v².
+- `HilbertSamuelShiftedOrderTest.exactness_zero_divisors` (compatibility): Over ℤ/4 in two variables, every admissible lower-order-bound shifted multiplication still has range equal to the projection kernel and a surjective projection.
+- `HilbertSamuelShiftedOrderTest.wrong_source_field` (non-example): Over ℚ in two variables, unshifted multiplication by X_0 on R/v² is well-defined but not injective: it kills the nonzero class of X_0. Ambient domain cancellation cannot replace the shifted denominator.
+
+The complete preceding reader follows with all inherited definitions, API, tests, source inventories and remaining contracts retained.
+
 # Commutative algebra for deformation theory and patching — part P7
 
 Current continuation by Codex — `codex-5ebb6f`, 2 October 2026: 96 nodes (53 lemmas, sixteen theorems, eight definitions and nineteen constructions), 111 API items, 92 definition/construction tests plus eleven lemma tests, 126 native examples, thirteen planets, 217 baseline references, fifteen gaps and two unchanged requests. P7, R03.3 and R03.4 remain partial; five other stages retain not_read status. All implementations remain unchecked. The residue/length appendix records seven new nodes, including promotion of the existing total-jet finiteness API.
