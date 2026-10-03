@@ -12,7 +12,7 @@
     "AnabelianGeometryAndNonabelianChabauty:NC.6"
   ],
   "status": "partial",
-  "summary": "Gauge stabilizer and kernel uniqueness continuation: native twisted-invariant/stabilizer comparison, actual gauge-witness spaces, sufficient invariant/stabilizer-lift criteria for kernel H¹ injectivity and unique repointed-fibre classes. Abstract embedded-kernel continuation: 19 declaration-sized nodes, 15 promoted API leaves and 14 typed tests. Partial anabelian checkpoint with 276 declaration-sized nodes. This continuation adds an actual native subgroup-to-twisted-kernel multiplicative identification, its jointly continuous transported inner action, a genuine continuous gauge-H¹ equivalence, and exact native ambient inclusion range criteria. Its explicit hypothesis is S≤U with x∈S iff f(x)=1; mapped-target and original-fibre converses also require f surjective. All 258 inherited mathematical contracts, seven stage statuses, nine gaps, seventeen supplier requests and eleven planets are preserved. NC.0 and NC.3 remain partial, other stages not_read, every node unchecked. The general abstract embedded-kernel adapter, central H², geometry, representability, local conditions, additive comparison, étale K(pi,1), Chen and BDMTV obligations are not closed.",
+  "summary": "Actual kernel quotient-invariant action and ambient-fibre orbit criterion. Gauge stabilizer and kernel uniqueness continuation: native twisted-invariant/stabilizer comparison, actual gauge-witness spaces, sufficient invariant/stabilizer-lift criteria for kernel H¹ injectivity and unique repointed-fibre classes. Abstract embedded-kernel continuation: 19 declaration-sized nodes, 15 promoted API leaves and 14 typed tests. Partial anabelian checkpoint with 276 declaration-sized nodes. This continuation adds an actual native subgroup-to-twisted-kernel multiplicative identification, its jointly continuous transported inner action, a genuine continuous gauge-H¹ equivalence, and exact native ambient inclusion range criteria. Its explicit hypothesis is S≤U with x∈S iff f(x)=1; mapped-target and original-fibre converses also require f surjective. All 258 inherited mathematical contracts, seven stage statuses, nine gaps, seventeen supplier requests and eleven planets are preserved. NC.0 and NC.3 remain partial, other stages not_read, every node unchecked. The general abstract embedded-kernel adapter, central H², geometry, representability, local conditions, additive comparison, étale K(pi,1), Chen and BDMTV obligations are not closed.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -1063,6 +1063,48 @@
         "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
         "provides": "Membership in the native stabilizer iff the element fixes the point under the action.",
         "checked": "Statement and surrounding hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 524–525; native names checked by compilation and pinned index."
+      },
+      {
+        "ref": "mathlib:MonoidHom.liftOfSurjective",
+        "kind": "construction",
+        "module": "Mathlib/Algebra/Group/Subgroup/Basic.lean",
+        "provides": "Native factorization of group homomorphisms through a surjective group homomorphism, with its kernel containment hypothesis.",
+        "checked": "Statement and surrounding hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 946–952. Native name and use checked by elaboration."
+      },
+      {
+        "ref": "mathlib:MonoidHom.liftOfRightInverse_comp_apply",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Group/Subgroup/Basic.lean",
+        "provides": "The factored homomorphism evaluates on f(x) as the original homomorphism evaluates on x.",
+        "checked": "Statement and surrounding hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 954–958. Native name and use checked by elaboration."
+      },
+      {
+        "ref": "mathlib:MulAction.toPermHom",
+        "kind": "construction",
+        "module": "Mathlib/Algebra/Group/Action/End.lean",
+        "provides": "The existing group homomorphism from a group action to permutations of its carrier.",
+        "checked": "Statement and surrounding hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 182–190. Native name and use checked by elaboration."
+      },
+      {
+        "ref": "mathlib:MulAction.compHom",
+        "kind": "construction",
+        "module": "Mathlib/Algebra/Group/Action/Hom.lean",
+        "provides": "The existing pullback of an action along a monoid homomorphism.",
+        "checked": "Statement and surrounding hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 42–53. Native name and use checked by elaboration."
+      },
+      {
+        "ref": "mathlib:Equiv.Perm.sign",
+        "kind": "construction",
+        "module": "Mathlib/GroupTheory/Perm/Sign.lean",
+        "provides": "Native permutation sign homomorphism; used in the exact-kernel concrete regression.",
+        "checked": "Statement and surrounding hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 353–358. Native name and use checked by elaboration."
+      },
+      {
+        "ref": "mathlib:Equiv.Perm.sign_surjective",
+        "kind": "lemma",
+        "module": "Mathlib/GroupTheory/Perm/Sign.lean",
+        "provides": "Surjectivity of permutation sign for a nontrivial finite permutation carrier.",
+        "checked": "Statement and surrounding hypotheses personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 423–429. Native name and use checked by elaboration."
       }
     ]
   },
@@ -1384,6 +1426,19 @@
         "Fresh web-parsed printed pp.5–9: continuous cocycle/gauge definitions, full Proposition 1 proof, coefficient functor and complete Proposition 2 proof including the freeness claim and subgroup paragraph. The downloaded exact PDF hash matches; no fresh visual or published-version collation."
       ],
       "readingExtent": "The new abstract stabilizer and injectivity statements are authored deductions. Geometric representability, central H² and unipotent-point topologies remain open."
+    },
+    {
+      "id": "KimKernelInvariantAction-codex-J6LwjP",
+      "title": "The motivic fundamental group of P¹ minus 0,1,infinity and the theorem of Siegel",
+      "authors": "Minhyong Kim",
+      "edition": "Exact arXiv:math/0409456v1; abstract kernel-invariant deductions from continuous gauge conventions",
+      "url": "https://arxiv.org/pdf/math/0409456v1",
+      "sha256": "00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941",
+      "accessed": "2026-10-03",
+      "readSections": [
+        "Fresh web-parsed printed pp.5–9: cocycles, ordered gauge action, full Proposition 1 and Proposition 2 proofs, invariant projection in the freeness argument and subgroup paragraph. Exact PDF independently downloaded and hashed. No whole-paper, fresh visual or published-version collation."
+      ],
+      "readingExtent": "The actual H⁰ quotient action and ambient-fibre orbit criterion are authored abstract group deductions. Geometric representability, central H² and unipotent point topology are not established."
     }
   ],
   "nodes": [
@@ -18441,6 +18496,993 @@
         "name": "TauCeti.NonabelianCohomology.H1.embeddedKernel_fibre_existsUnique"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Gauge cocycles within the actual kernel",
+      "kind": "construction",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.kernelGauge",
+      "statement": "For K≤U with u∈K iff f(u)=1 and a supplied continuous G-action compatible with its native inclusion, f equivariant, u∈U and f(u)∈H⁰(G,V), construct the continuous K-valued cocycle g↦u c(g)(g•u)⁻¹ from c∈Z¹(G,K).",
+      "hypotheses": [
+        "G is a group with an arbitrary topology; U is a topological group with a jointly continuous G-action by automorphisms. V is a group with a topology and an action by automorphisms.",
+        "K is an actual subgroup of U, with its inherited topology and a supplied jointly continuous G-action satisfying inclusion(g•k)=g•inclusion(k). f:U→*V is equivariant, and u∈K iff f(u)=1. Surjectivity and fixedness are assumed only where expressly stated. No topology on H¹ or Z¹ is introduced."
+      ],
+      "proofSteps": [
+        "Gauge the actual ambient inclusion of c by u. Apply f to prove every value lies in K, using fixedness of f(u). Restrict the continuous map to the subgroup; reflect the cocycle identity through its inclusion."
+      ],
+      "acceptance": [
+        "Use actual continuous cocycles, native subgroup carriers and the stated noncommutative gauge order. Distinguish equality of cohomology classes from equality of cocycles and gauge witnesses."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-map"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimKernelInvariantAction-codex-J6LwjP",
+          "locator": "§1 continuous cocycle and gauge conventions, printed pp.5–6; Proposition 2 invariant projection in the freeness proof, pp.8–9",
+          "match": "Authored deduction for abstract topological groups; the quotient-invariant action here is distinct from the central H¹ action in the geometric representability proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/KernelInvariantAction",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.kernelGauge"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.kernelGauge_apply",
+          "role": "characterisation",
+          "statement": "The underlying U-value of kernelGauge(u,c)(g) is u c(g)(g•u)⁻¹."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.kernelGauge_one",
+          "role": "characterisation",
+          "statement": "The gauge construction for u=1 equals the original K-valued cocycle."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.kernelGauge_mul",
+          "role": "characterisation",
+          "statement": "For f(u),f(v) fixed, kernelGauge(uv,c)=kernelGauge(u,kernelGauge(v,c))."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.kernelGauge_gauge",
+          "role": "characterisation",
+          "statement": "kernelGauge(u,a•c)=(u a u⁻¹)•kernelGauge(u,c) for a∈K. The conjugate lies in K by applying f."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.kernelGauge_inclusion",
+          "role": "compatibility",
+          "statement": "The actual inclusion of kernelGauge(u,c) equals u•(inclusion of c) as U-valued continuous cocycles."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.kernelInvariantAction_lift_independent",
+          "role": "characterisation",
+          "statement": "If f(u)=f(w) is fixed, the classes of kernelGauge(u,c) and kernelGauge(w,c) agree, whether or not f is surjective. This does not assert equality of cocycles."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NC.3/general kernel fibres",
+          "how": "The underlying U-value of kernelGauge(u,c)(g) is u c(g)(g•u)⁻¹."
+        },
+        {
+          "where": "NC.3/general kernel fibres",
+          "how": "The gauge construction for u=1 equals the original K-valued cocycle."
+        },
+        {
+          "where": "NC.3/general kernel fibres",
+          "how": "For f(u),f(v) fixed, kernelGauge(uv,c)=kernelGauge(u,kernelGauge(v,c))."
+        },
+        {
+          "where": "NC.3/general kernel fibres",
+          "how": "kernelGauge(u,a•c)=(u a u⁻¹)•kernelGauge(u,c) for a∈K. The conjugate lies in K by applying f."
+        },
+        {
+          "where": "NC.3/general kernel fibres",
+          "how": "The actual inclusion of kernelGauge(u,c) equals u•(inclusion of c) as U-valued continuous cocycles."
+        },
+        {
+          "where": "NC.3/general kernel fibres",
+          "how": "If f(u)=f(w) is fixed, the classes of kernelGauge(u,c) and kernelGauge(w,c) agree, whether or not f is surjective. This does not assert equality of cocycles."
+        }
+      ],
+      "tests": [
+        {
+          "name": "kernel_gauge_identity",
+          "kind": "degenerate",
+          "statement": "The identity ambient element gives back the original K-valued continuous cocycle."
+        },
+        {
+          "name": "kernel_gauge_native_inclusion",
+          "kind": "compatibility",
+          "statement": "Inclusion of the constructed kernel cocycle is the ordinary ambient gauge of the included cocycle."
+        },
+        {
+          "name": "kernel_gauge_trivial_value",
+          "kind": "computation",
+          "statement": "For the trivial input cocycle the underlying value is u(g•u)⁻¹; it is not silently replaced by 1."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-value",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Kernel gauge value",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.kernelGauge_apply",
+      "statement": "The underlying U-value of kernelGauge(u,c)(g) is u c(g)(g•u)⁻¹.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology; U is a topological group with a jointly continuous G-action by automorphisms. V is a group with a topology and an action by automorphisms.",
+        "K is an actual subgroup of U, with its inherited topology and a supplied jointly continuous G-action satisfying inclusion(g•k)=g•inclusion(k). f:U→*V is equivariant, and u∈K iff f(u)=1. Surjectivity and fixedness are assumed only where expressly stated. No topology on H¹ or Z¹ is introduced."
+      ],
+      "proofSteps": [
+        "Evaluate the actual subtype map."
+      ],
+      "acceptance": [
+        "Use actual continuous cocycles, native subgroup carriers and the stated noncommutative gauge order. Distinguish equality of cohomology classes from equality of cocycles and gauge witnesses."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimKernelInvariantAction-codex-J6LwjP",
+          "locator": "§1 continuous cocycle and gauge conventions, printed pp.5–6; Proposition 2 invariant projection in the freeness proof, pp.8–9",
+          "match": "Authored deduction for abstract topological groups; the quotient-invariant action here is distinct from the central H¹ action in the geometric representability proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/KernelInvariantAction",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.kernelGauge_apply"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-unit",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Identity kernel gauge",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.kernelGauge_one",
+      "statement": "The gauge construction for u=1 equals the original K-valued cocycle.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology; U is a topological group with a jointly continuous G-action by automorphisms. V is a group with a topology and an action by automorphisms.",
+        "K is an actual subgroup of U, with its inherited topology and a supplied jointly continuous G-action satisfying inclusion(g•k)=g•inclusion(k). f:U→*V is equivariant, and u∈K iff f(u)=1. Surjectivity and fixedness are assumed only where expressly stated. No topology on H¹ or Z¹ is introduced."
+      ],
+      "proofSteps": [
+        "Reflect equality pointwise through the native subgroup inclusion and cancel the identity factors."
+      ],
+      "acceptance": [
+        "Use actual continuous cocycles, native subgroup carriers and the stated noncommutative gauge order. Distinguish equality of cohomology classes from equality of cocycles and gauge witnesses."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-value"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimKernelInvariantAction-codex-J6LwjP",
+          "locator": "§1 continuous cocycle and gauge conventions, printed pp.5–6; Proposition 2 invariant projection in the freeness proof, pp.8–9",
+          "match": "Authored deduction for abstract topological groups; the quotient-invariant action here is distinct from the central H¹ action in the geometric representability proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/KernelInvariantAction",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.kernelGauge_one"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-product",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Ordered product of kernel gauges",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.kernelGauge_mul",
+      "statement": "For f(u),f(v) fixed, kernelGauge(uv,c)=kernelGauge(u,kernelGauge(v,c)).",
+      "hypotheses": [
+        "G is a group with an arbitrary topology; U is a topological group with a jointly continuous G-action by automorphisms. V is a group with a topology and an action by automorphisms.",
+        "K is an actual subgroup of U, with its inherited topology and a supplied jointly continuous G-action satisfying inclusion(g•k)=g•inclusion(k). f:U→*V is equivariant, and u∈K iff f(u)=1. Surjectivity and fixedness are assumed only where expressly stated. No topology on H¹ or Z¹ is introduced."
+      ],
+      "proofSteps": [
+        "Expand pointwise, use the automorphism multiplication identity, and cancel adjacent factors in the actual noncommutative order."
+      ],
+      "acceptance": [
+        "Use actual continuous cocycles, native subgroup carriers and the stated noncommutative gauge order. Distinguish equality of cohomology classes from equality of cocycles and gauge witnesses."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-value"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimKernelInvariantAction-codex-J6LwjP",
+          "locator": "§1 continuous cocycle and gauge conventions, printed pp.5–6; Proposition 2 invariant projection in the freeness proof, pp.8–9",
+          "match": "Authored deduction for abstract topological groups; the quotient-invariant action here is distinct from the central H¹ action in the geometric representability proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/KernelInvariantAction",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.kernelGauge_mul"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-equivariance",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Kernel gauge respects gauge equivalence",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.kernelGauge_gauge",
+      "statement": "kernelGauge(u,a•c)=(u a u⁻¹)•kernelGauge(u,c) for a∈K. The conjugate lies in K by applying f.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology; U is a topological group with a jointly continuous G-action by automorphisms. V is a group with a topology and an action by automorphisms.",
+        "K is an actual subgroup of U, with its inherited topology and a supplied jointly continuous G-action satisfying inclusion(g•k)=g•inclusion(k). f:U→*V is equivariant, and u∈K iff f(u)=1. Surjectivity and fixedness are assumed only where expressly stated. No topology on H¹ or Z¹ is introduced."
+      ],
+      "proofSteps": [
+        "Prove membership of the actual conjugate in K, then expand both ordered gauge expressions and cancel. This produces a real gauge witness, not an assumed quotient equality."
+      ],
+      "acceptance": [
+        "Use actual continuous cocycles, native subgroup carriers and the stated noncommutative gauge order. Distinguish equality of cohomology classes from equality of cocycles and gauge witnesses."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-value"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimKernelInvariantAction-codex-J6LwjP",
+          "locator": "§1 continuous cocycle and gauge conventions, printed pp.5–6; Proposition 2 invariant projection in the freeness proof, pp.8–9",
+          "match": "Authored deduction for abstract topological groups; the quotient-invariant action here is distinct from the central H¹ action in the geometric representability proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/KernelInvariantAction",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.kernelGauge_gauge"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-preimage-class-action",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Preimage invariants act on kernel classes",
+      "kind": "construction",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.kernelPreimageAction",
+      "statement": "Construct the actual MulAction of E=f⁻¹(H⁰(G,V)) on H¹(G,K) by u•[c]=[kernelGauge(u,c)].",
+      "hypotheses": [
+        "G is a group with an arbitrary topology; U is a topological group with a jointly continuous G-action by automorphisms. V is a group with a topology and an action by automorphisms.",
+        "K is an actual subgroup of U, with its inherited topology and a supplied jointly continuous G-action satisfying inclusion(g•k)=g•inclusion(k). f:U→*V is equivariant, and u∈K iff f(u)=1. Surjectivity and fixedness are assumed only where expressly stated. No topology on H¹ or Z¹ is introduced."
+      ],
+      "proofSteps": [
+        "Use Quotient.lift on the existing native gauge-orbit set, with the conjugate gauge witness. The preceding unit and ordered product lemmas prove the group-action laws."
+      ],
+      "acceptance": [
+        "Use actual continuous cocycles, native subgroup carriers and the stated noncommutative gauge order. Distinguish equality of cohomology classes from equality of cocycles and gauge witnesses."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-equivariance",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-unit",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-product"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimKernelInvariantAction-codex-J6LwjP",
+          "locator": "§1 continuous cocycle and gauge conventions, printed pp.5–6; Proposition 2 invariant projection in the freeness proof, pp.8–9",
+          "match": "Authored deduction for abstract topological groups; the quotient-invariant action here is distinct from the central H¹ action in the geometric representability proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/KernelInvariantAction",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.kernelPreimageAction"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.kernelPreimageAction_mk",
+          "role": "characterisation",
+          "statement": "For u∈E, u•[c]=[kernelGauge(u,c)] under the actual constructed action."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.kernelPreimageAction_kernel",
+          "role": "characterisation",
+          "statement": "If u∈E and f(u)=1, then u•a=a for every a∈H¹(G,K)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.kernelPreimageAction_perm_kernel",
+          "role": "characterisation",
+          "statement": "For the actual E-action on H¹(G,K), ker(E→H⁰(G,V)) lies in ker(E→*Perm(H¹(G,K)))."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NC.3/general kernel fibres",
+          "how": "For u∈E, u•[c]=[kernelGauge(u,c)] under the actual constructed action."
+        },
+        {
+          "where": "NC.3/general kernel fibres",
+          "how": "If u∈E and f(u)=1, then u•a=a for every a∈H¹(G,K)."
+        },
+        {
+          "where": "NC.3/general kernel fibres",
+          "how": "For the actual E-action on H¹(G,K), ker(E→H⁰(G,V)) lies in ker(E→*Perm(H¹(G,K)))."
+        }
+      ],
+      "tests": [
+        {
+          "name": "preimage_action_representative",
+          "kind": "compatibility",
+          "statement": "The preimage action on a cocycle class is exactly the class of the actual kernel gauge."
+        },
+        {
+          "name": "preimage_kernel_acts_trivially",
+          "kind": "characterisation",
+          "statement": "Every preimage element mapping to 1 acts trivially on every kernel H¹ class."
+        },
+        {
+          "name": "preimage_inverse_roundtrip",
+          "kind": "characterisation",
+          "statement": "Acting first by u and then by u⁻¹ gives back the same class."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-preimage-class-value",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Preimage action on a representative",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.kernelPreimageAction_mk",
+      "statement": "For u∈E, u•[c]=[kernelGauge(u,c)] under the actual constructed action.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology; U is a topological group with a jointly continuous G-action by automorphisms. V is a group with a topology and an action by automorphisms.",
+        "K is an actual subgroup of U, with its inherited topology and a supplied jointly continuous G-action satisfying inclusion(g•k)=g•inclusion(k). f:U→*V is equivariant, and u∈K iff f(u)=1. Surjectivity and fixedness are assumed only where expressly stated. No topology on H¹ or Z¹ is introduced."
+      ],
+      "proofSteps": [
+        "Evaluate the native quotient lift."
+      ],
+      "acceptance": [
+        "Use actual continuous cocycles, native subgroup carriers and the stated noncommutative gauge order. Distinguish equality of cohomology classes from equality of cocycles and gauge witnesses."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-preimage-class-action"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimKernelInvariantAction-codex-J6LwjP",
+          "locator": "§1 continuous cocycle and gauge conventions, printed pp.5–6; Proposition 2 invariant projection in the freeness proof, pp.8–9",
+          "match": "Authored deduction for abstract topological groups; the quotient-invariant action here is distinct from the central H¹ action in the geometric representability proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/KernelInvariantAction",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.kernelPreimageAction_mk"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-preimage-class-kernel",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Kernel elements act trivially on classes",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.kernelPreimageAction_kernel",
+      "statement": "If u∈E and f(u)=1, then u•a=a for every a∈H¹(G,K).",
+      "hypotheses": [
+        "G is a group with an arbitrary topology; U is a topological group with a jointly continuous G-action by automorphisms. V is a group with a topology and an action by automorphisms.",
+        "K is an actual subgroup of U, with its inherited topology and a supplied jointly continuous G-action satisfying inclusion(g•k)=g•inclusion(k). f:U→*V is equivariant, and u∈K iff f(u)=1. Surjectivity and fixedness are assumed only where expressly stated. No topology on H¹ or Z¹ is introduced."
+      ],
+      "proofSteps": [
+        "Represent a by a continuous cocycle. Identify kernelGauge(u,c) with the ordinary gauge by the actual element u∈K; its inverse is the gauge witness for class equality."
+      ],
+      "acceptance": [
+        "Use actual continuous cocycles, native subgroup carriers and the stated noncommutative gauge order. Distinguish equality of cohomology classes from equality of cocycles and gauge witnesses."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-preimage-class-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-value"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimKernelInvariantAction-codex-J6LwjP",
+          "locator": "§1 continuous cocycle and gauge conventions, printed pp.5–6; Proposition 2 invariant projection in the freeness proof, pp.8–9",
+          "match": "Authored deduction for abstract topological groups; the quotient-invariant action here is distinct from the central H¹ action in the geometric representability proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/KernelInvariantAction",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.kernelPreimageAction_kernel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-preimage-projection",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Project preimage invariants",
+      "kind": "construction",
+      "declarationName": "TauCeti.NonabelianCohomology.H0.preimageProjection",
+      "statement": "Specialize the native subgroup restriction of f to the actual homomorphism E=f⁻¹(H⁰(G,V))→*H⁰(G,V), u↦f(u).",
+      "hypotheses": [
+        "G is a group with an arbitrary topology; U is a topological group with a jointly continuous G-action by automorphisms. V is a group with a topology and an action by automorphisms.",
+        "K is an actual subgroup of U, with its inherited topology and a supplied jointly continuous G-action satisfying inclusion(g•k)=g•inclusion(k). f:U→*V is equivariant, and u∈K iff f(u)=1. Surjectivity and fixedness are assumed only where expressly stated. No topology on H¹ or Z¹ is introduced."
+      ],
+      "proofSteps": [
+        "Restrict the original homomorphism to the two native subgroups. Membership and group laws come directly from f; no new generic subgroup or homomorphism carrier is defined."
+      ],
+      "acceptance": [
+        "Use actual continuous cocycles, native subgroup carriers and the stated noncommutative gauge order. Distinguish equality of cohomology classes from equality of cocycles and gauge witnesses."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimKernelInvariantAction-codex-J6LwjP",
+          "locator": "§1 continuous cocycle and gauge conventions, printed pp.5–6; Proposition 2 invariant projection in the freeness proof, pp.8–9",
+          "match": "Authored deduction for abstract topological groups; the quotient-invariant action here is distinct from the central H¹ action in the geometric representability proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/KernelInvariantAction",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H0.preimageProjection"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.H0.preimageProjection_apply",
+          "role": "characterisation",
+          "statement": "The V-value of the projection at u∈E equals f(u)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H0.preimageProjection_mem_ker",
+          "role": "characterisation",
+          "statement": "For u∈E, u belongs to the projection kernel exactly when f(u)=1. Under the specified exact-image condition this is equivalent to u∈K."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H0.preimageProjection_surjective",
+          "role": "characterisation",
+          "statement": "If the original f:U→*V is surjective, the actual projection E→*H⁰(G,V) is surjective. No fixed lift in U is required."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NC.3/quotient-invariant action descent",
+          "how": "The V-value of the projection at u∈E equals f(u)."
+        },
+        {
+          "where": "NC.3/quotient-invariant action descent",
+          "how": "For u∈E, u belongs to the projection kernel exactly when f(u)=1. Under the specified exact-image condition this is equivalent to u∈K."
+        },
+        {
+          "where": "NC.3/quotient-invariant action descent",
+          "how": "If the original f:U→*V is surjective, the actual projection E→*H⁰(G,V) is surjective. No fixed lift in U is required."
+        }
+      ],
+      "tests": [
+        {
+          "name": "invariant_projection_identity",
+          "kind": "degenerate",
+          "statement": "The projection sends the native identity subgroup element to the identity invariant."
+        },
+        {
+          "name": "invariant_projection_exact_kernel",
+          "kind": "characterisation",
+          "statement": "Membership in the projection kernel is exactly membership of the underlying U-value in K."
+        },
+        {
+          "name": "invariant_projection_lifts",
+          "kind": "characterisation",
+          "statement": "For surjective f every quotient invariant has an actual lift in the preimage subgroup."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-preimage-projection-value",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Invariant projection value",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.H0.preimageProjection_apply",
+      "statement": "The V-value of the projection at u∈E equals f(u).",
+      "hypotheses": [
+        "G is a group with an arbitrary topology; U is a topological group with a jointly continuous G-action by automorphisms. V is a group with a topology and an action by automorphisms.",
+        "K is an actual subgroup of U, with its inherited topology and a supplied jointly continuous G-action satisfying inclusion(g•k)=g•inclusion(k). f:U→*V is equivariant, and u∈K iff f(u)=1. Surjectivity and fixedness are assumed only where expressly stated. No topology on H¹ or Z¹ is introduced."
+      ],
+      "proofSteps": [
+        "Evaluate the native subtype construction."
+      ],
+      "acceptance": [
+        "Use actual continuous cocycles, native subgroup carriers and the stated noncommutative gauge order. Distinguish equality of cohomology classes from equality of cocycles and gauge witnesses."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-preimage-projection"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimKernelInvariantAction-codex-J6LwjP",
+          "locator": "§1 continuous cocycle and gauge conventions, printed pp.5–6; Proposition 2 invariant projection in the freeness proof, pp.8–9",
+          "match": "Authored deduction for abstract topological groups; the quotient-invariant action here is distinct from the central H¹ action in the geometric representability proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/KernelInvariantAction",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H0.preimageProjection_apply"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-preimage-projection-kernel",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Exact invariant projection kernel",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.H0.preimageProjection_mem_ker",
+      "statement": "For u∈E, u belongs to the projection kernel exactly when f(u)=1. Under the specified exact-image condition this is equivalent to u∈K.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology; U is a topological group with a jointly continuous G-action by automorphisms. V is a group with a topology and an action by automorphisms.",
+        "K is an actual subgroup of U, with its inherited topology and a supplied jointly continuous G-action satisfying inclusion(g•k)=g•inclusion(k). f:U→*V is equivariant, and u∈K iff f(u)=1. Surjectivity and fixedness are assumed only where expressly stated. No topology on H¹ or Z¹ is introduced."
+      ],
+      "proofSteps": [
+        "Use the native homomorphism kernel membership theorem and subtype equality."
+      ],
+      "acceptance": [
+        "Use actual continuous cocycles, native subgroup carriers and the stated noncommutative gauge order. Distinguish equality of cohomology classes from equality of cocycles and gauge witnesses."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-preimage-projection"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimKernelInvariantAction-codex-J6LwjP",
+          "locator": "§1 continuous cocycle and gauge conventions, printed pp.5–6; Proposition 2 invariant projection in the freeness proof, pp.8–9",
+          "match": "Authored deduction for abstract topological groups; the quotient-invariant action here is distinct from the central H¹ action in the geometric representability proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/KernelInvariantAction",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H0.preimageProjection_mem_ker"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-preimage-projection-surjective",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Surjective invariant projection",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.H0.preimageProjection_surjective",
+      "statement": "If the original f:U→*V is surjective, the actual projection E→*H⁰(G,V) is surjective. No fixed lift in U is required.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology; U is a topological group with a jointly continuous G-action by automorphisms. V is a group with a topology and an action by automorphisms.",
+        "K is an actual subgroup of U, with its inherited topology and a supplied jointly continuous G-action satisfying inclusion(g•k)=g•inclusion(k). f:U→*V is equivariant, and u∈K iff f(u)=1. Surjectivity and fixedness are assumed only where expressly stated. No topology on H¹ or Z¹ is introduced."
+      ],
+      "proofSteps": [
+        "Lift the underlying V-value using f-surjectivity. Its image fixedness places the lift in E; subtype equality proves the required projection equation."
+      ],
+      "acceptance": [
+        "Use actual continuous cocycles, native subgroup carriers and the stated noncommutative gauge order. Distinguish equality of cohomology classes from equality of cocycles and gauge witnesses."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-preimage-projection"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimKernelInvariantAction-codex-J6LwjP",
+          "locator": "§1 continuous cocycle and gauge conventions, printed pp.5–6; Proposition 2 invariant projection in the freeness proof, pp.8–9",
+          "match": "Authored deduction for abstract topological groups; the quotient-invariant action here is distinct from the central H¹ action in the geometric representability proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/KernelInvariantAction",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H0.preimageProjection_surjective"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-preimage-permutation-kernel",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Permutation action kills the projection kernel",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.kernelPreimageAction_perm_kernel",
+      "statement": "For the actual E-action on H¹(G,K), ker(E→H⁰(G,V)) lies in ker(E→*Perm(H¹(G,K))).",
+      "hypotheses": [
+        "G is a group with an arbitrary topology; U is a topological group with a jointly continuous G-action by automorphisms. V is a group with a topology and an action by automorphisms.",
+        "K is an actual subgroup of U, with its inherited topology and a supplied jointly continuous G-action satisfying inclusion(g•k)=g•inclusion(k). f:U→*V is equivariant, and u∈K iff f(u)=1. Surjectivity and fixedness are assumed only where expressly stated. No topology on H¹ or Z¹ is introduced."
+      ],
+      "proofSteps": [
+        "Reflect permutation equality pointwise and apply triviality of the kernel-element action."
+      ],
+      "acceptance": [
+        "Use actual continuous cocycles, native subgroup carriers and the stated noncommutative gauge order. Distinguish equality of cohomology classes from equality of cocycles and gauge witnesses."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-preimage-class-kernel",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-preimage-projection",
+        "mathlib:MulAction.toPermHom"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimKernelInvariantAction-codex-J6LwjP",
+          "locator": "§1 continuous cocycle and gauge conventions, printed pp.5–6; Proposition 2 invariant projection in the freeness proof, pp.8–9",
+          "match": "Authored deduction for abstract topological groups; the quotient-invariant action here is distinct from the central H¹ action in the geometric representability proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/KernelInvariantAction",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.kernelPreimageAction_perm_kernel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-class-action",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Quotient invariants act on kernel classes",
+      "kind": "construction",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.kernelInvariantAction",
+      "statement": "If f is surjective, construct an actual MulAction of H⁰(G,V) on H¹(G,K) descending the E-action. For a lift u of v, it sends [c] to [g↦u c(g)(g•u)⁻¹]. This is a set action; it need not preserve the neutral class.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology; U is a topological group with a jointly continuous G-action by automorphisms. V is a group with a topology and an action by automorphisms.",
+        "K is an actual subgroup of U, with its inherited topology and a supplied jointly continuous G-action satisfying inclusion(g•k)=g•inclusion(k). f:U→*V is equivariant, and u∈K iff f(u)=1. Surjectivity and fixedness are assumed only where expressly stated. No topology on H¹ or Z¹ is introduced."
+      ],
+      "proofSteps": [
+        "Represent the E-action by Mathlib’s homomorphism to the group of permutations. Factor it through the surjective invariant projection using the existing MonoidHom.liftOfSurjective and its kernel condition. Pull back the native permutation action with MulAction.compHom."
+      ],
+      "acceptance": [
+        "Use actual continuous cocycles, native subgroup carriers and the stated noncommutative gauge order. Distinguish equality of cohomology classes from equality of cocycles and gauge witnesses."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-preimage-class-action",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-preimage-projection-surjective",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-preimage-permutation-kernel",
+        "mathlib:MonoidHom.liftOfSurjective",
+        "mathlib:MulAction.toPermHom",
+        "mathlib:MulAction.compHom",
+        "mathlib:Equiv.Perm.sign",
+        "mathlib:Equiv.Perm.sign_surjective"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimKernelInvariantAction-codex-J6LwjP",
+          "locator": "§1 continuous cocycle and gauge conventions, printed pp.5–6; Proposition 2 invariant projection in the freeness proof, pp.8–9",
+          "match": "Authored deduction for abstract topological groups; the quotient-invariant action here is distinct from the central H¹ action in the geometric representability proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/KernelInvariantAction",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.kernelInvariantAction"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.kernelInvariantAction_lift",
+          "role": "compatibility",
+          "statement": "The action of the projection of u∈E on a∈H¹(G,K) equals the preimage action of u, for every such u and a."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.kernelInvariantAction_mk",
+          "role": "characterisation",
+          "statement": "For v∈H⁰(G,V), u∈U with f(u)=v and c∈Z¹(G,K), v•[c]=[kernelGauge(u,c)]."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.kernelInvariantAction_inclusion",
+          "role": "compatibility",
+          "statement": "The actual inclusion H¹(G,K)→H¹(G,U) is constant on every orbit of the H⁰(G,V)-action."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.kernelInvariantAction_fibre_iff",
+          "role": "characterisation",
+          "statement": "For surjective equivariant f and the actual subgroup K=ker(f) with its compatible continuous G-action, two classes a,b∈H¹(G,K) have equal images in H¹(G,U) exactly when there exists v∈H⁰(G,V) with v•a=b. No centrality, trivial invariants, quotient-map hypothesis or continuous section is required."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NC.3/general kernel fibres",
+          "how": "The action of the projection of u∈E on a∈H¹(G,K) equals the preimage action of u, for every such u and a."
+        },
+        {
+          "where": "NC.3/general kernel fibres",
+          "how": "For v∈H⁰(G,V), u∈U with f(u)=v and c∈Z¹(G,K), v•[c]=[kernelGauge(u,c)]."
+        },
+        {
+          "where": "NC.3/general kernel fibres",
+          "how": "The actual inclusion H¹(G,K)→H¹(G,U) is constant on every orbit of the H⁰(G,V)-action."
+        },
+        {
+          "where": "NC.3/general kernel fibres",
+          "how": "For surjective equivariant f and the actual subgroup K=ker(f) with its compatible continuous G-action, two classes a,b∈H¹(G,K) have equal images in H¹(G,U) exactly when there exists v∈H⁰(G,V) with v•a=b. No centrality, trivial invariants, quotient-map hypothesis or continuous section is required."
+        }
+      ],
+      "tests": [
+        {
+          "name": "invariant_action_identity",
+          "kind": "degenerate",
+          "statement": "The identity quotient invariant fixes every kernel H¹ class."
+        },
+        {
+          "name": "invariant_action_ambient_constant",
+          "kind": "compatibility",
+          "statement": "The actual ambient H¹ inclusion takes the same value before and after the quotient-invariant action."
+        },
+        {
+          "name": "odd_invariant_exchanges_distinct_kernel_classes",
+          "kind": "non-example",
+          "statement": "For discrete trivial C₃-actions and the actual kernel of sign:S₃→ℤˣ, the three-cycle and inverse cocycles give distinct kernel H¹ classes. The invariant -1 acts by the transposition (01), exchanging those classes. Thus the quotient-invariant action need not be trivial, even though its ambient image is constant."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-class-lift",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Invariant action agrees with each preimage lift",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.kernelInvariantAction_lift",
+      "statement": "The action of the projection of u∈E on a∈H¹(G,K) equals the preimage action of u, for every such u and a.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology; U is a topological group with a jointly continuous G-action by automorphisms. V is a group with a topology and an action by automorphisms.",
+        "K is an actual subgroup of U, with its inherited topology and a supplied jointly continuous G-action satisfying inclusion(g•k)=g•inclusion(k). f:U→*V is equivariant, and u∈K iff f(u)=1. Surjectivity and fixedness are assumed only where expressly stated. No topology on H¹ or Z¹ is introduced."
+      ],
+      "proofSteps": [
+        "Apply the native liftOfRightInverse composition identity to the permutation homomorphism, then evaluate at a."
+      ],
+      "acceptance": [
+        "Use actual continuous cocycles, native subgroup carriers and the stated noncommutative gauge order. Distinguish equality of cohomology classes from equality of cocycles and gauge witnesses."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-class-action",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-preimage-permutation-kernel",
+        "mathlib:MonoidHom.liftOfRightInverse_comp_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimKernelInvariantAction-codex-J6LwjP",
+          "locator": "§1 continuous cocycle and gauge conventions, printed pp.5–6; Proposition 2 invariant projection in the freeness proof, pp.8–9",
+          "match": "Authored deduction for abstract topological groups; the quotient-invariant action here is distinct from the central H¹ action in the geometric representability proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/KernelInvariantAction",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.kernelInvariantAction_lift"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-class-value",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Invariant action on an actual cocycle",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.kernelInvariantAction_mk",
+      "statement": "For v∈H⁰(G,V), u∈U with f(u)=v and c∈Z¹(G,K), v•[c]=[kernelGauge(u,c)].",
+      "hypotheses": [
+        "G is a group with an arbitrary topology; U is a topological group with a jointly continuous G-action by automorphisms. V is a group with a topology and an action by automorphisms.",
+        "K is an actual subgroup of U, with its inherited topology and a supplied jointly continuous G-action satisfying inclusion(g•k)=g•inclusion(k). f:U→*V is equivariant, and u∈K iff f(u)=1. Surjectivity and fixedness are assumed only where expressly stated. No topology on H¹ or Z¹ is introduced."
+      ],
+      "proofSteps": [
+        "Put u in the actual preimage subgroup, compare its projection with v, then apply the action-lift and quotient evaluation lemmas."
+      ],
+      "acceptance": [
+        "Use actual continuous cocycles, native subgroup carriers and the stated noncommutative gauge order. Distinguish equality of cohomology classes from equality of cocycles and gauge witnesses."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-class-lift",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-preimage-class-value"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimKernelInvariantAction-codex-J6LwjP",
+          "locator": "§1 continuous cocycle and gauge conventions, printed pp.5–6; Proposition 2 invariant projection in the freeness proof, pp.8–9",
+          "match": "Authored deduction for abstract topological groups; the quotient-invariant action here is distinct from the central H¹ action in the geometric representability proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/KernelInvariantAction",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.kernelInvariantAction_mk"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-lift-independence",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Lift independence on cohomology classes",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.kernelInvariantAction_lift_independent",
+      "statement": "If f(u)=f(w) is fixed, the classes of kernelGauge(u,c) and kernelGauge(w,c) agree, whether or not f is surjective. This does not assert equality of cocycles.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology; U is a topological group with a jointly continuous G-action by automorphisms. V is a group with a topology and an action by automorphisms.",
+        "K is an actual subgroup of U, with its inherited topology and a supplied jointly continuous G-action satisfying inclusion(g•k)=g•inclusion(k). f:U→*V is equivariant, and u∈K iff f(u)=1. Surjectivity and fixedness are assumed only where expressly stated. No topology on H¹ or Z¹ is introduced."
+      ],
+      "proofSteps": [
+        "The actual kernel element w u⁻¹ gauges the first cocycle to the second. Verify membership by applying f and the gauge identity by ordered cancellation."
+      ],
+      "acceptance": [
+        "Use actual continuous cocycles, native subgroup carriers and the stated noncommutative gauge order. Distinguish equality of cohomology classes from equality of cocycles and gauge witnesses."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-value"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimKernelInvariantAction-codex-J6LwjP",
+          "locator": "§1 continuous cocycle and gauge conventions, printed pp.5–6; Proposition 2 invariant projection in the freeness proof, pp.8–9",
+          "match": "Authored deduction for abstract topological groups; the quotient-invariant action here is distinct from the central H¹ action in the geometric representability proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/KernelInvariantAction",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.kernelInvariantAction_lift_independent"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-inclusion",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Kernel gauge and ambient inclusion",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.kernelGauge_inclusion",
+      "statement": "The actual inclusion of kernelGauge(u,c) equals u•(inclusion of c) as U-valued continuous cocycles.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology; U is a topological group with a jointly continuous G-action by automorphisms. V is a group with a topology and an action by automorphisms.",
+        "K is an actual subgroup of U, with its inherited topology and a supplied jointly continuous G-action satisfying inclusion(g•k)=g•inclusion(k). f:U→*V is equivariant, and u∈K iff f(u)=1. Surjectivity and fixedness are assumed only where expressly stated. No topology on H¹ or Z¹ is introduced."
+      ],
+      "proofSteps": [
+        "Reflect cocycle equality pointwise; the underlying maps are identical."
+      ],
+      "acceptance": [
+        "Use actual continuous cocycles, native subgroup carriers and the stated noncommutative gauge order. Distinguish equality of cohomology classes from equality of cocycles and gauge witnesses."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimKernelInvariantAction-codex-J6LwjP",
+          "locator": "§1 continuous cocycle and gauge conventions, printed pp.5–6; Proposition 2 invariant projection in the freeness proof, pp.8–9",
+          "match": "Authored deduction for abstract topological groups; the quotient-invariant action here is distinct from the central H¹ action in the geometric representability proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/KernelInvariantAction",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.kernelGauge_inclusion"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-ambient-constant",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Ambient image is invariant under the action",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.kernelInvariantAction_inclusion",
+      "statement": "The actual inclusion H¹(G,K)→H¹(G,U) is constant on every orbit of the H⁰(G,V)-action.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology; U is a topological group with a jointly continuous G-action by automorphisms. V is a group with a topology and an action by automorphisms.",
+        "K is an actual subgroup of U, with its inherited topology and a supplied jointly continuous G-action satisfying inclusion(g•k)=g•inclusion(k). f:U→*V is equivariant, and u∈K iff f(u)=1. Surjectivity and fixedness are assumed only where expressly stated. No topology on H¹ or Z¹ is introduced."
+      ],
+      "proofSteps": [
+        "Represent a kernel class, choose one lift of the fixed quotient element, and identify its included cocycle with an ordinary ambient gauge. The inverse lift gives the native quotient witness."
+      ],
+      "acceptance": [
+        "Use actual continuous cocycles, native subgroup carriers and the stated noncommutative gauge order. Distinguish equality of cohomology classes from equality of cocycles and gauge witnesses."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-class-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-inclusion",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimKernelInvariantAction-codex-J6LwjP",
+          "locator": "§1 continuous cocycle and gauge conventions, printed pp.5–6; Proposition 2 invariant projection in the freeness proof, pp.8–9",
+          "match": "Authored deduction for abstract topological groups; the quotient-invariant action here is distinct from the central H¹ action in the geometric representability proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/KernelInvariantAction",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.kernelInvariantAction_inclusion"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-fibre-orbit",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Ambient fibres are exactly invariant orbits",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.kernelInvariantAction_fibre_iff",
+      "statement": "For surjective equivariant f and the actual subgroup K=ker(f) with its compatible continuous G-action, two classes a,b∈H¹(G,K) have equal images in H¹(G,U) exactly when there exists v∈H⁰(G,V) with v•a=b. No centrality, trivial invariants, quotient-map hypothesis or continuous section is required.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology; U is a topological group with a jointly continuous G-action by automorphisms. V is a group with a topology and an action by automorphisms.",
+        "K is an actual subgroup of U, with its inherited topology and a supplied jointly continuous G-action satisfying inclusion(g•k)=g•inclusion(k). f:U→*V is equivariant, and u∈K iff f(u)=1. Surjectivity and fixedness are assumed only where expressly stated. No topology on H¹ or Z¹ is introduced."
+      ],
+      "proofSteps": [
+        "Represent a,b by actual cocycles. An ambient gauge u between their included cocycles projects under f to a fixed element, by applying f and cancelling the kernel values. Its kernel gauge is the second cocycle, so the lifted action gives the orbit witness. Conversely apply constancy of the ambient image on the orbit."
+      ],
+      "acceptance": [
+        "Use actual continuous cocycles, native subgroup carriers and the stated noncommutative gauge order. Distinguish equality of cohomology classes from equality of cocycles and gauge witnesses."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-class-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-ambient-constant",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimKernelInvariantAction-codex-J6LwjP",
+          "locator": "§1 continuous cocycle and gauge conventions, printed pp.5–6; Proposition 2 invariant projection in the freeness proof, pp.8–9",
+          "match": "Authored deduction for abstract topological groups; the quotient-invariant action here is distinct from the central H¹ action in the geometric representability proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/KernelInvariantAction",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.kernelInvariantAction_fibre_iff"
+      },
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -18641,7 +19683,8 @@
         "The native twisted quotient and the surjective coefficient-map neutral fibres now equal the actual kernel-H¹ image, by lifting one gauge element and restricting its inverse-gauge normalized continuous cocycle. The original fibre is over [f∘c]. No kernel-H¹ injectivity or unique preimage follows. Arbitrary named G-stable subgroup adapters, central H² obstruction, geometric torsor classification, unipotent point topologies, genuine additive comparison, representability, local conditions and every inherited source/supplier obligation remain open.",
         "The actual named native subgroup S=ker(f) adapter is now specified with its continuous inner action, genuine H¹ equivalence and three inclusion-range criteria. General abstract embedded kernel A with explicit topological equivalence to the native kernel remains open; arbitrary G-stable/non-normal subgroups are not covered. Central H² obstruction and cochain independence, fibre orbit stabilizers/invariant conditions, geometric and unipotent-point topology/local conditions, and additive comparison remain required.",
         "The abstract embedded-kernel adapter is specified for a supplied topological embedding i:A→U with range(i)=ker(f), with two-way continuity, transported inner action, actual pointed H¹ comparison, inclusion comparison and all three image criteria. No ambient H¹ injectivity or unique kernel preimage is claimed. Arbitrary non-normal or merely G-stable subgroups, stabilizers/invariant hypotheses, central H²/cochain independence, genuine additive comparison, unipotent point topologies, representability, geometric torsors/local conditions and every reserved-key/Chen/BDMTV/RT-A2/A6 obligation remain open.",
-        "Gauge stabilizers are identified with actual twisted invariants, and the space of witnesses is the right stabilizer translate x Stab(c), with both continuity directions. Kernel H¹ injectivity is supplied under the explicit all-cocycle stabilizer-lift condition, in particular under trivial quotient invariants. The twisted and abstract embedded-kernel inclusions are injective when H⁰(G,Twist(f∘c))=1; surjective f then gives a unique class in each actual original fibre over [f∘c]. These are sufficient conditions, not unconditional injectivity or unique cocycle/gauge representatives. Classification of general kernel fibres by an invariant action, arbitrary stable/non-normal subgroup adapters, central H²/cochain independence, genuine additive comparison, unipotent-point topologies, geometric torsors, representability/local conditions and every reserved-key/Chen/BDMTV/RT-A2/A6 obligation remain required."
+        "Gauge stabilizers are identified with actual twisted invariants, and the space of witnesses is the right stabilizer translate x Stab(c), with both continuity directions. Kernel H¹ injectivity is supplied under the explicit all-cocycle stabilizer-lift condition, in particular under trivial quotient invariants. The twisted and abstract embedded-kernel inclusions are injective when H⁰(G,Twist(f∘c))=1; surjective f then gives a unique class in each actual original fibre over [f∘c]. These are sufficient conditions, not unconditional injectivity or unique cocycle/gauge representatives. Classification of general kernel fibres by an invariant action, arbitrary stable/non-normal subgroup adapters, central H²/cochain independence, genuine additive comparison, unipotent-point topologies, geometric torsors, representability/local conditions and every reserved-key/Chen/BDMTV/RT-A2/A6 obligation remain required.",
+        "An actual H⁰(G,V)-action on native H¹(G,K) is specified for surjective equivariant f and the actual subgroup K=ker(f), with its compatible jointly continuous G-action. It descends ordinary ambient gauges through E=f⁻¹(H⁰(G,V)); lift independence holds at class level. Two kernel classes have equal ambient H¹ images exactly when they lie in one orbit of this action. Explicit orbit-quotient equivalences to the image/neutral fibre, specialized twisted and abstract embedded-kernel action adapters, their original repointed-fibre comparisons and stabilizer characterizations remain to be constructed. Arbitrary stable/non-normal subgroup adapters, central H²/cochain independence, genuine additive comparison, unipotent point topologies, geometric torsors, representability/local conditions and every reserved-key/Chen/BDMTV/RT-A2/A6 obligation remain required."
       ]
     },
     {
@@ -20933,6 +21976,70 @@
         "errors": 0,
         "warnings": 573,
         "admissions": 573,
+        "mathlibCommit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "leanVersion": "Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)"
+      }
+    }
+  },
+  "kernelInvariantActionContinuation": {
+    "agent": "Codex",
+    "session": "codex-J6LwjP",
+    "newNodes": 20,
+    "constructions": 4,
+    "apiLeaves": 16,
+    "typedTests": 12,
+    "incomingPR": 5999,
+    "incomingHead": "2aef7994fc3a1933fdb8c4fab724624873873139",
+    "incomingArchive": "d92aaaeffe17c2e79f925c62f2a96dd15d3985b5",
+    "frontier": "An actual H⁰(G,V)-action on native H¹(G,K) is specified for surjective equivariant f and the actual subgroup K=ker(f), with its compatible jointly continuous G-action. It descends ordinary ambient gauges through E=f⁻¹(H⁰(G,V)); lift independence holds at class level. Two kernel classes have equal ambient H¹ images exactly when they lie in one orbit of this action. Explicit orbit-quotient equivalences to the image/neutral fibre, specialized twisted and abstract embedded-kernel action adapters, their original repointed-fibre comparisons and stabilizer characterizations remain to be constructed. Arbitrary stable/non-normal subgroup adapters, central H²/cochain independence, genuine additive comparison, unipotent point topologies, geometric torsors, representability/local conditions and every reserved-key/Chen/BDMTV/RT-A2/A6 obligation remain required.",
+    "execution": {
+      "native": {
+        "source": "NativeFinal.lean",
+        "sourceSha256": "874c0e6f170d7b1f164e5b445d5e34c7a811983e75a95ca172907a589be64a61",
+        "log": "NativeFinal.lean.log",
+        "logSha256": "cc97a9c6279f47386d023d8342a9872759ea61f71fdca2be37d86b0dd3c24f05",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "NativeFinal.lean"
+        ],
+        "availableGiB": 36,
+        "timeoutSeconds": 1200,
+        "killAfterSeconds": 30,
+        "elapsedSeconds": 32.12,
+        "startedUTC": "2026-10-03T14:52:27.073895+00:00",
+        "exit": 0,
+        "axiomAudits": 336,
+        "examples": 167,
+        "errors": 0,
+        "warnings": 0,
+        "admissions": 0,
+        "mathlibCommit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "leanVersion": "Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)"
+      },
+      "sketch": {
+        "source": "Sketch.lean",
+        "sourceSha256": "f3e8e7057d7f1aefbd6c066bd3185f7719d36fd003a7f415effc67ddde401cbc",
+        "log": "Sketch.lean.log",
+        "logSha256": "82bdd4f6b9d4a948934cd9dbfd87573b590a24f5d258e6ad6668f5f65ec406b5",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "Sketch.lean"
+        ],
+        "availableGiB": 34,
+        "timeoutSeconds": 1200,
+        "killAfterSeconds": 30,
+        "elapsedSeconds": 32.62,
+        "startedUTC": "2026-10-03T14:53:22.272043+00:00",
+        "exit": 0,
+        "axiomAudits": 0,
+        "examples": 240,
+        "errors": 0,
+        "warnings": 605,
+        "admissions": 605,
         "mathlibCommit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
         "leanVersion": "Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)"
       }
