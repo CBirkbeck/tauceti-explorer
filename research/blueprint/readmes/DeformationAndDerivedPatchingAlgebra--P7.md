@@ -1,3 +1,198 @@
+# Degree-one generation and polynomial presentations of the adic graded ring
+
+For any commutative ring A and ideal q, this continuation proves the existing contract that the actual Rees quotient Gr_q(A) is generated over A/q by its degree-one classes. Pull the target generated subalgebra back along the quotient homomorphism, restrict scalars to A and map it into the native polynomial ring. It contains every q-valued degree-one monomial, so the pinned Rees generation theorem makes it contain the entire Rees algebra. Quotient surjectivity then gives the claimed generation on the actual quotient.
+
+The actual A-linear degree-one map μ:q→Gr_q(A) has μ(x)=0 exactly for x∈q². If a family a_i generates q as an ideal, span induction shows that its classes μ(a_i) already generate the quotient algebra. The scalar case uses the actual A/q-algebra restricted to A; it does not replace the quotient scalar structure. Native multivariate evaluation therefore gives a surjection from (A/q)[X_i] with its specified variables and coefficients. The map is uniquely determined by the variable images. A finite generating family gives finite type by the native surjective-algebra theorem, and an arbitrary native q.FG witness supplies such a family. No Noetherian hypothesis is needed for these statements.
+
+These are polynomial presentations by surjection. They do not claim a free polynomial algebra or finite presentation. Over ℤ with q=(2), μ(2) survives but μ(4) vanishes. Over ℤ/4 with q=(2), μ(2) is nonzero and square-zero, so the one-variable evaluation kills X² while retaining X. The zero-ideal test uses an empty generator family; the unit-ideal test retains the zero coefficient ring. The coefficient-change test uses the actual image ideal.
+
+The source passages are the full Stacks10.59 proof text, the ordinary Rees definition10.70.1(1), and the complete10.58.7 induction proof. The work here discharges only its ring-generation prerequisite; the graded-module and numerical-polynomial proof is still required. The generic Rees generation, polynomial evaluation, span induction and finite-type APIs already exist at the pin and are imported. All316 incoming node objects are preserved, and the complete incoming canonical file remains the suggested-file prefix.
+
+The old ordinary degree-one generation theorem now has an admission-free native proof using the pinned Rees generation theorem and actual quotient. The new degree-one linear map detects q² exactly and respects coefficient change. Every chosen ideal-generating family gives a surjective native polynomial algebra map; a finite family, or q.FG, implies finite type over A/q. Algebra maps from the quotient are determined on these degree-one classes. Still prove the actual graded-module decomposition/action and finite generation, then native homogeneous kernel/quotient gradings and the general Hilbert–Serre induction. Finite type of this ring does not establish finite generation of the graded module, its eventual polynomial, support-degree, intrinsic/ambient multiplicity, tangent-cone kernel, completion or any remaining routed-paper target.
+
+The checked existing declaration is **TauCeti.HilbertSamuel.adicGradedRing_generated_degree_one**. Its exact old statement and packet contract are retained. Earlier reader sections below record their checkpoint boundaries.
+
+## Degree-one class map
+
+**TauCeti.HilbertSamuel.adicDegreeOne** — Construct the actual A-linear map μ:q→Gr_q(A) sending x to the quotient class of xT in the existing Rees quotient.
+
+Hypotheses: A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed. A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-monomial-map.
+
+Proof: Compose the existing degree-one monomial map with the canonical linear identification q→q¹. The target and quotient ideal are unchanged.
+
+API:
+
+- **TauCeti.HilbertSamuel.adicDegreeOne_apply**: For x∈q, μ(x) is the existing adicMonomial(q,1)(x), with membership transported by q¹=q.
+- **TauCeti.HilbertSamuel.adicDegreeOne_add**: For x,y∈q, μ(x+y)=μ(x)+μ(y).
+- **TauCeti.HilbertSamuel.adicDegreeOne_smul**: For a∈A and x∈q, μ(a·x)=a·μ(x), using the actual A-module structure on the Rees quotient.
+- **TauCeti.HilbertSamuel.adicDegreeOne_eq_zero_iff**: For every x∈q, μ(x)=0 if and only if x∈q².
+- **TauCeti.HilbertSamuel.adicDegreeOne_coefficient_change**: For f:A→B, ideals I⊆A,J⊆B and I≤f⁻¹(J), the existing coefficient-change map sends μ_I(x) to μ_J(f(x)) for every x∈I.
+- **TauCeti.HilbertSamuel.adicGradedRing_hom_ext**: For every A/q-algebra B whose carrier is a semiring, two A/q-algebra maps Gr_q(A)→B agreeing on μ(x) for all x∈q are equal. B may have a different universe.
+
+TESTS:
+
+- **AdicDegreeOne.zero_ideal**: For q=0, every actual ideal element has degree-one class zero.
+- **AdicDegreeOne.integer_next_power**: For q=(2) in ℤ, μ(2)≠0 while μ(4)=0, distinguishing q from q².
+- **AdicDegreeOne.wild_nilpotent**: For q=(2) in ℤ/4, μ(2)≠0 and μ(2)²=0. A nilpotent coefficient can survive in degree one.
+- **AdicDegreeOne.coefficient_change**: Under any ring map f, the actual image-ideal coefficient change sends μ_I(x) to μ_(I.map f)(f(x)).
+
+## Degree-one class evaluation
+
+**TauCeti.HilbertSamuel.adicDegreeOne_apply** — For x∈q, μ(x) is the existing adicMonomial(q,1)(x), with membership transported by q¹=q.
+
+Hypotheses: A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed. A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-map.
+
+Proof: Evaluate the composition of the actual linear maps.
+
+## Additivity of degree-one classes
+
+**TauCeti.HilbertSamuel.adicDegreeOne_add** — For x,y∈q, μ(x+y)=μ(x)+μ(y).
+
+Hypotheses: A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed. A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-map.
+
+Proof: Use the native linear-map additivity law.
+
+## Scalar compatibility of degree-one classes
+
+**TauCeti.HilbertSamuel.adicDegreeOne_smul** — For a∈A and x∈q, μ(a·x)=a·μ(x), using the actual A-module structure on the Rees quotient.
+
+Hypotheses: A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed. A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-map.
+
+Proof: Use the native linear-map scalar law. The A-action already factors through A/q.
+
+## Degree-one kernel criterion
+
+**TauCeti.HilbertSamuel.adicDegreeOne_eq_zero_iff** — For every x∈q, μ(x)=0 if and only if x∈q².
+
+Hypotheses: A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed. A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-value, DeformationAndDerivedPatchingAlgebra:R03.3/adic-monomial-zero-criterion.
+
+Proof: Apply the already proved monomial zero criterion at degree1. Nilpotence of x alone does not make its degree-one class zero.
+
+## Generation by chosen ideal generators
+
+**TauCeti.HilbertSamuel.adicDegreeOne_adjoin_generators** — For any family a:ι→q with ideal span of its underlying values equal to q, the classes μ(a_i) generate Gr_q(A) as an A/q-algebra. No finiteness premise on ι is required.
+
+Hypotheses: A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed. A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-generation, DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-add, DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-scalar, mathlib:Submodule.span_induction.
+
+Proof: The native degree-one generation theorem reduces to arbitrary x∈q. Induct on membership in the ideal span of the chosen generators. Generator, zero, addition and A-scalar cases give membership in the target adjoin; restrict its scalars from A/q to A in the scalar case.
+
+## Polynomial presentation from ideal generators
+
+**TauCeti.HilbertSamuel.adicGeneratorMap** — For any family a:ι→q, construct ε_a:(A/q)[X_i | i∈ι]→ₐ[A/q]Gr_q(A) with X_i↦μ(a_i), using native multivariate polynomial evaluation. The definition does not assume the family generates q.
+
+Hypotheses: A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed. A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-map, mathlib:MvPolynomial.aeval.
+
+Proof: Apply the pinned native aeval constructor to the actual family of quotient monomials. Surjectivity is proved separately under the explicit ideal-generation premise.
+
+API:
+
+- **TauCeti.HilbertSamuel.adicGeneratorMap_X**: For every i∈ι, ε_a(X_i)=μ(a_i).
+- **TauCeti.HilbertSamuel.adicGeneratorMap_C**: For c∈A/q, ε_a(C(c)) is the actual coefficient algebraMap(c) in Gr_q(A).
+- **TauCeti.HilbertSamuel.adicGeneratorMap_surjective**: If the underlying family a:ι→q generates q as an ideal, the actual polynomial evaluation ε_a is surjective.
+- **TauCeti.HilbertSamuel.adicGeneratorMap_unique**: Any A/q-algebra homomorphism from the same native polynomial algebra to Gr_q(A) sending every X_i to μ(a_i) equals ε_a.
+
+TESTS:
+
+- **AdicGeneratorMap.single_generator**: The native one-variable presentation for q=(2) in ℤ is surjective over ℤ/(2).
+- **AdicGeneratorMap.empty_zero_ideal**: The empty generating family for q=0 gives a surjective constant polynomial presentation.
+- **AdicGeneratorMap.unit_ideal**: For q=A, every polynomial maps to zero in the actual quotient; the coefficient ring is the zero ring.
+- **AdicGeneratorMap.nilpotent_relation**: For q=(2) in ℤ/4, the one-variable evaluation sends X to a nonzero element and X² to zero. A polynomial surjection need not give a free graded algebra.
+- **AdicGeneratorMap.unique**: Every algebra map with the prescribed variable images equals the actual evaluation map.
+
+## Variable evaluation in the graded presentation
+
+**TauCeti.HilbertSamuel.adicGeneratorMap_X** — For every i∈ι, ε_a(X_i)=μ(a_i).
+
+Hypotheses: A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed. A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-generator-polynomial-map, mathlib:MvPolynomial.aeval_X.
+
+Proof: Use the native evaluation formula on a polynomial variable.
+
+## Coefficient evaluation in the graded presentation
+
+**TauCeti.HilbertSamuel.adicGeneratorMap_C** — For c∈A/q, ε_a(C(c)) is the actual coefficient algebraMap(c) in Gr_q(A).
+
+Hypotheses: A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed. A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-generator-polynomial-map, mathlib:MvPolynomial.aeval_C.
+
+Proof: Use the native evaluation formula on a coefficient.
+
+## Surjective graded polynomial presentation
+
+**TauCeti.HilbertSamuel.adicGeneratorMap_surjective** — If the underlying family a:ι→q generates q as an ideal, the actual polynomial evaluation ε_a is surjective.
+
+Hypotheses: A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed. A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-chosen-degree-one-generation, DeformationAndDerivedPatchingAlgebra:R03.3/adic-generator-polynomial-map, mathlib:Algebra.adjoin_range_eq_range_aeval.
+
+Proof: The pinned range-of-aeval theorem identifies its algebra range with the adjoin of the generator images. The chosen degree-one generation theorem makes that adjoin top.
+
+## Uniqueness of the polynomial presentation map
+
+**TauCeti.HilbertSamuel.adicGeneratorMap_unique** — Any A/q-algebra homomorphism from the same native polynomial algebra to Gr_q(A) sending every X_i to μ(a_i) equals ε_a.
+
+Hypotheses: A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed. A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-generator-polynomial-variable, mathlib:MvPolynomial.algHom_ext.
+
+Proof: Apply native multivariate-polynomial algebra-hom extensionality on every variable. Coefficient agreement follows from the algebra-hom structure.
+
+## Finite type from a finite generating family
+
+**TauCeti.HilbertSamuel.adicGradedRing_finiteType_of_generators** — If ι is finite and the underlying values of a:ι→q generate q, then Gr_q(A) is of finite type as an A/q-algebra. No Noetherian hypothesis on A is needed.
+
+Hypotheses: A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed. A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-generator-polynomial-surjective, mathlib:Algebra.FiniteType.of_surjective.
+
+Proof: The native polynomial algebra on a finite index type is of finite type. Descend that actual property through the proved surjective algebra homomorphism.
+
+## Finite type for a finitely generated ideal
+
+**TauCeti.HilbertSamuel.adicGradedRing_finiteType_of_fg** — For every finitely generated ideal q of any commutative ring A, Gr_q(A) is of finite type over A/q.
+
+Hypotheses: A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed. A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-finite-type-chosen-generators.
+
+Proof: Choose a native finite set witnessing q.FG. Regard its elements as an indexed family in q and identify its range with that finite set. Apply the finite-family theorem; no dimension or regularity conclusion follows.
+
+## Algebra maps determined in degree one
+
+**TauCeti.HilbertSamuel.adicGradedRing_hom_ext** — For every A/q-algebra B whose carrier is a semiring, two A/q-algebra maps Gr_q(A)→B agreeing on μ(x) for all x∈q are equal. B may have a different universe.
+
+Hypotheses: A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed. A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-generation, DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-value, mathlib:AlgHom.ext_of_adjoin_eq_top.
+
+Proof: Use the pinned algebra-hom extensionality theorem with the proved degree-one generating set. This concerns maps from the actual graded quotient.
+
+## Degree-one classes under coefficient change
+
+**TauCeti.HilbertSamuel.adicDegreeOne_coefficient_change** — For f:A→B, ideals I⊆A,J⊆B and I≤f⁻¹(J), the existing coefficient-change map sends μ_I(x) to μ_J(f(x)) for every x∈I.
+
+Hypotheses: A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed. A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-value, DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change-monomials.
+
+Proof: Specialize the inherited actual monomial coefficient-change theorem to degree1. Retain precisely the ideal-containment hypothesis; no injectivity or flatness is inferred.
+
 # Ordinary adic coefficients and finite homogeneous decomposition — continuation
 
 This checkpoint proves the actual finite decomposition of the existing Rees quotient into its existing homogeneous quotient pieces and registers its native grading. It works for every commutative ring and ideal, including zero, top and nilpotent ideals. It does not require a local or Noetherian hypothesis. Every packet implementation status remains unchecked; the complete suggested file retains admitted signature proofs.

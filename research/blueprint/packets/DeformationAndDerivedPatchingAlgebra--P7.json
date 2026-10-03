@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Coefficient projections and finite homogeneous decomposition continuation: register the actual native GradedAlgebra on the existing ordinary Rees quotient and prove degree-preserving coefficient change; the general module, finiteness, Hilbert–Serre and dimension arguments remain open. Native coefficient-change maps, exact graded injectivity and ring-equivalence transport, with a proved old coefficient-ideal/monomial/piece core. Finite-length local modules, actual adic quotient finiteness and cumulative/graded stabilization are refined with eight declaration-sized lemmas. Graded annihilator checkpoint: ten new declarations, three promoted API statements and six typed boundary tests. Actual graded quotient transport, extended graded lengths, the nonzero primary boundary and the zero-module unit-ideal boundary have independent native proofs. Polynomial and both multiplicity invariances explicitly depend on the existing admitted general polynomial specification. Annihilator-enlargement checkpoint: preserve all 247 incoming declaration objects and add six actual-carrier declarations, three promoted API items and four boundary tests. The action, power, quotient and extended-length equalities require no finiteness or faithful-module assumption. The six-proof/four-test native prototype is checked; canonical forms remain admitted and all implementation statuses unchecked. General Hilbert–Serre, dimension and all stage/source obligations remain open. Full actual curve graded assembly checkpoint: 20 new declarations (3 constructions), 16 API items and 13 boundary/compatibility tests. The polynomial map lands in the inherited Rees quotient, with exact full principal-kernel and component-compatible quotient-equivalence plans. All 210 incoming node objects and all ownership, source and general multiplicity boundaries remain intact. New proof bodies remain admitted. This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open. This continuation compares actual adic quotient carriers under scalar restriction, transfers cumulative lengths under surjective coefficient maps, and links the general intrinsic multiplicity API to the explicit finite-order plane-curve polynomial. It keeps a fixed degree-two extraction distinct from intrinsic multiplicity and from a dimension-two ambient interpretation.",
+  "summary": "Coefficient projections and finite homogeneous decomposition continuation: register the actual native GradedAlgebra on the existing ordinary Rees quotient and prove degree-preserving coefficient change; the general module, finiteness, Hilbert–Serre and dimension arguments remain open. Native coefficient-change maps, exact graded injectivity and ring-equivalence transport, with a proved old coefficient-ideal/monomial/piece core. Finite-length local modules, actual adic quotient finiteness and cumulative/graded stabilization are refined with eight declaration-sized lemmas. Graded annihilator checkpoint: ten new declarations, three promoted API statements and six typed boundary tests. Actual graded quotient transport, extended graded lengths, the nonzero primary boundary and the zero-module unit-ideal boundary have independent native proofs. Polynomial and both multiplicity invariances explicitly depend on the existing admitted general polynomial specification. Annihilator-enlargement checkpoint: preserve all 247 incoming declaration objects and add six actual-carrier declarations, three promoted API items and four boundary tests. The action, power, quotient and extended-length equalities require no finiteness or faithful-module assumption. The six-proof/four-test native prototype is checked; canonical forms remain admitted and all implementation statuses unchecked. General Hilbert–Serre, dimension and all stage/source obligations remain open. Full actual curve graded assembly checkpoint: 20 new declarations (3 constructions), 16 API items and 13 boundary/compatibility tests. The polynomial map lands in the inherited Rees quotient, with exact full principal-kernel and component-compatible quotient-equivalence plans. All 210 incoming node objects and all ownership, source and general multiplicity boundaries remain intact. New proof bodies remain admitted. This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open. This continuation compares actual adic quotient carriers under scalar restriction, transfers cumulative lengths under surjective coefficient maps, and links the general intrinsic multiplicity API to the explicit finite-order plane-curve polynomial. It keeps a fixed degree-two extraction distinct from intrinsic multiplicity and from a dimension-two ambient interpretation. Degree-one and generator-presentation continuation:15 declaration-sized nodes,10 API items and9 typed tests, plus a native proof of the existing degree-one generation contract.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2808,6 +2808,62 @@
         "module": "Mathlib/Algebra/GradedMonoid.lean",
         "provides": "The product of elements in internal degrees i,j belongs to degree i+j.",
         "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact native applications are archived and axiom-audited."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.aeval",
+        "kind": "def",
+        "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+        "provides": "Native algebra evaluation from arbitrary-variable polynomial rings.",
+        "checked": "Full statement and ambient typeclass/universe assumptions read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex — codex-7e92bd. Imported generic theorem, not replanned."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.aeval_X",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+        "provides": "Variable evaluation formula.",
+        "checked": "Full statement and ambient typeclass/universe assumptions read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex — codex-7e92bd. Imported generic theorem, not replanned."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.aeval_C",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+        "provides": "Coefficient evaluation formula.",
+        "checked": "Full statement and ambient typeclass/universe assumptions read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex — codex-7e92bd. Imported generic theorem, not replanned."
+      },
+      {
+        "ref": "mathlib:Algebra.adjoin_range_eq_range_aeval",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+        "provides": "Identifies the actual evaluation range with the adjoin of generator images.",
+        "checked": "Full statement and ambient typeclass/universe assumptions read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex — codex-7e92bd. Imported generic theorem, not replanned."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.algHom_ext",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/MvPolynomial/Basic.lean",
+        "provides": "Algebra maps from a polynomial ring are determined on variables.",
+        "checked": "Full statement and ambient typeclass/universe assumptions read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex — codex-7e92bd. Imported generic theorem, not replanned."
+      },
+      {
+        "ref": "mathlib:AlgHom.ext_of_adjoin_eq_top",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Algebra/Subalgebra/Lattice.lean",
+        "provides": "Maps from an algebra generated by a set agree when they agree on that set.",
+        "checked": "Full statement and ambient typeclass/universe assumptions read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex — codex-7e92bd. Imported generic theorem, not replanned."
+      },
+      {
+        "ref": "mathlib:Algebra.FiniteType.of_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/FiniteType.lean",
+        "provides": "Finite-type algebra descends through a surjective algebra homomorphism.",
+        "checked": "Full statement and ambient typeclass/universe assumptions read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex — codex-7e92bd. Imported generic theorem, not replanned."
+      },
+      {
+        "ref": "mathlib:Submodule.span_induction",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Span/Defs.lean",
+        "provides": "Dependent induction through generator,zero,addition and scalar cases of submodule span.",
+        "checked": "Full statement and ambient typeclass/universe assumptions read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex — codex-7e92bd. Imported generic theorem, not replanned."
       }
     ]
   },
@@ -3908,6 +3964,20 @@
         "10.70.1(1), ordinary Rees algebra degree placement; separate receipt for tag 052P"
       ],
       "derivation": "Coefficient projections, actual finite direct-sum bijectivity and native GradedAlgebra registration are derived explicitly here. No general filtered/derived Rees framework is redesigned."
+    },
+    {
+      "id": "ADIC-GENERATORS-7e92bd",
+      "title": "Ordinary degree-one generators and native polynomial presentations",
+      "authors": "The Stacks Project authors; explicit adapter deductions by Codex — codex-7e92bd",
+      "edition": "Online passages read3October2026",
+      "url": "https://stacks.math.columbia.edu/tag/00K4",
+      "sha256": "e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932",
+      "readSections": [
+        "Complete10.59 section and proofs.",
+        "10.70.1(1) and early context through10.70.11; separate052P receipt.",
+        "Complete10.58.7 statement and proof; separate00K1 receipt. Only its generator prerequisite is discharged here."
+      ],
+      "derivation": "The actual quotient generation, chosen-family evaluation and finite-type adapters are authored deductions. No generic associated-graded framework or Hilbert–Serre theorem is reconstructed."
     }
   ],
   "nodes": [
@@ -21759,6 +21829,713 @@
       },
       "implementationStatus": "unchecked",
       "declaration": "TauCeti.HilbertSamuel.adicGradedMap_projection"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-map",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "construction",
+      "title": "Degree-one class map",
+      "declaration": "TauCeti.HilbertSamuel.adicDegreeOne",
+      "statement": "Construct the actual A-linear map μ:q→Gr_q(A) sending x to the quotient class of xT in the existing Rees quotient.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed.",
+        "A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-monomial-map"
+      ],
+      "proofSteps": [
+        "Compose the existing degree-one monomial map with the canonical linear identification q→q¹. The target and quotient ideal are unchanged."
+      ],
+      "acceptance": [
+        "Construct the actual A-linear map μ:q→Gr_q(A) sending x to the quotient class of xT in the existing Rees quotient.",
+        "Keep the zero/unit-ideal and nonreduced boundaries. Generation as an algebra is distinct from finite generation as a module and from a free polynomial presentation."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-GENERATORS-7e92bd",
+          "locator": "Authored native deductions for degree-one generation and polynomial presentations; Stacks10.59.5 full proof,10.70.1(1), and10.58.7 generator-induction premise",
+          "excerpt": "graded ring",
+          "match": "The displayed ordinary associated graded and the finite degree-one-generator premise motivate the adapters. These precise native quotient/polynomial maps and proofs are authored deductions from pinned generic Rees and polynomial results; the general Hilbert–Serre theorem remains open."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.adicDegreeOne_apply",
+          "role": "characterisation",
+          "statement": "For x∈q, μ(x) is the existing adicMonomial(q,1)(x), with membership transported by q¹=q."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicDegreeOne_add",
+          "role": "characterisation",
+          "statement": "For x,y∈q, μ(x+y)=μ(x)+μ(y)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicDegreeOne_smul",
+          "role": "compatibility",
+          "statement": "For a∈A and x∈q, μ(a·x)=a·μ(x), using the actual A-module structure on the Rees quotient."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicDegreeOne_eq_zero_iff",
+          "role": "characterisation",
+          "statement": "For every x∈q, μ(x)=0 if and only if x∈q²."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicDegreeOne_coefficient_change",
+          "role": "compatibility",
+          "statement": "For f:A→B, ideals I⊆A,J⊆B and I≤f⁻¹(J), the existing coefficient-change map sends μ_I(x) to μ_J(f(x)) for every x∈I."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicGradedRing_hom_ext",
+          "role": "characterisation",
+          "statement": "For every A/q-algebra B whose carrier is a semiring, two A/q-algebra maps Gr_q(A)→B agreeing on μ(x) for all x∈q are equal. B may have a different universe."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:R03.3/eventual-hilbert-samuel-polynomial",
+          "how": "Provides the actual finite degree-one algebra-generating family and polynomial surjection needed before the separate graded-module finiteness and Hilbert–Serre induction; does not assume the polynomial tail to be proved."
+        },
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-tangent-cone-equivalence",
+          "how": "The native evaluation and degree-one extensionality specify generator images for compatible tangent-cone comparisons without asserting their kernel or freeness."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdicDegreeOne.zero_ideal",
+          "kind": "degenerate",
+          "statement": "For q=0, every actual ideal element has degree-one class zero."
+        },
+        {
+          "name": "AdicDegreeOne.integer_next_power",
+          "kind": "computation",
+          "statement": "For q=(2) in ℤ, μ(2)≠0 while μ(4)=0, distinguishing q from q²."
+        },
+        {
+          "name": "AdicDegreeOne.wild_nilpotent",
+          "kind": "counterexample",
+          "statement": "For q=(2) in ℤ/4, μ(2)≠0 and μ(2)²=0. A nilpotent coefficient can survive in degree one."
+        },
+        {
+          "name": "AdicDegreeOne.coefficient_change",
+          "kind": "compatibility",
+          "statement": "Under any ring map f, the actual image-ideal coefficient change sends μ_I(x) to μ_(I.map f)(f(x))."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-value",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Degree-one class evaluation",
+      "declaration": "TauCeti.HilbertSamuel.adicDegreeOne_apply",
+      "statement": "For x∈q, μ(x) is the existing adicMonomial(q,1)(x), with membership transported by q¹=q.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed.",
+        "A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-map"
+      ],
+      "proofSteps": [
+        "Evaluate the composition of the actual linear maps."
+      ],
+      "acceptance": [
+        "For x∈q, μ(x) is the existing adicMonomial(q,1)(x), with membership transported by q¹=q.",
+        "Keep the zero/unit-ideal and nonreduced boundaries. Generation as an algebra is distinct from finite generation as a module and from a free polynomial presentation."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-GENERATORS-7e92bd",
+          "locator": "Authored native deductions for degree-one generation and polynomial presentations; Stacks10.59.5 full proof,10.70.1(1), and10.58.7 generator-induction premise",
+          "excerpt": "graded ring",
+          "match": "The displayed ordinary associated graded and the finite degree-one-generator premise motivate the adapters. These precise native quotient/polynomial maps and proofs are authored deductions from pinned generic Rees and polynomial results; the general Hilbert–Serre theorem remains open."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-add",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Additivity of degree-one classes",
+      "declaration": "TauCeti.HilbertSamuel.adicDegreeOne_add",
+      "statement": "For x,y∈q, μ(x+y)=μ(x)+μ(y).",
+      "hypotheses": [
+        "A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed.",
+        "A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-map"
+      ],
+      "proofSteps": [
+        "Use the native linear-map additivity law."
+      ],
+      "acceptance": [
+        "For x,y∈q, μ(x+y)=μ(x)+μ(y).",
+        "Keep the zero/unit-ideal and nonreduced boundaries. Generation as an algebra is distinct from finite generation as a module and from a free polynomial presentation."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-GENERATORS-7e92bd",
+          "locator": "Authored native deductions for degree-one generation and polynomial presentations; Stacks10.59.5 full proof,10.70.1(1), and10.58.7 generator-induction premise",
+          "excerpt": "graded ring",
+          "match": "The displayed ordinary associated graded and the finite degree-one-generator premise motivate the adapters. These precise native quotient/polynomial maps and proofs are authored deductions from pinned generic Rees and polynomial results; the general Hilbert–Serre theorem remains open."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-scalar",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Scalar compatibility of degree-one classes",
+      "declaration": "TauCeti.HilbertSamuel.adicDegreeOne_smul",
+      "statement": "For a∈A and x∈q, μ(a·x)=a·μ(x), using the actual A-module structure on the Rees quotient.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed.",
+        "A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-map"
+      ],
+      "proofSteps": [
+        "Use the native linear-map scalar law. The A-action already factors through A/q."
+      ],
+      "acceptance": [
+        "For a∈A and x∈q, μ(a·x)=a·μ(x), using the actual A-module structure on the Rees quotient.",
+        "Keep the zero/unit-ideal and nonreduced boundaries. Generation as an algebra is distinct from finite generation as a module and from a free polynomial presentation."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-GENERATORS-7e92bd",
+          "locator": "Authored native deductions for degree-one generation and polynomial presentations; Stacks10.59.5 full proof,10.70.1(1), and10.58.7 generator-induction premise",
+          "excerpt": "graded ring",
+          "match": "The displayed ordinary associated graded and the finite degree-one-generator premise motivate the adapters. These precise native quotient/polynomial maps and proofs are authored deductions from pinned generic Rees and polynomial results; the general Hilbert–Serre theorem remains open."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-zero-criterion",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Degree-one kernel criterion",
+      "declaration": "TauCeti.HilbertSamuel.adicDegreeOne_eq_zero_iff",
+      "statement": "For every x∈q, μ(x)=0 if and only if x∈q².",
+      "hypotheses": [
+        "A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed.",
+        "A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-value",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-monomial-zero-criterion"
+      ],
+      "proofSteps": [
+        "Apply the already proved monomial zero criterion at degree1. Nilpotence of x alone does not make its degree-one class zero."
+      ],
+      "acceptance": [
+        "For every x∈q, μ(x)=0 if and only if x∈q².",
+        "Keep the zero/unit-ideal and nonreduced boundaries. Generation as an algebra is distinct from finite generation as a module and from a free polynomial presentation."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-GENERATORS-7e92bd",
+          "locator": "Authored native deductions for degree-one generation and polynomial presentations; Stacks10.59.5 full proof,10.70.1(1), and10.58.7 generator-induction premise",
+          "excerpt": "graded ring",
+          "match": "The displayed ordinary associated graded and the finite degree-one-generator premise motivate the adapters. These precise native quotient/polynomial maps and proofs are authored deductions from pinned generic Rees and polynomial results; the general Hilbert–Serre theorem remains open."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-chosen-degree-one-generation",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Generation by chosen ideal generators",
+      "declaration": "TauCeti.HilbertSamuel.adicDegreeOne_adjoin_generators",
+      "statement": "For any family a:ι→q with ideal span of its underlying values equal to q, the classes μ(a_i) generate Gr_q(A) as an A/q-algebra. No finiteness premise on ι is required.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed.",
+        "A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-generation",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-add",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-scalar",
+        "mathlib:Submodule.span_induction"
+      ],
+      "proofSteps": [
+        "The native degree-one generation theorem reduces to arbitrary x∈q. Induct on membership in the ideal span of the chosen generators. Generator, zero, addition and A-scalar cases give membership in the target adjoin; restrict its scalars from A/q to A in the scalar case."
+      ],
+      "acceptance": [
+        "For any family a:ι→q with ideal span of its underlying values equal to q, the classes μ(a_i) generate Gr_q(A) as an A/q-algebra. No finiteness premise on ι is required.",
+        "Keep the zero/unit-ideal and nonreduced boundaries. Generation as an algebra is distinct from finite generation as a module and from a free polynomial presentation."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-GENERATORS-7e92bd",
+          "locator": "Authored native deductions for degree-one generation and polynomial presentations; Stacks10.59.5 full proof,10.70.1(1), and10.58.7 generator-induction premise",
+          "excerpt": "graded ring",
+          "match": "The displayed ordinary associated graded and the finite degree-one-generator premise motivate the adapters. These precise native quotient/polynomial maps and proofs are authored deductions from pinned generic Rees and polynomial results; the general Hilbert–Serre theorem remains open."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-generator-polynomial-map",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "construction",
+      "title": "Polynomial presentation from ideal generators",
+      "declaration": "TauCeti.HilbertSamuel.adicGeneratorMap",
+      "statement": "For any family a:ι→q, construct ε_a:(A/q)[X_i | i∈ι]→ₐ[A/q]Gr_q(A) with X_i↦μ(a_i), using native multivariate polynomial evaluation. The definition does not assume the family generates q.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed.",
+        "A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-map",
+        "mathlib:MvPolynomial.aeval"
+      ],
+      "proofSteps": [
+        "Apply the pinned native aeval constructor to the actual family of quotient monomials. Surjectivity is proved separately under the explicit ideal-generation premise."
+      ],
+      "acceptance": [
+        "For any family a:ι→q, construct ε_a:(A/q)[X_i | i∈ι]→ₐ[A/q]Gr_q(A) with X_i↦μ(a_i), using native multivariate polynomial evaluation. The definition does not assume the family generates q.",
+        "Keep the zero/unit-ideal and nonreduced boundaries. Generation as an algebra is distinct from finite generation as a module and from a free polynomial presentation."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-GENERATORS-7e92bd",
+          "locator": "Authored native deductions for degree-one generation and polynomial presentations; Stacks10.59.5 full proof,10.70.1(1), and10.58.7 generator-induction premise",
+          "excerpt": "graded ring",
+          "match": "The displayed ordinary associated graded and the finite degree-one-generator premise motivate the adapters. These precise native quotient/polynomial maps and proofs are authored deductions from pinned generic Rees and polynomial results; the general Hilbert–Serre theorem remains open."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.adicGeneratorMap_X",
+          "role": "characterisation",
+          "statement": "For every i∈ι, ε_a(X_i)=μ(a_i)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicGeneratorMap_C",
+          "role": "compatibility",
+          "statement": "For c∈A/q, ε_a(C(c)) is the actual coefficient algebraMap(c) in Gr_q(A)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicGeneratorMap_surjective",
+          "role": "characterisation",
+          "statement": "If the underlying family a:ι→q generates q as an ideal, the actual polynomial evaluation ε_a is surjective."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicGeneratorMap_unique",
+          "role": "characterisation",
+          "statement": "Any A/q-algebra homomorphism from the same native polynomial algebra to Gr_q(A) sending every X_i to μ(a_i) equals ε_a."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:R03.3/eventual-hilbert-samuel-polynomial",
+          "how": "Provides the actual finite degree-one algebra-generating family and polynomial surjection needed before the separate graded-module finiteness and Hilbert–Serre induction; does not assume the polynomial tail to be proved."
+        },
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-tangent-cone-equivalence",
+          "how": "The native evaluation and degree-one extensionality specify generator images for compatible tangent-cone comparisons without asserting their kernel or freeness."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdicGeneratorMap.single_generator",
+          "kind": "computation",
+          "statement": "The native one-variable presentation for q=(2) in ℤ is surjective over ℤ/(2)."
+        },
+        {
+          "name": "AdicGeneratorMap.empty_zero_ideal",
+          "kind": "degenerate",
+          "statement": "The empty generating family for q=0 gives a surjective constant polynomial presentation."
+        },
+        {
+          "name": "AdicGeneratorMap.unit_ideal",
+          "kind": "degenerate",
+          "statement": "For q=A, every polynomial maps to zero in the actual quotient; the coefficient ring is the zero ring."
+        },
+        {
+          "name": "AdicGeneratorMap.nilpotent_relation",
+          "kind": "counterexample",
+          "statement": "For q=(2) in ℤ/4, the one-variable evaluation sends X to a nonzero element and X² to zero. A polynomial surjection need not give a free graded algebra."
+        },
+        {
+          "name": "AdicGeneratorMap.unique",
+          "kind": "characterisation",
+          "statement": "Every algebra map with the prescribed variable images equals the actual evaluation map."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-generator-polynomial-variable",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Variable evaluation in the graded presentation",
+      "declaration": "TauCeti.HilbertSamuel.adicGeneratorMap_X",
+      "statement": "For every i∈ι, ε_a(X_i)=μ(a_i).",
+      "hypotheses": [
+        "A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed.",
+        "A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-generator-polynomial-map",
+        "mathlib:MvPolynomial.aeval_X"
+      ],
+      "proofSteps": [
+        "Use the native evaluation formula on a polynomial variable."
+      ],
+      "acceptance": [
+        "For every i∈ι, ε_a(X_i)=μ(a_i).",
+        "Keep the zero/unit-ideal and nonreduced boundaries. Generation as an algebra is distinct from finite generation as a module and from a free polynomial presentation."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-GENERATORS-7e92bd",
+          "locator": "Authored native deductions for degree-one generation and polynomial presentations; Stacks10.59.5 full proof,10.70.1(1), and10.58.7 generator-induction premise",
+          "excerpt": "graded ring",
+          "match": "The displayed ordinary associated graded and the finite degree-one-generator premise motivate the adapters. These precise native quotient/polynomial maps and proofs are authored deductions from pinned generic Rees and polynomial results; the general Hilbert–Serre theorem remains open."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-generator-polynomial-coefficient",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Coefficient evaluation in the graded presentation",
+      "declaration": "TauCeti.HilbertSamuel.adicGeneratorMap_C",
+      "statement": "For c∈A/q, ε_a(C(c)) is the actual coefficient algebraMap(c) in Gr_q(A).",
+      "hypotheses": [
+        "A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed.",
+        "A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-generator-polynomial-map",
+        "mathlib:MvPolynomial.aeval_C"
+      ],
+      "proofSteps": [
+        "Use the native evaluation formula on a coefficient."
+      ],
+      "acceptance": [
+        "For c∈A/q, ε_a(C(c)) is the actual coefficient algebraMap(c) in Gr_q(A).",
+        "Keep the zero/unit-ideal and nonreduced boundaries. Generation as an algebra is distinct from finite generation as a module and from a free polynomial presentation."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-GENERATORS-7e92bd",
+          "locator": "Authored native deductions for degree-one generation and polynomial presentations; Stacks10.59.5 full proof,10.70.1(1), and10.58.7 generator-induction premise",
+          "excerpt": "graded ring",
+          "match": "The displayed ordinary associated graded and the finite degree-one-generator premise motivate the adapters. These precise native quotient/polynomial maps and proofs are authored deductions from pinned generic Rees and polynomial results; the general Hilbert–Serre theorem remains open."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-generator-polynomial-surjective",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Surjective graded polynomial presentation",
+      "declaration": "TauCeti.HilbertSamuel.adicGeneratorMap_surjective",
+      "statement": "If the underlying family a:ι→q generates q as an ideal, the actual polynomial evaluation ε_a is surjective.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed.",
+        "A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-chosen-degree-one-generation",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-generator-polynomial-map",
+        "mathlib:Algebra.adjoin_range_eq_range_aeval"
+      ],
+      "proofSteps": [
+        "The pinned range-of-aeval theorem identifies its algebra range with the adjoin of the generator images. The chosen degree-one generation theorem makes that adjoin top."
+      ],
+      "acceptance": [
+        "If the underlying family a:ι→q generates q as an ideal, the actual polynomial evaluation ε_a is surjective.",
+        "Keep the zero/unit-ideal and nonreduced boundaries. Generation as an algebra is distinct from finite generation as a module and from a free polynomial presentation."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-GENERATORS-7e92bd",
+          "locator": "Authored native deductions for degree-one generation and polynomial presentations; Stacks10.59.5 full proof,10.70.1(1), and10.58.7 generator-induction premise",
+          "excerpt": "graded ring",
+          "match": "The displayed ordinary associated graded and the finite degree-one-generator premise motivate the adapters. These precise native quotient/polynomial maps and proofs are authored deductions from pinned generic Rees and polynomial results; the general Hilbert–Serre theorem remains open."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-generator-polynomial-unique",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Uniqueness of the polynomial presentation map",
+      "declaration": "TauCeti.HilbertSamuel.adicGeneratorMap_unique",
+      "statement": "Any A/q-algebra homomorphism from the same native polynomial algebra to Gr_q(A) sending every X_i to μ(a_i) equals ε_a.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed.",
+        "A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-generator-polynomial-variable",
+        "mathlib:MvPolynomial.algHom_ext"
+      ],
+      "proofSteps": [
+        "Apply native multivariate-polynomial algebra-hom extensionality on every variable. Coefficient agreement follows from the algebra-hom structure."
+      ],
+      "acceptance": [
+        "Any A/q-algebra homomorphism from the same native polynomial algebra to Gr_q(A) sending every X_i to μ(a_i) equals ε_a.",
+        "Keep the zero/unit-ideal and nonreduced boundaries. Generation as an algebra is distinct from finite generation as a module and from a free polynomial presentation."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-GENERATORS-7e92bd",
+          "locator": "Authored native deductions for degree-one generation and polynomial presentations; Stacks10.59.5 full proof,10.70.1(1), and10.58.7 generator-induction premise",
+          "excerpt": "graded ring",
+          "match": "The displayed ordinary associated graded and the finite degree-one-generator premise motivate the adapters. These precise native quotient/polynomial maps and proofs are authored deductions from pinned generic Rees and polynomial results; the general Hilbert–Serre theorem remains open."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-finite-type-chosen-generators",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Finite type from a finite generating family",
+      "declaration": "TauCeti.HilbertSamuel.adicGradedRing_finiteType_of_generators",
+      "statement": "If ι is finite and the underlying values of a:ι→q generate q, then Gr_q(A) is of finite type as an A/q-algebra. No Noetherian hypothesis on A is needed.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed.",
+        "A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-generator-polynomial-surjective",
+        "mathlib:Algebra.FiniteType.of_surjective"
+      ],
+      "proofSteps": [
+        "The native polynomial algebra on a finite index type is of finite type. Descend that actual property through the proved surjective algebra homomorphism."
+      ],
+      "acceptance": [
+        "If ι is finite and the underlying values of a:ι→q generate q, then Gr_q(A) is of finite type as an A/q-algebra. No Noetherian hypothesis on A is needed.",
+        "Keep the zero/unit-ideal and nonreduced boundaries. Generation as an algebra is distinct from finite generation as a module and from a free polynomial presentation."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-GENERATORS-7e92bd",
+          "locator": "Authored native deductions for degree-one generation and polynomial presentations; Stacks10.59.5 full proof,10.70.1(1), and10.58.7 generator-induction premise",
+          "excerpt": "graded ring",
+          "match": "The displayed ordinary associated graded and the finite degree-one-generator premise motivate the adapters. These precise native quotient/polynomial maps and proofs are authored deductions from pinned generic Rees and polynomial results; the general Hilbert–Serre theorem remains open."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-finite-type-fg-ideal",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Finite type for a finitely generated ideal",
+      "declaration": "TauCeti.HilbertSamuel.adicGradedRing_finiteType_of_fg",
+      "statement": "For every finitely generated ideal q of any commutative ring A, Gr_q(A) is of finite type over A/q.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed.",
+        "A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-finite-type-chosen-generators"
+      ],
+      "proofSteps": [
+        "Choose a native finite set witnessing q.FG. Regard its elements as an indexed family in q and identify its range with that finite set. Apply the finite-family theorem; no dimension or regularity conclusion follows."
+      ],
+      "acceptance": [
+        "For every finitely generated ideal q of any commutative ring A, Gr_q(A) is of finite type over A/q.",
+        "Keep the zero/unit-ideal and nonreduced boundaries. Generation as an algebra is distinct from finite generation as a module and from a free polynomial presentation."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-GENERATORS-7e92bd",
+          "locator": "Authored native deductions for degree-one generation and polynomial presentations; Stacks10.59.5 full proof,10.70.1(1), and10.58.7 generator-induction premise",
+          "excerpt": "graded ring",
+          "match": "The displayed ordinary associated graded and the finite degree-one-generator premise motivate the adapters. These precise native quotient/polynomial maps and proofs are authored deductions from pinned generic Rees and polynomial results; the general Hilbert–Serre theorem remains open."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-hom-ext",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Algebra maps determined in degree one",
+      "declaration": "TauCeti.HilbertSamuel.adicGradedRing_hom_ext",
+      "statement": "For every A/q-algebra B whose carrier is a semiring, two A/q-algebra maps Gr_q(A)→B agreeing on μ(x) for all x∈q are equal. B may have a different universe.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed.",
+        "A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-generation",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-value",
+        "mathlib:AlgHom.ext_of_adjoin_eq_top"
+      ],
+      "proofSteps": [
+        "Use the pinned algebra-hom extensionality theorem with the proved degree-one generating set. This concerns maps from the actual graded quotient."
+      ],
+      "acceptance": [
+        "For every A/q-algebra B whose carrier is a semiring, two A/q-algebra maps Gr_q(A)→B agreeing on μ(x) for all x∈q are equal. B may have a different universe.",
+        "Keep the zero/unit-ideal and nonreduced boundaries. Generation as an algebra is distinct from finite generation as a module and from a free polynomial presentation."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-GENERATORS-7e92bd",
+          "locator": "Authored native deductions for degree-one generation and polynomial presentations; Stacks10.59.5 full proof,10.70.1(1), and10.58.7 generator-induction premise",
+          "excerpt": "graded ring",
+          "match": "The displayed ordinary associated graded and the finite degree-one-generator premise motivate the adapters. These precise native quotient/polynomial maps and proofs are authored deductions from pinned generic Rees and polynomial results; the general Hilbert–Serre theorem remains open."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-coefficient-change",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Degree-one classes under coefficient change",
+      "declaration": "TauCeti.HilbertSamuel.adicDegreeOne_coefficient_change",
+      "statement": "For f:A→B, ideals I⊆A,J⊆B and I≤f⁻¹(J), the existing coefficient-change map sends μ_I(x) to μ_J(f(x)) for every x∈I.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring and q is an arbitrary ideal; use the existing Gr_q(A)=Rees(q)/(q·Rees(q)) with its actual A/q-algebra and A-module structures. Zero rings, zero/unit ideals and nilpotents are retained. No local, Noetherian, proper-ideal or reducedness assumption is imposed.",
+        "A family a:ι→q may have an arbitrary index type and independent universe. Surjectivity and chosen-family generation explicitly assume Ideal.span(range(val∘a))=q. Finite type from the chosen family additionally assumes Finite ι; the separate finite-type theorem assumes q.FG. No finite-presentation, injectivity, freeness or polynomial-ring isomorphism is asserted."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-one-value",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change-monomials"
+      ],
+      "proofSteps": [
+        "Specialize the inherited actual monomial coefficient-change theorem to degree1. Retain precisely the ideal-containment hypothesis; no injectivity or flatness is inferred."
+      ],
+      "acceptance": [
+        "For f:A→B, ideals I⊆A,J⊆B and I≤f⁻¹(J), the existing coefficient-change map sends μ_I(x) to μ_J(f(x)) for every x∈I.",
+        "Keep the zero/unit-ideal and nonreduced boundaries. Generation as an algebra is distinct from finite generation as a module and from a free polynomial presentation."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-GENERATORS-7e92bd",
+          "locator": "Authored native deductions for degree-one generation and polynomial presentations; Stacks10.59.5 full proof,10.70.1(1), and10.58.7 generator-induction premise",
+          "excerpt": "graded ring",
+          "match": "The displayed ordinary associated graded and the finite degree-one-generator premise motivate the adapters. These precise native quotient/polynomial maps and proofs are authored deductions from pinned generic Rees and polynomial results; the general Hilbert–Serre theorem remains open."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "baselineCoverage": [
@@ -21898,7 +22675,8 @@
         "The full multiplicative map, surjectivity, homogeneous projection compatibility, finite-sum full principal kernel and generator/component-compatible tangent-cone equivalence now have explicit mathematical proof plans and admitted native Lean prototypes. Their new proof bodies have NOT been certified; historical Rees/ring-grading bodies remain required. This supersedes the missing assembly plan, not its implementation. Curve/support dimension, comparison with the general cumulative polynomial, intrinsic and ambient multiplicities, general Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and all routed-paper obligations remain open. Arbitrary commutative coefficients are allowed for the map; the principal kernel keeps NoZeroDivisors and exact finite order, with separate zero/unit and order-zero-nonunit branches.",
         "Graded annihilator transport and the nonzero primary boundary now have independent native prototypes. General polynomial invariance is conditional on the existing admitted eventual specification, not a new proof of Hilbert–Serre. The M=0 exception in Stacks Remark 43.15.6 is recorded; formulate the remaining module-relative ideal-of-definition extension with this branch separate. All existing graded finiteness, general polynomial existence, support-degree, completion, associativity and routed-source obligations remain required.",
         "This continuation supplies native proofs for coefficient change, its exact kernel criterion, and the old coefficient-ideal/monomial/piece core. Full graded decomposition, module grading, finite generation, general Hilbert–Serre and support-degree comparison remain unproved here. Preserve every previous coverage obligation and the full reserved Hilbert–Samuel multiplicity target.",
-        "This native proof checkpoint establishes the old finite expansion, direct-sum equivalence, ring homogeneous decomposition, GradedAlgebra registration and projection laws on the ordinary Rees quotient, with no admitted native proof. The canonical suggested file remains an unchecked signature plan. Actual graded modules, their decompositions and actions, finite generation, general Hilbert–Serre, support/degree comparison, associativity of multiplicity and the full reserved Hilbert–Samuel target remain open; retain every older remaining item and gap."
+        "This native proof checkpoint establishes the old finite expansion, direct-sum equivalence, ring homogeneous decomposition, GradedAlgebra registration and projection laws on the ordinary Rees quotient, with no admitted native proof. The canonical suggested file remains an unchecked signature plan. Actual graded modules, their decompositions and actions, finite generation, general Hilbert–Serre, support/degree comparison, associativity of multiplicity and the full reserved Hilbert–Samuel target remain open; retain every older remaining item and gap.",
+        "The old ordinary degree-one generation theorem now has an admission-free native proof using the pinned Rees generation theorem and actual quotient. The new degree-one linear map detects q² exactly and respects coefficient change. Every chosen ideal-generating family gives a surjective native polynomial algebra map; a finite family, or q.FG, implies finite type over A/q. Algebra maps from the quotient are determined on these degree-one classes. Still prove the actual graded-module decomposition/action and finite generation, then native homogeneous kernel/quotient gradings and the general Hilbert–Serre induction. Finite type of this ring does not establish finite generation of the graded module, its eventual polynomial, support-degree, intrinsic/ambient multiplicity, tangent-cone kernel, completion or any remaining routed-paper target."
       ]
     },
     {
