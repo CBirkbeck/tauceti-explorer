@@ -16,6 +16,7 @@ ledger names every API, example and layer theorem whose full signature needs sup
 The two partial data structures below are not substitutes for their mathematical definitions.
 -/
 
+import Mathlib.AlgebraicGeometry.Normalization
 import Mathlib.LinearAlgebra.Basis.Fin
 import Mathlib.LinearAlgebra.FreeModule.Finite.Basic
 import Mathlib.RingTheory.Flat.Basic
@@ -3791,3 +3792,194 @@ example (a b : k)
 
 end TauCeti.GenusOne.QuadraticPinch
 /- END POLYNOMIAL MULTIPLICATION AND UNIVERSAL MAP -/
+
+/- BEGIN SPECIFIED RELATIVE NORMALIZATION CONTINUATION -/
+namespace TauCeti.GenusOne.QuadraticPinch.Global
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
+noncomputable section
+variable {k : Type u} [Field k]
+
+lemma normalization_schemeTheoreticallyDominant (a b : k) :
+    IsSchemeTheoreticallyDominant (normalization a b)  := by sorry
+
+lemma normalization_kernel (a b : k) : (normalization a b).ker = ⊥  := by sorry
+
+lemma normalization_sections_injective (a b : k) (U : (curve a b).Opens) :
+    Function.Injective ((normalization a b).app U)  := by sorry
+
+lemma normalization_flat_pullback_schemeTheoreticallyDominant
+    (a b : k) {T : Scheme.{u}} (g : T ⟶ curve a b) [Flat g] :
+    IsSchemeTheoreticallyDominant (pullback.snd (normalization a b) g)  := by sorry
+
+lemma normalization_flat_pullback_kernel
+    (a b : k) {T : Scheme.{u}} (g : T ⟶ curve a b) [Flat g] :
+    (pullback.snd (normalization a b) g).ker = ⊥  := by sorry
+
+/-- Relative integral factorization of the specified finite map, not the absolute
+normalization of the curve in a generic-point function field. -/
+def relativeNormalization (a b : k) : Scheme.{u}  := by sorry
+
+def toRelativeNormalization (a b : k) : normalizationSource a b ⟶ relativeNormalization a b  := by sorry
+
+def fromRelativeNormalization (a b : k) : relativeNormalization a b ⟶ curve a b  := by sorry
+
+lemma toRelativeNormalization_isIso (a b : k) : IsIso (toRelativeNormalization a b)  := by sorry
+
+/-- Comparison for the relative integral factorization of the existing map. -/
+def relativeNormalizationIso (a b : k) : normalizationSource a b ≅ relativeNormalization a b  := by sorry
+
+lemma relativeNormalization_factorization (a b : k) :
+    toRelativeNormalization a b ≫ fromRelativeNormalization a b = normalization a b  := by sorry
+
+lemma relativeNormalizationIso_hom (a b : k) :
+    (relativeNormalizationIso a b).hom = toRelativeNormalization a b  := by sorry
+
+lemma relativeNormalizationIso_inv_from (a b : k) :
+    (relativeNormalizationIso a b).inv ≫ normalization a b = fromRelativeNormalization a b  := by sorry
+
+/-- The actual affine section comparison to the integral closure inside ν_*O_N. -/
+def relativeNormalizationSectionsIso (a b : k) (U : (curve a b).Opens)
+    (hU : IsAffineOpen U) :
+    (letI := ((normalization a b).app U).hom.toAlgebra
+     Γ(relativeNormalization a b, fromRelativeNormalization a b ⁻¹ᵁ U) ≅
+       CommRingCat.of (integralClosure Γ(curve a b, U)
+         Γ(normalizationSource a b, normalization a b ⁻¹ᵁ U)))  := by sorry
+
+/-- The specified integral-factorization map from Mathlib relative normalization. -/
+def relativeNormalizationDesc (a b : k) {T : Scheme.{u}}
+    (f : normalizationSource a b ⟶ T) (g : T ⟶ curve a b) [IsIntegralHom g]
+    (h : normalization a b = f ≫ g) : relativeNormalization a b ⟶ T  := by sorry
+
+lemma toRelativeNormalization_desc (a b : k) {T : Scheme.{u}}
+    (f : normalizationSource a b ⟶ T) (g : T ⟶ curve a b) [IsIntegralHom g]
+    (h : normalization a b = f ≫ g) :
+    toRelativeNormalization a b ≫ relativeNormalizationDesc a b f g h = f  := by sorry
+
+lemma relativeNormalizationDesc_from (a b : k) {T : Scheme.{u}}
+    (f : normalizationSource a b ⟶ T) (g : T ⟶ curve a b) [IsIntegralHom g]
+    (h : normalization a b = f ≫ g) :
+    relativeNormalizationDesc a b f g h ≫ g = fromRelativeNormalization a b  := by sorry
+
+lemma relativeNormalizationDesc_eq (a b : k) {T : Scheme.{u}}
+    (f : normalizationSource a b ⟶ T) (g : T ⟶ curve a b) [IsIntegralHom g]
+    (h : normalization a b = f ≫ g) :
+    relativeNormalizationDesc a b f g h = (relativeNormalizationIso a b).inv ≫ f  := by sorry
+
+lemma relativeNormalizationDesc_unique (a b : k) {T : Scheme.{u}}
+    (f : normalizationSource a b ⟶ T) (g : T ⟶ curve a b) [IsIntegralHom g]
+    (h : normalization a b = f ≫ g) (j : relativeNormalization a b ⟶ T)
+    (hj : toRelativeNormalization a b ≫ j = f) :
+    j = relativeNormalizationDesc a b f g h  := by sorry
+
+lemma relativeNormalizationSectionsIso_hom_inv (a b : k) (U : (curve a b).Opens)
+    (hU : IsAffineOpen U) :
+    (relativeNormalizationSectionsIso a b U hU).hom ≫
+      (relativeNormalizationSectionsIso a b U hU).inv = 𝟙 _  := by sorry
+
+lemma relativeNormalizationSectionsIso_inv_hom (a b : k) (U : (curve a b).Opens)
+    (hU : IsAffineOpen U) :
+    (relativeNormalizationSectionsIso a b U hU).inv ≫
+      (relativeNormalizationSectionsIso a b U hU).hom = 𝟙 _  := by sorry
+
+lemma relativeNormalizationSectionsIso_cancel (a b : k) (U : (curve a b).Opens)
+    (hU : IsAffineOpen U)
+    (f g : Γ(relativeNormalization a b, fromRelativeNormalization a b ⁻¹ᵁ U) ⟶
+      Γ(relativeNormalization a b, fromRelativeNormalization a b ⁻¹ᵁ U)) :
+    f ≫ (relativeNormalizationSectionsIso a b U hU).hom =
+      g ≫ (relativeNormalizationSectionsIso a b U hU).hom ↔ f = g  := by sorry
+
+end
+end TauCeti.GenusOne.QuadraticPinch.Global
+
+namespace TauCeti.GenusOne.QuadraticPinch
+noncomputable section
+variable {k : Type u} [Field k]
+
+lemma quadratic_normalization_inclusion_not_surjective (a b : k) :
+    ¬ Function.Surjective
+      ((algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b)).val)  := by sorry
+
+end
+end TauCeti.GenusOne.QuadraticPinch
+
+namespace TauCeti.GenusOne.QuadraticPinch.Global
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
+noncomputable section
+variable {k : Type u} [Field k]
+
+-- test: QuadraticPinch.Global.test_relativeNormalization_cusp
+example : toRelativeNormalization (0 : k) 0 ≫ fromRelativeNormalization 0 0 = normalization 0 0  := by sorry
+
+-- test: QuadraticPinch.Global.test_relativeNormalization_char2
+example : toRelativeNormalization (1 : ZMod 2) 1 ≫ fromRelativeNormalization 1 1 = normalization 1 1  := by sorry
+
+-- test: QuadraticPinch.Global.test_relativeNormalization_iso
+example (a b : k) : IsIso (toRelativeNormalization a b)  := by sorry
+
+-- test: QuadraticPinch.Global.test_toRelativeNormalization_cusp
+example : toRelativeNormalization (0 : k) 0 ≫ fromRelativeNormalization 0 0 = normalization 0 0  := by sorry
+
+-- test: QuadraticPinch.Global.test_toRelativeNormalization_char2
+example : toRelativeNormalization (1 : ZMod 2) 1 ≫ fromRelativeNormalization 1 1 = normalization 1 1  := by sorry
+
+-- test: QuadraticPinch.Global.test_toRelativeNormalization_descent
+example (a b : k) {T : Scheme.{u}} (f : normalizationSource a b ⟶ T) (g : T ⟶ curve a b) [IsIntegralHom g] (h : normalization a b = f ≫ g) : toRelativeNormalization a b ≫ relativeNormalizationDesc a b f g h = f  := by sorry
+
+-- test: QuadraticPinch.Global.test_fromRelativeNormalization_cusp
+example : toRelativeNormalization (0 : k) 0 ≫ fromRelativeNormalization 0 0 = normalization 0 0  := by sorry
+
+-- test: QuadraticPinch.Global.test_fromRelativeNormalization_char2
+example : toRelativeNormalization (1 : ZMod 2) 1 ≫ fromRelativeNormalization 1 1 = normalization 1 1  := by sorry
+
+-- test: QuadraticPinch.Global.test_fromRelativeNormalization_inverse
+example (a b : k) : (relativeNormalizationIso a b).inv ≫ normalization a b = fromRelativeNormalization a b  := by sorry
+
+-- test: QuadraticPinch.Global.test_iso_forward
+example (a b : k) : (relativeNormalizationIso a b).hom = toRelativeNormalization a b  := by sorry
+
+-- test: QuadraticPinch.Global.test_iso_cusp_left
+example : (relativeNormalizationIso (0 : k) 0).hom ≫ (relativeNormalizationIso 0 0).inv = 𝟙 _  := by sorry
+
+-- test: QuadraticPinch.Global.test_iso_char2_right
+example : (relativeNormalizationIso (1 : ZMod 2) 1).inv ≫ (relativeNormalizationIso 1 1).hom = 𝟙 _  := by sorry
+
+-- test: QuadraticPinch.Global.test_sections_left
+example (a b : k) (U : (curve a b).Opens) (hU : IsAffineOpen U) : (relativeNormalizationSectionsIso a b U hU).hom ≫ (relativeNormalizationSectionsIso a b U hU).inv = 𝟙 _  := by sorry
+
+-- test: QuadraticPinch.Global.test_sections_cusp_right
+example (U : (curve (0 : k) 0).Opens) (hU : IsAffineOpen U) : (relativeNormalizationSectionsIso (0 : k) 0 U hU).inv ≫ (relativeNormalizationSectionsIso 0 0 U hU).hom = 𝟙 _  := by sorry
+
+-- test: QuadraticPinch.Global.test_sections_char2_right
+example (U : (curve (1 : ZMod 2) 1).Opens) (hU : IsAffineOpen U) : (relativeNormalizationSectionsIso (1 : ZMod 2) 1 U hU).inv ≫ (relativeNormalizationSectionsIso 1 1 U hU).hom = 𝟙 _  := by sorry
+
+-- test: QuadraticPinch.Global.test_desc_source
+example (a b : k) {T : Scheme.{u}} (f : normalizationSource a b ⟶ T) (g : T ⟶ curve a b) [IsIntegralHom g] (h : normalization a b = f ≫ g) : toRelativeNormalization a b ≫ relativeNormalizationDesc a b f g h = f  := by sorry
+
+-- test: QuadraticPinch.Global.test_desc_target
+example (a b : k) {T : Scheme.{u}} (f : normalizationSource a b ⟶ T) (g : T ⟶ curve a b) [IsIntegralHom g] (h : normalization a b = f ≫ g) : relativeNormalizationDesc a b f g h ≫ g = fromRelativeNormalization a b  := by sorry
+
+-- test: QuadraticPinch.Global.test_desc_unique
+example (a b : k) {T : Scheme.{u}} (f : normalizationSource a b ⟶ T) (g : T ⟶ curve a b) [IsIntegralHom g] (h : normalization a b = f ≫ g) (j : relativeNormalization a b ⟶ T) (hj : toRelativeNormalization a b ≫ j = f) : j = relativeNormalizationDesc a b f g h  := by sorry
+
+-- test: QuadraticPinch.Global.test_sections_cusp_injective
+example (U : (curve (0 : k) 0).Opens) : Function.Injective ((normalization (0 : k) 0).app U)  := by sorry
+
+-- test: QuadraticPinch.Global.test_flat_pullback_kernel
+example (a b : k) {T : Scheme.{u}} (g : T ⟶ curve a b) [Flat g] : (pullback.snd (normalization a b) g).ker = ⊥  := by sorry
+
+end
+end TauCeti.GenusOne.QuadraticPinch.Global
+
+namespace TauCeti.GenusOne.QuadraticPinch
+noncomputable section
+variable {k : Type u} [Field k]
+
+-- test: QuadraticPinch.test_inclusion_cusp
+example : ¬ Function.Surjective ((algebra (Polynomial.X ^ 2 : k[X])).val)  := by sorry
+
+-- test: QuadraticPinch.test_inclusion_char2
+example : ¬ Function.Surjective ((algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 2)[X])).val)  := by sorry
+
+end
+end TauCeti.GenusOne.QuadraticPinch
+/- END SPECIFIED RELATIVE NORMALIZATION CONTINUATION -/
