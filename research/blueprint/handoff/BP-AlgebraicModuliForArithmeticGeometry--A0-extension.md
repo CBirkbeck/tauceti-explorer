@@ -1,5 +1,90 @@
 # BP-AlgebraicModuliForArithmeticGeometry--A0-extension — current handoff
 
+Codex — codex-5ebb6f; 2026-10-03. Issue #672. Winning claim 5965179947; bot confirmation 5965180887. Mathematical base `cbc70097561abd69d9e3b1d6caff7bee676c019a`; publication base `fb636d0b727444d0078a661b7591b0d79409af63`. Nineteen input guards were identical between these commits, including the four incoming files, governing protocols, accepted RS27 and review, reserved-key survey/owners, library audit, confirmed finding records and scoped atlas document. Partial checkpoint; all implementation statuses remain unchecked.
+
+## Current mathematical result
+
+The continuation adds 36 declaration leaves: 14 constructions and 22 lemmas, with 27 named tests. For an actual IsGerbe on any specified site J and a specified abelian band A, postcomposition of p:x≅y with b_y(a) defines the band action. The stored conjugation equation identifies it with precomposition by b_x(a). The difference between actual p and q is the coefficient of p inverse followed by q under the inverse band equivalence. Its two cancellation laws give a principal equivalence (p,a) ↦ (p,p·a), with inverse (p,q) ↦ (p,difference(p,q)). It remains valid if the global isomorphism type is empty.
+
+An actual anchor gives a coordinate equivalence, with change-of-anchor and difference cocycle laws. The native Mathlib Torsor constructor is used only with an explicit Nonempty hypothesis on the actual isomorphism type. Neither local existence nor a principal equivalence is used to manufacture a global section. The global-section adapter is specialized to the given gerbe and band; generic type torsors and generic Hom/Isom primitives are imported, not re-planned.
+
+The existing native presheafHom supplies the actual Hom type and its coherent slice restriction. Every fibre arrow is invertible, so the native Hom type has the same principal comparison. The crucial pullHom action equation retains both mapComp comparison morphisms: band pullback handles the target automorphism under the restriction functor, and band conjugation handles the actual target comparison isomorphism. Its cancellation equation gives precisely the restricted composition. Componentwise Hom principal equivalences then form a native presheaf isomorphism on the opposite slice category.
+
+The Hom-pair sheaf property is imported from Mathlib’s tensor-product sheaf result, applied twice to native sheafHom. Transporting this property through the principal presheaf isomorphism gives the Hom-times-band sheaf. The principal comparison lifts to an actual isomorphism in the existing Sheaf category on J over U, with both inverse laws. Gerbe local isomorphism supplies a covering sieve of actual Hom sections. These facts hold for arbitrary J, not just the bottom topology. Coefficient and fibre-hom types use the same explicit universe in these prototypes; base and object universes are arbitrary. No unrecorded universe-resizing comparison is asserted.
+
+## What remains and where to resume
+
+Translate the proved principal sheaf comparison and local sections into the prescribed imported D0 torsor/classifying-stack carrier. Complete the SF1 descended-slice comparison for the general intrinsic band and instantiate the nonneutral nth-root gerbe of O(1) on P1. General change of band, derived-H2 classification, profinite fpqc 2-limits, higher-topology instances and all inherited moduli/descent/Artin/resolution branches remain open. The current leaf supplies part of the Isom-torsor and neutralization argument; it does not construct BA or prove neutrality.
+
+All 282 incoming node contracts are preserved: 281 node objects are identical, and isom-torsor receives only two new supplier edges and one proof step. Its old statement, hypotheses, API, tests, sources and ownership are unchanged. The reserved general gerbe key still covers arbitrary specified etale/fppf regimes and compatible profinite limits, separate from algebraic finite-presentation stacks, with its four paper consumers intact. All 68 routed items, ten planets, nine gaps, 21 requests and eight partial/not-read coverage rows remain. No closure status changes. The entire incoming 3212-line native source, 4100-line full prototype and reader are retained as exact prefixes after three imports.
+
+## Sources, ownership and baseline
+
+Fresh reading covers complete Olsson Spring2007 stack-note PDF pages122–123: Definition31.1, Remark31.2, Lemmas31.3–31.4 and Remark31.5, with only the visible start and warning of Lemma31.6. [The pinned PDF](https://stacky.net/files/written/Stacks/Stacks.pdf) has SHA256 `716bf95c7a200194d5fd1f2af48372253fde5ea65487b5d362bcccb5e0b7426a`. Lemma31.3’s printed self-reference is not treated as a proved supplier. Exact native formulas and tests are authored deductions from the banding conditions and imported library primitives. Also read [Stacks Definition8.11.1](https://stacks.math.columbia.edu/tag/06NZ) and the complete printed proof of [Lemma8.11.8](https://stacks.math.columbia.edu/tag/0CJY), retaining its omitted varying-base step; their HTML hashes are in the source entry. No fresh whole-paper reading or repair of the notes’ later incomplete classification proof is claimed.
+
+The eight scoped audit target/verdict rows and load-bearing R09.4 notes, current stage contracts, complete reserved gerbe survey entry and sample API, accepted RS27 keeps/supplier contracts and review, and the nine specified confirmed claim/fix records and verifier verdicts were read. Governing WORKERS/PROTOCOL and expansion/UPSTREAM instructions, and the earlier whole upstream reference readings, remain binding in this continuous loop. Earlier partial routed-paper coverage is retained. Historical handoff reading was selective; its public source and checker were recovered and checked, not claimed freshly read in full.
+
+SF1 owns general algebraic-space/diagonal/atlas foundations; D0 owns ordinary stacks, stackification and classifying constructions. R09.4 retains its general arithmetic instances and conditional algebraicity criteria. The current argument specializes the existing carrier and generic sheaf product; it introduces no replacement stack or torsor-sheaf carrier. Approximation/Popescu, anchor module/projective descent and affine Weil restriction, Grassmannian/Proj, non-Noetherian cohomology, stable-curve moduli and classical coherent-duality supplier boundaries remain unchanged.
+
+Pinned source heads were freshly confirmed: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, TauCeti `f790474821cf4256814db967cb154e7af3d0c369`. Read the actual native Torsor, automorphism multiplication/conjugation/mapAut, presheafHom, pullHom, sheafHom, tensorProd_isSheaf and isSheaf_of_iso_iff statements and contexts. Bounded source searches over the pinned category/torsor files and TauCeti found no exact pre-existing Isom-band principal adapter. This is not an exhaustive library-absence assertion. Five new exact indexed baseline records extend the 142-record prefix to147.
+
+## Checks and compilation boundary
+
+Native source: 3631 lines, 101 inherited examples, 30 inherited named tests, 27 new named tests, 251 distinct kernel-axiom audits. Zero errors, warnings, admissions or admitted dependencies; every audit uses only propext, Classical.choice and Quot.sound. Runtime18.21s, peak2750100KiB; 27GiB available before compilation. Native SHA256 `c7d5eb8908ea2e5f0aa2347fc2c18b0900ba74647869246f73134ccb0e84189e`. Normalized log SHA256 `72e15bae5c3955d796648a0a2fc69e8d806cf2aa31e412b869296f98e9a2c133`.
+
+Full canonical prototype: 4425 lines and216 examples, SHA256 `e76e6167db60ec5395f9430b35b9bdaf06d525b0f1a6bf8ffcb33ce68d812858`. All36 new declaration bodies and27 example bodies are admitted according to PROTOCOL13, with exact headers matched to the checked native source. Its incoming full prototype prefix is byte-identical after three imports. The full file is **UNCOMPILED**: the required TauCeti.CategoryTheory.Sites.SheafCohomology.LongExactSequence artifact is absent, and the available TauCeti checkout `cf386627e9176a3827c1a5fe804989fd94a4d216` differs from the source pin. No full-file compilation is claimed.
+
+The exact Mathlib-only extraction: 3043 lines and198 examples, SHA256 `c0e4902b666af71cef0dd5fcad137688ad7a4a483c25d1b040c50337b4bfdefe`; zero errors,412 expected admission warnings and no other warnings. Runtime17.44s, peak3370404KiB; 26GiB available. Normalized log SHA256 `3b207f9e0b5842f9f995e73ceea433342840b570318e76f910a7930178d15d9c`. Its recipe excludes18 inherited TauCeti examples and does not validate the omitted cohomology/module blocks. Both compilers ran serially in the existing exact Mathlib build with1200-second timeouts. No build, cache download, Lake project or language server was started; no owned compiler remains running. Log normalization replaces the scratch directory by SCRATCH.
+
+The indexed checker reports zero errors and warnings:318 nodes (16 definitions,79 constructions,190 lemmas,28 theorems,5 comparisons),326 required API entries and323 required tests;334 raw API entries and343 raw tests. There are147 baseline records,10 planets,9 gaps,21 requests and8 scoped coverage rows, none closed. Every new declaration/API/test appears in the reader and prototype;36 declaration and27 test headers match. The actual intake file and automatic-refusal checks return empty lists. Allowlist, private-path, JSON and whitespace checks pass.
+
+The actual assembler with this318-node candidate and the incoming282-node control on the same publication tree gives an acyclic stage DAG3017/8655, own declaration DAG318/696 and combined DAG3328/9736. Backward traversal reaches321 declarations (318 own and3 imported D0 suppliers),147 baseline leaves and zero unresolved references. All24 required supplier paths and40 accepted restructuring pairs remain reachable. Stage edges are unchanged; own pending/skipped links are empty and other roadmaps’ pending/skipped records match the control. Parent-stage attachments and request edges are included.
+
+## Public archive and exact reproduction
+
+The immutable source archive is commit [`b1a2f84c23a4597536ed0c9620b2f4516e98a5f6`](https://github.com/CBirkbeck/tauceti-explorer/commit/b1a2f84c23a4597536ed0c9620b2f4516e98a5f6), retained as an ancestor of the publication commit. It contains the checked native source in the allowed suggested file, the full canonical prefix, reader and actual validator/graph payloads in the allowed handoff. Publication keeps the prototype concise; the proof archive is recovered from that immutable commit. No disposable local path is a reproduction dependency.
+
+Save the following as recover61.py and run it from a checkout root with a scratch-directory argument. It checks all ten recovered artifact hashes. Then run `python3 SCRATCH/verify61.py SCRATCH INDEX.tsv` and `python3 SCRATCH/graph61.py SCRATCH`. INDEX.tsv is the pinned declaration TSV file. The validator defaults to publication base `fb636d0b727444d0078a661b7591b0d79409af63`; set VALIDATE_BASE when auditing against another checkout base. Recovering and running these checks needs only Python’s standard library.
+
+To rerun elaboration, use the existing exact Mathlib build and pass absolute paths to Native61.lean and Canonical61.lean, one compiler at a time. Before each run check free -g and require at least20GiB available; use a1200-second timeout. The public source round trip was exercised and is byte-identical to the sources elaborated above. No second byte-identical public-source recompilation is claimed.
+
+```python
+from pathlib import Path
+import hashlib,json,sys,urllib.request
+S=Path(sys.argv[1]);S.mkdir(parents=True,exist_ok=True)
+STEM='AlgebraicModuliForArithmeticGeometry--A0-extension'
+ARCHIVE='b1a2f84c23a4597536ed0c9620b2f4516e98a5f6'
+BASE='cbc70097561abd69d9e3b1d6caff7bee676c019a'
+EXPECTED={'Native61.lean': 'c7d5eb8908ea2e5f0aa2347fc2c18b0900ba74647869246f73134ccb0e84189e', 'NativePrior.lean': '72641adf79dcbd169411f250f1c66a076bc2aa8ffb5d664cec86564d801fd00a', 'FullCanonical61.lean': 'e76e6167db60ec5395f9430b35b9bdaf06d525b0f1a6bf8ffcb33ce68d812858', 'Canonical61.lean': 'c0e4902b666af71cef0dd5fcad137688ad7a4a483c25d1b040c50337b4bfdefe', 'Control.json': 'acd49afa38fda790d7e8162d7a8cc50cfe6c77ad57242dc556c9166d28ae250b', 'Control.md': 'b4bc8328d98bc8fa2c503e5df0d57f3f87283eb8ff499aad12510fd305ade705', 'Control.lean': '1bb97579e6af3d0d0afc277267ce7eabef598761dda892319d969a997b7ee75b', 'reader61.md': '3db74454d030590b9e66ee14f9d9aa1a39a086f561cd5e03d9b7cf4cf87a1423', 'verify61.py': '47d5f5017fe4059fa8fba72841d3d2350600f4a8f8b9bc128955c3226b435f11', 'graph61.py': '0e2325ffd1cfcbc1ce3feea9e0a85b8e2f5629cd55c446fe38bb234be99e5741'}
+ROOT='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
+def raw(commit,path):return urllib.request.urlopen(ROOT+commit+'/'+path,timeout=60).read()
+def cut(b,a,z):return b.split(a.encode(),1)[1].split(z.encode(),1)[0]
+lean=raw(ARCHIVE,'research/blueprint/suggested/'+STEM+'.lean')
+native=cut(lean,'BEGIN ARCHIVED CHECKED ISOM BAND SHEAVES 61\n','END ARCHIVED CHECKED ISOM BAND SHEAVES 61 -/')
+full=lean.split(b'\n/- BEGIN ARCHIVED CHECKED ISOM BAND SHEAVES 61\n',1)[0].decode()
+(S/'Native61.lean').write_bytes(native);(S/'FullCanonical61.lean').write_text(full)
+prior=raw('541cd5f185dc1602fe6bf03ba3e20ce09bc41924','research/blueprint/suggested/'+STEM+'.lean')
+(S/'NativePrior.lean').write_bytes(cut(prior,'BEGIN ARCHIVED CHECKED NONCONSTANT INTRINSIC BAND FIXTURES\n','END ARCHIVED CHECKED NONCONSTANT INTRINSIC BAND FIXTURES\n'))
+for folder,name,ext in [('packets','Control.json','json'),('readmes','Control.md','md'),('suggested','Control.lean','lean')]:
+ (S/name).write_bytes(raw(BASE,'research/blueprint/'+folder+'/'+STEM+'.'+ext))
+(S/'reader61.md').write_bytes(raw(ARCHIVE,'research/blueprint/readmes/'+STEM+'.md'))
+hand=raw(ARCHIVE,'research/blueprint/handoff/BP-'+STEM+'.md')
+for name,marker in [('verify61.py','VALIDATOR'),('graph61.py','GRAPH')]:
+ (S/name).write_bytes(cut(hand,'# BEGIN ARCHIVED ISOM BAND '+marker+' 61\n','# END ARCHIVED ISOM BAND '+marker+' 61\n'))
+imports='\n'.join(l for l in full.splitlines() if l.startswith('import Mathlib'))
+prefix=full[full.index('open CategoryTheory Opposite Bicategory'):full.index('variable {A : Sheaf')]
+marker='namespace TauCeti.AlgebraicGeometry\n\nopen CategoryTheory Opposite Bicategory\n\nvariable {C'
+central=full[full.index(marker,full.index('/-! Intrinsic-band continuation')):]
+(S/'Canonical61.lean').write_text(imports+'\n'+prefix+'\nend TauCeti.AlgebraicGeometry\n'+central)
+for name,sha in EXPECTED.items():assert hashlib.sha256((S/name).read_bytes()).hexdigest()==sha,name
+(S/'Hashes.json').write_text(json.dumps(EXPECTED,indent=2)+'\n')
+print(json.dumps({'recoveredFiles':len(EXPECTED),'archive':ARCHIVE,'allHashesMatch':True},indent=2))
+```
+
+## Historical incoming handoff (verbatim)
+
+# BP-AlgebraicModuliForArithmeticGeometry--A0-extension — current handoff
+
 Codex — codex-rtOQ9t; 2026-10-03. Issue #672. Winning claim 5964536940; bot confirmation 5964538117. Mathematical base: `84e885b95c0ad537079c0fe6fdbb122c8020ac33`; publication base: `7a0839ba10a362fba9724a9704e986412ea03aa8`. The latest main was merged on the owned branch; the four incoming job files were unchanged. Partial checkpoint; all implementation statuses remain unchecked.
 
 ## Current mathematical result
