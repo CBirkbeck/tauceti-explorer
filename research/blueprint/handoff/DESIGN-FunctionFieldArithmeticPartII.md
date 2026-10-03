@@ -102,12 +102,12 @@ Path('Sketch.lean').write_text(sketch)
 
 The actual packet checker with the pinned declaration index reports zero errors and warnings. The assembler overlays this packet and the unchanged roadmap into the existing promoted atlas; the control overlays the incoming packet. No graph is hand constructed. Stage edges, planets and all other roadmaps’ skipped/pending links match the control. All 54 required supplier-stage pairs have directed paths; own skipped/pending links and unresolved nonlibrary prerequisites are empty. Stage, own-declaration and combined reachable graphs are acyclic.
 
-The mathematical base is b80fdf573cd685fc5723bd55865eb7392a56c9c2. The publication guard checked all 18 own-deliverable, governing, baseline, parent-audit/review, root-key and checker/assembler/intake inputs unchanged at publication base aeae47c9a675600efe5c88a0b7ab4cc82b9d13f3; the whole live issue body was unchanged and the winning claim still confirmed. The later main commit is merged only into this own branch, retaining the immutable public proof ancestor. The full reproducible graph/preservation script below writes its JSON receipt beside itself, so save it in scratch space and run it with the repository as working directory.
+The mathematical base is b80fdf573cd685fc5723bd55865eb7392a56c9c2. The publication guard checked all 18 own-deliverable, governing, baseline, parent-audit/review, root-key and checker/assembler/intake inputs unchanged at publication base aeae47c9a675600efe5c88a0b7ab4cc82b9d13f3; the whole live issue body was unchanged and the winning claim still confirmed. The later main commit is merged only into this own branch, retaining the immutable public proof ancestor. A final-main guard at 9a3905af27dd59b81ab74e7df6ff86d5398eeb12 also found all 18 inputs byte-identical; graph receipts retain their explicit publication base. The full reproducible graph/preservation script below writes its JSON receipt beside itself, so save it in scratch space and run it with the repository as working directory.
 
 ```json
 {
   "actualAssembler": true,
-  "base": "b80fdf573cd685fc5723bd55865eb7392a56c9c2",
+  "base": "aeae47c9a675600efe5c88a0b7ab4cc82b9d13f3",
   "declarations": 218,
   "ownDeclarations": 218,
   "kinds": {
@@ -203,11 +203,11 @@ The mathematical base is b80fdf573cd685fc5723bd55865eb7392a56c9c2. The publicati
   "preservedStatements": 194,
   "addedNodes": 24,
   "unresolvedNonlibraryPrerequisites": [],
-  "scriptSha256": "8eac52ef37e978082fc2ad342d0296f51e93d22b7749ff9c8369998ce94a659c"
+  "scriptSha256": "c28a80d203f53c402efab538deb0e951f20b7ac68ec1dabc00bf420408b2ec03"
 }
 ```
 
-Validator SHA-256 8eac52ef37e978082fc2ad342d0296f51e93d22b7749ff9c8369998ce94a659c.
+Validator SHA-256 c28a80d203f53c402efab538deb0e951f20b7ac68ec1dabc00bf420408b2ec03.
 
 ```python
 import json,sys,subprocess,hashlib,re
@@ -216,7 +216,7 @@ from collections import defaultdict,deque,Counter
 root=Path.cwd();sys.path.insert(0,str(root/'scripts'));import build
 rid='FunctionFieldArithmeticPartII';stem=rid
 packetpath='research/blueprint/packets/'+stem+'.json'
-base='b80fdf573cd685fc5723bd55865eb7392a56c9c2'
+base='aeae47c9a675600efe5c88a0b7ab4cc82b9d13f3'
 p=json.loads((root/packetpath).read_text())
 old=json.loads(subprocess.check_output(['git','show',base+':'+packetpath],text=True))
 r=json.loads((root/('research/blueprint/roadmaps/'+rid+'.json')).read_text())

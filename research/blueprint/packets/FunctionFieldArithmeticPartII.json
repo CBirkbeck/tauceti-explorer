@@ -15947,7 +15947,20 @@
         }
       },
       "compiledCanonical": false,
-      "canonicalReason": "The existing build lacks required exact-pin TauCeti.AlgebraicGeometry.LineBundle.TensorProduct and TauCeti.Algebra.AlgebraicGroup.RootsOfUnity.Basic compiled imports. Only the actual native Mathlib projection elaborated; no build, setup, cache or LSP was started."
+      "canonicalReason": "The existing build lacks required exact-pin TauCeti.AlgebraicGeometry.LineBundle.TensorProduct and TauCeti.Algebra.AlgebraicGroup.RootsOfUnity.Basic compiled imports. Only the actual native Mathlib projection elaborated; no build, setup, cache or LSP was started.",
+      "nativeArchive": "c4096277ee51368485e14ce6487c0c7c2e2b6084",
+      "nativeArchivePath": "research/blueprint/suggested/FunctionFieldArithmeticPartII.lean",
+      "publicationBase": "aeae47c9a675600efe5c88a0b7ab4cc82b9d13f3",
+      "headerParity": {
+        "newHeaders": 55,
+        "exampleHeaders": 21,
+        "inheritedNativeLines": 2527,
+        "inheritedNativeHash": "05f9e273177e59765f130e85cdcbc9cda298b708db45791ae84697e891215eef",
+        "originalCanonicalBlockUnchanged": true,
+        "originalReaderBlockUnchanged": true
+      },
+      "publicRecoverySha256": "44dd4729adadcaa09a3b5e31b0a07c378afdb5f5bef8641a6f5bda7d2ae71b6f",
+      "publicValidatorSha256": "c28a80d203f53c402efab538deb0e951f20b7ac68ec1dabc00bf420408b2ec03"
     }
   ]
 }
