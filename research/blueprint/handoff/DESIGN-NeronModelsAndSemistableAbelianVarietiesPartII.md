@@ -14,6 +14,59 @@ Resume with the actual generic-point function-field normalization comparison and
 
 The verification script below uses only repository reads from immutable Git objects and the5 owned proposal overlays. Supply an exact validation SHA through ROOT_ACTION_VALIDATE_BASE, the repository through TAUCETI_REPO and the pinned TSV as its second positional argument. No outside packet is changed.
 
+## Immutable publication receipt
+
+The mathematical input is1f2b694ddaf4ef708f6784ca776fac70e92edcc2. Publication validation usescef7f4fadd1c1a896bab3ab61b9085d7b4b1138b. The immutable source archive is[ef572e047c](https://github.com/CBirkbeck/tauceti-explorer/blob/ef572e047c092c437ab40ebc103944a5287b12b5/research/blueprint/suggested/NeronModelsAndSemistableAbelianVarietiesPartII.lean), retained as an ancestor of the final head. It contains9 source artifacts and2 historical diagnostics in an inert comment. The final suggested file contains only the canonical admitted plan and its existing ledger. No Lean text is placed in the packet or reader.
+
+Run the first Python program with an exact public final-head SHA and an empty scratch destination. It fetches only this job’s5 overlays and its1 suggested-file archive, validates all11 artifact hashes, and extracts the3 programs. Run the recovered verify.py with that scratch destination and the pinned declarations TSV, supplying TAUCETI_REPO and ROOT_ACTION_VALIDATE_BASE=cef7f4fadd1c1a896bab3ab61b9085d7b4b1138b to validate the same immutable Git tree. This verifies source identity, inherited contracts, new headers/examples, the actual checker/intake functions and actual assembled graphs. It does not run Lean. No fresh native compilation or axiom receipt is asserted.
+
+| Artifact | SHA-256 |
+|---|---|
+| NativeIncoming.lean | aafc0128a3312e9966aa1a88dd21d2cd21e0d2dd9590c9b4a8df2594ea43fa1f |
+| SketchIncoming.lean | d73c371440ab4840a5549114718ee12c15819875ce854420929929fa18ce6d40 |
+| CanonicalIncoming.lean | 363e4958064e11537fdb7e9e42d311459464fe91e7dde5e150e2b453adbda959 |
+| NativeFinal.lean | 2f9cd05077b3eae351adb7218824231495d6a2ec3e08a8d09deff297c45e7411 |
+| SketchFinal.lean | 4b36284bd4cf94b6734c227879ab46d98cbfaaac7e2a163164d178195526e697 |
+| CanonicalFinal.lean | e5d1057746aebed11277f550fb2568debfd3e52f6c2689da94622b4e9faa69f4 |
+| New.lean | efaa2e4ab8009bf7dbe539d8c295dfaa616f8b67ba8793b4a543fa8cf1f843f0 |
+| Admitted.lean | f34117b96d3c857a861fcd01357f34f869c690717b59c9d0fa4a5c9c4f9e5e77 |
+| Audits.lean | a8555954f477e690e672bff4e1f4d5718562b875087a8500f63ecb10cb4a7345 |
+| native.diag | 6e7e1d6c236d9c432a0c15a4607cdfbeaaa8793d622ddf044a965b9d68e3a353 |
+| sketch.diag | 3974300109f2384dbe476a2d7f486a7602d2d8fd498d5668c7d895a539bfa819 |
+| recover.py | fe0a1227c23c4fbfc3cbba13c2074adcc5ec5500b472c55167c4e747bcd42592 |
+| verify.py | 69cc9397691c6a716d511b48c60540e7f8abac3f4c741df2ee0efcf7c9d20b39 |
+| immutable_view.py | 6d73fc443552eac18b3877b6626253ee273e812c409c02079da08b193d682b2f |
+
+```python
+"""Recover this checkpoint’s owned overlays and authenticated source artifacts."""
+from pathlib import Path
+import hashlib,json,re,sys,urllib.request
+HEAD=sys.argv[1];OUT=Path(sys.argv[2]).resolve();RID='NeronModelsAndSemistableAbelianVarietiesPartII'
+assert re.fullmatch('[0-9a-f]{40}',HEAD)
+assert not OUT.exists() or not any(OUT.iterdir()),'Use an empty scratch destination'
+OUT.mkdir(parents=True,exist_ok=True)
+FILES=['research/blueprint/'+d+'/'+('DESIGN-' if d=='handoff' else '')+RID+'.'+e for d,e in [('roadmaps','json'),('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]]
+def fetch(ref,path):
+ with urllib.request.urlopen('https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'+ref+'/'+path,timeout=90) as response:return response.read()
+for path in FILES:
+ dest=OUT/'proposal'/path;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(fetch(HEAD,path))
+ARCHIVE='ef572e047c092c437ab40ebc103944a5287b12b5'
+EXPECTED={'NativeIncoming.lean': 'aafc0128a3312e9966aa1a88dd21d2cd21e0d2dd9590c9b4a8df2594ea43fa1f', 'SketchIncoming.lean': 'd73c371440ab4840a5549114718ee12c15819875ce854420929929fa18ce6d40', 'CanonicalIncoming.lean': '363e4958064e11537fdb7e9e42d311459464fe91e7dde5e150e2b453adbda959', 'NativeFinal.lean': '2f9cd05077b3eae351adb7218824231495d6a2ec3e08a8d09deff297c45e7411', 'SketchFinal.lean': '4b36284bd4cf94b6734c227879ab46d98cbfaaac7e2a163164d178195526e697', 'CanonicalFinal.lean': 'e5d1057746aebed11277f550fb2568debfd3e52f6c2689da94622b4e9faa69f4', 'New.lean': 'efaa2e4ab8009bf7dbe539d8c295dfaa616f8b67ba8793b4a543fa8cf1f843f0', 'Admitted.lean': 'f34117b96d3c857a861fcd01357f34f869c690717b59c9d0fa4a5c9c4f9e5e77', 'Audits.lean': 'a8555954f477e690e672bff4e1f4d5718562b875087a8500f63ecb10cb4a7345', 'native.diag': '6e7e1d6c236d9c432a0c15a4607cdfbeaaa8793d622ddf044a965b9d68e3a353', 'sketch.diag': '3974300109f2384dbe476a2d7f486a7602d2d8fd498d5668c7d895a539bfa819'}
+archive=fetch(ARCHIVE,FILES[3]).decode()
+for name,digest in EXPECTED.items():
+ marker='BEGIN ARTIFACT '+name+' '+digest+'\n';assert archive.count(marker)==1
+ text=archive.split(marker,1)[1].split('END ARTIFACT '+name+'\n',1)[0]
+ assert hashlib.sha256(text.encode()).hexdigest()==digest,name
+ (OUT/name).write_text(text)
+assert (OUT/'proposal'/FILES[3]).read_bytes()==(OUT/'CanonicalFinal.lean').read_bytes()
+handoff=(OUT/'proposal'/FILES[4]).read_text()
+scripts=re.findall(r'^```python\n(.*?)^```\s*$',handoff,re.M|re.S)
+assert len(scripts)>=3
+for name,text in zip(['recover.py','verify.py','immutable_view.py'],scripts[:3]):
+ compile(text,name,'exec');(OUT/name).write_text(text)
+print(json.dumps({'sourceArtifacts':9,'historicalDiagnostics':2,'ownedOverlays':5,'scripts':3,'archive':ARCHIVE,'nativeStatus':'uncompiled additions; no new Lean invocation'},indent=2))
+```
+
 ```python
 """Validate the owned overlay without changing the shared checkout."""
 from pathlib import Path
