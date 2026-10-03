@@ -13,7 +13,7 @@
     "StableReductionPartII:MC.7"
   ],
   "status": "partial",
-  "summary": "Partial pointed-moduli roadmap. Adds twelve consumed declaration-sized inputs for ordinary R-bidual reflexivity of the actual polynomial section ideal, with explicit inverse F↦F(incl), native evaluation equivalence and dual reflexivity through the existing Mathlib instance. All inherited contracts remain, all eight stages stay partial, and arbitrary coefficient-module Hom exchange, higher Ext, completion and family geometry remain required. The actual polynomial coefficient-module Hom comparisons D⊗_A M≃Hom_R(J,R⊗_A M) and J⊗_A M≃Hom_R(D,R⊗_A M) are R-linear, canonical on pure tensors, natural for arbitrary A-linear coefficient maps and compatible with native bidual evaluation when M=A. Signed coordinate lemmas and universal transpose exactness give bijectivity for every M without a flatness assumption; no higher Ext, relative stable-reflexivity or geometric closure is inferred. The actual R-module Hom cochains for the polynomial section ideal and dual are specified with correct alternating phases, signed augmentation cycles and zero native positive cohomology for every coefficient module. The augmented projective-resolution/Ext identification remains required. This checkpoint supplies the actual native projective resolutions of the polynomial section ideal and its dual; the higher Ext and geometric comparisons remain open. The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain. The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial. This continuation supplies the actual completed coefficient algebra and its exact two-base tensor quotient, keeping the full relative completion theorem open. Finite quotient two-base coefficient comparison for every completed-base module, with finite-generation kernel control and actual Hom target transport.",
+  "summary": "Finite two-base coherence checkpoint: ten new declarations (one construction, nine lemmas), eight API additions and six acceptance examples, including an explicit native scalar-action bridge and actual quotient/coefficient naturality. All incoming mathematical contracts and all source issues/routes/keys are retained. Partial pointed-moduli roadmap. Adds twelve consumed declaration-sized inputs for ordinary R-bidual reflexivity of the actual polynomial section ideal, with explicit inverse F↦F(incl), native evaluation equivalence and dual reflexivity through the existing Mathlib instance. All inherited contracts remain, all eight stages stay partial, and arbitrary coefficient-module Hom exchange, higher Ext, completion and family geometry remain required. The actual polynomial coefficient-module Hom comparisons D⊗_A M≃Hom_R(J,R⊗_A M) and J⊗_A M≃Hom_R(D,R⊗_A M) are R-linear, canonical on pure tensors, natural for arbitrary A-linear coefficient maps and compatible with native bidual evaluation when M=A. Signed coordinate lemmas and universal transpose exactness give bijectivity for every M without a flatness assumption; no higher Ext, relative stable-reflexivity or geometric closure is inferred. The actual R-module Hom cochains for the polynomial section ideal and dual are specified with correct alternating phases, signed augmentation cycles and zero native positive cohomology for every coefficient module. The augmented projective-resolution/Ext identification remains required. This checkpoint supplies the actual native projective resolutions of the polynomial section ideal and its dual; the higher Ext and geometric comparisons remain open. The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain. The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial. This continuation supplies the actual completed coefficient algebra and its exact two-base tensor quotient, keeping the full relative completion theorem open. Finite quotient two-base coefficient comparison for every completed-base module, with finite-generation kernel control and actual Hom target transport.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1600,6 +1600,62 @@
         "module": "Mathlib/RingTheory/AdicCompletion/Algebra.lean",
         "provides": "Import actual evaluation surjectivity.",
         "checked": "Full statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. This is a specialized adapter, not a duplicate generic construction."
+      },
+      {
+        "ref": "mathlib:AlgHom",
+        "kind": "definition",
+        "module": "Mathlib/Algebra/Algebra/Hom.lean",
+        "provides": "Native algebra homomorphism extends a ring homomorphism by the exact coefficient square.",
+        "checked": "Actual declaration statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:AlgHom.ext",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Algebra/Hom.lean",
+        "provides": "Equality of native algebra homomorphisms is detected on every element.",
+        "checked": "Actual declaration statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:AlgHom.toLinearMap",
+        "kind": "construction",
+        "module": "Mathlib/Algebra/Algebra/Hom.lean",
+        "provides": "An actual algebra homomorphism induces its native coefficient-linear map.",
+        "checked": "Actual declaration statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:LinearMap.rTensor",
+        "kind": "construction",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
+        "provides": "Tensor the finite coefficient-linear quotient transition with the identity of N.",
+        "checked": "Actual declaration statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:LinearMap.lTensor",
+        "kind": "construction",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
+        "provides": "Tensor an arbitrary coefficient-module map with the finite chart identity.",
+        "checked": "Actual declaration statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:LinearMap.rTensor_tmul",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
+        "provides": "The tensor of the actual finite transition sends q⊗z to factorPow(q)⊗z.",
+        "checked": "Actual declaration statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:Algebra.smul_def",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Algebra/Defs.lean",
+        "provides": "Compare the native ring scalar action with multiplication by the algebra map.",
+        "checked": "Actual declaration statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:Ideal.one_eq_top",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Ideal/Operations.lean",
+        "provides": "The level-zero ideal is the whole ring, so the finite quotient test is the zero ring.",
+        "checked": "Actual declaration statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-7e92bd."
       }
     ]
   },
@@ -1848,6 +1904,31 @@
         "Abelian/Projective/Ext.lean full file, including extMk, extMk_surjective and extMk_eq_zero_iff; Abelian/Ext.lean full file, including root Ext, ChainComplex.linearYonedaObj and ProjectiveResolution.isoExt.",
         "ModuleCat/Ext/HasExt.lean full file; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines473–504; Ext/Basic.lean lines102–139; ZeroObjects.lean lines105–125; EnoughProjectives.lean lines131–146. Selected native statements only; not a whole-library or transitive-proof audit."
       ]
+    },
+    {
+      "id": "knudsen2-finite-coherence-7e92bd",
+      "title": "Finite two-base scalar and transition coherence for the polynomial nodal chart",
+      "authors": "Finn Faye Knudsen (source motivation); Mathlib contributors; explicit coherence deduction Codex — codex-7e92bd",
+      "edition": "Math. Scand.52 (1983),161–199, exact journal scan; pinned Mathlib",
+      "url": "https://journals.msp.org/mscand/article/download/1622/1621/1653",
+      "sha256": "18e04bbf5c24a460ff10e965ebf665ea0229378c6a9521bd279909476012e230",
+      "accessDate": "2026-10-03",
+      "readSections": [
+        "Fresh rendered/read complete physical34–35/printed194–195, including Propositions4–7, the Bourbaki proof citation for6 and the exercise status of7. Earlier own #5951 full Appendix read was retained and source bytes checked unchanged; no new whole-paper reading claimed.",
+        "Fresh actual incoming finite-level scalar/tensor signatures and native bodies; current native diagnostics exposed a missing Completeness import, seven let-body layout errors, five duplicate instance binders and the need for an explicit inherited scalar-action comparison. These are prototype corrections, not changes to Knudsen statements.",
+        "Fresh pinned AlgHom/AlgHom.ext/toLinearMap; actual scalar restriction and native left/right tensor maps, their pure-tensor laws; native quotient factorPow, representative surjectivity, algebra scalar action and unit ideal. Incoming completion evaluation kernel theorem and ambient finite-generation condition reread in the exact source.",
+        "Fresh parent audited stable-reduction layers1 and9, complete reserved moduli-groupoid key and MC.2 description; prior own5951 governing, library-audit, ownership and source-route inputs checked unchanged. Bounded open Mathlib PR search adic completion tensor returned no match; indexed Zulip search produced no consumed implementation. No exhaustive absence claim."
+      ],
+      "sourceHashes": {
+        "Mathlib/RingTheory/Ideal/Operations.lean": "4859dadb42353660e6827c0c070962279d8fabdc8eea013eeed783b5cab59c22",
+        "Mathlib/Algebra/Module/LinearMap/Defs.lean": "242ce4f144fbc775bc424e6b9e088f583fb485fa72f89135d157b5586a987ae7",
+        "Mathlib/RingTheory/Ideal/Quotient/Defs.lean": "f906662e22c49025984808feb489892afe51914ccc7a10b95d5f162ef4fbfe1d",
+        "Mathlib/LinearAlgebra/TensorProduct/Map.lean": "7f2acca048b88c66c8107d89cc165d3aeb3e41165e503244cad7f3cebf0c0a06",
+        "Mathlib/RingTheory/AdicCompletion/Completeness.lean": "dc949962c57ecae3f4b4af264bee8cd53ebe85b1a2dfe4f3bd7640a1022f2d3c",
+        "Mathlib/RingTheory/Ideal/Quotient/PowTransition.lean": "2519525340f2b1170dfafc01d02a360235784f19a6f0f4de9cd8de8b585200f5",
+        "Mathlib/Algebra/Algebra/Hom.lean": "0cc5cf0d3af02f98ad61aea11c5298547f190d551eee978ea46a48f303fd3af0",
+        "Mathlib/Algebra/Algebra/Defs.lean": "8cd3931aa8f1e5295c6b7892a70dcf8f7e231df28ff0b6bed1a20b14a5f5a64c"
+      }
     }
   ],
   "nodes": [
@@ -21043,10 +21124,12 @@
       "prerequisites": [
         "StableReductionPartII:MC.2/finite-chart-algebra",
         "mathlib:Ideal.Quotient.eq_zero_iff_mem",
-        "mathlib:Algebra.compHom"
+        "mathlib:Algebra.compHom",
+        "StableReductionPartII:MC.2/finite-chart-original-scalar"
       ],
       "proofSteps": [
-        "The chosen A-action factors through Bₙ. The quotient class of b is zero, so its coefficient image annihilates q."
+        "The chosen A-action factors through Bₙ. The quotient class of b is zero, so its coefficient image annihilates q.",
+        "Use finite-chart-original-scalar to compare the inherited original-coefficient action with the displayed finite coefficient homomorphism; this equality is propositional and must not be replaced by definitional reduction."
       ],
       "acceptance": [
         "Use the actual native polynomial chart, ideal quotients, adic completion, tensor product and linear-map spaces. No comparison conclusion is an input hypothesis.",
@@ -21083,10 +21166,12 @@
         "StableReductionPartII:MC.2/finite-chart-algebra",
         "mathlib:IsScalarTower.of_algebraMap_smul",
         "mathlib:Algebra.compHom",
-        "mathlib:AdicCompletion.algebraMap_apply"
+        "mathlib:AdicCompletion.algebraMap_apply",
+        "StableReductionPartII:MC.2/finite-chart-original-scalar"
       ],
       "proofSteps": [
-        "Evaluate the completed image of b∈A and compare the two actual scalar actions on Qₙ. Apply the native scalar-tower constructor."
+        "Evaluate the completed image of b∈A and compare the two actual scalar actions on Qₙ. Apply the native scalar-tower constructor.",
+        "Use finite-chart-original-scalar to compare the inherited original-coefficient action with the displayed finite coefficient homomorphism; this equality is propositional and must not be replaced by definitional reduction."
       ],
       "acceptance": [
         "Use the actual native polynomial chart, ideal quotients, adic completion, tensor product and linear-map spaces. No comparison conclusion is an input hypothesis.",
@@ -21161,10 +21246,12 @@
         "StableReductionPartII:MC.2/finite-chart-completed-square",
         "mathlib:Ideal.Quotient.mk_surjective",
         "mathlib:AdicCompletion.evalₐ_of",
-        "mathlib:AdicCompletion.algebraMap_apply"
+        "mathlib:AdicCompletion.algebraMap_apply",
+        "StableReductionPartII:MC.2/finite-chart-original-scalar"
       ],
       "proofSteps": [
-        "Choose b∈A lifting evalₙ(a). The difference a−e_A(b) belongs to pⁿ·Â. Its action contributes zero to the A-tensor by the preceding lemma, and zero to Qₙ by the chosen finite action. Reduce to the ordinary A-balancing relation."
+        "Choose b∈A lifting evalₙ(a). The difference a−e_A(b) belongs to pⁿ·Â. Its action contributes zero to the A-tensor by the preceding lemma, and zero to Qₙ by the chosen finite action. Reduce to the ordinary A-balancing relation.",
+        "Use finite-chart-original-scalar to compare the inherited original-coefficient action with the displayed finite coefficient homomorphism; this equality is propositional and must not be replaced by definitional reduction."
       ],
       "acceptance": [
         "Use the actual native polynomial chart, ideal quotients, adic completion, tensor product and linear-map spaces. No comparison conclusion is an input hypothesis.",
@@ -21298,6 +21385,26 @@
           "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv_balance",
           "role": "characterisation",
           "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. Assume p is finitely generated. For a∈Â, q∈Qₙ and z∈N, (aq)⊗_A z=q⊗_A(az)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv_transition",
+          "role": "compatibility",
+          "statement": "For every i≤j and x∈(R/mʲ)⊗_A N, first transition over A and then apply the level-i comparison equals first apply the level-j comparison and then transition over Â."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv_symm_transition",
+          "role": "compatibility",
+          "statement": "For every i≤j and x∈(R/mʲ)⊗_Â N, the level-i inverse after transition equals the A-transition after the level-j inverse."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv_coefficient",
+          "role": "compatibility",
+          "statement": "For every Â-linear f:N→N′, applying id⊗f over A and then the finite comparison equals applying the finite comparison and then id⊗f over Â."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv_symm_coefficient",
+          "role": "compatibility",
+          "statement": "For every Â-linear f:N→N′, the inverse finite comparison intertwines id⊗f over Â with id⊗f over A."
         }
       ],
       "uses": [
@@ -21321,6 +21428,21 @@
           "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv.test_completed_balancing",
           "kind": "compatibility",
           "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. With p finitely generated, every a∈Â balances across the original A-tensor; this excludes a spurious comparison that ignores completed coefficients."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv.test_arbitrary_transition",
+          "kind": "compatibility",
+          "statement": "For any finite tensor sum x at level j and i≤j, the comparison commutes with the actual quotient transition; x is not assumed pure."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv.test_coefficient_naturality",
+          "kind": "compatibility",
+          "statement": "For every completed-coefficient-linear map f:N→N′, the forward finite comparison intertwines the actual native left tensor maps."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv.test_inverse_coefficient",
+          "kind": "compatibility",
+          "statement": "The inverse finite comparison intertwines the same coefficient maps on arbitrary completed-base tensors, with the original-side scalar restriction explicit."
         }
       ]
     },
@@ -21689,6 +21811,470 @@
         "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
       },
       "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteHomEquiv_roundtrip"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-chart-original-scalar",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The finite quotient retains its native original-coefficient action",
+      "kind": "lemma",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteCoefficient_original_smul",
+      "statement": "For b∈A and q∈R/mⁿ, the inherited scalar b·q equals completionCoefficientLevelₙ([b]) times q in the native quotient ring.",
+      "hypotheses": [
+        "A is any commutative ring; R is the existing polynomial nodal chart Ring A γ δ s t, with the actual coefficient homomorphism. Ideals p⊆A and m⊆R satisfy p⊆coefficientHom⁻¹(m). The finite coefficient and chart actions are the incoming completionResidueAlgebra, completionFiniteChartAlgebra and their composed native scalar actions.",
+        "This scalar comparison holds without finite generation of p and without any coefficient module."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/coefficient-inclusion-action",
+        "StableReductionPartII:MC.2/completion-coefficient-level",
+        "StableReductionPartII:MC.2/completion-coefficient-level-representatives",
+        "mathlib:Ideal.Quotient.mk_surjective",
+        "mathlib:Algebra.smul_def"
+      ],
+      "proofSteps": [
+        "Choose an actual original chart representative r of q using native quotient surjectivity.",
+        "The inherited quotient A-action sends b·[r] to [b·r]. In R the existing coefficient-inclusion-action node identifies b·r with coefficientHom(b)r.",
+        "The finite coefficient map sends [b] to [coefficientHom(b)]; the native quotient ring hom preserves products. This proves the equation without assuming that two independently inferred scalar structures are definitionally equal."
+      ],
+      "acceptance": [
+        "The theorem compares the already inherited scalar action with the displayed coefficient map. It does not replace that action or add an equality assumption."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2-finite-coherence-7e92bd",
+          "locator": "Knudsen II Appendix Propositions6–7, printed194–195/PDF34–35: motivation and explicit unresolved completion boundary; authored finite-transition deduction from the incoming polynomial adapters and pinned Mathlib maps.",
+          "match": "The notes motivate the completed-coefficient distinction; the displayed transition and tensor-naturality identities are authored deductions, not claims that Proposition6 or the Proposition7 exercise is proved."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-transition-algebra",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Finite quotient transition over completed coefficients",
+      "kind": "construction",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTransition",
+      "statement": "For i≤j, equip the actual native quotient transition R/mʲ→R/mⁱ with its Â-algebra-hom structure, using the incoming finite completed-coefficient actions.",
+      "hypotheses": [
+        "A is any commutative ring; R is the existing polynomial nodal chart Ring A γ δ s t, with the actual coefficient homomorphism. Ideals p⊆A and m⊆R satisfy p⊆coefficientHom⁻¹(m). The finite coefficient and chart actions are the incoming completionResidueAlgebra, completionFiniteChartAlgebra and their composed native scalar actions.",
+        "For the four tensor-naturality lemmas, p is finitely generated and N,N′ are arbitrary Â=AdicCompletion p A modules, with specified A-actions satisfying the native scalar-tower equations. The transition algebra homomorphism and its four structural laws do not require p finitely generated.",
+        "No noetherianity or locality of A or R, finite generation or flatness of N, global tensor/limit interchange, or injectivity of the whole completed-ring tensor comparison is assumed."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/completion-coefficient-family-transition",
+        "StableReductionPartII:MC.2/finite-chart-completed-square",
+        "mathlib:AlgHom",
+        "mathlib:Ideal.Quotient.factorPow"
+      ],
+      "proofSteps": [
+        "Retain the native Ideal.Quotient.factorPow ring map; only its completed-coefficient compatibility needs an adapter.",
+        "The incoming equation factorPow∘completionCoefficientFamilyⱼ=completionCoefficientFamilyᵢ is exactly the algebra-map square. Evaluate it at an arbitrary a∈Â, without assuming that a comes from A.",
+        "Package that square in the native AlgHom structure. Finite generation of p is unnecessary for this transition."
+      ],
+      "acceptance": [
+        "For i≤j, equip the actual native quotient transition R/mʲ→R/mⁱ with its Â-algebra-hom structure, using the incoming finite completed-coefficient actions."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2-finite-coherence-7e92bd",
+          "locator": "Knudsen II Appendix Propositions6–7, printed194–195/PDF34–35: motivation and explicit unresolved completion boundary; authored finite-transition deduction from the incoming polynomial adapters and pinned Mathlib maps.",
+          "match": "The notes motivate the completed-coefficient distinction; the displayed transition and tensor-naturality identities are authored deductions, not claims that Proposition6 or the Proposition7 exercise is proved."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTransition_toRingHom",
+          "role": "compatibility",
+          "statement": "The ring homomorphism underlying completionFiniteTransition is exactly Ideal.Quotient.factorPow m hij."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTransition_refl",
+          "role": "compatibility",
+          "statement": "The completed-coefficient transition from level n to itself is the identity Â-algebra homomorphism."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTransition_comp",
+          "role": "compatibility",
+          "statement": "For i≤j≤k, the level-k-to-j transition followed by the level-j-to-i transition equals the direct level-k-to-i transition as Â-algebra homomorphisms."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTransition_smul",
+          "role": "compatibility",
+          "statement": "For every a∈Â and q∈R/mʲ, the finite transition sends a·q to a times the image of q, with the specified incoming completed-coefficient actions."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTransition.test_representative",
+          "kind": "computation",
+          "statement": "For an actual r∈R and i≤j, the transition takes the class of r modulo mʲ to the class of the same r modulo mⁱ."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTransition.test_zero_level",
+          "kind": "degenerate",
+          "statement": "Every level-j element maps to zero at level zero, where R/m⁰ is the zero ring."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTransition.test_completed_scalar",
+          "kind": "compatibility",
+          "statement": "An arbitrary completed coefficient a∈Â commutes with the actual transition; a is not required to be the image of an original coefficient."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/finite-tensor-transition",
+          "how": "Use the actual completed-coefficient linear map and its scalar restriction on the two tensor products."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal; Knudsen II Appendix Proposition6",
+          "how": "Prepare a coherent finite quotient family for the still-required two-base completion argument. Finite coherence alone does not identify the whole completed tensor products."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-transition-native",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Underlying finite transition ring map",
+      "kind": "lemma",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTransition_toRingHom",
+      "statement": "The ring homomorphism underlying completionFiniteTransition is exactly Ideal.Quotient.factorPow m hij.",
+      "hypotheses": [
+        "A is any commutative ring; R is the existing polynomial nodal chart Ring A γ δ s t, with the actual coefficient homomorphism. Ideals p⊆A and m⊆R satisfy p⊆coefficientHom⁻¹(m). The finite coefficient and chart actions are the incoming completionResidueAlgebra, completionFiniteChartAlgebra and their composed native scalar actions.",
+        "For the four tensor-naturality lemmas, p is finitely generated and N,N′ are arbitrary Â=AdicCompletion p A modules, with specified A-actions satisfying the native scalar-tower equations. The transition algebra homomorphism and its four structural laws do not require p finitely generated.",
+        "No noetherianity or locality of A or R, finite generation or flatness of N, global tensor/limit interchange, or injectivity of the whole completed-ring tensor comparison is assumed."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-transition-algebra"
+      ],
+      "proofSteps": [
+        "Unfold only the new adapter; its underlying ring map was specified to be the pinned quotient transition.",
+        "Keep the native quotient carriers and direction R/mʲ→R/mⁱ for i≤j."
+      ],
+      "acceptance": [
+        "The ring homomorphism underlying completionFiniteTransition is exactly Ideal.Quotient.factorPow m hij."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2-finite-coherence-7e92bd",
+          "locator": "Knudsen II Appendix Propositions6–7, printed194–195/PDF34–35: motivation and explicit unresolved completion boundary; authored finite-transition deduction from the incoming polynomial adapters and pinned Mathlib maps.",
+          "match": "The notes motivate the completed-coefficient distinction; the displayed transition and tensor-naturality identities are authored deductions, not claims that Proposition6 or the Proposition7 exercise is proved."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-transition-identity",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Identity finite completed-coefficient transition",
+      "kind": "lemma",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTransition_refl",
+      "statement": "The completed-coefficient transition from level n to itself is the identity Â-algebra homomorphism.",
+      "hypotheses": [
+        "A is any commutative ring; R is the existing polynomial nodal chart Ring A γ δ s t, with the actual coefficient homomorphism. Ideals p⊆A and m⊆R satisfy p⊆coefficientHom⁻¹(m). The finite coefficient and chart actions are the incoming completionResidueAlgebra, completionFiniteChartAlgebra and their composed native scalar actions.",
+        "For the four tensor-naturality lemmas, p is finitely generated and N,N′ are arbitrary Â=AdicCompletion p A modules, with specified A-actions satisfying the native scalar-tower equations. The transition algebra homomorphism and its four structural laws do not require p finitely generated.",
+        "No noetherianity or locality of A or R, finite generation or flatness of N, global tensor/limit interchange, or injectivity of the whole completed-ring tensor comparison is assumed."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-transition-native",
+        "mathlib:AlgHom.ext",
+        "mathlib:Ideal.Quotient.mk_surjective"
+      ],
+      "proofSteps": [
+        "Apply native AlgHom extensionality and quotient induction.",
+        "On an original chart representative, the native factor map with equal powers sends the class to itself."
+      ],
+      "acceptance": [
+        "The completed-coefficient transition from level n to itself is the identity Â-algebra homomorphism."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2-finite-coherence-7e92bd",
+          "locator": "Knudsen II Appendix Propositions6–7, printed194–195/PDF34–35: motivation and explicit unresolved completion boundary; authored finite-transition deduction from the incoming polynomial adapters and pinned Mathlib maps.",
+          "match": "The notes motivate the completed-coefficient distinction; the displayed transition and tensor-naturality identities are authored deductions, not claims that Proposition6 or the Proposition7 exercise is proved."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-transition-compose",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Composition of finite completed-coefficient transitions",
+      "kind": "lemma",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTransition_comp",
+      "statement": "For i≤j≤k, the level-k-to-j transition followed by the level-j-to-i transition equals the direct level-k-to-i transition as Â-algebra homomorphisms.",
+      "hypotheses": [
+        "A is any commutative ring; R is the existing polynomial nodal chart Ring A γ δ s t, with the actual coefficient homomorphism. Ideals p⊆A and m⊆R satisfy p⊆coefficientHom⁻¹(m). The finite coefficient and chart actions are the incoming completionResidueAlgebra, completionFiniteChartAlgebra and their composed native scalar actions.",
+        "For the four tensor-naturality lemmas, p is finitely generated and N,N′ are arbitrary Â=AdicCompletion p A modules, with specified A-actions satisfying the native scalar-tower equations. The transition algebra homomorphism and its four structural laws do not require p finitely generated.",
+        "No noetherianity or locality of A or R, finite generation or flatness of N, global tensor/limit interchange, or injectivity of the whole completed-ring tensor comparison is assumed."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-transition-native",
+        "mathlib:AlgHom.ext",
+        "mathlib:Ideal.Quotient.mk_surjective"
+      ],
+      "proofSteps": [
+        "Apply algebra-hom extensionality, then native quotient induction on a class represented by r∈R.",
+        "Both paths send that class to the class of the same r modulo mⁱ. Proof witnesses of the order relations do not enter the resulting map."
+      ],
+      "acceptance": [
+        "For i≤j≤k, the level-k-to-j transition followed by the level-j-to-i transition equals the direct level-k-to-i transition as Â-algebra homomorphisms."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2-finite-coherence-7e92bd",
+          "locator": "Knudsen II Appendix Propositions6–7, printed194–195/PDF34–35: motivation and explicit unresolved completion boundary; authored finite-transition deduction from the incoming polynomial adapters and pinned Mathlib maps.",
+          "match": "The notes motivate the completed-coefficient distinction; the displayed transition and tensor-naturality identities are authored deductions, not claims that Proposition6 or the Proposition7 exercise is proved."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-transition-scalar",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Completed scalars commute with finite transition",
+      "kind": "lemma",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTransition_smul",
+      "statement": "For every a∈Â and q∈R/mʲ, the finite transition sends a·q to a times the image of q, with the specified incoming completed-coefficient actions.",
+      "hypotheses": [
+        "A is any commutative ring; R is the existing polynomial nodal chart Ring A γ δ s t, with the actual coefficient homomorphism. Ideals p⊆A and m⊆R satisfy p⊆coefficientHom⁻¹(m). The finite coefficient and chart actions are the incoming completionResidueAlgebra, completionFiniteChartAlgebra and their composed native scalar actions.",
+        "For the four tensor-naturality lemmas, p is finitely generated and N,N′ are arbitrary Â=AdicCompletion p A modules, with specified A-actions satisfying the native scalar-tower equations. The transition algebra homomorphism and its four structural laws do not require p finitely generated.",
+        "No noetherianity or locality of A or R, finite generation or flatness of N, global tensor/limit interchange, or injectivity of the whole completed-ring tensor comparison is assumed."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-transition-algebra",
+        "mathlib:AlgHom.toLinearMap"
+      ],
+      "proofSteps": [
+        "Use the underlying Â-linear map of the new algebra homomorphism.",
+        "Its scalar law is the native map_smul law, with no restriction on the origin of a."
+      ],
+      "acceptance": [
+        "For every a∈Â and q∈R/mʲ, the finite transition sends a·q to a times the image of q, with the specified incoming completed-coefficient actions."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2-finite-coherence-7e92bd",
+          "locator": "Knudsen II Appendix Propositions6–7, printed194–195/PDF34–35: motivation and explicit unresolved completion boundary; authored finite-transition deduction from the incoming polynomial adapters and pinned Mathlib maps.",
+          "match": "The notes motivate the completed-coefficient distinction; the displayed transition and tensor-naturality identities are authored deductions, not claims that Proposition6 or the Proposition7 exercise is proved."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-transition",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Finite tensor comparison commutes with every quotient transition",
+      "kind": "lemma",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv_transition",
+      "statement": "For every i≤j and x∈(R/mʲ)⊗_A N, first transition over A and then apply the level-i comparison equals first apply the level-j comparison and then transition over Â.",
+      "hypotheses": [
+        "A is any commutative ring; R is the existing polynomial nodal chart Ring A γ δ s t, with the actual coefficient homomorphism. Ideals p⊆A and m⊆R satisfy p⊆coefficientHom⁻¹(m). The finite coefficient and chart actions are the incoming completionResidueAlgebra, completionFiniteChartAlgebra and their composed native scalar actions.",
+        "For the four tensor-naturality lemmas, p is finitely generated and N,N′ are arbitrary Â=AdicCompletion p A modules, with specified A-actions satisfying the native scalar-tower equations. The transition algebra homomorphism and its four structural laws do not require p finitely generated.",
+        "No noetherianity or locality of A or R, finite generation or flatness of N, global tensor/limit interchange, or injectivity of the whole completed-ring tensor comparison is assumed."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-transition-algebra",
+        "StableReductionPartII:MC.2/finite-tensor-forward-pure",
+        "StableReductionPartII:MC.2/finite-chart-coefficient-tower",
+        "mathlib:LinearMap.restrictScalars",
+        "mathlib:LinearMap.rTensor",
+        "mathlib:LinearMap.rTensor_tmul"
+      ],
+      "proofSteps": [
+        "Use the actual Â-linear quotient transition and restrict its scalars along A→Â for the source tensor map.",
+        "Tensor induction reduces equality to zero, sums and q⊗z. The inherited forward pure-tensor formula and native rTensor formula send both sides to factorPow(q)⊗z.",
+        "All arbitrary finite tensor sums are covered. No flatness, finite generation or discrete p-power action on N is assumed."
+      ],
+      "acceptance": [
+        "For every i≤j and x∈(R/mʲ)⊗_A N, first transition over A and then apply the level-i comparison equals first apply the level-j comparison and then transition over Â."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2-finite-coherence-7e92bd",
+          "locator": "Knudsen II Appendix Propositions6–7, printed194–195/PDF34–35: motivation and explicit unresolved completion boundary; authored finite-transition deduction from the incoming polynomial adapters and pinned Mathlib maps.",
+          "match": "The notes motivate the completed-coefficient distinction; the displayed transition and tensor-naturality identities are authored deductions, not claims that Proposition6 or the Proposition7 exercise is proved."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-inverse-transition",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Inverse finite comparison commutes with every quotient transition",
+      "kind": "lemma",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv_symm_transition",
+      "statement": "For every i≤j and x∈(R/mʲ)⊗_Â N, the level-i inverse after transition equals the A-transition after the level-j inverse.",
+      "hypotheses": [
+        "A is any commutative ring; R is the existing polynomial nodal chart Ring A γ δ s t, with the actual coefficient homomorphism. Ideals p⊆A and m⊆R satisfy p⊆coefficientHom⁻¹(m). The finite coefficient and chart actions are the incoming completionResidueAlgebra, completionFiniteChartAlgebra and their composed native scalar actions.",
+        "For the four tensor-naturality lemmas, p is finitely generated and N,N′ are arbitrary Â=AdicCompletion p A modules, with specified A-actions satisfying the native scalar-tower equations. The transition algebra homomorphism and its four structural laws do not require p finitely generated.",
+        "No noetherianity or locality of A or R, finite generation or flatness of N, global tensor/limit interchange, or injectivity of the whole completed-ring tensor comparison is assumed."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-transition-algebra",
+        "StableReductionPartII:MC.2/finite-tensor-inverse-pure",
+        "StableReductionPartII:MC.2/finite-chart-coefficient-tower",
+        "mathlib:LinearMap.restrictScalars",
+        "mathlib:LinearMap.rTensor",
+        "mathlib:LinearMap.rTensor_tmul"
+      ],
+      "proofSteps": [
+        "Apply tensor induction over Â.",
+        "The inherited inverse pure-tensor formula and the actual restricted transition take q⊗z to factorPow(q)⊗z; additivity supplies all sums.",
+        "This is an actual inverse compatibility equation, not an assertion that arbitrary independent levelwise inverses form a compatible family."
+      ],
+      "acceptance": [
+        "For every i≤j and x∈(R/mʲ)⊗_Â N, the level-i inverse after transition equals the A-transition after the level-j inverse."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2-finite-coherence-7e92bd",
+          "locator": "Knudsen II Appendix Propositions6–7, printed194–195/PDF34–35: motivation and explicit unresolved completion boundary; authored finite-transition deduction from the incoming polynomial adapters and pinned Mathlib maps.",
+          "match": "The notes motivate the completed-coefficient distinction; the displayed transition and tensor-naturality identities are authored deductions, not claims that Proposition6 or the Proposition7 exercise is proved."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-coefficient-naturality",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Finite comparison is natural in the completed coefficient module",
+      "kind": "lemma",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv_coefficient",
+      "statement": "For every Â-linear f:N→N′, applying id⊗f over A and then the finite comparison equals applying the finite comparison and then id⊗f over Â.",
+      "hypotheses": [
+        "A is any commutative ring; R is the existing polynomial nodal chart Ring A γ δ s t, with the actual coefficient homomorphism. Ideals p⊆A and m⊆R satisfy p⊆coefficientHom⁻¹(m). The finite coefficient and chart actions are the incoming completionResidueAlgebra, completionFiniteChartAlgebra and their composed native scalar actions.",
+        "For the four tensor-naturality lemmas, p is finitely generated and N,N′ are arbitrary Â=AdicCompletion p A modules, with specified A-actions satisfying the native scalar-tower equations. The transition algebra homomorphism and its four structural laws do not require p finitely generated.",
+        "No noetherianity or locality of A or R, finite generation or flatness of N, global tensor/limit interchange, or injectivity of the whole completed-ring tensor comparison is assumed."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-forward-pure",
+        "StableReductionPartII:MC.2/finite-chart-coefficient-tower",
+        "mathlib:LinearMap.restrictScalars",
+        "mathlib:LinearMap.lTensor",
+        "mathlib:LinearMap.lTensor_tmul"
+      ],
+      "proofSteps": [
+        "Restrict f to A for the source tensor and retain its original Â-linear structure for the target tensor.",
+        "For a pure tensor q⊗z, both paths are q⊗f(z) by the native lTensor law and inherited finite comparison formula.",
+        "Extend by tensor induction. Both coefficient modules are arbitrary; torsion and nonflat examples are allowed."
+      ],
+      "acceptance": [
+        "For every Â-linear f:N→N′, applying id⊗f over A and then the finite comparison equals applying the finite comparison and then id⊗f over Â."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2-finite-coherence-7e92bd",
+          "locator": "Knudsen II Appendix Propositions6–7, printed194–195/PDF34–35: motivation and explicit unresolved completion boundary; authored finite-transition deduction from the incoming polynomial adapters and pinned Mathlib maps.",
+          "match": "The notes motivate the completed-coefficient distinction; the displayed transition and tensor-naturality identities are authored deductions, not claims that Proposition6 or the Proposition7 exercise is proved."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-inverse-coefficient",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Inverse finite comparison is coefficient-natural",
+      "kind": "lemma",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv_symm_coefficient",
+      "statement": "For every Â-linear f:N→N′, the inverse finite comparison intertwines id⊗f over Â with id⊗f over A.",
+      "hypotheses": [
+        "A is any commutative ring; R is the existing polynomial nodal chart Ring A γ δ s t, with the actual coefficient homomorphism. Ideals p⊆A and m⊆R satisfy p⊆coefficientHom⁻¹(m). The finite coefficient and chart actions are the incoming completionResidueAlgebra, completionFiniteChartAlgebra and their composed native scalar actions.",
+        "For the four tensor-naturality lemmas, p is finitely generated and N,N′ are arbitrary Â=AdicCompletion p A modules, with specified A-actions satisfying the native scalar-tower equations. The transition algebra homomorphism and its four structural laws do not require p finitely generated.",
+        "No noetherianity or locality of A or R, finite generation or flatness of N, global tensor/limit interchange, or injectivity of the whole completed-ring tensor comparison is assumed."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-inverse-pure",
+        "StableReductionPartII:MC.2/finite-chart-coefficient-tower",
+        "mathlib:LinearMap.restrictScalars",
+        "mathlib:LinearMap.lTensor",
+        "mathlib:LinearMap.lTensor_tmul"
+      ],
+      "proofSteps": [
+        "Use tensor induction over Â and the inherited inverse pure-tensor equation.",
+        "Check the exact restriction of f to A on the target side; both paths take q⊗z to q⊗f(z).",
+        "Together with forward naturality and the inherited inverse laws, this gives a coefficient-natural family of levelwise equivalences."
+      ],
+      "acceptance": [
+        "For every Â-linear f:N→N′, the inverse finite comparison intertwines id⊗f over Â with id⊗f over A."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2-finite-coherence-7e92bd",
+          "locator": "Knudsen II Appendix Propositions6–7, printed194–195/PDF34–35: motivation and explicit unresolved completion boundary; authored finite-transition deduction from the incoming polynomial adapters and pinned Mathlib maps.",
+          "match": "The notes motivate the completed-coefficient distinction; the displayed transition and tensor-naturality identities are authored deductions, not claims that Proposition6 or the Proposition7 exercise is proved."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
     }
   ],
   "requests": [
@@ -22673,7 +23259,8 @@
         "The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain.",
         "The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial.",
         "The actual ideal-adic coefficient homomorphism Â→R̂ is now constructed from compatible native finite quotients for the polynomial nodal chart whenever p⊆ι⁻¹(m). Its original-coefficient square, finite evaluations, uniqueness and actual A→Â→R̂ scalar tower have explicit native signatures and proof bodies. The complete new native and admitted files are not freshly compiled in this continuation because available memory is below the WORKERS.md threshold. For every Â-module N, the native R̂-linear comparison R̂⊗_A N→R̂⊗_Â N is surjective, with its exact Â-linear kernel generated by completed-coefficient balancing differences. This identifies the additional quotient; injectivity is not claimed. Next establish the reusable owner-level relative stable-reflexivity formulation and the actual two-base completion Hom/Ext or universally acyclic-complex comparison with justified faithful reflection, then the pointed completed-local hull, coefficient-compatible sheaf descent and arbitrary-base approximation. Bourbaki III5.4.4 remains unread and Proposition7 remains an exercise input. All eight stages remain partial.",
-        "For finitely generated p and every Â-module N, the finite quotients now have an explicit actual equivalence Qₙ⊗_A N≃Qₙ⊗_Â N and postcomposition equivalences on actual Hom spaces, including L=Qₙ⊗_R J. The proof uses the native completion evaluation kernel pⁿ·Â and submodule induction; N need not factor through A/pⁿ or be flat. This finite-level result does not prove injectivity of R̂⊗_A N→R̂⊗_Â N. Passing through an inverse limit would require justified tensor/Hom/Ext comparison hypotheses and cannot be inferred for arbitrary N. Knudsen Proposition6, Proposition7, owner-level stable-reflexivity, faithful reflection, hull identification, sheaf descent, approximation and all eight geometric stages remain open. Current Native and FullCanonical are uncompiled proof draft and admitted plan respectively; older compilation receipts are historical only."
+        "For finitely generated p and every Â-module N, the finite quotients now have an explicit actual equivalence Qₙ⊗_A N≃Qₙ⊗_Â N and postcomposition equivalences on actual Hom spaces, including L=Qₙ⊗_R J. The proof uses the native completion evaluation kernel pⁿ·Â and submodule induction; N need not factor through A/pⁿ or be flat. This finite-level result does not prove injectivity of R̂⊗_A N→R̂⊗_Â N. Passing through an inverse limit would require justified tensor/Hom/Ext comparison hypotheses and cannot be inferred for arbitrary N. Knudsen Proposition6, Proposition7, owner-level stable-reflexivity, faithful reflection, hull identification, sheaf descent, approximation and all eight geometric stages remain open. Current Native and FullCanonical are uncompiled proof draft and admitted plan respectively; older compilation receipts are historical only.",
+        "The actual finite quotient maps now preserve completed coefficients, compose and have identity laws. The finite tensor equivalence and its inverse commute with every quotient transition and every completed-coefficient-module map. The inherited original-coefficient quotient action is compared explicitly with the displayed finite coefficient homomorphism, repairing the native proof draft without changing its hypotheses. This supplies the coherent finite family, but no inverse-limit diagram, limit comparison, tensor/limit interchange, whole completed-ring injectivity, universally acyclic completion or faithful reflection is claimed. The reusable relative stable-reflexivity interface, Knudsen Proposition6 and the Proposition7 exercise, pointed hull, family/sheaf descent, approximation and all eight geometric stages remain open."
       ]
     },
     {
@@ -23077,7 +23664,7 @@
       "neededBy": [
         "StableReductionPartII:MC.2/dual-section-ideal"
       ],
-      "detail": "The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial. Do not replace R̂⊗_Ŝ N by R̂⊗_S N for an arbitrary Ŝ-module N. Knudsen Proposition6 cites Bourbaki III5.4.4 without an argument; Proposition7 is an exercise. These remain unproved inputs here. The general stable-Hom/Ext formula in Ile §2.3 is false without additional hypotheses (E11) and is not a substitute. The actual ideal-adic coefficient homomorphism Â→R̂ is now constructed from compatible native finite quotients for the polynomial nodal chart whenever p⊆ι⁻¹(m). Its original-coefficient square, finite evaluations, uniqueness and actual A→Â→R̂ scalar tower have explicit native signatures and proof bodies. The complete new native and admitted files are not freshly compiled in this continuation because available memory is below the WORKERS.md threshold. For every Â-module N, the native R̂-linear comparison R̂⊗_A N→R̂⊗_Â N is surjective, with its exact Â-linear kernel generated by completed-coefficient balancing differences. This identifies the additional quotient; injectivity is not claimed. Next establish the reusable owner-level relative stable-reflexivity formulation and the actual two-base completion Hom/Ext or universally acyclic-complex comparison with justified faithful reflection, then the pointed completed-local hull, coefficient-compatible sheaf descent and arbitrary-base approximation. Bourbaki III5.4.4 remains unread and Proposition7 remains an exercise input. All eight stages remain partial. For finitely generated p and every Â-module N, the finite quotients now have an explicit actual equivalence Qₙ⊗_A N≃Qₙ⊗_Â N and postcomposition equivalences on actual Hom spaces, including L=Qₙ⊗_R J. The proof uses the native completion evaluation kernel pⁿ·Â and submodule induction; N need not factor through A/pⁿ or be flat. This finite-level result does not prove injectivity of R̂⊗_A N→R̂⊗_Â N. Passing through an inverse limit would require justified tensor/Hom/Ext comparison hypotheses and cannot be inferred for arbitrary N. Knudsen Proposition6, Proposition7, owner-level stable-reflexivity, faithful reflection, hull identification, sheaf descent, approximation and all eight geometric stages remain open. Current Native and FullCanonical are uncompiled proof draft and admitted plan respectively; older compilation receipts are historical only."
+      "detail": "The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial. Do not replace R̂⊗_Ŝ N by R̂⊗_S N for an arbitrary Ŝ-module N. Knudsen Proposition6 cites Bourbaki III5.4.4 without an argument; Proposition7 is an exercise. These remain unproved inputs here. The general stable-Hom/Ext formula in Ile §2.3 is false without additional hypotheses (E11) and is not a substitute. The actual ideal-adic coefficient homomorphism Â→R̂ is now constructed from compatible native finite quotients for the polynomial nodal chart whenever p⊆ι⁻¹(m). Its original-coefficient square, finite evaluations, uniqueness and actual A→Â→R̂ scalar tower have explicit native signatures and proof bodies. The complete new native and admitted files are not freshly compiled in this continuation because available memory is below the WORKERS.md threshold. For every Â-module N, the native R̂-linear comparison R̂⊗_A N→R̂⊗_Â N is surjective, with its exact Â-linear kernel generated by completed-coefficient balancing differences. This identifies the additional quotient; injectivity is not claimed. Next establish the reusable owner-level relative stable-reflexivity formulation and the actual two-base completion Hom/Ext or universally acyclic-complex comparison with justified faithful reflection, then the pointed completed-local hull, coefficient-compatible sheaf descent and arbitrary-base approximation. Bourbaki III5.4.4 remains unread and Proposition7 remains an exercise input. All eight stages remain partial. For finitely generated p and every Â-module N, the finite quotients now have an explicit actual equivalence Qₙ⊗_A N≃Qₙ⊗_Â N and postcomposition equivalences on actual Hom spaces, including L=Qₙ⊗_R J. The proof uses the native completion evaluation kernel pⁿ·Â and submodule induction; N need not factor through A/pⁿ or be flat. This finite-level result does not prove injectivity of R̂⊗_A N→R̂⊗_Â N. Passing through an inverse limit would require justified tensor/Hom/Ext comparison hypotheses and cannot be inferred for arbitrary N. Knudsen Proposition6, Proposition7, owner-level stable-reflexivity, faithful reflection, hull identification, sheaf descent, approximation and all eight geometric stages remain open. Current Native and FullCanonical are uncompiled proof draft and admitted plan respectively; older compilation receipts are historical only. The actual finite quotient maps now preserve completed coefficients, compose and have identity laws. The finite tensor equivalence and its inverse commute with every quotient transition and every completed-coefficient-module map. The inherited original-coefficient quotient action is compared explicitly with the displayed finite coefficient homomorphism, repairing the native proof draft without changing its hypotheses. This supplies the coherent finite family, but no inverse-limit diagram, limit comparison, tensor/limit interchange, whole completed-ring injectivity, universally acyclic completion or faithful reflection is claimed. The reusable relative stable-reflexivity interface, Knudsen Proposition6 and the Proposition7 exercise, pointed hull, family/sheaf descent, approximation and all eight geometric stages remain open."
     }
   ],
   "sourceIssues": [
@@ -23621,8 +24208,8 @@
   ],
   "prototypeCoverage": {
     "status": "partial",
-    "compiled": false,
-    "reason": "The entire current Mathlib-only admitted sketch elaborates. A separately checked admission-free native archive preserves all prior polynomial/tensor/bidual bodies and supplies the actual arbitrary-coefficient-module Hom maps, signed coordinate proofs, R-linear isomorphisms, coefficient naturality and M=A unit/bidual comparisons. Higher Ext, relative stable reflexivity, two-base completion and all geometry remain open. The specialized actual Hom cochain signatures, positive native cohomology and signed augmentation cycles are now expressible; native resolution/Ext comparison remains outside this checkpoint. The actual native projective-resolution signatures and differential comparisons are now expressible; categorical Hom-complex/Ext comparisons remain open. The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain. The actual ideal-adic coefficient homomorphism Â→R̂ is now constructed from compatible native finite quotients for the polynomial nodal chart whenever p⊆ι⁻¹(m). Its original-coefficient square, finite evaluations, uniqueness and actual A→Â→R̂ scalar tower have explicit native signatures and proof bodies. The complete new native and admitted files are not freshly compiled in this continuation because available memory is below the WORKERS.md threshold. For every Â-module N, the native R̂-linear comparison R̂⊗_A N→R̂⊗_Â N is surjective, with its exact Â-linear kernel generated by completed-coefficient balancing differences. This identifies the additional quotient; injectivity is not claimed. Next establish the reusable owner-level relative stable-reflexivity formulation and the actual two-base completion Hom/Ext or universally acyclic-complex comparison with justified faithful reflection, then the pointed completed-local hull, coefficient-compatible sheaf descent and arbitrary-base approximation. Bourbaki III5.4.4 remains unread and Proposition7 remains an exercise input. All eight stages remain partial. Current complete suggested file not freshly compiled: available memory is below20 GB. Historical compilation receipts refer only to their own recovered source hashes. For finitely generated p and every Â-module N, the finite quotients now have an explicit actual equivalence Qₙ⊗_A N≃Qₙ⊗_Â N and postcomposition equivalences on actual Hom spaces, including L=Qₙ⊗_R J. The proof uses the native completion evaluation kernel pⁿ·Â and submodule induction; N need not factor through A/pⁿ or be flat. This finite-level result does not prove injectivity of R̂⊗_A N→R̂⊗_Â N. Passing through an inverse limit would require justified tensor/Hom/Ext comparison hypotheses and cannot be inferred for arbitrary N. Knudsen Proposition6, Proposition7, owner-level stable-reflexivity, faithful reflection, hull identification, sheaf descent, approximation and all eight geometric stages remain open. Current Native and FullCanonical are uncompiled proof draft and admitted plan respectively; older compilation receipts are historical only.",
+    "compiled": true,
+    "reason": "The entire current Mathlib-only admitted sketch elaborates. A separately checked admission-free native archive preserves all prior polynomial/tensor/bidual bodies and supplies the actual arbitrary-coefficient-module Hom maps, signed coordinate proofs, R-linear isomorphisms, coefficient naturality and M=A unit/bidual comparisons. Higher Ext, relative stable reflexivity, two-base completion and all geometry remain open. The specialized actual Hom cochain signatures, positive native cohomology and signed augmentation cycles are now expressible; native resolution/Ext comparison remains outside this checkpoint. The actual native projective-resolution signatures and differential comparisons are now expressible; categorical Hom-complex/Ext comparisons remain open. The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain. The actual ideal-adic coefficient homomorphism Â→R̂ is now constructed from compatible native finite quotients for the polynomial nodal chart whenever p⊆ι⁻¹(m). Its original-coefficient square, finite evaluations, uniqueness and actual A→Â→R̂ scalar tower have explicit native signatures and proof bodies. The complete new native and admitted files are not freshly compiled in this continuation because available memory is below the WORKERS.md threshold. For every Â-module N, the native R̂-linear comparison R̂⊗_A N→R̂⊗_Â N is surjective, with its exact Â-linear kernel generated by completed-coefficient balancing differences. This identifies the additional quotient; injectivity is not claimed. Next establish the reusable owner-level relative stable-reflexivity formulation and the actual two-base completion Hom/Ext or universally acyclic-complex comparison with justified faithful reflection, then the pointed completed-local hull, coefficient-compatible sheaf descent and arbitrary-base approximation. Bourbaki III5.4.4 remains unread and Proposition7 remains an exercise input. All eight stages remain partial. Current complete suggested file not freshly compiled: available memory is below20 GB. Historical compilation receipts refer only to their own recovered source hashes. For finitely generated p and every Â-module N, the finite quotients now have an explicit actual equivalence Qₙ⊗_A N≃Qₙ⊗_Â N and postcomposition equivalences on actual Hom spaces, including L=Qₙ⊗_R J. The proof uses the native completion evaluation kernel pⁿ·Â and submodule induction; N need not factor through A/pⁿ or be flat. This finite-level result does not prove injectivity of R̂⊗_A N→R̂⊗_Â N. Passing through an inverse limit would require justified tensor/Hom/Ext comparison hypotheses and cannot be inferred for arbitrary N. Knudsen Proposition6, Proposition7, owner-level stable-reflexivity, faithful reflection, hull identification, sheaf descent, approximation and all eight geometric stages remain open. Current Native and FullCanonical are uncompiled proof draft and admitted plan respectively; older compilation receipts are historical only. The actual finite quotient maps now preserve completed coefficients, compose and have identity laws. The finite tensor equivalence and its inverse commute with every quotient transition and every completed-coefficient-module map. The inherited original-coefficient quotient action is compared explicitly with the displayed finite coefficient homomorphism, repairing the native proof draft without changing its hypotheses. This supplies the coherent finite family, but no inverse-limit diagram, limit comparison, tensor/limit interchange, whole completed-ring injectivity, universally acyclic completion or faithful reflection is claimed. The reusable relative stable-reflexivity interface, Knudsen Proposition6 and the Proposition7 exercise, pointed hull, family/sheaf descent, approximation and all eight geometric stages remain open.",
     "expressedNodes": [
       "StableReductionPartII:MC.2/binary-node-form",
       "StableReductionPartII:MC.2/node-factorization-products",
@@ -23881,7 +24468,17 @@
       "StableReductionPartII:MC.2/finite-hom-equivalence",
       "StableReductionPartII:MC.2/finite-hom-evaluation",
       "StableReductionPartII:MC.2/finite-hom-inverse-evaluation",
-      "StableReductionPartII:MC.2/finite-hom-roundtrip"
+      "StableReductionPartII:MC.2/finite-hom-roundtrip",
+      "StableReductionPartII:MC.2/finite-chart-original-scalar",
+      "StableReductionPartII:MC.2/finite-transition-algebra",
+      "StableReductionPartII:MC.2/finite-transition-native",
+      "StableReductionPartII:MC.2/finite-transition-identity",
+      "StableReductionPartII:MC.2/finite-transition-compose",
+      "StableReductionPartII:MC.2/finite-transition-scalar",
+      "StableReductionPartII:MC.2/finite-tensor-transition",
+      "StableReductionPartII:MC.2/finite-tensor-inverse-transition",
+      "StableReductionPartII:MC.2/finite-tensor-coefficient-naturality",
+      "StableReductionPartII:MC.2/finite-tensor-inverse-coefficient"
     ],
     "expressedApi": [
       "NodeForm.eval",
@@ -26309,7 +26906,41 @@
       "exit": 0
     },
     "sectionResolutionPreviousReason": "The entire current Mathlib-only admitted sketch elaborates. A separately checked admission-free native archive preserves all prior polynomial/tensor/bidual bodies and supplies the actual arbitrary-coefficient-module Hom maps, signed coordinate proofs, R-linear isomorphisms, coefficient naturality and M=A unit/bidual comparisons. Higher Ext, relative stable reflexivity, two-base completion and all geometry remain open. The specialized actual Hom cochain signatures, positive native cohomology and signed augmentation cycles are now expressible; native resolution/Ext comparison remains outside this checkpoint.",
-    "sectionExtPreviousReason": "The entire current Mathlib-only admitted sketch elaborates. A separately checked admission-free native archive preserves all prior polynomial/tensor/bidual bodies and supplies the actual arbitrary-coefficient-module Hom maps, signed coordinate proofs, R-linear isomorphisms, coefficient naturality and M=A unit/bidual comparisons. Higher Ext, relative stable reflexivity, two-base completion and all geometry remain open. The specialized actual Hom cochain signatures, positive native cohomology and signed augmentation cycles are now expressible; native resolution/Ext comparison remains outside this checkpoint. The actual native projective-resolution signatures and differential comparisons are now expressible; categorical Hom-complex/Ext comparisons remain open."
+    "sectionExtPreviousReason": "The entire current Mathlib-only admitted sketch elaborates. A separately checked admission-free native archive preserves all prior polynomial/tensor/bidual bodies and supplies the actual arbitrary-coefficient-module Hom maps, signed coordinate proofs, R-linear isomorphisms, coefficient naturality and M=A unit/bidual comparisons. Higher Ext, relative stable reflexivity, two-base completion and all geometry remain open. The specialized actual Hom cochain signatures, positive native cohomology and signed augmentation cycles are now expressible; native resolution/Ext comparison remains outside this checkpoint. The actual native projective-resolution signatures and differential comparisons are now expressible; categorical Hom-complex/Ext comparisons remain open.",
+    "finiteCoherenceCompilation": {
+      "native": {
+        "time": "2026-10-03T09:21:34.817626+00:00",
+        "file": "Native.lean",
+        "sha256": "162dcf957d43986427dbab003a1de181e7306513dd5c59d8c2aad4fbc1d9e407",
+        "availableGiB": 84,
+        "started": true,
+        "exit": 0,
+        "lines": 5457,
+        "examples": 189,
+        "audits": 328,
+        "warnings": 0,
+        "admissionWarnings": 0,
+        "seconds": "0:43.32",
+        "peakRSSKiB": 4086664,
+        "diagnosticsSha256": "183f103fa414da1eedde9b390a0f46dee2eaf5e60dfe98764ae745aa5f299f0a"
+      },
+      "canonical": {
+        "time": "2026-10-03T09:22:24.156846+00:00",
+        "file": "Canonical.lean",
+        "sha256": "d16a9eb659f754b6e41d1e11a2fe748fa8d9136035f5a3c922cda7c9c51abcda",
+        "availableGiB": 83,
+        "started": true,
+        "exit": 0,
+        "lines": 4220,
+        "examples": 251,
+        "audits": 0,
+        "warnings": 621,
+        "admissionWarnings": 621,
+        "seconds": "0:35.22",
+        "peakRSSKiB": 3639336,
+        "diagnosticsSha256": "38b990b540105dbfcc8f460acec9aee03e2286ff46269eb830e562489fde9bac"
+      }
+    }
   },
   "upstreamImportEncoding": {
     "status": "canonical",
