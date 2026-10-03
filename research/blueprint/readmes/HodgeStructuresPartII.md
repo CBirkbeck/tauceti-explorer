@@ -1,3 +1,235 @@
+# Affine parameter pullback along ring towers
+
+For a compatible commutative algebra tower R→S→T and genuine supplied calculus maps m:Ω→Γ and n:Γ→Δ, construct the actual iterated pullback on T⊗_S(S⊗_R E). Only g(f(λ)) is rewritten as λ_T; the existing additive operator is retained.
+
+Use the existing native c=TensorProduct.AlgebraTensorModule.cancelBaseChange R S T T E. It sends t⊗(s⊗e) to (s•t)⊗e; its inverse sends t⊗e to t⊗(1⊗e). Scalar units compose through c. Tensor induction gives the actual one-form comparison. The transported iterated connection has horizontal direct scalar unit, so the existing uniqueness theorem proves equality with direct pullback as structures, not just on generators. Native transport and its actual inverse give both horizontal directions, then the inherited extension/curvature theorems give their compatibility. The two T-connections are flat simultaneously, without requiring d₀λ=0 or faithful scalar extension. This is not reflection of source curvature from T back to R.
+
+The constructed ℤ→ℤ[x]→ℤ[x] test has identity second step. Zero source derivation and D=unit(2) give a zero source operator, but the derivative on x⊗1 is 2. Native cancellation preserves it and the iterated operator is nonzero. This is not a ramified second-step test; the incoming genuine x↦x² calculus-map test remains unchanged in native evidence.
+
+The new tower results are authored algebraic deductions. Fresh background reading: [Esnault–Groechenig author copy](https://www.mi.fu-berlin.de/users/esnault/preprints/helene/126_esn_gro.pdf), printed pp.23–24 including the full printed Lemma4.9 proof, and [Stacks tag07J5](https://stacks.math.columbia.edu/tag/07J5), full §60.15 including Lemma60.15.1 proof. Neither states the arbitrary-ring tower theorem. No whole-paper reading, new published-version collation or rendered-PDF inspection is claimed.
+
+Native declarations were read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174: TensorProduct/Tower.lean 431–453 (c and pure-tensor equations), Algebra/Algebra/Tower.lean 127–132 (tower algebra maps), Ring/CompTypeclasses.lean 64–67 (composition triple), and TensorProduct/Map.lean 53–61 (semilinear tensor map). All four reviewed Hodge AUDIT-02 rows and REV-AUDIT-02 are retained; no parent Hodge object is redefined.
+
+### Calculus composition along an algebra tower
+
+`TwoForms.Morphism.towerComp`
+
+Construct the calculus map at native algebraMap R T: its degree-one/two maps are n.one∘m.one and n.two∘m.two and preserve d₀,d₁ and wedge.
+
+Hypotheses: k,R,S,T are arbitrary commutative rings, R,S,T are k-algebras, and R→S→T is a compatible algebra tower with its native IsScalarTower equation. No injectivity, flatness, field, characteristic, smoothness or nontrivial-ring hypothesis is imposed. E is an arbitrary R-module in an independent universe. Ω,Γ,Δ are the supplied affine TwoForms calculi on independent degree-one/two module universes. m,n are their actual semilinear calculus maps. No universal exterior algebra or sheaf carrier is constructed. D is the actual additive λ-preconnection, for arbitrary λ∈R; the tower parameter is the single λ_T=algebraMap R T λ. The degree-one k scalar towers support the inherited extension/curvature/transport interfaces. No d₀λ=0 premise is needed to compare the two T-connections. This is not reflection of source curvature from T back to R.
+
+Proof: Supply RingHomCompTriple from the actual algebra-tower equation. Compose semilinear maps and the two differential and wedge compatibility equations. No new calculus is chosen.
+
+Dependencies: `HodgeStructuresPartII:H.0/calculus-ring-composition`, `mathlib:IsScalarTower.algebraMap_eq`, `mathlib:RingHomCompTriple`.
+
+API `TwoForms.Morphism.towerComp_one`: (n.towerComp(m)).one(ω)=n.one(m.one(ω)) for every ω∈W.
+
+API `TwoForms.Morphism.towerComp_two`: (n.towerComp(m)).two(η)=n.two(m.two(η)) for every η∈Z.
+
+API `TwoForms.Morphism.towerComp_d0`: dΔ,₀(f_RT(r))=n.one(m.one(dΩ,₀r)) for every r∈R.
+
+Test `TwoForms.Morphism.towerComp.test_one` (compatibility): The degree-one map is actual composition at every ω.
+
+Test `TwoForms.Morphism.towerComp.test_two` (compatibility): The degree-two map is actual composition at every η.
+
+Test `TwoForms.Morphism.towerComp.test_differential` (compatibility): dΔ,₀(f_RT(r))=n.one(m.one(dΩ,₀r)) at every scalar.
+
+### Degree-one tower composition
+
+`TwoForms.Morphism.towerComp_one`
+
+(n.towerComp(m)).one(ω)=n.one(m.one(ω)) for every ω∈W.
+
+Hypotheses: k,R,S,T are arbitrary commutative rings, R,S,T are k-algebras, and R→S→T is a compatible algebra tower with its native IsScalarTower equation. No injectivity, flatness, field, characteristic, smoothness or nontrivial-ring hypothesis is imposed. E is an arbitrary R-module in an independent universe. Ω,Γ,Δ are the supplied affine TwoForms calculi on independent degree-one/two module universes. m,n are their actual semilinear calculus maps. No universal exterior algebra or sheaf carrier is constructed. D is the actual additive λ-preconnection, for arbitrary λ∈R; the tower parameter is the single λ_T=algebraMap R T λ. The degree-one k scalar towers support the inherited extension/curvature/transport interfaces. No d₀λ=0 premise is needed to compare the two T-connections. This is not reflection of source curvature from T back to R.
+
+Proof: Unfold the actual composition; the equation is definitional.
+
+Dependencies: `HodgeStructuresPartII:H.0/tower-calculus-composition`.
+
+### Degree-two tower composition
+
+`TwoForms.Morphism.towerComp_two`
+
+(n.towerComp(m)).two(η)=n.two(m.two(η)) for every η∈Z.
+
+Hypotheses: k,R,S,T are arbitrary commutative rings, R,S,T are k-algebras, and R→S→T is a compatible algebra tower with its native IsScalarTower equation. No injectivity, flatness, field, characteristic, smoothness or nontrivial-ring hypothesis is imposed. E is an arbitrary R-module in an independent universe. Ω,Γ,Δ are the supplied affine TwoForms calculi on independent degree-one/two module universes. m,n are their actual semilinear calculus maps. No universal exterior algebra or sheaf carrier is constructed. D is the actual additive λ-preconnection, for arbitrary λ∈R; the tower parameter is the single λ_T=algebraMap R T λ. The degree-one k scalar towers support the inherited extension/curvature/transport interfaces. No d₀λ=0 premise is needed to compare the two T-connections. This is not reflection of source curvature from T back to R.
+
+Proof: Unfold the actual degree-two composition; the equation is definitional.
+
+Dependencies: `HodgeStructuresPartII:H.0/tower-calculus-composition`.
+
+### Degree-zero tower differential
+
+`TwoForms.Morphism.towerComp_d0`
+
+dΔ,₀(f_RT(r))=n.one(m.one(dΩ,₀r)) for every r∈R.
+
+Hypotheses: k,R,S,T are arbitrary commutative rings, R,S,T are k-algebras, and R→S→T is a compatible algebra tower with its native IsScalarTower equation. No injectivity, flatness, field, characteristic, smoothness or nontrivial-ring hypothesis is imposed. E is an arbitrary R-module in an independent universe. Ω,Γ,Δ are the supplied affine TwoForms calculi on independent degree-one/two module universes. m,n are their actual semilinear calculus maps. No universal exterior algebra or sheaf carrier is constructed. D is the actual additive λ-preconnection, for arbitrary λ∈R; the tower parameter is the single λ_T=algebraMap R T λ. The degree-one k scalar towers support the inherited extension/curvature/transport interfaces. No d₀λ=0 premise is needed to compare the two T-connections. This is not reflection of source curvature from T back to R.
+
+Proof: Apply the actual d₀_map equation of the composed calculus map.
+
+Dependencies: `HodgeStructuresPartII:H.0/tower-calculus-composition`.
+
+### Twice-pulled-back parameter connection
+
+`Preconnection.affinePullbackTower`
+
+Construct D_twice on native T⊗_S(S⊗_R E) with exactly the additive map (D.affinePullback(m)).affinePullback(n). Rewrite only g(f(λ)) as λ_T. Its Leibniz correction is one λ_T, not 2λ_T.
+
+Hypotheses: k,R,S,T are arbitrary commutative rings, R,S,T are k-algebras, and R→S→T is a compatible algebra tower with its native IsScalarTower equation. No injectivity, flatness, field, characteristic, smoothness or nontrivial-ring hypothesis is imposed. E is an arbitrary R-module in an independent universe. Ω,Γ,Δ are the supplied affine TwoForms calculi on independent degree-one/two module universes. m,n are their actual semilinear calculus maps. No universal exterior algebra or sheaf carrier is constructed. D is the actual additive λ-preconnection, for arbitrary λ∈R; the tower parameter is the single λ_T=algebraMap R T λ. The degree-one k scalar towers support the inherited extension/curvature/transport interfaces. No d₀λ=0 premise is needed to compare the two T-connections. This is not reflection of source curvature from T back to R.
+
+Proof: Keep the existing twice-pulled-back additive operator. Rewrite the parameter in its proved Leibniz rule by the tower equation. No existential choice or stored horizontality oracle is used.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-pullback`, `mathlib:IsScalarTower.algebraMap_apply`.
+
+API `Preconnection.affinePullbackTower_apply`: D_twice(x)=((D.affinePullback(m)).affinePullback(n))(x) for every x∈T⊗_S(S⊗_R E).
+
+API `Preconnection.affinePullback_tower_eq`: Transport of D_twice along native c equals D_direct=D.affinePullback(n.towerComp(m)) as preconnection structures, not merely on elementary tensors.
+
+API `Preconnection.affinePullback_tower_horizontal`: D_direct(c(x))=(c⊗id_P)D_twice(x) for every x∈T⊗_S(S⊗_R E).
+
+API `Preconnection.affinePullback_tower_horizontal_symm`: D_twice(c⁻¹(x))=(c⁻¹⊗id_P)D_direct(x) for every x∈T⊗_R E.
+
+API `Preconnection.affinePullback_tower_extend`: D_direct,₁((c⊗id_P)x)=(c⊗id_Q)D_twice,₁(x) for every x∈(T⊗_S(S⊗_R E))⊗_T P.
+
+API `Preconnection.affinePullback_tower_curvature`: κ_direct(c(x))=(c⊗id_Q)κ_twice(x) for every x∈T⊗_S(S⊗_R E), without a constant-parameter hypothesis.
+
+API `Preconnection.affinePullback_tower_flat_iff`: κ_direct=0 everywhere if and only if κ_twice=0 everywhere. No faithful-flatness or d₀λ=0 premise is needed to compare these two T-connections.
+
+Test `Preconnection.affinePullbackTower.test_actual_operator` (compatibility): The tower additive operator equals actual successive pullback on every element.
+
+Test `Preconnection.affinePullbackTower.test_single_parameter` (compatibility): D_twice(t x)=tD_twice(x)+λ_T x⊗dΔ,₀t, with one parameter correction.
+
+Test `scalarUnit_cancelBaseChange.test_unit` (compatibility): Nested scalar units cancel to the direct scalar unit.
+
+Test `Preconnection.affinePullbackTower.test_structure_equality` (compatibility): Cancellation transports D_twice to D_direct as structures.
+
+Test `Preconnection.affinePullbackTower.test_inverse` (compatibility): The inverse equation uses c⁻¹(t⊗e)=t⊗(1⊗e).
+
+Test `Preconnection.affinePullbackTower.test_extension` (compatibility): The actual exterior extension commutes with cancellation.
+
+Test `Preconnection.affinePullbackTower.test_curvature` (compatibility): Curvature commutes with cancellation for arbitrary λ.
+
+Test `Preconnection.affinePullbackTower.test_flatness_equivalence` (compatibility): The two T-connections have equivalent flatness without faithful scalar extension.
+
+Test `Preconnection.affinePullbackTower.test_zero_higgs` (degenerate): At λ=0 direct pullback has no derivative correction.
+
+Test `Preconnection.affinePullbackTower.test_polynomial_derivative_survives` (computation): Construct the actual tower ℤ→ℤ[x]→ℤ[x] with identity second step, zero source derivation, target polynomial derivative and D=unit(2). D is zero, but the direct operator at c(1⊗(x⊗1)) equals 2((1⊗1)⊗1), and the twice-pulled-back operator there is nonzero. This is not a ramified second-step example.
+
+### Underlying twice-pulled-back operator
+
+`Preconnection.affinePullbackTower_apply`
+
+D_twice(x)=((D.affinePullback(m)).affinePullback(n))(x) for every x∈T⊗_S(S⊗_R E).
+
+Hypotheses: k,R,S,T are arbitrary commutative rings, R,S,T are k-algebras, and R→S→T is a compatible algebra tower with its native IsScalarTower equation. No injectivity, flatness, field, characteristic, smoothness or nontrivial-ring hypothesis is imposed. E is an arbitrary R-module in an independent universe. Ω,Γ,Δ are the supplied affine TwoForms calculi on independent degree-one/two module universes. m,n are their actual semilinear calculus maps. No universal exterior algebra or sheaf carrier is constructed. D is the actual additive λ-preconnection, for arbitrary λ∈R; the tower parameter is the single λ_T=algebraMap R T λ. The degree-one k scalar towers support the inherited extension/curvature/transport interfaces. No d₀λ=0 premise is needed to compare the two T-connections. This is not reflection of source curvature from T back to R.
+
+Proof: The underlying additive-map equation is definitional.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-pullback-tower`.
+
+### Scalar units under tower cancellation
+
+`scalarUnit_cancelBaseChange`
+
+For native c=AlgebraTensorModule.cancelBaseChange R S T T E, c(η_ST(η_RS(e)))=η_RT(e) for every e.
+
+Hypotheses: k,R,S,T are arbitrary commutative rings, R,S,T are k-algebras, and R→S→T is a compatible algebra tower with its native IsScalarTower equation. No injectivity, flatness, field, characteristic, smoothness or nontrivial-ring hypothesis is imposed. E is an arbitrary R-module in an independent universe. Ω,Γ,Δ are the supplied affine TwoForms calculi on independent degree-one/two module universes. m,n are their actual semilinear calculus maps. No universal exterior algebra or sheaf carrier is constructed. D is the actual additive λ-preconnection, for arbitrary λ∈R; the tower parameter is the single λ_T=algebraMap R T λ. The degree-one k scalar towers support the inherited extension/curvature/transport interfaces. No d₀λ=0 premise is needed to compare the two T-connections. This is not reflection of source curvature from T back to R.
+
+Proof: Apply the native pure-tensor formula to 1⊗(1⊗e). It gives (1•1)⊗e=1⊗e. Do not redefine c.
+
+Dependencies: `HodgeStructuresPartII:H.0/scalar-extension-unit`, `mathlib:TensorProduct.AlgebraTensorModule.cancelBaseChange`, `mathlib:TensorProduct.AlgebraTensorModule.cancelBaseChange_tmul`.
+
+### Composed one-form scalar unit
+
+`scalarUnit_tower_tensor`
+
+(c⊗id_P)((η_ST⊗n.one)((η_RS⊗m.one)x))=(η_RT⊗(n.towerComp(m)).one)x for every x∈E⊗_R W.
+
+Hypotheses: k,R,S,T are arbitrary commutative rings, R,S,T are k-algebras, and R→S→T is a compatible algebra tower with its native IsScalarTower equation. No injectivity, flatness, field, characteristic, smoothness or nontrivial-ring hypothesis is imposed. E is an arbitrary R-module in an independent universe. Ω,Γ,Δ are the supplied affine TwoForms calculi on independent degree-one/two module universes. m,n are their actual semilinear calculus maps. No universal exterior algebra or sheaf carrier is constructed. D is the actual additive λ-preconnection, for arbitrary λ∈R; the tower parameter is the single λ_T=algebraMap R T λ. The degree-one k scalar towers support the inherited extension/curvature/transport interfaces. No d₀λ=0 premise is needed to compare the two T-connections. This is not reflection of source curvature from T back to R.
+
+Proof: Tensor induction reduces to e⊗ω. Apply scalar-unit cancellation and actual degree-one composition. Additivity handles zero and sums.
+
+Dependencies: `HodgeStructuresPartII:H.0/scalar-unit-tower-cancellation`, `HodgeStructuresPartII:H.0/tower-calculus-one`, `mathlib:TensorProduct.map`, `mathlib:TensorProduct.induction_on`.
+
+### Tower pullback connection equality
+
+`Preconnection.affinePullback_tower_eq`
+
+Transport of D_twice along native c equals D_direct=D.affinePullback(n.towerComp(m)) as preconnection structures, not merely on elementary tensors.
+
+Hypotheses: k,R,S,T are arbitrary commutative rings, R,S,T are k-algebras, and R→S→T is a compatible algebra tower with its native IsScalarTower equation. No injectivity, flatness, field, characteristic, smoothness or nontrivial-ring hypothesis is imposed. E is an arbitrary R-module in an independent universe. Ω,Γ,Δ are the supplied affine TwoForms calculi on independent degree-one/two module universes. m,n are their actual semilinear calculus maps. No universal exterior algebra or sheaf carrier is constructed. D is the actual additive λ-preconnection, for arbitrary λ∈R; the tower parameter is the single λ_T=algebraMap R T λ. The degree-one k scalar towers support the inherited extension/curvature/transport interfaces. No d₀λ=0 premise is needed to compare the two T-connections. This is not reflection of source curvature from T back to R.
+
+Proof: Apply direct-pullback uniqueness. The inverse cancellation sends η_RT(e) to η_ST(η_RS(e)). Successive unit horizontality and the one-form tensor comparison prove the unit equation. Uniqueness including proof irrelevance yields structure equality.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-pullback-tower`, `HodgeStructuresPartII:H.0/scalar-unit-tower-tensor`, `HodgeStructuresPartII:H.0/affine-pullback-unique`, `HodgeStructuresPartII:H.0/affine-pullback-unit-horizontal`, `HodgeStructuresPartII:H.0/affine-coordinate-transport`, `mathlib:TensorProduct.AlgebraTensorModule.cancelBaseChange_symm_tmul`.
+
+### Horizontal tower cancellation
+
+`Preconnection.affinePullback_tower_horizontal`
+
+D_direct(c(x))=(c⊗id_P)D_twice(x) for every x∈T⊗_S(S⊗_R E).
+
+Hypotheses: k,R,S,T are arbitrary commutative rings, R,S,T are k-algebras, and R→S→T is a compatible algebra tower with its native IsScalarTower equation. No injectivity, flatness, field, characteristic, smoothness or nontrivial-ring hypothesis is imposed. E is an arbitrary R-module in an independent universe. Ω,Γ,Δ are the supplied affine TwoForms calculi on independent degree-one/two module universes. m,n are their actual semilinear calculus maps. No universal exterior algebra or sheaf carrier is constructed. D is the actual additive λ-preconnection, for arbitrary λ∈R; the tower parameter is the single λ_T=algebraMap R T λ. The degree-one k scalar towers support the inherited extension/curvature/transport interfaces. No d₀λ=0 premise is needed to compare the two T-connections. This is not reflection of source curvature from T back to R.
+
+Proof: Rewrite direct pullback by structure equality and use transport horizontality. No surjectivity of a scalar unit is assumed.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-pullback-tower-equality`, `HodgeStructuresPartII:H.0/coordinate-transport-horizontal`.
+
+### Horizontal inverse tower cancellation
+
+`Preconnection.affinePullback_tower_horizontal_symm`
+
+D_twice(c⁻¹(x))=(c⁻¹⊗id_P)D_direct(x) for every x∈T⊗_R E.
+
+Hypotheses: k,R,S,T are arbitrary commutative rings, R,S,T are k-algebras, and R→S→T is a compatible algebra tower with its native IsScalarTower equation. No injectivity, flatness, field, characteristic, smoothness or nontrivial-ring hypothesis is imposed. E is an arbitrary R-module in an independent universe. Ω,Γ,Δ are the supplied affine TwoForms calculi on independent degree-one/two module universes. m,n are their actual semilinear calculus maps. No universal exterior algebra or sheaf carrier is constructed. D is the actual additive λ-preconnection, for arbitrary λ∈R; the tower parameter is the single λ_T=algebraMap R T λ. The degree-one k scalar towers support the inherited extension/curvature/transport interfaces. No d₀λ=0 premise is needed to compare the two T-connections. This is not reflection of source curvature from T back to R.
+
+Proof: Apply inherited inverse horizontality to the actual linear equivalence c and its genuine inverse.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-pullback-tower-horizontal`, `HodgeStructuresPartII:H.0/affine-parameter-horizontal-inverse`.
+
+### Tower exterior-extension compatibility
+
+`Preconnection.affinePullback_tower_extend`
+
+D_direct,₁((c⊗id_P)x)=(c⊗id_Q)D_twice,₁(x) for every x∈(T⊗_S(S⊗_R E))⊗_T P.
+
+Hypotheses: k,R,S,T are arbitrary commutative rings, R,S,T are k-algebras, and R→S→T is a compatible algebra tower with its native IsScalarTower equation. No injectivity, flatness, field, characteristic, smoothness or nontrivial-ring hypothesis is imposed. E is an arbitrary R-module in an independent universe. Ω,Γ,Δ are the supplied affine TwoForms calculi on independent degree-one/two module universes. m,n are their actual semilinear calculus maps. No universal exterior algebra or sheaf carrier is constructed. D is the actual additive λ-preconnection, for arbitrary λ∈R; the tower parameter is the single λ_T=algebraMap R T λ. The degree-one k scalar towers support the inherited extension/curvature/transport interfaces. No d₀λ=0 premise is needed to compare the two T-connections. This is not reflection of source curvature from T back to R.
+
+Proof: Apply horizontal-extension naturality to T-linear c and its proved horizontal equation. Both sides use the same supplied target calculus Δ.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-pullback-tower-horizontal`, `HodgeStructuresPartII:H.0/extension-horizontal`.
+
+### Tower curvature compatibility
+
+`Preconnection.affinePullback_tower_curvature`
+
+κ_direct(c(x))=(c⊗id_Q)κ_twice(x) for every x∈T⊗_S(S⊗_R E), without a constant-parameter hypothesis.
+
+Hypotheses: k,R,S,T are arbitrary commutative rings, R,S,T are k-algebras, and R→S→T is a compatible algebra tower with its native IsScalarTower equation. No injectivity, flatness, field, characteristic, smoothness or nontrivial-ring hypothesis is imposed. E is an arbitrary R-module in an independent universe. Ω,Γ,Δ are the supplied affine TwoForms calculi on independent degree-one/two module universes. m,n are their actual semilinear calculus maps. No universal exterior algebra or sheaf carrier is constructed. D is the actual additive λ-preconnection, for arbitrary λ∈R; the tower parameter is the single λ_T=algebraMap R T λ. The degree-one k scalar towers support the inherited extension/curvature/transport interfaces. No d₀λ=0 premise is needed to compare the two T-connections. This is not reflection of source curvature from T back to R.
+
+Proof: Apply same-ring curvature naturality. Curvature is the defined exterior-extension composite, never the ill-typed D∘D.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-pullback-tower-horizontal`, `HodgeStructuresPartII:H.0/curvature-horizontal`.
+
+### Tower flatness equivalence
+
+`Preconnection.affinePullback_tower_flat_iff`
+
+κ_direct=0 everywhere if and only if κ_twice=0 everywhere. No faithful-flatness or d₀λ=0 premise is needed to compare these two T-connections.
+
+Hypotheses: k,R,S,T are arbitrary commutative rings, R,S,T are k-algebras, and R→S→T is a compatible algebra tower with its native IsScalarTower equation. No injectivity, flatness, field, characteristic, smoothness or nontrivial-ring hypothesis is imposed. E is an arbitrary R-module in an independent universe. Ω,Γ,Δ are the supplied affine TwoForms calculi on independent degree-one/two module universes. m,n are their actual semilinear calculus maps. No universal exterior algebra or sheaf carrier is constructed. D is the actual additive λ-preconnection, for arbitrary λ∈R; the tower parameter is the single λ_T=algebraMap R T λ. The degree-one k scalar towers support the inherited extension/curvature/transport interfaces. No d₀λ=0 premise is needed to compare the two T-connections. This is not reflection of source curvature from T back to R.
+
+Proof: Rewrite by structure equality and use transport-flatness equivalence along c. The degree-two map c⊗id_Q has the actual inverse c⁻¹⊗id_Q; this is unlike a general source-to-target scalar unit.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-pullback-tower-equality`, `HodgeStructuresPartII:H.0/coordinate-flatness-equivalence`.
+
+## Required frontier
+
+Actual affine iterated scalar extension agrees with direct pullback under native AlgebraTensorModule.cancelBaseChange as preconnection structures, in both horizontal directions and on extended differentials, curvature and flatness. This works for arbitrary λ and arbitrary modules over every compatible commutative algebra tower, with no basis, projectivity, flatness or injectivity hypothesis. It compares two T-connections and does not reflect curvature back to R. Still supply monoidal common-λ and universal exterior-power base-change comparisons, identity and three-step categorical pullback coherence, and genuine E1 sheaf tensor/restriction, equality detection and effective gluing. The reserved general finite-locally-free ringed-site key, all149 routed source obligations, five supplier requests, determinant/Tate/period adapters, arbitrary-Q tensor-valued shuffle and H.1–H.8 retain their open status. Previous frontier prose is checkpoint history.
+
+All321 incoming node objects,149 routes,35 typed omissions, five supplier requests, nine stage statuses, eleven gaps and the existing EG20/E10 source issue/version envelope are retained. The affine native evidence does not implement the atlas plan. All nodes remain unchecked. The complete canonical suggested file remains Mathlib-only; its admitted theorem/test bodies are planning signatures. The inherited reader below is unchanged checkpoint history.
+
 # Balanced affine pullback of parameter connections
 
 For f:R→S and a supplied compatible map of differential calculi (β₁,β₂), this continuation constructs the target connection on the actual native tensor module S⊗_R E. With η(e)=1⊗e, the formula is
