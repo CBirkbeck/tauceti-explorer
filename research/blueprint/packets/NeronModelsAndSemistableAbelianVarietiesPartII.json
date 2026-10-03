@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-stage partial design with 382 declaration nodes. The actual quadratic two-chart Scheme C and glued source N, their coefficient-compatible global morphism ν, both target-chart pullback squares, and global finiteness of ν have separately checked native prototypes. The actual overlap map has u=1/t and z=1/(tq). Identify C with the specified Proj cubic and N with the native projective line, prove the normalization universal property and projectivity/properness, then identify the conductor ideal sheaf and structure-sheaf exact sequence and derive finite-pushforward H0/H1. Separate I₂ geometry and all other inherited obligations remain required; all stages stay partial and all implementations unchecked. All incoming contracts, source qualifications, key ownership, routes, classification certificates, requests, gaps and planets are retained. The full Tau Ceti-importing suggested file is uncompiled; the exact Mathlib-only native and admitted extracts are separately checked prototypes.",
+  "summary": "Seven-stage partial design with 382 declaration nodes. The actual quadratic two-chart Scheme C and glued source N, their coefficient-compatible global morphism ν, both target-chart pullback squares, and global finiteness of ν have separately checked native prototypes. The actual overlap map has u=1/t and z=1/(tq). Identify C with the specified Proj cubic and N with the native projective line, prove the normalization universal property and projectivity/properness, then identify the conductor ideal sheaf and structure-sheaf exact sequence and derive finite-pushforward H0/H1. Separate I₂ geometry and all other inherited obligations remain required; all stages stay partial and all implementations unchecked. All incoming contracts, source qualifications, key ownership, routes, classification certificates, requests, gaps and planets are retained. The full Tau Ceti-importing suggested file is uncompiled; the exact Mathlib-only native and admitted extracts are separately checked prototypes. For every field k and q=t²+at+b, the specified finite global map ν:N→C is surjective; both schemes are integral, every source stalk is integrally closed, and an actual dense-open Scheme.PartialIso agrees with ν over Spec k. The projective-line and Proj identifications, normalization universal property, projectivity/properness, conductor ideal sheaf, structure-sheaf exact sequence and finite-pushforward H0/H1 remain separate obligations. The I₂ construction and all other inherited gaps remain open; seven stages stay partial and all implementations unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2229,6 +2229,139 @@
         "module": "Mathlib/Algebra/Polynomial/Degree/SmallDegree.lean",
         "provides": "A quadratic polynomial with nonzero quadratic coefficient has that leading coefficient.",
         "checked": "Statement and surrounding hypotheses read at the Mathlib pin on 2026-10-03; generic open-immersion pushout instance also read in Limits713 and Gluing867."
+      },
+      {
+        "ref": "mathlib:IsLocalization.isDomain_of_le_nonZeroDivisors",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Localization/Defs.lean",
+        "provides": "Domain localization at a submonoid of non-zero-divisors.",
+        "checked": "Relevant complete declaration statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:RingHom.IsIntegral.comap_surjective",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Spectrum/Prime/Topology.lean",
+        "provides": "Surjectivity on prime spectra of an injective integral ring map.",
+        "checked": "Relevant complete declaration statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsIntegralHom.SpecMap_iff",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/Integral.lean",
+        "provides": "Integral Spec-map criterion for the actual underlying ring homomorphism.",
+        "checked": "Relevant complete declaration statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:IsOpenMap.denseRange_of_isPreirreducibleSpace",
+        "kind": "lemma",
+        "module": "Mathlib/Topology/Irreducible.lean",
+        "provides": "A nonempty open-map image in a preirreducible space is dense.",
+        "checked": "Relevant complete declaration statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:Continuous.range_subset_closure_image_dense",
+        "kind": "lemma",
+        "module": "Mathlib/Topology/Continuous.lean",
+        "provides": "Continuity sends the entire source into the closure of a dense source image.",
+        "checked": "Relevant complete declaration statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:IrreducibleSpace.isIrreducible_univ",
+        "kind": "lemma",
+        "module": "Mathlib/Topology/Irreducible.lean",
+        "provides": "Irreducibility of the whole underlying set of an irreducible space.",
+        "checked": "Relevant complete declaration statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:IsIrreducible.image",
+        "kind": "lemma",
+        "module": "Mathlib/Topology/Irreducible.lean",
+        "provides": "Continuous images of irreducible subsets remain irreducible.",
+        "checked": "Relevant complete declaration statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsReduced.of_openCover",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Properties.lean",
+        "provides": "Reducedness descends from all members of an actual scheme open cover.",
+        "checked": "Relevant complete declaration statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsIntegral",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/Properties.lean",
+        "provides": "Native integral scheme: nonempty and domain rings of sections on nonempty opens.",
+        "checked": "Relevant complete declaration statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.isIntegral_of_irreducibleSpace_of_isReduced",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Properties.lean",
+        "provides": "The native reduced plus irreducible criterion for integral schemes.",
+        "checked": "Relevant complete declaration statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.PartialIso",
+        "kind": "structure",
+        "module": "Mathlib/AlgebraicGeometry/Birational/Birational.lean",
+        "provides": "Actual dense source and target opens equipped with a scheme isomorphism.",
+        "checked": "Relevant complete declaration statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.PartialIso.IsOver",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Birational/Birational.lean",
+        "provides": "Exact equation asserting coefficient compatibility of a partial isomorphism.",
+        "checked": "Relevant complete declaration statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.BirationalOver",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Birational/Birational.lean",
+        "provides": "Existence of a native partial isomorphism over the specified base.",
+        "checked": "Relevant complete declaration statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.isoOpensRange",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Restrict.lean",
+        "provides": "Specified isomorphism from an open immersion source to its actual open range.",
+        "checked": "Relevant complete declaration statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.isoOpensRange_hom_ι",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Restrict.lean",
+        "provides": "Forward factorization of an open immersion through its open range.",
+        "checked": "Relevant complete declaration statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.isoOpensRange_inv_comp",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Restrict.lean",
+        "provides": "Inverse factorization of the native open-range comparison.",
+        "checked": "Relevant complete declaration statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:isIntegrallyClosed_of_isLocalization",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/IntegralClosure/IntegrallyClosed.lean",
+        "provides": "Integral closedness of a localization of an integrally closed domain at non-zero-divisors.",
+        "checked": "Relevant complete declaration statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:IsIntegrallyClosed.of_equiv",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/IntegralClosure/IntegrallyClosed.lean",
+        "provides": "Transport integral closedness along an actual ring equivalence.",
+        "checked": "Relevant complete declaration statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Spec.stalkIso",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/AffineScheme.lean",
+        "provides": "Native ring isomorphism between an affine-scheme stalk and localization at its prime.",
+        "checked": "Relevant complete declaration statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by codex-7e92bd."
       }
     ]
   },
@@ -2660,6 +2793,19 @@
       "readSections": [
         "Codex codex-J6LwjP: full §3 terminology, both conductor diagrams, Propositions3.1–3.2 with their complete displayed proofs/count table and Proposition3.3 with its complete table. Inherited reading of other sections/sources is not recertified.",
         "The new scheme gluing, pullback/finiteness and reciprocal-coordinate statements are authored deductions from the incoming native quadratic charts and the pinned Mathlib declarations."
+      ]
+    },
+    {
+      "id": "schroer-7e92bd-normal-birational",
+      "title": "There is no Enriques surface over the integers",
+      "authors": "Stefan Schröer",
+      "edition": "arXiv:2004.07025v3 HTML; distinct from the Annals197(2023) version of record",
+      "url": "https://arxiv.org/html/2004.07025v3",
+      "sha256": "d14049912dcab6a438ed62363e246d0087c61342c51813ac482f5aba48d92456",
+      "accessed": "2026-10-03",
+      "readSections": [
+        "Codex codex-7e92bd: complete §3 terminology, both conductor diagrams, Propositions3.1–3.2 with displayed proofs/count table, and Proposition3.3 statement/table. No fresh complete-paper or recursive-source reading claim.",
+        "The new scheme surjectivity, integral and normal-stalk statements and dense-open isomorphism are authored deductions from the incoming native chart constructions and the named pinned Mathlib declarations."
       ]
     }
   ],
@@ -9628,7 +9774,8 @@
         "Use the specified native affine k-linear B/A_q≃E/k and its one-dimensional quadratic normalization defect. This identifies only the affine quotient: the original projective normalization, actual conductor ideal-sheaf, structure-sheaf exact sequence and finite-pushforward H0/H1 steps remain required.",
         "Use the specified infinity quotient chart, its coefficient-compatible localization equivalence and homogeneous coordinates. Import generic relative Proj charts/gluing from SF.0 to identify the actual projective cubic with the two-chart pinch and construct the finite normalization morphism. Then identify its conductor ideal sheaf and the actual O_C→ν_*O_P¹→j_*(E/k) sequence before deriving H0/H1; none of these global comparisons follows from an equation on coordinate tuples alone.",
         "Use the specified finite/infinity overlap equivalence and homogeneous coordinate compatibility as inputs to the actual SF.0 projective-chart/gluing comparison; these affine facts do not themselves construct the global normalization morphism.",
-        "Use the specified native glued scheme C, glued source N and actual finite morphism ν with its two cartesian chart restrictions. The native reciprocal infinity map has u=1/t and z=1/(tq), and the curve structure map preserves coefficients. The identifications C with the specified Proj cubic and N with P¹, the normalization universal property, projectivity, conductor ideal sheaf and finite-pushforward H0/H1 remain required; this global chart morphism is not a substitute for those comparisons."
+        "Use the specified native glued scheme C, glued source N and actual finite morphism ν with its two cartesian chart restrictions. The native reciprocal infinity map has u=1/t and z=1/(tq), and the curve structure map preserves coefficients. The identifications C with the specified Proj cubic and N with P¹, the normalization universal property, projectivity, conductor ideal sheaf and finite-pushforward H0/H1 remain required; this global chart morphism is not a substitute for those comparisons.",
+        "For every field k and q=t²+at+b, the specified finite global map ν:N→C is surjective; both schemes are integral, every source stalk is integrally closed, and an actual dense-open Scheme.PartialIso agrees with ν over Spec k. The projective-line and Proj identifications, normalization universal property, projectivity/properness, conductor ideal sheaf, structure-sheaf exact sequence and finite-pushforward H0/H1 remain separate obligations. The I₂ construction and all other inherited gaps remain open; seven stages stay partial and all implementations unchecked."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-point-proper-pushout",
@@ -9653,7 +9800,13 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-is-finite",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-structure-map",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-transition-root",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-chart-is-pullback"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-chart-is-pullback",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-global-surjective",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-curve-integral",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-source-integral",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-source-stalks",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso-map",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-birational-over"
       ],
       "sources": [
         {
@@ -21999,6 +22152,985 @@
           "how": "Supply the actual specialized two-chart scheme, finite global map and coefficient-compatible overlap before the projective-line/Proj, conductor-sheaf and finite-pushforward cohomology comparisons."
         }
       ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-infinity-denominator-nonzero",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Nonzero reciprocal denominator",
+      "kind": "lemma",
+      "statement": "The actual polynomial Q∞=bu²+au+1 is nonzero for every a,b∈k, including b=0 and characteristic two.",
+      "hypotheses": [
+        "k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed.",
+        "Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports."
+      ],
+      "proofSteps": [
+        "Evaluate its constant coefficient: it is 1, contradicting zero. This keeps the localization nontrivial even when the reciprocal polynomial drops degree."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-denominator"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-normal-birational",
+          "locator": "§3, one-component conductor square before Proposition3.1; authored deductions from the incoming explicit quadratic charts and the listed pinned library results.",
+          "match": "Schröer supplies the geometric motivation. These exact native chart and stalk comparisons are authored deductions; the projective-line identification, normalization universal property and cohomology are not claimed proved by the source passage."
+        }
+      ],
+      "acceptance": [
+        "The actual polynomial Q∞=bu²+au+1 is nonzero for every a,b∈k, including b=0 and characteristic two."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the genuine finite surjective map between integral schemes, its normal source stalks and specified dense-open comparison before the projective normalization and conductor-cohomology identifications."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.infinity_denominator_ne_zero"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-infinity-domain",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Integral infinity coordinate ring",
+      "kind": "lemma",
+      "statement": "The actual native infinity quotient I=k[u,z]/((bu²+au+1)z−u³) is an integral domain.",
+      "hypotheses": [
+        "k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed.",
+        "Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports."
+      ],
+      "proofSteps": [
+        "Use the existing coefficient-compatible localization I≃k[u,Q∞⁻¹] and the nonzero denominator. Apply the native domain localization theorem; no smoothness or root-splitting hypothesis is needed."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-localization",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-infinity-denominator-nonzero",
+        "mathlib:IsLocalization.isDomain_of_le_nonZeroDivisors"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-normal-birational",
+          "locator": "§3, one-component conductor square before Proposition3.1; authored deductions from the incoming explicit quadratic charts and the listed pinned library results.",
+          "match": "Schröer supplies the geometric motivation. These exact native chart and stalk comparisons are authored deductions; the projective-line identification, normalization universal property and cohomology are not claimed proved by the source passage."
+        }
+      ],
+      "acceptance": [
+        "The actual native infinity quotient I=k[u,z]/((bu²+au+1)z−u³) is an integral domain."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the genuine finite surjective map between integral schemes, its normal source stalks and specified dense-open comparison before the projective normalization and conductor-cohomology identifications."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.infinity_isDomain"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-overlap-domain",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Integral reciprocal overlap",
+      "kind": "lemma",
+      "statement": "The actual overlap L=k[t,(tq)⁻¹] is an integral domain and its affine spectrum is nonempty.",
+      "hypotheses": [
+        "k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed.",
+        "Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports."
+      ],
+      "proofSteps": [
+        "The quadratic q is monic of degree two; hence t·q is nonzero. Localize the polynomial domain at powers of this nonzero element."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring",
+        "mathlib:IsLocalization.isDomain_of_le_nonZeroDivisors"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-normal-birational",
+          "locator": "§3, one-component conductor square before Proposition3.1; authored deductions from the incoming explicit quadratic charts and the listed pinned library results.",
+          "match": "Schröer supplies the geometric motivation. These exact native chart and stalk comparisons are authored deductions; the projective-line identification, normalization universal property and cohomology are not claimed proved by the source passage."
+        }
+      ],
+      "acceptance": [
+        "The actual overlap L=k[t,(tq)⁻¹] is an integral domain and its affine spectrum is nonempty."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the genuine finite surjective map between integral schemes, its normal source stalks and specified dense-open comparison before the projective normalization and conductor-cohomology identifications."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.overlap_isDomain"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-chart-surjective",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Surjectivity of the finite chart map",
+      "kind": "lemma",
+      "statement": "The specified map n_F:Spec k[t]→Spec A_q induced by the actual inclusion A_q⊂k[t] is surjective on scheme points.",
+      "hypotheses": [
+        "k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed.",
+        "Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports."
+      ],
+      "proofSteps": [
+        "Use finite implies integral for the specified Spec map, then apply integral lying-over to its injective subalgebra inclusion. This is surjectivity on all prime ideals, not only on rational points."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-chart",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-chart-is-finite",
+        "mathlib:RingHom.IsIntegral.comap_surjective",
+        "mathlib:AlgebraicGeometry.IsIntegralHom.SpecMap_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-normal-birational",
+          "locator": "§3, one-component conductor square before Proposition3.1; authored deductions from the incoming explicit quadratic charts and the listed pinned library results.",
+          "match": "Schröer supplies the geometric motivation. These exact native chart and stalk comparisons are authored deductions; the projective-line identification, normalization universal property and cohomology are not claimed proved by the source passage."
+        }
+      ],
+      "acceptance": [
+        "The specified map n_F:Spec k[t]→Spec A_q induced by the actual inclusion A_q⊂k[t] is surjective on scheme points."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the genuine finite surjective map between integral schemes, its normal source stalks and specified dense-open comparison before the projective normalization and conductor-cohomology identifications."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalizationChart_surjective"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-global-surjective",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Surjectivity of the glued map",
+      "kind": "lemma",
+      "statement": "The actual global morphism ν:N(a,b)→C(a,b) is surjective on scheme points.",
+      "hypotheses": [
+        "k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed.",
+        "Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports."
+      ],
+      "proofSteps": [
+        "Use the two target charts. Lift finite-chart points through n_F by lying-over and then through s_F; lift infinity-chart points through s_I, where ν is the identity chart map."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-chart-surjective",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-charts-cover",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-finite-chart",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-infinity-chart"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-normal-birational",
+          "locator": "§3, one-component conductor square before Proposition3.1; authored deductions from the incoming explicit quadratic charts and the listed pinned library results.",
+          "match": "Schröer supplies the geometric motivation. These exact native chart and stalk comparisons are authored deductions; the projective-line identification, normalization universal property and cohomology are not claimed proved by the source passage."
+        }
+      ],
+      "acceptance": [
+        "The actual global morphism ν:N(a,b)→C(a,b) is surjective on scheme points."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the genuine finite surjective map between integral schemes, its normal source stalks and specified dense-open comparison before the projective normalization and conductor-cohomology identifications."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalization_surjective",
+      "tests": [
+        {
+          "name": "Global.normalization.nonsplit_surjective",
+          "kind": "compatibility",
+          "statement": "For q=t²+t+1 over F₂, the actual global map is surjective on scheme points, including nonrational primes."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-finite-overlap-dense",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Density of the finite overlap",
+      "kind": "lemma",
+      "statement": "The specified open immersion finiteOpen:Spec L→Spec A_q has dense range.",
+      "hypotheses": [
+        "k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed.",
+        "Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports."
+      ],
+      "proofSteps": [
+        "The subalgebra A_q of the polynomial domain is a domain. Its affine spectrum is irreducible; the overlap spectrum is nonempty. Apply the native density theorem for a nonempty open image."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open-is-open-immersion",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-overlap-domain",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra",
+        "mathlib:IsOpenMap.denseRange_of_isPreirreducibleSpace"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-normal-birational",
+          "locator": "§3, one-component conductor square before Proposition3.1; authored deductions from the incoming explicit quadratic charts and the listed pinned library results.",
+          "match": "Schröer supplies the geometric motivation. These exact native chart and stalk comparisons are authored deductions; the projective-line identification, normalization universal property and cohomology are not claimed proved by the source passage."
+        }
+      ],
+      "acceptance": [
+        "The specified open immersion finiteOpen:Spec L→Spec A_q has dense range."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the genuine finite surjective map between integral schemes, its normal source stalks and specified dense-open comparison before the projective normalization and conductor-cohomology identifications."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.finiteOpen_dense"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-source-overlap-dense",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Density of the normalized overlap",
+      "kind": "lemma",
+      "statement": "The specified open immersion normalizationOpen:Spec L→Spec k[t] has dense range.",
+      "hypotheses": [
+        "k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed.",
+        "Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports."
+      ],
+      "proofSteps": [
+        "Use irreducibility of Spec k[t], nonemptiness of Spec L and the native density theorem for open immersions into an irreducible space."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-open",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-open-is-open-immersion",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-overlap-domain",
+        "mathlib:IsOpenMap.denseRange_of_isPreirreducibleSpace"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-normal-birational",
+          "locator": "§3, one-component conductor square before Proposition3.1; authored deductions from the incoming explicit quadratic charts and the listed pinned library results.",
+          "match": "Schröer supplies the geometric motivation. These exact native chart and stalk comparisons are authored deductions; the projective-line identification, normalization universal property and cohomology are not claimed proved by the source passage."
+        }
+      ],
+      "acceptance": [
+        "The specified open immersion normalizationOpen:Spec L→Spec k[t] has dense range."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the genuine finite surjective map between integral schemes, its normal source stalks and specified dense-open comparison before the projective normalization and conductor-cohomology identifications."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalizationOpen_dense"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-infinity-dense",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Density of the infinity chart in the curve",
+      "kind": "lemma",
+      "statement": "The actual inclusion i_I:I→C of the infinity affine chart has dense range.",
+      "hypotheses": [
+        "k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed.",
+        "Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports."
+      ],
+      "proofSteps": [
+        "The overlap is dense in the finite chart. Continuity puts the whole finite-chart image in the closure of the image of the overlap. The gluing equation puts that image in i_I(I); the two-chart cover then gives density in all of C."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-finite-overlap-dense",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-charts-cover",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-chart-condition",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinityiota-is-open-immersion",
+        "mathlib:Continuous.range_subset_closure_image_dense"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-normal-birational",
+          "locator": "§3, one-component conductor square before Proposition3.1; authored deductions from the incoming explicit quadratic charts and the listed pinned library results.",
+          "match": "Schröer supplies the geometric motivation. These exact native chart and stalk comparisons are authored deductions; the projective-line identification, normalization universal property and cohomology are not claimed proved by the source passage."
+        }
+      ],
+      "acceptance": [
+        "The actual inclusion i_I:I→C of the infinity affine chart has dense range."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the genuine finite surjective map between integral schemes, its normal source stalks and specified dense-open comparison before the projective normalization and conductor-cohomology identifications."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.infinityι_dense"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-source-infinity-dense",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Density of the infinity chart in the source",
+      "kind": "lemma",
+      "statement": "The actual inclusion s_I:I→N of the source infinity chart has dense range.",
+      "hypotheses": [
+        "k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed.",
+        "Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports."
+      ],
+      "proofSteps": [
+        "Repeat the closure argument with the normalized finite chart Spec k[t] and its dense overlap. Use the actual source gluing equation and source chart cover."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-source-overlap-dense",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-charts-cover",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-chart-condition",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-infinityiota-is-open-immersion",
+        "mathlib:Continuous.range_subset_closure_image_dense"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-normal-birational",
+          "locator": "§3, one-component conductor square before Proposition3.1; authored deductions from the incoming explicit quadratic charts and the listed pinned library results.",
+          "match": "Schröer supplies the geometric motivation. These exact native chart and stalk comparisons are authored deductions; the projective-line identification, normalization universal property and cohomology are not claimed proved by the source passage."
+        }
+      ],
+      "acceptance": [
+        "The actual inclusion s_I:I→N of the source infinity chart has dense range."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the genuine finite surjective map between integral schemes, its normal source stalks and specified dense-open comparison before the projective normalization and conductor-cohomology identifications."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.sourceInfinityι_dense"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-curve-integral",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Integrality of the glued curve",
+      "kind": "lemma",
+      "statement": "The specified two-chart native scheme C(a,b) satisfies AlgebraicGeometry.IsIntegral over every field k.",
+      "hypotheses": [
+        "k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed.",
+        "Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports."
+      ],
+      "proofSteps": [
+        "The closure of the continuous image of the irreducible infinity chart is all C, proving irreducibility. Both affine chart rings are domains, hence their schemes are reduced. Apply the existing open-cover reducedness theorem and the native reduced-plus-irreducible criterion."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-infinity-domain",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-infinity-dense",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-charts-cover",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finiteiota-is-open-immersion",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinityiota-is-open-immersion",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra",
+        "mathlib:IrreducibleSpace.isIrreducible_univ",
+        "mathlib:IsIrreducible.image",
+        "mathlib:AlgebraicGeometry.IsReduced.of_openCover",
+        "mathlib:AlgebraicGeometry.IsIntegral",
+        "mathlib:AlgebraicGeometry.isIntegral_of_irreducibleSpace_of_isReduced"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-normal-birational",
+          "locator": "§3, one-component conductor square before Proposition3.1; authored deductions from the incoming explicit quadratic charts and the listed pinned library results.",
+          "match": "Schröer supplies the geometric motivation. These exact native chart and stalk comparisons are authored deductions; the projective-line identification, normalization universal property and cohomology are not claimed proved by the source passage."
+        }
+      ],
+      "acceptance": [
+        "The specified two-chart native scheme C(a,b) satisfies AlgebraicGeometry.IsIntegral over every field k."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the genuine finite surjective map between integral schemes, its normal source stalks and specified dense-open comparison before the projective normalization and conductor-cohomology identifications."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.curve_isIntegral",
+      "tests": [
+        {
+          "name": "Global.normalization.cusp_integral",
+          "kind": "degenerate",
+          "statement": "For the characteristic-two repeated-root cusp q=t², both actual glued schemes C and N are integral."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-source-integral",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Integrality of the glued source",
+      "kind": "lemma",
+      "statement": "The specified source N(a,b), obtained by gluing Spec k[t] and I along the actual overlap, satisfies AlgebraicGeometry.IsIntegral.",
+      "hypotheses": [
+        "k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed.",
+        "Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports."
+      ],
+      "proofSteps": [
+        "The dense irreducible infinity image proves irreducibility. The polynomial chart and infinity chart are reduced; glue reducedness using the literal two-chart open cover and invoke the native integral-scheme criterion."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-infinity-domain",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-source-infinity-dense",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-charts-cover",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-finiteiota-is-open-immersion",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-infinityiota-is-open-immersion",
+        "mathlib:IrreducibleSpace.isIrreducible_univ",
+        "mathlib:IsIrreducible.image",
+        "mathlib:AlgebraicGeometry.IsReduced.of_openCover",
+        "mathlib:AlgebraicGeometry.IsIntegral",
+        "mathlib:AlgebraicGeometry.isIntegral_of_irreducibleSpace_of_isReduced"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-normal-birational",
+          "locator": "§3, one-component conductor square before Proposition3.1; authored deductions from the incoming explicit quadratic charts and the listed pinned library results.",
+          "match": "Schröer supplies the geometric motivation. These exact native chart and stalk comparisons are authored deductions; the projective-line identification, normalization universal property and cohomology are not claimed proved by the source passage."
+        }
+      ],
+      "acceptance": [
+        "The specified source N(a,b), obtained by gluing Spec k[t] and I along the actual overlap, satisfies AlgebraicGeometry.IsIntegral."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the genuine finite surjective map between integral schemes, its normal source stalks and specified dense-open comparison before the projective normalization and conductor-cohomology identifications."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.source_isIntegral"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Dense-open comparison of the specified map",
+      "kind": "construction",
+      "statement": "Construct the actual Scheme.PartialIso from N(a,b) to C(a,b) with source im(s_I), target im(i_I), and isomorphism s_I.isoOpensRange.symm followed by i_I.isoOpensRange. The opens are proved dense and the maps are the specified infinity-chart embeddings.",
+      "hypotheses": [
+        "k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed.",
+        "Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports."
+      ],
+      "proofSteps": [
+        "Use the native open-immersion isomorphisms onto the two actual open ranges. Compose the inverse source comparison with the target comparison and supply the two proved density fields of Scheme.PartialIso."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-source-infinity-dense",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-infinity-dense",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-infinityiota-is-open-immersion",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinityiota-is-open-immersion",
+        "mathlib:AlgebraicGeometry.Scheme.PartialIso",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.isoOpensRange"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-normal-birational",
+          "locator": "§3, one-component conductor square before Proposition3.1; authored deductions from the incoming explicit quadratic charts and the listed pinned library results.",
+          "match": "Schröer supplies the geometric motivation. These exact native chart and stalk comparisons are authored deductions; the projective-line identification, normalization universal property and cohomology are not claimed proved by the source passage."
+        }
+      ],
+      "acceptance": [
+        "Construct the actual Scheme.PartialIso from N(a,b) to C(a,b) with source im(s_I), target im(i_I), and isomorphism s_I.isoOpensRange.symm followed by i_I.isoOpensRange. The opens are proved dense and the maps are the specified infinity-chart embeddings."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the genuine finite surjective map between integral schemes, its normal source stalks and specified dense-open comparison before the projective normalization and conductor-cohomology identifications."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalizationPartialIso",
+      "api": [
+        {
+          "name": "QuadraticPinch.Global.normalizationPartialIso_source",
+          "role": "compatibility",
+          "statement": "The source open of normalizationPartialIso(a,b) is exactly im(s_I), as an equality of native opens of N."
+        },
+        {
+          "name": "QuadraticPinch.Global.normalizationPartialIso_target",
+          "role": "compatibility",
+          "statement": "The target open of normalizationPartialIso(a,b) is exactly im(i_I), as an equality of native opens of C."
+        },
+        {
+          "name": "QuadraticPinch.Global.normalizationPartialIso_map",
+          "role": "compatibility",
+          "statement": "For P=normalizationPartialIso(a,b), the actual morphism equality P.iso.hom ≫ P.target.ι = P.source.ι ≫ ν holds. This identifies the dense-open isomorphism with the restriction of the specified global map."
+        },
+        {
+          "name": "QuadraticPinch.Global.normalizationPartialIso_inverse",
+          "role": "compatibility",
+          "statement": "For P=normalizationPartialIso(a,b), P.iso.inv ≫ P.source.ι ≫ ν = P.target.ι. Thus the chosen inverse lands in the specified source open and is an inverse to the restricted global map."
+        },
+        {
+          "name": "QuadraticPinch.Global.normalizationPartialIso_over",
+          "role": "compatibility",
+          "statement": "The specified partial isomorphism is over Spec k for structure maps ν≫structureMap(a,b) on N and structureMap(a,b) on C, using native PartialIso.IsOver."
+        },
+        {
+          "name": "QuadraticPinch.Global.normalization_birationalOver",
+          "role": "compatibility",
+          "statement": "The native predicate Scheme.BirationalOver (ν≫structureMap(a,b)) (structureMap(a,b)) holds, witnessed by the specified normalizationPartialIso."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Global.normalizationPartialIso.cusp_source",
+          "kind": "degenerate",
+          "statement": "For q=t² over F₂ the specified partial isomorphism has source exactly im(s_I), retaining the repeated-root case."
+        },
+        {
+          "name": "Global.normalizationPartialIso.split_target",
+          "kind": "compatibility",
+          "statement": "For q=t²−1 over ℚ the specified partial isomorphism has target exactly im(i_I)."
+        },
+        {
+          "name": "Global.normalizationPartialIso.nonsplit_inverse",
+          "kind": "characterisation",
+          "statement": "For q=t²+t+1 over F₂, P.iso.inv≫P.source.ι≫ν=P.target.ι on the actual target open; an unrelated partial isomorphism fails this map comparison."
+        },
+        {
+          "name": "Global.normalizationPartialIso.over_coefficients",
+          "kind": "compatibility",
+          "statement": "For every a,b over every field, the chosen partial isomorphism is over the actual maps N→C→Spec k and C→Spec k."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso-source",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Specified source of the partial isomorphism",
+      "kind": "lemma",
+      "statement": "The source open of normalizationPartialIso(a,b) is exactly im(s_I), as an equality of native opens of N.",
+      "hypotheses": [
+        "k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed.",
+        "Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports."
+      ],
+      "proofSteps": [
+        "Unfold only the specified construction and read its source projection."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-normal-birational",
+          "locator": "§3, one-component conductor square before Proposition3.1; authored deductions from the incoming explicit quadratic charts and the listed pinned library results.",
+          "match": "Schröer supplies the geometric motivation. These exact native chart and stalk comparisons are authored deductions; the projective-line identification, normalization universal property and cohomology are not claimed proved by the source passage."
+        }
+      ],
+      "acceptance": [
+        "The source open of normalizationPartialIso(a,b) is exactly im(s_I), as an equality of native opens of N."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the genuine finite surjective map between integral schemes, its normal source stalks and specified dense-open comparison before the projective normalization and conductor-cohomology identifications."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalizationPartialIso_source"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso-target",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Specified target of the partial isomorphism",
+      "kind": "lemma",
+      "statement": "The target open of normalizationPartialIso(a,b) is exactly im(i_I), as an equality of native opens of C.",
+      "hypotheses": [
+        "k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed.",
+        "Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports."
+      ],
+      "proofSteps": [
+        "Unfold only the specified construction and read its target projection."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-normal-birational",
+          "locator": "§3, one-component conductor square before Proposition3.1; authored deductions from the incoming explicit quadratic charts and the listed pinned library results.",
+          "match": "Schröer supplies the geometric motivation. These exact native chart and stalk comparisons are authored deductions; the projective-line identification, normalization universal property and cohomology are not claimed proved by the source passage."
+        }
+      ],
+      "acceptance": [
+        "The target open of normalizationPartialIso(a,b) is exactly im(i_I), as an equality of native opens of C."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the genuine finite surjective map between integral schemes, its normal source stalks and specified dense-open comparison before the projective normalization and conductor-cohomology identifications."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalizationPartialIso_target"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso-map",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Agreement of the partial isomorphism with the global map",
+      "kind": "lemma",
+      "statement": "For P=normalizationPartialIso(a,b), the actual morphism equality P.iso.hom ≫ P.target.ι = P.source.ι ≫ ν holds. This identifies the dense-open isomorphism with the restriction of the specified global map.",
+      "hypotheses": [
+        "k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed.",
+        "Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports."
+      ],
+      "proofSteps": [
+        "Use the two isoOpensRange factorization equations, then the source infinity restriction s_I≫ν=i_I. Reassociate to compare morphisms from the native source open into C."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-infinity-chart",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.isoOpensRange_hom_ι",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.isoOpensRange_inv_comp"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-normal-birational",
+          "locator": "§3, one-component conductor square before Proposition3.1; authored deductions from the incoming explicit quadratic charts and the listed pinned library results.",
+          "match": "Schröer supplies the geometric motivation. These exact native chart and stalk comparisons are authored deductions; the projective-line identification, normalization universal property and cohomology are not claimed proved by the source passage."
+        }
+      ],
+      "acceptance": [
+        "For P=normalizationPartialIso(a,b), the actual morphism equality P.iso.hom ≫ P.target.ι = P.source.ι ≫ ν holds. This identifies the dense-open isomorphism with the restriction of the specified global map."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the genuine finite surjective map between integral schemes, its normal source stalks and specified dense-open comparison before the projective normalization and conductor-cohomology identifications."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalizationPartialIso_map"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso-over",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Coefficient compatibility of the partial isomorphism",
+      "kind": "lemma",
+      "statement": "The specified partial isomorphism is over Spec k for structure maps ν≫structureMap(a,b) on N and structureMap(a,b) on C, using native PartialIso.IsOver.",
+      "hypotheses": [
+        "k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed.",
+        "Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports."
+      ],
+      "proofSteps": [
+        "Postcompose the proved agreement with ν by the actual coefficient structure morphism and reassociate. No arbitrary algebraic-closed-field choice or replacement base is made."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso-map",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-structure-map",
+        "mathlib:AlgebraicGeometry.Scheme.PartialIso.IsOver"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-normal-birational",
+          "locator": "§3, one-component conductor square before Proposition3.1; authored deductions from the incoming explicit quadratic charts and the listed pinned library results.",
+          "match": "Schröer supplies the geometric motivation. These exact native chart and stalk comparisons are authored deductions; the projective-line identification, normalization universal property and cohomology are not claimed proved by the source passage."
+        }
+      ],
+      "acceptance": [
+        "The specified partial isomorphism is over Spec k for structure maps ν≫structureMap(a,b) on N and structureMap(a,b) on C, using native PartialIso.IsOver."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the genuine finite surjective map between integral schemes, its normal source stalks and specified dense-open comparison before the projective normalization and conductor-cohomology identifications."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalizationPartialIso_over"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-birational-over",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Birationality over the coefficient field",
+      "kind": "lemma",
+      "statement": "The native predicate Scheme.BirationalOver (ν≫structureMap(a,b)) (structureMap(a,b)) holds, witnessed by the specified normalizationPartialIso.",
+      "hypotheses": [
+        "k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed.",
+        "Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports."
+      ],
+      "proofSteps": [
+        "Package the actual partial isomorphism and its coefficient compatibility into the pinned BirationalOver predicate; do not add a generic birational-map type."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso-over",
+        "mathlib:AlgebraicGeometry.Scheme.BirationalOver"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-normal-birational",
+          "locator": "§3, one-component conductor square before Proposition3.1; authored deductions from the incoming explicit quadratic charts and the listed pinned library results.",
+          "match": "Schröer supplies the geometric motivation. These exact native chart and stalk comparisons are authored deductions; the projective-line identification, normalization universal property and cohomology are not claimed proved by the source passage."
+        }
+      ],
+      "acceptance": [
+        "The native predicate Scheme.BirationalOver (ν≫structureMap(a,b)) (structureMap(a,b)) holds, witnessed by the specified normalizationPartialIso."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the genuine finite surjective map between integral schemes, its normal source stalks and specified dense-open comparison before the projective normalization and conductor-cohomology identifications."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalization_birationalOver"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-infinity-integrally-closed",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Integral closedness of the infinity ring",
+      "kind": "lemma",
+      "statement": "The actual infinity chart ring I(a,b) satisfies the native IsIntegrallyClosed predicate.",
+      "hypotheses": [
+        "k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed.",
+        "Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports."
+      ],
+      "proofSteps": [
+        "The polynomial ring k[u] is integrally closed. Its localization at powers of nonzero Q∞ is integrally closed by the pinned localization theorem; use the actual infinity chart localization instance."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-localization",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-infinity-denominator-nonzero",
+        "mathlib:isIntegrallyClosed_of_isLocalization"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-normal-birational",
+          "locator": "§3, one-component conductor square before Proposition3.1; authored deductions from the incoming explicit quadratic charts and the listed pinned library results.",
+          "match": "Schröer supplies the geometric motivation. These exact native chart and stalk comparisons are authored deductions; the projective-line identification, normalization universal property and cohomology are not claimed proved by the source passage."
+        }
+      ],
+      "acceptance": [
+        "The actual infinity chart ring I(a,b) satisfies the native IsIntegrallyClosed predicate."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the genuine finite surjective map between integral schemes, its normal source stalks and specified dense-open comparison before the projective normalization and conductor-cohomology identifications."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.infinity_isIntegrallyClosed"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-source-stalks",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Normal local rings of the glued source",
+      "kind": "lemma",
+      "statement": "For every point x of the actual scheme N(a,b), its native structure-sheaf stalk O_(N,x) satisfies IsIntegrallyClosed. Together with source_isIntegral this gives normal local domains without inventing a scheme-normality carrier.",
+      "hypotheses": [
+        "k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed.",
+        "Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports."
+      ],
+      "proofSteps": [
+        "Both chart rings are integrally closed domains. At each prime, apply localization preservation and the actual Spec.stalkIso. Cover the source point by one of the two charts and transport integral closedness through that open immersion’s stalk-map isomorphism."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-infinity-domain",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-infinity-integrally-closed",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-charts-cover",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-finiteiota-is-open-immersion",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-infinityiota-is-open-immersion",
+        "mathlib:isIntegrallyClosed_of_isLocalization",
+        "mathlib:IsIntegrallyClosed.of_equiv",
+        "mathlib:AlgebraicGeometry.Spec.stalkIso"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-normal-birational",
+          "locator": "§3, one-component conductor square before Proposition3.1; authored deductions from the incoming explicit quadratic charts and the listed pinned library results.",
+          "match": "Schröer supplies the geometric motivation. These exact native chart and stalk comparisons are authored deductions; the projective-line identification, normalization universal property and cohomology are not claimed proved by the source passage."
+        }
+      ],
+      "acceptance": [
+        "For every point x of the actual scheme N(a,b), its native structure-sheaf stalk O_(N,x) satisfies IsIntegrallyClosed. Together with source_isIntegral this gives normal local domains without inventing a scheme-normality carrier."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the genuine finite surjective map between integral schemes, its normal source stalks and specified dense-open comparison before the projective normalization and conductor-cohomology identifications."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.source_stalk_isIntegrallyClosed",
+      "tests": [
+        {
+          "name": "Global.normalization.inseparable_stalks",
+          "kind": "degenerate",
+          "statement": "For k=F₂(s) and q=t²−s, every actual source stalk is integrally closed; no separability hypothesis is used. The test instantiates this polynomial and does not assert a new proof of its irreducibility."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso-inverse",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Inverse comparison on the dense target",
+      "kind": "lemma",
+      "statement": "For P=normalizationPartialIso(a,b), P.iso.inv ≫ P.source.ι ≫ ν = P.target.ι. Thus the chosen inverse lands in the specified source open and is an inverse to the restricted global map.",
+      "hypotheses": [
+        "k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed.",
+        "Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports."
+      ],
+      "proofSteps": [
+        "Rewrite the forward comparison and cancel the actual inverse/hom pair of the native open-scheme isomorphism."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso-map"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-normal-birational",
+          "locator": "§3, one-component conductor square before Proposition3.1; authored deductions from the incoming explicit quadratic charts and the listed pinned library results.",
+          "match": "Schröer supplies the geometric motivation. These exact native chart and stalk comparisons are authored deductions; the projective-line identification, normalization universal property and cohomology are not claimed proved by the source passage."
+        }
+      ],
+      "acceptance": [
+        "For P=normalizationPartialIso(a,b), P.iso.inv ≫ P.source.ι ≫ ν = P.target.ι. Thus the chosen inverse lands in the specified source open and is an inverse to the restricted global map."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the genuine finite surjective map between integral schemes, its normal source stalks and specified dense-open comparison before the projective normalization and conductor-cohomology identifications."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalizationPartialIso_inverse"
     }
   ],
   "requests": [
@@ -22377,7 +23509,8 @@
         "The specified native affine A_q-linear B/(A_q·1)≃E/(A_q·1), its actual k-linear B/A_q≃E/k, both representative equations, residue scalar actions, one-dimensional quadratic defect and actual conductor annihilators are now separately checked prototypes. Projective chart gluing, the global normalization comparison, conductor ideal sheaf, the actual structure-sheaf sequence and finite-pushforward H0/H1 remain open, as does the independent I₂ geometry. The full Tau Ceti-importing file is uncompiled; all implementation statuses and all seven coverage rows remain partial/unchecked.",
         "The reciprocal infinity quotient Chart(a,b)=R[u][Z]/(Q∞Z−u³), its explicit Bézout inverse, both specified R[u]-algebra maps and their inverse equivalence, native localization property and actual affine Spec open immersion now have separately checked prototypes over every commutative ring. The homogeneous normalization tuple, its cubic homogeneity and fieldwise absence of a common zero are checked against the actual native projective Weierstrass equation, with a nonsingular infinity point over every field. The two-chart overlap/gluing and actual Proj comparison, finite projective normalization, conductor ideal sheaf, structure-sheaf exact sequence, finite-pushforward H0/H1 and independent I₂ geometry remain required. Full Tau Ceti-importing file remains uncompiled; all seven stages are partial and all mathematical implementation statuses unchecked.",
         "The specified reciprocal polynomial localization equivalence is checked over arbitrary commutative rings, with its actual affine Spec isomorphism. The finite pinch localization at tq is identified with the normalized overlap; the infinity quotient localization at u is identified with the reversed polynomial overlap, and D(z)=D(u) is proved in its actual prime spectrum. Their composite gives the specified chart transition, and the homogeneous normalization tuples agree by the unit factor t⁻³. The global Proj identification, gluing of the normalization morphism, projective finiteness, conductor ideal sheaf, structure-sheaf exact sequence, finite-pushforward H0/H1 and separate I₂ geometry remain required. All stages remain partial and implementation statuses unchecked; the full Tau Ceti-importing file is uncompiled.",
-        "The actual quadratic two-chart Scheme C and glued source N, their coefficient-compatible global morphism ν, both target-chart pullback squares, and global finiteness of ν have separately checked native prototypes. The actual overlap map has u=1/t and z=1/(tq). Identify C with the specified Proj cubic and N with the native projective line, prove the normalization universal property and projectivity/properness, then identify the conductor ideal sheaf and structure-sheaf exact sequence and derive finite-pushforward H0/H1. Separate I₂ geometry and all other inherited obligations remain required; all stages stay partial and all implementations unchecked."
+        "The actual quadratic two-chart Scheme C and glued source N, their coefficient-compatible global morphism ν, both target-chart pullback squares, and global finiteness of ν have separately checked native prototypes. The actual overlap map has u=1/t and z=1/(tq). Identify C with the specified Proj cubic and N with the native projective line, prove the normalization universal property and projectivity/properness, then identify the conductor ideal sheaf and structure-sheaf exact sequence and derive finite-pushforward H0/H1. Separate I₂ geometry and all other inherited obligations remain required; all stages stay partial and all implementations unchecked.",
+        "For every field k and q=t²+at+b, the specified finite global map ν:N→C is surjective; both schemes are integral, every source stalk is integrally closed, and an actual dense-open Scheme.PartialIso agrees with ν over Spec k. The projective-line and Proj identifications, normalization universal property, projectivity/properness, conductor ideal sheaf, structure-sheaf exact sequence and finite-pushforward H0/H1 remain separate obligations. The I₂ construction and all other inherited gaps remain open; seven stages stay partial and all implementations unchecked."
       ]
     },
     {
@@ -22587,7 +23720,8 @@
       "detail": "Native k-linear coordinates, Basis, finitely supported coefficient reconstruction and exact degree family are now stated and separately prototyped. The actual full bivariate range/kernel and canonical quotient algebra equivalence are now stated with a separate checked native prototype. Finite normalization, localization/fraction-field comparison, node/tangent/branch predicates, P¹/cohomology and every-extension count interfaces remain open. A k[q]-module instance/freeness interface is not constructed. The full Tau Ceti-importing file is uncompiled; the exact Mathlib-only extraction is checked. All implementation statuses remain unchecked. The native affine solution equivalence and native pointCount/frobeniusTrace balance are now explicit. They count distinct rational roots; they do not supply projective normalization, conductor schemes, the structure-sheaf exact sequence, H¹ comparison, arbitrary finite-extension packaging or the separate two-component I₂ construction. The inherited affine algebra/presentation and all global/fibration/classification/model obligations remain planned. Full Tau Ceti-importing suggested file remains uncompiled.",
       "title": "Exact native quadratic-pinching owner interfaces",
       "overlapContinuation": "The specified reciprocal polynomial localization equivalence is checked over arbitrary commutative rings, with its actual affine Spec isomorphism. The finite pinch localization at tq is identified with the normalized overlap; the infinity quotient localization at u is identified with the reversed polynomial overlap, and D(z)=D(u) is proved in its actual prime spectrum. Their composite gives the specified chart transition, and the homogeneous normalization tuples agree by the unit factor t⁻³. The global Proj identification, gluing of the normalization morphism, projective finiteness, conductor ideal sheaf, structure-sheaf exact sequence, finite-pushforward H0/H1 and separate I₂ geometry remain required. All stages remain partial and implementation statuses unchecked; the full Tau Ceti-importing file is uncompiled.",
-      "globalSchemeContinuation": "The actual quadratic two-chart Scheme C and glued source N, their coefficient-compatible global morphism ν, both target-chart pullback squares, and global finiteness of ν have separately checked native prototypes. The actual overlap map has u=1/t and z=1/(tq). Identify C with the specified Proj cubic and N with the native projective line, prove the normalization universal property and projectivity/properness, then identify the conductor ideal sheaf and structure-sheaf exact sequence and derive finite-pushforward H0/H1. Separate I₂ geometry and all other inherited obligations remain required; all stages stay partial and all implementations unchecked."
+      "globalSchemeContinuation": "The actual quadratic two-chart Scheme C and glued source N, their coefficient-compatible global morphism ν, both target-chart pullback squares, and global finiteness of ν have separately checked native prototypes. The actual overlap map has u=1/t and z=1/(tq). Identify C with the specified Proj cubic and N with the native projective line, prove the normalization universal property and projectivity/properness, then identify the conductor ideal sheaf and structure-sheaf exact sequence and derive finite-pushforward H0/H1. Separate I₂ geometry and all other inherited obligations remain required; all stages stay partial and all implementations unchecked.",
+      "normalBirationalContinuation": "For every field k and q=t²+at+b, the specified finite global map ν:N→C is surjective; both schemes are integral, every source stalk is integrally closed, and an actual dense-open Scheme.PartialIso agrees with ν over Spec k. The projective-line and Proj identifications, normalization universal property, projectivity/properness, conductor ideal sheaf, structure-sheaf exact sequence and finite-pushforward H0/H1 remain separate obligations. The I₂ construction and all other inherited gaps remain open; seven stages stay partial and all implementations unchecked."
     }
   ],
   "sourceIssues": [
@@ -26209,6 +27343,128 @@
       "Canonical": "bcd995740564027f6dd0b7f574293d474202b2d9c24ff937e487430a20052db4",
       "New": "ef951b645014f7f9469f735f210d66146f40ba0718c0440f2bf34765a08a6f47",
       "FullCanonical": "450acceb8e682310f5ba7b45e1d1e3395108e1f9d79b672b63377573f3de1e77"
+    }
+  },
+  "normalBirationalContinuation": {
+    "worker": "Codex — codex-7e92bd",
+    "date": "2026-10-03",
+    "issue": 3378,
+    "claim": 5965364188,
+    "claimConfirmation": 5965365222,
+    "mathematicalBase": "b725306dcef5613ca909fcaafaded4840e72777c",
+    "publicationBase": "32fba6065c5b5600a8131bb1112c305aaf722a34",
+    "scope": "For every field k and q=t²+at+b, the specified finite global map ν:N→C is surjective; both schemes are integral, every source stalk is integrally closed, and an actual dense-open Scheme.PartialIso agrees with ν over Spec k. The projective-line and Proj identifications, normalization universal property, projectivity/properness, conductor ideal sheaf, structure-sheaf exact sequence and finite-pushforward H0/H1 remain separate obligations. The I₂ construction and all other inherited gaps remain open; seven stages stay partial and all implementations unchecked.",
+    "graph": {
+      "stageDAG": {
+        "vertices": 3043,
+        "edges": 8727,
+        "acyclic": true
+      },
+      "ownDeclarationDAG": {
+        "vertices": 402,
+        "edges": 1118,
+        "acyclic": true
+      },
+      "scopedDAG": {
+        "vertices": 3416,
+        "edges": 10435,
+        "acyclic": true
+      },
+      "reachableDeclarations": 402,
+      "externalDeclarations": [],
+      "baselineLeaves": 264,
+      "requiredPairs": 69,
+      "restructurePairs": 0,
+      "unresolved": [],
+      "ownSkippedLinks": [],
+      "ownPendingLinks": [],
+      "otherSkipsMatch": true,
+      "stageEdgesUnchanged": true
+    },
+    "validation": {
+      "oldContractsPreserved": 382,
+      "wholeOldNodesPreserved": 381,
+      "consumerAdditions": {
+        "prerequisites": 6,
+        "proofSteps": 1
+      },
+      "newHeadersMatched": 20,
+      "newTestHeadersMatched": 7,
+      "priorSourceRoutes": 78,
+      "sourceFindings": 21,
+      "nativePrefixPreserved": true,
+      "admittedPrefixPreserved": true,
+      "readerSuffixPreserved": true,
+      "intakeFileProblems": [],
+      "intakeAutoRefusals": [],
+      "checker": {
+        "packet": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
+        "roadmap": "NeronModelsAndSemistableAbelianVarietiesPartII",
+        "status": "partial",
+        "nodes": 402,
+        "kinds": {
+          "definition": 17,
+          "lemma": 306,
+          "theorem": 26,
+          "comparison": 9,
+          "construction": 44
+        },
+        "apiItems": 233,
+        "unitTests": 206,
+        "planets": 29,
+        "baselineDeclarations": 285,
+        "prerequisites": {
+          "baseline": 392,
+          "stage": 194,
+          "node (this packet)": 1118
+        },
+        "gaps": 17,
+        "requests": 23,
+        "stagesInScope": 7,
+        "stagesClosed": 0
+      },
+      "rawApiItems": 233,
+      "rawTests": 240,
+      "lean": {
+        "Native": {
+          "audits": 223,
+          "warnings": 0,
+          "exit": 0,
+          "sha256": "d571e516b665401d131ceb1eb36075534643f944e5c23e08f1ecb95cb8484242"
+        },
+        "Sketch": {
+          "audits": 20,
+          "warnings": 296,
+          "exit": 0,
+          "sha256": "595837bfbab2a6ba34d305d431ad48c5c66fe16527f27d0cf68b7f214f46c83e"
+        }
+      },
+      "fullCanonicalCompiled": false,
+      "scriptSha256": "351275565d15461662254f13fcda12f8555446f938e3d5865ac0a64239556f75"
+    },
+    "compileBoundary": {
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "tauceti": "cf386627e9176a3827c1a5fe804989fd94a4d216",
+      "missingArtifacts": [
+        "AlgebraicGeometry/EllipticCurve/Affine/Point/VariableChange",
+        "AlgebraicGeometry/WeilDivisor/Scheme/Basic",
+        "AlgebraicGeometry/Curves/StableReduction/Model/Basic",
+        "AlgebraicGeometry/EllipticCurve/PointCount"
+      ],
+      "nativeAvailableGiB": 31,
+      "sketchAvailableGiB": 32,
+      "inheritedFiniteAdapter": "Incoming native normalization_isFinite repeats the short pinned HasAffineProperty proof because the existing build does not export that anonymous instance. Mathlib sources at the pin do not certify each artifact. This generic locality proof is baseline, not a new node."
+    },
+    "proofArchive": "12b140b038d98cf753027717be939c61625b094f",
+    "proofHashes": {
+      "Native": "d571e516b665401d131ceb1eb36075534643f944e5c23e08f1ecb95cb8484242",
+      "Sketch": "595837bfbab2a6ba34d305d431ad48c5c66fe16527f27d0cf68b7f214f46c83e",
+      "FullCanonical": "0376fe05459ed206435b7d0ab7fa0af6934338422aa597c79084002118ea8b00",
+      "NewNative": "638b509c1005fc66d5cda3efb9d1d927f77c3aa340522b3f4836bcb158347d65",
+      "NewAdmitted": "27f77f57132c983dac2b2bec74cd7083c0627638e0ed5d400aa630ce77399e58",
+      "Audits": "20b2f0c3a6df4e04b4aef1feacf6a4ac2112c9f7707ab18f1f143f616f72f97a",
+      "IncomingNative": "79743d44fbe8c95a4887f95a61ea957c8831975dd4e5472022968acf8dd99697",
+      "IncomingSketch": "bcd995740564027f6dd0b7f574293d474202b2d9c24ff937e487430a20052db4"
     }
   }
 }

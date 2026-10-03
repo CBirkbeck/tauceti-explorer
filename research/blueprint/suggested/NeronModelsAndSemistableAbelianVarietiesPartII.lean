@@ -16,6 +16,9 @@ ledger names every API, example and layer theorem whose full signature needs sup
 The two partial data structures below are not substitutes for their mathematical definitions.
 -/
 
+import Mathlib.AlgebraicGeometry.Birational.Birational
+import Mathlib.RingTheory.IntegralClosure.IntegrallyClosed
+import Mathlib.FieldTheory.RatFunc.Basic
 import Mathlib.AlgebraicGeometry.EllipticCurve.Projective.Basic
 import Mathlib.LinearAlgebra.Isomorphisms
 import Mathlib.LinearAlgebra.Quotient.Basic
@@ -3316,3 +3319,136 @@ example (r : ℚ) : infinityTransition (0 : ℚ) (-1) (algebraMap ℚ (InfinityC
 
 end TauCeti.GenusOne.QuadraticPinch.Global
 /- END TWO CHART SCHEME GLUING -/
+
+/- BEGIN QUADRATIC NORMAL BIRATIONAL COMPARISON -/
+namespace TauCeti.GenusOne.QuadraticPinch.Global
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry Overlap
+variable {k : Type u} [Field k]
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-infinity-denominator-nonzero
+lemma infinity_denominator_ne_zero (a b : k) : InfinityChart.denominator a b ≠ 0 := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-infinity-domain
+lemma infinity_isDomain (a b : k) : IsDomain (InfinityChart.Chart a b) := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-overlap-domain
+lemma overlap_isDomain (a b : k) : IsDomain (Ring (1 : k) a b) := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-chart-surjective
+lemma normalizationChart_surjective (a b : k) : Function.Surjective (normalizationChart a b) := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-global-surjective
+lemma normalization_surjective (a b : k) : Function.Surjective (normalization a b) := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-finite-overlap-dense
+lemma finiteOpen_dense (a b : k) : DenseRange (finiteOpen a b) := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-source-overlap-dense
+lemma normalizationOpen_dense (a b : k) : DenseRange (normalizationOpen a b) := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-infinity-dense
+lemma infinityι_dense (a b : k) : DenseRange (infinityι a b) := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-source-infinity-dense
+lemma sourceInfinityι_dense (a b : k) : DenseRange (sourceInfinityι a b) := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-curve-integral
+lemma curve_isIntegral (a b : k) : AlgebraicGeometry.IsIntegral (curve a b) := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-source-integral
+lemma source_isIntegral (a b : k) : AlgebraicGeometry.IsIntegral (normalizationSource a b) := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso
+def normalizationPartialIso (a b : k) : (normalizationSource a b).PartialIso (curve a b) := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso-source
+lemma normalizationPartialIso_source (a b : k) :
+    (normalizationPartialIso a b).source = (sourceInfinityι a b).opensRange := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso-target
+lemma normalizationPartialIso_target (a b : k) :
+    (normalizationPartialIso a b).target = (infinityι a b).opensRange := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso-map
+lemma normalizationPartialIso_map (a b : k) :
+    (normalizationPartialIso a b).iso.hom ≫ (normalizationPartialIso a b).target.ι =
+      (normalizationPartialIso a b).source.ι ≫ normalization a b := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso-over
+lemma normalizationPartialIso_over (a b : k) :
+    (normalizationPartialIso a b).IsOver (normalization a b ≫ structureMap a b) (structureMap a b) := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-birational-over
+lemma normalization_birationalOver (a b : k) :
+    Scheme.BirationalOver (normalization a b ≫ structureMap a b) (structureMap a b) := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-infinity-integrally-closed
+lemma infinity_isIntegrallyClosed (a b : k) : IsIntegrallyClosed (InfinityChart.Chart a b) := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-source-stalks
+lemma source_stalk_isIntegrallyClosed (a b : k) (x : normalizationSource a b) :
+    IsIntegrallyClosed ((normalizationSource a b).presheaf.stalk x) := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso-inverse
+lemma normalizationPartialIso_inverse (a b : k) :
+    (normalizationPartialIso a b).iso.inv ≫ (normalizationPartialIso a b).source.ι ≫ normalization a b =
+      (normalizationPartialIso a b).target.ι := by
+  sorry
+
+-- test: Global.normalizationPartialIso.cusp_source
+example :
+    (normalizationPartialIso (0 : ZMod 2) 0).source = (sourceInfinityι 0 0).opensRange := by
+  sorry
+
+-- test: Global.normalizationPartialIso.split_target
+example :
+    (normalizationPartialIso (0 : ℚ) (-1)).target = (infinityι 0 (-1)).opensRange := by
+  sorry
+
+-- test: Global.normalizationPartialIso.nonsplit_inverse
+example :
+    (normalizationPartialIso (1 : ZMod 2) 1).iso.inv ≫
+      (normalizationPartialIso (1 : ZMod 2) 1).source.ι ≫ normalization 1 1 =
+      (normalizationPartialIso (1 : ZMod 2) 1).target.ι := by
+  sorry
+
+-- test: Global.normalizationPartialIso.over_coefficients
+example (a b : k) :
+    (normalizationPartialIso a b).IsOver (normalization a b ≫ structureMap a b) (structureMap a b) := by
+  sorry
+
+-- test: Global.normalization.inseparable_stalks
+example (x : normalizationSource (0 : RatFunc (ZMod 2)) (-RatFunc.X)) :
+    IsIntegrallyClosed ((normalizationSource (0 : RatFunc (ZMod 2)) (-RatFunc.X)).presheaf.stalk x) := by
+  sorry
+
+-- test: Global.normalization.nonsplit_surjective
+example : Function.Surjective (normalization (1 : ZMod 2) 1) := by
+  sorry
+
+-- test: Global.normalization.cusp_integral
+example : AlgebraicGeometry.IsIntegral (curve (0 : ZMod 2) 0) ∧
+    AlgebraicGeometry.IsIntegral (normalizationSource (0 : ZMod 2) 0) := by
+  sorry
+
+end TauCeti.GenusOne.QuadraticPinch.Global
+/- END QUADRATIC NORMAL BIRATIONAL COMPARISON -/
