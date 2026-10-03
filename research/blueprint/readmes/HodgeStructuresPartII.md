@@ -4681,3 +4681,98 @@ Proof: Apply the inherited exterior equivariance criterion with native module eq
 Dependencies: `HodgeStructuresPartII:H.0/affine-tensor-base-change`, `HodgeStructuresPartII:H.0/affine-exterior-square-equiv`.
 
 Source: Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), Theorem 2.1(iii)–(iv), (2.4), pp.7–8. This arbitrary-ring affine proof is an authored deduction, not a source correspondence or global sheaf proof.
+
+
+## Integral powers of affine tensor contractions
+
+The inherited tensor field uses one coefficient module Q and sums the two separate-factor actions. Evaluating it against a dual direction v produces L+R. L and R commute because they act on different module factors; no within-factor integrability is needed. The pinned Mathlib binomial and commuting-nilpotence theorems already supply the generic algebra, so this continuation imports them and plans only the actual Higgs adapters. All module and ring hypotheses remain general.
+
+The existing ordered-step and ordered-word contraction contracts are reused. Separate proof experiments follow the actual tensor associators and evaluate the ordered pure tensor by the pinned tensor-power dual pairing. A constant word yields a power of the contraction, hence a genuine ordered zero bound implies the same exponent for each self-contraction. Applying the existing integral commuting bound to the actual tensor contraction gives N+M−1. This is a necessary consequence of factor ordered bounds, not the full ordered tensor conclusion.
+
+In characteristic two every self-contraction square of the specified two-direction field can vanish while its mixed ordered coefficient remains nonzero. The example below therefore prevents a converse based only on self-powers. The full arbitrary-Q mixed shuffle argument remains a separate obligation under the original tensor-nilpotence contract; no basis, factorial inversion or accidental integrability assumption is added to it. Global sheaf tensors and restriction/descent remain E1 supplies.
+
+Fresh source reading covers Liu–Zhu v3, complete printed pp.6–9, especially Theorem 2.1(i),(iv), equation (2.4) and the tensor/Higgs-complex explanation on p.8. These contraction identities are authored arbitrary-ring deductions, not a formalisation of the p-adic correspondence. Reviewed Hodge L0–L3, E1 and D3 audits and REV-AUDIT-10/22 retain their boundaries. Existing ordinary Hodge carriers and general tensor/nilpotence constructions are imported.
+
+### Separate-factor contraction actions commute
+
+TwistedHiggsBundle.affineTensorField_contractions_separate_commute — For every dual direction v, a_θ(v)⊗id_F commutes with id_E⊗a_ψ(v) in End_R(E⊗_R F). These operators act on different factors even when contractions within a factor do not commute.
+
+Interpret endomorphism multiplication as native composition. Both orders equal TensorProduct.map(a_θ(v),a_ψ(v)) by the two pinned separate-factor composition lemmas.
+
+### Integral binomial expansion of tensor contractions
+
+TwistedHiggsBundle.affineTensorField_contractions_pow — For all k≥0 and v∈Q∨, a_T(v)^k=Σ_{i=0}^k binom(k,i)·TensorProduct.map(a_θ(v)^i,a_ψ(v)^(k−i)), as an equality of native endomorphisms. The coefficient acts by repeated addition.
+
+Use the actual contraction sum a_T=L+R and the separate-factor commutation lemma. Apply the existing Commute.add_pow. Use the native rTensor/lTensor power equalities and composition to identify each summand; convert right multiplication by the natural cast to natural scalar multiplication. The k=0 term is the identity.
+
+### Integral bound for one tensor contraction
+
+TwistedHiggsBundle.affineTensorField_contractions_bound — For N,M≥0 and v∈Q∨, if a_θ(v)^N=0 and a_ψ(v)^M=0 then a_T(v)^(N+M−1)=0. The zero-exponent hypotheses, when possible, are retained rather than silently excluded.
+
+Transport the two specified powers to the separate-factor tensor operators by rTensor_pow/lTensor_pow and the zero-map lemmas. Apply the already-built Commute.add_pow_add_eq_zero_of_pow_eq_zero to L+R. Its integral pigeonhole proof requires no division, unit scalar, characteristic hypothesis or additional commutation within E or F.
+
+### Larger integral tensor contraction bounds
+
+TwistedHiggsBundle.affineTensorField_contractions_bound_of_le — For N,M,k≥0 with N+M≤k+1, vanishing of a_θ(v)^N and a_ψ(v)^M implies a_T(v)^k=0.
+
+Transport factor powers through the two native tensor actions and apply the pinned general-exponent commuting-nilpotence theorem with the exact inequality.
+
+### Nilpotence of a specified tensor contraction
+
+TwistedHiggsBundle.affineTensorField_contractions_isNilpotent — If a_θ(v) and a_ψ(v) are nilpotent endomorphisms, then a_T(v) is nilpotent; witnesses N,M produce the explicit witness N+M−1. No claim is made about a common bound as v varies.
+
+Extract the two natural-exponent witnesses of IsNilpotent and apply the explicit contraction bound.
+
+### Uniform bound for all tensor self-contractions
+
+TwistedHiggsBundle.affineTensorField_contractions_uniform_bound — If a_θ(v)^N=0 and a_ψ(v)^M=0 for every v∈Q∨, then a_T(v)^(N+M−1)=0 for every v. Uniform vanishing of these self-powers alone is not the full ordered nilpotence criterion.
+
+Fix a dual direction and apply the bound to its two hypotheses. Keep the universal quantifier outside the chosen fixed exponents.
+
+### Repeated contraction of an ordered iterate
+
+TwistedHiggsBundle.affineOrderedIterate_contraction_constant — For n≥0 and v∈Q∨, contracting all n coefficient factors of I_n(θ) by v gives exactly a_θ(v)^n. At n=0 this is the tensor-unit identity, including the zero module.
+
+Use the existing arbitrary ordered-word contraction formula with the constant tuple of v. List.ofFn_const changes the word to n repeated copies; its product is the native endomorphism power.
+
+### Ordered bounds imply contraction bounds
+
+TwistedHiggsBundle.affineOrderedIterate_contractions_bound — If I_N(θ)=0 for N≥0 then a_θ(v)^N=0 for every v∈Q∨. This implication holds for arbitrary Q without any dual-separation assumption; its converse is not asserted.
+
+Rewrite the contraction power using the constant-word equality. The ordered-zero hypothesis and the inherited zero-contraction API then give zero.
+
+### Tensor contraction bound from ordered factor bounds
+
+TwistedHiggsBundle.affineTensorField_contractions_bound_of_ordered — For N,M≥0, if I_N(θ)=0 and I_M(ψ)=0 then, for every v∈Q∨, a_T(v)^(N+M−1)=0. This is an actual affine consequence of ordered factor bounds; it does not establish I_(N+M−1)(T)=0.
+
+Apply the ordered-to-contracted implication to the two factor fields at the same chosen v and specified exponents. Apply the integral tensor contraction bound. The full ordered tensor bound requires the separate mixed E/F shuffle factorization already planned by tensor-nilpotence. Never infer it from these self-powers; the characteristic-two native counterexample tests that boundary.
+
+### Contracting a two-direction field
+
+TwistedHiggsBundle.affineTwoDirectionField_contractions — For arbitrary A,B∈End_R(E), q,r∈Q and v∈Q∨, the actual field θ(e)=A(e)⊗q+B(e)⊗r has contraction a_θ(v)=v(q)·A+v(r)·B. No basis or independence of q,r is required.
+
+Evaluate the actual field and map each pure tensor through the native dual map and right unitor. Linearity gives the two scalar multiples.
+
+### Acceptance examples
+
+TwistedHiggsBundle.affineTensorField.test_contracted_binomial — The k-fold self-contraction of the actual tensor field is the integral binomial sum for every k≥0, including the tensor-unit boundary.
+
+TwistedHiggsBundle.affineTensorField.test_ordered_to_contracted — Arbitrary-module factor ordered bounds N,M give the specified tensor contraction bound N+M−1 in each chosen dual direction.
+
+TwistedHiggsBundle.affineTensorField.test_bound_one — Two vanishing contractions have vanishing tensor contraction, the N=M=1 boundary.
+
+TwistedHiggsBundle.affineTensorField.test_larger_bound — Factor contraction squares zero imply the fifth power of the tensor contraction is zero via the exact larger-exponent inequality.
+
+TwistedHiggsBundle.affineOrderedIterate.test_contraction_degree_zero — Contracting degree zero gives the identity endomorphism, not zero; this assertion includes the zero module.
+
+TwistedHiggsBundle.affineTensorField.test_integer_sharp_bound — Over ℤ let J(x,y)=(y,0) and θ=J⊗1. The self-contraction of T(θ,θ) has cube zero and square nonzero, detected at (0,1)⊗(0,1) by the first-coordinate pairing giving 2. Replacing N+M−1 by max(N,M) is false.
+
+TwistedHiggsBundle.affineTensorField.test_char_two_square_cancellation — For the same J and θ over ZMod 2, the tensor self-contraction square is zero because its two equal mixed terms cancel. The proof uses actual tensor maps and no division by 2.
+
+TwistedHiggsBundle.affineTwoDirectionField.test_contracted_formula — The contraction of an arbitrary two-direction field is v(q)A+v(r)B, even for dependent or zero directions.
+
+TwistedHiggsBundle.affineTensorField.test_self_powers_do_not_detect_ordered — Over K=ZMod 2 let V=K², J(x,y)=(y,0), E=V⊗V, Q=K² and θ=(J⊗id)⊗(1,0)+(id⊗J)⊗(0,1). Every dual contraction square vanishes, but I₂(θ) is nonzero: the mixed ordered contraction (first coordinate, second coordinate) is J⊗J, detected as 1 on (0,1)⊗(0,1). No equivalence between self-power vanishing and ordered nilpotence is asserted.
+
+The actual affine tensor contraction has an integral binomial expansion and the N+M−1 self-contraction bound from ordered factor bounds, with no basis or integrability premise. The complete mixed E/F shuffle factorization proving I_(N+M−1)(T)=0 remains open; characteristic-two self-powers do not detect all ordered words. Cross-ring exterior-power/curvature transport, finite-projective restrictions and E1 sheaf identification, equality detection and gluing remain open, together with the same-λ nonzero-parameter balancing, determinant/Tate/period adapters, reserved general ringed-site key, all 149 source obligations and H.1–H.8. Earlier narrower frontier text is retained as checkpoint history.
+
+The final admitted sketch and separate native proof experiment have matching new headers. Final Lean execution was unavailable under the programme’s 20 GiB memory threshold; preliminary runs do not certify the corrected final sources or tests. Exact finite matrix calculations check the two characteristic-two regressions and the sharp integral example. All planned nodes remain unchecked.
