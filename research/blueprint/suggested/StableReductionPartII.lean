@@ -3437,3 +3437,177 @@ example (α : CategoryTheory.Abelian.Ext
 end
 end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
 /- END RELATIVE CRITERION COMPARISON -/
+
+/- BEGIN COMPLETED COEFFICIENT COMPARISON -/
+
+namespace TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+noncomputable section
+variable (A : Type*) [CommRing A] (γ δ s t : A)
+variable (p : Ideal A) (m : Ideal (Ring A γ δ s t)) (h : p ≤ m.comap (coefficientHom A γ δ s t))
+
+include h in
+lemma completionCoefficient_pow (n : ℕ) : p ^ n ≤ (m ^ n).comap (coefficientHom A γ δ s t) := by sorry
+/-- The actual finite-level coefficient map between the two ideal-adic quotients. -/
+def completionCoefficientLevel (h : p ≤ m.comap (coefficientHom A γ δ s t)) (n : ℕ) : A ⧸ p ^ n →+* (Ring A γ δ s t) ⧸ m ^ n := by sorry
+lemma completionCoefficientLevel_mk (n : ℕ) (a : A) :
+    completionCoefficientLevel A γ δ s t p m h n (Ideal.Quotient.mk (p ^ n) a) =
+      Ideal.Quotient.mk (m ^ n) ((coefficientHom A γ δ s t) a) := by sorry
+lemma completionCoefficientLevel_transition {i j : ℕ} (hij : i ≤ j) :
+    (Ideal.Quotient.factorPow m hij).comp (completionCoefficientLevel A γ δ s t p m h j) =
+      (completionCoefficientLevel A γ δ s t p m h i).comp (Ideal.Quotient.factorPow p hij) := by sorry
+lemma completionCoefficientLevel_mul (n : ℕ) (a b : A ⧸ p ^ n) :
+    completionCoefficientLevel A γ δ s t p m h n (a * b) =
+      completionCoefficientLevel A γ δ s t p m h n a *
+        completionCoefficientLevel A γ δ s t p m h n b := by sorry
+lemma completionCoefficientSource_transition {i j : ℕ} (hij : i ≤ j)
+    (a : AdicCompletion p A) :
+    Ideal.Quotient.factorPow p hij (AdicCompletion.evalₐ p j a) =
+      AdicCompletion.evalₐ p i a := by sorry
+/-- The quotient-compatible family maps actual completed coefficients to the nodal quotients. -/
+def completionCoefficientFamily (h : p ≤ m.comap (coefficientHom A γ δ s t)) (n : ℕ) : AdicCompletion p A →+* (Ring A γ δ s t) ⧸ m ^ n := by sorry
+lemma completionCoefficientFamily_transition {i j : ℕ} (hij : i ≤ j) :
+    (Ideal.Quotient.factorPow m hij).comp (completionCoefficientFamily A γ δ s t p m h j) =
+      completionCoefficientFamily A γ δ s t p m h i := by sorry
+lemma completionCoefficientFamily_of (n : ℕ) (a : A) :
+    completionCoefficientFamily A γ δ s t p m h n (AdicCompletion.of p A a) =
+      Ideal.Quotient.mk (m ^ n) (coefficientHom A γ δ s t a) := by sorry
+lemma completionCoefficientFamily_one (n : ℕ) :
+    completionCoefficientFamily A γ δ s t p m h n 1 = 1 := by sorry
+def completionCoefficientHom (h : p ≤ m.comap (coefficientHom A γ δ s t)) : AdicCompletion p A →+* AdicCompletion m (Ring A γ δ s t) := by sorry
+lemma completionCoefficientHom_eval (n : ℕ) (a : AdicCompletion p A) :
+    AdicCompletion.evalₐ m n (completionCoefficientHom A γ δ s t p m h a) =
+      completionCoefficientLevel A γ δ s t p m h n (AdicCompletion.evalₐ p n a) := by sorry
+lemma completionCoefficientHom_of (a : A) :
+    completionCoefficientHom A γ δ s t p m h (AdicCompletion.of p A a) =
+      AdicCompletion.of m (Ring A γ δ s t) ((coefficientHom A γ δ s t) a) := by sorry
+lemma completionCoefficientHom_unique (f : AdicCompletion p A →+* AdicCompletion m (Ring A γ δ s t))
+    (hf : ∀ n a, AdicCompletion.evalₐ m n (f a) =
+      completionCoefficientLevel A γ δ s t p m h n (AdicCompletion.evalₐ p n a)) :
+    f = completionCoefficientHom A γ δ s t p m h := by sorry
+end
+end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+namespace TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+noncomputable section
+open TensorProduct
+variable (A : Type*) [CommRing A] (γ δ s t : A)
+variable (p : Ideal A) (m : Ideal (Ring A γ δ s t))
+  (h : p ≤ m.comap (coefficientHom A γ δ s t))
+local notation "AH" => AdicCompletion p A
+local notation "RH" => AdicCompletion m (Ring A γ δ s t)
+
+/-- The completed chart is an algebra over its actual completed coefficient ring. -/
+@[instance_reducible]
+def completionCoefficientAlgebra (h : p ≤ m.comap (coefficientHom A γ δ s t)) : Algebra AH RH := by sorry
+lemma completionCoefficientAlgebra_map (a : AH) :
+    letI := completionCoefficientAlgebra A γ δ s t p m h
+    algebraMap AH RH a = completionCoefficientHom A γ δ s t p m h a := by sorry
+lemma completionCoefficientAlgebra_of (a : A) :
+    letI := completionCoefficientAlgebra A γ δ s t p m h
+    algebraMap AH RH (AdicCompletion.of p A a) =
+      AdicCompletion.of m (Ring A γ δ s t) (coefficientHom A γ δ s t a) := by sorry
+lemma completionCoefficientScalarTower :
+    letI := completionCoefficientAlgebra A γ δ s t p m h
+    IsScalarTower A AH RH := by sorry
+variable (N : Type*) [AddCommGroup N] [Module (AdicCompletion p A) N]
+  [Module A N] [IsScalarTower A (AdicCompletion p A) N]
+
+/-- Quotient by the additional completed-coefficient balancing relations. -/
+def completionCoefficientTensor (h : p ≤ m.comap (coefficientHom A γ δ s t))
+    (N : Type*) [AddCommGroup N] [Module AH N] [Module A N] [IsScalarTower A AH N] :
+    letI := completionCoefficientAlgebra A γ δ s t p m h
+    letI := completionCoefficientScalarTower A γ δ s t p m h
+    RH ⊗[A] N →ₗ[RH] RH ⊗[AH] N := by sorry
+lemma completionCoefficientTensor_tmul (r : RH) (n : N) :
+    letI := completionCoefficientAlgebra A γ δ s t p m h
+    letI := completionCoefficientScalarTower A γ δ s t p m h
+    completionCoefficientTensor A γ δ s t p m h N (r ⊗ₜ[A] n) = r ⊗ₜ[AH] n := by sorry
+lemma completionCoefficientTensor_surjective :
+    letI := completionCoefficientAlgebra A γ δ s t p m h
+    letI := completionCoefficientScalarTower A γ δ s t p m h
+    Function.Surjective (completionCoefficientTensor A γ δ s t p m h N) := by sorry
+lemma completionCoefficientTensor_balance (a : AH) (r : RH) (n : N) :
+    letI := completionCoefficientAlgebra A γ δ s t p m h
+    letI := completionCoefficientScalarTower A γ δ s t p m h
+    completionCoefficientTensor A γ δ s t p m h N ((a • r) ⊗ₜ[A] n) =
+      completionCoefficientTensor A γ δ s t p m h N (r ⊗ₜ[A] (a • n)) := by sorry
+lemma completionCoefficientTensor_ker :
+    letI := completionCoefficientAlgebra A γ δ s t p m h
+    letI := completionCoefficientScalarTower A γ δ s t p m h
+    ((completionCoefficientTensor A γ δ s t p m h N).restrictScalars AH).ker =
+      Submodule.span AH {(a • r) ⊗ₜ[A] n - r ⊗ₜ[A] (a • n) |
+        (a : AH) (r : RH) (n : N)} := by sorry
+end
+end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+namespace TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+noncomputable section
+open TensorProduct
+variable (A : Type*) [CommRing A] (γ δ s t : A)
+variable (p : Ideal A) (m : Ideal (Ring A γ δ s t))
+  (h : p ≤ m.comap (coefficientHom A γ δ s t))
+
+-- test: NodeSectionFactorization.PolynomialModel.completionCoefficientLevel.test_level_zero
+example (a : A) : completionCoefficientLevel A γ δ s t p m h 0
+    (Ideal.Quotient.mk (p ^ 0) a) = Ideal.Quotient.mk (m ^ 0) (coefficientHom A γ δ s t a) := by sorry
+-- test: NodeSectionFactorization.PolynomialModel.completionCoefficientLevel.test_level_one
+example (a : A) : completionCoefficientLevel A γ δ s t p m h 1
+    (Ideal.Quotient.mk (p ^ 1) a) = Ideal.Quotient.mk (m ^ 1) (coefficientHom A γ δ s t a) := by sorry
+-- test: NodeSectionFactorization.PolynomialModel.completionCoefficientLevel.test_product
+example (a b : A ⧸ p ^ 3) : completionCoefficientLevel A γ δ s t p m h 3 (a * b) =
+    completionCoefficientLevel A γ δ s t p m h 3 a * completionCoefficientLevel A γ δ s t p m h 3 b := by sorry
+-- test: NodeSectionFactorization.PolynomialModel.completionCoefficientFamily.test_coefficients
+example (a : A) : completionCoefficientFamily A γ δ s t p m h 2 (AdicCompletion.of p A a) =
+    Ideal.Quotient.mk (m ^ 2) (coefficientHom A γ δ s t a) := by sorry
+-- test: NodeSectionFactorization.PolynomialModel.completionCoefficientFamily.test_unit
+example : completionCoefficientFamily A γ δ s t p m h 4 1 = 1 := by sorry
+-- test: NodeSectionFactorization.PolynomialModel.completionCoefficientFamily.test_successor
+example (n : ℕ) : (Ideal.Quotient.factorPow m (Nat.le_succ n)).comp
+    (completionCoefficientFamily A γ δ s t p m h (n+1)) = completionCoefficientFamily A γ δ s t p m h n := by sorry
+-- test: NodeSectionFactorization.PolynomialModel.completionCoefficientHom.test_finite_projection
+example (a : AdicCompletion p A) : AdicCompletion.evalₐ m 2
+    (completionCoefficientHom A γ δ s t p m h a) =
+      completionCoefficientLevel A γ δ s t p m h 2 (AdicCompletion.evalₐ p 2 a) := by sorry
+-- test: NodeSectionFactorization.PolynomialModel.completionCoefficientHom.test_uniqueness
+example (f : AdicCompletion p A →+* AdicCompletion m (Ring A γ δ s t))
+    (hf : ∀ n a, AdicCompletion.evalₐ m n (f a) =
+      completionCoefficientLevel A γ δ s t p m h n (AdicCompletion.evalₐ p n a)) :
+    f = completionCoefficientHom A γ δ s t p m h := by sorry
+-- test: NodeSectionFactorization.PolynomialModel.completionCoefficientHom.test_nonreduced
+example (a : ZMod 4) : completionCoefficientHom (ZMod 4) 0 0 1 0 ⊥ ⊥ (by simp)
+    (AdicCompletion.of ⊥ (ZMod 4) a) =
+      AdicCompletion.of ⊥ (Ring (ZMod 4) 0 0 1 0) (coefficientHom (ZMod 4) 0 0 1 0 a) := by sorry
+-- test: NodeSectionFactorization.PolynomialModel.completionCoefficientAlgebra.test_tower
+example : letI := completionCoefficientAlgebra A γ δ s t p m h
+    IsScalarTower A (AdicCompletion p A) (AdicCompletion m (Ring A γ δ s t)) := by sorry
+-- test: NodeSectionFactorization.PolynomialModel.completionCoefficientAlgebra.test_product_coefficients
+example (a b : A) : letI := completionCoefficientAlgebra A γ δ s t p m h
+    algebraMap (AdicCompletion p A) (AdicCompletion m (Ring A γ δ s t)) (AdicCompletion.of p A (a*b)) =
+      AdicCompletion.of m (Ring A γ δ s t) (coefficientHom A γ δ s t (a*b)) := by sorry
+-- test: NodeSectionFactorization.PolynomialModel.completionCoefficientAlgebra.test_completed_element
+example (a : AdicCompletion p A) : letI := completionCoefficientAlgebra A γ δ s t p m h
+    algebraMap (AdicCompletion p A) (AdicCompletion m (Ring A γ δ s t)) a =
+      completionCoefficientHom A γ δ s t p m h a := by sorry
+variable (N : Type*) [AddCommGroup N] [Module (AdicCompletion p A) N]
+  [Module A N] [IsScalarTower A (AdicCompletion p A) N]
+
+-- test: NodeSectionFactorization.PolynomialModel.completionCoefficientTensor.test_unit_tensors
+example (n : N) :
+    letI := completionCoefficientAlgebra A γ δ s t p m h
+    letI := completionCoefficientScalarTower A γ δ s t p m h
+    completionCoefficientTensor A γ δ s t p m h N (1 ⊗ₜ[A] n) =
+      (1 : AdicCompletion m (Ring A γ δ s t)) ⊗ₜ[AdicCompletion p A] n := by sorry
+-- test: NodeSectionFactorization.PolynomialModel.completionCoefficientTensor.test_relation_kernel
+example (a : AdicCompletion p A) (r : AdicCompletion m (Ring A γ δ s t)) (n : N) :
+    letI := completionCoefficientAlgebra A γ δ s t p m h
+    letI := completionCoefficientScalarTower A γ δ s t p m h
+    completionCoefficientTensor A γ δ s t p m h N
+      ((a • r) ⊗ₜ[A] n - r ⊗ₜ[A] (a • n)) = 0 := by sorry
+-- test: NodeSectionFactorization.PolynomialModel.completionCoefficientTensor.test_arbitrary_target
+example :
+    letI := completionCoefficientAlgebra A γ δ s t p m h
+    letI := completionCoefficientScalarTower A γ δ s t p m h
+    ∀ z : AdicCompletion m (Ring A γ δ s t) ⊗[AdicCompletion p A] N,
+      ∃ x : AdicCompletion m (Ring A γ δ s t) ⊗[A] N,
+        completionCoefficientTensor A γ δ s t p m h N x = z := by sorry
+end
+end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+/- END COMPLETED COEFFICIENT COMPARISON -/
