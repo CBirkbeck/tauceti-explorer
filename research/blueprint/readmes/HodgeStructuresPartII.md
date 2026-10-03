@@ -4501,3 +4501,183 @@ Proof: Use tensor induction in z and w. On four pure factors use the actual comm
 Dependencies: `HodgeStructuresPartII:H.0/affine-tensor-wedge-pair`, `HodgeStructuresPartII:H.0/affine-tensor-wedge-pair-tmul`, `mathlib:TensorProduct.induction_on`, `mathlib:TensorProduct.comm_tmul`, `mathlib:AlternatingMap.map_swap`.
 
 Source: Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), Theorem 2.1(iv), (2.4), pp.7–8. The arbitrary-ring affine proof is an authored deduction; it does not establish the correspondence or its global sheaf/Tate/Galois interfaces.
+
+## Affine monoidal scalar extension — current checkpoint
+
+General ringed-site Higgs/constant-parameter connection plan with 197 unchecked nodes. Ten new affine lemmas prove the actual tensor Higgs field commutes with arbitrary scalar extension through the native monoidal comparison, its inverse, all-degree ordered transport, same-exponent preservation and faithfully-flat reflection. Exterior identities compare the two S-fields only. All 187 incoming whole node objects, eight routes, 149 obligations and 35 global omissions remain. H.0 is partial and H.1–H.8 not_read; global sheaf/nonzero-parameter algebra, integral tensor bound, cross-ring exterior curvature, source decomposition and suppliers remain open.
+
+The affine arbitrary-module monoidal scalar-extension comparison for the actual tensor Higgs field is now proved, including its inverse, all-degree ordered transport, specified-exponent preservation, faithfully-flat reflection, and same-S exterior comparison. Still prove the integral ordered tensor bound N+M−1 from positive bounds on the factors, actual cross-ring exterior-power comparison and curvature transport, finite-projective restriction, and E1 sheaf tensor/exterior identification, equality detection and gluing. Same-λ nonzero-parameter balancing, determinant/Tate/period adapters, the general reserved ringed-site carrier, all 149 source obligations and H.1–H.8 remain open. Earlier frontier text is checkpoint history.
+
+For δ_(X,Y), use Mathlib’s existing tensor comparison, with δ(a⊗(x⊗y))=(a⊗x)⊗(1⊗y) and δ⁻¹((a⊗x)⊗(b⊗y))=(ab)⊗(x⊗y). No additional tensor carrier, field, basis or flatness hypothesis is built into the horizontal equation. Integrability and tensor nilpotence remain different predicates. The exterior comparison below is between two S-fields; it is not a claim about scalar extension of ∧²_R Q or original R-curvature.
+
+### Left tensor summand under scalar extension
+
+`HodgeStructuresPartII:H.0/affine-tensor-base-change-left` — `TwistedHiggsBundle.affineTensorBaseChange_left`.
+
+For a∈S,z∈E⊗_R Q,f∈F, rightComm_S(δ_(E,Q)(a⊗z)⊗(1⊗f))=(δ_(E,F)⊗id_(Q_S))δ_(E⊗F,Q)(a⊗rightComm_R(z⊗f)).
+
+R and S are arbitrary commutative rings with an R-algebra structure on S; E,F,Q are arbitrary R-modules. θ:E→E⊗_R Q and ψ:F→F⊗_R Q are actual R-linear fields. No integrability, coefficient basis, finite generation, projectivity, flatness, reducedness or characteristic hypothesis is imposed unless explicitly stated. Write E_S=S⊗_R E, F_S=S⊗_R F and Q_S=S⊗_R Q. Let δ_(X,Y):S⊗_R(X⊗_R Y)≃X_S⊗_S Y_S be the existing native distribBaseChange, B_S(θ)=δ_(E,Q)∘(id_S⊗θ) the inherited affineBaseChange, T the inherited actual tensor field, and I_n its ordered iterate including the tensor-unit degree n=0. The exterior statements compare the two actual S-linear fields B_S(T(θ,ψ)) and T(B_Sθ,B_Sψ) through δ_(E,F); both exterior powers are taken over S on Q_S. They do not identify S⊗_R∧²_R Q with ∧²_S Q_S, nor prove preservation/reflection of original R-curvature. Sheaf tensors, sections, restrictions/gluing and nonzero parameters remain separate.
+
+Proof: Tensor induction in z reduces to e⊗q, where native pure-tensor evaluations give both sides ((a⊗e)⊗(1⊗f))⊗(1⊗q). Extend by additivity.
+
+Dependencies: `mathlib:TensorProduct.induction_on`, `mathlib:TensorProduct.AlgebraTensorModule.distribBaseChange`, `mathlib:TensorProduct.AlgebraTensorModule.distribBaseChange_tmul`, `mathlib:TensorProduct.rightComm_tmul`, `mathlib:TensorProduct.map_tmul`.
+
+Source: Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), Theorem 2.1(iii)–(iv), (2.4), pp.7–8. This arbitrary-ring affine proof is an authored deduction, not a source correspondence or global sheaf proof.
+
+### Right tensor summand under scalar extension
+
+`HodgeStructuresPartII:H.0/affine-tensor-base-change-right` — `TwistedHiggsBundle.affineTensorBaseChange_right`.
+
+For a∈S,e∈E,w∈F⊗_R Q, assoc_S⁻¹((a⊗e)⊗δ_(F,Q)(1⊗w))=(δ_(E,F)⊗id_(Q_S))δ_(E⊗F,Q)(a⊗assoc_R⁻¹(e⊗w)).
+
+R and S are arbitrary commutative rings with an R-algebra structure on S; E,F,Q are arbitrary R-modules. θ:E→E⊗_R Q and ψ:F→F⊗_R Q are actual R-linear fields. No integrability, coefficient basis, finite generation, projectivity, flatness, reducedness or characteristic hypothesis is imposed unless explicitly stated. Write E_S=S⊗_R E, F_S=S⊗_R F and Q_S=S⊗_R Q. Let δ_(X,Y):S⊗_R(X⊗_R Y)≃X_S⊗_S Y_S be the existing native distribBaseChange, B_S(θ)=δ_(E,Q)∘(id_S⊗θ) the inherited affineBaseChange, T the inherited actual tensor field, and I_n its ordered iterate including the tensor-unit degree n=0. The exterior statements compare the two actual S-linear fields B_S(T(θ,ψ)) and T(B_Sθ,B_Sψ) through δ_(E,F); both exterior powers are taken over S on Q_S. They do not identify S⊗_R∧²_R Q with ∧²_S Q_S, nor prove preservation/reflection of original R-curvature. Sheaf tensors, sections, restrictions/gluing and nonzero parameters remain separate.
+
+Proof: Tensor induction in w reduces to f⊗q. Apply the actual inverse associator and native scalar-extension evaluation; extend by additivity.
+
+Dependencies: `mathlib:TensorProduct.induction_on`, `mathlib:TensorProduct.AlgebraTensorModule.distribBaseChange`, `mathlib:TensorProduct.AlgebraTensorModule.distribBaseChange_tmul`, `mathlib:TensorProduct.assoc_symm_tmul`, `mathlib:TensorProduct.map_tmul`.
+
+Source: Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), Theorem 2.1(iii)–(iv), (2.4), pp.7–8. This arbitrary-ring affine proof is an authored deduction, not a source correspondence or global sheaf proof.
+
+### Tensor Higgs field commutes with scalar extension
+
+`HodgeStructuresPartII:H.0/affine-tensor-base-change` — `TwistedHiggsBundle.affineTensorField_baseChange`.
+
+T(B_Sθ,B_Sψ)∘δ_(E,F)=(δ_(E,F)⊗id_(Q_S))∘B_S(T(θ,ψ)) as S-linear maps S⊗_R(E⊗_R F)→(E_S⊗_S F_S)⊗_S Q_S.
+
+R and S are arbitrary commutative rings with an R-algebra structure on S; E,F,Q are arbitrary R-modules. θ:E→E⊗_R Q and ψ:F→F⊗_R Q are actual R-linear fields. No integrability, coefficient basis, finite generation, projectivity, flatness, reducedness or characteristic hypothesis is imposed unless explicitly stated. Write E_S=S⊗_R E, F_S=S⊗_R F and Q_S=S⊗_R Q. Let δ_(X,Y):S⊗_R(X⊗_R Y)≃X_S⊗_S Y_S be the existing native distribBaseChange, B_S(θ)=δ_(E,Q)∘(id_S⊗θ) the inherited affineBaseChange, T the inherited actual tensor field, and I_n its ordered iterate including the tensor-unit degree n=0. The exterior statements compare the two actual S-linear fields B_S(T(θ,ψ)) and T(B_Sθ,B_Sψ) through δ_(E,F); both exterior powers are taken over S on Q_S. They do not identify S⊗_R∧²_R Q with ∧²_S Q_S, nor prove preservation/reflection of original R-curvature. Sheaf tensors, sections, restrictions/gluing and nonzero parameters remain separate.
+
+Proof: Use additive tensor induction in S⊗_R(E⊗_R F) and in E⊗_R F. On a⊗(e⊗f), expand the actual tensor field and apply the left and right summand identities. No assertion that the two individual endomorphisms commute is required.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-base-change`, `HodgeStructuresPartII:H.0/affine-tensor-field`, `HodgeStructuresPartII:H.0/affine-tensor-tmul`, `HodgeStructuresPartII:H.0/affine-tensor-base-change-left`, `HodgeStructuresPartII:H.0/affine-tensor-base-change-right`, `mathlib:TensorProduct.induction_on`, `mathlib:LinearMap.baseChange_tmul`.
+
+API `TwistedHiggsBundle.affineTensorField_baseChange` (compatibility): T(B_Sθ,B_Sψ)∘δ_(E,F)=(δ_(E,F)⊗id_(Q_S))∘B_S(T(θ,ψ)) as S-linear maps S⊗_R(E⊗_R F)→(E_S⊗_S F_S)⊗_S Q_S.
+
+API `TwistedHiggsBundle.affineTensorField_baseChange_inverse` (compatibility): B_S(T(θ,ψ))∘δ_(E,F)⁻¹=(δ_(E,F)⁻¹⊗id_(Q_S))∘T(B_Sθ,B_Sψ).
+
+API `TwistedHiggsBundle.affineTensorField_baseChange_ordered` (compatibility): For every n≥0, I_n(T(B_Sθ,B_Sψ))∘δ_(E,F)=(δ_(E,F)⊗id_(Q_S tensor-power n))∘I_n(B_S(T(θ,ψ))).
+
+API `TwistedHiggsBundle.affineTensorField_baseChange_ordered_zero_iff` (compatibility): For every n≥0, I_n(T(B_Sθ,B_Sψ))=0 if and only if I_n(B_S(T(θ,ψ)))=0. No flatness or faithful-flatness of S is required for this comparison of two S-fields.
+
+API `TwistedHiggsBundle.affineTensorField_baseChange_nilpotence` (compatibility): For every specified n≥0, if I_n(T(θ,ψ))=0, then I_n(T(B_Sθ,B_Sψ))=0. The same exponent is retained under every R-algebra S, including nonflat scalar extensions.
+
+API `TwistedHiggsBundle.affineTensorField_baseChange_nilpotence_iff` (compatibility): Assume S is faithfully flat over R. For every n≥0, I_n(T(B_Sθ,B_Sψ))=0 if and only if I_n(T(θ,ψ))=0.
+
+API `TwistedHiggsBundle.affineTensorField_baseChange_exterior` (compatibility): κ_S(T(B_Sθ,B_Sψ))∘δ_(E,F)=(δ_(E,F)⊗id_(∧²_S Q_S))∘κ_S(B_S(T(θ,ψ))). Both sides use the same S-exterior coefficient module; no original R-curvature is compared.
+
+API `TwistedHiggsBundle.affineTensorField_baseChange_exterior_zero_iff` (compatibility): κ_S(T(B_Sθ,B_Sψ))=0 if and only if κ_S(B_S(T(θ,ψ)))=0, with no flatness hypothesis. This compares two S-fields, not κ_R(T(θ,ψ)) with its scalar extension.
+
+Test `TwistedHiggsBundle.affineTensorField.test_baseChange_zero` (degenerate): For arbitrary R,S,E,F,Q, tensor the scalar extensions of the two zero fields; the actual resulting S-field is zero.
+
+Test `TwistedHiggsBundle.affineTensorField.test_baseChange_integer_value` (computation): For R=E=F=Q=ℤ, S=ℚ and θ=ψ:e↦e⊗1, B_S(T(θ,ψ))(2⊗(1⊗1))=(2⊗(1⊗1))⊗(1⊗2). Both scalar tensor summands survive.
+
+Test `TwistedHiggsBundle.affineTensorField.test_baseChange_nonflat_tensor` (compatibility): Specialize the actual horizontal equation to ℤ→ZMod 2 and the two unit fields on ℤ. No flatness premise is allowed; the coefficient order and native comparison remain exact.
+
+Test `TwistedHiggsBundle.affineTensorField.test_baseChange_torsion_coefficients` (compatibility): Over ℤ use E=ZMod 2, F=ZMod 4 and Q=(ZMod 2)²; for arbitrary actual fields and every n, the two S-fields with S=ZMod 2 have the same n-th iterate vanishing. No coefficient basis or flatness is present.
+
+Test `TwistedHiggsBundle.affineTensorField.test_baseChange_degree_zero` (degenerate): For arbitrary fields and ring extension, the two scalar-extended tensor fields have equivalent vanishing of I_0; the empty tensor is the native unit, not a stipulated zero iterate.
+
+Test `TwistedHiggsBundle.affineTensorField.test_baseChange_faithful` (compatibility): For faithfully flat S/R, reflect the same specified exponent from the actual tensor of the extended fields to the original R-tensor field; E,F,Q remain arbitrary.
+
+Test `TwistedHiggsBundle.affineTensorField.test_baseChange_exterior_scope` (compatibility): For arbitrary S/R, the two actual S-fields have equivalent exterior-integrability. Both exterior powers are over S on Q_S; the test does not assert transport of original R-curvature.
+
+Test `TwistedHiggsBundle.affineTensorField.test_baseChange_nonfaithful_erasure` (non-example): Over ℤ, the tensor of two scalar unit fields on E=F=Q=ℤ is nonzero, but after scalar extension to ZMod 2 the actual tensor of their two extended fields is zero. Unconditional reflection of the original field or its degree-one iterate is false.
+
+Source: Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), Theorem 2.1(iii)–(iv), (2.4), pp.7–8. This arbitrary-ring affine proof is an authored deduction, not a source correspondence or global sheaf proof.
+
+### Inverse tensor comparison is horizontal
+
+`HodgeStructuresPartII:H.0/affine-tensor-base-change-inverse` — `TwistedHiggsBundle.affineTensorField_baseChange_inverse`.
+
+B_S(T(θ,ψ))∘δ_(E,F)⁻¹=(δ_(E,F)⁻¹⊗id_(Q_S))∘T(B_Sθ,B_Sψ).
+
+R and S are arbitrary commutative rings with an R-algebra structure on S; E,F,Q are arbitrary R-modules. θ:E→E⊗_R Q and ψ:F→F⊗_R Q are actual R-linear fields. No integrability, coefficient basis, finite generation, projectivity, flatness, reducedness or characteristic hypothesis is imposed unless explicitly stated. Write E_S=S⊗_R E, F_S=S⊗_R F and Q_S=S⊗_R Q. Let δ_(X,Y):S⊗_R(X⊗_R Y)≃X_S⊗_S Y_S be the existing native distribBaseChange, B_S(θ)=δ_(E,Q)∘(id_S⊗θ) the inherited affineBaseChange, T the inherited actual tensor field, and I_n its ordered iterate including the tensor-unit degree n=0. The exterior statements compare the two actual S-linear fields B_S(T(θ,ψ)) and T(B_Sθ,B_Sψ) through δ_(E,F); both exterior powers are taken over S on Q_S. They do not identify S⊗_R∧²_R Q with ∧²_S Q_S, nor prove preservation/reflection of original R-curvature. Sheaf tensors, sections, restrictions/gluing and nonzero parameters remain separate.
+
+Proof: Evaluate on x=δ_(E,F)(y), using surjectivity of the existing native equivalence. Apply its inverse tensored with the identity to the forward horizontal equation and cancel the tensor-map composite.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-tensor-base-change`, `mathlib:TensorProduct.map_map`, `mathlib:TensorProduct.map_id`.
+
+Source: Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), Theorem 2.1(iii)–(iv), (2.4), pp.7–8. This arbitrary-ring affine proof is an authored deduction, not a source correspondence or global sheaf proof.
+
+### Ordered tensor iterates through the monoidal comparison
+
+`HodgeStructuresPartII:H.0/affine-tensor-base-change-ordered` — `TwistedHiggsBundle.affineTensorField_baseChange_ordered`.
+
+For every n≥0, I_n(T(B_Sθ,B_Sψ))∘δ_(E,F)=(δ_(E,F)⊗id_(Q_S tensor-power n))∘I_n(B_S(T(θ,ψ))).
+
+R and S are arbitrary commutative rings with an R-algebra structure on S; E,F,Q are arbitrary R-modules. θ:E→E⊗_R Q and ψ:F→F⊗_R Q are actual R-linear fields. No integrability, coefficient basis, finite generation, projectivity, flatness, reducedness or characteristic hypothesis is imposed unless explicitly stated. Write E_S=S⊗_R E, F_S=S⊗_R F and Q_S=S⊗_R Q. Let δ_(X,Y):S⊗_R(X⊗_R Y)≃X_S⊗_S Y_S be the existing native distribBaseChange, B_S(θ)=δ_(E,Q)∘(id_S⊗θ) the inherited affineBaseChange, T the inherited actual tensor field, and I_n its ordered iterate including the tensor-unit degree n=0. The exterior statements compare the two actual S-linear fields B_S(T(θ,ψ)) and T(B_Sθ,B_Sψ) through δ_(E,F); both exterior powers are taken over S on Q_S. They do not identify S⊗_R∧²_R Q with ∧²_S Q_S, nor prove preservation/reflection of original R-curvature. Sheaf tensors, sections, restrictions/gluing and nonzero parameters remain separate.
+
+Proof: Apply the inherited all-degree ordered naturality theorem to the actual horizontal equation with module map δ_(E,F) and coefficient identity. Simplify the family tensor of identities, including the empty family at n=0.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-tensor-base-change`, `HodgeStructuresPartII:H.0/affine-ordered-iterate-natural`, `mathlib:PiTensorProduct.map_id`.
+
+Source: Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), Theorem 2.1(iii)–(iv), (2.4), pp.7–8. This arbitrary-ring affine proof is an authored deduction, not a source correspondence or global sheaf proof.
+
+### Same-exponent vanishing across the tensor comparison
+
+`HodgeStructuresPartII:H.0/affine-tensor-base-change-ordered-zero` — `TwistedHiggsBundle.affineTensorField_baseChange_ordered_zero_iff`.
+
+For every n≥0, I_n(T(B_Sθ,B_Sψ))=0 if and only if I_n(B_S(T(θ,ψ)))=0. No flatness or faithful-flatness of S is required for this comparison of two S-fields.
+
+R and S are arbitrary commutative rings with an R-algebra structure on S; E,F,Q are arbitrary R-modules. θ:E→E⊗_R Q and ψ:F→F⊗_R Q are actual R-linear fields. No integrability, coefficient basis, finite generation, projectivity, flatness, reducedness or characteristic hypothesis is imposed unless explicitly stated. Write E_S=S⊗_R E, F_S=S⊗_R F and Q_S=S⊗_R Q. Let δ_(X,Y):S⊗_R(X⊗_R Y)≃X_S⊗_S Y_S be the existing native distribBaseChange, B_S(θ)=δ_(E,Q)∘(id_S⊗θ) the inherited affineBaseChange, T the inherited actual tensor field, and I_n its ordered iterate including the tensor-unit degree n=0. The exterior statements compare the two actual S-linear fields B_S(T(θ,ψ)) and T(B_Sθ,B_Sψ) through δ_(E,F); both exterior powers are taken over S on Q_S. They do not identify S⊗_R∧²_R Q with ∧²_S Q_S, nor prove preservation/reflection of original R-curvature. Sheaf tensors, sections, restrictions/gluing and nonzero parameters remain separate.
+
+Proof: Apply the inherited ordered equivariance zero criterion with actual equivalences δ_(E,F) and id_(Q_S), and the proven tensor horizontal equation.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-tensor-base-change`, `HodgeStructuresPartII:H.0/affine-ordered-iterate-equiv`.
+
+Source: Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), Theorem 2.1(iii)–(iv), (2.4), pp.7–8. This arbitrary-ring affine proof is an authored deduction, not a source correspondence or global sheaf proof.
+
+### Specified tensor nilpotence bound survives scalar extension
+
+`HodgeStructuresPartII:H.0/affine-tensor-base-change-nilpotence` — `TwistedHiggsBundle.affineTensorField_baseChange_nilpotence`.
+
+For every specified n≥0, if I_n(T(θ,ψ))=0, then I_n(T(B_Sθ,B_Sψ))=0. The same exponent is retained under every R-algebra S, including nonflat scalar extensions.
+
+R and S are arbitrary commutative rings with an R-algebra structure on S; E,F,Q are arbitrary R-modules. θ:E→E⊗_R Q and ψ:F→F⊗_R Q are actual R-linear fields. No integrability, coefficient basis, finite generation, projectivity, flatness, reducedness or characteristic hypothesis is imposed unless explicitly stated. Write E_S=S⊗_R E, F_S=S⊗_R F and Q_S=S⊗_R Q. Let δ_(X,Y):S⊗_R(X⊗_R Y)≃X_S⊗_S Y_S be the existing native distribBaseChange, B_S(θ)=δ_(E,Q)∘(id_S⊗θ) the inherited affineBaseChange, T the inherited actual tensor field, and I_n its ordered iterate including the tensor-unit degree n=0. The exterior statements compare the two actual S-linear fields B_S(T(θ,ψ)) and T(B_Sθ,B_Sψ) through δ_(E,F); both exterior powers are taken over S on Q_S. They do not identify S⊗_R∧²_R Q with ∧²_S Q_S, nor prove preservation/reflection of original R-curvature. Sheaf tensors, sections, restrictions/gluing and nonzero parameters remain separate.
+
+Proof: Use the inherited arbitrary-coefficient same-exponent scalar-extension preservation for the actual R-tensor field, then the same-exponent S-tensor comparison.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-tensor-base-change-ordered-zero`, `HodgeStructuresPartII:H.0/affine-base-change-bound-arbitrary`.
+
+Source: Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), Theorem 2.1(iii)–(iv), (2.4), pp.7–8. This arbitrary-ring affine proof is an authored deduction, not a source correspondence or global sheaf proof.
+
+### Faithful-flat reflection of the tensor bound
+
+`HodgeStructuresPartII:H.0/affine-tensor-base-change-nilpotence-iff` — `TwistedHiggsBundle.affineTensorField_baseChange_nilpotence_iff`.
+
+Assume S is faithfully flat over R. For every n≥0, I_n(T(B_Sθ,B_Sψ))=0 if and only if I_n(T(θ,ψ))=0.
+
+R and S are arbitrary commutative rings with an R-algebra structure on S; E,F,Q are arbitrary R-modules. θ:E→E⊗_R Q and ψ:F→F⊗_R Q are actual R-linear fields. No integrability, coefficient basis, finite generation, projectivity, flatness, reducedness or characteristic hypothesis is imposed unless explicitly stated. Write E_S=S⊗_R E, F_S=S⊗_R F and Q_S=S⊗_R Q. Let δ_(X,Y):S⊗_R(X⊗_R Y)≃X_S⊗_S Y_S be the existing native distribBaseChange, B_S(θ)=δ_(E,Q)∘(id_S⊗θ) the inherited affineBaseChange, T the inherited actual tensor field, and I_n its ordered iterate including the tensor-unit degree n=0. The exterior statements compare the two actual S-linear fields B_S(T(θ,ψ)) and T(B_Sθ,B_Sψ) through δ_(E,F); both exterior powers are taken over S on Q_S. They do not identify S⊗_R∧²_R Q with ∧²_S Q_S, nor prove preservation/reflection of original R-curvature. Sheaf tensors, sections, restrictions/gluing and nonzero parameters remain separate. For this reflection lemma only, the native condition Module.FaithfullyFlat R S is required.
+
+Proof: Compose the S-tensor comparison with the inherited actual faithfully-flat scalar-extension reflection for arbitrary coefficient modules. The condition is imposed on S, not on E,F or Q.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-tensor-base-change-ordered-zero`, `HodgeStructuresPartII:H.0/affine-base-change-bound-arbitrary-faithful`.
+
+Source: Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), Theorem 2.1(iii)–(iv), (2.4), pp.7–8. This arbitrary-ring affine proof is an authored deduction, not a source correspondence or global sheaf proof.
+
+### Curvature of the two scalar-extended tensor fields
+
+`HodgeStructuresPartII:H.0/affine-tensor-base-change-exterior` — `TwistedHiggsBundle.affineTensorField_baseChange_exterior`.
+
+κ_S(T(B_Sθ,B_Sψ))∘δ_(E,F)=(δ_(E,F)⊗id_(∧²_S Q_S))∘κ_S(B_S(T(θ,ψ))). Both sides use the same S-exterior coefficient module; no original R-curvature is compared.
+
+R and S are arbitrary commutative rings with an R-algebra structure on S; E,F,Q are arbitrary R-modules. θ:E→E⊗_R Q and ψ:F→F⊗_R Q are actual R-linear fields. No integrability, coefficient basis, finite generation, projectivity, flatness, reducedness or characteristic hypothesis is imposed unless explicitly stated. Write E_S=S⊗_R E, F_S=S⊗_R F and Q_S=S⊗_R Q. Let δ_(X,Y):S⊗_R(X⊗_R Y)≃X_S⊗_S Y_S be the existing native distribBaseChange, B_S(θ)=δ_(E,Q)∘(id_S⊗θ) the inherited affineBaseChange, T the inherited actual tensor field, and I_n its ordered iterate including the tensor-unit degree n=0. The exterior statements compare the two actual S-linear fields B_S(T(θ,ψ)) and T(B_Sθ,B_Sψ) through δ_(E,F); both exterior powers are taken over S on Q_S. They do not identify S⊗_R∧²_R Q with ∧²_S Q_S, nor prove preservation/reflection of original R-curvature. Sheaf tensors, sections, restrictions/gluing and nonzero parameters remain separate.
+
+Proof: Apply the inherited same-ring exterior naturality to the actual S-horizontal equation. Simplify the exterior-power map of the coefficient identity.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-tensor-base-change`, `HodgeStructuresPartII:H.0/affine-exterior-square-natural`, `mathlib:exteriorPower.map_id`.
+
+Source: Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), Theorem 2.1(iii)–(iv), (2.4), pp.7–8. This arbitrary-ring affine proof is an authored deduction, not a source correspondence or global sheaf proof.
+
+### Integrability across the monoidal tensor comparison
+
+`HodgeStructuresPartII:H.0/affine-tensor-base-change-exterior-zero` — `TwistedHiggsBundle.affineTensorField_baseChange_exterior_zero_iff`.
+
+κ_S(T(B_Sθ,B_Sψ))=0 if and only if κ_S(B_S(T(θ,ψ)))=0, with no flatness hypothesis. This compares two S-fields, not κ_R(T(θ,ψ)) with its scalar extension.
+
+R and S are arbitrary commutative rings with an R-algebra structure on S; E,F,Q are arbitrary R-modules. θ:E→E⊗_R Q and ψ:F→F⊗_R Q are actual R-linear fields. No integrability, coefficient basis, finite generation, projectivity, flatness, reducedness or characteristic hypothesis is imposed unless explicitly stated. Write E_S=S⊗_R E, F_S=S⊗_R F and Q_S=S⊗_R Q. Let δ_(X,Y):S⊗_R(X⊗_R Y)≃X_S⊗_S Y_S be the existing native distribBaseChange, B_S(θ)=δ_(E,Q)∘(id_S⊗θ) the inherited affineBaseChange, T the inherited actual tensor field, and I_n its ordered iterate including the tensor-unit degree n=0. The exterior statements compare the two actual S-linear fields B_S(T(θ,ψ)) and T(B_Sθ,B_Sψ) through δ_(E,F); both exterior powers are taken over S on Q_S. They do not identify S⊗_R∧²_R Q with ∧²_S Q_S, nor prove preservation/reflection of original R-curvature. Sheaf tensors, sections, restrictions/gluing and nonzero parameters remain separate.
+
+Proof: Apply the inherited exterior equivariance criterion with native module equivalence δ_(E,F), coefficient identity equivalence, and the tensor horizontal equation.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-tensor-base-change`, `HodgeStructuresPartII:H.0/affine-exterior-square-equiv`.
+
+Source: Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), Theorem 2.1(iii)–(iv), (2.4), pp.7–8. This arbitrary-ring affine proof is an authored deduction, not a source correspondence or global sheaf proof.

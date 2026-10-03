@@ -16,6 +16,10 @@ ledger names every API, example and layer theorem whose full signature needs sup
 The two partial data structures below are not substitutes for their mathematical definitions.
 -/
 
+import Mathlib.LinearAlgebra.Basis.Fin
+import Mathlib.LinearAlgebra.FreeModule.Finite.Basic
+import Mathlib.RingTheory.Flat.Basic
+import Mathlib.LinearAlgebra.Dimension.StrongRankCondition
 import Mathlib.AlgebraicGeometry.Birational.Birational
 import Mathlib.RingTheory.IntegralClosure.IntegrallyClosed
 import Mathlib.FieldTheory.RatFunc.Basic
@@ -3452,3 +3456,184 @@ example : AlgebraicGeometry.IsIntegral (curve (0 : ZMod 2) 0) ∧
 
 end TauCeti.GenusOne.QuadraticPinch.Global
 /- END QUADRATIC NORMAL BIRATIONAL COMPARISON -/
+
+/- BEGIN QUADRATIC POLYNOMIAL MODULE -/
+
+namespace TauCeti.GenusOne.QuadraticPinch
+variable {k : Type u} [Field k]
+
+def parameterHom (a b : k) : k[X] →ₐ[k] algebra ((X ^ 2 + C a * X + C b)) := by
+  sorry
+
+
+instance parameterAlgebra (a b : k) : Algebra k[X] (algebra ((X ^ 2 + C a * X + C b))) := by
+  sorry
+
+
+lemma parameterHom_coe (a b : k) (P : k[X]) :
+    (parameterHom a b P : k[X]) = P.comp ((X ^ 2 + C a * X + C b)) := by
+  sorry
+
+
+lemma parameter_smul (a b : k) (P : k[X]) (f : algebra ((X ^ 2 + C a * X + C b))) :
+    ((P • f : algebra (X ^ 2 + C a * X + C b)) : k[X]) = P.comp ((X ^ 2 + C a * X + C b)) * (f : k[X]) := by
+  sorry
+
+
+def polynomialCoordinates (a b : k) :
+    (k[X] × k[X]) ≃ₗ[k[X]] algebra ((X ^ 2 + C a * X + C b)) := by
+  sorry
+
+
+lemma polynomialCoordinates_coe (a b : k) (z : k[X] × k[X]) :
+    (polynomialCoordinates a b z : k[X]) =
+      z.1.comp ((X ^ 2 + C a * X + C b)) + X * (X ^ 2 + C a * X + C b) * z.2.comp ((X ^ 2 + C a * X + C b)) := by
+  sorry
+
+
+lemma polynomialCoordinates_inverse (a b : k) (f : algebra ((X ^ 2 + C a * X + C b))) :
+    (polynomialCoordinates a b).symm f = (coordinates a b).symm f := by
+  sorry
+
+
+def polynomialBasis (a b : k) :
+    Module.Basis (Fin 2) k[X] (algebra ((X ^ 2 + C a * X + C b))) := by
+  sorry
+
+
+lemma polynomialBasis_zero (a b : k) : (polynomialBasis a b 0 : k[X]) = 1 := by
+  sorry
+
+
+lemma polynomialBasis_one (a b : k) :
+    (polynomialBasis a b 1 : k[X]) = X * (X ^ 2 + C a * X + C b) := by
+  sorry
+
+
+lemma polynomialBasis_repr (a b : k) (f : algebra ((X ^ 2 + C a * X + C b))) :
+    (polynomialBasis a b).repr f 0 = ((coordinates a b).symm f).1 ∧
+      (polynomialBasis a b).repr f 1 = ((coordinates a b).symm f).2 := by
+  sorry
+
+
+lemma polynomialModule_free (a b : k) :
+    Module.Free k[X] (algebra ((X ^ 2 + C a * X + C b))) := by
+  sorry
+
+
+lemma polynomialModule_finite (a b : k) :
+    Module.Finite k[X] (algebra (X ^ 2 + C a * X + C b)) := by
+  sorry
+
+
+lemma polynomialModule_finrank (a b : k) :
+    Module.finrank k[X] (algebra (X ^ 2 + C a * X + C b)) = 2 := by
+  sorry
+
+
+lemma polynomialModule_flat (a b : k) :
+    Module.Flat k[X] (algebra (X ^ 2 + C a * X + C b)) := by
+  sorry
+
+
+lemma parameterHom_coordinates (a b : k) (P : k[X]) :
+    parameterHom a b P = polynomialCoordinates a b (P, 0) := by
+  sorry
+
+
+lemma parameterHom_injective (a b : k) : Function.Injective (parameterHom a b) := by
+  sorry
+
+
+lemma polynomialCoordinates_smul (a b : k) (P : k[X]) (z : k[X] × k[X]) :
+    polynomialCoordinates a b (P * z.1, P * z.2) =
+      P • polynomialCoordinates a b z := by
+  sorry
+
+
+lemma polynomialCoordinates_reconstruction (a b : k)
+    (f : algebra (X ^ 2 + C a * X + C b)) :
+    ((coordinates a b).symm f).1 • polynomialBasis a b 0 +
+      ((coordinates a b).symm f).2 • polynomialBasis a b 1 = f := by
+  sorry
+
+
+-- test: QuadraticPinch.test_parameter_X
+example (a b : k) :
+    (parameterHom a b X : k[X]) = X ^ 2 + C a * X + C b := by
+  sorry
+
+
+-- test: QuadraticPinch.test_parameter_cusp
+example : (parameterHom (0 : k) 0 X : k[X]) = X ^ 2 := by
+  sorry
+
+
+-- test: QuadraticPinch.test_parameter_char2
+example :
+    (parameterHom (1 : ZMod 2) 1 X : (ZMod 2)[X]) = X ^ 2 + X + 1 := by
+  sorry
+
+
+-- test: QuadraticPinch.test_parameter_action
+example (a b : k) (P : k[X])
+    (f : algebra (X ^ 2 + C a * X + C b)) :
+    ((P • f : algebra (X ^ 2 + C a * X + C b)) : k[X]) = P.comp (X ^ 2 + C a * X + C b) * (f : k[X]) := by
+  sorry
+
+
+-- test: QuadraticPinch.test_parameter_unit_action
+example (a b : k) (P : k[X]) :
+    P • (1 : algebra (X ^ 2 + C a * X + C b)) = parameterHom a b P := by
+  sorry
+
+
+-- test: QuadraticPinch.test_parameter_not_identity
+example : (parameterHom (0 : k) 0 X : k[X]) ≠ X := by
+  sorry
+
+
+-- test: QuadraticPinch.test_polynomial_roundtrip
+example (a b : k) (z : k[X] × k[X]) :
+    (polynomialCoordinates a b).symm (polynomialCoordinates a b z) = z := by
+  sorry
+
+
+-- test: QuadraticPinch.test_polynomial_char2_scalar
+example (P Q : (ZMod 2)[X]) :
+    polynomialCoordinates (1 : ZMod 2) 1 (X * P, X * Q) =
+      parameterHom (1 : ZMod 2) 1 X * polynomialCoordinates 1 1 (P, Q) := by
+  sorry
+
+
+-- test: QuadraticPinch.test_polynomial_not_multiplicative
+example :
+    (polynomialCoordinates (0 : k) 0 ((0, 1) * (0, 1)) : k[X]) ≠
+      (polynomialCoordinates (0 : k) 0 (0, 1) : k[X]) *
+      (polynomialCoordinates (0 : k) 0 (0, 1) : k[X]) := by
+  sorry
+
+
+-- test: QuadraticPinch.test_polynomial_basis_vectors
+example (a b : k) :
+    (polynomialBasis a b 0 : k[X]) = 1 ∧
+      (polynomialBasis a b 1 : k[X]) = X * (X ^ 2 + C a * X + C b) := by
+  sorry
+
+
+-- test: QuadraticPinch.test_polynomial_basis_cusp
+example :
+    (polynomialBasis (0 : k) 0 1 : k[X]) = X ^ 3 ∧
+      Module.finrank k[X] (algebra (X ^ 2 + C (0 : k) * X + C 0)) = 2 := by
+  sorry
+
+
+-- test: QuadraticPinch.test_polynomial_basis_repr
+example (a b : k) :
+    (polynomialBasis a b).repr (polynomialBasis a b 0) 0 = 1 ∧
+      (polynomialBasis a b).repr (polynomialBasis a b 1) 0 = 0 ∧
+      (polynomialBasis a b).repr (polynomialBasis a b 1) 1 = 1 := by
+  sorry
+
+end TauCeti.GenusOne.QuadraticPinch
+/- END QUADRATIC POLYNOMIAL MODULE -/

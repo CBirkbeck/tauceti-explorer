@@ -1,3 +1,746 @@
+# Root-chart point action checkpoint
+
+Codex — codex-a71f92. Refs #3403. Claim5965781823 confirmed by bot5965782864; issue read in full before and after confirmation. Mathematical/control base 0afca1373e81cb7b4345d0e096d419be9a40274d.
+
+Thirteen new nodes, two constructions and eleven lemmas, specify the actual action on chart algebra-valued points through the inherited tensor coaction, a local native MulAction, root/coefficient formulas, identity/composition, test-algebra naturality, recovery of inherited scaling and universal coaction, both antipode cancellations, and fixed zero-root points. Nine API records and seven typed tests are added. All312 incoming contracts and311 whole node objects remain; only the infinite affine quotient consumer gains seven prerequisites and one proof step. General reserved root-stack and stable-curve import contracts, both source routes, all stages/edges,39 planets,8 gaps and13 requests remain. Every stage remains partial; implementation unchecked. Roadmap is byte-identical; reader/suggested retain exact incoming prefixes.
+
+The carrier is actual AlgHom_A(C_A(f),B), for arbitrary same-universe commutative rings and A-algebras, not scalar-extended comodule vectors. Generic native tensor lift, convolution monoid, MulAction and Tau Ceti's existing module point representation are imported/credited, not replanned. Zero rings, nonunit f, torsion and wild/nonreduced fibres remain. Zero-root points are fixed, so action laws do not certify a free action or fpqc torsor. No A[Q/Z], arbitrary-universe, Spec-limit or quotient equivalence is asserted.
+
+## Reading
+
+Freshly read current ten-stage roadmap, the reviewed FA.0–FA.7 target/verdict/duplicate records, applicable REV-AUDIT-20 and whole REV-RT-AUDIT-20 report, complete reserved root-stack survey and current main key/affine quotient contracts, and both full joining briefs. Governing instructions and two upstream-style exemplars were personally read earlier in this continuous session; blob guards are checked before publication. No fresh whole-packet or whole-paper audit is claimed; inherited historical source receipts retain their authors.
+
+Fresh public primary reading2026-10-03: Talpo–Vistoli [arXiv:1410.1164v2](https://arxiv.org/pdf/1410.1164v2), complete printed/PDF pp.14–16, cofinal limit, Cartier-dual grading and fpqc quotient definitions, Lemma3.7 and Proposition3.10 with proofs, Lemma3.12, Corollary3.13 and Definition3.14. These formulas are authored deductions motivated by that passage. Freshly read actual inherited root extensionality, root lifts, coaction/root/scaling, bialgebra and point APIs; recovered full4346-line predecessor byte-exactly, not freshly read it all. Read native tensor lift/pure-tensor formulas, complete Mathlib algebra-hom convolution file, native MulAction carrier and actual Tau Ceti pointsRepresentation carrier/nearby generic module action formulas. Bounded full-tree concept searches found generic module/Hopf infrastructure; no general library-absence claim is made.
+
+## Checks and continuation
+
+Exact existing Mathlib source/build082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti sourcef790474821cf4256814db967cb154e7af3d0c369. Existing Tau Ceti build checkout differs from that source pin; full geometric canonical imports remain unavailable. No setup, update, cache, dependency build or LSP. Native proof and exact whole Mathlib-only sketch extraction checked serially with20GiB memory guard and1200-second timeout. Full canonical not compiled; its new headers and test types match native.
+
+Actual indexed checker and five-file intake pass with zero findings/refusals. Actual atlas assembly/control checks pass; all54 required supplier/stage pairs resolve, all graphs are acyclic and unrelated skips/pending links and stage edges are unchanged. All18 governing guards and five incoming files are unchanged from mathematical to publication base e8900fee9630d5937acb359fc7db190573c379f5. All36 bounded link maps were read; none mentions these PartII stages. Complete geometric suggested compilation remains open, not represented as successful by the Mathlib extraction. Continue with A[Q/Z] Hopf coordinates, index/universe transport, coherent root-object groupoids, affine Spec limits, fpqc frame torsors and infinite quotient comparison; preserve TOWER-AFF/KUMMER-FINITE/TOWER-TYPING/DVR obligations and the all-roots-of2 non-fppf counterexample. Source decomposition for Yun–Zhang and the independent symplectic route remains. No stage is closed.
+
+
+## Exact verification evidence
+
+```json
+{
+  "graph": {
+    "stageDAG": {
+      "vertices": 3056,
+      "edges": 8723,
+      "acyclic": true
+    },
+    "ownDeclarationDAG": {
+      "vertices": 325,
+      "edges": 745,
+      "acyclic": true
+    },
+    "scopedDAG": {
+      "vertices": 3412,
+      "edges": 10079,
+      "acyclic": true
+    },
+    "reachableDeclarations": 395,
+    "externalDeclarations": [
+      "AlgebraicModuliForArithmeticGeometry:R09.3/affine-fpqc-quasicoherent-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/affine-module-descent-equivalence",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/affine-pullback-tensor",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/canonical-overlap-functor",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-descent-to-overlap",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-equivalence",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-morphisms",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-roundtrips",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-cocycle",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-inverses",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-maps",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/coalgebra-to-overlap",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/descent-equalizer-module-coordinates",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/finite-locally-free-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/finite-presentation-module-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-effective",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-faithful",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-full",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/module-descent-coaction",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/module-overlap-datum",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/native-module-canonical-comparison",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/native-module-descent-coalgebra",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coaction-roundtrips",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coalgebra-equivalence",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coalgebra-morphisms",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-comparison-canonical",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-diagonal",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-coordinates",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-diagonal",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-triple",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-to-chosen-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-to-coalgebra",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pseudofunctor",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pullback",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/tensor-comonad-coordinates",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-essential-surjective",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-full-faithful",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/classifying-abelian-gerbe",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/compatible-limit-family",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act-difference",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-action-is-sheaf",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-action-presheaf",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-action-sheaf",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-difference",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-difference-act",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-hom-act",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-hom-equiv",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-hom-local-nonempty",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-hom-principal-equiv",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-hom-principal-equiv-apply",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-pair-is-sheaf",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-pair-presheaf",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-pair-sheaf",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-principal-equiv",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-principal-presheaf-iso",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-principal-sheaf-iso",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-pull-hom-act",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-torsor",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/limit-stack-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/neutralization",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/neutralization-equivalence",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/nonempty-affine-limit-gerbe",
+      "AlgebraicModuliForArithmeticGeometry:key/gerbes",
+      "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+      "DiamondsAndVStacks:D0/stackification"
+    ],
+    "baselineLeaves": 253,
+    "requiredPairs": 54,
+    "restructurePairs": 0,
+    "unresolved": [],
+    "ownSkippedLinks": [],
+    "ownPendingLinks": [],
+    "otherSkipsMatch": true,
+    "stageEdgesUnchanged": true
+  },
+  "checker": {
+    "roadmap": "FunctionFieldArithmeticPartII",
+    "status": "partial",
+    "nodes": 325,
+    "kinds": {
+      "construction": 56,
+      "definition": 11,
+      "comparison": 11,
+      "lemma": 209,
+      "theorem": 37,
+      "application": 1
+    },
+    "apiItems": 251,
+    "unitTests": 233,
+    "planets": 39,
+    "baselineDeclarations": 201,
+    "prerequisites": {
+      "baseline": 323,
+      "node (this packet)": 745,
+      "stage": 64,
+      "node (blueprint)": 16
+    },
+    "gaps": 8,
+    "requests": 13,
+    "stagesInScope": 10,
+    "stagesClosed": 0
+  },
+  "preservedNodeObjects": 311,
+  "preservedContracts": 312,
+  "newNodes": 13,
+  "newHeaders": 13,
+  "newTests": 7,
+  "rawApiItems": 256,
+  "rawTests": 265,
+  "resources": {
+    "Native": {
+      "warnings": 0,
+      "audits": 216,
+      "mode": "original local compiler invocation",
+      "lines": 4530,
+      "examples": 190,
+      "sourceSha256": "325fbf72fce616c471ff4c7b5a3c4e62691e6149fafa9543f8d37a67cbdd2b11",
+      "normalizedDiagnosticSha256": "97c10b55fc878cb390fada79a5e76f29a1cd3e337b71d252cd7e24e438528b3d"
+    },
+    "Sketch": {
+      "warnings": 450,
+      "audits": 0,
+      "mode": "original local compiler invocation",
+      "lines": 2704,
+      "examples": 190,
+      "sourceSha256": "edc51db50969ae3453114c2f26794f2c8da4875c669b72b820c626b6048f584f",
+      "normalizedDiagnosticSha256": "3793455938c4ee3dbee08cc1b1bc1f73c84ec99eaa63f7f5b5419c781dd33854"
+    }
+  },
+  "intakeProblems": [],
+  "intakeRefusals": [],
+  "guardsUnchanged": 18,
+  "immutableReadPaths": 845,
+  "immutableReadPathListSha256": "058eeeb5e5c0bdfc5035fb51bc7ec615b0620060b78255e78566ae7f62f43681",
+  "verifierSha256": "3ef49cd820fdf7fee50c61b147a431a5ee02fab421691c619ae3f8e5e12e2feb",
+  "compiles": {
+    "Native": {
+      "sha256": "325fbf72fce616c471ff4c7b5a3c4e62691e6149fafa9543f8d37a67cbdd2b11",
+      "lines": 4530,
+      "warnings": 0,
+      "admissions": 0,
+      "axiomAudits": 216,
+      "examples": 190,
+      "seconds": 50.43,
+      "peakRSSKiB": 3974560,
+      "availableGiBBefore": 28,
+      "exit": 0
+    },
+    "Sketch": {
+      "sha256": "edc51db50969ae3453114c2f26794f2c8da4875c669b72b820c626b6048f584f",
+      "lines": 2704,
+      "warnings": 450,
+      "admissionWarnings": 450,
+      "examples": 190,
+      "seconds": 18.01,
+      "peakRSSKiB": 3504432,
+      "availableGiBBefore": 27,
+      "exit": 0
+    },
+    "Canonical": {
+      "sha256": "175bd240492ae27c2255cee677e020ed3861a267fb75e4406777a2eb0527445e",
+      "lines": 3616,
+      "examples": 210,
+      "compiled": false,
+      "reason": "Exact-pin native Tau Ceti geometric imports are unavailable; only exact whole Mathlib-only extraction compiled."
+    }
+  },
+  "sourceHashes": {
+    "Native.lean": {
+      "sha256": "325fbf72fce616c471ff4c7b5a3c4e62691e6149fafa9543f8d37a67cbdd2b11",
+      "lines": 4530
+    },
+    "Canonical.lean": {
+      "sha256": "175bd240492ae27c2255cee677e020ed3861a267fb75e4406777a2eb0527445e",
+      "lines": 3616
+    },
+    "Sketch.lean": {
+      "sha256": "edc51db50969ae3453114c2f26794f2c8da4875c669b72b820c626b6048f584f",
+      "lines": 2704
+    },
+    "New.lean": {
+      "sha256": "30e433fad3e7b09b2c98156294399e94d25f5508e1109e9b8172004c06f4394d",
+      "lines": 170
+    },
+    "verify.py": {
+      "sha256": "3ef49cd820fdf7fee50c61b147a431a5ee02fab421691c619ae3f8e5e12e2feb",
+      "lines": 163
+    },
+    "immutable_view.py": {
+      "sha256": "a2c4f361316a37c38516b1e0f8e226d0971fd0b2fdf0f5b433779b7a74de6e8f",
+      "lines": 103
+    },
+    "project.py": {
+      "sha256": "29340cf6a3d521ebb51a840515a4e450701a5d88339f3a9475ebe772bce1f0fa",
+      "lines": 13
+    },
+    "Native-incoming.lean": {
+      "sha256": "5e507d145427f6a31043926445dbb69d87f7d40b3725fad9e26ea699c38229a3",
+      "lines": 4346
+    }
+  }
+}
+```
+
+## Immutable public recovery and exact replay
+
+Evidence archive [56a042ffe69f0a63ce7ec8f8cb791d0cd72e1648](https://github.com/CBirkbeck/tauceti-explorer/tree/56a042ffe69f0a63ce7ec8f8cb791d0cd72e1648) is an explicit ancestor of this PR, containing the complete proof and transcripts in inert suggested-file comments, and exact validator/immutable-reader/projector scripts in the handoff. The final canonical suggested file has no proof archive. After fetching this worker branch into the existing checkout, save this program in one fresh owned disk scratch and run it with the immutable published head SHA as its first argument, from the existing repository root. No repository snapshot is made. It hashes/reconstructs all ten source/script/diagnostic artifacts and reads the five exact published overlays; diagnostics are authenticated original transcripts, not a fresh compiler invocation.
+
+```python
+"""Recover exact public source/evidence into one owned disk scratch; no snapshot."""
+from pathlib import Path
+import ast,hashlib,subprocess,sys,json
+S=Path(__file__).resolve().parent
+ARCHIVE='56a042ffe69f0a63ce7ec8f8cb791d0cd72e1648'
+HEAD=sys.argv[1]
+BASE='0afca1373e81cb7b4345d0e096d419be9a40274d'
+RID='FunctionFieldArithmeticPartII'
+expected={"Native.lean":"325fbf72fce616c471ff4c7b5a3c4e62691e6149fafa9543f8d37a67cbdd2b11","Canonical.lean":"175bd240492ae27c2255cee677e020ed3861a267fb75e4406777a2eb0527445e","Sketch.lean":"edc51db50969ae3453114c2f26794f2c8da4875c669b72b820c626b6048f584f","New.lean":"30e433fad3e7b09b2c98156294399e94d25f5508e1109e9b8172004c06f4394d","verify.py":"3ef49cd820fdf7fee50c61b147a431a5ee02fab421691c619ae3f8e5e12e2feb","immutable_view.py":"a2c4f361316a37c38516b1e0f8e226d0971fd0b2fdf0f5b433779b7a74de6e8f","project.py":"29340cf6a3d521ebb51a840515a4e450701a5d88339f3a9475ebe772bce1f0fa","Native-incoming.lean":"5e507d145427f6a31043926445dbb69d87f7d40b3725fad9e26ea699c38229a3","Native.diag":"97c10b55fc878cb390fada79a5e76f29a1cd3e337b71d252cd7e24e438528b3d","Sketch.diag":"3793455938c4ee3dbee08cc1b1bc1f73c84ec99eaa63f7f5b5419c781dd33854"}
+def blob(ref,path):return subprocess.check_output(['git','show',ref+':'+path],text=True)
+def emit(path,text):
+ patch='*** Begin Patch\n*** Add File: '+str(path)+'\n'+'\n'.join('+'+l for l in text.removesuffix('\n').split('\n'))+'\n*** End Patch'
+ subprocess.run(['apply_patch'],input=patch,text=True,check=True,stdout=subprocess.DEVNULL)
+ assert path.read_text()==text
+def save(name,text):
+ assert hashlib.sha256(text.encode()).hexdigest()==expected[name],name
+ emit(S/name,text)
+path='research/blueprint/suggested/'+RID+'.lean'
+archive=blob(ARCHIVE,path)
+can=archive.split('\n/- BEGIN ROOT ACTION NATIVE\n',1)[0]
+save('Canonical.lean',can)
+for name,tag in [('Native.lean','NATIVE'),('New.lean','NEW'),('Native.diag','NATIVE DIAGNOSTICS'),('Sketch.diag','SKETCH DIAGNOSTICS')]:
+ save(name,archive.split('\n/- BEGIN ROOT ACTION '+tag+'\n',1)[1].split('END ROOT ACTION '+tag+' -/\n',1)[0])
+native=(S/'Native.lean').read_text()
+save('Native-incoming.lean',''.join(native.splitlines(keepends=True)[:4346]))
+h=blob(ARCHIVE,'research/blueprint/handoff/DESIGN-'+RID+'.md')
+for name in ['verify.py','immutable_view.py','project.py']:
+ code=h.split('### '+name+'\n\n'+chr(96)*3+'python\n',1)[1].split(chr(96)*3+'\n',1)[0]
+ ast.parse(code);save(name,code)
+namespace={};exec((S/'project.py').read_text(),namespace)
+save('Sketch.lean',namespace['project'](can))
+files=['research/blueprint/'+d+'/'+('DESIGN-' if d=='handoff' else '')+RID+'.'+e for d,e in [('roadmaps','json'),('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]]
+for path in files:emit(S/'proposal'/path,blob(HEAD,path))
+assert (S/'proposal'/files[3]).read_text()==can
+print(json.dumps({'recoveredArtifacts':len(expected),'overlayFiles':len(files),'immutableArchive':ARCHIVE,'publishedHead':HEAD,'diagnostics':'recorded archived diagnostics; no new Lean invocation'}))
+```
+
+Run the recovered verify.py with its scratch directory as first argument and the existing pinned declarations.tsv path as second argument. Set TAUCETI_REPO to the existing read-only repository root and ROOT_ACTION_VALIDATE_BASE to e8900fee9630d5937acb359fc7db190573c379f5. Its immutable reader runs the actual recorded checker/intake/assembler without changing the checkout. Set PYTHONDONTWRITEBYTECODE=1. All source/header/contract/graph/guard assertions must pass. An independent Lean replay must use only an already-existing exact Mathlib build, one serial invocation at a time after free -g shows at least20GiB available, with timeout1200. Full canonical geometric compilation remains unavailable and is not inferred from the Mathlib extraction.
+
+## Retained incoming checkpoint and historical receipts
+
+# Convolution points of the factorial unity-root Hopf algebra
+
+Codex — codex-5ebb6f. Refs #3403. Claim5965533506 was confirmed by
+bot5965534402, and the whole issue was read before and after confirmation.
+Mathematical base: 35cac2e88b6958c45cc4578b116cccb1974fd853. Publication/control base: 2bc684df36a586e1a305395ddf6f0d0fb82aa63c.
+All18 governing, source-route, reviewed audit, reserved-key, upstream-style
+and own incoming input blobs were confirmed unchanged before advancing this
+isolated worker branch. The shared checkout was not changed.
+
+## Result and precise boundary
+
+Twenty new nodes give one construction and nineteen lemmas: the actual
+convolution root/identity formulas, multiplication and identity under the
+existing represented-point equivalence, evaluation products and counit,
+actual antipode/coherent-inverse comparison, both convolution inverse laws,
+the native multiplicative point equivalence and its forward/inverse/root,
+product/identity/power and test-algebra naturality API. Seven API records
+and eight typed examples accompany the construction.
+
+Convolution multiplies coherent root values.
+
+For arbitrary commutative rings A,B,C in one fixed universe, with specified
+A-algebra structures on B,C, use the actual inherited H_A=C_A(1), roots h_i
+of order(i+1)!, comultiplication Δ, counit ε and antipode S. The native
+Mathlib monoid WithConv(AlgHom_A(H_A,B)) uses tensor convolution. Products
+evaluate h_i as p(h_i)q(h_i); the convolution identity is ι_B∘ε, whose roots
+all evaluate to1. The actual inherited point equivalence therefore upgrades
+to a native MulEquiv with the existing subgroup of coherent B-unit families.
+The antipode maps represented families to their inverses and gives both
+native convolution inverse equations. Postcomposition by any A-algebra map
+k:B→C commutes with the point comparison and its evaluation inverse.
+
+The generic monoid, group, antipode inverse and functor-of-points APIs already
+exist at the pins; none is replanned. The existing Tau Ceti group instance
+has exactly the same multiplication and the inverse p∘S, so the constructed
+MulEquiv also compares those groups when that existing instance is installed.
+The separate checked native proof uses the actual Mathlib convolution monoid
+and proves both inverse equations; it does not compile the Tau Ceti group
+module itself. A non-example at A=Z/3Z, B=H_A shows that the identity algebra
+map is a nonidentity convolution point, detecting confusion with the counit.
+Zero rings and arbitrary characteristic are retained, without reducedness,
+nontriviality, domain, invertible-order, flatness or finiteness assumptions.
+
+All292 incoming contracts remain and291 entire node objects are unchanged.
+Only the infinite-affine-quotient consumer gains five dependencies and one
+proof step; its statement, hypotheses, API and tests remain. All incoming
+reader text and suggested bodies are preserved after the added Mathlib
+convolution and Tau Ceti point-group imports; the roadmap definition is byte-identical. The general reserved root
+stack key and its five current consumers, relative roots, nonreduced fibres,
+wild orders, coherent systems and imported stable-curve key remain intact.
+
+Totals:312 nodes (11 definitions,54 constructions,198 lemmas,37 theorems,
+11 comparisons,1 application),247 raw API records,258 raw tests,200 baseline
+declarations,39 planets,8 gaps and13 requests. The indexed checker counts
+242 API items and226 tests on required definition/construction nodes.
+All ten stages remain partial and every implementation unchecked.
+
+## Reading and exact checks
+
+Governing WORKERS and relevant blueprint PROTOCOL sections were freshly read;
+expansion PROTOCOL and upstream guide were read in this continuous session.
+Complete JacobianChallenge and StableReduction upstream documents were read
+earlier in this same continuous session; their18-input guard blobs are
+unchanged. Freshly read the ten current stage contracts, all reviewed
+FA.0–FA.7 target/verdict/duplicate records, applicable REV-AUDIT-20 report,
+complete REV-RT-AUDIT-20 report, complete general root-stack survey entry,
+its reserved owner and five current consumer statements. No touching PartII
+link-map entries were found. Historical supplier, route, source-version,
+correction and full-source receipts retain their previous authors; no new
+whole-paper or whole-packet reading claim is made.
+
+Fresh primary reading: Talpo–Vistoli arXiv:1410.1164v2, complete printed/PDF
+pp.14–16, including the cofinal limit proof, Cartier duals, grading action,
+Lemma3.7, Definitions3.8 and3.14, Proposition3.10 with its full proof through
+Lemma3.12, and Corollary3.13. Download715504 bytes; SHA-256
+92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2;
+read2026-10-03. The coordinate formulas are authored deductions motivated by
+this passage, not printed named theorems or a proof of the quotient comparison.
+
+Read the selected inherited actual scalar subgroup, scaling/universal unit,
+coaction/counit/antipode, point evaluation/equivalence and bialgebra/Hopf
+statements and proofs. The complete4092-line predecessor proof was publicly
+recovered, hashed and replayed, not freshly read in full. Freshly read the
+complete pinned Mathlib algebra-hom convolution file and applicable variables,
+the native MulEquiv constructor and inverse laws, and complete Tau Ceti
+FunctorOfPoints file including the existing group, inverse and mapValue.
+No new broad library-absence claim is made.
+
+Mathlib source/build:082e2d37e8b0463410cdb532e111cd43d5a66174.
+Tau Ceti source:f790474821cf4256814db967cb154e7af3d0c369.
+The available Tau Ceti build checkout differs from that source pin; exact
+compiled geometric imports are unavailable. No setup/update/cache/dependency
+build or LSP was started. Lean4.34.0-rc2; serial compiler calls bounded by
+20 minutes, checking free -g immediately before each final compile.
+
+The native proof4346 lines and183 examples passes with zero errors/warnings/
+admissions,203 declaration axiom audits restricted to propext, Classical.choice
+and Quot.sound; final50.63 seconds,3833204KiB peak RSS,24GiB available before.
+The exact whole Mathlib-only extraction2552 lines and183 examples passes with
+430 admitted-proof warnings and no errors/other warnings;17.01 seconds,
+3389996KiB peak RSS,30GiB available before. Full canonical3464 lines and
+203 examples remains uncompiled because the exact-pin geometric modules are
+unavailable. Its20 new math and8 example headers match the checked native file.
+
+Actual indexed packet checker and intake pass with zero errors/warnings or
+refusals. Actual atlas assembly proves stage, own-declaration and combined
+DAGs acyclic;54/54 required stage pairs and3834 accepted restructure paths
+are checked. Stage edges, other roadmap skips/pending links and all old
+statement/API/test contracts are preserved. Exact public recovery and the
+same validator/assembler were exercised with the actual recorded compiler
+logs; no second byte-identical-source compilation is claimed.
+
+## Resume
+
+Use the actual native point multiplication and antipode comparison now
+specified. Identify H_A with A[Q/Z] as a coordinate Hopf algebra; transport
+the coaction and point comparison through positive-divisibility and universe
+adapters; construct coherent root-object groupoid reindexing, affine Spec
+limits, fpqc frame torsors and the infinite quotient equivalence. Preserve
+all TOWER-AFF/KUMMER-FINITE/TOWER-TYPING/DVR obligations and the all-roots-of2
+non-fppf example. Both Yun–Zhang and independent symplectic source routes
+remain. The same8 gaps and13 requests are open; no stage is closed.
+
+## Public proof recovery and reproducible checks
+
+[Immutable proof archive](https://github.com/CBirkbeck/tauceti-explorer/blob/6ca47b8a830e7984bb43fafa6dcd028481832275/research/blueprint/suggested/FunctionFieldArithmeticPartII.lean) is retained as an ancestor of the publication commit. Save the following recovery program to one owned disk scratch directory and run it from the existing repository root after fetching this PR branch. It hashes16 recovered artifacts, including the complete native proof, canonical file, exact Mathlib extraction, independently hashed predecessor, five exact incoming controls, reader, actual validator and assembler, and recorded normalized logs. It creates no repository snapshot.
+
+```python
+# BEGIN CONVOLUTION RECOVERY 62
+from pathlib import Path
+import hashlib,subprocess,ast,json
+s=Path(__file__).resolve().parent
+rid='FunctionFieldArithmeticPartII'
+archive='6ca47b8a830e7984bb43fafa6dcd028481832275';base='35cac2e88b6958c45cc4578b116cccb1974fd853'
+expected={'Canonical62.lean': '84ed663c4762b9c00b66f9262974de3eea4daf5a507488ec3a16001df7eca773', 'Native62.lean': '5e507d145427f6a31043926445dbb69d87f7d40b3725fad9e26ea699c38229a3', 'Native-predecessor.lean': 'd418a342fe5852ce1241dda4189b3afdc153d27efbc184cb93e1bf1db2ce88c4', 'Sketch62.lean': '01315ef6752b1c72eca23adab828fe57041342b2f0ec24d5050cd08a7035e06a', 'validate62.py': 'f7775e3079307a4d12020d4c755e57e5ccc66262c7df7e10a4284ecb923bdaee', 'graph62.py': 'b7ff3af25dd236e771e68a28a5d983cd59dc6e90dc45ee4886072105c11e6564', 'project.py': '29340cf6a3d521ebb51a840515a4e450701a5d88339f3a9475ebe772bce1f0fa', 'native62.log': 'f04debec8088647f75287c408a931bca749c92e2815bb826242c1bb610b42471', 'sketch62.log': '660e936decf328c37a0b83463893cd63d86084056c74d932a084858f882c4e36', 'compile-availability.json': 'd504a6ad451e70c3863b8b8d50bf1e24ce7dfeda24e39c31ad346d6ff9f2f049', 'original-roadmaps.json': 'd33e8c637ac168a7896314c72d5f1992c0f96f74cd39cb0ae28649b03223e9fe', 'original-packets.json': '1938a5ea3a078583bd4d6c3afc2f54ce3a2b0b2684ffbfdd4c9dd91d07e60b8a', 'original-readmes.md': 'af39bfdd6f6fdd0efa5e40c7b610d477a7ac83cc8c387f565095c7a393dcdac9', 'original-suggested.lean': 'd288d19e1218e4632cd4cb1abf06701436d9b21391e7df6925c4471e7f4f347b', 'original-handoff.md': '4a20025a047fbc2ec73ba68907adc61aaf6f3e6ca9429e20a687cbb83a3d603e', 'Reader.md': 'a1d130a2d8ce8da4512e0cc17491bc1443e4f222cb48d426619ecea7210ba1b8'}
+def blob(commit,path):return subprocess.check_output(['git','show',commit+':'+path]).decode()
+def save(name,text):
+    assert hashlib.sha256(text.encode()).hexdigest()==expected[name],name
+    (s/name).write_text(text)
+packetpath='research/blueprint/suggested/'+rid+'.lean'
+can,tail=blob(archive,packetpath).split('\n/- BEGIN ARCHIVED CHECKED CONVOLUTION POINTS 62\n',1)
+native=tail.split('\nEND ARCHIVED CHECKED CONVOLUTION POINTS 62 -/\n',1)[0]
+save('Canonical62.lean',can);save('Native62.lean',native)
+prior=native.removeprefix('import Mathlib.RingTheory.Bialgebra.Convolution\n')
+prior=''.join(prior.splitlines(keepends=True)[:4092]);save('Native-predecessor.lean',prior)
+for d,e in [('roadmaps','json'),('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]:
+    stem=('DESIGN-' if d=='handoff' else '')+rid
+    save('original-'+d+'.'+e,blob(base,'research/blueprint/'+d+'/'+stem+'.'+e))
+save('Reader.md',blob(archive,'research/blueprint/readmes/'+rid+'.md'))
+h=blob(archive,'research/blueprint/handoff/DESIGN-'+rid+'.md')
+for filename,marker in [('validate62.py','CONVOLUTION VALIDATOR 62'),('graph62.py','CONVOLUTION GRAPH 62'),('project.py','CONVOLUTION PROJECTION 62')]:
+    code=h.split('# BEGIN '+marker+'\n',1)[1].split('# END '+marker+'\n',1)[0]
+    ast.parse(code);save(filename,code)
+namespace={};exec((s/'project.py').read_text(),namespace)
+save('Sketch62.lean',namespace['project'](can))
+for filename,marker in [('native62.log','CONVOLUTION NATIVE TRANSCRIPT 62'),('sketch62.log','CONVOLUTION SKETCH TRANSCRIPT 62')]:
+    save(filename,h.split('# BEGIN '+marker+'\n',1)[1].split('# END '+marker+'\n',1)[0])
+save('compile-availability.json','{"Native": 24, "Sketch": 30}')
+print('Recovered16 exact public artifacts, including sources, five controls, reader, scripts and recorded normalized compiler logs')
+# END CONVOLUTION RECOVERY 62
+```
+
+The recovered logs are the recorded transcripts. For an independent compile, check free -g immediately before each invocation and require at least20GiB available. From the existing exact Mathlib dependency build, serially run /usr/bin/time with format ELAPSED %e RSS %M EXIT %x around timeout1200 lake env lean on the absolute recovered Native62.lean and Sketch62.lean paths, redirecting to native62.log and sketch62.log beside the sources. Do not set up, update, fetch caches, build dependencies or start an LSP. From the repository root run validate62.py and graph62.py with PYTHONDONTWRITEBYTECODE=1 and TAUCETI_BASELINE set to the existing source/index directory. Their default VALIDATE_BASE is 2bc684df36a586e1a305395ddf6f0d0fb82aa63c; overrides allow a subsequent controlled replay. AVAILABLE_GIB_NATIVE/SKETCH can record independent memory receipts.
+
+## Exact verification receipts
+
+```json
+{
+  "preservation": {
+    "preservedContracts": 292,
+    "unchangedNodeObjects": 291,
+    "addedNodes": 20,
+    "mathHeadersMatched": 20,
+    "testHeadersMatched": 8,
+    "checker": {
+      "packet": "research/blueprint/packets/FunctionFieldArithmeticPartII.json",
+      "roadmap": "FunctionFieldArithmeticPartII",
+      "status": "partial",
+      "nodes": 312,
+      "kinds": {
+        "construction": 54,
+        "definition": 11,
+        "comparison": 11,
+        "lemma": 198,
+        "theorem": 37,
+        "application": 1
+      },
+      "apiItems": 242,
+      "unitTests": 226,
+      "planets": 39,
+      "baselineDeclarations": 200,
+      "prerequisites": {
+        "baseline": 320,
+        "node (this packet)": 707,
+        "stage": 64,
+        "node (blueprint)": 16
+      },
+      "gaps": 8,
+      "requests": 13,
+      "stagesInScope": 10,
+      "stagesClosed": 0
+    },
+    "intakeProblems": [],
+    "autoRefusals": [],
+    "rawAPITotal": 247,
+    "rawTestsTotal": 258
+  },
+  "receipts": {
+    "Native": {
+      "lines": 4346,
+      "sha256": "5e507d145427f6a31043926445dbb69d87f7d40b3725fad9e26ea699c38229a3",
+      "examples": 183,
+      "errors": 0,
+      "warnings": 0,
+      "admissionWarnings": 0,
+      "axiomAudits": 203,
+      "seconds": 50.63,
+      "peakRSSKiB": 3833204,
+      "availableGiBBeforeCompile": 24,
+      "exit": 0,
+      "normalizedDiagnosticSha256": "f04debec8088647f75287c408a931bca749c92e2815bb826242c1bb610b42471"
+    },
+    "Sketch": {
+      "lines": 2552,
+      "sha256": "01315ef6752b1c72eca23adab828fe57041342b2f0ec24d5050cd08a7035e06a",
+      "examples": 183,
+      "errors": 0,
+      "warnings": 430,
+      "admissionWarnings": 430,
+      "axiomAudits": 0,
+      "seconds": 17.01,
+      "peakRSSKiB": 3389996,
+      "availableGiBBeforeCompile": 30,
+      "exit": 0,
+      "normalizedDiagnosticSha256": "660e936decf328c37a0b83463893cd63d86084056c74d932a084858f882c4e36"
+    },
+    "Canonical": {
+      "lines": 3464,
+      "sha256": "84ed663c4762b9c00b66f9262974de3eea4daf5a507488ec3a16001df7eca773",
+      "examples": 203,
+      "compiled": false,
+      "reason": "Existing exact-pin build lacks native Tau Ceti geometric supplier imports. Only the exact whole Mathlib-only algebra projection and native replay were compiled."
+    }
+  },
+  "projection": {
+    "actualAssembler": true,
+    "base": "2bc684df36a586e1a305395ddf6f0d0fb82aa63c",
+    "declarations": 312,
+    "ownDeclarations": 312,
+    "kinds": {
+      "construction": 54,
+      "definition": 11,
+      "comparison": 11,
+      "lemma": 198,
+      "theorem": 37,
+      "application": 1
+    },
+    "apiTotal": 247,
+    "testsTotal": 258,
+    "baseline": 200,
+    "planets": 39,
+    "gaps": 8,
+    "requests": 13,
+    "ownSkippedLinks": [],
+    "ownPendingLinks": [],
+    "stageDAG": {
+      "vertices": 3056,
+      "edges": 8723,
+      "acyclic": true
+    },
+    "ownDeclarationDAG": {
+      "vertices": 312,
+      "edges": 707,
+      "acyclic": true
+    },
+    "stagesAndReachableDeclarations": {
+      "vertices": 3399,
+      "edges": 10028,
+      "acyclic": true
+    },
+    "reachableDeclarations": 382,
+    "externalDeclarations": [
+      "AlgebraicModuliForArithmeticGeometry:R09.3/affine-fpqc-quasicoherent-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/affine-module-descent-equivalence",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/affine-pullback-tensor",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/canonical-overlap-functor",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-descent-to-overlap",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-equivalence",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-morphisms",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-roundtrips",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-cocycle",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-inverses",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-maps",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/coalgebra-to-overlap",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/descent-equalizer-module-coordinates",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/finite-locally-free-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/finite-presentation-module-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-effective",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-faithful",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-full",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/module-descent-coaction",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/module-overlap-datum",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/native-module-canonical-comparison",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/native-module-descent-coalgebra",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coaction-roundtrips",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coalgebra-equivalence",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coalgebra-morphisms",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-comparison-canonical",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-diagonal",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-coordinates",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-diagonal",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-triple",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-to-chosen-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-to-coalgebra",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pseudofunctor",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pullback",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/tensor-comonad-coordinates",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-essential-surjective",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-full-faithful",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/classifying-abelian-gerbe",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/compatible-limit-family",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act-difference",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-action-is-sheaf",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-action-presheaf",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-action-sheaf",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-difference",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-difference-act",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-hom-act",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-hom-equiv",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-hom-local-nonempty",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-hom-principal-equiv",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-hom-principal-equiv-apply",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-pair-is-sheaf",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-pair-presheaf",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-pair-sheaf",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-principal-equiv",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-principal-presheaf-iso",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-principal-sheaf-iso",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-pull-hom-act",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-torsor",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/limit-stack-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/neutralization",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/neutralization-equivalence",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/nonempty-affine-limit-gerbe",
+      "AlgebraicModuliForArithmeticGeometry:key/gerbes",
+      "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+      "DiamondsAndVStacks:D0/stackification"
+    ],
+    "requiredStagePairs": 54,
+    "requiredStagePairsReachable": 54,
+    "stageEdgesUnchanged": true,
+    "otherSkipsMatchOriginal": true,
+    "allAcceptedRestructurePathsChecked": 3834,
+    "acceptedRestructurePaths": 0,
+    "acceptedRestructurePathsReachable": 0,
+    "unchangedNodeObjects": 291,
+    "preservedStatements": 292,
+    "addedNodes": 20,
+    "unresolvedNonlibraryPrerequisites": [],
+    "scriptSha256": "b7ff3af25dd236e771e68a28a5d983cd59dc6e90dc45ee4886072105c11e6564"
+  },
+  "inputGuards": [
+    {
+      "path": "research/blueprint/WORKERS.md",
+      "blob": "8027079974ec12f83e5249366fc5dc64609a7727"
+    },
+    {
+      "path": "research/blueprint/PROTOCOL.md",
+      "blob": "44ab78513f2eda7801bb58ce3f50ba86d9ecb4df"
+    },
+    {
+      "path": "research/expansion/PROTOCOL.md",
+      "blob": "c763c69dd1a81f4ded9843c714f8b32c9c4cf854"
+    },
+    {
+      "path": "research/blueprint/UPSTREAM_GUIDE.md",
+      "blob": "a767747585bba9a7c57ff365e02a574f04cfec71"
+    },
+    {
+      "path": "data/library-coverage.json",
+      "blob": "5e708cfc74a51b10e62149113872fe4e00eb5846"
+    },
+    {
+      "path": "research/blueprint/reviews/REV-AUDIT-20.md",
+      "blob": "94151e7330c9f7998ded444615a21c54dc482d9d"
+    },
+    {
+      "path": "research/blueprint/reviews/REV-RT-AUDIT-20.md",
+      "blob": "a2c18a8f49712286ace154202d3c25409414948e"
+    },
+    {
+      "path": "data/keydefs/KEYDEF-algebraicgeometry.json",
+      "blob": "b3fbb2e57c169ab14c7704a47b96f83d41adb5fe"
+    },
+    {
+      "path": "research/blueprint/reserved-ids.json",
+      "blob": "0b3675ab8c0dc2e7a68d4e13ec0f38abf5d60ed4"
+    },
+    {
+      "path": "research/blueprint/papers/PAPER-YUN-ZHANG-19.result.json",
+      "blob": "f66a31ddc6fe56d1ad221be3d1eb24f6375bc578"
+    },
+    {
+      "path": "research/blueprint/papers/PAPER-ABDURRAHMAN-VENKATESH-25.result.json",
+      "blob": "0380b991c2d5db73b3fcefe27c2487bcab759744"
+    },
+    {
+      "path": "content/tau-ceti/JacobianChallenge/README.md",
+      "blob": "aedda48979b6c3544a1dce041d00221204d64655"
+    },
+    {
+      "path": "content/tau-ceti/StableReduction/README.md",
+      "blob": "53c50f6e5c2ebbde46cac7720978afbf03212859"
+    },
+    {
+      "path": "research/blueprint/roadmaps/FunctionFieldArithmeticPartII.json",
+      "blob": "fade74fca372fba8c625b9e9c5573ff116dab9ed"
+    },
+    {
+      "path": "research/blueprint/packets/FunctionFieldArithmeticPartII.json",
+      "blob": "ee4ef7ed85ee840c1a413f5ddf023678b86b2dae"
+    },
+    {
+      "path": "research/blueprint/readmes/FunctionFieldArithmeticPartII.md",
+      "blob": "084aaedceadb9408374c9e87e8d2fc852e29e7dd"
+    },
+    {
+      "path": "research/blueprint/suggested/FunctionFieldArithmeticPartII.lean",
+      "blob": "779abd72486f2ef23a462a7a9288155d8970eddc"
+    },
+    {
+      "path": "research/blueprint/handoff/DESIGN-FunctionFieldArithmeticPartII.md",
+      "blob": "1886af21a8a9825a18f8b3434c5c2b3ee0ff7fa0"
+    }
+  ]
+}
+```
+
+## Incoming historical handoff (retained verbatim)
+
 # Coefficient naturality of the universal factorial root coaction
 
 Codex — codex-rtOQ9t. Refs #3403. Claim5965051651 was won and confirmed
