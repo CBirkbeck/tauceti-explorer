@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-stage partial design with 440 incoming declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked. For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain. This continuation adds23 nodes (6constructions17lemmas),19 consumed API items and22 exact examples for the specified ν: all-open section injectivity, zero kernel after flat pullback and the existing relative normalization comparison/descent. The affine inclusion A_q→k[t] is not surjective. The resulting packet has463 nodes; all7stages remain partial. New native and admitted sources are uncompiled in this turn because available memory is below20GiB; all implementation statuses remain unchecked. The actual generic-point function-field continuation specifies the genuine transported ν stalk map and its native field isomorphism, then the canonical integral comparison from normalization in K_C to N with both triangles and uniqueness. It does not identify that comparison as an isomorphism. For every nonempty affine U⊂C, the actual B_U=Γ(N,ν⁻¹U) is integrally closed and is the integral closure of A_U=Γ(C,U) in K_N. The specified σ upgrades to an A_U-algebra equivalence and gives E_U:B_U≃integralClosure(A_U,K_C), with exact forward/inverse generic-germ, coefficient and restriction laws. This settles the affine generic-field comparison. It does not identify E_U with the sections of the existing δ: compare against native normalizationDiagram/normalizationObjIso, handle the empty-open branch and assemble the scheme isomorphism. Preserve P¹/Proj identification, properness/projectivity, conductor ideal sheaf and exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry. All seven stages remain partial and every implementation unchecked. Twelve native-normalization section nodes (three constructions and nine lemmas) give κ_U:S_U≃ₐ[A_U]K_C for nonempty U, θ_U:D_U≃ₐ[A_U]integralClosure(A_U,K_C) and Ψ_U:D_U≃ₐ[A_U]B_U for nonempty affine U, with exact coefficients, ambient values, inverse formulas and κ restriction compatibility. General rational-function and normalization APIs are imported. Identification with δ.app, θ/Ψ restriction compatibility, empty opens and global scheme assembly remain required. The resulting packet has 513 nodes; all stages remain partial and all implementations unchecked. The actual comparison δ:η.normalization→N is now identified with Ψ_U⁻¹ on nonempty affine sections, with native closure and source restriction formulas. Empty-open sections are handled separately, the finite-map affine cover proves δ is a scheme isomorphism, and its inverse respects both triangles. The actual comparison upgrades to Λ_U:B_U≃ₐ[A_U]D_U on every open, commuting with forward and inverse restriction and the actual coefficients; on nonempty affine opens it recovers Ψ_U⁻¹. The native projective-line/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1, independent I₂ geometry and every inherited family/model/classification obligation remain required. All seven stages are partial and every mathematical implementation status is unchecked. The full canonical Tau Ceti-importing file is uncompiled; the bounded Mathlib artifacts with the consumed exact pinned Tau Ceti source excerpt are checked. The common-ideal reconstruction now has native comparison, kernel, compatible-pair lifting and categorical pullback proofs, an actual inverse-coordinate ring equivalence, and an additive sequence whose middle exactness is equivalent to the image being an ideal. The arbitrary-subring conductor square and native quotient-module annihilator identity are checked separately, and actual all-open conductor ideals agree across the absolute normalization isomorphism. The conductor ideal sheaf, structure-sheaf sequence, properness/projectivity and cohomology remain separate obligations.",
+  "summary": "Seven-stage partial design with 440 incoming declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked. For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain. This continuation adds23 nodes (6constructions17lemmas),19 consumed API items and22 exact examples for the specified ν: all-open section injectivity, zero kernel after flat pullback and the existing relative normalization comparison/descent. The affine inclusion A_q→k[t] is not surjective. The resulting packet has463 nodes; all7stages remain partial. New native and admitted sources are uncompiled in this turn because available memory is below20GiB; all implementation statuses remain unchecked. The actual generic-point function-field continuation specifies the genuine transported ν stalk map and its native field isomorphism, then the canonical integral comparison from normalization in K_C to N with both triangles and uniqueness. It does not identify that comparison as an isomorphism. For every nonempty affine U⊂C, the actual B_U=Γ(N,ν⁻¹U) is integrally closed and is the integral closure of A_U=Γ(C,U) in K_N. The specified σ upgrades to an A_U-algebra equivalence and gives E_U:B_U≃integralClosure(A_U,K_C), with exact forward/inverse generic-germ, coefficient and restriction laws. This settles the affine generic-field comparison. It does not identify E_U with the sections of the existing δ: compare against native normalizationDiagram/normalizationObjIso, handle the empty-open branch and assemble the scheme isomorphism. Preserve P¹/Proj identification, properness/projectivity, conductor ideal sheaf and exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry. All seven stages remain partial and every implementation unchecked. Twelve native-normalization section nodes (three constructions and nine lemmas) give κ_U:S_U≃ₐ[A_U]K_C for nonempty U, θ_U:D_U≃ₐ[A_U]integralClosure(A_U,K_C) and Ψ_U:D_U≃ₐ[A_U]B_U for nonempty affine U, with exact coefficients, ambient values, inverse formulas and κ restriction compatibility. General rational-function and normalization APIs are imported. Identification with δ.app, θ/Ψ restriction compatibility, empty opens and global scheme assembly remain required. The resulting packet has 513 nodes; all stages remain partial and all implementations unchecked. The actual comparison δ:η.normalization→N is now identified with Ψ_U⁻¹ on nonempty affine sections, with native closure and source restriction formulas. Empty-open sections are handled separately, the finite-map affine cover proves δ is a scheme isomorphism, and its inverse respects both triangles. The actual comparison upgrades to Λ_U:B_U≃ₐ[A_U]D_U on every open, commuting with forward and inverse restriction and the actual coefficients; on nonempty affine opens it recovers Ψ_U⁻¹. The native projective-line/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1, independent I₂ geometry and every inherited family/model/classification obligation remain required. All seven stages are partial and every mathematical implementation status is unchecked. The full canonical Tau Ceti-importing file is uncompiled; the bounded Mathlib artifacts with the consumed exact pinned Tau Ceti source excerpt are checked. The common-ideal reconstruction now has native comparison, kernel, compatible-pair lifting and categorical pullback proofs, an actual inverse-coordinate ring equivalence, and an additive sequence whose middle exactness is equivalent to the image being an ideal. The arbitrary-subring conductor square and native quotient-module annihilator identity are checked separately, and actual all-open conductor ideals agree across the absolute normalization isomorphism. The conductor ideal sheaf, structure-sheaf sequence, properness/projectivity and cohomology remain separate obligations. The finite spanning-family conductor criterion, product common-denominator equivalence and native fraction membership in its extended ideal retain arbitrary commutative bases, noninjective coefficient maps, empty families and nilpotent denominators. The recomputed localized-B conductor and global IdealSheafData restriction comparisons remain separate required identifications; no stage closes.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2985,6 +2985,105 @@
         "module": "Mathlib/RingTheory/Ideal/Maps.lean",
         "provides": "The unit ideal generates the unit ideal even for the non-surjective diagonal ring map.",
         "checked": "Codex codex-7e92bd read the full relevant statement and ambient assumptions at mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; line142; source SHA256 a6cde2f875c2c8b9ea1aa57cf3aa654d5fd80981349de49f28556c77b56d9c11."
+      },
+      {
+        "ref": "mathlib:Submodule.comap",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Submodule/Map.lean",
+        "line": 172,
+        "provides": "Existing native linear-kernel, finite-product or localization/ideal operation for the conductor-specific argument.",
+        "checked": "Codex codex-J6LwjP read actual statement and ambient hypotheses at Mathlib082e2d3 on2026-10-03.",
+        "sha256": "1d9658824517ddbd24e1d86257b6dac5d68bd9fc72873d5f3ebb6af19ec951a5"
+      },
+      {
+        "ref": "mathlib:Submodule.mem_comap",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/Submodule/Map.lean",
+        "line": 189,
+        "provides": "Existing native linear-kernel, finite-product or localization/ideal operation for the conductor-specific argument.",
+        "checked": "Codex codex-J6LwjP read actual statement and ambient hypotheses at Mathlib082e2d3 on2026-10-03.",
+        "sha256": "1d9658824517ddbd24e1d86257b6dac5d68bd9fc72873d5f3ebb6af19ec951a5"
+      },
+      {
+        "ref": "mathlib:Submodule.mem_bot",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/Submodule/Lattice.lean",
+        "line": 74,
+        "provides": "Existing native linear-kernel, finite-product or localization/ideal operation for the conductor-specific argument.",
+        "checked": "Codex codex-J6LwjP read actual statement and ambient hypotheses at Mathlib082e2d3 on2026-10-03.",
+        "sha256": "6d143772606afa67740f152df5cad2263a867ffb4a7314686c98cba5b9efb430"
+      },
+      {
+        "ref": "mathlib:LinearMap.smul_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
+        "line": 753,
+        "provides": "Existing native linear-kernel, finite-product or localization/ideal operation for the conductor-specific argument.",
+        "checked": "Codex codex-J6LwjP read actual statement and ambient hypotheses at Mathlib082e2d3 on2026-10-03.",
+        "sha256": "242ce4f144fbc775bc424e6b9e088f583fb485fa72f89135d157b5586a987ae7"
+      },
+      {
+        "ref": "mathlib:Submodule.mkQ_apply",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "line": 233,
+        "provides": "Existing native linear-kernel, finite-product or localization/ideal operation for the conductor-specific argument.",
+        "checked": "Codex codex-J6LwjP read actual statement and ambient hypotheses at Mathlib082e2d3 on2026-10-03.",
+        "sha256": "ddb08efd66c7dd6f5e142ac3e1edc1189ea30de276f1e78f4193d6ee80676fb3"
+      },
+      {
+        "ref": "mathlib:Submodule.span_le",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Span/Defs.lean",
+        "line": 80,
+        "provides": "Existing native linear-kernel, finite-product or localization/ideal operation for the conductor-specific argument.",
+        "checked": "Codex codex-J6LwjP read actual statement and ambient hypotheses at Mathlib082e2d3 on2026-10-03.",
+        "sha256": "85ab3958143d9d498abcc3dc17b63cb585602e812039c5af89b7be98d78532c8"
+      },
+      {
+        "ref": "mathlib:RingHom.mem_range",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Ring/Subring/Basic.lean",
+        "line": 249,
+        "provides": "Existing native linear-kernel, finite-product or localization/ideal operation for the conductor-specific argument.",
+        "checked": "Codex codex-J6LwjP read actual statement and ambient hypotheses at Mathlib082e2d3 on2026-10-03.",
+        "sha256": "3be4ef4a4a78d41f91b363a16c3665039e89ed7774be5c1d8759c2c221331f35"
+      },
+      {
+        "ref": "mathlib:Ideal.mem_comap",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "line": 80,
+        "provides": "Existing native linear-kernel, finite-product or localization/ideal operation for the conductor-specific argument.",
+        "checked": "Codex codex-J6LwjP read actual statement and ambient hypotheses at Mathlib082e2d3 on2026-10-03.",
+        "sha256": "a6cde2f875c2c8b9ea1aa57cf3aa654d5fd80981349de49f28556c77b56d9c11"
+      },
+      {
+        "ref": "mathlib:Finset.prod_erase_mul",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+        "line": 755,
+        "provides": "Existing native linear-kernel, finite-product or localization/ideal operation for the conductor-specific argument.",
+        "checked": "Codex codex-J6LwjP read actual statement and ambient hypotheses at Mathlib082e2d3 on2026-10-03.",
+        "sha256": "273036de3d36eda43082685a3ebc998900735e96c3f4b18f1546b39a4f765af0"
+      },
+      {
+        "ref": "mathlib:Submonoid.prod_mem",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Submonoid/BigOperators.lean",
+        "line": 140,
+        "provides": "Existing native linear-kernel, finite-product or localization/ideal operation for the conductor-specific argument.",
+        "checked": "Codex codex-J6LwjP read actual statement and ambient hypotheses at Mathlib082e2d3 on2026-10-03.",
+        "sha256": "20455cbb45fe529fcb6b19ac2e62fc3ead7b364038b2afde246f531e9526139b"
+      },
+      {
+        "ref": "mathlib:IsLocalization.mk'_mem_map_algebraMap_iff",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Localization/Ideal.lean",
+        "line": 68,
+        "provides": "Existing native linear-kernel, finite-product or localization/ideal operation for the conductor-specific argument.",
+        "checked": "Codex codex-J6LwjP read actual statement and ambient hypotheses at Mathlib082e2d3 on2026-10-03.",
+        "sha256": "57f1536d3169ea7f6205e40f3298851daae309f6de4bb8432db2c90cec85b97c"
       }
     ]
   },
@@ -3521,6 +3620,17 @@
         "Fresh parsed reading of printed pp554–557: introduction, §1.1, Lemmas1.2–1.3 and their stated justification, examples1.3.1/1.3.2, Lemma1.4 and proof, beginning of Remark1.5. No fresh whole-paper or visual-reading claim."
       ],
       "sha256": "4f1f2438ad6d757d67d2ecf154b1bc920d210d8abd54c02e6acd020805629d91"
+    },
+    {
+      "id": "conductor-generators-20261003",
+      "title": "Finite-generator conductor specialization",
+      "authors": "The Stacks Project Authors; conductor-specific derivation by Codex",
+      "url": "https://stacks.math.columbia.edu/tag/07T8",
+      "edition": "Lemma10.40.4 displayed statement and proof, fresh read 3 October2026",
+      "accessed": "2026-10-03",
+      "readSections": [
+        "Full displayed statement/proof; the specialized generator and product-denominator formulas are explicit deductions, not literal source statements."
+      ]
     }
   ],
   "nodes": [
@@ -9527,7 +9637,8 @@
       "proofSteps": [
         "Localization is a flat scalar extension by the pinned IsLocalization.flat theorem.",
         "Use conductor-finite-flat-base-change and the canonical tensor/localization comparison from SF.0. Identify its scalar map with the native IsLocalization.map by its representative equation.",
-        "The finite-generation argument is load-bearing: for generators b₁,…,bₙ of B/A, clear the finitely many denominators annihilating the bᵢ and multiply them to obtain one element of S. No domain cancellation or localization-injectivity assumption is used."
+        "The finite-generation argument is load-bearing: for generators b₁,…,bₙ of B/A, clear the finitely many denominators annihilating the bᵢ and multiply them to obtain one element of S. No domain cancellation or localization-injectivity assumption is used.",
+        "The conductor-specific finite-generator and common-denominator lemmas now certify the quantifier swap and native membership in the extended conductor. The recomputed localized-B conductor and native sheaf restriction comparison remain separate required identifications."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-finite-flat-base-change",
@@ -9536,7 +9647,10 @@
         "mathlib:IsLocalization.map_mk'",
         "mathlib:IsLocalization.map_injective_of_injective",
         "mathlib:Module.Finite.exists_fin",
-        "SchemeAndStackFoundations:SF.0"
+        "SchemeAndStackFoundations:SF.0",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-generator-criterion",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-common-denominator",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-fraction-generator-criterion"
       ],
       "sources": [
         {
@@ -9560,7 +9674,29 @@
         "namespace": "TauCeti.GenusOne.FerrandPushout"
       },
       "implementationStatus": "unchecked",
-      "declarationName": "conductor_localization"
+      "declarationName": "conductor_localization",
+      "tests": [
+        {
+          "name": "ConductorGenerators.nonspanning",
+          "kind": "non-example",
+          "statement": "For F₂→F₂×F₂ diagonally, the single element 1 passes the coefficient-1 multiplication test, but coefficient1 is not in the conductor. The omitted span=top hypothesis would therefore give a false criterion."
+        },
+        {
+          "name": "ConductorGenerators.nilpotent_denominator",
+          "kind": "non-example",
+          "statement": "For the diagonal Z/4-algebra Z/4×Z/4, coefficient2 is not in the conductor, but denominator2 lies in its powers monoid and sends coefficient2 to zero in the conductor. Clearing denominators may use nilpotents."
+        },
+        {
+          "name": "ConductorGenerators.empty_zero_algebra",
+          "kind": "degenerate",
+          "statement": "For the actual ℤ-algebra Z/1 the empty Fin0 family spans the zero module and every integer belongs to the contracted conductor; injectivity of the original coefficient map is not assumed."
+        },
+        {
+          "name": "ConductorGenerators.cusp_fraction",
+          "kind": "compatibility",
+          "statement": "For every field k and the actual cusp subalgebra A=k+X²k[X], every a∈A gives a native fraction a/1 in the extended conductor after inverting the actual element X²∈A. Use the existing spanning family {1,X} and denominatorX²."
+        }
+      ]
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf",
@@ -32052,6 +32188,125 @@
           "statement": "For a=b=1 over F₂ and U=∅, the two actual normalization section maps still have equal contracted conductors. No nonempty-open condition is smuggled into the comparison."
         }
       ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-generator-criterion",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Conductor membership on a spanning family",
+      "kind": "lemma",
+      "statement": "For every commutative A-algebra B, g:Fin n→B with span_A(range g)=B, and a∈A, a belongs to the contracted arbitrary-image conductor if and only if f(a)g_i belongs to im f for every i. The map f is the actual algebraMap; n=0, noninjective maps and zero rings are allowed.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Let N=A·1⊂B and K be the native inverse image of zero under the A-linear map b↦a·[b] in B/N. Membership in K is exactly f(a)b∈im f.",
+        "If every generator lies in K, span(range g)=top forces K=top. Hence the condition holds for every b, which is exactly the existing subring conductor. The converse evaluates its universal condition on each g_i."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor",
+        "mathlib:Submodule.comap",
+        "mathlib:Submodule.mem_comap",
+        "mathlib:Submodule.mem_bot",
+        "mathlib:LinearMap.smul_apply",
+        "mathlib:Submodule.mkQ",
+        "mathlib:Submodule.mkQ_apply",
+        "mathlib:Submodule.Quotient.mk_smul",
+        "mathlib:Submodule.Quotient.mk_eq_zero",
+        "mathlib:Submodule.mem_span_singleton",
+        "mathlib:Submodule.span_le",
+        "mathlib:RingHom.mem_range",
+        "mathlib:Ideal.mem_comap"
+      ],
+      "sources": [
+        {
+          "sourceId": "conductor-generators-20261003",
+          "locator": "Lemma10.40.4 proof finite-generation step; Ferrand introduction p554 conductor=annihilator context; explicit conductor-specific derivation",
+          "match": "Specialize the finite-generator argument to the actual conductor and clear denominators by their finite product. Generic flat-annihilator theory remains owned by SF.0."
+        }
+      ],
+      "acceptance": [
+        "Retain a spanning hypothesis, arbitrary image and nilpotent denominators; no domain cancellation."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "FerrandPushout.conductor_mem_iff_generators"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-common-denominator",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "One denominator for all conductor generators",
+      "kind": "lemma",
+      "statement": "With the same actual algebra and finite spanning family, and any multiplicative subset S⊂A, (for every i there is s_i∈S with f(s_i a)g_i∈im f) is equivalent to (there is s∈S with sa in the contracted conductor). Neither cancellation nor injectivity is assumed; S may contain zero.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Choose the finitely many s_i, and let s be their product. It belongs to S, including the empty-product case.",
+        "For each i factor s=(product over j≠i)s_j·s_i. Since im f is closed under multiplication by f(A), f(sa)g_i lies in im f. Apply the conductor generator criterion.",
+        "Conversely use the same conductor denominator for every generator. No inference cancels a zero divisor or divides by a denominator in A."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-generator-criterion",
+        "mathlib:Finset.prod_erase_mul",
+        "mathlib:Submonoid.prod_mem",
+        "mathlib:RingHom.mem_range"
+      ],
+      "sources": [
+        {
+          "sourceId": "conductor-generators-20261003",
+          "locator": "Lemma10.40.4 proof finite-generation step; Ferrand introduction p554 conductor=annihilator context; explicit conductor-specific derivation",
+          "match": "Specialize the finite-generator argument to the actual conductor and clear denominators by their finite product. Generic flat-annihilator theory remains owned by SF.0."
+        }
+      ],
+      "acceptance": [
+        "Retain a spanning hypothesis, arbitrary image and nilpotent denominators; no domain cancellation."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "FerrandPushout.conductor_common_denominator"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-fraction-generator-criterion",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Native fractions in the extended conductor",
+      "kind": "lemma",
+      "statement": "Let L be any actual S-localization of A, with its native A-algebra and IsLocalization instance. For every t∈S the native fraction a/t lies in the ideal extended from the contracted conductor if and only if for each generator g_i there exists s_i∈S with f(s_i a)g_i∈im f. The supplied denominator t imposes no regularity condition.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the pinned native fraction/extended-ideal criterion: a/t lies in cL exactly when some s∈S has sa∈c.",
+        "Apply the conductor-specific common-denominator equivalence. Keep the supplied localization carrier and actual coefficient map; this does not yet identify cL with the recomputed conductor of the localized B-algebra."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-common-denominator",
+        "mathlib:IsLocalization.mk'_mem_map_algebraMap_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "conductor-generators-20261003",
+          "locator": "Lemma10.40.4 proof finite-generation step; Ferrand introduction p554 conductor=annihilator context; explicit conductor-specific derivation",
+          "match": "Specialize the finite-generator argument to the actual conductor and clear denominators by their finite product. Generic flat-annihilator theory remains owned by SF.0."
+        }
+      ],
+      "acceptance": [
+        "Retain a spanning hypothesis, arbitrary image and nilpotent denominators; no domain cancellation."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "FerrandPushout.conductor_fraction_mem_iff_generators"
     }
   ],
   "requests": [
@@ -36778,5 +37033,15 @@
         "reason": "The available Tau Ceti root build is cf386627e9176a3827c1a5fe804989fd94a4d216 rather than the prescribed f790474821cf4256814db967cb154e7af3d0c369, and its RationalFunctions compiled artifact is absent. The bounded checks extend the incoming Mathlib-only harness with the exact consumed pinned source excerpt, adapted only for its module/import/public envelope and redundant universe declaration. They do not certify the full Tau Ceti import graph."
       }
     }
+  },
+  "conductorGeneratorContinuation": {
+    "agent": "Codex — codex-J6LwjP",
+    "base": "daf5fe58be0122cf332a06b472715f01b0e7be5c",
+    "newNodes": [
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-generator-criterion",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-common-denominator",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-fraction-generator-criterion"
+    ],
+    "boundary": "Native extended-ideal membership is certified separately. No recomputed localized-B conductor, conductor ideal sheaf, sheaf cokernel or finite-pushforward cohomology identification is claimed."
   }
 }
