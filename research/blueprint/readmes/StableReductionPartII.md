@@ -1,3 +1,78 @@
+# Canonical relative criterion for the polynomial section ideal
+
+This checkpoint continues the actual polynomial calculation, with the same arbitrary commutative coefficient ring A and parameters γ, δ, s, t. Put
+
+\[
+ R=A[Y][X]/(X^2+\gamma XY+\delta Y^2-(s^2+\gamma st+\delta t^2)),
+ \quad J=(u-\iota s,v-\iota t),\quad D=\operatorname{Hom}_R(J,R).
+\]
+
+The new comparison is the canonical exchange for **D itself**:
+
+\[
+ \Phi_{D,M}:D^\vee\otimes_A M\xrightarrow{\sim}
+ \operatorname{Hom}_R(D,R\otimes_A M),\qquad
+ (F\otimes m)(h)\longmapsto F(h)\otimes m.
+\]
+
+It is R-linear for the inherited tensor action. Its source is the actual native dual of D, rather than a silently substituted copy of J. The earlier explicit bidual equivalence η:J≃D∨ has inverse F↦F(incl). Tensor that inverse with M and compose with the existing Θ_J,M. Evaluating at h and using η(η⁻¹F)=F gives precisely the displayed exchange formula. This proves canonicity and identifies the larger-ring action. Tensor induction proves uniqueness among equivalences with that formula and naturality for every A-linear map M→M′, including maps between nonflat modules.
+
+The second new declaration proves an equality on **every tensor**, not merely on generators:
+
+\[
+ \Phi_{D,M}\circ(\eta\otimes\mathrm{id}_M)=\Theta_{J,M}.
+\]
+
+Both sides evaluate on j⊗m at h as h(j)⊗m. This is the exact composite called ψ in Knudsen's Appendix Theorem 2(1)(b∨) and in Ile's Remark 3.6. The equality prevents a noncanonical chosen isomorphism from being substituted for the source's evaluation map. Native Module.Dual.eval is used throughout.
+
+Four further declarations specialize both previously established positive Ext vanishings to the actual target **R**. Taking M=A initially gives Ext into R⊗_A A. The native heterobasic right tensor unit is R-linear and sends r⊗a to ι(a)r. Its categorical isomorphism is mapped through the target argument of each Ext functor. For the module-valued `_root_.Ext`, transport the zero-object property along the resulting isomorphism. For `CategoryTheory.Abelian.Ext`, pull a class back, apply the inherited vanishing, and push it forward using the actual inverse identity. These are two distinct native interfaces; no identification of their definitions is claimed.
+
+## Exact relationship to stable reflexivity
+
+Knudsen's published Appendix assumes a flat map S→R of noetherian rings and a finite R-module. With S=A, the inherited coefficient-flatness calculation supplies flatness of R over A. If A is noetherian, R is noetherian as a quotient of A[Y][X], and J and D are finite from their actual two-generator presentations. The four conditions in Theorem 2(1) now match the polynomial maps exactly:
+
+| Condition | Actual polynomial output |
+| --- | --- |
+| Extⁱ_R(J,R⊗_A M)=0 for i>0 | The inherited projective-resolution Ext vanishing for J, for every A-module M. |
+| D⊗_A M→Hom_R(J,R⊗_A M) is an isomorphism | The inherited canonical Θ_D,M with h⊗m evaluated at j as h(j)⊗m. |
+| Extⁱ_R(D,R⊗_A M)=0 for i>0 | The inherited projective-resolution Ext vanishing for D. |
+| J⊗_A M→Hom_R(D,R⊗_A M) is an isomorphism | Θ_J,M, now explicitly identified with Φ_D,M∘(η⊗id_M). |
+
+Thus the polynomial J satisfies the source's relative stable-reflexivity criterion over noetherian A. The same applies to D: its ordinary dual is identified with J by native evaluation, and the two pairs of conditions interchange under this specified identification. This is a mathematical consequence of the displayed contracts and the source theorem. The suggested file supplies their actual maps and native Ext statements; it does not add an admitted Prop-valued predicate asserting the conclusion.
+
+Ile Definition 3.1 instead starts with ordinary reflexivity and vanishing Ext against the ring for the module and its dual. The native ordinary bidual calculation and the four new absolute-Ext declarations supply those polynomial inputs. Definition 3.4 imposes coefficient flatness and the corresponding condition on fibres. Transport to arbitrary fibres must retain the ring and ideal coefficient-change equivalences already planned in this packet. No claim about arbitrary geometric families follows merely by changing the parameters in a polynomial formula.
+
+The all-ring native calculations are stronger in coefficient generality than the noetherian hypotheses of Knudsen's printed criterion. They include the zero ring, nonreduced A, zero discriminant and arbitrary coefficient modules M. The source's geometric conclusions still require their own hypotheses. In particular, Ext in degree zero is Hom and is not asserted to vanish. This checkpoint leaves the universal moduli key and MC.0–MC.7 partial.
+
+## Tests and a source correction
+
+The construction is checked with the native right tensor unit at M=A; with the nonflat coefficient module ℤ/2 over ℤ; and with inverse evaluation over the nonreduced ring ℤ/4 at zero discriminant. A separate test evaluates the factorization through native bidual evaluation. The four absolute-Ext tests cover the zero ring, ℤ, and ℤ/4 in positive degrees. These tests retain the actual carriers and scalar actions rather than replacing Ext with a private quotient of matrix kernels.
+
+A source error found during the comparison is recorded as **StableReductionPartII/E11**, awaiting independent review. In arXiv:1110.3909v3 §2.3, PDF page 5, the stable category is defined by quotienting maps by those factoring through any coherent projective module. The text then asserts an unqualified isomorphism from stable Hom out of a positive syzygy to Ext. The publisher's indexed §2.3 HTML contains the same assertion. Direct publisher access failed, so the source record distinguishes this partial HTML collation from the fully read, hashed preprint page; no publisher PDF was read.
+
+Take A=ℤ, M=ℤ/2 and N=ℤ. The free resolution
+
+\[
+ 0\longrightarrow\mathbb Z\xrightarrow{2}\mathbb Z
+ \longrightarrow\mathbb Z/2\longrightarrow0
+\]
+
+shows Ext¹_ℤ(ℤ/2,ℤ)=coker(2:ℤ→ℤ)=ℤ/2. But the first syzygy 2ℤ is itself finite projective. Every map from it factors through that projective domain, so its stable Hom to ℤ is zero. The source assertion therefore fails in its stated generality. The correct elementary formula takes the cokernel of Hom(P₀,N)→Hom(ΩM,N), which kills maps extending to the **specified presenting projective**, rather than all maps through all projectives. Additional Ext-vanishing conditions may equate these quotients; that restricted statement is not inferred here without its hypotheses.
+
+This counterexample addresses the unqualified preliminary assertion. It does not refute the paper's later approximation theorems for restricted module classes. The inherited polynomial Ext proof uses actual finite-free projective resolutions, exact Hom cochains and the native projective-resolution comparison; it never uses the false shortcut. The error is recorded, rather than silently corrected or promoted to a claim that later results fail.
+
+## Remaining completion and family work
+
+Knudsen Appendix Proposition 6 compares stable reflexivity for S→R with completion in **both** local rings. The flat ambient R→R̂ Hom and quotient comparisons already in this packet do not prove that theorem. For an arbitrary Ŝ-module N, one cannot silently identify R̂⊗_S N with R̂⊗_Ŝ N. The missing comparison must handle those coefficient modules, the completed scalar tower, the canonical dual maps and faithful reflection. The printed proof cites Bourbaki III 5.4.4; that cited proof remains unread and unverified in this checkpoint. Appendix Proposition 7 is an exercise, also still open.
+
+After that relative comparison, the pointed completed-local hull, coherent sheaf identifications, descent on the nodal family and finite-presentation approximation to arbitrary bases remain. The generic stable-reflexivity definition and its reusable completion theorem should be routed through the shared commutative-algebra owner, preserving the packet's existing supplier boundaries. The current contribution is the specialized polynomial input and exact map comparison. It does not introduce another general duality, cohomology, stable-category or moduli theory.
+
+The full StableReduction and JacobianChallenge parent documents, all twelve reviewed StableReduction audit entries and REV-AUDIT-02 were reread for this checkpoint. Their shared scheme-level foundations remain imports. All 21 Yuan/Dimitrov–Gao–Habegger routes and all six consumers of the reserved moduli key are retained. Fresh bounded Mathlib open-PR and Lean Zulip searches found no competing implementation of this polynomial comparison; adjacent Gorenstein and completion work remains relevant to the future generic step. This search is not a proof of global library absence.
+
+The preceding checkpoint reader follows unchanged.
+
+---
+
 # Ordinary bidual evaluation of the polynomial section ideal
 
 
