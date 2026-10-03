@@ -1,3 +1,4 @@
+import Mathlib.CategoryTheory.Sites.LocallyBijective
 import Mathlib.CategoryTheory.Bicategory.NaturalTransformation.Pseudo
 import Mathlib.Algebra.Torsor.Defs
 import Mathlib.CategoryTheory.Sites.CartesianMonoidal
@@ -4880,3 +4881,228 @@ example (p q : (F.map f.op.toLoc).toFunctor.obj x ≅
       BandedIsom.act G J A bG (isomEquiv η f x y bF bG p q) a := by sorry
 
 end TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests
+
+/- BEGIN GERBE HOM SHEAF ASSEMBLY -/
+namespace TauCeti.AlgebraicGeometry.GerbeMorphismPullback
+open CategoryTheory Opposite Bicategory
+open Pseudofunctor.LocallyDiscreteOpToCat
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type u} [Category.{v} C]
+variable {F G : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}}
+variable (η : Pseudofunctor.StrongTrans F G)
+variable {U V W : C} (f : V ⟶ U) (g : W ⟶ V) (x y : F.obj (.mk (op U)))
+
+lemma comparison_comp : comparison η (g ≫ f) x =
+    (η.app (.mk (op W))).toFunctor.mapIso
+      ((Cat.Hom.toNatIso (F.mapComp' f.op.toLoc g.op.toLoc (g ≫ f).op.toLoc)).app x) ≪≫
+    comparison η g ((F.map f.op.toLoc).toFunctor.obj x) ≪≫
+    (G.map g.op.toLoc).toFunctor.mapIso (comparison η f x) ≪≫
+    ((Cat.Hom.toNatIso (G.mapComp' f.op.toLoc g.op.toLoc (g ≫ f).op.toLoc)).app
+      ((η.app (.mk (op U))).toFunctor.obj x)).symm := by
+  sorry
+
+lemma homMap_pullHom (h : W ⟶ U) (hh : g ≫ f = h)
+    (p : (F.map f.op.toLoc).toFunctor.obj x ⟶ (F.map f.op.toLoc).toFunctor.obj y) :
+    homMap η h x y (pullHom p g h h hh hh) =
+      pullHom (homMap η f x y p) g h h hh hh := by
+  sorry
+
+def homPresheafMap : F.presheafHom x y ⟶
+    G.presheafHom ((η.app (.mk (op U))).toFunctor.obj x)
+      ((η.app (.mk (op U))).toFunctor.obj y) := by
+  sorry
+
+lemma homPresheafMap_app (T : Over U) (p : (F.presheafHom x y).obj (op T)) :
+    (homPresheafMap η x y).app (op T) p = homMap η T.hom x y p := by
+  sorry
+
+lemma homPresheafMap_naturality {T₁ T₂ : Over U} (a : T₂ ⟶ T₁)
+    (p : (F.presheafHom x y).obj (op T₁)) :
+    (homPresheafMap η x y).app (op T₂) ((F.presheafHom x y).map a.op p) =
+      (G.presheafHom ((η.app (.mk (op U))).toFunctor.obj x)
+        ((η.app (.mk (op U))).toFunctor.obj y)).map a.op
+          ((homPresheafMap η x y).app (op T₁) p) := by
+  sorry
+
+lemma homPresheafMap_identity (p : x ⟶ y) :
+    (homPresheafMap η x y).app (op (Over.mk (𝟙 U)))
+      (F.presheafHomObjHomEquiv p) =
+        G.presheafHomObjHomEquiv ((η.app (.mk (op U))).toFunctor.map p) := by
+  sorry
+
+variable (J : GrothendieckTopology C)
+
+def homSheafMap [F.IsPrestack J] [G.IsPrestack J] :
+    F.sheafHom J x y ⟶ G.sheafHom J
+      ((η.app (.mk (op U))).toFunctor.obj x) ((η.app (.mk (op U))).toFunctor.obj y) := by
+  sorry
+
+lemma homSheafMap_hom [F.IsPrestack J] [G.IsPrestack J] :
+    (homSheafMap η x y J).hom = homPresheafMap η x y := by
+  sorry
+
+variable [IsGerbe F J] [IsGerbe G J]
+variable {A : Sheaf J AddCommGrpCat.{v'}}
+variable (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+variable [BandPreserving bF bG η]
+include bF bG
+
+lemma homPresheafMap_injective (T : Over U) :
+    Function.Injective ((homPresheafMap η x y).app (op T)) := by
+  sorry
+
+lemma homPresheafMap_imageSieve (T : Over U)
+    (s : (G.presheafHom ((η.app (.mk (op U))).toFunctor.obj x)
+      ((η.app (.mk (op U))).toFunctor.obj y)).obj (op T)) :
+    Presheaf.imageSieve (homPresheafMap η x y) s ∈ (J.over U) T := by
+  sorry
+
+lemma homSheafMap_locallySurjective : Sheaf.IsLocallySurjective (homSheafMap η x y J) := by
+  sorry
+
+lemma homSheafMap_locallyInjective : Sheaf.IsLocallyInjective (homSheafMap η x y J) := by
+  sorry
+
+lemma homSheafMap_isIso : IsIso (homSheafMap η x y J) := by
+  sorry
+
+def homSheafIso (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    [BandPreserving bF bG η] :
+    F.sheafHom J x y ≅ G.sheafHom J
+      ((η.app (.mk (op U))).toFunctor.obj x) ((η.app (.mk (op U))).toFunctor.obj y) := by
+  sorry
+
+lemma homSheafIso_hom : (homSheafIso η x y J bF bG).hom = homSheafMap η x y J := by
+  sorry
+
+lemma homSheafIso_inverse_anchor (T : Over U)
+    (p : (F.map T.hom.op.toLoc).toFunctor.obj x ≅ (F.map T.hom.op.toLoc).toFunctor.obj y)
+    (q : (G.map T.hom.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj x) ≅
+      (G.map T.hom.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj y)) :
+    (homSheafIso η x y J bF bG).inv.hom.app (op T) q.hom =
+      (preimageIso η T.hom x y bF bG p q).hom := by
+  sorry
+
+lemma homSheafIso_inverse_restrict {T₁ T₂ : Over U} (a : T₂ ⟶ T₁)
+    (q : (G.presheafHom ((η.app (.mk (op U))).toFunctor.obj x)
+      ((η.app (.mk (op U))).toFunctor.obj y)).obj (op T₁)) :
+    (F.presheafHom x y).map a.op ((homSheafIso η x y J bF bG).inv.hom.app (op T₁) q) =
+      (homSheafIso η x y J bF bG).inv.hom.app (op T₂)
+        ((G.presheafHom ((η.app (.mk (op U))).toFunctor.obj x)
+          ((η.app (.mk (op U))).toFunctor.obj y)).map a.op q) := by
+  sorry
+
+lemma fibreHom_bijective : Function.Bijective
+    ((η.app (.mk (op U))).toFunctor.map : (x ⟶ y) → _) := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.GerbeMorphismPullback
+
+namespace TauCeti.AlgebraicGeometry.BandedMorphism
+open CategoryTheory Opposite Bicategory
+variable {C : Type u} [Category.{v} C]
+variable {F G : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}}
+variable {J : GrothendieckTopology C} [IsGerbe F J] [IsGerbe G J]
+variable {A : Sheaf J AddCommGrpCat.{v'}}
+lemma full (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η] (U : C) :
+    (η.app (.mk (op U))).toFunctor.Full := by
+  sorry
+end TauCeti.AlgebraicGeometry.BandedMorphism
+
+namespace TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests
+open CategoryTheory Opposite Bicategory
+open Pseudofunctor.LocallyDiscreteOpToCat
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type u} [Category.{v} C]
+variable {F G : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}}
+variable (η : Pseudofunctor.StrongTrans F G)
+variable {U V W : C} (x y : F.obj (.mk (op U)))
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.presheafIdentity
+example : homPresheafMap (Pseudofunctor.StrongTrans.id F) x y = 𝟙 (F.presheafHom x y) := by
+  sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.deeperArrow
+example (f : V ⟶ U) (g : W ⟶ V)
+    (p : (F.map f.op.toLoc).toFunctor.obj x ⟶ (F.map f.op.toLoc).toFunctor.obj y) :
+    homMap η (g ≫ f) x y (pullHom p g (g ≫ f) (g ≫ f)) =
+      pullHom (homMap η f x y p) g (g ≫ f) (g ≫ f) := by
+  sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.identitySlice
+example (p : x ⟶ y) :
+    (homPresheafMap η x y).app (op (Over.mk (𝟙 U))) (F.presheafHomObjHomEquiv p) =
+      G.presheafHomObjHomEquiv ((η.app (.mk (op U))).toFunctor.map p) := by
+  sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.pointNonzero
+example :
+    let F := BandFixtures.constantDiagram (Discrete PUnit) (SingleObj (Multiplicative (ZMod 2)))
+    let U : Discrete PUnit := Discrete.mk PUnit.unit
+    let x : F.obj (.mk (op U)) := SingleObj.star (Multiplicative (ZMod 2))
+    let a : (F.presheafHom x x).obj (op (Over.mk (𝟙 U))) := Multiplicative.ofAdd (1 : ZMod 2)
+    (homPresheafMap (Pseudofunctor.StrongTrans.id F) x x).app (op (Over.mk (𝟙 U))) a = a := by
+  sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.bandHypothesisNeeded
+example : ¬ (1 : Multiplicative (ZMod 2) →* Multiplicative (ZMod 2)).toFunctor.Full := by
+  sorry
+
+variable (J : GrothendieckTopology C) [IsGerbe F J] [IsGerbe G J]
+variable {A : Sheaf J AddCommGrpCat.{v'}}
+variable (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+variable [BandPreserving bF bG η]
+
+include bF bG
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.nativeSheafMap
+example : (homSheafMap η x y J).hom = homPresheafMap η x y := by
+  sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.separatesLocalArrows
+example (T : Over U) (p q : (F.presheafHom x y).obj (op T))
+    (h : (homSheafMap η x y J).hom.app (op T) p =
+      (homSheafMap η x y J).hom.app (op T) q) : p = q := by
+  sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.noGlobalAnchor
+example (h : IsEmpty (x ⟶ y)) :
+    IsEmpty ((η.app (.mk (op U))).toFunctor.obj x ⟶ (η.app (.mk (op U))).toFunctor.obj y) := by
+  sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.inverseRoundtrip
+example (T : Over U) (p : (F.presheafHom x y).obj (op T)) :
+    (homSheafIso η x y J bF bG).inv.hom.app (op T)
+      ((homSheafMap η x y J).hom.app (op T) p) = p := by
+  sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.forwardRoundtrip
+example (T : Over U)
+    (q : (G.presheafHom ((η.app (.mk (op U))).toFunctor.obj x)
+      ((η.app (.mk (op U))).toFunctor.obj y)).obj (op T)) :
+    (homSheafMap η x y J).hom.app (op T)
+      ((homSheafIso η x y J bF bG).inv.hom.app (op T) q) = q := by
+  sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.arbitraryInverseRestriction
+example {T₁ T₂ : Over U} (a : T₂ ⟶ T₁)
+    (q : (G.presheafHom ((η.app (.mk (op U))).toFunctor.obj x)
+      ((η.app (.mk (op U))).toFunctor.obj y)).obj (op T₁)) :
+    (F.presheafHom x y).map a.op ((homSheafIso η x y J bF bG).inv.hom.app (op T₁) q) =
+      (homSheafIso η x y J bF bG).inv.hom.app (op T₂)
+        ((G.presheafHom ((η.app (.mk (op U))).toFunctor.obj x)
+          ((η.app (.mk (op U))).toFunctor.obj y)).map a.op q) := by
+  sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.inverseBandCoordinate
+example (a : Multiplicative (A.obj.obj (op U))) :
+    (homSheafIso η x x J bF bG).inv.hom.app (op (Over.mk (𝟙 U)))
+      (G.presheafHomObjHomEquiv (bG.autEquiv U ((η.app (.mk (op U))).toFunctor.obj x) a).hom) =
+        F.presheafHomObjHomEquiv (bF.autEquiv U x a).hom := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests
+/- END GERBE HOM SHEAF ASSEMBLY -/
