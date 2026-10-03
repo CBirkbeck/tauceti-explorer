@@ -1,3 +1,202 @@
+# Actual conductor section rings and the signed exact sequence
+
+Let f:Y→P be finite and schematically dominant, I its conductor ideal datum and J=I.comap f. For an affine U⊂P put A=Γ(P,U), B=Γ(Y,f⁻¹U), C=Γ(I.subscheme,I.ι⁻¹U) and D=Γ(J.subscheme,J.ι⁻¹(f⁻¹U)). All four rings and every arrow are the actual native sections of these schemes. The source-conductor equality from the preceding checkpoint identifies the full ideal, including nilpotents.
+
+The extended target ideal is the ambient conductor and is the literal image of its contraction. Therefore the existing common-ideal ring pullback applies. Schematic dominance gives injectivity on sections. Transport through the actual native closed-subscheme section charts yields the actual CommRingCat pullback square, then uniqueness of limit cone points constructs A≅B×_D C with both forward and inverse projection equations. The identity of Spec(Z/4) retains the nonzero square-zero section2 after reconstruction. Empty rings and reconstruction of every target section are also tested.
+
+On every open the signed additive difference is δ(b,c)=J.ι(b)−conductorChartMap(c). It vanishes on the actual target section pair, and the preceding pair map is injective on every open. On affine opens, closed-inclusion surjectivity and finiteness lift every D section through the first coordinate. The actual pullback gives existence of a target section for each zero-difference pair, with uniqueness from injectivity. Naturality of both actual section maps proves compatibility with restriction for arbitrary opens. Signed unit pairs, unique affine lifting and empty-open differences are checked. This supplies affine exactness and the natural difference map; the global sheaf comparison, topological quotient and geometric/categorical pushout still require their own arguments.
+
+All609 incoming node objects, all23 requests,29 planets,78 routes and21 source issues are retained unchanged. The17 old gaps remain whole; one source-specific proof gap is added. The exact reserved ferrand-pushouts key and its hypothesis boundaries are preserved. Earlier checkpoint frontiers below are historical; this section gives the present affine section frontier.
+
+Fresh source reading covers the complete displayed statement/proof of Stacks37.14.1 and53.10.5, plus Example53.10.6, without a full-paper or recursive-source audit. The more general native comparisons above are authored deductions from pinned APIs. In37.14.1 the displayed pushforwards have mismatched domains; the corrected fiber product uses m′_*O_S′, m_*O_S and n_*O_T. In53.10.5 a bare general bound for commutative subalgebras of End(V) is invoked. The block matrices [[λI₂,M],[0,λI₂]] give a5-dimensional commutative unital subalgebra of End(k⁴). All32 elements and1024 products over F₂ are checked independently. This exposes a gap in that justification, not a counterexample to the curve lemma: the specific curve image needs another property or argument. Neither defect is used by the native proofs. The bounded current-page/comment and correction searches identified no separate correction; no exhaustive collation is claimed.
+
+The actual affine conductor section square is a native CommRingCat pullback and target sections are reconstructed by the specified isomorphism with its native fiber product. The signed additive difference is defined on every open and respects every open restriction; the preceding section-pair map is injective on every open. On affine opens the difference is surjective and the sequence is exact. No surjectivity on arbitrary-open sections or global sheaf exactness is asserted. Global sheaf comparison, quotient topology, geometric/categorical pushout, recomputed flat conductor integration, P¹/Proj, projectivity/properness, coherent H0/H1, separate I₂ and later model/classification work remain required. Two bounded source findings record a pushforward-domain misprint and an overbroad matrix-dimension justification; the latter adds an explicit source-proof gap without disproving the curve lemma. All seven stages remain partial, all implementations unchecked, and the full Tau-importing canonical suggested file remains UNCOMPILED.
+
+## The extended target conductor is the full ambient conductor
+
+**TauCeti.GenusOne.FerrandPushout.conductorChart_ideal_map** — Let f:Y→P be finite and schematically dominant, U an affine open, A=Γ(P,U), B=Γ(Y,f⁻¹U), I=I_f and J=I.comap f. The ideal extension of I(U) along f.app U is exactly the full conductor c(im(f.app U),B).
+
+Hypotheses: Finite and schematically dominant f; affine U only where expressly stated; preserve the full conductor ideals and actual native section rings.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-chart-ideal-inclusion, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor-containment, mathlib:Ideal.map_comap_le, mathlib:Ideal.mem_map_of_mem.
+
+Proof: The conductor is contained in the image. Lift each conductor element to A; its lift belongs to the contraction defining I(U). Combine this inclusion with the native map-comap bound.
+
+## The conductor is the literal image of its contraction
+
+**TauCeti.GenusOne.FerrandPushout.conductorChart_ideal_image** — Under the same hypotheses, the set underlying I(U).map(f.app U) equals the literal image of the set I(U) under f.app U. This is equality of the full ideal and image, not equality of radicals.
+
+Hypotheses: Finite and schematically dominant f; affine U only where expressly stated; preserve the full conductor ideals and actual native section rings.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-chart-ideal-map, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor-containment.
+
+Proof: Replace the extended ideal by the ambient conductor, lift its elements through the image inclusion, and use contraction membership in each direction.
+
+## The actual affine conductor section square is a pullback
+
+**TauCeti.GenusOne.FerrandPushout.conductor_affine_isPullback** — For finite schematically dominant f and affine U, put V=f⁻¹U, C=Γ(I.subscheme,I.ι⁻¹U), D=Γ(J.subscheme,J.ι⁻¹V). The square A→B, A→C, B→D, C→D, whose arrows are the actual f.app U, I.ι.app U, J.ι.app V and conductorChartMap f U, is a pullback in CommRingCat.
+
+Hypotheses: Finite and schematically dominant f; affine U only where expressly stated; preserve the full conductor ideals and actual native section rings.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-cartesian, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-chart-ideal-image, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-ideal-chart, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-chart-map-square, mathlib:AlgebraicGeometry.Scheme.Hom.app_injective, mathlib:CategoryTheory.IsPullback.of_iso', mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeObjIso, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeι_app, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeι_app_surjective, mathlib:Ideal.quotEquivOfEq, mathlib:Ideal.quotEquivOfEq_mk, mathlib:Ideal.quotientMap_mk.
+
+Proof: Use the existing common-ideal ring pullback with the literal conductor image and zero kernel from schematic dominance. Transport all four arrows through the actual target and source closed-subscheme section isomorphisms. Lift target conductor sections to A to verify the fourth compatibility on every representative.
+
+## Reconstruct target sections from the actual conductor rings
+
+**TauCeti.GenusOne.FerrandPushout.conductorSectionsIso** — For finite schematically dominant f and affine U, construct the specified native CommRingCat isomorphism Γ(P,U)≅B×_D C using the actual source inclusion B→D and conductorChartMap C→D. Here the fiber-product object is the native CommRingCat.pullbackCone point, retaining zero rings and nilpotents.
+
+Hypotheses: Finite and schematically dominant f; affine U only where expressly stated; preserve the full conductor ideals and actual native section rings.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-affine-section-pullback, mathlib:CommRingCat.pullbackCone, mathlib:CommRingCat.pullbackConeIsLimit, mathlib:CategoryTheory.Limits.IsLimit.conePointUniqueUpToIso.
+
+Proof: Use uniqueness of native limit cone points between the actual section pullback and the native ring pullback cone.
+
+## First coordinate of reconstructed sections
+
+**TauCeti.GenusOne.FerrandPushout.conductorSectionsIso_fst** — For every such affine U, conductorSectionsIso.hom followed by the native first projection equals f.app U, as actual CommRingCat morphisms.
+
+Hypotheses: Finite and schematically dominant f; affine U only where expressly stated; preserve the full conductor ideals and actual native section rings.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-sections-isomorphism, mathlib:CategoryTheory.Limits.IsLimit.conePointUniqueUpToIso_hom_comp.
+
+Proof: Apply the forward comparison of limit cone components at the left object.
+
+## Second coordinate of reconstructed sections
+
+**TauCeti.GenusOne.FerrandPushout.conductorSectionsIso_snd** — For every such affine U, conductorSectionsIso.hom followed by the native second projection equals I.ι.app U.
+
+Hypotheses: Finite and schematically dominant f; affine U only where expressly stated; preserve the full conductor ideals and actual native section rings.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-sections-isomorphism, mathlib:CategoryTheory.Limits.IsLimit.conePointUniqueUpToIso_hom_comp.
+
+Proof: Apply the forward comparison at the right object.
+
+## First coordinate after inverse reconstruction
+
+**TauCeti.GenusOne.FerrandPushout.conductorSectionsIso_inv_fst** — For every such affine U, conductorSectionsIso.inv followed by f.app U equals the native first projection from B×_D C.
+
+Hypotheses: Finite and schematically dominant f; affine U only where expressly stated; preserve the full conductor ideals and actual native section rings.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-sections-isomorphism, mathlib:CategoryTheory.Limits.IsLimit.conePointUniqueUpToIso_inv_comp.
+
+Proof: Apply the inverse comparison at the left object.
+
+## Second coordinate after inverse reconstruction
+
+**TauCeti.GenusOne.FerrandPushout.conductorSectionsIso_inv_snd** — For every such affine U, conductorSectionsIso.inv followed by I.ι.app U equals the native second projection.
+
+Hypotheses: Finite and schematically dominant f; affine U only where expressly stated; preserve the full conductor ideals and actual native section rings.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-sections-isomorphism, mathlib:CategoryTheory.Limits.IsLimit.conePointUniqueUpToIso_inv_comp.
+
+Proof: Apply the inverse comparison at the right object.
+
+## Uniqueness of reconstructed target sections
+
+**TauCeti.GenusOne.FerrandPushout.conductorSectionsIso_inv_unique** — For every such affine U, a native fiber-product element p and a∈Γ(P,U) with f.app U(a)=p.first, the specified inverse conductorSectionsIso.inv(p) equals a. Its second coordinate is automatically fixed by fiber-product compatibility.
+
+Hypotheses: Finite and schematically dominant f; affine U only where expressly stated; preserve the full conductor ideals and actual native section rings.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-sections-isomorphism-inverse-first, mathlib:AlgebraicGeometry.Scheme.Hom.app_injective.
+
+Proof: Compare the first coordinates and cancel the injective actual section map.
+
+## The signed conductor difference on every open
+
+**TauCeti.GenusOne.FerrandPushout.conductorSectionDifference** — For finite schematically dominant f and every open U, with actual section rings B_U,C_U,D_U as above, define the additive homomorphism δ_U:B_U×C_U→D_U by δ_U(b,c)=J.ι.app(f⁻¹U)(b)−conductorChartMap f U(c). This is an additive homomorphism, with the specified subtraction sign.
+
+Hypotheses: Finite and schematically dominant f; affine U only where expressly stated; preserve the full conductor ideals and actual native section rings.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-chart-map.
+
+Proof: Subtract the two actual ring section maps after converting them to additive homomorphisms and composing with the two product projections.
+
+## Evaluation of the signed difference
+
+**TauCeti.GenusOne.FerrandPushout.conductorSectionDifference_apply** — For every open U and actual sections b,c, δ_U(b,c)=J.ι.app(f⁻¹U)(b)−conductorChartMap f U(c).
+
+Hypotheses: Finite and schematically dominant f; affine U only where expressly stated; preserve the full conductor ideals and actual native section rings.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-section-difference.
+
+Proof: Unfold the additive homomorphism and evaluate the two product projections.
+
+## Compatible target sections have zero difference
+
+**TauCeti.GenusOne.FerrandPushout.conductorSectionDifference_zero** — For every open U and a∈Γ(P,U), δ_U(f.app U(a),I.ι.app U(a))=0. Affineness is unnecessary for this statement.
+
+Hypotheses: Finite and schematically dominant f; affine U only where expressly stated; preserve the full conductor ideals and actual native section rings.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-section-difference-evaluation, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-chart-map-square.
+
+Proof: Evaluate the actual commuting section square at a, and subtract the equal images.
+
+## The difference is surjective on affine opens
+
+**TauCeti.GenusOne.FerrandPushout.conductorSectionDifference_surjective** — For every affine U, δ_U is surjective onto the actual source-conductor section ring D_U. No claim of surjectivity on arbitrary open section rings is made.
+
+Hypotheses: Finite and schematically dominant f; affine U only where expressly stated; preserve the full conductor ideals and actual native section rings.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-section-difference-evaluation, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeι_app_surjective.
+
+Proof: Finiteness makes f⁻¹U affine. Lift each source-conductor section b through the native closed-inclusion section map and use the pair (b,0).
+
+## The target section pair is injective on every open
+
+**TauCeti.GenusOne.FerrandPushout.conductorSectionPair_injective** — For every open U the actual ring homomorphism a↦(f.app U(a),I.ι.app U(a)) is injective.
+
+Hypotheses: Finite and schematically dominant f; affine U only where expressly stated; preserve the full conductor ideals and actual native section rings.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf, mathlib:AlgebraicGeometry.Scheme.Hom.app_injective.
+
+Proof: Take the first coordinate of an equality of pairs and use native section injectivity for the finite schematically dominant map.
+
+## Exactness of the affine conductor section sequence
+
+**TauCeti.GenusOne.FerrandPushout.conductorSectionDifference_exact** — For every affine U the sequence A→B_U×C_U→D_U, with a↦(f.app U(a),I.ι.app U(a)) followed by δ_U, is Function.Exact: a pair has difference zero exactly when it comes from a target section. Together with the injectivity and surjectivity lemmas this gives the short exact sequence of underlying additive groups on affine opens.
+
+Hypotheses: Finite and schematically dominant f; affine U only where expressly stated; preserve the full conductor ideals and actual native section rings.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-affine-section-pullback, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-section-difference-evaluation, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-chart-map-square, mathlib:CategoryTheory.Limits.Types.exists_of_isPullback.
+
+Proof: Zero difference is equality of the two actual conductor images. Map the native ring pullback to Types, lift the compatible pair, and use the section square for the converse.
+
+## The difference respects every open restriction
+
+**TauCeti.GenusOne.FerrandPushout.conductorSectionDifference_restrict** — For any U⊆V, restrict δ_V(b,c) along the actual source-conductor inclusion. The result equals δ_U applied to the restrictions of b along f⁻¹U⊆f⁻¹V and c along I.ι⁻¹U⊆I.ι⁻¹V. This holds for arbitrary, including empty, opens, with the actual native presheaf restriction maps.
+
+Hypotheses: Finite and schematically dominant f; affine U only where expressly stated; preserve the full conductor ideals and actual native section rings.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-section-difference-evaluation, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-chart-map-restriction, mathlib:AlgebraicGeometry.Scheme.Hom.naturality.
+
+Proof: Restriction preserves subtraction. Apply naturality of the actual source closed inclusion to the first term and the existing conductorChartMap restriction equation to the second.
+
+## API and typed boundary examples
+
+API:
+
+- **TauCeti.GenusOne.FerrandPushout.conductorSectionsIso_fst**: For every such affine U, conductorSectionsIso.hom followed by the native first projection equals f.app U, as actual CommRingCat morphisms.
+- **TauCeti.GenusOne.FerrandPushout.conductorSectionsIso_snd**: For every such affine U, conductorSectionsIso.hom followed by the native second projection equals I.ι.app U.
+- **TauCeti.GenusOne.FerrandPushout.conductorSectionsIso_inv_fst**: For every such affine U, conductorSectionsIso.inv followed by f.app U equals the native first projection from B×_D C.
+- **TauCeti.GenusOne.FerrandPushout.conductorSectionsIso_inv_snd**: For every such affine U, conductorSectionsIso.inv followed by I.ι.app U equals the native second projection.
+- **TauCeti.GenusOne.FerrandPushout.conductorSectionsIso_inv_unique**: For every such affine U, a native fiber-product element p and a∈Γ(P,U) with f.app U(a)=p.first, the specified inverse conductorSectionsIso.inv(p) equals a. Its second coordinate is automatically fixed by fiber-product compatibility.
+- **TauCeti.GenusOne.FerrandPushout.conductorSectionDifference_apply**: For every open U and actual sections b,c, δ_U(b,c)=J.ι.app(f⁻¹U)(b)−conductorChartMap f U(c).
+- **TauCeti.GenusOne.FerrandPushout.conductorSectionDifference_zero**: For every open U and a∈Γ(P,U), δ_U(f.app U(a),I.ι.app U(a))=0. Affineness is unnecessary for this statement.
+- **TauCeti.GenusOne.FerrandPushout.conductorSectionDifference_surjective**: For every affine U, δ_U is surjective onto the actual source-conductor section ring D_U. No claim of surjectivity on arbitrary open section rings is made.
+- **TauCeti.GenusOne.FerrandPushout.conductorSectionPair_injective**: For every open U the actual ring homomorphism a↦(f.app U(a),I.ι.app U(a)) is injective.
+- **TauCeti.GenusOne.FerrandPushout.conductorSectionDifference_exact**: For every affine U the sequence A→B_U×C_U→D_U, with a↦(f.app U(a),I.ι.app U(a)) followed by δ_U, is Function.Exact: a pair has difference zero exactly when it comes from a target section. Together with the injectivity and surjectivity lemmas this gives the short exact sequence of underlying additive groups on affine opens.
+- **TauCeti.GenusOne.FerrandPushout.conductorSectionDifference_restrict**: For any U⊆V, restrict δ_V(b,c) along the actual source-conductor inclusion. The result equals δ_U applied to the restrictions of b along f⁻¹U⊆f⁻¹V and c along I.ι⁻¹U⊆I.ι⁻¹V. This holds for arbitrary, including empty, opens, with the actual native presheaf restriction maps.
+
+Tests:
+
+- **ConductorSectionsChecked.empty_open**: On the empty target open every target section reconstructs to zero in the actual native ring fiber product.
+- **ConductorSectionsChecked.reconstruction**: Every target section is recovered exactly after forward and inverse reconstruction through the specified actual conductor section-ring isomorphism.
+- **ConductorSectionsChecked.nonreduced_identity**: For the identity of Spec(Z/4) the section corresponding to2 reconstructs to a nonzero element with square zero in the actual fiber product. A reduction that loses nilpotents fails this test.
+- **ConductorDifferenceChecked.signed_units**: On every open, the pairs(1,0) and(0,1) map respectively to1 and−1, checking the subtraction sign and the actual unital section maps.
+- **ConductorDifferenceChecked.exact_lifting**: On every affine open a pair with zero difference has exactly one target section giving both coordinates; this checks existence and uniqueness through the actual maps.
+- **ConductorDifferenceChecked.empty_open**: On the empty open the difference of every actual section pair is zero, including the zero section rings of both conductor schemes.
+
 # Full source-conductor ideals and canonical quotient maps
 
 Let f:Y→P be finite and schematically dominant, I its existing conductor ideal datum and J=I.comap f the actual native pullback ideal. On every affine U⊂P, set B=Γ(Y,f⁻¹U). The exact equality J(f⁻¹U)=c(im(f.app U),B) identifies the full ideal, including nilpotents. It holds without a Noetherian, reduced or globally affine hypothesis.
