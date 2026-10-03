@@ -3327,3 +3327,113 @@ example (α : CategoryTheory.Abelian.Ext
 
 end
 end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+
+/- BEGIN RELATIVE CRITERION COMPARISON -/
+namespace TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+noncomputable section
+universe u_rel
+open CategoryTheory TensorProduct
+variable (A : Type u_rel) [CommRing A] (γ δ s t : A)
+local notation "R₀" => Ring A γ δ s t
+local notation "J₀" => sectionIdeal A γ δ s t
+local notation "D₀" => Module.Dual R₀ J₀
+variable (M : Type u_rel) [AddCommGroup M] [Module A M]
+local notation "N₀" => R₀ ⊗[A] M
+
+def sectionBidualTensorHomEquiv :
+    Module.Dual R₀ D₀ ⊗[A] M ≃ₗ[R₀] (D₀ →ₗ[R₀] N₀) := by sorry
+
+lemma sectionBidualTensorHomEquiv_tmul (F : Module.Dual R₀ D₀) (m : M) (h : D₀) :
+    sectionBidualTensorHomEquiv A γ δ s t M (F ⊗ₜ[A] m) h = F h ⊗ₜ[A] m := by sorry
+
+lemma sectionBidualTensorHomEquiv_inverse (F : Module.Dual R₀ D₀) (m : M) :
+    (sectionBidualTensorHomEquiv A γ δ s t M).symm
+      (sectionBidualTensorHomEquiv A γ δ s t M (F ⊗ₜ[A] m)) = F ⊗ₜ[A] m := by sorry
+
+lemma sectionBidualTensorHomEquiv_unique
+    (e : Module.Dual R₀ D₀ ⊗[A] M ≃ₗ[R₀] (D₀ →ₗ[R₀] N₀))
+    (he : ∀ F m h, e (F ⊗ₜ[A] m) h = F h ⊗ₜ[A] m) :
+    e = sectionBidualTensorHomEquiv A γ δ s t M := by sorry
+
+lemma sectionBidualTensorHomEquiv_natural
+    {M' : Type u_rel} [AddCommGroup M'] [Module A M'] (f : M →ₗ[A] M')
+    (x : Module.Dual R₀ D₀ ⊗[A] M) (h : D₀) :
+    sectionBidualTensorHomEquiv A γ δ s t M'
+      (AlgebraTensorModule.map (LinearMap.id : Module.Dual R₀ D₀ →ₗ[R₀] _) f x) h =
+    AlgebraTensorModule.map (LinearMap.id : R₀ →ₗ[R₀] R₀) f
+      (sectionBidualTensorHomEquiv A γ δ s t M x h) := by sorry
+
+lemma sectionBidualTensorHomEquiv_evaluation (x : J₀ ⊗[A] M) :
+    sectionBidualTensorHomEquiv A γ δ s t M
+      (AlgebraTensorModule.rTensor A M (Module.Dual.eval R₀ J₀) x) =
+        sectionIdealTensorHomEquiv A γ δ s t M x := by sorry
+
+lemma sectionIdealAbsoluteDerivedExt_isZero (n : ℕ) :
+    Limits.IsZero (((_root_.Ext R₀ (ModuleCat.{u_rel} R₀) (n+1)).obj
+      (Opposite.op (ModuleCat.of R₀ J₀))).obj (ModuleCat.of R₀ R₀)) := by sorry
+
+lemma sectionDualAbsoluteDerivedExt_isZero (n : ℕ) :
+    Limits.IsZero (((_root_.Ext R₀ (ModuleCat.{u_rel} R₀) (n+1)).obj
+      (Opposite.op (ModuleCat.of R₀ D₀))).obj (ModuleCat.of R₀ R₀)) := by sorry
+
+set_option backward.defeqAttrib.useBackward true in
+lemma sectionIdealAbsoluteExt_eq_zero (n : ℕ)
+    (α : CategoryTheory.Abelian.Ext (ModuleCat.of R₀ J₀) (ModuleCat.of R₀ R₀) (n+1)) :
+    α = 0 := by sorry
+
+set_option backward.defeqAttrib.useBackward true in
+lemma sectionDualAbsoluteExt_eq_zero (n : ℕ)
+    (α : CategoryTheory.Abelian.Ext (ModuleCat.of R₀ D₀) (ModuleCat.of R₀ R₀) (n+1)) :
+    α = 0 := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionBidualTensorHomEquiv.test_unit
+example (F : Module.Dual R₀ D₀) (h : D₀) :
+    AlgebraTensorModule.rid A R₀ R₀
+      (sectionBidualTensorHomEquiv A γ δ s t A (F ⊗ₜ[A] 1) h) = F h := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionBidualTensorHomEquiv.test_torsion
+example (F : Module.Dual (Ring ℤ 1 0 1 0)
+    (Module.Dual (Ring ℤ 1 0 1 0) (sectionIdeal ℤ 1 0 1 0)))
+    (h : Module.Dual (Ring ℤ 1 0 1 0) (sectionIdeal ℤ 1 0 1 0)) :
+    sectionBidualTensorHomEquiv ℤ 1 0 1 0 (ZMod 2) (F ⊗ₜ[ℤ] 1) h = F h ⊗ₜ[ℤ] 1 := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionBidualTensorHomEquiv.test_inverse_nonreduced
+example (F : Module.Dual (Ring (ZMod 4) 0 0 0 0)
+    (Module.Dual (Ring (ZMod 4) 0 0 0 0) (sectionIdeal (ZMod 4) 0 0 0 0))) :
+    (sectionBidualTensorHomEquiv (ZMod 4) 0 0 0 0 (ZMod 4)).symm
+      (sectionBidualTensorHomEquiv (ZMod 4) 0 0 0 0 (ZMod 4) (F ⊗ₜ[ZMod 4] 1)) =
+        F ⊗ₜ[ZMod 4] 1 := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionBidualTensorHomEquiv_evaluation.test_native
+example (j : J₀) (m : M) (h : D₀) :
+    sectionBidualTensorHomEquiv A γ δ s t M
+      (AlgebraTensorModule.rTensor A M (Module.Dual.eval R₀ J₀) (j ⊗ₜ[A] m)) h =
+        h j ⊗ₜ[A] m := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionIdealAbsoluteDerivedExt.test_zero_ring
+example : Limits.IsZero (((_root_.Ext (Ring (ZMod 1) 0 0 0 0)
+    (ModuleCat.{0} (Ring (ZMod 1) 0 0 0 0)) 1).obj
+      (Opposite.op (ModuleCat.of _ (sectionIdeal (ZMod 1) 0 0 0 0)))).obj
+        (ModuleCat.of _ (Ring (ZMod 1) 0 0 0 0))) := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionDualAbsoluteDerivedExt.test_nonreduced
+example : Limits.IsZero (((_root_.Ext (Ring (ZMod 4) 0 0 0 0)
+    (ModuleCat.{0} (Ring (ZMod 4) 0 0 0 0)) 2).obj
+      (Opposite.op (ModuleCat.of _
+        (Module.Dual (Ring (ZMod 4) 0 0 0 0) (sectionIdeal (ZMod 4) 0 0 0 0))))).obj
+        (ModuleCat.of _ (Ring (ZMod 4) 0 0 0 0))) := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionIdealAbsoluteExt.test_integral
+example (α : CategoryTheory.Abelian.Ext
+    (ModuleCat.of (Ring ℤ 1 0 1 0) (sectionIdeal ℤ 1 0 1 0))
+    (ModuleCat.of _ (Ring ℤ 1 0 1 0)) 3) : α = 0 := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionDualAbsoluteExt.test_nonreduced
+example (α : CategoryTheory.Abelian.Ext
+    (ModuleCat.of (Ring (ZMod 4) 0 0 1 0)
+      (Module.Dual (Ring (ZMod 4) 0 0 1 0) (sectionIdeal (ZMod 4) 0 0 1 0)))
+    (ModuleCat.of _ (Ring (ZMod 4) 0 0 1 0)) 4) : α = 0 := by sorry
+
+end
+end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+/- END RELATIVE CRITERION COMPARISON -/

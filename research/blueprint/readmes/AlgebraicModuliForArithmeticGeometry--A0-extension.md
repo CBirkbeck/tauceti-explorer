@@ -9266,3 +9266,339 @@ Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, Algebr
 Proof outline: Use the actual native fibre arrows and the stored band pullback/conjugation equations; retain the source automorphism-composition convention. The underlying presheaf morphism of principalSheafIso is heterogeneously equal to the explicit principalPresheafIso morphism. Heterogeneous equality keeps the admitted prototype constructors opaque.
 
 The comparison is an actual isomorphism in the existing Sheaf category on J over U. Local sections follow from the gerbe’s covering-sieve condition. Translating these data into D0’s prescribed torsor/classifying-stack carrier, and the other inherited general-gerbe obligations, remains open. No stage, key, gap, request or whole-source coverage entry is closed.
+
+## Fixed-band morphisms: actual local inverse and faithful fibres
+
+The comparison uses the native StrongTrans component functors and actual Isom types. A supplied anchor produces an explicit inverse; it is independent of that anchor, equivariant, and compatible with identity and composition. Gerbe local isomorphism supplies a covering sieve of such equivalences. This local statement still needs strong-naturality transport and sheaf gluing to imply global fullness. Every inherited general target and supplier boundary remains.
+
+### Identity preserves the band
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-id — TauCeti.AlgebraicGeometry.BandPreserving.id
+
+The native identity StrongTrans of F preserves the specified AbelianBanding, with the component mapAut equal to the identity.
+
+A specified arbitrary site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe, one actual abelian sheaf A and actual bandings bF,bG; η is the native StrongTrans and preserves the fixed band. The native prototypes use the same explicit universe for coefficient and fibre-hom types; arbitrary base/object universes are retained. No resizing, bottom-topology, finite, terminal-object or neutralization assumption is made. An actual source isomorphism is required only by anchored inverse, equivalence and surjectivity constructions. Their local existence does not provide a global anchor.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism, mathlib:CategoryTheory.Pseudofunctor.StrongTrans.id.
+
+Proof outline: The native identity StrongTrans of F preserves the specified AbelianBanding, with the component mapAut equal to the identity.
+
+### Composition preserves the band
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-comp — TauCeti.AlgebraicGeometry.BandPreserving.comp
+
+The native vertical composite of two transformations preserving the same fixed band preserves that band; the component automorphism equation is the composite of the two given equations.
+
+A specified arbitrary site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe, one actual abelian sheaf A and actual bandings bF,bG; η is the native StrongTrans and preserves the fixed band. The native prototypes use the same explicit universe for coefficient and fibre-hom types; arbitrary base/object universes are retained. No resizing, bottom-topology, finite, terminal-object or neutralization assumption is made. An actual source isomorphism is required only by anchored inverse, equivalence and surjectivity constructions. Their local existence does not provide a global anchor.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism, mathlib:CategoryTheory.Pseudofunctor.StrongTrans.vcomp.
+
+Proof outline: The native vertical composite of two transformations preserving the same fixed band preserves that band; the component automorphism equation is the composite of the two given equations.
+
+### The actual Isom map respects the band action
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-map-act — TauCeti.AlgebraicGeometry.BandedMorphism.map_act
+
+For the fibre functor ηU, mapIso(actF(p,a))=actG(mapIso(p),a). The coefficient is unchanged, using the band-preservation equation on the actual target automorphism.
+
+A specified arbitrary site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe, one actual abelian sheaf A and actual bandings bF,bG; η is the native StrongTrans and preserves the fixed band. The native prototypes use the same explicit universe for coefficient and fibre-hom types; arbitrary base/object universes are retained. No resizing, bottom-topology, finite, terminal-object or neutralization assumption is made. An actual source isomorphism is required only by anchored inverse, equivalence and surjectivity constructions. Their local existence does not provide a global anchor.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act, mathlib:CategoryTheory.Functor.mapIso_trans.
+
+Proof outline: For the fibre functor ηU, mapIso(actF(p,a))=actG(mapIso(p),a). The coefficient is unchanged, using the band-preservation equation on the actual target automorphism.
+
+Test TauCeti.AlgebraicGeometry.BandedMorphism.Tests.preservesAction (compatibility): Mapping an acted isomorphism keeps exactly the same fixed-band coefficient.
+
+### The actual Isom map preserves difference coefficients
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-map-difference — TauCeti.AlgebraicGeometry.BandedMorphism.map_difference
+
+differenceG(mapIso(p),mapIso(q))=differenceF(p,q) for actual p,q:x≅y. Apply map_act to actF(p,differenceF(p,q))=q and then the target difference cancellation law.
+
+A specified arbitrary site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe, one actual abelian sheaf A and actual bandings bF,bG; η is the native StrongTrans and preserves the fixed band. The native prototypes use the same explicit universe for coefficient and fibre-hom types; arbitrary base/object universes are retained. No resizing, bottom-topology, finite, terminal-object or neutralization assumption is made. An actual source isomorphism is required only by anchored inverse, equivalence and surjectivity constructions. Their local existence does not provide a global anchor.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-map-act, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act-difference, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-difference-act.
+
+Proof outline: differenceG(mapIso(p),mapIso(q))=differenceF(p,q) for actual p,q:x≅y. Apply map_act to actF(p,differenceF(p,q))=q and then the target difference cancellation law.
+
+Test TauCeti.AlgebraicGeometry.BandedMorphism.Tests.preservesDifference (compatibility): The source and target difference coefficients agree exactly.
+
+### Band preservation separates actual isomorphisms
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-isom-injective — TauCeti.AlgebraicGeometry.BandedMorphism.mapIso_injective
+
+For every fibre and pair x,y, the actual mapIso of ηU is injective, including when the source Isom type is empty. Equal images have difference coefficient one; action cancellation recovers equality.
+
+A specified arbitrary site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe, one actual abelian sheaf A and actual bandings bF,bG; η is the native StrongTrans and preserves the fixed band. The native prototypes use the same explicit universe for coefficient and fibre-hom types; arbitrary base/object universes are retained. No resizing, bottom-topology, finite, terminal-object or neutralization assumption is made. An actual source isomorphism is required only by anchored inverse, equivalence and surjectivity constructions. Their local existence does not provide a global anchor.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-map-difference, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-difference-self, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act-one, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act-difference.
+
+Proof outline: For every fibre and pair x,y, the actual mapIso of ηU is injective, including when the source Isom type is empty. Equal images have difference coefficient one; action cancellation recovers equality.
+
+### Every fibre functor is faithful
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-faithful — TauCeti.AlgebraicGeometry.BandedMorphism.faithful
+
+Every component functor ηU is Faithful. All source arrows are invertible by IsGerbe, so equal images of arrows are equal images of their actual asIso isomorphisms and injectivity recovers equality.
+
+A specified arbitrary site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe, one actual abelian sheaf A and actual bandings bF,bG; η is the native StrongTrans and preserves the fixed band. The native prototypes use the same explicit universe for coefficient and fibre-hom types; arbitrary base/object universes are retained. No resizing, bottom-topology, finite, terminal-object or neutralization assumption is made. An actual source isomorphism is required only by anchored inverse, equivalence and surjectivity constructions. Their local existence does not provide a global anchor.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-isom-injective, AlgebraicModuliForArithmeticGeometry:R09.4/relative-gerbe, mathlib:CategoryTheory.Functor.Faithful.
+
+Proof outline: Every component functor ηU is Faithful. All source arrows are invertible by IsGerbe, so equal images of arrows are equal images of their actual asIso isomorphisms and injectivity recovers equality.
+
+Test TauCeti.AlgebraicGeometry.BandedMorphism.Tests.separatesArrows (characterisation): Two actual fibre arrows with equal images are equal, without a global anchor assumption.
+
+### A target isomorphism has an anchored preimage
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-preimage-isom — TauCeti.AlgebraicGeometry.BandedMorphism.preimageIso
+
+Given an actual p:x≅y and target q:ηU(x)≅ηU(y), preimageIso(p,q)=actF(p,differenceG(mapIso(p),q)). The anchor is required data, never inferred from local nonemptiness.
+
+A specified arbitrary site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe, one actual abelian sheaf A and actual bandings bF,bG; η is the native StrongTrans and preserves the fixed band. The native prototypes use the same explicit universe for coefficient and fibre-hom types; arbitrary base/object universes are retained. No resizing, bottom-topology, finite, terminal-object or neutralization assumption is made. An actual source isomorphism is required only by anchored inverse, equivalence and surjectivity constructions. Their local existence does not provide a global anchor.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-difference.
+
+Proof outline: Given an actual p:x≅y and target q:ηU(x)≅ηU(y), preimageIso(p,q)=actF(p,differenceG(mapIso(p),q)). The anchor is required data, never inferred from local nonemptiness.
+
+API TauCeti.AlgebraicGeometry.BandedMorphism.map_preimageIso: mapIso(preimageIso(p,q))=q, by action compatibility and the target difference-action cancellation. This works for every target isomorphism once the actual source anchor is supplied.
+
+API TauCeti.AlgebraicGeometry.BandedMorphism.preimageIso_map: preimageIso(p,mapIso(q))=q for actual p,q:x≅y, using unchanged difference coefficients and source action cancellation.
+
+API TauCeti.AlgebraicGeometry.BandedMorphism.preimageIso_anchor: For any actual anchors p,p′ and target q, preimageIso(p,q)=preimageIso(p′,q). Both map to q, and mapIso is injective. No choice of a global anchor is made.
+
+API TauCeti.AlgebraicGeometry.BandedMorphism.preimageIso_act: preimageIso(p,actG(q,a))=actF(preimageIso(p,q),a), by mapIso injectivity, the inverse law and the forward action equation.
+
+API TauCeti.AlgebraicGeometry.BandedMorphism.preimageIso_id: For the identity StrongTrans, preimageIso(p,q)=q for every actual source anchor p and actual q, using the identity band-preservation proof and the source inverse law.
+
+API TauCeti.AlgebraicGeometry.BandedMorphism.preimageIso_comp: For band-preserving η:F→G and θ:G→H, preimageIso for θ∘η at p equals preimageIso for η at p applied to preimageIso for θ at ηU.mapIso(p). Composition uses the actual native StrongTrans and functor mapIso, with no surrogate transformation carrier.
+
+Test TauCeti.AlgebraicGeometry.BandedMorphism.Tests.inverseLeft (characterisation): Applying the anchored inverse to the actual mapped source isomorphism recovers that source isomorphism.
+
+Test TauCeti.AlgebraicGeometry.BandedMorphism.Tests.inverseRight (characterisation): Mapping the anchored inverse of an arbitrary actual target isomorphism recovers that target isomorphism.
+
+Test TauCeti.AlgebraicGeometry.BandedMorphism.Tests.independentAnchor (compatibility): Two actual source anchors give the same preimage of every target isomorphism.
+
+Test TauCeti.AlgebraicGeometry.BandedMorphism.Tests.emptySourceNotFilled (non-example): An empty global source Isom type supplies no actual anchor for the surjectivity construction.
+
+### The anchored preimage maps to its target
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-map-preimage — TauCeti.AlgebraicGeometry.BandedMorphism.map_preimageIso
+
+mapIso(preimageIso(p,q))=q, by action compatibility and the target difference-action cancellation. This works for every target isomorphism once the actual source anchor is supplied.
+
+A specified arbitrary site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe, one actual abelian sheaf A and actual bandings bF,bG; η is the native StrongTrans and preserves the fixed band. The native prototypes use the same explicit universe for coefficient and fibre-hom types; arbitrary base/object universes are retained. No resizing, bottom-topology, finite, terminal-object or neutralization assumption is made. An actual source isomorphism is required only by anchored inverse, equivalence and surjectivity constructions. Their local existence does not provide a global anchor.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-preimage-isom, AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-map-act, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act-difference.
+
+Proof outline: mapIso(preimageIso(p,q))=q, by action compatibility and the target difference-action cancellation. This works for every target isomorphism once the actual source anchor is supplied.
+
+### The anchored preimage recovers a source isomorphism
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-preimage-map — TauCeti.AlgebraicGeometry.BandedMorphism.preimageIso_map
+
+preimageIso(p,mapIso(q))=q for actual p,q:x≅y, using unchanged difference coefficients and source action cancellation.
+
+A specified arbitrary site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe, one actual abelian sheaf A and actual bandings bF,bG; η is the native StrongTrans and preserves the fixed band. The native prototypes use the same explicit universe for coefficient and fibre-hom types; arbitrary base/object universes are retained. No resizing, bottom-topology, finite, terminal-object or neutralization assumption is made. An actual source isomorphism is required only by anchored inverse, equivalence and surjectivity constructions. Their local existence does not provide a global anchor.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-preimage-isom, AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-map-difference, AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act-difference.
+
+Proof outline: preimageIso(p,mapIso(q))=q for actual p,q:x≅y, using unchanged difference coefficients and source action cancellation.
+
+### The inverse is independent of its anchor
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-preimage-anchor — TauCeti.AlgebraicGeometry.BandedMorphism.preimageIso_anchor
+
+For any actual anchors p,p′ and target q, preimageIso(p,q)=preimageIso(p′,q). Both map to q, and mapIso is injective. No choice of a global anchor is made.
+
+A specified arbitrary site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe, one actual abelian sheaf A and actual bandings bF,bG; η is the native StrongTrans and preserves the fixed band. The native prototypes use the same explicit universe for coefficient and fibre-hom types; arbitrary base/object universes are retained. No resizing, bottom-topology, finite, terminal-object or neutralization assumption is made. An actual source isomorphism is required only by anchored inverse, equivalence and surjectivity constructions. Their local existence does not provide a global anchor.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-isom-injective, AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-map-preimage.
+
+Proof outline: For any actual anchors p,p′ and target q, preimageIso(p,q)=preimageIso(p′,q). Both map to q, and mapIso is injective. No choice of a global anchor is made.
+
+### The anchored Isom comparison is an actual equivalence
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-isom-equiv — TauCeti.AlgebraicGeometry.BandedMorphism.isomEquiv
+
+Given actual p:x≅y, the native Equiv from x≅y to ηU(x)≅ηU(y) has forward map exactly ηU.mapIso and inverse exactly preimageIso(p). Both inverse laws are retained as proof data. Generic Equiv is imported, not redefined.
+
+A specified arbitrary site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe, one actual abelian sheaf A and actual bandings bF,bG; η is the native StrongTrans and preserves the fixed band. The native prototypes use the same explicit universe for coefficient and fibre-hom types; arbitrary base/object universes are retained. No resizing, bottom-topology, finite, terminal-object or neutralization assumption is made. An actual source isomorphism is required only by anchored inverse, equivalence and surjectivity constructions. Their local existence does not provide a global anchor.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-preimage-isom, AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-map-preimage, AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-preimage-map.
+
+Proof outline: Given actual p:x≅y, the native Equiv from x≅y to ηU(x)≅ηU(y) has forward map exactly ηU.mapIso and inverse exactly preimageIso(p). Both inverse laws are retained as proof data. Generic Equiv is imported, not redefined.
+
+API TauCeti.AlgebraicGeometry.BandedMorphism.isomEquiv_apply: isomEquiv(p)(q)=ηU.mapIso(q), as an equality of actual isomorphisms.
+
+API TauCeti.AlgebraicGeometry.BandedMorphism.isomEquiv_symm_apply: isomEquiv(p) inverse applied to q equals preimageIso(p,q).
+
+API TauCeti.AlgebraicGeometry.BandedMorphism.isomEquiv_anchor: The native Equiv objects isomEquiv(p) and isomEquiv(p′) are equal, because their forward functions are the same actual fibre functor mapIso.
+
+Test TauCeti.AlgebraicGeometry.BandedMorphism.Tests.equivLeft (characterisation): The native Isom equivalence has its left inverse law on every actual source isomorphism.
+
+Test TauCeti.AlgebraicGeometry.BandedMorphism.Tests.equivRight (characterisation): The native Isom equivalence has its right inverse law on every actual target isomorphism.
+
+Test TauCeti.AlgebraicGeometry.BandedMorphism.Tests.equivUsesMap (compatibility): The forward equivalence is the actual fibre functor mapIso, rather than an arbitrary bijection.
+
+### The forward comparison is the native map
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-isom-equiv-apply — TauCeti.AlgebraicGeometry.BandedMorphism.isomEquiv_apply
+
+isomEquiv(p)(q)=ηU.mapIso(q), as an equality of actual isomorphisms.
+
+A specified arbitrary site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe, one actual abelian sheaf A and actual bandings bF,bG; η is the native StrongTrans and preserves the fixed band. The native prototypes use the same explicit universe for coefficient and fibre-hom types; arbitrary base/object universes are retained. No resizing, bottom-topology, finite, terminal-object or neutralization assumption is made. An actual source isomorphism is required only by anchored inverse, equivalence and surjectivity constructions. Their local existence does not provide a global anchor.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-isom-equiv.
+
+Proof outline: isomEquiv(p)(q)=ηU.mapIso(q), as an equality of actual isomorphisms.
+
+### The inverse comparison is the explicit preimage
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-isom-equiv-symm — TauCeti.AlgebraicGeometry.BandedMorphism.isomEquiv_symm_apply
+
+isomEquiv(p) inverse applied to q equals preimageIso(p,q).
+
+A specified arbitrary site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe, one actual abelian sheaf A and actual bandings bF,bG; η is the native StrongTrans and preserves the fixed band. The native prototypes use the same explicit universe for coefficient and fibre-hom types; arbitrary base/object universes are retained. No resizing, bottom-topology, finite, terminal-object or neutralization assumption is made. An actual source isomorphism is required only by anchored inverse, equivalence and surjectivity constructions. Their local existence does not provide a global anchor.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-isom-equiv, AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-preimage-isom.
+
+Proof outline: isomEquiv(p) inverse applied to q equals preimageIso(p,q).
+
+### The equivalence does not depend on the anchor
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-isom-equiv-anchor — TauCeti.AlgebraicGeometry.BandedMorphism.isomEquiv_anchor
+
+The native Equiv objects isomEquiv(p) and isomEquiv(p′) are equal, because their forward functions are the same actual fibre functor mapIso.
+
+A specified arbitrary site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe, one actual abelian sheaf A and actual bandings bF,bG; η is the native StrongTrans and preserves the fixed band. The native prototypes use the same explicit universe for coefficient and fibre-hom types; arbitrary base/object universes are retained. No resizing, bottom-topology, finite, terminal-object or neutralization assumption is made. An actual source isomorphism is required only by anchored inverse, equivalence and surjectivity constructions. Their local existence does not provide a global anchor.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-isom-equiv.
+
+Proof outline: The native Equiv objects isomEquiv(p) and isomEquiv(p′) are equal, because their forward functions are the same actual fibre functor mapIso.
+
+### The inverse preserves the band action
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-preimage-act — TauCeti.AlgebraicGeometry.BandedMorphism.preimageIso_act
+
+preimageIso(p,actG(q,a))=actF(preimageIso(p,q),a), by mapIso injectivity, the inverse law and the forward action equation.
+
+A specified arbitrary site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe, one actual abelian sheaf A and actual bandings bF,bG; η is the native StrongTrans and preserves the fixed band. The native prototypes use the same explicit universe for coefficient and fibre-hom types; arbitrary base/object universes are retained. No resizing, bottom-topology, finite, terminal-object or neutralization assumption is made. An actual source isomorphism is required only by anchored inverse, equivalence and surjectivity constructions. Their local existence does not provide a global anchor.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-isom-injective, AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-map-preimage, AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-map-act.
+
+Proof outline: preimageIso(p,actG(q,a))=actF(preimageIso(p,q),a), by mapIso injectivity, the inverse law and the forward action equation.
+
+### An actual anchor gives surjectivity on Hom
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-hom-surjective-anchored — TauCeti.AlgebraicGeometry.BandedMorphism.hom_surjective_of_anchor
+
+Given actual p:x≅y, ηU.map:(x→y)→(ηU(x)→ηU(y)) is surjective. A target arrow is invertible by the target IsGerbe; take the hom of preimageIso(p,asIso(q)). This is conditional fullness for that pair, not a global source anchor.
+
+A specified arbitrary site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe, one actual abelian sheaf A and actual bandings bF,bG; η is the native StrongTrans and preserves the fixed band. The native prototypes use the same explicit universe for coefficient and fibre-hom types; arbitrary base/object universes are retained. No resizing, bottom-topology, finite, terminal-object or neutralization assumption is made. An actual source isomorphism is required only by anchored inverse, equivalence and surjectivity constructions. Their local existence does not provide a global anchor.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-preimage-isom, AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-map-preimage, AlgebraicModuliForArithmeticGeometry:R09.4/relative-gerbe.
+
+Proof outline: Given actual p:x≅y, ηU.map:(x→y)→(ηU(x)→ηU(y)) is surjective. A target arrow is invertible by the target IsGerbe; take the hom of preimageIso(p,asIso(q)). This is conditional fullness for that pair, not a global source anchor.
+
+### The actual automorphism map is a group equivalence
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-aut-equiv — TauCeti.AlgebraicGeometry.BandedMorphism.autEquiv
+
+For every source object x, autEquiv(x)=bF(U,x) inverse followed by bG(U,ηU(x)) is a native multiplicative equivalence of actual automorphism groups. Its forward function is exactly ηU.mapAut by band preservation.
+
+A specified arbitrary site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe, one actual abelian sheaf A and actual bandings bF,bG; η is the native StrongTrans and preserves the fixed band. The native prototypes use the same explicit universe for coefficient and fibre-hom types; arbitrary base/object universes are retained. No resizing, bottom-topology, finite, terminal-object or neutralization assumption is made. An actual source isomorphism is required only by anchored inverse, equivalence and surjectivity constructions. Their local existence does not provide a global anchor.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism, AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding.
+
+Proof outline: For every source object x, autEquiv(x)=bF(U,x) inverse followed by bG(U,ηU(x)) is a native multiplicative equivalence of actual automorphism groups. Its forward function is exactly ηU.mapAut by band preservation.
+
+API TauCeti.AlgebraicGeometry.BandedMorphism.autEquiv_apply: autEquiv(x)(a)=ηU.mapAut(x)(a) for every actual source automorphism, by its unique coefficient under bF and the stored band equation.
+
+API TauCeti.AlgebraicGeometry.BandedMorphism.autEquiv_band: autEquiv(x)(bF(U,x)(a))=bG(U,ηU(x))(a). This formula follows from the two band equivalences even before invoking the map-preservation property.
+
+API TauCeti.AlgebraicGeometry.BandedMorphism.autEquiv_symm_band: autEquiv(x) inverse applied to bG(U,ηU(x))(a) equals bF(U,x)(a).
+
+Test TauCeti.AlgebraicGeometry.BandedMorphism.Tests.autLeft (characterisation): The native group equivalence has its left inverse law on every actual source automorphism.
+
+Test TauCeti.AlgebraicGeometry.BandedMorphism.Tests.autRight (characterisation): The native group equivalence has its right inverse law on every actual target automorphism.
+
+Test TauCeti.AlgebraicGeometry.BandedMorphism.Tests.autUsesMap (compatibility): The forward group equivalence is the actual fibre functor mapAut.
+
+Test TauCeti.AlgebraicGeometry.BandedMorphism.Tests.nonzeroRetained (non-example): A band coefficient other than multiplicative one cannot map to the identity automorphism.
+
+Test TauCeti.AlgebraicGeometry.BandedMorphism.Tests.changedCoefficientRejected (non-example): If the actual fibre map sends bF(a) to bG(a′) with a≠a′, that transformation cannot be band-preserving. This rejects inversion at a non-two-torsion coefficient.
+
+### The automorphism comparison is the native map
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-aut-equiv-apply — TauCeti.AlgebraicGeometry.BandedMorphism.autEquiv_apply
+
+autEquiv(x)(a)=ηU.mapAut(x)(a) for every actual source automorphism, by its unique coefficient under bF and the stored band equation.
+
+A specified arbitrary site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe, one actual abelian sheaf A and actual bandings bF,bG; η is the native StrongTrans and preserves the fixed band. The native prototypes use the same explicit universe for coefficient and fibre-hom types; arbitrary base/object universes are retained. No resizing, bottom-topology, finite, terminal-object or neutralization assumption is made. An actual source isomorphism is required only by anchored inverse, equivalence and surjectivity constructions. Their local existence does not provide a global anchor.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-aut-equiv, AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism.
+
+Proof outline: autEquiv(x)(a)=ηU.mapAut(x)(a) for every actual source automorphism, by its unique coefficient under bF and the stored band equation.
+
+### The group comparison fixes every band coefficient
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-aut-equiv-band — TauCeti.AlgebraicGeometry.BandedMorphism.autEquiv_band
+
+autEquiv(x)(bF(U,x)(a))=bG(U,ηU(x))(a). This formula follows from the two band equivalences even before invoking the map-preservation property.
+
+A specified arbitrary site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe, one actual abelian sheaf A and actual bandings bF,bG; η is the native StrongTrans and preserves the fixed band. The native prototypes use the same explicit universe for coefficient and fibre-hom types; arbitrary base/object universes are retained. No resizing, bottom-topology, finite, terminal-object or neutralization assumption is made. An actual source isomorphism is required only by anchored inverse, equivalence and surjectivity constructions. Their local existence does not provide a global anchor.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-aut-equiv.
+
+Proof outline: autEquiv(x)(bF(U,x)(a))=bG(U,ηU(x))(a). This formula follows from the two band equivalences even before invoking the map-preservation property.
+
+### The inverse group comparison fixes every band coefficient
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-aut-equiv-symm-band — TauCeti.AlgebraicGeometry.BandedMorphism.autEquiv_symm_band
+
+autEquiv(x) inverse applied to bG(U,ηU(x))(a) equals bF(U,x)(a).
+
+A specified arbitrary site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe, one actual abelian sheaf A and actual bandings bF,bG; η is the native StrongTrans and preserves the fixed band. The native prototypes use the same explicit universe for coefficient and fibre-hom types; arbitrary base/object universes are retained. No resizing, bottom-topology, finite, terminal-object or neutralization assumption is made. An actual source isomorphism is required only by anchored inverse, equivalence and surjectivity constructions. Their local existence does not provide a global anchor.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-aut-equiv.
+
+Proof outline: autEquiv(x) inverse applied to bG(U,ηU(x))(a) equals bF(U,x)(a).
+
+### The identity has the identity anchored inverse
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-preimage-id — TauCeti.AlgebraicGeometry.BandedMorphism.preimageIso_id
+
+For the identity StrongTrans, preimageIso(p,q)=q for every actual source anchor p and actual q, using the identity band-preservation proof and the source inverse law.
+
+A specified arbitrary site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe, one actual abelian sheaf A and actual bandings bF,bG; η is the native StrongTrans and preserves the fixed band. The native prototypes use the same explicit universe for coefficient and fibre-hom types; arbitrary base/object universes are retained. No resizing, bottom-topology, finite, terminal-object or neutralization assumption is made. An actual source isomorphism is required only by anchored inverse, equivalence and surjectivity constructions. Their local existence does not provide a global anchor.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-id, AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-preimage-map.
+
+Proof outline: For the identity StrongTrans, preimageIso(p,q)=q for every actual source anchor p and actual q, using the identity band-preservation proof and the source inverse law.
+
+### The anchored inverse respects vertical composition
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-preimage-comp — TauCeti.AlgebraicGeometry.BandedMorphism.preimageIso_comp
+
+For band-preserving η:F→G and θ:G→H, preimageIso for θ∘η at p equals preimageIso for η at p applied to preimageIso for θ at ηU.mapIso(p). Composition uses the actual native StrongTrans and functor mapIso, with no surrogate transformation carrier.
+
+A specified arbitrary site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe, one actual abelian sheaf A and actual bandings bF,bG; η is the native StrongTrans and preserves the fixed band. The native prototypes use the same explicit universe for coefficient and fibre-hom types; arbitrary base/object universes are retained. No resizing, bottom-topology, finite, terminal-object or neutralization assumption is made. An actual source isomorphism is required only by anchored inverse, equivalence and surjectivity constructions. Their local existence does not provide a global anchor.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-comp, AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-isom-injective, AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-map-preimage.
+
+Proof outline: For band-preserving η:F→G and θ:G→H, preimageIso for θ∘η at p equals preimageIso for η at p applied to preimageIso for θ at ηU.mapIso(p). Composition uses the actual native StrongTrans and functor mapIso, with no surrogate transformation carrier.
+
+### Actual Isom equivalences exist on a covering sieve
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-isom-equiv-cover — TauCeti.AlgebraicGeometry.BandedMorphism.locallyIsomEquiv
+
+For every x,y over U, there is R∈J(U) such that for every f:V→U in R there is an actual equivalence between Isom(F(f)x,F(f)y) and Isom(ηV(F(f)x),ηV(F(f)y)), whose forward map is ηV.mapIso. The locallyIsomorphic field supplies each actual anchor. This statement does not yet identify the target with G(f)(ηU(x),ηU(y)) through strong naturality or glue the inverse sheaf map.
+
+A specified arbitrary site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe, one actual abelian sheaf A and actual bandings bF,bG; η is the native StrongTrans and preserves the fixed band. The native prototypes use the same explicit universe for coefficient and fibre-hom types; arbitrary base/object universes are retained. No resizing, bottom-topology, finite, terminal-object or neutralization assumption is made. An actual source isomorphism is required only by anchored inverse, equivalence and surjectivity constructions. Their local existence does not provide a global anchor.
+
+Dependencies: AlgebraicModuliForArithmeticGeometry:R09.4/relative-gerbe, AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-isom-equiv.
+
+Proof outline: For every x,y over U, there is R∈J(U) such that for every f:V→U in R there is an actual equivalence between Isom(F(f)x,F(f)y) and Isom(ηV(F(f)x),ηV(F(f)y)), whose forward map is ηV.mapIso. The locallyIsomorphic field supplies each actual anchor. This statement does not yet identify the target with G(f)(ηU(x),ηU(y)) through strong naturality or glue the inverse sheaf map.
+
+Fresh source reading: [Olsson notes](https://stacky.net/files/written/Stacks/Stacks.pdf), complete pp.122–123 as scoped above, and [Stacks06NZ](https://stacks.math.columbia.edu/tag/06NZ), [0CJY](https://stacks.math.columbia.edu/tag/0CJY). The exact inverse formulas are authored deductions, rather than printed source statements. Generic stackification and classifying carriers belong to D0; descended-slice sheaf foundations belong to SF1. All statuses remain partial/unchecked.
