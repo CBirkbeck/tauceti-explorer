@@ -1,3 +1,146 @@
+# The actual conductor ideal-sheaf datum
+
+This continuation proves that the existing conductorIdealSheaf construction has exactly its advertised affine components. For a finite scheme morphism, the source of an affine target chart is affine and its actual section map is finite. The inherited finite-localization theorem computes its conductor after inverting a section. The pinned basic-open comparison identifies this localized map with the actual structure-presheaf map, including the canonical identification of source opens. Transport under the corresponding ring equivalence then gives the native basic-open compatibility law. This part does not require scheme-theoretic dominance.
+
+The existing finite, schematically dominant construction retains its exact ofIdeals definition. Build a compatible native ideal family from the preceding law, then use ofIdeals_ideal: its affine ideals are exactly the full contracted conductors, with no loss through passage to a largest compatible subfamily. This proves the exact existing mem_affine, greatest and affine_compat APIs. The new restriction laws concern actual presheaf maps. The Spec comparison uses the canonical ΓSpecIso and its native naturality equality; the annihilator comparison uses the actual affine section algebra and quotient by span{1}.
+
+The latter quotient is a module of affine sections. This work does not construct a sheaf cokernel or prove a structure-sheaf exact sequence. The identity conductor is the unit ideal and its native closed subscheme is empty. Empty opens and zero basic opens retain the zero section ring. The actual nonreduced diagonal Z/4→Z/4×Z/4 test proves the finite and dominant morphism instances, then excludes the section2 from its conductor. The inherited cusp and field-extension acceptance contracts remain unchanged; these six tests do not claim to discharge every older test.
+
+The full Stacks Lemma10.40.4 proof and Lemma53.10.5–Example53.10.6 passages were read for this continuation. The precise general affine-to-sheaf adapters are authored deductions, not assertions that the proper-curve lemma literally has these hypotheses. Generic IdealSheafData and affine-scheme machinery is imported from the pinned library. All571 incoming node contracts are retained; only the existing conductor construction receives appended prerequisites, proof detail, API and tests. Earlier checkpoint boundaries below are preserved as history.
+
+The actual conductor family now satisfies the native basic-open compatibility law; ofIdeals preserves every prescribed affine ideal. Native proofs establish the old membership, greatest-ideal and affine ofIdealTop contracts, arbitrary affine restriction and composition, identity and empty-open boundaries, the canonical ΓSpecIso comparison, and the affine quotient-module annihilator formula. The native closed subscheme is available, with the identity case checked empty. Still construct and compare the conductor quotient-square maps, the all-open structure-sheaf exact sequence and categorical geometric pushout, the recomputed flat base-change comparison, projectivity/properness/cohomology and the remaining I2 and other routed-paper targets. The generic flat-annihilator supplier request remains open. The full Tau-importing canonical file remains uncompiled; no whole-stage completion is claimed.
+
+## Conductor under a codomain ring equivalence
+
+**TauCeti.GenusOne.FerrandPushout.conductor_comap_postcomp** — For every ring map f:A→B and ring equivalence e:B≃C between commutative rings, the conductor contracted to A along f equals that contracted along e∘f. No injectivity or finiteness assumption is needed.
+
+Hypotheses: All ring carriers are commutative rings, including zero rings and rings with nilpotents. The actual maps and each finiteness or dominance assumption are exactly those stated; no replacement by a radical or underlying support is permitted.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-algebra-equiv.
+
+Proof: Equip B and C with the actual f and e∘f algebra structures. The ring equivalence becomes an A-algebra equivalence; apply the existing contracted-conductor algebra-equivalence theorem.
+
+## Recomputed conductor on a principal localization
+
+**TauCeti.GenusOne.FerrandPushout.conductor_localization_away** — For every finite ring map f:A→B and r∈A, and actual away localizations L=A[1/r], M=B[1/f(r)], extending the contracted conductor along A→L gives the conductor contracted along the actual native Away.map L M f r. No injectivity, reducedness or nonzero-localization assumption is made.
+
+Hypotheses: All ring carriers are commutative rings, including zero rings and rings with nilpotents. The actual maps and each finiteness or dominance assumption are exactly those stated; no replacement by a radical or underlying support is permitted.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-localization-recomputed.
+
+Proof: Apply the finite-algebra recomputation theorem to powers(r). Identify the image submonoid with powers(f(r)) and identify the actual localized ring map with Away.map by localization extensionality.
+
+## Actual conductor compatibility on basic opens
+
+**TauCeti.GenusOne.FerrandPushout.conductor_basicOpen** — For any finite scheme morphism f:Y→P, affine open U⊂P and section r∈Γ(P,U), extending the contracted conductor of the actual f.app U along the actual restriction Γ(P,U)→Γ(P,D(r)) gives exactly the contracted conductor of f.app D(r). Scheme-theoretic dominance is not needed.
+
+Hypotheses: All ring carriers are commutative rings, including zero rings and rings with nilpotents. The actual maps and each finiteness or dominance assumption are exactly those stated; no replacement by a radical or underlying support is permitted.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-principal-localization, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-postcomposition, mathlib:AlgebraicGeometry.IsAffineOpen.app_basicOpen_eq_away_map, mathlib:AlgebraicGeometry.Scheme.Hom.finite_app, mathlib:AlgebraicGeometry.IsAffineOpen.preimage.
+
+Proof: Finiteness makes the source chart affine and its section map finite. Use the two actual basic-open localization structures. The pinned app_basicOpen_eq_away_map theorem compares the actual restriction map with Away.map followed by the source-open identification. Transport the contracted conductor across that codomain ring equivalence.
+
+## Exact affine component of the conductor sheaf
+
+**TauCeti.GenusOne.FerrandPushout.conductorIdealSheaf_ideal** — For every finite schematically dominant f:Y→P and affine U⊂P, the affine ideal of the existing conductorIdealSheaf f equals the full conductor of im(f.app U) in Γ(Y,f⁻¹U), contracted along the actual f.app U. The ofIdeals construction loses none of the prescribed ideals.
+
+Hypotheses: All ring carriers are commutative rings, including zero rings and rings with nilpotents. The actual maps and each finiteness or dominance assumption are exactly those stated; no replacement by a radical or underlying support is permitted.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-basic-open, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ofIdeals_ideal.
+
+Proof: Build an anonymous native IdealSheafData from the same family using the proved basic-open identity. Apply native ofIdeals_ideal to this compatible family and evaluate its U-component. This establishes the existing membership, greatest-ideal and affine ofIdealTop APIs without changing their statements.
+
+## Conductor equality under affine restriction
+
+**TauCeti.GenusOne.FerrandPushout.ConductorIdealSheaf.map_affine** — For finite schematically dominant f and affine opens U⊆V in P, the ideal map along the actual presheaf restriction Γ(P,V)→Γ(P,U) sends the contracted conductor on V to the recomputed contracted conductor on U.
+
+Hypotheses: All ring carriers are commutative rings, including zero rings and rings with nilpotents. The actual maps and each finiteness or dominance assumption are exactly those stated; no replacement by a radical or underlying support is permitted.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-sheaf-affine-component, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.map_ideal.
+
+Proof: Apply native IdealSheafData.map_ideal to the existing conductor datum and rewrite both actual components with conductorIdealSheaf_ideal.
+
+## Restriction of a conductor section
+
+**TauCeti.GenusOne.FerrandPushout.ConductorIdealSheaf.restrict_mem** — For finite schematically dominant f, affine U⊆V and a∈I_f(V), the actual restriction of a to U belongs to I_f(U).
+
+Hypotheses: All ring carriers are commutative rings, including zero rings and rings with nilpotents. The actual maps and each finiteness or dominance assumption are exactly those stated; no replacement by a radical or underlying support is permitted.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-sheaf-affine-component, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ideal_le_comap_ideal.
+
+Proof: Apply the native ideal_le_comap_ideal law to the actual conductor sheaf datum. This is a statement about its actual section restriction.
+
+## Composition of conductor restrictions
+
+**TauCeti.GenusOne.FerrandPushout.ConductorIdealSheaf.map_affine_trans** — For finite schematically dominant f and affine U⊆V⊆W, extending the conductor on W successively along Γ(P,W)→Γ(P,V)→Γ(P,U) equals its extension along the direct Γ(P,W)→Γ(P,U) restriction.
+
+Hypotheses: All ring carriers are commutative rings, including zero rings and rings with nilpotents. The actual maps and each finiteness or dominance assumption are exactly those stated; no replacement by a radical or underlying support is permitted.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-sheaf-affine-restriction.
+
+Proof: Use ideal-map composition, the actual CommRingCat hom composition and the native presheaf functor composition law. The opens and restriction maps are the same ones as in the component theorem.
+
+## Unit conductor of the identity scheme map
+
+**TauCeti.GenusOne.FerrandPushout.ConductorIdealSheaf.identity** — For every scheme P, including the empty scheme, the conductor ideal-sheaf datum of id_P is the unit ideal datum. Its native closed subscheme is therefore empty.
+
+Hypotheses: All ring carriers are commutative rings, including zero rings and rings with nilpotents. The actual maps and each finiteness or dominance assumption are exactly those stated; no replacement by a radical or underlying support is permitted.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-sheaf-affine-component.
+
+Proof: Compare all affine components. The actual section map of id_P is an isomorphism, hence has full range. Its conductor and its contraction are the unit ideal. The empty-subscheme conclusion in the typed test uses the existing native top-ideal instance.
+
+## Conductor under a domain ring equivalence
+
+**TauCeti.GenusOne.FerrandPushout.conductor_comap_precomp** — For commutative rings A,B,C, a ring map f:B→C and a ring equivalence e:A≃B, the conductor contracted along f∘e equals the comap under e of the conductor contracted along f. No finiteness or injectivity assumption on f is used.
+
+Hypotheses: All ring carriers are commutative rings, including zero rings and rings with nilpotents. The actual maps and each finiteness or dominance assumption are exactly those stated; no replacement by a radical or underlying support is permitted.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor.
+
+Proof: Expand conductor membership and transport the witnesses in the source image using e and e⁻¹. Multiplication takes place in the actual ring C.
+
+## Native Spec comparison for the conductor sheaf
+
+**TauCeti.GenusOne.FerrandPushout.ConductorIdealSheaf.spec_ideal** — For f:A→B between actual CommRingCat objects with finite schematically dominant Spec.map f, the top affine ideal of conductorIdealSheaf (Spec.map f) equals the comap under the actual ΓSpecIso A hom of the conductor of im(f) in B contracted along f.
+
+Hypotheses: All ring carriers are commutative rings, including zero rings and rings with nilpotents. The actual maps and each finiteness or dominance assumption are exactly those stated; no replacement by a radical or underlying support is permitted.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-sheaf-affine-component, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-postcomposition, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-precomposition, mathlib:AlgebraicGeometry.Scheme.ΓSpecIso_naturality.
+
+Proof: Rewrite the actual top component. Transport the codomain along ΓSpecIso B, apply the native naturality equality for the section map, then transport the domain along ΓSpecIso A. This records the canonical ring comparison rather than an unspecified affine identification.
+
+## Affine conductor as an actual module annihilator
+
+**TauCeti.GenusOne.FerrandPushout.ConductorIdealSheaf.affine_annihilator** — For finite schematically dominant f and affine U, set A=Γ(P,U), B=Γ(Y,f⁻¹U) with its actual f.app U algebra structure. Then I_f(U)=Ann_A(B/span_A{1}) as full A-ideals. This is the quotient of affine section modules; no sheaf-cokernel construction or structure-sheaf exact sequence is asserted.
+
+Hypotheses: All ring carriers are commutative rings, including zero rings and rings with nilpotents. The actual maps and each finiteness or dominance assumption are exactly those stated; no replacement by a radical or underlying support is permitted.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-sheaf-affine-component, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-annihilator.
+
+Proof: Rewrite the component using conductorIdealSheaf_ideal and apply the existing conductor_eq_annihilator to the actual section algebra. Keep its full ideal, including nilpotents, and its native quotient module.
+
+## API and typed tests for the existing construction
+
+API:
+
+- **TauCeti.GenusOne.FerrandPushout.conductorIdealSheaf_ideal**: For every finite schematically dominant f:Y→P and affine U⊂P, the affine ideal of the existing conductorIdealSheaf f equals the full conductor of im(f.app U) in Γ(Y,f⁻¹U), contracted along the actual f.app U. The ofIdeals construction loses none of the prescribed ideals.
+- **TauCeti.GenusOne.FerrandPushout.ConductorIdealSheaf.map_affine**: For finite schematically dominant f and affine opens U⊆V in P, the ideal map along the actual presheaf restriction Γ(P,V)→Γ(P,U) sends the contracted conductor on V to the recomputed contracted conductor on U.
+- **TauCeti.GenusOne.FerrandPushout.ConductorIdealSheaf.restrict_mem**: For finite schematically dominant f, affine U⊆V and a∈I_f(V), the actual restriction of a to U belongs to I_f(U).
+- **TauCeti.GenusOne.FerrandPushout.ConductorIdealSheaf.map_affine_trans**: For finite schematically dominant f and affine U⊆V⊆W, extending the conductor on W successively along Γ(P,W)→Γ(P,V)→Γ(P,U) equals its extension along the direct Γ(P,W)→Γ(P,U) restriction.
+- **TauCeti.GenusOne.FerrandPushout.ConductorIdealSheaf.identity**: For every scheme P, including the empty scheme, the conductor ideal-sheaf datum of id_P is the unit ideal datum. Its native closed subscheme is therefore empty.
+- **TauCeti.GenusOne.FerrandPushout.ConductorIdealSheaf.spec_ideal**: For f:A→B between actual CommRingCat objects with finite schematically dominant Spec.map f, the top affine ideal of conductorIdealSheaf (Spec.map f) equals the comap under the actual ΓSpecIso A hom of the conductor of im(f) in B contracted along f.
+- **TauCeti.GenusOne.FerrandPushout.ConductorIdealSheaf.affine_annihilator**: For finite schematically dominant f and affine U, set A=Γ(P,U), B=Γ(Y,f⁻¹U) with its actual f.app U algebra structure. Then I_f(U)=Ann_A(B/span_A{1}) as full A-ideals. This is the quotient of affine section modules; no sheaf-cokernel construction or structure-sheaf exact sequence is asserted.
+
+Tests:
+
+- **ConductorSheafChecked.identity_empty_subscheme**: For every scheme P, the actual identity conductor equals top and its native closed subscheme is empty.
+- **ConductorSheafChecked.empty_open**: For finite schematically dominant f, the actual conductor ideal on the empty affine open is the unit ideal of its zero section ring.
+- **ConductorSheafChecked.basic_open_zero**: For any finite scheme morphism and affine U, extending its actual contracted conductor to D(0) yields the unit ideal in the zero section ring; no dominance hypothesis is used.
+- **ConductorSheafChecked.nested_restrictions**: A section in the actual conductor on W stays in the conductor on U after the actual restrictions W→V→U.
+- **ConductorSheafChecked.affine_native_comparison**: For a finite schematically dominant Spec.map f, the section corresponding to a∈A under the actual ΓSpecIso belongs to the conductor exactly when f(a) belongs to the ring conductor.
+- **ConductorSheafChecked.nonreduced_diagonal**: For the actual diagonal Z/4→Z/4×Z/4, prove its Spec map finite and schematically dominant, and prove that the section corresponding to2 is not in its conductor. The proof retains the nonreduced rings and does not assume those morphism instances.
+
 # Recomputed conductor under actual localization
 
 Codex codex-a71f92 continuation, 3 October2026. This is a partial planning checkpoint, not an implementation claim. The six declarations below supply the actual ring-localization comparison left open in the incoming565-node checkpoint. All incoming contracts, routes, requests, source findings and seven partial coverage rows are retained. Only the existing conductor-finite-localization node gains appended supporting dependencies, proof steps and tests.
