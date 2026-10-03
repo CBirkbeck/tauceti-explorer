@@ -8,6 +8,7 @@ import Mathlib.RingTheory.AdjoinRoot
 import Mathlib.LinearAlgebra.TensorProduct.Basic
 import Mathlib.RingTheory.TensorProduct.Basic
 import Mathlib.RingTheory.Flat.Basic
+import Mathlib.RingTheory.Flat.Equalizer
 import Mathlib.Data.ZMod.Basic
 import Mathlib.Algebra.Module.FinitePresentation
 import Mathlib.LinearAlgebra.TensorProduct.Quotient
@@ -2163,5 +2164,202 @@ example :
     LinearMap.ker β.mulVecLin=LinearMap.range α.mulVecLin := by
   sorry
 
+end
+end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+
+
+/- Coefficient-universal matrix exactness; authored continuation of Knudsen §3. -/
+namespace TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+noncomputable section
+variable (A : Type*) [CommRing A] (γ δ s t : A)
+local notation "F₀" => polynomial A γ δ s t
+local notation "R₀" => Ring A γ δ s t
+local notation "ι₀" => coefficientHom A γ δ s t
+local notation "u₀" => AdjoinRoot.root F₀
+local notation "v₀" => AdjoinRoot.of F₀ (Polynomial.X : Polynomial A)
+local notation "J₀" => (Ideal.span {u₀ - ι₀ s, v₀ - ι₀ t} : Ideal R₀)
+local notation "D₀" => J₀ →ₗ[R₀] R₀
+local notation "Φ₀" => left (ι₀ γ) (ι₀ δ) u₀ v₀ (ι₀ s) (ι₀ t)
+local notation "Ψ₀" => right (ι₀ γ) (ι₀ δ) u₀ v₀ (ι₀ s) (ι₀ t)
+local notation "ΦA" => (LinearMap.restrictScalars A (Matrix.mulVecLin (Φ₀)))
+local notation "ΨA" => (LinearMap.restrictScalars A (Matrix.mulVecLin (Ψ₀)))
+
+lemma leftImage_lTensor_injective (M : Type*) [AddCommGroup M] [Module A M] :
+    Function.Injective ((LinearMap.range ΦA).subtype.lTensor M) := by
+  sorry
+lemma rightImage_lTensor_injective (M : Type*) [AddCommGroup M] [Module A M] :
+    Function.Injective ((LinearMap.range ΨA).subtype.lTensor M) := by
+  sorry
+lemma quotientLeft_lTensor_exact (M : Type*) [AddCommGroup M] [Module A M] :
+    Function.Exact ((ΨA).lTensor M) ((ΦA).lTensor M) := by
+  sorry
+lemma quotientRight_lTensor_exact (M : Type*) [AddCommGroup M] [Module A M] :
+    Function.Exact ((ΦA).lTensor M) ((ΨA).lTensor M) := by
+  sorry
+open TensorProduct
+
+def sectionRotation : (Fin 2 → R₀) ≃ₗ[R₀] (Fin 2 → R₀) := by
+  sorry
+lemma sectionRotation_apply (z : Fin 2 → R₀) :
+    sectionRotation A γ δ s t z = ![-z 1,z 0] := by
+  sorry
+lemma sectionRotation_symm_apply (z : Fin 2 → R₀) :
+    (sectionRotation A γ δ s t).symm z = ![z 1,-z 0] := by
+  sorry
+lemma sectionRotation_square (z : Fin 2 → R₀) :
+    sectionRotation A γ δ s t (sectionRotation A γ δ s t z) = -z := by
+  sorry
+lemma transposeLeft_rotation :
+    ((Φ₀).transpose).mulVecLin.comp (sectionRotation A γ δ s t).toLinearMap =
+      (sectionRotation A γ δ s t).toLinearMap.comp (Ψ₀).mulVecLin := by
+  sorry
+lemma transposeRight_rotation :
+    ((Ψ₀).transpose).mulVecLin.comp (sectionRotation A γ δ s t).toLinearMap =
+      (sectionRotation A γ δ s t).toLinearMap.comp (Φ₀).mulVecLin := by
+  sorry
+local notation "ΦTA" => (LinearMap.restrictScalars A (Matrix.mulVecLin (Matrix.transpose (Φ₀))))
+local notation "ΨTA" => (LinearMap.restrictScalars A (Matrix.mulVecLin (Matrix.transpose (Ψ₀))))
+local notation "pA" => (LinearEquiv.restrictScalars A (sectionRotation A γ δ s t))
+
+lemma transposeLeft_lTensor_rotation (M : Type*) [AddCommGroup M] [Module A M] :
+    ((ΦTA).lTensor M).comp ((pA).lTensor M).toLinearMap =
+      ((pA).lTensor M).toLinearMap.comp ((ΨA).lTensor M) := by
+  sorry
+lemma transposeRight_lTensor_rotation (M : Type*) [AddCommGroup M] [Module A M] :
+    ((ΨTA).lTensor M).comp ((pA).lTensor M).toLinearMap =
+      ((pA).lTensor M).toLinearMap.comp ((ΦA).lTensor M) := by
+  sorry
+lemma quotientTransposeLeft_lTensor_exact (M : Type*) [AddCommGroup M] [Module A M] :
+    Function.Exact ((ΨTA).lTensor M) ((ΦTA).lTensor M) := by
+  sorry
+lemma quotientTransposeRight_lTensor_exact (M : Type*) [AddCommGroup M] [Module A M] :
+    Function.Exact ((ΦTA).lTensor M) ((ΨTA).lTensor M) := by
+  sorry
+local notation "PJA" => (LinearMap.restrictScalars A (idealPresentation A γ δ s t))
+local notation "PDA" => (LinearMap.restrictScalars A (dualPresentation A γ δ s t))
+
+lemma idealPresentation_lTensor_exact (M : Type*) [AddCommGroup M] [Module A M] :
+    Function.Exact ((ΨA).lTensor M) ((PJA).lTensor M) := by
+  sorry
+lemma dualPresentation_lTensor_exact (M : Type*) [AddCommGroup M] [Module A M] :
+    Function.Exact ((ΦA).lTensor M) ((PDA).lTensor M) := by
+  sorry
+def tensorCokernelIdeal (M : Type*) [AddCommGroup M] [Module A M] :
+    ((M ⊗[A] (Fin 2 → R₀)) ⧸ LinearMap.range ((ΨA).lTensor M)) ≃ₗ[A] (M ⊗[A] J₀) := by
+  sorry
+lemma tensorCokernelIdeal_mk (M : Type*) [AddCommGroup M] [Module A M]
+    (z : M ⊗[A] (Fin 2 → R₀)) :
+    tensorCokernelIdeal A γ δ s t M (Submodule.Quotient.mk z) = (PJA).lTensor M z := by
+  sorry
+lemma tensorCokernelIdeal_tmul (M : Type*) [AddCommGroup M] [Module A M]
+    (m : M) (z : Fin 2 → R₀) :
+    tensorCokernelIdeal A γ δ s t M (Submodule.Quotient.mk (m ⊗ₜ[A] z)) =
+      m ⊗ₜ[A] idealPresentation A γ δ s t z := by
+  sorry
+lemma tensorCokernelIdeal_inverse (M : Type*) [AddCommGroup M] [Module A M]
+    (z : M ⊗[A] (Fin 2 → R₀)) :
+    (tensorCokernelIdeal A γ δ s t M).symm ((PJA).lTensor M z) = Submodule.Quotient.mk z := by
+  sorry
+lemma tensorCokernelIdeal_unique (M : Type*) [AddCommGroup M] [Module A M]
+    (e : ((M ⊗[A] (Fin 2 → R₀)) ⧸ LinearMap.range ((ΨA).lTensor M)) ≃ₗ[A] (M ⊗[A] J₀))
+    (he : ∀ z, e (Submodule.Quotient.mk z) = (PJA).lTensor M z) :
+    e = tensorCokernelIdeal A γ δ s t M := by
+  sorry
+def tensorCokernelDual (M : Type*) [AddCommGroup M] [Module A M] :
+    ((M ⊗[A] (Fin 2 → R₀)) ⧸ LinearMap.range ((ΦA).lTensor M)) ≃ₗ[A] (M ⊗[A] D₀) := by
+  sorry
+lemma tensorCokernelDual_mk (M : Type*) [AddCommGroup M] [Module A M]
+    (z : M ⊗[A] (Fin 2 → R₀)) :
+    tensorCokernelDual A γ δ s t M (Submodule.Quotient.mk z) = (PDA).lTensor M z := by
+  sorry
+lemma tensorCokernelDual_tmul (M : Type*) [AddCommGroup M] [Module A M]
+    (m : M) (z : Fin 2 → R₀) :
+    tensorCokernelDual A γ δ s t M (Submodule.Quotient.mk (m ⊗ₜ[A] z)) =
+      m ⊗ₜ[A] dualPresentation A γ δ s t z := by
+  sorry
+lemma tensorCokernelDual_inverse (M : Type*) [AddCommGroup M] [Module A M]
+    (z : M ⊗[A] (Fin 2 → R₀)) :
+    (tensorCokernelDual A γ δ s t M).symm ((PDA).lTensor M z) = Submodule.Quotient.mk z := by
+  sorry
+lemma tensorCokernelDual_unique (M : Type*) [AddCommGroup M] [Module A M]
+    (e : ((M ⊗[A] (Fin 2 → R₀)) ⧸ LinearMap.range ((ΦA).lTensor M)) ≃ₗ[A] (M ⊗[A] D₀))
+    (he : ∀ z, e (Submodule.Quotient.mk z) = (PDA).lTensor M z) :
+    e = tensorCokernelDual A γ δ s t M := by
+  sorry
+-- NodeSectionFactorization.PolynomialModel.rotationFirstBasis
+example  : sectionRotation A γ δ s t ![1,0] = ![0,1] := by
+  sorry
+-- NodeSectionFactorization.PolynomialModel.rotationNonreducedSquare
+example (z : Fin 2 → Ring (ZMod 4) 1 0 1 0) :
+    sectionRotation (ZMod 4) 1 0 1 0 (sectionRotation (ZMod 4) 1 0 1 0 z) = -z := by
+  sorry
+-- NodeSectionFactorization.PolynomialModel.rotationZeroRing
+example (z : Fin 2 → Ring (ZMod 1) 0 0 0 0) :
+    (sectionRotation (ZMod 1) 0 0 0 0).symm (sectionRotation (ZMod 1) 0 0 0 0 z) = z := by
+  sorry
+-- NodeSectionFactorization.PolynomialModel.tensorIdealZero
+example (M : Type*) [AddCommGroup M] [Module A M] :
+    tensorCokernelIdeal A γ δ s t M 0 = 0 := by
+  sorry
+-- NodeSectionFactorization.PolynomialModel.tensorIdealPureTensor
+example (M : Type*) [AddCommGroup M] [Module A M] (m : M) (z : Fin 2 → R₀) :
+    tensorCokernelIdeal A γ δ s t M (Submodule.Quotient.mk (m ⊗ₜ[A] z)) = m ⊗ₜ[A] idealPresentation A γ δ s t z := by
+  sorry
+-- NodeSectionFactorization.PolynomialModel.tensorIdealRepresentativeRoundTrip
+example (M : Type*) [AddCommGroup M] [Module A M] (z : M ⊗[A] (Fin 2 → R₀)) :
+    (tensorCokernelIdeal A γ δ s t M).symm ((idealPresentation A γ δ s t).restrictScalars A |>.lTensor M <| z) = Submodule.Quotient.mk z := by
+  sorry
+-- NodeSectionFactorization.PolynomialModel.tensorDualZero
+example (M : Type*) [AddCommGroup M] [Module A M] :
+    tensorCokernelDual A γ δ s t M 0 = 0 := by
+  sorry
+-- NodeSectionFactorization.PolynomialModel.tensorDualPureTensor
+example (M : Type*) [AddCommGroup M] [Module A M] (m : M) (z : Fin 2 → R₀) :
+    tensorCokernelDual A γ δ s t M (Submodule.Quotient.mk (m ⊗ₜ[A] z)) = m ⊗ₜ[A] dualPresentation A γ δ s t z := by
+  sorry
+-- NodeSectionFactorization.PolynomialModel.tensorDualRepresentativeRoundTrip
+example (M : Type*) [AddCommGroup M] [Module A M] (z : M ⊗[A] (Fin 2 → R₀)) :
+    (tensorCokernelDual A γ δ s t M).symm ((dualPresentation A γ δ s t).restrictScalars A |>.lTensor M <| z) = Submodule.Quotient.mk z := by
+  sorry
+-- NodeSectionFactorization.PolynomialModel.tensorIdealTorsionNegativeGenerator
+example  :
+    tensorCokernelIdeal ℤ 1 0 1 0 (ZMod 2) (Submodule.Quotient.mk ((1 : ZMod 2) ⊗ₜ[ℤ] ![0,1])) =
+      (1 : ZMod 2) ⊗ₜ[ℤ] (-⟨AdjoinRoot.of (polynomial ℤ 1 0 1 0) Polynomial.X - coefficientHom ℤ 1 0 1 0 0, sectionSecond_mem ℤ 1 0 1 0⟩) := by
+  sorry
+-- NodeSectionFactorization.PolynomialModel.tensorDualTorsionNegativeGenerator
+example  :
+    tensorCokernelDual ℤ 1 0 1 0 (ZMod 2) (Submodule.Quotient.mk ((1 : ZMod 2) ⊗ₜ[ℤ] ![0,1])) =
+      (1 : ZMod 2) ⊗ₜ[ℤ] (-dualGenerator ℤ 1 0 1 0) := by
+  sorry
+-- NodeSectionFactorization.PolynomialModel.tensorTorsionLeftExact
+example  : Function.Exact
+    ((LinearMap.restrictScalars ℤ (Matrix.mulVecLin (right ((coefficientHom ℤ 1 0 1 0) 1) ((coefficientHom ℤ 1 0 1 0) 0) (AdjoinRoot.root (polynomial ℤ 1 0 1 0)) (AdjoinRoot.of (polynomial ℤ 1 0 1 0) Polynomial.X) ((coefficientHom ℤ 1 0 1 0) 1) ((coefficientHom ℤ 1 0 1 0) 0)))).lTensor (ZMod 2))
+    ((LinearMap.restrictScalars ℤ (Matrix.mulVecLin (left ((coefficientHom ℤ 1 0 1 0) 1) ((coefficientHom ℤ 1 0 1 0) 0) (AdjoinRoot.root (polynomial ℤ 1 0 1 0)) (AdjoinRoot.of (polynomial ℤ 1 0 1 0) Polynomial.X) ((coefficientHom ℤ 1 0 1 0) 1) ((coefficientHom ℤ 1 0 1 0) 0)))).lTensor (ZMod 2)) := by
+  sorry
+-- NodeSectionFactorization.PolynomialModel.tensorTorsionRightExact
+example  : Function.Exact
+    ((LinearMap.restrictScalars ℤ (Matrix.mulVecLin (left ((coefficientHom ℤ 1 0 1 0) 1) ((coefficientHom ℤ 1 0 1 0) 0) (AdjoinRoot.root (polynomial ℤ 1 0 1 0)) (AdjoinRoot.of (polynomial ℤ 1 0 1 0) Polynomial.X) ((coefficientHom ℤ 1 0 1 0) 1) ((coefficientHom ℤ 1 0 1 0) 0)))).lTensor (ZMod 2))
+    ((LinearMap.restrictScalars ℤ (Matrix.mulVecLin (right ((coefficientHom ℤ 1 0 1 0) 1) ((coefficientHom ℤ 1 0 1 0) 0) (AdjoinRoot.root (polynomial ℤ 1 0 1 0)) (AdjoinRoot.of (polynomial ℤ 1 0 1 0) Polynomial.X) ((coefficientHom ℤ 1 0 1 0) 1) ((coefficientHom ℤ 1 0 1 0) 0)))).lTensor (ZMod 2)) := by
+  sorry
+-- NodeSectionFactorization.PolynomialModel.tensorTorsionTransposeLeftExact
+example  : Function.Exact
+    ((LinearMap.restrictScalars ℤ (Matrix.mulVecLin ((right ((coefficientHom ℤ 1 0 1 0) 1) ((coefficientHom ℤ 1 0 1 0) 0) (AdjoinRoot.root (polynomial ℤ 1 0 1 0)) (AdjoinRoot.of (polynomial ℤ 1 0 1 0) Polynomial.X) ((coefficientHom ℤ 1 0 1 0) 1) ((coefficientHom ℤ 1 0 1 0) 0)).transpose))).lTensor (ZMod 2))
+    ((LinearMap.restrictScalars ℤ (Matrix.mulVecLin ((left ((coefficientHom ℤ 1 0 1 0) 1) ((coefficientHom ℤ 1 0 1 0) 0) (AdjoinRoot.root (polynomial ℤ 1 0 1 0)) (AdjoinRoot.of (polynomial ℤ 1 0 1 0) Polynomial.X) ((coefficientHom ℤ 1 0 1 0) 1) ((coefficientHom ℤ 1 0 1 0) 0)).transpose))).lTensor (ZMod 2)) := by
+  sorry
+-- NodeSectionFactorization.PolynomialModel.tensorTorsionTransposeRightExact
+example  : Function.Exact
+    ((LinearMap.restrictScalars ℤ (Matrix.mulVecLin ((left ((coefficientHom ℤ 1 0 1 0) 1) ((coefficientHom ℤ 1 0 1 0) 0) (AdjoinRoot.root (polynomial ℤ 1 0 1 0)) (AdjoinRoot.of (polynomial ℤ 1 0 1 0) Polynomial.X) ((coefficientHom ℤ 1 0 1 0) 1) ((coefficientHom ℤ 1 0 1 0) 0)).transpose))).lTensor (ZMod 2))
+    ((LinearMap.restrictScalars ℤ (Matrix.mulVecLin ((right ((coefficientHom ℤ 1 0 1 0) 1) ((coefficientHom ℤ 1 0 1 0) 0) (AdjoinRoot.root (polynomial ℤ 1 0 1 0)) (AdjoinRoot.of (polynomial ℤ 1 0 1 0) Polynomial.X) ((coefficientHom ℤ 1 0 1 0) 1) ((coefficientHom ℤ 1 0 1 0) 0)).transpose))).lTensor (ZMod 2)) := by
+  sorry
+-- NodeSectionFactorization.PolynomialModel.tensorZeroRingLeftExact
+example  : Function.Exact
+    ((LinearMap.restrictScalars (ZMod 1) (Matrix.mulVecLin (right ((coefficientHom (ZMod 1) 0 0 0 0) 0) ((coefficientHom (ZMod 1) 0 0 0 0) 0) (AdjoinRoot.root (polynomial (ZMod 1) 0 0 0 0)) (AdjoinRoot.of (polynomial (ZMod 1) 0 0 0 0) Polynomial.X) ((coefficientHom (ZMod 1) 0 0 0 0) 0) ((coefficientHom (ZMod 1) 0 0 0 0) 0)))).lTensor (ZMod 1))
+    ((LinearMap.restrictScalars (ZMod 1) (Matrix.mulVecLin (left ((coefficientHom (ZMod 1) 0 0 0 0) 0) ((coefficientHom (ZMod 1) 0 0 0 0) 0) (AdjoinRoot.root (polynomial (ZMod 1) 0 0 0 0)) (AdjoinRoot.of (polynomial (ZMod 1) 0 0 0 0) Polynomial.X) ((coefficientHom (ZMod 1) 0 0 0 0) 0) ((coefficientHom (ZMod 1) 0 0 0 0) 0)))).lTensor (ZMod 1)) := by
+  sorry
+-- NodeSectionFactorization.PolynomialModel.tensorZeroRingRightExact
+example  : Function.Exact
+    ((LinearMap.restrictScalars (ZMod 1) (Matrix.mulVecLin (left ((coefficientHom (ZMod 1) 0 0 0 0) 0) ((coefficientHom (ZMod 1) 0 0 0 0) 0) (AdjoinRoot.root (polynomial (ZMod 1) 0 0 0 0)) (AdjoinRoot.of (polynomial (ZMod 1) 0 0 0 0) Polynomial.X) ((coefficientHom (ZMod 1) 0 0 0 0) 0) ((coefficientHom (ZMod 1) 0 0 0 0) 0)))).lTensor (ZMod 1))
+    ((LinearMap.restrictScalars (ZMod 1) (Matrix.mulVecLin (right ((coefficientHom (ZMod 1) 0 0 0 0) 0) ((coefficientHom (ZMod 1) 0 0 0 0) 0) (AdjoinRoot.root (polynomial (ZMod 1) 0 0 0 0)) (AdjoinRoot.of (polynomial (ZMod 1) 0 0 0 0) Polynomial.X) ((coefficientHom (ZMod 1) 0 0 0 0) 0) ((coefficientHom (ZMod 1) 0 0 0 0) 0)))).lTensor (ZMod 1)) := by
+  sorry
 end
 end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
