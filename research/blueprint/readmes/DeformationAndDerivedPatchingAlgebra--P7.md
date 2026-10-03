@@ -1,3 +1,214 @@
+# Native coefficient change on ordinary adic graded rings
+
+Checkpoint by Codex codex-7e92bd, 3 October 2026. The full eight-stage part remains partial and every declaration is unchecked.
+
+The carrier remains `Rees(I)/(I Rees(I))`. An ideal-compatible coefficient map induces actual ring maps on the Rees algebra and its quotient. Surjective ring maps give surjective graded maps when the target ideal is the image ideal. The exact injectivity condition is `a ∈ I^n` and `f(a) ∈ J^(n+1)` implies `a ∈ I^(n+1)`. This condition is necessary even for an injective ring map: the identity of ℤ for (4)⊆(2) kills the nonzero degree-one class of 4. Ring equivalences transport the image ideal and produce actual graded ring equivalences.
+
+The native proof also establishes the existing coefficient-ideal characterization, monomial kernel, injective piece map and homogeneous multiplication. It does not establish the direct-sum decomposition or a graded-module finiteness theorem. This continuation supplies native proofs for coefficient change, its exact kernel criterion, and the old coefficient-ideal/monomial/piece core. Full graded decomposition, module grading, finite generation, general Hilbert–Serre and support-degree comparison remain unproved here. Preserve every previous coverage obligation and the full reserved Hilbert–Samuel multiplicity target.
+
+Sources: [Stacks 10.59](https://stacks.math.columbia.edu/tag/00K4), [Rees definition 10.70.1](https://stacks.math.columbia.edu/tag/052P), and the pinned native polynomial and quotient declarations. The maps and kernel criterion are the explicit derivations below. Generic filtered/derived Rees theory remains with DD.1, and geometric blowups remain with StableReduction. Tau Ceti’s ascending word-filtration associated graded is not this descending adic carrier.
+
+Current upstream Mathlib already contains the coefficient-ideal equivalence beyond the required pin: [`mem_map_algebraMap_reesAlgebra_iff`](https://github.com/leanprover-community/mathlib4/blob/302343bb9a029d4edab4f736703f0736896c1b64/Mathlib/RingTheory/ReesAlgebra.lean#L147). A future implementation should reuse it after updating the pin. This checkpoint proves the existing contract against the required baseline. Open [PR 9819](https://github.com/leanprover-community/mathlib4/pull/9819) is a related graded-finiteness lead; no proposed code is adopted.
+
+## Coefficient change on ideal powers
+
+`TauCeti.HilbertSamuel.reesMap_mem_pow` — If f(I)⊆J, then f(I^n)⊆J^n for every n≥0.
+
+Raise I⊆f⁻¹J to the nth power. Apply the pinned containment (f⁻¹J)^n⊆f⁻¹(J^n).
+
+## Coefficient change on the native Rees algebra
+
+`TauCeti.HilbertSamuel.reesMap` — For f:A→B with f(I)⊆J, restrict Polynomial.map f to a ring map Rees(I)→Rees(J); its coefficient in degree n is f(p_n).
+
+Map the ambient polynomial coefficientwise. Use preservation of powers to establish membership and inherit polynomial ring-map laws.
+
+- API `TauCeti.HilbertSamuel.reesMap_coe`: The underlying polynomial of reesMap(f,I,J,h)(p) is Polynomial.map f p.
+- API `TauCeti.HilbertSamuel.reesMap_coefficient`: The Rees coefficient-change map sends the constant a to the constant f(a).
+- API `TauCeti.HilbertSamuel.reesMap_id`: Rees coefficient change for id_A and I=J is the identity ring homomorphism.
+- API `TauCeti.HilbertSamuel.reesMap_comp`: For f(I)⊆J and g(J)⊆K, reesMap(g)∘reesMap(f)=reesMap(g∘f).
+- API `TauCeti.HilbertSamuel.reesMap_injective`: If f is injective, its Rees coefficient-change map is injective for any f(I)⊆J.
+- API `TauCeti.HilbertSamuel.reesMap_surjective`: If f is surjective and J=I.map f, then Rees(I)→Rees(J) is surjective.
+- Test `AdicCoefficientChange.rees_inclusion_preserves_nonzero` (non-example): For id:ℤ→ℤ and (4)⊆(2), the Rees map is injective but the induced graded map is not injective.
+- Test `ReesCoefficientChange.degree_three` (computation): For I=ℤ and J=ℤ/4, coefficient reduction sends 7T³ to 3T³, preserving degree placement.
+- Test `ReesCoefficientChange.zero_ideal_constant` (degenerate): For zero ideals under ℤ→ℤ/4, every Rees constant a maps to the constant a mod 4.
+
+## Underlying polynomial of Rees coefficient change
+
+`TauCeti.HilbertSamuel.reesMap_coe` — The underlying polynomial of reesMap(f,I,J,h)(p) is Polynomial.map f p.
+
+Unfold only the native restriction. Project the Rees subtype.
+
+## Constants under Rees coefficient change
+
+`TauCeti.HilbertSamuel.reesMap_coefficient` — The Rees coefficient-change map sends the constant a to the constant f(a).
+
+Use subtype extensionality. Apply Polynomial.map_C.
+
+## Identity of Rees coefficient change
+
+`TauCeti.HilbertSamuel.reesMap_id` — Rees coefficient change for id_A and I=J is the identity ring homomorphism.
+
+Use ring-hom and subtype extensionality. Apply the polynomial identity-map law.
+
+## Composition of Rees coefficient change
+
+`TauCeti.HilbertSamuel.reesMap_comp` — For f(I)⊆J and g(J)⊆K, reesMap(g)∘reesMap(f)=reesMap(g∘f).
+
+Compose the ideal-containment proofs. Check the polynomial component by Polynomial.map_map.
+
+## Coefficient-ideal preservation
+
+`TauCeti.HilbertSamuel.reesMap_coefficientIdeal` — Rees coefficient change carries I·Rees(I) into J·Rees(J).
+
+Reduce containment of the mapped ideal to its generating constants. Use the constant evaluation formula and f(I)⊆J.
+
+## Coefficient change on the ordinary adic graded ring
+
+`TauCeti.HilbertSamuel.adicGradedMap` — For f:A→B with f(I)⊆J, descend Rees coefficient change to Gr_I(A)→+*Gr_J(B), where Gr is the existing Rees quotient.
+
+Use the actual coefficient ideal and its preservation. Apply the pinned Ideal.quotientMap; do not introduce a second graded carrier.
+
+- API `TauCeti.HilbertSamuel.adicGradedMap_mk`: The image of [p] is [reesMap(f)(p)] for every p∈Rees(I).
+- API `TauCeti.HilbertSamuel.adicGradedMap_id`: The graded map induced by id_A with I=J is the identity.
+- API `TauCeti.HilbertSamuel.adicGradedMap_comp`: For f(I)⊆J and g(J)⊆K, graded change by g after f equals graded change by g∘f.
+- API `TauCeti.HilbertSamuel.adicGradedMap_monomial`: For a∈I^n, graded coefficient change sends μ_n(a) to μ_n(f(a)) in the same degree n.
+- API `TauCeti.HilbertSamuel.adicGradedMap_coefficients`: The map sends algebraMap_A(a) to algebraMap_B(f(a)).
+- API `TauCeti.HilbertSamuel.adicGradedMap_surjective`: If f is surjective and J=I.map f, then Gr_I(A)→Gr_J(B) is surjective.
+- API `TauCeti.HilbertSamuel.adicGradedMap_residue`: The square from A/I to Gr_I(A) and B/J to Gr_J(B) commutes with Ideal.quotientMap J f h.
+- API `TauCeti.HilbertSamuel.adicGradedMap_injective_iff`: The graded map is injective iff, for every n and a∈I^n, f(a)∈J^(n+1) implies a∈I^(n+1).
+- Test `AdicCoefficientChange.integer_degree_one_kernel` (non-example): For id:ℤ→ℤ, I=(4) and J=(2), the degree-one class of 4 is nonzero in Gr_I but maps to zero in Gr_J.
+- Test `AdicCoefficientChange.residue_surjection` (compatibility): The ring map ℤ→ℤ/4 induces a surjection on associated graded rings for I=(2) and its image ideal.
+- Test `AdicCoefficientChange.residue_value` (computation): Under ℤ→ℤ/4 with I=(2), the coefficient class 7 maps to the coefficient class 3.
+
+## Graded coefficient change on representatives
+
+`TauCeti.HilbertSamuel.adicGradedMap_mk` — The image of [p] is [reesMap(f)(p)] for every p∈Rees(I).
+
+Apply the defining quotient map to a quotient representative. The resulting equality is definitional.
+
+## Identity of adic coefficient change
+
+`TauCeti.HilbertSamuel.adicGradedMap_id` — The graded map induced by id_A with I=J is the identity.
+
+Choose a Rees representative of every quotient element. Use the Rees identity law.
+
+## Composition of adic coefficient change
+
+`TauCeti.HilbertSamuel.adicGradedMap_comp` — For f(I)⊆J and g(J)⊆K, graded change by g after f equals graded change by g∘f.
+
+Reduce to a quotient representative. Apply the quotient projection to the Rees composition equality.
+
+## Injectivity before the graded quotient
+
+`TauCeti.HilbertSamuel.reesMap_injective` — If f is injective, its Rees coefficient-change map is injective for any f(I)⊆J.
+
+Project an equality to the ambient polynomial ring. Use polynomial-map injectivity and then subtype extensionality.
+
+## Surjectivity onto the image-ideal Rees algebra
+
+`TauCeti.HilbertSamuel.reesMap_surjective` — If f is surjective and J=I.map f, then Rees(I)→Rees(J) is surjective.
+
+For each coefficient p_n∈(I.map f)^n choose a lift a_n∈I^n, using ideal-map powers and surjectivity. Sum a_n T^n over the finite support of p and compare every mapped monomial. No finite generation of I is needed.
+
+## Surjectivity on the graded quotient
+
+`TauCeti.HilbertSamuel.adicGradedMap_surjective` — If f is surjective and J=I.map f, then Gr_I(A)→Gr_J(B) is surjective.
+
+Lift a quotient element to Rees(J). Lift that polynomial through the surjective Rees map and project its preimage.
+
+## Preservation of homogeneous representatives
+
+`TauCeti.HilbertSamuel.adicGradedMap_monomial` — For a∈I^n, graded coefficient change sends μ_n(a) to μ_n(f(a)) in the same degree n.
+
+Use preservation of I^n to type the target monomial. Apply Polynomial.map_monomial beneath the quotient projection.
+
+## Coefficients under adic coefficient change
+
+`TauCeti.HilbertSamuel.adicGradedMap_coefficients` — The map sends algebraMap_A(a) to algebraMap_B(f(a)).
+
+Express the two coefficient embeddings as Rees constants followed by quotient projections. Apply the Rees constant formula.
+
+## Coefficient bound in the mapped Rees ideal
+
+`TauCeti.HilbertSamuel.reesCoefficientIdeal_coeff` — If p∈I·Rees(I), then p_n∈I^(n+1) for every n≥0.
+
+Induct on the ideal span of constants from I, simultaneously in n. In the multiplication case, every convolution summand lies in I^i I^(j+1)=I^(n+1).
+
+## Monomial inclusion in the coefficient ideal
+
+`TauCeti.HilbertSamuel.reesMonomial_mem_coefficientIdeal` — If a∈I^n and a∈I^(n+1), then aT^n∈I·Rees(I).
+
+Write I^(n+1)=I·I^n and induct on sums of products. For a=x y, x∈I and y∈I^n, use C(x)·(yT^n), then add these expressions.
+
+## Exact vanishing of a homogeneous adic class
+
+`TauCeti.HilbertSamuel.adicMonomial_eq_zero_iff` — For a∈I^n, μ_n(a)=0 if and only if a∈I^(n+1).
+
+Use the existing coefficient-ideal equivalence. Only coefficient n of aT^n can be nonzero; all other coefficients are zero.
+
+## Coefficientwise kernel of the graded map
+
+`TauCeti.HilbertSamuel.adicGradedMap_mk_eq_zero_iff` — The image of [p] under graded coefficient change is zero iff f(p_n)∈J^(n+1) for every n.
+
+Evaluate the map on a Rees representative. Apply the coefficient-ideal equivalence and the coefficient formula for Polynomial.map.
+
+## Exact injectivity criterion for coefficient change
+
+`TauCeti.HilbertSamuel.adicGradedMap_injective_iff` — The graded map is injective iff, for every n and a∈I^n, f(a)∈J^(n+1) implies a∈I^(n+1).
+
+For necessity, apply injectivity to the homogeneous class of a. For sufficiency, choose a Rees representative of a class in the kernel and apply the filtration condition coefficientwise.
+
+## Bijective coefficient change for an image ideal
+
+`TauCeti.HilbertSamuel.adicGradedMap_bijective` — If f is bijective, graded coefficient change to J=I.map f is bijective.
+
+Use ideal-map powers and comap_map_of_bijective for the exact injectivity condition. Combine with graded surjectivity.
+
+## Adic graded equivalence under a ring equivalence
+
+`TauCeti.HilbertSamuel.adicGradedEquiv` — A ring equivalence e:A≃+*B induces Gr_I(A)≃+*Gr_(I.map e)(B), with forward map the actual coefficient-change map.
+
+Bundle the proved bijectivity of the graded map. Keep the image ideal explicit; no equality of unrelated filtrations is assumed.
+
+- API `TauCeti.HilbertSamuel.adicGradedEquiv_apply`: The forward function of adicGradedEquiv e I is adicGradedMap e I (I.map e).
+- API `TauCeti.HilbertSamuel.adicGradedEquiv_inverse_monomial`: The inverse graded equivalence takes μ_n(e(a)) back to μ_n(a) for a∈I^n.
+- API `TauCeti.HilbertSamuel.adicGradedEquiv_monomial`: The graded equivalence induced by e sends μ_n(a) to μ_n(e(a)) in the same degree.
+- Test `AdicCoefficientEquiv.swap_factors` (computation): For the zero ideal of ℤ×ℤ, the factor-swap equivalence sends μ₀(5,7) to μ₀(7,5).
+- Test `AdicCoefficientEquiv.nonreduced_inverse` (non-example): For I=(2) in ℤ/4 and e=id, the inverse graded equivalence recovers μ₁(2), whose forward image is nonzero.
+- Test `AdicCoefficientEquiv.unit_ideal` (degenerate): For I=A, every graded class is zero and every coefficient equivalence sends it to zero.
+
+## Forward map of the graded equivalence
+
+`TauCeti.HilbertSamuel.adicGradedEquiv_apply` — The forward function of adicGradedEquiv e I is adicGradedMap e I (I.map e).
+
+Unfold RingEquiv.ofBijective. Its forward ring hom is unchanged.
+
+## Inverse on homogeneous representatives
+
+`TauCeti.HilbertSamuel.adicGradedEquiv_inverse_monomial` — The inverse graded equivalence takes μ_n(e(a)) back to μ_n(a) for a∈I^n.
+
+Rewrite the mapped homogeneous class as the forward graded equivalence. Apply its inverse identity.
+
+## Forward homogeneous formula of the graded equivalence
+
+`TauCeti.HilbertSamuel.adicGradedEquiv_monomial` — The graded equivalence induced by e sends μ_n(a) to μ_n(e(a)) in the same degree.
+
+Use the forward map identification. Apply the coefficient-change monomial formula.
+
+## Naturality of residue-ring coefficients
+
+`TauCeti.HilbertSamuel.adicGradedMap_residue` — The square from A/I to Gr_I(A) and B/J to Gr_J(B) commutes with Ideal.quotientMap J f h.
+
+Choose an A-representative of the residue class. Reduce to the proved coefficient formula in the Rees quotient.
+
+## Additional existing-core regression
+
+`AdicCoefficientChange.nonreduced_degree_one_survives` — For I=(2) in ℤ/4, μ₁(2) is nonzero and has square zero.
+
+The handoff provides exact native and canonical compiler receipts, admitted-versus-native signature checks, all public recovery commands, and the unchanged prior obligations below.
+
+---
+
 ## Finite length and stabilization of the local Hilbert functions
 
 The extended functions use the same actual module quotients throughout. Put F_n=q^n M, H(q;M,n)=length_A(M/q^(n+1)M), and G(q;M,n)=length_A(F_n/(q times the top submodule of F_n)). Their coefficients are extended natural numbers until finiteness has been proved. Finite generation means generation as an A-module; it does not mean a finite underlying set. The field ℚ therefore supplies an acceptance example with an infinite residue field and finite lengths.
