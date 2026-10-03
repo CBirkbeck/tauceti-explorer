@@ -1,3 +1,206 @@
+# Actual coherent scalar points and colimit scaling — 2026-10-03
+
+This continuation supplies ring-valued coherent scalar points and their actual algebra automorphisms, as a point interface consumed by the existing infinite affine quotient route. The universal diagonalizable group-scheme/Hopf action and geometric/fpqc comparison remain explicit work.
+
+A is any commutative ring, f∈A and d_i=(i+1)! for i∈N. C_f is the existing actual factorial chart colimit with roots u_i and inclusions. No reducedness, Noetherian condition, coefficient field, invertibility of exponents or unit condition on f is imposed.
+A coherent scalar is a family σ_i∈Aˣ satisfying σ_i^(d_i)=1 and σ_j^(d_j/d_i)=σ_i for all i≤j. The native carrier is a subgroup of the function group N→Aˣ; it models ring-valued points only. It is not the universal diagonalizable group scheme, its Hopf algebra or its fpqc torsors.
+Algebra maps fix every coefficient. Scaling is u_i↦σ_i u_i. Inverse and composition use the actual inherited subgroup operations and native algebra-map equivalences, with actual inverse proofs.
+
+
+## Coherent factorial root-of-unity points
+
+Declaration `TauCeti.RootStack.factorialRootScalars` (`FunctionFieldArithmeticPartII:RS.2/factorial-root-scalars`).
+
+Define the subgroup S(A) of families σ:N→Aˣ such that σ_i^(d_i)=1 and σ_j^(d_j/d_i)=σ_i for every i≤j. Its identity, products and inverses are pointwise native unit operations. This is an A-valued point interface, not a replacement for the universal group scheme.
+
+Proof: Use the native function group of units. The displayed root equations and compatibility define its subgroup. Unit powers preserve identity and, since A is commutative, pointwise products; inverse powers preserve the same equations. Construct the actual subgroup instances, rather than assume closure.
+
+Prerequisites: `mathlib:Subgroup`, `mathlib:rootsOfUnity`.
+
+API `TauCeti.RootStack.factorialRootScalars`: Define the subgroup S(A) of families σ:N→Aˣ such that σ_i^(d_i)=1 and σ_j^(d_j/d_i)=σ_i for every i≤j. Its identity, products and inverses are pointwise native unit operations. This is an A-valued point interface, not a replacement for the universal group scheme.
+
+API `TauCeti.RootStack.factorialRootScalars.pow`: For σ∈S(A), the underlying scalar σ_i∈A satisfies σ_i^(d_i)=1.
+
+API `TauCeti.RootStack.factorialRootScalars.transition`: For i≤j and σ∈S(A), the underlying ring values satisfy σ_j^(d_j/d_i)=σ_i.
+
+## Orders of coherent scalar values
+
+Declaration `TauCeti.RootStack.factorialRootScalars.pow` (`FunctionFieldArithmeticPartII:RS.2/factorial-root-scalars-power`).
+
+For σ∈S(A), the underlying scalar σ_i∈A satisfies σ_i^(d_i)=1.
+
+Proof: Apply the native unit-to-ring map to the defining power equation.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-root-scalars`.
+
+## Compatibility of coherent scalar values
+
+Declaration `TauCeti.RootStack.factorialRootScalars.transition` (`FunctionFieldArithmeticPartII:RS.2/factorial-root-scalars-transition`).
+
+For i≤j and σ∈S(A), the underlying ring values satisfy σ_j^(d_j/d_i)=σ_i.
+
+Proof: Apply the actual unit-to-ring map to the defining transition equation.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-root-scalars`.
+
+## Coherent scaling of the actual chart colimit
+
+Declaration `TauCeti.RootStack.factorialScale` (`FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling`).
+
+For σ∈S(A), construct an A-algebra homomorphism s_σ:C_f→C_f sending every actual root u_i to σ_i u_i.
+
+Proof: The scaled root has d_i-th power f because σ_i^(d_i)=1. For i≤j its transition power is σ_j^(d_j/d_i)u_j^(d_j/d_i)=σ_i u_i. Apply the existing actual compatible-root algebra lift; no formal assumed colimit map is introduced.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-root-scalars-power`, `FunctionFieldArithmeticPartII:RS.2/factorial-root-scalars-transition`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-power`.
+
+API `TauCeti.RootStack.factorialScale`: For σ∈S(A), construct an A-algebra homomorphism s_σ:C_f→C_f sending every actual root u_i to σ_i u_i.
+
+API `TauCeti.RootStack.factorialScale.root`: For every i, s_σ(u_i)=σ_i u_i in the actual colimit, using its coefficient algebra map.
+
+API `TauCeti.RootStack.factorialScale.constant`: For a∈A, s_σ(a)=a through the specified A-algebra map.
+
+API `TauCeti.RootStack.factorialScale.one`: Scaling by the identity family is the identity A-algebra homomorphism of C_f.
+
+API `TauCeti.RootStack.factorialScale.mul`: For σ,τ∈S(A), s_(στ)=s_σ∘s_τ as actual A-algebra homomorphisms.
+
+## Value of scaling on each root
+
+Declaration `TauCeti.RootStack.factorialScale.root` (`FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-root`).
+
+For every i, s_σ(u_i)=σ_i u_i in the actual colimit, using its coefficient algebra map.
+
+Proof: Evaluate the actual universal root lift on the finite root inclusion.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift-root`.
+
+## Scaling fixes coefficients
+
+Declaration `TauCeti.RootStack.factorialScale.constant` (`FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-constant`).
+
+For a∈A, s_σ(a)=a through the specified A-algebra map.
+
+Proof: Use the constructed A-algebra homomorphism coefficient law.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling`.
+
+## Identity coherent scaling
+
+Declaration `TauCeti.RootStack.factorialScale.one` (`FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-one`).
+
+Scaling by the identity family is the identity A-algebra homomorphism of C_f.
+
+Proof: On each actual root the scalar is1. Native root extensionality determines the entire colimit map.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext`.
+
+## Composition of coherent scalings
+
+Declaration `TauCeti.RootStack.factorialScale.mul` (`FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-mul`).
+
+For σ,τ∈S(A), s_(στ)=s_σ∘s_τ as actual A-algebra homomorphisms.
+
+Proof: Both sides send u_i to σ_iτ_i u_i and fix the coefficients. Use commutativity in A and the colimit and native quotient root extensionality.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-constant`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext`.
+
+## Actual coherent scaling automorphisms
+
+Declaration `TauCeti.RootStack.factorialScaleEquiv` (`FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-equivalence`).
+
+Construct an A-algebra automorphism C_f≃C_f with forward map s_σ and inverse map s_(σ⁻¹). Its two inverse laws follow from the actual composition law and the identity family.
+
+Proof: Use the existing native subgroup inverse, and the proved composition rule in both orders. The products σσ⁻¹ and σ⁻¹σ are the identity family. Apply native AlgEquiv.ofAlgHom with these proved inverse equations.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-mul`, `FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-one`, `mathlib:AlgEquiv.ofAlgHom`.
+
+API `TauCeti.RootStack.factorialScaleEquiv`: Construct an A-algebra automorphism C_f≃C_f with forward map s_σ and inverse map s_(σ⁻¹). Its two inverse laws follow from the actual composition law and the identity family.
+
+API `TauCeti.RootStack.factorialScaleEquiv.root`: The constructed automorphism sends each u_i to σ_i u_i, with the given coefficient map.
+
+API `TauCeti.RootStack.factorialScaleEquiv.inverse_root`: The inverse constructed automorphism sends u_i to σ_i⁻¹u_i.
+
+## Automorphism value on finite roots
+
+Declaration `TauCeti.RootStack.factorialScaleEquiv.root` (`FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-equivalence-root`).
+
+The constructed automorphism sends each u_i to σ_i u_i, with the given coefficient map.
+
+Proof: The forward native equivalence map is the constructed algebra scaling.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-equivalence`, `FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-root`.
+
+## Inverse automorphism on finite roots
+
+Declaration `TauCeti.RootStack.factorialScaleEquiv.inverse_root` (`FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-inverse-root`).
+
+The inverse constructed automorphism sends u_i to σ_i⁻¹u_i.
+
+Proof: The native equivalence inverse is the constructed scaling for the actual inverse scalar family.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-equivalence`, `FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-root`.
+
+## Universal coherent unit family
+
+Declaration `TauCeti.RootStack.factorialUniversalScalars` (`FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalars`).
+
+In the actual coefficient algebra C_1=colim_i A[T]/(T^(d_i)−1), construct the coherent unit family whose i-th underlying value is its actual root u_i. Its positive power is1, so the native roots-of-unity constructor supplies each unit.
+
+Proof: Each root has positive d_i-th power1; use native rootsOfUnity.mkOfPowEq, not an assumed unit witness. The native colimit root power compatibility proves compatibility of units by unit-value injectivity. This constructs an actual nonconstant test coefficient ring without choosing analytic roots.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-root-scalars`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-power`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-root`, `mathlib:rootsOfUnity.mkOfPowEq`, `mathlib:rootsOfUnity.coe_mkOfPowEq`.
+
+API `TauCeti.RootStack.factorialUniversalScalars`: In the actual coefficient algebra C_1=colim_i A[T]/(T^(d_i)−1), construct the coherent unit family whose i-th underlying value is its actual root u_i. Its positive power is1, so the native roots-of-unity constructor supplies each unit.
+
+API `TauCeti.RootStack.factorialUniversalScalars.value`: The underlying value of the i-th universal coherent unit is exactly the actual i-th root in C_1.
+
+API `TauCeti.RootStack.factorialRootScalars.transition`: For i≤j and σ∈S(A), the underlying ring values satisfy σ_j^(d_j/d_i)=σ_i.
+
+## Underlying universal scalar value
+
+Declaration `TauCeti.RootStack.factorialUniversalScalars.value` (`FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalars-value`).
+
+The underlying value of the i-th universal coherent unit is exactly the actual i-th root in C_1.
+
+Proof: Use the actual native roots-of-unity constructor value formula.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalars`, `mathlib:rootsOfUnity.coe_mkOfPowEq`.
+
+## Acceptance checks
+
+`factorialRootScalars.test_one` (degenerate): The identity scalar family has value1 at every index.
+
+`factorialRootScalars.test_inverse` (compatibility): The actual inverse family cancels its scalar at each index in the native unit group.
+
+`factorialRootScalars.test_individual_roots` (non-example): Over Z the family with value−1 at index1 and1 elsewhere satisfies every individual d_i-th-root-of-unity equation.
+
+`factorialRootScalars.test_incoherent` (non-example): That family over Z is not coherent: the index2-to-index1 cube transition would require1=−1. Individual finite orders do not define an infinite point.
+
+`factorialScale.test_one` (degenerate): Scaling by the identity family fixes every element of the actual colimit.
+
+`factorialScale.test_constant` (computation): Over Z/4Z with f=2, coherent scaling fixes the coefficient3 in the actual colimit.
+
+`factorialScale.test_composition` (compatibility): On every actual element, scaling by a product family equals successive scaling by its two families.
+
+`factorialScaleEquiv.test_roundtrip` (compatibility): For every element, applying the actual scaling equivalence and its actual inverse returns that element.
+
+`factorialScaleEquiv.test_root` (computation): The actual degree2 root is sent to σ_1 times that root, with coefficients fixed.
+
+`factorialScaleEquiv.test_wild_zero` (non-example): Over F_2 with f=0, every actual coherent scaling keeps the degree2 root nonzero. This root is square-zero; passing to a reduced colimit would fail.
+
+`factorialUniversalScalars.test_root` (computation): For coefficients Z/4Z, the degree2 universal scalar has square1 in the actual C_1.
+
+`factorialUniversalScalars.test_nontrivial` (non-example): Over the actual C_1 with initial coefficients F_3, the degree2 universal unit differs from1. Injective finite insertion and evaluation of its chart root at−1 prove this.
+
+`factorialUniversalScalars.test_zero_ring` (degenerate): For initial coefficient ring Z/1Z the universal coherent scalar family is the identity. The construction retains the zero ring.
+
+Source: [Talpo–Vistoli exact v2 PDF](https://arxiv.org/pdf/1410.1164v2), §3.1 printed pp.14–16, with the actual Cartier-dual/action passage and complete Proposition3.10 proof freshly read2026-10-03. These are authored rank-one point/scaling deductions, not a new proof of the geometric quotient.
+
+The codex-J6LwjP point-scaling continuation constructs the actual coherent native unit-family subgroup, its chart-colimit algebra maps and actual automorphisms, and the universal nonconstant test family. The universal diagonalizable grading/Hopf action and naturality over all test algebras, coherent root-object reindexing, affine Spec limits, fpqc torsors/quotient groupoids, TOWER-AFF, KUMMER-FINITE, TOWER-TYPING and the DVR/Kummer bridge remain open; point-valued formulas do not close them.
+
+Full-file geometric imports remain uncompiled. The inherited Mathlib-only projection retains its exact prior scope; the new continuation is appended intact to that projection. No missing geometric object is replaced by a stub.
+
+---
+
 # Positive-divisibility root chart comparison
 
 For any commutative ring A and f∈A, put B_n=A[t_n]/(t_nⁿ−f) for n>0. All quotient rings and coefficient actions in this section are the native ones. Order the positive root exponents by divisibility. A map n|N acts by t_n↦t_N^(N/n), on exactly B_n and B_N. The identity and composition were supplied earlier; the present continuation uses those maps to construct the full directed algebra colimit C_div. The previously specified factorial algebra is C_f=colim_i B_(d_i), where d_i=(i+1)!.
