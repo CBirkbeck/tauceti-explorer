@@ -34,7 +34,7 @@ Recover the public immutable proof archive using the final handoff's Python reci
 
 ## Public immutable recovery
 
-Mathematical base: `2bc684df36a586e1a305395ddf6f0d0fb82aa63c`. Publication main base: `18f322ad4eefb4ef36e39cef812c403829f23e2c`. Immutable proof archive: [`b965e4e5d7fadcee30a00cbcfa56299cd0ce3800`](https://github.com/CBirkbeck/tauceti-explorer/commit/b965e4e5d7fadcee30a00cbcfa56299cd0ce3800). The archive is retained as an ancestor of this submission. The published Lean file is the exact thin canonical specification; the complete native source and transcripts are recovered from the immutable archive.
+Mathematical base: `2bc684df36a586e1a305395ddf6f0d0fb82aa63c`. Publication main base: `8ff517d75158e529ea1c286a8940a0b36165d241`. Immutable proof archive: [`b965e4e5d7fadcee30a00cbcfa56299cd0ce3800`](https://github.com/CBirkbeck/tauceti-explorer/commit/b965e4e5d7fadcee30a00cbcfa56299cd0ce3800). The archive is retained as an ancestor of this submission. The published Lean file is the exact thin canonical specification; the complete native source and transcripts are recovered from the immutable archive.
 
 Save the following program as recover63.py and run `python3 recover63.py RECOVERY_DIR SUBMITTED_REF` from an existing repository checkout, then `python3 RECOVERY_DIR/validate63.py RECOVERY_DIR DECLARATIONS_TSV` and `python3 RECOVERY_DIR/graph63.py RECOVERY_DIR/original-packets.json`. DECLARATIONS_TSV is the pinned declaration index. Public recovery checks all 18 artifacts byte-for-byte before validation. The recipe explicitly adjusts the archived validator to check prose-only new packet/reader content; its native/admitted header equality checks are unchanged. VALIDATE_BASE may explicitly override the recorded publication main when auditing a later checkout. This recovery and validation do not assert a second compilation.
 
@@ -45,7 +45,7 @@ OUT=Path(sys.argv[1]);REF=sys.argv[2] if len(sys.argv)>2 else 'HEAD'
 OUT.mkdir(parents=True,exist_ok=True,mode=0o700)
 ARCHIVE='b965e4e5d7fadcee30a00cbcfa56299cd0ce3800'
 BASE='2bc684df36a586e1a305395ddf6f0d0fb82aa63c'
-PUB='18f322ad4eefb4ef36e39cef812c403829f23e2c'
+PUB='8ff517d75158e529ea1c286a8940a0b36165d241'
 RID='AnabelianGeometryAndNonabelianChabauty'
 EXPECTED={'Native63.lean': '31ba3d7ff0b338d853692290dd55df11161726949643fc39966dc3f63c058c95', 'Canonical63.lean': '9e86f307055e8953f7433f0685fec28f092a9992e1e9e9959c532fe437e63d24', 'Sketch63.lean': '677dd3ddd20397d1fbcb3475db5ca3da39819b11dd9754cc9dd1b7696ae49dff', 'Native.lean': '1f6fc508e77a33378a5ce427b11f4880ea31a0ddd72bab00af20cce14cf54b74', 'extension.lean': '52280375a7034725143ff657ab0e41286fdb76c68dea6f0ebd1f07962dafc9f3', 'tests63.lean': '6321121daa60283590fef959b6ce5b712061dddde1164fc52c96aa660256dc59', 'audits63.lean': '24cc64923f90ef9c0f2d62b298f883e2dc07627263e729f0fb46a7b457490751', 'original-packets.json': 'af7f73b1b59cdb24716149c3a731e7b0d2f98939c52ccf11fbff26bed65024d1', 'original-readmes.md': 'd6b4e2dbd28ef829879c3dcb8ed52619b19d1b77d8a79acc03f4928988e54187', 'original-suggested.lean': '786fd24e1ab97abdd56b0892b7d88c97acc3d0bfc4b471884271f1692e03f8c8', 'original-handoff.md': '81c955a23e9ed8acf905cbf4ad67c73bb2e1b2935911c06cdc673bb264169dbf', 'Reader63.md': 'e02dd54c2ebcc17118e61f88ef125325c582daf29766b6bcf604d2fb916ba61c', 'validate63.py': '9aa5b5c5b9f6eb2969e003740e6667d14a3e440349ecc1ce31caf250b06b69f4', 'graph63.py': '3b8241f00fecc80656f033af4f2c74587f88d8771b7cf6d7d318f9fdb072ac88', 'design-metadata.json': '9dd929e3474a392f76740f555905acf54d5ce012d1fcd0551e385f959bb33fc8', 'native63-normalized.log': '64a5fb4e4446f1920b7b110441b37bd74716e36ce1ce1d665e0220cb09c43489', 'sketch63-normalized.log': '929d5b7fb9c541a469a92e60337542daf29684d5848b754edfac0e7f73affaee', 'memory63.json': 'd6c4647a9c2220ab02f12b1ec435b53ee7ba795c1aa18edd22170e1692431184'}
 LENGTHS=[126911, 10649, 7627]
@@ -83,6 +83,8 @@ print(json.dumps({'archive':ARCHIVE,'recoveredArtifacts':len(EXPECTED),'allSha25
 ```
 
 ## Publication validation
+
+A format-only correction removes Lean signature fields and reader code blocks; mathematical declarations, suggested Lean source, native proofs, APIs, tests and their compile receipts are unchanged. The 14 input guards below describe the original proof publication; the correction uses the new publication main base recorded above.
 
 Public recovery was executed against GitHub commit b965e4e5d7fadcee30a00cbcfa56299cd0ce3800: all 18 artifacts matched their recorded SHA-256 hashes. The recovered actual validator and graph script were executed and their reports match the receipts below exactly. No historical compile was repeated.
 
@@ -155,7 +157,7 @@ Public recovery was executed against GitHub commit b965e4e5d7fadcee30a00cbcfa562
       }
     },
     "fullCanonicalCompiled": false,
-    "publicationBase": "18f322ad4eefb4ef36e39cef812c403829f23e2c",
+    "publicationBase": "8ff517d75158e529ea1c286a8940a0b36165d241",
     "scriptSha256": "9aa5b5c5b9f6eb2969e003740e6667d14a3e440349ecc1ce31caf250b06b69f4"
   },
   "actualAtlasGraph": {
