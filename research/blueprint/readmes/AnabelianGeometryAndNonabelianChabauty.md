@@ -1,3 +1,191 @@
+# Gauge transport and cocycle representatives — continuation
+
+Partial anabelian checkpoint with 175 declaration-sized nodes. Nineteen new native interfaces give continuous equivariant gauge conjugation between actual inner twists and the canonical pointed H¹ comparison for cohomologous representatives, with identity, inverse, composition and concrete gauge realization. Six tests retain the noncommutative conjugation direction and the class-equality requirement. All 156 inherited contracts and every key/source/supplier/omission boundary remain. All seven stages remain partial; no geometric torsor, K(π,1), Selmer or source route is closed.
+
+Kim’s [exact v1 PDF](https://arxiv.org/pdf/math/0409456v1), §1, pp.5–7 gives the continuous cocycle/gauge conventions and the statement that equivalent cocycles yield isomorphic actions. The following general topological-group identities are authored deductions. They concern the actual inner twist of a coefficient group; no geometric torsor or Selmer comparison is inferred.
+
+G is a group with a topology; U is a topological group with a jointly continuous G-action by automorphisms. G itself need not be a topological group. Every c,d,e named below is an actual continuous cocycle. No finiteness, discreteness, compactness or commutativity hypothesis is assumed.
+The gauge action is (b•c)(g)=b c(g) g(b)⁻¹. Twist(c) has the underlying group/topology U and action g⋆x=c(g)g(x)c(g)⁻¹. Write j_c:Twist(c)≃*U for the inherited underlying identification, τ_c(z)(g)=j_c(z(g))c(g), and T_c:H¹(G,Twist(c))≃H¹(G,U) for the actual gauge-orbit equivalence. T_c sends 1 to [c].
+The comparison C_c,d requires the equality h:[c]=[d] in the actual original H¹. Its underlying formula is T_d⁻¹∘T_c; the equality h ensures preservation of the neutral class. A gauge element is not chosen to define C_c,d. The coefficient-group conjugation isomorphism depends on a supplied b and is not claimed independent of b.
+
+For clarity, e_c,b depends on b and acts on the actual coefficient group. In contrast, C_c,d is defined directly on the two native cohomology orbit sets by the common original target. The equality [c]=[d] is the reason it preserves the neutral class. Conjugation acts nontrivially on S₃ even in examples where an induced action on cohomology is canonical.
+
+## Continuous gauge transport between inner twists
+
+`TauCeti.NonabelianCohomology.Twist.gaugeEquiv` — For c∈Z¹(G,U) and b∈U, construct the native group equivalence e_c,b:Twist(c)≃*Twist(b•c) whose underlying map is x↦b j_c(x)b⁻¹. Its inverse is conjugation by b⁻¹; the following API proves continuity and G-equivariance.
+
+Proof: Reuse MulAut.conj b on the existing twist synonyms; their group structures and topologies are the inherited ones on U. No new general conjugation or topological-group carrier is introduced.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/twist-underlying-group`, `mathlib:MulAut.conj`.
+
+## Gauge transport value
+
+`TauCeti.NonabelianCohomology.Twist.gaugeEquiv_apply` — For x∈Twist(c), j_(b•c)(e_c,b(x))=b j_c(x)b⁻¹.
+
+Proof: Evaluate the native conjugation map and the inherited underlying identifications.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-equivalence`.
+
+## Inverse gauge transport value
+
+`TauCeti.NonabelianCohomology.Twist.gaugeEquiv_symm_apply` — For y∈Twist(b•c), j_c(e_c,b⁻¹(y))=b⁻¹ j_(b•c)(y)b, where e_c,b⁻¹ denotes the inverse equivalence, not transport to an unspecified twist.
+
+Proof: Evaluate the inverse function of the same native MulAut.conj equivalence.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-equivalence`.
+
+## Continuity of gauge transport
+
+`TauCeti.NonabelianCohomology.Twist.gaugeEquiv_continuous` — The monoid homomorphism underlying e_c,b is continuous for the actual inherited topologies.
+
+Proof: Use continuity of multiplication with the two constant factors b,b⁻¹ and the identity function.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-value`.
+
+## Continuity of inverse gauge transport
+
+`TauCeti.NonabelianCohomology.Twist.gaugeEquiv_symm_continuous` — The inverse function of e_c,b is continuous for the actual inherited topologies. Thus the group equivalence is a homeomorphism as well as an algebraic isomorphism.
+
+Proof: Use the explicit inverse formula and continuity of multiplication by the constants b⁻¹ and b.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-inverse-value`.
+
+## Equivariance of gauge transport
+
+`TauCeti.NonabelianCohomology.Twist.gaugeEquiv_smul` — For every g∈G and x∈Twist(c), e_c,b(g⋆_c x)=g⋆_(b•c)e_c,b(x). Both sides use their actual, generally different, inner actions.
+
+Proof: Expand both inner actions and (b•c)(g)=b c(g)g(b)⁻¹. Distribute g over products/inverses, then cancel adjacent inverse pairs without commuting factors.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-value`, `AnabelianGeometryAndNonabelianChabauty:NC.3/twisting`, `AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles`.
+
+## Identity gauge transport
+
+`TauCeti.NonabelianCohomology.Twist.gaugeEquiv_one` — Under the native underlying identifications, e_c,1 is the identity: j_(1•c)(e_c,1(x))=j_c(x).
+
+Proof: Evaluate the conjugation formula at the group identity.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-value`.
+
+## Ordered composition of gauge transports
+
+`TauCeti.NonabelianCohomology.Twist.gaugeEquiv_comp` — For a,b∈U and x∈Twist(c), j_(a•(b•c))(e_(b•c),a(e_c,b(x)))=j_((ab)•c)(e_c,ab(x)). The resulting gauge element is ab; the cocycle targets agree by the gauge action law.
+
+Proof: Expand both conjugations and cancel the middle b⁻¹a⁻¹ against the inverse of ab in the prescribed order. Compare through the existing underlying identifications to avoid an implicit choice of dependent transport.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-value`, `AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles`.
+
+## Cocycle translation under gauge transport
+
+`TauCeti.NonabelianCohomology.Z1.twistEquiv_gaugeMap` — For z∈Z¹(G,Twist(c)), τ_(b•c)((e_c,b)_*z)=b•τ_c(z), where the pushforward is the existing continuous equivariant coefficient map on cocycles. This is equality of actual cocycles, with the ordered products unchanged.
+
+Proof: Apply cocycle extensionality; expand the coefficient map, τ and the gauge formula. The adjacent b⁻¹b cancels, leaving b(j_c(z(g))c(g))g(b)⁻¹.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-equivariance`, `AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-continuity`, `AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-map`, `AnabelianGeometryAndNonabelianChabauty:NC.3/twist-cocycle-value`, `AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles`.
+
+## Cohomology translation under gauge transport
+
+`TauCeti.NonabelianCohomology.H1.twistEquiv_gaugeMap` — For every a∈H¹(G,Twist(c)), T_(b•c)((e_c,b)_*a)=T_c(a), with the pushforward supplied by the actual coefficient map on H¹.
+
+Proof: Choose a native cocycle representative, apply the cocycle square and use that a gauge translate has the same original H¹ class.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-cocycle-square`, `AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map`, `AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-representative`, `AnabelianGeometryAndNonabelianChabauty:NC.3/h1-gauge-class`.
+
+## Canonical comparison for cohomologous representatives
+
+`TauCeti.NonabelianCohomology.H1.changeRepresentative` — For c,d∈Z¹(G,U) with h:[c]=[d], construct C_c,d:H¹(G,Twist(c))≃H¹(G,Twist(d)) by T_d⁻¹∘T_c. The formula makes no choice of a gauge witness; its pointedness is proved separately using h.
+
+Proof: Compose the inherited actual orbit-set equivalences T_c and T_d⁻¹ using native Equiv composition. The original class equality is retained as an input to the comparison API.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-equivalence`, `mathlib:Equiv.trans`, `mathlib:Equiv.symm`.
+
+## Representative comparison value
+
+`TauCeti.NonabelianCohomology.H1.changeRepresentative_apply` — For h:[c]=[d] and a∈H¹(G,Twist(c)), C_c,d(a)=T_d⁻¹(T_c(a)).
+
+Proof: Evaluate the native composite equivalence.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/representative-equivalence`.
+
+## Neutral class under representative comparison
+
+`TauCeti.NonabelianCohomology.H1.changeRepresentative_one` — For h:[c]=[d], C_c,d(1)=1. Equality of the original classes is essential; the raw composite for arbitrary unrelated cocycles need not be pointed.
+
+Proof: Apply injectivity of T_d; its value on the left is T_c(1)=[c] and its value on the right is [d]. Use h.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/representative-value`, `AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-equivalence`, `mathlib:Equiv.injective`, `mathlib:Equiv.apply_symm_apply`.
+
+## Representative comparison equals gauge pushforward
+
+`TauCeti.NonabelianCohomology.H1.changeRepresentative_gauge` — For b∈U and h:[c]=[b•c] supplied by the actual gauge-class lemma, C_c,b•c equals the existing H¹ pushforward induced by e_c,b, as a function on H¹(G,Twist(c)).
+
+Proof: Apply injectivity of T_(b•c) to each argument. Both sides become T_c(a), by cancellation of inverse equivalences and the proved H¹ gauge square.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/representative-value`, `AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-h1-square`, `AnabelianGeometryAndNonabelianChabauty:NC.3/h1-gauge-class`, `mathlib:Equiv.injective`, `mathlib:Equiv.apply_symm_apply`.
+
+## Identity representative comparison
+
+`TauCeti.NonabelianCohomology.H1.changeRepresentative_id` — C_c,c is the native identity equivalence of H¹(G,Twist(c)).
+
+Proof: Use equivalence extensionality and cancel T_c⁻¹ after T_c at each point.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/representative-value`, `mathlib:Equiv.symm_apply_apply`.
+
+## Composition of representative comparisons
+
+`TauCeti.NonabelianCohomology.H1.changeRepresentative_comp` — Given h_cd:[c]=[d] and h_de:[d]=[e], composing C_c,d followed by C_d,e equals C_c,e for h_cd.trans(h_de), as native equivalences.
+
+Proof: Expand the composites at an arbitrary class and cancel the adjacent T_d∘T_d⁻¹. No gauge representatives or group multiplication choices enter.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/representative-value`, `mathlib:Equiv.apply_symm_apply`.
+
+## Inverse representative comparison
+
+`TauCeti.NonabelianCohomology.H1.changeRepresentative_symm` — For h:[c]=[d], the inverse of C_c,d is C_d,c with the symmetric class equality.
+
+Proof: Unfold the inverse of the native composite equivalence; its two functions are the reversed pair of twisting equivalences.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/representative-equivalence`, `mathlib:Equiv.symm`.
+
+## Common translation of representative comparisons
+
+`TauCeti.NonabelianCohomology.H1.changeRepresentative_twistEquiv` — For h:[c]=[d] and a∈H¹(G,Twist(c)), T_d(C_c,d(a))=T_c(a).
+
+Proof: Cancel T_d after its inverse in the defining formula.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/representative-value`, `mathlib:Equiv.apply_symm_apply`.
+
+## Uniqueness from the twisting comparison square
+
+`TauCeti.NonabelianCohomology.H1.changeRepresentative_eq_map` — Fix h:[c]=[d]. If f:Twist(c)→*Twist(d) is continuous and G-equivariant and its actual H¹ pushforward satisfies T_d(f_*a)=T_c(a) for every a, then f_* equals C_c,d. The square is an explicit hypothesis for this uniqueness lemma, and is already proved for the concrete gauge maps above.
+
+Proof: At each a, compare C_c,d(a) and f_*a by injectivity of T_d, using the representative square and the given square for f.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/representative-square`, `AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map`, `mathlib:Equiv.injective`.
+
+## Tests for continuous gauge transport between inner twists
+
+- `Twist.gaugeEquiv.test_inverse` (compatibility): For any c,b,x, the inverse of e_c,b applied to e_c,b(x) is x.
+- `Twist.gaugeEquiv.test_identity` (degenerate): For b=1, gauge transport is the identity under the actual underlying group identifications.
+- `Twist.gaugeEquiv.test_noncommutative_direction` (non-example): Give S₂ and S₃ discrete topologies and the trivial original S₂-action on S₃. Let c send the nonidentity element to (01), and let b=(01)(12). Then e_c,b sends (01) to (12), whereas b⁻¹(01)b is not (12). This rejects conjugation in the reverse direction.
+
+## Tests for canonical comparison for cohomologous representatives
+
+- `H1.changeRepresentative.test_neutral` (degenerate): For equal original classes [c]=[d], the actual comparison C_c,d sends the neutral twisted class to the neutral twisted class.
+- `H1.changeRepresentative.test_nonneutral` (non-example): If [c]=[d] is nonneutral, C_c,d(T_c⁻¹(1)) is nonneutral in H¹(G,Twist(d)), even though its translation by T_d is the original neutral class. The comparison cannot be replaced by the constant neutral map.
+- `H1.changeRepresentative.test_class_hypothesis` (non-example): If [c] is nonneutral, the raw composite T_1⁻¹∘T_c sends the neutral twisted class to a nonneutral class. Dropping equality of the original classes invalidates pointedness.
+
+## Boundary and ownership
+
+Continuous gauge conjugation between inner twists and the canonical pointed H¹ comparison for cohomologous representatives are now specified with checked native proofs, including the gauge-pushforward comparison and composition law. The group isomorphism still depends on a supplied gauge element; only the specified H¹ comparison avoids a gauge-witness choice. Source-group naturality, actual twisted subgroup/quotient realization, compatibility with local conditions, the genuine additive comparison, unipotent point topologies and all geometric/representability/source obligations remain open.
+
+The reserved all-coefficient/all-degree étale K(π,1) node, its restricted raw-homotopy comparison, the NS/Picard-number import from A2, and the Chen/BDMTV obligations including E9/E10 are unchanged. NC.6 remains a process endpoint. This slice adds no foreign stage requirement or generic conjugation/cohomology carrier. The fresh R02.6 stage read specifies patching adjoint inequalities; these abstract gauge results use no new Galois or Selmer theorem from that stage, and the broader inherited geometric arithmetic interfaces remain open.
+
+The two new constructions have seventeen API records and six tests. All nineteen signatures are represented in the suggested file; the separate proof archive checks their actual native implementations. The canonical file retains its inherited Tau Ceti import boundary, so only the explicitly documented Mathlib projection can be checked in the available build.
+
+---
+
+# Preserved incoming reader
+
 # Coefficient naturality of inner twisting
 
 This continuation specifies actual continuous equivariant coefficient homomorphisms between inner twists and their cocycle/H¹ squares. All implementation statuses remain unchecked.
