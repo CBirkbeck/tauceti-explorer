@@ -13,7 +13,7 @@
     "AlgebraicModuliForArithmeticGeometry:R09.7"
   ],
   "status": "partial",
-  "summary": "Partial 179-node chosen-band inverse checkpoint: six consumed native leaves construct local coefficient families, prove their exact recovery and matching, glue through the prescribed coefficient sheaf even with an empty global fibre, and construct the actual coefficient group equivalence with inverse restriction laws. All 173 inherited statement/hypothesis/source/acceptance contracts and all source routes, reserved keys, nine gaps and 21 requests survive. All eight stages remain partial or not_read with unchecked implementations. The actual SF1 descended-slice comparison, specified geometric fixtures and all broader source/supplier obligations remain open. Full TauCeti file uncompiled; the admission-free native proof and admitted Mathlib extraction are checked separately. Codex codex-a71f92 adds the actual fixed-band presheaf and sheaf isomorphisms and their all-arrow evaluation uniqueness, retaining the central-section carrier, reserved gerbe contract and all open geometric supplier obligations. Constant point-site centre fixtures add actual component-profile equivalences, a native point-stack proof, the connected gerbe instance and the disconnected gerbe obstruction; the wider source and supplier frontiers remain partial.",
+  "summary": "Partial 179-node chosen-band inverse checkpoint: six consumed native leaves construct local coefficient families, prove their exact recovery and matching, glue through the prescribed coefficient sheaf even with an empty global fibre, and construct the actual coefficient group equivalence with inverse restriction laws. All 173 inherited statement/hypothesis/source/acceptance contracts and all source routes, reserved keys, nine gaps and 21 requests survive. All eight stages remain partial or not_read with unchecked implementations. The actual SF1 descended-slice comparison, specified geometric fixtures and all broader source/supplier obligations remain open. Full TauCeti file uncompiled; the admission-free native proof and admitted Mathlib extraction are checked separately. Codex codex-a71f92 adds the actual fixed-band presheaf and sheaf isomorphisms and their all-arrow evaluation uniqueness, retaining the central-section carrier, reserved gerbe contract and all open geometric supplier obligations. Constant point-site centre fixtures add actual component-profile equivalences, a native point-stack proof, the connected gerbe instance and the disconnected gerbe obstruction; the wider source and supplier frontiers remain partial. Connected-fibre continuation: 29 new declaration-sized leaves identify evaluation with the group centre and check the connected two-object C3 and one-object nonabelian S3 gerbes on native carriers; all remaining scope stays partial.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -929,6 +929,69 @@
         "sourceSha256": "d0bb8f1f00469a940dcc8ca404a9d4f7157516c40a4d6aa0fbbc622e50c42e94",
         "provides": "For a genuine finite type, the natural-number cardinality equals the computable Fintype cardinality, used for the exact counts 3,9,1.",
         "checked": "Actual declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Codiscrete",
+        "kind": "structure",
+        "module": "Mathlib/CategoryTheory/CodiscreteCategory.lean",
+        "sourceLine": 43,
+        "sourceSha256": "fef5dccd077b2b07121f612f3693036ff018fbee5708df139bed94aed02efc85",
+        "provides": "The existing category with all labels retained and a unique arrow between any two labels.",
+        "checked": "Actual statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-7e92bd; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Codiscrete.iso",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/CodiscreteCategory.lean",
+        "sourceLine": 70,
+        "sourceSha256": "fef5dccd077b2b07121f612f3693036ff018fbee5708df139bed94aed02efc85",
+        "provides": "The native comparison isomorphism between any two codiscrete objects.",
+        "checked": "Actual statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-7e92bd; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Codiscrete.eq_iso_hom",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/CodiscreteCategory.lean",
+        "sourceLine": 76,
+        "sourceSha256": "fef5dccd077b2b07121f612f3693036ff018fbee5708df139bed94aed02efc85",
+        "provides": "Every codiscrete arrow equals the comparison isomorphism hom, hence is invertible.",
+        "checked": "Actual statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-7e92bd; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Iso.prod",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Products/Basic.lean",
+        "sourceLine": 135,
+        "sourceSha256": "7d04b57043d610daef8c683e752fe6750a5e5fa868a4ed92ea2e8bedb7a6c6e4",
+        "provides": "Native product of two isomorphisms with the given hom and inverse components.",
+        "checked": "Actual statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-7e92bd; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:Subgroup.center",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/Subgroup/Center.lean",
+        "sourceLine": 30,
+        "sourceSha256": "4f4ca009b6f8cbfc42a2c5503dba3859670abd5d43e1e8257273b4057f5bee93",
+        "provides": "The native centre subgroup of an arbitrary group.",
+        "checked": "Actual statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-7e92bd; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:Subgroup.mem_center_iff",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/Subgroup/Center.lean",
+        "sourceLine": 58,
+        "sourceSha256": "4f4ca009b6f8cbfc42a2c5503dba3859670abd5d43e1e8257273b4057f5bee93",
+        "provides": "Membership in the centre is equivalent to commuting with every group element.",
+        "checked": "Actual statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-7e92bd; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CommGroup.center_eq_top",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/Subgroup/Center.lean",
+        "sourceLine": 89,
+        "sourceSha256": "4f4ca009b6f8cbfc42a2c5503dba3859670abd5d43e1e8257273b4057f5bee93",
+        "provides": "In a commutative group, the centre is the whole group.",
+        "checked": "Actual statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-7e92bd; exact indexed name confirmed."
       }
     ]
   },
@@ -1526,6 +1589,24 @@
       "accessed": "2026-10-03",
       "readSections": [
         "Entire Definition 8.11.1; entire Lemma 8.11.8 statement and printed proof at 0CJY, including the explicitly omitted varying-base step."
+      ],
+      "relatedSources": [
+        {
+          "url": "https://stacks.math.columbia.edu/tag/0CJY",
+          "sha256": "41dd0c0a1e20dfe2fd60212274a30f259ae0875225b1540b069adf3f89f27a9e"
+        }
+      ]
+    },
+    {
+      "id": "SP-connected-band-fixtures-7e92bd",
+      "title": "The Stacks Project: gerbes and abelian inertia; connected and nonabelian fixture deductions",
+      "authors": "The Stacks Project Authors; fixture deductions by Codex codex-7e92bd",
+      "edition": "Live HTML accessed 2026-10-03",
+      "url": "https://stacks.math.columbia.edu/tag/06NZ",
+      "sha256": "b60742528d35ea2612a54bc8d95096fb2e97a39e4cba59034918834e5f414535",
+      "accessed": "2026-10-03",
+      "readSections": [
+        "Entire Definition 8.11.1 and Lemma 8.11.8 statement and printed proof, including its omitted varying-base step."
       ],
       "relatedSources": [
         {
@@ -13804,6 +13885,1483 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-center",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Central elements as natural fibre endomorphisms",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenter",
+      "statement": "For any group G and any type I, a central element a defines a natural endomorphism of the identity of Codiscrete(I) times SingleObj(G), with component (identity,a) at every object.",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "mathlib:Subgroup.center",
+        "mathlib:Subgroup.mem_center_iff",
+        "mathlib:CategoryTheory.CatCenter",
+        "mathlib:CategoryTheory.Codiscrete",
+        "mathlib:CategoryTheory.SingleObj.category"
+      ],
+      "proofSteps": [
+        "Use the existing categorical centre and product category.",
+        "Naturality is precisely commutation of a with the group component of every arrow, including arrows between distinct objects."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenter_one",
+          "role": "simp",
+          "statement": "The identity central coefficient defines the identity natural endomorphism."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenter_app",
+          "role": "projection",
+          "statement": "At every object x, connectedCenter(a) has component (identity,a)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenter_naturality",
+          "role": "compatibility",
+          "statement": "Every actual arrow f:x→y commutes with the indicated components in the naturality square."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Reserved gerbe key and Stacks 0CJY intrinsic-band acceptance cases",
+          "how": "Separate connectedness from commutativity using the actual two-object C3 and one-object S3 diagrams."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ConnectedCenterTests.value",
+          "kind": "computation",
+          "statement": "For every central coefficient a and object x, the group component of its natural endomorphism is a."
+        },
+        {
+          "name": "ConnectedCenterTests.naturality",
+          "kind": "compatibility",
+          "statement": "The constructed centre element satisfies naturality for arbitrary arrows, including arrows between distinct labels."
+        },
+        {
+          "name": "ConnectedCenterTests.identity",
+          "kind": "degenerate",
+          "statement": "The identity central coefficient acts by the identity arrow at every object."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-center-unit",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Invertible central fibre endomorphisms",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterUnit",
+      "statement": "Every a in the centre subgroup of G gives a unit in the full categorical centre of Codiscrete(I) times SingleObj(G); its inverse is the endomorphism defined by a inverse.",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-center",
+        "mathlib:CategoryTheory.CatCenter.ext"
+      ],
+      "proofSteps": [
+        "Construct both natural endomorphisms using a and its inverse in the native subgroup.",
+        "Prove both unit equations objectwise, using the group inverse laws and product morphism extensionality."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterUnit_val_inv",
+          "role": "structure",
+          "statement": "The value of the constructed unit times its inverse value is the identity natural endomorphism."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterUnit_val",
+          "role": "projection",
+          "statement": "The value of the centre unit for a is connectedCenter(a)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterUnit_inv",
+          "role": "projection",
+          "statement": "The inverse value of the centre unit for a is connectedCenter(a inverse)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Reserved gerbe key and Stacks 0CJY intrinsic-band acceptance cases",
+          "how": "Separate connectedness from commutativity using the actual two-object C3 and one-object S3 diagrams."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ConnectedUnitTests.value",
+          "kind": "compatibility",
+          "statement": "The centre unit retains the constructed centre element as its value."
+        },
+        {
+          "name": "ConnectedUnitTests.inverse",
+          "kind": "computation",
+          "statement": "Its inverse value is obtained from the inverse central coefficient."
+        },
+        {
+          "name": "ConnectedUnitTests.roundTrip",
+          "kind": "characterisation",
+          "statement": "The value times its inverse is the identity natural endomorphism."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-center-equiv",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Recover the group centre from the connected fibre",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterEquiv",
+      "statement": "Given i in I, the centre subgroup of G is multiplicatively equivalent to all units of the categorical centre of Codiscrete(I) times SingleObj(G). The inverse reads the group component at (i,star).",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-center-unit",
+        "mathlib:CategoryTheory.CatCenter.naturality",
+        "mathlib:Subgroup.mem_center_iff"
+      ],
+      "proofSteps": [
+        "Naturality against every loop at (i,star) proves that the recovered group element is central.",
+        "Naturality against the actual arrow (identity,1) from each object to (i,star) forces every component to have that same value.",
+        "Prove both inverse equations by subtype, unit and natural-transformation extensionality, and multiplication by evaluation."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterEquiv_apply_symm_apply",
+          "role": "characterisation",
+          "statement": "Applying the centre equivalence after its inverse recovers every actual centre unit."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterEquiv_apply",
+          "role": "projection",
+          "statement": "The forward equivalence map at a is connectedCenterUnit(a)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterEquiv_symm_apply",
+          "role": "projection",
+          "statement": "The underlying group element of the inverse at z is the group component of z at (i,star)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Reserved gerbe key and Stacks 0CJY intrinsic-band acceptance cases",
+          "how": "Separate connectedness from commutativity using the actual two-object C3 and one-object S3 diagrams."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ConnectedEquivTests.coefficientRoundTrip",
+          "kind": "characterisation",
+          "statement": "Forward then inverse of the centre equivalence recovers every central coefficient."
+        },
+        {
+          "name": "ConnectedEquivTests.centreRoundTrip",
+          "kind": "characterisation",
+          "statement": "Inverse then forward recovers every actual centre unit, not just those specified beforehand."
+        },
+        {
+          "name": "ConnectedEquivTests.everyObject",
+          "kind": "compatibility",
+          "statement": "The centre equivalence has the same specified coefficient at every actual object."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-sections-equiv",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Compatible sections of a connected constant diagram",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedSectionsEquiv",
+      "statement": "For any base category C, object U and i in I, the centre subgroup of G is multiplicatively equivalent to the actual compatible intrinsic-band sections over U of the constant diagram with fibre Codiscrete(I) times SingleObj(G).",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-center-equiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-constant-sections-equiv"
+      ],
+      "proofSteps": [
+        "Compose the connected-fibre centre equivalence with the inherited constant-diagram centre-to-section equivalence.",
+        "The inherited inverse reads the identity slice arrow; no slice arrows are discarded and no topology, stack hypothesis or terminal base object is assumed."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedSectionsEquiv_symm_apply",
+          "role": "projection",
+          "statement": "The inverse central coefficient of s is the group component of its identity-arrow centre value at (i,star)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedSectionsEquiv_eval",
+          "role": "compatibility",
+          "statement": "For every f:V→U and every actual fibre object x, evaluation of the section corresponding to a has group component a."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedSectionsEquiv_restrict",
+          "role": "compatibility",
+          "statement": "Restriction along any f:V→U carries the section corresponding to a over U to the section corresponding to the same a over V."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Reserved gerbe key and Stacks 0CJY intrinsic-band acceptance cases",
+          "how": "Separate connectedness from commutativity using the actual two-object C3 and one-object S3 diagrams."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ConnectedSectionTests.roundTrip",
+          "kind": "characterisation",
+          "statement": "Inverse then forward recovers every actual compatible section on every slice arrow."
+        },
+        {
+          "name": "ConnectedSectionTests.restriction",
+          "kind": "compatibility",
+          "statement": "Restriction along an arbitrary base arrow preserves the specified central coefficient."
+        },
+        {
+          "name": "ConnectedSectionTests.generatorBothObjects",
+          "kind": "computation",
+          "statement": "The generator of C3 gives the same nonidentity evaluated group component at both distinct objects labelled false and true."
+        },
+        {
+          "name": "ConnectedBandTests.cardinality",
+          "kind": "computation",
+          "statement": "The actual compatible-section type for that two-object C3 gerbe has exactly three elements."
+        },
+        {
+          "name": "NonabelianBandTests.oneSection",
+          "kind": "computation",
+          "statement": "That S3 gerbe has exactly one actual compatible intrinsic-band section."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-sections-equiv-eval",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Evaluation reads the central element",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedSectionsEquiv_eval",
+      "statement": "For every f:V→U and every actual fibre object x, evaluation of the section corresponding to a has group component a.",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-sections-equiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation"
+      ],
+      "proofSteps": [
+        "Unfold the two specified equivalences and native evaluation."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-sections-equiv-restrict",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Restriction preserves the central element",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedSectionsEquiv_restrict",
+      "statement": "Restriction along any f:V→U carries the section corresponding to a over U to the section corresponding to the same a over V.",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-sections-equiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-constant-sections-equiv-restrict"
+      ],
+      "proofSteps": [
+        "Use the inherited constant-section restriction formula."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-eval-injective",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Evaluation is injective in the connected fibre",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connected_eval_injective",
+      "statement": "For i in I, any U and any fibre object x, evaluation at the identity arrow of U and x is injective on compatible intrinsic-band sections, for an arbitrary group G.",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-sections-equiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-sections-equiv-eval"
+      ],
+      "proofSteps": [
+        "Write both sections using the surjective multiplicative equivalence.",
+        "Equality of their evaluated automorphisms gives equality of the group components, hence of the central elements and sections."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "NonabelianBandTests.injective",
+          "kind": "characterisation",
+          "statement": "Evaluation for the S3 gerbe is nevertheless injective."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-eval-image",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The evaluation image is exactly the centre",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connected_eval_image",
+      "statement": "For i in I, any U, fibre object x and actual automorphism e of x, there exists a compatible intrinsic-band section evaluating to e at the identity arrow exactly when the group component of e lies in the centre of G.",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-sections-equiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-sections-equiv-eval"
+      ],
+      "proofSteps": [
+        "For a section use the inverse equivalence to recover its central coefficient.",
+        "For a central automorphism component construct the corresponding section; product morphism extensionality identifies its full evaluated automorphism with e."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "NonabelianBandTests.transpositionNotAttained",
+          "kind": "non-example",
+          "statement": "The actual automorphism defined by the transposition (0 1) is not the evaluation of any compatible section of the S3 gerbe."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-aut",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Group elements as actual fibre automorphisms",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedAut",
+      "statement": "For any actual object x of Codiscrete(I) times SingleObj(G) and any g in G, construct its automorphism with hom (identity,g) and inverse (identity,g inverse).",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "mathlib:CategoryTheory.SingleObj.category",
+        "mathlib:CategoryTheory.Codiscrete",
+        "mathlib:CategoryTheory.isIso_prod_iff"
+      ],
+      "proofSteps": [
+        "Construct a native categorical isomorphism.",
+        "Use the reversed SingleObj composition convention for both inverse laws."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedAut_mul",
+          "role": "structure",
+          "statement": "The automorphism attached to gh is the product of those attached to g and h."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedAut_hom",
+          "role": "projection",
+          "statement": "The hom of connectedAut(x,g) is the actual product morphism (identity,g)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedAut_inv",
+          "role": "projection",
+          "statement": "The inverse of connectedAut(x,g) is the actual product morphism (identity,g inverse)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Reserved gerbe key and Stacks 0CJY intrinsic-band acceptance cases",
+          "how": "Separate connectedness from commutativity using the actual two-object C3 and one-object S3 diagrams."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ConnectedAutTests.hom",
+          "kind": "computation",
+          "statement": "The actual automorphism associated to g has group hom component g."
+        },
+        {
+          "name": "ConnectedAutTests.inverse",
+          "kind": "compatibility",
+          "statement": "Its actual inverse arrow has group component g inverse."
+        },
+        {
+          "name": "ConnectedAutTests.multiplication",
+          "kind": "characterisation",
+          "statement": "The actual automorphism for gh equals the product of the automorphisms for g and h, with the native composition convention."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-eval-surjective-iff",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Surjective evaluation detects an abelian inertia group",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connected_eval_surjective_iff",
+      "statement": "Given i in I, an object U and an actual fibre object x, evaluation at the identity arrow is surjective onto Aut(x) exactly when the centre subgroup of G equals the whole group.",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-eval-image",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-aut"
+      ],
+      "proofSteps": [
+        "If evaluation is onto, apply the image criterion to the actual automorphism defined by each group element.",
+        "Conversely every automorphism component is central when the centre is top; use the image criterion."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "ConnectedBandTests.bijectiveEvaluation",
+          "kind": "characterisation",
+          "statement": "Evaluation at every object of that two-object C3 fibre is bijective."
+        },
+        {
+          "name": "NonabelianBandTests.notSurjective",
+          "kind": "non-example",
+          "statement": "Evaluation of compatible sections into the actual automorphism group of the S3 object is not surjective."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-iso",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Comparison isomorphisms between every pair of objects",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedIso",
+      "statement": "Every pair x,y of actual objects of Codiscrete(I) times SingleObj(G) has a specified isomorphism: the native codiscrete isomorphism on the first factor and the equality isomorphism between the unique SingleObj objects on the second.",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "mathlib:CategoryTheory.Codiscrete.iso",
+        "mathlib:CategoryTheory.Iso.prod",
+        "mathlib:CategoryTheory.eqToIso"
+      ],
+      "proofSteps": [
+        "Take the native product of the two existing isomorphisms.",
+        "Retain both components, so distinct labels become isomorphic without identifying their objects."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedIso_hom_inv_id",
+          "role": "structure",
+          "statement": "The comparison hom followed by its inverse is the identity of its source."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedIso_fst",
+          "role": "compatibility",
+          "statement": "The first hom component of connectedIso(x,y) is the native codiscrete comparison isomorphism hom."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedIso_snd",
+          "role": "compatibility",
+          "statement": "The second hom component of connectedIso(x,y) is the native equality isomorphism hom between the SingleObj objects."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Reserved gerbe key and Stacks 0CJY intrinsic-band acceptance cases",
+          "how": "Separate connectedness from commutativity using the actual two-object C3 and one-object S3 diagrams."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ConnectedIsoTests.projections",
+          "kind": "compatibility",
+          "statement": "Both comparison hom components equal those of the imported codiscrete and equality isomorphisms."
+        },
+        {
+          "name": "ConnectedIsoTests.roundTrip",
+          "kind": "characterisation",
+          "statement": "The comparison hom followed by its actual inverse equals the identity of its source."
+        },
+        {
+          "name": "ConnectedBandTests.distinctIsomorphic",
+          "kind": "non-example",
+          "statement": "The objects labelled false and true in that fibre are unequal but are isomorphic."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-point-stack",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The constant diagram is a stack on the point site",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.point_stack",
+      "statement": "For every category D, its native constant diagram on Discrete(PUnit) is a stack for the bottom Grothendieck topology, including when D has no objects.",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "mathlib:CategoryTheory.Pseudofunctor.IsStack.of_isStackFor",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData.isoMk",
+        "mathlib:CategoryTheory.Functor.FullyFaithful",
+        "mathlib:CategoryTheory.Functor.IsEquivalence",
+        "mathlib:CategoryTheory.Functor.EssSurj",
+        "mathlib:CategoryTheory.eqToIso",
+        "mathlib:CategoryTheory.GrothendieckTopology.bot_covering",
+        "mathlib:CategoryTheory.Functor.const",
+        "mathlib:CategoryTheory.Functor.toPseudofunctor'",
+        "mathlib:CategoryTheory.Cat.of"
+      ],
+      "proofSteps": [
+        "A covering sieve is top. Its actual arrow category has a single object and singleton hom types.",
+        "For the native canonical descent functor, construct full faithfulness by reading a morphism at the identity arrow.",
+        "Read a descent object at the identity arrow and use native DescentData.isoMk and its self-coherence equation to construct the essential-surjectivity isomorphism.",
+        "Apply the existing IsStack constructor. This generalizes the incoming point-fixture proof in its fibre parameter; it does not build a second general stack carrier."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "ConnectedBandTests.emptyFibreStack",
+          "kind": "degenerate",
+          "statement": "The constant empty category is still a stack on the point site; the stack proof does not assume local nonemptiness."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-point-gerbe",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Every nonempty connected group fibre gives a point gerbe",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connected_point_gerbe",
+      "statement": "For any group G and an actual i in I, the native constant diagram on Discrete(PUnit) with fibre Codiscrete(I) times SingleObj(G) is a gerbe for the bottom topology.",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-point-stack",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-iso",
+        "AlgebraicModuliForArithmeticGeometry:key/gerbes",
+        "mathlib:CategoryTheory.Codiscrete.eq_iso_hom",
+        "mathlib:CategoryTheory.SingleObj.groupoid",
+        "mathlib:CategoryTheory.isIso_prod_iff"
+      ],
+      "proofSteps": [
+        "Import the point-stack proof. Every fibre arrow is invertible by the native codiscrete isomorphism and SingleObj groupoid.",
+        "Use (i,star) for local nonemptiness on the top covering sieve.",
+        "Use the specified connected comparison isomorphism for local isomorphism on that same sieve. No commutativity is used."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "ConnectedBandTests.twoObjectGerbe",
+          "kind": "compatibility",
+          "statement": "The constant diagram with fibre Codiscrete(Bool) times SingleObj(C3) is an actual native gerbe on the point site."
+        },
+        {
+          "name": "NonabelianBandTests.gerbe",
+          "kind": "compatibility",
+          "statement": "The constant diagram with fibre Codiscrete(PUnit) times SingleObj(Perm(Fin 3)) is an actual native gerbe on the point site."
+        },
+        {
+          "name": "NonabelianBandTests.oneObject",
+          "kind": "degenerate",
+          "statement": "The S3 fixture has a subsingleton actual object type, so its obstruction does not arise from disconnected objects."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-center-one",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The identity central coefficient defines the identity natural endomorphism.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenter_one",
+      "statement": "The identity central coefficient defines the identity natural endomorphism.",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-center"
+      ],
+      "proofSteps": [
+        "Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-center-unit-val-inv",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The value of the constructed unit times its inverse value is the identity natural endomorphism.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterUnit_val_inv",
+      "statement": "The value of the constructed unit times its inverse value is the identity natural endomorphism.",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-center-unit"
+      ],
+      "proofSteps": [
+        "Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-center-equiv-apply-symm-apply",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Applying the centre equivalence after its inverse recovers every actual centre unit.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterEquiv_apply_symm_apply",
+      "statement": "Applying the centre equivalence after its inverse recovers every actual centre unit.",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-center-equiv"
+      ],
+      "proofSteps": [
+        "Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-aut-mul",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The automorphism attached to gh is the product of those attached to g and h.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedAut_mul",
+      "statement": "The automorphism attached to gh is the product of those attached to g and h.",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-aut"
+      ],
+      "proofSteps": [
+        "Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-iso-hom-inv-id",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The comparison hom followed by its inverse is the identity of its source.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedIso_hom_inv_id",
+      "statement": "The comparison hom followed by its inverse is the identity of its source.",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-iso"
+      ],
+      "proofSteps": [
+        "Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-center-app",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "At every object x, connectedCenter(a) has component (identity,a).",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenter_app",
+      "statement": "At every object x, connectedCenter(a) has component (identity,a).",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-center"
+      ],
+      "proofSteps": [
+        "Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-center-naturality",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Every actual arrow f:x→y commutes with the indicated components in the naturality square.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenter_naturality",
+      "statement": "Every actual arrow f:x→y commutes with the indicated components in the naturality square.",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-center"
+      ],
+      "proofSteps": [
+        "Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-center-unit-val",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The value of the centre unit for a is connectedCenter(a).",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterUnit_val",
+      "statement": "The value of the centre unit for a is connectedCenter(a).",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-center-unit"
+      ],
+      "proofSteps": [
+        "Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-center-unit-inv",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The inverse value of the centre unit for a is connectedCenter(a inverse).",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterUnit_inv",
+      "statement": "The inverse value of the centre unit for a is connectedCenter(a inverse).",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-center-unit"
+      ],
+      "proofSteps": [
+        "Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-center-equiv-apply",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The forward equivalence map at a is connectedCenterUnit(a).",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterEquiv_apply",
+      "statement": "The forward equivalence map at a is connectedCenterUnit(a).",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-center-equiv"
+      ],
+      "proofSteps": [
+        "Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-center-equiv-symm-apply",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The underlying group element of the inverse at z is the group component of z at (i,star).",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterEquiv_symm_apply",
+      "statement": "The underlying group element of the inverse at z is the group component of z at (i,star).",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-center-equiv"
+      ],
+      "proofSteps": [
+        "Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-sections-equiv-symm-apply",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The inverse central coefficient of s is the group component of its identity-arrow centre value at (i,star).",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedSectionsEquiv_symm_apply",
+      "statement": "The inverse central coefficient of s is the group component of its identity-arrow centre value at (i,star).",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-sections-equiv"
+      ],
+      "proofSteps": [
+        "Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-aut-hom",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The hom of connectedAut(x,g) is the actual product morphism (identity,g).",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedAut_hom",
+      "statement": "The hom of connectedAut(x,g) is the actual product morphism (identity,g).",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-aut"
+      ],
+      "proofSteps": [
+        "Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-aut-inv",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The inverse of connectedAut(x,g) is the actual product morphism (identity,g inverse).",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedAut_inv",
+      "statement": "The inverse of connectedAut(x,g) is the actual product morphism (identity,g inverse).",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-aut"
+      ],
+      "proofSteps": [
+        "Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-iso-fst",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The first hom component of connectedIso(x,y) is the native codiscrete comparison isomorphism hom.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedIso_fst",
+      "statement": "The first hom component of connectedIso(x,y) is the native codiscrete comparison isomorphism hom.",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-iso"
+      ],
+      "proofSteps": [
+        "Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-iso-snd",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The second hom component of connectedIso(x,y) is the native equality isomorphism hom between the SingleObj objects.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedIso_snd",
+      "statement": "The second hom component of connectedIso(x,y) is the native equality isomorphism hom between the SingleObj objects.",
+      "hypotheses": [
+        "C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I.",
+        "The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor.",
+        "Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/connected-band-fixture-connected-iso"
+      ],
+      "proofSteps": [
+        "Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law."
+      ],
+      "acceptance": [
+        "Use actual native categories, arrows, automorphisms, centre units and compatible sections.",
+        "Preserve both directions of every equivalence and the precise centrality condition; these point fixtures do not settle the SF1 descended-slice or D0 classifying-stack comparisons."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.ConnectedBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-connected-band-fixtures-7e92bd",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored connected and nonabelian point-fixture deductions",
+          "match": "The source supplies the gerbe definition and the abelian-inertia hypothesis. The explicit category-centre equivalences, image criterion and finite examples are authored deductions, not additional theorems claimed to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -14008,7 +15566,7 @@
         "The gerbe, banding, neutralization, derived-H2 route, compatible profinite limits, torsor twisting and prime-to-p inertia branches are partial; resolve each recorded proof gap and request before closure.",
         "Import ordinary stacks from D0 and spaces/sites/diagonals from SF1. Algebraic/Deligne–Mumford properties, algebraicity of quotient stacks and coherent-sheaf moduli stacks, and exact Artin moduli criteria remain undecomposed.",
         "Finite-field rational-point atlases, stack differentials/degree/local-character adapters and groupoid mass remain pending at their paper locators. Import stable pointed-curve moduli from StableReductionPartII:key/moduli-curves and elliptic comparisons from ModularCurves1E/4A.",
-        "Native constant point diagrams now instantiate the connected C3 gerbe, two-component C3 stack that is not a gerbe, and two-component trivial-inertia stack that is not a gerbe. The actual compatible-centre subgroup has cardinalities three, nine and one in the stated cases; evaluation is bijective in the connected case and noninjective in the disconnected case, with a genuine nonidentity-section witness. The generic constant-diagram equivalence retains all slice arrows and needs no topology or terminal object. Still establish the actual SF1 descended-slice comparison, the comparison with D0 torsor/classifying-stack carriers, the connected two-object and nonabelian S3 fixtures, the prescribed nonconstant restriction-chain and terminal-free two-chain fixtures, and the nonneutral O(1) root-gerbe instance. No stage, other gap, request or reserved key is closed."
+        "The incoming constant point fixtures remain. The connected two-object C3 gerbe now has exactly three actual compatible sections, with bijective evaluation at both objects. Its distinct objects are joined by actual arrows. The one-object S3 diagram is an actual gerbe but has only one compatible central section; evaluation is injective and is not surjective, and the transposition (0 1) is explicitly not attained. For arbitrary G the connected-fibre evaluation image is exactly its native centre subgroup. Still establish the actual SF1 descended-slice comparison, the D0 torsor/classifying-stack comparison, the prescribed nonconstant restriction-chain and terminal-free two-chain fixtures, and the nonneutral O(1) root-gerbe instance. The constant-diagram generality does not instantiate the nonconstant tests. No stage, other gap, request or reserved key is closed."
       ]
     },
     {
@@ -14040,7 +15598,7 @@
   "gaps": [
     {
       "title": "Compatibility of the intrinsic band over varying slice objects",
-      "detail": "Native constant point diagrams now instantiate the connected C3 gerbe, two-component C3 stack that is not a gerbe, and two-component trivial-inertia stack that is not a gerbe. The actual compatible-centre subgroup has cardinalities three, nine and one in the stated cases; evaluation is bijective in the connected case and noninjective in the disconnected case, with a genuine nonidentity-section witness. The generic constant-diagram equivalence retains all slice arrows and needs no topology or terminal object. Still establish the actual SF1 descended-slice comparison, the comparison with D0 torsor/classifying-stack carriers, the connected two-object and nonabelian S3 fixtures, the prescribed nonconstant restriction-chain and terminal-free two-chain fixtures, and the nonneutral O(1) root-gerbe instance. No stage, other gap, request or reserved key is closed.",
+      "detail": "The incoming constant point fixtures remain. The connected two-object C3 gerbe now has exactly three actual compatible sections, with bijective evaluation at both objects. Its distinct objects are joined by actual arrows. The one-object S3 diagram is an actual gerbe but has only one compatible central section; evaluation is injective and is not surjective, and the transposition (0 1) is explicitly not attained. For arbitrary G the connected-fibre evaluation image is exactly its native centre subgroup. Still establish the actual SF1 descended-slice comparison, the D0 torsor/classifying-stack comparison, the prescribed nonconstant restriction-chain and terminal-free two-chain fixtures, and the nonneutral O(1) root-gerbe instance. The constant-diagram generality does not instantiate the nonconstant tests. No stage, other gap, request or reserved key is closed.",
       "neededBy": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-sheaf",
@@ -14048,7 +15606,8 @@
       ],
       "previousDetail": "Stacks8.11.8 explicitly omits this final verification. Check independence under refinements and the composition law for all restriction maps before claiming the construction source-closed. This continuation supplies15 explicit compatible-center-section leaves with cover/refinement, mapId/mapComp and restriction identity/composition proof outlines. The mathematical varying-base route is now decomposed; implement the new native signatures, verify sectionwise sheaf descent and the SF1 slice-glued carrier comparison, and elaborate before claiming this gap closed. The chosen-band coefficient-to-center and comparison/reindexing branch now has native proofs; the general Hom-gluing and evaluation-locality obligations, a locally glued inverse, and the actual SF1 descended-slice comparison remain open. Codex codex-a71f92 supplies native evaluation-locality, covering-sieve separatedness, gerbe evaluation injectivity and fixed-band coefficient injectivity; these proofs do not depend on the admitted central-section sheaf theorem. General Hom-gluing, abelian-inertia surjectivity, the locally glued inverse and the actual SF1 descended-slice comparison are still open. This continuation checks the specialized matching-central-family transition, native descent isomorphism and fully faithful descended automorphism, retaining the inverse. The current continuation proves fibre-morphism naturality and constructs the actual fibre-centre unit, with inverse and uniqueness. Compatibility under arbitrary base restriction on pulled-back covers and assembly into a global central section remain unfinished; neither the sheaf theorem nor evaluation surjectivity follows from the fibre-centre receipt.",
       "previousChosenBandDetail": "The compatible-centre construction retains its previous native cover/gluing/sheaf/evaluation receipts. The fixed-band coefficient comparison now has a native local-to-global inverse: actual local gerbe objects produce matching coefficients, the prescribed sheaf A glues them, and joint covering separatedness proves the section round trip. Both inverse laws, restriction compatibility and independence of chosen local object families are checked without a global object. This resolves the chosen-band sectionwise-inverse sub-obligation only. Package the full compatible sheaf isomorphism and compare with the actual SF1 descended slice sheaf; instantiate the connected/disconnected point sites, restriction-chain site and nonneutral O(1) root gerbe. No complete intrinsic-band, reserved-key or stage closure is claimed.",
-      "previousPointFixtureDetail": "The prescribed-band coefficient comparison now has an actual native natural isomorphism and a full sheaf isomorphism into any existing packaging of the precise compatible-centre presheaf. Its transported forward map is exactly c_b and its inverse is the established compatible sectionwise inverse. All base-arrow/fibre-object evaluation equations determine the sheaf isomorphism uniquely. No global gerbe object, terminal object or neutrality is assumed. This discharges the fixed-band full-sheaf-comparison sub-obligation only. Establish the comparison with the actual SF1 descended slice sheaf and instantiate the connected/disconnected point sites, restriction-chain site and nonneutral O(1) root gerbe before intrinsic-band closure. The stronger general prestack-sheaf receipt is historical and is not rerun here; no stage or reserved-key closure is claimed."
+      "previousPointFixtureDetail": "The prescribed-band coefficient comparison now has an actual native natural isomorphism and a full sheaf isomorphism into any existing packaging of the precise compatible-centre presheaf. Its transported forward map is exactly c_b and its inverse is the established compatible sectionwise inverse. All base-arrow/fibre-object evaluation equations determine the sheaf isomorphism uniquely. No global gerbe object, terminal object or neutrality is assumed. This discharges the fixed-band full-sheaf-comparison sub-obligation only. Establish the comparison with the actual SF1 descended slice sheaf and instantiate the connected/disconnected point sites, restriction-chain site and nonneutral O(1) root gerbe before intrinsic-band closure. The stronger general prestack-sheaf receipt is historical and is not rerun here; no stage or reserved-key closure is claimed.",
+      "previousConnectedFixtureDetail": "Native constant point diagrams now instantiate the connected C3 gerbe, two-component C3 stack that is not a gerbe, and two-component trivial-inertia stack that is not a gerbe. The actual compatible-centre subgroup has cardinalities three, nine and one in the stated cases; evaluation is bijective in the connected case and noninjective in the disconnected case, with a genuine nonidentity-section witness. The generic constant-diagram equivalence retains all slice arrows and needs no topology or terminal object. Still establish the actual SF1 descended-slice comparison, the comparison with D0 torsor/classifying-stack carriers, the connected two-object and nonabelian S3 fixtures, the prescribed nonconstant restriction-chain and terminal-free two-chain fixtures, and the nonneutral O(1) root-gerbe instance. No stage, other gap, request or reserved key is closed."
     },
     {
       "title": "Contracted-product composition and universal property for change of band",
@@ -15985,5 +17544,25 @@
         "scriptSha256": "f0fb6b83a591597ba3fd418f941124f125a503254386d372e499f0bb789983d2"
       }
     }
-  ]
+  ],
+  "connectedFixtureContinuation": {
+    "worker": "Codex — codex-7e92bd",
+    "issue": 672,
+    "claimComment": 5963931813,
+    "botConfirmation": 5963932987,
+    "date": "2026-10-03",
+    "base": "ee97ffa470e12bee2fcac61861947851144e9763",
+    "publicationBase": "14122f5410315c7254b29874b6b80bf3f7bdd159",
+    "archiveCommit": "ae20f09bc031966a15d89254b4305cd2b572bbbb",
+    "nativeSha256": "e3dc0ac303c2e361c03e34542c9e5f1c7cdc5ee1759c3f44a96fa753858bebe6",
+    "nativeLines": 2604,
+    "nativeExamples": 101,
+    "nativeAxiomAudits": 116,
+    "newDeclarations": 29,
+    "newTests": 28,
+    "incomingNodeObjectsPreserved": 211,
+    "incomingProofSha256": "1d7ad653a8ea6f316a5b7482d2353eb65ad010cfa8b69a8f01475322ad7944b2",
+    "fullSuggestedStatus": "UNCOMPILED: required TauCeti LongExactSequence object file is absent and existing TauCeti build checkout differs from the source pin. The complete Mathlib-only extraction checks with 278 expected admission warnings only.",
+    "scopeStatus": "Partial; all implementationStatus values remain unchecked; no stage or reserved key closed."
+  }
 }
