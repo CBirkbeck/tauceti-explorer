@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Partial continuation: preserve all 61 inherited nodes and add eleven R03.3 declarations comparing the native stable-adic Rees module quotient with the actual associated graded module. Reuse native Rees carriers and quotient scalar descent; specify the coefficient denominator, piece inclusions, homogeneous action by the same graded ring, finite expansion, degree-zero generation, finite generation for finite M and the explicit regular-module specialization. All eight stages remain open. Graded Hilbert–Serre, dimension and every original source-route obligation remain gaps. The full Mathlib-only suggested file elaborates; all mathematical implementations remain unchecked. This continuation registers the native natural-indexed grading of the existing adic Rees ring and module through seven precise adapters, without changing the underlying carriers; polynomial induction remains open. Codex — codex-a71f92 integrates six finite-variable jet adapters from the plane-curve handoff: variable-ideal powers/order, denominator containment, native shifted map with projection, exact-order injectivity, right-exactness and the separate small-index branch. All 79 inherited nodes are unchanged; the general Hilbert–Serre and multiplicity comparisons remain open. This continuation adds the native total-jet kernel, polynomial equivalence, monomial basis and two-variable field-dimension computation; built double quotients and surjective scalar length restriction are cited without duplicate nodes. Codex — codex-5ebb6f adds the native series residue-field equivalence, coefficient surjectivity, extended-natural length comparison and finite-dimensional specialization, promotes the existing jet-finiteness API, and states total-jet R-module lengths. Seven declaration nodes and three APIs are added; all 89 inherited node objects remain unchanged. The residue and length foundation has an admission-free checked prototype; the submitted signatures and all implementation statuses remain unchecked. Integrates the credited finite plane-curve jet proof into nine unchecked native declarations, with all-index length and sharp cumulative postulation; scope remains partial. Codex — codex-rtOQ9t adds three reusable quotient-ring Hilbert–Samuel API lemmas and six actual boundary examples, refines the plane-curve adapter to their specialization, and retains all source/closure boundaries. This finite-variable continuation separates algebraic monomial-power membership, the order lower bound and a finite degree-r factorization; their admission-free native prototypes assemble the existing ideal-power/order equivalence without a domain assumption. The canonical plan remains partial and unchecked. Codex — codex-7e92bd refines the total-jet kernel/equivalence/basis/count proof chains through six declaration-sized coefficient and cardinality adapters, with an admission-free native prototype covering the actual polynomial equivalence, coefficient coordinates, monomial basis and all-cutoff two-variable count. All inherited general multiplicity and patching obligations remain open. The exact-order variable-ideal preimage now has a separate lemma, and admission-free native prototypes connect the actual shifted multiplication/projection to the preceding principal-quotient proofs. The canonical suggested bodies and all stage coverage remain unchecked/partial.",
+  "summary": "Partial continuation: preserve all 61 inherited nodes and add eleven R03.3 declarations comparing the native stable-adic Rees module quotient with the actual associated graded module. Reuse native Rees carriers and quotient scalar descent; specify the coefficient denominator, piece inclusions, homogeneous action by the same graded ring, finite expansion, degree-zero generation, finite generation for finite M and the explicit regular-module specialization. All eight stages remain open. Graded Hilbert–Serre, dimension and every original source-route obligation remain gaps. The full Mathlib-only suggested file elaborates; all mathematical implementations remain unchecked. This continuation registers the native natural-indexed grading of the existing adic Rees ring and module through seven precise adapters, without changing the underlying carriers; polynomial induction remains open. Codex — codex-a71f92 integrates six finite-variable jet adapters from the plane-curve handoff: variable-ideal powers/order, denominator containment, native shifted map with projection, exact-order injectivity, right-exactness and the separate small-index branch. All 79 inherited nodes are unchanged; the general Hilbert–Serre and multiplicity comparisons remain open. This continuation adds the native total-jet kernel, polynomial equivalence, monomial basis and two-variable field-dimension computation; built double quotients and surjective scalar length restriction are cited without duplicate nodes. Codex — codex-5ebb6f adds the native series residue-field equivalence, coefficient surjectivity, extended-natural length comparison and finite-dimensional specialization, promotes the existing jet-finiteness API, and states total-jet R-module lengths. Seven declaration nodes and three APIs are added; all 89 inherited node objects remain unchanged. The residue and length foundation has an admission-free checked prototype; the submitted signatures and all implementation statuses remain unchecked. Integrates the credited finite plane-curve jet proof into nine unchecked native declarations, with all-index length and sharp cumulative postulation; scope remains partial. Codex — codex-rtOQ9t adds three reusable quotient-ring Hilbert–Samuel API lemmas and six actual boundary examples, refines the plane-curve adapter to their specialization, and retains all source/closure boundaries. This finite-variable continuation separates algebraic monomial-power membership, the order lower bound and a finite degree-r factorization; their admission-free native prototypes assemble the existing ideal-power/order equivalence without a domain assumption. The canonical plan remains partial and unchecked. Codex — codex-7e92bd refines the total-jet kernel/equivalence/basis/count proof chains through six declaration-sized coefficient and cardinality adapters, with an admission-free native prototype covering the actual polynomial equivalence, coefficient coordinates, monomial basis and all-cutoff two-variable count. All inherited general multiplicity and patching obligations remain open. The exact-order variable-ideal preimage now has a separate lemma, and admission-free native prototypes connect the actual shifted multiplication/projection to the preceding principal-quotient proofs. The canonical suggested bodies and all stage coverage remain unchecked/partial. Native finite-plane-curve graded lengths and exact rational postulation now distinguish the two sharp thresholds, including characteristic-two and zero/unit boundaries.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1893,6 +1893,60 @@
         "module": "Mathlib/RingTheory/Ideal/Span.lean",
         "provides": "The principal ideal of x is zero exactly when x is zero.",
         "checked": "Actual statement, ambient assumptions and displayed proof read at the exact pin on 2026-10-03 by Codex — codex-7e92bd; HS-EQUATION-LENGTH-PIN records the bounded read and source hash."
+      },
+      {
+        "ref": "mathlib:ENat.toNat_natCast",
+        "provides": "Native toNat of a finite natural cast is exactly the original number.",
+        "module": "Mathlib.Data.ENat.Basic",
+        "sourceFile": "Mathlib/Data/ENat/Basic.lean",
+        "sourceLine": 121,
+        "sourceSha256": "bafb690a7dfcf08866c2f499a1349d0d0ec3d45b7f3d6c5027e4af62238f1377",
+        "checked": "Complete declaration and relevant ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact name verified in the pinned declaration index. Earlier baseline records retain their historical reading provenance."
+      },
+      {
+        "ref": "mathlib:ENat.natCast_ne_top",
+        "provides": "Every native natural cast in extended naturals is different from infinity.",
+        "module": "Mathlib.Data.ENat.Basic",
+        "sourceFile": "Mathlib/Data/ENat/Basic.lean",
+        "sourceLine": 180,
+        "sourceSha256": "bafb690a7dfcf08866c2f499a1349d0d0ec3d45b7f3d6c5027e4af62238f1377",
+        "checked": "Complete declaration and relevant ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact name verified in the pinned declaration index. Earlier baseline records retain their historical reading provenance."
+      },
+      {
+        "ref": "mathlib:ENat.natCast_toNat_eq_self",
+        "provides": "The natural-value cast recovers exactly an extended natural value precisely when it is not infinity.",
+        "module": "Mathlib.Data.ENat.Monoid",
+        "sourceFile": "Mathlib/Data/ENat/Monoid.lean",
+        "sourceLine": 71,
+        "sourceSha256": "fa7c2cbada9314448a3089c9aa2b60a8497b22fd093bced0b77d9ae97f916448",
+        "checked": "Complete declaration and relevant ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact name verified in the pinned declaration index. Earlier baseline records retain their historical reading provenance."
+      },
+      {
+        "ref": "mathlib:Nat.choose_eq_zero_iff",
+        "provides": "The native binomial vanishes exactly when the upper argument is smaller than the lower argument.",
+        "module": "Mathlib.Data.Nat.Choose.Basic",
+        "sourceFile": "Mathlib/Data/Nat/Choose/Basic.lean",
+        "sourceLine": 122,
+        "sourceSha256": "3abe93f2b0d22bf844405a917c97a6677a02d39df76429280df4b5ad0dfc6b0d",
+        "checked": "Complete declaration and relevant ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact name verified in the pinned declaration index. Earlier baseline records retain their historical reading provenance."
+      },
+      {
+        "ref": "mathlib:Nat.choose_le_choose",
+        "provides": "Native binomial counts are monotone in the upper natural argument.",
+        "module": "Mathlib.Data.Nat.Choose.Basic",
+        "sourceFile": "Mathlib/Data/Nat/Choose/Basic.lean",
+        "sourceLine": 351,
+        "sourceSha256": "3abe93f2b0d22bf844405a917c97a6677a02d39df76429280df4b5ad0dfc6b0d",
+        "checked": "Complete declaration and relevant ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact name verified in the pinned declaration index. Earlier baseline records retain their historical reading provenance."
+      },
+      {
+        "ref": "mathlib:Nat.cast_choose_two",
+        "provides": "The existing binomial coefficient cast into a division ring with nonzero 2 equals a(a−1)/2; apply it in ℚ, not the coefficient field.",
+        "module": "Mathlib.Data.Nat.Choose.Cast",
+        "sourceFile": "Mathlib/Data/Nat/Choose/Cast.lean",
+        "sourceLine": 44,
+        "sourceSha256": "bb2345595880ff28fff3cdd8219bcb5bf28659eb4d39de65d3bd1df1476c15bc",
+        "checked": "Complete declaration and relevant ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact name verified in the pinned declaration index. Earlier baseline records retain their historical reading provenance."
       }
     ]
   },
@@ -2691,6 +2745,20 @@
         "Mathlib/RingTheory/LocalRing/Length.lean": "e9ce787da9f1184f805ecc503de117c396d2242e4d7ff24809a8e5cc7f47b5b4",
         "Mathlib/RingTheory/MvPowerSeries/Order.lean": "cda7e4c6c23c83c61b97a8b365d95faaf43cec5996a3c4aada0401ebe9ecdd34"
       }
+    },
+    {
+      "id": "HS-POSTULATION-PIN-rtOQ9t",
+      "title": "Exact native plane-curve postulation proof continuation",
+      "authors": "Mathlib contributors; authored continuation by Codex — codex-rtOQ9t, retaining credited prior proofs",
+      "edition": "Pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "readSections": [
+        "Native binomial casts and Pascal/monotonicity/zero criterion",
+        "Native quotient inclusion, kernel/range, surjectivity and length exactness",
+        "Native ENat finite-value declarations"
+      ],
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Length.lean",
+      "accessed": "2026-10-03",
+      "read": "Complete selected native statements with ambient hypotheses: binomial casts/Pascal/monotonicity/zero criterion, actual quotient-power inclusion/kernel/range/surjectivity and length exactness, and finite ENat conversions. Fresh Stacks 00K4 opening conventions/Proposition 10.59.5 and complete credited handoff §§1–3; no new whole-paper survey."
     }
   ],
   "nodes": [
@@ -9082,12 +9150,14 @@
       "proofSteps": [
         "Use quotient_length_succ on the actual A-module A. For N≥1 its left term is H(N) and its last term is H(N−1); at N=0 that last quotient is A/top with length zero. This handles the boundary without an undeclared negative index or a separately consumed gradedFunction_zero_degree API.",
         "The sum equals finite H(N), so both summands are finite; convert to natural values, then subtract. Apply the all-index binomial formula at the appropriate nonnegative indices.",
-        "Split N+1≤d and d<N+1; the differences of adjacent triangular numbers give respectively N+1 and d. With d=0 every value is zero. The carrier remains the native quotient inside the actual q^N submodule."
+        "Split N+1≤d and d<N+1; the differences of adjacent triangular numbers give respectively N+1 and d. With d=0 every value is zero. The carrier remains the native quotient inside the actual q^N submodule.",
+        "Consume the separately checked native plane-jet-count-step arithmetic lemma. The actual quotient/function statement, hypotheses and acceptance conditions are unchanged."
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:R03.3/graded-hilbert-function",
         "DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-length-step",
-        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-function"
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-function",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-jet-count-step"
       ],
       "sources": [
         {
@@ -9129,10 +9199,12 @@
       "proofSteps": [
         "The function formula is a finite natural cast, so its toNat is exactly the binomial difference. Do not use toNat on an unproved infinite length.",
         "Split d≤N+2 from N+2<d. In the first case expand the two binomials using choose(n,2)=n(n−1)/2 and the cutoff cases 0,1; the defect is zero. In the second case the source binomial is zero and expanding the ambient triangular number leaves (d−N−1)(d−N−2)/2.",
-        "Carry the minus signs in ℚ; clearing denominator 2 is valid regardless of the field characteristic because lengths have been converted to rational numbers."
+        "Carry the minus signs in ℚ; clearing denominator 2 is valid regardless of the field characteristic because lengths have been converted to rational numbers.",
+        "Consume the separately checked native plane-jet-binomial-defect arithmetic lemma. The actual quotient/function statement, hypotheses and acceptance conditions are unchanged."
       ],
       "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-function"
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-function",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-jet-binomial-defect"
       ],
       "sources": [
         {
@@ -10495,6 +10567,294 @@
           "statement": "Over F₂, the actual coefficient dimension of k[[x,y]]/((x⁴)+(x,y)^5) is 14, agreeing with the independently derived R-length. This is a coefficient-rank computation on the native quotient, not its definition."
         }
       ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/plane-jet-binomial-defect",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Rational defect of the plane-jet count",
+      "declaration": "TauCeti.HilbertSamuel.planeJetCount_defect",
+      "statement": "For all natural d,N, cast [choose(N+2,2)−choose(N+2−d,2)] to ℚ and subtract d(N+1)−d(d−1)/2 in ℚ. The result is choose(d−N−1,2), cast to ℚ. Every subtraction inside a binomial argument and the first count difference is natural; subtraction in the polynomial and defect is rational.",
+      "hypotheses": [
+        "d,N are arbitrary natural numbers; all rational arithmetic takes place in ℚ independently of any coefficient characteristic."
+      ],
+      "proofSteps": [
+        "Use monotonicity to justify casting the natural count difference to a rational difference.",
+        "When d≤N+2 the opposite defect binomial vanishes. Expand the two native binomials with the rational cast formula and substitute the exact natural-subtraction cast; the polynomial identity follows.",
+        "When N+2<d, the second source binomial vanishes. Cast d−N−1 using the proved subtraction bounds and expand the remaining two binomials. Rational arithmetic proves the identity without a condition on the coefficient field characteristic."
+      ],
+      "prerequisites": [
+        "mathlib:Nat.cast_choose_two",
+        "mathlib:Nat.choose_le_choose",
+        "mathlib:Nat.choose_eq_zero_of_lt"
+      ],
+      "acceptance": [
+        "For all natural d,N, cast [choose(N+2,2)−choose(N+2−d,2)] to ℚ and subtract d(N+1)−d(d−1)/2 in ℚ. The result is choose(d−N−1,2), cast to ℚ. Every subtraction inside a binomial argument and the first count difference is natural; subtraction in the polynomial and defect is rational."
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-CURVE-POSTULATION",
+          "locator": "§§2.4–3; authored deductions, not a printed general Hilbert–Serre theorem",
+          "excerpt": "These are different thresholds",
+          "match": "The credited native-carrier postulation calculation is checked here against actual Mathlib quotient modules. Selected §§1–3 freshly read on 2026-10-03."
+        },
+        {
+          "sourceId": "HS-POSTULATION-PIN-rtOQ9t",
+          "locator": "Native Pascal/choose casts and ENat finite-value statements; exact-pin proof continuation",
+          "excerpt": "Length is additive in exact sequences",
+          "match": "Built exact-sequence length and finite natural-value conversion are imported. No second length, graded-module or Hilbert-polynomial carrier is planned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "CurvePostulationTests.negative_polynomial",
+          "kind": "non-example",
+          "statement": "For the same actual characteristic-two quartic, H(0).toNat−(−2)=3 in ℚ. Rational polynomial values and rational subtraction are not truncated at zero."
+        },
+        {
+          "name": "CurvePostulationTests.unit_defect",
+          "kind": "degenerate",
+          "statement": "For d=0 and every N, the native natural plane-jet count difference is zero before its rational cast."
+        },
+        {
+          "name": "CurvePostulationTests.small_cutoff_defect",
+          "kind": "non-example",
+          "statement": "For d=100,N=2, the small ambient jet count 6 minus the rational polynomial value equals choose(97,2); the low-cutoff defect is retained."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/plane-jet-count-step",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Successive plane-jet count difference",
+      "declaration": "TauCeti.HilbertSamuel.planeJetCount_step",
+      "statement": "For all natural d,N, choose(N+2,2)−choose(N+2−d,2) = min(N+1,d) + [choose(N+1,2)−choose(N+1−d,2)] in ℕ. All subtractions are natural, including the small cutoffs and d=0.",
+      "hypotheses": [
+        "d,N are arbitrary natural numbers; all rational arithmetic takes place in ℚ independently of any coefficient characteristic."
+      ],
+      "proofSteps": [
+        "Apply the existing Pascal recurrence to the ambient triangular number.",
+        "For d≤N+1, the second triangular argument is also a successor. Monotonicity bounds the subtracted binomial, and the two recurrences give the required equality with min=d.",
+        "For N+1<d, both subtracted binomials vanish and min=N+1. This separately retains d=0, N=0 and the low-index branch."
+      ],
+      "prerequisites": [
+        "mathlib:Nat.choose_succ_succ",
+        "mathlib:Nat.choose_le_choose",
+        "mathlib:Nat.choose_eq_zero_of_lt"
+      ],
+      "acceptance": [
+        "For all natural d,N, choose(N+2,2)−choose(N+2−d,2) = min(N+1,d) + [choose(N+1,2)−choose(N+1−d,2)] in ℕ. All subtractions are natural, including the small cutoffs and d=0."
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-CURVE-POSTULATION",
+          "locator": "§§2.4–3; authored deductions, not a printed general Hilbert–Serre theorem",
+          "excerpt": "These are different thresholds",
+          "match": "The credited native-carrier postulation calculation is checked here against actual Mathlib quotient modules. Selected §§1–3 freshly read on 2026-10-03."
+        },
+        {
+          "sourceId": "HS-POSTULATION-PIN-rtOQ9t",
+          "locator": "Native Pascal/choose casts and ENat finite-value statements; exact-pin proof continuation",
+          "excerpt": "Length is additive in exact sequences",
+          "match": "Built exact-sequence length and finite natural-value conversion are imported. No second length, graded-module or Hilbert-polynomial carrier is planned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-graded-stable",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Sharp graded stabilization of a formal plane curve",
+      "declaration": "TauCeti.HilbertSamuel.planeCurve_graded_stable_iff",
+      "statement": "If native order(f)=d, then the actual successive-quotient length G_N of A=k[[x,y]]/(f) at the image q of (x,y) equals d in ℕ∞ if and only if d≤N+1. Hence its first stable index is max(0,d−1), distinct from the cumulative agreement index max(0,d−2).",
+      "hypotheses": [
+        "k is an arbitrary field. All rings, ideals, submodules, quotients, scalar actions, functions and lengths are the actual native carriers in the inherited definitions. No reducedness, irreducibility, algebraic closure, perfection or characteristic-zero assumption is imposed.",
+        "For a finite-order statement, f∈MvPowerSeries (Fin 2) k and native order(f)=(d:ℕ∞); this excludes f=0 and includes units d=0. The predecessor-defect theorem additionally requires 3≤d. The zero-equation theorem has f=0 and no finite d."
+      ],
+      "proofSteps": [
+        "Apply the proved native graded-function formula G_N=min(N+1,d), without replacing its actual quotient module.",
+        "The minimum equals the right term exactly when d≤N+1; natural casts preserve and reflect this inequality. Units d=0 remain included without asserting a local-ring instance on their zero quotient."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-graded-function"
+      ],
+      "acceptance": [
+        "If native order(f)=d, then the actual successive-quotient length G_N of A=k[[x,y]]/(f) at the image q of (x,y) equals d in ℕ∞ if and only if d≤N+1. Hence its first stable index is max(0,d−1), distinct from the cumulative agreement index max(0,d−2)."
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-CURVE-POSTULATION",
+          "locator": "§§2.4–3; authored deductions, not a printed general Hilbert–Serre theorem",
+          "excerpt": "These are different thresholds",
+          "match": "The credited native-carrier postulation calculation is checked here against actual Mathlib quotient modules. Selected §§1–3 freshly read on 2026-10-03."
+        },
+        {
+          "sourceId": "HS-POSTULATION-PIN-rtOQ9t",
+          "locator": "Native Pascal/choose casts and ENat finite-value statements; exact-pin proof continuation",
+          "excerpt": "Length is additive in exact sequences",
+          "match": "Built exact-sequence length and finite natural-value conversion are imported. No second length, graded-module or Hilbert-polynomial carrier is planned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "CurvePostulationTests.char_two_thresholds",
+          "kind": "non-example",
+          "statement": "For actual A=F₂[[x,y]]/(x⁴), H(2).toNat=6 while G(2)≠4 and G(3)=4. Cumulative agreement at index two does not imply graded stabilization there."
+        },
+        {
+          "name": "CurvePostulationTests.graded_threshold",
+          "kind": "characterisation",
+          "statement": "For the actual characteristic-two quartic and every N, G(N)=4 if and only if 3≤N."
+        },
+        {
+          "name": "CurvePostulationTests.unit_graded",
+          "kind": "degenerate",
+          "statement": "For actual A=F₂[[x,y]]/(1) and every N, G(N)=0. No nontrivial local-ring instance on this zero ring is assumed."
+        },
+        {
+          "name": "CurvePostulationTests.smooth_graded",
+          "kind": "computation",
+          "statement": "For actual A=F₂[[x,y]]/(x) and every N, G(N)=1."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-postulation-predecessor",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Unit postulation defect before sharp agreement",
+      "declaration": "TauCeti.HilbertSamuel.planeCurve_postulation_predecessor",
+      "statement": "If native order(f)=d and 3≤d, then the actual cumulative function at N=d−3, converted to a natural number only after the finite-jet theorem, has rational defect exactly 1 from d(N+1)−d(d−1)/2. Thus agreement cannot begin one index before max(0,d−2).",
+      "hypotheses": [
+        "k is an arbitrary field. All rings, ideals, submodules, quotients, scalar actions, functions and lengths are the actual native carriers in the inherited definitions. No reducedness, irreducibility, algebraic closure, perfection or characteristic-zero assumption is imposed.",
+        "For a finite-order statement, f∈MvPowerSeries (Fin 2) k and native order(f)=(d:ℕ∞); this excludes f=0 and includes units d=0. The predecessor-defect theorem additionally requires 3≤d. The zero-equation theorem has f=0 and no finite d."
+      ],
+      "proofSteps": [
+        "Specialize the exact rational postulation-defect formula to N=d−3.",
+        "The assumption 3≤d gives d−(d−3)−1=2 in natural arithmetic; the native binomial choose(2,2)=1 proves sharpness. The argument uses actual cumulative lengths, not a prescribed numerical function."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-postulation-defect"
+      ],
+      "acceptance": [
+        "If native order(f)=d and 3≤d, then the actual cumulative function at N=d−3, converted to a natural number only after the finite-jet theorem, has rational defect exactly 1 from d(N+1)−d(d−1)/2. Thus agreement cannot begin one index before max(0,d−2)."
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-CURVE-POSTULATION",
+          "locator": "§§2.4–3; authored deductions, not a printed general Hilbert–Serre theorem",
+          "excerpt": "These are different thresholds",
+          "match": "The credited native-carrier postulation calculation is checked here against actual Mathlib quotient modules. Selected §§1–3 freshly read on 2026-10-03."
+        },
+        {
+          "sourceId": "HS-POSTULATION-PIN-rtOQ9t",
+          "locator": "Native Pascal/choose casts and ENat finite-value statements; exact-pin proof continuation",
+          "excerpt": "Length is additive in exact sequences",
+          "match": "Built exact-sequence length and finite natural-value conversion are imported. No second length, graded-module or Hilbert-polynomial carrier is planned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "CurvePostulationTests.sharp_predecessor",
+          "kind": "computation",
+          "statement": "For the actual characteristic-two quartic at N=1, H(1).toNat−2=1, exactly the last nonzero cumulative defect."
+        },
+        {
+          "name": "CurvePostulationTests.cumulative_threshold",
+          "kind": "characterisation",
+          "statement": "For the actual characteristic-two quartic and every N, H(N).toNat=4(N+1)−6 in ℚ if and only if 2≤N."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/plane-zero-equation-graded",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Successive-quotient lengths for the zero equation",
+      "declaration": "TauCeti.HilbertSamuel.planeZeroEquation_gradedFunction",
+      "statement": "For every N and the actual A=k[[x,y]]/(0), q=image(x,y), the native gradedFunction q N equals N+1 cast to ℕ∞. The zero equation has infinite native order and belongs to this separate regular-surface branch, rather than the finite-order unit branch.",
+      "hypotheses": [
+        "k is an arbitrary field. All rings, ideals, submodules, quotients, scalar actions, functions and lengths are the actual native carriers in the inherited definitions. No reducedness, irreducibility, algebraic closure, perfection or characteristic-zero assumption is imposed.",
+        "For a finite-order statement, f∈MvPowerSeries (Fin 2) k and native order(f)=(d:ℕ∞); this excludes f=0 and includes units d=0. The predecessor-defect theorem additionally requires 3≤d. The zero-equation theorem has f=0 and no finite d."
+      ],
+      "proofSteps": [
+        "Use the actual native quotient-transition exact sequence over A, with cumulative zero-equation lengths choose(N+2,2).",
+        "At N=0 the right quotient is A/top and has length zero. At a successor the graded summand is finite because the cumulative sum is a finite natural cast; establish this before using toNat.",
+        "Take the natural values of the extended-natural sum, apply Pascal recurrence to the two triangular counts, and recover the graded extended-natural value N+1."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/plane-zero-equation-function",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-length-step",
+        "mathlib:Nat.choose_succ_succ",
+        "mathlib:ENat.toNat_add",
+        "mathlib:ENat.natCast_toNat_eq_self",
+        "mathlib:ENat.natCast_ne_top"
+      ],
+      "acceptance": [
+        "For every N and the actual A=k[[x,y]]/(0), q=image(x,y), the native gradedFunction q N equals N+1 cast to ℕ∞. The zero equation has infinite native order and belongs to this separate regular-surface branch, rather than the finite-order unit branch."
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-CURVE-POSTULATION",
+          "locator": "§§2.4–3; authored deductions, not a printed general Hilbert–Serre theorem",
+          "excerpt": "These are different thresholds",
+          "match": "The credited native-carrier postulation calculation is checked here against actual Mathlib quotient modules. Selected §§1–3 freshly read on 2026-10-03."
+        },
+        {
+          "sourceId": "HS-POSTULATION-PIN-rtOQ9t",
+          "locator": "Native Pascal/choose casts and ENat finite-value statements; exact-pin proof continuation",
+          "excerpt": "Length is additive in exact sequences",
+          "match": "Built exact-sequence length and finite natural-value conversion are imported. No second length, graded-module or Hilbert-polynomial carrier is planned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "CurvePostulationTests.zero_equation_growth",
+          "kind": "non-example",
+          "statement": "For actual A=F₂[[x,y]]/(0), native order(0)=∞ and G(N)=N+1 for every N. The zero equation cannot be assigned the finite order zero of a unit."
+        }
+      ]
     }
   ],
   "baselineCoverage": [
@@ -10626,7 +10986,8 @@
         "The general quotient-ring comparison, equation-containment adapter, quotient antitonicity and exact existing plane-curve scalar comparison now have admission-free native proof prototypes and six checked boundary examples. Canonical signatures remain admitted and all nodes unchecked. The numerical jet counts, ideal-power/order theorem, shifted multiplication/exactness, tangent-cone kernel, curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre, completion, Artin–Rees, associativity and every inherited routed-paper obligation remain open.",
         "The algebraic variable-ideal-power/order equivalence now has four admission-free native proofs and eleven boundary examples. Canonical bodies remain admitted and all nodes unchecked. Actual shifted series injectivity, jet kernel/equivalence/basis and counts, all-index curve lengths, tangent-cone kernel, curve dimension, general intrinsic/ambient multiplicity, Hilbert–Serre, completion, Artin–Rees and every routed-paper obligation remain open.",
         "The codex-7e92bd coefficient-coordinate continuation now supplies admission-free native prototypes for total truncation kernel/surjectivity, the actual polynomial equivalence, low-coefficient linear equivalence, monomial basis, finite generation and all-cutoff two-variable rank/cardinality. This supersedes the preceding prototype omissions for those adapters only. Canonical bodies and all implementation statuses stay unchecked. Shifted series exact-order injectivity/exactness, all-index curve lengths, tangent cone and curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre, Artin–Rees, degree/dimension, completion, associativity, all eight stage targets and all routed-paper obligations remain open.",
-        "The codex-J6LwjP exact-order continuation supplies checked native prototypes for the shifted denominator, actual map/projection agreement, exact-order injectivity, right exactness and small-index projection. Canonical bodies remain admitted. Combine these with the existing total-jet basis/count and quotient/scalar comparison to prove all-index curve lengths; then prove the tangent-cone kernel, curve dimension and intrinsic/ambient multiplicity comparisons. Preserve the separate small-index, zero/unit and zero-divisor boundaries. General Hilbert–Serre induction, degree/dimension, Artin–Rees, associativity, completion and every routed-paper/stage obligation remain open."
+        "The codex-J6LwjP exact-order continuation supplies checked native prototypes for the shifted denominator, actual map/projection agreement, exact-order injectivity, right exactness and small-index projection. Canonical bodies remain admitted. Combine these with the existing total-jet basis/count and quotient/scalar comparison to prove all-index curve lengths; then prove the tangent-cone kernel, curve dimension and intrinsic/ambient multiplicity comparisons. Preserve the separate small-index, zero/unit and zero-divisor boundaries. General Hilbert–Serre induction, degree/dimension, Artin–Rees, associativity, completion and every routed-paper/stage obligation remain open.",
+        "The actual native graded function, general quotient-transition length proof, exact rational postulation defect, sharp cumulative threshold, sharp graded threshold, unit defect just before agreement, and separate zero-equation graded branch now have admission-free proof prototypes. All ten new named tests use actual characteristic-two quotient modules or the exact native integer/rational count expressions. Canonical bodies remain admitted and all nodes unchecked. Still prove the full tangent-cone kernel and dimension of the actual curve ring, compare with the existing cumulative polynomial/intrinsic and ambient multiplicities without assuming generic existence, and discharge general Hilbert–Serre induction, support/degree, Artin–Rees, localization lengths, completion, associativity, all eight stage targets and every inherited routed-paper obligation. The graded and cumulative sharp thresholds are distinct; the zero equation has no finite order."
       ]
     },
     {
@@ -12122,5 +12483,153 @@
     },
     "proofArchive": "6292c37bd3730574a75b771115a52ad684dcea31",
     "publicationBase": "9a3905af27dd59b81ab74e7df6ff86d5398eeb12"
+  },
+  "postulationProofContinuation": {
+    "agent": "Codex — codex-rtOQ9t",
+    "date": "2026-10-03",
+    "status": "partial",
+    "winningClaim": 5964192823,
+    "confirmation": 5964193904,
+    "base": "14122f5410315c7254b29874b6b80bf3f7bdd159",
+    "nodesAdded": 5,
+    "nativeMathematicalProofs": 9,
+    "testsAdded": 10,
+    "preservedWholeNodes": 123,
+    "preservedContracts": 125,
+    "changedNodes": {
+      "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-graded-function": {
+        "only": [
+          "prerequisites",
+          "proofSteps"
+        ],
+        "addition": "DeformationAndDerivedPatchingAlgebra:R03.3/plane-jet-count-step"
+      },
+      "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-postulation-defect": {
+        "only": [
+          "prerequisites",
+          "proofSteps"
+        ],
+        "addition": "DeformationAndDerivedPatchingAlgebra:R03.3/plane-jet-binomial-defect"
+      }
+    },
+    "remaining": "The actual native graded function, general quotient-transition length proof, exact rational postulation defect, sharp cumulative threshold, sharp graded threshold, unit defect just before agreement, and separate zero-equation graded branch now have admission-free proof prototypes. All ten new named tests use actual characteristic-two quotient modules or the exact native integer/rational count expressions. Canonical bodies remain admitted and all nodes unchecked. Still prove the full tangent-cone kernel and dimension of the actual curve ring, compare with the existing cumulative polynomial/intrinsic and ambient multiplicities without assuming generic existence, and discharge general Hilbert–Serre induction, support/degree, Artin–Rees, localization lengths, completion, associativity, all eight stage targets and every inherited routed-paper obligation. The graded and cumulative sharp thresholds are distinct; the zero equation has no finite order.",
+    "sourceBoundary": "Selected primary conventions and credited authored postulation proofs freshly read; complete applicable reviewed audit rows and exact reserved key/owner; no fresh full source-route or library survey. The predecessor proof archive remains credited verbatim.",
+    "publicationBase": "84e885b95c0ad537079c0fe6fdbb122c8020ac33",
+    "proofArchive": "277c8f6129fe7d98b31c9f204f34a5f0f8214e95",
+    "proofReconstructionSha256": "e1c5ec918c0f64310fdf0e4bd554218e41f5a02514789a902a3bc0f481c25772",
+    "validationScriptSha256": "5d0f57fa88f511d5c9a92b88addb55f2869682bd4ebd47fbf0040ceabab42a7d",
+    "leanChecks": {
+      "Native": {
+        "sourceSha256": "e98df77f9ff9b57b919b0a829e5dd8eb23e52a8c5a6c603609350e727756a5a1",
+        "lines": 1732,
+        "examples": 64,
+        "errors": 0,
+        "warnings": 0,
+        "admissionWarnings": 0,
+        "axiomAudits": 84,
+        "sorryAxInNativeAudits": 0,
+        "availableGiBBeforeCompile": 39,
+        "elapsed": "0:08.80",
+        "maxRSSKiB": 3538664
+      },
+      "Canonical": {
+        "sourceSha256": "8365614bae72634c89a572179f90864b4ad8468c32b57b2dfe1f9e501703f55c",
+        "lines": 2881,
+        "examples": 190,
+        "errors": 0,
+        "warnings": 367,
+        "admissionWarnings": 367,
+        "axiomAudits": 0,
+        "sorryAxInNativeAudits": null,
+        "availableGiBBeforeCompile": 37,
+        "elapsed": "0:26.61",
+        "maxRSSKiB": 3531252
+      }
+    },
+    "validation": {
+      "publicationBase": "84e885b95c0ad537079c0fe6fdbb122c8020ac33",
+      "checker": {
+        "roadmap": "DeformationAndDerivedPatchingAlgebra",
+        "status": "partial",
+        "nodes": 130,
+        "kinds": {
+          "lemma": 84,
+          "theorem": 16,
+          "definition": 8,
+          "construction": 22
+        },
+        "apiItems": 125,
+        "unitTests": 115,
+        "planets": 13,
+        "baselineDeclarations": 274,
+        "prerequisites": {
+          "baseline": 352,
+          "node (this packet)": 198,
+          "node (integrated)": 1
+        },
+        "gaps": 15,
+        "requests": 2,
+        "stagesInScope": 8,
+        "stagesClosed": 0
+      },
+      "errors": [],
+      "warnings": [],
+      "intake": "pass",
+      "preservedContracts": 125,
+      "preservedWholeNodes": 123,
+      "newNodes": 5,
+      "mathHeadersMatched": 9,
+      "newTestTypesMatched": 10,
+      "allAPIItems": 125,
+      "allTests": 166,
+      "nativeAxiomAudits": 84,
+      "canonicalAdmissionWarnings": 367,
+      "nativeSha256": "e98df77f9ff9b57b919b0a829e5dd8eb23e52a8c5a6c603609350e727756a5a1",
+      "canonicalSha256": "8365614bae72634c89a572179f90864b4ad8468c32b57b2dfe1f9e501703f55c",
+      "stageDAG": {
+        "vertices": 3003,
+        "edges": 8623,
+        "acyclic": true
+      },
+      "ownDAG": {
+        "vertices": 130,
+        "edges": 198,
+        "acyclic": true
+      },
+      "scopedCombinedDAG": {
+        "vertices": 3121,
+        "edges": 8952,
+        "acyclic": true
+      },
+      "reachableDeclarations": 131,
+      "externalDeclarations": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/depth-auslander-buchsbaum-and-dimension-bounds"
+      ],
+      "baselineLeaves": 242,
+      "unresolvedReferences": 0,
+      "otherPartsRetained": [
+        "DeformationAndDerivedPatchingAlgebra--R03.6"
+      ],
+      "roadmapDeclarations": 183,
+      "supplierStagePairs": 13,
+      "supplierStagePairsReachable": 12,
+      "inheritedMissingPairs": [
+        [
+          "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+          "DeformationAndDerivedPatchingAlgebra:R03.4"
+        ]
+      ],
+      "acceptedRestructurePairs": 65,
+      "acceptedRestructurePairsAllReachable": true,
+      "stageEdgesUnchanged": true,
+      "otherSkippedPendingUnchanged": true,
+      "ownSkippedPendingEmpty": true,
+      "changedPaths": [
+        "research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md",
+        "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--P7.json",
+        "research/blueprint/readmes/DeformationAndDerivedPatchingAlgebra--P7.md",
+        "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--P7.lean"
+      ]
+    }
   }
 }

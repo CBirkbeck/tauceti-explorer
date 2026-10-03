@@ -1,3 +1,4 @@
+import Mathlib.Data.Nat.Choose.Cast
 import Mathlib.RingTheory.MvPowerSeries.NoZeroDivisors
 import Mathlib.Algebra.Field.ZMod
 import Mathlib.LinearAlgebra.Complex.FiniteDimensional
@@ -2789,4 +2790,92 @@ example :
     let R := MvPowerSeries Empty (ZMod 1)
     let v : Ideal R := Ideal.span (Set.range MvPowerSeries.X)
     Module.Finite (ZMod 1) (R ⧸ (Ideal.span {0} ⊔ v ^ 1)) := by sorry
+end TauCeti.HilbertSamuel
+
+/- Exact postulation continuation. Native proofs are archived separately; these are planning signatures. -/
+namespace TauCeti.HilbertSamuel
+noncomputable section
+lemma planeJetCount_defect (d N : ℕ) :
+    ((Nat.choose (N + 2) 2 - Nat.choose (N + 2 - d) 2 : ℕ) : ℚ) -
+      ((d : ℚ) * ((N : ℚ) + 1) - (d : ℚ) * ((d : ℚ) - 1) / 2) =
+        (Nat.choose (d - N - 1) 2 : ℚ) := by sorry
+
+lemma planeJetCount_step (d N : ℕ) :
+    Nat.choose (N + 2) 2 - Nat.choose (N + 2 - d) 2 =
+      min (N + 1) d + (Nat.choose (N + 1) 2 - Nat.choose (N + 1 - d) 2) := by sorry
+
+variable {k : Type*} [Field k] (f : MvPowerSeries (Fin 2) k)
+lemma planeCurve_graded_stable_iff (d N : ℕ) (hd : f.order = (d : ℕ∞)) :
+    gradedFunction (M := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k))))) (Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k)))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k))))) N = (d : ℕ∞) ↔ d ≤ N + 1 := by sorry
+
+lemma planeCurve_postulation_predecessor (d : ℕ) (hd : f.order = (d : ℕ∞)) (h3 : 3 ≤ d) :
+    ((function (A := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k))))) (M := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k))))) (Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k)))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k))))) (d - 3)).toNat : ℚ) -
+      ((d : ℚ) * ((d - 3 : ℕ) + 1) - (d : ℚ) * ((d : ℚ) - 1) / 2) = 1 := by sorry
+
+lemma planeZeroEquation_gradedFunction (N : ℕ) :
+    let I : Ideal (MvPowerSeries (Fin 2) k) := Ideal.span {(0 : MvPowerSeries (Fin 2) k)}
+    let B := (MvPowerSeries (Fin 2) k) ⧸ I
+    let q := (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → MvPowerSeries (Fin 2) k))).map (Ideal.Quotient.mk I)
+    gradedFunction (M := B) q N = ((N + 1 : ℕ) : ℕ∞) := by sorry
+
+end
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+noncomputable section
+namespace CurvePostulationTests
+local notation "R" => MvPowerSeries (Fin 2) (ZMod 2)
+local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → R))
+local notation "x" => (MvPowerSeries.X (0 : Fin 2) : R)
+local notation "B4" => R ⧸ Ideal.span {x ^ 4}
+local notation "q4" => Ideal.map (Ideal.Quotient.mk (Ideal.span {x ^ 4})) v
+-- test: CurvePostulationTests.char_two_thresholds
+example :
+    ((function (M := B4) q4 2).toNat : ℚ) = 6 ∧
+      gradedFunction (M := B4) q4 2 ≠ 4 ∧ gradedFunction (M := B4) q4 3 = 4 := by sorry
+
+-- test: CurvePostulationTests.negative_polynomial
+example :
+    ((function (M := B4) q4 0).toNat : ℚ) - (-2) = 3 := by sorry
+
+-- test: CurvePostulationTests.sharp_predecessor
+example :
+    ((function (M := B4) q4 1).toNat : ℚ) - 2 = 1 := by sorry
+
+-- test: CurvePostulationTests.graded_threshold
+example (N : ℕ) :
+    gradedFunction (M := B4) q4 N = 4 ↔ 3 ≤ N := by sorry
+
+-- test: CurvePostulationTests.cumulative_threshold
+example (N : ℕ) :
+    ((function (M := B4) q4 N).toNat : ℚ) = 4 * ((N : ℚ) + 1) - 6 ↔ 2 ≤ N := by sorry
+
+-- test: CurvePostulationTests.unit_graded
+example (N : ℕ) :
+    let B := R ⧸ Ideal.span {(1 : R)}
+    let q := (v).map (Ideal.Quotient.mk (Ideal.span {(1 : R)}))
+    gradedFunction (M := B) q N = 0 := by sorry
+
+-- test: CurvePostulationTests.smooth_graded
+example (N : ℕ) :
+    let B := R ⧸ Ideal.span {x}
+    let q := (v).map (Ideal.Quotient.mk (Ideal.span {x}))
+    gradedFunction (M := B) q N = 1 := by sorry
+
+-- test: CurvePostulationTests.zero_equation_growth
+example (N : ℕ) :
+    let B := R ⧸ Ideal.span {(0 : R)}
+    let q := (v).map (Ideal.Quotient.mk (Ideal.span {(0 : R)}))
+    (0 : R).order = ⊤ ∧ gradedFunction (M := B) q N = ((N + 1 : ℕ) : ℕ∞) := by sorry
+
+-- test: CurvePostulationTests.unit_defect
+example (N : ℕ) :
+    ((Nat.choose (N + 2) 2 - Nat.choose (N + 2 - 0) 2 : ℕ) : ℚ) = 0 := by sorry
+
+-- test: CurvePostulationTests.small_cutoff_defect
+example :
+    (Nat.choose 4 2 : ℚ) - ((100 : ℚ) * 3 - 100 * 99 / 2) = Nat.choose 97 2 := by sorry
+
+end CurvePostulationTests
+end
 end TauCeti.HilbertSamuel
