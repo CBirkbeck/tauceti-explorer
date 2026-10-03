@@ -5091,3 +5091,142 @@ example :
 
 end
 end TauCeti.Hodge.ParameterConnection.Intrinsic
+
+namespace TauCeti.Hodge.ParameterConnection.Intrinsic
+noncomputable section
+open scoped TensorProduct
+universe u v w z p q t a
+variable {k R S : Type u} [CommRing k] [CommRing R] [CommRing S]
+  [Algebra k R] [Algebra k S] [Algebra R S]
+variable {W : Type w} [AddCommGroup W] [Module R W] [Module k W]
+variable {Z : Type z} [AddCommGroup Z] [Module R Z]
+variable {V : Type p} [AddCommGroup V] [Module S V] [Module k V]
+variable {Y : Type q} [AddCommGroup Y] [Module S Y]
+variable {Ω : TwoForms k R W Z} {Γ : TwoForms k S V Y}
+variable {E : Type v} [AddCommGroup E] [Module R E]
+variable {F : Type t} [AddCommGroup F] [Module R F]
+variable {G : Type a} [AddCommGroup G] [Module R G] {lam : R}
+
+lemma Preconnection.eq_of_toAddHom_eq (D C : Preconnection Ω lam E)
+    (h : D.toAddHom = C.toAddHom) : D = C := by
+  sorry
+
+variable [IsScalarTower k R W] [IsScalarTower k S V]
+
+lemma Preconnection.affinePullback_transport_eq
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+    (D : Preconnection Ω lam E) (u : E ≃ₗ[R] F) :
+    (D.transport u).affinePullback m =
+      (D.affinePullback m).transport (u.baseChange R S) := by
+  sorry
+
+lemma Preconnection.affinePullback_transport_horizontal
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+    (D : Preconnection Ω lam E) (u : E ≃ₗ[R] F) (x : S ⊗[R] E) :
+    ((D.transport u).affinePullback m).toAddHom ((u.baseChange R S) x) =
+      TensorProduct.map (u.baseChange R S).toLinearMap LinearMap.id
+        ((D.affinePullback m).toAddHom x) := by
+  sorry
+
+lemma Preconnection.affinePullback_transport_horizontal_symm
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+    (D : Preconnection Ω lam E) (u : E ≃ₗ[R] F) (y : S ⊗[R] F) :
+    (D.affinePullback m).toAddHom ((u.baseChange R S).symm y) =
+      TensorProduct.map (u.baseChange R S).symm.toLinearMap LinearMap.id
+        (((D.transport u).affinePullback m).toAddHom y) := by
+  sorry
+
+lemma Preconnection.affinePullback_transport_extend
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+    (D : Preconnection Ω lam E) (u : E ≃ₗ[R] F) (x : (S ⊗[R] E) ⊗[S] V) :
+    ((D.transport u).affinePullback m).extend
+        (TensorProduct.map (u.baseChange R S).toLinearMap LinearMap.id x) =
+      TensorProduct.map (u.baseChange R S).toLinearMap LinearMap.id
+        ((D.affinePullback m).extend x) := by
+  sorry
+
+lemma Preconnection.affinePullback_transport_curvature
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+    (D : Preconnection Ω lam E) (u : E ≃ₗ[R] F) (x : S ⊗[R] E) :
+    ((D.transport u).affinePullback m).curvature ((u.baseChange R S) x) =
+      TensorProduct.map (u.baseChange R S).toLinearMap LinearMap.id
+        ((D.affinePullback m).curvature x) := by
+  sorry
+
+lemma Preconnection.affinePullback_transport_flat_iff
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+    (D : Preconnection Ω lam E) (u : E ≃ₗ[R] F) :
+    (∀ y, ((D.transport u).affinePullback m).curvature y = 0) ↔
+      ∀ x, (D.affinePullback m).curvature x = 0 := by
+  sorry
+
+lemma Preconnection.affinePullback_triangle_source_eq
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+    (D : Preconnection Ω lam E) :
+    (D.affinePullback (TwoForms.Morphism.refl Ω)).affinePullback m =
+      (D.affinePullback m).transport ((TensorProduct.lid R E).symm.baseChange R S) := by
+  sorry
+
+lemma Preconnection.affinePullback_transport_comp_eq
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+    (D : Preconnection Ω lam E) (u : E ≃ₗ[R] F) (v : F ≃ₗ[R] G) :
+    ((D.transport u).transport v).affinePullback m =
+      (D.affinePullback m).transport ((u.baseChange R S).trans (v.baseChange R S)) := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.Intrinsic
+
+namespace TauCeti.Hodge.ParameterConnection.Intrinsic
+noncomputable section
+open scoped TensorProduct
+universe u v w z p q t
+variable {k R S : Type u} [CommRing k] [CommRing R] [CommRing S]
+  [Algebra k R] [Algebra k S] [Algebra R S]
+variable {W : Type w} [AddCommGroup W] [Module R W] [Module k W]
+variable {Z : Type z} [AddCommGroup Z] [Module R Z]
+variable {V : Type p} [AddCommGroup V] [Module S V] [Module k V]
+variable {Y : Type q} [AddCommGroup Y] [Module S Y]
+variable {Ω : TwoForms k R W Z} {Γ : TwoForms k S V Y}
+variable [IsScalarTower k R W] [IsScalarTower k S V]
+variable {E : Type v} [AddCommGroup E] [Module R E]
+variable {F : Type t} [AddCommGroup F] [Module R F] {lam : R}
+
+-- test: TransportPullbackTests.zero_section
+example (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+    (D : Preconnection Ω lam E) (u : E ≃ₗ[R] F) :
+    ((D.transport u).affinePullback m).toAddHom ((u.baseChange R S) 0) = 0 := by
+  sorry
+
+-- test: TransportPullbackTests.nonconstant_source_triangle
+example :
+    ∃ Ω : TwoForms ℤ (Polynomial ℤ) (Polynomial ℤ) (Fin 0 → Polynomial ℤ),
+      Ω.d0 Polynomial.X = 1 ∧
+      let D := Preconnection.unit Ω Polynomial.X
+      let m := TwoForms.Morphism.refl Ω
+      let c := (TensorProduct.lid (Polynomial ℤ) (Polynomial ℤ)).toLinearMap.comp
+        (TensorProduct.lid (Polynomial ℤ) ((Polynomial ℤ) ⊗[Polynomial ℤ] (Polynomial ℤ))).toLinearMap
+      let y := TensorProduct.lid (Polynomial ℤ) (Polynomial ℤ)
+        (TensorProduct.map c LinearMap.id
+          (((D.affinePullback m).affinePullback m).toAddHom
+            ((1 : Polynomial ℤ) ⊗ₜ[Polynomial ℤ]
+              ((1 : Polynomial ℤ) ⊗ₜ[Polynomial ℤ] Polynomial.X))))
+      y = Polynomial.X ∧ y ≠ 0 := by
+  sorry
+
+-- test: TransportPullbackTests.nonreduced_source_triangle
+example :
+    ∃ Ω : TwoForms (ZMod 4) (ZMod 4) (ZMod 4) (Fin 0 → ZMod 4),
+      let D := Preconnection.ofLinear (Ω := Ω) (TensorProduct.lid (ZMod 4) (ZMod 4)).symm.toLinearMap
+      let m := TwoForms.Morphism.refl Ω
+      let c := (TensorProduct.lid (ZMod 4) (ZMod 4)).toLinearMap.comp
+        (TensorProduct.lid (ZMod 4) ((ZMod 4) ⊗[ZMod 4] (ZMod 4))).toLinearMap
+      let y := TensorProduct.lid (ZMod 4) (ZMod 4)
+        (TensorProduct.map c LinearMap.id
+          (((D.affinePullback m).affinePullback m).toAddHom
+            ((2 : ZMod 4) ⊗ₜ[ZMod 4] ((1 : ZMod 4) ⊗ₜ[ZMod 4] (1 : ZMod 4)))))
+      y = 2 ∧ y ≠ 0 ∧ y ^ 2 = 0 := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.Intrinsic

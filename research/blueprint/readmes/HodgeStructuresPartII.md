@@ -1,3 +1,128 @@
+# Actual coordinate transport and affine pullback
+
+Let m:Ω→Γ be the existing supplied affine differential-calculus morphism along R→S. Let D be the actual additive λ-preconnection on an arbitrary native R-module E and u:E≅F an actual R-linear equivalence. The coefficient parameter λ is arbitrary. Coordinate transport acts by conjugating the additive operator, so derivatives of a variable frame remain inside D(u⁻¹(f)). The scalar-extended equivalence u_S is the existing native LinearEquiv.baseChange; it exists without flatness of S.
+
+The actual affine pullback of Dᵘ equals transport of D_S along u_S as an entire preconnection structure. The proof extends the existing horizontal coordinate map using affinePullback_horizontal. Surjectivity of u_S compares the actual additive maps on every target section, and operator extensionality identifies the whole structures. Both horizontal directions, actual degree-one extension and additive curvature follow over the target calculus Γ. Target flatness is equivalent under u_S, without any implication that source R-curvature is reflected through a nonfaithful scalar extension.
+
+The native equality for scalar extension of composed linear equivalences proves compatibility with two successive coordinate changes. The source identity triangle first identifies D pulled back along refl Ω with transport by the inverse native left-unitor, then commutes that transport with the actual R→S pullback. The triangle map is exactly the scalar-extended inverse left-unitor. These are actual affine operator equations, not a construction of a complete categorical monoidal functor or universal exterior powers.
+
+Typed tests cover zero sections; the polynomial unit connection with λ=x and dλ=1, whose twice identity-pulled-back operator retains the nonzero coordinate x; and the scalar Higgs operator1 over Z/4, whose corresponding actual operator retains coordinate2≠0 with square zero. Both computed cases use the actual twice-pulled-back additive operator and the two native unitors. The inherited variable-frame test retains its −2 derivative correction and is preserved in the full native prefix.
+
+All359 incoming mathematical contracts are retained. Only the actual affine-pullback construction gains the8 API entries and3 tests; all358 other whole nodes remain unchanged. All225 incoming baseline entries,149 routed source items,35 omissions, five supplier requests, eleven gap objects, six planets and the reserved general finite-locally-free ringed-site key remain. H.0 stays partial and H.1–H.8 stay not_read. The prior reader remains intact below.
+
+Fresh primary reading covers the complete current displayed Stacks Section60.15 and Lemma60.15.1 proof. The ordinary extension/curvature convention motivates the authored arbitrary-ring affine deductions; the crystal result is not established here. Historical EG20 parameter/printed Lemma4.9 reading keeps its attribution. No fresh full-paper, PDF, correspondence proof or exhaustive erratum collation is claimed. The inherited source-issue/version envelope remains whole.
+
+Actual affine coordinate transport now commutes with scalar extension as entire preconnection structures, with both horizontal directions, extended differential, curvature and equivalence of target flatness. Composed coordinate changes also commute, and the source identity triangle uses the actual scalar-extended inverse left-unitor. All equations allow arbitrary λ, arbitrary modules and nonfaithful scalar extension. They compare target S-connections; source-curvature reflection is not inferred. Full categorical monoidal naturality/triangle packaging, universal exterior-power and dual comparisons, and E1 actual sheaf tensor/restriction, equality detection and effective gluing remain required. The reserved general finite-locally-free ringed-site key,149 routed obligations,35 omissions, five requests, eleven gaps, determinant/Tate/period adapters, arbitrary-Q tensor-valued shuffle and H.1–H.8 remain open. H.0 stays partial; H.1–H.8 stay not_read. Earlier frontier prose remains attributed checkpoint history.
+
+## Affine preconnections are determined by their additive operator
+
+**Preconnection.eq_of_toAddHom_eq** — For the existing supplied affine calculus Ω, arbitrary λ and arbitrary native R-module E, two existing affine preconnection structures D,C are equal if their actual additive operators E→E⊗_R W are equal. The Leibniz witnesses are propositions.
+
+Hypotheses: Existing supplied affine Ω over arbitrary commutative k-algebra R, arbitrary λ and native R-module E; two actual additive preconnection structures with equal operators. No ring-changing calculus map or coordinate equivalence is required.
+
+Prerequisites: HodgeStructuresPartII:H.0/intrinsic-preconnection.
+
+Proof: Destructure both preconnections, substitute the operator equality and use proof irrelevance for the Leibniz witnesses.
+
+## Coordinate transport commutes with actual affine pullback
+
+**Preconnection.affinePullback_transport_eq** — Let m:Ω→Γ be the existing calculus morphism along R→S and u:E≅_R F an actual module equivalence. For arbitrary λ, pulling back Dᵘ equals transporting D_S along the native S-linear equivalence u_S=LinearEquiv.baseChange(u), as entire preconnection structures on S⊗_R F. The parameter on both sides is f(λ), and both sides use Γ.
+
+Hypotheses: The existing arbitrary-ring affine TwoForms calculi, compatible k-module scalar towers, calculus map along algebraMap R S, arbitrary native modules and actual R-linear equivalences. λ is arbitrary, including dΩλ≠0. No basis, finite generation, projectivity, flatness or scalar-extension faithfulness is added.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-preconnection-operator-extensionality, HodgeStructuresPartII:H.0/affine-coordinate-transport, HodgeStructuresPartII:H.0/coordinate-transport-horizontal, HodgeStructuresPartII:H.0/affine-pullback, HodgeStructuresPartII:H.0/affine-pullback-horizontal, mathlib:LinearEquiv.baseChange, mathlib:LinearEquiv.coe_baseChange.
+
+Proof: Extend the existing horizontal coordinate map u using the actual affinePullback_horizontal theorem. Native scalar extension of u remains an equivalence without flatness. Use its surjectivity to compare the actual additive maps on every target section, then apply affine operator extensionality.
+
+## Forward coordinate comparison after pullback
+
+**Preconnection.affinePullback_transport_horizontal** — For every x∈S⊗_R E, (Dᵘ)_S(u_S(x))=(u_S⊗id_V)D_S(x). This is equality of the actual additive pullback operators, with arbitrary parameter λ and no flatness or faithful-scalar-extension assumption.
+
+Hypotheses: The existing arbitrary-ring affine TwoForms calculi, compatible k-module scalar towers, calculus map along algebraMap R S, arbitrary native modules and actual R-linear equivalences. λ is arbitrary, including dΩλ≠0. No basis, finite generation, projectivity, flatness or scalar-extension faithfulness is added.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-coordinate-transport-equality, HodgeStructuresPartII:H.0/coordinate-transport-horizontal.
+
+Proof: Rewrite the whole preconnection equality and evaluate the existing transport-horizontal identity.
+
+## Inverse coordinate comparison after pullback
+
+**Preconnection.affinePullback_transport_horizontal_symm** — For every y∈S⊗_R F, D_S(u_S⁻¹(y))=(u_S⁻¹⊗id_V)(Dᵘ)_S(y), using the inverse of the same actual native scalar-extended equivalence.
+
+Hypotheses: The existing arbitrary-ring affine TwoForms calculi, compatible k-module scalar towers, calculus map along algebraMap R S, arbitrary native modules and actual R-linear equivalences. λ is arbitrary, including dΩλ≠0. No basis, finite generation, projectivity, flatness or scalar-extension faithfulness is added.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-coordinate-transport-horizontal, HodgeStructuresPartII:H.0/affine-parameter-horizontal-inverse.
+
+Proof: Apply the existing horizontal-equivalence inverse theorem to the forward comparison and the native u_S.
+
+## Extended differentials under scalar-extended coordinates
+
+**Preconnection.affinePullback_transport_extend** — For every x∈(S⊗_R E)⊗_S V, the actual degree-one extension of (Dᵘ)_S applied to (u_S⊗id_V)(x) equals (u_S⊗id_Y) applied to the actual degree-one extension of D_S. Both are operators over Γ.
+
+Hypotheses: The existing arbitrary-ring affine TwoForms calculi, compatible k-module scalar towers, calculus map along algebraMap R S, arbitrary native modules and actual R-linear equivalences. λ is arbitrary, including dΩλ≠0. No basis, finite generation, projectivity, flatness or scalar-extension faithfulness is added.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-coordinate-transport-horizontal, HodgeStructuresPartII:H.0/extension-horizontal.
+
+Proof: Use the existing same-target-ring extended-differential horizontality equation on the actual u_S.
+
+## Curvature under scalar-extended coordinates
+
+**Preconnection.affinePullback_transport_curvature** — For every x∈S⊗_R E, κ_(Dᵘ)S(u_S(x))=(u_S⊗id_Y)κ_DS(x). The curvature is the actual additive curvature of Γ; no equation dΩλ=0 is required.
+
+Hypotheses: The existing arbitrary-ring affine TwoForms calculi, compatible k-module scalar towers, calculus map along algebraMap R S, arbitrary native modules and actual R-linear equivalences. λ is arbitrary, including dΩλ≠0. No basis, finite generation, projectivity, flatness or scalar-extension faithfulness is added.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-coordinate-transport-horizontal, HodgeStructuresPartII:H.0/curvature-horizontal.
+
+Proof: Apply the existing actual curvature-horizontal equation to the two S-preconnections and u_S.
+
+## Flatness is coordinate invariant after pullback
+
+**Preconnection.affinePullback_transport_flat_iff** — The actual pullback (Dᵘ)_S has zero curvature on all of S⊗_R F if and only if D_S has zero curvature on all of S⊗_R E. This compares two target S-connections under a module equivalence. It does not reflect curvature from S back to R.
+
+Hypotheses: The existing arbitrary-ring affine TwoForms calculi, compatible k-module scalar towers, calculus map along algebraMap R S, arbitrary native modules and actual R-linear equivalences. λ is arbitrary, including dΩλ≠0. No basis, finite generation, projectivity, flatness or scalar-extension faithfulness is added.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-coordinate-transport-equality, HodgeStructuresPartII:H.0/coordinate-flatness-equivalence.
+
+Proof: Rewrite the actual structure equality and use coordinate-flatness equivalence over S. The equivalence u_S gives injectivity on the relevant target tensors; no faithfulness of R→S is assumed.
+
+## The source identity triangle for actual affine operators
+
+**Preconnection.affinePullback_triangle_source_eq** — For every calculus map m:Ω→Γ, first pull D back along refl Ω and then along m. The resulting preconnection on S⊗_R(R⊗_R E) equals transport of the direct D_S along the scalar extension of the inverse native left-unitor E≅_R R⊗_R E. This is equality of whole preconnection structures for arbitrary λ.
+
+Hypotheses: The existing arbitrary-ring affine TwoForms calculi, compatible k-module scalar towers, calculus map along algebraMap R S, arbitrary native modules and actual R-linear equivalences. λ is arbitrary, including dΩλ≠0. No basis, finite generation, projectivity, flatness or scalar-extension faithfulness is added.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-coordinate-transport-equality, HodgeStructuresPartII:H.0/affine-pullback-identity-equality, mathlib:TensorProduct.lid, mathlib:LinearEquiv.baseChange.
+
+Proof: Replace the actual source identity pullback by transport along the inverse native left-unitor. Commute that coordinate transport with affine pullback using the new equality. The native scalar-extended unitor is the specified triangle map.
+
+## Composed coordinate changes commute with actual pullback
+
+**Preconnection.affinePullback_transport_comp_eq** — For actual R-linear equivalences u:E≅F and v:F≅G, the pullback of (Dᵘ)ᵛ equals transport of D_S along u_S followed by v_S, as entire preconnection structures on S⊗_R G. Use the native equality (u followed by v)_S=u_S followed by v_S.
+
+Hypotheses: The existing arbitrary-ring affine TwoForms calculi, compatible k-module scalar towers, calculus map along algebraMap R S, arbitrary native modules and actual R-linear equivalences. λ is arbitrary, including dΩλ≠0. No basis, finite generation, projectivity, flatness or scalar-extension faithfulness is added.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-preconnection-operator-extensionality, HodgeStructuresPartII:H.0/affine-pullback-coordinate-transport-equality, HodgeStructuresPartII:H.0/coordinate-transport-composition, mathlib:LinearEquiv.baseChange_trans.
+
+Proof: Upgrade the existing pointwise composition equation to whole preconnection equality by operator extensionality. Apply affinePullback_transport_eq to the composite and then the pinned native baseChange_trans equality.
+
+## Consumed API and typed tests
+
+API:
+
+- **Preconnection.affinePullback_transport_eq**: Let m:Ω→Γ be the existing calculus morphism along R→S and u:E≅_R F an actual module equivalence. For arbitrary λ, pulling back Dᵘ equals transporting D_S along the native S-linear equivalence u_S=LinearEquiv.baseChange(u), as entire preconnection structures on S⊗_R F. The parameter on both sides is f(λ), and both sides use Γ.
+- **Preconnection.affinePullback_transport_horizontal**: For every x∈S⊗_R E, (Dᵘ)_S(u_S(x))=(u_S⊗id_V)D_S(x). This is equality of the actual additive pullback operators, with arbitrary parameter λ and no flatness or faithful-scalar-extension assumption.
+- **Preconnection.affinePullback_transport_horizontal_symm**: For every y∈S⊗_R F, D_S(u_S⁻¹(y))=(u_S⁻¹⊗id_V)(Dᵘ)_S(y), using the inverse of the same actual native scalar-extended equivalence.
+- **Preconnection.affinePullback_transport_extend**: For every x∈(S⊗_R E)⊗_S V, the actual degree-one extension of (Dᵘ)_S applied to (u_S⊗id_V)(x) equals (u_S⊗id_Y) applied to the actual degree-one extension of D_S. Both are operators over Γ.
+- **Preconnection.affinePullback_transport_curvature**: For every x∈S⊗_R E, κ_(Dᵘ)S(u_S(x))=(u_S⊗id_Y)κ_DS(x). The curvature is the actual additive curvature of Γ; no equation dΩλ=0 is required.
+- **Preconnection.affinePullback_transport_flat_iff**: The actual pullback (Dᵘ)_S has zero curvature on all of S⊗_R F if and only if D_S has zero curvature on all of S⊗_R E. This compares two target S-connections under a module equivalence. It does not reflect curvature from S back to R.
+- **Preconnection.affinePullback_triangle_source_eq**: For every calculus map m:Ω→Γ, first pull D back along refl Ω and then along m. The resulting preconnection on S⊗_R(R⊗_R E) equals transport of the direct D_S along the scalar extension of the inverse native left-unitor E≅_R R⊗_R E. This is equality of whole preconnection structures for arbitrary λ.
+- **Preconnection.affinePullback_transport_comp_eq**: For actual R-linear equivalences u:E≅F and v:F≅G, the pullback of (Dᵘ)ᵛ equals transport of D_S along u_S followed by v_S, as entire preconnection structures on S⊗_R G. Use the native equality (u followed by v)_S=u_S followed by v_S.
+
+Tests:
+
+- **TransportPullbackTests.zero_section**: For arbitrary calculus map, preconnection and coordinate equivalence, the actual transported pullback operator evaluated at u_S(0) is zero.
+- **TransportPullbackTests.nonconstant_source_triangle**: On Z[x] with formal derivative and λ=x, dλ=1. The actual twice identity-pulled-back unit connection at1⊗(1⊗x) has coordinate x≠0 after the two native unitors. Constant-parameter restrictions and erased derivatives fail this test.
+- **TransportPullbackTests.nonreduced_source_triangle**: For the scalar Higgs operator1 over Z/4, the actual twice identity-pulled-back operator at2⊗(1⊗1) has coordinate2≠0 with square zero after native unitors; all coefficients and nilpotents survive the source identity triangle.
+
 # Affine identity and three-step pullback coherence
 
 Codex — codex-7e92bd · 3 October2026 · Refs #3371 · partial.
