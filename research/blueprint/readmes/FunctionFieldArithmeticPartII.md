@@ -7222,3 +7222,196 @@ Proof outline: Unfold the existing Hopf algebra factory's antipode projection; e
 The universal factorial algebra coaction, native bialgebra/Hopf structures and fixed-universe natural equivalence of algebra-valued points with coherent unit families now have explicit signatures and separate no-admission native evidence. Identify H_A with the canonical diagonalizable coordinate Hopf algebra A[Q/Z] and its convolution group of points; transport the coaction through the full positive-divisibility equivalence; prove coefficient-base-change/coaction compatibility and higher-universe adapters; construct coherent root-object groupoid reindexing, affine Spec limits, fpqc frame torsors and the infinite quotient comparison. Preserve TOWER-AFF, KUMMER-FINITE, TOWER-TYPING, DVR/Kummer, the all-roots-of2 non-fppf counterexample and both Yun–Zhang and symplectic source routes. No stage or implementation closes.
 
 All incoming node contracts, reserved key, both source routes, planets, requests, gaps and historical source/error receipts remain. The only existing node extension is the downstream infinite-quotient input/proof continuation. Every implementation status stays unchecked; all ten stages remain partial.
+
+
+## RS.2 continuation: coefficient naturality of the universal factorial coaction
+
+Let A,B,C be arbitrary commutative rings in a common fixed universe, φ:A→B and ψ:B→C arbitrary ring homomorphisms, and f∈A. Retain the actual factorial colimits C_A(f), orders d_i=(i+1)!, roots u_i, unity-root algebra H_A=C_A(1) with roots h_i, universal coherent unit family σ_A, inherited coefficient map F_(φ,f), and universal coaction ρ_f, counit ε_A and antipode S_A. No reducedness, domain, characteristic-zero, invertibility-of-orders, flatness or nontriviality assumption enters.
+
+Coefficient maps carry coherent roots to coherent roots.
+
+The target unity-root algebra is literally H_B: the specialized compatible-root lift uses h_i^B and φ(1)=1. This avoids exposing a chosen dependent cast from C_B(φ(1)) to C_B(1). The existing generic coefficient lift remains the only general chart coefficient construction. The tensor coefficient map is the pinned existing heterobasic native mapRingHom, specialized with these two factor maps and their coefficient squares. It is a ring homomorphism between tensors over different bases. Calling it an A-algebra map with an unchanged coefficient algebra would give the wrong interface.
+
+On coefficients the two coaction composites agree with ι_B∘φ. On every actual root u_i, both give h_i^B⊗u_i^(φ(f)). Native semilinear colimit extensionality therefore proves equality on all elements. The counit square sends each h_i to1. For the antipode square, first prove equality of the actual universal coherent unit families after coefficient mapping, then apply inversion and ring-value evaluation; this supplies the inverse-root equality required by the same colimit extensionality argument. Tensor identity follows by native tensor induction, and composition follows by equality on the two factor inclusions.
+
+Fresh source context is Talpo–Vistoli v2 §3.1, complete printed/PDF pp.14–16: Cartier duals, grading-equivariant projections and the affine quotient passage. The coefficient identities here are authored deductions from the actual inherited colimit and the pinned native tensor map. They do not constitute the paper’s geometric quotient comparison. PDF SHA-256:92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2; selected passage read2026-10-03.
+
+### Coefficient map on the unity-root algebra
+
+TauCeti.RootStack.factorialUnitCoefficientMap. For any coefficient homomorphism φ:A→B, construct the actual ring homomorphism U_φ:H_A→H_B, where H_A=C_A(1), sending every factorial unity root h_i^A to h_i^B and every coefficient a to φ(a). Its target is H_B itself, so no chosen cast from C_B(φ(1)) is exposed to consumers.
+
+Restrict the target coefficient algebra through φ. Apply the actual factorial compatible-root lift with the target unity roots; their power relation follows from φ(1)=1 and their transition relation is the inherited chart relation. This specializes the existing coefficient lift with a literal unity target, without rebuilding the general construction.
+
+API:
+
+- TauCeti.RootStack.factorialUnitCoefficientMap.root: For every i≥0, U_φ(h_i^A)=h_i^B in the actual factorial colimit H_B.
+- TauCeti.RootStack.factorialUnitCoefficientMap.constant: For every a∈A, U_φ(ι_A(a))=ι_B(φ(a)), with the existing native coefficient inclusions.
+- TauCeti.RootStack.factorialUnitCoefficientMap.id: U_id is the identity ring homomorphism of H_A.
+- TauCeti.RootStack.factorialUnitCoefficientMap.comp: For any ψ:B→C, U_(ψ∘φ)=U_ψ∘U_φ as actual ring homomorphisms H_A→H_C.
+- TauCeti.RootStack.factorialUnitCoefficientMap.universal_scalars: Mapping the actual universal coherent unit family σ_A through U_φ gives exactly σ_B as an equality in the inherited subgroup of coherent H_B-unit families.
+- TauCeti.RootStack.factorialUnitCoefficientMap.inverse_value: For every i, U_φ applied to the ring value of the i-th inverse unit of σ_A is the ring value of the i-th inverse unit of σ_B.
+
+Acceptance tests:
+
+- coefficientUnitTests.reduction_two: The actual unity coefficient map for ℤ→Z/2Z sends the coefficient 2 to 0.
+- coefficientUnitTests.identity: The identity coefficient map fixes every element of H_A.
+- coefficientUnitTests.composition: Successive coefficient maps agree with the map for the composite on every element of H_A.
+- coefficientUnitTests.zero_ring: The unity coefficient map for ℤ→Z/1Z sends 1 to 0 in the actual target algebra.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift, FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift-root, FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-map, FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-power, FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-root.
+
+### Root
+
+TauCeti.RootStack.factorialUnitCoefficientMap.root. For every i≥0, U_φ(h_i^A)=h_i^B in the actual factorial colimit H_B.
+
+Use the native compatible-root lift evaluation on every actual chart root.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-map, FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift-root.
+
+### Constant
+
+TauCeti.RootStack.factorialUnitCoefficientMap.constant. For every a∈A, U_φ(ι_A(a))=ι_B(φ(a)), with the existing native coefficient inclusions.
+
+Use the root lift’s algebra-homomorphism coefficient compatibility in the restricted target coefficient algebra.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-map.
+
+### Id
+
+TauCeti.RootStack.factorialUnitCoefficientMap.id. U_id is the identity ring homomorphism of H_A.
+
+Apply the existing semilinear factorial-colimit ring-homomorphism extensionality theorem. Coefficients agree by the unity coefficient formula, and every chart root agrees by the unity root formula.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-root, FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-constant, FunctionFieldArithmeticPartII:RS.2/factorial-semilinear-ringhom-ext.
+
+### Comp
+
+TauCeti.RootStack.factorialUnitCoefficientMap.comp. For any ψ:B→C, U_(ψ∘φ)=U_ψ∘U_φ as actual ring homomorphisms H_A→H_C.
+
+Apply the existing semilinear factorial-colimit ring-homomorphism extensionality theorem. Coefficients agree by the unity coefficient formula, and every chart root agrees by the unity root formula.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-root, FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-constant, FunctionFieldArithmeticPartII:RS.2/factorial-semilinear-ringhom-ext.
+
+### Counit compatibility with coefficient change
+
+TauCeti.RootStack.factorialCounit.coefficient_naturality. The actual counits satisfy ε_B∘U_φ=φ∘ε_A as ring homomorphisms H_A→B.
+
+Apply the same semilinear colimit extensionality theorem. On coefficients both composites evaluate to φ(a); on every unity root both evaluate to 1 by the counit root formula and unity root formula.
+
+Acceptance tests:
+
+- coefficientCounitTests.square: For arbitrary x∈H_A, applying ε_B after U_φ agrees with applying φ after ε_A.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-root, FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-constant, FunctionFieldArithmeticPartII:RS.2/factorial-universal-counit, FunctionFieldArithmeticPartII:RS.2/factorial-universal-counit-root, FunctionFieldArithmeticPartII:RS.2/factorial-universal-counit-constant, FunctionFieldArithmeticPartII:RS.2/factorial-semilinear-ringhom-ext.
+
+### Coefficient map on the coaction tensor algebra
+
+TauCeti.RootStack.factorialTensorCoefficientMap. Construct the actual ring homomorphism T_(φ,f):H_A⊗_A C_A(f)→H_B⊗_B C_B(φ(f)), using the existing native heterobasic tensor map on U_φ and the inherited coefficient map F_(φ,f). Both coefficient compatibility witnesses are proved from their coefficient formulas; the generic tensor construction is imported.
+
+Apply the existing heterobasic tensor ring-homomorphism constructor to φ, U_φ and F_(φ,f); prove its two coefficient squares using the unity and chart coefficient formulas.
+
+API:
+
+- TauCeti.RootStack.factorialTensorCoefficientMap.tmul: For every h∈H_A and x∈C_A(f), T_(φ,f)(h⊗x)=U_φ(h)⊗F_(φ,f)(x).
+- TauCeti.RootStack.factorialTensorCoefficientMap.constant: For every a∈A, T_(φ,f)(ι_A(a))=ι_B(φ(a)) in H_B⊗_B C_B(φ(f)).
+- TauCeti.RootStack.factorialTensorCoefficientMap.root: For every i, T_(φ,f)(h_i^A⊗u_i^f)=h_i^B⊗u_i^(φ(f)) in the actual target tensor algebra.
+- TauCeti.RootStack.factorialTensorCoefficientMap.id: T_(id,f) is the identity ring homomorphism on H_A⊗_A C_A(f).
+- TauCeti.RootStack.factorialTensorCoefficientMap.comp: For any ψ:B→C, T_(ψ∘φ,f)=T_(ψ,φ(f))∘T_(φ,f) as actual ring homomorphisms into H_C⊗_C C_C(ψ(φ(f))).
+
+Acceptance tests:
+
+- coefficientTensorTests.degree_two: The actual tensor coefficient map sends the degree-two pure root tensor to the target degree-two pure root tensor.
+- coefficientTensorTests.reduction_two: The actual tensor coefficient map for ℤ→Z/2Z and f=0 sends the coefficient 2 to 0.
+- coefficientTensorTests.identity: The identity tensor coefficient map fixes every element of H_A⊗_A C_A(f).
+- coefficientTensorTests.composition: Successive tensor coefficient maps agree with the map for the composite on every element of the actual source tensor algebra.
+- coefficientTensorTests.zero_ring: The tensor coefficient map for ℤ→Z/1Z and f=0 sends 1 to 0 in the actual target tensor algebra.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-constant, FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-map, FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-constant, mathlib:Algebra.TensorProduct.mapRingHom.
+
+### Tmul
+
+TauCeti.RootStack.factorialTensorCoefficientMap.tmul. For every h∈H_A and x∈C_A(f), T_(φ,f)(h⊗x)=U_φ(h)⊗F_(φ,f)(x).
+
+Specialize the existing native mapRingHom_tmul statement; no tensor carrier or universal property is replanned.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-tensor-map, mathlib:Algebra.TensorProduct.mapRingHom_tmul.
+
+### Constant
+
+TauCeti.RootStack.factorialTensorCoefficientMap.constant. For every a∈A, T_(φ,f)(ι_A(a))=ι_B(φ(a)) in H_B⊗_B C_B(φ(f)).
+
+Write the tensor coefficient as a pure tensor, apply the pure-tensor formula and the unity coefficient formula, and use preservation of 1.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-tensor-pure, FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-constant.
+
+### Universal coaction compatibility with coefficient change
+
+TauCeti.RootStack.factorialCoaction.coefficient_naturality. The actual universal coactions satisfy T_(φ,f)∘ρ_f=ρ_(φ(f))∘F_(φ,f) as ring homomorphisms C_A(f)→H_B⊗_B C_B(φ(f)).
+
+Apply semilinear colimit ring-homomorphism extensionality. The two coefficient composites are ι_B∘φ by coefficient compatibility. On u_i the coaction root formula and tensor pure-tensor formula give h_i^B⊗u_i^(φ(f)) on both sides.
+
+Acceptance tests:
+
+- coefficientCoactionTests.square: For arbitrary x∈C_A(f), applying the tensor coefficient map after ρ_f agrees with applying ρ_(φ(f)) after F_(φ,f).
+- coefficientCoactionTests.wild_square_zero: Under coefficient reduction ℤ→Z/2Z with f=0, the actual image of the coaction on the degree-two root has square 0.
+- coefficientCoactionTests.wild_nonzero: Under coefficient reduction ℤ→Z/2Z with f=0, the actual image of the coaction on the degree-two root is nonzero; replacing the action by zero or discarding the nilpotent root fails this test.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-tensor-pure, FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-tensor-constant, FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-root, FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-root, FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-constant, FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction, FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-root, FunctionFieldArithmeticPartII:RS.2/factorial-semilinear-ringhom-ext.
+
+### Universal scalars
+
+TauCeti.RootStack.factorialUnitCoefficientMap.universal_scalars. Mapping the actual universal coherent unit family σ_A through U_φ gives exactly σ_B as an equality in the inherited subgroup of coherent H_B-unit families.
+
+Apply subtype/function/unit extensionality. On ring values use the actual universal-unit value formula, scalar-map value formula and unity-root coefficient formula.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-root, FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalars, FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalars-value, FunctionFieldArithmeticPartII:RS.2/factorial-scalar-coefficient-map, FunctionFieldArithmeticPartII:RS.2/factorial-scalar-coefficient-value, mathlib:Units.map, mathlib:Units.coe_map.
+
+### Inverse value
+
+TauCeti.RootStack.factorialUnitCoefficientMap.inverse_value. For every i, U_φ applied to the ring value of the i-th inverse unit of σ_A is the ring value of the i-th inverse unit of σ_B.
+
+Apply inverse and evaluation to the preceding equality of actual coherent unit families. The existing unit-map preserves inverses, and its scalar-value formula identifies the ring values.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-universal-scalars, FunctionFieldArithmeticPartII:RS.2/factorial-scalar-coefficient-value.
+
+### Antipode compatibility with coefficient change
+
+TauCeti.RootStack.factorialAntipode.coefficient_naturality. The actual antipodes satisfy S_B∘U_φ=U_φ∘S_A as ring homomorphisms H_A→H_B.
+
+Apply semilinear colimit ring-homomorphism extensionality. Both coefficient composites are ι_B∘φ. On unity roots the antipode root formula reduces the equality to coefficient compatibility of the inverse universal-unit values.
+
+Acceptance tests:
+
+- coefficientAntipodeTests.square: For arbitrary x∈H_A, applying S_B after U_φ agrees with applying U_φ after S_A.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-root, FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-constant, FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-inverse-value, FunctionFieldArithmeticPartII:RS.2/factorial-universal-antipode, FunctionFieldArithmeticPartII:RS.2/factorial-universal-antipode-root, FunctionFieldArithmeticPartII:RS.2/factorial-semilinear-ringhom-ext.
+
+### Root
+
+TauCeti.RootStack.factorialTensorCoefficientMap.root. For every i, T_(φ,f)(h_i^A⊗u_i^f)=h_i^B⊗u_i^(φ(f)) in the actual target tensor algebra.
+
+Apply the pure-tensor formula and both unity-root and chart-root coefficient formulas.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-tensor-pure, FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-root, FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-root.
+
+### Id
+
+TauCeti.RootStack.factorialTensorCoefficientMap.id. T_(id,f) is the identity ring homomorphism on H_A⊗_A C_A(f).
+
+Use native tensor induction. Zero and addition are preserved; a pure tensor is fixed by the unity and chart coefficient identity laws.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-tensor-pure, FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-identity, FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-identity, mathlib:TensorProduct.induction_on.
+
+### Comp
+
+TauCeti.RootStack.factorialTensorCoefficientMap.comp. For any ψ:B→C, T_(ψ∘φ,f)=T_(ψ,φ(f))∘T_(φ,f) as actual ring homomorphisms into H_C⊗_C C_C(ψ(φ(f))).
+
+Use the native tensor ring-homomorphism extensionality theorem on the two canonical factor inclusions. The pure-tensor formula reduces the two restrictions to the unity and chart coefficient composition laws.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-tensor-pure, FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-composition, FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-composition, mathlib:Algebra.TensorProduct.ringHom_ext.
+
+The degree-two coaction image under ℤ→Z/2Z at f=0 is nonzero and squares to0. Its nonvanishing is checked through actual coaction and chart inclusion injectivity and the monic AdjoinRoot power basis; its square follows from the actual root relation. Thus the acceptance cases keep nilpotent information and test more than point values. The zero-ring cases use the actual target modules over Z/1Z.
+
+All276 incoming mathematical contracts, the general reserved root-stack key, historical source/correction/routes, the independent symplectic direction, and existing planet choices remain. Only the infinite-affine-quotient consumer gains the three coefficient squares and one proof step. All ten stages stay partial and all implementations unchecked. The canonical suggested file has admitted bodies; a separate exact native proof replay is recorded in the handoff.
+
+The remaining frontier is the diagonalizable coordinate Hopf comparison H_A≃A[Q/Z], convolution on points, positive-divisibility transport and universe adapters, coherent root-object groupoid reindexing, affine Spec limits, fpqc frame torsors and the infinite quotient equivalence. TOWER-AFF, KUMMER-FINITE, TOWER-TYPING, DVR/Kummer and the all-roots-of2 non-fppf example retain their full hypotheses. Yun–Zhang and the independent symplectic source routes retain their distinct owners and requirements.
