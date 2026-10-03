@@ -2426,3 +2426,181 @@ example {P : Type*} [AddCommGroup P] [Module R P]
 end
 end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
 /- END AFFINE HIGGS TENSOR FIELD -/
+
+/- BEGIN AFFINE TENSOR CURVATURE -/
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+open scoped TensorProduct
+variable {R E F Q : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E] [AddCommGroup F] [Module R F]
+variable [AddCommGroup Q] [Module R Q]
+
+-- Native expression of the existing binary tensor-to-exterior projection.
+abbrev pairExterior : Q ⊗[R] Q →ₗ[R] (⋀[R]^2 Q) :=
+  (PiTensorProduct.lift (exteriorPower.ιMulti R 2).toMultilinearMap).comp
+    ((TensorProduct.congr
+      (PiTensorProduct.subsingletonEquiv (R := R) (s := fun _ : Fin 1 => Q) 0).symm
+      (PiTensorProduct.subsingletonEquiv (R := R) (s := fun _ : Fin 1 => Q) 0).symm).trans
+        (TensorPower.mulEquiv (n := 1) (m := 1))).toLinearMap
+
+lemma pairExterior_tmul (q r : Q) :
+    pairExterior (q ⊗ₜ[R] r) = exteriorPower.ιMulti R 2 ![q,r] := by
+  simp only [pairExterior, LinearMap.comp_apply, LinearEquiv.coe_coe,
+    LinearEquiv.trans_apply, TensorProduct.congr_tmul,
+    PiTensorProduct.subsingletonEquiv_symm_apply']
+  simp only [← TensorPower.gMul_def, TensorPower.tprod_mul_tprod,
+    PiTensorProduct.lift.tprod]
+  rfl
+
+def affineExteriorStep (θ : E →ₗ[R] E ⊗[R] Q) :
+    E ⊗[R] Q →ₗ[R] E ⊗[R] (⋀[R]^2 Q) := by
+  sorry
+
+lemma affineExteriorSquare_eq_step (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineExteriorSquare θ = (affineExteriorStep θ).comp θ := by
+  sorry
+
+lemma affineExteriorStep_tmul (θ : E →ₗ[R] E ⊗[R] Q) (e : E) (q : Q) :
+    affineExteriorStep θ (e ⊗ₜ[R] q) =
+      TensorProduct.map (LinearMap.id : E →ₗ[R] E) pairExterior
+        (TensorProduct.assoc R E Q Q (θ e ⊗ₜ[R] q)) := by
+  sorry
+
+lemma affineExteriorStep_add (θ ψ : E →ₗ[R] E ⊗[R] Q) :
+    affineExteriorStep (θ + ψ) = affineExteriorStep θ + affineExteriorStep ψ := by
+  sorry
+
+lemma affineExteriorStep_zero :
+    affineExteriorStep (0 : E →ₗ[R] E ⊗[R] Q) = 0 := by
+  sorry
+
+def affineTensorWedgePair :
+    (E ⊗[R] Q) ⊗[R] (F ⊗[R] Q) →ₗ[R] (E ⊗[R] F) ⊗[R] (⋀[R]^2 Q) := by
+  sorry
+
+lemma affineTensorWedgePair_tmul (e : E) (f : F) (q r : Q) :
+    affineTensorWedgePair ((e ⊗ₜ[R] q) ⊗ₜ[R] (f ⊗ₜ[R] r)) =
+      (e ⊗ₜ[R] f) ⊗ₜ[R] exteriorPower.ιMulti R 2 ![q,r] := by
+  sorry
+
+lemma affineExteriorStep_tensor_left
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (z : E ⊗[R] Q) (f : F) :
+    affineExteriorStep (affineTensorField θ ψ) (TensorProduct.rightComm R E Q F (z ⊗ₜ[R] f)) =
+      TensorProduct.rightComm R E (⋀[R]^2 Q) F (affineExteriorStep θ z ⊗ₜ[R] f) -
+        affineTensorWedgePair (z ⊗ₜ[R] ψ f) := by
+  sorry
+
+lemma affineExteriorStep_tensor_right
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (e : E) (w : F ⊗[R] Q) :
+    affineExteriorStep (affineTensorField θ ψ) ((TensorProduct.assoc R E F Q).symm (e ⊗ₜ[R] w)) =
+      affineTensorWedgePair (θ e ⊗ₜ[R] w) +
+        (TensorProduct.assoc R E F (⋀[R]^2 Q)).symm (e ⊗ₜ[R] affineExteriorStep ψ w) := by
+  sorry
+
+lemma affineTensorField_curvature_tmul
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (e : E) (f : F) :
+    affineExteriorSquare (affineTensorField θ ψ) (e ⊗ₜ[R] f) =
+      TensorProduct.rightComm R E (⋀[R]^2 Q) F (affineExteriorSquare θ e ⊗ₜ[R] f) +
+        (TensorProduct.assoc R E F (⋀[R]^2 Q)).symm (e ⊗ₜ[R] affineExteriorSquare ψ f) := by
+  sorry
+
+lemma affineTensorField_integrable_of_arbitrary_coefficients
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (hθ : affineExteriorSquare θ = 0) (hψ : affineExteriorSquare ψ = 0) :
+    affineExteriorSquare (affineTensorField θ ψ) = 0 := by
+  sorry
+
+lemma affineTensorField_curvature
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) :
+    affineExteriorSquare (affineTensorField θ ψ) =
+      (TensorProduct.rightComm R E (⋀[R]^2 Q) F).toLinearMap.comp
+        (TensorProduct.map (affineExteriorSquare θ) (LinearMap.id : F →ₗ[R] F)) +
+      (TensorProduct.assoc R E F (⋀[R]^2 Q)).symm.toLinearMap.comp
+        (TensorProduct.map (LinearMap.id : E →ₗ[R] E) (affineExteriorSquare ψ)) := by
+  sorry
+
+lemma affineTensorWedgePair_same_direction (e : E) (f : F) (q : Q) :
+    affineTensorWedgePair ((e ⊗ₜ[R] q) ⊗ₜ[R] (f ⊗ₜ[R] q)) = 0 := by
+  sorry
+
+lemma affineTensorWedgePair_swap (z : E ⊗[R] Q) (w : F ⊗[R] Q) :
+    affineTensorWedgePair (w ⊗ₜ[R] z) =
+      - TensorProduct.map (TensorProduct.comm R E F).toLinearMap
+          (LinearMap.id : (⋀[R]^2 Q) →ₗ[R] (⋀[R]^2 Q))
+            (affineTensorWedgePair (z ⊗ₜ[R] w)) := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+open scoped TensorProduct
+variable {R E F Q : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E] [AddCommGroup F] [Module R F]
+variable [AddCommGroup Q] [Module R Q]
+
+-- test: TwistedHiggsBundle.affineExteriorStep.test_zero
+example : affineExteriorStep (0 : E →ₗ[R] E ⊗[R] Q) = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineExteriorStep.test_integer_value
+example :
+    affineExteriorStep ((TensorProduct.mk ℤ ℤ (ℤ × ℤ)).flip (1,0))
+      ((1 : ℤ) ⊗ₜ[ℤ] ((0,1) : ℤ × ℤ)) =
+        (1 : ℤ) ⊗ₜ[ℤ] exteriorPower.ιMulti ℤ 2 (M := ℤ × ℤ) ![(1,0),(0,1)] := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineExteriorStep.test_square_comparison
+example (θ : E →ₗ[R] E ⊗[R] Q) :
+    (affineExteriorStep θ).comp θ = affineExteriorSquare θ := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorWedgePair.test_repeated_coefficient
+example (e : E) (f : F) (q : Q) :
+    affineTensorWedgePair ((e ⊗ₜ[R] q) ⊗ₜ[R] (f ⊗ₜ[R] q)) = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorWedgePair.test_integer_sign
+example :
+    affineTensorWedgePair (R := ℤ) (E := ℤ) (F := ℤ) (Q := ℤ × ℤ) (((1 : ℤ) ⊗ₜ[ℤ] ((0,1) : ℤ × ℤ)) ⊗ₜ[ℤ]
+      ((1 : ℤ) ⊗ₜ[ℤ] ((1,0) : ℤ × ℤ))) =
+      - (((1 : ℤ) ⊗ₜ[ℤ] (1 : ℤ)) ⊗ₜ[ℤ]
+        exteriorPower.ιMulti ℤ 2 (M := ℤ × ℤ) ![(1,0),(0,1)]) := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorWedgePair.test_characteristic_two_nonzero
+example :
+    affineTensorWedgePair (R := ZMod 2) (E := ZMod 2) (F := ZMod 2)
+      (Q := ZMod 2 × ZMod 2) ≠ 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_torsion_coefficient_integrability
+example :
+    affineExteriorSquare (affineTensorField
+      (affineTwoDirectionField (LinearMap.id : ℤ →ₗ[ℤ] ℤ) 0
+        ((1,0) : ZMod 2 × ZMod 2) (0,1))
+      (affineTwoDirectionField (LinearMap.id : ℤ →ₗ[ℤ] ℤ) 0
+        ((0,1) : ZMod 2 × ZMod 2) (1,0))) = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_curvature_value
+example (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (e : E) (f : F) :
+    affineExteriorSquare (affineTensorField θ ψ) (e ⊗ₜ[R] f) =
+      TensorProduct.rightComm R E (⋀[R]^2 Q) F (affineExteriorSquare θ e ⊗ₜ[R] f) +
+        (TensorProduct.assoc R E F (⋀[R]^2 Q)).symm (e ⊗ₜ[R] affineExteriorSquare ψ f) := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_no_reflection_through_zero_module
+example :
+    let A := (LinearMap.inl ℤ ℤ ℤ).comp (LinearMap.snd ℤ ℤ ℤ)
+    let B := (LinearMap.inr ℤ ℤ ℤ).comp (LinearMap.fst ℤ ℤ ℤ)
+    let θ := affineTwoDirectionField A B ((1,0) : ℤ × ℤ) (0,1)
+    affineExteriorSquare θ ≠ 0 ∧
+      affineExteriorSquare (affineTensorField θ
+        (0 : (Fin 0 → ℤ) →ₗ[ℤ] (Fin 0 → ℤ) ⊗[ℤ] (ℤ × ℤ))) = 0 := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+/- END AFFINE TENSOR CURVATURE -/
