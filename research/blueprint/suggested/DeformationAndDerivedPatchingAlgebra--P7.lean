@@ -3032,3 +3032,103 @@ example (P : Polynomial ℚ)
 
 end
 end TauCeti.HilbertSamuel.CurvePolynomialTests
+/-! ## Native degree-wise initial relation continuation — codex-a71f92.
+These adapters reuse the native series homogeneous-component map and actual ideals.
+They do not construct the full graded tangent-cone algebra or a dimension theorem. -/
+namespace TauCeti.HilbertSamuel
+noncomputable section InitialRelations
+variable {σ k : Type*} [Finite σ] [CommRing k]
+local notation "R" => MvPowerSeries σ k
+local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : σ → R))
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-variable-ideal-membership
+lemma homogeneous_mem_variableIdeal_pow (g : R) (n : ℕ)
+    (hg : g.IsHomogeneous n) : g ∈ v ^ n := by sorry
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/degree-component-next-power
+lemma homogeneousComponent_eq_zero_iff_mem_next (g : R) (n : ℕ) (hg : g ∈ v ^ n) :
+    MvPowerSeries.homogeneousComponent n g = 0 ↔ g ∈ v ^ (n + 1) := by sorry
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/principal-degree-initial-relation
+lemma mem_principal_add_next_iff_initial [NoZeroDivisors k] (f g : R) (d n : ℕ)
+    (hd : f.order = (d : ℕ∞)) (hdn : d ≤ n) (hg : g ∈ v ^ n) :
+    g ∈ Ideal.span {f} ⊔ v ^ (n + 1) ↔
+      ∃ w : R, w.IsHomogeneous (n - d) ∧
+        MvPowerSeries.homogeneousComponent n g =
+          MvPowerSeries.homogeneousComponent d f * w := by sorry
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/principal-degree-below-order
+lemma mem_principal_add_next_below_order (f g : R) (d n : ℕ)
+    (hd : (d : ℕ∞) ≤ f.order) (hnd : n < d) (hg : g ∈ v ^ n) :
+    g ∈ Ideal.span {f} ⊔ v ^ (n + 1) ↔
+      MvPowerSeries.homogeneousComponent n g = 0 := by sorry
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection
+def curveDegreeProjection (f : R) (n : ℕ) :
+    ↥(v ^ n) →ₗ[k] (R ⧸ (Ideal.span {f} ⊔ v ^ (n + 1))) :=
+  ((Submodule.mkQ (Ideal.span {f} ⊔ v ^ (n + 1))).restrictScalars k).comp
+    ((v ^ n).subtype.restrictScalars k)
+
+-- API: TauCeti.HilbertSamuel.curveDegreeProjection_apply
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-apply
+omit [Finite σ] in
+lemma curveDegreeProjection_apply (f : R) (n : ℕ) (g : ↥(v ^ n)) :
+    curveDegreeProjection f n g =
+      Submodule.mkQ (Ideal.span {f} ⊔ v ^ (n + 1)) (g : R) := by sorry
+-- API: TauCeti.HilbertSamuel.curveDegreeProjection_eq_zero_iff
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-vanishing
+omit [Finite σ] in
+lemma curveDegreeProjection_eq_zero_iff (f : R) (n : ℕ) (g : ↥(v ^ n)) :
+    curveDegreeProjection f n g = 0 ↔ (g : R) ∈ Ideal.span {f} ⊔ v ^ (n + 1) := by sorry
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-kernel
+lemma curveDegreeProjection_kernel [NoZeroDivisors k] (f : R) (d n : ℕ)
+    (hd : f.order = (d : ℕ∞)) (hdn : d ≤ n) (g : ↥(v ^ n)) :
+    curveDegreeProjection f n g = 0 ↔
+      ∃ w : R, w.IsHomogeneous (n - d) ∧
+        MvPowerSeries.homogeneousComponent n (g : R) =
+          MvPowerSeries.homogeneousComponent d f * w := by sorry
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-below-order
+lemma curveDegreeProjection_below_order (f : R) (d n : ℕ)
+    (hd : (d : ℕ∞) ≤ f.order) (hnd : n < d) (g : ↥(v ^ n)) :
+    curveDegreeProjection f n g = 0 ↔
+      MvPowerSeries.homogeneousComponent n (g : R) = 0 := by sorry
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-zero-equation
+lemma curveDegreeProjection_zero_equation (n : ℕ) (g : ↥(v ^ n)) :
+    curveDegreeProjection (0 : R) n g = 0 ↔
+      MvPowerSeries.homogeneousComponent n (g : R) = 0 := by sorry
+end InitialRelations
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel.InitialRelationTests
+noncomputable section
+variable {k : Type*} [CommRing k]
+local notation "R" => MvPowerSeries (Fin 2) k
+local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → R))
+
+-- test: InitialRelationTests.zero_input
+example (f : R) (n : ℕ) :
+    curveDegreeProjection f n (0 : ↥(v ^ n)) = 0 := by sorry
+-- test: InitialRelationTests.unit_equation
+example (n : ℕ) (g : ↥(v ^ n)) :
+    curveDegreeProjection (1 : R) n g = 0 := by sorry
+-- test: InitialRelationTests.zero_equation_survives
+example :
+    let x := (MvPowerSeries.X (0 : Fin 2) : MvPowerSeries (Fin 2) ℚ)
+    let jetIdeal := Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → MvPowerSeries (Fin 2) ℚ))
+    ∃ hx : x ∈ jetIdeal ^ 1, curveDegreeProjection 0 1 ⟨x, hx⟩ ≠ 0 := by sorry
+-- test: InitialRelationTests.nonreduced_survives
+example :
+    let x := (MvPowerSeries.X (0 : Fin 2) : MvPowerSeries (Fin 2) (ZMod 2))
+    let jetIdeal := Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → MvPowerSeries (Fin 2) (ZMod 2)))
+    ∃ hx : x ∈ jetIdeal ^ 1, curveDegreeProjection (x ^ 2) 1 ⟨x, hx⟩ ≠ 0 := by sorry
+-- test: InitialRelationTests.nonreduced_square_vanishes
+example :
+    let x := (MvPowerSeries.X (0 : Fin 2) : MvPowerSeries (Fin 2) (ZMod 2))
+    let jetIdeal := Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → MvPowerSeries (Fin 2) (ZMod 2)))
+    ∃ hxx : x ^ 2 ∈ jetIdeal ^ 2, curveDegreeProjection (x ^ 2) 2 ⟨x ^ 2, hxx⟩ = 0 := by sorry
+-- test: InitialRelationTests.equation_order_boundary
+example [NoZeroDivisors k] (f : R) (d : ℕ)
+    (hd : f.order = (d : ℕ∞)) :
+    ∃ hf : f ∈ v ^ d,
+      curveDegreeProjection f d ⟨f, hf⟩ = 0 ∧
+      ∃ w : R, w.IsHomogeneous 0 ∧
+        MvPowerSeries.homogeneousComponent d f =
+          MvPowerSeries.homogeneousComponent d f * w := by sorry
+end
+end TauCeti.HilbertSamuel.InitialRelationTests

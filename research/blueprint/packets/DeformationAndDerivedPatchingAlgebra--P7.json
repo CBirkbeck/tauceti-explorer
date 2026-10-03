@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Partial continuation: preserve all 61 inherited nodes and add eleven R03.3 declarations comparing the native stable-adic Rees module quotient with the actual associated graded module. Reuse native Rees carriers and quotient scalar descent; specify the coefficient denominator, piece inclusions, homogeneous action by the same graded ring, finite expansion, degree-zero generation, finite generation for finite M and the explicit regular-module specialization. All eight stages remain open. Graded Hilbert–Serre, dimension and every original source-route obligation remain gaps. The full Mathlib-only suggested file elaborates; all mathematical implementations remain unchecked. This continuation registers the native natural-indexed grading of the existing adic Rees ring and module through seven precise adapters, without changing the underlying carriers; polynomial induction remains open. Codex — codex-a71f92 integrates six finite-variable jet adapters from the plane-curve handoff: variable-ideal powers/order, denominator containment, native shifted map with projection, exact-order injectivity, right-exactness and the separate small-index branch. All 79 inherited nodes are unchanged; the general Hilbert–Serre and multiplicity comparisons remain open. This continuation adds the native total-jet kernel, polynomial equivalence, monomial basis and two-variable field-dimension computation; built double quotients and surjective scalar length restriction are cited without duplicate nodes. Codex — codex-5ebb6f adds the native series residue-field equivalence, coefficient surjectivity, extended-natural length comparison and finite-dimensional specialization, promotes the existing jet-finiteness API, and states total-jet R-module lengths. Seven declaration nodes and three APIs are added; all 89 inherited node objects remain unchanged. The residue and length foundation has an admission-free checked prototype; the submitted signatures and all implementation statuses remain unchecked. Integrates the credited finite plane-curve jet proof into nine unchecked native declarations, with all-index length and sharp cumulative postulation; scope remains partial. Codex — codex-rtOQ9t adds three reusable quotient-ring Hilbert–Samuel API lemmas and six actual boundary examples, refines the plane-curve adapter to their specialization, and retains all source/closure boundaries. This finite-variable continuation separates algebraic monomial-power membership, the order lower bound and a finite degree-r factorization; their admission-free native prototypes assemble the existing ideal-power/order equivalence without a domain assumption. The canonical plan remains partial and unchecked. Codex — codex-7e92bd refines the total-jet kernel/equivalence/basis/count proof chains through six declaration-sized coefficient and cardinality adapters, with an admission-free native prototype covering the actual polynomial equivalence, coefficient coordinates, monomial basis and all-cutoff two-variable count. All inherited general multiplicity and patching obligations remain open. The exact-order variable-ideal preimage now has a separate lemma, and admission-free native prototypes connect the actual shifted multiplication/projection to the preceding principal-quotient proofs. The canonical suggested bodies and all stage coverage remain unchecked/partial. Native finite-plane-curve graded lengths and exact rational postulation now distinguish the two sharp thresholds, including characteristic-two and zero/unit boundaries. Native continuation supplies explicit rational curve and surface polynomials, their evaluation, degree and leading-coefficient API, actual sharp curve tails and unique eventual polynomial existence for both finite-order and zero equations. Polynomial factorial normalization is checked separately from the still-open general multiplicity and curve-dimension comparison.",
+  "summary": "Partial continuation: preserve all 61 inherited nodes and add eleven R03.3 declarations comparing the native stable-adic Rees module quotient with the actual associated graded module. Reuse native Rees carriers and quotient scalar descent; specify the coefficient denominator, piece inclusions, homogeneous action by the same graded ring, finite expansion, degree-zero generation, finite generation for finite M and the explicit regular-module specialization. All eight stages remain open. Graded Hilbert–Serre, dimension and every original source-route obligation remain gaps. The full Mathlib-only suggested file elaborates; all mathematical implementations remain unchecked. This continuation registers the native natural-indexed grading of the existing adic Rees ring and module through seven precise adapters, without changing the underlying carriers; polynomial induction remains open. Codex — codex-a71f92 integrates six finite-variable jet adapters from the plane-curve handoff: variable-ideal powers/order, denominator containment, native shifted map with projection, exact-order injectivity, right-exactness and the separate small-index branch. All 79 inherited nodes are unchanged; the general Hilbert–Serre and multiplicity comparisons remain open. This continuation adds the native total-jet kernel, polynomial equivalence, monomial basis and two-variable field-dimension computation; built double quotients and surjective scalar length restriction are cited without duplicate nodes. Codex — codex-5ebb6f adds the native series residue-field equivalence, coefficient surjectivity, extended-natural length comparison and finite-dimensional specialization, promotes the existing jet-finiteness API, and states total-jet R-module lengths. Seven declaration nodes and three APIs are added; all 89 inherited node objects remain unchanged. The residue and length foundation has an admission-free checked prototype; the submitted signatures and all implementation statuses remain unchecked. Integrates the credited finite plane-curve jet proof into nine unchecked native declarations, with all-index length and sharp cumulative postulation; scope remains partial. Codex — codex-rtOQ9t adds three reusable quotient-ring Hilbert–Samuel API lemmas and six actual boundary examples, refines the plane-curve adapter to their specialization, and retains all source/closure boundaries. This finite-variable continuation separates algebraic monomial-power membership, the order lower bound and a finite degree-r factorization; their admission-free native prototypes assemble the existing ideal-power/order equivalence without a domain assumption. The canonical plan remains partial and unchecked. Codex — codex-7e92bd refines the total-jet kernel/equivalence/basis/count proof chains through six declaration-sized coefficient and cardinality adapters, with an admission-free native prototype covering the actual polynomial equivalence, coefficient coordinates, monomial basis and all-cutoff two-variable count. All inherited general multiplicity and patching obligations remain open. The exact-order variable-ideal preimage now has a separate lemma, and admission-free native prototypes connect the actual shifted multiplication/projection to the preceding principal-quotient proofs. The canonical suggested bodies and all stage coverage remain unchecked/partial. Native finite-plane-curve graded lengths and exact rational postulation now distinguish the two sharp thresholds, including characteristic-two and zero/unit boundaries. Native continuation supplies explicit rational curve and surface polynomials, their evaluation, degree and leading-coefficient API, actual sharp curve tails and unique eventual polynomial existence for both finite-order and zero equations. Polynomial factorial normalization is checked separately from the still-open general multiplicity and curve-dimension comparison. Native degree-wise initial relations now have ten additional exact declarations (one actual projection construction and nine lemmas), six distinguishing typed tests and an admission-free combined prototype; full tangent-cone assembly and dimension remain open.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2010,6 +2010,83 @@
         "sourceLine": 113,
         "sourceSha256": "46ade3e5c8c6334c08cc2e6a1ffa22f5325f1758be9ce268b4de423b512596f7",
         "checked": "Complete declaration and applicable ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact indexed name verified. Earlier baseline records retain their historical reading provenance."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.IsHomogeneous.coeff_eq_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Order.lean",
+        "provides": "A homogeneous series has zero coefficients outside its declared degree.",
+        "checked": "Complete selected declaration, surrounding coefficient/module assumptions and displayed construction/proof personally read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92. HS-INITIAL-RELATION-PIN-a71f92 records file digests. These are baseline imports, not newly planned general APIs."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.coeff_homogeneousComponent",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Order.lean",
+        "provides": "The native homogeneous component keeps exactly coefficients of the matching total degree.",
+        "checked": "Complete selected declaration, surrounding coefficient/module assumptions and displayed construction/proof personally read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92. HS-INITIAL-RELATION-PIN-a71f92 records file digests. These are baseline imports, not newly planned general APIs."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.homogeneousComponent_of_lt_order_eq_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Order.lean",
+        "provides": "A component below native order is zero.",
+        "checked": "Complete selected declaration, surrounding coefficient/module assumptions and displayed construction/proof personally read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92. HS-INITIAL-RELATION-PIN-a71f92 records file digests. These are baseline imports, not newly planned general APIs."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.isHomogeneous_homogeneousComponent",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Order.lean",
+        "provides": "The native degree-n component is homogeneous of degree n.",
+        "checked": "Complete selected declaration, surrounding coefficient/module assumptions and displayed construction/proof personally read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92. HS-INITIAL-RELATION-PIN-a71f92 records file digests. These are baseline imports, not newly planned general APIs."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.isHomogeneous_iff_eq_homogeneousComponent",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Order.lean",
+        "provides": "Homogeneity in degree n is equality to the native degree-n component.",
+        "checked": "Complete selected declaration, surrounding coefficient/module assumptions and displayed construction/proof personally read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92. HS-INITIAL-RELATION-PIN-a71f92 records file digests. These are baseline imports, not newly planned general APIs."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.homogeneousComponent_mul_of_le_order",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Order.lean",
+        "provides": "At two native order lower bounds, the degree-sum component of a product is the product of the components.",
+        "checked": "Complete selected declaration, surrounding coefficient/module assumptions and displayed construction/proof personally read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92. HS-INITIAL-RELATION-PIN-a71f92 records file digests. These are baseline imports, not newly planned general APIs."
+      },
+      {
+        "ref": "mathlib:Ideal.pow_le_pow_right",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Operations.lean",
+        "provides": "Ideal powers decrease as their natural exponent increases.",
+        "checked": "Complete selected declaration, surrounding coefficient/module assumptions and displayed construction/proof personally read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92. HS-INITIAL-RELATION-PIN-a71f92 records file digests. These are baseline imports, not newly planned general APIs."
+      },
+      {
+        "ref": "mathlib:Submodule.mkQ",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "provides": "Native linear quotient projection.",
+        "checked": "Complete selected declaration, surrounding coefficient/module assumptions and displayed construction/proof personally read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92. HS-INITIAL-RELATION-PIN-a71f92 records file digests. These are baseline imports, not newly planned general APIs."
+      },
+      {
+        "ref": "mathlib:Submodule.subtype",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Submodule/LinearMap.lean",
+        "provides": "Native linear submodule inclusion.",
+        "checked": "Complete selected declaration, surrounding coefficient/module assumptions and displayed construction/proof personally read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92. HS-INITIAL-RELATION-PIN-a71f92 records file digests. These are baseline imports, not newly planned general APIs."
+      },
+      {
+        "ref": "mathlib:LinearMap.restrictScalars",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
+        "provides": "Scalar restriction preserves the underlying linear-map function under CompatibleSMul.",
+        "checked": "Complete selected declaration, surrounding coefficient/module assumptions and displayed construction/proof personally read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92. HS-INITIAL-RELATION-PIN-a71f92 records file digests. These are baseline imports, not newly planned general APIs."
+      },
+      {
+        "ref": "mathlib:LinearMap.comp",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
+        "provides": "Native composition of compatible linear maps.",
+        "checked": "Complete selected declaration, surrounding coefficient/module assumptions and displayed construction/proof personally read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92. HS-INITIAL-RELATION-PIN-a71f92 records file digests. These are baseline imports, not newly planned general APIs."
       }
     ]
   },
@@ -2839,6 +2916,29 @@
         "Bounded pinned RingTheory/MvPowerSeries and Polynomial name screens; open Mathlib PR 9819 remains OPEN, head 413e5b872a7c758e0eb91f99cb96d6a61c81f0a2; no unmerged result is imported. Bounded Zulip searches supplied no additional applicable API decision."
       ],
       "sha256": "df0438048d5298d3dc6cc2f7ff032564991f19aed29142596d4a13e21e94685a"
+    },
+    {
+      "id": "HS-INITIAL-RELATION-PIN-a71f92",
+      "title": "Native homogeneous-component and actual equation-jet initial-relation adapters",
+      "authors": "Mathlib contributors; credited source-proof checkpoint ChatGPT — gpt6astra-20261002-7d2f90; native adapters Codex — codex-a71f92",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; authored specialization 2026-10-03",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/MvPowerSeries/Order.lean",
+      "accessDate": "2026-10-03",
+      "readSections": [
+        "Complete selected Order.lean statements and proofs at 414–432 and 680–737, with the coefficient and semiring ambient assumptions. Native principal-ideal membership/containment, descending powers, submodule inclusion/quotient projection and scalar restriction/composition were personally read at their source pin.",
+        "Complete mathematical DDPA-JET-HANDOFF §§3–5, including equation (9), low-index and zero-multiplier branches, both directions of the degree-wise kernel, and the separately outstanding full graded isomorphism. The finite-variable/no-zero-divisors generalization is authored here using the existing exact-order preimage theorem, not attributed to a printed field theorem.",
+        "Stacks 00K4 complete mathematical section freshly read for the graded/cumulative conventions; no general Hilbert–Serre theorem is inferred from this specialization.",
+        "Reviewed AUDIT-17 scoped rows and accepted review corrections; accepted RS-08 whole-roadmap scope and applicable ownership records; governing protocols hash-confirmed unchanged. Two whole upstream style documents (JacobianAlgebra and StableReduction) were read in this continuous session; historical source/check receipts stay credited to their authors.",
+        "Bounded pinned MvPowerSeries, graded-algebra/Rees and TauCeti/RingTheory concept screens found the native component map, not this actual principal-equation kernel adapter. An open Mathlib issue/PR search for homogeneousComponent with power returned no item; bounded Zulip web search furnished no new applicable API. No unmerged or unpinned implementation is imported, and no whole-library absence is asserted."
+      ],
+      "sourceHashes": {
+        "Mathlib/RingTheory/MvPowerSeries/Order.lean": "cda7e4c6c23c83c61b97a8b365d95faaf43cec5996a3c4aada0401ebe9ecdd34",
+        "Mathlib/RingTheory/Ideal/Span.lean": "217304ad0ad295d4ac8b38c191580f636a4448fbfdf0fac94a0b9fe2470aea5f",
+        "Mathlib/RingTheory/Ideal/Operations.lean": "4859dadb42353660e6827c0c070962279d8fabdc8eea013eeed783b5cab59c22",
+        "Mathlib/LinearAlgebra/Quotient/Defs.lean": "ddb08efd66c7dd6f5e142ac3e1edc1189ea30de276f1e78f4193d6ee80676fb3",
+        "Mathlib/Algebra/Module/LinearMap/Defs.lean": "242ce4f144fbc775bc424e6b9e088f583fb485fa72f89135d157b5586a987ae7",
+        "Mathlib/Algebra/Module/Submodule/LinearMap.lean": "51b927c0a53b41f443cb053f81d6c065e0e462f1a016ea813111a0ecfa81f145"
+      }
     }
   ],
   "nodes": [
@@ -11540,6 +11640,521 @@
         "namespace": "TauCeti.HilbertSamuel"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-variable-ideal-membership",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Homogeneous series in the matching ideal power",
+      "declaration": "TauCeti.HilbertSamuel.homogeneous_mem_variableIdeal_pow",
+      "statement": "For finite σ, every degree-n homogeneous series g over any commutative ring belongs to the algebraic variable-ideal power v^n, including zero, n=0 and zero-divisor coefficients.",
+      "hypotheses": [
+        "R=MvPowerSeries σ k and v=Ideal.span(range(X)); all carriers, powers, coefficient actions, and quotient modules are native library objects.",
+        "Kernel/ideal-order adapters require finite σ and CommRing k. The upper branch additionally requires NoZeroDivisors k and exact finite order(f)=d, with d≤n. No field, irreducibility, reducedness, characteristic, completeness or local-ring hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "Use native IsHomogeneous.coeff_eq_zero to kill every coefficient of degree strictly below n.",
+        "Apply native nat_le_order, then the existing algebraic variable-ideal-power/order equivalence. No topological closure or infinite ideal sum is introduced."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order",
+        "mathlib:MvPowerSeries.IsHomogeneous.coeff_eq_zero",
+        "mathlib:MvPowerSeries.nat_le_order"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), degree-wise kernel proof; §4 native lowest-component comparison",
+          "match": "Only the actual series/ideal degree relation is integrated and checked here. Full polynomial-valued initial form, graded-ring assembly, dimension and multiplicity comparisons are not claimed completed."
+        },
+        {
+          "sourceId": "HS-INITIAL-RELATION-PIN-a71f92",
+          "locator": "Order.lean 414–432 and 680–737; native ideal and linear quotient interfaces; authored degree-wise adapter proof",
+          "match": "The generic homogeneous-component API is built and reused. The initial relation and actual projection are authored adapters of DDPA-JET-HANDOFF §5, extended to finite variables and no-zero-divisors commutative coefficients by the proved native order adapter; no full graded-ring comparison is inferred."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For finite σ, every degree-n homogeneous series g over any commutative ring belongs to the algebraic variable-ideal power v^n, including zero, n=0 and zero-divisor coefficients."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/degree-component-next-power",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Degree component detects the next variable-ideal power",
+      "declaration": "TauCeti.HilbertSamuel.homogeneousComponent_eq_zero_iff_mem_next",
+      "statement": "For finite σ, any commutative ring k and g∈v^n, HC_n(g)=0 if and only if g∈v^(n+1), where HC is the existing power-series-valued homogeneous-component linear map.",
+      "hypotheses": [
+        "R=MvPowerSeries σ k and v=Ideal.span(range(X)); all carriers, powers, coefficient actions, and quotient modules are native library objects.",
+        "Kernel/ideal-order adapters require finite σ and CommRing k. The upper branch additionally requires NoZeroDivisors k and exact finite order(f)=d, with d≤n. No field, irreducibility, reducedness, characteristic, completeness or local-ring hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "Convert g∈v^n to its order lower bound. For HC_n(g)=0, coefficients below n vanish by order and degree-n coefficients vanish by the native component coefficient formula.",
+        "For a coefficient degree below n+1, split strictly below n from degree exactly n; apply native nat_le_order and the existing ideal-power equivalence.",
+        "Conversely membership in v^(n+1) gives n<order(g), so the already built homogeneous component vanishes. The g∈v^n premise is essential."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order",
+        "mathlib:MvPowerSeries.coeff_of_lt_order",
+        "mathlib:MvPowerSeries.coeff_homogeneousComponent",
+        "mathlib:MvPowerSeries.homogeneousComponent_of_lt_order_eq_zero",
+        "mathlib:MvPowerSeries.nat_le_order"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), degree-wise kernel proof; §4 native lowest-component comparison",
+          "match": "Only the actual series/ideal degree relation is integrated and checked here. Full polynomial-valued initial form, graded-ring assembly, dimension and multiplicity comparisons are not claimed completed."
+        },
+        {
+          "sourceId": "HS-INITIAL-RELATION-PIN-a71f92",
+          "locator": "Order.lean 414–432 and 680–737; native ideal and linear quotient interfaces; authored degree-wise adapter proof",
+          "match": "The generic homogeneous-component API is built and reused. The initial relation and actual projection are authored adapters of DDPA-JET-HANDOFF §5, extended to finite variables and no-zero-divisors commutative coefficients by the proved native order adapter; no full graded-ring comparison is inferred."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For finite σ, any commutative ring k and g∈v^n, HC_n(g)=0 if and only if g∈v^(n+1), where HC is the existing power-series-valued homogeneous-component linear map."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/principal-degree-initial-relation",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Principal equation relation in a fixed degree",
+      "declaration": "TauCeti.HilbertSamuel.mem_principal_add_next_iff_initial",
+      "statement": "For finite σ and no-zero-divisors commutative coefficients, if order(f)=d, d≤n and g∈v^n, then g∈(f)+v^(n+1) iff there is a degree-(n−d) homogeneous series w with HC_n(g)=HC_d(f)·w.",
+      "hypotheses": [
+        "R=MvPowerSeries σ k and v=Ideal.span(range(X)); all carriers, powers, coefficient actions, and quotient modules are native library objects.",
+        "Kernel/ideal-order adapters require finite σ and CommRing k. The upper branch additionally requires NoZeroDivisors k and exact finite order(f)=d, with d≤n. No field, irreducibility, reducedness, characteristic, completeness or local-ring hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "Write g=a·f+b with b∈v^(n+1) using native principal-ideal sum membership. Since g and b lie in v^n, f·a lies in v^n.",
+        "Use the exact-order ideal preimage to obtain a∈v^(n−d), with d+(n−d)=n justified by d≤n. Select the native homogeneous component w=HC_(n−d)(a).",
+        "Apply native component multiplicativity at the two order lower bounds, and kill HC_n(b) by the next-power adapter. This proves the forward implication even when a=0.",
+        "Conversely homogeneity puts w in v^(n−d). Hence f·w∈v^n, and native component multiplicativity identifies its degree-n component with HC_d(f)·w.",
+        "The assumed component equality makes HC_n(g−f·w)=0. The next-power adapter yields g−f·w∈v^(n+1), supplying an actual witness of principal-ideal sum membership."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/exact-order-mul-ideal-preimage",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-variable-ideal-membership",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/degree-component-next-power",
+        "mathlib:Ideal.mem_span_singleton_sup",
+        "mathlib:Ideal.pow_le_pow_right",
+        "mathlib:MvPowerSeries.isHomogeneous_homogeneousComponent",
+        "mathlib:MvPowerSeries.isHomogeneous_iff_eq_homogeneousComponent",
+        "mathlib:MvPowerSeries.homogeneousComponent_mul_of_le_order"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), degree-wise kernel proof; §4 native lowest-component comparison",
+          "match": "Only the actual series/ideal degree relation is integrated and checked here. Full polynomial-valued initial form, graded-ring assembly, dimension and multiplicity comparisons are not claimed completed."
+        },
+        {
+          "sourceId": "HS-INITIAL-RELATION-PIN-a71f92",
+          "locator": "Order.lean 414–432 and 680–737; native ideal and linear quotient interfaces; authored degree-wise adapter proof",
+          "match": "The generic homogeneous-component API is built and reused. The initial relation and actual projection are authored adapters of DDPA-JET-HANDOFF §5, extended to finite variables and no-zero-divisors commutative coefficients by the proved native order adapter; no full graded-ring comparison is inferred."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For finite σ and no-zero-divisors commutative coefficients, if order(f)=d, d≤n and g∈v^n, then g∈(f)+v^(n+1) iff there is a degree-(n−d) homogeneous series w with HC_n(g)=HC_d(f)·w."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/principal-degree-below-order",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Equation invisible strictly below its order",
+      "declaration": "TauCeti.HilbertSamuel.mem_principal_add_next_below_order",
+      "statement": "For finite σ and arbitrary commutative k, n<d≤order(f) and g∈v^n imply g∈(f)+v^(n+1) iff HC_n(g)=0. Only an order lower bound is needed; no product-order cancellation or domain hypothesis is used.",
+      "hypotheses": [
+        "R=MvPowerSeries σ k and v=Ideal.span(range(X)); all carriers, powers, coefficient actions, and quotient modules are native library objects.",
+        "Kernel/ideal-order adapters require finite σ and CommRing k. The upper branch additionally requires NoZeroDivisors k and exact finite order(f)=d, with d≤n. No field, irreducibility, reducedness, characteristic, completeness or local-ring hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "From n<d obtain n+1≤d≤order(f), so f belongs to v^(n+1). Native principal-ideal containment collapses (f)+v^(n+1) to v^(n+1).",
+        "Apply the next-power component criterion. Do not use truncated n−d to assert the upper-branch witness theorem at a small index."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/degree-component-next-power",
+        "mathlib:Ideal.span_singleton_le_iff_mem"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), degree-wise kernel proof; §4 native lowest-component comparison",
+          "match": "Only the actual series/ideal degree relation is integrated and checked here. Full polynomial-valued initial form, graded-ring assembly, dimension and multiplicity comparisons are not claimed completed."
+        },
+        {
+          "sourceId": "HS-INITIAL-RELATION-PIN-a71f92",
+          "locator": "Order.lean 414–432 and 680–737; native ideal and linear quotient interfaces; authored degree-wise adapter proof",
+          "match": "The generic homogeneous-component API is built and reused. The initial relation and actual projection are authored adapters of DDPA-JET-HANDOFF §5, extended to finite variables and no-zero-divisors commutative coefficients by the proved native order adapter; no full graded-ring comparison is inferred."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For finite σ and arbitrary commutative k, n<d≤order(f) and g∈v^n imply g∈(f)+v^(n+1) iff HC_n(g)=0. Only an order lower bound is needed; no product-order cancellation or domain hypothesis is used."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "construction",
+      "title": "Actual degree-n projection into the equation jet",
+      "declaration": "TauCeti.HilbertSamuel.curveDegreeProjection",
+      "statement": "For every variable type σ and commutative k, φ_f,n:↥(v^n)→ₗ[k]R/((f)+v^(n+1)) sends a native ideal-power element g to its actual quotient class. This is a coefficient-linear map, not an algebra homomorphism or a claimed surjection onto the entire jet.",
+      "hypotheses": [
+        "R=MvPowerSeries σ k and v=Ideal.span(range(X)); all carriers, powers, coefficient actions, and quotient modules are native library objects.",
+        "The map and representative/denominator API work for arbitrary σ and every commutative coefficient ring. Finiteness is needed only for the subsequent ideal-power/order kernel comparison."
+      ],
+      "proofSteps": [
+        "Compose the native submodule subtype with the native quotient projection, restricting both scalar structures from R to k.",
+        "The target is the existing equation-jet quotient, not a prescribed Hilbert function or an alternative definition of the associated graded ring. Constructing its image comparison with the q^n/q^(n+1) layer remains a separate leaf."
+      ],
+      "prerequisites": [
+        "mathlib:Submodule.subtype",
+        "mathlib:Submodule.mkQ",
+        "mathlib:LinearMap.restrictScalars",
+        "mathlib:LinearMap.comp"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), degree-wise kernel proof; §4 native lowest-component comparison",
+          "match": "Only the actual series/ideal degree relation is integrated and checked here. Full polynomial-valued initial form, graded-ring assembly, dimension and multiplicity comparisons are not claimed completed."
+        },
+        {
+          "sourceId": "HS-INITIAL-RELATION-PIN-a71f92",
+          "locator": "Order.lean 414–432 and 680–737; native ideal and linear quotient interfaces; authored degree-wise adapter proof",
+          "match": "The generic homogeneous-component API is built and reused. The initial relation and actual projection are authored adapters of DDPA-JET-HANDOFF §5, extended to finite variables and no-zero-divisors commutative coefficients by the proved native order adapter; no full graded-ring comparison is inferred."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For every variable type σ and commutative k, φ_f,n:↥(v^n)→ₗ[k]R/((f)+v^(n+1)) sends a native ideal-power element g to its actual quotient class. This is a coefficient-linear map, not an algebra homomorphism or a claimed surjection onto the entire jet."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.curveDegreeProjection_apply",
+          "role": "simp",
+          "statement": "For every σ, CommRing k, n and g∈v^n as a native subtype element, φ_f,n(g) is Submodule.mkQ((f)+v^(n+1))(g)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.curveDegreeProjection_eq_zero_iff",
+          "role": "characterisation",
+          "statement": "For every σ and commutative k, φ_f,n(g)=0 iff the ambient representative g belongs to the actual ideal (f)+v^(n+1)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.curveDegreeProjection_kernel",
+          "role": "characterisation",
+          "statement": "For finite σ and no-zero-divisors commutative k, order(f)=d≤n and g:↥(v^n), φ_f,n(g)=0 iff HC_n(g)=HC_d(f)·w for some degree-(n−d) homogeneous series w."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.curveDegreeProjection_below_order",
+          "role": "compatibility",
+          "statement": "For finite σ, arbitrary commutative k, n<d≤order(f) and g:↥(v^n), φ_f,n(g)=0 iff HC_n(g)=0."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.curveDegreeProjection_zero_equation",
+          "role": "compatibility",
+          "statement": "For finite σ and every commutative coefficient ring, φ_0,n(g)=0 iff HC_n(g)=0 for every g:↥(v^n). This includes the zero equation of infinite order without order.toNat."
+        }
+      ],
+      "tests": [
+        {
+          "name": "InitialRelationTests.zero_input",
+          "kind": "degenerate",
+          "statement": "For every commutative k, equation f and index n, the actual map φ_f,n sends the zero element of the native v^n subtype to zero."
+        },
+        {
+          "name": "InitialRelationTests.unit_equation",
+          "kind": "degenerate",
+          "statement": "For f=1, every actual ideal-power representative maps to zero, for every index, because the equation ideal is top; no IsLocalRing instance on the zero quotient is assumed."
+        },
+        {
+          "name": "InitialRelationTests.zero_equation_survives",
+          "kind": "computation",
+          "statement": "For k=ℚ, f=0 and n=1, the actual class of X₀ from v survives in R/v²; zero equation is not interpreted as a finite-order unit."
+        },
+        {
+          "name": "InitialRelationTests.nonreduced_survives",
+          "kind": "non-example",
+          "statement": "For k=F₂, f=X₀² and n=1, the actual class of X₀ survives in R/(X₀²,v²). Passing to a radical equation ideal would wrongly kill it."
+        },
+        {
+          "name": "InitialRelationTests.nonreduced_square_vanishes",
+          "kind": "computation",
+          "statement": "For k=F₂, f=X₀² and n=2, the actual degree-two representative X₀² belongs to v² and maps to zero in R/(X₀²,v³); both this and the surviving degree-one class are required."
+        },
+        {
+          "name": "InitialRelationTests.equation_order_boundary",
+          "kind": "compatibility",
+          "statement": "For every finite-order equation f over no-zero-divisors commutative k in two variables, at n=d its actual representative maps to zero and HC_d(f) is a homogeneous degree-zero multiple of itself. The boundary is d≤n, not d<n."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DDPA-JET-HANDOFF §5, equation (9), and R03.3 formal-curve comparison gap",
+          "how": "Certify actual denominator membership in each degree, then feed the remaining polynomial/associated-graded image comparison without replacing any canonical ring."
+        },
+        {
+          "where": "Reserved general Hilbert–Samuel multiplicity",
+          "how": "Provide a prerequisite for the later tangent-cone and dimension specialization, without redefining multiplicity or closing the general existence/support-degree leaves."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-apply",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Projection on its actual representative",
+      "declaration": "TauCeti.HilbertSamuel.curveDegreeProjection_apply",
+      "statement": "For every σ, CommRing k, n and g∈v^n as a native subtype element, φ_f,n(g) is Submodule.mkQ((f)+v^(n+1))(g).",
+      "hypotheses": [
+        "R=MvPowerSeries σ k and v=Ideal.span(range(X)); all carriers, powers, coefficient actions, and quotient modules are native library objects.",
+        "The map and representative/denominator API work for arbitrary σ and every commutative coefficient ring. Finiteness is needed only for the subsequent ideal-power/order kernel comparison."
+      ],
+      "proofSteps": [
+        "Unfold the composition and scalar restriction; both preserve the underlying native functions, so the representative formula is definitional."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), degree-wise kernel proof; §4 native lowest-component comparison",
+          "match": "Only the actual series/ideal degree relation is integrated and checked here. Full polynomial-valued initial form, graded-ring assembly, dimension and multiplicity comparisons are not claimed completed."
+        },
+        {
+          "sourceId": "HS-INITIAL-RELATION-PIN-a71f92",
+          "locator": "Order.lean 414–432 and 680–737; native ideal and linear quotient interfaces; authored degree-wise adapter proof",
+          "match": "The generic homogeneous-component API is built and reused. The initial relation and actual projection are authored adapters of DDPA-JET-HANDOFF §5, extended to finite variables and no-zero-divisors commutative coefficients by the proved native order adapter; no full graded-ring comparison is inferred."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For every σ, CommRing k, n and g∈v^n as a native subtype element, φ_f,n(g) is Submodule.mkQ((f)+v^(n+1))(g)."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-vanishing",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Projection vanishes exactly on the actual denominator",
+      "declaration": "TauCeti.HilbertSamuel.curveDegreeProjection_eq_zero_iff",
+      "statement": "For every σ and commutative k, φ_f,n(g)=0 iff the ambient representative g belongs to the actual ideal (f)+v^(n+1).",
+      "hypotheses": [
+        "R=MvPowerSeries σ k and v=Ideal.span(range(X)); all carriers, powers, coefficient actions, and quotient modules are native library objects.",
+        "The map and representative/denominator API work for arbitrary σ and every commutative coefficient ring. Finiteness is needed only for the subsequent ideal-power/order kernel comparison."
+      ],
+      "proofSteps": [
+        "Apply the native Submodule.Quotient.mk_eq_zero statement to the actual representative formula; no field or finite-length assumption is needed."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-apply",
+        "mathlib:Submodule.Quotient.mk_eq_zero"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), degree-wise kernel proof; §4 native lowest-component comparison",
+          "match": "Only the actual series/ideal degree relation is integrated and checked here. Full polynomial-valued initial form, graded-ring assembly, dimension and multiplicity comparisons are not claimed completed."
+        },
+        {
+          "sourceId": "HS-INITIAL-RELATION-PIN-a71f92",
+          "locator": "Order.lean 414–432 and 680–737; native ideal and linear quotient interfaces; authored degree-wise adapter proof",
+          "match": "The generic homogeneous-component API is built and reused. The initial relation and actual projection are authored adapters of DDPA-JET-HANDOFF §5, extended to finite variables and no-zero-divisors commutative coefficients by the proved native order adapter; no full graded-ring comparison is inferred."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For every σ and commutative k, φ_f,n(g)=0 iff the ambient representative g belongs to the actual ideal (f)+v^(n+1)."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-kernel",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Actual projection kernel above equation order",
+      "declaration": "TauCeti.HilbertSamuel.curveDegreeProjection_kernel",
+      "statement": "For finite σ and no-zero-divisors commutative k, order(f)=d≤n and g:↥(v^n), φ_f,n(g)=0 iff HC_n(g)=HC_d(f)·w for some degree-(n−d) homogeneous series w.",
+      "hypotheses": [
+        "R=MvPowerSeries σ k and v=Ideal.span(range(X)); all carriers, powers, coefficient actions, and quotient modules are native library objects.",
+        "Kernel/ideal-order adapters require finite σ and CommRing k. The upper branch additionally requires NoZeroDivisors k and exact finite order(f)=d, with d≤n. No field, irreducibility, reducedness, characteristic, completeness or local-ring hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "Use the actual quotient vanishing API, then apply the proved principal-degree initial relation to the subtype's own membership proof.",
+        "This characterizes the full kernel of the specified coefficient-linear degree map. It is not yet ker(k[X_i]→gr_q(R/(f)))=(in(f)); that statement still needs polynomial comparison, assembly, multiplicative compatibility and native graded quotient interfaces."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-vanishing",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/principal-degree-initial-relation"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), degree-wise kernel proof; §4 native lowest-component comparison",
+          "match": "Only the actual series/ideal degree relation is integrated and checked here. Full polynomial-valued initial form, graded-ring assembly, dimension and multiplicity comparisons are not claimed completed."
+        },
+        {
+          "sourceId": "HS-INITIAL-RELATION-PIN-a71f92",
+          "locator": "Order.lean 414–432 and 680–737; native ideal and linear quotient interfaces; authored degree-wise adapter proof",
+          "match": "The generic homogeneous-component API is built and reused. The initial relation and actual projection are authored adapters of DDPA-JET-HANDOFF §5, extended to finite variables and no-zero-divisors commutative coefficients by the proved native order adapter; no full graded-ring comparison is inferred."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For finite σ and no-zero-divisors commutative k, order(f)=d≤n and g:↥(v^n), φ_f,n(g)=0 iff HC_n(g)=HC_d(f)·w for some degree-(n−d) homogeneous series w."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-below-order",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Actual projection kernel below equation order",
+      "declaration": "TauCeti.HilbertSamuel.curveDegreeProjection_below_order",
+      "statement": "For finite σ, arbitrary commutative k, n<d≤order(f) and g:↥(v^n), φ_f,n(g)=0 iff HC_n(g)=0.",
+      "hypotheses": [
+        "R=MvPowerSeries σ k and v=Ideal.span(range(X)); all carriers, powers, coefficient actions, and quotient modules are native library objects.",
+        "Kernel/ideal-order adapters require finite σ and CommRing k. The upper branch additionally requires NoZeroDivisors k and exact finite order(f)=d, with d≤n. No field, irreducibility, reducedness, characteristic, completeness or local-ring hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "Combine the actual quotient vanishing API and the small-index principal-ideal collapse. A weak order bound is sufficient and is kept distinct from exact finite order in the upper branch."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-vanishing",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/principal-degree-below-order"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), degree-wise kernel proof; §4 native lowest-component comparison",
+          "match": "Only the actual series/ideal degree relation is integrated and checked here. Full polynomial-valued initial form, graded-ring assembly, dimension and multiplicity comparisons are not claimed completed."
+        },
+        {
+          "sourceId": "HS-INITIAL-RELATION-PIN-a71f92",
+          "locator": "Order.lean 414–432 and 680–737; native ideal and linear quotient interfaces; authored degree-wise adapter proof",
+          "match": "The generic homogeneous-component API is built and reused. The initial relation and actual projection are authored adapters of DDPA-JET-HANDOFF §5, extended to finite variables and no-zero-divisors commutative coefficients by the proved native order adapter; no full graded-ring comparison is inferred."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For finite σ, arbitrary commutative k, n<d≤order(f) and g:↥(v^n), φ_f,n(g)=0 iff HC_n(g)=0."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-zero-equation",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Zero-equation degree projection without finite order",
+      "declaration": "TauCeti.HilbertSamuel.curveDegreeProjection_zero_equation",
+      "statement": "For finite σ and every commutative coefficient ring, φ_0,n(g)=0 iff HC_n(g)=0 for every g:↥(v^n). This includes the zero equation of infinite order without order.toNat.",
+      "hypotheses": [
+        "R=MvPowerSeries σ k and v=Ideal.span(range(X)); all carriers, powers, coefficient actions, and quotient modules are native library objects.",
+        "Kernel/ideal-order adapters require finite σ and CommRing k. The upper branch additionally requires NoZeroDivisors k and exact finite order(f)=d, with d≤n. No field, irreducibility, reducedness, characteristic, completeness or local-ring hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "The actual ideal generated by zero is bottom. Reduce its denominator sum to v^(n+1) and apply the next-power component criterion.",
+        "Keep this statement separate from the finite-order principal equation argument; no nontrivial local-ring instance on a unit quotient is required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-vanishing",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/degree-component-next-power",
+        "mathlib:Ideal.span_singleton_eq_bot"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, equation (9), degree-wise kernel proof; §4 native lowest-component comparison",
+          "match": "Only the actual series/ideal degree relation is integrated and checked here. Full polynomial-valued initial form, graded-ring assembly, dimension and multiplicity comparisons are not claimed completed."
+        },
+        {
+          "sourceId": "HS-INITIAL-RELATION-PIN-a71f92",
+          "locator": "Order.lean 414–432 and 680–737; native ideal and linear quotient interfaces; authored degree-wise adapter proof",
+          "match": "The generic homogeneous-component API is built and reused. The initial relation and actual projection are authored adapters of DDPA-JET-HANDOFF §5, extended to finite variables and no-zero-divisors commutative coefficients by the proved native order adapter; no full graded-ring comparison is inferred."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For finite σ and every commutative coefficient ring, φ_0,n(g)=0 iff HC_n(g)=0 for every g:↥(v^n). This includes the zero equation of infinite order without order.toNat."
+      ]
     }
   ],
   "baselineCoverage": [
@@ -11673,7 +12288,8 @@
         "The codex-7e92bd coefficient-coordinate continuation now supplies admission-free native prototypes for total truncation kernel/surjectivity, the actual polynomial equivalence, low-coefficient linear equivalence, monomial basis, finite generation and all-cutoff two-variable rank/cardinality. This supersedes the preceding prototype omissions for those adapters only. Canonical bodies and all implementation statuses stay unchecked. Shifted series exact-order injectivity/exactness, all-index curve lengths, tangent cone and curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre, Artin–Rees, degree/dimension, completion, associativity, all eight stage targets and all routed-paper obligations remain open.",
         "The codex-J6LwjP exact-order continuation supplies checked native prototypes for the shifted denominator, actual map/projection agreement, exact-order injectivity, right exactness and small-index projection. Canonical bodies remain admitted. Combine these with the existing total-jet basis/count and quotient/scalar comparison to prove all-index curve lengths; then prove the tangent-cone kernel, curve dimension and intrinsic/ambient multiplicity comparisons. Preserve the separate small-index, zero/unit and zero-divisor boundaries. General Hilbert–Serre induction, degree/dimension, Artin–Rees, associativity, completion and every routed-paper/stage obligation remain open.",
         "The actual native graded function, general quotient-transition length proof, exact rational postulation defect, sharp cumulative threshold, sharp graded threshold, unit defect just before agreement, and separate zero-equation graded branch now have admission-free proof prototypes. All ten new named tests use actual characteristic-two quotient modules or the exact native integer/rational count expressions. Canonical bodies remain admitted and all nodes unchecked. Still prove the full tangent-cone kernel and dimension of the actual curve ring, compare with the existing cumulative polynomial/intrinsic and ambient multiplicities without assuming generic existence, and discharge general Hilbert–Serre induction, support/degree, Artin–Rees, localization lengths, completion, associativity, all eight stage targets and every inherited routed-paper obligation. The graded and cumulative sharp thresholds are distinct; the zero equation has no finite order.",
-        "The actual plane-curve and zero-equation functions now have independently proved unique eventual rational polynomials, explicit degree/leading-coefficient API and factorial coefficient arithmetic. Compare these with the existing general polynomial constructor through its proved specification, identify intrinsic/ambient multiplicities under proved support and dimension hypotheses, and prove the native tangent-cone kernel and curve dimension. General Hilbert–Serre induction, support/degree, Artin–Rees, completion, localization lengths, associativity, every routed source obligation and all eight stage targets remain required."
+        "The actual plane-curve and zero-equation functions now have independently proved unique eventual rational polynomials, explicit degree/leading-coefficient API and factorial coefficient arithmetic. Compare these with the existing general polynomial constructor through its proved specification, identify intrinsic/ambient multiplicities under proved support and dimension hypotheses, and prove the native tangent-cone kernel and curve dimension. General Hilbert–Serre induction, support/degree, Artin–Rees, completion, localization lengths, associativity, every routed source obligation and all eight stage targets remain required.",
+        "The codex-a71f92 continuation proves the actual degree-wise series/ideal kernel adapters and coefficient-linear equation-jet projection, including both principal relation directions, small-index, zero/unit and characteristic-two nonreduced tests. It preserves the complete incoming proof prefix. Still construct the polynomial-valued homogeneous comparison, identify the map's image with the existing q^n/q^(n+1) carrier, and assemble the multiplicatively compatible full tangent-cone graded isomorphism. Curve/support dimension, comparison with the general Hilbert–Samuel constructor, intrinsic/ambient multiplicities, general Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed source obligation remain required; canonical bodies remain admitted and every node/stage retains unchecked/partial status."
       ]
     },
     {
@@ -13465,6 +14081,51 @@
         "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--P7.json",
         "research/blueprint/readmes/DeformationAndDerivedPatchingAlgebra--P7.md",
         "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--P7.lean"
+      ]
+    }
+  },
+  "initialRelationContinuation": {
+    "agent": "Codex — codex-a71f92",
+    "date": "2026-10-03",
+    "issue": 551,
+    "mathematicalBase": "7a0839ba10a362fba9724a9704e986412ea03aa8",
+    "claimComment": 5964959432,
+    "botConfirmation": 5964960489,
+    "newNodes": [
+      "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-variable-ideal-membership",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/degree-component-next-power",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/principal-degree-initial-relation",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/principal-degree-below-order",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-apply",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-vanishing",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-kernel",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-below-order",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-zero-equation"
+    ],
+    "nativeSha256": "695a088a82bfd4d432a4af5bf41d4f1b99d33138db2bcf86f3d9c08c9973a3a5",
+    "incomingNativeSha256": "5a8f33443d5002d6d11eb5a4b513cfdafc36fa8fd4cf0a2874ea4b2b504a0389",
+    "canonicalSha256": "d4436ea6117da50ee365d6886425697862cfebae297be2f735cfdca3a279bc6e",
+    "nativeAxiomAudits": 129,
+    "namedNewTests": 6,
+    "boundary": "The codex-a71f92 continuation proves the actual degree-wise series/ideal kernel adapters and coefficient-linear equation-jet projection, including both principal relation directions, small-index, zero/unit and characteristic-two nonreduced tests. It preserves the complete incoming proof prefix. Still construct the polynomial-valued homogeneous comparison, identify the map's image with the existing q^n/q^(n+1) carrier, and assemble the multiplicatively compatible full tangent-cone graded isomorphism. Curve/support dimension, comparison with the general Hilbert–Samuel constructor, intrinsic/ambient multiplicities, general Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed source obligation remain required; canonical bodies remain admitted and every node/stage retains unchecked/partial status.",
+    "proofArchiveCommit": "1ee3d626cd226cffc0ee869aff618df03e133c65",
+    "publicationBase": "9c8a340faae54f977214d1a159764c3ca25a1e0e",
+    "validation": {
+      "checker": "pass",
+      "intake": "pass",
+      "preservedWholeNodes": 147,
+      "ownDAG": "acyclic",
+      "scopedCombinedDAG": "acyclic",
+      "siblingPart": "DeformationAndDerivedPatchingAlgebra--R03.6",
+      "assembledDeclarations": 210,
+      "requiredSupplierStagePairs": 13,
+      "reachableSupplierStagePairs": 12,
+      "acceptedRestructurePairsReachable": 65,
+      "stageEdgesUnchanged": true,
+      "inheritedMissingSupplierPair": [
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+        "DeformationAndDerivedPatchingAlgebra:R03.4"
       ]
     }
   }
