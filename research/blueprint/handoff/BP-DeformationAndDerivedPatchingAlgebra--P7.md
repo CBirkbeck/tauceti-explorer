@@ -37,3 +37,49 @@ The actual native module monomial map, quotient scalar compatibility, degree-zer
 Start with the actual module denominator coefficient criterion and monomial kernel; prove the full homogeneous module action and decomposition, then the native kernel/range/quotient grading, scalar descent, smaller-ring finite generation and degreewise length exactness required by the existing Hilbert–Serre induction. Use the explicit generators here without assuming the polynomial tail to be proved. Every earlier support-degree, Artin–Rees, localization-length, associativity, completion, intrinsic/ambient multiplicity, plane-curve, minimal-complex, patching and routed-source obligation remains required. The reserved Hilbert–Samuel key definition remains open.
 
 The authenticated archive contains only this job's named deliverables, proof/projection files, selected reading and compilation receipts, and replay helpers; no repository/library snapshot or private source is bundled. The public recovery appendix below supplies its immutable ancestor and hashes. verify.py executes the actual immutable checker/intake/assembler; it does not execute Lean. compile.py/runcheck.py can execute the two recorded files with an existing exact-pin build, subject to the same memory and time guards. No compiler remains running at submission.
+
+## Immutable public recovery
+
+Archive ancestor: dd24b7c92206aef656ed655779934dba673be86c. Manifest SHA-256: 842808a581472b7b386010e844a66dd92b00d993f9cd7f2c730c1fca2d6c6e8a. Compressed payload SHA-256: 19404d6e2e91be873b263a4d2e9b74128bb69da595492b1b6857ffabacd4fc73. Recovery-helper SHA-256: e471cac87596fbfd17c96af7d468462c5b7abaad12e9808118ee14d109b846c8. The archive authenticates50 named artifacts and nine helpers. The final suggested file is the clean entire compiled Canonical.lean; its ancestor alone carries the compressed proof archive.
+
+Save the following exact helper as recover.py. Run it with an on-disk replay directory, the recorded archive ancestor, manifest and payload hashes, and the exact40-character PR head from GitHub. Use that exact head even after merge; do not substitute mutable main. Example argument order: python3 recover.py REPLAY ARCHIVE MANIFEST PAYLOAD HEAD. It authenticates all archived artifacts and all four public deliverables, including this handoff and this exact recovery helper.
+
+```python
+"""Recover and authenticate this checkpoint from immutable public GitHub commits."""
+from pathlib import Path
+import base64,gzip,hashlib,json,re,sys,urllib.request
+OUT=Path(sys.argv[1]).resolve();ARCHIVE,MANIFEST,PAYLOAD,HEAD=sys.argv[2:6]
+for value in [ARCHIVE,HEAD]:assert re.fullmatch('[0-9a-f]{40}',value)
+for value in [MANIFEST,PAYLOAD]:assert re.fullmatch('[0-9a-f]{64}',value)
+RID='DeformationAndDerivedPatchingAlgebra';STEM=RID+'--P7'
+PREFIX='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
+def fetch(ref,path):
+ return urllib.request.urlopen(PREFIX+ref+'/'+path,timeout=60).read()
+def sha(b):return hashlib.sha256(b).hexdigest()
+raw=fetch(ARCHIVE,'research/blueprint/suggested/'+STEM+'.lean').decode()
+m=re.search(r'BEGIN-RT0Q9T-MODULE-551\n([A-Za-z0-9+/=\n]+)\nEND-RT0Q9T-MODULE-551',raw);assert m
+compressed=base64.b64decode(m[1]);assert sha(compressed)==PAYLOAD
+entries=json.loads(gzip.decompress(compressed))
+assert all(re.fullmatch('[A-Za-z0-9_.-]+',n)for n in entries)
+decoded={n:base64.b64decode(v)for n,v in entries.items()}
+manifest=json.loads(decoded['artifact-manifest.json']);assert sha(decoded['artifact-manifest.json'])==MANIFEST
+assert set(decoded)==set(manifest)|{'artifact-manifest.json'}
+for n,meta in manifest.items():
+ b=decoded[n];assert sha(b)==meta['sha256']and len(b)==meta['bytes']and len(b.splitlines())==meta['lines'],n
+ assert not re.search(rb'/(?:home|tmp|Users)/|file'+rb'://',b),n
+OUT.mkdir(parents=True,exist_ok=True)
+for n,b in decoded.items():(OUT/n).write_bytes(b)
+paths=['research/blueprint/'+f+'/'+('BP-'if f=='handoff'else'')+STEM+'.'+e for f,e in [('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]]
+hashes={}
+for path,name in zip(paths,['Candidate.json','Reader.md','Canonical.lean','Handoff.md']):
+ b=fetch(HEAD,path);hashes[path]=sha(b)
+ if name=='Handoff.md':
+  assert b.startswith(decoded[name]);assert decoded['recover.py'].decode().strip()in b.decode()
+  (OUT/'PublicHandoff.md').write_bytes(b)
+ else:assert b==decoded[name],path
+record={'head':HEAD,'archive':ARCHIVE,'artifactsVerified':len(manifest),'archivedHelpersVerified':sum(n.endswith('.py')for n in manifest),'publicDeliverables':hashes,'recoverySha256':sha(decoded['recover.py']),'LeanExecuted':False}
+(OUT/'PublicRecovery.json').write_text(json.dumps(record,indent=2)+'\n')
+print(json.dumps(record,indent=2))
+```
+
+From a repository checkout, run verify.py with the recovered directory and pinned declaration index, setting ROOT_ACTION_VALIDATE_BASE first to the recorded mathematical base and then to the recorded publication base. Compare each actual report byte-for-byte with verification-math.json and verification-publication.json. This executes the genuine immutable checker, source/version checks, intake rules and build.assemble projections; it does not run Lean. The archived compiler receipts authenticate the two entire recorded files, and compile.py/runcheck.py can rerun them serially in an existing exact-pin build. The worker reran both verifiers from the immutable public archive and checked exact report matches before opening the PR.
