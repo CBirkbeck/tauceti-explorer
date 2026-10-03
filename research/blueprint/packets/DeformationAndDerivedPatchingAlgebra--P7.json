@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Coefficient projections and finite homogeneous decomposition continuation: register the actual native GradedAlgebra on the existing ordinary Rees quotient and prove degree-preserving coefficient change; the general module, finiteness, Hilbert–Serre and dimension arguments remain open. Native coefficient-change maps, exact graded injectivity and ring-equivalence transport, with a proved old coefficient-ideal/monomial/piece core. Finite-length local modules, actual adic quotient finiteness and cumulative/graded stabilization are refined with eight declaration-sized lemmas. Graded annihilator checkpoint: ten new declarations, three promoted API statements and six typed boundary tests. Actual graded quotient transport, extended graded lengths, the nonzero primary boundary and the zero-module unit-ideal boundary have independent native proofs. Polynomial and both multiplicity invariances explicitly depend on the existing admitted general polynomial specification. Annihilator-enlargement checkpoint: preserve all 247 incoming declaration objects and add six actual-carrier declarations, three promoted API items and four boundary tests. The action, power, quotient and extended-length equalities require no finiteness or faithful-module assumption. The six-proof/four-test native prototype is checked; canonical forms remain admitted and all implementation statuses unchecked. General Hilbert–Serre, dimension and all stage/source obligations remain open. Full actual curve graded assembly checkpoint: 20 new declarations (3 constructions), 16 API items and 13 boundary/compatibility tests. The polynomial map lands in the inherited Rees quotient, with exact full principal-kernel and component-compatible quotient-equivalence plans. All 210 incoming node objects and all ownership, source and general multiplicity boundaries remain intact. New proof bodies remain admitted. This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open. This continuation compares actual adic quotient carriers under scalar restriction, transfers cumulative lengths under surjective coefficient maps, and links the general intrinsic multiplicity API to the explicit finite-order plane-curve polynomial. It keeps a fixed degree-two extraction distinct from intrinsic multiplicity and from a dimension-two ambient interpretation. Degree-one and generator-presentation continuation:15 declaration-sized nodes,10 API items and9 typed tests, plus a native proof of the existing degree-one generation contract. Native adic-module generation continuation:20 declaration-sized nodes,14 API items and14 typed tests, with native proofs of the exact existing monomial and degree-zero/finite-generation contracts.",
+  "summary": "Coefficient projections and finite homogeneous decomposition continuation: register the actual native GradedAlgebra on the existing ordinary Rees quotient and prove degree-preserving coefficient change; the general module, finiteness, Hilbert–Serre and dimension arguments remain open. Native coefficient-change maps, exact graded injectivity and ring-equivalence transport, with a proved old coefficient-ideal/monomial/piece core. Finite-length local modules, actual adic quotient finiteness and cumulative/graded stabilization are refined with eight declaration-sized lemmas. Graded annihilator checkpoint: ten new declarations, three promoted API statements and six typed boundary tests. Actual graded quotient transport, extended graded lengths, the nonzero primary boundary and the zero-module unit-ideal boundary have independent native proofs. Polynomial and both multiplicity invariances explicitly depend on the existing admitted general polynomial specification. Annihilator-enlargement checkpoint: preserve all 247 incoming declaration objects and add six actual-carrier declarations, three promoted API items and four boundary tests. The action, power, quotient and extended-length equalities require no finiteness or faithful-module assumption. The six-proof/four-test native prototype is checked; canonical forms remain admitted and all implementation statuses unchecked. General Hilbert–Serre, dimension and all stage/source obligations remain open. Full actual curve graded assembly checkpoint: 20 new declarations (3 constructions), 16 API items and 13 boundary/compatibility tests. The polynomial map lands in the inherited Rees quotient, with exact full principal-kernel and component-compatible quotient-equivalence plans. All 210 incoming node objects and all ownership, source and general multiplicity boundaries remain intact. New proof bodies remain admitted. This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open. This continuation compares actual adic quotient carriers under scalar restriction, transfers cumulative lengths under surjective coefficient maps, and links the general intrinsic multiplicity API to the explicit finite-order plane-curve polynomial. It keeps a fixed degree-two extraction distinct from intrinsic multiplicity and from a dimension-two ambient interpretation. Degree-one and generator-presentation continuation:15 declaration-sized nodes,10 API items and9 typed tests, plus a native proof of the existing degree-one generation contract. Native adic-module generation continuation:20 declaration-sized nodes,14 API items and14 typed tests, with native proofs of the exact existing monomial and degree-zero/finite-generation contracts. Native module coefficient continuation:20 declaration-sized nodes,8 API items and10 typed tests, proving the exact existing denominator, monomial kernel, homogeneous action and finite decomposition without finiteness assumptions.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2927,6 +2927,27 @@
         "module": "Mathlib/Data/Set/Image.lean",
         "provides": "theorem range_comp (g : α → β) (f : ι → α) : range (g ∘ f) = g '' range f := by aesop",
         "checked": "Exact statement, proof where used, and ambient scalar/module hypotheses personally read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on3October2026 by Codex — codex-rtOQ9t; exact declaration-index name verified. Native source-reading receipt records bounded passages. Imported generic API, not replanned."
+      },
+      {
+        "ref": "mathlib:PolynomialModule.coeff_inj",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Polynomial/Module/Basic.lean",
+        "provides": "lemma coeff_inj : x.coeff = y.coeff ↔ x = y := coeff_injective.eq_iff",
+        "checked": "Exact statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-7e92bd on3October2026; declaration index verified. Imported generic theorem, not replanned."
+      },
+      {
+        "ref": "mathlib:PolynomialModule.coeff_sum",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Polynomial/Module/Basic.lean",
+        "provides": "lemma coeff_sum (s : Finset ι) (f : ι → PolynomialModule R M) :",
+        "checked": "Exact statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-7e92bd on3October2026; declaration index verified. Imported generic theorem, not replanned."
+      },
+      {
+        "ref": "mathlib:Finsupp.sum_single",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Finsupp/Basic.lean",
+        "provides": "theorem sum_single [AddCommMonoid M] (f : α →₀ M) : f.sum single = f :=",
+        "checked": "Exact statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-7e92bd on3October2026; declaration index verified. Imported generic theorem, not replanned."
       }
     ]
   },
@@ -4053,6 +4074,18 @@
         "Complete Section10.59, including the displayed ordinary associated-graded ring/module in Proposition10.59.5 and its proof."
       ],
       "derivation": "The arbitrary-ideal constant-generation and finite-generation adapters are authored deductions from pinned generic filtration, span, quotient and finite-module theorems. No source attribution as a verbatim theorem and no Hilbert–Serre proof is claimed."
+    },
+    {
+      "id": "ADIC-MODULE-COORDINATES-7e92bd",
+      "title": "Native coefficient decomposition of the ordinary adic graded module",
+      "authors": "The Stacks Project authors; explicit adapters by Codex — codex-7e92bd",
+      "url": "https://stacks.math.columbia.edu/tag/00K4",
+      "edition": "Complete online section and displayed proofs read3October2026",
+      "sha256": "e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932",
+      "readSections": [
+        "Complete Section10.59, especially the associated-graded module in Proposition10.59.5."
+      ],
+      "derivation": "Arbitrary-ring module denominator, monomial kernel, homogeneous action and finite decomposition are authored deductions from native pinned APIs. The general Hilbert–Serre induction is not proved."
     }
   ],
   "nodes": [
@@ -8048,7 +8081,8 @@
       ],
       "proofSteps": [
         "For a generator r·g with r∈J, use rees-coefficient-ideal and PolynomialModule.smul_apply: each convolution summand has coefficient in q^(i+1)·q^jM=q^(i+j+1)M. Additive/ideal-action induction gives the forward implication.",
-        "For the reverse implication expand f as its finite sum of native single_n(coeff_n f). Since q^(n+1)M=q·(q^nM), express each coefficient as a finite sum a·m with a∈q and m∈q^nM using submodule scalar induction. The corresponding polynomial single_n(a·m) equals the constant Rees coefficient a acting on single_n(m), so belongs to J·top. Sum over the finite coefficient support. No finite generating list for q or M is assumed."
+        "For the reverse implication expand f as its finite sum of native single_n(coeff_n f). Since q^(n+1)M=q·(q^nM), express each coefficient as a finite sum a·m with a∈q and m∈q^nM using submodule scalar induction. The corresponding polynomial single_n(a·m) equals the constant Rees coefficient a acting on single_n(m), so belongs to J·top. Sum over the finite coefficient support. No finite generating list for q or M is assumed.",
+        "Native proof refinement: restrict the denominator to q·Rq(M), apply scalar induction coefficientwise for the forward implication, and the actual finite Rees expansion with the new monomial membership lemma for the reverse implication."
       ],
       "acceptance": [
         "The exponent is n+1, not n.",
@@ -8060,7 +8094,10 @@
         "mathlib:PolynomialModule.smul_apply",
         "mathlib:PolynomialModule.monomial_smul_single",
         "mathlib:Submodule.smul_induction_on",
-        "mathlib:PolynomialModule.coeffLinearEquiv"
+        "mathlib:PolynomialModule.coeffLinearEquiv",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-denominator-restriction",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-denominator-monomial",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-finite-expansion"
       ],
       "sources": [
         {
@@ -8199,7 +8236,8 @@
       ],
       "proofSteps": [
         "A native quotient class is zero exactly when its representative belongs to its denominator. Apply the coefficient-denominator criterion to single_n(m).",
-        "Submodule.mem_smul_top_iff identifies membership in q·top_F_n with membership of the underlying element in q·F_n; associativity of ideal action identifies this with q^(n+1)M."
+        "Submodule.mem_smul_top_iff identifies membership in q·top_F_n with membership of the underlying element in q·F_n; associativity of ideal action identifies this with q^(n+1)M.",
+        "The native proof uses the separately named zero criterion, then the existing subtype scalar-membership theorem and q·q^nM=q^(n+1)M."
       ],
       "acceptance": [
         "At degree zero the kernel is qM.",
@@ -8209,7 +8247,8 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-monomial-map",
         "DeformationAndDerivedPatchingAlgebra:R03.3/rees-module-coefficient-denominator",
         "mathlib:Submodule.Quotient.mk_eq_zero",
-        "mathlib:Submodule.mem_smul_top_iff"
+        "mathlib:Submodule.mem_smul_top_iff",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-monomial-zero"
       ],
       "sources": [
         {
@@ -8402,7 +8441,8 @@
       ],
       "proofSteps": [
         "Surjectivity: lift a quotient class to f∈Rq(M), expand its finite coefficient support, and project each single_n(coeff_n f) through ι^M_n.",
-        "Injectivity: choose representatives for the finitely many nonzero degree classes. If their expansion is zero, its finite polynomial sum belongs to J·top. The coefficient-denominator criterion and monomial kernel theorem put every degree representative in its own denominator, so every coordinate is zero. No infinite product or convergence assertion is used."
+        "Injectivity: choose representatives for the finitely many nonzero degree classes. If their expansion is zero, its finite polynomial sum belongs to J·top. The coefficient-denominator criterion and monomial kernel theorem put every degree representative in its own denominator, so every coordinate is zero. No infinite product or convergence assertion is used.",
+        "The native coefficient maps now give injectivity and the actual finite Rees expansion gives surjectivity, as separately named lemmas."
       ],
       "acceptance": [
         "Only finite support is involved.",
@@ -8413,7 +8453,9 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/rees-module-coefficient-denominator",
         "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-monomial-kernel",
         "mathlib:DirectSum.toModule",
-        "mathlib:PolynomialModule.coeffLinearEquiv"
+        "mathlib:PolynomialModule.coeffLinearEquiv",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-expansion-injective",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-expansion-surjective"
       ],
       "sources": [
         {
@@ -8509,6 +8551,11 @@
           "name": "TauCeti.HilbertSamuel.adicModuleDirectSumEquiv_symm_inclusion",
           "role": "compatibility",
           "statement": "E_M inverse sends ι^M_n(x) back to lofn(x)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleCoefficient_directSumEquiv_symm",
+          "role": "compatibility",
+          "statement": "The degree-n coordinate of the inverse of the existing direct-sum comparison is exactly the actual coefficient map Gr_q(M) → G_n."
         }
       ],
       "tests": [
@@ -23578,6 +23625,869 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-denominator-restriction",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Restricting the module denominator",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleDenominator_restrictScalars",
+      "statement": "The existing denominator J·Rq(M), after restricting scalars to A, equals q·Rq(M).",
+      "hypotheses": [
+        "A is an arbitrary commutative ring, q any ideal and M any A-module; indices are natural numbers. No Noetherianity, locality, finiteness, proper-ideal, reducedness or freeness premise."
+      ],
+      "proofSteps": [
+        "Apply the pinned scalar-restriction theorem to J=q·Rees(q) and the whole native Rees module. This gives equality of submodules, not just one inclusion."
+      ],
+      "acceptance": [
+        "Use the existing native stable-filtration Rees module, coefficient-ideal denominator and degree-quotient carriers with their actual scalar actions."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module",
+        "mathlib:Submodule.restrictScalars_map_smul_eq"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-COORDINATES-7e92bd",
+          "locator": "Stacks10.59.5 displayed associated graded module; authored native coefficient and Rees-quotient adapters",
+          "excerpt": "graded module",
+          "match": "The source supplies the ordinary associated-graded consumer. The coefficient and finite-support comparisons are explicit deductions from pinned generic APIs; their arbitrary-ring hypotheses are not attributed verbatim to the local Noetherian theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-denominator-monomial",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Monomials in the module denominator",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicReesMonomial_mem_denominator",
+      "statement": "If m belongs to q^(n+1)M, its actual degree-n Rees monomial belongs to the existing module denominator.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring, q any ideal and M any A-module; indices are natural numbers. No Noetherianity, locality, finiteness, proper-ideal, reducedness or freeness premise."
+      ],
+      "proofSteps": [
+        "Rewrite q^(n+1)M as q·q^nM and use scalar-action induction. For a·m with a in q, use A-linearity of the actual Rees monomial and membership in q·Rq(M); use additivity for sums. Membership proofs of the native subtype agree by proof irrelevance."
+      ],
+      "acceptance": [
+        "Use the existing native stable-filtration Rees module, coefficient-ideal denominator and degree-quotient carriers with their actual scalar actions."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-denominator-restriction",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-monomial",
+        "mathlib:Submodule.smul_induction_on"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-COORDINATES-7e92bd",
+          "locator": "Stacks10.59.5 displayed associated graded module; authored native coefficient and Rees-quotient adapters",
+          "excerpt": "graded module",
+          "match": "The source supplies the ordinary associated-graded consumer. The coefficient and finite-support comparisons are explicit deductions from pinned generic APIs; their arbitrary-ring hypotheses are not attributed verbatim to the local Noetherian theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "AdicModuleCoordinates.unit_ideal_kills_nonzero_representative",
+          "kind": "counterexample",
+          "statement": "For q=top over ℤ, the nonzero Rees monomial single_2(1) belongs to the actual denominator."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-finite-expansion",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Finite expansion of the Rees module",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicReesModule_sum_coefficients",
+      "statement": "Every element of the native Rees module equals the finite sum of its actual monomials over its polynomial coefficient support.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring, q any ideal and M any A-module; indices are natural numbers. No Noetherianity, locality, finiteness, proper-ideal, reducedness or freeness premise."
+      ],
+      "proofSteps": [
+        "Apply the injective subtype map, polynomial-module coefficient extensionality, and the native finite-support sum-of-singletons identity. No finite-generation assumption or infinite sum is used."
+      ],
+      "acceptance": [
+        "Use the existing native stable-filtration Rees module, coefficient-ideal denominator and degree-quotient carriers with their actual scalar actions."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-monomial",
+        "mathlib:PolynomialModule.coeff_inj",
+        "mathlib:PolynomialModule.coeff_sum",
+        "mathlib:Finsupp.sum_single"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-COORDINATES-7e92bd",
+          "locator": "Stacks10.59.5 displayed associated graded module; authored native coefficient and Rees-quotient adapters",
+          "excerpt": "graded module",
+          "match": "The source supplies the ordinary associated-graded consumer. The coefficient and finite-support comparisons are explicit deductions from pinned generic APIs; their arbitrary-ring hypotheses are not attributed verbatim to the local Noetherian theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-monomial-zero",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Vanishing of an adic module monomial",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleMonomial_eq_zero_iff",
+      "statement": "For m in q^nM, its actual degree-n graded monomial is zero exactly when m belongs to q^(n+1)M.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring, q any ideal and M any A-module; indices are natural numbers. No Noetherianity, locality, finiteness, proper-ideal, reducedness or freeness premise."
+      ],
+      "proofSteps": [
+        "Native quotient vanishing is denominator membership. Apply the coefficient criterion and evaluate degree n; every other coefficient of the single is zero."
+      ],
+      "acceptance": [
+        "Use the existing native stable-filtration Rees module, coefficient-ideal denominator and degree-quotient carriers with their actual scalar actions."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-monomial-map",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/rees-module-coefficient-denominator"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-COORDINATES-7e92bd",
+          "locator": "Stacks10.59.5 displayed associated graded module; authored native coefficient and Rees-quotient adapters",
+          "excerpt": "graded module",
+          "match": "The source supplies the ordinary associated-graded consumer. The coefficient and finite-support comparisons are explicit deductions from pinned generic APIs; their arbitrary-ring hypotheses are not attributed verbatim to the local Noetherian theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "AdicModuleCoordinates.nonfree_zero_ideal_survives",
+          "kind": "counterexample",
+          "statement": "For the nonfree module ℤ/4 over ℤ and q=0, the actual graded constant1 is nonzero."
+        },
+        {
+          "name": "AdicModuleCoordinates.degree_one_two_survives",
+          "kind": "computation",
+          "statement": "For A=M=ℤ/4 and q=(2), the actual degree-one module monomial2 and its degree-one coefficient class are both nonzero."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-coefficient",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Coefficients of the Rees module",
+      "kind": "construction",
+      "declaration": "TauCeti.HilbertSamuel.adicReesModuleCoefficient",
+      "statement": "Construct the actual A-linear coefficient map Rq(M) → q^nM by restricting polynomial-module coefficient evaluation to the native filtration subtype.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring, q any ideal and M any A-module; indices are natural numbers. No Noetherianity, locality, finiteness, proper-ideal, reducedness or freeness premise."
+      ],
+      "proofSteps": [
+        "Take the actual degree-n coefficient and its membership proof from the stable-filtration subtype. Addition and A-scalar compatibility are inherited from the native coefficient module."
+      ],
+      "acceptance": [
+        "Use the existing native stable-filtration Rees module, coefficient-ideal denominator and degree-quotient carriers with their actual scalar actions."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module",
+        "mathlib:PolynomialModule.coeffLinearEquiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-COORDINATES-7e92bd",
+          "locator": "Stacks10.59.5 displayed associated graded module; authored native coefficient and Rees-quotient adapters",
+          "excerpt": "graded module",
+          "match": "The source supplies the ordinary associated-graded consumer. The coefficient and finite-support comparisons are explicit deductions from pinned generic APIs; their arbitrary-ring hypotheses are not attributed verbatim to the local Noetherian theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.adicReesModuleCoefficient_apply",
+          "role": "compatibility",
+          "statement": "The underlying M-element of the restricted coefficient map is precisely coeff_n of the native polynomial-module element."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicReesModuleCoefficient_add",
+          "role": "compatibility",
+          "statement": "The restricted coefficient map preserves addition in Rq(M), with equality in the subtype q^nM."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicReesModuleCoefficient_smul",
+          "role": "compatibility",
+          "statement": "For a in A, the restricted coefficient of a·f is a times the restricted coefficient of f."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-expansion-bijective",
+          "how": "Prove the exact existing finite homogeneous decomposition through actual coordinates."
+        },
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:R03.3/eventual-hilbert-samuel-polynomial",
+          "how": "Supply native graded module pieces and coefficient maps for the remaining Hilbert–Serre induction; no polynomial tail is assumed."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdicReesModuleCoefficient.nonfree_constant",
+          "kind": "computation",
+          "statement": "The degree-zero coefficient of the native Rees constant1 of ℤ/4 over ℤ is1."
+        },
+        {
+          "name": "AdicReesModuleCoefficient.separated_degrees",
+          "kind": "compatibility",
+          "statement": "A native Rees monomial has zero coefficient at every different degree, over arbitrary coefficients and modules."
+        },
+        {
+          "name": "AdicReesModuleCoefficient.unit_ideal_retains_coefficient",
+          "kind": "counterexample",
+          "statement": "For q=top over ℤ, single_3(7) retains actual coefficient7 before passing to the graded quotient."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-coefficient-value",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Evaluation of a Rees module coefficient",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicReesModuleCoefficient_apply",
+      "statement": "The underlying M-element of the restricted coefficient map is precisely coeff_n of the native polynomial-module element.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring, q any ideal and M any A-module; indices are natural numbers. No Noetherianity, locality, finiteness, proper-ideal, reducedness or freeness premise."
+      ],
+      "proofSteps": [
+        "Evaluate the restricted coefficient map; the equality is definitional."
+      ],
+      "acceptance": [
+        "Use the existing native stable-filtration Rees module, coefficient-ideal denominator and degree-quotient carriers with their actual scalar actions."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-coefficient"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-COORDINATES-7e92bd",
+          "locator": "Stacks10.59.5 displayed associated graded module; authored native coefficient and Rees-quotient adapters",
+          "excerpt": "graded module",
+          "match": "The source supplies the ordinary associated-graded consumer. The coefficient and finite-support comparisons are explicit deductions from pinned generic APIs; their arbitrary-ring hypotheses are not attributed verbatim to the local Noetherian theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-coefficient-add",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Additivity of module coefficients",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicReesModuleCoefficient_add",
+      "statement": "The restricted coefficient map preserves addition in Rq(M), with equality in the subtype q^nM.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring, q any ideal and M any A-module; indices are natural numbers. No Noetherianity, locality, finiteness, proper-ideal, reducedness or freeness premise."
+      ],
+      "proofSteps": [
+        "Apply the A-linear map addition law."
+      ],
+      "acceptance": [
+        "Use the existing native stable-filtration Rees module, coefficient-ideal denominator and degree-quotient carriers with their actual scalar actions."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-coefficient"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-COORDINATES-7e92bd",
+          "locator": "Stacks10.59.5 displayed associated graded module; authored native coefficient and Rees-quotient adapters",
+          "excerpt": "graded module",
+          "match": "The source supplies the ordinary associated-graded consumer. The coefficient and finite-support comparisons are explicit deductions from pinned generic APIs; their arbitrary-ring hypotheses are not attributed verbatim to the local Noetherian theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-coefficient-scalar",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Scalar law of module coefficients",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicReesModuleCoefficient_smul",
+      "statement": "For a in A, the restricted coefficient of a·f is a times the restricted coefficient of f.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring, q any ideal and M any A-module; indices are natural numbers. No Noetherianity, locality, finiteness, proper-ideal, reducedness or freeness premise."
+      ],
+      "proofSteps": [
+        "Apply the A-linear map scalar law. This concerns A-scalars, not arbitrary Rees polynomials."
+      ],
+      "acceptance": [
+        "Use the existing native stable-filtration Rees module, coefficient-ideal denominator and degree-quotient carriers with their actual scalar actions."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-coefficient"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-COORDINATES-7e92bd",
+          "locator": "Stacks10.59.5 displayed associated graded module; authored native coefficient and Rees-quotient adapters",
+          "excerpt": "graded module",
+          "match": "The source supplies the ordinary associated-graded consumer. The coefficient and finite-support comparisons are explicit deductions from pinned generic APIs; their arbitrary-ring hypotheses are not attributed verbatim to the local Noetherian theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-piece-zero",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Vanishing in a module degree piece",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicModulePiece_mk_eq_zero_iff",
+      "statement": "A representative m in the existing native degree-n quotient G_n vanishes exactly when its underlying element belongs to q^(n+1)M.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring, q any ideal and M any A-module; indices are natural numbers. No Noetherianity, locality, finiteness, proper-ideal, reducedness or freeness premise."
+      ],
+      "proofSteps": [
+        "Use native quotient vanishing, the pinned subtype scalar-membership equivalence, and q·q^nM=q^(n+1)M."
+      ],
+      "acceptance": [
+        "Use the existing native stable-filtration Rees module, coefficient-ideal denominator and degree-quotient carriers with their actual scalar actions."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-piece-inclusion",
+        "mathlib:Submodule.mem_smul_top_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-COORDINATES-7e92bd",
+          "locator": "Stacks10.59.5 displayed associated graded module; authored native coefficient and Rees-quotient adapters",
+          "excerpt": "graded module",
+          "match": "The source supplies the ordinary associated-graded consumer. The coefficient and finite-support comparisons are explicit deductions from pinned generic APIs; their arbitrary-ring hypotheses are not attributed verbatim to the local Noetherian theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-coefficient",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Coefficients of the adic graded module",
+      "kind": "construction",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleCoefficient",
+      "statement": "Descend actual coefficient evaluation to an A-linear map Gr_q(M) → G_n on the existing Rees quotient and the existing graded-length piece.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring, q any ideal and M any A-module; indices are natural numbers. No Noetherianity, locality, finiteness, proper-ideal, reducedness or freeness premise."
+      ],
+      "proofSteps": [
+        "Compose coefficient evaluation with the existing degree quotient. The actual module-denominator criterion places each denominator coefficient in q^(n+1)M, so the composite kills the denominator. Use the native quotient lift with explicit A-linearity; no second carrier is defined."
+      ],
+      "acceptance": [
+        "Use the existing native stable-filtration Rees module, coefficient-ideal denominator and degree-quotient carriers with their actual scalar actions."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-coefficient",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-piece-zero",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/rees-module-coefficient-denominator",
+        "mathlib:Submodule.Quotient.eq"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-COORDINATES-7e92bd",
+          "locator": "Stacks10.59.5 displayed associated graded module; authored native coefficient and Rees-quotient adapters",
+          "excerpt": "graded module",
+          "match": "The source supplies the ordinary associated-graded consumer. The coefficient and finite-support comparisons are explicit deductions from pinned generic APIs; their arbitrary-ring hypotheses are not attributed verbatim to the local Noetherian theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleCoefficient_mk",
+          "role": "compatibility",
+          "statement": "The degree-n coefficient of the quotient class of f is the native degree quotient class of coeff_n(f)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleCoefficient_monomial_same",
+          "role": "compatibility",
+          "statement": "The degree-n coefficient of the actual degree-n module monomial m is the native degree quotient class of m."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleCoefficient_monomial_ne",
+          "role": "compatibility",
+          "statement": "If n differs from k, the degree-n coefficient of an actual degree-k module monomial is zero."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleCoefficient_inclusion_same",
+          "role": "compatibility",
+          "statement": "The degree-n coefficient map composed with the existing inclusion of G_n is the identity on G_n."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-expansion-bijective",
+          "how": "Prove the exact existing finite homogeneous decomposition through actual coordinates."
+        },
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:R03.3/eventual-hilbert-samuel-polynomial",
+          "how": "Supply native graded module pieces and coefficient maps for the remaining Hilbert–Serre induction; no polynomial tail is assumed."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdicModuleCoefficient.mixed_degrees",
+          "kind": "computation",
+          "statement": "For an actual sum of degree-zero and degree-one inclusions, the coefficient maps recover both inputs and return zero in degree2."
+        },
+        {
+          "name": "AdicModuleCoefficient.unit_ideal_zero",
+          "kind": "degenerate",
+          "statement": "Every coefficient of every graded class for the unit ideal is zero."
+        },
+        {
+          "name": "AdicModuleCoefficient.inverse_coordinate",
+          "kind": "compatibility",
+          "statement": "The actual inverse direct-sum comparison has the proved coefficient maps as its coordinates."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-coefficient-representative",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Graded module coefficient on representatives",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleCoefficient_mk",
+      "statement": "The degree-n coefficient of the quotient class of f is the native degree quotient class of coeff_n(f).",
+      "hypotheses": [
+        "A is an arbitrary commutative ring, q any ideal and M any A-module; indices are natural numbers. No Noetherianity, locality, finiteness, proper-ideal, reducedness or freeness premise."
+      ],
+      "proofSteps": [
+        "Evaluate the native quotient lift on its representative."
+      ],
+      "acceptance": [
+        "Use the existing native stable-filtration Rees module, coefficient-ideal denominator and degree-quotient carriers with their actual scalar actions."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-coefficient"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-COORDINATES-7e92bd",
+          "locator": "Stacks10.59.5 displayed associated graded module; authored native coefficient and Rees-quotient adapters",
+          "excerpt": "graded module",
+          "match": "The source supplies the ordinary associated-graded consumer. The coefficient and finite-support comparisons are explicit deductions from pinned generic APIs; their arbitrary-ring hypotheses are not attributed verbatim to the local Noetherian theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-coefficient-monomial",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The coefficient in its own degree",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleCoefficient_monomial_same",
+      "statement": "The degree-n coefficient of the actual degree-n module monomial m is the native degree quotient class of m.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring, q any ideal and M any A-module; indices are natural numbers. No Noetherianity, locality, finiteness, proper-ideal, reducedness or freeness premise."
+      ],
+      "proofSteps": [
+        "Evaluate the native single at its own index and identify the subtype representatives."
+      ],
+      "acceptance": [
+        "Use the existing native stable-filtration Rees module, coefficient-ideal denominator and degree-quotient carriers with their actual scalar actions."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-coefficient-representative",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-monomial-map"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-COORDINATES-7e92bd",
+          "locator": "Stacks10.59.5 displayed associated graded module; authored native coefficient and Rees-quotient adapters",
+          "excerpt": "graded module",
+          "match": "The source supplies the ordinary associated-graded consumer. The coefficient and finite-support comparisons are explicit deductions from pinned generic APIs; their arbitrary-ring hypotheses are not attributed verbatim to the local Noetherian theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-coefficient-other-degree",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Coefficients in other degrees",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleCoefficient_monomial_ne",
+      "statement": "If n differs from k, the degree-n coefficient of an actual degree-k module monomial is zero.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring, q any ideal and M any A-module; indices are natural numbers. No Noetherianity, locality, finiteness, proper-ideal, reducedness or freeness premise."
+      ],
+      "proofSteps": [
+        "The coefficient of the polynomial single in a different degree is zero, which belongs to the required next filtration level."
+      ],
+      "acceptance": [
+        "Use the existing native stable-filtration Rees module, coefficient-ideal denominator and degree-quotient carriers with their actual scalar actions."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-coefficient-representative",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-piece-zero"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-COORDINATES-7e92bd",
+          "locator": "Stacks10.59.5 displayed associated graded module; authored native coefficient and Rees-quotient adapters",
+          "excerpt": "graded module",
+          "match": "The source supplies the ordinary associated-graded consumer. The coefficient and finite-support comparisons are explicit deductions from pinned generic APIs; their arbitrary-ring hypotheses are not attributed verbatim to the local Noetherian theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-coefficient-inclusion",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Coefficients retract their piece inclusions",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleCoefficient_inclusion_same",
+      "statement": "The degree-n coefficient map composed with the existing inclusion of G_n is the identity on G_n.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring, q any ideal and M any A-module; indices are natural numbers. No Noetherianity, locality, finiteness, proper-ideal, reducedness or freeness premise."
+      ],
+      "proofSteps": [
+        "Lift the native degree quotient to a representative and use the same-degree monomial formula."
+      ],
+      "acceptance": [
+        "Use the existing native stable-filtration Rees module, coefficient-ideal denominator and degree-quotient carriers with their actual scalar actions."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-coefficient-monomial",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-piece-inclusion"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-COORDINATES-7e92bd",
+          "locator": "Stacks10.59.5 displayed associated graded module; authored native coefficient and Rees-quotient adapters",
+          "excerpt": "graded module",
+          "match": "The source supplies the ordinary associated-graded consumer. The coefficient and finite-support comparisons are explicit deductions from pinned generic APIs; their arbitrary-ring hypotheses are not attributed verbatim to the local Noetherian theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-coefficient-inclusion-other",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Coefficients annihilate other piece inclusions",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleCoefficient_inclusion_ne",
+      "statement": "For distinct n and k, the degree-n coefficient of the existing inclusion of G_k is zero.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring, q any ideal and M any A-module; indices are natural numbers. No Noetherianity, locality, finiteness, proper-ideal, reducedness or freeness premise."
+      ],
+      "proofSteps": [
+        "Lift a degree quotient representative and use the different-degree monomial formula."
+      ],
+      "acceptance": [
+        "Use the existing native stable-filtration Rees module, coefficient-ideal denominator and degree-quotient carriers with their actual scalar actions."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-coefficient-other-degree",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-piece-inclusion"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-COORDINATES-7e92bd",
+          "locator": "Stacks10.59.5 displayed associated graded module; authored native coefficient and Rees-quotient adapters",
+          "excerpt": "graded module",
+          "match": "The source supplies the ordinary associated-graded consumer. The coefficient and finite-support comparisons are explicit deductions from pinned generic APIs; their arbitrary-ring hypotheses are not attributed verbatim to the local Noetherian theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-expansion-single",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Expansion of a single module piece",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleExpansion_lof",
+      "statement": "The existing direct-sum expansion sends the native degree-n direct-sum singleton to the existing piece inclusion.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring, q any ideal and M any A-module; indices are natural numbers. No Noetherianity, locality, finiteness, proper-ideal, reducedness or freeness premise."
+      ],
+      "proofSteps": [
+        "Apply the pinned universal direct-sum map evaluation theorem."
+      ],
+      "acceptance": [
+        "Use the existing native stable-filtration Rees module, coefficient-ideal denominator and degree-quotient carriers with their actual scalar actions."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-piece-inclusion",
+        "mathlib:DirectSum.toModule_lof"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-COORDINATES-7e92bd",
+          "locator": "Stacks10.59.5 displayed associated graded module; authored native coefficient and Rees-quotient adapters",
+          "excerpt": "graded module",
+          "match": "The source supplies the ordinary associated-graded consumer. The coefficient and finite-support comparisons are explicit deductions from pinned generic APIs; their arbitrary-ring hypotheses are not attributed verbatim to the local Noetherian theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-expansion-coordinate",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Coordinates of a finite module expansion",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleCoefficient_expansion",
+      "statement": "For a native direct-sum element x, the degree-n coefficient of its expansion is exactly x_n.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring, q any ideal and M any A-module; indices are natural numbers. No Noetherianity, locality, finiteness, proper-ideal, reducedness or freeness premise."
+      ],
+      "proofSteps": [
+        "Compare actual linear maps using direct-sum extensionality. On a singleton, separate equal and unequal degree indices and apply the proved coefficient-inclusion formulas."
+      ],
+      "acceptance": [
+        "Use the existing native stable-filtration Rees module, coefficient-ideal denominator and degree-quotient carriers with their actual scalar actions."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-coefficient-inclusion",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-coefficient-inclusion-other",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-expansion-single",
+        "mathlib:DirectSum.linearMap_ext",
+        "mathlib:DFinsupp.lapply"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-COORDINATES-7e92bd",
+          "locator": "Stacks10.59.5 displayed associated graded module; authored native coefficient and Rees-quotient adapters",
+          "excerpt": "graded module",
+          "match": "The source supplies the ordinary associated-graded consumer. The coefficient and finite-support comparisons are explicit deductions from pinned generic APIs; their arbitrary-ring hypotheses are not attributed verbatim to the local Noetherian theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "AdicModuleCoordinates.actual_homogeneous_action",
+          "kind": "compatibility",
+          "statement": "Extracting degree r+n from the actual action of a degree-r ring monomial on a degree-n module monomial gives the quotient class of a·m."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-expansion-injective",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Injectivity of the module expansion",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleExpansion_injective",
+      "statement": "The actual finite direct-sum expansion is injective for every ideal and module.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring, q any ideal and M any A-module; indices are natural numbers. No Noetherianity, locality, finiteness, proper-ideal, reducedness or freeness premise."
+      ],
+      "proofSteps": [
+        "Apply each actual coefficient map to an equality of expansions and conclude by dependent finitely supported function extensionality."
+      ],
+      "acceptance": [
+        "Use the existing native stable-filtration Rees module, coefficient-ideal denominator and degree-quotient carriers with their actual scalar actions."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-expansion-coordinate"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-COORDINATES-7e92bd",
+          "locator": "Stacks10.59.5 displayed associated graded module; authored native coefficient and Rees-quotient adapters",
+          "excerpt": "graded module",
+          "match": "The source supplies the ordinary associated-graded consumer. The coefficient and finite-support comparisons are explicit deductions from pinned generic APIs; their arbitrary-ring hypotheses are not attributed verbatim to the local Noetherian theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-expansion-surjective",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Surjectivity of the module expansion",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleExpansion_surjective",
+      "statement": "Every actual graded-module class is the expansion of a finite direct sum of the native module degree pieces.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring, q any ideal and M any A-module; indices are natural numbers. No Noetherianity, locality, finiteness, proper-ideal, reducedness or freeness premise."
+      ],
+      "proofSteps": [
+        "Lift the actual Rees quotient class to f. Over the finite coefficient support, take the direct-sum singletons of the quotient coefficient classes. Their expansion is the quotient of the native Rees finite expansion, hence the original class."
+      ],
+      "acceptance": [
+        "Use the existing native stable-filtration Rees module, coefficient-ideal denominator and degree-quotient carriers with their actual scalar actions."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-finite-expansion",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-coefficient",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-expansion-single"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-COORDINATES-7e92bd",
+          "locator": "Stacks10.59.5 displayed associated graded module; authored native coefficient and Rees-quotient adapters",
+          "excerpt": "graded module",
+          "match": "The source supplies the ordinary associated-graded consumer. The coefficient and finite-support comparisons are explicit deductions from pinned generic APIs; their arbitrary-ring hypotheses are not attributed verbatim to the local Noetherian theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-direct-sum-inverse-coordinate",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Coordinates of the inverse module comparison",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleCoefficient_directSumEquiv_symm",
+      "statement": "The degree-n coordinate of the inverse of the existing direct-sum comparison is exactly the actual coefficient map Gr_q(M) → G_n.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring, q any ideal and M any A-module; indices are natural numbers. No Noetherianity, locality, finiteness, proper-ideal, reducedness or freeness premise."
+      ],
+      "proofSteps": [
+        "Apply the coordinate-of-expansion theorem to the inverse image and cancel the proved linear equivalence."
+      ],
+      "acceptance": [
+        "Use the existing native stable-filtration Rees module, coefficient-ideal denominator and degree-quotient carriers with their actual scalar actions."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-direct-sum",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-expansion-coordinate"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-COORDINATES-7e92bd",
+          "locator": "Stacks10.59.5 displayed associated graded module; authored native coefficient and Rees-quotient adapters",
+          "excerpt": "graded module",
+          "match": "The source supplies the ordinary associated-graded consumer. The coefficient and finite-support comparisons are explicit deductions from pinned generic APIs; their arbitrary-ring hypotheses are not attributed verbatim to the local Noetherian theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
     }
   ],
   "baselineCoverage": [
@@ -23719,7 +24629,8 @@
         "This continuation supplies native proofs for coefficient change, its exact kernel criterion, and the old coefficient-ideal/monomial/piece core. Full graded decomposition, module grading, finite generation, general Hilbert–Serre and support-degree comparison remain unproved here. Preserve every previous coverage obligation and the full reserved Hilbert–Samuel multiplicity target.",
         "This native proof checkpoint establishes the old finite expansion, direct-sum equivalence, ring homogeneous decomposition, GradedAlgebra registration and projection laws on the ordinary Rees quotient, with no admitted native proof. The canonical suggested file remains an unchecked signature plan. Actual graded modules, their decompositions and actions, finite generation, general Hilbert–Serre, support/degree comparison, associativity of multiplicity and the full reserved Hilbert–Samuel target remain open; retain every older remaining item and gap.",
         "The old ordinary degree-one generation theorem now has an admission-free native proof using the pinned Rees generation theorem and actual quotient. The new degree-one linear map detects q² exactly and respects coefficient change. Every chosen ideal-generating family gives a surjective native polynomial algebra map; a finite family, or q.FG, implies finite type over A/q. Algebra maps from the quotient are determined on these degree-one classes. Still prove the actual graded-module decomposition/action and finite generation, then native homogeneous kernel/quotient gradings and the general Hilbert–Serre induction. Finite type of this ring does not establish finite generation of the graded module, its eventual polynomial, support-degree, intrinsic/ambient multiplicity, tangent-cone kernel, completion or any remaining routed-paper target.",
-        "The actual native module monomial map, quotient scalar compatibility, degree-zero generation and finite generation now have admission-free native proof prototypes. The proof works over every commutative ring for arbitrary q; finite graded generation requires only Module.Finite A M, without q.FG or Noetherianity. Chosen module-generating families give explicit actual degree-zero generating families before and after the semilinear quotient. The unit ideal kills graded constants while Rees constants remain injective; the ℤ/4 input is explicitly nonfree over ℤ, and its zero-ideal graded constants satisfy the native four-torsion identity. Still prove the module denominator coefficient comparison, monomial kernel, homogeneous actions and full decomposition; then native homogeneous kernel/range/quotient gradings, smaller-ring finite generation, length exactness and general Hilbert–Serre. Every inherited support-degree, intrinsic/ambient multiplicity, completion, associativity, stage and routed-paper obligation remains open. Canonical proof bodies and all node/stage statuses stay unchecked/partial."
+        "The actual native module monomial map, quotient scalar compatibility, degree-zero generation and finite generation now have admission-free native proof prototypes. The proof works over every commutative ring for arbitrary q; finite graded generation requires only Module.Finite A M, without q.FG or Noetherianity. Chosen module-generating families give explicit actual degree-zero generating families before and after the semilinear quotient. The unit ideal kills graded constants while Rees constants remain injective; the ℤ/4 input is explicitly nonfree over ℤ, and its zero-ideal graded constants satisfy the native four-torsion identity. Still prove the module denominator coefficient comparison, monomial kernel, homogeneous actions and full decomposition; then native homogeneous kernel/range/quotient gradings, smaller-ring finite generation, length exactness and general Hilbert–Serre. Every inherited support-degree, intrinsic/ambient multiplicity, completion, associativity, stage and routed-paper obligation remains open. Canonical proof bodies and all node/stage statuses stay unchecked/partial.",
+        "The actual module denominator coefficient criterion, monomial kernel, piece inclusions, homogeneous action and full finite direct-sum comparison now have admission-free native proof prototypes at the pin, on their exact existing contracts. Actual coefficient maps recover every inverse comparison coordinate. No locality, Noetherianity, finite generation or freeness premise is added. This supersedes historical prototype omissions for these precise adapters only. Next prove the existing native image-component grading and module projection compatibility, then homogeneous kernel/range/quotient gradings, scalar descent to the smaller ring, smaller-ring finite generation and degreewise length exactness for general Hilbert–Serre. General support-degree, intrinsic/ambient multiplicity, completion, associativity, every stage and routed-paper obligation remain open; all canonical bodies and implementation statuses remain admitted/unchecked."
       ]
     },
     {

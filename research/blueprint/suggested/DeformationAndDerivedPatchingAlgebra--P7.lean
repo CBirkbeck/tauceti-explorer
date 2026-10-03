@@ -5092,3 +5092,191 @@ example (q : Ideal A) (x : adicGradedModule q (Fin 0 → A)) :
 
 end
 end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+noncomputable section
+set_option backward.isDefEq.respectTransparency.types false
+set_option backward.isDefEq.respectTransparency false
+set_option maxHeartbeats 1600000
+open scoped Polynomial DirectSum
+variable {A : Type*} [CommRing A]
+variable (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M]
+
+lemma adicModuleDenominator_restrictScalars :
+    (adicModuleDenominator q M).restrictScalars A =
+      q • (⊤ : Submodule A (adicReesModule q M)) := by
+  sorry
+
+lemma adicReesMonomial_mem_denominator (n : ℕ) (m : M)
+    (hm : m ∈ q ^ n • (⊤ : Submodule A M))
+    (hnext : m ∈ q ^ (n + 1) • (⊤ : Submodule A M)) :
+    adicReesMonomial q M n ⟨m, hm⟩ ∈ adicModuleDenominator q M := by
+  sorry
+
+lemma adicReesModule_sum_coefficients (f : adicReesModule q M) :
+    f = ∑ n ∈ (f : PolynomialModule A M).coeff.support,
+      adicReesMonomial q M n ⟨(f : PolynomialModule A M).coeff n, f.property n⟩ := by
+  sorry
+
+lemma adicModuleMonomial_eq_zero_iff (n : ℕ) (m : ↥(q ^ n • (⊤ : Submodule A M))) :
+    adicModuleMonomial q M n m = 0 ↔ (m : M) ∈ q ^ (n + 1) • (⊤ : Submodule A M) := by
+  sorry
+
+def adicReesModuleCoefficient (n : ℕ) :
+    adicReesModule q M →ₗ[A] ↥(q ^ n • (⊤ : Submodule A M)) where
+  toFun f := ⟨(f : PolynomialModule A M).coeff n, f.property n⟩
+  map_add' f g := by apply Subtype.ext; rfl
+  map_smul' a f := by apply Subtype.ext; rfl
+
+lemma adicReesModuleCoefficient_apply (n : ℕ) (f : adicReesModule q M) :
+    (adicReesModuleCoefficient q M n f : M) = (f : PolynomialModule A M).coeff n := by
+  sorry
+
+lemma adicReesModuleCoefficient_add (n : ℕ) (f g : adicReesModule q M) :
+    adicReesModuleCoefficient q M n (f + g) =
+      adicReesModuleCoefficient q M n f + adicReesModuleCoefficient q M n g := by
+  sorry
+
+lemma adicReesModuleCoefficient_smul (n : ℕ) (a : A) (f : adicReesModule q M) :
+    adicReesModuleCoefficient q M n (a • f) = a • adicReesModuleCoefficient q M n f := by
+  sorry
+
+lemma adicModulePiece_mk_eq_zero_iff (n : ℕ) (m : ↥(q ^ n • (⊤ : Submodule A M))) :
+    (Submodule.Quotient.mk m : adicModulePiece q M n) = 0 ↔
+      (m : M) ∈ q ^ (n + 1) • (⊤ : Submodule A M) := by
+  sorry
+
+def adicModuleCoefficient (n : ℕ) : adicGradedModule q M →ₗ[A] adicModulePiece q M n where
+  toFun x := Quotient.liftOn' x (fun f =>
+    Submodule.Quotient.mk (adicReesModuleCoefficient q M n f)) (by
+      intro f g h
+      apply (Submodule.Quotient.eq _).mpr
+      rw [← map_sub, Submodule.mem_smul_top_iff, ← mul_smul, ← pow_succ']
+      exact (mem_adicModuleDenominator_iff q M (f - g)).mp
+        ((Submodule.quotientRel_def _).mp h) n)
+  map_add' x y := by
+    refine Quotient.inductionOn₂' x y fun f g => ?_
+    change Submodule.Quotient.mk (adicReesModuleCoefficient q M n (f + g)) = _
+    rw [map_add]
+    rfl
+  map_smul' a x := by
+    refine Quotient.inductionOn' x fun f => ?_
+    change Submodule.Quotient.mk (adicReesModuleCoefficient q M n (a • f)) = _
+    rw [map_smul]
+    rfl
+
+lemma adicModuleCoefficient_mk (n : ℕ) (f : adicReesModule q M) :
+    adicModuleCoefficient q M n (Submodule.Quotient.mk (R := reesAlgebra q) f) =
+      Submodule.Quotient.mk (adicReesModuleCoefficient q M n f) := by
+  sorry
+
+lemma adicModuleCoefficient_monomial_same (n : ℕ) (m : ↥(q ^ n • (⊤ : Submodule A M))) :
+    adicModuleCoefficient q M n (adicModuleMonomial q M n m) = Submodule.Quotient.mk m := by
+  sorry
+
+lemma adicModuleCoefficient_monomial_ne (n k : ℕ) (hnk : n ≠ k)
+    (m : ↥(q ^ k • (⊤ : Submodule A M))) :
+    adicModuleCoefficient q M n (adicModuleMonomial q M k m) = 0 := by
+  sorry
+
+lemma adicModuleCoefficient_inclusion_same (n : ℕ) (m : adicModulePiece q M n) :
+    adicModuleCoefficient q M n (adicModulePieceInclusion q M n m) = m := by
+  sorry
+
+lemma adicModuleCoefficient_inclusion_ne (n k : ℕ) (hnk : n ≠ k) (m : adicModulePiece q M k) :
+    adicModuleCoefficient q M n (adicModulePieceInclusion q M k m) = 0 := by
+  sorry
+
+lemma adicModuleExpansion_lof (n : ℕ) (m : adicModulePiece q M n) :
+    adicModuleExpansion q M (DirectSum.lof A ℕ (adicModulePiece q M) n m) =
+      adicModulePieceInclusion q M n m := by
+  sorry
+
+lemma adicModuleCoefficient_expansion (n : ℕ) (x : ⨁ k : ℕ, adicModulePiece q M k) :
+    adicModuleCoefficient q M n (adicModuleExpansion q M x) = x n := by
+  sorry
+
+lemma adicModuleExpansion_injective : Function.Injective (adicModuleExpansion q M) := by
+  sorry
+
+lemma adicModuleExpansion_surjective : Function.Surjective (adicModuleExpansion q M) := by
+  sorry
+
+lemma adicModuleCoefficient_directSumEquiv_symm (n : ℕ) (x : adicGradedModule q M) :
+    (adicModuleDirectSumEquiv q M).symm x n = adicModuleCoefficient q M n x := by
+  sorry
+
+end
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+noncomputable section
+set_option backward.isDefEq.respectTransparency.types false
+set_option backward.isDefEq.respectTransparency false
+set_option maxHeartbeats 1600000
+open scoped Polynomial DirectSum
+variable {A : Type*} [CommRing A]
+
+-- test: AdicModuleCoordinates.nonfree_zero_ideal_survives
+example : adicGradedConstant (⊥ : Ideal ℤ) (ZMod 4) 1 ≠ 0 := by
+  sorry
+
+-- test: AdicModuleCoordinates.degree_one_two_survives
+example : let q : Ideal (ZMod 4) := Ideal.span {(2 : ZMod 4)}
+    ∃ m : ↥(q ^ 1 • (⊤ : Submodule (ZMod 4) (ZMod 4))),
+      adicModuleMonomial q (ZMod 4) 1 m ≠ 0 ∧
+      adicModuleCoefficient q (ZMod 4) 1 (adicModuleMonomial q (ZMod 4) 1 m) ≠ 0 := by
+  sorry
+
+-- test: AdicModuleCoordinates.unit_ideal_kills_nonzero_representative
+example : let f := adicReesMonomial (⊤ : Ideal ℤ) ℤ 2 ⟨1, by simp [pow_two]⟩
+    f ≠ 0 ∧ f ∈ adicModuleDenominator (⊤ : Ideal ℤ) ℤ := by
+  sorry
+
+-- test: AdicReesModuleCoefficient.nonfree_constant
+example : (adicReesModuleCoefficient (⊥ : Ideal ℤ) (ZMod 4) 0
+    (adicReesConstant (⊥ : Ideal ℤ) (ZMod 4) 1) : ZMod 4) = 1 := by
+  sorry
+
+-- test: AdicReesModuleCoefficient.separated_degrees
+example (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M]
+    (n k : ℕ) (hnk : n ≠ k) (m : ↥(q ^ k • (⊤ : Submodule A M))) :
+    adicReesModuleCoefficient q M n (adicReesMonomial q M k m) = 0 := by
+  sorry
+
+-- test: AdicReesModuleCoefficient.unit_ideal_retains_coefficient
+example : (adicReesModuleCoefficient (⊤ : Ideal ℤ) ℤ 3
+    (adicReesMonomial (⊤ : Ideal ℤ) ℤ 3 ⟨7, by simp [Ideal.top_pow]⟩) : ℤ) = 7 := by
+  sorry
+
+-- test: AdicModuleCoefficient.mixed_degrees
+example (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M]
+    (a : adicModulePiece q M 0) (b : adicModulePiece q M 1) :
+    let x := adicModulePieceInclusion q M 0 a + adicModulePieceInclusion q M 1 b
+    adicModuleCoefficient q M 0 x = a ∧ adicModuleCoefficient q M 1 x = b ∧
+      adicModuleCoefficient q M 2 x = 0 := by
+  sorry
+
+-- test: AdicModuleCoefficient.unit_ideal_zero
+example (M : Type*) [AddCommGroup M] [Module A M] (n : ℕ)
+    (x : adicGradedModule (⊤ : Ideal A) M) :
+    adicModuleCoefficient (⊤ : Ideal A) M n x = 0 := by
+  sorry
+
+-- test: AdicModuleCoefficient.inverse_coordinate
+example (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M]
+    (n : ℕ) (x : adicGradedModule q M) :
+    (adicModuleDirectSumEquiv q M).symm x n = adicModuleCoefficient q M n x := by
+  sorry
+
+-- test: AdicModuleCoordinates.actual_homogeneous_action
+example (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M]
+    (r n : ℕ) (a : ↥(q ^ r)) (m : ↥(q ^ n • (⊤ : Submodule A M))) :
+    adicModuleCoefficient q M (r + n) (adicMonomial q r a • adicModuleMonomial q M n m) =
+      Submodule.Quotient.mk (⟨(a : A) • (m : M), by
+        rw [pow_add, mul_smul]; exact Submodule.smul_mem_smul a.property m.property⟩ :
+        ↥(q ^ (r + n) • (⊤ : Submodule A M))) := by
+  sorry
+
+end
+end TauCeti.HilbertSamuel
