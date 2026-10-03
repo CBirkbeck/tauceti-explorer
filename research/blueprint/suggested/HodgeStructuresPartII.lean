@@ -1,3 +1,5 @@
+import Mathlib.RingTheory.Localization.BaseChange
+import Mathlib.RingTheory.LocalProperties.Submodule
 /-
 This file is not the roadmap and is not exhaustive. The definitive document is
 research/blueprint/readmes/HodgeStructuresPartII.md. These statements suggest Lean
@@ -1741,6 +1743,168 @@ example (θ : ZMod 4 →ₗ[ℤ] (ZMod 4) ⊗[ℤ] (ZMod 2)) (n : ℕ) :
 -- test: TwistedHiggsBundle.affineOrderedIterate.test_arbitrary_coefficient_degree_zero
 example [Nontrivial R] [Module.FaithfullyFlat R S] (θ : R →ₗ[R] R ⊗[R] Q) :
     affineOrderedIterate (affineBaseChange S θ) 0 ≠ 0 := sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+
+/- Affine-local planning continuation: actual native proof archived separately. -/
+
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+open scoped TensorProduct
+variable {R E Q : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E] [AddCommGroup Q] [Module R Q]
+variable (S : Type*) [CommRing S] [Algebra R S]
+variable {F P : Type*} [AddCommGroup F] [Module S F]
+variable [AddCommGroup P] [Module S P]
+
+/-- The actual restricted field in specified module charts. -/
+def affineChartField (θ : E →ₗ[R] E ⊗[R] Q)
+    (e : S ⊗[R] E ≃ₗ[S] F) (q : S ⊗[R] Q ≃ₗ[S] P) : F →ₗ[S] F ⊗[S] P := by
+  sorry
+
+lemma affineChartField_horizontal (θ : E →ₗ[R] E ⊗[R] Q)
+    (e : S ⊗[R] E ≃ₗ[S] F) (q : S ⊗[R] Q ≃ₗ[S] P) :
+    (affineChartField S θ e q).comp e.toLinearMap =
+      (TensorProduct.map e.toLinearMap q.toLinearMap).comp (affineBaseChange S θ) := by
+  sorry
+
+lemma affineChartField_zero (e : S ⊗[R] E ≃ₗ[S] F)
+    (q : S ⊗[R] Q ≃ₗ[S] P) : affineChartField S (0 : E →ₗ[R] E ⊗[R] Q) e q = 0 := by
+  sorry
+
+lemma affineChartField_refl (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineChartField S θ (LinearEquiv.refl S _) (LinearEquiv.refl S _) =
+      affineBaseChange S θ := by
+  sorry
+
+lemma affineOrderedIterate_chart_comparison (θ : E →ₗ[R] E ⊗[R] Q)
+    (e : S ⊗[R] E ≃ₗ[S] F) (q : S ⊗[R] Q ≃ₗ[S] P) (n : ℕ) :
+    (affineOrderedIterate (affineChartField S θ e q) n).comp e.toLinearMap =
+      (TensorProduct.map e.toLinearMap
+        (PiTensorProduct.map (fun _ : Fin n => q.toLinearMap))).comp
+          ((affineOrderedBaseChange S n).toLinearMap.comp
+            ((affineOrderedIterate θ n).baseChange S)) := by
+  sorry
+
+lemma affineOrderedIterate_chart_zero_iff (θ : E →ₗ[R] E ⊗[R] Q)
+    (e : S ⊗[R] E ≃ₗ[S] F) (q : S ⊗[R] Q ≃ₗ[S] P) (n : ℕ) :
+    affineOrderedIterate (affineChartField S θ e q) n = 0 ↔
+      affineOrderedIterate (affineBaseChange S θ) n = 0 := by
+  sorry
+
+lemma affineOrderedIterate_chart_zero_of (θ : E →ₗ[R] E ⊗[R] Q)
+    (e : S ⊗[R] E ≃ₗ[S] F) (q : S ⊗[R] Q ≃ₗ[S] P) (n : ℕ)
+    (h : affineOrderedIterate θ n = 0) :
+    affineOrderedIterate (affineChartField S θ e q) n = 0 := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+open scoped TensorProduct
+variable {R E Q : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E] [AddCommGroup Q] [Module R Q]
+variable (s : Set R) (hs : Ideal.span s = ⊤)
+include hs
+variable (A : s → Type*) [∀ r, CommRing (A r)] [∀ r, Algebra R (A r)]
+variable [∀ r : s, IsLocalization.Away r.val (A r)]
+
+lemma affineOrderedIterate_away_cover_zero_iff (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+    (∀ r : s, affineOrderedIterate (affineBaseChange (A r) θ) n = 0) ↔
+      affineOrderedIterate θ n = 0 := by
+  sorry
+
+variable (F P : s → Type*) [∀ r, AddCommGroup (F r)] [∀ r, Module (A r) (F r)]
+variable [∀ r, AddCommGroup (P r)] [∀ r, Module (A r) (P r)]
+variable (e : ∀ r, (A r) ⊗[R] E ≃ₗ[A r] F r)
+variable (q : ∀ r, (A r) ⊗[R] Q ≃ₗ[A r] P r)
+
+lemma affineOrderedIterate_chart_cover_zero_iff (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+    (∀ r : s, affineOrderedIterate (affineChartField (A r) θ (e r) (q r)) n = 0) ↔
+      affineOrderedIterate θ n = 0 := by
+  sorry
+
+lemma affineOrderedIterate_finite_chart_bound [Fintype s]
+    (θ : E →ₗ[R] E ⊗[R] Q) (N : s → ℕ)
+    (h : ∀ r : s, affineOrderedIterate (affineChartField (A r) θ (e r) (q r)) (N r) = 0) :
+    affineOrderedIterate θ (1 + Finset.univ.sup N) = 0 := by
+  sorry
+
+lemma affineOrderedIterate_chart_local_nilpotent_iff (θ : E →ₗ[R] E ⊗[R] Q) :
+    (∀ r : s, ∃ n : ℕ, 0 < n ∧
+      affineOrderedIterate (affineChartField (A r) θ (e r) (q r)) n = 0) ↔
+      ∃ n : ℕ, 0 < n ∧ affineOrderedIterate θ n = 0 := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+open scoped TensorProduct
+variable {R E Q : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E] [AddCommGroup Q] [Module R Q]
+variable (S : Type*) [CommRing S] [Algebra R S]
+
+-- test: TwistedHiggsBundle.affineChartField.test_refl
+example (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineChartField S θ (LinearEquiv.refl S _) (LinearEquiv.refl S _) =
+      affineBaseChange S θ := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineChartField.test_zero
+example {F P : Type*} [AddCommGroup F] [Module S F] [AddCommGroup P] [Module S P]
+    (e : S ⊗[R] E ≃ₗ[S] F) (q : S ⊗[R] Q ≃ₗ[S] P) :
+    affineChartField S (0 : E →ₗ[R] E ⊗[R] Q) e q = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineChartField.test_coeff_sign
+example (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineChartField S θ (LinearEquiv.refl S _)
+      (LinearEquiv.neg S : S ⊗[R] Q ≃ₗ[S] S ⊗[R] Q) =
+      (-1 : S) • affineBaseChange S θ := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineChartField.test_projective_unbased
+example [Module.Projective R E] [Module.Projective R Q] (θ : E →ₗ[R] E ⊗[R] Q)
+    (n : ℕ) (h : affineOrderedIterate θ n = 0) :
+    affineOrderedIterate (affineChartField S θ
+      (LinearEquiv.refl S _) (LinearEquiv.refl S _)) n = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineChartField.test_noncover_erasure
+local instance : Module ℤ (Localization.Away (2 : ℤ)) := Algebra.toModule
+
+example :
+    let A := Localization.Away (2 : ℤ)
+    let θ := (TensorProduct.rid ℤ (ZMod 2)).symm.toLinearMap
+    θ ≠ 0 ∧ affineBaseChange A θ = 0 := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+open scoped TensorProduct
+
+-- test: TwistedHiggsBundle.affineChartField.test_two_principal_opens
+example (θ : ZMod 4 →ₗ[ℤ] (ZMod 4) ⊗[ℤ] (ZMod 2)) (n : ℕ) :
+    (∀ r : ({2, 3} : Set ℤ), affineOrderedIterate
+      (affineBaseChange (Localization.Away r.val) θ) n = 0) ↔
+      affineOrderedIterate θ n = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineChartField.test_degree_zero_cover
+example {R Q : Type*} [CommRing R] [Nontrivial R] [AddCommGroup Q] [Module R Q]
+    (s : Set R) (hs : Ideal.span s = ⊤) (A : s → Type*)
+    [∀ r, CommRing (A r)] [∀ r, Algebra R (A r)]
+    [∀ r : s, IsLocalization.Away r.val (A r)] (θ : R →ₗ[R] R ⊗[R] Q) :
+    ¬ ∀ r : s, affineOrderedIterate (affineBaseChange (A r) θ) 0 = 0 := by
+  sorry
 
 end
 end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
