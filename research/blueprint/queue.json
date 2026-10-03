@@ -13129,8 +13129,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-FunctionFieldArithmeticPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3403"
+   "state": "pending",
+   "note": "released on GitHub issue #3403"
   },
   {
    "id": "REV-DESIGN-FunctionFieldArithmeticPartII",
@@ -30150,7 +30150,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-AnabelianGeometryAndNonabelianChabauty.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-ArithmeticGaloisDuality",
     "BP-ColemanIntegration",
@@ -30160,7 +30160,7 @@
     "BP-PadicHodgeTheory--R06.5",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "released on GitHub issue #1020"
+   "note": "claimed on GitHub issue #1020"
   },
   {
    "id": "REV-AnabelianGeometryAndNonabelianChabauty",
