@@ -1,3 +1,264 @@
+# Positive-divisibility coaction and invariant algebra
+
+For an arbitrary commutative ring A and f∈A, let D_f be the existing direct limit over all positive integers ordered by divisibility. Its root v_n comes from A[t_n]/(t_n^n−f). Let C_f be the factorial colimit, E:D_f≃ₐ[A]C_f its existing cofinality equivalence, and G=A[ℚ/ℤ] the native rational-character group algebra. This continuation constructs T=id_G⊗E and the actual left coaction δ_D=T⁻¹∘δ_C∘E. It imports the existing colimits and all generic tensor and equalizer operations.
+
+The key computation works at every positive index, including nonfactorial ones. Cofinality sends v_n to the ((n+1)!/n)-th power of the factorial root. Its rational character is ((n+1)!/n)/(n+1)!=1/n, so δ_D(v_n)=e_[1/n]⊗v_n. Root extensionality gives compatibility with the entire finite coaction. Native direct-limit extensionality then proves the counit and coassociativity identities from this root formula; no target ring instance or universe is silently changed.
+
+Injectivity of T reflects universal coinvariance. The authenticated incoming factorial invariant theorem therefore gives δ_D(x)=1⊗x exactly when x comes from A. Coefficient injectivity makes this coefficient unique. Restricting the actual coefficient algebra map to the native equalizer gives the algebra equivalence A≃I_D, with forward/inverse formulas and agreement with factorial invariant coordinates. This does not prove a coarse-space universal property or a geometric quotient theorem.
+
+The examples keep zero rings and wild characteristic. In Z/4 with f=2 the index-three root has character [1/3], and the 3∣6 transition is respected. In Z/2 with f=0 the index-two root is nonzero and square-zero, yet fails universal coinvariance: an invariant coefficient would have square zero in Z/2 and therefore be zero, contradicting injectivity and the finite power basis. Equality of scalar-point actions cannot replace the universal tensor equation.
+
+Talpo–Vistoli arXiv1410.1164v2 printed pp.14–16 were freshly reread in full as extracted text. The cofinality and grading arguments motivate these authored algebraic deductions. The incoming source-version/source-issue records are retained without claiming a new whole-paper or published-version audit. Every incoming node remains intact. Earlier reader sections below retain the frontier as it stood at their own checkpoint.
+
+The actual positive-divisibility colimit now has a rational-character LEFT coaction, compatible with every finite coaction, with native counit and coassociativity. Its universal coinvariants are exactly and uniquely the coefficient ring, realized by the native equalizer algebra equivalence; the factorial and positive-divisibility invariant coordinates agree. Still open: higher-universe target transports, coefficient-change naturality of these new positive-divisibility comparisons, coherent root-object groupoid reindexing, Spec-limit comparison, fpqc frame torsors and geometric quotient/descent, DVR and Kummer-limit routes. The reserved general root-stack key, all ten partial stages, all eight gaps, all thirteen supplier requests and every earlier source route remain open as recorded.
+
+## Tensor comparison for positive divisibilities
+
+**TauCeti.RootStack.divisibilityQZTensorEquiv** — Construct T:G⊗_A D_f ≃ₐ[A] G⊗_A C_f as the native tensor congruence of id_G with the existing cofinality equivalence E.
+
+Hypotheses: A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added. D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f. G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-equivalence, mathlib:Algebra.TensorProduct.congr.
+
+Proof: Apply the existing tensor congruence to the actual algebra equivalences. No flatness premise is needed.
+
+API:
+
+- **TauCeti.RootStack.divisibilityQZTensorEquiv.tmul**: T(g⊗x)=g⊗E(x) for every g∈G and x∈D_f.
+- **TauCeti.RootStack.divisibilityQZTensorEquiv.symm_tmul**: T⁻¹(g⊗y)=g⊗E⁻¹(y) for every g∈G and y∈C_f.
+- **TauCeti.RootStack.divisibilityQZCoaction.transport**: For every x∈D_f, T(δ_D(x))=δ_C(E(x)).
+
+TESTS:
+
+- **TauCeti.RootStack.divisibilityQZTensorEquiv.test_pure**: Evaluate T on an arbitrary pure tensor.
+- **TauCeti.RootStack.divisibilityQZTensorEquiv.test_inverse**: The inverse recovers every arbitrary tensor, not just pure tensors.
+- **TauCeti.RootStack.divisibilityQZTensorEquiv.test_zero_ring**: For A=Z/1 and f=0 the target tensor is zero, retaining the zero-ring case.
+
+## Tensor comparison on pure tensors
+
+**TauCeti.RootStack.divisibilityQZTensorEquiv.tmul** — T(g⊗x)=g⊗E(x) for every g∈G and x∈D_f.
+
+Hypotheses: A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added. D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f. G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-equivalence.
+
+Proof: Evaluate native tensor congruence.
+
+## Inverse tensor comparison
+
+**TauCeti.RootStack.divisibilityQZTensorEquiv.symm_tmul** — T⁻¹(g⊗y)=g⊗E⁻¹(y) for every g∈G and y∈C_f.
+
+Hypotheses: A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added. D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f. G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-equivalence.
+
+Proof: Evaluate the inverse native tensor congruence.
+
+## Universal coaction over positive divisibilities
+
+**TauCeti.RootStack.divisibilityQZCoaction** — Construct δ_D:D_f→ₐ[A]G⊗_A D_f by δ_D=T⁻¹∘δ_C∘E, using the inherited factorial rational-character coaction.
+
+Hypotheses: A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added. D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f. G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-equivalence, FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction.
+
+Proof: Compose the actual algebra homomorphisms. Subsequent lemmas prove the counit and coassociativity equations on the native colimit.
+
+API:
+
+- **TauCeti.RootStack.divisibilityQZCoaction.root**: For every positive n, δ_D(v_n)=e_[1/n]⊗v_n.
+- **TauCeti.RootStack.divisibilityQZCoaction.level**: For every positive n, δ_D∘j_n=(finiteQZAlgMap_n⊗j_n)∘affineCoaction_n as A-algebra homomorphisms.
+- **TauCeti.RootStack.divisibilityQZCoaction.constant**: For every a∈A, δ_D(algebraMap(a))=1⊗algebraMap(a).
+- **TauCeti.RootStack.divisibilityQZCoaction.counit**: The composite D_f→G⊗D_f→A⊗D_f→D_f of δ_D, ε_G⊗id and the native left unitor is id_D.
+- **TauCeti.RootStack.divisibilityQZCoaction.coassoc**: After the native associator, (Δ_G⊗id)∘δ_D=(id_G⊗δ_D)∘δ_D as maps to G⊗(G⊗D_f).
+- **TauCeti.RootStack.divisibilityQZCoaction.coinvariant_iff**: δ_D(x)=1⊗x if and only if δ_C(E(x))=1⊗E(x).
+- **TauCeti.RootStack.divisibilityQZCoaction.invariants**: For every x∈D_f, δ_D(x)=1⊗x if and only if there exists a∈A with x=algebraMap(a).
+- **TauCeti.RootStack.divisibilityQZCoaction.invariants_unique**: Every universally coinvariant x∈D_f has a unique a∈A satisfying x=algebraMap(a).
+
+TESTS:
+
+- **TauCeti.RootStack.divisibilityQZCoaction.test_third_root**: Over Z/4 with nonunit f=2, the nonfactorial positive index 3 root has character [1/3].
+- **TauCeti.RootStack.divisibilityQZCoaction.test_one**: At positive index 1 the root equals the coefficient f and has trivial character.
+- **TauCeti.RootStack.divisibilityQZCoaction.test_divisibility**: Under 3∣6, δ(v_3)=δ(v_6)^2 using the actual transition, not a new representative.
+- **TauCeti.RootStack.divisibilityQZCoaction.test_native_transport**: The actual tensor comparison intertwines the two universal coactions for every element.
+- **TauCeti.RootStack.divisibilityQZCoaction.test_wild_nilpotent**: Over Z/2 with f=0, v_2 is nonzero and square-zero but is not universally coinvariant. The finite power basis and injective inclusion prove nonzero; invariant coefficients would force a^2=0 in the field Z/2 and hence a=0.
+- **TauCeti.RootStack.divisibilityQZCoaction.test_finite_level**: At n=3, the whole finite coaction commutes with inclusion for every finite chart element.
+
+## Cofinality intertwines the coactions
+
+**TauCeti.RootStack.divisibilityQZCoaction.transport** — For every x∈D_f, T(δ_D(x))=δ_C(E(x)).
+
+Hypotheses: A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added. D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f. G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-qz-coaction.
+
+Proof: Cancel T with its inverse in the definition. This compares universal coactions, not scalar-point actions.
+
+## Character of an arbitrary positive root
+
+**TauCeti.RootStack.factorialQZCoaction.extension_root** — For every positive n, δ_C(ε_n(t_n))=e_[1/n]⊗ε_n(t_n), where ε_n is the existing cofinal extension of A[t_n]/(t_n^n−f).
+
+Hypotheses: A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added. D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f. G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension, FunctionFieldArithmeticPartII:RS.2/root-factorial-cofinal, FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-power, mathlib:Nat.cast_div.
+
+Proof: Represent ε_n(t_n) by the ((n+1)!/n)-th power of the factorial-level root. Apply the inherited power formula and use n∣(n+1)! and n≠0 to identify the rational character ((n+1)!/n)/(n+1)!=1/n.
+
+## Positive-level root character
+
+**TauCeti.RootStack.divisibilityQZCoaction.root** — For every positive n, δ_D(v_n)=e_[1/n]⊗v_n.
+
+Hypotheses: A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added. D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f. G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-qz-coaction-transport, FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-pure, FunctionFieldArithmeticPartII:RS.2/factorial-qz-extension-root, FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-inclusion.
+
+Proof: Apply the injective T. Cofinality identifies E(v_n) with ε_n(t_n), whose character is the previous lemma.
+
+## Compatibility with every finite coaction
+
+**TauCeti.RootStack.divisibilityQZCoaction.level** — For every positive n, δ_D∘j_n=(finiteQZAlgMap_n⊗j_n)∘affineCoaction_n as A-algebra homomorphisms.
+
+Hypotheses: A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added. D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f. G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-qz-root, FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-map, FunctionFieldArithmeticPartII:RS.0/affine-coaction, mathlib:AdjoinRoot.algHom_ext.
+
+Proof: Two algebra maps from the actual AdjoinRoot algebra agree when they agree at its root. Evaluate both sides, using the finite character map at 1 to obtain [1/n].
+
+## Coefficient coinvariance
+
+**TauCeti.RootStack.divisibilityQZCoaction.constant** — For every a∈A, δ_D(algebraMap(a))=1⊗algebraMap(a).
+
+Hypotheses: A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added. D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f. G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-qz-coaction.
+
+Proof: Both δ_D and the native right inclusion commute with the A-algebra maps.
+
+## Counit on the positive-divisibility colimit
+
+**TauCeti.RootStack.divisibilityQZCoaction.counit** — The composite D_f→G⊗D_f→A⊗D_f→D_f of δ_D, ε_G⊗id and the native left unitor is id_D.
+
+Hypotheses: A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added. D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f. G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-qz-root, mathlib:DirectLimit.Algebra.hom_ext, mathlib:AdjoinRoot.algHom_ext.
+
+Proof: Use native direct-limit homomorphism extensionality, then root extensionality on each finite component. The group-algebra counit sends e_[1/n] to 1, so the root is recovered.
+
+## Coassociativity over positive divisibilities
+
+**TauCeti.RootStack.divisibilityQZCoaction.coassoc** — After the native associator, (Δ_G⊗id)∘δ_D=(id_G⊗δ_D)∘δ_D as maps to G⊗(G⊗D_f).
+
+Hypotheses: A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added. D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f. G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-qz-root, mathlib:DirectLimit.Algebra.hom_ext, mathlib:AdjoinRoot.algHom_ext.
+
+Proof: Reduce equality of algebra maps to every finite root. Its group-like character has Δ(e_q)=e_q⊗e_q; both sides are e_[1/n]⊗(e_[1/n]⊗v_n).
+
+## Cofinality reflects universal coinvariance
+
+**TauCeti.RootStack.divisibilityQZCoaction.coinvariant_iff** — δ_D(x)=1⊗x if and only if δ_C(E(x))=1⊗E(x).
+
+Hypotheses: A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added. D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f. G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-qz-coaction-transport, FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-pure.
+
+Proof: Apply injectivity of the native tensor algebra equivalence T and the transport identity.
+
+## Injective positive-divisibility coefficient map
+
+**TauCeti.RootStack.divisibilityAffineColimit.coefficient_injective** — The actual coefficient homomorphism A→D_f is injective, including for the zero ring.
+
+Hypotheses: A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added. D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f. G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-equivalence, FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-injective.
+
+Proof: Apply E to equality of coefficient images. Its A-algebra compatibility reduces the assertion to the inherited factorial coefficient injectivity.
+
+## Invariant algebra over positive divisibilities
+
+**TauCeti.RootStack.divisibilityQZCoaction.invariants** — For every x∈D_f, δ_D(x)=1⊗x if and only if there exists a∈A with x=algebraMap(a).
+
+Hypotheses: A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added. D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f. G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-qz-coinvariant-transport, FunctionFieldArithmeticPartII:RS.2/qz-coaction-invariants.
+
+Proof: Transport coinvariance to C_f and apply its previously proved coefficient-extraction theorem. E commutes with coefficient maps and is injective, so the same a represents x in D_f. Conversely every coefficient is invariant.
+
+## Unique invariant coefficient
+
+**TauCeti.RootStack.divisibilityQZCoaction.invariants_unique** — Every universally coinvariant x∈D_f has a unique a∈A satisfying x=algebraMap(a).
+
+Hypotheses: A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added. D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f. G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-qz-invariants, FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-injective.
+
+Proof: Existence is the invariant theorem. Injectivity of the coefficient homomorphism proves uniqueness.
+
+## Native invariant algebra equivalence
+
+**TauCeti.RootStack.divisibilityInvariantEquiv** — Construct A≃ₐ[A]I_D, where I_D is the actual AlgHom.equalizer of δ_D and the right tensor inclusion D_f→G⊗D_f.
+
+Hypotheses: A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added. D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f. G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-qz-invariants, FunctionFieldArithmeticPartII:RS.2/divisibility-qz-constant, FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-injective, mathlib:AlgHom.equalizer, mathlib:AlgHom.codRestrict, mathlib:Algebra.ofId, mathlib:AlgEquiv.ofBijective.
+
+Proof: Restrict the coefficient algebra homomorphism to the native equalizer using coefficient coinvariance. Injectivity is coefficient injectivity; surjectivity follows from the invariant theorem. Use the native equivalence constructor for this actual bijection.
+
+API:
+
+- **TauCeti.RootStack.divisibilityInvariantEquiv.apply_coe**: The underlying D_f element of divisibilityInvariantEquiv(f)(a) is algebraMap(a).
+- **TauCeti.RootStack.divisibilityInvariantEquiv.inverse_coe**: For x∈I_D, the coefficient image of divisibilityInvariantEquiv(f)⁻¹(x) equals x.val.
+- **TauCeti.RootStack.divisibilityInvariantEquiv.eq_iff**: For x∈I_D and a∈A, divisibilityInvariantEquiv(f)⁻¹(x)=a if and only if x.val=algebraMap(a).
+- **TauCeti.RootStack.divisibilityInvariantEquiv.factorial**: For every a∈A, E((divisibilityInvariantEquiv(f)(a)).val)=(factorialInvariantEquiv(f)(a)).val.
+
+TESTS:
+
+- **TauCeti.RootStack.divisibilityInvariantEquiv.test_coefficient_two**: Over Z/4 with f=2 the invariant image of coefficient 2 is its actual coefficient inclusion.
+- **TauCeti.RootStack.divisibilityInvariantEquiv.test_zero_ring**: For A=Z/1,f=0 the unique coefficient has invariant image zero.
+- **TauCeti.RootStack.divisibilityInvariantEquiv.test_inverse**: The equivalence applied to its inverse recovers each arbitrary equalizer element.
+- **TauCeti.RootStack.divisibilityInvariantEquiv.test_factorial**: Every coefficient has the same invariant coordinates after the actual cofinality comparison.
+- **TauCeti.RootStack.divisibilityInvariantEquiv.test_unique**: Equality of the underlying invariant elements forces equality of their coefficients.
+
+## Invariant equivalence forward map
+
+**TauCeti.RootStack.divisibilityInvariantEquiv.apply_coe** — The underlying D_f element of divisibilityInvariantEquiv(f)(a) is algebraMap(a).
+
+Hypotheses: A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added. D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f. G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-equivalence.
+
+Proof: Evaluate the restricted coefficient homomorphism.
+
+## Invariant equivalence inverse map
+
+**TauCeti.RootStack.divisibilityInvariantEquiv.inverse_coe** — For x∈I_D, the coefficient image of divisibilityInvariantEquiv(f)⁻¹(x) equals x.val.
+
+Hypotheses: A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added. D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f. G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-equivalence, FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-forward.
+
+Proof: Apply the forward-inverse law of the actual algebra equivalence and take its underlying element.
+
+## Characterization of the invariant coefficient
+
+**TauCeti.RootStack.divisibilityInvariantEquiv.eq_iff** — For x∈I_D and a∈A, divisibilityInvariantEquiv(f)⁻¹(x)=a if and only if x.val=algebraMap(a).
+
+Hypotheses: A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added. D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f. G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-inverse, FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-injective.
+
+Proof: Use the inverse coefficient equation in the forward direction; reflect equality by coefficient injectivity in the reverse direction.
+
+## Invariant coordinates agree under cofinality
+
+**TauCeti.RootStack.divisibilityInvariantEquiv.factorial** — For every a∈A, E((divisibilityInvariantEquiv(f)(a)).val)=(factorialInvariantEquiv(f)(a)).val.
+
+Hypotheses: A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added. D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f. G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-forward, FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-equivalence, FunctionFieldArithmeticPartII:RS.2/factorial-invariant-algebra-equivalence.
+
+Proof: Both invariant equivalences have forward map equal to coefficient inclusion, and E is an A-algebra equivalence.
+
 # Infinite affine coinvariants and their coefficient algebra
 
 ## Scope and conventions
