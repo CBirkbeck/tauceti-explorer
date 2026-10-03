@@ -2860,3 +2860,346 @@ example (φ : A →+* B) (f : A) (s : factorialRootScalars A)
 
 end FactorialCoefficients
 end TauCeti.RootStack
+
+
+/-! Universal factorial root coaction — Codex codex-a71f92. -/
+namespace TauCeti.RootStack
+section FactorialUniversalCoaction
+variable {A : Type u} [CommRing A]
+open scoped TensorProduct
+
+def factorialCoaction (f : A) :
+    FactorialAffineColimit f →ₐ[A]
+      (FactorialAffineColimit (1 : A) ⊗[A] FactorialAffineColimit f) := by
+  sorry
+
+lemma factorialCoaction.root (f : A) (i : ℕ) :
+    factorialCoaction f (factorialAffineInclusion f i (AdjoinRoot.root _)) =
+      factorialAffineInclusion (1 : A) i (AdjoinRoot.root _) ⊗ₜ[A]
+        factorialAffineInclusion f i (AdjoinRoot.root _) := by
+  sorry
+
+lemma factorialCoaction.constant (f a : A) :
+    factorialCoaction f (algebraMap A _ a) =
+      (1 : FactorialAffineColimit (1 : A)) ⊗ₜ[A]
+        algebraMap A (FactorialAffineColimit f) a := by
+  sorry
+
+def factorialCounit (A : Type u) [CommRing A] :
+    FactorialAffineColimit (1 : A) →ₐ[A] A := by
+  sorry
+
+lemma factorialCounit.root (i : ℕ) :
+    factorialCounit A (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) = 1 := by
+  sorry
+
+lemma factorialCounit.constant (a : A) :
+    factorialCounit A (algebraMap A _ a) = a := by
+  sorry
+
+lemma factorialCounit.surjective : Function.Surjective (factorialCounit A) := by
+  sorry
+
+lemma factorialCoaction.counit (f : A) :
+    ((Algebra.TensorProduct.lid A (FactorialAffineColimit f)).toAlgHom.comp
+      (Algebra.TensorProduct.map (factorialCounit A)
+        (AlgHom.id A (FactorialAffineColimit f)))).comp (factorialCoaction f) =
+      AlgHom.id A (FactorialAffineColimit f) := by
+  sorry
+
+lemma factorialCoaction.coassoc (f : A) :
+    (Algebra.TensorProduct.assoc A A A
+      (FactorialAffineColimit (1 : A)) (FactorialAffineColimit (1 : A))
+      (FactorialAffineColimit f)).toAlgHom.comp
+      ((Algebra.TensorProduct.map (factorialCoaction (1 : A))
+        (AlgHom.id A (FactorialAffineColimit f))).comp (factorialCoaction f)) =
+      (Algebra.TensorProduct.map (AlgHom.id A (FactorialAffineColimit (1 : A)))
+        (factorialCoaction f)).comp (factorialCoaction f) := by
+  sorry
+
+lemma factorialCoaction.right_counit :
+    ((Algebra.TensorProduct.rid A A (FactorialAffineColimit (1 : A))).toAlgHom.comp
+      (Algebra.TensorProduct.map (AlgHom.id A (FactorialAffineColimit (1 : A)))
+        (factorialCounit A))).comp (factorialCoaction (1 : A)) =
+      AlgHom.id A (FactorialAffineColimit (1 : A)) := by
+  sorry
+
+lemma factorialCoaction.cocomm :
+    (Algebra.TensorProduct.comm A (FactorialAffineColimit (1 : A))
+      (FactorialAffineColimit (1 : A))).toAlgHom.comp (factorialCoaction (1 : A)) =
+        factorialCoaction (1 : A) := by
+  sorry
+
+def factorialAntipode (A : Type u) [CommRing A] :
+    FactorialAffineColimit (1 : A) →ₐ[A] FactorialAffineColimit (1 : A) := by
+  sorry
+
+lemma factorialAntipode.root (i : ℕ) :
+    factorialAntipode A (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) =
+      (((factorialUniversalScalars A)⁻¹).val i : FactorialAffineColimit (1 : A)) := by
+  sorry
+
+lemma factorialAntipode.left_inverse :
+    (Algebra.TensorProduct.lift (factorialAntipode A)
+      (AlgHom.id A (FactorialAffineColimit (1 : A)))
+      (fun _ _ => Commute.all _ _)).comp (factorialCoaction (1 : A)) =
+        (Algebra.ofId A (FactorialAffineColimit (1 : A))).comp (factorialCounit A) := by
+  sorry
+
+lemma factorialAntipode.right_inverse :
+    (Algebra.TensorProduct.lift (AlgHom.id A (FactorialAffineColimit (1 : A)))
+      (factorialAntipode A) (fun _ _ => Commute.all _ _)).comp
+        (factorialCoaction (1 : A)) =
+        (Algebra.ofId A (FactorialAffineColimit (1 : A))).comp (factorialCounit A) := by
+  sorry
+
+lemma factorialAntipode.involutive :
+    (factorialAntipode A).comp (factorialAntipode A) =
+      AlgHom.id A (FactorialAffineColimit (1 : A)) := by
+  sorry
+
+def factorialScalarEvaluation {B : Type u} [CommRing B] [Algebra A B]
+    (s : factorialRootScalars B) :
+    FactorialAffineColimit (1 : A) →ₐ[A] B := by
+  sorry
+
+lemma factorialScalarEvaluation.root {B : Type u} [CommRing B] [Algebra A B]
+    (s : factorialRootScalars B) (i : ℕ) :
+    factorialScalarEvaluation (A := A) s
+      (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) = (s.val i : B) := by
+  sorry
+
+lemma factorialScalarEvaluation.constant {B : Type u} [CommRing B] [Algebra A B]
+    (s : factorialRootScalars B) (a : A) :
+    factorialScalarEvaluation (A := A) s (algebraMap A _ a) = algebraMap A B a := by
+  sorry
+
+lemma factorialScalarEvaluation.universal :
+    factorialScalarEvaluation (A := A) (factorialUniversalScalars A) =
+      AlgHom.id A (FactorialAffineColimit (1 : A)) := by
+  sorry
+
+def factorialScalarPoints {B : Type u} [CommRing B] [Algebra A B] :
+    (FactorialAffineColimit (1 : A) →ₐ[A] B) ≃ factorialRootScalars B := by
+  sorry
+
+lemma factorialScalarPoints.value {B : Type u} [CommRing B] [Algebra A B]
+    (p : FactorialAffineColimit (1 : A) →ₐ[A] B) (i : ℕ) :
+    (((factorialScalarPoints p).val i : Bˣ) : B) =
+      p (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) := by
+  sorry
+
+lemma factorialScalarPoints.naturality {B C : Type u} [CommRing B] [CommRing C]
+    [Algebra A B] [Algebra A C] (p : FactorialAffineColimit (1 : A) →ₐ[A] B)
+    (k : B →ₐ[A] C) :
+    factorialScalarPoints (k.comp p) =
+      factorialRootScalars.map k.toRingHom (factorialScalarPoints p) := by
+  sorry
+
+lemma factorialScalarPoints.left_inverse {B : Type u} [CommRing B] [Algebra A B]
+    (p : FactorialAffineColimit (1 : A) →ₐ[A] B) :
+    factorialScalarEvaluation (factorialScalarPoints p) = p := by
+  sorry
+
+lemma factorialScalarPoints.right_inverse {B : Type u} [CommRing B] [Algebra A B]
+    (s : factorialRootScalars B) :
+    factorialScalarPoints (factorialScalarEvaluation (A := A) s) = s := by
+  sorry
+
+lemma factorialCoaction.specialization (f : A) (s : factorialRootScalars A) :
+    (Algebra.TensorProduct.lift
+      ((Algebra.ofId A (FactorialAffineColimit f)).comp (factorialScalarEvaluation s))
+      (AlgHom.id A (FactorialAffineColimit f))
+      (fun _ _ => Commute.all _ _)).comp (factorialCoaction f) = factorialScale f s := by
+  sorry
+
+lemma factorialCoaction.injective (f : A) : Function.Injective (factorialCoaction f) := by
+  sorry
+
+abbrev factorialBialgebra (A : Type u) [CommRing A] :
+    Bialgebra A (FactorialAffineColimit (1 : A)) := by
+  exact Bialgebra.ofAlgHom (factorialCoaction (1 : A)) (factorialCounit A)
+    (by sorry) (by sorry) (by sorry)
+
+lemma factorialBialgebra.comul :
+    letI := factorialBialgebra A
+    Bialgebra.comulAlgHom A (FactorialAffineColimit (1 : A)) =
+      factorialCoaction (1 : A) := by
+  sorry
+
+lemma factorialBialgebra.counit :
+    letI := factorialBialgebra A
+    Bialgebra.counitAlgHom A (FactorialAffineColimit (1 : A)) =
+      factorialCounit A := by
+  sorry
+
+abbrev factorialHopfAlgebra (A : Type u) [CommRing A] :
+    letI := factorialBialgebra A
+    HopfAlgebra A (FactorialAffineColimit (1 : A)) := by
+  letI := factorialBialgebra A
+  exact HopfAlgebra.ofAlgHom (factorialAntipode A) (by sorry) (by sorry)
+
+lemma factorialHopfAlgebra.antipode :
+    letI := factorialBialgebra A
+    letI := factorialHopfAlgebra A
+    HopfAlgebra.antipode A (A := FactorialAffineColimit (1 : A)) =
+      (factorialAntipode A).toLinearMap := by
+  sorry
+
+
+-- factorialCoactionTests.degree_two
+example : factorialCoaction (2 : ZMod 4)
+    (factorialAffineInclusion (2 : ZMod 4) 1 (AdjoinRoot.root _)) =
+    factorialAffineInclusion (1 : ZMod 4) 1 (AdjoinRoot.root _) ⊗ₜ[ZMod 4]
+      factorialAffineInclusion (2 : ZMod 4) 1 (AdjoinRoot.root _) := by
+  sorry
+
+
+-- factorialCoactionTests.coefficient_two
+example : factorialCoaction (0 : ZMod 4)
+    (algebraMap (ZMod 4) _ 2) =
+      1 ⊗ₜ[ZMod 4] algebraMap (ZMod 4) (FactorialAffineColimit (0 : ZMod 4)) 2 := by
+  sorry
+
+
+-- factorialCoactionTests.zero_ring
+example : factorialCoaction (0 : ZMod 1) 0 = 0 := by
+  sorry
+
+
+-- factorialCoactionTests.wild_nonzero
+example : factorialCoaction (0 : ZMod 2)
+    (factorialAffineInclusion (0 : ZMod 2) 1 (AdjoinRoot.root _)) ≠ 0 := by
+  sorry
+
+
+-- factorialCoactionTests.wild_square_zero
+example : (factorialCoaction (0 : ZMod 2)
+    (factorialAffineInclusion (0 : ZMod 2) 1 (AdjoinRoot.root _))) ^ 2 = 0 := by
+  sorry
+
+
+-- factorialCounitTests.degree_two
+example : factorialCounit (ZMod 4)
+    (factorialAffineInclusion (1 : ZMod 4) 1 (AdjoinRoot.root _)) = 1 := by
+  sorry
+
+
+-- factorialCounitTests.coefficient_two
+example : factorialCounit (ZMod 4) (algebraMap (ZMod 4) _ 2) = 2 := by
+  sorry
+
+
+-- factorialCounitTests.zero_ring
+example : factorialCounit (ZMod 1) 0 = 0 := by
+  sorry
+
+
+-- factorialAntipodeTests.inverse_root
+example : factorialAntipode A
+    (factorialAffineInclusion (1 : A) 1 (AdjoinRoot.root _)) *
+      factorialAffineInclusion (1 : A) 1 (AdjoinRoot.root _) = 1 := by
+  sorry
+
+
+-- factorialAntipodeTests.involutive
+example (x : FactorialAffineColimit (1 : A)) :
+    factorialAntipode A (factorialAntipode A x) = x := by
+  sorry
+
+
+-- factorialAntipodeTests.zero_ring
+example : factorialAntipode (ZMod 1) 0 = 0 := by
+  sorry
+
+
+-- factorialScalarEvaluationTests.universal
+example : factorialScalarEvaluation (A := A) (factorialUniversalScalars A)
+    (factorialAffineInclusion (1 : A) 1 (AdjoinRoot.root _)) =
+      factorialAffineInclusion (1 : A) 1 (AdjoinRoot.root _) := by
+  sorry
+
+
+-- factorialScalarEvaluationTests.identity_scalar
+example : factorialScalarEvaluation (A := A) (1 : factorialRootScalars A)
+    (factorialAffineInclusion (1 : A) 1 (AdjoinRoot.root _)) = 1 := by
+  sorry
+
+
+-- factorialScalarEvaluationTests.coefficient_two
+example : factorialScalarEvaluation (A := ZMod 4) (1 : factorialRootScalars (ZMod 4))
+    (algebraMap (ZMod 4) _ 2) = 2 := by
+  sorry
+
+
+-- factorialScalarPointsTests.left_inverse
+example (p : FactorialAffineColimit (1 : A) →ₐ[A] A) :
+    factorialScalarEvaluation (factorialScalarPoints p) = p := by
+  sorry
+
+
+-- factorialScalarPointsTests.right_inverse
+example (s : factorialRootScalars (ZMod 1)) :
+    factorialScalarPoints (factorialScalarEvaluation (A := ZMod 1) s) = s := by
+  sorry
+
+
+-- factorialScalarPointsTests.universal
+example : factorialScalarPoints (AlgHom.id A (FactorialAffineColimit (1 : A))) =
+    factorialUniversalScalars A := by
+  sorry
+
+
+-- factorialBialgebraTests.comul_root
+example :
+    letI := factorialBialgebra (ZMod 4)
+    Bialgebra.comulAlgHom (ZMod 4) (FactorialAffineColimit (1 : ZMod 4))
+      (factorialAffineInclusion (1 : ZMod 4) 1 (AdjoinRoot.root _)) =
+        factorialAffineInclusion (1 : ZMod 4) 1 (AdjoinRoot.root _) ⊗ₜ[ZMod 4]
+          factorialAffineInclusion (1 : ZMod 4) 1 (AdjoinRoot.root _) := by
+  sorry
+
+
+-- factorialBialgebraTests.counit_root
+example :
+    letI := factorialBialgebra (ZMod 2)
+    Bialgebra.counitAlgHom (ZMod 2) (FactorialAffineColimit (1 : ZMod 2))
+      (factorialAffineInclusion (1 : ZMod 2) 1 (AdjoinRoot.root _)) = 1 := by
+  sorry
+
+
+-- factorialBialgebraTests.zero_ring
+example :
+    letI := factorialBialgebra (ZMod 1)
+    Bialgebra.comulAlgHom (ZMod 1) (FactorialAffineColimit (1 : ZMod 1)) 0 = 0 := by
+  sorry
+
+
+-- factorialHopfAlgebraTests.inverse_root
+example :
+    letI := factorialBialgebra A
+    letI := factorialHopfAlgebra A
+    HopfAlgebra.antipode A (A := FactorialAffineColimit (1 : A))
+      (factorialAffineInclusion (1 : A) 1 (AdjoinRoot.root _)) *
+        factorialAffineInclusion (1 : A) 1 (AdjoinRoot.root _) = 1 := by
+  sorry
+
+
+-- factorialHopfAlgebraTests.involutive
+example (x : FactorialAffineColimit (1 : A)) :
+    letI := factorialBialgebra A
+    letI := factorialHopfAlgebra A
+    HopfAlgebra.antipode A (HopfAlgebra.antipode A x) = x := by
+  sorry
+
+
+-- factorialHopfAlgebraTests.zero_ring
+example :
+    letI := factorialBialgebra (ZMod 1)
+    letI := factorialHopfAlgebra (ZMod 1)
+    HopfAlgebra.antipode (ZMod 1) (A := FactorialAffineColimit (1 : ZMod 1)) 0 = 0 := by
+  sorry
+
+
+end FactorialUniversalCoaction
+end TauCeti.RootStack
