@@ -7606,3 +7606,171 @@ Proof route: Apply injectivity of Q_B, multiplication preservation and commutati
 Dependencies: FunctionFieldArithmeticPartII:RS.2/convolution-points-equivalence.
 
 Sources: Talpo–Vistoli, arXiv:1410.1164v2, complete pp.14–16, for the Cartier-dual action and affine quotient motivation; the displayed coordinate deductions are authored here. The generic convolution product is imported from Mathlib/RingTheory/Bialgebra/Convolution at082e2d3; the generic Hopf point group and antipode inverse are imported from TauCeti/Algebra/AlgebraicGroup/FunctorOfPoints atf790474.
+
+## RS.2 continuation: convolution acting on root-chart points
+
+For arbitrary commutative A-algebras B,C in one fixed universe and any f∈A, write C_A(f) for the actual factorial chart colimit, H_A=C_A(1), u_i and h_i for its roots, and ρ_f for its inherited coaction. All zero rings, torsion, nonunit parameters and wild/nonreduced fibres remain. Native convolution points act on actual chart algebra maps by applying both maps to the tensor coaction. The generic convolution monoid, tensor lift and action carrier are imports. Tau Ceti's existing comodule pointsRepresentation acts on scalar-extended modules, not on this algebra-map carrier, and is not replanned.
+
+No freeness follows: if a chart point kills every u_i then every point action fixes it. The universal tensor-inclusion test recovers ρ_f as an algebra map, preventing a replacement by a trivial action or an equality only on reduced geometric points. Quotient stacks, frame torsors and the A[Q/Z] coordinate comparison remain distinct work.
+
+### The represented action on root-chart points
+
+`TauCeti.RootStack.factorialPointAction` — construction. For arbitrary f∈A, g∈WithConv(AlgHom_A(H_A,B)) and x∈AlgHom_A(C_A(f),B), define α_f(g,x)=lift(g.ofConv,x)∘ρ_f using the native tensor-algebra lift. This is an actual A-algebra homomorphism C_A(f)→B.
+
+Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed. C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid. This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+
+Construction or proof: Compose the inherited coaction ρ_f with the imported tensor lift of g.ofConv and x. Their images commute because B is commutative; no new generic tensor construction is planned.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction`, `mathlib:Algebra.TensorProduct.lift`.
+
+API:
+
+- `TauCeti.RootStack.factorialPointAction.root`: For every index i, α_f(g,x)(u_i)=g.ofConv(h_i)·x(u_i).
+- `TauCeti.RootStack.factorialPointAction.one`: For every chart point x, α_f(1,x)=x; the convolution identity is the counit point, not the identity endomorphism of H_A.
+- `TauCeti.RootStack.factorialPointAction.mul`: For every g,h and chart point x, α_f(g*h,x)=α_f(g,α_f(h,x)).
+- `TauCeti.RootStack.factorialPointAction.naturality`: For every A-algebra homomorphism k:B→C, k∘α_f(g,x)=α_f(toConv(k∘g.ofConv),k∘x).
+- `TauCeti.RootStack.factorialPointAction.scaling`: For every coherent A-unit family s and chart point x, α_f(toConv(ι_B∘E_s),x)=x∘factorialScale(f,s), where E_s is the actual inherited evaluation map H_A→A.
+- `TauCeti.RootStack.factorialPointAction.universal`: Taking B=H_A⊗_A C_A(f), g=toConv(includeLeft) and x=includeRight gives α_f(g,x)=ρ_f as actual algebra homomorphisms; all roots and nilpotents are retained.
+
+Unit tests:
+
+- `pointActionTests.degree_two` (value): At A=B=ZMod4 and f=0, the order-two root evaluates under the action as the product of the unity-root point value and the chart-point value.
+- `pointActionTests.identity` (degenerate): For every f and every B-valued chart point, the convolution identity acts as the identity.
+- `pointActionTests.universal` (compatibility): The actual tensor-inclusion universal points recover the whole inherited coaction.
+- `pointActionTests.fixed_zero_roots` (non-example): In characteristic two with f=0, any chart point evaluating every root to zero is fixed by every convolution point; this action alone is not a freeness certificate.
+
+### The action on each finite root
+
+`TauCeti.RootStack.factorialPointAction.root` — lemma. For every index i, α_f(g,x)(u_i)=g.ofConv(h_i)·x(u_i).
+
+Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed. C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid. This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+
+Construction or proof: Apply the coaction root formula and the imported pure-tensor evaluation formula.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/point-action`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-root`, `mathlib:Algebra.TensorProduct.lift_tmul`.
+
+### The action on coefficients
+
+`TauCeti.RootStack.factorialPointAction.constant` — lemma. For every a∈A, α_f(g,x)(ι_C(a))=ι_B(a).
+
+Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed. C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid. This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+
+Construction or proof: Use the coefficient-preservation field of the actual composite A-algebra homomorphism.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/point-action`.
+
+### The convolution identity acts identically
+
+`TauCeti.RootStack.factorialPointAction.one` — lemma. For every chart point x, α_f(1,x)=x; the convolution identity is the counit point, not the identity endomorphism of H_A.
+
+Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed. C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid. This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+
+Construction or proof: Compare the maps on all u_i. The inherited convolution identity evaluates each h_i to1, so multiplication leaves x(u_i) fixed.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/point-action-root`, `FunctionFieldArithmeticPartII:RS.2/convolution-one-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext`.
+
+### Convolution composition of actions
+
+`TauCeti.RootStack.factorialPointAction.mul` — lemma. For every g,h and chart point x, α_f(g*h,x)=α_f(g,α_f(h,x)).
+
+Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed. C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid. This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+
+Construction or proof: Compare all distinguished roots by actual colimit extensionality. Convolution evaluates h_i to g(h_i)h(h_i); associativity in B gives the equality.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/point-action-root`, `FunctionFieldArithmeticPartII:RS.2/convolution-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext`.
+
+### The native root-chart point action
+
+`TauCeti.RootStack.factorialPointMulAction` — construction. The operation α_f equips AlgHom_A(C_A(f),B) with a native MulAction of the imported convolution monoid WithConv(AlgHom_A(H_A,B)); this is installed locally using the inherited factorial bialgebra.
+
+Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed. C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid. This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+
+Construction or proof: Fill the native action fields with α_f, its identity law and its product law. Do not construct a replacement generic monoid or group.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/point-action`, `FunctionFieldArithmeticPartII:RS.2/point-action-one`, `FunctionFieldArithmeticPartII:RS.2/point-action-mul`, `mathlib:MulAction`.
+
+API:
+
+- `TauCeti.RootStack.factorialPointMulAction.smul`: After locally installing factorialPointMulAction f, g•x=α_f(g,x).
+- `TauCeti.RootStack.factorialPointAction.one`: For every chart point x, α_f(1,x)=x; the convolution identity is the counit point, not the identity endomorphism of H_A.
+- `TauCeti.RootStack.factorialPointAction.mul`: For every g,h and chart point x, α_f(g*h,x)=α_f(g,α_f(h,x)).
+
+Unit tests:
+
+- `pointMulActionTests.identity` (degenerate): After local native action installation, the convolution unit fixes every point.
+- `pointMulActionTests.composition` (compatibility): After local native action installation, a convolution product acts as the successive two actions.
+- `pointMulActionTests.zero_ring` (value): At A=B=ZMod1 and f=0, the locally installed native action includes the zero-ring chart points and satisfies the unit law.
+
+### Identification of scalar action
+
+`TauCeti.RootStack.factorialPointMulAction.smul` — lemma. After locally installing factorialPointMulAction f, g•x=α_f(g,x).
+
+Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed. C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid. This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+
+Construction or proof: Unfold only the root-specific instance field; the equality is definitional.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/point-mul-action`.
+
+### Naturality in the test algebra
+
+`TauCeti.RootStack.factorialPointAction.naturality` — lemma. For every A-algebra homomorphism k:B→C, k∘α_f(g,x)=α_f(toConv(k∘g.ofConv),k∘x).
+
+Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed. C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid. This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+
+Construction or proof: Apply root extensionality. The two root values agree because k preserves products.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/point-action-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext`.
+
+### Recovery of the existing coefficient-valued scaling
+
+`TauCeti.RootStack.factorialPointAction.scaling` — lemma. For every coherent A-unit family s and chart point x, α_f(toConv(ι_B∘E_s),x)=x∘factorialScale(f,s), where E_s is the actual inherited evaluation map H_A→A.
+
+Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed. C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid. This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+
+Construction or proof: Compare all root values. Evaluation gives s_i, while the inherited scaling sends u_i to ι_C(s_i)u_i; x preserves coefficients and products.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/point-action-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-evaluation-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext`.
+
+### Universal recovery of the coaction
+
+`TauCeti.RootStack.factorialPointAction.universal` — lemma. Taking B=H_A⊗_A C_A(f), g=toConv(includeLeft) and x=includeRight gives α_f(g,x)=ρ_f as actual algebra homomorphisms; all roots and nilpotents are retained.
+
+Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed. C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid. This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+
+Construction or proof: Compare each root using the native left/right tensor inclusions: (h_i⊗1)(1⊗u_i)=h_i⊗u_i. This recovers the whole coaction, not merely geometric-point values.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/point-action-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext`.
+
+### Antipode cancellation on the left
+
+`TauCeti.RootStack.factorialPointAction.left_inverse` — lemma. For every algebra map g:H_A→B and chart point x, α_f(toConv(g∘S),α_f(toConv(g),x))=x.
+
+Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed. C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid. This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+
+Construction or proof: Use the product action law backwards, the inherited left convolution inverse equation, then the identity action law.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/point-action-mul`, `FunctionFieldArithmeticPartII:RS.2/point-action-one`, `FunctionFieldArithmeticPartII:RS.2/convolution-left-inverse`.
+
+### Antipode cancellation on the right
+
+`TauCeti.RootStack.factorialPointAction.right_inverse` — lemma. For every algebra map g:H_A→B and chart point x, α_f(toConv(g),α_f(toConv(g∘S),x))=x.
+
+Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed. C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid. This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+
+Construction or proof: Use the product action law backwards, the inherited right convolution inverse equation, then the identity action law.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/point-action-mul`, `FunctionFieldArithmeticPartII:RS.2/point-action-one`, `FunctionFieldArithmeticPartII:RS.2/convolution-right-inverse`.
+
+### Zero-root points are fixed
+
+`TauCeti.RootStack.factorialPointAction.fixed_zero_roots` — lemma. If x(u_i)=0 for every i, then α_f(g,x)=x for every convolution point g. Hence no freeness or torsor claim follows from the existence of this action.
+
+Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed. C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid. This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+
+Construction or proof: Every acted root evaluates to g(h_i)·0=0. Root extensionality identifies the actual algebra maps.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/point-action-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext`.
+
+Acceptance: all thirteen named signatures and seven test types agree with the checked native proof. Preserve the general reserved root-stack definition, relative roots, full nonreduced fibres, arbitrary exponents and coherent infinite systems. All312 inherited contracts and all stage dependencies remain. Current totals:325 nodes,256 raw API records,265 raw tests,39 planets,201 baseline citations,8 gaps and13 requests. Every stage remains partial and every implementation unchecked.
+
+Sources: Talpo–Vistoli, [arXiv:1410.1164v2](https://arxiv.org/pdf/1410.1164v2), complete printed/PDF pp.14–16 personally read2026-10-03; the point-coordinate action identities above are authored deductions from actual inherited native maps, not printed named theorems. The two original joining briefs and source-route inventories are retained. The whole geometric suggested file remains uncompiled; only its exact whole Mathlib-only extraction and the native proof are checked with the existing pin.
