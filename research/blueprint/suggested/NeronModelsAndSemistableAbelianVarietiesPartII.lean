@@ -2997,3 +2997,4791 @@ example : InfinityChart.normalizationCoordinates
 
 end TauCeti.GenusOne.QuadraticPinch.Overlap
 /- END QUADRATIC OVERLAP COMPARISON -/
+
+/- BEGIN TWO CHART SCHEME GLUING -/
+namespace TauCeti.GenusOne.QuadraticPinch.Global
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
+open Overlap
+variable {k : Type u} [Field k]
+
+abbrev finiteChart (a b : k) : Scheme := Spec (.of (algebra (quadratic 1 a b)))
+abbrev infinityChart (a b : k) : Scheme := Spec (.of (InfinityChart.Chart a b))
+abbrev overlapChart (a b : k) : Scheme := Spec (.of (Ring 1 a b))
+
+-- node: G.1/global-finite-open
+/-- The specified finite principal open, expressed in normalized overlap coordinates. -/
+def finiteOpen (a b : k) : overlapChart a b ⟶ finiteChart a b := by sorry
+
+lemma finiteOpen_eq (a b : k) : finiteOpen a b =
+    (Scheme.Spec.mapIso (finiteEquiv 1 a b).toCommRingCatIso.op).hom ≫
+      Spec.map (CommRingCat.ofHom (algebraMap (algebra (quadratic 1 a b))
+        (Localization.Away (finiteDenominator 1 a b)))) := by sorry
+
+lemma finiteOpen_isOpenImmersion (a b : k) : IsOpenImmersion (finiteOpen a b) := by sorry
+
+attribute [instance] finiteOpen_isOpenImmersion
+
+lemma finiteOpen_range (a b : k) :
+    (finiteOpen a b).opensRange = PrimeSpectrum.basicOpen (finiteDenominator 1 a b) := by sorry
+
+-- node: G.1/global-infinity-open
+def infinityOpen (a b : k) : overlapChart a b ⟶ infinityChart a b := by sorry
+
+lemma infinityOpen_isOpenImmersion (a b : k) : IsOpenImmersion (infinityOpen a b) := by sorry
+
+attribute [instance] infinityOpen_isOpenImmersion
+
+lemma infinityOpen_range (a b : k) :
+    (infinityOpen a b).opensRange = PrimeSpectrum.basicOpen
+      (algebraMap k[X] (InfinityChart.Chart a b) X) := by sorry
+
+-- node: G.1/global-curve
+/-- The actual two-chart scheme, with the specified reciprocal transition. -/
+def curve (a b : k) : Scheme := by sorry
+
+abbrev finiteι (a b : k) : finiteChart a b ⟶ curve a b := by sorry
+
+abbrev infinityι (a b : k) : infinityChart a b ⟶ curve a b := by sorry
+
+lemma finiteι_isOpenImmersion (a b : k) : IsOpenImmersion (finiteι a b) := by sorry
+
+lemma infinityι_isOpenImmersion (a b : k) : IsOpenImmersion (infinityι a b) := by sorry
+
+attribute [instance] finiteι_isOpenImmersion infinityι_isOpenImmersion
+
+lemma chart_condition (a b : k) :
+    finiteOpen a b ≫ finiteι a b = infinityOpen a b ≫ infinityι a b := by sorry
+
+lemma curve_hom_ext (a b : k) {Y : Scheme} (f g : curve a b ⟶ Y)
+    (h₀ : finiteι a b ≫ f = finiteι a b ≫ g)
+    (h₁ : infinityι a b ≫ f = infinityι a b ≫ g) : f = g := by sorry
+
+lemma charts_cover (a b : k) (x : curve a b) :
+    (∃ y : finiteChart a b, finiteι a b y = x) ∨
+      (∃ y : infinityChart a b, infinityι a b y = x) := by sorry
+
+lemma charts_intersection (a b : k) (x : finiteChart a b) (y : infinityChart a b) :
+    finiteι a b x = infinityι a b y ↔
+      ∃ z : overlapChart a b, finiteOpen a b z = x ∧ infinityOpen a b z = y := by sorry
+
+lemma chart_preimage (a b : k) :
+    finiteι a b ⁻¹ᵁ (infinityι a b).opensRange = (finiteOpen a b).opensRange := by sorry
+
+lemma chart_isPullback (a b : k) :
+    IsPullback (infinityOpen a b) (finiteOpen a b) (infinityι a b) (finiteι a b) := by sorry
+
+-- node: G.1/global-curve-desc
+def desc (a b : k) {Y : Scheme} (f : finiteChart a b ⟶ Y)
+    (g : infinityChart a b ⟶ Y) (h : finiteOpen a b ≫ f = infinityOpen a b ≫ g) :
+    curve a b ⟶ Y := by sorry
+
+lemma finiteι_desc (a b : k) {Y : Scheme} (f : finiteChart a b ⟶ Y)
+    (g : infinityChart a b ⟶ Y) (h : finiteOpen a b ≫ f = infinityOpen a b ≫ g) :
+    finiteι a b ≫ desc a b f g h = f := by sorry
+
+lemma infinityι_desc (a b : k) {Y : Scheme} (f : finiteChart a b ⟶ Y)
+    (g : infinityChart a b ⟶ Y) (h : finiteOpen a b ≫ f = infinityOpen a b ≫ g) :
+    infinityι a b ≫ desc a b f g h = g := by sorry
+
+-- node: G.1/global-normalization-chart
+def normalizationChart (a b : k) : Spec (.of k[X]) ⟶ finiteChart a b := by sorry
+
+lemma normalizationChart_isFinite (a b : k) : AlgebraicGeometry.IsFinite (normalizationChart a b) := by sorry
+
+-- node: G.1/global-normalization-open
+def normalizationOpen (a b : k) : overlapChart a b ⟶ Spec (.of k[X]) := by sorry
+
+lemma normalizationOpen_isOpenImmersion (a b : k) :
+    IsOpenImmersion (normalizationOpen a b) := by sorry
+
+attribute [instance] normalizationOpen_isOpenImmersion
+
+lemma normalizationOpen_range (a b : k) :
+    (normalizationOpen a b).opensRange = PrimeSpectrum.basicOpen (X * quadratic 1 a b) := by sorry
+
+lemma normalizationChart_preimage (a b : k) :
+    normalizationChart a b ⁻¹ᵁ (finiteOpen a b).opensRange =
+      (normalizationOpen a b).opensRange := by sorry
+
+lemma normalization_chart_condition (a b : k) :
+    normalizationOpen a b ≫ normalizationChart a b = finiteOpen a b := by sorry
+
+-- node: G.1/global-normalization-source
+/-- Glued normalization charts, before their comparison with the native projective line. -/
+def normalizationSource (a b : k) : Scheme := by sorry
+
+abbrev sourceFiniteι (a b : k) : Spec (.of k[X]) ⟶ normalizationSource a b := by sorry
+
+abbrev sourceInfinityι (a b : k) : infinityChart a b ⟶ normalizationSource a b := by sorry
+
+lemma sourceFiniteι_isOpenImmersion (a b : k) : IsOpenImmersion (sourceFiniteι a b) := by sorry
+
+lemma sourceInfinityι_isOpenImmersion (a b : k) : IsOpenImmersion (sourceInfinityι a b) := by sorry
+
+attribute [instance] sourceFiniteι_isOpenImmersion sourceInfinityι_isOpenImmersion
+
+lemma source_chart_condition (a b : k) :
+    normalizationOpen a b ≫ sourceFiniteι a b = infinityOpen a b ≫ sourceInfinityι a b := by sorry
+
+lemma source_hom_ext (a b : k) {Y : Scheme} (f g : normalizationSource a b ⟶ Y)
+    (h₀ : sourceFiniteι a b ≫ f = sourceFiniteι a b ≫ g)
+    (h₁ : sourceInfinityι a b ≫ f = sourceInfinityι a b ≫ g) : f = g := by sorry
+
+lemma source_charts_cover (a b : k) (x : normalizationSource a b) :
+    (∃ y : Spec (.of k[X]), sourceFiniteι a b y = x) ∨
+      (∃ y : infinityChart a b, sourceInfinityι a b y = x) := by sorry
+
+-- node: G.1/global-normalization-morphism
+def normalization (a b : k) : normalizationSource a b ⟶ curve a b := by sorry
+
+lemma normalization_finite_chart (a b : k) :
+    sourceFiniteι a b ≫ normalization a b = normalizationChart a b ≫ finiteι a b := by sorry
+
+lemma normalization_infinity_chart (a b : k) :
+    sourceInfinityι a b ≫ normalization a b = infinityι a b := by sorry
+
+lemma normalization_unique (a b : k) (f : normalizationSource a b ⟶ curve a b)
+    (h₀ : sourceFiniteι a b ≫ f = normalizationChart a b ≫ finiteι a b)
+    (h₁ : sourceInfinityι a b ≫ f = infinityι a b) : f = normalization a b := by sorry
+
+lemma normalization_preimage_finite (a b : k) :
+    normalization a b ⁻¹ᵁ (finiteι a b).opensRange = (sourceFiniteι a b).opensRange := by sorry
+
+lemma normalization_preimage_infinity (a b : k) :
+    normalization a b ⁻¹ᵁ (infinityι a b).opensRange = (sourceInfinityι a b).opensRange := by sorry
+
+lemma normalization_finite_isPullback (a b : k) :
+    IsPullback (normalizationChart a b) (sourceFiniteι a b) (finiteι a b) (normalization a b) := by sorry
+
+lemma normalization_infinity_isPullback (a b : k) :
+    IsPullback (𝟙 (infinityChart a b)) (sourceInfinityι a b) (infinityι a b) (normalization a b) := by sorry
+
+-- node: G.1/global-open-cover
+def openCover (a b : k) : (curve a b).OpenCover := by sorry
+
+lemma openCover_index (a b : k) : (openCover a b).I₀ = Bool := by sorry
+
+lemma openCover_finite (a b : k) :
+    HEq ((openCover a b).f (cast (openCover_index a b).symm false)) (finiteι a b) := by sorry
+
+lemma openCover_infinity (a b : k) :
+    HEq ((openCover a b).f (cast (openCover_index a b).symm true)) (infinityι a b) := by sorry
+
+set_option backward.isDefEq.respectTransparency.types false in
+lemma normalization_isFinite (a b : k) : AlgebraicGeometry.IsFinite (normalization a b) := by sorry
+
+lemma finiteOpen_to_base (a b : k) :
+    finiteOpen a b ≫ Spec.map (CommRingCat.ofHom (algebraMap k (algebra (quadratic 1 a b)))) =
+      Spec.map (CommRingCat.ofHom (algebraMap k (Ring 1 a b))) := by sorry
+
+lemma infinityOpen_to_base (a b : k) :
+    infinityOpen a b ≫ Spec.map (CommRingCat.ofHom (algebraMap k (InfinityChart.Chart a b))) =
+      Spec.map (CommRingCat.ofHom (algebraMap k (Ring 1 a b))) := by sorry
+
+-- node: G.1/global-structure-map
+def structureMap (a b : k) : curve a b ⟶ Spec (.of k) := by sorry
+
+lemma structureMap_finite (a b : k) :
+    finiteι a b ≫ structureMap a b =
+      Spec.map (CommRingCat.ofHom (algebraMap k (algebra (quadratic 1 a b)))) := by sorry
+
+lemma structureMap_infinity (a b : k) :
+    infinityι a b ≫ structureMap a b =
+      Spec.map (CommRingCat.ofHom (algebraMap k (InfinityChart.Chart a b))) := by sorry
+
+lemma normalization_to_base_finite (a b : k) :
+    sourceFiniteι a b ≫ normalization a b ≫ structureMap a b =
+      Spec.map (CommRingCat.ofHom (algebraMap k k[X])) := by sorry
+
+lemma normalization_to_base_infinity (a b : k) :
+    sourceInfinityι a b ≫ normalization a b ≫ structureMap a b =
+      Spec.map (CommRingCat.ofHom (algebraMap k (InfinityChart.Chart a b))) := by sorry
+
+-- node: G.1/global-infinity-transition
+def infinityTransition (a b : k) : InfinityChart.Chart a b →+* Ring 1 a b := by sorry
+
+lemma infinityOpen_spec (a b : k) :
+    infinityOpen a b = Spec.map (CommRingCat.ofHom (infinityTransition a b)) := by sorry
+
+lemma infinityTransition_coordinate (a b : k) :
+    infinityTransition a b (algebraMap k[X] (InfinityChart.Chart a b) X) =
+      inverseVariable 1 a b := by sorry
+
+lemma infinityTransition_constants (a b r : k) :
+    infinityTransition a b (algebraMap k (InfinityChart.Chart a b) r) =
+      algebraMap k (Ring 1 a b) r := by sorry
+
+lemma infinityTransition_root (a b : k) :
+    infinityTransition a b (AdjoinRoot.root (InfinityChart.relation a b)) =
+      IsLocalization.Away.invSelf (X * quadratic 1 a b) := by sorry
+
+-- test: Global.finiteOpen.cusp_range
+example : (finiteOpen (0 : ZMod 2) 0).opensRange = PrimeSpectrum.basicOpen (finiteDenominator 1 (0 : ZMod 2) 0) := by sorry
+
+-- test: Global.finiteOpen.nonsplit_range
+example : (finiteOpen (1 : ZMod 2) 1).opensRange = PrimeSpectrum.basicOpen (finiteDenominator 1 (1 : ZMod 2) 1) := by sorry
+
+-- test: Global.finiteOpen.split_range
+example : (finiteOpen (0 : ℚ) (-1)).opensRange = PrimeSpectrum.basicOpen (finiteDenominator 1 (0 : ℚ) (-1)) := by sorry
+
+-- test: Global.infinityOpen.cusp_range
+example : (infinityOpen (0 : ZMod 2) 0).opensRange = PrimeSpectrum.basicOpen (algebraMap (ZMod 2)[X] (InfinityChart.Chart 0 0) X) := by sorry
+
+-- test: Global.infinityOpen.nonsplit_root_open
+example : (infinityOpen (1 : ZMod 2) 1).opensRange = PrimeSpectrum.basicOpen (AdjoinRoot.root (InfinityChart.relation 1 1)) := by sorry
+
+-- test: Global.infinityOpen.split_spec
+example : infinityOpen (0 : ℚ) (-1) = Spec.map (CommRingCat.ofHom (infinityTransition 0 (-1))) := by sorry
+
+-- test: Global.curve.cusp_gluing
+example : finiteOpen (0 : ZMod 2) 0 ≫ finiteι 0 0 = infinityOpen 0 0 ≫ infinityι 0 0 := by sorry
+
+-- test: Global.curve.nonsplit_cover
+example (x : curve (1 : ZMod 2) 1) : (∃ y, finiteι (1 : ZMod 2) 1 y = x) ∨ (∃ y, infinityι (1 : ZMod 2) 1 y = x) := by sorry
+
+-- test: Global.curve.split_intersection
+example (x : finiteChart (0 : ℚ) (-1)) (y : infinityChart (0 : ℚ) (-1)) : finiteι 0 (-1) x = infinityι 0 (-1) y ↔ ∃ z, finiteOpen 0 (-1) z = x ∧ infinityOpen 0 (-1) z = y := by sorry
+
+-- test: Global.desc.finite_restriction
+example (a b : k) {Y : Scheme} (f : finiteChart a b ⟶ Y) (g : infinityChart a b ⟶ Y) (h : finiteOpen a b ≫ f = infinityOpen a b ≫ g) : finiteι a b ≫ desc a b f g h = f := by sorry
+
+-- test: Global.desc.infinity_restriction
+example (a b : k) {Y : Scheme} (f : finiteChart a b ⟶ Y) (g : infinityChart a b ⟶ Y) (h : finiteOpen a b ≫ f = infinityOpen a b ≫ g) : infinityι a b ≫ desc a b f g h = g := by sorry
+
+-- test: Global.desc.identity
+example (a b : k) : desc a b (finiteι a b) (infinityι a b) (chart_condition a b) = 𝟙 (curve a b) := by sorry
+
+-- test: Global.normalizationChart.cusp_finite
+example : AlgebraicGeometry.IsFinite (normalizationChart (0 : ZMod 2) 0) := by sorry
+
+-- test: Global.normalizationChart.nonsplit_finite
+example : AlgebraicGeometry.IsFinite (normalizationChart (1 : ZMod 2) 1) := by sorry
+
+-- test: Global.normalizationChart.split_finite
+example : AlgebraicGeometry.IsFinite (normalizationChart (0 : ℚ) (-1)) := by sorry
+
+-- test: Global.normalizationOpen.cusp_range
+example : (normalizationOpen (0 : ZMod 2) 0).opensRange = PrimeSpectrum.basicOpen (X ^ 3 : (ZMod 2)[X]) := by sorry
+
+-- test: Global.normalizationOpen.nonsplit_preimage
+example : normalizationChart (1 : ZMod 2) 1 ⁻¹ᵁ (finiteOpen 1 1).opensRange = (normalizationOpen 1 1).opensRange := by sorry
+
+-- test: Global.normalizationOpen.split_compatibility
+example : normalizationOpen (0 : ℚ) (-1) ≫ normalizationChart 0 (-1) = finiteOpen 0 (-1) := by sorry
+
+-- test: Global.normalizationSource.cusp_cover
+example (x : normalizationSource (0 : ZMod 2) 0) : (∃ y, sourceFiniteι (0 : ZMod 2) 0 y = x) ∨ (∃ y, sourceInfinityι (0 : ZMod 2) 0 y = x) := by sorry
+
+-- test: Global.normalizationSource.nonsplit_gluing
+example : normalizationOpen (1 : ZMod 2) 1 ≫ sourceFiniteι 1 1 = infinityOpen 1 1 ≫ sourceInfinityι 1 1 := by sorry
+
+-- test: Global.normalizationSource.split_open
+example : IsOpenImmersion (sourceFiniteι (0 : ℚ) (-1)) := by sorry
+
+-- test: Global.normalization.cusp_finite
+example : AlgebraicGeometry.IsFinite (normalization (0 : ZMod 2) 0) := by sorry
+
+-- test: Global.normalization.nonsplit_finite
+example : AlgebraicGeometry.IsFinite (normalization (1 : ZMod 2) 1) := by sorry
+
+-- test: Global.normalization.split_infinity_pullback
+example : IsPullback (𝟙 (infinityChart (0 : ℚ) (-1))) (sourceInfinityι 0 (-1)) (infinityι 0 (-1)) (normalization 0 (-1)) := by sorry
+
+-- test: Global.openCover.finite_index
+example (a b : k) : HEq ((openCover a b).f (cast (openCover_index a b).symm false)) (finiteι a b) := by sorry
+
+-- test: Global.openCover.infinity_index
+example (a b : k) : HEq ((openCover a b).f (cast (openCover_index a b).symm true)) (infinityι a b) := by sorry
+
+-- test: Global.openCover.nonsplit_surjective
+example (x : curve (1 : ZMod 2) 1) : ∃ i y, (openCover (1 : ZMod 2) 1).f i y = x := by sorry
+
+-- test: Global.structureMap.finite_chart
+example (a b : k) : finiteι a b ≫ structureMap a b = Spec.map (CommRingCat.ofHom (algebraMap k (algebra (quadratic 1 a b)))) := by sorry
+
+-- test: Global.structureMap.infinity_chart
+example (a b : k) : infinityι a b ≫ structureMap a b = Spec.map (CommRingCat.ofHom (algebraMap k (InfinityChart.Chart a b))) := by sorry
+
+-- test: Global.structureMap.cusp_normalization
+example : sourceFiniteι (0 : ZMod 2) 0 ≫ normalization 0 0 ≫ structureMap 0 0 = Spec.map (CommRingCat.ofHom (algebraMap (ZMod 2) (ZMod 2)[X])) := by sorry
+
+-- test: Global.infinityTransition.cusp_reciprocal
+example : infinityTransition (0 : ZMod 2) 0 (algebraMap (ZMod 2)[X] (InfinityChart.Chart 0 0) X) = inverseVariable 1 0 0 := by sorry
+
+-- test: Global.infinityTransition.nonsplit_root
+example : infinityTransition (1 : ZMod 2) 1 (AdjoinRoot.root (InfinityChart.relation 1 1)) = IsLocalization.Away.invSelf (X * quadratic (1 : ZMod 2) 1 1) := by sorry
+
+-- test: Global.infinityTransition.split_constants
+example (r : ℚ) : infinityTransition (0 : ℚ) (-1) (algebraMap ℚ (InfinityChart.Chart 0 (-1)) r) = algebraMap ℚ (Ring 1 0 (-1)) r := by sorry
+
+end TauCeti.GenusOne.QuadraticPinch.Global
+/- END TWO CHART SCHEME GLUING -/
+
+/- BEGIN ARCHIVED CHECKED QUADRATIC GLOBAL SCHEMES
+import Mathlib
+
+open Polynomial
+noncomputable section
+universe u v w
+
+namespace TauCeti.GenusOne.QuadraticPinch
+
+variable {k : Type u} [Field k]
+
+-- node: G.1/quadratic-pinch-algebra
+/-- The preimage of the constants in the native polynomial quotient. -/
+def algebra (q : k[X]) : Subalgebra k k[X] :=
+  (⊥ : Subalgebra k (AdjoinRoot q)).comap (AdjoinRoot.mkₐ q)
+
+lemma mem_algebra (q f : k[X]) :
+    f ∈ algebra q ↔ ∃ c : k, ∃ h : k[X], f = Polynomial.C c + q * h := by
+  change AdjoinRoot.mkₐ q f ∈ (⊥ : Subalgebra k (AdjoinRoot q)) ↔ _
+  rw [Algebra.mem_bot]
+  constructor
+  · rintro ⟨c, hc⟩
+    have hdiv : q ∣ f - Polynomial.C c := AdjoinRoot.mk_eq_mk.mp hc.symm
+    obtain ⟨h, hh⟩ := hdiv
+    exact ⟨c, h, by rw [← hh]; ring⟩
+  · rintro ⟨c, h, rfl⟩
+    exact ⟨c, by simp⟩
+
+lemma constants (q : k[X]) (c : k) : Polynomial.C c ∈ algebra q := by
+  exact (mem_algebra q _).mpr ⟨c, 0, by simp⟩
+
+lemma normalization_remainder (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    (f : k[X]) :
+    f %ₘ q = Polynomial.C ((f %ₘ q).coeff 0) +
+      Polynomial.C ((f %ₘ q).coeff 1) * Polynomial.X := by
+  have hm := Polynomial.natDegree_modByMonic_lt f hq (by
+    intro he; have he' := congrArg Polynomial.natDegree he; simp [hd] at he')
+  have hm' : (f %ₘ q).natDegree ≤ 1 := by omega
+  simpa [add_comm] using Polynomial.eq_X_add_C_of_natDegree_le_one hm'
+
+noncomputable def moduleCoefficients (q f : k[X]) : algebra q × algebra q :=
+  (⟨Polynomial.C ((f %ₘ q).coeff 0) + q * (f /ₘ q),
+    (mem_algebra q _).mpr ⟨(f %ₘ q).coeff 0, f /ₘ q, rfl⟩⟩,
+   ⟨Polynomial.C ((f %ₘ q).coeff 1), constants q _⟩)
+
+lemma moduleCoefficients_fst (q f : k[X]) :
+    ((moduleCoefficients q f).1 : k[X]) =
+      Polynomial.C ((f %ₘ q).coeff 0) + q * (f /ₘ q) := rfl
+
+lemma moduleCoefficients_snd (q f : k[X]) :
+    ((moduleCoefficients q f).2 : k[X]) = Polynomial.C ((f %ₘ q).coeff 1) := rfl
+
+lemma moduleCoefficients_reconstruct (q : k[X]) (hq : q.Monic)
+    (hd : q.natDegree = 2) (f : k[X]) :
+    (moduleCoefficients q f).1 • (1 : k[X]) +
+      (moduleCoefficients q f).2 • Polynomial.X = f := by
+  simp only [Subalgebra.smul_def, moduleCoefficients_fst, moduleCoefficients_snd, smul_eq_mul, mul_one]
+  rw [add_right_comm, ← normalization_remainder q hq hd f,
+    Polynomial.modByMonic_add_div]
+
+lemma normalization_span (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    Submodule.span (algebra q) ({1, Polynomial.X} : Set k[X]) = ⊤ := by
+  apply Submodule.eq_top_iff'.mpr
+  intro f
+  rw [← moduleCoefficients_reconstruct q hq hd f]
+  exact Submodule.add_mem _
+    (Submodule.smul_mem _ _ (Submodule.subset_span (by simp)))
+    (Submodule.smul_mem _ _ (Submodule.subset_span (by simp)))
+
+lemma normalization_module_finite (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    Module.Finite (algebra q) k[X] := by
+  rw [Module.finite_def, ← normalization_span q hq hd]
+  exact Submodule.fg_span (Set.toFinite _)
+
+lemma finite_normalization (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    (algebra q).val.toRingHom.Finite := by
+  exact normalization_module_finite q hq hd
+
+lemma normalization_spec_finite (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    AlgebraicGeometry.IsFinite (AlgebraicGeometry.Spec.map
+      (CommRingCat.ofHom (algebra q).val.toRingHom)) := by
+  exact (AlgebraicGeometry.IsFinite.SpecMap_iff _).mpr (finite_normalization q hq hd)
+
+lemma fraction_ring (q : k[X]) (hq : q ≠ 0)
+    (K : Type v) [Field K] [Algebra k[X] K] [IsFractionRing k[X] K]
+    :
+    IsFractionRing (algebra q) K := by
+  have hinj : Function.Injective (algebraMap (algebra q) K) := by
+    rw [IsScalarTower.algebraMap_eq (algebra q) k[X] K]
+    exact (IsFractionRing.injective k[X] K).comp Subtype.val_injective
+  have : FaithfulSMul (algebra q) K :=
+    (faithfulSMul_iff_algebraMap_injective (algebra q) K).mpr hinj
+  apply IsFractionRing.of_field
+  intro z
+  obtain ⟨a, b, hb, hz⟩ := IsFractionRing.div_surjective k[X] z
+  let qa : algebra q := ⟨q * a, (mem_algebra q _).mpr ⟨0, a, by simp⟩⟩
+  let qb : algebra q := ⟨q * b, (mem_algebra q _).mpr ⟨0, b, by simp⟩⟩
+  refine ⟨qa, qb, ?_⟩
+  rw [IsScalarTower.algebraMap_apply (algebra q) k[X] K qa,
+    IsScalarTower.algebraMap_apply (algebra q) k[X] K qb]
+  change z = algebraMap k[X] K (q * a) / algebraMap k[X] K (q * b)
+  rw [map_mul, map_mul, mul_div_mul_left _ _
+    ((map_ne_zero_iff _ (IsFractionRing.injective k[X] K)).mpr hq)]
+  exact hz.symm
+
+lemma integral_closure (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    (K : Type v) [Field K] [Algebra k[X] K] [IsFractionRing k[X] K]
+    :
+    IsIntegralClosure k[X] (algebra q) K := by
+  have : Module.Finite (algebra q) k[X] := normalization_module_finite q hq hd
+  have : Algebra.IsIntegral (algebra q) k[X] := Algebra.IsIntegral.of_finite _ _
+  infer_instance
+
+lemma integral_iff_polynomial (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    (K : Type v) [Field K] [Algebra k[X] K] [IsFractionRing k[X] K] (z : K) :
+    IsIntegral (algebra q) z ↔ ∃ f : k[X], algebraMap k[X] K f = z := by
+  have := integral_closure q hq hd K
+  exact IsIntegralClosure.isIntegral_iff
+
+noncomputable def fractionEquiv (q : k[X]) (hq : q ≠ 0) :
+    FractionRing (algebra q) ≃ₐ[algebra q] FractionRing k[X] := by
+  have := fraction_ring q hq (FractionRing k[X])
+  exact FractionRing.algEquiv (A := algebra q) (FractionRing k[X])
+
+lemma fractionEquiv_algebraMap (q : k[X]) (hq : q ≠ 0) (a : algebra q) :
+    fractionEquiv q hq (algebraMap (algebra q) (FractionRing (algebra q)) a) =
+      algebraMap k[X] (FractionRing k[X]) (a : k[X]) := by
+  exact (fractionEquiv q hq).commutes a
+
+lemma fractionEquiv_symm_algebraMap (q : k[X]) (hq : q ≠ 0) (a : algebra q) :
+    (fractionEquiv q hq).symm (algebraMap k[X] (FractionRing k[X]) (a : k[X])) =
+      algebraMap (algebra q) (FractionRing (algebra q)) a := by
+  apply (fractionEquiv q hq).injective
+  rw [AlgEquiv.apply_symm_apply]
+  exact (fractionEquiv_algebraMap q hq a).symm
+
+lemma fractionEquiv_symm_X (q : k[X]) (hq : q ≠ 0) :
+    (fractionEquiv q hq).symm (algebraMap k[X] (FractionRing k[X]) Polynomial.X) =
+      algebraMap (algebra q) (FractionRing (algebra q))
+        (⟨q * Polynomial.X, (mem_algebra q _).mpr ⟨0, Polynomial.X, by simp⟩⟩ : algebra q) /
+      algebraMap (algebra q) (FractionRing (algebra q))
+        (⟨q, (mem_algebra q _).mpr ⟨0, 1, by simp⟩⟩ : algebra q) := by
+  apply (fractionEquiv q hq).injective
+  rw [AlgEquiv.apply_symm_apply, map_div₀, fractionEquiv_algebraMap,
+    fractionEquiv_algebraMap, map_mul]
+  exact (mul_div_cancel_left₀ _
+    ((map_ne_zero_iff _ (IsFractionRing.injective k[X] (FractionRing k[X]))).mpr hq)).symm
+
+lemma module_generator_map_not_injective (q : k[X]) (hq : q ≠ 0) :
+    ¬ Function.Injective (fun z : algebra q × algebra q =>
+      z.1 • (1 : k[X]) + z.2 • Polynomial.X) := by
+  intro hinj
+  let a : algebra q := ⟨-(q * Polynomial.X),
+    (mem_algebra q _).mpr ⟨0, -Polynomial.X, by simp⟩⟩
+  let b : algebra q := ⟨q, (mem_algebra q _).mpr ⟨0, 1, by simp⟩⟩
+  have he : a • (1 : k[X]) + b • Polynomial.X =
+      (0 : algebra q) • (1 : k[X]) + (0 : algebra q) • Polynomial.X := by
+    simp [Subalgebra.smul_def, smul_eq_mul, a, b]
+  have hp := hinj (show (fun z : algebra q × algebra q =>
+    z.1 • (1 : k[X]) + z.2 • Polynomial.X) (a, b) =
+    (fun z : algebra q × algebra q => z.1 • (1 : k[X]) + z.2 • Polynomial.X) (0, 0)
+    from he)
+  have hb := congrArg (fun z : algebra q × algebra q => (z.2 : k[X])) hp
+  exact hq hb
+
+-- test: QuadraticPinch.moduleCoefficients.zero
+example (q : k[X]) : moduleCoefficients q 0 = (0, 0) := by
+  apply Prod.ext <;> apply Subtype.ext <;> simp [moduleCoefficients]
+
+-- test: QuadraticPinch.moduleCoefficients.generator
+example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    moduleCoefficients q Polynomial.X = (0, 1) := by
+  have ht : (Polynomial.X : k[X]).degree < q.degree := by
+    rw [Polynomial.degree_X, Polynomial.degree_eq_natDegree hq.ne_zero, hd]
+    decide
+  have hr := (Polynomial.modByMonic_eq_self_iff hq).mpr ht
+  have hdv : (Polynomial.X : k[X]) /ₘ q = 0 :=
+    (Polynomial.divByMonic_eq_zero_iff hq).mpr ht
+  apply Prod.ext <;> apply Subtype.ext <;> simp [moduleCoefficients, hr, hdv]
+
+-- test: QuadraticPinch.moduleCoefficients.cusp
+example :
+    ((moduleCoefficients (Polynomial.X ^ 2 : (ZMod 2)[X])
+      (Polynomial.X ^ 3)).1 : (ZMod 2)[X]) = Polynomial.X ^ 3 ∧
+    ((moduleCoefficients (Polynomial.X ^ 2 : (ZMod 2)[X])
+      (Polynomial.X ^ 3)).2 : (ZMod 2)[X]) = 0 := by
+  have he : (Polynomial.X ^ 3 : (ZMod 2)[X]) = Polynomial.X ^ 2 * Polynomial.X := by ring
+  simp [moduleCoefficients, he, Polynomial.self_mul_modByMonic,
+    Polynomial.monic_X_pow, Polynomial.mul_divByMonic_cancel_left]
+
+-- test: QuadraticPinch.normalization.cusp_finite
+example : (algebra (Polynomial.X ^ 2 : (ZMod 2)[X])).val.toRingHom.Finite := by
+  exact finite_normalization _ (Polynomial.monic_X_pow 2) (by simp)
+
+-- test: QuadraticPinch.normalization.nonsplit_finite
+example : (algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 2)[X])).val.toRingHom.Finite := by
+  apply finite_normalization
+  · simpa [Polynomial.Monic] using (Polynomial.leadingCoeff_quadratic
+      (a := (1 : ZMod 2)) (b := 1) (c := 1) one_ne_zero)
+  · simpa using (Polynomial.natDegree_quadratic
+      (a := (1 : ZMod 2)) (b := 1) (c := 1) one_ne_zero)
+
+-- test: QuadraticPinch.normalization.not_basis
+example (q : k[X]) (hq : q.Monic) (_hd : q.natDegree = 2) :
+    ¬ Function.Injective (fun z : algebra q × algebra q =>
+      z.1 • (1 : k[X]) + z.2 • Polynomial.X) := by
+  exact module_generator_map_not_injective q hq.ne_zero
+
+-- test: QuadraticPinch.fractionEquiv.cusp
+example (a : algebra (Polynomial.X ^ 2 : (ZMod 2)[X])) :
+    fractionEquiv (Polynomial.X ^ 2 : (ZMod 2)[X]) (by simp)
+      (algebraMap (algebra (Polynomial.X ^ 2 : (ZMod 2)[X])) _ a) =
+        algebraMap (ZMod 2)[X] (FractionRing (ZMod 2)[X]) (a : (ZMod 2)[X]) := by
+  apply fractionEquiv_algebraMap
+
+-- test: QuadraticPinch.fractionEquiv.unit
+example (a : algebra (1 : k[X])) :
+    (fractionEquiv (1 : k[X]) one_ne_zero).symm
+      (algebraMap k[X] (FractionRing k[X]) (a : k[X])) =
+      algebraMap (algebra (1 : k[X])) (FractionRing (algebra (1 : k[X]))) a := by
+  apply fractionEquiv_symm_algebraMap
+
+-- test: QuadraticPinch.fractionEquiv.fractions
+example (q : k[X]) (hq : q ≠ 0) (a b : algebra q) :
+    fractionEquiv q hq
+      (algebraMap (algebra q) (FractionRing (algebra q)) a /
+        algebraMap (algebra q) (FractionRing (algebra q)) b) =
+      algebraMap k[X] (FractionRing k[X]) (a : k[X]) /
+        algebraMap k[X] (FractionRing k[X]) (b : k[X]) := by
+  rw [map_div₀, fractionEquiv_algebraMap, fractionEquiv_algebraMap]
+
+-- test: QuadraticPinch.normalization.repeated_char3
+example : (algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 3)[X])).val.toRingHom.Finite := by
+  apply finite_normalization
+  · simpa [Polynomial.Monic] using (Polynomial.leadingCoeff_quadratic
+      (a := (1 : ZMod 3)) (b := 1) (c := 1) one_ne_zero)
+  · simpa using (Polynomial.natDegree_quadratic
+      (a := (1 : ZMod 3)) (b := 1) (c := 1) one_ne_zero)
+
+-- test: QuadraticPinch.normalization.integral_coordinate
+example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    IsIntegral (algebra q) (algebraMap k[X] (FractionRing k[X]) Polynomial.X) := by
+  exact (integral_iff_polynomial q hq hd _ _).mpr ⟨Polynomial.X, rfl⟩
+
+-- test: QuadraticPinch.normalization.zero_not_finite
+example : ¬ (algebra (0 : k[X])).val.toRingHom.Finite := by
+  intro hf
+  have ha : algebra (0 : k[X]) = ⊥ := by ext f; simp [mem_algebra, Algebra.mem_bot, eq_comm]
+  have : Module.Finite (algebra (0 : k[X])) k[X] := hf
+  have : Module.Finite k (algebra (0 : k[X])) := by rw [ha]; infer_instance
+  have : Module.Finite k k[X] := by
+    exact Module.Finite.trans (algebra (0 : k[X])) k[X]
+  exact Polynomial.not_finite (R := k) this
+
+end TauCeti.GenusOne.QuadraticPinch
+
+#print axioms TauCeti.GenusOne.QuadraticPinch.algebra
+#print axioms TauCeti.GenusOne.QuadraticPinch.mem_algebra
+#print axioms TauCeti.GenusOne.QuadraticPinch.constants
+#print axioms TauCeti.GenusOne.QuadraticPinch.normalization_remainder
+#print axioms TauCeti.GenusOne.QuadraticPinch.moduleCoefficients
+#print axioms TauCeti.GenusOne.QuadraticPinch.moduleCoefficients_fst
+#print axioms TauCeti.GenusOne.QuadraticPinch.moduleCoefficients_snd
+#print axioms TauCeti.GenusOne.QuadraticPinch.moduleCoefficients_reconstruct
+#print axioms TauCeti.GenusOne.QuadraticPinch.normalization_span
+#print axioms TauCeti.GenusOne.QuadraticPinch.normalization_module_finite
+#print axioms TauCeti.GenusOne.QuadraticPinch.finite_normalization
+#print axioms TauCeti.GenusOne.QuadraticPinch.normalization_spec_finite
+#print axioms TauCeti.GenusOne.QuadraticPinch.fraction_ring
+#print axioms TauCeti.GenusOne.QuadraticPinch.integral_closure
+#print axioms TauCeti.GenusOne.QuadraticPinch.integral_iff_polynomial
+#print axioms TauCeti.GenusOne.QuadraticPinch.fractionEquiv
+#print axioms TauCeti.GenusOne.QuadraticPinch.fractionEquiv_algebraMap
+#print axioms TauCeti.GenusOne.QuadraticPinch.fractionEquiv_symm_algebraMap
+#print axioms TauCeti.GenusOne.QuadraticPinch.fractionEquiv_symm_X
+#print axioms TauCeti.GenusOne.QuadraticPinch.module_generator_map_not_injective
+
+namespace TauCeti.GenusOne.QuadraticPinch
+
+variable {k : Type u} [Field k]
+
+-- Native quotient structure, made explicit because AdjoinRoot seals its polynomial action.
+local instance polynomialQuotientAlgebra (q : k[X]) : Algebra k[X] (AdjoinRoot q) :=
+  (AdjoinRoot.mk q).toAlgebra
+
+local instance polynomialQuotientTower (q : k[X]) :
+    IsScalarTower k k[X] (AdjoinRoot q) :=
+  IsScalarTower.of_algebraMap_eq fun _ => rfl
+
+lemma normalization_image_span (q f : k[X]) :
+    f ∈ Submodule.span (algebra q) ({1} : Set k[X]) ↔ f ∈ algebra q := by
+  rw [Submodule.mem_span_singleton]
+  constructor
+  · rintro ⟨a, ha⟩
+    have hav : (a : k[X]) = f := by
+      simpa only [Subalgebra.smul_def, smul_eq_mul, mul_one] using ha
+    exact hav ▸ a.property
+  · intro hf
+    exact ⟨⟨f, hf⟩, by simp [Subalgebra.smul_def, smul_eq_mul]⟩
+
+lemma conductor_image_span (q : k[X]) (z : AdjoinRoot q) :
+    z ∈ Submodule.span (algebra q) ({1} : Set (AdjoinRoot q)) ↔
+      z ∈ (⊥ : Subalgebra k (AdjoinRoot q)) := by
+  rw [Submodule.mem_span_singleton]
+  constructor
+  · rintro ⟨a, ha⟩
+    have hp := a.property
+    change AdjoinRoot.mkₐ q (a : k[X]) ∈ (⊥ : Subalgebra k (AdjoinRoot q)) at hp
+    have hav : AdjoinRoot.mk q (a : k[X]) = z := by
+      change AdjoinRoot.mk q (a : k[X]) * 1 = z at ha
+      simpa only [mul_one] using ha
+    exact hav ▸ hp
+  · intro hz
+    obtain ⟨c, hc⟩ := Algebra.mem_bot.mp hz
+    refine ⟨⟨Polynomial.C c, constants q c⟩, ?_⟩
+    change AdjoinRoot.mk q (Polynomial.C c) * 1 = z
+    simpa only [mul_one, AdjoinRoot.mk_C, AdjoinRoot.algebraMap_eq] using hc
+
+def residueCokernelMap (q : k[X]) :
+    k[X] →ₗ[algebra q]
+      AdjoinRoot q ⧸ Submodule.span (algebra q) ({1} : Set (AdjoinRoot q)) :=
+  (Submodule.span (algebra q) ({1} : Set (AdjoinRoot q))).mkQ.comp
+    (IsScalarTower.toAlgHom (algebra q) k[X] (AdjoinRoot q)).toLinearMap
+
+lemma residueCokernelMap_apply (q f : k[X]) :
+    residueCokernelMap q f =
+      (Submodule.Quotient.mk (AdjoinRoot.mk q f) :
+        AdjoinRoot q ⧸ Submodule.span (algebra q) ({1} : Set (AdjoinRoot q))) := rfl
+
+lemma residueCokernelMap_ker (q : k[X]) :
+    LinearMap.ker (residueCokernelMap q) =
+      Submodule.span (algebra q) ({1} : Set k[X]) := by
+  ext f
+  rw [LinearMap.mem_ker, residueCokernelMap_apply, Submodule.Quotient.mk_eq_zero,
+    conductor_image_span, normalization_image_span]
+  rfl
+
+lemma residueCokernelMap_surjective (q : k[X]) :
+    Function.Surjective (residueCokernelMap q) := by
+  intro z
+  obtain ⟨e, rfl⟩ := (Submodule.span (algebra q) ({1} : Set (AdjoinRoot q))).mkQ_surjective z
+  obtain ⟨f, rfl⟩ := AdjoinRoot.mk_surjective e
+  exact ⟨f, rfl⟩
+
+noncomputable def residueCokernelEquiv (q : k[X]) :
+    (k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) ≃ₗ[algebra q]
+      AdjoinRoot q ⧸ Submodule.span (algebra q) ({1} : Set (AdjoinRoot q)) :=
+  (Submodule.quotEquivOfEq _ _ (residueCokernelMap_ker q).symm).trans
+    ((residueCokernelMap q).quotKerEquivOfSurjective (residueCokernelMap_surjective q))
+
+lemma residueCokernelEquiv_apply (q f : k[X]) :
+    residueCokernelEquiv q (Submodule.Quotient.mk f) =
+      (Submodule.Quotient.mk (AdjoinRoot.mk q f) :
+        AdjoinRoot q ⧸ Submodule.span (algebra q) ({1} : Set (AdjoinRoot q))) := rfl
+
+lemma residueCokernelEquiv_symm_apply (q f : k[X]) :
+    (residueCokernelEquiv q).symm
+      (Submodule.Quotient.mk (AdjoinRoot.mk q f)) =
+        (Submodule.Quotient.mk f :
+          k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) := by
+  rw [← residueCokernelEquiv_apply q f, LinearEquiv.symm_apply_apply]
+
+lemma conductor_span_restrictScalars (q : k[X]) :
+    (Submodule.span (algebra q) ({1} : Set (AdjoinRoot q))).restrictScalars k =
+      (⊥ : Subalgebra k (AdjoinRoot q)).toSubmodule := by
+  ext z
+  exact conductor_image_span q z
+
+lemma normalization_quotient_reconstruction (q : k[X]) (hq : q.Monic)
+    (hd : q.natDegree = 2) (f : k[X]) :
+    (Submodule.Quotient.mk f :
+      k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) =
+        (moduleCoefficients q f).2 • Submodule.Quotient.mk Polynomial.X := by
+  conv_lhs => rw [← moduleCoefficients_reconstruct q hq hd f]
+  rw [Submodule.Quotient.mk_add, Submodule.Quotient.mk_smul,
+    Submodule.Quotient.mk_smul]
+  have h1 : (Submodule.Quotient.mk (1 : k[X]) :
+      k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) = 0 := by
+    rw [Submodule.Quotient.mk_eq_zero]
+    exact Submodule.mem_span_singleton_self _
+  simp [h1]
+
+-- node: G.1/quadratic-constant-remainder
+lemma constant_remainder (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    (c : k) (h : k[X]) :
+    (Polynomial.C c + q * h) %ₘ q = Polynomial.C c := by
+  rw [Polynomial.add_modByMonic, Polynomial.self_mul_modByMonic hq, add_zero]
+  apply (Polynomial.modByMonic_eq_self_iff hq).mpr
+  apply Polynomial.degree_C_le.trans_lt
+  rw [Polynomial.degree_eq_natDegree hq.ne_zero, hd]
+  norm_num
+
+-- node: G.1/quadratic-remainder-scalar
+lemma remainder_scalar (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    (f : algebra q) : f.val %ₘ q = Polynomial.C ((f.val %ₘ q).coeff 0) := by
+  obtain ⟨c, h, hf⟩ := (mem_algebra q f.val).mp f.property
+  rw [hf, constant_remainder q hq hd]
+  simp
+
+-- node: G.1/quadratic-scalar-unique
+lemma scalar_unique (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    {f : k[X]} {c d : k} {h j : k[X]}
+    (hc : f = Polynomial.C c + q * h) (hj : f = Polynomial.C d + q * j) : c = d := by
+  have hmod := congrArg (fun p : k[X] => p %ₘ q) (hc.symm.trans hj)
+  rw [constant_remainder q hq hd, constant_remainder q hq hd] at hmod
+  exact Polynomial.C_injective hmod
+
+-- node: G.1/quadratic-linear-remainder
+lemma linear_remainder (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    (c : k) : (Polynomial.C c * Polynomial.X) %ₘ q = Polynomial.C c * Polynomial.X := by
+  by_cases hc : c = 0
+  · simp [hc]
+  · apply (Polynomial.modByMonic_eq_self_iff hq).mpr
+    rw [Polynomial.degree_C_mul_X hc, Polynomial.degree_eq_natDegree hq.ne_zero, hd]
+    norm_num
+
+-- acceptance: the degree-two quotient has a genuine nonconstant root.
+example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    Polynomial.X ∉ algebra q := by
+  intro hm
+  let f : algebra q := ⟨Polynomial.X, hm⟩
+  have h := remainder_scalar q hq hd f
+  have hX : (Polynomial.X : k[X]) %ₘ q = Polynomial.X := by
+    simpa using linear_remainder q hq hd 1
+  change (Polynomial.X : k[X]) %ₘ q = _ at h
+  rw [hX] at h
+  have hc := congrArg (fun p : k[X] => p.coeff 1) h
+  simp at hc
+
+-- acceptance: the zero quotient polynomial leaves only constants.
+example : Polynomial.X ∉ algebra (0 : k[X]) := by
+  intro h
+  obtain ⟨c, j, hj⟩ := (mem_algebra 0 Polynomial.X).mp h
+  have hc := congrArg (fun p : k[X] => p.coeff 1) hj
+  simp at hc
+
+-- acceptance: degree one makes the pinch all polynomials; degree two is essential.
+example : (Polynomial.X : k[X]) ∈ algebra Polynomial.X :=
+  (mem_algebra Polynomial.X Polynomial.X).mpr ⟨0, 1, by simp⟩
+
+-- acceptance: the unit ideal prevents scalar uniqueness and residue recovery.
+example : (Polynomial.C (1 : k)) %ₘ (1 : k[X]) ≠ Polynomial.C 1 := by simp
+
+-- node: G.1/quadratic-pinch-residue
+/-- Compute the unique scalar remainder, with the actual ring-map laws. -/
+def residue (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) : algebra q →ₐ[k] k where
+  toFun f := (f.val %ₘ q).coeff 0
+  map_zero' := by simp
+  map_one' := by
+    change ((1 : k[X]) %ₘ q).coeff 0 = 1
+    have hc : (1 : k[X]) %ₘ q = 1 := by simpa using constant_remainder q hq hd 1 0
+    simp [hc]
+  map_add' f g := by
+    change ((f.val + g.val) %ₘ q).coeff 0 = _
+    rw [Polynomial.add_modByMonic, Polynomial.coeff_add]
+  map_mul' f g := by
+    change ((f.val * g.val) %ₘ q).coeff 0 = _
+    rw [Polynomial.mul_modByMonic, remainder_scalar q hq hd f,
+      remainder_scalar q hq hd g, ← Polynomial.C_mul]
+    have hc := constant_remainder q hq hd
+      ((f.val %ₘ q).coeff 0 * (g.val %ₘ q).coeff 0) 0
+    simpa using congrArg (fun p : k[X] => p.coeff 0) hc
+  commutes' c := by
+    change ((Polynomial.C c) %ₘ q).coeff 0 = c
+    have hc := constant_remainder q hq hd c 0
+    simpa using congrArg (fun p : k[X] => p.coeff 0) hc
+
+lemma residue_normal_form (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    (f : algebra q) (c : k) (h : k[X]) (hf : f.val = Polynomial.C c + q * h) :
+    residue q hq hd f = c := by
+  change (f.val %ₘ q).coeff 0 = c
+  rw [hf, constant_remainder q hq hd]
+  simp
+
+lemma residue_surjective (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    Function.Surjective (residue q hq hd) := fun c =>
+  ⟨algebraMap k (algebra q) c, (residue q hq hd).commutes c⟩
+
+lemma residue_kernel (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    RingHom.ker (residue q hq hd).toRingHom =
+      (Ideal.span ({q} : Set k[X])).comap (algebra q).val.toRingHom := by
+  ext f
+  change ((f.val %ₘ q).coeff 0 = 0) ↔ f.val ∈ Ideal.span {q}
+  rw [Ideal.mem_span_singleton]
+  constructor
+  · intro h
+    apply (Polynomial.modByMonic_eq_zero_iff_dvd hq).mp
+    rw [remainder_scalar q hq hd f, h, Polynomial.C_0]
+  · intro h
+    rw [(Polynomial.modByMonic_eq_zero_iff_dvd hq).mpr h]
+    simp
+
+-- test: QuadraticPinch.test_residue_constant
+example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    residue q hq hd (algebraMap k (algebra q) 1) = 1 := (residue q hq hd).commutes 1
+
+-- test: QuadraticPinch.test_residue_q
+example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) (hmem : q ∈ algebra q) :
+    residue q hq hd ⟨q,hmem⟩ = 0 :=
+  residue_normal_form q hq hd _ 0 1 (by simp)
+
+-- test: QuadraticPinch.test_residue_tq
+example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    (hmem : Polynomial.X * q ∈ algebra q) :
+    residue q hq hd ⟨Polynomial.X * q,hmem⟩ = 0 :=
+  residue_normal_form q hq hd _ 0 Polynomial.X (by simp [mul_comm])
+
+
+lemma normalization_quotient_scalar_action (q : k[X]) (hq : q.Monic)
+    (hd : q.natDegree = 2) (a : algebra q) (f : k[X]) :
+    a • (Submodule.Quotient.mk f :
+      k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) =
+        residue q hq hd a • Submodule.Quotient.mk f := by
+  obtain ⟨c, h, ha⟩ := (mem_algebra q (a : k[X])).mp a.property
+  rw [residue_normal_form q hq hd a c h ha]
+  rw [← Submodule.Quotient.mk_smul, ← Submodule.Quotient.mk_smul]
+  apply (Submodule.Quotient.eq _).mpr
+  rw [normalization_image_span]
+  simp only [Algebra.smul_def,
+    Polynomial.algebraMap_eq]
+  change (a : k[X]) * f - Polynomial.C c * f ∈ algebra q
+  rw [ha]
+  exact (mem_algebra q _).mpr ⟨0, h * f, by simp only [Polynomial.C_0, zero_add]; ring⟩
+
+lemma normalization_quotient_generator_ne_zero (q : k[X]) (hq : q.Monic)
+    (hd : q.natDegree = 2) :
+    (Submodule.Quotient.mk Polynomial.X :
+      k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) ≠ 0 := by
+  intro hm
+  rw [Submodule.Quotient.mk_eq_zero, normalization_image_span] at hm
+  let f : algebra q := ⟨Polynomial.X, hm⟩
+  have h := remainder_scalar q hq hd f
+  have hX : (Polynomial.X : k[X]) %ₘ q = Polynomial.X := by
+    simpa using linear_remainder q hq hd 1
+  change (Polynomial.X : k[X]) %ₘ q = _ at h
+  rw [hX] at h
+  have hc := congrArg (fun p : k[X] => p.coeff 1) h
+  simp at hc
+
+lemma normalization_quotient_annihilator_mem (q : k[X]) (hq : q.Monic)
+    (hd : q.natDegree = 2) (a : algebra q) :
+    a ∈ Module.annihilator (algebra q)
+      (k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) ↔
+        residue q hq hd a = 0 := by
+  rw [Module.mem_annihilator]
+  constructor
+  · intro ha
+    have he := ha (Submodule.Quotient.mk Polynomial.X)
+    rw [normalization_quotient_scalar_action q hq hd] at he
+    exact (smul_eq_zero.mp he).resolve_right
+      (normalization_quotient_generator_ne_zero q hq hd)
+  · intro ha z
+    induction z using Submodule.Quotient.induction_on with
+    | _ f =>
+      rw [normalization_quotient_scalar_action q hq hd, ha, zero_smul]
+
+lemma normalization_quotient_annihilator (q : k[X]) (hq : q.Monic)
+    (hd : q.natDegree = 2) :
+    Module.annihilator (algebra q)
+      (k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) =
+        (Ideal.span ({q} : Set k[X])).comap (algebra q).val.toRingHom := by
+  rw [← residue_kernel q hq hd]
+  ext a
+  exact normalization_quotient_annihilator_mem q hq hd a
+
+lemma normalization_quotient_finrank (q : k[X]) (hq : q.Monic)
+    (hd : q.natDegree = 2) :
+    Module.finrank k (k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) = 1 := by
+  apply (finrank_eq_one_iff_of_nonzero' _
+    (normalization_quotient_generator_ne_zero q hq hd)).mpr
+  intro z
+  induction z using Submodule.Quotient.induction_on with
+  | _ f =>
+    refine ⟨residue q hq hd (moduleCoefficients q f).2, ?_⟩
+    rw [← normalization_quotient_scalar_action q hq hd,
+      ← normalization_quotient_reconstruction q hq hd]
+
+lemma residueCokernelEquiv_annihilator (q : k[X]) (hq : q.Monic)
+    (hd : q.natDegree = 2) :
+    Module.annihilator (algebra q)
+      (AdjoinRoot q ⧸ Submodule.span (algebra q) ({1} : Set (AdjoinRoot q))) =
+        (Ideal.span ({q} : Set k[X])).comap (algebra q).val.toRingHom := by
+  rw [← (residueCokernelEquiv q).annihilator_eq]
+  exact normalization_quotient_annihilator q hq hd
+
+-- test: QuadraticPinch.residueCokernelMap.constant
+example (q : k[X]) (c : k) : residueCokernelMap q (Polynomial.C c) = 0 := by
+  apply LinearMap.mem_ker.mp
+  rw [residueCokernelMap_ker, normalization_image_span]
+  exact constants q c
+
+-- test: QuadraticPinch.residueCokernelMap.multiple
+example (q h : k[X]) : residueCokernelMap q (q * h) = 0 := by
+  apply LinearMap.mem_ker.mp
+  rw [residueCokernelMap_ker, normalization_image_span]
+  exact (mem_algebra q _).mpr ⟨0, h, by simp⟩
+
+-- test: QuadraticPinch.residueCokernelMap.cusp_root
+example : residueCokernelMap (Polynomial.X ^ 2 : (ZMod 2)[X]) Polynomial.X ≠ 0 := by
+  intro hh
+  have hm := (LinearMap.mem_ker.mpr hh)
+  rw [residueCokernelMap_ker] at hm
+  apply normalization_quotient_generator_ne_zero
+    (Polynomial.X ^ 2 : (ZMod 2)[X]) (Polynomial.monic_X_pow 2) (by simp)
+  exact (Submodule.Quotient.mk_eq_zero _).mpr hm
+
+-- test: QuadraticPinch.residueCokernelEquiv.representatives
+example (q f : k[X]) :
+    residueCokernelEquiv q (Submodule.Quotient.mk f) =
+      (Submodule.Quotient.mk (AdjoinRoot.mk q f) :
+        AdjoinRoot q ⧸ Submodule.span (algebra q) ({1} : Set (AdjoinRoot q))) := by
+  exact residueCokernelEquiv_apply q f
+
+-- test: QuadraticPinch.residueCokernelEquiv.unit
+example (f : k[X]) :
+    residueCokernelEquiv (1 : k[X]) (Submodule.Quotient.mk f) = 0 := by
+  have hh : (Submodule.Quotient.mk f :
+      k[X] ⧸ Submodule.span (algebra (1 : k[X])) ({1} : Set k[X])) = 0 := by
+    rw [Submodule.Quotient.mk_eq_zero, normalization_image_span]
+    exact (mem_algebra 1 _).mpr ⟨0, f, by simp⟩
+  rw [hh, map_zero]
+
+-- test: QuadraticPinch.residueCokernelEquiv.zero
+example (f : k[X]) :
+    (residueCokernelEquiv (0 : k[X])).symm
+      (Submodule.Quotient.mk (AdjoinRoot.mk 0 f)) =
+        (Submodule.Quotient.mk f :
+          k[X] ⧸ Submodule.span (algebra (0 : k[X])) ({1} : Set k[X])) := by
+  exact residueCokernelEquiv_symm_apply 0 f
+
+-- test: QuadraticPinch.normalizationCokernel.cusp_dimension
+example :
+    Module.finrank (ZMod 2)
+      ((ZMod 2)[X] ⧸ Submodule.span (algebra (Polynomial.X ^ 2 : (ZMod 2)[X]))
+        ({1} : Set (ZMod 2)[X])) = 1 := by
+  exact normalization_quotient_finrank _ (Polynomial.monic_X_pow 2) (by simp)
+
+-- test: QuadraticPinch.normalizationCokernel.nonsplit_dimension
+example :
+    Module.finrank (ZMod 2)
+      ((ZMod 2)[X] ⧸ Submodule.span
+        (algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 2)[X]))
+        ({1} : Set (ZMod 2)[X])) = 1 := by
+  apply normalization_quotient_finrank
+  · simpa [Polynomial.Monic] using (Polynomial.leadingCoeff_quadratic
+      (a := (1 : ZMod 2)) (b := 1) (c := 1) one_ne_zero)
+  · simpa using (Polynomial.natDegree_quadratic
+      (a := (1 : ZMod 2)) (b := 1) (c := 1) one_ne_zero)
+
+-- test: QuadraticPinch.residueCokernelEquiv.repeated_char3
+example :
+    Module.annihilator
+      (algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 3)[X]))
+      (AdjoinRoot (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 3)[X]) ⧸
+        Submodule.span
+          (algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 3)[X]))
+          ({1} : Set (AdjoinRoot (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 3)[X])))) =
+      (Ideal.span ({Polynomial.X ^ 2 + Polynomial.X + 1} : Set (ZMod 3)[X])).comap
+        (algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 3)[X])).val.toRingHom := by
+  apply residueCokernelEquiv_annihilator
+  · simpa [Polynomial.Monic] using (Polynomial.leadingCoeff_quadratic
+      (a := (1 : ZMod 3)) (b := 1) (c := 1) one_ne_zero)
+  · simpa using (Polynomial.natDegree_quadratic
+      (a := (1 : ZMod 3)) (b := 1) (c := 1) one_ne_zero)
+
+-- test: QuadraticPinch.normalizationCokernel.unit_not_annihilator
+example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    (1 : algebra q) ∉ Module.annihilator (algebra q)
+      (k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) := by
+  rw [normalization_quotient_annihilator_mem q hq hd, map_one]
+  exact one_ne_zero
+
+-- test: QuadraticPinch.normalizationCokernel.conductor_action
+example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) (f : k[X]) :
+    (⟨q, (mem_algebra q _).mpr ⟨0, 1, by simp⟩⟩ : algebra q) •
+      (Submodule.Quotient.mk f :
+        k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) = 0 := by
+  rw [normalization_quotient_scalar_action q hq hd]
+  have hr := residue_normal_form q hq hd
+    (⟨q, (mem_algebra q _).mpr ⟨0, 1, by simp⟩⟩ : algebra q) 0 1 (by simp)
+  rw [hr, zero_smul]
+
+lemma residueCokernelEquiv_scalar_action (q : k[X]) (hq : q.Monic)
+    (hd : q.natDegree = 2) (a : algebra q) (z : AdjoinRoot q) :
+    a • (Submodule.Quotient.mk z :
+      AdjoinRoot q ⧸ Submodule.span (algebra q) ({1} : Set (AdjoinRoot q))) =
+        residue q hq hd a • Submodule.Quotient.mk z := by
+  obtain ⟨f, rfl⟩ := AdjoinRoot.mk_surjective z
+  have hh := congrArg (residueCokernelEquiv q)
+    (normalization_quotient_scalar_action q hq hd a f)
+  have hc :
+      residueCokernelEquiv q ((residue q hq hd a) • Submodule.Quotient.mk f) =
+        (residue q hq hd a) • residueCokernelEquiv q (Submodule.Quotient.mk f) :=
+    LinearMapClass.map_smul_of_tower (R := k) (residueCokernelEquiv q) _ _
+  rw [(residueCokernelEquiv q).map_smul] at hh
+  simpa only [residueCokernelEquiv_apply] using hh.trans hc
+
+-- test: QuadraticPinch.residueCokernelEquiv.scalar_action
+example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    (a : algebra q) (z : AdjoinRoot q) :
+    a • (Submodule.Quotient.mk z :
+      AdjoinRoot q ⧸ Submodule.span (algebra q) ({1} : Set (AdjoinRoot q))) =
+        residue q hq hd a • Submodule.Quotient.mk z := by
+  exact residueCokernelEquiv_scalar_action q hq hd a z
+
+lemma normalization_span_restrictScalars (q : k[X]) :
+    (Submodule.span (algebra q) ({1} : Set k[X])).restrictScalars k =
+      (algebra q).toSubmodule := by
+  ext f
+  exact normalization_image_span q f
+
+noncomputable def residueCokernelEquiv_over_k (q : k[X]) :
+    (k[X] ⧸ (algebra q).toSubmodule) ≃ₗ[k]
+      AdjoinRoot q ⧸ (⊥ : Subalgebra k (AdjoinRoot q)).toSubmodule :=
+  (Submodule.quotEquivOfEq _ _ (normalization_span_restrictScalars q).symm).trans
+    ((Submodule.Quotient.restrictScalarsEquiv k
+      (Submodule.span (algebra q) ({1} : Set k[X]))).trans
+      (((residueCokernelEquiv q).restrictScalars k).trans
+        ((Submodule.Quotient.restrictScalarsEquiv k
+          (Submodule.span (algebra q) ({1} : Set (AdjoinRoot q)))).symm.trans
+            (Submodule.quotEquivOfEq _ _ (conductor_span_restrictScalars q)))))
+
+lemma residueCokernelEquiv_over_k_apply (q f : k[X]) :
+    residueCokernelEquiv_over_k q (Submodule.Quotient.mk f) =
+      (Submodule.Quotient.mk (AdjoinRoot.mk q f) :
+        AdjoinRoot q ⧸ (⊥ : Subalgebra k (AdjoinRoot q)).toSubmodule) := by
+  simp only [residueCokernelEquiv_over_k, LinearEquiv.trans_apply,
+    Submodule.quotEquivOfEq_mk, Submodule.Quotient.restrictScalarsEquiv_mk]
+  rfl
+
+lemma residueCokernelEquiv_over_k_symm_apply (q f : k[X]) :
+    (residueCokernelEquiv_over_k q).symm
+      (Submodule.Quotient.mk (AdjoinRoot.mk q f)) =
+        (Submodule.Quotient.mk f : k[X] ⧸ (algebra q).toSubmodule) := by
+  rw [← residueCokernelEquiv_over_k_apply q f, LinearEquiv.symm_apply_apply]
+
+-- test: QuadraticPinch.residueCokernelEquiv_over_k.cusp
+example (f : (ZMod 2)[X]) :
+    residueCokernelEquiv_over_k (Polynomial.X ^ 2 : (ZMod 2)[X])
+      (Submodule.Quotient.mk f) =
+      (Submodule.Quotient.mk (AdjoinRoot.mk (Polynomial.X ^ 2) f) :
+        AdjoinRoot (Polynomial.X ^ 2 : (ZMod 2)[X]) ⧸
+          (⊥ : Subalgebra (ZMod 2) (AdjoinRoot (Polynomial.X ^ 2 : (ZMod 2)[X]))).toSubmodule) := by
+  exact residueCokernelEquiv_over_k_apply _ f
+
+-- test: QuadraticPinch.residueCokernelEquiv_over_k.unit
+example (f : k[X]) :
+    residueCokernelEquiv_over_k (1 : k[X]) (Submodule.Quotient.mk f) = 0 := by
+  have hh : (Submodule.Quotient.mk f :
+      k[X] ⧸ (algebra (1 : k[X])).toSubmodule) = 0 := by
+    rw [Submodule.Quotient.mk_eq_zero]
+    exact (mem_algebra 1 _).mpr ⟨0, f, by simp⟩
+  rw [hh, map_zero]
+
+-- test: QuadraticPinch.residueCokernelEquiv_over_k.zero
+example (f : k[X]) :
+    (residueCokernelEquiv_over_k (0 : k[X])).symm
+      (Submodule.Quotient.mk (AdjoinRoot.mk 0 f)) =
+        (Submodule.Quotient.mk f : k[X] ⧸ (algebra (0 : k[X])).toSubmodule) := by
+  exact residueCokernelEquiv_over_k_symm_apply 0 f
+end TauCeti.GenusOne.QuadraticPinch
+
+#print axioms TauCeti.GenusOne.QuadraticPinch.normalization_image_span
+#print axioms TauCeti.GenusOne.QuadraticPinch.conductor_image_span
+#print axioms TauCeti.GenusOne.QuadraticPinch.residueCokernelMap
+#print axioms TauCeti.GenusOne.QuadraticPinch.residueCokernelMap_apply
+#print axioms TauCeti.GenusOne.QuadraticPinch.residueCokernelMap_ker
+#print axioms TauCeti.GenusOne.QuadraticPinch.residueCokernelMap_surjective
+#print axioms TauCeti.GenusOne.QuadraticPinch.residueCokernelEquiv
+#print axioms TauCeti.GenusOne.QuadraticPinch.residueCokernelEquiv_apply
+#print axioms TauCeti.GenusOne.QuadraticPinch.residueCokernelEquiv_symm_apply
+#print axioms TauCeti.GenusOne.QuadraticPinch.conductor_span_restrictScalars
+#print axioms TauCeti.GenusOne.QuadraticPinch.normalization_quotient_reconstruction
+#print axioms TauCeti.GenusOne.QuadraticPinch.normalization_quotient_finrank
+#print axioms TauCeti.GenusOne.QuadraticPinch.residueCokernelEquiv_annihilator
+#print axioms TauCeti.GenusOne.QuadraticPinch.polynomialQuotientAlgebra
+#print axioms TauCeti.GenusOne.QuadraticPinch.polynomialQuotientTower
+#print axioms TauCeti.GenusOne.QuadraticPinch.residueCokernelEquiv_scalar_action
+#print axioms TauCeti.GenusOne.QuadraticPinch.normalization_span_restrictScalars
+#print axioms TauCeti.GenusOne.QuadraticPinch.residueCokernelEquiv_over_k
+#print axioms TauCeti.GenusOne.QuadraticPinch.residueCokernelEquiv_over_k_apply
+#print axioms TauCeti.GenusOne.QuadraticPinch.residueCokernelEquiv_over_k_symm_apply
+#print axioms TauCeti.GenusOne.QuadraticPinch.normalization_quotient_annihilator
+#print axioms TauCeti.GenusOne.QuadraticPinch.normalization_quotient_annihilator_mem
+#print axioms TauCeti.GenusOne.QuadraticPinch.normalization_quotient_generator_ne_zero
+#print axioms TauCeti.GenusOne.QuadraticPinch.normalization_quotient_scalar_action
+#print axioms TauCeti.GenusOne.QuadraticPinch.residue_kernel
+#print axioms TauCeti.GenusOne.QuadraticPinch.residue_surjective
+#print axioms TauCeti.GenusOne.QuadraticPinch.residue_normal_form
+#print axioms TauCeti.GenusOne.QuadraticPinch.residue
+#print axioms TauCeti.GenusOne.QuadraticPinch.linear_remainder
+#print axioms TauCeti.GenusOne.QuadraticPinch.scalar_unique
+#print axioms TauCeti.GenusOne.QuadraticPinch.remainder_scalar
+#print axioms TauCeti.GenusOne.QuadraticPinch.constant_remainder
+
+namespace TauCeti.GenusOne.QuadraticPinch.InfinityChart
+variable {R : Type u} [CommRing R]
+
+def curve (a b : R) : WeierstrassCurve R := ⟨a, -b, 0, 0, 0⟩
+
+def denominator (a b : R) : R[X] := 1 + C a * X + C b * X ^ 2
+
+def relation (a b : R) : R[X][X] := C (denominator a b) * X - C (X ^ 3)
+
+abbrev Chart (a b : R) := AdjoinRoot (relation a b)
+
+lemma equation_chart (a b u z : R) :
+    (curve a b).toProjective.Equation ![u, 1, z] ↔
+      z * (1 + a * u + b * u ^ 2) = u ^ 3 := by
+  rw [WeierstrassCurve.Projective.equation_iff]
+  simp only [curve, WeierstrassCurve.toProjective, WeierstrassCurve.Projective.fin3_def_ext]
+  constructor <;> intro h <;> linear_combination h
+
+lemma bezout (a b : R) :
+    denominator a b * (1 - C a * X + C (a ^ 2 - b) * X ^ 2) =
+      1 + X ^ 3 * (C (a ^ 3 - 2 * a * b) + C (b * (a ^ 2 - b)) * X) := by
+  simp only [denominator, map_sub, map_pow, map_mul, map_ofNat]
+  ring
+
+lemma root_relation (a b : R) :
+    algebraMap R[X] (Chart a b) (denominator a b) * AdjoinRoot.root (relation a b) =
+      algebraMap R[X] (Chart a b) (X ^ 3) := by
+  have h := AdjoinRoot.eval₂_root (relation a b)
+  change (relation a b).eval₂ _ _ = 0 at h
+  rw [relation, Polynomial.eval₂_sub, Polynomial.eval₂_mul, Polynomial.eval₂_C,
+    Polynomial.eval₂_X, Polynomial.eval₂_C] at h
+  exact sub_eq_zero.mp h
+
+def denominatorInverse (a b : R) : Chart a b :=
+  algebraMap R[X] (Chart a b) (1 - C a * X + C (a ^ 2 - b) * X ^ 2) -
+    AdjoinRoot.root (relation a b) * algebraMap R[X] (Chart a b)
+      (C (a ^ 3 - 2 * a * b) + C (b * (a ^ 2 - b)) * X)
+
+lemma mul_inverse (a b : R) :
+    algebraMap R[X] (Chart a b) (denominator a b) * denominatorInverse a b = 1 := by
+  rw [denominatorInverse, mul_sub, ← mul_assoc, root_relation, ← map_mul, ← map_mul,
+    ← map_sub, bezout]
+  simp
+
+lemma denominator_isUnit (a b : R) :
+    IsUnit (algebraMap R[X] (Chart a b) (denominator a b)) := by
+  exact isUnit_iff_exists_inv.mpr ⟨denominatorInverse a b, mul_inverse a b⟩
+
+def toLocalization (a b : R) : Chart a b →ₐ[R[X]] Localization.Away (denominator a b) :=
+  AdjoinRoot.liftAlgHom (relation a b) (Algebra.ofId _ _)
+    (algebraMap R[X] (Localization.Away (denominator a b)) (X ^ 3) *
+      IsLocalization.Away.invSelf (denominator a b)) (by
+      simp only [relation, Polynomial.eval₂_sub, Polynomial.eval₂_mul,
+        Polynomial.eval₂_C, Polynomial.eval₂_X]
+      change algebraMap _ _ (denominator a b) *
+        (algebraMap _ _ (X ^ 3) * IsLocalization.Away.invSelf (denominator a b)) -
+        algebraMap _ _ (X ^ 3) = 0
+      rw [mul_left_comm, IsLocalization.Away.mul_invSelf, mul_one, sub_self])
+
+def fromLocalization (a b : R) : Localization.Away (denominator a b) →ₐ[R[X]] Chart a b :=
+  IsLocalization.Away.liftAlgHom (denominator a b)
+    (f := Algebra.ofId R[X] (Chart a b)) (denominator_isUnit a b)
+
+lemma toLocalization_root (a b : R) :
+    toLocalization a b (AdjoinRoot.root (relation a b)) =
+      algebraMap R[X] (Localization.Away (denominator a b)) (X ^ 3) *
+        IsLocalization.Away.invSelf (denominator a b) := by
+  exact AdjoinRoot.liftAlgHom_root ..
+
+lemma to_from (a b : R) :
+    (toLocalization a b).comp (fromLocalization a b) = AlgHom.id R[X] _ := by
+  apply IsLocalization.algHom_ext (Submonoid.powers (denominator a b))
+  ext
+
+lemma from_to (a b : R) :
+    (fromLocalization a b).comp (toLocalization a b) = AlgHom.id R[X] _ := by
+  apply AdjoinRoot.algHom_ext
+  have hi := congrArg (fromLocalization a b)
+    (IsLocalization.Away.mul_invSelf (denominator a b) :
+      algebraMap R[X] (Localization.Away (denominator a b)) (denominator a b) *
+        IsLocalization.Away.invSelf (denominator a b) = 1)
+  simp only [map_mul, AlgHom.commutes, map_one] at hi
+  change fromLocalization a b (toLocalization a b (AdjoinRoot.root (relation a b))) = _
+  rw [toLocalization_root, map_mul, AlgHom.commutes, ← root_relation]
+  simp only [AlgHom.id_apply]
+  linear_combination AdjoinRoot.root (relation a b) * hi
+
+def equiv (a b : R) : Chart a b ≃ₐ[R[X]] Localization.Away (denominator a b) :=
+  AlgEquiv.ofAlgHom (toLocalization a b) (fromLocalization a b) (to_from a b) (from_to a b)
+
+lemma equiv_base (a b : R) (f : R[X]) :
+    equiv a b (algebraMap R[X] (Chart a b) f) =
+      algebraMap R[X] (Localization.Away (denominator a b)) f := by
+  exact (equiv a b).commutes f
+
+lemma equiv_root (a b : R) :
+    equiv a b (AdjoinRoot.root (relation a b)) =
+      algebraMap R[X] (Localization.Away (denominator a b)) (X ^ 3) *
+        IsLocalization.Away.invSelf (denominator a b) := by
+  exact toLocalization_root a b
+
+lemma fromLocalization_inv (a b : R) :
+    fromLocalization a b (IsLocalization.Away.invSelf (denominator a b)) =
+      denominatorInverse a b := by
+  have h := congrArg (fromLocalization a b)
+    (IsLocalization.Away.mul_invSelf (denominator a b) :
+      algebraMap R[X] (Localization.Away (denominator a b)) (denominator a b) *
+        IsLocalization.Away.invSelf (denominator a b) = 1)
+  simp only [map_mul, AlgHom.commutes, map_one] at h
+  calc
+    _ = fromLocalization a b (IsLocalization.Away.invSelf (denominator a b)) *
+        (algebraMap R[X] (Chart a b) (denominator a b) * denominatorInverse a b) := by
+          rw [mul_inverse, mul_one]
+    _ = (algebraMap R[X] (Chart a b) (denominator a b) *
+        fromLocalization a b (IsLocalization.Away.invSelf (denominator a b))) *
+          denominatorInverse a b := by ring
+    _ = _ := by rw [h, one_mul]
+
+lemma equiv_inverse_base (a b : R) (f : R[X]) :
+    (equiv a b).symm (algebraMap R[X] (Localization.Away (denominator a b)) f) =
+      algebraMap R[X] (Chart a b) f := by
+  exact (equiv a b).symm.commutes f
+
+lemma equiv_inverse_inv (a b : R) :
+    (equiv a b).symm (IsLocalization.Away.invSelf (denominator a b)) =
+      denominatorInverse a b := by
+  exact fromLocalization_inv a b
+
+lemma localization (a b : R) :
+    IsLocalization.Away (denominator a b) (Chart a b) := by
+  exact IsLocalization.isLocalization_of_algEquiv _ (equiv a b).symm
+
+lemma spec_openImmersion (a b : R) :
+    AlgebraicGeometry.IsOpenImmersion (AlgebraicGeometry.Spec.map
+      (CommRingCat.ofHom (algebraMap R[X] (Chart a b)))) := by
+  let := localization a b
+  exact AlgebraicGeometry.IsOpenImmersion.of_isLocalization (denominator a b)
+
+def normalizationCoordinates (a b T U : R) : Fin 3 → R :=
+  ![U * (T ^ 2 + a * T * U + b * U ^ 2),
+    T * (T ^ 2 + a * T * U + b * U ^ 2), U ^ 3]
+
+lemma normalization_homogeneous (a b T U r : R) :
+    normalizationCoordinates a b (r * T) (r * U) =
+      r ^ 3 • normalizationCoordinates a b T U := by
+  ext i
+  fin_cases i <;> simp [normalizationCoordinates] <;> ring
+
+lemma normalization_nonzero {k : Type u} [Field k] (a b T U : k)
+    (h : T ≠ 0 ∨ U ≠ 0) : normalizationCoordinates a b T U ≠ 0 := by
+  intro he
+  have hu := congrFun he 2
+  change U ^ 3 = 0 at hu
+  have hu0 : U = 0 := eq_zero_of_pow_eq_zero hu
+  have ht := congrFun he 1
+  simp only [normalizationCoordinates, hu0, mul_zero, zero_pow three_ne_zero,
+    add_zero, Matrix.cons_val_one, Matrix.cons_val_zero] at ht
+  have ht0 : T = 0 := eq_zero_of_pow_eq_zero (by simpa [pow_succ] using ht : T ^ 3 = 0)
+  exact h.elim (fun hn => hn ht0) (fun hn => hn hu0)
+
+lemma normalization_equation (a b T U : R) :
+    (curve a b).toProjective.Equation (normalizationCoordinates a b T U) := by
+  rw [WeierstrassCurve.Projective.equation_iff]
+  simp only [normalizationCoordinates, curve, WeierstrassCurve.toProjective,
+    WeierstrassCurve.Projective.fin3_def_ext]
+  ring
+
+lemma infinity_nonsingular {k : Type u} [Field k] (a b : k) :
+    (curve a b).toProjective.Nonsingular ![0, 1, 0] := by
+  rw [WeierstrassCurve.Projective.nonsingular_iff]
+  refine ⟨WeierstrassCurve.Projective.equation_zero, Or.inr (Or.inr ?_)⟩
+  simp only [WeierstrassCurve.Projective.fin3_def_ext]
+  norm_num [curve]
+
+-- test: InfinityChart.normalizationCoordinates.finite
+example (a b t : R) : normalizationCoordinates a b t 1 =
+    ![t ^ 2 + a * t + b, t * (t ^ 2 + a * t + b), 1] := by
+  simp [normalizationCoordinates]
+
+-- test: InfinityChart.normalizationCoordinates.infinity
+example (a b : R) : normalizationCoordinates a b 1 0 = ![0, 1, 0] := by
+  simp [normalizationCoordinates]
+
+-- test: InfinityChart.normalizationCoordinates.nonzero_char2
+example : normalizationCoordinates (0 : ZMod 2) 1 1 0 ≠ 0 := by
+  exact normalization_nonzero 0 1 1 0 (Or.inl one_ne_zero)
+
+-- test: InfinityChart.curve.origin
+example (a b : R) : (curve a b).toProjective.Equation ![0, 0, 1] := by
+  rw [WeierstrassCurve.Projective.equation_some,
+    WeierstrassCurve.Affine.equation_iff']
+  simp [curve]
+
+-- test: InfinityChart.curve.finite_normalization
+example (a b t : R) : (curve a b).toProjective.Equation
+    ![t ^ 2 + a * t + b, t * (t ^ 2 + a * t + b), 1] := by
+  simpa [normalizationCoordinates] using normalization_equation a b t 1
+
+-- test: InfinityChart.curve.infinity_smooth
+example (a b : ZMod 2) : (curve a b).toProjective.Nonsingular ![0, 1, 0] := by
+  exact infinity_nonsingular a b
+
+-- test: InfinityChart.denominator.constant
+example (a b : R) : (denominator a b).coeff 0 = 1 := by
+  simp [denominator]
+
+-- test: InfinityChart.denominator.cusp
+example : denominator (0 : R) 0 = 1 := by simp [denominator]
+
+-- test: InfinityChart.denominator.base_change
+example {S : Type*} [CommRing S] (f : R →+* S) (a b : R) :
+    (denominator a b).map f = denominator (f a) (f b) := by
+  simp [denominator]
+
+-- test: InfinityChart.relation.leading
+example (a b : R) : (relation a b).coeff 1 = denominator a b := by
+  rw [relation, coeff_sub, coeff_C_mul_X, coeff_C]
+  norm_num
+
+-- test: InfinityChart.relation.constant
+example (a b : R) : (relation a b).coeff 0 = -(X ^ 3 : R[X]) := by
+  rw [relation, coeff_sub, coeff_C_mul_X, coeff_C]
+  norm_num
+
+-- test: InfinityChart.relation.cusp
+example : relation (0 : R) 0 = X - C (X ^ 3 : R[X]) := by
+  simp [relation, denominator]
+
+-- test: InfinityChart.denominatorInverse.cusp
+example : denominatorInverse (0 : R) 0 = 1 := by
+  simp [denominatorInverse]
+
+-- test: InfinityChart.denominatorInverse.nonreduced
+example : algebraMap (ZMod 4)[X] (Chart (2 : ZMod 4) 0) (1 + C 2 * X) *
+    denominatorInverse (2 : ZMod 4) 0 = 1 := by
+  simpa [denominator] using mul_inverse (2 : ZMod 4) 0
+
+-- test: InfinityChart.denominatorInverse.repeated_char2
+example : algebraMap (ZMod 2)[X] (Chart (0 : ZMod 2) 1) (1 + X ^ 2) *
+    denominatorInverse (0 : ZMod 2) 1 = 1 := by
+  simpa [denominator] using mul_inverse (0 : ZMod 2) 1
+
+-- test: InfinityChart.toLocalization.base
+example (a b : R) (f : R[X]) :
+    toLocalization a b (algebraMap R[X] (Chart a b) f) =
+      algebraMap R[X] (Localization.Away (denominator a b)) f := by
+  exact (toLocalization a b).commutes f
+
+-- test: InfinityChart.toLocalization.root
+example (a b : R) :
+    toLocalization a b (AdjoinRoot.root (relation a b)) =
+      algebraMap R[X] (Localization.Away (denominator a b)) (X ^ 3) *
+        IsLocalization.Away.invSelf (denominator a b) := by
+  exact toLocalization_root a b
+
+-- test: InfinityChart.toLocalization.cusp
+example : toLocalization (0 : R) 0 (AdjoinRoot.root (relation (0 : R) 0)) =
+    algebraMap R[X] (Localization.Away (denominator (0 : R) 0)) (X ^ 3) := by
+  rw [toLocalization_root]
+  have hi := (IsLocalization.Away.mul_invSelf (denominator (0 : R) 0) :
+      algebraMap R[X] (Localization.Away (denominator (0 : R) 0)) (denominator (0 : R) 0) *
+        IsLocalization.Away.invSelf (denominator (0 : R) 0) = 1)
+  have hm : algebraMap R[X] (Localization.Away (denominator (0 : R) 0))
+      (denominator (0 : R) 0) = 1 := by
+    rw [show denominator (0 : R) 0 = 1 by simp [denominator], map_one]
+  rw [hm, one_mul] at hi
+  rw [hi, mul_one]
+
+-- test: InfinityChart.fromLocalization.base
+example (a b : R) (f : R[X]) :
+    fromLocalization a b (algebraMap R[X] (Localization.Away (denominator a b)) f) =
+      algebraMap R[X] (Chart a b) f := by
+  exact (fromLocalization a b).commutes f
+
+-- test: InfinityChart.fromLocalization.inverse
+example (a b : R) : fromLocalization a b
+    (IsLocalization.Away.invSelf (denominator a b)) = denominatorInverse a b := by
+  exact fromLocalization_inv a b
+
+-- test: InfinityChart.fromLocalization.cusp
+example : fromLocalization (0 : R) 0
+    (IsLocalization.Away.invSelf (denominator (0 : R) 0)) = 1 := by
+  rw [fromLocalization_inv]
+  simp [denominatorInverse]
+
+-- test: InfinityChart.equiv.actual_forward
+example (a b : R) : (equiv a b).toAlgHom = toLocalization a b := by rfl
+
+-- test: InfinityChart.equiv.actual_inverse
+example (a b : R) : (equiv a b).symm.toAlgHom = fromLocalization a b := by rfl
+
+-- test: InfinityChart.equiv.coefficient
+example (a b : R) (f : R[X]) :
+    (equiv a b).symm (equiv a b (algebraMap R[X] (Chart a b) f)) =
+      algebraMap R[X] (Chart a b) f := by
+  exact (equiv a b).symm_apply_apply _
+
+end TauCeti.GenusOne.QuadraticPinch.InfinityChart
+
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.curve
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.denominator
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.relation
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.Chart
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.equation_chart
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.bezout
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.root_relation
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.denominatorInverse
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.mul_inverse
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.denominator_isUnit
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.toLocalization
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.fromLocalization
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.toLocalization_root
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.to_from
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.from_to
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.equiv
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.equiv_base
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.equiv_root
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.fromLocalization_inv
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.equiv_inverse_base
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.equiv_inverse_inv
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.localization
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.spec_openImmersion
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.normalizationCoordinates
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.normalization_homogeneous
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.normalization_nonzero
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.normalization_equation
+#print axioms TauCeti.GenusOne.QuadraticPinch.InfinityChart.infinity_nonsingular
+universe z
+namespace Subring
+
+/-- The largest ideal of B contained in the arbitrary subring A. -/
+def conductor {B : Type u} [CommRing B] (A : Subring B) : Ideal B where
+  carrier := {b | ∀ x : B, b * x ∈ A}
+  zero_mem' := fun x => by
+    rw [zero_mul]
+    exact A.zero_mem
+  add_mem' := fun ha hb x => by
+    rw [add_mul]
+    exact A.add_mem (ha x) (hb x)
+  smul_mem' := fun r b hb x => by
+    change (r * b) * x ∈ A
+    rw [show r * b * x = b * (r * x) by ring]
+    exact hb (r * x)
+
+lemma conductor_mem {B : Type u} [CommRing B] (A : Subring B) (b : B) :
+    b ∈ A.conductor ↔ ∀ x : B, b * x ∈ A := Iff.rfl
+
+lemma conductor_le {B : Type u} [CommRing B] (A : Subring B) :
+    (A.conductor : Set B) ⊆ A := fun _ hb => by simpa using hb 1
+
+end Subring
+
+namespace TauCeti.GenusOne.AffinePinching
+variable {A : Type u} {B : Type v} [CommRing A] [CommRing B]
+
+-- node: G.0/common-ideal-kernel-annihilation
+lemma commonIdeal_kill_kernel (f : A →+* B) (I : Ideal A)
+    (hker : RingHom.ker f ⊓ I = ⊥) (t : A) (ht : t ∈ I)
+    (a : A) (ha : f a = 0) : t * a = 0 := by
+  have hm : t * a ∈ RingHom.ker f ⊓ I := by
+    constructor
+    · change f (t * a) = 0
+      simp [ha]
+    · exact I.mul_mem_right a ht
+  simpa [hker] using hm
+
+-- node: G.0/common-ideal-away-bijective
+lemma commonIdeal_away_bijective (At : Type w) (Bt : Type z)
+    [CommRing At] [CommRing Bt] [Algebra A At] [Algebra B Bt]
+    (f : A →+* B) (I : Ideal A)
+    (himage : (I.map f : Set B) = f '' (I : Set A))
+    (hker : RingHom.ker f ⊓ I = ⊥) (t : A) (ht : t ∈ I)
+    [IsLocalization.Away t At] [IsLocalization.Away (f t) Bt] :
+    Function.Bijective (IsLocalization.Away.map At Bt f t) := by
+  constructor
+  · apply (IsLocalization.Away.map_injective_iff (S := At) (Q := Bt) f t).mpr
+    intro a ha
+    exact ⟨1, by simpa using commonIdeal_kill_kernel f I hker t ht a ha⟩
+  · apply (IsLocalization.Away.map_surjective_iff (S := At) (Q := Bt) f t).mpr
+    intro b
+    have hm : f t * b ∈ I.map f :=
+      (I.map f).mul_mem_right b (Ideal.mem_map_of_mem f ht)
+    change f t * b ∈ (I.map f : Set B) at hm
+    rw [himage] at hm
+    obtain ⟨a, _, ha⟩ := hm
+    exact ⟨a, 1, by simpa using ha⟩
+
+-- node: G.0/common-ideal-away-equiv
+noncomputable def commonIdealAwayEquiv (At : Type w) (Bt : Type z)
+    [CommRing At] [CommRing Bt] [Algebra A At] [Algebra B Bt]
+    (f : A →+* B) (I : Ideal A)
+    (himage : (I.map f : Set B) = f '' (I : Set A))
+    (hker : RingHom.ker f ⊓ I = ⊥) (t : A) (ht : t ∈ I)
+    [IsLocalization.Away t At] [IsLocalization.Away (f t) Bt] : At ≃+* Bt :=
+  RingEquiv.ofBijective (IsLocalization.Away.map At Bt f t)
+    (commonIdeal_away_bijective At Bt f I himage hker t ht)
+
+section API
+variable (At : Type w) (Bt : Type z)
+    [CommRing At] [CommRing Bt] [Algebra A At] [Algebra B Bt]
+    (f : A →+* B) (I : Ideal A)
+    (himage : (I.map f : Set B) = f '' (I : Set A))
+    (hker : RingHom.ker f ⊓ I = ⊥) (t : A) (ht : t ∈ I)
+    [IsLocalization.Away t At] [IsLocalization.Away (f t) Bt]
+
+lemma commonIdealAwayEquiv_apply (x : At) :
+    commonIdealAwayEquiv At Bt f I himage hker t ht x =
+      IsLocalization.Away.map At Bt f t x := rfl
+
+lemma commonIdealAwayEquiv_algebraMap (a : A) :
+    commonIdealAwayEquiv At Bt f I himage hker t ht (algebraMap A At a) =
+      algebraMap B Bt (f a) := by
+  simp [commonIdealAwayEquiv, IsLocalization.Away.map]
+
+lemma commonIdealAwayEquiv_symm_algebraMap (a : A) :
+    (commonIdealAwayEquiv At Bt f I himage hker t ht).symm (algebraMap B Bt (f a)) =
+      algebraMap A At a := by
+  apply (commonIdealAwayEquiv At Bt f I himage hker t ht).injective
+  simp [commonIdealAwayEquiv_algebraMap]
+
+-- node: G.0/common-ideal-away-inverse
+lemma commonIdealAwayEquiv_symm_of_mul (a : A) (b : B) (ha : f a = f t * b) :
+    (commonIdealAwayEquiv At Bt f I himage hker t ht).symm (algebraMap B Bt b) =
+      IsLocalization.mk' At a ⟨t, Submonoid.mem_powers t⟩ := by
+  apply (commonIdealAwayEquiv At Bt f I himage hker t ht).injective
+  rw [RingEquiv.apply_symm_apply, commonIdealAwayEquiv_apply]
+  simp only [IsLocalization.Away.map, IsLocalization.map_mk']
+  apply IsLocalization.eq_mk'_iff_mul_eq.mpr
+  simp [ha, map_mul, mul_comm]
+
+end API
+end TauCeti.GenusOne.AffinePinching
+
+namespace TauCeti.GenusOne.AffinePinching
+-- node: G.0/conductor-away-bijective
+lemma conductor_away_bijective {B : Type v} [CommRing B] (S : Subring B)
+    (St : Type w) (Bt : Type z) [CommRing St] [CommRing Bt]
+    [Algebra S St] [Algebra B Bt] (t : S) (ht : (t : B) ∈ S.conductor)
+    [IsLocalization.Away t St] [IsLocalization.Away (S.subtype t) Bt] :
+    Function.Bijective (IsLocalization.Away.map St Bt S.subtype t) := by
+  let I : Ideal S := S.conductor.comap S.subtype
+  have himage : (I.map S.subtype : Set B) = S.subtype '' (I : Set S) := by
+    apply Set.Subset.antisymm
+    · intro b hb
+      have hbc : b ∈ S.conductor := (Ideal.map_comap_le : I.map S.subtype ≤ S.conductor) hb
+      exact ⟨⟨b, Subring.conductor_le S hbc⟩, hbc, rfl⟩
+    · rintro b ⟨a, ha, rfl⟩
+      exact Ideal.mem_map_of_mem S.subtype ha
+  apply commonIdeal_away_bijective St Bt S.subtype I himage
+  · rw [(RingHom.injective_iff_ker_eq_bot S.subtype).mp S.subtype_injective, bot_inf_eq]
+  · exact ht
+end TauCeti.GenusOne.AffinePinching
+
+
+namespace TauCeti.GenusOne.QuadraticPinch.Overlap
+
+variable {R : Type u} [CommRing R]
+
+def quadratic (c a b : R) : R[X] := C c * X ^ 2 + C a * X + C b
+
+abbrev Ring (c a b : R) := Localization.Away (X * quadratic c a b)
+
+def coordinate (c a b : R) : Ring c a b := algebraMap R[X] (Ring c a b) X
+
+def inverseVariable (c a b : R) : Ring c a b :=
+  algebraMap R[X] (Ring c a b) (quadratic c a b) *
+    IsLocalization.Away.invSelf (X * quadratic c a b)
+
+lemma coordinate_mul_inverse (c a b : R) :
+    coordinate c a b * inverseVariable c a b = 1 := by
+  rw [coordinate, inverseVariable, ← mul_assoc, ← map_mul]
+  exact IsLocalization.Away.mul_invSelf _
+
+lemma inverse_isUnit (c a b : R) : IsUnit (inverseVariable c a b) := by
+  apply isUnit_iff_exists_inv.mpr
+  exact ⟨coordinate c a b, by rw [mul_comm, coordinate_mul_inverse]⟩
+
+lemma quadratic_isUnit (c a b : R) :
+    IsUnit (algebraMap R[X] (Ring c a b) (quadratic c a b)) :=
+  IsLocalization.Away.isUnit_of_dvd (X * quadratic c a b) (dvd_mul_left _ _)
+
+lemma reciprocal_quadratic (c a b : R) :
+    aeval (inverseVariable b a c) (quadratic c a b) =
+      inverseVariable b a c ^ 2 * algebraMap R[X] (Ring b a c) (quadratic b a c) := by
+  let t := coordinate b a c
+  let v := inverseVariable b a c
+  have h : t * v = 1 := coordinate_mul_inverse b a c
+  simp only [quadratic, map_add, map_mul, map_pow, aeval_C, aeval_X]
+  change algebraMap R (Ring b a c) c * v ^ 2 + algebraMap R (Ring b a c) a * v +
+      algebraMap R (Ring b a c) b =
+    v ^ 2 * (algebraMap R (Ring b a c) b * t ^ 2 +
+      algebraMap R (Ring b a c) a * t + algebraMap R (Ring b a c) c)
+  calc
+    _ = algebraMap R (Ring b a c) c * v ^ 2 +
+        (algebraMap R (Ring b a c) a * v) * (t * v) +
+        algebraMap R (Ring b a c) b * (t * v) ^ 2 := by rw [h]; ring
+    _ = _ := by ring
+
+lemma reciprocal_denominator_isUnit (c a b : R) :
+    IsUnit (aeval (inverseVariable b a c) (X * quadratic c a b)) := by
+  rw [map_mul, aeval_X, reciprocal_quadratic]
+  exact (inverse_isUnit b a c).mul ((inverse_isUnit b a c).pow 2 |>.mul
+    (quadratic_isUnit b a c))
+
+def reciprocal (c a b : R) : Ring c a b →ₐ[R] Ring b a c :=
+  IsLocalization.Away.liftAlgHom (X * quadratic c a b)
+    (f := aeval (inverseVariable b a c)) (reciprocal_denominator_isUnit c a b)
+
+lemma reciprocal_algebraMap (c a b : R) (f : R[X]) :
+    reciprocal c a b (algebraMap R[X] (Ring c a b) f) =
+      aeval (inverseVariable b a c) f :=
+  IsLocalization.Away.lift_eq _ (reciprocal_denominator_isUnit c a b) _
+
+lemma reciprocal_coordinate (c a b : R) :
+    reciprocal c a b (coordinate c a b) = inverseVariable b a c := by
+  rw [coordinate, reciprocal_algebraMap, aeval_X]
+
+lemma reciprocal_inverse (c a b : R) :
+    reciprocal c a b (inverseVariable c a b) = coordinate b a c := by
+  have h := congrArg (reciprocal c a b) (coordinate_mul_inverse c a b)
+  rw [map_mul, map_one, reciprocal_coordinate] at h
+  calc
+    _ = reciprocal c a b (inverseVariable c a b) *
+        (coordinate b a c * inverseVariable b a c) := by rw [coordinate_mul_inverse, mul_one]
+    _ = (inverseVariable b a c * reciprocal c a b (inverseVariable c a b)) *
+        coordinate b a c := by ring
+    _ = _ := by rw [h, one_mul]
+
+lemma reciprocal_comp (c a b : R) :
+    (reciprocal b a c).comp (reciprocal c a b) = AlgHom.id R (Ring c a b) := by
+  apply IsLocalization.algHom_ext (Submonoid.powers (X * quadratic c a b))
+  ext
+  change reciprocal b a c (reciprocal c a b (coordinate c a b)) = coordinate c a b
+  rw [reciprocal_coordinate, reciprocal_inverse]
+
+def equiv (c a b : R) : Ring c a b ≃ₐ[R] Ring b a c :=
+  AlgEquiv.ofAlgHom (reciprocal c a b) (reciprocal b a c)
+    (reciprocal_comp b a c) (reciprocal_comp c a b)
+
+end TauCeti.GenusOne.QuadraticPinch.Overlap
+namespace TauCeti.GenusOne.QuadraticPinch.Overlap
+variable {R : Type u} [CommRing R]
+
+lemma equiv_coordinate (c a b : R) :
+    equiv c a b (coordinate c a b) = inverseVariable b a c :=
+  reciprocal_coordinate c a b
+
+lemma equiv_inverse (c a b : R) :
+    equiv c a b (inverseVariable c a b) = coordinate b a c :=
+  reciprocal_inverse c a b
+
+lemma equiv_algebraMap (c a b : R) (f : R[X]) :
+    equiv c a b (algebraMap R[X] (Ring c a b) f) =
+      aeval (inverseVariable b a c) f := reciprocal_algebraMap c a b f
+
+lemma equiv_symm (c a b : R) : (equiv c a b).symm = equiv b a c := rfl
+
+lemma quadratic_monic (a b : R) : quadratic 1 a b = X ^ 2 + C a * X + C b := by
+  simp [quadratic]
+
+lemma quadratic_reversed (a b : R) : quadratic b a 1 = InfinityChart.denominator a b := by
+  simp [quadratic, InfinityChart.denominator]; ring
+
+lemma coordinate_isUnit (c a b : R) : IsUnit (coordinate c a b) :=
+  isUnit_iff_exists_inv.mpr ⟨inverseVariable c a b, coordinate_mul_inverse c a b⟩
+
+lemma normalization_overlap (a b : R) :
+    InfinityChart.normalizationCoordinates
+      (algebraMap R (Ring 1 a b) a) (algebraMap R (Ring 1 a b) b)
+      1 (inverseVariable 1 a b) =
+    inverseVariable 1 a b ^ 3 • InfinityChart.normalizationCoordinates
+      (algebraMap R (Ring 1 a b) a) (algebraMap R (Ring 1 a b) b)
+      (coordinate 1 a b) 1 := by
+  simpa only [mul_one, one_mul, mul_comm (inverseVariable 1 a b), coordinate_mul_inverse] using
+    InfinityChart.normalization_homogeneous
+      (algebraMap R (Ring 1 a b) a) (algebraMap R (Ring 1 a b) b)
+      (coordinate 1 a b) 1 (inverseVariable 1 a b)
+
+open CategoryTheory
+
+def specIso (c a b : R) :
+    AlgebraicGeometry.Spec (.of (Ring b a c)) ≅
+      AlgebraicGeometry.Spec (.of (Ring c a b)) :=
+  AlgebraicGeometry.Scheme.Spec.mapIso (equiv c a b).toRingEquiv.toCommRingCatIso.op
+
+lemma specIso_hom (c a b : R) : (specIso c a b).hom =
+    AlgebraicGeometry.Spec.map (CommRingCat.ofHom (equiv c a b).toRingHom) := rfl
+
+lemma specIso_inv (c a b : R) : (specIso c a b).inv =
+    AlgebraicGeometry.Spec.map (CommRingCat.ofHom (equiv b a c).toRingHom) := rfl
+
+lemma specIso_hom_inv (c a b : R) :
+    (specIso c a b).hom ≫ (specIso c a b).inv = 𝟙 _ := (specIso c a b).hom_inv_id
+
+section FinitePinch
+variable {k : Type u} [Field k]
+
+abbrev finiteDenominator (c a b : k) : (algebra (quadratic c a b)).toSubring :=
+  ⟨X * quadratic c a b, (mem_algebra _ _).mpr ⟨0, X, by simp only [map_zero, zero_add]; ring⟩⟩
+
+lemma finiteDenominator_val (c a b : k) :
+    (finiteDenominator c a b : k[X]) = X * quadratic c a b := rfl
+
+lemma finiteDenominator_conductor (c a b : k) :
+    (finiteDenominator c a b : k[X]) ∈ (algebra (quadratic c a b)).toSubring.conductor := by
+  intro f
+  exact (mem_algebra _ _).mpr ⟨0, X * f, by simp only [map_zero, zero_add]; ring⟩
+
+lemma finite_localization (c a b : k) :
+    IsLocalization.Away ((algebra (quadratic c a b)).toSubring.subtype
+      (finiteDenominator c a b)) (Ring c a b) := by
+  simpa only [Subring.coe_subtype, finiteDenominator_val] using
+    (inferInstance : IsLocalization.Away (X * quadratic c a b) (Ring c a b))
+
+attribute [local instance] finite_localization
+
+lemma finite_away_bijective (c a b : k) :
+    Function.Bijective (IsLocalization.Away.map
+      (Localization.Away (finiteDenominator c a b)) (Ring c a b)
+      (algebra (quadratic c a b)).toSubring.subtype (finiteDenominator c a b)) := by
+  exact AffinePinching.conductor_away_bijective (algebra (quadratic c a b)).toSubring
+    (Localization.Away (finiteDenominator c a b)) (Ring c a b)
+    (finiteDenominator c a b) (finiteDenominator_conductor c a b)
+
+def finiteEquiv (c a b : k) :
+    Localization.Away (finiteDenominator c a b) ≃+* Ring c a b :=
+  RingEquiv.ofBijective _ (finite_away_bijective c a b)
+
+lemma finiteEquiv_apply (c a b : k) (x : Localization.Away (finiteDenominator c a b)) :
+    finiteEquiv c a b x = IsLocalization.Away.map
+      (Localization.Away (finiteDenominator c a b)) (Ring c a b)
+      (algebra (quadratic c a b)).toSubring.subtype (finiteDenominator c a b) x := rfl
+
+lemma finiteEquiv_algebraMap (c a b : k) (f : (algebra (quadratic c a b)).toSubring) :
+    finiteEquiv c a b (algebraMap _ _ f) = algebraMap k[X] (Ring c a b) (f : k[X]) := by
+  rw [finiteEquiv_apply]
+  simp only [IsLocalization.Away.map, IsLocalization.map_eq, Subring.subtype_apply]
+
+lemma finiteEquiv_symm_algebraMap (c a b : k) (f : (algebra (quadratic c a b)).toSubring) :
+    (finiteEquiv c a b).symm (algebraMap k[X] (Ring c a b) (f : k[X])) =
+      algebraMap _ _ f := by
+  apply (finiteEquiv c a b).injective
+  simp [finiteEquiv_algebraMap]
+
+end FinitePinch
+end TauCeti.GenusOne.QuadraticPinch.Overlap
+namespace TauCeti.GenusOne.QuadraticPinch.Overlap
+variable {R : Type u} [CommRing R]
+
+abbrev InfinityOpen (a b : R) := Localization.Away
+  (algebraMap R[X] (InfinityChart.Chart a b) X)
+
+lemma infinity_localization (a b : R) :
+    IsLocalization.Away (X * quadratic b a 1) (InfinityOpen a b) := by
+  let := InfinityChart.localization a b
+  rw [quadratic_reversed]
+  exact IsLocalization.Away.mul (InfinityChart.Chart a b) (InfinityOpen a b)
+    (InfinityChart.denominator a b) X
+
+attribute [local instance] infinity_localization
+
+def infinityEquiv (a b : R) : InfinityOpen a b ≃ₐ[R[X]] Ring b a 1 :=
+  IsLocalization.algEquiv (Submonoid.powers (X * quadratic b a 1)) _ _
+
+lemma infinityEquiv_algebraMap (a b : R) (f : R[X]) :
+    infinityEquiv a b (algebraMap R[X] (InfinityOpen a b) f) =
+      algebraMap R[X] (Ring b a 1) f := (infinityEquiv a b).commutes f
+
+lemma infinityEquiv_symm_algebraMap (a b : R) (f : R[X]) :
+    (infinityEquiv a b).symm (algebraMap R[X] (Ring b a 1) f) =
+      algebraMap R[X] (InfinityOpen a b) f := (infinityEquiv a b).symm.commutes f
+
+lemma infinityEquiv_roundtrip (a b : R) (x : InfinityOpen a b) :
+    (infinityEquiv a b).symm (infinityEquiv a b x) = x :=
+  (infinityEquiv a b).symm_apply_apply x
+
+lemma infinity_root_isUnit_iff (a b : R) {S : Type v} [CommRing S]
+    (f : InfinityChart.Chart a b →+* S) :
+    IsUnit (f (AdjoinRoot.root (InfinityChart.relation a b))) ↔
+      IsUnit (f (algebraMap R[X] (InfinityChart.Chart a b) X)) := by
+  have h := congrArg f (InfinityChart.root_relation a b)
+  simp only [map_mul, map_pow] at h
+  have hunit := (InfinityChart.denominator_isUnit a b).map f
+  have hh := congrArg IsUnit h
+  simpa only [IsUnit.mul_iff, hunit, true_and, isUnit_pow_iff (by decide : 3 ≠ 0)] using Iff.of_eq hh
+
+lemma infinity_basicOpen_root (a b : R) :
+    PrimeSpectrum.basicOpen (AdjoinRoot.root (InfinityChart.relation a b)) =
+      PrimeSpectrum.basicOpen (algebraMap R[X] (InfinityChart.Chart a b) X) := by
+  have hQ : PrimeSpectrum.basicOpen
+      (algebraMap R[X] (InfinityChart.Chart a b) (InfinityChart.denominator a b)) = ⊤ := by
+    apply top_unique
+    rw [← PrimeSpectrum.basicOpen_one, ← InfinityChart.mul_inverse a b,
+      PrimeSpectrum.basicOpen_mul]
+    exact inf_le_left
+  have h := congrArg PrimeSpectrum.basicOpen (InfinityChart.root_relation a b)
+  simpa only [map_pow, PrimeSpectrum.basicOpen_mul, hQ, top_inf_eq,
+    PrimeSpectrum.basicOpen_pow _ 3 (by decide)] using h
+
+section FinitePinch
+variable {k : Type u} [Field k]
+
+def chartEquiv (a b : k) : Localization.Away (finiteDenominator 1 a b) ≃+* InfinityOpen a b :=
+  (finiteEquiv 1 a b).trans ((equiv 1 a b).toRingEquiv.trans (infinityEquiv a b).toRingEquiv.symm)
+
+lemma chartEquiv_algebraMap (a b : k) (f : (algebra (quadratic 1 a b)).toSubring) :
+    chartEquiv a b (algebraMap _ _ f) =
+      (infinityEquiv a b).symm (aeval (inverseVariable b a 1) (f : k[X])) := by
+  change (infinityEquiv a b).symm (equiv 1 a b (finiteEquiv 1 a b (algebraMap _ _ f))) = _
+  rw [finiteEquiv_algebraMap, equiv_algebraMap]
+
+lemma chartEquiv_roundtrip (a b : k) (x : Localization.Away (finiteDenominator 1 a b)) :
+    (chartEquiv a b).symm (chartEquiv a b x) = x := (chartEquiv a b).symm_apply_apply x
+
+lemma chartEquiv_inverse_roundtrip (a b : k) (x : InfinityOpen a b) :
+    chartEquiv a b ((chartEquiv a b).symm x) = x := (chartEquiv a b).apply_symm_apply x
+
+end FinitePinch
+end TauCeti.GenusOne.QuadraticPinch.Overlap
+namespace TauCeti.GenusOne.QuadraticPinch.Overlap
+open CategoryTheory
+variable {R : Type u} [CommRing R]
+
+lemma quadratic_aeval (c a b x : R) : aeval x (quadratic c a b) = c * x ^ 2 + a * x + b := by
+  simp [quadratic]
+
+lemma coordinate_algebraMap (c a b : R) :
+    coordinate c a b = algebraMap R[X] (Ring c a b) X := rfl
+
+lemma inverseVariable_formula (c a b : R) :
+    inverseVariable c a b = algebraMap R[X] (Ring c a b) (quadratic c a b) *
+      IsLocalization.Away.invSelf (X * quadratic c a b) := rfl
+
+lemma infinityOpen_coordinate_isUnit (a b : R) :
+    IsUnit (algebraMap (InfinityChart.Chart a b) (InfinityOpen a b)
+      (algebraMap R[X] (InfinityChart.Chart a b) X)) :=
+  IsLocalization.Away.algebraMap_isUnit _
+
+-- test: Overlap.quadratic.zero
+example : quadratic (0 : R) 0 0 = 0 := by simp [quadratic]
+-- test: Overlap.quadratic.nonreduced
+example : aeval (2 : ZMod 4) (quadratic (2 : ZMod 4) 1 1) = 3 := by
+  rw [quadratic_aeval]; decide
+-- test: Overlap.quadratic.reversal_not_equal
+example : quadratic (1 : ℤ) 0 2 ≠ quadratic 2 0 1 := by
+  intro h
+  have hh := congrArg (fun p : ℤ[X] => p.coeff 0) h
+  norm_num [quadratic] at hh
+
+-- test: Overlap.Ring.zero_polynomial
+example : (0 : Ring (0 : R) 0 0) = 1 := by
+  have h := IsLocalization.Away.mul_invSelf (S := Ring (0 : R) 0 0)
+    (X * quadratic (0 : R) 0 0)
+  simpa [quadratic] using h
+-- test: Overlap.Ring.coordinate_unit_nonreduced
+example : IsUnit (coordinate (2 : ZMod 4) 2 1) := coordinate_isUnit ..
+-- test: Overlap.Ring.quadratic_unit_nonsplit
+example : IsUnit (algebraMap (ZMod 2)[X] (Ring (1 : ZMod 2) 1 1)
+    (X ^ 2 + X + 1)) := by
+  simpa [quadratic] using quadratic_isUnit (1 : ZMod 2) 1 1
+
+-- test: Overlap.coordinate.cusp
+example : coordinate (1 : ZMod 2) 0 0 * inverseVariable 1 0 0 = 1 := coordinate_mul_inverse ..
+-- test: Overlap.coordinate.nonreduced
+example : coordinate (2 : ZMod 4) 2 1 * inverseVariable 2 2 1 = 1 := coordinate_mul_inverse ..
+-- test: Overlap.coordinate.generator
+example (c a b : R) : aeval (coordinate c a b) (X : R[X]) =
+    algebraMap R[X] (Ring c a b) X := by simp [coordinate]
+
+-- test: Overlap.inverseVariable.left_inverse
+example (c a b : R) : inverseVariable c a b * coordinate c a b = 1 := by
+  rw [mul_comm, coordinate_mul_inverse]
+-- test: Overlap.inverseVariable.unit_split
+example : IsUnit (inverseVariable (1 : ℚ) 0 (-1)) := inverse_isUnit ..
+-- test: Overlap.inverseVariable.zero_ring
+example : inverseVariable (0 : ZMod 1) 0 0 = 1 := Subsingleton.elim ..
+
+-- test: Overlap.reciprocal.coefficient
+example (c a b r : R) : reciprocal c a b (algebraMap R (Ring c a b) r) =
+    algebraMap R (Ring b a c) r := (reciprocal c a b).commutes r
+-- test: Overlap.reciprocal.general_quadratic
+example (c a b : R) : reciprocal c a b (algebraMap R[X] (Ring c a b) (quadratic c a b)) =
+    inverseVariable b a c ^ 2 * algebraMap R[X] (Ring b a c) (quadratic b a c) := by
+  rw [reciprocal_algebraMap, reciprocal_quadratic]
+-- test: Overlap.reciprocal.twice
+example (c a b : R) (x : Ring c a b) : reciprocal b a c (reciprocal c a b x) = x :=
+  DFunLike.congr_fun (reciprocal_comp c a b) x
+
+-- test: Overlap.equiv.cusp
+example : equiv (1 : ZMod 2) 0 0 (coordinate 1 0 0) = inverseVariable 0 0 1 := equiv_coordinate ..
+-- test: Overlap.equiv.nonsplit
+example : equiv (1 : ZMod 2) 1 1 (inverseVariable 1 1 1) = coordinate 1 1 1 := equiv_inverse ..
+-- test: Overlap.equiv.nonreduced_roundtrip
+example (x : Ring (2 : ZMod 4) 2 1) : equiv 1 2 2 (equiv 2 2 1 x) = x :=
+  (equiv 2 2 1).symm_apply_apply x
+
+-- test: Overlap.specIso.cusp
+example : (specIso (1 : ZMod 2) 0 0).hom ≫ (specIso 1 0 0).inv = 𝟙 _ := specIso_hom_inv ..
+-- test: Overlap.specIso.nonreduced
+example : (specIso (2 : ZMod 4) 2 1).inv ≫ (specIso 2 2 1).hom = 𝟙 _ :=
+  (specIso _ _ _).inv_hom_id
+-- test: Overlap.specIso.actual_map
+example (c a b : R) : (specIso c a b).hom =
+    AlgebraicGeometry.Spec.map (CommRingCat.ofHom (reciprocal c a b).toRingHom) := rfl
+
+-- test: Overlap.finiteDenominator.cusp
+example : (finiteDenominator (1 : ZMod 2) 0 0 : (ZMod 2)[X]) = X ^ 3 := by
+  simp [quadratic]; ring
+-- test: Overlap.finiteDenominator.split
+example : (finiteDenominator (1 : ℚ) 0 (-1) : ℚ[X]) = X ^ 3 - X := by
+  simp [quadratic]; ring
+-- test: Overlap.finiteDenominator.zero
+example : (finiteDenominator (0 : ℚ) 0 0 : ℚ[X]) = 0 := by simp [quadratic]
+
+-- test: Overlap.finiteEquiv.cusp
+example : finiteEquiv (1 : ZMod 2) 0 0 (algebraMap _ _ (finiteDenominator (1 : ZMod 2) 0 0)) =
+    algebraMap (ZMod 2)[X] (Ring (1 : ZMod 2) 0 0) (X ^ 3) := by
+  rw [finiteEquiv_algebraMap]; congr 1; simp [quadratic]; ring
+-- test: Overlap.finiteEquiv.nonsplit
+example (f : (algebra (quadratic (1 : ZMod 2) 1 1)).toSubring) :
+    (finiteEquiv (1 : ZMod 2) 1 1).symm (algebraMap (ZMod 2)[X] (Ring (1 : ZMod 2) 1 1) (f : (ZMod 2)[X])) =
+      algebraMap _ _ f := finiteEquiv_symm_algebraMap ..
+-- test: Overlap.finiteEquiv.zero_roundtrip
+example (x : Localization.Away (finiteDenominator (0 : ℚ) 0 0)) :
+    (finiteEquiv (0 : ℚ) 0 0).symm (finiteEquiv 0 0 0 x) = x :=
+  (finiteEquiv _ _ _).symm_apply_apply x
+
+-- test: Overlap.InfinityOpen.root_cusp
+example : PrimeSpectrum.basicOpen (AdjoinRoot.root (InfinityChart.relation (0 : ZMod 2) 0)) =
+    PrimeSpectrum.basicOpen (algebraMap (ZMod 2)[X] (InfinityChart.Chart (0 : ZMod 2) 0) X) :=
+  infinity_basicOpen_root ..
+-- test: Overlap.InfinityOpen.root_nonreduced
+example {S : Type v} [CommRing S] (f : InfinityChart.Chart (2 : ZMod 4) 1 →+* S) :
+    IsUnit (f (AdjoinRoot.root (InfinityChart.relation (2 : ZMod 4) 1))) ↔
+      IsUnit (f (algebraMap (ZMod 4)[X] (InfinityChart.Chart (2 : ZMod 4) 1) X)) :=
+  infinity_root_isUnit_iff ..
+-- test: Overlap.InfinityOpen.coordinate_nonsplit
+example : IsUnit (algebraMap (InfinityChart.Chart (1 : ZMod 2) 1) (InfinityOpen (1 : ZMod 2) 1)
+    (algebraMap (ZMod 2)[X] (InfinityChart.Chart (1 : ZMod 2) 1) X)) :=
+  infinityOpen_coordinate_isUnit ..
+
+-- test: Overlap.infinityEquiv.polynomial
+example (a b : R) : infinityEquiv a b (algebraMap R[X] (InfinityOpen a b) (X ^ 2 + C a)) =
+    algebraMap R[X] (Ring b a 1) (X ^ 2 + C a) := infinityEquiv_algebraMap ..
+-- test: Overlap.infinityEquiv.inverse_coordinate
+example (a b : R) : (infinityEquiv a b).symm (coordinate b a 1) =
+    algebraMap R[X] (InfinityOpen a b) X := infinityEquiv_symm_algebraMap ..
+-- test: Overlap.infinityEquiv.nonreduced
+example (x : InfinityOpen (2 : ZMod 4) 1) :
+    (infinityEquiv (2 : ZMod 4) 1).symm (infinityEquiv 2 1 x) = x := infinityEquiv_roundtrip ..
+
+-- test: Overlap.chartEquiv.cusp
+example (x : Localization.Away (finiteDenominator (1 : ZMod 2) 0 0)) :
+    (chartEquiv (0 : ZMod 2) 0).symm (chartEquiv 0 0 x) = x := chartEquiv_roundtrip ..
+-- test: Overlap.chartEquiv.nonsplit
+example (x : InfinityOpen (1 : ZMod 2) 1) :
+    chartEquiv (1 : ZMod 2) 1 ((chartEquiv 1 1).symm x) = x := chartEquiv_inverse_roundtrip ..
+-- test: Overlap.chartEquiv.split_formula
+example (f : (algebra (quadratic (1 : ℚ) 0 (-1))).toSubring) :
+    chartEquiv (0 : ℚ) (-1) (algebraMap _ _ f) =
+      (infinityEquiv (0 : ℚ) (-1)).symm (aeval (inverseVariable (-1 : ℚ) 0 1) (f : ℚ[X])) :=
+  chartEquiv_algebraMap ..
+
+-- test: Overlap.normalization_overlap.nonreduced
+example : InfinityChart.normalizationCoordinates
+    (algebraMap (ZMod 4) (Ring (1 : ZMod 4) 2 2) 2) (algebraMap (ZMod 4) (Ring (1 : ZMod 4) 2 2) 2)
+    1 (inverseVariable (1 : ZMod 4) 2 2) = inverseVariable (1 : ZMod 4) 2 2 ^ 3 • InfinityChart.normalizationCoordinates
+    (algebraMap (ZMod 4) (Ring (1 : ZMod 4) 2 2) 2) (algebraMap (ZMod 4) (Ring (1 : ZMod 4) 2 2) 2)
+    (coordinate (1 : ZMod 4) 2 2) 1 := normalization_overlap ..
+
+end TauCeti.GenusOne.QuadraticPinch.Overlap
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.quadratic
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.Ring
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.coordinate
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.inverseVariable
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.coordinate_mul_inverse
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.inverse_isUnit
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.quadratic_isUnit
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.reciprocal_quadratic
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.reciprocal_denominator_isUnit
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.reciprocal
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.reciprocal_algebraMap
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.reciprocal_coordinate
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.reciprocal_inverse
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.reciprocal_comp
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.equiv
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.equiv_coordinate
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.equiv_inverse
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.equiv_algebraMap
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.equiv_symm
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.quadratic_monic
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.quadratic_reversed
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.coordinate_isUnit
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.normalization_overlap
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.specIso
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.specIso_hom
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.specIso_inv
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.specIso_hom_inv
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.finiteDenominator
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.finiteDenominator_val
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.finiteDenominator_conductor
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.finite_localization
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.finite_away_bijective
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.finiteEquiv
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.finiteEquiv_apply
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.finiteEquiv_algebraMap
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.finiteEquiv_symm_algebraMap
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.InfinityOpen
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.infinity_localization
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.infinityEquiv
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.infinityEquiv_algebraMap
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.infinityEquiv_symm_algebraMap
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.infinityEquiv_roundtrip
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.infinity_root_isUnit_iff
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.infinity_basicOpen_root
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.chartEquiv
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.chartEquiv_algebraMap
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.chartEquiv_roundtrip
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.chartEquiv_inverse_roundtrip
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.quadratic_aeval
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.coordinate_algebraMap
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.inverseVariable_formula
+#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.infinityOpen_coordinate_isUnit
+
+namespace TauCeti.GenusOne.QuadraticPinch.Global
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
+open Overlap
+variable {k : Type u} [Field k]
+
+abbrev finiteChart (a b : k) : Scheme := Spec (.of (algebra (quadratic 1 a b)))
+abbrev infinityChart (a b : k) : Scheme := Spec (.of (InfinityChart.Chart a b))
+abbrev overlapChart (a b : k) : Scheme := Spec (.of (Ring 1 a b))
+
+-- node: G.1/global-finite-open
+/-- The specified finite principal open, expressed in normalized overlap coordinates. -/
+def finiteOpen (a b : k) : overlapChart a b ⟶ finiteChart a b :=
+  Spec.map (CommRingCat.ofHom ((algebraMap k[X] (Ring 1 a b)).comp
+    (algebra (quadratic 1 a b)).val.toRingHom))
+
+lemma finiteOpen_eq (a b : k) : finiteOpen a b =
+    (Scheme.Spec.mapIso (finiteEquiv 1 a b).toCommRingCatIso.op).hom ≫
+      Spec.map (CommRingCat.ofHom (algebraMap (algebra (quadratic 1 a b))
+        (Localization.Away (finiteDenominator 1 a b)))) := by
+  change Spec.map _ = Spec.map (CommRingCat.ofHom (finiteEquiv 1 a b).toRingHom) ≫ _
+  rw [← Spec.map_comp]
+  congr 1
+  apply CommRingCat.hom_ext
+  apply RingHom.ext
+  intro f
+  exact (finiteEquiv_algebraMap 1 a b f).symm
+
+lemma finiteOpen_isOpenImmersion (a b : k) : IsOpenImmersion (finiteOpen a b) := by
+  rw [finiteOpen_eq]
+  infer_instance
+attribute [instance] finiteOpen_isOpenImmersion
+
+lemma finiteOpen_range (a b : k) :
+    (finiteOpen a b).opensRange = PrimeSpectrum.basicOpen (finiteDenominator 1 a b) := by
+  simpa only [finiteOpen_eq, Scheme.Hom.opensRange_comp_of_isIso] using
+    (Scheme.Hom.opensRange_localizationAway
+      (R := .of (algebra (quadratic 1 a b)).toSubring) (finiteDenominator 1 a b))
+
+-- node: G.1/global-infinity-open
+def infinityOpen (a b : k) : overlapChart a b ⟶ infinityChart a b :=
+  (specIso b a 1).hom ≫
+    (Scheme.Spec.mapIso (infinityEquiv a b).toRingEquiv.toCommRingCatIso.op).hom ≫
+      Spec.map (CommRingCat.ofHom (algebraMap (InfinityChart.Chart a b) (InfinityOpen a b)))
+
+lemma infinityOpen_isOpenImmersion (a b : k) : IsOpenImmersion (infinityOpen a b) := by
+  dsimp [infinityOpen]
+  infer_instance
+attribute [instance] infinityOpen_isOpenImmersion
+
+lemma infinityOpen_range (a b : k) :
+    (infinityOpen a b).opensRange = PrimeSpectrum.basicOpen
+      (algebraMap k[X] (InfinityChart.Chart a b) X) := by
+  dsimp only [infinityOpen]
+  simp only [← Category.assoc, Scheme.Hom.opensRange_comp_of_isIso]
+  exact Scheme.Hom.opensRange_localizationAway
+    (R := .of (InfinityChart.Chart a b)) (algebraMap k[X] (InfinityChart.Chart a b) X)
+
+-- node: G.1/global-curve
+/-- The actual two-chart scheme, with the specified reciprocal transition. -/
+def curve (a b : k) : Scheme := pushout (finiteOpen a b) (infinityOpen a b)
+
+abbrev finiteι (a b : k) : finiteChart a b ⟶ curve a b :=
+  pushout.inl (finiteOpen a b) (infinityOpen a b)
+abbrev infinityι (a b : k) : infinityChart a b ⟶ curve a b :=
+  pushout.inr (finiteOpen a b) (infinityOpen a b)
+
+lemma finiteι_isOpenImmersion (a b : k) : IsOpenImmersion (finiteι a b) := by
+  change IsOpenImmersion (colimit.ι (span (finiteOpen a b) (infinityOpen a b)) WalkingSpan.left)
+  infer_instance
+lemma infinityι_isOpenImmersion (a b : k) : IsOpenImmersion (infinityι a b) := by
+  change IsOpenImmersion (colimit.ι (span (finiteOpen a b) (infinityOpen a b)) WalkingSpan.right)
+  infer_instance
+attribute [instance] finiteι_isOpenImmersion infinityι_isOpenImmersion
+
+lemma chart_condition (a b : k) :
+    finiteOpen a b ≫ finiteι a b = infinityOpen a b ≫ infinityι a b :=
+  pushout.condition
+
+lemma curve_hom_ext (a b : k) {Y : Scheme} (f g : curve a b ⟶ Y)
+    (h₀ : finiteι a b ≫ f = finiteι a b ≫ g)
+    (h₁ : infinityι a b ≫ f = infinityι a b ≫ g) : f = g :=
+  pushout.hom_ext h₀ h₁
+
+lemma charts_cover (a b : k) (x : curve a b) :
+    (∃ y : finiteChart a b, finiteι a b y = x) ∨
+      (∃ y : infinityChart a b, infinityι a b y = x) := by
+  obtain ⟨i, y, hy⟩ := Scheme.IsLocallyDirected.ι_jointly_surjective
+    (span (finiteOpen a b) (infinityOpen a b)) x
+  rcases i with (_ | (_ | _))
+  · have hc : finiteOpen a b ≫ finiteι a b =
+        colimit.ι (span (finiteOpen a b) (infinityOpen a b)) WalkingSpan.zero :=
+      colimit.w (span (finiteOpen a b) (infinityOpen a b)) WalkingSpan.Hom.fst
+    exact Or.inl ⟨finiteOpen a b y, by
+      rw [← Scheme.Hom.comp_apply, hc]; exact hy⟩
+  · exact Or.inl ⟨y, hy⟩
+  · exact Or.inr ⟨y, hy⟩
+
+lemma charts_intersection (a b : k) (x : finiteChart a b) (y : infinityChart a b) :
+    finiteι a b x = infinityι a b y ↔
+      ∃ z : overlapChart a b, finiteOpen a b z = x ∧ infinityOpen a b z = y := by
+  change colimit.ι (span (finiteOpen a b) (infinityOpen a b)) WalkingSpan.left x =
+    colimit.ι (span (finiteOpen a b) (infinityOpen a b)) WalkingSpan.right y ↔ _
+  rw [Scheme.IsLocallyDirected.ι_eq_ι_iff]
+  constructor
+  · rintro ⟨i, fi, fj, z, hx, hy⟩
+    change WidePushoutShape.Hom i WalkingSpan.left at fi
+    change WidePushoutShape.Hom i WalkingSpan.right at fj
+    rcases i with (_ | (_ | _))
+    · cases fi; cases fj; exact ⟨z, hx, hy⟩
+    · cases fj
+    · cases fi
+  · rintro ⟨z, hx, hy⟩
+    exact ⟨WalkingSpan.zero, WalkingSpan.Hom.fst, WalkingSpan.Hom.snd, z, hx, hy⟩
+
+lemma chart_preimage (a b : k) :
+    finiteι a b ⁻¹ᵁ (infinityι a b).opensRange = (finiteOpen a b).opensRange := by
+  apply TopologicalSpace.Opens.ext
+  ext x
+  change finiteι a b x ∈ Set.range (infinityι a b) ↔ x ∈ Set.range (finiteOpen a b)
+  constructor
+  · rintro ⟨y, hy⟩
+    obtain ⟨z, hz, _⟩ := (charts_intersection a b x y).mp hy.symm
+    exact ⟨z, hz⟩
+  · rintro ⟨z, rfl⟩
+    exact ⟨infinityOpen a b z, by
+      simpa only [Scheme.Hom.comp_apply] using
+        (congrArg (fun f : overlapChart a b ⟶ curve a b => f z) (chart_condition a b)).symm⟩
+
+lemma chart_isPullback (a b : k) :
+    IsPullback (infinityOpen a b) (finiteOpen a b) (infinityι a b) (finiteι a b) :=
+  IsOpenImmersion.isPullback _ _ _ _ (chart_condition a b) (chart_preimage a b)
+
+-- node: G.1/global-curve-desc
+def desc (a b : k) {Y : Scheme} (f : finiteChart a b ⟶ Y)
+    (g : infinityChart a b ⟶ Y) (h : finiteOpen a b ≫ f = infinityOpen a b ≫ g) :
+    curve a b ⟶ Y := pushout.desc f g h
+
+lemma finiteι_desc (a b : k) {Y : Scheme} (f : finiteChart a b ⟶ Y)
+    (g : infinityChart a b ⟶ Y) (h : finiteOpen a b ≫ f = infinityOpen a b ≫ g) :
+    finiteι a b ≫ desc a b f g h = f := pushout.inl_desc ..
+lemma infinityι_desc (a b : k) {Y : Scheme} (f : finiteChart a b ⟶ Y)
+    (g : infinityChart a b ⟶ Y) (h : finiteOpen a b ≫ f = infinityOpen a b ≫ g) :
+    infinityι a b ≫ desc a b f g h = g := pushout.inr_desc ..
+
+-- node: G.1/global-normalization-chart
+def normalizationChart (a b : k) : Spec (.of k[X]) ⟶ finiteChart a b :=
+  Spec.map (CommRingCat.ofHom (algebra (quadratic 1 a b)).val.toRingHom)
+
+lemma normalizationChart_isFinite (a b : k) : AlgebraicGeometry.IsFinite (normalizationChart a b) := by
+  apply normalization_spec_finite
+  · rw [quadratic_monic]; simpa [Polynomial.Monic] using
+      (Polynomial.leadingCoeff_quadratic (a := (1 : k)) (b := a) (c := b) one_ne_zero)
+  · rw [quadratic_monic]; simpa using
+      (Polynomial.natDegree_quadratic (a := (1 : k)) (b := a) (c := b) one_ne_zero)
+
+-- node: G.1/global-normalization-open
+def normalizationOpen (a b : k) : overlapChart a b ⟶ Spec (.of k[X]) :=
+  Spec.map (CommRingCat.ofHom (algebraMap k[X] (Ring 1 a b)))
+
+lemma normalizationOpen_isOpenImmersion (a b : k) :
+    IsOpenImmersion (normalizationOpen a b) :=
+  IsOpenImmersion.of_isLocalization (X * quadratic 1 a b)
+attribute [instance] normalizationOpen_isOpenImmersion
+
+lemma normalizationOpen_range (a b : k) :
+    (normalizationOpen a b).opensRange = PrimeSpectrum.basicOpen (X * quadratic 1 a b) := by
+  apply TopologicalSpace.Opens.ext
+  exact PrimeSpectrum.localization_away_comap_range (Ring 1 a b) (X * quadratic 1 a b)
+
+lemma normalizationChart_preimage (a b : k) :
+    normalizationChart a b ⁻¹ᵁ (finiteOpen a b).opensRange =
+      (normalizationOpen a b).opensRange := by
+  rw [finiteOpen_range, normalizationChart, SpecMap_preimage_basicOpen, normalizationOpen_range]
+  rfl
+
+lemma normalization_chart_condition (a b : k) :
+    normalizationOpen a b ≫ normalizationChart a b = finiteOpen a b := by
+  rw [normalizationOpen, normalizationChart, finiteOpen, ← Spec.map_comp]
+  rfl
+
+-- node: G.1/global-normalization-source
+/-- Glued normalization charts, before their comparison with the native projective line. -/
+def normalizationSource (a b : k) : Scheme :=
+  pushout (normalizationOpen a b) (infinityOpen a b)
+
+abbrev sourceFiniteι (a b : k) : Spec (.of k[X]) ⟶ normalizationSource a b :=
+  pushout.inl (normalizationOpen a b) (infinityOpen a b)
+abbrev sourceInfinityι (a b : k) : infinityChart a b ⟶ normalizationSource a b :=
+  pushout.inr (normalizationOpen a b) (infinityOpen a b)
+
+lemma sourceFiniteι_isOpenImmersion (a b : k) : IsOpenImmersion (sourceFiniteι a b) := by
+  change IsOpenImmersion (colimit.ι (span (normalizationOpen a b) (infinityOpen a b)) WalkingSpan.left)
+  infer_instance
+lemma sourceInfinityι_isOpenImmersion (a b : k) : IsOpenImmersion (sourceInfinityι a b) := by
+  change IsOpenImmersion (colimit.ι (span (normalizationOpen a b) (infinityOpen a b)) WalkingSpan.right)
+  infer_instance
+attribute [instance] sourceFiniteι_isOpenImmersion sourceInfinityι_isOpenImmersion
+
+lemma source_chart_condition (a b : k) :
+    normalizationOpen a b ≫ sourceFiniteι a b = infinityOpen a b ≫ sourceInfinityι a b :=
+  pushout.condition
+
+lemma source_hom_ext (a b : k) {Y : Scheme} (f g : normalizationSource a b ⟶ Y)
+    (h₀ : sourceFiniteι a b ≫ f = sourceFiniteι a b ≫ g)
+    (h₁ : sourceInfinityι a b ≫ f = sourceInfinityι a b ≫ g) : f = g :=
+  pushout.hom_ext h₀ h₁
+
+lemma source_charts_cover (a b : k) (x : normalizationSource a b) :
+    (∃ y : Spec (.of k[X]), sourceFiniteι a b y = x) ∨
+      (∃ y : infinityChart a b, sourceInfinityι a b y = x) := by
+  obtain ⟨i, y, hy⟩ := Scheme.IsLocallyDirected.ι_jointly_surjective
+    (span (normalizationOpen a b) (infinityOpen a b)) x
+  rcases i with (_ | (_ | _))
+  · have hc : normalizationOpen a b ≫ sourceFiniteι a b =
+        colimit.ι (span (normalizationOpen a b) (infinityOpen a b)) WalkingSpan.zero :=
+      colimit.w (span (normalizationOpen a b) (infinityOpen a b)) WalkingSpan.Hom.fst
+    exact Or.inl ⟨normalizationOpen a b y, by
+      rw [← Scheme.Hom.comp_apply, hc]; exact hy⟩
+  · exact Or.inl ⟨y, hy⟩
+  · exact Or.inr ⟨y, hy⟩
+
+-- node: G.1/global-normalization-morphism
+def normalization (a b : k) : normalizationSource a b ⟶ curve a b :=
+  pushout.desc (normalizationChart a b ≫ finiteι a b) (infinityι a b)
+    (by rw [← Category.assoc, normalization_chart_condition, chart_condition])
+
+lemma normalization_finite_chart (a b : k) :
+    sourceFiniteι a b ≫ normalization a b = normalizationChart a b ≫ finiteι a b :=
+  pushout.inl_desc ..
+lemma normalization_infinity_chart (a b : k) :
+    sourceInfinityι a b ≫ normalization a b = infinityι a b := pushout.inr_desc ..
+
+lemma normalization_unique (a b : k) (f : normalizationSource a b ⟶ curve a b)
+    (h₀ : sourceFiniteι a b ≫ f = normalizationChart a b ≫ finiteι a b)
+    (h₁ : sourceInfinityι a b ≫ f = infinityι a b) : f = normalization a b := by
+  apply source_hom_ext
+  · exact h₀.trans (normalization_finite_chart a b).symm
+  · exact h₁.trans (normalization_infinity_chart a b).symm
+
+
+lemma normalization_preimage_finite (a b : k) :
+    normalization a b ⁻¹ᵁ (finiteι a b).opensRange = (sourceFiniteι a b).opensRange := by
+  apply TopologicalSpace.Opens.ext
+  ext x
+  change normalization a b x ∈ Set.range (finiteι a b) ↔ x ∈ Set.range (sourceFiniteι a b)
+  constructor
+  · intro hx
+    rcases source_charts_cover a b x with ⟨z, rfl⟩ | ⟨y, rfl⟩
+    · exact ⟨z, rfl⟩
+    · obtain ⟨z, hz⟩ := hx
+      rw [← Scheme.Hom.comp_apply, normalization_infinity_chart] at hz
+      obtain ⟨w, _, hw⟩ := (charts_intersection a b z y).mp hz
+      refine ⟨normalizationOpen a b w, ?_⟩
+      rw [← hw, ← Scheme.Hom.comp_apply, source_chart_condition, Scheme.Hom.comp_apply]
+  · rintro ⟨z, rfl⟩
+    exact ⟨normalizationChart a b z, by
+      simpa only [Scheme.Hom.comp_apply] using
+        (congrArg (fun f : Spec (.of k[X]) ⟶ curve a b => f z)
+          (normalization_finite_chart a b)).symm⟩
+
+lemma normalization_preimage_infinity (a b : k) :
+    normalization a b ⁻¹ᵁ (infinityι a b).opensRange = (sourceInfinityι a b).opensRange := by
+  apply TopologicalSpace.Opens.ext
+  ext x
+  change normalization a b x ∈ Set.range (infinityι a b) ↔ x ∈ Set.range (sourceInfinityι a b)
+  constructor
+  · intro hx
+    rcases source_charts_cover a b x with ⟨z, rfl⟩ | ⟨y, rfl⟩
+    · rw [← Scheme.Hom.comp_apply, normalization_finite_chart, Scheme.Hom.comp_apply] at hx
+      have hz : normalizationChart a b z ∈ (finiteOpen a b).opensRange := by
+        rw [← chart_preimage]
+        exact hx
+      have hh : z ∈ (normalizationOpen a b).opensRange := by
+        rw [← normalizationChart_preimage]
+        exact hz
+      obtain ⟨w, hw⟩ := hh
+      refine ⟨infinityOpen a b w, ?_⟩
+      rw [← hw, ← Scheme.Hom.comp_apply, ← source_chart_condition, Scheme.Hom.comp_apply]
+    · exact ⟨y, rfl⟩
+  · rintro ⟨y, rfl⟩
+    exact ⟨y, by rw [← Scheme.Hom.comp_apply, normalization_infinity_chart]⟩
+
+lemma normalization_finite_isPullback (a b : k) :
+    IsPullback (normalizationChart a b) (sourceFiniteι a b) (finiteι a b) (normalization a b) :=
+  IsOpenImmersion.isPullback _ _ _ _ (normalization_finite_chart a b)
+    (normalization_preimage_finite a b)
+
+lemma normalization_infinity_isPullback (a b : k) :
+    IsPullback (𝟙 (infinityChart a b)) (sourceInfinityι a b) (infinityι a b) (normalization a b) :=
+  IsOpenImmersion.isPullback _ _ _ _ (by simpa using normalization_infinity_chart a b)
+    (normalization_preimage_infinity a b)
+
+
+-- node: G.1/global-open-cover
+def openCover (a b : k) : (curve a b).OpenCover :=
+  Scheme.Cover.mkOfCovers Bool
+    (fun | false => finiteChart a b | true => infinityChart a b)
+    (fun | false => finiteι a b | true => infinityι a b)
+    (by intro x; rcases charts_cover a b x with ⟨y, hy⟩ | ⟨y, hy⟩
+        · exact ⟨false, y, hy⟩
+        · exact ⟨true, y, hy⟩)
+    (by intro i; cases i <;> infer_instance)
+
+lemma openCover_index (a b : k) : (openCover a b).I₀ = Bool := rfl
+lemma openCover_finite (a b : k) :
+    HEq ((openCover a b).f (cast (openCover_index a b).symm false)) (finiteι a b) := by rfl
+lemma openCover_infinity (a b : k) :
+    HEq ((openCover a b).f (cast (openCover_index a b).symm true)) (infinityι a b) := by rfl
+
+set_option backward.isDefEq.respectTransparency.types false in
+lemma normalization_isFinite (a b : k) : AlgebraicGeometry.IsFinite (normalization a b) := by
+  -- The anonymous baseline instance is unavailable through this existing build's exports.
+  -- Reuse its pinned-source proof locally; this is a library adapter, not new roadmap mathematics.
+  let : HasAffineProperty (@AlgebraicGeometry.IsFinite.{u})
+      (fun X _ f _ => IsAffine X ∧ RingHom.Finite (f.appTop).hom) := by
+    change HasAffineProperty (@AlgebraicGeometry.IsFinite.{u})
+      (affineAnd RingHom.Finite)
+    rw [HasAffineProperty.affineAnd_iff _ RingHom.finite_respectsIso
+      RingHom.finite_localizationPreserves.away RingHom.finite_ofLocalizationSpan]
+    simp [isFinite_iff]
+  apply IsZariskiLocalAtTarget.of_openCover (P := @AlgebraicGeometry.IsFinite.{u}) (openCover a b)
+  intro i
+  cases i
+  · change AlgebraicGeometry.IsFinite (pullback.snd (normalization a b) (finiteι a b))
+    have h := (normalization_finite_isPullback a b).flip
+    rw [← h.isoPullback_inv_snd]
+    let := normalizationChart_isFinite a b
+    infer_instance
+  · change AlgebraicGeometry.IsFinite (pullback.snd (normalization a b) (infinityι a b))
+    have h := (normalization_infinity_isPullback a b).flip
+    rw [← h.isoPullback_inv_snd]
+    infer_instance
+
+lemma finiteOpen_to_base (a b : k) :
+    finiteOpen a b ≫ Spec.map (CommRingCat.ofHom (algebraMap k (algebra (quadratic 1 a b)))) =
+      Spec.map (CommRingCat.ofHom (algebraMap k (Ring 1 a b))) := by
+  rw [finiteOpen, ← Spec.map_comp]
+  congr 1
+lemma infinityOpen_to_base (a b : k) :
+    infinityOpen a b ≫ Spec.map (CommRingCat.ofHom (algebraMap k (InfinityChart.Chart a b))) =
+      Spec.map (CommRingCat.ofHom (algebraMap k (Ring 1 a b))) := by
+  change Spec.map (CommRingCat.ofHom (equiv b a 1).toRingHom) ≫
+    Spec.map (CommRingCat.ofHom (infinityEquiv a b).toRingHom) ≫
+    Spec.map (CommRingCat.ofHom (algebraMap (InfinityChart.Chart a b) (InfinityOpen a b))) ≫
+    Spec.map (CommRingCat.ofHom (algebraMap k (InfinityChart.Chart a b))) = _
+  rw [← Spec.map_comp, ← Spec.map_comp, ← Spec.map_comp]
+  congr 1
+  apply CommRingCat.hom_ext
+  apply RingHom.ext
+  intro r
+  change equiv b a 1 (infinityEquiv a b
+    (algebraMap (InfinityChart.Chart a b) (InfinityOpen a b)
+      (algebraMap k (InfinityChart.Chart a b) r))) = algebraMap k (Ring 1 a b) r
+  calc
+    _ = equiv b a 1 (algebraMap k[X] (Ring b a 1) (C r)) := by
+      congr 1
+      change infinityEquiv a b (algebraMap k[X] (InfinityOpen a b) (C r)) = _
+      exact infinityEquiv_algebraMap a b (C r)
+    _ = _ := (equiv b a 1).commutes r
+
+-- node: G.1/global-structure-map
+def structureMap (a b : k) : curve a b ⟶ Spec (.of k) :=
+  desc a b (Spec.map (CommRingCat.ofHom (algebraMap k (algebra (quadratic 1 a b)))))
+    (Spec.map (CommRingCat.ofHom (algebraMap k (InfinityChart.Chart a b))))
+    (by rw [finiteOpen_to_base, infinityOpen_to_base])
+
+lemma structureMap_finite (a b : k) :
+    finiteι a b ≫ structureMap a b =
+      Spec.map (CommRingCat.ofHom (algebraMap k (algebra (quadratic 1 a b)))) :=
+  finiteι_desc ..
+lemma structureMap_infinity (a b : k) :
+    infinityι a b ≫ structureMap a b =
+      Spec.map (CommRingCat.ofHom (algebraMap k (InfinityChart.Chart a b))) :=
+  infinityι_desc ..
+
+lemma normalization_to_base_finite (a b : k) :
+    sourceFiniteι a b ≫ normalization a b ≫ structureMap a b =
+      Spec.map (CommRingCat.ofHom (algebraMap k k[X])) := by
+  rw [← Category.assoc, normalization_finite_chart, Category.assoc, structureMap_finite,
+    normalizationChart, ← Spec.map_comp]
+  rfl
+lemma normalization_to_base_infinity (a b : k) :
+    sourceInfinityι a b ≫ normalization a b ≫ structureMap a b =
+      Spec.map (CommRingCat.ofHom (algebraMap k (InfinityChart.Chart a b))) := by
+  rw [← Category.assoc, normalization_infinity_chart, structureMap_infinity]
+
+-- node: G.1/global-infinity-transition
+def infinityTransition (a b : k) : InfinityChart.Chart a b →+* Ring 1 a b :=
+  (equiv b a 1).toRingHom.comp ((infinityEquiv a b).toRingHom.comp
+    (algebraMap (InfinityChart.Chart a b) (InfinityOpen a b)))
+
+lemma infinityOpen_spec (a b : k) :
+    infinityOpen a b = Spec.map (CommRingCat.ofHom (infinityTransition a b)) := by
+  change Spec.map (CommRingCat.ofHom (equiv b a 1).toRingHom) ≫
+    Spec.map (CommRingCat.ofHom (infinityEquiv a b).toRingHom) ≫
+    Spec.map (CommRingCat.ofHom (algebraMap (InfinityChart.Chart a b) (InfinityOpen a b))) = _
+  rw [← Spec.map_comp, ← Spec.map_comp]
+  rfl
+
+lemma infinityTransition_coordinate (a b : k) :
+    infinityTransition a b (algebraMap k[X] (InfinityChart.Chart a b) X) =
+      inverseVariable 1 a b := by
+  change equiv b a 1 (infinityEquiv a b (algebraMap k[X] (InfinityOpen a b) X)) = _
+  rw [infinityEquiv_algebraMap]
+  exact equiv_coordinate b a 1
+
+lemma infinityTransition_constants (a b r : k) :
+    infinityTransition a b (algebraMap k (InfinityChart.Chart a b) r) =
+      algebraMap k (Ring 1 a b) r := by
+  change equiv b a 1 (infinityEquiv a b (algebraMap k[X] (InfinityOpen a b) (C r))) = _
+  rw [infinityEquiv_algebraMap]
+  exact (equiv b a 1).commutes r
+
+lemma infinityTransition_root (a b : k) :
+    infinityTransition a b (AdjoinRoot.root (InfinityChart.relation a b)) =
+      IsLocalization.Away.invSelf (X * quadratic 1 a b) := by
+  let t := coordinate 1 a b
+  let v := inverseVariable 1 a b
+  let q := algebraMap k[X] (Ring 1 a b) (quadratic 1 a b)
+  let z := infinityTransition a b (AdjoinRoot.root (InfinityChart.relation a b))
+  have htv : t * v = 1 := coordinate_mul_inverse 1 a b
+  have hQ : infinityTransition a b
+      (algebraMap k[X] (InfinityChart.Chart a b) (InfinityChart.denominator a b)) = v ^ 2 * q := by
+    change equiv b a 1 (infinityEquiv a b
+      (algebraMap k[X] (InfinityOpen a b) (InfinityChart.denominator a b))) = _
+    rw [infinityEquiv_algebraMap, ← quadratic_reversed, equiv_algebraMap]
+    exact reciprocal_quadratic b a 1
+  have hz : (v ^ 2 * q) * z = v ^ 3 := by
+    have h := congrArg (infinityTransition a b) (InfinityChart.root_relation a b)
+    simpa only [map_mul, map_pow, hQ, infinityTransition_coordinate] using h
+  have hprod : (t * q) * z = 1 := by
+    calc
+      _ = (t * q * z) * (t * v) ^ 2 := by rw [htv, one_pow, mul_one]
+      _ = t ^ 3 * ((v ^ 2 * q) * z) := by ring
+      _ = (t * v) ^ 3 := by rw [hz]; ring
+      _ = 1 := by rw [htv, one_pow]
+  have hden : algebraMap k[X] (Ring 1 a b) (X * quadratic 1 a b) = t * q := map_mul ..
+  have hinv := IsLocalization.Away.mul_invSelf (S := Ring 1 a b) (X * quadratic 1 a b)
+  rw [hden] at hinv
+  calc
+    z = z * ((t * q) * IsLocalization.Away.invSelf (X * quadratic 1 a b)) := by rw [hinv, mul_one]
+    _ = ((t * q) * z) * IsLocalization.Away.invSelf (X * quadratic 1 a b) := by ring
+    _ = _ := by rw [hprod, one_mul]
+
+-- test: Global.finiteOpen.cusp_range
+example : (finiteOpen (0 : ZMod 2) 0).opensRange = PrimeSpectrum.basicOpen (finiteDenominator 1 (0 : ZMod 2) 0) := finiteOpen_range ..
+
+-- test: Global.finiteOpen.nonsplit_range
+example : (finiteOpen (1 : ZMod 2) 1).opensRange = PrimeSpectrum.basicOpen (finiteDenominator 1 (1 : ZMod 2) 1) := finiteOpen_range ..
+
+-- test: Global.finiteOpen.split_range
+example : (finiteOpen (0 : ℚ) (-1)).opensRange = PrimeSpectrum.basicOpen (finiteDenominator 1 (0 : ℚ) (-1)) := finiteOpen_range ..
+
+-- test: Global.infinityOpen.cusp_range
+example : (infinityOpen (0 : ZMod 2) 0).opensRange = PrimeSpectrum.basicOpen (algebraMap (ZMod 2)[X] (InfinityChart.Chart 0 0) X) := infinityOpen_range ..
+
+-- test: Global.infinityOpen.nonsplit_root_open
+example : (infinityOpen (1 : ZMod 2) 1).opensRange = PrimeSpectrum.basicOpen (AdjoinRoot.root (InfinityChart.relation 1 1)) := by
+  rw [infinityOpen_range, infinity_basicOpen_root]
+
+-- test: Global.infinityOpen.split_spec
+example : infinityOpen (0 : ℚ) (-1) = Spec.map (CommRingCat.ofHom (infinityTransition 0 (-1))) := infinityOpen_spec ..
+
+-- test: Global.curve.cusp_gluing
+example : finiteOpen (0 : ZMod 2) 0 ≫ finiteι 0 0 = infinityOpen 0 0 ≫ infinityι 0 0 := chart_condition ..
+
+-- test: Global.curve.nonsplit_cover
+example (x : curve (1 : ZMod 2) 1) : (∃ y, finiteι (1 : ZMod 2) 1 y = x) ∨ (∃ y, infinityι (1 : ZMod 2) 1 y = x) := charts_cover ..
+
+-- test: Global.curve.split_intersection
+example (x : finiteChart (0 : ℚ) (-1)) (y : infinityChart (0 : ℚ) (-1)) : finiteι 0 (-1) x = infinityι 0 (-1) y ↔ ∃ z, finiteOpen 0 (-1) z = x ∧ infinityOpen 0 (-1) z = y := charts_intersection ..
+
+-- test: Global.desc.finite_restriction
+example (a b : k) {Y : Scheme} (f : finiteChart a b ⟶ Y) (g : infinityChart a b ⟶ Y) (h : finiteOpen a b ≫ f = infinityOpen a b ≫ g) : finiteι a b ≫ desc a b f g h = f := finiteι_desc ..
+
+-- test: Global.desc.infinity_restriction
+example (a b : k) {Y : Scheme} (f : finiteChart a b ⟶ Y) (g : infinityChart a b ⟶ Y) (h : finiteOpen a b ≫ f = infinityOpen a b ≫ g) : infinityι a b ≫ desc a b f g h = g := infinityι_desc ..
+
+-- test: Global.desc.identity
+example (a b : k) : desc a b (finiteι a b) (infinityι a b) (chart_condition a b) = 𝟙 (curve a b) := by
+  apply curve_hom_ext
+  · rw [finiteι_desc, Category.comp_id]
+  · rw [infinityι_desc, Category.comp_id]
+
+-- test: Global.normalizationChart.cusp_finite
+example : AlgebraicGeometry.IsFinite (normalizationChart (0 : ZMod 2) 0) := normalizationChart_isFinite ..
+
+-- test: Global.normalizationChart.nonsplit_finite
+example : AlgebraicGeometry.IsFinite (normalizationChart (1 : ZMod 2) 1) := normalizationChart_isFinite ..
+
+-- test: Global.normalizationChart.split_finite
+example : AlgebraicGeometry.IsFinite (normalizationChart (0 : ℚ) (-1)) := normalizationChart_isFinite ..
+
+-- test: Global.normalizationOpen.cusp_range
+example : (normalizationOpen (0 : ZMod 2) 0).opensRange = PrimeSpectrum.basicOpen (X ^ 3 : (ZMod 2)[X]) := by
+  rw [normalizationOpen_range]
+  congr 1
+  simp [quadratic]
+  ring
+
+-- test: Global.normalizationOpen.nonsplit_preimage
+example : normalizationChart (1 : ZMod 2) 1 ⁻¹ᵁ (finiteOpen 1 1).opensRange = (normalizationOpen 1 1).opensRange := normalizationChart_preimage ..
+
+-- test: Global.normalizationOpen.split_compatibility
+example : normalizationOpen (0 : ℚ) (-1) ≫ normalizationChart 0 (-1) = finiteOpen 0 (-1) := normalization_chart_condition ..
+
+-- test: Global.normalizationSource.cusp_cover
+example (x : normalizationSource (0 : ZMod 2) 0) : (∃ y, sourceFiniteι (0 : ZMod 2) 0 y = x) ∨ (∃ y, sourceInfinityι (0 : ZMod 2) 0 y = x) := source_charts_cover ..
+
+-- test: Global.normalizationSource.nonsplit_gluing
+example : normalizationOpen (1 : ZMod 2) 1 ≫ sourceFiniteι 1 1 = infinityOpen 1 1 ≫ sourceInfinityι 1 1 := source_chart_condition ..
+
+-- test: Global.normalizationSource.split_open
+example : IsOpenImmersion (sourceFiniteι (0 : ℚ) (-1)) := sourceFiniteι_isOpenImmersion ..
+
+-- test: Global.normalization.cusp_finite
+example : AlgebraicGeometry.IsFinite (normalization (0 : ZMod 2) 0) := normalization_isFinite ..
+
+-- test: Global.normalization.nonsplit_finite
+example : AlgebraicGeometry.IsFinite (normalization (1 : ZMod 2) 1) := normalization_isFinite ..
+
+-- test: Global.normalization.split_infinity_pullback
+example : IsPullback (𝟙 (infinityChart (0 : ℚ) (-1))) (sourceInfinityι 0 (-1)) (infinityι 0 (-1)) (normalization 0 (-1)) := normalization_infinity_isPullback ..
+
+-- test: Global.openCover.finite_index
+example (a b : k) : HEq ((openCover a b).f (cast (openCover_index a b).symm false)) (finiteι a b) := openCover_finite ..
+
+-- test: Global.openCover.infinity_index
+example (a b : k) : HEq ((openCover a b).f (cast (openCover_index a b).symm true)) (infinityι a b) := openCover_infinity ..
+
+-- test: Global.openCover.nonsplit_surjective
+example (x : curve (1 : ZMod 2) 1) : ∃ i y, (openCover (1 : ZMod 2) 1).f i y = x := by
+  rcases charts_cover (1 : ZMod 2) 1 x with ⟨y, hy⟩ | ⟨y, hy⟩
+  · exact ⟨false, y, hy⟩
+  · exact ⟨true, y, hy⟩
+
+-- test: Global.structureMap.finite_chart
+example (a b : k) : finiteι a b ≫ structureMap a b = Spec.map (CommRingCat.ofHom (algebraMap k (algebra (quadratic 1 a b)))) := structureMap_finite ..
+
+-- test: Global.structureMap.infinity_chart
+example (a b : k) : infinityι a b ≫ structureMap a b = Spec.map (CommRingCat.ofHom (algebraMap k (InfinityChart.Chart a b))) := structureMap_infinity ..
+
+-- test: Global.structureMap.cusp_normalization
+example : sourceFiniteι (0 : ZMod 2) 0 ≫ normalization 0 0 ≫ structureMap 0 0 = Spec.map (CommRingCat.ofHom (algebraMap (ZMod 2) (ZMod 2)[X])) := normalization_to_base_finite ..
+
+-- test: Global.infinityTransition.cusp_reciprocal
+example : infinityTransition (0 : ZMod 2) 0 (algebraMap (ZMod 2)[X] (InfinityChart.Chart 0 0) X) = inverseVariable 1 0 0 := infinityTransition_coordinate ..
+
+-- test: Global.infinityTransition.nonsplit_root
+example : infinityTransition (1 : ZMod 2) 1 (AdjoinRoot.root (InfinityChart.relation 1 1)) = IsLocalization.Away.invSelf (X * quadratic (1 : ZMod 2) 1 1) := infinityTransition_root ..
+
+-- test: Global.infinityTransition.split_constants
+example (r : ℚ) : infinityTransition (0 : ℚ) (-1) (algebraMap ℚ (InfinityChart.Chart 0 (-1)) r) = algebraMap ℚ (Ring 1 0 (-1)) r := infinityTransition_constants ..
+
+end TauCeti.GenusOne.QuadraticPinch.Global
+
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.finiteChart
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.infinityChart
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.overlapChart
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.finiteOpen
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.finiteOpen_eq
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.finiteOpen_isOpenImmersion
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.finiteOpen_range
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.infinityOpen
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.infinityOpen_isOpenImmersion
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.infinityOpen_range
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.curve
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.finiteι
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.infinityι
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.finiteι_isOpenImmersion
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.infinityι_isOpenImmersion
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.chart_condition
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.curve_hom_ext
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.charts_cover
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.charts_intersection
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.chart_preimage
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.chart_isPullback
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.desc
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.finiteι_desc
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.infinityι_desc
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.normalizationChart
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.normalizationChart_isFinite
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.normalizationOpen
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.normalizationOpen_isOpenImmersion
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.normalizationOpen_range
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.normalizationChart_preimage
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.normalization_chart_condition
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.normalizationSource
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.sourceFiniteι
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.sourceInfinityι
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.sourceFiniteι_isOpenImmersion
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.sourceInfinityι_isOpenImmersion
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.source_chart_condition
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.source_hom_ext
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.source_charts_cover
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.normalization
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.normalization_finite_chart
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.normalization_infinity_chart
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.normalization_unique
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.normalization_preimage_finite
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.normalization_preimage_infinity
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.normalization_finite_isPullback
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.normalization_infinity_isPullback
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.openCover
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.openCover_index
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.openCover_finite
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.openCover_infinity
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.normalization_isFinite
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.finiteOpen_to_base
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.infinityOpen_to_base
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.structureMap
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.structureMap_finite
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.structureMap_infinity
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.normalization_to_base_finite
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.normalization_to_base_infinity
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.infinityTransition
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.infinityOpen_spec
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.infinityTransition_coordinate
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.infinityTransition_constants
+#print axioms TauCeti.GenusOne.QuadraticPinch.Global.infinityTransition_root
+END ARCHIVED CHECKED QUADRATIC GLOBAL SCHEMES
+-/
+
+/- BEGIN ARCHIVED ADMITTED QUADRATIC GLOBAL SCHEMES
+import Mathlib
+
+open Polynomial
+noncomputable section
+universe u v w
+
+namespace TauCeti.GenusOne.QuadraticPinch
+
+variable {k : Type u} [Field k]
+
+-- node: G.1/quadratic-pinch-algebra
+/-- The preimage of the constants in the native polynomial quotient. -/
+def algebra (q : k[X]) : Subalgebra k k[X] :=
+  (⊥ : Subalgebra k (AdjoinRoot q)).comap (AdjoinRoot.mkₐ q)
+
+lemma mem_algebra (q f : k[X]) :
+    f ∈ algebra q ↔ ∃ c : k, ∃ h : k[X], f = Polynomial.C c + q * h := by
+  change AdjoinRoot.mkₐ q f ∈ (⊥ : Subalgebra k (AdjoinRoot q)) ↔ _
+  rw [Algebra.mem_bot]
+  constructor
+  · rintro ⟨c, hc⟩
+    have hdiv : q ∣ f - Polynomial.C c := AdjoinRoot.mk_eq_mk.mp hc.symm
+    obtain ⟨h, hh⟩ := hdiv
+    exact ⟨c, h, by rw [← hh]; ring⟩
+  · rintro ⟨c, h, rfl⟩
+    exact ⟨c, by simp⟩
+
+lemma constants (q : k[X]) (c : k) : Polynomial.C c ∈ algebra q := by
+  exact (mem_algebra q _).mpr ⟨c, 0, by simp⟩
+
+lemma normalization_remainder (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    (f : k[X]) :
+    f %ₘ q = Polynomial.C ((f %ₘ q).coeff 0) +
+      Polynomial.C ((f %ₘ q).coeff 1) * Polynomial.X := by
+  have hm := Polynomial.natDegree_modByMonic_lt f hq (by
+    intro he; have he' := congrArg Polynomial.natDegree he; simp [hd] at he')
+  have hm' : (f %ₘ q).natDegree ≤ 1 := by omega
+  simpa [add_comm] using Polynomial.eq_X_add_C_of_natDegree_le_one hm'
+
+noncomputable def moduleCoefficients (q f : k[X]) : algebra q × algebra q :=
+  (⟨Polynomial.C ((f %ₘ q).coeff 0) + q * (f /ₘ q),
+    (mem_algebra q _).mpr ⟨(f %ₘ q).coeff 0, f /ₘ q, rfl⟩⟩,
+   ⟨Polynomial.C ((f %ₘ q).coeff 1), constants q _⟩)
+
+lemma moduleCoefficients_fst (q f : k[X]) :
+    ((moduleCoefficients q f).1 : k[X]) =
+      Polynomial.C ((f %ₘ q).coeff 0) + q * (f /ₘ q) := rfl
+
+lemma moduleCoefficients_snd (q f : k[X]) :
+    ((moduleCoefficients q f).2 : k[X]) = Polynomial.C ((f %ₘ q).coeff 1) := rfl
+
+lemma moduleCoefficients_reconstruct (q : k[X]) (hq : q.Monic)
+    (hd : q.natDegree = 2) (f : k[X]) :
+    (moduleCoefficients q f).1 • (1 : k[X]) +
+      (moduleCoefficients q f).2 • Polynomial.X = f := by
+  simp only [Subalgebra.smul_def, moduleCoefficients_fst, moduleCoefficients_snd, smul_eq_mul, mul_one]
+  rw [add_right_comm, ← normalization_remainder q hq hd f,
+    Polynomial.modByMonic_add_div]
+
+lemma normalization_span (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    Submodule.span (algebra q) ({1, Polynomial.X} : Set k[X]) = ⊤ := by
+  apply Submodule.eq_top_iff'.mpr
+  intro f
+  rw [← moduleCoefficients_reconstruct q hq hd f]
+  exact Submodule.add_mem _
+    (Submodule.smul_mem _ _ (Submodule.subset_span (by simp)))
+    (Submodule.smul_mem _ _ (Submodule.subset_span (by simp)))
+
+lemma normalization_module_finite (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    Module.Finite (algebra q) k[X] := by
+  rw [Module.finite_def, ← normalization_span q hq hd]
+  exact Submodule.fg_span (Set.toFinite _)
+
+lemma finite_normalization (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    (algebra q).val.toRingHom.Finite := by
+  exact normalization_module_finite q hq hd
+
+lemma normalization_spec_finite (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    AlgebraicGeometry.IsFinite (AlgebraicGeometry.Spec.map
+      (CommRingCat.ofHom (algebra q).val.toRingHom)) := by
+  exact (AlgebraicGeometry.IsFinite.SpecMap_iff _).mpr (finite_normalization q hq hd)
+
+lemma fraction_ring (q : k[X]) (hq : q ≠ 0)
+    (K : Type v) [Field K] [Algebra k[X] K] [IsFractionRing k[X] K]
+    :
+    IsFractionRing (algebra q) K := by
+  have hinj : Function.Injective (algebraMap (algebra q) K) := by
+    rw [IsScalarTower.algebraMap_eq (algebra q) k[X] K]
+    exact (IsFractionRing.injective k[X] K).comp Subtype.val_injective
+  have : FaithfulSMul (algebra q) K :=
+    (faithfulSMul_iff_algebraMap_injective (algebra q) K).mpr hinj
+  apply IsFractionRing.of_field
+  intro z
+  obtain ⟨a, b, hb, hz⟩ := IsFractionRing.div_surjective k[X] z
+  let qa : algebra q := ⟨q * a, (mem_algebra q _).mpr ⟨0, a, by simp⟩⟩
+  let qb : algebra q := ⟨q * b, (mem_algebra q _).mpr ⟨0, b, by simp⟩⟩
+  refine ⟨qa, qb, ?_⟩
+  rw [IsScalarTower.algebraMap_apply (algebra q) k[X] K qa,
+    IsScalarTower.algebraMap_apply (algebra q) k[X] K qb]
+  change z = algebraMap k[X] K (q * a) / algebraMap k[X] K (q * b)
+  rw [map_mul, map_mul, mul_div_mul_left _ _
+    ((map_ne_zero_iff _ (IsFractionRing.injective k[X] K)).mpr hq)]
+  exact hz.symm
+
+lemma integral_closure (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    (K : Type v) [Field K] [Algebra k[X] K] [IsFractionRing k[X] K]
+    :
+    IsIntegralClosure k[X] (algebra q) K := by
+  have : Module.Finite (algebra q) k[X] := normalization_module_finite q hq hd
+  have : Algebra.IsIntegral (algebra q) k[X] := Algebra.IsIntegral.of_finite _ _
+  infer_instance
+
+lemma integral_iff_polynomial (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    (K : Type v) [Field K] [Algebra k[X] K] [IsFractionRing k[X] K] (z : K) :
+    IsIntegral (algebra q) z ↔ ∃ f : k[X], algebraMap k[X] K f = z := by
+  have := integral_closure q hq hd K
+  exact IsIntegralClosure.isIntegral_iff
+
+noncomputable def fractionEquiv (q : k[X]) (hq : q ≠ 0) :
+    FractionRing (algebra q) ≃ₐ[algebra q] FractionRing k[X] := by
+  have := fraction_ring q hq (FractionRing k[X])
+  exact FractionRing.algEquiv (A := algebra q) (FractionRing k[X])
+
+lemma fractionEquiv_algebraMap (q : k[X]) (hq : q ≠ 0) (a : algebra q) :
+    fractionEquiv q hq (algebraMap (algebra q) (FractionRing (algebra q)) a) =
+      algebraMap k[X] (FractionRing k[X]) (a : k[X]) := by
+  exact (fractionEquiv q hq).commutes a
+
+lemma fractionEquiv_symm_algebraMap (q : k[X]) (hq : q ≠ 0) (a : algebra q) :
+    (fractionEquiv q hq).symm (algebraMap k[X] (FractionRing k[X]) (a : k[X])) =
+      algebraMap (algebra q) (FractionRing (algebra q)) a := by
+  apply (fractionEquiv q hq).injective
+  rw [AlgEquiv.apply_symm_apply]
+  exact (fractionEquiv_algebraMap q hq a).symm
+
+lemma fractionEquiv_symm_X (q : k[X]) (hq : q ≠ 0) :
+    (fractionEquiv q hq).symm (algebraMap k[X] (FractionRing k[X]) Polynomial.X) =
+      algebraMap (algebra q) (FractionRing (algebra q))
+        (⟨q * Polynomial.X, (mem_algebra q _).mpr ⟨0, Polynomial.X, by simp⟩⟩ : algebra q) /
+      algebraMap (algebra q) (FractionRing (algebra q))
+        (⟨q, (mem_algebra q _).mpr ⟨0, 1, by simp⟩⟩ : algebra q) := by
+  apply (fractionEquiv q hq).injective
+  rw [AlgEquiv.apply_symm_apply, map_div₀, fractionEquiv_algebraMap,
+    fractionEquiv_algebraMap, map_mul]
+  exact (mul_div_cancel_left₀ _
+    ((map_ne_zero_iff _ (IsFractionRing.injective k[X] (FractionRing k[X]))).mpr hq)).symm
+
+lemma module_generator_map_not_injective (q : k[X]) (hq : q ≠ 0) :
+    ¬ Function.Injective (fun z : algebra q × algebra q =>
+      z.1 • (1 : k[X]) + z.2 • Polynomial.X) := by
+  intro hinj
+  let a : algebra q := ⟨-(q * Polynomial.X),
+    (mem_algebra q _).mpr ⟨0, -Polynomial.X, by simp⟩⟩
+  let b : algebra q := ⟨q, (mem_algebra q _).mpr ⟨0, 1, by simp⟩⟩
+  have he : a • (1 : k[X]) + b • Polynomial.X =
+      (0 : algebra q) • (1 : k[X]) + (0 : algebra q) • Polynomial.X := by
+    simp [Subalgebra.smul_def, smul_eq_mul, a, b]
+  have hp := hinj (show (fun z : algebra q × algebra q =>
+    z.1 • (1 : k[X]) + z.2 • Polynomial.X) (a, b) =
+    (fun z : algebra q × algebra q => z.1 • (1 : k[X]) + z.2 • Polynomial.X) (0, 0)
+    from he)
+  have hb := congrArg (fun z : algebra q × algebra q => (z.2 : k[X])) hp
+  exact hq hb
+
+-- test: QuadraticPinch.moduleCoefficients.zero
+example (q : k[X]) : moduleCoefficients q 0 = (0, 0) := by
+  apply Prod.ext <;> apply Subtype.ext <;> simp [moduleCoefficients]
+
+-- test: QuadraticPinch.moduleCoefficients.generator
+example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    moduleCoefficients q Polynomial.X = (0, 1) := by
+  have ht : (Polynomial.X : k[X]).degree < q.degree := by
+    rw [Polynomial.degree_X, Polynomial.degree_eq_natDegree hq.ne_zero, hd]
+    decide
+  have hr := (Polynomial.modByMonic_eq_self_iff hq).mpr ht
+  have hdv : (Polynomial.X : k[X]) /ₘ q = 0 :=
+    (Polynomial.divByMonic_eq_zero_iff hq).mpr ht
+  apply Prod.ext <;> apply Subtype.ext <;> simp [moduleCoefficients, hr, hdv]
+
+-- test: QuadraticPinch.moduleCoefficients.cusp
+example :
+    ((moduleCoefficients (Polynomial.X ^ 2 : (ZMod 2)[X])
+      (Polynomial.X ^ 3)).1 : (ZMod 2)[X]) = Polynomial.X ^ 3 ∧
+    ((moduleCoefficients (Polynomial.X ^ 2 : (ZMod 2)[X])
+      (Polynomial.X ^ 3)).2 : (ZMod 2)[X]) = 0 := by
+  have he : (Polynomial.X ^ 3 : (ZMod 2)[X]) = Polynomial.X ^ 2 * Polynomial.X := by ring
+  simp [moduleCoefficients, he, Polynomial.self_mul_modByMonic,
+    Polynomial.monic_X_pow, Polynomial.mul_divByMonic_cancel_left]
+
+-- test: QuadraticPinch.normalization.cusp_finite
+example : (algebra (Polynomial.X ^ 2 : (ZMod 2)[X])).val.toRingHom.Finite := by
+  exact finite_normalization _ (Polynomial.monic_X_pow 2) (by simp)
+
+-- test: QuadraticPinch.normalization.nonsplit_finite
+example : (algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 2)[X])).val.toRingHom.Finite := by
+  apply finite_normalization
+  · simpa [Polynomial.Monic] using (Polynomial.leadingCoeff_quadratic
+      (a := (1 : ZMod 2)) (b := 1) (c := 1) one_ne_zero)
+  · simpa using (Polynomial.natDegree_quadratic
+      (a := (1 : ZMod 2)) (b := 1) (c := 1) one_ne_zero)
+
+-- test: QuadraticPinch.normalization.not_basis
+example (q : k[X]) (hq : q.Monic) (_hd : q.natDegree = 2) :
+    ¬ Function.Injective (fun z : algebra q × algebra q =>
+      z.1 • (1 : k[X]) + z.2 • Polynomial.X) := by
+  exact module_generator_map_not_injective q hq.ne_zero
+
+-- test: QuadraticPinch.fractionEquiv.cusp
+example (a : algebra (Polynomial.X ^ 2 : (ZMod 2)[X])) :
+    fractionEquiv (Polynomial.X ^ 2 : (ZMod 2)[X]) (by simp)
+      (algebraMap (algebra (Polynomial.X ^ 2 : (ZMod 2)[X])) _ a) =
+        algebraMap (ZMod 2)[X] (FractionRing (ZMod 2)[X]) (a : (ZMod 2)[X]) := by
+  apply fractionEquiv_algebraMap
+
+-- test: QuadraticPinch.fractionEquiv.unit
+example (a : algebra (1 : k[X])) :
+    (fractionEquiv (1 : k[X]) one_ne_zero).symm
+      (algebraMap k[X] (FractionRing k[X]) (a : k[X])) =
+      algebraMap (algebra (1 : k[X])) (FractionRing (algebra (1 : k[X]))) a := by
+  apply fractionEquiv_symm_algebraMap
+
+-- test: QuadraticPinch.fractionEquiv.fractions
+example (q : k[X]) (hq : q ≠ 0) (a b : algebra q) :
+    fractionEquiv q hq
+      (algebraMap (algebra q) (FractionRing (algebra q)) a /
+        algebraMap (algebra q) (FractionRing (algebra q)) b) =
+      algebraMap k[X] (FractionRing k[X]) (a : k[X]) /
+        algebraMap k[X] (FractionRing k[X]) (b : k[X]) := by
+  rw [map_div₀, fractionEquiv_algebraMap, fractionEquiv_algebraMap]
+
+-- test: QuadraticPinch.normalization.repeated_char3
+example : (algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 3)[X])).val.toRingHom.Finite := by
+  apply finite_normalization
+  · simpa [Polynomial.Monic] using (Polynomial.leadingCoeff_quadratic
+      (a := (1 : ZMod 3)) (b := 1) (c := 1) one_ne_zero)
+  · simpa using (Polynomial.natDegree_quadratic
+      (a := (1 : ZMod 3)) (b := 1) (c := 1) one_ne_zero)
+
+-- test: QuadraticPinch.normalization.integral_coordinate
+example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    IsIntegral (algebra q) (algebraMap k[X] (FractionRing k[X]) Polynomial.X) := by
+  exact (integral_iff_polynomial q hq hd _ _).mpr ⟨Polynomial.X, rfl⟩
+
+-- test: QuadraticPinch.normalization.zero_not_finite
+example : ¬ (algebra (0 : k[X])).val.toRingHom.Finite := by
+  intro hf
+  have ha : algebra (0 : k[X]) = ⊥ := by ext f; simp [mem_algebra, Algebra.mem_bot, eq_comm]
+  have : Module.Finite (algebra (0 : k[X])) k[X] := hf
+  have : Module.Finite k (algebra (0 : k[X])) := by rw [ha]; infer_instance
+  have : Module.Finite k k[X] := by
+    exact Module.Finite.trans (algebra (0 : k[X])) k[X]
+  exact Polynomial.not_finite (R := k) this
+
+end TauCeti.GenusOne.QuadraticPinch
+
+#print axioms TauCeti.GenusOne.QuadraticPinch.algebra
+#print axioms TauCeti.GenusOne.QuadraticPinch.mem_algebra
+#print axioms TauCeti.GenusOne.QuadraticPinch.constants
+#print axioms TauCeti.GenusOne.QuadraticPinch.normalization_remainder
+#print axioms TauCeti.GenusOne.QuadraticPinch.moduleCoefficients
+#print axioms TauCeti.GenusOne.QuadraticPinch.moduleCoefficients_fst
+#print axioms TauCeti.GenusOne.QuadraticPinch.moduleCoefficients_snd
+#print axioms TauCeti.GenusOne.QuadraticPinch.moduleCoefficients_reconstruct
+#print axioms TauCeti.GenusOne.QuadraticPinch.normalization_span
+#print axioms TauCeti.GenusOne.QuadraticPinch.normalization_module_finite
+#print axioms TauCeti.GenusOne.QuadraticPinch.finite_normalization
+#print axioms TauCeti.GenusOne.QuadraticPinch.normalization_spec_finite
+#print axioms TauCeti.GenusOne.QuadraticPinch.fraction_ring
+#print axioms TauCeti.GenusOne.QuadraticPinch.integral_closure
+#print axioms TauCeti.GenusOne.QuadraticPinch.integral_iff_polynomial
+#print axioms TauCeti.GenusOne.QuadraticPinch.fractionEquiv
+#print axioms TauCeti.GenusOne.QuadraticPinch.fractionEquiv_algebraMap
+#print axioms TauCeti.GenusOne.QuadraticPinch.fractionEquiv_symm_algebraMap
+#print axioms TauCeti.GenusOne.QuadraticPinch.fractionEquiv_symm_X
+#print axioms TauCeti.GenusOne.QuadraticPinch.module_generator_map_not_injective
+
+namespace TauCeti.GenusOne.QuadraticPinch
+
+variable {k : Type u} [Field k]
+
+-- Native quotient structure, made explicit because AdjoinRoot seals its polynomial action.
+local instance polynomialQuotientAlgebra (q : k[X]) : Algebra k[X] (AdjoinRoot q) :=
+  (AdjoinRoot.mk q).toAlgebra
+
+local instance polynomialQuotientTower (q : k[X]) :
+    IsScalarTower k k[X] (AdjoinRoot q) :=
+  IsScalarTower.of_algebraMap_eq fun _ => rfl
+
+lemma normalization_image_span (q f : k[X]) :
+    f ∈ Submodule.span (algebra q) ({1} : Set k[X]) ↔ f ∈ algebra q := by sorry
+
+lemma conductor_image_span (q : k[X]) (z : AdjoinRoot q) :
+    z ∈ Submodule.span (algebra q) ({1} : Set (AdjoinRoot q)) ↔
+      z ∈ (⊥ : Subalgebra k (AdjoinRoot q)) := by sorry
+
+def residueCokernelMap (q : k[X]) :
+    k[X] →ₗ[algebra q]
+      AdjoinRoot q ⧸ Submodule.span (algebra q) ({1} : Set (AdjoinRoot q)) := by sorry
+
+lemma residueCokernelMap_apply (q f : k[X]) :
+    residueCokernelMap q f =
+      (Submodule.Quotient.mk (AdjoinRoot.mk q f) :
+        AdjoinRoot q ⧸ Submodule.span (algebra q) ({1} : Set (AdjoinRoot q))) := by sorry
+
+lemma residueCokernelMap_ker (q : k[X]) :
+    LinearMap.ker (residueCokernelMap q) =
+      Submodule.span (algebra q) ({1} : Set k[X]) := by sorry
+
+lemma residueCokernelMap_surjective (q : k[X]) :
+    Function.Surjective (residueCokernelMap q) := by sorry
+
+noncomputable def residueCokernelEquiv (q : k[X]) :
+    (k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) ≃ₗ[algebra q]
+      AdjoinRoot q ⧸ Submodule.span (algebra q) ({1} : Set (AdjoinRoot q)) := by sorry
+
+lemma residueCokernelEquiv_apply (q f : k[X]) :
+    residueCokernelEquiv q (Submodule.Quotient.mk f) =
+      (Submodule.Quotient.mk (AdjoinRoot.mk q f) :
+        AdjoinRoot q ⧸ Submodule.span (algebra q) ({1} : Set (AdjoinRoot q))) := by sorry
+
+lemma residueCokernelEquiv_symm_apply (q f : k[X]) :
+    (residueCokernelEquiv q).symm
+      (Submodule.Quotient.mk (AdjoinRoot.mk q f)) =
+        (Submodule.Quotient.mk f :
+          k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) := by sorry
+
+lemma conductor_span_restrictScalars (q : k[X]) :
+    (Submodule.span (algebra q) ({1} : Set (AdjoinRoot q))).restrictScalars k =
+      (⊥ : Subalgebra k (AdjoinRoot q)).toSubmodule := by sorry
+
+lemma normalization_quotient_reconstruction (q : k[X]) (hq : q.Monic)
+    (hd : q.natDegree = 2) (f : k[X]) :
+    (Submodule.Quotient.mk f :
+      k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) =
+        (moduleCoefficients q f).2 • Submodule.Quotient.mk Polynomial.X := by sorry
+
+-- node: G.1/quadratic-constant-remainder
+lemma constant_remainder (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    (c : k) (h : k[X]) :
+    (Polynomial.C c + q * h) %ₘ q = Polynomial.C c := by
+  rw [Polynomial.add_modByMonic, Polynomial.self_mul_modByMonic hq, add_zero]
+  apply (Polynomial.modByMonic_eq_self_iff hq).mpr
+  apply Polynomial.degree_C_le.trans_lt
+  rw [Polynomial.degree_eq_natDegree hq.ne_zero, hd]
+  norm_num
+
+-- node: G.1/quadratic-remainder-scalar
+lemma remainder_scalar (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    (f : algebra q) : f.val %ₘ q = Polynomial.C ((f.val %ₘ q).coeff 0) := by
+  obtain ⟨c, h, hf⟩ := (mem_algebra q f.val).mp f.property
+  rw [hf, constant_remainder q hq hd]
+  simp
+
+-- node: G.1/quadratic-scalar-unique
+lemma scalar_unique (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    {f : k[X]} {c d : k} {h j : k[X]}
+    (hc : f = Polynomial.C c + q * h) (hj : f = Polynomial.C d + q * j) : c = d := by
+  have hmod := congrArg (fun p : k[X] => p %ₘ q) (hc.symm.trans hj)
+  rw [constant_remainder q hq hd, constant_remainder q hq hd] at hmod
+  exact Polynomial.C_injective hmod
+
+-- node: G.1/quadratic-linear-remainder
+lemma linear_remainder (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    (c : k) : (Polynomial.C c * Polynomial.X) %ₘ q = Polynomial.C c * Polynomial.X := by
+  by_cases hc : c = 0
+  · simp [hc]
+  · apply (Polynomial.modByMonic_eq_self_iff hq).mpr
+    rw [Polynomial.degree_C_mul_X hc, Polynomial.degree_eq_natDegree hq.ne_zero, hd]
+    norm_num
+
+-- acceptance: the degree-two quotient has a genuine nonconstant root.
+example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    Polynomial.X ∉ algebra q := by
+  intro hm
+  let f : algebra q := ⟨Polynomial.X, hm⟩
+  have h := remainder_scalar q hq hd f
+  have hX : (Polynomial.X : k[X]) %ₘ q = Polynomial.X := by
+    simpa using linear_remainder q hq hd 1
+  change (Polynomial.X : k[X]) %ₘ q = _ at h
+  rw [hX] at h
+  have hc := congrArg (fun p : k[X] => p.coeff 1) h
+  simp at hc
+
+-- acceptance: the zero quotient polynomial leaves only constants.
+example : Polynomial.X ∉ algebra (0 : k[X]) := by
+  intro h
+  obtain ⟨c, j, hj⟩ := (mem_algebra 0 Polynomial.X).mp h
+  have hc := congrArg (fun p : k[X] => p.coeff 1) hj
+  simp at hc
+
+-- acceptance: degree one makes the pinch all polynomials; degree two is essential.
+example : (Polynomial.X : k[X]) ∈ algebra Polynomial.X :=
+  (mem_algebra Polynomial.X Polynomial.X).mpr ⟨0, 1, by simp⟩
+
+-- acceptance: the unit ideal prevents scalar uniqueness and residue recovery.
+example : (Polynomial.C (1 : k)) %ₘ (1 : k[X]) ≠ Polynomial.C 1 := by simp
+
+-- node: G.1/quadratic-pinch-residue
+/-- Compute the unique scalar remainder, with the actual ring-map laws. -/
+def residue (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) : algebra q →ₐ[k] k where
+  toFun f := (f.val %ₘ q).coeff 0
+  map_zero' := by simp
+  map_one' := by
+    change ((1 : k[X]) %ₘ q).coeff 0 = 1
+    have hc : (1 : k[X]) %ₘ q = 1 := by simpa using constant_remainder q hq hd 1 0
+    simp [hc]
+  map_add' f g := by
+    change ((f.val + g.val) %ₘ q).coeff 0 = _
+    rw [Polynomial.add_modByMonic, Polynomial.coeff_add]
+  map_mul' f g := by
+    change ((f.val * g.val) %ₘ q).coeff 0 = _
+    rw [Polynomial.mul_modByMonic, remainder_scalar q hq hd f,
+      remainder_scalar q hq hd g, ← Polynomial.C_mul]
+    have hc := constant_remainder q hq hd
+      ((f.val %ₘ q).coeff 0 * (g.val %ₘ q).coeff 0) 0
+    simpa using congrArg (fun p : k[X] => p.coeff 0) hc
+  commutes' c := by
+    change ((Polynomial.C c) %ₘ q).coeff 0 = c
+    have hc := constant_remainder q hq hd c 0
+    simpa using congrArg (fun p : k[X] => p.coeff 0) hc
+
+lemma residue_normal_form (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    (f : algebra q) (c : k) (h : k[X]) (hf : f.val = Polynomial.C c + q * h) :
+    residue q hq hd f = c := by
+  change (f.val %ₘ q).coeff 0 = c
+  rw [hf, constant_remainder q hq hd]
+  simp
+
+lemma residue_surjective (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    Function.Surjective (residue q hq hd) := fun c =>
+  ⟨algebraMap k (algebra q) c, (residue q hq hd).commutes c⟩
+
+lemma residue_kernel (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    RingHom.ker (residue q hq hd).toRingHom =
+      (Ideal.span ({q} : Set k[X])).comap (algebra q).val.toRingHom := by
+  ext f
+  change ((f.val %ₘ q).coeff 0 = 0) ↔ f.val ∈ Ideal.span {q}
+  rw [Ideal.mem_span_singleton]
+  constructor
+  · intro h
+    apply (Polynomial.modByMonic_eq_zero_iff_dvd hq).mp
+    rw [remainder_scalar q hq hd f, h, Polynomial.C_0]
+  · intro h
+    rw [(Polynomial.modByMonic_eq_zero_iff_dvd hq).mpr h]
+    simp
+
+-- test: QuadraticPinch.test_residue_constant
+example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    residue q hq hd (algebraMap k (algebra q) 1) = 1 := (residue q hq hd).commutes 1
+
+-- test: QuadraticPinch.test_residue_q
+example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) (hmem : q ∈ algebra q) :
+    residue q hq hd ⟨q,hmem⟩ = 0 :=
+  residue_normal_form q hq hd _ 0 1 (by simp)
+
+-- test: QuadraticPinch.test_residue_tq
+example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    (hmem : Polynomial.X * q ∈ algebra q) :
+    residue q hq hd ⟨Polynomial.X * q,hmem⟩ = 0 :=
+  residue_normal_form q hq hd _ 0 Polynomial.X (by simp [mul_comm])
+
+
+lemma normalization_quotient_scalar_action (q : k[X]) (hq : q.Monic)
+    (hd : q.natDegree = 2) (a : algebra q) (f : k[X]) :
+    a • (Submodule.Quotient.mk f :
+      k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) =
+        residue q hq hd a • Submodule.Quotient.mk f := by sorry
+
+lemma normalization_quotient_generator_ne_zero (q : k[X]) (hq : q.Monic)
+    (hd : q.natDegree = 2) :
+    (Submodule.Quotient.mk Polynomial.X :
+      k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) ≠ 0 := by sorry
+
+lemma normalization_quotient_annihilator_mem (q : k[X]) (hq : q.Monic)
+    (hd : q.natDegree = 2) (a : algebra q) :
+    a ∈ Module.annihilator (algebra q)
+      (k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) ↔
+        residue q hq hd a = 0 := by sorry
+
+lemma normalization_quotient_annihilator (q : k[X]) (hq : q.Monic)
+    (hd : q.natDegree = 2) :
+    Module.annihilator (algebra q)
+      (k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) =
+        (Ideal.span ({q} : Set k[X])).comap (algebra q).val.toRingHom := by sorry
+
+lemma normalization_quotient_finrank (q : k[X]) (hq : q.Monic)
+    (hd : q.natDegree = 2) :
+    Module.finrank k (k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) = 1 := by sorry
+
+lemma residueCokernelEquiv_annihilator (q : k[X]) (hq : q.Monic)
+    (hd : q.natDegree = 2) :
+    Module.annihilator (algebra q)
+      (AdjoinRoot q ⧸ Submodule.span (algebra q) ({1} : Set (AdjoinRoot q))) =
+        (Ideal.span ({q} : Set k[X])).comap (algebra q).val.toRingHom := by sorry
+
+-- test: QuadraticPinch.residueCokernelMap.constant
+example (q : k[X]) (c : k) : residueCokernelMap q (Polynomial.C c) = 0 := by sorry
+
+-- test: QuadraticPinch.residueCokernelMap.multiple
+example (q h : k[X]) : residueCokernelMap q (q * h) = 0 := by sorry
+
+-- test: QuadraticPinch.residueCokernelMap.cusp_root
+example : residueCokernelMap (Polynomial.X ^ 2 : (ZMod 2)[X]) Polynomial.X ≠ 0 := by sorry
+
+-- test: QuadraticPinch.residueCokernelEquiv.representatives
+example (q f : k[X]) :
+    residueCokernelEquiv q (Submodule.Quotient.mk f) =
+      (Submodule.Quotient.mk (AdjoinRoot.mk q f) :
+        AdjoinRoot q ⧸ Submodule.span (algebra q) ({1} : Set (AdjoinRoot q))) := by sorry
+
+-- test: QuadraticPinch.residueCokernelEquiv.unit
+example (f : k[X]) :
+    residueCokernelEquiv (1 : k[X]) (Submodule.Quotient.mk f) = 0 := by sorry
+
+-- test: QuadraticPinch.residueCokernelEquiv.zero
+example (f : k[X]) :
+    (residueCokernelEquiv (0 : k[X])).symm
+      (Submodule.Quotient.mk (AdjoinRoot.mk 0 f)) =
+        (Submodule.Quotient.mk f :
+          k[X] ⧸ Submodule.span (algebra (0 : k[X])) ({1} : Set k[X])) := by sorry
+
+-- test: QuadraticPinch.normalizationCokernel.cusp_dimension
+example :
+    Module.finrank (ZMod 2)
+      ((ZMod 2)[X] ⧸ Submodule.span (algebra (Polynomial.X ^ 2 : (ZMod 2)[X]))
+        ({1} : Set (ZMod 2)[X])) = 1 := by sorry
+
+-- test: QuadraticPinch.normalizationCokernel.nonsplit_dimension
+example :
+    Module.finrank (ZMod 2)
+      ((ZMod 2)[X] ⧸ Submodule.span
+        (algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 2)[X]))
+        ({1} : Set (ZMod 2)[X])) = 1 := by sorry
+
+-- test: QuadraticPinch.residueCokernelEquiv.repeated_char3
+example :
+    Module.annihilator
+      (algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 3)[X]))
+      (AdjoinRoot (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 3)[X]) ⧸
+        Submodule.span
+          (algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 3)[X]))
+          ({1} : Set (AdjoinRoot (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 3)[X])))) =
+      (Ideal.span ({Polynomial.X ^ 2 + Polynomial.X + 1} : Set (ZMod 3)[X])).comap
+        (algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 3)[X])).val.toRingHom := by sorry
+
+-- test: QuadraticPinch.normalizationCokernel.unit_not_annihilator
+example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    (1 : algebra q) ∉ Module.annihilator (algebra q)
+      (k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) := by sorry
+
+-- test: QuadraticPinch.normalizationCokernel.conductor_action
+example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) (f : k[X]) :
+    (⟨q, (mem_algebra q _).mpr ⟨0, 1, by simp⟩⟩ : algebra q) •
+      (Submodule.Quotient.mk f :
+        k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) = 0 := by sorry
+
+lemma residueCokernelEquiv_scalar_action (q : k[X]) (hq : q.Monic)
+    (hd : q.natDegree = 2) (a : algebra q) (z : AdjoinRoot q) :
+    a • (Submodule.Quotient.mk z :
+      AdjoinRoot q ⧸ Submodule.span (algebra q) ({1} : Set (AdjoinRoot q))) =
+        residue q hq hd a • Submodule.Quotient.mk z := by sorry
+
+-- test: QuadraticPinch.residueCokernelEquiv.scalar_action
+example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    (a : algebra q) (z : AdjoinRoot q) :
+    a • (Submodule.Quotient.mk z :
+      AdjoinRoot q ⧸ Submodule.span (algebra q) ({1} : Set (AdjoinRoot q))) =
+        residue q hq hd a • Submodule.Quotient.mk z := by sorry
+
+lemma normalization_span_restrictScalars (q : k[X]) :
+    (Submodule.span (algebra q) ({1} : Set k[X])).restrictScalars k =
+      (algebra q).toSubmodule := by sorry
+
+noncomputable def residueCokernelEquiv_over_k (q : k[X]) :
+    (k[X] ⧸ (algebra q).toSubmodule) ≃ₗ[k]
+      AdjoinRoot q ⧸ (⊥ : Subalgebra k (AdjoinRoot q)).toSubmodule := by sorry
+
+lemma residueCokernelEquiv_over_k_apply (q f : k[X]) :
+    residueCokernelEquiv_over_k q (Submodule.Quotient.mk f) =
+      (Submodule.Quotient.mk (AdjoinRoot.mk q f) :
+        AdjoinRoot q ⧸ (⊥ : Subalgebra k (AdjoinRoot q)).toSubmodule) := by sorry
+
+lemma residueCokernelEquiv_over_k_symm_apply (q f : k[X]) :
+    (residueCokernelEquiv_over_k q).symm
+      (Submodule.Quotient.mk (AdjoinRoot.mk q f)) =
+        (Submodule.Quotient.mk f : k[X] ⧸ (algebra q).toSubmodule) := by sorry
+
+-- test: QuadraticPinch.residueCokernelEquiv_over_k.cusp
+example (f : (ZMod 2)[X]) :
+    residueCokernelEquiv_over_k (Polynomial.X ^ 2 : (ZMod 2)[X])
+      (Submodule.Quotient.mk f) =
+      (Submodule.Quotient.mk (AdjoinRoot.mk (Polynomial.X ^ 2) f) :
+        AdjoinRoot (Polynomial.X ^ 2 : (ZMod 2)[X]) ⧸
+          (⊥ : Subalgebra (ZMod 2) (AdjoinRoot (Polynomial.X ^ 2 : (ZMod 2)[X]))).toSubmodule) := by sorry
+
+-- test: QuadraticPinch.residueCokernelEquiv_over_k.unit
+example (f : k[X]) :
+    residueCokernelEquiv_over_k (1 : k[X]) (Submodule.Quotient.mk f) = 0 := by sorry
+
+-- test: QuadraticPinch.residueCokernelEquiv_over_k.zero
+example (f : k[X]) :
+    (residueCokernelEquiv_over_k (0 : k[X])).symm
+      (Submodule.Quotient.mk (AdjoinRoot.mk 0 f)) =
+        (Submodule.Quotient.mk f : k[X] ⧸ (algebra (0 : k[X])).toSubmodule) := by sorry
+
+end TauCeti.GenusOne.QuadraticPinch
+
+namespace TauCeti.GenusOne.QuadraticPinch.InfinityChart
+variable {R : Type u} [CommRing R]
+
+def curve (a b : R) : WeierstrassCurve R := by sorry
+
+def denominator (a b : R) : R[X] := by sorry
+
+def relation (a b : R) : R[X][X] := by sorry
+
+abbrev Chart (a b : R) := AdjoinRoot (relation a b)
+
+lemma equation_chart (a b u z : R) :
+    (curve a b).toProjective.Equation ![u, 1, z] ↔
+      z * (1 + a * u + b * u ^ 2) = u ^ 3 := by sorry
+
+lemma bezout (a b : R) :
+    denominator a b * (1 - C a * X + C (a ^ 2 - b) * X ^ 2) =
+      1 + X ^ 3 * (C (a ^ 3 - 2 * a * b) + C (b * (a ^ 2 - b)) * X) := by sorry
+
+lemma root_relation (a b : R) :
+    algebraMap R[X] (Chart a b) (denominator a b) * AdjoinRoot.root (relation a b) =
+      algebraMap R[X] (Chart a b) (X ^ 3) := by sorry
+
+def denominatorInverse (a b : R) : Chart a b := by sorry
+
+lemma mul_inverse (a b : R) :
+    algebraMap R[X] (Chart a b) (denominator a b) * denominatorInverse a b = 1 := by sorry
+
+lemma denominator_isUnit (a b : R) :
+    IsUnit (algebraMap R[X] (Chart a b) (denominator a b)) := by sorry
+
+def toLocalization (a b : R) : Chart a b →ₐ[R[X]] Localization.Away (denominator a b) := by sorry
+
+def fromLocalization (a b : R) : Localization.Away (denominator a b) →ₐ[R[X]] Chart a b := by sorry
+
+lemma toLocalization_root (a b : R) :
+    toLocalization a b (AdjoinRoot.root (relation a b)) =
+      algebraMap R[X] (Localization.Away (denominator a b)) (X ^ 3) *
+        IsLocalization.Away.invSelf (denominator a b) := by sorry
+
+lemma to_from (a b : R) :
+    (toLocalization a b).comp (fromLocalization a b) = AlgHom.id R[X] _ := by sorry
+
+lemma from_to (a b : R) :
+    (fromLocalization a b).comp (toLocalization a b) = AlgHom.id R[X] _ := by sorry
+
+def equiv (a b : R) : Chart a b ≃ₐ[R[X]] Localization.Away (denominator a b) := by sorry
+
+lemma equiv_base (a b : R) (f : R[X]) :
+    equiv a b (algebraMap R[X] (Chart a b) f) =
+      algebraMap R[X] (Localization.Away (denominator a b)) f := by sorry
+
+lemma equiv_root (a b : R) :
+    equiv a b (AdjoinRoot.root (relation a b)) =
+      algebraMap R[X] (Localization.Away (denominator a b)) (X ^ 3) *
+        IsLocalization.Away.invSelf (denominator a b) := by sorry
+
+lemma fromLocalization_inv (a b : R) :
+    fromLocalization a b (IsLocalization.Away.invSelf (denominator a b)) =
+      denominatorInverse a b := by sorry
+
+lemma equiv_inverse_base (a b : R) (f : R[X]) :
+    (equiv a b).symm (algebraMap R[X] (Localization.Away (denominator a b)) f) =
+      algebraMap R[X] (Chart a b) f := by sorry
+
+lemma equiv_inverse_inv (a b : R) :
+    (equiv a b).symm (IsLocalization.Away.invSelf (denominator a b)) =
+      denominatorInverse a b := by sorry
+
+lemma localization (a b : R) :
+    IsLocalization.Away (denominator a b) (Chart a b) := by sorry
+
+lemma spec_openImmersion (a b : R) :
+    AlgebraicGeometry.IsOpenImmersion (AlgebraicGeometry.Spec.map
+      (CommRingCat.ofHom (algebraMap R[X] (Chart a b)))) := by sorry
+
+def normalizationCoordinates (a b T U : R) : Fin 3 → R := by sorry
+
+lemma normalization_homogeneous (a b T U r : R) :
+    normalizationCoordinates a b (r * T) (r * U) =
+      r ^ 3 • normalizationCoordinates a b T U := by sorry
+
+lemma normalization_nonzero {k : Type u} [Field k] (a b T U : k)
+    (h : T ≠ 0 ∨ U ≠ 0) : normalizationCoordinates a b T U ≠ 0 := by sorry
+
+lemma normalization_equation (a b T U : R) :
+    (curve a b).toProjective.Equation (normalizationCoordinates a b T U) := by sorry
+
+lemma infinity_nonsingular {k : Type u} [Field k] (a b : k) :
+    (curve a b).toProjective.Nonsingular ![0, 1, 0] := by sorry
+
+-- test: InfinityChart.normalizationCoordinates.finite
+example (a b t : R) : normalizationCoordinates a b t 1 =
+    ![t ^ 2 + a * t + b, t * (t ^ 2 + a * t + b), 1] := by sorry
+
+-- test: InfinityChart.normalizationCoordinates.infinity
+example (a b : R) : normalizationCoordinates a b 1 0 = ![0, 1, 0] := by sorry
+
+-- test: InfinityChart.normalizationCoordinates.nonzero_char2
+example : normalizationCoordinates (0 : ZMod 2) 1 1 0 ≠ 0 := by sorry
+
+-- test: InfinityChart.curve.origin
+example (a b : R) : (curve a b).toProjective.Equation ![0, 0, 1] := by sorry
+
+-- test: InfinityChart.curve.finite_normalization
+example (a b t : R) : (curve a b).toProjective.Equation
+    ![t ^ 2 + a * t + b, t * (t ^ 2 + a * t + b), 1] := by sorry
+
+-- test: InfinityChart.curve.infinity_smooth
+example (a b : ZMod 2) : (curve a b).toProjective.Nonsingular ![0, 1, 0] := by sorry
+
+-- test: InfinityChart.denominator.constant
+example (a b : R) : (denominator a b).coeff 0 = 1 := by sorry
+
+-- test: InfinityChart.denominator.cusp
+example : denominator (0 : R) 0 = 1 := by sorry
+
+-- test: InfinityChart.denominator.base_change
+example {S : Type*} [CommRing S] (f : R →+* S) (a b : R) :
+    (denominator a b).map f = denominator (f a) (f b) := by sorry
+
+-- test: InfinityChart.relation.leading
+example (a b : R) : (relation a b).coeff 1 = denominator a b := by sorry
+
+-- test: InfinityChart.relation.constant
+example (a b : R) : (relation a b).coeff 0 = -(X ^ 3 : R[X]) := by sorry
+
+-- test: InfinityChart.relation.cusp
+example : relation (0 : R) 0 = X - C (X ^ 3 : R[X]) := by sorry
+
+-- test: InfinityChart.denominatorInverse.cusp
+example : denominatorInverse (0 : R) 0 = 1 := by sorry
+
+-- test: InfinityChart.denominatorInverse.nonreduced
+example : algebraMap (ZMod 4)[X] (Chart (2 : ZMod 4) 0) (1 + C 2 * X) *
+    denominatorInverse (2 : ZMod 4) 0 = 1 := by sorry
+
+-- test: InfinityChart.denominatorInverse.repeated_char2
+example : algebraMap (ZMod 2)[X] (Chart (0 : ZMod 2) 1) (1 + X ^ 2) *
+    denominatorInverse (0 : ZMod 2) 1 = 1 := by sorry
+
+-- test: InfinityChart.toLocalization.base
+example (a b : R) (f : R[X]) :
+    toLocalization a b (algebraMap R[X] (Chart a b) f) =
+      algebraMap R[X] (Localization.Away (denominator a b)) f := by sorry
+
+-- test: InfinityChart.toLocalization.root
+example (a b : R) :
+    toLocalization a b (AdjoinRoot.root (relation a b)) =
+      algebraMap R[X] (Localization.Away (denominator a b)) (X ^ 3) *
+        IsLocalization.Away.invSelf (denominator a b) := by sorry
+
+-- test: InfinityChart.toLocalization.cusp
+example : toLocalization (0 : R) 0 (AdjoinRoot.root (relation (0 : R) 0)) =
+    algebraMap R[X] (Localization.Away (denominator (0 : R) 0)) (X ^ 3) := by sorry
+
+-- test: InfinityChart.fromLocalization.base
+example (a b : R) (f : R[X]) :
+    fromLocalization a b (algebraMap R[X] (Localization.Away (denominator a b)) f) =
+      algebraMap R[X] (Chart a b) f := by sorry
+
+-- test: InfinityChart.fromLocalization.inverse
+example (a b : R) : fromLocalization a b
+    (IsLocalization.Away.invSelf (denominator a b)) = denominatorInverse a b := by sorry
+
+-- test: InfinityChart.fromLocalization.cusp
+example : fromLocalization (0 : R) 0
+    (IsLocalization.Away.invSelf (denominator (0 : R) 0)) = 1 := by sorry
+
+-- test: InfinityChart.equiv.actual_forward
+example (a b : R) : (equiv a b).toAlgHom = toLocalization a b := by sorry
+
+-- test: InfinityChart.equiv.actual_inverse
+example (a b : R) : (equiv a b).symm.toAlgHom = fromLocalization a b := by sorry
+
+-- test: InfinityChart.equiv.coefficient
+example (a b : R) (f : R[X]) :
+    (equiv a b).symm (equiv a b (algebraMap R[X] (Chart a b) f)) =
+      algebraMap R[X] (Chart a b) f := by sorry
+
+end TauCeti.GenusOne.QuadraticPinch.InfinityChart
+universe z
+namespace Subring
+
+/-- The largest ideal of B contained in the arbitrary subring A. -/
+def conductor {B : Type u} [CommRing B] (A : Subring B) : Ideal B where
+  carrier := {b | ∀ x : B, b * x ∈ A}
+  zero_mem' := fun x => by
+    rw [zero_mul]
+    exact A.zero_mem
+  add_mem' := fun ha hb x => by
+    rw [add_mul]
+    exact A.add_mem (ha x) (hb x)
+  smul_mem' := fun r b hb x => by
+    change (r * b) * x ∈ A
+    rw [show r * b * x = b * (r * x) by ring]
+    exact hb (r * x)
+
+lemma conductor_mem {B : Type u} [CommRing B] (A : Subring B) (b : B) :
+    b ∈ A.conductor ↔ ∀ x : B, b * x ∈ A := Iff.rfl
+
+lemma conductor_le {B : Type u} [CommRing B] (A : Subring B) :
+    (A.conductor : Set B) ⊆ A := fun _ hb => by simpa using hb 1
+
+end Subring
+
+namespace TauCeti.GenusOne.AffinePinching
+variable {A : Type u} {B : Type v} [CommRing A] [CommRing B]
+
+-- node: G.0/common-ideal-kernel-annihilation
+lemma commonIdeal_kill_kernel (f : A →+* B) (I : Ideal A)
+    (hker : RingHom.ker f ⊓ I = ⊥) (t : A) (ht : t ∈ I)
+    (a : A) (ha : f a = 0) : t * a = 0 := by
+  have hm : t * a ∈ RingHom.ker f ⊓ I := by
+    constructor
+    · change f (t * a) = 0
+      simp [ha]
+    · exact I.mul_mem_right a ht
+  simpa [hker] using hm
+
+-- node: G.0/common-ideal-away-bijective
+lemma commonIdeal_away_bijective (At : Type w) (Bt : Type z)
+    [CommRing At] [CommRing Bt] [Algebra A At] [Algebra B Bt]
+    (f : A →+* B) (I : Ideal A)
+    (himage : (I.map f : Set B) = f '' (I : Set A))
+    (hker : RingHom.ker f ⊓ I = ⊥) (t : A) (ht : t ∈ I)
+    [IsLocalization.Away t At] [IsLocalization.Away (f t) Bt] :
+    Function.Bijective (IsLocalization.Away.map At Bt f t) := by
+  constructor
+  · apply (IsLocalization.Away.map_injective_iff (S := At) (Q := Bt) f t).mpr
+    intro a ha
+    exact ⟨1, by simpa using commonIdeal_kill_kernel f I hker t ht a ha⟩
+  · apply (IsLocalization.Away.map_surjective_iff (S := At) (Q := Bt) f t).mpr
+    intro b
+    have hm : f t * b ∈ I.map f :=
+      (I.map f).mul_mem_right b (Ideal.mem_map_of_mem f ht)
+    change f t * b ∈ (I.map f : Set B) at hm
+    rw [himage] at hm
+    obtain ⟨a, _, ha⟩ := hm
+    exact ⟨a, 1, by simpa using ha⟩
+
+-- node: G.0/common-ideal-away-equiv
+noncomputable def commonIdealAwayEquiv (At : Type w) (Bt : Type z)
+    [CommRing At] [CommRing Bt] [Algebra A At] [Algebra B Bt]
+    (f : A →+* B) (I : Ideal A)
+    (himage : (I.map f : Set B) = f '' (I : Set A))
+    (hker : RingHom.ker f ⊓ I = ⊥) (t : A) (ht : t ∈ I)
+    [IsLocalization.Away t At] [IsLocalization.Away (f t) Bt] : At ≃+* Bt :=
+  RingEquiv.ofBijective (IsLocalization.Away.map At Bt f t)
+    (commonIdeal_away_bijective At Bt f I himage hker t ht)
+
+section API
+variable (At : Type w) (Bt : Type z)
+    [CommRing At] [CommRing Bt] [Algebra A At] [Algebra B Bt]
+    (f : A →+* B) (I : Ideal A)
+    (himage : (I.map f : Set B) = f '' (I : Set A))
+    (hker : RingHom.ker f ⊓ I = ⊥) (t : A) (ht : t ∈ I)
+    [IsLocalization.Away t At] [IsLocalization.Away (f t) Bt]
+
+lemma commonIdealAwayEquiv_apply (x : At) :
+    commonIdealAwayEquiv At Bt f I himage hker t ht x =
+      IsLocalization.Away.map At Bt f t x := rfl
+
+lemma commonIdealAwayEquiv_algebraMap (a : A) :
+    commonIdealAwayEquiv At Bt f I himage hker t ht (algebraMap A At a) =
+      algebraMap B Bt (f a) := by
+  simp [commonIdealAwayEquiv, IsLocalization.Away.map]
+
+lemma commonIdealAwayEquiv_symm_algebraMap (a : A) :
+    (commonIdealAwayEquiv At Bt f I himage hker t ht).symm (algebraMap B Bt (f a)) =
+      algebraMap A At a := by
+  apply (commonIdealAwayEquiv At Bt f I himage hker t ht).injective
+  simp [commonIdealAwayEquiv_algebraMap]
+
+-- node: G.0/common-ideal-away-inverse
+lemma commonIdealAwayEquiv_symm_of_mul (a : A) (b : B) (ha : f a = f t * b) :
+    (commonIdealAwayEquiv At Bt f I himage hker t ht).symm (algebraMap B Bt b) =
+      IsLocalization.mk' At a ⟨t, Submonoid.mem_powers t⟩ := by
+  apply (commonIdealAwayEquiv At Bt f I himage hker t ht).injective
+  rw [RingEquiv.apply_symm_apply, commonIdealAwayEquiv_apply]
+  simp only [IsLocalization.Away.map, IsLocalization.map_mk']
+  apply IsLocalization.eq_mk'_iff_mul_eq.mpr
+  simp [ha, map_mul, mul_comm]
+
+end API
+end TauCeti.GenusOne.AffinePinching
+
+namespace TauCeti.GenusOne.AffinePinching
+-- node: G.0/conductor-away-bijective
+lemma conductor_away_bijective {B : Type v} [CommRing B] (S : Subring B)
+    (St : Type w) (Bt : Type z) [CommRing St] [CommRing Bt]
+    [Algebra S St] [Algebra B Bt] (t : S) (ht : (t : B) ∈ S.conductor)
+    [IsLocalization.Away t St] [IsLocalization.Away (S.subtype t) Bt] :
+    Function.Bijective (IsLocalization.Away.map St Bt S.subtype t) := by
+  let I : Ideal S := S.conductor.comap S.subtype
+  have himage : (I.map S.subtype : Set B) = S.subtype '' (I : Set S) := by
+    apply Set.Subset.antisymm
+    · intro b hb
+      have hbc : b ∈ S.conductor := (Ideal.map_comap_le : I.map S.subtype ≤ S.conductor) hb
+      exact ⟨⟨b, Subring.conductor_le S hbc⟩, hbc, rfl⟩
+    · rintro b ⟨a, ha, rfl⟩
+      exact Ideal.mem_map_of_mem S.subtype ha
+  apply commonIdeal_away_bijective St Bt S.subtype I himage
+  · rw [(RingHom.injective_iff_ker_eq_bot S.subtype).mp S.subtype_injective, bot_inf_eq]
+  · exact ht
+end TauCeti.GenusOne.AffinePinching
+
+
+namespace TauCeti.GenusOne.QuadraticPinch.Overlap
+
+variable {R : Type u} [CommRing R]
+
+def quadratic (c a b : R) : R[X] := by sorry
+
+abbrev Ring (c a b : R) := Localization.Away (X * quadratic c a b)
+
+def coordinate (c a b : R) : Ring c a b := by sorry
+
+def inverseVariable (c a b : R) : Ring c a b := by sorry
+
+lemma coordinate_mul_inverse (c a b : R) :
+    coordinate c a b * inverseVariable c a b = 1 := by sorry
+
+lemma inverse_isUnit (c a b : R) : IsUnit (inverseVariable c a b) := by sorry
+
+lemma quadratic_isUnit (c a b : R) :
+    IsUnit (algebraMap R[X] (Ring c a b) (quadratic c a b)) := by sorry
+
+lemma reciprocal_quadratic (c a b : R) :
+    aeval (inverseVariable b a c) (quadratic c a b) =
+      inverseVariable b a c ^ 2 * algebraMap R[X] (Ring b a c) (quadratic b a c) := by sorry
+
+lemma reciprocal_denominator_isUnit (c a b : R) :
+    IsUnit (aeval (inverseVariable b a c) (X * quadratic c a b)) := by sorry
+
+def reciprocal (c a b : R) : Ring c a b →ₐ[R] Ring b a c := by sorry
+
+lemma reciprocal_algebraMap (c a b : R) (f : R[X]) :
+    reciprocal c a b (algebraMap R[X] (Ring c a b) f) =
+      aeval (inverseVariable b a c) f := by sorry
+
+lemma reciprocal_coordinate (c a b : R) :
+    reciprocal c a b (coordinate c a b) = inverseVariable b a c := by sorry
+
+lemma reciprocal_inverse (c a b : R) :
+    reciprocal c a b (inverseVariable c a b) = coordinate b a c := by sorry
+
+lemma reciprocal_comp (c a b : R) :
+    (reciprocal b a c).comp (reciprocal c a b) = AlgHom.id R (Ring c a b) := by sorry
+
+def equiv (c a b : R) : Ring c a b ≃ₐ[R] Ring b a c := by sorry
+
+end TauCeti.GenusOne.QuadraticPinch.Overlap
+namespace TauCeti.GenusOne.QuadraticPinch.Overlap
+variable {R : Type u} [CommRing R]
+
+lemma equiv_coordinate (c a b : R) :
+    equiv c a b (coordinate c a b) = inverseVariable b a c := by sorry
+
+lemma equiv_inverse (c a b : R) :
+    equiv c a b (inverseVariable c a b) = coordinate b a c := by sorry
+
+lemma equiv_algebraMap (c a b : R) (f : R[X]) :
+    equiv c a b (algebraMap R[X] (Ring c a b) f) =
+      aeval (inverseVariable b a c) f := by sorry
+
+lemma equiv_symm (c a b : R) : (equiv c a b).symm = equiv b a c := by sorry
+
+lemma quadratic_monic (a b : R) : quadratic 1 a b = X ^ 2 + C a * X + C b := by sorry
+
+lemma quadratic_reversed (a b : R) : quadratic b a 1 = InfinityChart.denominator a b := by sorry
+
+lemma coordinate_isUnit (c a b : R) : IsUnit (coordinate c a b) := by sorry
+
+lemma normalization_overlap (a b : R) :
+    InfinityChart.normalizationCoordinates
+      (algebraMap R (Ring 1 a b) a) (algebraMap R (Ring 1 a b) b)
+      1 (inverseVariable 1 a b) =
+    inverseVariable 1 a b ^ 3 • InfinityChart.normalizationCoordinates
+      (algebraMap R (Ring 1 a b) a) (algebraMap R (Ring 1 a b) b)
+      (coordinate 1 a b) 1 := by sorry
+
+open CategoryTheory
+
+def specIso (c a b : R) :
+    AlgebraicGeometry.Spec (.of (Ring b a c)) ≅
+      AlgebraicGeometry.Spec (.of (Ring c a b)) := by sorry
+
+lemma specIso_hom (c a b : R) : (specIso c a b).hom =
+    AlgebraicGeometry.Spec.map (CommRingCat.ofHom (equiv c a b).toRingHom) := by sorry
+
+lemma specIso_inv (c a b : R) : (specIso c a b).inv =
+    AlgebraicGeometry.Spec.map (CommRingCat.ofHom (equiv b a c).toRingHom) := by sorry
+
+lemma specIso_hom_inv (c a b : R) :
+    (specIso c a b).hom ≫ (specIso c a b).inv = 𝟙 _ := by sorry
+
+section FinitePinch
+variable {k : Type u} [Field k]
+
+abbrev finiteDenominator (c a b : k) : (algebra (quadratic c a b)).toSubring :=
+  ⟨X * quadratic c a b, by sorry⟩
+
+lemma finiteDenominator_val (c a b : k) :
+    (finiteDenominator c a b : k[X]) = X * quadratic c a b := by sorry
+
+lemma finiteDenominator_conductor (c a b : k) :
+    (finiteDenominator c a b : k[X]) ∈ (algebra (quadratic c a b)).toSubring.conductor := by sorry
+
+lemma finite_localization (c a b : k) :
+    IsLocalization.Away ((algebra (quadratic c a b)).toSubring.subtype
+      (finiteDenominator c a b)) (Ring c a b) := by sorry
+
+attribute [local instance] finite_localization
+
+lemma finite_away_bijective (c a b : k) :
+    Function.Bijective (IsLocalization.Away.map
+      (Localization.Away (finiteDenominator c a b)) (Ring c a b)
+      (algebra (quadratic c a b)).toSubring.subtype (finiteDenominator c a b)) := by sorry
+
+def finiteEquiv (c a b : k) :
+    Localization.Away (finiteDenominator c a b) ≃+* Ring c a b := by sorry
+
+lemma finiteEquiv_apply (c a b : k) (x : Localization.Away (finiteDenominator c a b)) :
+    finiteEquiv c a b x = IsLocalization.Away.map
+      (Localization.Away (finiteDenominator c a b)) (Ring c a b)
+      (algebra (quadratic c a b)).toSubring.subtype (finiteDenominator c a b) x := by sorry
+
+lemma finiteEquiv_algebraMap (c a b : k) (f : (algebra (quadratic c a b)).toSubring) :
+    finiteEquiv c a b (algebraMap _ _ f) = algebraMap k[X] (Ring c a b) (f : k[X]) := by sorry
+
+lemma finiteEquiv_symm_algebraMap (c a b : k) (f : (algebra (quadratic c a b)).toSubring) :
+    (finiteEquiv c a b).symm (algebraMap k[X] (Ring c a b) (f : k[X])) =
+      algebraMap _ _ f := by sorry
+
+end FinitePinch
+end TauCeti.GenusOne.QuadraticPinch.Overlap
+namespace TauCeti.GenusOne.QuadraticPinch.Overlap
+variable {R : Type u} [CommRing R]
+
+abbrev InfinityOpen (a b : R) := Localization.Away
+  (algebraMap R[X] (InfinityChart.Chart a b) X)
+
+lemma infinity_localization (a b : R) :
+    IsLocalization.Away (X * quadratic b a 1) (InfinityOpen a b) := by sorry
+
+attribute [local instance] infinity_localization
+
+def infinityEquiv (a b : R) : InfinityOpen a b ≃ₐ[R[X]] Ring b a 1 := by sorry
+
+lemma infinityEquiv_algebraMap (a b : R) (f : R[X]) :
+    infinityEquiv a b (algebraMap R[X] (InfinityOpen a b) f) =
+      algebraMap R[X] (Ring b a 1) f := by sorry
+
+lemma infinityEquiv_symm_algebraMap (a b : R) (f : R[X]) :
+    (infinityEquiv a b).symm (algebraMap R[X] (Ring b a 1) f) =
+      algebraMap R[X] (InfinityOpen a b) f := by sorry
+
+lemma infinityEquiv_roundtrip (a b : R) (x : InfinityOpen a b) :
+    (infinityEquiv a b).symm (infinityEquiv a b x) = x := by sorry
+
+lemma infinity_root_isUnit_iff (a b : R) {S : Type v} [CommRing S]
+    (f : InfinityChart.Chart a b →+* S) :
+    IsUnit (f (AdjoinRoot.root (InfinityChart.relation a b))) ↔
+      IsUnit (f (algebraMap R[X] (InfinityChart.Chart a b) X)) := by sorry
+
+lemma infinity_basicOpen_root (a b : R) :
+    PrimeSpectrum.basicOpen (AdjoinRoot.root (InfinityChart.relation a b)) =
+      PrimeSpectrum.basicOpen (algebraMap R[X] (InfinityChart.Chart a b) X) := by sorry
+
+section FinitePinch
+variable {k : Type u} [Field k]
+
+def chartEquiv (a b : k) : Localization.Away (finiteDenominator 1 a b) ≃+* InfinityOpen a b := by sorry
+
+lemma chartEquiv_algebraMap (a b : k) (f : (algebra (quadratic 1 a b)).toSubring) :
+    chartEquiv a b (algebraMap _ _ f) =
+      (infinityEquiv a b).symm (aeval (inverseVariable b a 1) (f : k[X])) := by sorry
+
+lemma chartEquiv_roundtrip (a b : k) (x : Localization.Away (finiteDenominator 1 a b)) :
+    (chartEquiv a b).symm (chartEquiv a b x) = x := by sorry
+
+lemma chartEquiv_inverse_roundtrip (a b : k) (x : InfinityOpen a b) :
+    chartEquiv a b ((chartEquiv a b).symm x) = x := by sorry
+
+end FinitePinch
+end TauCeti.GenusOne.QuadraticPinch.Overlap
+namespace TauCeti.GenusOne.QuadraticPinch.Overlap
+open CategoryTheory
+variable {R : Type u} [CommRing R]
+
+lemma quadratic_aeval (c a b x : R) : aeval x (quadratic c a b) = c * x ^ 2 + a * x + b := by sorry
+
+lemma coordinate_algebraMap (c a b : R) :
+    coordinate c a b = algebraMap R[X] (Ring c a b) X := by sorry
+
+lemma inverseVariable_formula (c a b : R) :
+    inverseVariable c a b = algebraMap R[X] (Ring c a b) (quadratic c a b) *
+      IsLocalization.Away.invSelf (X * quadratic c a b) := by sorry
+
+lemma infinityOpen_coordinate_isUnit (a b : R) :
+    IsUnit (algebraMap (InfinityChart.Chart a b) (InfinityOpen a b)
+      (algebraMap R[X] (InfinityChart.Chart a b) X)) := by sorry
+
+-- test: Overlap.quadratic.zero
+example : quadratic (0 : R) 0 0 = 0 := by sorry
+
+-- test: Overlap.quadratic.nonreduced
+example : aeval (2 : ZMod 4) (quadratic (2 : ZMod 4) 1 1) = 3 := by sorry
+
+-- test: Overlap.quadratic.reversal_not_equal
+example : quadratic (1 : ℤ) 0 2 ≠ quadratic 2 0 1 := by sorry
+
+-- test: Overlap.Ring.zero_polynomial
+example : (0 : Ring (0 : R) 0 0) = 1 := by sorry
+
+-- test: Overlap.Ring.coordinate_unit_nonreduced
+example : IsUnit (coordinate (2 : ZMod 4) 2 1) := by sorry
+
+-- test: Overlap.Ring.quadratic_unit_nonsplit
+example : IsUnit (algebraMap (ZMod 2)[X] (Ring (1 : ZMod 2) 1 1)
+    (X ^ 2 + X + 1)) := by sorry
+
+-- test: Overlap.coordinate.cusp
+example : coordinate (1 : ZMod 2) 0 0 * inverseVariable 1 0 0 = 1 := by sorry
+
+-- test: Overlap.coordinate.nonreduced
+example : coordinate (2 : ZMod 4) 2 1 * inverseVariable 2 2 1 = 1 := by sorry
+
+-- test: Overlap.coordinate.generator
+example (c a b : R) : aeval (coordinate c a b) (X : R[X]) =
+    algebraMap R[X] (Ring c a b) X := by sorry
+
+-- test: Overlap.inverseVariable.left_inverse
+example (c a b : R) : inverseVariable c a b * coordinate c a b = 1 := by sorry
+
+-- test: Overlap.inverseVariable.unit_split
+example : IsUnit (inverseVariable (1 : ℚ) 0 (-1)) := by sorry
+
+-- test: Overlap.inverseVariable.zero_ring
+example : inverseVariable (0 : ZMod 1) 0 0 = 1 := by sorry
+
+-- test: Overlap.reciprocal.coefficient
+example (c a b r : R) : reciprocal c a b (algebraMap R (Ring c a b) r) =
+    algebraMap R (Ring b a c) r := by sorry
+
+-- test: Overlap.reciprocal.general_quadratic
+example (c a b : R) : reciprocal c a b (algebraMap R[X] (Ring c a b) (quadratic c a b)) =
+    inverseVariable b a c ^ 2 * algebraMap R[X] (Ring b a c) (quadratic b a c) := by sorry
+
+-- test: Overlap.reciprocal.twice
+example (c a b : R) (x : Ring c a b) : reciprocal b a c (reciprocal c a b x) = x := by sorry
+
+-- test: Overlap.equiv.cusp
+example : equiv (1 : ZMod 2) 0 0 (coordinate 1 0 0) = inverseVariable 0 0 1 := by sorry
+
+-- test: Overlap.equiv.nonsplit
+example : equiv (1 : ZMod 2) 1 1 (inverseVariable 1 1 1) = coordinate 1 1 1 := by sorry
+
+-- test: Overlap.equiv.nonreduced_roundtrip
+example (x : Ring (2 : ZMod 4) 2 1) : equiv 1 2 2 (equiv 2 2 1 x) = x := by sorry
+
+-- test: Overlap.specIso.cusp
+example : (specIso (1 : ZMod 2) 0 0).hom ≫ (specIso 1 0 0).inv = 𝟙 _ := by sorry
+
+-- test: Overlap.specIso.nonreduced
+example : (specIso (2 : ZMod 4) 2 1).inv ≫ (specIso 2 2 1).hom = 𝟙 _ := by sorry
+
+-- test: Overlap.specIso.actual_map
+example (c a b : R) : (specIso c a b).hom =
+    AlgebraicGeometry.Spec.map (CommRingCat.ofHom (reciprocal c a b).toRingHom) := by sorry
+
+-- test: Overlap.finiteDenominator.cusp
+example : (finiteDenominator (1 : ZMod 2) 0 0 : (ZMod 2)[X]) = X ^ 3 := by sorry
+
+-- test: Overlap.finiteDenominator.split
+example : (finiteDenominator (1 : ℚ) 0 (-1) : ℚ[X]) = X ^ 3 - X := by sorry
+
+-- test: Overlap.finiteDenominator.zero
+example : (finiteDenominator (0 : ℚ) 0 0 : ℚ[X]) = 0 := by sorry
+
+-- test: Overlap.finiteEquiv.cusp
+example : finiteEquiv (1 : ZMod 2) 0 0 (algebraMap _ _ (finiteDenominator (1 : ZMod 2) 0 0)) =
+    algebraMap (ZMod 2)[X] (Ring (1 : ZMod 2) 0 0) (X ^ 3) := by sorry
+
+-- test: Overlap.finiteEquiv.nonsplit
+example (f : (algebra (quadratic (1 : ZMod 2) 1 1)).toSubring) :
+    (finiteEquiv (1 : ZMod 2) 1 1).symm (algebraMap (ZMod 2)[X] (Ring (1 : ZMod 2) 1 1) (f : (ZMod 2)[X])) =
+      algebraMap _ _ f := by sorry
+
+-- test: Overlap.finiteEquiv.zero_roundtrip
+example (x : Localization.Away (finiteDenominator (0 : ℚ) 0 0)) :
+    (finiteEquiv (0 : ℚ) 0 0).symm (finiteEquiv 0 0 0 x) = x := by sorry
+
+-- test: Overlap.InfinityOpen.root_cusp
+example : PrimeSpectrum.basicOpen (AdjoinRoot.root (InfinityChart.relation (0 : ZMod 2) 0)) =
+    PrimeSpectrum.basicOpen (algebraMap (ZMod 2)[X] (InfinityChart.Chart (0 : ZMod 2) 0) X) := by sorry
+
+-- test: Overlap.InfinityOpen.root_nonreduced
+example {S : Type v} [CommRing S] (f : InfinityChart.Chart (2 : ZMod 4) 1 →+* S) :
+    IsUnit (f (AdjoinRoot.root (InfinityChart.relation (2 : ZMod 4) 1))) ↔
+      IsUnit (f (algebraMap (ZMod 4)[X] (InfinityChart.Chart (2 : ZMod 4) 1) X)) := by sorry
+
+-- test: Overlap.InfinityOpen.coordinate_nonsplit
+example : IsUnit (algebraMap (InfinityChart.Chart (1 : ZMod 2) 1) (InfinityOpen (1 : ZMod 2) 1)
+    (algebraMap (ZMod 2)[X] (InfinityChart.Chart (1 : ZMod 2) 1) X)) := by sorry
+
+-- test: Overlap.infinityEquiv.polynomial
+example (a b : R) : infinityEquiv a b (algebraMap R[X] (InfinityOpen a b) (X ^ 2 + C a)) =
+    algebraMap R[X] (Ring b a 1) (X ^ 2 + C a) := by sorry
+
+-- test: Overlap.infinityEquiv.inverse_coordinate
+example (a b : R) : (infinityEquiv a b).symm (coordinate b a 1) =
+    algebraMap R[X] (InfinityOpen a b) X := by sorry
+
+-- test: Overlap.infinityEquiv.nonreduced
+example (x : InfinityOpen (2 : ZMod 4) 1) :
+    (infinityEquiv (2 : ZMod 4) 1).symm (infinityEquiv 2 1 x) = x := by sorry
+
+-- test: Overlap.chartEquiv.cusp
+example (x : Localization.Away (finiteDenominator (1 : ZMod 2) 0 0)) :
+    (chartEquiv (0 : ZMod 2) 0).symm (chartEquiv 0 0 x) = x := by sorry
+
+-- test: Overlap.chartEquiv.nonsplit
+example (x : InfinityOpen (1 : ZMod 2) 1) :
+    chartEquiv (1 : ZMod 2) 1 ((chartEquiv 1 1).symm x) = x := by sorry
+
+-- test: Overlap.chartEquiv.split_formula
+example (f : (algebra (quadratic (1 : ℚ) 0 (-1))).toSubring) :
+    chartEquiv (0 : ℚ) (-1) (algebraMap _ _ f) =
+      (infinityEquiv (0 : ℚ) (-1)).symm (aeval (inverseVariable (-1 : ℚ) 0 1) (f : ℚ[X])) := by sorry
+
+-- test: Overlap.normalization_overlap.nonreduced
+example : InfinityChart.normalizationCoordinates
+    (algebraMap (ZMod 4) (Ring (1 : ZMod 4) 2 2) 2) (algebraMap (ZMod 4) (Ring (1 : ZMod 4) 2 2) 2)
+    1 (inverseVariable (1 : ZMod 4) 2 2) = inverseVariable (1 : ZMod 4) 2 2 ^ 3 • InfinityChart.normalizationCoordinates
+    (algebraMap (ZMod 4) (Ring (1 : ZMod 4) 2 2) 2) (algebraMap (ZMod 4) (Ring (1 : ZMod 4) 2 2) 2)
+    (coordinate (1 : ZMod 4) 2 2) 1 := by sorry
+
+end TauCeti.GenusOne.QuadraticPinch.Overlap
+
+namespace TauCeti.GenusOne.QuadraticPinch.Global
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
+open Overlap
+variable {k : Type u} [Field k]
+
+abbrev finiteChart (a b : k) : Scheme := Spec (.of (algebra (quadratic 1 a b)))
+abbrev infinityChart (a b : k) : Scheme := Spec (.of (InfinityChart.Chart a b))
+abbrev overlapChart (a b : k) : Scheme := Spec (.of (Ring 1 a b))
+
+-- node: G.1/global-finite-open
+/-- The specified finite principal open, expressed in normalized overlap coordinates. -/
+def finiteOpen (a b : k) : overlapChart a b ⟶ finiteChart a b := by sorry
+
+lemma finiteOpen_eq (a b : k) : finiteOpen a b =
+    (Scheme.Spec.mapIso (finiteEquiv 1 a b).toCommRingCatIso.op).hom ≫
+      Spec.map (CommRingCat.ofHom (algebraMap (algebra (quadratic 1 a b))
+        (Localization.Away (finiteDenominator 1 a b)))) := by sorry
+
+lemma finiteOpen_isOpenImmersion (a b : k) : IsOpenImmersion (finiteOpen a b) := by sorry
+
+attribute [instance] finiteOpen_isOpenImmersion
+
+lemma finiteOpen_range (a b : k) :
+    (finiteOpen a b).opensRange = PrimeSpectrum.basicOpen (finiteDenominator 1 a b) := by sorry
+
+-- node: G.1/global-infinity-open
+def infinityOpen (a b : k) : overlapChart a b ⟶ infinityChart a b := by sorry
+
+lemma infinityOpen_isOpenImmersion (a b : k) : IsOpenImmersion (infinityOpen a b) := by sorry
+
+attribute [instance] infinityOpen_isOpenImmersion
+
+lemma infinityOpen_range (a b : k) :
+    (infinityOpen a b).opensRange = PrimeSpectrum.basicOpen
+      (algebraMap k[X] (InfinityChart.Chart a b) X) := by sorry
+
+-- node: G.1/global-curve
+/-- The actual two-chart scheme, with the specified reciprocal transition. -/
+def curve (a b : k) : Scheme := by sorry
+
+abbrev finiteι (a b : k) : finiteChart a b ⟶ curve a b := by sorry
+
+abbrev infinityι (a b : k) : infinityChart a b ⟶ curve a b := by sorry
+
+lemma finiteι_isOpenImmersion (a b : k) : IsOpenImmersion (finiteι a b) := by sorry
+
+lemma infinityι_isOpenImmersion (a b : k) : IsOpenImmersion (infinityι a b) := by sorry
+
+attribute [instance] finiteι_isOpenImmersion infinityι_isOpenImmersion
+
+lemma chart_condition (a b : k) :
+    finiteOpen a b ≫ finiteι a b = infinityOpen a b ≫ infinityι a b := by sorry
+
+lemma curve_hom_ext (a b : k) {Y : Scheme} (f g : curve a b ⟶ Y)
+    (h₀ : finiteι a b ≫ f = finiteι a b ≫ g)
+    (h₁ : infinityι a b ≫ f = infinityι a b ≫ g) : f = g := by sorry
+
+lemma charts_cover (a b : k) (x : curve a b) :
+    (∃ y : finiteChart a b, finiteι a b y = x) ∨
+      (∃ y : infinityChart a b, infinityι a b y = x) := by sorry
+
+lemma charts_intersection (a b : k) (x : finiteChart a b) (y : infinityChart a b) :
+    finiteι a b x = infinityι a b y ↔
+      ∃ z : overlapChart a b, finiteOpen a b z = x ∧ infinityOpen a b z = y := by sorry
+
+lemma chart_preimage (a b : k) :
+    finiteι a b ⁻¹ᵁ (infinityι a b).opensRange = (finiteOpen a b).opensRange := by sorry
+
+lemma chart_isPullback (a b : k) :
+    IsPullback (infinityOpen a b) (finiteOpen a b) (infinityι a b) (finiteι a b) := by sorry
+
+-- node: G.1/global-curve-desc
+def desc (a b : k) {Y : Scheme} (f : finiteChart a b ⟶ Y)
+    (g : infinityChart a b ⟶ Y) (h : finiteOpen a b ≫ f = infinityOpen a b ≫ g) :
+    curve a b ⟶ Y := by sorry
+
+lemma finiteι_desc (a b : k) {Y : Scheme} (f : finiteChart a b ⟶ Y)
+    (g : infinityChart a b ⟶ Y) (h : finiteOpen a b ≫ f = infinityOpen a b ≫ g) :
+    finiteι a b ≫ desc a b f g h = f := by sorry
+
+lemma infinityι_desc (a b : k) {Y : Scheme} (f : finiteChart a b ⟶ Y)
+    (g : infinityChart a b ⟶ Y) (h : finiteOpen a b ≫ f = infinityOpen a b ≫ g) :
+    infinityι a b ≫ desc a b f g h = g := by sorry
+
+-- node: G.1/global-normalization-chart
+def normalizationChart (a b : k) : Spec (.of k[X]) ⟶ finiteChart a b := by sorry
+
+lemma normalizationChart_isFinite (a b : k) : AlgebraicGeometry.IsFinite (normalizationChart a b) := by sorry
+
+-- node: G.1/global-normalization-open
+def normalizationOpen (a b : k) : overlapChart a b ⟶ Spec (.of k[X]) := by sorry
+
+lemma normalizationOpen_isOpenImmersion (a b : k) :
+    IsOpenImmersion (normalizationOpen a b) := by sorry
+
+attribute [instance] normalizationOpen_isOpenImmersion
+
+lemma normalizationOpen_range (a b : k) :
+    (normalizationOpen a b).opensRange = PrimeSpectrum.basicOpen (X * quadratic 1 a b) := by sorry
+
+lemma normalizationChart_preimage (a b : k) :
+    normalizationChart a b ⁻¹ᵁ (finiteOpen a b).opensRange =
+      (normalizationOpen a b).opensRange := by sorry
+
+lemma normalization_chart_condition (a b : k) :
+    normalizationOpen a b ≫ normalizationChart a b = finiteOpen a b := by sorry
+
+-- node: G.1/global-normalization-source
+/-- Glued normalization charts, before their comparison with the native projective line. -/
+def normalizationSource (a b : k) : Scheme := by sorry
+
+abbrev sourceFiniteι (a b : k) : Spec (.of k[X]) ⟶ normalizationSource a b := by sorry
+
+abbrev sourceInfinityι (a b : k) : infinityChart a b ⟶ normalizationSource a b := by sorry
+
+lemma sourceFiniteι_isOpenImmersion (a b : k) : IsOpenImmersion (sourceFiniteι a b) := by sorry
+
+lemma sourceInfinityι_isOpenImmersion (a b : k) : IsOpenImmersion (sourceInfinityι a b) := by sorry
+
+attribute [instance] sourceFiniteι_isOpenImmersion sourceInfinityι_isOpenImmersion
+
+lemma source_chart_condition (a b : k) :
+    normalizationOpen a b ≫ sourceFiniteι a b = infinityOpen a b ≫ sourceInfinityι a b := by sorry
+
+lemma source_hom_ext (a b : k) {Y : Scheme} (f g : normalizationSource a b ⟶ Y)
+    (h₀ : sourceFiniteι a b ≫ f = sourceFiniteι a b ≫ g)
+    (h₁ : sourceInfinityι a b ≫ f = sourceInfinityι a b ≫ g) : f = g := by sorry
+
+lemma source_charts_cover (a b : k) (x : normalizationSource a b) :
+    (∃ y : Spec (.of k[X]), sourceFiniteι a b y = x) ∨
+      (∃ y : infinityChart a b, sourceInfinityι a b y = x) := by sorry
+
+-- node: G.1/global-normalization-morphism
+def normalization (a b : k) : normalizationSource a b ⟶ curve a b := by sorry
+
+lemma normalization_finite_chart (a b : k) :
+    sourceFiniteι a b ≫ normalization a b = normalizationChart a b ≫ finiteι a b := by sorry
+
+lemma normalization_infinity_chart (a b : k) :
+    sourceInfinityι a b ≫ normalization a b = infinityι a b := by sorry
+
+lemma normalization_unique (a b : k) (f : normalizationSource a b ⟶ curve a b)
+    (h₀ : sourceFiniteι a b ≫ f = normalizationChart a b ≫ finiteι a b)
+    (h₁ : sourceInfinityι a b ≫ f = infinityι a b) : f = normalization a b := by sorry
+
+lemma normalization_preimage_finite (a b : k) :
+    normalization a b ⁻¹ᵁ (finiteι a b).opensRange = (sourceFiniteι a b).opensRange := by sorry
+
+lemma normalization_preimage_infinity (a b : k) :
+    normalization a b ⁻¹ᵁ (infinityι a b).opensRange = (sourceInfinityι a b).opensRange := by sorry
+
+lemma normalization_finite_isPullback (a b : k) :
+    IsPullback (normalizationChart a b) (sourceFiniteι a b) (finiteι a b) (normalization a b) := by sorry
+
+lemma normalization_infinity_isPullback (a b : k) :
+    IsPullback (𝟙 (infinityChart a b)) (sourceInfinityι a b) (infinityι a b) (normalization a b) := by sorry
+
+-- node: G.1/global-open-cover
+def openCover (a b : k) : (curve a b).OpenCover := by sorry
+
+lemma openCover_index (a b : k) : (openCover a b).I₀ = Bool := by sorry
+
+lemma openCover_finite (a b : k) :
+    HEq ((openCover a b).f (cast (openCover_index a b).symm false)) (finiteι a b) := by sorry
+
+lemma openCover_infinity (a b : k) :
+    HEq ((openCover a b).f (cast (openCover_index a b).symm true)) (infinityι a b) := by sorry
+
+set_option backward.isDefEq.respectTransparency.types false in
+lemma normalization_isFinite (a b : k) : AlgebraicGeometry.IsFinite (normalization a b) := by sorry
+
+lemma finiteOpen_to_base (a b : k) :
+    finiteOpen a b ≫ Spec.map (CommRingCat.ofHom (algebraMap k (algebra (quadratic 1 a b)))) =
+      Spec.map (CommRingCat.ofHom (algebraMap k (Ring 1 a b))) := by sorry
+
+lemma infinityOpen_to_base (a b : k) :
+    infinityOpen a b ≫ Spec.map (CommRingCat.ofHom (algebraMap k (InfinityChart.Chart a b))) =
+      Spec.map (CommRingCat.ofHom (algebraMap k (Ring 1 a b))) := by sorry
+
+-- node: G.1/global-structure-map
+def structureMap (a b : k) : curve a b ⟶ Spec (.of k) := by sorry
+
+lemma structureMap_finite (a b : k) :
+    finiteι a b ≫ structureMap a b =
+      Spec.map (CommRingCat.ofHom (algebraMap k (algebra (quadratic 1 a b)))) := by sorry
+
+lemma structureMap_infinity (a b : k) :
+    infinityι a b ≫ structureMap a b =
+      Spec.map (CommRingCat.ofHom (algebraMap k (InfinityChart.Chart a b))) := by sorry
+
+lemma normalization_to_base_finite (a b : k) :
+    sourceFiniteι a b ≫ normalization a b ≫ structureMap a b =
+      Spec.map (CommRingCat.ofHom (algebraMap k k[X])) := by sorry
+
+lemma normalization_to_base_infinity (a b : k) :
+    sourceInfinityι a b ≫ normalization a b ≫ structureMap a b =
+      Spec.map (CommRingCat.ofHom (algebraMap k (InfinityChart.Chart a b))) := by sorry
+
+-- node: G.1/global-infinity-transition
+def infinityTransition (a b : k) : InfinityChart.Chart a b →+* Ring 1 a b := by sorry
+
+lemma infinityOpen_spec (a b : k) :
+    infinityOpen a b = Spec.map (CommRingCat.ofHom (infinityTransition a b)) := by sorry
+
+lemma infinityTransition_coordinate (a b : k) :
+    infinityTransition a b (algebraMap k[X] (InfinityChart.Chart a b) X) =
+      inverseVariable 1 a b := by sorry
+
+lemma infinityTransition_constants (a b r : k) :
+    infinityTransition a b (algebraMap k (InfinityChart.Chart a b) r) =
+      algebraMap k (Ring 1 a b) r := by sorry
+
+lemma infinityTransition_root (a b : k) :
+    infinityTransition a b (AdjoinRoot.root (InfinityChart.relation a b)) =
+      IsLocalization.Away.invSelf (X * quadratic 1 a b) := by sorry
+
+-- test: Global.finiteOpen.cusp_range
+example : (finiteOpen (0 : ZMod 2) 0).opensRange = PrimeSpectrum.basicOpen (finiteDenominator 1 (0 : ZMod 2) 0) := by sorry
+
+-- test: Global.finiteOpen.nonsplit_range
+example : (finiteOpen (1 : ZMod 2) 1).opensRange = PrimeSpectrum.basicOpen (finiteDenominator 1 (1 : ZMod 2) 1) := by sorry
+
+-- test: Global.finiteOpen.split_range
+example : (finiteOpen (0 : ℚ) (-1)).opensRange = PrimeSpectrum.basicOpen (finiteDenominator 1 (0 : ℚ) (-1)) := by sorry
+
+-- test: Global.infinityOpen.cusp_range
+example : (infinityOpen (0 : ZMod 2) 0).opensRange = PrimeSpectrum.basicOpen (algebraMap (ZMod 2)[X] (InfinityChart.Chart 0 0) X) := by sorry
+
+-- test: Global.infinityOpen.nonsplit_root_open
+example : (infinityOpen (1 : ZMod 2) 1).opensRange = PrimeSpectrum.basicOpen (AdjoinRoot.root (InfinityChart.relation 1 1)) := by sorry
+
+-- test: Global.infinityOpen.split_spec
+example : infinityOpen (0 : ℚ) (-1) = Spec.map (CommRingCat.ofHom (infinityTransition 0 (-1))) := by sorry
+
+-- test: Global.curve.cusp_gluing
+example : finiteOpen (0 : ZMod 2) 0 ≫ finiteι 0 0 = infinityOpen 0 0 ≫ infinityι 0 0 := by sorry
+
+-- test: Global.curve.nonsplit_cover
+example (x : curve (1 : ZMod 2) 1) : (∃ y, finiteι (1 : ZMod 2) 1 y = x) ∨ (∃ y, infinityι (1 : ZMod 2) 1 y = x) := by sorry
+
+-- test: Global.curve.split_intersection
+example (x : finiteChart (0 : ℚ) (-1)) (y : infinityChart (0 : ℚ) (-1)) : finiteι 0 (-1) x = infinityι 0 (-1) y ↔ ∃ z, finiteOpen 0 (-1) z = x ∧ infinityOpen 0 (-1) z = y := by sorry
+
+-- test: Global.desc.finite_restriction
+example (a b : k) {Y : Scheme} (f : finiteChart a b ⟶ Y) (g : infinityChart a b ⟶ Y) (h : finiteOpen a b ≫ f = infinityOpen a b ≫ g) : finiteι a b ≫ desc a b f g h = f := by sorry
+
+-- test: Global.desc.infinity_restriction
+example (a b : k) {Y : Scheme} (f : finiteChart a b ⟶ Y) (g : infinityChart a b ⟶ Y) (h : finiteOpen a b ≫ f = infinityOpen a b ≫ g) : infinityι a b ≫ desc a b f g h = g := by sorry
+
+-- test: Global.desc.identity
+example (a b : k) : desc a b (finiteι a b) (infinityι a b) (chart_condition a b) = 𝟙 (curve a b) := by sorry
+
+-- test: Global.normalizationChart.cusp_finite
+example : AlgebraicGeometry.IsFinite (normalizationChart (0 : ZMod 2) 0) := by sorry
+
+-- test: Global.normalizationChart.nonsplit_finite
+example : AlgebraicGeometry.IsFinite (normalizationChart (1 : ZMod 2) 1) := by sorry
+
+-- test: Global.normalizationChart.split_finite
+example : AlgebraicGeometry.IsFinite (normalizationChart (0 : ℚ) (-1)) := by sorry
+
+-- test: Global.normalizationOpen.cusp_range
+example : (normalizationOpen (0 : ZMod 2) 0).opensRange = PrimeSpectrum.basicOpen (X ^ 3 : (ZMod 2)[X]) := by sorry
+
+-- test: Global.normalizationOpen.nonsplit_preimage
+example : normalizationChart (1 : ZMod 2) 1 ⁻¹ᵁ (finiteOpen 1 1).opensRange = (normalizationOpen 1 1).opensRange := by sorry
+
+-- test: Global.normalizationOpen.split_compatibility
+example : normalizationOpen (0 : ℚ) (-1) ≫ normalizationChart 0 (-1) = finiteOpen 0 (-1) := by sorry
+
+-- test: Global.normalizationSource.cusp_cover
+example (x : normalizationSource (0 : ZMod 2) 0) : (∃ y, sourceFiniteι (0 : ZMod 2) 0 y = x) ∨ (∃ y, sourceInfinityι (0 : ZMod 2) 0 y = x) := by sorry
+
+-- test: Global.normalizationSource.nonsplit_gluing
+example : normalizationOpen (1 : ZMod 2) 1 ≫ sourceFiniteι 1 1 = infinityOpen 1 1 ≫ sourceInfinityι 1 1 := by sorry
+
+-- test: Global.normalizationSource.split_open
+example : IsOpenImmersion (sourceFiniteι (0 : ℚ) (-1)) := by sorry
+
+-- test: Global.normalization.cusp_finite
+example : AlgebraicGeometry.IsFinite (normalization (0 : ZMod 2) 0) := by sorry
+
+-- test: Global.normalization.nonsplit_finite
+example : AlgebraicGeometry.IsFinite (normalization (1 : ZMod 2) 1) := by sorry
+
+-- test: Global.normalization.split_infinity_pullback
+example : IsPullback (𝟙 (infinityChart (0 : ℚ) (-1))) (sourceInfinityι 0 (-1)) (infinityι 0 (-1)) (normalization 0 (-1)) := by sorry
+
+-- test: Global.openCover.finite_index
+example (a b : k) : HEq ((openCover a b).f (cast (openCover_index a b).symm false)) (finiteι a b) := by sorry
+
+-- test: Global.openCover.infinity_index
+example (a b : k) : HEq ((openCover a b).f (cast (openCover_index a b).symm true)) (infinityι a b) := by sorry
+
+-- test: Global.openCover.nonsplit_surjective
+example (x : curve (1 : ZMod 2) 1) : ∃ i y, (openCover (1 : ZMod 2) 1).f i y = x := by sorry
+
+-- test: Global.structureMap.finite_chart
+example (a b : k) : finiteι a b ≫ structureMap a b = Spec.map (CommRingCat.ofHom (algebraMap k (algebra (quadratic 1 a b)))) := by sorry
+
+-- test: Global.structureMap.infinity_chart
+example (a b : k) : infinityι a b ≫ structureMap a b = Spec.map (CommRingCat.ofHom (algebraMap k (InfinityChart.Chart a b))) := by sorry
+
+-- test: Global.structureMap.cusp_normalization
+example : sourceFiniteι (0 : ZMod 2) 0 ≫ normalization 0 0 ≫ structureMap 0 0 = Spec.map (CommRingCat.ofHom (algebraMap (ZMod 2) (ZMod 2)[X])) := by sorry
+
+-- test: Global.infinityTransition.cusp_reciprocal
+example : infinityTransition (0 : ZMod 2) 0 (algebraMap (ZMod 2)[X] (InfinityChart.Chart 0 0) X) = inverseVariable 1 0 0 := by sorry
+
+-- test: Global.infinityTransition.nonsplit_root
+example : infinityTransition (1 : ZMod 2) 1 (AdjoinRoot.root (InfinityChart.relation 1 1)) = IsLocalization.Away.invSelf (X * quadratic (1 : ZMod 2) 1 1) := by sorry
+
+-- test: Global.infinityTransition.split_constants
+example (r : ℚ) : infinityTransition (0 : ℚ) (-1) (algebraMap ℚ (InfinityChart.Chart 0 (-1)) r) = algebraMap ℚ (Ring 1 0 (-1)) r := by sorry
+
+end TauCeti.GenusOne.QuadraticPinch.Global
+END ARCHIVED ADMITTED QUADRATIC GLOBAL SCHEMES
+-/
+
+/- BEGIN ARCHIVED NEW QUADRATIC GLOBAL SCHEMES
+namespace TauCeti.GenusOne.QuadraticPinch.Global
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
+open Overlap
+variable {k : Type u} [Field k]
+
+abbrev finiteChart (a b : k) : Scheme := Spec (.of (algebra (quadratic 1 a b)))
+abbrev infinityChart (a b : k) : Scheme := Spec (.of (InfinityChart.Chart a b))
+abbrev overlapChart (a b : k) : Scheme := Spec (.of (Ring 1 a b))
+
+-- node: G.1/global-finite-open
+/-- The specified finite principal open, expressed in normalized overlap coordinates. -/
+def finiteOpen (a b : k) : overlapChart a b ⟶ finiteChart a b :=
+  Spec.map (CommRingCat.ofHom ((algebraMap k[X] (Ring 1 a b)).comp
+    (algebra (quadratic 1 a b)).val.toRingHom))
+
+lemma finiteOpen_eq (a b : k) : finiteOpen a b =
+    (Scheme.Spec.mapIso (finiteEquiv 1 a b).toCommRingCatIso.op).hom ≫
+      Spec.map (CommRingCat.ofHom (algebraMap (algebra (quadratic 1 a b))
+        (Localization.Away (finiteDenominator 1 a b)))) := by
+  change Spec.map _ = Spec.map (CommRingCat.ofHom (finiteEquiv 1 a b).toRingHom) ≫ _
+  rw [← Spec.map_comp]
+  congr 1
+  apply CommRingCat.hom_ext
+  apply RingHom.ext
+  intro f
+  exact (finiteEquiv_algebraMap 1 a b f).symm
+
+lemma finiteOpen_isOpenImmersion (a b : k) : IsOpenImmersion (finiteOpen a b) := by
+  rw [finiteOpen_eq]
+  infer_instance
+attribute [instance] finiteOpen_isOpenImmersion
+
+lemma finiteOpen_range (a b : k) :
+    (finiteOpen a b).opensRange = PrimeSpectrum.basicOpen (finiteDenominator 1 a b) := by
+  simpa only [finiteOpen_eq, Scheme.Hom.opensRange_comp_of_isIso] using
+    (Scheme.Hom.opensRange_localizationAway
+      (R := .of (algebra (quadratic 1 a b)).toSubring) (finiteDenominator 1 a b))
+
+-- node: G.1/global-infinity-open
+def infinityOpen (a b : k) : overlapChart a b ⟶ infinityChart a b :=
+  (specIso b a 1).hom ≫
+    (Scheme.Spec.mapIso (infinityEquiv a b).toRingEquiv.toCommRingCatIso.op).hom ≫
+      Spec.map (CommRingCat.ofHom (algebraMap (InfinityChart.Chart a b) (InfinityOpen a b)))
+
+lemma infinityOpen_isOpenImmersion (a b : k) : IsOpenImmersion (infinityOpen a b) := by
+  dsimp [infinityOpen]
+  infer_instance
+attribute [instance] infinityOpen_isOpenImmersion
+
+lemma infinityOpen_range (a b : k) :
+    (infinityOpen a b).opensRange = PrimeSpectrum.basicOpen
+      (algebraMap k[X] (InfinityChart.Chart a b) X) := by
+  dsimp only [infinityOpen]
+  simp only [← Category.assoc, Scheme.Hom.opensRange_comp_of_isIso]
+  exact Scheme.Hom.opensRange_localizationAway
+    (R := .of (InfinityChart.Chart a b)) (algebraMap k[X] (InfinityChart.Chart a b) X)
+
+-- node: G.1/global-curve
+/-- The actual two-chart scheme, with the specified reciprocal transition. -/
+def curve (a b : k) : Scheme := pushout (finiteOpen a b) (infinityOpen a b)
+
+abbrev finiteι (a b : k) : finiteChart a b ⟶ curve a b :=
+  pushout.inl (finiteOpen a b) (infinityOpen a b)
+abbrev infinityι (a b : k) : infinityChart a b ⟶ curve a b :=
+  pushout.inr (finiteOpen a b) (infinityOpen a b)
+
+lemma finiteι_isOpenImmersion (a b : k) : IsOpenImmersion (finiteι a b) := by
+  change IsOpenImmersion (colimit.ι (span (finiteOpen a b) (infinityOpen a b)) WalkingSpan.left)
+  infer_instance
+lemma infinityι_isOpenImmersion (a b : k) : IsOpenImmersion (infinityι a b) := by
+  change IsOpenImmersion (colimit.ι (span (finiteOpen a b) (infinityOpen a b)) WalkingSpan.right)
+  infer_instance
+attribute [instance] finiteι_isOpenImmersion infinityι_isOpenImmersion
+
+lemma chart_condition (a b : k) :
+    finiteOpen a b ≫ finiteι a b = infinityOpen a b ≫ infinityι a b :=
+  pushout.condition
+
+lemma curve_hom_ext (a b : k) {Y : Scheme} (f g : curve a b ⟶ Y)
+    (h₀ : finiteι a b ≫ f = finiteι a b ≫ g)
+    (h₁ : infinityι a b ≫ f = infinityι a b ≫ g) : f = g :=
+  pushout.hom_ext h₀ h₁
+
+lemma charts_cover (a b : k) (x : curve a b) :
+    (∃ y : finiteChart a b, finiteι a b y = x) ∨
+      (∃ y : infinityChart a b, infinityι a b y = x) := by
+  obtain ⟨i, y, hy⟩ := Scheme.IsLocallyDirected.ι_jointly_surjective
+    (span (finiteOpen a b) (infinityOpen a b)) x
+  rcases i with (_ | (_ | _))
+  · have hc : finiteOpen a b ≫ finiteι a b =
+        colimit.ι (span (finiteOpen a b) (infinityOpen a b)) WalkingSpan.zero :=
+      colimit.w (span (finiteOpen a b) (infinityOpen a b)) WalkingSpan.Hom.fst
+    exact Or.inl ⟨finiteOpen a b y, by
+      rw [← Scheme.Hom.comp_apply, hc]; exact hy⟩
+  · exact Or.inl ⟨y, hy⟩
+  · exact Or.inr ⟨y, hy⟩
+
+lemma charts_intersection (a b : k) (x : finiteChart a b) (y : infinityChart a b) :
+    finiteι a b x = infinityι a b y ↔
+      ∃ z : overlapChart a b, finiteOpen a b z = x ∧ infinityOpen a b z = y := by
+  change colimit.ι (span (finiteOpen a b) (infinityOpen a b)) WalkingSpan.left x =
+    colimit.ι (span (finiteOpen a b) (infinityOpen a b)) WalkingSpan.right y ↔ _
+  rw [Scheme.IsLocallyDirected.ι_eq_ι_iff]
+  constructor
+  · rintro ⟨i, fi, fj, z, hx, hy⟩
+    change WidePushoutShape.Hom i WalkingSpan.left at fi
+    change WidePushoutShape.Hom i WalkingSpan.right at fj
+    rcases i with (_ | (_ | _))
+    · cases fi; cases fj; exact ⟨z, hx, hy⟩
+    · cases fj
+    · cases fi
+  · rintro ⟨z, hx, hy⟩
+    exact ⟨WalkingSpan.zero, WalkingSpan.Hom.fst, WalkingSpan.Hom.snd, z, hx, hy⟩
+
+lemma chart_preimage (a b : k) :
+    finiteι a b ⁻¹ᵁ (infinityι a b).opensRange = (finiteOpen a b).opensRange := by
+  apply TopologicalSpace.Opens.ext
+  ext x
+  change finiteι a b x ∈ Set.range (infinityι a b) ↔ x ∈ Set.range (finiteOpen a b)
+  constructor
+  · rintro ⟨y, hy⟩
+    obtain ⟨z, hz, _⟩ := (charts_intersection a b x y).mp hy.symm
+    exact ⟨z, hz⟩
+  · rintro ⟨z, rfl⟩
+    exact ⟨infinityOpen a b z, by
+      simpa only [Scheme.Hom.comp_apply] using
+        (congrArg (fun f : overlapChart a b ⟶ curve a b => f z) (chart_condition a b)).symm⟩
+
+lemma chart_isPullback (a b : k) :
+    IsPullback (infinityOpen a b) (finiteOpen a b) (infinityι a b) (finiteι a b) :=
+  IsOpenImmersion.isPullback _ _ _ _ (chart_condition a b) (chart_preimage a b)
+
+-- node: G.1/global-curve-desc
+def desc (a b : k) {Y : Scheme} (f : finiteChart a b ⟶ Y)
+    (g : infinityChart a b ⟶ Y) (h : finiteOpen a b ≫ f = infinityOpen a b ≫ g) :
+    curve a b ⟶ Y := pushout.desc f g h
+
+lemma finiteι_desc (a b : k) {Y : Scheme} (f : finiteChart a b ⟶ Y)
+    (g : infinityChart a b ⟶ Y) (h : finiteOpen a b ≫ f = infinityOpen a b ≫ g) :
+    finiteι a b ≫ desc a b f g h = f := pushout.inl_desc ..
+lemma infinityι_desc (a b : k) {Y : Scheme} (f : finiteChart a b ⟶ Y)
+    (g : infinityChart a b ⟶ Y) (h : finiteOpen a b ≫ f = infinityOpen a b ≫ g) :
+    infinityι a b ≫ desc a b f g h = g := pushout.inr_desc ..
+
+-- node: G.1/global-normalization-chart
+def normalizationChart (a b : k) : Spec (.of k[X]) ⟶ finiteChart a b :=
+  Spec.map (CommRingCat.ofHom (algebra (quadratic 1 a b)).val.toRingHom)
+
+lemma normalizationChart_isFinite (a b : k) : AlgebraicGeometry.IsFinite (normalizationChart a b) := by
+  apply normalization_spec_finite
+  · rw [quadratic_monic]; simpa [Polynomial.Monic] using
+      (Polynomial.leadingCoeff_quadratic (a := (1 : k)) (b := a) (c := b) one_ne_zero)
+  · rw [quadratic_monic]; simpa using
+      (Polynomial.natDegree_quadratic (a := (1 : k)) (b := a) (c := b) one_ne_zero)
+
+-- node: G.1/global-normalization-open
+def normalizationOpen (a b : k) : overlapChart a b ⟶ Spec (.of k[X]) :=
+  Spec.map (CommRingCat.ofHom (algebraMap k[X] (Ring 1 a b)))
+
+lemma normalizationOpen_isOpenImmersion (a b : k) :
+    IsOpenImmersion (normalizationOpen a b) :=
+  IsOpenImmersion.of_isLocalization (X * quadratic 1 a b)
+attribute [instance] normalizationOpen_isOpenImmersion
+
+lemma normalizationOpen_range (a b : k) :
+    (normalizationOpen a b).opensRange = PrimeSpectrum.basicOpen (X * quadratic 1 a b) := by
+  apply TopologicalSpace.Opens.ext
+  exact PrimeSpectrum.localization_away_comap_range (Ring 1 a b) (X * quadratic 1 a b)
+
+lemma normalizationChart_preimage (a b : k) :
+    normalizationChart a b ⁻¹ᵁ (finiteOpen a b).opensRange =
+      (normalizationOpen a b).opensRange := by
+  rw [finiteOpen_range, normalizationChart, SpecMap_preimage_basicOpen, normalizationOpen_range]
+  rfl
+
+lemma normalization_chart_condition (a b : k) :
+    normalizationOpen a b ≫ normalizationChart a b = finiteOpen a b := by
+  rw [normalizationOpen, normalizationChart, finiteOpen, ← Spec.map_comp]
+  rfl
+
+-- node: G.1/global-normalization-source
+/-- Glued normalization charts, before their comparison with the native projective line. -/
+def normalizationSource (a b : k) : Scheme :=
+  pushout (normalizationOpen a b) (infinityOpen a b)
+
+abbrev sourceFiniteι (a b : k) : Spec (.of k[X]) ⟶ normalizationSource a b :=
+  pushout.inl (normalizationOpen a b) (infinityOpen a b)
+abbrev sourceInfinityι (a b : k) : infinityChart a b ⟶ normalizationSource a b :=
+  pushout.inr (normalizationOpen a b) (infinityOpen a b)
+
+lemma sourceFiniteι_isOpenImmersion (a b : k) : IsOpenImmersion (sourceFiniteι a b) := by
+  change IsOpenImmersion (colimit.ι (span (normalizationOpen a b) (infinityOpen a b)) WalkingSpan.left)
+  infer_instance
+lemma sourceInfinityι_isOpenImmersion (a b : k) : IsOpenImmersion (sourceInfinityι a b) := by
+  change IsOpenImmersion (colimit.ι (span (normalizationOpen a b) (infinityOpen a b)) WalkingSpan.right)
+  infer_instance
+attribute [instance] sourceFiniteι_isOpenImmersion sourceInfinityι_isOpenImmersion
+
+lemma source_chart_condition (a b : k) :
+    normalizationOpen a b ≫ sourceFiniteι a b = infinityOpen a b ≫ sourceInfinityι a b :=
+  pushout.condition
+
+lemma source_hom_ext (a b : k) {Y : Scheme} (f g : normalizationSource a b ⟶ Y)
+    (h₀ : sourceFiniteι a b ≫ f = sourceFiniteι a b ≫ g)
+    (h₁ : sourceInfinityι a b ≫ f = sourceInfinityι a b ≫ g) : f = g :=
+  pushout.hom_ext h₀ h₁
+
+lemma source_charts_cover (a b : k) (x : normalizationSource a b) :
+    (∃ y : Spec (.of k[X]), sourceFiniteι a b y = x) ∨
+      (∃ y : infinityChart a b, sourceInfinityι a b y = x) := by
+  obtain ⟨i, y, hy⟩ := Scheme.IsLocallyDirected.ι_jointly_surjective
+    (span (normalizationOpen a b) (infinityOpen a b)) x
+  rcases i with (_ | (_ | _))
+  · have hc : normalizationOpen a b ≫ sourceFiniteι a b =
+        colimit.ι (span (normalizationOpen a b) (infinityOpen a b)) WalkingSpan.zero :=
+      colimit.w (span (normalizationOpen a b) (infinityOpen a b)) WalkingSpan.Hom.fst
+    exact Or.inl ⟨normalizationOpen a b y, by
+      rw [← Scheme.Hom.comp_apply, hc]; exact hy⟩
+  · exact Or.inl ⟨y, hy⟩
+  · exact Or.inr ⟨y, hy⟩
+
+-- node: G.1/global-normalization-morphism
+def normalization (a b : k) : normalizationSource a b ⟶ curve a b :=
+  pushout.desc (normalizationChart a b ≫ finiteι a b) (infinityι a b)
+    (by rw [← Category.assoc, normalization_chart_condition, chart_condition])
+
+lemma normalization_finite_chart (a b : k) :
+    sourceFiniteι a b ≫ normalization a b = normalizationChart a b ≫ finiteι a b :=
+  pushout.inl_desc ..
+lemma normalization_infinity_chart (a b : k) :
+    sourceInfinityι a b ≫ normalization a b = infinityι a b := pushout.inr_desc ..
+
+lemma normalization_unique (a b : k) (f : normalizationSource a b ⟶ curve a b)
+    (h₀ : sourceFiniteι a b ≫ f = normalizationChart a b ≫ finiteι a b)
+    (h₁ : sourceInfinityι a b ≫ f = infinityι a b) : f = normalization a b := by
+  apply source_hom_ext
+  · exact h₀.trans (normalization_finite_chart a b).symm
+  · exact h₁.trans (normalization_infinity_chart a b).symm
+
+
+lemma normalization_preimage_finite (a b : k) :
+    normalization a b ⁻¹ᵁ (finiteι a b).opensRange = (sourceFiniteι a b).opensRange := by
+  apply TopologicalSpace.Opens.ext
+  ext x
+  change normalization a b x ∈ Set.range (finiteι a b) ↔ x ∈ Set.range (sourceFiniteι a b)
+  constructor
+  · intro hx
+    rcases source_charts_cover a b x with ⟨z, rfl⟩ | ⟨y, rfl⟩
+    · exact ⟨z, rfl⟩
+    · obtain ⟨z, hz⟩ := hx
+      rw [← Scheme.Hom.comp_apply, normalization_infinity_chart] at hz
+      obtain ⟨w, _, hw⟩ := (charts_intersection a b z y).mp hz
+      refine ⟨normalizationOpen a b w, ?_⟩
+      rw [← hw, ← Scheme.Hom.comp_apply, source_chart_condition, Scheme.Hom.comp_apply]
+  · rintro ⟨z, rfl⟩
+    exact ⟨normalizationChart a b z, by
+      simpa only [Scheme.Hom.comp_apply] using
+        (congrArg (fun f : Spec (.of k[X]) ⟶ curve a b => f z)
+          (normalization_finite_chart a b)).symm⟩
+
+lemma normalization_preimage_infinity (a b : k) :
+    normalization a b ⁻¹ᵁ (infinityι a b).opensRange = (sourceInfinityι a b).opensRange := by
+  apply TopologicalSpace.Opens.ext
+  ext x
+  change normalization a b x ∈ Set.range (infinityι a b) ↔ x ∈ Set.range (sourceInfinityι a b)
+  constructor
+  · intro hx
+    rcases source_charts_cover a b x with ⟨z, rfl⟩ | ⟨y, rfl⟩
+    · rw [← Scheme.Hom.comp_apply, normalization_finite_chart, Scheme.Hom.comp_apply] at hx
+      have hz : normalizationChart a b z ∈ (finiteOpen a b).opensRange := by
+        rw [← chart_preimage]
+        exact hx
+      have hh : z ∈ (normalizationOpen a b).opensRange := by
+        rw [← normalizationChart_preimage]
+        exact hz
+      obtain ⟨w, hw⟩ := hh
+      refine ⟨infinityOpen a b w, ?_⟩
+      rw [← hw, ← Scheme.Hom.comp_apply, ← source_chart_condition, Scheme.Hom.comp_apply]
+    · exact ⟨y, rfl⟩
+  · rintro ⟨y, rfl⟩
+    exact ⟨y, by rw [← Scheme.Hom.comp_apply, normalization_infinity_chart]⟩
+
+lemma normalization_finite_isPullback (a b : k) :
+    IsPullback (normalizationChart a b) (sourceFiniteι a b) (finiteι a b) (normalization a b) :=
+  IsOpenImmersion.isPullback _ _ _ _ (normalization_finite_chart a b)
+    (normalization_preimage_finite a b)
+
+lemma normalization_infinity_isPullback (a b : k) :
+    IsPullback (𝟙 (infinityChart a b)) (sourceInfinityι a b) (infinityι a b) (normalization a b) :=
+  IsOpenImmersion.isPullback _ _ _ _ (by simpa using normalization_infinity_chart a b)
+    (normalization_preimage_infinity a b)
+
+
+-- node: G.1/global-open-cover
+def openCover (a b : k) : (curve a b).OpenCover :=
+  Scheme.Cover.mkOfCovers Bool
+    (fun | false => finiteChart a b | true => infinityChart a b)
+    (fun | false => finiteι a b | true => infinityι a b)
+    (by intro x; rcases charts_cover a b x with ⟨y, hy⟩ | ⟨y, hy⟩
+        · exact ⟨false, y, hy⟩
+        · exact ⟨true, y, hy⟩)
+    (by intro i; cases i <;> infer_instance)
+
+lemma openCover_index (a b : k) : (openCover a b).I₀ = Bool := rfl
+lemma openCover_finite (a b : k) :
+    HEq ((openCover a b).f (cast (openCover_index a b).symm false)) (finiteι a b) := by rfl
+lemma openCover_infinity (a b : k) :
+    HEq ((openCover a b).f (cast (openCover_index a b).symm true)) (infinityι a b) := by rfl
+
+set_option backward.isDefEq.respectTransparency.types false in
+lemma normalization_isFinite (a b : k) : AlgebraicGeometry.IsFinite (normalization a b) := by
+  -- The anonymous baseline instance is unavailable through this existing build's exports.
+  -- Reuse its pinned-source proof locally; this is a library adapter, not new roadmap mathematics.
+  let : HasAffineProperty (@AlgebraicGeometry.IsFinite.{u})
+      (fun X _ f _ => IsAffine X ∧ RingHom.Finite (f.appTop).hom) := by
+    change HasAffineProperty (@AlgebraicGeometry.IsFinite.{u})
+      (affineAnd RingHom.Finite)
+    rw [HasAffineProperty.affineAnd_iff _ RingHom.finite_respectsIso
+      RingHom.finite_localizationPreserves.away RingHom.finite_ofLocalizationSpan]
+    simp [isFinite_iff]
+  apply IsZariskiLocalAtTarget.of_openCover (P := @AlgebraicGeometry.IsFinite.{u}) (openCover a b)
+  intro i
+  cases i
+  · change AlgebraicGeometry.IsFinite (pullback.snd (normalization a b) (finiteι a b))
+    have h := (normalization_finite_isPullback a b).flip
+    rw [← h.isoPullback_inv_snd]
+    let := normalizationChart_isFinite a b
+    infer_instance
+  · change AlgebraicGeometry.IsFinite (pullback.snd (normalization a b) (infinityι a b))
+    have h := (normalization_infinity_isPullback a b).flip
+    rw [← h.isoPullback_inv_snd]
+    infer_instance
+
+lemma finiteOpen_to_base (a b : k) :
+    finiteOpen a b ≫ Spec.map (CommRingCat.ofHom (algebraMap k (algebra (quadratic 1 a b)))) =
+      Spec.map (CommRingCat.ofHom (algebraMap k (Ring 1 a b))) := by
+  rw [finiteOpen, ← Spec.map_comp]
+  congr 1
+lemma infinityOpen_to_base (a b : k) :
+    infinityOpen a b ≫ Spec.map (CommRingCat.ofHom (algebraMap k (InfinityChart.Chart a b))) =
+      Spec.map (CommRingCat.ofHom (algebraMap k (Ring 1 a b))) := by
+  change Spec.map (CommRingCat.ofHom (equiv b a 1).toRingHom) ≫
+    Spec.map (CommRingCat.ofHom (infinityEquiv a b).toRingHom) ≫
+    Spec.map (CommRingCat.ofHom (algebraMap (InfinityChart.Chart a b) (InfinityOpen a b))) ≫
+    Spec.map (CommRingCat.ofHom (algebraMap k (InfinityChart.Chart a b))) = _
+  rw [← Spec.map_comp, ← Spec.map_comp, ← Spec.map_comp]
+  congr 1
+  apply CommRingCat.hom_ext
+  apply RingHom.ext
+  intro r
+  change equiv b a 1 (infinityEquiv a b
+    (algebraMap (InfinityChart.Chart a b) (InfinityOpen a b)
+      (algebraMap k (InfinityChart.Chart a b) r))) = algebraMap k (Ring 1 a b) r
+  calc
+    _ = equiv b a 1 (algebraMap k[X] (Ring b a 1) (C r)) := by
+      congr 1
+      change infinityEquiv a b (algebraMap k[X] (InfinityOpen a b) (C r)) = _
+      exact infinityEquiv_algebraMap a b (C r)
+    _ = _ := (equiv b a 1).commutes r
+
+-- node: G.1/global-structure-map
+def structureMap (a b : k) : curve a b ⟶ Spec (.of k) :=
+  desc a b (Spec.map (CommRingCat.ofHom (algebraMap k (algebra (quadratic 1 a b)))))
+    (Spec.map (CommRingCat.ofHom (algebraMap k (InfinityChart.Chart a b))))
+    (by rw [finiteOpen_to_base, infinityOpen_to_base])
+
+lemma structureMap_finite (a b : k) :
+    finiteι a b ≫ structureMap a b =
+      Spec.map (CommRingCat.ofHom (algebraMap k (algebra (quadratic 1 a b)))) :=
+  finiteι_desc ..
+lemma structureMap_infinity (a b : k) :
+    infinityι a b ≫ structureMap a b =
+      Spec.map (CommRingCat.ofHom (algebraMap k (InfinityChart.Chart a b))) :=
+  infinityι_desc ..
+
+lemma normalization_to_base_finite (a b : k) :
+    sourceFiniteι a b ≫ normalization a b ≫ structureMap a b =
+      Spec.map (CommRingCat.ofHom (algebraMap k k[X])) := by
+  rw [← Category.assoc, normalization_finite_chart, Category.assoc, structureMap_finite,
+    normalizationChart, ← Spec.map_comp]
+  rfl
+lemma normalization_to_base_infinity (a b : k) :
+    sourceInfinityι a b ≫ normalization a b ≫ structureMap a b =
+      Spec.map (CommRingCat.ofHom (algebraMap k (InfinityChart.Chart a b))) := by
+  rw [← Category.assoc, normalization_infinity_chart, structureMap_infinity]
+
+-- node: G.1/global-infinity-transition
+def infinityTransition (a b : k) : InfinityChart.Chart a b →+* Ring 1 a b :=
+  (equiv b a 1).toRingHom.comp ((infinityEquiv a b).toRingHom.comp
+    (algebraMap (InfinityChart.Chart a b) (InfinityOpen a b)))
+
+lemma infinityOpen_spec (a b : k) :
+    infinityOpen a b = Spec.map (CommRingCat.ofHom (infinityTransition a b)) := by
+  change Spec.map (CommRingCat.ofHom (equiv b a 1).toRingHom) ≫
+    Spec.map (CommRingCat.ofHom (infinityEquiv a b).toRingHom) ≫
+    Spec.map (CommRingCat.ofHom (algebraMap (InfinityChart.Chart a b) (InfinityOpen a b))) = _
+  rw [← Spec.map_comp, ← Spec.map_comp]
+  rfl
+
+lemma infinityTransition_coordinate (a b : k) :
+    infinityTransition a b (algebraMap k[X] (InfinityChart.Chart a b) X) =
+      inverseVariable 1 a b := by
+  change equiv b a 1 (infinityEquiv a b (algebraMap k[X] (InfinityOpen a b) X)) = _
+  rw [infinityEquiv_algebraMap]
+  exact equiv_coordinate b a 1
+
+lemma infinityTransition_constants (a b r : k) :
+    infinityTransition a b (algebraMap k (InfinityChart.Chart a b) r) =
+      algebraMap k (Ring 1 a b) r := by
+  change equiv b a 1 (infinityEquiv a b (algebraMap k[X] (InfinityOpen a b) (C r))) = _
+  rw [infinityEquiv_algebraMap]
+  exact (equiv b a 1).commutes r
+
+lemma infinityTransition_root (a b : k) :
+    infinityTransition a b (AdjoinRoot.root (InfinityChart.relation a b)) =
+      IsLocalization.Away.invSelf (X * quadratic 1 a b) := by
+  let t := coordinate 1 a b
+  let v := inverseVariable 1 a b
+  let q := algebraMap k[X] (Ring 1 a b) (quadratic 1 a b)
+  let z := infinityTransition a b (AdjoinRoot.root (InfinityChart.relation a b))
+  have htv : t * v = 1 := coordinate_mul_inverse 1 a b
+  have hQ : infinityTransition a b
+      (algebraMap k[X] (InfinityChart.Chart a b) (InfinityChart.denominator a b)) = v ^ 2 * q := by
+    change equiv b a 1 (infinityEquiv a b
+      (algebraMap k[X] (InfinityOpen a b) (InfinityChart.denominator a b))) = _
+    rw [infinityEquiv_algebraMap, ← quadratic_reversed, equiv_algebraMap]
+    exact reciprocal_quadratic b a 1
+  have hz : (v ^ 2 * q) * z = v ^ 3 := by
+    have h := congrArg (infinityTransition a b) (InfinityChart.root_relation a b)
+    simpa only [map_mul, map_pow, hQ, infinityTransition_coordinate] using h
+  have hprod : (t * q) * z = 1 := by
+    calc
+      _ = (t * q * z) * (t * v) ^ 2 := by rw [htv, one_pow, mul_one]
+      _ = t ^ 3 * ((v ^ 2 * q) * z) := by ring
+      _ = (t * v) ^ 3 := by rw [hz]; ring
+      _ = 1 := by rw [htv, one_pow]
+  have hden : algebraMap k[X] (Ring 1 a b) (X * quadratic 1 a b) = t * q := map_mul ..
+  have hinv := IsLocalization.Away.mul_invSelf (S := Ring 1 a b) (X * quadratic 1 a b)
+  rw [hden] at hinv
+  calc
+    z = z * ((t * q) * IsLocalization.Away.invSelf (X * quadratic 1 a b)) := by rw [hinv, mul_one]
+    _ = ((t * q) * z) * IsLocalization.Away.invSelf (X * quadratic 1 a b) := by ring
+    _ = _ := by rw [hprod, one_mul]
+
+-- test: Global.finiteOpen.cusp_range
+example : (finiteOpen (0 : ZMod 2) 0).opensRange = PrimeSpectrum.basicOpen (finiteDenominator 1 (0 : ZMod 2) 0) := finiteOpen_range ..
+
+-- test: Global.finiteOpen.nonsplit_range
+example : (finiteOpen (1 : ZMod 2) 1).opensRange = PrimeSpectrum.basicOpen (finiteDenominator 1 (1 : ZMod 2) 1) := finiteOpen_range ..
+
+-- test: Global.finiteOpen.split_range
+example : (finiteOpen (0 : ℚ) (-1)).opensRange = PrimeSpectrum.basicOpen (finiteDenominator 1 (0 : ℚ) (-1)) := finiteOpen_range ..
+
+-- test: Global.infinityOpen.cusp_range
+example : (infinityOpen (0 : ZMod 2) 0).opensRange = PrimeSpectrum.basicOpen (algebraMap (ZMod 2)[X] (InfinityChart.Chart 0 0) X) := infinityOpen_range ..
+
+-- test: Global.infinityOpen.nonsplit_root_open
+example : (infinityOpen (1 : ZMod 2) 1).opensRange = PrimeSpectrum.basicOpen (AdjoinRoot.root (InfinityChart.relation 1 1)) := by
+  rw [infinityOpen_range, infinity_basicOpen_root]
+
+-- test: Global.infinityOpen.split_spec
+example : infinityOpen (0 : ℚ) (-1) = Spec.map (CommRingCat.ofHom (infinityTransition 0 (-1))) := infinityOpen_spec ..
+
+-- test: Global.curve.cusp_gluing
+example : finiteOpen (0 : ZMod 2) 0 ≫ finiteι 0 0 = infinityOpen 0 0 ≫ infinityι 0 0 := chart_condition ..
+
+-- test: Global.curve.nonsplit_cover
+example (x : curve (1 : ZMod 2) 1) : (∃ y, finiteι (1 : ZMod 2) 1 y = x) ∨ (∃ y, infinityι (1 : ZMod 2) 1 y = x) := charts_cover ..
+
+-- test: Global.curve.split_intersection
+example (x : finiteChart (0 : ℚ) (-1)) (y : infinityChart (0 : ℚ) (-1)) : finiteι 0 (-1) x = infinityι 0 (-1) y ↔ ∃ z, finiteOpen 0 (-1) z = x ∧ infinityOpen 0 (-1) z = y := charts_intersection ..
+
+-- test: Global.desc.finite_restriction
+example (a b : k) {Y : Scheme} (f : finiteChart a b ⟶ Y) (g : infinityChart a b ⟶ Y) (h : finiteOpen a b ≫ f = infinityOpen a b ≫ g) : finiteι a b ≫ desc a b f g h = f := finiteι_desc ..
+
+-- test: Global.desc.infinity_restriction
+example (a b : k) {Y : Scheme} (f : finiteChart a b ⟶ Y) (g : infinityChart a b ⟶ Y) (h : finiteOpen a b ≫ f = infinityOpen a b ≫ g) : infinityι a b ≫ desc a b f g h = g := infinityι_desc ..
+
+-- test: Global.desc.identity
+example (a b : k) : desc a b (finiteι a b) (infinityι a b) (chart_condition a b) = 𝟙 (curve a b) := by
+  apply curve_hom_ext
+  · rw [finiteι_desc, Category.comp_id]
+  · rw [infinityι_desc, Category.comp_id]
+
+-- test: Global.normalizationChart.cusp_finite
+example : AlgebraicGeometry.IsFinite (normalizationChart (0 : ZMod 2) 0) := normalizationChart_isFinite ..
+
+-- test: Global.normalizationChart.nonsplit_finite
+example : AlgebraicGeometry.IsFinite (normalizationChart (1 : ZMod 2) 1) := normalizationChart_isFinite ..
+
+-- test: Global.normalizationChart.split_finite
+example : AlgebraicGeometry.IsFinite (normalizationChart (0 : ℚ) (-1)) := normalizationChart_isFinite ..
+
+-- test: Global.normalizationOpen.cusp_range
+example : (normalizationOpen (0 : ZMod 2) 0).opensRange = PrimeSpectrum.basicOpen (X ^ 3 : (ZMod 2)[X]) := by
+  rw [normalizationOpen_range]
+  congr 1
+  simp [quadratic]
+  ring
+
+-- test: Global.normalizationOpen.nonsplit_preimage
+example : normalizationChart (1 : ZMod 2) 1 ⁻¹ᵁ (finiteOpen 1 1).opensRange = (normalizationOpen 1 1).opensRange := normalizationChart_preimage ..
+
+-- test: Global.normalizationOpen.split_compatibility
+example : normalizationOpen (0 : ℚ) (-1) ≫ normalizationChart 0 (-1) = finiteOpen 0 (-1) := normalization_chart_condition ..
+
+-- test: Global.normalizationSource.cusp_cover
+example (x : normalizationSource (0 : ZMod 2) 0) : (∃ y, sourceFiniteι (0 : ZMod 2) 0 y = x) ∨ (∃ y, sourceInfinityι (0 : ZMod 2) 0 y = x) := source_charts_cover ..
+
+-- test: Global.normalizationSource.nonsplit_gluing
+example : normalizationOpen (1 : ZMod 2) 1 ≫ sourceFiniteι 1 1 = infinityOpen 1 1 ≫ sourceInfinityι 1 1 := source_chart_condition ..
+
+-- test: Global.normalizationSource.split_open
+example : IsOpenImmersion (sourceFiniteι (0 : ℚ) (-1)) := sourceFiniteι_isOpenImmersion ..
+
+-- test: Global.normalization.cusp_finite
+example : AlgebraicGeometry.IsFinite (normalization (0 : ZMod 2) 0) := normalization_isFinite ..
+
+-- test: Global.normalization.nonsplit_finite
+example : AlgebraicGeometry.IsFinite (normalization (1 : ZMod 2) 1) := normalization_isFinite ..
+
+-- test: Global.normalization.split_infinity_pullback
+example : IsPullback (𝟙 (infinityChart (0 : ℚ) (-1))) (sourceInfinityι 0 (-1)) (infinityι 0 (-1)) (normalization 0 (-1)) := normalization_infinity_isPullback ..
+
+-- test: Global.openCover.finite_index
+example (a b : k) : HEq ((openCover a b).f (cast (openCover_index a b).symm false)) (finiteι a b) := openCover_finite ..
+
+-- test: Global.openCover.infinity_index
+example (a b : k) : HEq ((openCover a b).f (cast (openCover_index a b).symm true)) (infinityι a b) := openCover_infinity ..
+
+-- test: Global.openCover.nonsplit_surjective
+example (x : curve (1 : ZMod 2) 1) : ∃ i y, (openCover (1 : ZMod 2) 1).f i y = x := by
+  rcases charts_cover (1 : ZMod 2) 1 x with ⟨y, hy⟩ | ⟨y, hy⟩
+  · exact ⟨false, y, hy⟩
+  · exact ⟨true, y, hy⟩
+
+-- test: Global.structureMap.finite_chart
+example (a b : k) : finiteι a b ≫ structureMap a b = Spec.map (CommRingCat.ofHom (algebraMap k (algebra (quadratic 1 a b)))) := structureMap_finite ..
+
+-- test: Global.structureMap.infinity_chart
+example (a b : k) : infinityι a b ≫ structureMap a b = Spec.map (CommRingCat.ofHom (algebraMap k (InfinityChart.Chart a b))) := structureMap_infinity ..
+
+-- test: Global.structureMap.cusp_normalization
+example : sourceFiniteι (0 : ZMod 2) 0 ≫ normalization 0 0 ≫ structureMap 0 0 = Spec.map (CommRingCat.ofHom (algebraMap (ZMod 2) (ZMod 2)[X])) := normalization_to_base_finite ..
+
+-- test: Global.infinityTransition.cusp_reciprocal
+example : infinityTransition (0 : ZMod 2) 0 (algebraMap (ZMod 2)[X] (InfinityChart.Chart 0 0) X) = inverseVariable 1 0 0 := infinityTransition_coordinate ..
+
+-- test: Global.infinityTransition.nonsplit_root
+example : infinityTransition (1 : ZMod 2) 1 (AdjoinRoot.root (InfinityChart.relation 1 1)) = IsLocalization.Away.invSelf (X * quadratic (1 : ZMod 2) 1 1) := infinityTransition_root ..
+
+-- test: Global.infinityTransition.split_constants
+example (r : ℚ) : infinityTransition (0 : ℚ) (-1) (algebraMap ℚ (InfinityChart.Chart 0 (-1)) r) = algebraMap ℚ (Ring 1 0 (-1)) r := infinityTransition_constants ..
+
+end TauCeti.GenusOne.QuadraticPinch.Global
+END ARCHIVED NEW QUADRATIC GLOBAL SCHEMES
+-/

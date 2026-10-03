@@ -7054,3 +7054,867 @@ R is an arbitrary commutative ring. All localizations, quotient charts and algeb
 Proof: Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers.
 
 Source: [Schröer, arXiv2004.07025v3, §3](https://arxiv.org/html/2004.07025v3). The overlap formulas are authored deductions. Public checked proof, exact admitted extraction, baseline hashes and reproduction instructions are recorded in the handoff. No global Proj or sheaf conclusion follows from the affine comparison alone.
+
+# Quadratic two-chart schemes and the global finite morphism
+
+The actual quadratic two-chart Scheme C and glued source N, their coefficient-compatible global morphism ν, both target-chart pullback squares, and global finiteness of ν have separately checked native prototypes. The actual overlap map has u=1/t and z=1/(tq). Identify C with the specified Proj cubic and N with the native projective line, prove the normalization universal property and projectivity/properness, then identify the conductor ideal sheaf and structure-sheaf exact sequence and derive finite-pushforward H0/H1. Separate I₂ geometry and all other inherited obligations remain required; all stages stay partial and all implementations unchecked.
+
+For q=t²+at+b put A_q=k+qk[t], L=k[t,1/(tq)], F=Spec A_q and I=Spec(k[u][z]/((1+au+bu²)z−u³)). The overlap maps are specified on rings, with u mapping to t⁻¹ and z to (tq)⁻¹. Their images are D_A_q(tq) and D_I(u)=D_I(z). The first uses the conductor localization comparison, and the second uses the reciprocal localization comparison. These opens are not the whole charts. Generic scheme gluing belongs to the existing pinned library and is used directly. The Part II specializes it; it does not create another generic gluing owner.
+
+Glue F and I to obtain C, and glue Spec k[t] and I along the same normalized overlap to obtain N. The finite-chart inclusion and infinity identity define ν:N→C. A point-by-point chart intersection criterion proves both inverse-image identities, which give actual cartesian Scheme squares. The two-member target cover then identifies the local maps with the finite affine normalization and an identity, proving global finiteness. Descent and its uniqueness construct C→Spec k and verify all coefficient compatibilities. No global Proj or projective-line comparison is inferred from these facts.
+
+## Finite principal-open immersion
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open; declaration QuadraticPinch.Global.finiteOpen.
+
+Let q=t²+at+b over a field k, A_q=k+qk[t], L=k[t,1/(tq)] and F=Spec A_q. Define j_F:Spec L→F by the native inclusion A_q→k[t]→L. This is the specified finite-chart overlap map, not an unspecified open with the same image.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic.
+
+QuadraticPinch.Global.finiteOpen_eq: The specified j_F equals the native Spec isomorphism induced by A_q[1/(tq)]≃L followed by the canonical principal-open immersion Spec A_q[1/(tq)]→F.
+
+QuadraticPinch.Global.finiteOpen_isOpenImmersion: The specified map j_F:Spec L→Spec A_q is an actual open immersion.
+
+QuadraticPinch.Global.finiteOpen_range: The open image of j_F is exactly D_A_q(tq). The element tq is viewed in A_q; no assertion that this is the whole finite chart is made.
+
+QuadraticPinch.Global.finiteOpen_to_base: The composite of j_F with the coefficient structure map F→Spec k is the canonical structure morphism Spec L→Spec k.
+
+Global.finiteOpen.cusp_range: The finite chart inclusion for the cusp quadratic has exactly the principal-open image D(tq), not the whole finite chart.
+
+Global.finiteOpen.nonsplit_range: The finite chart inclusion for the nonsplit quadratic has exactly the principal-open image D(tq), not the whole finite chart.
+
+Global.finiteOpen.split_range: The finite chart inclusion for the split quadratic has exactly the principal-open image D(tq), not the whole finite chart.
+
+## Finite overlap localization comparison
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open-eq; declaration QuadraticPinch.Global.finiteOpen_eq.
+
+The specified j_F equals the native Spec isomorphism induced by A_q[1/(tq)]≃L followed by the canonical principal-open immersion Spec A_q[1/(tq)]→F.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-equiv, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-denominator, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-equiv-algebra-map.
+
+## Finite overlap is an open immersion
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open-is-open-immersion; declaration QuadraticPinch.Global.finiteOpen_isOpenImmersion.
+
+The specified map j_F:Spec L→Spec A_q is an actual open immersion.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open-eq, mathlib:AlgebraicGeometry.IsOpenImmersion.of_isLocalization.
+
+## Finite overlap image
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open-range; declaration QuadraticPinch.Global.finiteOpen_range.
+
+The open image of j_F is exactly D_A_q(tq). The element tq is viewed in A_q; no assertion that this is the whole finite chart is made.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-denominator, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open-eq, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic, mathlib:AlgebraicGeometry.Scheme.Hom.opensRange_comp_of_isIso, mathlib:AlgebraicGeometry.Scheme.Hom.opensRange_localizationAway.
+
+## Reciprocal infinity-open immersion
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open; declaration QuadraticPinch.Global.infinityOpen.
+
+Let I=Spec Chart(a,b), where Chart(a,b)=k[u][z]/((1+au+bu²)z−u³). Define j_I:Spec L→I by the Spec maps of the specified coefficient-reversal equivalence L≃k[u,1/(uQ∞)], the inverse infinity-localization comparison, and the canonical localization at u. Thus it uses the specified reciprocal transition.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-spec-iso, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-equiv, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-open.
+
+QuadraticPinch.Global.infinityOpen_isOpenImmersion: The specified j_I:Spec L→I is an actual open immersion.
+
+QuadraticPinch.Global.infinityOpen_range: The open image of j_I is exactly D_I(u), and therefore equals D_I(z) by the inherited principal-open comparison.
+
+QuadraticPinch.Global.infinityOpen_spec: The actual infinity overlap map j_I is exactly Spec(θ).
+
+QuadraticPinch.Global.infinityOpen_to_base: The composite of j_I with the coefficient structure map I→Spec k is the same canonical structure morphism Spec L→Spec k.
+
+Global.infinityOpen.cusp_range: For the characteristic-two cusp, the infinity overlap is D(u).
+
+Global.infinityOpen.nonsplit_root_open: For the nonsplit F₂ quadratic, the infinity overlap is also D(z), using the actual root of its quotient relation.
+
+Global.infinityOpen.split_spec: For the split rational quadratic, the infinity immersion is induced by the specified reciprocal ring homomorphism.
+
+## Infinity overlap is an open immersion
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open-is-open-immersion; declaration QuadraticPinch.Global.infinityOpen_isOpenImmersion.
+
+The specified j_I:Spec L→I is an actual open immersion.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open, mathlib:AlgebraicGeometry.IsOpenImmersion.of_isLocalization.
+
+## Infinity overlap image
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open-range; declaration QuadraticPinch.Global.infinityOpen_range.
+
+The open image of j_I is exactly D_I(u), and therefore equals D_I(z) by the inherited principal-open comparison.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation, mathlib:AlgebraicGeometry.Scheme.Hom.opensRange_comp_of_isIso, mathlib:AlgebraicGeometry.Scheme.Hom.opensRange_localizationAway.
+
+## Quadratic two-chart scheme
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve; declaration QuadraticPinch.Global.curve.
+
+Construct the actual native Scheme C(a,b)=F ⨿_{Spec L} I using the existing scheme pushout of j_F and j_I, both open immersions. Its canonical maps i_F and i_I are part of the output. This is the quadratic two-chart scheme; identification with the specified projective cubic is a separate comparison.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Apply the existing native scheme pushout to the two proved open immersions. Its colimit is a genuine scheme with canonical chart maps; specialize its existing universal property rather than re-planning generic gluing.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open-is-open-immersion, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open-is-open-immersion, mathlib:CategoryTheory.Limits.pushout, mathlib:AlgebraicGeometry.Scheme.IsLocallyDirected.openCover.
+
+QuadraticPinch.Global.finiteι: The specified canonical finite-chart inclusion F→C.
+
+QuadraticPinch.Global.infinityι: The specified canonical infinity-chart inclusion I→C.
+
+QuadraticPinch.Global.finiteι_isOpenImmersion: The canonical map i_F:F→C(a,b) is an actual open immersion.
+
+QuadraticPinch.Global.infinityι_isOpenImmersion: The canonical map i_I:I→C(a,b) is an actual open immersion.
+
+QuadraticPinch.Global.chart_condition: The equality j_F∘i_F=j_I∘i_I holds as native Scheme morphisms from Spec L to C, with composition read from left to right.
+
+QuadraticPinch.Global.curve_hom_ext: For every scheme Y and morphisms f,g:C→Y, equality after precomposition with i_F and with i_I implies f=g.
+
+QuadraticPinch.Global.charts_cover: Every point of the actual scheme C lies in the image of i_F or of i_I. The statement concerns all scheme points, including non-rational points.
+
+QuadraticPinch.Global.charts_intersection: For x∈F and y∈I, i_F(x)=i_I(y) if and only if there is z∈Spec L with j_F(z)=x and j_I(z)=y. No extra chart points are identified.
+
+QuadraticPinch.Global.chart_isPullback: The native Scheme square with top j_I:Spec L→I, left j_F:Spec L→F, right i_I:I→C and bottom i_F:F→C is a pullback.
+
+Global.curve.cusp_gluing: The cusp chart morphisms agree on their actual overlap.
+
+Global.curve.nonsplit_cover: Every point of the nonsplit F₂ two-chart scheme belongs to one of the two charts.
+
+Global.curve.split_intersection: On the split rational model, equality of a finite-chart point and an infinity-chart point is characterized by a point of the specified overlap.
+
+## Finite chart embeds openly
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finiteiota-is-open-immersion; declaration QuadraticPinch.Global.finiteι_isOpenImmersion.
+
+The canonical map i_F:F→C(a,b) is an actual open immersion.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open, mathlib:AlgebraicGeometry.Scheme.IsLocallyDirected.openCover.
+
+## Infinity chart embeds openly
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinityiota-is-open-immersion; declaration QuadraticPinch.Global.infinityι_isOpenImmersion.
+
+The canonical map i_I:I→C(a,b) is an actual open immersion.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finiteiota-is-open-immersion, mathlib:AlgebraicGeometry.Scheme.IsLocallyDirected.openCover.
+
+## Quadratic chart compatibility
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-chart-condition; declaration QuadraticPinch.Global.chart_condition.
+
+The equality j_F∘i_F=j_I∘i_I holds as native Scheme morphisms from Spec L to C, with composition read from left to right.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open, mathlib:CategoryTheory.Limits.pushout.condition.
+
+## Morphisms determined by the two charts
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve-hom-ext; declaration QuadraticPinch.Global.curve_hom_ext.
+
+For every scheme Y and morphisms f,g:C→Y, equality after precomposition with i_F and with i_I implies f=g.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve, mathlib:CategoryTheory.Limits.pushout.hom_ext.
+
+## The quadratic charts cover
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-charts-cover; declaration QuadraticPinch.Global.charts_cover.
+
+Every point of the actual scheme C lies in the image of i_F or of i_I. The statement concerns all scheme points, including non-rational points.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the existing jointly-surjective colimit theorem on the three-object span. A point from the overlap also comes from the finite chart; the other two objects are precisely the two charts.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open, mathlib:AlgebraicGeometry.Scheme.IsLocallyDirected.ι_jointly_surjective.
+
+## Exact quadratic chart intersection
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-charts-intersection; declaration QuadraticPinch.Global.charts_intersection.
+
+For x∈F and y∈I, i_F(x)=i_I(y) if and only if there is z∈Spec L with j_F(z)=x and j_I(z)=y. No extra chart points are identified.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the existing common-chart criterion for the locally directed span. The only object admitting maps to both distinct chart objects is the overlap object; exhaust the three span objects and their actual hom types.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open, mathlib:AlgebraicGeometry.Scheme.IsLocallyDirected.ι_eq_ι_iff.
+
+## Finite chart inverse image of infinity
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-chart-preimage; declaration QuadraticPinch.Global.chart_preimage.
+
+As actual scheme opens, i_F⁻¹(im i_I)=im j_F.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-charts-intersection, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-chart-condition.
+
+## The quadratic overlap is cartesian
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-chart-is-pullback; declaration QuadraticPinch.Global.chart_isPullback.
+
+The native Scheme square with top j_I:Spec L→I, left j_F:Spec L→F, right i_I:I→C and bottom i_F:F→C is a pullback.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-chart-condition, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-chart-preimage, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open-is-open-immersion, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinityiota-is-open-immersion, mathlib:AlgebraicGeometry.IsOpenImmersion.isPullback.
+
+## Descent from quadratic charts
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-desc; declaration QuadraticPinch.Global.desc.
+
+For any scheme Y, finite-chart map f:F→Y and infinity-chart map g:I→Y satisfying j_F∘f=j_I∘g, construct the unique morphism desc(f,g):C→Y with these specified restrictions.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve, mathlib:CategoryTheory.Limits.pushout.desc.
+
+QuadraticPinch.Global.finiteι_desc: Precomposing desc(f,g) with i_F gives the specified map f.
+
+QuadraticPinch.Global.infinityι_desc: Precomposing desc(f,g) with i_I gives the specified map g.
+
+QuadraticPinch.Global.curve_hom_ext: For every scheme Y and morphisms f,g:C→Y, equality after precomposition with i_F and with i_I implies f=g.
+
+Global.desc.finite_restriction: A descended morphism restricts to the specified finite-chart map.
+
+Global.desc.infinity_restriction: A descended morphism restricts to the specified infinity-chart map.
+
+Global.desc.identity: Descending the two chart inclusions gives the identity of the glued scheme.
+
+## Descent restricts to the finite chart
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finiteiota-desc; declaration QuadraticPinch.Global.finiteι_desc.
+
+Precomposing desc(f,g) with i_F gives the specified map f.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-desc, mathlib:CategoryTheory.Limits.pushout.inl_desc.
+
+## Descent restricts to the infinity chart
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinityiota-desc; declaration QuadraticPinch.Global.infinityι_desc.
+
+Precomposing desc(f,g) with i_I gives the specified map g.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-desc, mathlib:CategoryTheory.Limits.pushout.inr_desc.
+
+## Specified affine normalization chart
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-chart; declaration QuadraticPinch.Global.normalizationChart.
+
+Name n_F:Spec k[t]→F as the actual Spec map of the inclusion A_q⊂k[t]. This specializes the inherited affine normalization carrier to q=t²+at+b and introduces no new normalization construction.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic.
+
+QuadraticPinch.Global.normalizationChart_isFinite: The specified affine map n_F is finite for q=t²+at+b over every field. This follows from the inherited monic degree-two finite inclusion.
+
+QuadraticPinch.Global.normalizationChart_preimage: The inverse image n_F⁻¹(im j_F) equals im j_N as actual opens of Spec k[t].
+
+QuadraticPinch.Global.normalization_chart_condition: The native Scheme composite j_N∘n_F equals j_F.
+
+Global.normalizationChart.cusp_finite: The actual affine normalization map is finite for the cusp quadratic.
+
+Global.normalizationChart.nonsplit_finite: The actual affine normalization map is finite for the nonsplit quadratic.
+
+Global.normalizationChart.split_finite: The actual affine normalization map is finite for the split quadratic.
+
+## Finiteness on the designated affine chart
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-chart-is-finite; declaration QuadraticPinch.Global.normalizationChart_isFinite.
+
+The specified affine map n_F is finite for q=t²+at+b over every field. This follows from the inherited monic degree-two finite inclusion.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-chart, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-normalization-spec-finite, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic-monic, mathlib:Polynomial.leadingCoeff_quadratic, mathlib:Polynomial.natDegree_quadratic.
+
+## Normalization-chart overlap immersion
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-open; declaration QuadraticPinch.Global.normalizationOpen.
+
+Define j_N:Spec L→Spec k[t] as the actual Spec map of the canonical localization k[t]→L at tq.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring.
+
+QuadraticPinch.Global.normalizationOpen_isOpenImmersion: The specified map j_N is an actual open immersion.
+
+QuadraticPinch.Global.normalizationOpen_range: The image of j_N is exactly D_k[t](tq).
+
+QuadraticPinch.Global.normalization_chart_condition: The native Scheme composite j_N∘n_F equals j_F.
+
+Global.normalizationOpen.cusp_range: For q=t² over F₂ the normalization overlap is D(t³).
+
+Global.normalizationOpen.nonsplit_preimage: For the nonsplit F₂ model the inverse image of the finite overlap under affine normalization is exactly the normalization overlap.
+
+Global.normalizationOpen.split_compatibility: The split normalization overlap map followed by affine normalization agrees with the finite overlap map.
+
+## Normalization overlap is an open immersion
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-open-is-open-immersion; declaration QuadraticPinch.Global.normalizationOpen_isOpenImmersion.
+
+The specified map j_N is an actual open immersion.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic, mathlib:AlgebraicGeometry.IsOpenImmersion.of_isLocalization.
+
+## Normalization overlap image
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-open-range; declaration QuadraticPinch.Global.normalizationOpen_range.
+
+The image of j_N is exactly D_k[t](tq).
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring, mathlib:PrimeSpectrum.localization_away_comap_range.
+
+## Affine normalization respects the overlap
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-chart-preimage; declaration QuadraticPinch.Global.normalizationChart_preimage.
+
+The inverse image n_F⁻¹(im j_F) equals im j_N as actual opens of Spec k[t].
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-chart, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open-range, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-open-range, mathlib:AlgebraicGeometry.SpecMap_preimage_basicOpen.
+
+## Affine normalization on the overlap
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-chart-condition; declaration QuadraticPinch.Global.normalization_chart_condition.
+
+The native Scheme composite j_N∘n_F equals j_F.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-chart, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open.
+
+## Glued quadratic normalization charts
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-source; declaration QuadraticPinch.Global.normalizationSource.
+
+Construct N(a,b)=Spec k[t] ⨿_{Spec L} I from j_N and j_I by the existing open-immersion scheme pushout, with its canonical inclusions s_F and s_I. N is an actual scheme. Its identification with the native projective line and its normalization universal property are separate required comparisons.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-open-is-open-immersion, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open-is-open-immersion, mathlib:CategoryTheory.Limits.pushout, mathlib:AlgebraicGeometry.Scheme.IsLocallyDirected.openCover.
+
+QuadraticPinch.Global.sourceFiniteι: The specified canonical affine-line inclusion Spec k[t]→N.
+
+QuadraticPinch.Global.sourceInfinityι: The specified canonical infinity-chart inclusion I→N.
+
+QuadraticPinch.Global.sourceFiniteι_isOpenImmersion: The canonical map s_F:Spec k[t]→N is an actual open immersion.
+
+QuadraticPinch.Global.sourceInfinityι_isOpenImmersion: The canonical map s_I:I→N is an actual open immersion.
+
+QuadraticPinch.Global.source_chart_condition: The equality j_N∘s_F=j_I∘s_I holds as native Scheme morphisms.
+
+QuadraticPinch.Global.source_hom_ext: For any scheme Y, two morphisms N→Y are equal if their precompositions with s_F and s_I are equal.
+
+QuadraticPinch.Global.source_charts_cover: Every scheme point of N lies in the image of s_F or of s_I.
+
+Global.normalizationSource.cusp_cover: Every point of the glued cusp normalization source belongs to its finite or infinity chart.
+
+Global.normalizationSource.nonsplit_gluing: The nonsplit normalization chart inclusions agree after the specified overlap maps.
+
+Global.normalizationSource.split_open: The affine-line chart embeds as an actual open of the split normalization source.
+
+## The affine-line source chart embeds openly
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-finiteiota-is-open-immersion; declaration QuadraticPinch.Global.sourceFiniteι_isOpenImmersion.
+
+The canonical map s_F:Spec k[t]→N is an actual open immersion.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-source, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open, mathlib:AlgebraicGeometry.Scheme.IsLocallyDirected.openCover.
+
+## The infinity source chart embeds openly
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-infinityiota-is-open-immersion; declaration QuadraticPinch.Global.sourceInfinityι_isOpenImmersion.
+
+The canonical map s_I:I→N is an actual open immersion.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-source, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-finiteiota-is-open-immersion, mathlib:AlgebraicGeometry.Scheme.IsLocallyDirected.openCover.
+
+## Normalization source chart compatibility
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-chart-condition; declaration QuadraticPinch.Global.source_chart_condition.
+
+The equality j_N∘s_F=j_I∘s_I holds as native Scheme morphisms.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-source, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open, mathlib:CategoryTheory.Limits.pushout.condition.
+
+## Source morphisms determined by charts
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-hom-ext; declaration QuadraticPinch.Global.source_hom_ext.
+
+For any scheme Y, two morphisms N→Y are equal if their precompositions with s_F and s_I are equal.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-source, mathlib:CategoryTheory.Limits.pushout.hom_ext.
+
+## The normalization source charts cover
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-charts-cover; declaration QuadraticPinch.Global.source_charts_cover.
+
+Every scheme point of N lies in the image of s_F or of s_I.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-source, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open, mathlib:AlgebraicGeometry.Scheme.IsLocallyDirected.ι_jointly_surjective.
+
+## Global quadratic normalization-chart morphism
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization; declaration QuadraticPinch.Global.normalization.
+
+Construct ν:N(a,b)→C(a,b) by gluing n_F∘i_F on the affine-line chart and i_I on the infinity chart. The overlap compatibility is the specified j_N∘n_F=j_F. This gives an actual global Scheme morphism before the Proj and projective-line identifications.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-source, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-chart, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-chart-condition, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-chart-condition, mathlib:CategoryTheory.Limits.pushout.desc.
+
+QuadraticPinch.Global.normalization_finite_chart: The native equality s_F∘ν=n_F∘i_F holds.
+
+QuadraticPinch.Global.normalization_infinity_chart: The native equality s_I∘ν=i_I holds; the chart map is the identity on I.
+
+QuadraticPinch.Global.normalization_unique: A morphism f:N→C with restrictions n_F∘i_F and i_I is equal to the specified ν.
+
+QuadraticPinch.Global.normalization_preimage_finite: The actual scheme-open equality ν⁻¹(im i_F)=im s_F holds.
+
+QuadraticPinch.Global.normalization_preimage_infinity: The actual scheme-open equality ν⁻¹(im i_I)=im s_I holds.
+
+QuadraticPinch.Global.normalization_finite_isPullback: The native Scheme square with top n_F, left s_F, right i_F and bottom ν is a pullback.
+
+QuadraticPinch.Global.normalization_infinity_isPullback: The native Scheme square with top id_I, left s_I, right i_I and bottom ν is a pullback.
+
+QuadraticPinch.Global.normalization_isFinite: The actual global morphism ν:N(a,b)→C(a,b) is finite over every field, including split, inseparable and characteristic-two quadratic cases. Its pullback to F is the finite affine inclusion n_F; its pullback to I is id_I. No projectivity or identification N≃P¹ is assumed.
+
+QuadraticPinch.Global.normalization_to_base_finite: The composite s_F∘ν∘(C→Spec k) is the canonical coefficient structure morphism Spec k[t]→Spec k.
+
+QuadraticPinch.Global.normalization_to_base_infinity: The composite s_I∘ν∘(C→Spec k) is the canonical coefficient structure morphism I→Spec k.
+
+Global.normalization.cusp_finite: The global map of the two-chart characteristic-two cusp is finite.
+
+Global.normalization.nonsplit_finite: The global map of the nonsplit F₂ two-chart model is finite.
+
+Global.normalization.split_infinity_pullback: Over the split rational quadratic, the identity on the infinity chart is the actual pullback of the global map.
+
+## Global map on the finite chart
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-finite-chart; declaration QuadraticPinch.Global.normalization_finite_chart.
+
+The native equality s_F∘ν=n_F∘i_F holds.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-source, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-chart, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve, mathlib:CategoryTheory.Limits.pushout.inl_desc.
+
+## Global map on the infinity chart
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-infinity-chart; declaration QuadraticPinch.Global.normalization_infinity_chart.
+
+The native equality s_I∘ν=i_I holds; the chart map is the identity on I.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-source, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve, mathlib:CategoryTheory.Limits.pushout.inr_desc.
+
+## Uniqueness of the global chart morphism
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-unique; declaration QuadraticPinch.Global.normalization_unique.
+
+A morphism f:N→C with restrictions n_F∘i_F and i_I is equal to the specified ν.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-source, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-chart, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-hom-ext, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-finite-chart, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-infinity-chart.
+
+## Global inverse image of the finite chart
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-preimage-finite; declaration QuadraticPinch.Global.normalization_preimage_finite.
+
+The actual scheme-open equality ν⁻¹(im i_F)=im s_F holds.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Cover the source by its two actual charts. Points in its finite chart map into the target finite chart. A source infinity-chart point whose image is also in the finite chart comes from the specified overlap by the target intersection criterion; source compatibility places it in the source finite chart.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-source, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-charts-cover, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-infinity-chart, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-charts-intersection, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-chart-condition, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-chart, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-finite-chart.
+
+## Global inverse image of the infinity chart
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-preimage-infinity; declaration QuadraticPinch.Global.normalization_preimage_infinity.
+
+The actual scheme-open equality ν⁻¹(im i_I)=im s_I holds.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Cover the source by its two charts. For a finite-chart point mapping into the infinity chart, the target inverse-image equality places its affine image in the finite overlap. The affine normalization principal-open preimage identity then places the source point in the normalization overlap; source compatibility identifies it with an infinity-chart point.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-source, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-charts-cover, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-finite-chart, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-chart, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-chart-preimage, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-chart-preimage, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-chart-condition, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-infinity-chart.
+
+## Affine normalization is the global pullback
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-finite-is-pullback; declaration QuadraticPinch.Global.normalization_finite_isPullback.
+
+The native Scheme square with top n_F, left s_F, right i_F and bottom ν is a pullback.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-chart, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-source, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-finite-chart, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-preimage-finite, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-finiteiota-is-open-immersion, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finiteiota-is-open-immersion, mathlib:AlgebraicGeometry.IsOpenImmersion.isPullback.
+
+## Infinity identity is the global pullback
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-infinity-is-pullback; declaration QuadraticPinch.Global.normalization_infinity_isPullback.
+
+The native Scheme square with top id_I, left s_I, right i_I and bottom ν is a pullback.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-source, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-infinity-chart, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-preimage-infinity, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-infinityiota-is-open-immersion, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinityiota-is-open-immersion, mathlib:AlgebraicGeometry.IsOpenImmersion.isPullback.
+
+## Specified quadratic affine open cover
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-open-cover; declaration QuadraticPinch.Global.openCover.
+
+Construct the native two-member OpenCover of C, indexed by Bool, with false the finite chart and true the infinity chart, and maps i_F and i_I. Both objects are the actual affine schemes F and I.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-charts-cover, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finiteiota-is-open-immersion, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinityiota-is-open-immersion, mathlib:AlgebraicGeometry.Scheme.Cover.mkOfCovers.
+
+QuadraticPinch.Global.openCover_index: The native index type of the specified two-member open cover is Bool.
+
+QuadraticPinch.Global.openCover_finite: The false-index cover morphism is exactly i_F.
+
+QuadraticPinch.Global.openCover_infinity: The true-index cover morphism is exactly i_I.
+
+Global.openCover.finite_index: Index false of the two-member open cover is the finite chart with its specified inclusion.
+
+Global.openCover.infinity_index: Index true of the two-member open cover is the infinity chart with its specified inclusion.
+
+Global.openCover.nonsplit_surjective: The actual two-member cover is jointly surjective on the nonsplit F₂ model.
+
+## The quadratic cover index
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-open-cover-index; declaration QuadraticPinch.Global.openCover_index.
+
+The native index type of the specified two-member open cover is Bool.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-open-cover.
+
+## Finite-chart cover index
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-open-cover-finite; declaration QuadraticPinch.Global.openCover_finite.
+
+The false-index cover morphism is exactly i_F.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-open-cover, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-open-cover-index, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve.
+
+## Infinity-chart cover index
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-open-cover-infinity; declaration QuadraticPinch.Global.openCover_infinity.
+
+The true-index cover morphism is exactly i_I.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-open-cover, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-open-cover-index, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve.
+
+## Global finiteness of the quadratic chart morphism
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-is-finite; declaration QuadraticPinch.Global.normalization_isFinite.
+
+The actual global morphism ν:N(a,b)→C(a,b) is finite over every field, including split, inseparable and characteristic-two quadratic cases. Its pullback to F is the finite affine inclusion n_F; its pullback to I is id_I. No projectivity or identification N≃P¹ is assumed.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the actual two-member target open cover. Identify the pullback to its finite chart with n_F via the proved cartesian square and transport the inherited affine finiteness along its canonical pullback isomorphism. Identify the pullback to the infinity chart with its identity map and transport identity finiteness along the second pullback isomorphism. Apply the existing property-local-at-target criterion. The prototype locally reuses the pinned finite affine-property proof because that anonymous instance is not exported by the existing build; it does not add a new generic locality theorem.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-open-cover, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-finite-is-pullback, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-chart-is-finite, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-infinity-is-pullback, mathlib:AlgebraicGeometry.IsFinite, mathlib:AlgebraicGeometry.IsZariskiLocalAtTarget.of_openCover, mathlib:CategoryTheory.IsPullback.isoPullback_inv_snd, mathlib:AlgebraicGeometry.HasAffineProperty.affineAnd_iff, mathlib:RingHom.finite_respectsIso, mathlib:RingHom.finite_localizationPreserves, mathlib:RingHom.finite_ofLocalizationSpan.
+
+## Finite overlap preserves coefficients
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open-to-base; declaration QuadraticPinch.Global.finiteOpen_to_base.
+
+The composite of j_F with the coefficient structure map F→Spec k is the canonical structure morphism Spec L→Spec k.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring.
+
+## Infinity overlap preserves coefficients
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open-to-base; declaration QuadraticPinch.Global.infinityOpen_to_base.
+
+The composite of j_I with the coefficient structure map I→Spec k is the same canonical structure morphism Spec L→Spec k.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-equiv, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-equiv, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-equiv-algebra-map.
+
+## Quadratic two-chart structure morphism
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-structure-map; declaration QuadraticPinch.Global.structureMap.
+
+Construct C(a,b)→Spec k by descending the actual coefficient structure morphisms on F and I. Their overlap equality is proved for the specified transition.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-desc, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open-to-base, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open-to-base.
+
+QuadraticPinch.Global.structureMap_finite: The structure morphism C→Spec k precomposed with i_F is the actual coefficient structure morphism F→Spec k.
+
+QuadraticPinch.Global.structureMap_infinity: The structure morphism C→Spec k precomposed with i_I is the actual coefficient structure morphism I→Spec k.
+
+QuadraticPinch.Global.curve_hom_ext: For every scheme Y and morphisms f,g:C→Y, equality after precomposition with i_F and with i_I implies f=g.
+
+Global.structureMap.finite_chart: The glued structure map restricts to the actual coefficient structure morphism on the finite chart.
+
+Global.structureMap.infinity_chart: The glued structure map restricts to the actual coefficient structure morphism on the infinity chart.
+
+Global.structureMap.cusp_normalization: The finite chart of the cusp normalization preserves the specified F₂ coefficient structure map.
+
+## Structure morphism on the finite chart
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-structure-map-finite; declaration QuadraticPinch.Global.structureMap_finite.
+
+The structure morphism C→Spec k precomposed with i_F is the actual coefficient structure morphism F→Spec k.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-structure-map, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finiteiota-desc.
+
+## Structure morphism on the infinity chart
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-structure-map-infinity; declaration QuadraticPinch.Global.structureMap_infinity.
+
+The structure morphism C→Spec k precomposed with i_I is the actual coefficient structure morphism I→Spec k.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-curve, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-structure-map, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinityiota-desc.
+
+## Normalization coefficients on the finite chart
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-to-base-finite; declaration QuadraticPinch.Global.normalization_to_base_finite.
+
+The composite s_F∘ν∘(C→Spec k) is the canonical coefficient structure morphism Spec k[t]→Spec k.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-source, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-structure-map, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-finite-chart, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-structure-map-finite, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-chart.
+
+## Normalization coefficients on the infinity chart
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-to-base-infinity; declaration QuadraticPinch.Global.normalization_to_base_infinity.
+
+The composite s_I∘ν∘(C→Spec k) is the canonical coefficient structure morphism I→Spec k.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-source, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-structure-map, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-infinity-chart, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-structure-map-infinity.
+
+## Specified reciprocal infinity ring map
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-transition; declaration QuadraticPinch.Global.infinityTransition.
+
+Define θ:Chart(a,b)→L as the canonical localization at u followed by the specified infinity equivalence and reciprocal coefficient-reversal equivalence. It is a native ring homomorphism preserving k; θ(u)=t⁻¹ and θ(z)=(tq)⁻¹.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-equiv, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-equiv, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-open.
+
+QuadraticPinch.Global.infinityTransition_coordinate: The specified ring map θ sends the actual polynomial coordinate u of Chart(a,b) to the specified inverse variable t⁻¹ in L.
+
+QuadraticPinch.Global.infinityTransition_constants: For every r∈k the specified ring map θ sends the coefficient image of r in Chart(a,b) to its coefficient image in L.
+
+QuadraticPinch.Global.infinityTransition_root: The specified ring map θ sends the native quotient root z to the specified localization inverse of tq in L. Thus z=1/(tq) is proved for the actual gluing map, not merely for projective coordinate tuples.
+
+QuadraticPinch.Global.infinityOpen_spec: The actual infinity overlap map j_I is exactly Spec(θ).
+
+Global.infinityTransition.cusp_reciprocal: For the cusp, the infinity coordinate maps to the inverse of t, not to t.
+
+Global.infinityTransition.nonsplit_root: For q=t²+t+1 over F₂ the infinity root maps to the specified inverse of tq.
+
+Global.infinityTransition.split_constants: The split rational transition preserves each rational coefficient.
+
+## Infinity immersion is the specified Spec map
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open-spec; declaration QuadraticPinch.Global.infinityOpen_spec.
+
+The actual infinity overlap map j_I is exactly Spec(θ).
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-transition, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-equiv, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-equiv, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-open.
+
+## Reciprocal infinity coordinate
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-transition-coordinate; declaration QuadraticPinch.Global.infinityTransition_coordinate.
+
+The specified ring map θ sends the actual polynomial coordinate u of Chart(a,b) to the specified inverse variable t⁻¹ in L.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-transition, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-inverse-variable, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-equiv, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-equiv, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-equiv-algebra-map, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-equiv-coordinate.
+
+## Reciprocal transition preserves scalars
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-transition-constants; declaration QuadraticPinch.Global.infinityTransition_constants.
+
+For every r∈k the specified ring map θ sends the coefficient image of r in Chart(a,b) to its coefficient image in L.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Use the specified native maps and the listed prerequisite equalities. Apply the existing scheme or localization API named among the inputs; the immutable native prototype records the exact specialization and every algebraic step.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-transition, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-equiv, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-equiv, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-equiv-algebra-map.
+
+## Reciprocal infinity root coordinate
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-transition-root; declaration QuadraticPinch.Global.infinityTransition_root.
+
+The specified ring map θ sends the native quotient root z to the specified localization inverse of tq in L. Thus z=1/(tq) is proved for the actual gluing map, not merely for projective coordinate tuples.
+
+k is a field and a,b∈k; q=t²+at+b. There is no separability, perfectness, characteristic or distinct-root assumption. All charts, overlaps, opens and maps use the specified native carriers. Composition in displayed chart equalities is read from left to right. C is the glued two-chart scheme and N its glued source; their Proj, projective-line and normalization-universal-property comparisons remain separate obligations.
+
+Proof: Apply the specified ring map to Q∞z=u³. Reciprocal evaluation sends Q∞ to t⁻²q and u to t⁻¹. Multiplying the resulting relation by t³ proves (tq)θ(z)=1. Use t·t⁻¹=1 and the actual inverse of tq in the native localization to identify θ(z) with that specified inverse; do not infer the value from mere unit existence.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-transition, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-coordinate, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-inverse-variable, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-coordinate-mul-inverse, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-denominator, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-equiv, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-equiv, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-open, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-equiv-algebra-map, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic-reversed, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-equiv-algebra-map, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-reciprocal-quadratic, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-root-relation, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinity-transition-coordinate.
