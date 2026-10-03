@@ -22,7 +22,7 @@ The proof archive is inert text in the ancestor commit named below; it is absent
 {
   "immutableBase": "a662550937887ccf273c0c7bc3c16326f90bf2a1",
   "publicationBase": "99a13a08145478c56bee6f65460849f58d59a29e",
-  "archiveCommit": "0000000000000000000000000000000000000000",
+  "archiveCommit": "7c0e7851a1f2f97cbc8874424b4f8d3f03c67b0d",
   "artifactHashes": {
     "OriginalRoadmap.json": "db011d02f7ae87d6ed42e6b3f6a41deab8b6676b47345c4010fe184e6d0777a7",
     "OriginalPacket.json": "d15d413621c6ad4ebb8bb32269dbac29bf209cbf9f83a459c0af24dab1a9d582",
