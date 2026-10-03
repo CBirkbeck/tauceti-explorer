@@ -2176,3 +2176,138 @@ example :
 
 end
 end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+
+/- Finite-coordinate exterior integrability; affine native signatures only. -/
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+open scoped TensorProduct
+variable {R E Q : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E] [AddCommGroup Q] [Module R Q]
+variable {I : Type*} [Fintype I]
+
+def affineFiniteDirectionField (A : I → Module.End R E) (q : I → Q) :
+    E →ₗ[R] E ⊗[R] Q := sorry
+
+lemma affineFiniteDirectionField_apply (A : I → Module.End R E) (q : I → Q) (e : E) :
+    affineFiniteDirectionField A q e = ∑ i, A i e ⊗ₜ[R] q i := sorry
+
+lemma affineFiniteDirectionField_reconstruct (b : Module.Basis I R Q)
+    (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineFiniteDirectionField (fun i => affineContractions θ (b.coord i)) b = θ := sorry
+
+lemma affineExteriorSquare_finiteDirection (A : I → Module.End R E) (q : I → Q) (e : E) :
+    affineExteriorSquare (affineFiniteDirectionField A q) e =
+      ∑ j, ∑ i, A i (A j e) ⊗ₜ[R] exteriorPower.ιMulti R 2 ![q i,q j] := sorry
+
+lemma affineExteriorSquare_finiteDirection_zero_of_commute
+    (A : I → Module.End R E) (q : I → Q) (h : ∀ i j, A i * A j = A j * A i) :
+    affineExteriorSquare (affineFiniteDirectionField A q) = 0 := sorry
+
+lemma affineExteriorSquare_contraction (θ : E →ₗ[R] E ⊗[R] Q)
+    (v w : Module.Dual R Q) :
+    affineContractions (affineExteriorSquare θ)
+      (exteriorPower.alternatingMapToDual R Q 2 ![v,w]) =
+    affineContractions θ v * affineContractions θ w -
+      affineContractions θ w * affineContractions θ v := sorry
+
+lemma affineFiniteDirectionField_contraction (A : I → Module.End R E) (q : I → Q)
+    (v : Module.Dual R Q) :
+    affineContractions (affineFiniteDirectionField A q) v = ∑ i, v (q i) • A i := sorry
+
+lemma affineFiniteDirectionField_coordinate (b : Module.Basis I R Q)
+    (A : I → Module.End R E) (i : I) :
+    affineContractions (affineFiniteDirectionField A b) (b.coord i) = A i := sorry
+
+lemma affineExteriorSquare_zero_commute (θ : E →ₗ[R] E ⊗[R] Q)
+    (h : affineExteriorSquare θ = 0) (v w : Module.Dual R Q) :
+    affineContractions θ v * affineContractions θ w =
+      affineContractions θ w * affineContractions θ v := sorry
+
+lemma affineExteriorSquare_finiteBasis_zero_iff (b : Module.Basis I R Q)
+    (A : I → Module.End R E) :
+    affineExteriorSquare (affineFiniteDirectionField A b) = 0 ↔
+      ∀ i j, A i * A j = A j * A i := sorry
+
+lemma affineExteriorSquare_coordinate_zero_iff (b : Module.Basis I R Q)
+    (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineExteriorSquare θ = 0 ↔ ∀ i j,
+      affineContractions θ (b.coord i) * affineContractions θ (b.coord j) =
+      affineContractions θ (b.coord j) * affineContractions θ (b.coord i) := sorry
+
+lemma affineExteriorSquare_dual_zero_iff (b : Module.Basis I R Q)
+    (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineExteriorSquare θ = 0 ↔ ∀ v w : Module.Dual R Q,
+      affineContractions θ v * affineContractions θ w =
+      affineContractions θ w * affineContractions θ v := sorry
+
+lemma affineExteriorSquare_coordinates_basis_independent
+    {J : Type*} [Fintype J] (b : Module.Basis I R Q) (c : Module.Basis J R Q)
+    (θ : E →ₗ[R] E ⊗[R] Q) :
+    (∀ i j, affineContractions θ (b.coord i) * affineContractions θ (b.coord j) =
+      affineContractions θ (b.coord j) * affineContractions θ (b.coord i)) ↔
+    (∀ i j, affineContractions θ (c.coord i) * affineContractions θ (c.coord j) =
+      affineContractions θ (c.coord j) * affineContractions θ (c.coord i)) := sorry
+
+-- test: TwistedHiggsBundle.affineFiniteDirectionField.test_apply
+example (A : I → Module.End R E) (q : I → Q) (e : E) :
+    affineFiniteDirectionField A q e = ∑ i, A i e ⊗ₜ[R] q i := sorry
+
+-- test: TwistedHiggsBundle.affineFiniteDirectionField.test_empty
+example (A : Fin 0 → Module.End R E) (q : Fin 0 → Q) :
+    affineFiniteDirectionField A q = 0 := sorry
+
+-- test: TwistedHiggsBundle.affineFiniteDirectionField.test_zero
+example (q : I → Q) :
+    affineFiniteDirectionField (fun _ => (0 : Module.End R E)) q = 0 := sorry
+
+-- test: TwistedHiggsBundle.affineFiniteDirectionField.test_reconstruct
+example (b : Module.Basis I R Q)
+    (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineFiniteDirectionField (fun i => affineContractions θ (b.coord i)) b = θ := sorry
+
+-- test: TwistedHiggsBundle.affineFiniteDirectionField.test_coordinate
+example (b : Module.Basis I R Q)
+    (A : I → Module.End R E) (i : I) :
+    affineContractions (affineFiniteDirectionField A b) (b.coord i) = A i := sorry
+
+-- test: TwistedHiggsBundle.affineFiniteDirectionField.test_dependent
+example (A : I → Module.End R E) (q : Q) :
+    affineExteriorSquare (affineFiniteDirectionField A (fun _ => q)) = 0 := sorry
+
+-- test: TwistedHiggsBundle.affineFiniteDirectionField.test_one_direction
+example (A : Module.End R E) (q : Q) :
+    affineExteriorSquare (affineFiniteDirectionField (fun _ : Fin 1 => A)
+      (fun _ => q)) = 0 := sorry
+
+-- test: TwistedHiggsBundle.affineFiniteDirectionField.test_torsion_module
+example :
+    affineExteriorSquare (affineFiniteDirectionField
+      (fun _ : Fin 1 => (LinearMap.id : ZMod 2 →ₗ[ℤ] ZMod 2))
+      (fun _ => (1 : ℤ))) = 0 := sorry
+
+-- test: TwistedHiggsBundle.affineFiniteDirectionField.test_char_two_three_coordinates
+example :
+    let b := Pi.basisFun (ZMod 2) (Fin 3)
+    let A := (LinearMap.inl (ZMod 2) (ZMod 2) (ZMod 2)).comp
+      (LinearMap.snd (ZMod 2) (ZMod 2) (ZMod 2))
+    let B := (LinearMap.inr (ZMod 2) (ZMod 2) (ZMod 2)).comp
+      (LinearMap.fst (ZMod 2) (ZMod 2) (ZMod 2))
+    affineExteriorSquare (affineFiniteDirectionField ![A,B,0] b) ≠ 0 := sorry
+
+-- test: TwistedHiggsBundle.affineFiniteDirectionField.test_all_duals
+example (b : Module.Basis I R Q)
+    (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineExteriorSquare θ = 0 ↔ ∀ v w : Module.Dual R Q,
+      affineContractions θ v * affineContractions θ w =
+      affineContractions θ w * affineContractions θ v := sorry
+
+-- test: TwistedHiggsBundle.affineFiniteDirectionField.test_basis_independent
+example {J : Type*} [Fintype J]
+    (b : Module.Basis I R Q) (c : Module.Basis J R Q) (θ : E →ₗ[R] E ⊗[R] Q) :
+    (∀ i j, affineContractions θ (b.coord i) * affineContractions θ (b.coord j) =
+      affineContractions θ (b.coord j) * affineContractions θ (b.coord i)) ↔
+    (∀ i j, affineContractions θ (c.coord i) * affineContractions θ (c.coord j) =
+      affineContractions θ (c.coord j) * affineContractions θ (c.coord i)) := sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
