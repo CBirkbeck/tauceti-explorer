@@ -1,55 +1,69 @@
-# BP-AnabelianGeometryAndNonabelianChabauty: named native kernel checkpoint
+# BP-AnabelianGeometryAndNonabelianChabauty: abstract embedded kernel checkpoint
 
-Codex, session codex-J6LwjP. Refs #1020. Claim comment 5968143516 and bot confirmation 5968144395; full issue re-read after confirmation.
+Codex, session codex-7e92bd. Refs #1020. Claim5968862052, bot5968863201; full issue read before claim and reread after confirmation. Four permitted deliverables only.
 
-The continuation adds eighteen declaration-sized nodes: three constructions, fifteen lemmas, eleven promoted API leaves and ten typed discrimination examples. The precise new scope is an actual native S≤U with the exact membership witness x∈S iff f(x)=1. It has its native subspace topology and the transported inner action. The genuine continuous gauge-H¹ equivalence to the twisted native kernel compares actual inclusions and transports quotient, mapped-target and original repointed fibre range criteria. Surjectivity is required only for the latter two criteria. Ambient H¹ injectivity and general abstract closed embedded kernel A remain open.
+The continuation adds **19 declarations (4 constructions, 15 lemmas), 15 promoted API leaves and 14 typed tests**. For an independent group A with its own topology, a supplied topological embedding i:A→U and range(i)=ker(f), it derives the actual multiplicative equivalence to the twisted native kernel, proves both continuity directions, transports the inner action and its joint continuity, and constructs the genuine pointed continuous H¹ equivalence. The actual inclusion is compared on representatives and classes; its image satisfies the quotient, mapped-target and original repointed fibre criteria. Only the latter two need f surjective. No closedness, Hausdorffness, quotient-map condition or continuous section is assumed. H¹ uses a topological-group A; this follows from the already existing inducing-homomorphism theorem and is not new infrastructure.
 
-All 258 incoming mathematical contracts, seven stage statuses, eleven planets, nine gaps, seventeen requests, reserved key-definition contracts, Chen/BDMTV ownership and RT-A2/A6 requirements remain preserved. NC.0 and NC.3 remain partial, other stages not_read, every node unchecked.
+All **276 incoming whole node objects**, source routes, source issues, reserved étale K(pi,1) contracts, Chen/BDMTV and RT-A2/A6 supplier contracts, seven stage statuses, eleven planets, nine gaps and seventeen requests survive. NC.0 and NC.3 remain partial, all other stages not_read, all implementationStatus values unchecked. The independent kernel H¹ comparison is bijective; its map into ambient H¹ is not asserted injective.
 
-Incoming PR #5974 final ff327c5a5ceff3b8d79488abbe5ed41b557d3015 was publicly recovered from archive 52c37ff46f0c150772305b0fac230da1fadb1132 and all thirty-two text artifact hashes authenticated. The complete incoming native program is retained byte-for-byte as the proof-program prefix. Previous compiler repair history is recoverable there and is not new proof coverage.
+Incoming PR #5982 was recovered using its actual public archive e22d9cb132c9f6179634ea881407797089e5e572 at tree 8155f17cfe1b5ca6469df11f9e24a2249bc8d3d9. All 34 predecessor text-artifact hashes and four final deliverable hashes were verified, and the final files match the claimed base byte-for-byte. The entire predecessor native proof program survives unchanged as IncomingNative.lean and is freshly compiled as the prefix of NativeFinal.lean.
 
-Reading is bounded: current full issue, all own stages/audit rows, the reserved all-degrees étale K(pi,1) contract, REV-AUDIT-08 NC.3 correction, 36 link maps with 29 relevant negative examined rows and no relevant actual links/overlaps, current R02.6 supplier scope, selected exact Kim §1 continuous-cocycle/coefficient and Proposition 2 passages, and native pinned library interfaces. No whole source-paper, Chen, BDMTV, geometry or complete RT-A2/A6 proof reading is claimed. R02.6 currently concerns numerical inequalities and does not discharge a generic continuous-cohomology need.
+## Reading and mathematical limits
 
-The full canonical suggested file imports Tau Ceti at f790474 and is UNCOMPILED because the existing Tau Ceti build is at a different commit. A whole native Mathlib-only proof program and the precisely bounded canonical Mathlib-only projection are checked using Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Lean 4.34.0-rc2; source-bound receipts and public recovery follow below.
+Fresh reading covers the full issue, all seven own stage descriptions and reviewed audit rows, full REV-AUDIT-08, the reserved coefficient-class/all-degree étale K(pi,1) contract, all seventeen requests and nine gaps, actual R02.6 scope and selected pinned native interfaces. All 36 link maps were inspected; their 29 relevant examined-negative entries were read in full, with zero relevant actual links/overlaps. Those historical screens have different depths; this is not a fresh whole-catalogue proof review. R02.6 currently gives numerical patching inequalities, not generic continuous cohomology.
 
-Resume with the general abstract embedded-kernel topological adapter, central H² obstruction and cochain independence, fibre orbit stabilizers/invariant conditions, genuine additive comparison, actual unipotent-point topologies/geometric local conditions, and the unchanged global source obligations. The non-normal subgroup paragraph in Kim gives pointed cosets, not a quotient-group H¹ interface.
+The exact Kim arXiv math/0409456v1 PDF was freshly downloaded and SHA256 verified as 00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941. Parsed selected §1 continuous cochain/cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor, and complete Proposition 2 proof/subgroup paragraph (printed pp.5–9) were read. No whole-paper, visual or published-version collation is claimed. The adapter is an authored deduction, not geometric representability or a non-normal subgroup quotient-group theorem. Full Chen, BDMTV, RT-A2/A6, étale homotopy and geometric torsor proofs were not newly read. JacobianChallenge was fully reread; previously fully read AlgebraicCurves is byte-guarded unchanged against this worker’s PR #5957 publication base.
 
-## Fresh execution and integration receipts
+The fresh bounded Mathlib PR search finds #31613 still OPEN at 9dc1e337689fa7ba4fefa52b4874660bdd3a3619. Its title/body, not its source proofs, were freshly inspected. The March2020 Zulip bundled-subgroups thread was read for kernel/image and continuous-cohomology API context. Exact native pinned statements were read before use: MonoidHom.ofInjective, IsEmbedding.continuous_iff/continuous, and IsInducing.isTopologicalGroup; Homeomorph.inv supports the inverse-coordinate test. Existing range equivalence and topology infrastructure are reused. The concrete input-topology condition prevents treating a discontinuous inverse as continuous, and a nonidentity inverse coordinate rules out silently substituting the identity map for i.
 
-The full native proof program passes in 23.01 seconds with **278 axiom audits, 129 examples, no admissions, no errors and no warnings**. Every newly audited declaration uses only `propext`, `Classical.choice` and `Quot.sound`; no opaque custom axiom or `sorryAx` is present. Its source SHA256 is `a5b1b4e242249f5a78d17260bad59ff79820f42712f6e32f7515d1a167ae37c6` and log SHA256 `4bbae6ac3e131b7f32cff4aab13ec068b035017b542492737c0304a437d1ae41`.
+## Source-bound execution
 
-The whole bounded canonical Mathlib-only projection passes in 23.31 seconds with **509 admission warnings, no errors and no other warnings**. Its source SHA256 is `c3c53e8972fdd9bf8e91a83aba45f71444b2bb8f35fba45518d25ff149891aa6` and log SHA256 `d3baf789dc7c33ad2cfefd1f1555b1605ff8a81562ca2fda7898eab433c65076`. The canonical suggested file SHA256 is `8572694408d0ac7b31d46b37826c6836c25245651b5c0397e58b325acd325920`. The projection removes only the exact Tau Ceti import lines and the complete `section Abelian`/`end Abelian` block; it retains every other canonical byte. Native proof and admitted planning programs have exactly the same eighteen new declaration headers and ten example headers, including their section parameters and inline mathematical witness interfaces.
+NativeFinal.lean (5128 lines) passes with **297 axiom audits, 143 examples, no warnings, admissions or errors**. Every audit uses only propext, Classical.choice and Quot.sound. New scope:19 declarations and14 examples; the other proofs/examples are the unchanged incoming prefix freshly recompiled. Source SHA256 `dd15dd828846dfd5d6eed9529ad586d1c274e1e2cc41fd30df57be0fb5936cd4`, log SHA256 `dfe55ebbd5ec9ab16dbe0a0f2e05a51ae05e2744c9422c154df29cccad50c1e5`. Final run: 26.22seconds, 47GiB available.
 
-Both runs use the already-existing pinned Mathlib build and Lean 4.34.0-rc2, with memory checks in the compile commands (63 and 62 GiB available) and a 1200-second timeout, serially. No library build, cache download, Lake project setup or Lean language server was started. Diagnostics use stdin so no private compiler path is published. The full canonical file remains UNCOMPILED at the required Tau Ceti pin.
+Sketch.lean is the whole bounded canonical Mathlib-only projection (4353lines,216examples). It passes with **542 admission warnings, zero other warnings and zero errors**. Source SHA256 `48341e4fee7d353299fe3708a7665b997bfcb2361b07527ffb35e43e7c4aa292`, log SHA256 `fbfff88af57e9bed7ca59030ffebad2f5a6372ff940723f387c54583e734fad6`. Final run: 25.02seconds, 48GiB available. The projection removes only exact TauCeti import lines and the complete section Abelian/end Abelian block. Every other canonical byte is retained. All nineteen new declaration headers and fourteen test headers match the native proof source exactly; their shared section parameters are retained. An explicit Twist.smul_def rewrite in the representative signature avoids relying on transparency of a now-admitted action body.
 
-Actual indexed checker and actual intake checks pass without errors, warnings, file problems or refusals. Packet totals: **276 nodes (3 definitions, 45 constructions, 194 lemmas, 27 theorems, 7 comparisons), 252 raw/240 checker-required API items, 202 raw/191 checker-required tests, 11 planets, 142 baseline references, 9 gaps and 17 supplier requests**.
+The full **Canonical.lean is UNCOMPILED** (4371lines,216examples), SHA256 `5dda0e6e8bcd55b51e0c3a857f912f2592d901d4238e404f3eaab5b385fb40f5`. Required Tau Ceti pin f790474821cf4256814db967cb154e7af3d0c369 differs from the available build cf386627e9176a3827c1a5fe804989fd94a4d216. No exact-pin Tau Ceti/Abelian comparison certification is claimed. Both checked programs use exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 and Lean4.34.0-rc2. Runs were serial, memory-gated at20GiB, each bounded by1200seconds. No project setup, library build, cache download or Lean language server was used; no compiler remains running. Logs use stdin and contain no private compiler path.
 
-The real `build.assemble` candidate/control checks pass at mathematical base `aa370acc1dfe5cbe0db341f684b419f54e044ab7` and publication base `697926a030708ea3b27c6f5e5f793db97f62e0e2`. Both have a 3018-vertex/8655-edge stage DAG, 276-vertex/630-edge owned declaration DAG and 3283-vertex/9597-edge scoped DAG. All 276 owned declaration roots close with 127 referenced baseline leaves; all 37 required paths and five owned accepted-restructure paths are reachable. No owned unresolved prerequisite, skipped link or pending link remains. Stage edges and other roadmaps' skips are unchanged. Forty-five unrelated preexisting unreachable accepted-restructure pairs remain exactly equal to the control, with pair-list SHA256 `4101be60e5c05999c4e96d9a60d93f717851d100e0bf02c6b4bac42a630c4aa6`; this does not claim global atlas closure.
+## Actual checker, intake and atlas replay
 
-At both bases the immutable adapter reads 845 paths, path-list SHA256 `058eeeb5e5c0bdfc5035fb51bc7ec615b0620060b78255e78566ae7f62f43681`. The verifier also binds all three mathematical deliverable byte hashes and the exact pinned declaration-index hash. All eighteen guarded issue/protocol/audit/key/supplier inputs are unchanged between these bases.
+Actual indexed checker: zero errors/warnings. Actual intake: zero file problems/refusals. Packet totals: **295nodes** (3definitions,49constructions,209lemmas,27theorems,7comparisons), **267raw/255checker API items**, **216raw/205required tests**,11planets,145baseline references,9gaps,17requests,0closed stages.
 
-## Public recovery
+Immutable actual build.assemble candidate/control runs passed at mathematical base `8155f17cfe1b5ca6469df11f9e24a2249bc8d3d9` and publication base `bc09ee60ffaaf17ea3a32ae1dce51b92a58430ad`. The adapter reads all data and script imports from the same specified immutable base; the environment is set before importing it. No repository snapshot or locally invented assembler substitutes for the real checks.
 
-Thirty-four UTF-8 text artifacts are authenticated in the archive comment on this job's own suggested-file path at commit [e22d9cb132c9f6179634ea881407797089e5e572](https://github.com/CBirkbeck/tauceti-explorer/blob/e22d9cb132c9f6179634ea881407797089e5e572/research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty.lean). The archive is an ancestor of the final proposal; the **final canonical suggested file has no archive comment**. No reference PDF, extracted source text, new repository snapshot or build is in the archive. The complete incoming native prefix is included as `incoming/Native.lean`; the earlier thirty-two predecessor artifacts remain authenticated at incoming PR #5974's public archive, rather than being treated as newly checked source coverage.
+At the mathematical base: stage DAG 3018/8655, own declaration DAG 295/665, scoped DAG 3302/9651 (vertices/edges), all acyclic. All295 owned roots close, with 129 referenced baseline leaves. All37 required paths and 5 owned accepted-restructure paths are reachable; no owned unresolved prerequisite, skipped link or pending link remains. Stage edges and other-roadmap skips equal the control.
 
-Extract the following three Python fences in order as `recover.py`, `immutable_view.py` and `verify.py`. Their byte hashes are:
+At the publication base: stage DAG 3018/8655, own declaration DAG 295/665, scoped DAG 3302/9651 (vertices/edges), all acyclic. All295 owned roots close, with 129 referenced baseline leaves. All37 required paths and 5 owned accepted-restructure paths are reachable; no owned unresolved prerequisite, skipped link or pending link remains. Stage edges and other-roadmap skips equal the control.
 
-- `recover.py`: `a14dbb9b77817b2726f4ab36f411e2d4edde9d03f6e29b8bd7033addc7dc604b`
-- `immutable_view.py`: `f776e554b0d1cb77e05ae56f6afa51225fe34b97a5fe08549b744daf0eae9566`
-- `verify.py`: `5964e3584dbf1f91b4ad42709cba3e5dbd84dabf69f8b593e1c81f9424290677`
+The45 unrelated preexisting unreachable restructure pairs equal the control, listSHA2564101be60e5c05999c4e96d9a60d93f717851d100e0bf02c6b4bac42a630c4aa6. This does not certify global atlas closure. Both executions read845 immutable paths, listSHA256058eeeb5e5c0bdfc5035fb51bc7ec615b0620060b78255e78566ae7f62f43681. Eighteen protocol/audit/key/supplier/checker guards plus four owned deliverables are unchanged between bases. The actual pinned declaration index hash and all three mathematical deliverable hashes are bound in the receipts.
 
-Run `python3 recover.py FINAL_PUBLICATION_COMMIT OUTPUT_DIR EXISTING_CLONE_DIR` with an existing clone. The final commit is the proposal head reported by GitHub for this checkpoint PR. Without the optional clone argument, recovery uses the public raw GitHub endpoints. It verifies all archive artifact hashes and retrieves the four final deliverables under `OUTPUT_DIR/proposal/`; no private machine state is required.
+## Resume
 
-From the existing explorer clone run `python3 OUTPUT_DIR/verify.py OUTPUT_DIR PINNED_DECLARATIONS.tsv`. Set `ROOT_ACTION_VALIDATE_BASE` to the publication base above for the second replay; the default is the mathematical base. `TAUCETI_REPO` optionally names that existing clone. The archive supplies the signature parser `compile_portable.py`, whose imported module has no generation side effects. The verifier executes the actual pinned-base checker, actual intake functions and actual assembler against immutable Git blobs; it does not replace them with a local graph-only check or create a repository snapshot.
+Continue with fibre stabilizers and invariant hypotheses before asserting ambient H¹ injectivity or unique preimages; central H² obstruction and cochain independence; genuine additive comparison; actual unipotent-point topology and geometric local conditions. Arbitrary G-stable/non-normal subgroups are outside this normal-kernel adapter. The full reserved K(pi,1), Chen tangential-specialization, BDMTV universal-connection/Frobenius/quadratic-height and A2/A6 obligations remain as recorded. The reader and packet retain all historical boundaries; this checkpoint supersedes only the abstract embedded-kernel-open clause under the stated hypotheses.
 
-The preserved execution receipts can be inspected without compiling. To re-elaborate, use an **already-existing exact pinned Mathlib build**, check `free -g` in each compile command, require at least 20 GiB available, and run `timeout 1200 lake env lean --stdin < NativeFinal.lean` followed serially by the same command for `Sketch.lean`. Recovered compiler receipts are historical unless those commands are newly run. Do not certify the exact Tau Ceti import or Abelian block with a different Tau Ceti build.
+## Public recovery and replay
+
+Thirty-six authenticated text artifacts are stored in the own suggested-file archive comment at ancestor commit [0293c3ad676f382472bff0ca080a420a52703210](https://github.com/CBirkbeck/tauceti-explorer/blob/0293c3ad676f382472bff0ca080a420a52703210/research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty.lean). The final canonical file has no payload comment. Source PDFs, extracted source text, library snapshots and builds are excluded. The complete incoming native prefix and the four new programs, exact input files, generation/signature scripts, metadata and source-bound validation receipts are recoverable.
+
+Extract these three Python fences in order as recover.py, immutable_view.py and verify.py. Exact script hashes:
+
+- recover.py: 92c691fef3498f0966bb6f1f25e1614a9621802f9b1622f74674ed915cde8ed3
+- immutable_view.py: cf8aae0bc1b027b50a55d38d6488b3231859f3b2bdb6b79f8bf94bd994e10424
+- verify.py: 7f98219389d05390fbe5e14d814b91f9b8f942645a8799cfe6c6e63e6048bbef
+
+Run `python3 recover.py FINAL_PR_HEAD OUTPUT_DIR` for actual public raw-endpoint recovery. An optional third existing-clone directory enables immutable local Git reads without cloning. The final head is the commit reported by GitHub for this checkpoint PR. Recovery authenticates all36 artifact hashes and fetches the four final deliverables into OUTPUT_DIR/proposal.
+
+From an existing explorer clone run `python3 OUTPUT_DIR/verify.py OUTPUT_DIR PINNED_DECLARATIONS.tsv`. This replays actual immutable checker/intake/assembler checks at the mathematical base. Set ROOT_ACTION_VALIDATE_BASE to the publication base above for the second replay; TAUCETI_REPO optionally identifies the existing clone. Recovered compilation logs are historical unless newly executed.
+
+To recompile, use only an already-existing exact pinned Mathlib build. Run `python3 OUTPUT_DIR/run-lean.py EXISTING_BUILD NativeFinal.lean` and, after completion, the same command for Sketch.lean. The wrapper checks the Mathlib commit/cleanliness, available memory≥20GiB and1200-second timeout; it writes source-bound receipts. Do not start a second compiler or claim exact Tau Ceti compilation with another Tau Ceti revision.
+
+Local maintenance: retain only handoff-linked artifacts under this worker’s retained evidence for the PR and remove the disposable job directory after submission. Successor workers recover from these public commits; no private machine state is needed.
 
 ```python
 """Recover authenticated public artifacts without a new repository snapshot."""
 from pathlib import Path
 import base64,hashlib,json,re,subprocess,sys,urllib.request,zlib
 REPOSITORY='CBirkbeck/tauceti-explorer'
-ARCHIVE='e22d9cb132c9f6179634ea881407797089e5e572'
+ARCHIVE='0293c3ad676f382472bff0ca080a420a52703210'
 RID='AnabelianGeometryAndNonabelianChabauty'
 FILES=['research/blueprint/packets/'+RID+'.json','research/blueprint/readmes/'+RID+'.md','research/blueprint/suggested/'+RID+'.lean','research/blueprint/handoff/BP-'+RID+'.md']
 FINAL=sys.argv[1];OUT=Path(sys.argv[2]).resolve();CLONE=Path(sys.argv[3]).resolve() if len(sys.argv)>3 else None
@@ -58,19 +72,15 @@ def read(ref,path):
  if CLONE:
   try:return subprocess.check_output(['git','show',ref+':'+path],cwd=CLONE,stderr=subprocess.DEVNULL)
   except subprocess.CalledProcessError:pass
- url='https://raw.githubusercontent.com/'+REPOSITORY+'/'+ref+'/'+path
- return urllib.request.urlopen(url,timeout=90).read()
+ return urllib.request.urlopen('https://raw.githubusercontent.com/'+REPOSITORY+'/'+ref+'/'+path,timeout=60).read()
 raw=read(ARCHIVE,FILES[2]).decode()
-m=re.search(r'/- BEGIN ARCHIVED NAMED NATIVE KERNEL PAYLOAD\n(.*?)\nEND ARCHIVED NAMED NATIVE KERNEL PAYLOAD -/',raw,re.S)
+m=re.search(r'/- BEGIN ARCHIVED ABSTRACT EMBEDDED KERNEL PAYLOAD\n(.*?)\nEND ARCHIVED ABSTRACT EMBEDDED KERNEL PAYLOAD -/',raw,re.S)
 assert m,'Public archive comment missing'
 payload=json.loads(m[1]);manifest={}
 for name,item in payload['files'].items():
- path=Path(name)
- assert not path.is_absolute() and '..' not in path.parts
- data=zlib.decompress(base64.b64decode(item['data']))
- assert hashlib.sha256(data).hexdigest()==item['sha256'],name
- target=OUT/path;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(data)
- manifest[name]=item['sha256']
+ path=Path(name);assert not path.is_absolute() and '..' not in path.parts
+ data=zlib.decompress(base64.b64decode(item['data']));assert hashlib.sha256(data).hexdigest()==item['sha256'],name
+ target=OUT/path;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(data);manifest[name]=item['sha256']
 for file in FILES:
  data=read(FINAL,file);target=OUT/'proposal'/file;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(data)
 manifest['finalDeliverables']={file:hashlib.sha256((OUT/'proposal'/file).read_bytes()).hexdigest() for file in FILES}
@@ -91,7 +101,7 @@ import sys
 
 import os
 REPO = Path(os.environ.get('TAUCETI_REPO', str(Path.cwd())))
-BASE = os.environ.get('ROOT_ACTION_VALIDATE_BASE', 'aa370acc1dfe5cbe0db341f684b419f54e044ab7')
+BASE = os.environ.get('ROOT_ACTION_VALIDATE_BASE', '8155f17cfe1b5ca6469df11f9e24a2249bc8d3d9')
 TRACKED = set(subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', BASE], cwd=REPO, text=True).splitlines())
 CACHE = {}
 READS = set()
@@ -192,25 +202,22 @@ import ast,collections,copy,hashlib,json,os,re,subprocess,sys
 R=Path(os.environ.get('TAUCETI_REPO',str(Path.cwd()))).resolve()
 S=Path(sys.argv[1]).resolve()
 RID='AnabelianGeometryAndNonabelianChabauty'
-MATH='aa370acc1dfe5cbe0db341f684b419f54e044ab7'
+MATH='8155f17cfe1b5ca6469df11f9e24a2249bc8d3d9'
 BASE=os.environ.get('ROOT_ACTION_VALIDATE_BASE',MATH)
 FILES=['research/blueprint/packets/'+RID+'.json','research/blueprint/readmes/'+RID+'.md','research/blueprint/suggested/'+RID+'.lean','research/blueprint/handoff/BP-'+RID+'.md']
 def readref(ref,path):return subprocess.check_output(['git','show',ref+':'+path],cwd=R,text=True)
 proposal={f:(S/'proposal'/f).read_text() for f in FILES}
 p=json.loads(proposal[FILES[0]]);old=json.loads(readref(MATH,FILES[0]));nodes={n['id']:n for n in p['nodes']}
-assert len(old['nodes'])==258 and len(nodes)==276
-changed=RID+':NC.3/normal-h1-kernel'
-for n in old['nodes']:
- for k,v in n.items():
-  if n['id']==changed and k in ('prerequisites','proofSteps'):assert nodes[n['id']][k][:len(v)]==v,(n['id'],k)
-  else:assert nodes[n['id']][k]==v,(n['id'],k)
-assert set(p)==set(old)|{'namedNativeKernelContinuation'}
+assert len(old['nodes'])==276 and len(nodes)==295
+for n in old['nodes']:assert nodes[n['id']]==n,n['id']
+assert set(p)==set(old)|{'abstractEmbeddedKernelContinuation'}
 for k,v in old.items():
  if k not in ('nodes','summary','sources','baseline','gaps','coverage'):assert p[k]==v,k
 assert p['sources'][:-1]==old['sources']
-assert p['baseline']['declarations'][:-1]==old['baseline']['declarations']
+assert p['baseline']['declarations'][:len(old['baseline']['declarations'])]==old['baseline']['declarations']
+assert {k:v for k,v in p['baseline'].items() if k!='declarations'}=={k:v for k,v in old['baseline'].items() if k!='declarations'}
 assert p['gaps'][:-1]==old['gaps'][:-1]
-assert {k:v for k,v in p['gaps'][-1].items() if k!='namedNativeKernelContinuation'}==old['gaps'][-1]
+assert {k:v for k,v in p['gaps'][-1].items() if k!='abstractEmbeddedKernelContinuation'}==old['gaps'][-1]
 for a,b in zip(p['coverage'],old['coverage']):
  if a['stageId']==RID+':NC.3':assert {k:v for k,v in a.items() if k!='remaining'}=={k:v for k,v in b.items() if k!='remaining'} and a['remaining'][:-1]==b['remaining']
  else:assert a==b
@@ -220,9 +227,9 @@ extra=(S/'New.lean').read_text()+'\n'+(S/'Tests.lean').read_text()
 admitted=(S/'Admitted.lean').read_text();sketch=(S/'Sketch.lean').read_text()
 assert canonical==proposal[FILES[2]] and canonical.startswith(readref(MATH,FILES[2]))
 assert sketch==re.sub(r'^section Abelian\n[\s\S]*?^end Abelian\n','',re.sub(r'^import TauCeti\..*\n','',canonical,flags=re.M),flags=re.M)
-assert native==(S/'incoming/Native.lean').read_text()+'\n'+extra+'\n'+(S/'Audits.lean').read_text()
+assert native==(S/'IncomingNative.lean').read_text()+'\n'+extra+'\n'+(S/'Audits.lean').read_text()
 assert not re.search(r'\bsorry\b|^axiom\b',native,re.M)
-assert native.count('#print axioms')==278
+assert native.count('#print axioms')==297
 receipt=json.loads((S/'lean-receipts.json').read_text())
 for file,key in [('NativeFinal.lean','native'),('Sketch.lean','sketch')]:
  q=receipt[key];log=(S/q['log']).read_text()
@@ -230,16 +237,20 @@ for file,key in [('NativeFinal.lean','native'),('Sketch.lean','sketch')]:
  assert q['logSha256']==hashlib.sha256((S/q['log']).read_bytes()).hexdigest()
  assert q['exit']==0 and q['availableGiB']>=20 and q['timeoutSeconds']==1200
  assert not re.search(r': error',log)
- if key=='native':assert not re.search(r'warning:|sorryAx',log) and q['axiomAudits']==278
- else:assert all('declaration uses' in l and 'sorry' in l for l in log.splitlines() if 'warning:' in l)
+ if key=='native':
+  assert all(set(re.findall(r'\b(?:\w+\.)*\w+\b',v))<={'propext','Classical.choice','Quot.sound'} for v in re.findall(r'depends on axioms: \[(.*?)\]',log,re.S))
+  assert not re.search(r'warning:|sorryAx',log) and q['axiomAudits']==297
+ else:
+  assert q['admissions']==q['warnings']==542
+  assert all('declaration uses' in l and 'sorry' in l for l in log.splitlines() if 'warning:' in l)
 import compile_portable as signatures
 # The recovery helper is imported without regenerating sources.
 def headers(txt):return [' '.join(d['header'].split()) for d in signatures.declarations(txt)]
-assert len(headers(extra))==28 and headers(extra)==headers(admitted)
+assert len(headers(extra))==33 and headers(extra)==headers(admitted)
 assert admitted==signatures.admit(extra)
 reader=proposal[FILES[1]]
 assert reader.endswith(readref(MATH,FILES[1]))
-for n in p['nodes'][258:]:
+for n in p['nodes'][276:]:
  assert n['declarationName'] in reader and n['statement'] in reader
  name=n['declarationName'].removeprefix('TauCeti.NonabelianCohomology.')
  assert re.search(r'^(?:def|lemma) '+re.escape(name)+r'\b',extra,re.M)
@@ -249,7 +260,7 @@ for slug,name,kind,statement in json.loads((S/'new-tests.json').read_text()):
 for f,v in proposal.items():
  assert not re.search(r'[ \t]+$',v,re.M),f
  assert not re.search(r'/(?:home|tmp|Users)/|file'+'://',v),f
-GUARDS=['research/blueprint/WORKERS.md','research/blueprint/PROTOCOL.md','research/expansion/PROTOCOL.md','research/blueprint/UPSTREAM_GUIDE.md','data/library-coverage.json','research/blueprint/reviews/REV-AUDIT-08.md','data/keydefs/KEYDEF-algebraicgeometry.json','research/blueprint/keydefs/owners.json','research/blueprint/reserved-ids.json','content/tau-ceti/JacobianChallenge/README.md','content/tau-ceti/HodgeStructures/README.md','scripts/check_blueprint.py','scripts/source_issues.py','scripts/build.py','scripts/blueprints.py','research/blueprint/intake.py','research/blueprint/packets/AbelianSchemesAndArithmeticModuli.json','research/blueprint/atlas/roadmaps/AbelianSchemesAndArithmeticModuli.json']
+GUARDS=['research/blueprint/WORKERS.md','research/blueprint/PROTOCOL.md','research/expansion/PROTOCOL.md','research/blueprint/UPSTREAM_GUIDE.md','data/library-coverage.json','research/blueprint/reviews/REV-AUDIT-08.md','data/keydefs/KEYDEF-algebraicgeometry.json','research/blueprint/keydefs/owners.json','research/blueprint/reserved-ids.json','content/tau-ceti/JacobianChallenge/README.md','content/tau-ceti/AlgebraicCurves/README.md','scripts/check_blueprint.py','scripts/source_issues.py','scripts/build.py','scripts/blueprints.py','research/blueprint/intake.py','research/blueprint/packets/AbelianSchemesAndArithmeticModuli.json','research/blueprint/atlas/roadmaps/AbelianSchemesAndArithmeticModuli.json']
 for f in GUARDS+FILES:assert readref(MATH,f)==readref(BASE,f),('input changed',f)
 linkpaths=[x for x in subprocess.check_output(['git','ls-tree','-r','--name-only',BASE],cwd=R,text=True).splitlines() if x.startswith('research/blueprint/links/') and x.endswith('.json')]
 linkmatches=[]
@@ -260,7 +271,7 @@ for path in linkpaths:
    if RID in json.dumps(entry):linkmatches.append({'path':path,'kind':key,'entry':entry})
 assert len(linkpaths)==36 and sum(x['kind']=='examined' for x in linkmatches)==29
 assert not any(x['kind'] in ('links','overlaps') for x in linkmatches)
-print(json.dumps({'boundedLinkMapsRead':len(linkpaths),'ownRelevantEntries':linkmatches}),flush=True)
+os.environ['ROOT_ACTION_VALIDATE_BASE']=BASE
 import immutable_view as gv
 gv.install();sys.path.insert(0,str(R/'scripts'))
 import check_blueprint,build,blueprints
@@ -271,7 +282,7 @@ picked=[n for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,as
 env={'json':json,'re':re};exec(compile(ast.Module(body=picked,type_ignores=[]),'actual-intake', 'exec'),env)
 job=next(j for j in json.loads((R/'research/blueprint/queue.json').read_text())['jobs'] if j['id']=='BP-'+RID)
 problems=[x for path,text in proposal.items() for x in env['file_problems'](path,text)]
-refusals=env['auto_refusals'](job,list(proposal),False,{'codex-J6LwjP'},set())
+refusals=env['auto_refusals'](job,list(proposal),False,{'codex-7e92bd'},set())
 assert not problems and not refusals,(problems,refusals)
 packets,documents,definitions=blueprints.load_promoted(R)
 keep=[x for x in packets if x[0]!=RID];documents[RID]=FILES[1]
@@ -347,42 +358,5 @@ def skips(r):return r.get('blueprint',{}).get('skippedLinks',[]),r.get('pendingL
 assert all(skips(ar[x])==skips(br[x]) for x in br if x!=RID)
 summary={'stageDAG':dag(listedstageids,se),'ownDeclarationDAG':dag(nodes,ownedges),'scopedDAG':dag(listedstageids|seen,se|de),'reachableDeclarations':len(seen),'externalDeclarations':sorted(seen-set(nodes)),'baselineLeaves':len(baseref),'requiredPairs':len(pairs),'restructurePairs':len(rspairs),'ownRestructurePairs':sum(s.startswith(RID+':') or t.startswith(RID+':') for s,t in rspairs),'otherPreexistingUnreachableRestructurePairs':len(missing_restructures),'otherUnreachableRestructurePairListSha256':hashlib.sha256(json.dumps(missing_restructures).encode()).hexdigest(),'unresolved':sorted(unresolved),'ownSkippedLinks':[],'ownPendingLinks':[],'otherSkipsMatch':True,'stageEdgesUnchanged':True}
 
-print(json.dumps({'graph':summary,'checker':{k:v for k,v in checker.items() if k!='packet'},'preservedNodeObjects':257,'preservedMathematicalContracts':258,'newNodes':18,'newHeaders':18,'newTests':10,'rawApiItems':sum(len(n.get('api',[])) for n in p['nodes']),'rawTests':sum(len(n.get('tests',[])) for n in p['nodes']),'leanExecution':'Whole native proof program passes with 278 axiom audits and no admissions; whole bounded Mathlib-only projection passes with admission warnings only; full canonical UNCOMPILED','intakeProblems':problems,'intakeRefusals':refusals,'guardsUnchanged':len(GUARDS),'immutableReadPaths':len(gv.READS),'immutableReadPathListSha256':hashlib.sha256(json.dumps(sorted(gv.READS)).encode()).hexdigest(),'ownedArtifactHashes':{f:hashlib.sha256(proposal[f].encode()).hexdigest() for f in FILES[:3]},'indexSha256':hashlib.sha256(Path(sys.argv[2]).read_bytes()).hexdigest(),'verifierSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()},indent=2),flush=True)
+print(json.dumps({'boundedLinkMapsRead':len(linkpaths),'ownRelevantEntries':linkmatches,'graph':summary,'checker':{k:v for k,v in checker.items() if k!='packet'},'preservedNodeObjects':276,'preservedMathematicalContracts':276,'newNodes':19,'newHeaders':19,'newTests':14,'rawApiItems':sum(len(n.get('api',[])) for n in p['nodes']),'rawTests':sum(len(n.get('tests',[])) for n in p['nodes']),'leanExecution':'Whole native proof program passes with 297 axiom audits and no admissions; whole bounded Mathlib-only projection passes with admission warnings only; full canonical UNCOMPILED','intakeProblems':problems,'intakeRefusals':refusals,'guardsUnchanged':len(GUARDS),'immutableReadPaths':len(gv.READS),'immutableReadPathListSha256':hashlib.sha256(json.dumps(sorted(gv.READS)).encode()).hexdigest(),'ownedArtifactHashes':{f:hashlib.sha256(proposal[f].encode()).hexdigest() for f in FILES[:3]},'indexSha256':hashlib.sha256(Path(sys.argv[2]).read_bytes()).hexdigest(),'verifierSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()},indent=2),flush=True)
 ```
-
-## Authenticated artifact manifest
-
-- `Incoming-packet.json`: `d25931d776e72a19ad063c80508274e15203d2ff2eeae0d8abea45c402cfab18`
-- `Incoming-reader.md`: `2ef0fc5ec24bfc8b4bad3944419ecea75bbf8a047ef5fbdee0eb1a1631c2c3aa`
-- `Incoming-suggested.lean`: `faac5e848186d95f9223442c58581abc1238163c7fda411eff0cf419e5e977a8`
-- `Incoming-handoff.md`: `49e47c65b8321a3a423ce0c07bece63321ed60027dbd8b9b5295318e929ef95d`
-- `incoming/Native.lean`: `e79a37f2f04f542ca33547ae075d74ea40b1af8d545c8f479a9bca0f123d43fe`
-- `New.lean`: `e713c915b862be3b5130d83aeff7b84af0ae2893a626222d188e9e788806b8c4`
-- `Tests.lean`: `9d16bcef258a4ae33d7b1852b0f898f4c6b25884cdf83b2efa759ace2e209a26`
-- `Admitted.lean`: `64950c4cc505ab52ec98292276d8850fa1222f043dfdd1e30939a61511b8b803`
-- `Canonical.lean`: `8572694408d0ac7b31d46b37826c6836c25245651b5c0397e58b325acd325920`
-- `Sketch.lean`: `c3c53e8972fdd9bf8e91a83aba45f71444b2bb8f35fba45518d25ff149891aa6`
-- `NativeFinal.lean`: `a5b1b4e242249f5a78d17260bad59ff79820f42712f6e32f7515d1a167ae37c6`
-- `Audits.lean`: `548c81137dc39470e123a92ec9b6bf26a072cf5013412ae579d4501a935784b3`
-- `headers.json`: `5e2f7e74e09b2ca975e18c92c3c56e34662d6eab07dcb10d5426c11ab9605c1a`
-- `new-node-specs.json`: `1fa1d452b3e218b245557901e69231336589161d631bda30add812fc6f267617`
-- `new-tests.json`: `9f563470308919f26d2003f58269c49e225b40e169e66e5fd9b2c955cdd67433`
-- `packet.json`: `4be6ea3c6bb56b1dd304489b164314f3731395ebf8db23b8ea0eedeb00d0642c`
-- `Reader.md`: `3001ae7fc086b77b6eca9cf2ea285d42ca0311d285b7dd53552182a8aad5696c`
-- `verify.py`: `5964e3584dbf1f91b4ad42709cba3e5dbd84dabf69f8b593e1c81f9424290677`
-- `immutable_view.py`: `f776e554b0d1cb77e05ae56f6afa51225fe34b97a5fe08549b744daf0eae9566`
-- `compile_portable.py`: `812f01d12c81bca57a2c94efe173629681c3555ec08c4461183b90407aa71d3d`
-- `compile-portable.py`: `812f01d12c81bca57a2c94efe173629681c3555ec08c4461183b90407aa71d3d`
-- `make-plan.py`: `963a6239efc8553f892ee4afcffa66ddb0298f11e1a3f82d71fd71fb2877d59d`
-- `NativeFinal.lean.log`: `4bbae6ac3e131b7f32cff4aab13ec068b035017b542492737c0304a437d1ae41`
-- `Sketch.lean.log`: `d3baf789dc7c33ad2cfefd1f1555b1605ff8a81562ca2fda7898eab433c65076`
-- `native.memory.txt`: `5d688167e5b1171c385aa3cd4631daf42435f56ddf4f937d65dbe9aa71b16e8c`
-- `sketch.memory.txt`: `57dd8b934a3166cd8f504ebc2d3a2efc269bd3760454ca3dff3e8ca6d89a7bd9`
-- `lean-receipts.json`: `8c1909c56eac186b43d7d2533d654a1e43794c6fed8f5d53d51820dcbdbe9723`
-- `reading-receipt.json`: `a700bce1e083825515c2fb1b9a4aefc78a95e56e70f6038ffebcc9b16b67e00a`
-- `worklist.md`: `edbd56a18687cd32ff96e51ad37954750f133f2d2c7b5ba9c2e352f2c9046ffa`
-- `base.txt`: `20635f711a2b7d6fb12e96ef6f692d719b4fc7c5abea33b9d8e1f6984d09793c`
-- `publication-base.txt`: `d8aa0e70b3469b4b8531102833ab554846f19350fcc30919bb7694a13dd6ded3`
-- `verification-math.json`: `11169c6bf34e6629b3da234527871f18da7b65c87c5bb948fee32e016eb30e07`
-- `verification-pub.json`: `11169c6bf34e6629b3da234527871f18da7b65c87c5bb948fee32e016eb30e07`
-- `handoff-prefix.md`: `8b619d1fa846c1f3f1b4f556d78d25ff0b17206333f03c206e66f8bb11338e1c`

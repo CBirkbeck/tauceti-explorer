@@ -4108,3 +4108,264 @@ example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
 
 end NamedKernelTests
 end TauCeti.NonabelianCohomology
+
+namespace TauCeti.NonabelianCohomology
+section EmbeddedKernel
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [MulDistribMulAction G U]
+  {V : Type*} [Group V] [TopologicalSpace V] [MulDistribMulAction G V]
+  {A : Type*} [Group A] [TopologicalSpace A]
+variable (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+  (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+  (i : A →* U) (hi : Topology.IsEmbedding i)
+  (hK : ∀ x : U, x ∈ i.range ↔ f x = 1)
+
+/-- The algebraic range equivalence is reused from Mathlib; exactness identifies its target. -/
+def Twist.embeddedKernelEquiv (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (i : A →* U) (hi : Topology.IsEmbedding i)
+    (hK : ∀ x : U, x ∈ i.range ↔ f x = 1) : A ≃* (Twist.map c f hf hG).ker := by sorry
+
+lemma Twist.embeddedKernelEquiv_apply (x : A) :
+    Twist.toOriginal c (Twist.embeddedKernelEquiv c f hf hG i hi hK x).val = i x := by sorry
+
+lemma Twist.embeddedKernelEquiv_symm_apply (x : (Twist.map c f hf hG).ker) :
+    i ((Twist.embeddedKernelEquiv c f hf hG i hi hK).symm x) =
+      Twist.toOriginal c x.val := by sorry
+
+lemma Twist.embeddedKernelEquiv_continuous :
+    Continuous (Twist.embeddedKernelEquiv c f hf hG i hi hK) := by sorry
+
+lemma Twist.embeddedKernelEquiv_symm_continuous :
+    Continuous (Twist.embeddedKernelEquiv c f hf hG i hi hK).symm := by sorry
+
+@[instance_reducible]
+def Twist.embeddedKernelAction (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (i : A →* U) (hi : Topology.IsEmbedding i)
+    (hK : ∀ x : U, x ∈ i.range ↔ f x = 1)
+    [IsTopologicalGroup U] [ContinuousSMul G U]
+    [IsTopologicalGroup V] [ContinuousSMul G V] : MulDistribMulAction G A := by sorry
+
+variable [IsTopologicalGroup U] [ContinuousSMul G U]
+  [IsTopologicalGroup V] [ContinuousSMul G V]
+
+lemma Twist.embeddedKernelAction_value (g : G) (x : A) :
+    (letI := Twist.embeddedKernelAction c f hf hG i hi hK
+     i (g • x) = c g * (g • i x) * (c g)⁻¹) := by sorry
+
+lemma Twist.embeddedKernelEquiv_smul (g : G) (x : A) :
+    (letI := Twist.embeddedKernelAction c f hf hG i hi hK
+     letI := Twist.kernelAction c f hf hG
+     Twist.embeddedKernelEquiv c f hf hG i hi hK (g • x) =
+       g • Twist.embeddedKernelEquiv c f hf hG i hi hK x) := by sorry
+
+lemma Twist.embeddedKernelContinuousSMul :
+    (letI := Twist.embeddedKernelAction c f hf hG i hi hK
+     ContinuousSMul G A) := by sorry
+
+variable [IsTopologicalGroup A]
+
+def H1.embeddedKernelEquiv (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (i : A →* U) (hi : Topology.IsEmbedding i)
+    (hK : ∀ x : U, x ∈ i.range ↔ f x = 1) :
+    (letI := Twist.embeddedKernelAction c f hf hG i hi hK
+     letI := Twist.embeddedKernelContinuousSMul c f hf hG i hi hK
+     letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     H1 G A ≃ H1 G (Twist.map c f hf hG).ker) := by sorry
+
+lemma H1.embeddedKernelEquiv_one :
+    (letI := Twist.embeddedKernelAction c f hf hG i hi hK
+     letI := Twist.embeddedKernelContinuousSMul c f hf hG i hi hK
+     letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     H1.embeddedKernelEquiv c f hf hG i hi hK 1 = 1) := by sorry
+
+/-- The actual inclusion on continuous gauge classes, with domain carrying the transported action. -/
+def H1.embeddedKernelInclusion (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (i : A →* U) (hi : Topology.IsEmbedding i)
+    (hK : ∀ x : U, x ∈ i.range ↔ f x = 1) :
+    (letI := Twist.embeddedKernelAction c f hf hG i hi hK
+     letI := Twist.embeddedKernelContinuousSMul c f hf hG i hi hK
+     H1 G A → H1 G (Twist c)) := by sorry
+
+lemma H1.embeddedKernelEquiv_inclusion :
+    (letI := Twist.embeddedKernelAction c f hf hG i hi hK
+     letI := Twist.embeddedKernelContinuousSMul c f hf hG i hi hK
+     letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     ∀ a : H1 G A,
+     H1.twistedKernelInclusion c f hf hG (H1.embeddedKernelEquiv c f hf hG i hi hK a) =
+       H1.embeddedKernelInclusion c f hf hG i hi hK a) := by sorry
+
+lemma H1.embeddedKernelInclusion_range :
+    (letI := Twist.embeddedKernelAction c f hf hG i hi hK
+     letI := Twist.kernelAction c f hf hG
+     Set.range (H1.embeddedKernelInclusion c f hf hG i hi hK) =
+       Set.range (H1.twistedKernelInclusion c f hf hG)) := by sorry
+
+lemma H1.embeddedKernelInclusion_mapped_range_iff (hsur : Function.Surjective f) :
+    (letI := Twist.embeddedKernelAction c f hf hG i hi hK
+     ∀ a : H1 G (Twist c),
+     a ∈ Set.range (H1.embeddedKernelInclusion c f hf hG i hi hK) ↔
+       H1.map (Twist.map c f hf hG) (Twist.map_continuous c f hf hG)
+         (Twist.map_smul c f hf hG) a = 1) := by sorry
+
+lemma H1.embeddedKernelInclusion_fibre_range_iff (hsur : Function.Surjective f) :
+    (letI := Twist.embeddedKernelAction c f hf hG i hi hK
+     ∀ a : H1 G U,
+     a ∈ Set.range (fun b => H1.twistEquiv c
+       (H1.embeddedKernelInclusion c f hf hG i hi hK b)) ↔
+       H1.map f hf hG a = H1.mk (Z1.map f hf hG c)) := by sorry
+
+lemma H1.embeddedKernelEquiv_mk :
+    (letI := Twist.embeddedKernelAction c f hf hG i hi hK
+     letI := Twist.embeddedKernelContinuousSMul c f hf hG i hi hK
+     letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     ∀ d : Z1 G A,
+     H1.embeddedKernelEquiv c f hf hG i hi hK (H1.mk d) =
+       H1.mk (Z1.map (Twist.embeddedKernelEquiv c f hf hG i hi hK).toMonoidHom
+         (Twist.embeddedKernelEquiv_continuous c f hf hG i hi hK)
+         (Twist.embeddedKernelEquiv_smul c f hf hG i hi hK) d)) := by sorry
+
+lemma H1.embeddedKernelInclusion_mk :
+    (letI := Twist.embeddedKernelAction c f hf hG i hi hK
+     letI := Twist.embeddedKernelContinuousSMul c f hf hG i hi hK
+     ∀ d : Z1 G A,
+     H1.embeddedKernelInclusion c f hf hG i hi hK (H1.mk d) =
+       H1.mk (Z1.map (G := G) (U' := Twist c) (show A →* Twist c from i)
+         hi.continuous (fun g x => by
+           change (show Twist c from i (g • x)) = g • (show Twist c from i x)
+           rw [Twist.smul_def]
+           exact Twist.embeddedKernelAction_value c f hf hG i hi hK g x) d)) := by sorry
+
+lemma H1.embeddedKernelInclusion_quotient_range_iff :
+    (letI := Twist.embeddedKernelAction c f hf hG i hi hK
+     letI := Twist.kernelAction c f hf hG
+     letI := Twist.quotientAction c f hf hG
+     letI := Twist.quotientContinuousSMul c f hf hG
+     ∀ a : H1 G (Twist c),
+     a ∈ Set.range (H1.embeddedKernelInclusion c f hf hG i hi hK) ↔
+       H1.twistedQuotient c f hf hG a = 1) := by sorry
+
+end EmbeddedKernel
+end TauCeti.NonabelianCohomology
+
+namespace TauCeti.NonabelianCohomology
+section EmbeddedKernelTests
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [MulDistribMulAction G U]
+  {V : Type*} [Group V] [TopologicalSpace V] [MulDistribMulAction G V]
+  {A : Type*} [Group A] [TopologicalSpace A]
+
+-- test: embedded_kernel_wrong_image
+example (i : A →* U) (f : U →* V) (x : U) (hx : f x = 1) (hbad : x ∉ i.range) :
+    ¬ (∀ y : U, y ∈ i.range ↔ f y = 1) := by sorry
+
+-- test: embedded_kernel_noninjective
+example (i : A →* U) (x y : A) (hxy : x ≠ y) (heq : i x = i y) :
+    ¬ Topology.IsEmbedding i := by sorry
+
+-- test: embedded_kernel_inverse_topology
+example (e : A ≃* U) (hbad : ¬ Continuous e.symm) :
+    ¬ Topology.IsEmbedding e := by sorry
+
+-- test: embedded_kernel_constant_nonsurjective
+example (c : Z1 G U) (v : V) (hv : v ≠ 1) :
+    ¬ Function.Surjective (1 : U →* V) ∧
+      ∀ x : U, Twist.toOriginal c
+        (Twist.embeddedKernelEquiv c (1 : U →* V) continuous_const
+          (fun g _ => (smul_one g).symm) (MonoidHom.id U) Topology.IsEmbedding.id
+          (fun y => by simp) x).val = x := by sorry
+
+variable [IsTopologicalGroup U] [ContinuousSMul G U]
+  [IsTopologicalGroup V] [ContinuousSMul G V] [IsTopologicalGroup A]
+variable (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+  (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+  (i : A →* U) (hi : Topology.IsEmbedding i)
+  (hK : ∀ x : U, x ∈ i.range ↔ f x = 1)
+
+-- test: embedded_kernel_neutral_action
+example (g : G) (x : A) :
+    (letI := Twist.embeddedKernelAction (1 : Z1 G U) f hf hG i hi hK
+     i (g • x) = g • i x) := by sorry
+
+-- test: embedded_kernel_inner_action_order
+example (g : G) (x : A) (hbad : c g * (g • i x) * (c g)⁻¹ ≠ g • i x) :
+    (letI := Twist.embeddedKernelAction c f hf hG i hi hK
+     i (g • x) ≠ g • i x) := by sorry
+
+-- test: embedded_kernel_h1_inverse
+example :
+    (letI := Twist.embeddedKernelAction c f hf hG i hi hK
+     letI := Twist.embeddedKernelContinuousSMul c f hf hG i hi hK
+     letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     ∀ a : H1 G A, (H1.embeddedKernelEquiv c f hf hG i hi hK).symm
+       (H1.embeddedKernelEquiv c f hf hG i hi hK a) = a) := by sorry
+
+-- test: embedded_kernel_repointed_non_neutral
+example (hsur : Function.Surjective f) (hfc : H1.mk (Z1.map f hf hG c) ≠ 1) :
+    (letI := Twist.embeddedKernelAction c f hf hG i hi hK
+     (1 : H1 G U) ∉ Set.range (fun b => H1.twistEquiv c
+       (H1.embeddedKernelInclusion c f hf hG i hi hK b))) := by sorry
+
+-- test: embedded_kernel_action_multiplication
+example (g : G) (x y : A) :
+    (letI := Twist.embeddedKernelAction c f hf hG i hi hK
+     i (g • (x * y)) = i (g • x) * i (g • y)) := by sorry
+
+-- test: embedded_kernel_h1_neutral
+example :
+    (letI := Twist.embeddedKernelAction c f hf hG i hi hK
+     letI := Twist.embeddedKernelContinuousSMul c f hf hG i hi hK
+     letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     H1.embeddedKernelEquiv c f hf hG i hi hK (H1.mk (1 : Z1 G A)) = 1) := by sorry
+
+-- test: embedded_kernel_h1_forward_inverse
+example :
+    (letI := Twist.embeddedKernelAction c f hf hG i hi hK
+     letI := Twist.embeddedKernelContinuousSMul c f hf hG i hi hK
+     letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     ∀ a : H1 G (Twist.map c f hf hG).ker,
+       H1.embeddedKernelEquiv c f hf hG i hi hK
+         ((H1.embeddedKernelEquiv c f hf hG i hi hK).symm a) = a) := by sorry
+
+-- test: embedded_kernel_inclusion_neutral
+example :
+    (letI := Twist.embeddedKernelAction c f hf hG i hi hK
+     letI := Twist.embeddedKernelContinuousSMul c f hf hG i hi hK
+     H1.embeddedKernelInclusion c f hf hG i hi hK (H1.mk (1 : Z1 G A)) = 1) := by sorry
+
+-- test: embedded_kernel_inclusion_killed
+example :
+    (letI := Twist.embeddedKernelAction c f hf hG i hi hK
+     letI := Twist.embeddedKernelContinuousSMul c f hf hG i hi hK
+     letI := Twist.kernelAction c f hf hG
+     letI := Twist.quotientAction c f hf hG
+     letI := Twist.quotientContinuousSMul c f hf hG
+     ∀ a : H1 G A, H1.twistedQuotient c f hf hG
+       (H1.embeddedKernelInclusion c f hf hG i hi hK a) = 1) := by sorry
+
+end EmbeddedKernelTests
+section InverseCoordinateTest
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {C : Type*} [CommGroup C] [TopologicalSpace C] [IsTopologicalGroup C]
+  [MulDistribMulAction G C] (c : Z1 G C)
+
+-- test: embedded_kernel_inverse_coordinate
+example (x : C) (hx : x⁻¹ ≠ x) :
+    let hK : ∀ y : C, y ∈ (invMonoidHom : C →* C).range ↔ (1 : C →* C) y = 1 :=
+      fun y => ⟨fun _ => rfl, fun _ => ⟨y⁻¹, inv_inv y⟩⟩
+    Twist.toOriginal c
+      (Twist.embeddedKernelEquiv c (1 : C →* C) continuous_const
+        (fun g _ => (smul_one g).symm) invMonoidHom (Homeomorph.inv C).isEmbedding hK x).val ≠ x := by sorry
+
+end InverseCoordinateTest
+end TauCeti.NonabelianCohomology
