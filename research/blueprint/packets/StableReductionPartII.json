@@ -13,7 +13,7 @@
     "StableReductionPartII:MC.7"
   ],
   "status": "partial",
-  "summary": "Partial pointed-moduli roadmap. Adds twelve consumed declaration-sized inputs for ordinary R-bidual reflexivity of the actual polynomial section ideal, with explicit inverse F↦F(incl), native evaluation equivalence and dual reflexivity through the existing Mathlib instance. All inherited contracts remain, all eight stages stay partial, and arbitrary coefficient-module Hom exchange, higher Ext, completion and family geometry remain required. The actual polynomial coefficient-module Hom comparisons D⊗_A M≃Hom_R(J,R⊗_A M) and J⊗_A M≃Hom_R(D,R⊗_A M) are R-linear, canonical on pure tensors, natural for arbitrary A-linear coefficient maps and compatible with native bidual evaluation when M=A. Signed coordinate lemmas and universal transpose exactness give bijectivity for every M without a flatness assumption; no higher Ext, relative stable-reflexivity or geometric closure is inferred. The actual R-module Hom cochains for the polynomial section ideal and dual are specified with correct alternating phases, signed augmentation cycles and zero native positive cohomology for every coefficient module. The augmented projective-resolution/Ext identification remains required.",
+  "summary": "Partial pointed-moduli roadmap. Adds twelve consumed declaration-sized inputs for ordinary R-bidual reflexivity of the actual polynomial section ideal, with explicit inverse F↦F(incl), native evaluation equivalence and dual reflexivity through the existing Mathlib instance. All inherited contracts remain, all eight stages stay partial, and arbitrary coefficient-module Hom exchange, higher Ext, completion and family geometry remain required. The actual polynomial coefficient-module Hom comparisons D⊗_A M≃Hom_R(J,R⊗_A M) and J⊗_A M≃Hom_R(D,R⊗_A M) are R-linear, canonical on pure tensors, natural for arbitrary A-linear coefficient maps and compatible with native bidual evaluation when M=A. Signed coordinate lemmas and universal transpose exactness give bijectivity for every M without a flatness assumption; no higher Ext, relative stable-reflexivity or geometric closure is inferred. The actual R-module Hom cochains for the polynomial section ideal and dual are specified with correct alternating phases, signed augmentation cycles and zero native positive cohomology for every coefficient module. The augmented projective-resolution/Ext identification remains required. This checkpoint supplies the actual native projective resolutions of the polynomial section ideal and its dual; the higher Ext and geometric comparisons remain open.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1144,6 +1144,134 @@
         "line": 32,
         "provides": "Apply native linear Hom contravariantly to an exact pair whose second map is surjective, producing an exact pair of precomposition maps.",
         "checked": "Actual statement and surrounding category/scalar/module hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-J6LwjP; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ProjectiveResolution",
+        "kind": "structure",
+        "module": "Mathlib/CategoryTheory/Preadditive/Projective/Resolution.lean",
+        "line": 41,
+        "provides": "CategoryTheory.ProjectiveResolution at its native pinned category/module hypotheses; specialized here to the actual polynomial section chain.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-5ebb6f; index locator verified."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ShortComplex.exact_and_epi_g_iff_of_iso",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Homology/ShortComplex/Exact.lean",
+        "line": 128,
+        "provides": "CategoryTheory.ShortComplex.exact_and_epi_g_iff_of_iso at its native pinned category/module hypotheses; specialized here to the actual polynomial section chain.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-5ebb6f; index locator verified."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ShortComplex.isoMk",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/ShortComplex/Basic.lean",
+        "line": 213,
+        "provides": "CategoryTheory.ShortComplex.isoMk at its native pinned category/module hypotheses; specialized here to the actual polynomial section chain.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-5ebb6f; index locator verified."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ShortComplex.quasiIso_iff_of_zeros'",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Homology/ShortComplex/Exact.lean",
+        "line": 923,
+        "provides": "CategoryTheory.ShortComplex.quasiIso_iff_of_zeros' at its native pinned category/module hypotheses; specialized here to the actual polynomial section chain.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-5ebb6f; index locator verified."
+      },
+      {
+        "ref": "mathlib:ChainComplex.exactAt_succ_single_obj",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Homology/SingleHomology.lean",
+        "line": 200,
+        "provides": "ChainComplex.exactAt_succ_single_obj at its native pinned category/module hypotheses; specialized here to the actual polynomial section chain.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-5ebb6f; index locator verified."
+      },
+      {
+        "ref": "mathlib:ChainComplex.of",
+        "kind": "abbrev",
+        "module": "Mathlib/Algebra/Homology/HomologicalComplex.lean",
+        "line": 645,
+        "provides": "ChainComplex.of at its native pinned category/module hypotheses; specialized here to the actual polynomial section chain.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-5ebb6f; index locator verified."
+      },
+      {
+        "ref": "mathlib:ChainComplex.of_d",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Homology/HomologicalComplex.lean",
+        "line": 661,
+        "provides": "ChainComplex.of_d at its native pinned category/module hypotheses; specialized here to the actual polynomial section chain.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-5ebb6f; index locator verified."
+      },
+      {
+        "ref": "mathlib:ChainComplex.quasiIsoAt₀_iff",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Homology/QuasiIso.lean",
+        "line": 130,
+        "provides": "ChainComplex.quasiIsoAt₀_iff at its native pinned category/module hypotheses; specialized here to the actual polynomial section chain.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-5ebb6f; index locator verified."
+      },
+      {
+        "ref": "mathlib:ChainComplex.toSingle₀Equiv",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/Single.lean",
+        "line": 227,
+        "provides": "ChainComplex.toSingle₀Equiv at its native pinned category/module hypotheses; specialized here to the actual polynomial section chain.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-5ebb6f; index locator verified."
+      },
+      {
+        "ref": "mathlib:ChainComplex.toSingle₀Equiv_symm_apply_f_zero",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Homology/Single.lean",
+        "line": 237,
+        "provides": "ChainComplex.toSingle₀Equiv_symm_apply_f_zero at its native pinned category/module hypotheses; specialized here to the actual polynomial section chain.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-5ebb6f; index locator verified."
+      },
+      {
+        "ref": "mathlib:Module.Finite.pi",
+        "kind": "instance",
+        "module": "Mathlib/RingTheory/Finiteness/Basic.lean",
+        "line": 275,
+        "provides": "Module.Finite.pi at its native pinned category/module hypotheses; specialized here to the actual polynomial section chain.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-5ebb6f; index locator verified."
+      },
+      {
+        "ref": "mathlib:Module.Free.pi",
+        "kind": "instance",
+        "module": "Mathlib/LinearAlgebra/StdBasis.lean",
+        "line": 209,
+        "provides": "Module.Free.pi at its native pinned category/module hypotheses; specialized here to the actual polynomial section chain.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-5ebb6f; index locator verified."
+      },
+      {
+        "ref": "mathlib:Module.Projective.of_basis",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/Projective.lean",
+        "line": 152,
+        "provides": "Module.Projective.of_basis at its native pinned category/module hypotheses; specialized here to the actual polynomial section chain.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-5ebb6f; index locator verified."
+      },
+      {
+        "ref": "mathlib:ModuleCat.epi_iff_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Category/ModuleCat/EpiMono.lean",
+        "line": 50,
+        "provides": "ModuleCat.epi_iff_surjective at its native pinned category/module hypotheses; specialized here to the actual polynomial section chain.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-5ebb6f; index locator verified."
+      },
+      {
+        "ref": "mathlib:ModuleCat.projective_of_categoryTheory_projective",
+        "kind": "instance",
+        "module": "Mathlib/Algebra/Category/ModuleCat/Projective.lean",
+        "line": 25,
+        "provides": "ModuleCat.projective_of_categoryTheory_projective at its native pinned category/module hypotheses; specialized here to the actual polynomial section chain.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-5ebb6f; index locator verified."
+      },
+      {
+        "ref": "mathlib:quasiIsoAt_iff_exactAt'",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Homology/QuasiIso.lean",
+        "line": 84,
+        "provides": "quasiIsoAt_iff_exactAt' at its native pinned category/module hypotheses; specialized here to the actual polynomial section chain.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-5ebb6f; index locator verified."
       }
     ]
   },
@@ -1362,6 +1490,19 @@
       "readSections": [
         "ShortComplex/HomologicalComplex.lean lines35–99,672–699; HomologicalComplex.lean lines54–78,895–934; ShortComplex/ModuleCat.lean lines25–65.",
         "LeftExact.lean lines24–47; BilinearMap.lean lines179–200; Exact/Basic.lean lines330–359,307–318; ModuleCat/Basic.lean lines60–84,103–149. Selected native signatures and hypotheses only; no whole-library audit."
+      ]
+    },
+    {
+      "id": "mathlib-codex-5ebb6f-section-projective-resolutions",
+      "title": "Mathlib native projective resolutions and quasi-isomorphisms of module chain complexes",
+      "authors": "Joël Riou, Jujian Zhang, Markus Himmel, Kim Morrison, Mathlib contributors",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Apache-2.0",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Preadditive/Projective/Resolution.lean",
+      "sha256": "fe672efee58517031c79d4673947408a1cd7beb3f57fce4b685f7d6017d4300d",
+      "readSections": [
+        "Preadditive/Projective/Resolution.lean lines25–99; Abelian/Projective/Resolution.lean including native constructor lines290–341. Its native quasi-isomorphism proof pattern is adapted to the actual signed augmentations; generic resolution theory is reused, not replanned.",
+        "HomologicalComplex.lean lines635–671; Single.lean lines216–244; QuasiIso.lean lines70–99,124–142; SingleHomology.lean lines195–209; ShortComplex/Exact.lean lines112–135,916–932; ShortComplex/Basic.lean lines210–225.",
+        "ModuleCat/Projective.lean full file; Module/Projective.lean lines149–162; ModuleCat/EpiMono.lean lines19–53; StdBasis.lean lines199–221; Finiteness/Basic.lean lines263–287. Selected statements only; no new whole-library or missing-generic-theory claim."
       ]
     }
   ],
@@ -4059,7 +4200,10 @@
         "StableReductionPartII:MC.2/section-ideal-coefficient-hom-unit",
         "StableReductionPartII:MC.2/section-hom-cochain-positive-homology",
         "StableReductionPartII:MC.2/section-hom-ideal-augmentation-exact",
-        "StableReductionPartII:MC.2/section-hom-dual-augmentation-exact"
+        "StableReductionPartII:MC.2/section-hom-dual-augmentation-exact",
+        "StableReductionPartII:MC.2/section-ideal-projective-resolution",
+        "StableReductionPartII:MC.2/section-dual-projective-resolution",
+        "StableReductionPartII:MC.2/section-resolution-hom-differential"
       ],
       "proofSteps": [
         "Apply the separately named polynomial dual, residue, coefficient-flatness, ring-linear tensor and actual quotient-base-change calculations; these are inputs to the completed-local comparison, not the global conclusion.",
@@ -4068,7 +4212,8 @@
         "Use the four separately proved coefficient-universal matrix tensor pairs and the two actual tensorized cokernel identifications. Arbitrary coefficient-module Hom exchange, bidual evaluation and higher Ext require their own comparison proofs before invoking the exact relative stable-reflexivity input.",
         "The ordinary polynomial R-bidual step now has its own explicit calculation: ψ(F)=F(incl) lies in J by the dual syzygy, cancels against η on both sides, and identifies native Module.evalEquiv and its inverse. The dual D is reflexive by the native dual-of-reflexive instance. The preceding broader Hom/Ext and relative stable-reflexivity obligations still require arbitrary coefficient modules and the completion/sheaf comparison; ordinary reflexivity alone does not discharge them.",
         "Use the two separately constructed actual R-linear coefficient-module Hom equivalences Θ_D,M and Θ_J,M for every A-module M, their A-linear coefficient naturality and the M=A native-bidual comparison. They are proved through the signed presentation coordinates and coefficient-universal transpose exactness. This discharges the explicit polynomial Hom-exchange calculation without M-flatness; higher Ext/cochain interpretation, the exact relative stable-reflexivity input, two-base completion, pointed hull and family/sheaf descent remain separate.",
-        "The native R-module Hom cochains now have zero positive cohomology for every coefficient module and correctly identified degree-zero cycles. Establish the actual augmented finite-free/projective resolutions and their native Ext comparison before invoking relative stable reflexivity."
+        "The native R-module Hom cochains now have zero positive cohomology for every coefficient module and correctly identified degree-zero cycles. Establish the actual augmented finite-free/projective resolutions and their native Ext comparison before invoking relative stable reflexivity.",
+        "Use the actual finite-free native projective resolutions with signed P_J/P_D augmentations and the checked precomposition differential comparison. The remaining categorical Hom-complex/native Ext, exact relative stable-reflexivity, two-base completion and geometric descent comparisons are separate obligations."
       ],
       "acceptance": [
         "Do not strengthen this to J·J∨=J throughout a smoothing family: that equality holds only on the nodal-section locus."
@@ -16504,6 +16649,1648 @@
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
         "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
       }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-chain-differential",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The polynomial section chain differential",
+      "kind": "construction",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. Define B(e,n) as the actual R-linear matrix map F→F; false starts with Ψ and true with Φ.",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-complex-left-exact",
+        "StableReductionPartII:MC.2/section-complex-right-exact"
+      ],
+      "proofSteps": [
+        "Select the actual matrix by parity; retain its signs and source/target order."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionChainDifferential",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal and the actual section projective-resolution nodes",
+          "how": "Retain the concrete chain terms, signed augmentation and native QuasiIso as input to the still-required higher Ext and relative stable-reflexivity comparison."
+        },
+        {
+          "where": "Knudsen2012 §3 Key Example; the existing sectionHomCochain calculation",
+          "how": "Fix the actual alternating resolution and Hom precomposition phases instead of a generic chosen resolution."
+        }
+      ],
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionChainDifferential_ideal_zero",
+          "role": "compatibility",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. B(false,0)=Ψ as an actual R-linear map."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionChainDifferential_dual_zero",
+          "role": "compatibility",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. B(true,0)=Φ as an actual R-linear map."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionChainDifferential_periodic",
+          "role": "relation",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. B(e,n+2)=B(e,n) for every e,n as actual R-linear maps."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionChainDifferential_exact",
+          "role": "relation",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. For every e and n≥0, B(e,n+1) followed by B(e,n) is exact."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionChainDifferential_sq",
+          "role": "relation",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. For every e and n≥0, B(e,n)∘B(e,n+1)=0 as R-linear maps."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionChainDifferential.test_ideal_signed_column",
+          "kind": "computation",
+          "statement": "For γ=δ=s=t=0 over every A, B(false,0)(1,0) has second coordinate u."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionChainDifferential.test_dual_negative_column",
+          "kind": "computation",
+          "statement": "For γ=δ=s=t=0 over every A, B(true,0)(1,0) has second coordinate −u."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionChainDifferential.test_two_period",
+          "kind": "compatibility",
+          "statement": "For every phase and n, B(e,n+2)=B(e,n)."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-chain-differential-exact",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Exactness of consecutive section chain maps",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. For every e and n≥0, B(e,n+1) followed by B(e,n) is exact.",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-chain-differential",
+        "StableReductionPartII:MC.2/section-complex-left-exact",
+        "StableReductionPartII:MC.2/section-complex-right-exact"
+      ],
+      "proofSteps": [
+        "Separate the two parity values and phases.",
+        "Apply ker Φ=im Ψ or ker Ψ=im Φ in the indicated order."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionChainDifferential_exact",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-chain-differential-square",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The section chain differential squares to zero",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. For every e and n≥0, B(e,n)∘B(e,n+1)=0 as R-linear maps.",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-chain-differential-exact",
+        "mathlib:Function.Exact.linearMap_comp_eq_zero"
+      ],
+      "proofSteps": [
+        "Apply the native zero-composite theorem to the exact pair."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionChainDifferential_sq",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-chain",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The native polynomial section chain complex",
+      "kind": "construction",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. Construct C(e) as a native ℕ-indexed ChainComplex of ModuleCat R with its actual successor maps.",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-chain-differential-square",
+        "mathlib:ChainComplex.of",
+        "mathlib:ModuleCat.of",
+        "mathlib:ModuleCat.ofHom"
+      ],
+      "proofSteps": [
+        "Bundle F and each actual B(e,n); supply the proven square-zero equation."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionChain",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal and the actual section projective-resolution nodes",
+          "how": "Retain the concrete chain terms, signed augmentation and native QuasiIso as input to the still-required higher Ext and relative stable-reflexivity comparison."
+        },
+        {
+          "where": "Knudsen2012 §3 Key Example; the existing sectionHomCochain calculation",
+          "how": "Fix the actual alternating resolution and Hom precomposition phases instead of a generic chosen resolution."
+        }
+      ],
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionChain_X",
+          "role": "relation",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. For every e,n, C(e).X n is the native object ModuleCat.of R F."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionChain_d",
+          "role": "compatibility",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. For every e,n, C(e).d(n+1,n)=ModuleCat.ofHom(B(e,n))."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionChain_shape",
+          "role": "relation",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. C(e).d(i,j)=0 whenever j+1≠i; there is no upward differential or negative degree."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionChain_exactAt",
+          "role": "relation",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. C(e) is natively ExactAt(n+1) for every e and n≥0."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionChain_projective",
+          "role": "relation",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. Every C(e).X n is a projective object of ModuleCat R."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionChain_finiteFree",
+          "role": "relation",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. For every e,n, the native module underlying C(e).X n has both Module.Free R and Module.Finite R instances; it is the actual F=Fin 2→R."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionResolutionHom_d",
+          "role": "compatibility",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. For every A-module M, every phase e and n≥0, native R-linear precomposition by the underlying C(e).d(n+1,n) equals exactly the existing sectionHomDifferential(A,γ,δ,s,t,M,e,n) on Hom_R(F,R⊗_A M). This fixes the actual coefficient cochain differential, without yet constructing a categorical Hom-complex isomorphism or native Ext comparison."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionChain.test_nonreduced_exact",
+          "kind": "degenerate",
+          "statement": "For A=Z/4 and γ=δ=t=0,s=1, C(false) is ExactAt 2."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionChain.test_finite_projective",
+          "kind": "compatibility",
+          "statement": "Every chain term is simultaneously a native projective ModuleCat object and a finite R-module."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionChain.test_hom_coefficient_differential",
+          "kind": "compatibility",
+          "statement": "For every A-module M, native Hom precomposition by C(e).d(n+1,n) is the specified sectionHomDifferential."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-chain-successor-map",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The native section chain successor map",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. For every e,n, C(e).d(n+1,n)=ModuleCat.ofHom(B(e,n)).",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-chain",
+        "mathlib:ChainComplex.of_d"
+      ],
+      "proofSteps": [
+        "Use the native constructor evaluation theorem."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionChain_d",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-chain-positive-exact",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Positive-degree exactness of the section chain",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. C(e) is natively ExactAt(n+1) for every e and n≥0.",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-chain-successor-map",
+        "StableReductionPartII:MC.2/section-chain-differential-exact",
+        "mathlib:HomologicalComplex.exactAt_iff'",
+        "mathlib:CategoryTheory.ShortComplex.moduleCat_exact_iff"
+      ],
+      "proofSteps": [
+        "Identify the actual associated short complex with B(e,n+1), B(e,n).",
+        "Use the proven kernel/image exactness and native module exactness criterion."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionChain_exactAt",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-chain-projective",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Degreewise native projectivity of the section chain",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. Every C(e).X n is a projective object of ModuleCat R.",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-chain",
+        "mathlib:Module.Projective.of_basis",
+        "mathlib:Module.Free.pi",
+        "mathlib:ModuleCat.projective_of_categoryTheory_projective"
+      ],
+      "proofSteps": [
+        "F is the finite product of two free rank-one R-modules.",
+        "Reuse native free-module projectivity and its categorical wrapper."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionChain_projective",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-chain-ideal-augmentation-zero",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The section-ideal augmentation kills the first chain map",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. P_J∘B(false,0)=P_J∘Ψ=0.",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-chain-differential",
+        "StableReductionPartII:MC.2/section-ideal-presentation-kernel",
+        "mathlib:Function.Exact.linearMap_comp_eq_zero"
+      ],
+      "proofSteps": [
+        "The actual signed presentation has kernel im Ψ; apply its exact-pair composite."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionChainIdeal_augmentation_zero",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-chain-dual-augmentation-zero",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The dual augmentation kills the first chain map",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. P_D∘B(true,0)=P_D∘Φ=0.",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-chain-differential",
+        "StableReductionPartII:MC.2/section-dual-presentation-kernel",
+        "mathlib:Function.Exact.linearMap_comp_eq_zero"
+      ],
+      "proofSteps": [
+        "The actual signed dual presentation has kernel im Φ; apply its exact-pair composite."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionChainDual_augmentation_zero",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-augmentation",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The native augmentation to the actual section ideal",
+      "kind": "construction",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. Construct π_J:C(false)→single₀(J) as the native chain map whose degree-zero component is P_J.",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-chain-ideal-augmentation-zero",
+        "mathlib:ChainComplex.toSingle₀Equiv"
+      ],
+      "proofSteps": [
+        "Use the native chain-map equivalence with a map in degree zero annihilating d(1,0)."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealAugmentation",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal and the actual section projective-resolution nodes",
+          "how": "Retain the concrete chain terms, signed augmentation and native QuasiIso as input to the still-required higher Ext and relative stable-reflexivity comparison."
+        },
+        {
+          "where": "Knudsen2012 §3 Key Example; the existing sectionHomCochain calculation",
+          "how": "Fix the actual alternating resolution and Hom precomposition phases instead of a generic chosen resolution."
+        }
+      ],
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionChainIdeal_augmentation_zero",
+          "role": "compatibility",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. P_J∘B(false,0)=P_J∘Ψ=0."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealAugmentation_zero",
+          "role": "compatibility",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. π_J.f 0=ModuleCat.ofHom(P_J), including the prescribed negative second generator."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealAugmentation_quasiIso",
+          "role": "relation",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. π_J is a QuasiIso: its map on native homology is an isomorphism in every degree."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealAugmentation.test_first_generator",
+          "kind": "computation",
+          "statement": "π_J.f 0 sends (1,0) to the actual ideal generator c=u−ιs."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealAugmentation.test_second_signed_generator",
+          "kind": "computation",
+          "statement": "π_J.f 0 sends (0,1) to −d=−(v−ιt), retaining the signed presentation."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealAugmentation.test_positive_component_zero",
+          "kind": "degenerate",
+          "statement": "Every positive component π_J.f(n+1) is the zero morphism."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-augmentation",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The native augmentation to the actual dual",
+      "kind": "construction",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. Construct π_D:C(true)→single₀(D) as the native chain map whose degree-zero component is P_D.",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-chain-dual-augmentation-zero",
+        "mathlib:ChainComplex.toSingle₀Equiv"
+      ],
+      "proofSteps": [
+        "Use the native chain-map equivalence with a map in degree zero annihilating d(1,0)."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualAugmentation",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal and the actual section projective-resolution nodes",
+          "how": "Retain the concrete chain terms, signed augmentation and native QuasiIso as input to the still-required higher Ext and relative stable-reflexivity comparison."
+        },
+        {
+          "where": "Knudsen2012 §3 Key Example; the existing sectionHomCochain calculation",
+          "how": "Fix the actual alternating resolution and Hom precomposition phases instead of a generic chosen resolution."
+        }
+      ],
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionChainDual_augmentation_zero",
+          "role": "compatibility",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. P_D∘B(true,0)=P_D∘Φ=0."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualAugmentation_zero",
+          "role": "compatibility",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. π_D.f 0=ModuleCat.ofHom(P_D), including the prescribed negative ε generator."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualAugmentation_quasiIso",
+          "role": "relation",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. π_D is a QuasiIso: its map on native homology is an isomorphism in every degree."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualAugmentation.test_first_generator",
+          "kind": "computation",
+          "statement": "π_D.f 0 sends (1,0) to the inclusion J→R."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualAugmentation.test_second_signed_generator",
+          "kind": "computation",
+          "statement": "π_D.f 0 sends (0,1) to −ε, evaluated on each actual j∈J."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualAugmentation.test_positive_component_zero",
+          "kind": "degenerate",
+          "statement": "Every positive component π_D.f(n+1) is the zero morphism."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-augmentation-degree-zero",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Degree zero of the section-ideal augmentation",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. π_J.f 0=ModuleCat.ofHom(P_J), including the prescribed negative second generator.",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-augmentation",
+        "mathlib:ChainComplex.toSingle₀Equiv_symm_apply_f_zero"
+      ],
+      "proofSteps": [
+        "Evaluate the native chain-map equivalence at degree zero."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealAugmentation_zero",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-augmentation-degree-zero",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Degree zero of the dual augmentation",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. π_D.f 0=ModuleCat.ofHom(P_D), including the prescribed negative ε generator.",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-augmentation",
+        "mathlib:ChainComplex.toSingle₀Equiv_symm_apply_f_zero"
+      ],
+      "proofSteps": [
+        "Evaluate the native chain-map equivalence at degree zero."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualAugmentation_zero",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-augmentation-quasi-isomorphism",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The section-ideal augmentation is a native quasi-isomorphism",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. π_J is a QuasiIso: its map on native homology is an isomorphism in every degree.",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-augmentation-degree-zero",
+        "StableReductionPartII:MC.2/section-chain-positive-exact",
+        "StableReductionPartII:MC.2/section-ideal-presentation-kernel",
+        "StableReductionPartII:MC.2/section-ideal-presentation-surjective",
+        "mathlib:ChainComplex.quasiIsoAt₀_iff",
+        "mathlib:CategoryTheory.ShortComplex.quasiIso_iff_of_zeros'",
+        "mathlib:CategoryTheory.ShortComplex.exact_and_epi_g_iff_of_iso",
+        "mathlib:CategoryTheory.ShortComplex.isoMk",
+        "mathlib:ModuleCat.epi_iff_surjective",
+        "mathlib:quasiIsoAt_iff_exactAt'",
+        "mathlib:ChainComplex.exactAt_succ_single_obj"
+      ],
+      "proofSteps": [
+        "In degree zero use the actual augmented short complex; ker P_J=im Ψ and surjectivity give exactness and epi.",
+        "Identify that short complex through a native isomorphism and apply the degree-zero quasi-isomorphism criterion.",
+        "At n+1 both complexes are exact, so the native criterion gives QuasiIsoAt."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealAugmentation_quasiIso",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-augmentation-quasi-isomorphism",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The dual augmentation is a native quasi-isomorphism",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. π_D is a QuasiIso: its map on native homology is an isomorphism in every degree.",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-augmentation-degree-zero",
+        "StableReductionPartII:MC.2/section-chain-positive-exact",
+        "StableReductionPartII:MC.2/section-dual-presentation-kernel",
+        "StableReductionPartII:MC.2/section-dual-presentation-surjective",
+        "mathlib:ChainComplex.quasiIsoAt₀_iff",
+        "mathlib:CategoryTheory.ShortComplex.quasiIso_iff_of_zeros'",
+        "mathlib:CategoryTheory.ShortComplex.exact_and_epi_g_iff_of_iso",
+        "mathlib:CategoryTheory.ShortComplex.isoMk",
+        "mathlib:ModuleCat.epi_iff_surjective",
+        "mathlib:quasiIsoAt_iff_exactAt'",
+        "mathlib:ChainComplex.exactAt_succ_single_obj"
+      ],
+      "proofSteps": [
+        "In degree zero use the actual augmented short complex; ker P_D=im Φ and surjectivity give exactness and epi.",
+        "Identify that short complex through a native isomorphism and apply the degree-zero quasi-isomorphism criterion.",
+        "At n+1 both complexes are exact, so the native criterion gives QuasiIsoAt."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualAugmentation_quasiIso",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-projective-resolution",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The actual section-ideal projective resolution",
+      "kind": "construction",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. Bundle C(false), its degreewise projectivity and π_J into the native ProjectiveResolution of J. This is the actual signed two-periodic resolution, not an arbitrarily chosen generic resolution.",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-chain-projective",
+        "StableReductionPartII:MC.2/section-ideal-augmentation-quasi-isomorphism",
+        "mathlib:CategoryTheory.ProjectiveResolution"
+      ],
+      "proofSteps": [
+        "Supply the actual complex, augmentation, projectivity and QuasiIso to the existing native structure."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealResolution",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal and the actual section projective-resolution nodes",
+          "how": "Retain the concrete chain terms, signed augmentation and native QuasiIso as input to the still-required higher Ext and relative stable-reflexivity comparison."
+        },
+        {
+          "where": "Knudsen2012 §3 Key Example; the existing sectionHomCochain calculation",
+          "how": "Fix the actual alternating resolution and Hom precomposition phases instead of a generic chosen resolution."
+        }
+      ],
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealResolution_complex",
+          "role": "compatibility",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. The native sectionIdealResolution.complex is exactly C(false)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealResolution_augmentation",
+          "role": "compatibility",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. The native sectionIdealResolution.π is exactly π_J."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealResolution_quasiIso",
+          "role": "relation",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. The actual bundled sectionIdealResolution.π is a native QuasiIso in every degree."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealResolution.test_starting_psi",
+          "kind": "compatibility",
+          "statement": "The native section-ideal resolution differential d(1,0) is exactly Ψ."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealResolution.test_next_phi",
+          "kind": "compatibility",
+          "statement": "Its next native differential d(2,1) is exactly Φ."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealResolution.test_zero_ring_quasiIso",
+          "kind": "degenerate",
+          "statement": "Over the zero ring Z/1 with all parameters zero, the actual ideal-resolution augmentation is a native QuasiIso."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-projective-resolution",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The actual dual projective resolution",
+      "kind": "construction",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. Bundle C(true), its degreewise projectivity and π_D into the native ProjectiveResolution of D. This is the actual signed two-periodic resolution, not an arbitrarily chosen generic resolution.",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-chain-projective",
+        "StableReductionPartII:MC.2/section-dual-augmentation-quasi-isomorphism",
+        "mathlib:CategoryTheory.ProjectiveResolution"
+      ],
+      "proofSteps": [
+        "Supply the actual complex, augmentation, projectivity and QuasiIso to the existing native structure."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualResolution",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal and the actual section projective-resolution nodes",
+          "how": "Retain the concrete chain terms, signed augmentation and native QuasiIso as input to the still-required higher Ext and relative stable-reflexivity comparison."
+        },
+        {
+          "where": "Knudsen2012 §3 Key Example; the existing sectionHomCochain calculation",
+          "how": "Fix the actual alternating resolution and Hom precomposition phases instead of a generic chosen resolution."
+        }
+      ],
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualResolution_complex",
+          "role": "compatibility",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. The native sectionDualResolution.complex is exactly C(true)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualResolution_augmentation",
+          "role": "compatibility",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. The native sectionDualResolution.π is exactly π_D."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualResolution_quasiIso",
+          "role": "relation",
+          "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. The actual bundled sectionDualResolution.π is a native QuasiIso in every degree."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualResolution.test_starting_phi",
+          "kind": "compatibility",
+          "statement": "The native dual-resolution differential d(1,0) is exactly Φ."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualResolution.test_next_psi",
+          "kind": "compatibility",
+          "statement": "Its next native differential d(2,1) is exactly Ψ."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualResolution.test_nonreduced_quasiIso",
+          "kind": "degenerate",
+          "statement": "Over Z/4 with γ=δ=t=0,s=1, the actual dual-resolution augmentation is a native QuasiIso."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-chain-ideal-start",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The section-ideal resolution starts with Ψ",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. B(false,0)=Ψ as an actual R-linear map.",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-chain-differential"
+      ],
+      "proofSteps": [
+        "Evaluate the false phase at zero."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionChainDifferential_ideal_zero",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-chain-dual-start",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The dual resolution starts with Φ",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. B(true,0)=Φ as an actual R-linear map.",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-chain-differential"
+      ],
+      "proofSteps": [
+        "Evaluate the true phase at zero."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionChainDifferential_dual_zero",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-chain-differential-periodic",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Two-periodicity of the section chain maps",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. B(e,n+2)=B(e,n) for every e,n as actual R-linear maps.",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-chain-differential"
+      ],
+      "proofSteps": [
+        "Use the native modulo-two calculation."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionChainDifferential_periodic",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-chain-objects",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The actual section chain objects",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. For every e,n, C(e).X n is the native object ModuleCat.of R F.",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-chain"
+      ],
+      "proofSteps": [
+        "Evaluate the native chain constructor."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionChain_X",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-chain-finite-free",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The section chain terms are finite free",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. For every e,n, the native module underlying C(e).X n has both Module.Free R and Module.Finite R instances; it is the actual F=Fin 2→R.",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-chain-objects",
+        "mathlib:Module.Free.pi",
+        "mathlib:Module.Finite.pi"
+      ],
+      "proofSteps": [
+        "Use the existing finite-product free and finite-module instances, including for the zero ring."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionChain_finiteFree",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-chain-shape",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The downward section chain shape",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. C(e).d(i,j)=0 whenever j+1≠i; there is no upward differential or negative degree.",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-chain"
+      ],
+      "proofSteps": [
+        "Apply the native complex shape field."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionChain_shape",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-resolution-hom-differential",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Native Hom precomposition by the section resolution differential",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. For every A-module M, every phase e and n≥0, native R-linear precomposition by the underlying C(e).d(n+1,n) equals exactly the existing sectionHomDifferential(A,γ,δ,s,t,M,e,n) on Hom_R(F,R⊗_A M). This fixes the actual coefficient cochain differential, without yet constructing a categorical Hom-complex isomorphism or native Ext comparison.",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-chain-successor-map",
+        "StableReductionPartII:MC.2/section-hom-differential",
+        "mathlib:LinearMap.lcomp"
+      ],
+      "proofSteps": [
+        "Evaluate the native chain differential.",
+        "Resolve the two parity values and phases; precomposition is exactly the existing Hom differential."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionResolutionHom_d",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-resolution-complex",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Underlying complex of the section-ideal resolution",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. The native sectionIdealResolution.complex is exactly C(false).",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-projective-resolution"
+      ],
+      "proofSteps": [
+        "Evaluate the specified native resolution data."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealResolution_complex",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-resolution-augmentation",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Augmentation of the section-ideal resolution",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. The native sectionIdealResolution.π is exactly π_J.",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-projective-resolution"
+      ],
+      "proofSteps": [
+        "Evaluate the specified native resolution data."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealResolution_augmentation",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-resolution-complex",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Underlying complex of the dual resolution",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. The native sectionDualResolution.complex is exactly C(true).",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-projective-resolution"
+      ],
+      "proofSteps": [
+        "Evaluate the specified native resolution data."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualResolution_complex",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-resolution-augmentation",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Augmentation of the dual resolution",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. The native sectionDualResolution.π is exactly π_D.",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-projective-resolution"
+      ],
+      "proofSteps": [
+        "Evaluate the specified native resolution data."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualResolution_augmentation",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-resolution-quasi-isomorphism",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The bundled section-ideal resolution is augmented by a quasi-isomorphism",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. The actual bundled sectionIdealResolution.π is a native QuasiIso in every degree.",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-projective-resolution"
+      ],
+      "proofSteps": [
+        "Use the native certified quasi-isomorphism field of this actual resolution."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealResolution_quasiIso",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-resolution-quasi-isomorphism",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The bundled dual resolution is augmented by a quasi-isomorphism",
+      "kind": "lemma",
+      "statement": "For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε.  Put F=R² with its native R-module structure. For e∈{false,true} write B(e,n)=Φ if (n mod 2=0) has the same truth value as e=true, and Ψ otherwise. C(e) has F in every degree n≥0, differential C(e)_{n+1}→C(e)_n given by B(e,n), and zero off that shape. The actual bundled sectionDualResolution.π is a native QuasiIso in every degree.",
+      "hypotheses": [
+        "A is any commutative ring; no noetherianity, nontriviality or unit-discriminant assumption is required for this actual polynomial calculation. Coefficients M, when present, are any A-module, without M-flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-projective-resolution"
+      ],
+      "proofSteps": [
+        "Use the native certified quasi-isomorphism field of this actual resolution."
+      ],
+      "acceptance": [
+        "Use the actual signed P_J/P_D maps and native ModuleCat complex, projectivity and QuasiIso.",
+        "Do not infer native Ext, relative stable reflexivity, two-base completion, hull identification or family/sheaf descent from the resolutions or differential comparison alone."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "minimal resolution",
+          "match": "The printed actual matrix sequence motivates these particular resolutions. Their native packaging over arbitrary commutative A is an authored deduction from the already checked polynomial kernel/presentation results; the printed noetherian/unit-discriminant geometric hypotheses and relative stable-reflexivity inputs are retained."
+        },
+        {
+          "sourceId": "mathlib-codex-5ebb6f-section-projective-resolutions",
+          "locator": "Selected exact pinned ChainComplex, ProjectiveResolution, ModuleCat projectivity and quasi-isomorphism statements listed in baseline.",
+          "excerpt": "chain complex of projective objects",
+          "match": "Reuse native definitions and criteria. No generic projective resolution, Hom or Ext theory is replanned."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualResolution_quasiIso",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
     }
   ],
   "requests": [
@@ -17483,7 +19270,8 @@
         "All four alternating polynomial matrix pairs are now checked after tensoring with every A-module M, and both ordered tensor cokernel equivalences are checked. Supply the actual module-valued Hom and bidual maps and cochain/Ext interpretation, then the relative stable-reflexivity, two-base completion and family/sheaf comparisons.",
         "Ordinary R-linear bidual evaluation of the actual polynomial ideal is now checked with inverse F↦F(incl), and the native instance supplies ordinary reflexivity of its dual. In the earlier remaining entries, the open bidual work is the relative/module-valued Hom comparison and its base-change/completion naturality, followed by higher Ext and family descent.",
         "Both actual coefficient-module Hom comparisons and their naturality are now supplied for every A-module M, with inherited R-actions, prescribed negative generators and the M=A native bidual specialization. The earlier open polynomial Hom exchange is discharged by these new nodes. What remains is the native finite-free-resolution/Hom-cochain and higher Ext interpretation, then the exact Appendix/Ile relative stable-reflexivity and two-base completion comparison, pointed completed-local hull, family/sheaf descent and arbitrary-base approximation.",
-        "Current next frontier after native Hom cochains: instantiate the augmented finite-free R-resolutions of J and D with the actual P_J/P_D maps, prove native projectivity and identify their Hom cochains with native Ext. Positive cohomology vanishing by itself is not this comparison. All completion, relative stable-reflexivity, hull and family descent requirements remain."
+        "Current next frontier after native Hom cochains: instantiate the augmented finite-free R-resolutions of J and D with the actual P_J/P_D maps, prove native projectivity and identify their Hom cochains with native Ext. Positive cohomology vanishing by itself is not this comparison. All completion, relative stable-reflexivity, hull and family descent requirements remain.",
+        "The actual augmented finite-free R-projective resolutions of J and D are now specified and separately checked with native QuasiIso. Their Hom precomposition differentials equal the existing arbitrary-coefficient cochain maps. Next identify the categorical Hom complex and native higher Ext; then apply the exact Appendix/Ile relative stable-reflexivity and two-base completion theorems, pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. The differential equality alone is not an Ext comparison."
       ]
     },
     {
@@ -18395,7 +20183,7 @@
   "prototypeCoverage": {
     "status": "partial",
     "compiled": true,
-    "reason": "The entire current Mathlib-only admitted sketch elaborates. A separately checked admission-free native archive preserves all prior polynomial/tensor/bidual bodies and supplies the actual arbitrary-coefficient-module Hom maps, signed coordinate proofs, R-linear isomorphisms, coefficient naturality and M=A unit/bidual comparisons. Higher Ext, relative stable reflexivity, two-base completion and all geometry remain open. The specialized actual Hom cochain signatures, positive native cohomology and signed augmentation cycles are now expressible; native resolution/Ext comparison remains outside this checkpoint.",
+    "reason": "The entire current Mathlib-only admitted sketch elaborates. A separately checked admission-free native archive preserves all prior polynomial/tensor/bidual bodies and supplies the actual arbitrary-coefficient-module Hom maps, signed coordinate proofs, R-linear isomorphisms, coefficient naturality and M=A unit/bidual comparisons. Higher Ext, relative stable reflexivity, two-base completion and all geometry remain open. The specialized actual Hom cochain signatures, positive native cohomology and signed augmentation cycles are now expressible; native resolution/Ext comparison remains outside this checkpoint. The actual native projective-resolution signatures and differential comparisons are now expressible; categorical Hom-complex/Ext comparisons remain open.",
     "expressedNodes": [
       "StableReductionPartII:MC.2/binary-node-form",
       "StableReductionPartII:MC.2/node-factorization-products",
@@ -18562,7 +20350,37 @@
       "StableReductionPartII:MC.2/section-hom-cochain-objects",
       "StableReductionPartII:MC.2/section-hom-cochain-shape",
       "StableReductionPartII:MC.2/section-hom-ideal-augmentation-exact",
-      "StableReductionPartII:MC.2/section-hom-dual-augmentation-exact"
+      "StableReductionPartII:MC.2/section-hom-dual-augmentation-exact",
+      "StableReductionPartII:MC.2/section-chain-differential",
+      "StableReductionPartII:MC.2/section-chain-differential-exact",
+      "StableReductionPartII:MC.2/section-chain-differential-square",
+      "StableReductionPartII:MC.2/section-chain",
+      "StableReductionPartII:MC.2/section-chain-successor-map",
+      "StableReductionPartII:MC.2/section-chain-positive-exact",
+      "StableReductionPartII:MC.2/section-chain-projective",
+      "StableReductionPartII:MC.2/section-chain-ideal-augmentation-zero",
+      "StableReductionPartII:MC.2/section-chain-dual-augmentation-zero",
+      "StableReductionPartII:MC.2/section-ideal-augmentation",
+      "StableReductionPartII:MC.2/section-dual-augmentation",
+      "StableReductionPartII:MC.2/section-ideal-augmentation-degree-zero",
+      "StableReductionPartII:MC.2/section-dual-augmentation-degree-zero",
+      "StableReductionPartII:MC.2/section-ideal-augmentation-quasi-isomorphism",
+      "StableReductionPartII:MC.2/section-dual-augmentation-quasi-isomorphism",
+      "StableReductionPartII:MC.2/section-ideal-projective-resolution",
+      "StableReductionPartII:MC.2/section-dual-projective-resolution",
+      "StableReductionPartII:MC.2/section-chain-ideal-start",
+      "StableReductionPartII:MC.2/section-chain-dual-start",
+      "StableReductionPartII:MC.2/section-chain-differential-periodic",
+      "StableReductionPartII:MC.2/section-chain-objects",
+      "StableReductionPartII:MC.2/section-chain-finite-free",
+      "StableReductionPartII:MC.2/section-chain-shape",
+      "StableReductionPartII:MC.2/section-resolution-hom-differential",
+      "StableReductionPartII:MC.2/section-ideal-resolution-complex",
+      "StableReductionPartII:MC.2/section-ideal-resolution-augmentation",
+      "StableReductionPartII:MC.2/section-dual-resolution-complex",
+      "StableReductionPartII:MC.2/section-dual-resolution-augmentation",
+      "StableReductionPartII:MC.2/section-ideal-resolution-quasi-isomorphism",
+      "StableReductionPartII:MC.2/section-dual-resolution-quasi-isomorphism"
     ],
     "expressedApi": [
       "NodeForm.eval",
@@ -18718,7 +20536,31 @@
       "NodeSectionFactorization.PolynomialModel.sectionHomCochain_exactAt",
       "NodeSectionFactorization.PolynomialModel.sectionHomCochain_isZero_homology",
       "NodeSectionFactorization.PolynomialModel.sectionHomIdeal_augmentation_exact",
-      "NodeSectionFactorization.PolynomialModel.sectionHomDual_augmentation_exact"
+      "NodeSectionFactorization.PolynomialModel.sectionHomDual_augmentation_exact",
+      "NodeSectionFactorization.PolynomialModel.sectionChainDifferential_ideal_zero",
+      "NodeSectionFactorization.PolynomialModel.sectionChainDifferential_dual_zero",
+      "NodeSectionFactorization.PolynomialModel.sectionChainDifferential_periodic",
+      "NodeSectionFactorization.PolynomialModel.sectionChainDifferential_exact",
+      "NodeSectionFactorization.PolynomialModel.sectionChainDifferential_sq",
+      "NodeSectionFactorization.PolynomialModel.sectionChain_X",
+      "NodeSectionFactorization.PolynomialModel.sectionChain_d",
+      "NodeSectionFactorization.PolynomialModel.sectionChain_shape",
+      "NodeSectionFactorization.PolynomialModel.sectionChain_exactAt",
+      "NodeSectionFactorization.PolynomialModel.sectionChain_projective",
+      "NodeSectionFactorization.PolynomialModel.sectionChain_finiteFree",
+      "NodeSectionFactorization.PolynomialModel.sectionResolutionHom_d",
+      "NodeSectionFactorization.PolynomialModel.sectionChainIdeal_augmentation_zero",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealAugmentation_zero",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealAugmentation_quasiIso",
+      "NodeSectionFactorization.PolynomialModel.sectionChainDual_augmentation_zero",
+      "NodeSectionFactorization.PolynomialModel.sectionDualAugmentation_zero",
+      "NodeSectionFactorization.PolynomialModel.sectionDualAugmentation_quasiIso",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealResolution_complex",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealResolution_augmentation",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealResolution_quasiIso",
+      "NodeSectionFactorization.PolynomialModel.sectionDualResolution_complex",
+      "NodeSectionFactorization.PolynomialModel.sectionDualResolution_augmentation",
+      "NodeSectionFactorization.PolynomialModel.sectionDualResolution_quasiIso"
     ],
     "expressedTests": [
       "NodeForm.characteristicTwo",
@@ -18874,7 +20716,25 @@
       "NodeSectionFactorization.PolynomialModel.sectionHomCochain.test_zero_ring",
       "NodeSectionFactorization.PolynomialModel.sectionHomCochain.test_actual_differential",
       "NodeSectionFactorization.PolynomialModel.sectionHomCochain.test_degree_zero_ideal",
-      "NodeSectionFactorization.PolynomialModel.sectionHomCochain.test_degree_zero_dual"
+      "NodeSectionFactorization.PolynomialModel.sectionHomCochain.test_degree_zero_dual",
+      "NodeSectionFactorization.PolynomialModel.sectionChainDifferential.test_ideal_signed_column",
+      "NodeSectionFactorization.PolynomialModel.sectionChainDifferential.test_dual_negative_column",
+      "NodeSectionFactorization.PolynomialModel.sectionChainDifferential.test_two_period",
+      "NodeSectionFactorization.PolynomialModel.sectionChain.test_nonreduced_exact",
+      "NodeSectionFactorization.PolynomialModel.sectionChain.test_finite_projective",
+      "NodeSectionFactorization.PolynomialModel.sectionChain.test_hom_coefficient_differential",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealAugmentation.test_first_generator",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealAugmentation.test_second_signed_generator",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealAugmentation.test_positive_component_zero",
+      "NodeSectionFactorization.PolynomialModel.sectionDualAugmentation.test_first_generator",
+      "NodeSectionFactorization.PolynomialModel.sectionDualAugmentation.test_second_signed_generator",
+      "NodeSectionFactorization.PolynomialModel.sectionDualAugmentation.test_positive_component_zero",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealResolution.test_starting_psi",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealResolution.test_next_phi",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealResolution.test_zero_ring_quasiIso",
+      "NodeSectionFactorization.PolynomialModel.sectionDualResolution.test_starting_phi",
+      "NodeSectionFactorization.PolynomialModel.sectionDualResolution.test_next_psi",
+      "NodeSectionFactorization.PolynomialModel.sectionDualResolution.test_nonreduced_quasiIso"
     ],
     "omissions": [
       {
@@ -20925,7 +22785,8 @@
       "peakRSSKiB": 3313884,
       "availableGiB": 36,
       "exit": 0
-    }
+    },
+    "sectionResolutionPreviousReason": "The entire current Mathlib-only admitted sketch elaborates. A separately checked admission-free native archive preserves all prior polynomial/tensor/bidual bodies and supplies the actual arbitrary-coefficient-module Hom maps, signed coordinate proofs, R-linear isomorphisms, coefficient naturality and M=A unit/bidual comparisons. Higher Ext, relative stable reflexivity, two-base completion and all geometry remain open. The specialized actual Hom cochain signatures, positive native cohomology and signed augmentation cycles are now expressible; native resolution/Ext comparison remains outside this checkpoint."
   },
   "upstreamImportEncoding": {
     "status": "canonical",
@@ -21117,6 +22978,16 @@
       "sha256": "2c89ce4072046d546ff9256a5c64cd488f41026c561f8858f4a78ce14c21d685",
       "scope": "Fresh introduction/Main Lemma and complete §3 Key Example/Proposition3.1/Corollary3.2 and §4 proof. No fresh whole-paper/PDF, Appendix/Ile or Eisenbud proof audit.",
       "use": "Actual matrix phases and signed presentations motivate the specialized Hom cochains. Positive native cohomology vanishing over arbitrary A is an authored deduction from the inherited tensor-transpose exactness. Native projective-resolution/Ext and geometric completion/descent comparisons remain required."
+    },
+    {
+      "sourceId": "knudsen2012",
+      "reader": "Codex — codex-5ebb6f",
+      "date": "2026-10-03",
+      "url": "https://arxiv.org/html/1106.1588v2",
+      "version": "arXiv:1106.1588v2 primary HTML",
+      "sha256": "2c89ce4072046d546ff9256a5c64cd488f41026c561f8858f4a78ce14c21d685",
+      "scope": "Fresh complete §3 Key Example/Proposition3.1/Corollary3.2 and §4 proof. No fresh whole-paper, PDF, Appendix/Ile or Eisenbud proof audit.",
+      "use": "Actual alternating matrices and signed presentations motivate the particular finite-free native resolutions. Their arbitrary-ring native packaging is an authored deduction. Native Ext and geometric comparisons remain open."
     }
   ],
   "coefficientChangeContinuation": {
@@ -22071,5 +23942,121 @@
       "verify.py": "370c2aa47fdf16ceac5f8896dd2216ecda874f0d662582bb697a18ad9bd4ac49",
       "immutable_view.py": "8894c75fe2998c5a466e9b83bd9e664d1e2f4b6ce5931af91f2c9ac8b793de73"
     }
+  },
+  "sectionResolutionContinuation": {
+    "agent": "Codex",
+    "session": "codex-5ebb6f",
+    "issue": 3342,
+    "claimComment": 5964892894,
+    "claimBot": 5964894001,
+    "mathematicalBase": "0f8afef629b4d0be5a436d2d5da7112ee34a9999",
+    "addedNodes": [
+      "StableReductionPartII:MC.2/section-chain-differential",
+      "StableReductionPartII:MC.2/section-chain-differential-exact",
+      "StableReductionPartII:MC.2/section-chain-differential-square",
+      "StableReductionPartII:MC.2/section-chain",
+      "StableReductionPartII:MC.2/section-chain-successor-map",
+      "StableReductionPartII:MC.2/section-chain-positive-exact",
+      "StableReductionPartII:MC.2/section-chain-projective",
+      "StableReductionPartII:MC.2/section-chain-ideal-augmentation-zero",
+      "StableReductionPartII:MC.2/section-chain-dual-augmentation-zero",
+      "StableReductionPartII:MC.2/section-ideal-augmentation",
+      "StableReductionPartII:MC.2/section-dual-augmentation",
+      "StableReductionPartII:MC.2/section-ideal-augmentation-degree-zero",
+      "StableReductionPartII:MC.2/section-dual-augmentation-degree-zero",
+      "StableReductionPartII:MC.2/section-ideal-augmentation-quasi-isomorphism",
+      "StableReductionPartII:MC.2/section-dual-augmentation-quasi-isomorphism",
+      "StableReductionPartII:MC.2/section-ideal-projective-resolution",
+      "StableReductionPartII:MC.2/section-dual-projective-resolution",
+      "StableReductionPartII:MC.2/section-chain-ideal-start",
+      "StableReductionPartII:MC.2/section-chain-dual-start",
+      "StableReductionPartII:MC.2/section-chain-differential-periodic",
+      "StableReductionPartII:MC.2/section-chain-objects",
+      "StableReductionPartII:MC.2/section-chain-finite-free",
+      "StableReductionPartII:MC.2/section-chain-shape",
+      "StableReductionPartII:MC.2/section-resolution-hom-differential",
+      "StableReductionPartII:MC.2/section-ideal-resolution-complex",
+      "StableReductionPartII:MC.2/section-ideal-resolution-augmentation",
+      "StableReductionPartII:MC.2/section-dual-resolution-complex",
+      "StableReductionPartII:MC.2/section-dual-resolution-augmentation",
+      "StableReductionPartII:MC.2/section-ideal-resolution-quasi-isomorphism",
+      "StableReductionPartII:MC.2/section-dual-resolution-quasi-isomorphism"
+    ],
+    "primaryReading": {
+      "sourceId": "knudsen2012",
+      "reader": "Codex — codex-5ebb6f",
+      "date": "2026-10-03",
+      "url": "https://arxiv.org/html/1106.1588v2",
+      "version": "arXiv:1106.1588v2 primary HTML",
+      "sha256": "2c89ce4072046d546ff9256a5c64cd488f41026c561f8858f4a78ce14c21d685",
+      "scope": "Fresh complete §3 Key Example/Proposition3.1/Corollary3.2 and §4 proof. No fresh whole-paper, PDF, Appendix/Ile or Eisenbud proof audit.",
+      "use": "Actual alternating matrices and signed presentations motivate the particular finite-free native resolutions. Their arbitrary-ring native packaging is an authored deduction. Native Ext and geometric comparisons remain open."
+    },
+    "remaining": [
+      "The actual augmented finite-free R-projective resolutions of J and D are now specified and separately checked with native QuasiIso. Their Hom precomposition differentials equal the existing arbitrary-coefficient cochain maps. Next identify the categorical Hom complex and native higher Ext; then apply the exact Appendix/Ile relative stable-reflexivity and two-base completion theorems, pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. The differential equality alone is not an Ext comparison."
+    ],
+    "nativeProof": {
+      "lines": 3813,
+      "sha256": "30bc02cb3d84884b6727f34c127a01c366c8cbde987da6363d89a9962f7f5860",
+      "diagnosticsSha256": "cb929188e9b9ae3f82ddec8b643cb2938a149dd205980e25da710f6b94db9893",
+      "examples": 136,
+      "errors": 0,
+      "warnings": 0,
+      "admissions": 0,
+      "audits": 246,
+      "seconds": 30.85,
+      "peakRSSKiB": 3536136,
+      "availableGiB": 39,
+      "exit": 0
+    },
+    "canonicalSketch": {
+      "lines": 3171,
+      "sha256": "db2a1e277d48d096dfe5cb4914cd718d0ea5bf1a2db7905601272ff3d1bb48f2",
+      "diagnosticsSha256": "cbd10b91705548d3bf95527aee19ab401333785dc077e8322de91b191f629022",
+      "examples": 198,
+      "errors": 0,
+      "warnings": 486,
+      "admissions": 486,
+      "audits": 0,
+      "seconds": 28.03,
+      "peakRSSKiB": 3317204,
+      "availableGiB": 39,
+      "exit": 0
+    },
+    "graph": {
+      "stageDAG": {
+        "vertices": 3050,
+        "edges": 8750,
+        "acyclic": true
+      },
+      "ownDAG": {
+        "vertices": 304,
+        "edges": 690,
+        "acyclic": true
+      },
+      "combinedDAG": {
+        "vertices": 3319,
+        "edges": 9554,
+        "acyclic": true
+      },
+      "reachableDeclarations": 304,
+      "externalDeclarations": [],
+      "reachableBaselineReferences": 157,
+      "unresolved": [],
+      "otherPartsRetained": [],
+      "partDeclarations": 304,
+      "partPlanets": 35,
+      "roadmapDeclarations": 304,
+      "requiredStagePairs": 81,
+      "requiredStagePairsReachable": 81,
+      "inheritedMissingStagePairs": [],
+      "acceptedRestructurePairs": 0,
+      "acceptedRestructurePairsReachable": 0,
+      "stageEdgesUnchanged": true,
+      "otherSkippedPendingUnchanged": true,
+      "ownSkippedPendingEmpty": true
+    },
+    "publicationBase": "9c8a340faae54f977214d1a159764c3ca25a1e0e",
+    "publicationChecks": "All21 selected owner/governing/audit/key/source-route/validator input blobs are byte-identical to the mathematical base. The final five overlays use actual immutable atlas assembly, intake and preservation checks."
   }
 }
