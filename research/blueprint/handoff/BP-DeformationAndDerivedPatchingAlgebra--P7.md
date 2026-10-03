@@ -44,3 +44,53 @@ General Hilbert–Serre induction, support/degree, Artin–Rees, top-dimensional
 ## Public recovery
 
 The immutable archive records the exact native proofs, admitted projections, compiler diagnostics/receipts, precise reading receipts and all authoring/assembly/replay helpers. Recovery and immutable checking never execute Lean. The exact public recovery helper and both recovered verifiers are actually executed before submission, with their outputs compared byte-for-byte with the archived mathematical and publication reports. No repository/library snapshot or private source text is bundled.
+
+Immutable suggested-file archive ancestor `3c6ca232d39cc53b67a4f36a1b4ad6d3d4b2f434`; manifest SHA256 `0662436b5ead12c79d9fe46094ba00634309d87ec4b1977d6140771aa704b76b`; payload SHA256 `3eb25414d7b5af0900b7f9b361605657989385ac34c8b6a2054bcc161a3669dc`. It authenticates52 artifacts and all nine authoring/assembly/compiler/verification helpers. Recovery-helper SHA256 `dfc26b3c18f8c40a12f4a99419bb516c4e393e7d40d97716ac2d5ddbddbc71c6`.
+
+Save the exact script below as recover.py and pass an on-disk evidence directory and this PR’s full immutable final head. From an existing explorer checkout containing both controls, execute the recovered verify.py with the evidence directory and pinned declaration index. Run once with ROOT_ACTION_VALIDATE_BASE set to the mathematical base and once to the publication base. Compare actual outputs byte-for-byte with Verification-mathematical.json and Verification.json. The immutable adapter reads Git blobs directly and creates no repository snapshot. Both public replays are checked before submission.
+
+## Script: recover.py
+
+```python
+"""Recover authenticated adic module image-grading evidence; never execute Lean."""
+from pathlib import Path
+import base64,hashlib,json,re,sys,urllib.request,zlib
+S=Path(sys.argv[1]).resolve();S.mkdir(parents=True,exist_ok=True)
+HEAD=sys.argv[2];assert re.fullmatch('[0-9a-f]{40}',HEAD)
+ROOT='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
+STEM='DeformationAndDerivedPatchingAlgebra--P7'
+ARCHIVE='3c6ca232d39cc53b67a4f36a1b4ad6d3d4b2f434'
+MANIFEST_SHA='0662436b5ead12c79d9fe46094ba00634309d87ec4b1977d6140771aa704b76b'
+PAYLOAD_SHA='3eb25414d7b5af0900b7f9b361605657989385ac34c8b6a2054bcc161a3669dc'
+EXPECTED={'packets': '4ea5d9de38bf1a87b18ef2940f0fe4051f1fc04abd5bddc94c9b6d43d7aa6a88', 'readmes': '1bb4a0eb7753e3bcee4d6579bea29fdbf495dd7d386bbd0032cbd6d51a40a8c3', 'suggested': '976a386bc11b7731e9670a06dfca21fc8de8d9819b44b0e2c51690a6491dd753'}
+sha=lambda b:hashlib.sha256(b).hexdigest()
+def fetch(ref,path):
+ with urllib.request.urlopen(ROOT+ref+'/'+path,timeout=30)as r:return r.read()
+raw=fetch(ARCHIVE,'research/blueprint/suggested/'+STEM+'.lean').decode()
+pb=raw.split('/- BEGIN ARCHIVED ADIC MODULE PROJECTION PAYLOAD\n',1)[1].split('END ARCHIVED ADIC MODULE PROJECTION PAYLOAD -/',1)[0].encode()
+assert sha(pb)==PAYLOAD_SHA;payload=json.loads(pb)
+def unpack(name):
+ b=zlib.decompress(base64.b64decode(payload[name]['data']));assert sha(b)==payload[name]['sha256'],name
+ return b
+mb=unpack('artifact-manifest.json');assert sha(mb)==MANIFEST_SHA;meta=json.loads(mb)
+assert set(payload)==set(meta)|{'artifact-manifest.json'}and len(meta)==52
+assert {'author.py','assemble.py','compile.py','runcheck.py','projection.py','immutable_view.py','graph.py','verify.py','write_handoff.py'}<=set(meta)
+for name,m in meta.items():
+ assert Path(name).name==name and name not in {'.','..'}
+ b=unpack(name);assert sha(b)==m['sha256']and len(b)==m['bytes']and len(b.splitlines())==m['lines'],name
+ (S/name).write_bytes(b)
+(S/'artifact-manifest.json').write_bytes(mb);public={}
+for folder,ext,name in [('packets','json','Candidate.json'),('readmes','md','Reader.md'),('suggested','lean','Suggested.lean'),('handoff','md','Handoff.md')]:
+ path='research/blueprint/'+folder+'/'+('BP-'if folder=='handoff'else'')+STEM+'.'+ext
+ b=fetch(HEAD,path)
+ if folder in EXPECTED:assert sha(b)==EXPECTED[folder],path
+ (S/name).write_bytes(b);public[path]=sha(b)
+(S/(STEM+'.json')).write_bytes((S/'Candidate.json').read_bytes())
+assert(S/'Suggested.lean').read_bytes()==(S/'Canonical.lean').read_bytes()
+fence=chr(96)*3;handoff=(S/'Handoff.md').read_text();assert handoff.startswith((S/'HandoffBase.md').read_text())
+code=handoff.split('## Script: recover.py\n\n'+fence+'python\n',1)[1].split('\n'+fence+'\n',1)[0]+'\n'
+assert code==Path(__file__).read_text(),'Executing recovery script differs from public handoff.'
+(S/'recover.py').write_text(code)
+receipt=dict(head=HEAD,archive=ARCHIVE,artifactsVerified=len(meta),archivedHelpersVerified=9,publicDeliverables=public,recoverySha256=sha(code.encode()),LeanExecuted=False)
+(S/'public-recovery.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt,indent=2))
+```
