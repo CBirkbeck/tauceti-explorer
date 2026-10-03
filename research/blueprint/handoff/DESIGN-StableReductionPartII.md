@@ -2,6 +2,10 @@
 
 Refs #3342. Winning claim 5963215462 was confirmed by bot 5963216822.
 Mathematical base: 8e8a791bf7a37204ff27814aaa38580e85df58d1.
+Publication base: f1a650b90692d9f7d9667f3deb09ba9e0013cb4d. The incoming five owner deliverables,
+binding instructions, reviewed audit/key/consumer inputs and check/assembler
+code were byte-unchanged. Foreign main changes were merged into the own
+branch; indexed/intake/graph checks were rerun after that merge.
 This receipt supersedes historical numerical/frontier reports below; earlier
 readings, native calculations and authorship retain their recorded scope.
 
@@ -172,7 +176,7 @@ Read-only archive/control commits may need fetching as Git objects.
 from pathlib import Path
 import ast,hashlib,json,re,subprocess,sys
 root=Path.cwd();s=Path(__file__).parent;rid='StableReductionPartII'
-base='8e8a791bf7a37204ff27814aaa38580e85df58d1';archive='5a92fd0ae83ddc0a3671cc21fdd236394e9d9519'
+base='f1a650b90692d9f7d9667f3deb09ba9e0013cb4d';archive='5a92fd0ae83ddc0a3671cc21fdd236394e9d9519'
 paths=['research/blueprint/roadmaps/'+rid+'.json','research/blueprint/packets/'+rid+'.json','research/blueprint/readmes/'+rid+'.md','research/blueprint/suggested/'+rid+'.lean','research/blueprint/handoff/DESIGN-'+rid+'.md']
 blob=subprocess.check_output(['git','show',archive+':'+paths[3]],text=True)
 native=blob.split('BEGIN ARCHIVED CHECKED UNIVERSAL SECTION TENSOR COMPLEXES\n',1)[1].split('END ARCHIVED CHECKED UNIVERSAL SECTION TENSOR COMPLEXES\n',1)[0]
@@ -249,7 +253,7 @@ result={'inheritedContracts':188,'wholeInheritedNodesUnchanged':187,'exactNewHea
 Path(__file__).with_suffix('.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result,indent=2))
 ```
 
-Validator SHA-256: 2c4a3758f475ea4a4e9cdbf747bf9d1e1c325c3ae0b429956f9596f5b6191283.
+Validator SHA-256: 64156f6e3ec05f710a3ab153f090d5f8e2d3663ce5a2ba4d610d85b93f8ae474.
 
 The following complete actual assembler comparator also runs from the repository
 root, saved in your own disk scratch. It overlays candidate/original owner
@@ -264,7 +268,7 @@ root=Path.cwd();sys.path.insert(0,str(root/"scripts"));import build
 rid="StableReductionPartII"
 packetpath="research/blueprint/packets/"+rid+".json"
 roadmappath="research/blueprint/roadmaps/"+rid+".json"
-base="8e8a791bf7a37204ff27814aaa38580e85df58d1"
+base="f1a650b90692d9f7d9667f3deb09ba9e0013cb4d"
 p=json.loads((root/packetpath).read_text());r=json.loads((root/roadmappath).read_text())
 old=json.loads(subprocess.check_output(["git","show",base+":"+packetpath],text=True))
 oldr=json.loads(subprocess.check_output(["git","show",base+":"+roadmappath],text=True))
@@ -385,7 +389,7 @@ Path(__file__).with_suffix(".json").write_text(json.dumps(result,indent=2)+"\n")
 print(json.dumps(result,indent=2))
 ```
 
-Assembler validator SHA-256: 28345e9793b9e6519f117028d4ef89408debcd0bc962dd3fe6a67192b77f500e.
+Assembler validator SHA-256: 5f06565c3ce147223b1597a0f23e94f7800aa0ee74ae7c3f5e6a4f5fcc4ef081.
 
 ## Exact next work
 

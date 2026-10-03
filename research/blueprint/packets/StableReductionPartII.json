@@ -17935,7 +17935,9 @@
       "otherPendingLinksMatchOriginal": true,
       "otherSkipsMatchOriginal": true,
       "unchangedNodeObjects": 187,
-      "scriptSha256": "28345e9793b9e6519f117028d4ef89408debcd0bc962dd3fe6a67192b77f500e"
-    }
+      "scriptSha256": "5f06565c3ce147223b1597a0f23e94f7800aa0ee74ae7c3f5e6a4f5fcc4ef081"
+    },
+    "publicationBase": "f1a650b90692d9f7d9667f3deb09ba9e0013cb4d",
+    "publicationChecks": "Exact incoming owner deliverables, binding instructions, reviewed audit/key/consumer inputs and checker/assembler code are unchanged at the publication base. Foreign main changes were merged only into the own branch; indexed checker, actual intake and scoped actual graph comparator were rerun after the merge. Only the five allowed owner paths differ from publication main."
   }
 }
