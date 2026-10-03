@@ -4265,3 +4265,239 @@ Prerequisites: `HodgeStructuresPartII:H.0/affine-tensor-tmul`, `mathlib:TensorPr
 The affine λ=0 tensor field, tensor contraction formula, horizontal maps and native associativity/symmetry/unit equations are now planned with separately checked proofs for arbitrary modules. Tensor integrability is proved using a chosen finite basis of Q and no condition on E,F. Still prove the actual tensor-curvature formula for arbitrary Q, the N+M−1 ordered nilpotence bound by integral shuffles, same-λ nonzero-parameter balancing, cross-ring tensor/exterior comparison and E1 sheaf restriction/gluing. No global key, supplier, source route or stage is closed.
 
 All six existing planets, all eight accepted routes, the 149 routed obligations, five supplier requests and 35 global suggested-file omissions are retained. The intrinsic tensor construction gains these affine inputs without changing its original statement. Generic underived sheaf tensor, dual, exterior and pullback comparisons remain with E1; ordinary connection/calculus with CR.1; filtration/Rees with DD.1; general VHS with D3; Jacobi with the existing ColemanPowerSeries declaration.
+
+## Affine tensor exterior curvature over arbitrary coefficients
+
+Fix an arbitrary commutative ring R and arbitrary native R-modules E,F,Q. Let θ:E→E⊗Q and ψ:F→F⊗Q be the specified actual fields. Write π(q⊗r)=q∧r for the existing exterior quotient, κ for the inherited actual exterior square, Sθ=(id⊗π)∘assoc∘(θ⊗id) and T for the inherited tensor field. The mixed pairing M reorders (E⊗Q)⊗(F⊗Q) into (E⊗F)⊗(Q⊗Q) before applying π. All factor permutations are native Mathlib equivalences.
+
+The left extension contribution contains −M(θ(e)⊗ψ(f)); the right contains +M(θ(e)⊗ψ(f)). Their cancellation is integral: the alternating relation supplies the sign, and repeated coefficients vanish by the independent diagonal alternating relation. No division by two, dual separation, chosen basis or flatness is used. This gives the actual curvature formula for arbitrary coefficient modules and therefore tensor integrability for flat Higgs inputs. Nilpotence and converse reflection are distinct statements.
+
+The actual affine tensor-curvature formula and integrability theorem now have native proofs for arbitrary E,F,Q over every commutative ring, with no basis or flatness hypothesis. Prove the existing integral ordered tensor nilpotence bound N+M−1 for positive input bounds, cross-ring tensor/exterior comparison and finite-projective restriction, then discharge E1 actual sheaf tensor/exterior restriction, equality detection and gluing. Same-λ nonzero-parameter additive balancing, determinant/Tate/period adapters, the reserved global ringed-site carrier, all 149 routed source obligations and H.1–H.8 remain open. Earlier narrower affine-frontier statements are retained as checkpoint history.
+
+### Exterior extension of an affine Higgs field
+
+`HodgeStructuresPartII:H.0/affine-exterior-step` — `TwistedHiggsBundle.affineExteriorStep`.
+
+Construct Sθ:E⊗Q→E⊗∧²Q as (id_E⊗π)∘assoc∘(θ⊗id_Q), where π(q⊗r)=q∧r is the native tensor-to-exterior projection. This is the degree-one exterior extension at λ=0, without a differential term.
+
+R is an arbitrary commutative ring; E,F,Q are arbitrary R-modules. The fields θ:E→E⊗_R Q and ψ:F→F⊗_R Q are actual R-linear maps. No field, characteristic, reducedness, basis, finite generation, projectivity or flatness hypothesis is imposed unless an individual concrete test states one. κ is the inherited actual native exterior square of the ordered iterate. The native π₂ is the existing exteriorPower.fromTensorPower; the binary π is its composite with the native two-factor tensor-power comparison. The suggested helper pairExterior is this literal existing-library expression, with its evaluation proof retained, not a new general exterior quotient target. These are affine λ=0 statements. No nonzero-parameter balancing, sheaf tensor/global-section identification, nilpotence bound, scalar-extension exterior comparison or global descent is established.
+
+Proof: Compose native tensor maps, associator and the existing exterior quotient. No basis or dual separation argument is used.
+
+Dependencies: `mathlib:TensorProduct.map`, `mathlib:TensorProduct.assoc`, `tauceti:exteriorPower.fromTensorPower`, `mathlib:TensorPower.mulEquiv`.
+
+API `TwistedHiggsBundle.affineExteriorStep_tmul` (simp): For e∈E and q∈Q, Sθ(e⊗q)=(id_E⊗π)(assoc(θ(e)⊗q)); in particular if θ(e)=x⊗r, this equals x⊗(r∧q).
+
+API `TwistedHiggsBundle.affineExteriorStep_add` (relation): For θ,χ:E→E⊗Q, S(θ+χ)=Sθ+Sχ as native linear maps.
+
+API `TwistedHiggsBundle.affineExteriorStep_zero` (simp): S(0_E)=0:E⊗Q→E⊗∧²Q.
+
+API `TwistedHiggsBundle.affineExteriorSquare_eq_step` (compatibility): The inherited actual exterior square satisfies κ(θ)=Sθ∘θ as a native linear map.
+
+Test `TwistedHiggsBundle.affineExteriorStep.test_zero` (degenerate): The zero field on arbitrary E,Q has zero native exterior extension.
+
+Test `TwistedHiggsBundle.affineExteriorStep.test_integer_value` (computation): Over ℤ, with E=ℤ and Q=ℤ², the field θ(e)=e⊗(1,0) has Sθ(1⊗(0,1))=1⊗((1,0)∧(0,1)).
+
+Test `TwistedHiggsBundle.affineExteriorStep.test_square_comparison` (compatibility): For arbitrary θ,E,Q, the exterior-step composite Sθ∘θ equals the inherited actual affineExteriorSquare θ.
+
+Source: Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), Theorem 2.1(iv), (2.4), pp.7–8. The arbitrary-ring affine proof is an authored deduction; it does not establish the correspondence or its global sheaf/Tate/Galois interfaces.
+
+### Exterior square as a composed extension
+
+`HodgeStructuresPartII:H.0/affine-exterior-square-step` — `TwistedHiggsBundle.affineExteriorSquare_eq_step`.
+
+The inherited actual exterior square satisfies κ(θ)=Sθ∘θ as a native linear map.
+
+R is an arbitrary commutative ring; E,F,Q are arbitrary R-modules. The fields θ:E→E⊗_R Q and ψ:F→F⊗_R Q are actual R-linear maps. No field, characteristic, reducedness, basis, finite generation, projectivity or flatness hypothesis is imposed unless an individual concrete test states one. κ is the inherited actual native exterior square of the ordered iterate. The native π₂ is the existing exteriorPower.fromTensorPower; the binary π is its composite with the native two-factor tensor-power comparison. The suggested helper pairExterior is this literal existing-library expression, with its evaluation proof retained, not a new general exterior quotient target. These are affine λ=0 statements. No nonzero-parameter balancing, sheaf tensor/global-section identification, nilpotence bound, scalar-extension exterior comparison or global descent is established.
+
+Proof: Use the inherited degree-two ordered-iterate comparison and compose the native tensor-to-exterior projection; tensor-map composition identifies the expressions.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-exterior-square`, `HodgeStructuresPartII:H.0/affine-exterior-step`, `HodgeStructuresPartII:H.0/affine-ordered-iterate-two`, `HodgeStructuresPartII:H.0/affine-ordered-square`, `mathlib:TensorProduct.map_comp`.
+
+Source: Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), Theorem 2.1(iv), (2.4), pp.7–8. The arbitrary-ring affine proof is an authored deduction; it does not establish the correspondence or its global sheaf/Tate/Galois interfaces.
+
+### Exterior extension on a pure tensor
+
+`HodgeStructuresPartII:H.0/affine-exterior-step-tmul` — `TwistedHiggsBundle.affineExteriorStep_tmul`.
+
+For e∈E and q∈Q, Sθ(e⊗q)=(id_E⊗π)(assoc(θ(e)⊗q)); in particular if θ(e)=x⊗r, this equals x⊗(r∧q).
+
+R is an arbitrary commutative ring; E,F,Q are arbitrary R-modules. The fields θ:E→E⊗_R Q and ψ:F→F⊗_R Q are actual R-linear maps. No field, characteristic, reducedness, basis, finite generation, projectivity or flatness hypothesis is imposed unless an individual concrete test states one. κ is the inherited actual native exterior square of the ordered iterate. The native π₂ is the existing exteriorPower.fromTensorPower; the binary π is its composite with the native two-factor tensor-power comparison. The suggested helper pairExterior is this literal existing-library expression, with its evaluation proof retained, not a new general exterior quotient target. These are affine λ=0 statements. No nonzero-parameter balancing, sheaf tensor/global-section identification, nilpotence bound, scalar-extension exterior comparison or global descent is established.
+
+Proof: Unfold the extension and evaluate the native tensor map and associator.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-exterior-step`, `mathlib:TensorProduct.map_tmul`, `mathlib:TensorProduct.assoc_tmul`, `tauceti:exteriorPower.fromTensorPower_tprod`.
+
+Source: Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), Theorem 2.1(iv), (2.4), pp.7–8. The arbitrary-ring affine proof is an authored deduction; it does not establish the correspondence or its global sheaf/Tate/Galois interfaces.
+
+### Additivity in the Higgs field
+
+`HodgeStructuresPartII:H.0/affine-exterior-step-add` — `TwistedHiggsBundle.affineExteriorStep_add`.
+
+For θ,χ:E→E⊗Q, S(θ+χ)=Sθ+Sχ as native linear maps.
+
+R is an arbitrary commutative ring; E,F,Q are arbitrary R-modules. The fields θ:E→E⊗_R Q and ψ:F→F⊗_R Q are actual R-linear maps. No field, characteristic, reducedness, basis, finite generation, projectivity or flatness hypothesis is imposed unless an individual concrete test states one. κ is the inherited actual native exterior square of the ordered iterate. The native π₂ is the existing exteriorPower.fromTensorPower; the binary π is its composite with the native two-factor tensor-power comparison. The suggested helper pairExterior is this literal existing-library expression, with its evaluation proof retained, not a new general exterior quotient target. These are affine λ=0 statements. No nonzero-parameter balancing, sheaf tensor/global-section identification, nilpotence bound, scalar-extension exterior comparison or global descent is established.
+
+Proof: Use native tensor-map additivity in its first map and distribute composition.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-exterior-step`, `mathlib:TensorProduct.map_add_left`.
+
+Source: Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), Theorem 2.1(iv), (2.4), pp.7–8. The arbitrary-ring affine proof is an authored deduction; it does not establish the correspondence or its global sheaf/Tate/Galois interfaces.
+
+### Exterior extension of the zero field
+
+`HodgeStructuresPartII:H.0/affine-exterior-step-zero` — `TwistedHiggsBundle.affineExteriorStep_zero`.
+
+S(0_E)=0:E⊗Q→E⊗∧²Q.
+
+R is an arbitrary commutative ring; E,F,Q are arbitrary R-modules. The fields θ:E→E⊗_R Q and ψ:F→F⊗_R Q are actual R-linear maps. No field, characteristic, reducedness, basis, finite generation, projectivity or flatness hypothesis is imposed unless an individual concrete test states one. κ is the inherited actual native exterior square of the ordered iterate. The native π₂ is the existing exteriorPower.fromTensorPower; the binary π is its composite with the native two-factor tensor-power comparison. The suggested helper pairExterior is this literal existing-library expression, with its evaluation proof retained, not a new general exterior quotient target. These are affine λ=0 statements. No nonzero-parameter balancing, sheaf tensor/global-section identification, nilpotence bound, scalar-extension exterior comparison or global descent is established.
+
+Proof: The first tensor map is zero; its composite is zero.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-exterior-step`.
+
+Source: Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), Theorem 2.1(iv), (2.4), pp.7–8. The arbitrary-ring affine proof is an authored deduction; it does not establish the correspondence or its global sheaf/Tate/Galois interfaces.
+
+### Mixed tensor exterior pairing
+
+`HodgeStructuresPartII:H.0/affine-tensor-wedge-pair` — `TwistedHiggsBundle.affineTensorWedgePair`.
+
+Construct M:(E⊗Q)⊗(F⊗Q)→(E⊗F)⊗∧²Q as (id_(E⊗F)⊗π)∘tensorTensorTensorComm. It sends (e⊗q)⊗(f⊗r) to (e⊗f)⊗(q∧r).
+
+R is an arbitrary commutative ring; E,F,Q are arbitrary R-modules. The fields θ:E→E⊗_R Q and ψ:F→F⊗_R Q are actual R-linear maps. No field, characteristic, reducedness, basis, finite generation, projectivity or flatness hypothesis is imposed unless an individual concrete test states one. κ is the inherited actual native exterior square of the ordered iterate. The native π₂ is the existing exteriorPower.fromTensorPower; the binary π is its composite with the native two-factor tensor-power comparison. The suggested helper pairExterior is this literal existing-library expression, with its evaluation proof retained, not a new general exterior quotient target. These are affine λ=0 statements. No nonzero-parameter balancing, sheaf tensor/global-section identification, nilpotence bound, scalar-extension exterior comparison or global descent is established.
+
+Proof: Reuse the native four-factor tensor permutation, followed by the native exterior quotient. This is the specified mixed-term adapter, not a replacement exterior-power carrier.
+
+Dependencies: `mathlib:TensorProduct.tensorTensorTensorComm`, `mathlib:TensorProduct.map`, `tauceti:exteriorPower.fromTensorPower`, `mathlib:exteriorPower.alternatingMapToDual`, `mathlib:exteriorPower.alternatingMapToDual_apply_ιMulti`, `mathlib:Matrix.det_fin_two`.
+
+API `TwistedHiggsBundle.affineTensorWedgePair_tmul` (simp): M((e⊗q)⊗(f⊗r))=(e⊗f)⊗(q∧r), for every e,f,q,r.
+
+API `TwistedHiggsBundle.affineTensorWedgePair_same_direction` (relation): For all e,f,q, M((e⊗q)⊗(f⊗q))=0, including characteristic two.
+
+API `TwistedHiggsBundle.affineTensorWedgePair_swap` (relation): For z∈E⊗Q and w∈F⊗Q, M_(F,E)(w⊗z)=−(comm_(E,F)⊗id_(∧²Q))(M_(E,F)(z⊗w)).
+
+Test `TwistedHiggsBundle.affineTensorWedgePair.test_repeated_coefficient` (degenerate): For arbitrary e,f,q, the mixed pairing of e⊗q with f⊗q is zero.
+
+Test `TwistedHiggsBundle.affineTensorWedgePair.test_integer_sign` (computation): Over ℤ with E=F=ℤ and Q=ℤ², pairing (1⊗(0,1)) with (1⊗(1,0)) gives −(1⊗1)⊗((1,0)∧(0,1)), with the coefficient sign retained.
+
+Test `TwistedHiggsBundle.affineTensorWedgePair.test_characteristic_two_nonzero` (non-example): Over ZMod 2, with E=F=ZMod 2 and Q=(ZMod 2)², the actual mixed exterior pairing is nonzero. Alternating signs in characteristic two do not make the exterior projection vanish.
+
+Source: Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), Theorem 2.1(iv), (2.4), pp.7–8. The arbitrary-ring affine proof is an authored deduction; it does not establish the correspondence or its global sheaf/Tate/Galois interfaces.
+
+### Mixed pairing on four factors
+
+`HodgeStructuresPartII:H.0/affine-tensor-wedge-pair-tmul` — `TwistedHiggsBundle.affineTensorWedgePair_tmul`.
+
+M((e⊗q)⊗(f⊗r))=(e⊗f)⊗(q∧r), for every e,f,q,r.
+
+R is an arbitrary commutative ring; E,F,Q are arbitrary R-modules. The fields θ:E→E⊗_R Q and ψ:F→F⊗_R Q are actual R-linear maps. No field, characteristic, reducedness, basis, finite generation, projectivity or flatness hypothesis is imposed unless an individual concrete test states one. κ is the inherited actual native exterior square of the ordered iterate. The native π₂ is the existing exteriorPower.fromTensorPower; the binary π is its composite with the native two-factor tensor-power comparison. The suggested helper pairExterior is this literal existing-library expression, with its evaluation proof retained, not a new general exterior quotient target. These are affine λ=0 statements. No nonzero-parameter balancing, sheaf tensor/global-section identification, nilpotence bound, scalar-extension exterior comparison or global descent is established.
+
+Proof: Evaluate the native four-factor permutation and tensor-to-exterior projection.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-tensor-wedge-pair`, `mathlib:TensorProduct.tensorTensorTensorComm_tmul`, `mathlib:TensorProduct.map_tmul`, `tauceti:exteriorPower.fromTensorPower_tprod`.
+
+Source: Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), Theorem 2.1(iv), (2.4), pp.7–8. The arbitrary-ring affine proof is an authored deduction; it does not establish the correspondence or its global sheaf/Tate/Galois interfaces.
+
+### Left contribution and reversed mixed term
+
+`HodgeStructuresPartII:H.0/affine-exterior-step-tensor-left` — `TwistedHiggsBundle.affineExteriorStep_tensor_left`.
+
+For z∈E⊗Q and f∈F, ST(rightComm(z⊗f))=rightComm(Sθ(z)⊗f)−M(z⊗ψ(f)), where T=T(θ,ψ). The minus sign comes from reversing the two coefficient factors.
+
+R is an arbitrary commutative ring; E,F,Q are arbitrary R-modules. The fields θ:E→E⊗_R Q and ψ:F→F⊗_R Q are actual R-linear maps. No field, characteristic, reducedness, basis, finite generation, projectivity or flatness hypothesis is imposed unless an individual concrete test states one. κ is the inherited actual native exterior square of the ordered iterate. The native π₂ is the existing exteriorPower.fromTensorPower; the binary π is its composite with the native two-factor tensor-power comparison. The suggested helper pairExterior is this literal existing-library expression, with its evaluation proof retained, not a new general exterior quotient target. These are affine λ=0 statements. No nonzero-parameter balancing, sheaf tensor/global-section identification, nilpotence bound, scalar-extension exterior comparison or global descent is established.
+
+Proof: Induct on z by native tensor generation and distribute the two field summands. Induct on θ(e) for the pure left contribution, and on ψ(f) for the mixed contribution. The latter has r∧q=−q∧r by native alternating-map swap. No division by two is used.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-exterior-step`, `HodgeStructuresPartII:H.0/affine-tensor-field`, `HodgeStructuresPartII:H.0/affine-tensor-wedge-pair`, `HodgeStructuresPartII:H.0/affine-exterior-step-tmul`, `HodgeStructuresPartII:H.0/affine-tensor-tmul`, `HodgeStructuresPartII:H.0/affine-tensor-wedge-pair-tmul`, `mathlib:TensorProduct.induction_on`, `mathlib:AlternatingMap.map_swap`, `mathlib:TensorProduct.rightComm_tmul`, `mathlib:TensorProduct.assoc_tmul`.
+
+Source: Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), Theorem 2.1(iv), (2.4), pp.7–8. The arbitrary-ring affine proof is an authored deduction; it does not establish the correspondence or its global sheaf/Tate/Galois interfaces.
+
+### Right contribution and direct mixed term
+
+`HodgeStructuresPartII:H.0/affine-exterior-step-tensor-right` — `TwistedHiggsBundle.affineExteriorStep_tensor_right`.
+
+For e∈E and w∈F⊗Q, ST(assoc⁻¹(e⊗w))=M(θ(e)⊗w)+assoc⁻¹(e⊗Sψ(w)), where T=T(θ,ψ).
+
+R is an arbitrary commutative ring; E,F,Q are arbitrary R-modules. The fields θ:E→E⊗_R Q and ψ:F→F⊗_R Q are actual R-linear maps. No field, characteristic, reducedness, basis, finite generation, projectivity or flatness hypothesis is imposed unless an individual concrete test states one. κ is the inherited actual native exterior square of the ordered iterate. The native π₂ is the existing exteriorPower.fromTensorPower; the binary π is its composite with the native two-factor tensor-power comparison. The suggested helper pairExterior is this literal existing-library expression, with its evaluation proof retained, not a new general exterior quotient target. These are affine λ=0 statements. No nonzero-parameter balancing, sheaf tensor/global-section identification, nilpotence bound, scalar-extension exterior comparison or global descent is established.
+
+Proof: Induct on w by native tensor generation and distribute the field summands. Induct on θ(e) and ψ(f) for the two terms; native tensor permutations give the specified factor order.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-exterior-step`, `HodgeStructuresPartII:H.0/affine-tensor-field`, `HodgeStructuresPartII:H.0/affine-tensor-wedge-pair`, `HodgeStructuresPartII:H.0/affine-exterior-step-tmul`, `HodgeStructuresPartII:H.0/affine-tensor-tmul`, `HodgeStructuresPartII:H.0/affine-tensor-wedge-pair-tmul`, `mathlib:TensorProduct.induction_on`, `mathlib:TensorProduct.rightComm_tmul`, `mathlib:TensorProduct.assoc_symm_tmul`.
+
+Source: Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), Theorem 2.1(iv), (2.4), pp.7–8. The arbitrary-ring affine proof is an authored deduction; it does not establish the correspondence or its global sheaf/Tate/Galois interfaces.
+
+### Tensor curvature on elementary tensors
+
+`HodgeStructuresPartII:H.0/affine-tensor-curvature-tmul` — `TwistedHiggsBundle.affineTensorField_curvature_tmul`.
+
+For arbitrary Q, κ(T(θ,ψ))(e⊗f)=rightComm(κ(θ)(e)⊗f)+assoc⁻¹(e⊗κ(ψ)(f)), with ∧²Q moved to the last factor.
+
+R is an arbitrary commutative ring; E,F,Q are arbitrary R-modules. The fields θ:E→E⊗_R Q and ψ:F→F⊗_R Q are actual R-linear maps. No field, characteristic, reducedness, basis, finite generation, projectivity or flatness hypothesis is imposed unless an individual concrete test states one. κ is the inherited actual native exterior square of the ordered iterate. The native π₂ is the existing exteriorPower.fromTensorPower; the binary π is its composite with the native two-factor tensor-power comparison. The suggested helper pairExterior is this literal existing-library expression, with its evaluation proof retained, not a new general exterior quotient target. These are affine λ=0 statements. No nonzero-parameter balancing, sheaf tensor/global-section identification, nilpotence bound, scalar-extension exterior comparison or global descent is established.
+
+Proof: Replace each exterior square by its exterior-step composite. Expand T(e⊗f) and substitute the left and right extension identities. The identical mixed pairings occur with opposite signs and cancel.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-exterior-square`, `HodgeStructuresPartII:H.0/affine-tensor-field`, `HodgeStructuresPartII:H.0/affine-exterior-square-step`, `HodgeStructuresPartII:H.0/affine-tensor-tmul`, `HodgeStructuresPartII:H.0/affine-exterior-step-tensor-left`, `HodgeStructuresPartII:H.0/affine-exterior-step-tensor-right`.
+
+Test `TwistedHiggsBundle.affineTensorField.test_curvature_value` (compatibility): For arbitrary actual fields and pure e⊗f, the tensor exterior square equals the two input exterior squares in the specified last-factor order.
+
+Source: Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), Theorem 2.1(iv), (2.4), pp.7–8. The arbitrary-ring affine proof is an authored deduction; it does not establish the correspondence or its global sheaf/Tate/Galois interfaces.
+
+### Tensor integrability for arbitrary coefficients
+
+`HodgeStructuresPartII:H.0/affine-tensor-integrable-arbitrary` — `TwistedHiggsBundle.affineTensorField_integrable_of_arbitrary_coefficients`.
+
+If κ(θ)=κ(ψ)=0, then κ(T(θ,ψ))=0 for every R-module Q. E,F,Q may all have torsion; no basis, projectivity or flatness of any of them is needed.
+
+R is an arbitrary commutative ring; E,F,Q are arbitrary R-modules. The fields θ:E→E⊗_R Q and ψ:F→F⊗_R Q are actual R-linear maps. No field, characteristic, reducedness, basis, finite generation, projectivity or flatness hypothesis is imposed unless an individual concrete test states one. κ is the inherited actual native exterior square of the ordered iterate. The native π₂ is the existing exteriorPower.fromTensorPower; the binary π is its composite with the native two-factor tensor-power comparison. The suggested helper pairExterior is this literal existing-library expression, with its evaluation proof retained, not a new general exterior quotient target. These are affine λ=0 statements. No nonzero-parameter balancing, sheaf tensor/global-section identification, nilpotence bound, scalar-extension exterior comparison or global descent is established.
+
+Proof: Use native pure-tensor extensionality and the actual curvature formula; both surviving terms are zero. No converse or nilpotence implication follows.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-exterior-square`, `HodgeStructuresPartII:H.0/affine-tensor-field`, `HodgeStructuresPartII:H.0/affine-tensor-curvature-tmul`, `mathlib:TensorProduct.ext'`.
+
+Test `TwistedHiggsBundle.affineTensorField.test_torsion_coefficient_integrability` (compatibility): Over ℤ with E=F=ℤ and torsion Q=(ZMod 2)², tensor the scalar one-direction fields in directions (1,0) and (0,1). The actual tensor field has zero exterior square without a coefficient basis or flatness hypothesis.
+
+Test `TwistedHiggsBundle.affineTensorField.test_no_reflection_through_zero_module` (non-example): Over ℤ take the nonintegrable two-direction field E12 dx+E21 dy on ℤ² and F=(Fin 0→ℤ). Its tensor field with the zero field on F has zero curvature, while the original field has nonzero curvature. Tensor integrability does not reflect the integrability of an input through a zero module.
+
+Source: Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), Theorem 2.1(iv), (2.4), pp.7–8. The arbitrary-ring affine proof is an authored deduction; it does not establish the correspondence or its global sheaf/Tate/Galois interfaces.
+
+### Tensor curvature as a linear-map equality
+
+`HodgeStructuresPartII:H.0/affine-tensor-curvature` — `TwistedHiggsBundle.affineTensorField_curvature`.
+
+κ(T(θ,ψ))=rightComm∘(κ(θ)⊗id_F)+assoc⁻¹∘(id_E⊗κ(ψ)) as native linear maps E⊗F→(E⊗F)⊗∧²Q.
+
+R is an arbitrary commutative ring; E,F,Q are arbitrary R-modules. The fields θ:E→E⊗_R Q and ψ:F→F⊗_R Q are actual R-linear maps. No field, characteristic, reducedness, basis, finite generation, projectivity or flatness hypothesis is imposed unless an individual concrete test states one. κ is the inherited actual native exterior square of the ordered iterate. The native π₂ is the existing exteriorPower.fromTensorPower; the binary π is its composite with the native two-factor tensor-power comparison. The suggested helper pairExterior is this literal existing-library expression, with its evaluation proof retained, not a new general exterior quotient target. These are affine λ=0 statements. No nonzero-parameter balancing, sheaf tensor/global-section identification, nilpotence bound, scalar-extension exterior comparison or global descent is established.
+
+Proof: Apply native tensor extensionality; evaluate both sides and use the elementary-tensor curvature formula.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-exterior-square`, `HodgeStructuresPartII:H.0/affine-tensor-field`, `HodgeStructuresPartII:H.0/affine-tensor-curvature-tmul`, `mathlib:TensorProduct.ext'`.
+
+Source: Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), Theorem 2.1(iv), (2.4), pp.7–8. The arbitrary-ring affine proof is an authored deduction; it does not establish the correspondence or its global sheaf/Tate/Galois interfaces.
+
+### Repeated coefficients in the mixed pairing
+
+`HodgeStructuresPartII:H.0/affine-tensor-wedge-pair-repeated` — `TwistedHiggsBundle.affineTensorWedgePair_same_direction`.
+
+For all e,f,q, M((e⊗q)⊗(f⊗q))=0, including characteristic two.
+
+R is an arbitrary commutative ring; E,F,Q are arbitrary R-modules. The fields θ:E→E⊗_R Q and ψ:F→F⊗_R Q are actual R-linear maps. No field, characteristic, reducedness, basis, finite generation, projectivity or flatness hypothesis is imposed unless an individual concrete test states one. κ is the inherited actual native exterior square of the ordered iterate. The native π₂ is the existing exteriorPower.fromTensorPower; the binary π is its composite with the native two-factor tensor-power comparison. The suggested helper pairExterior is this literal existing-library expression, with its evaluation proof retained, not a new general exterior quotient target. These are affine λ=0 statements. No nonzero-parameter balancing, sheaf tensor/global-section identification, nilpotence bound, scalar-extension exterior comparison or global descent is established.
+
+Proof: Evaluate the mixed pairing and use the alternating relation q∧q=0, rather than deriving it from a sign by division.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-tensor-wedge-pair`, `HodgeStructuresPartII:H.0/affine-tensor-wedge-pair-tmul`, `mathlib:AlternatingMap.map_eq_zero_of_eq`.
+
+Source: Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), Theorem 2.1(iv), (2.4), pp.7–8. The arbitrary-ring affine proof is an authored deduction; it does not establish the correspondence or its global sheaf/Tate/Galois interfaces.
+
+### Signed swap of the mixed pairing
+
+`HodgeStructuresPartII:H.0/affine-tensor-wedge-pair-swap` — `TwistedHiggsBundle.affineTensorWedgePair_swap`.
+
+For z∈E⊗Q and w∈F⊗Q, M_(F,E)(w⊗z)=−(comm_(E,F)⊗id_(∧²Q))(M_(E,F)(z⊗w)).
+
+R is an arbitrary commutative ring; E,F,Q are arbitrary R-modules. The fields θ:E→E⊗_R Q and ψ:F→F⊗_R Q are actual R-linear maps. No field, characteristic, reducedness, basis, finite generation, projectivity or flatness hypothesis is imposed unless an individual concrete test states one. κ is the inherited actual native exterior square of the ordered iterate. The native π₂ is the existing exteriorPower.fromTensorPower; the binary π is its composite with the native two-factor tensor-power comparison. The suggested helper pairExterior is this literal existing-library expression, with its evaluation proof retained, not a new general exterior quotient target. These are affine λ=0 statements. No nonzero-parameter balancing, sheaf tensor/global-section identification, nilpotence bound, scalar-extension exterior comparison or global descent is established.
+
+Proof: Use tensor induction in z and w. On four pure factors use the actual commutor and alternating coefficient swap; extend by additivity.
+
+Dependencies: `HodgeStructuresPartII:H.0/affine-tensor-wedge-pair`, `HodgeStructuresPartII:H.0/affine-tensor-wedge-pair-tmul`, `mathlib:TensorProduct.induction_on`, `mathlib:TensorProduct.comm_tmul`, `mathlib:AlternatingMap.map_swap`.
+
+Source: Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), Theorem 2.1(iv), (2.4), pp.7–8. The arbitrary-ring affine proof is an authored deduction; it does not establish the correspondence or its global sheaf/Tate/Galois interfaces.

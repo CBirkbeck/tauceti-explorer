@@ -2638,3 +2638,264 @@ example (c : Z1 G U) (hc : H1.mk c ≠ 1) :
 end GaugeTransport
 end TauCeti.NonabelianCohomology
 /- END GAUGE REPRESENTATIVE TRANSPORT -/
+
+/- BEGIN TWISTED SOURCE NATURALITY -/
+
+namespace TauCeti.NonabelianCohomology
+section TwistedSourceRestriction
+variable {G H : Type*} [Group G] [TopologicalSpace G] [Group H] [TopologicalSpace H]
+  {U : Type*} [Group U] [TopologicalSpace U] [IsTopologicalGroup U]
+  [MulDistribMulAction G U] [ContinuousSMul G U]
+  [MulDistribMulAction H U] [ContinuousSMul H U]
+
+def Twist.sourceEquiv (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U) :
+    Twist c ≃* Twist (Z1.res φ hφ hact c) := by
+  sorry
+
+omit [IsTopologicalGroup U] [ContinuousSMul G U] [ContinuousSMul H U] in
+lemma Twist.sourceEquiv_apply (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U) (x : Twist c) :
+    Twist.toOriginal (Z1.res φ hφ hact c) (Twist.sourceEquiv φ hφ hact c x) =
+      Twist.toOriginal c x := by
+  sorry
+
+omit [IsTopologicalGroup U] [ContinuousSMul G U] [ContinuousSMul H U] in
+lemma Twist.sourceEquiv_symm_apply (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U)
+    (x : Twist (Z1.res φ hφ hact c)) :
+    Twist.toOriginal c ((Twist.sourceEquiv φ hφ hact c).symm x) =
+      Twist.toOriginal (Z1.res φ hφ hact c) x := by
+  sorry
+
+omit [IsTopologicalGroup U] [ContinuousSMul G U] [ContinuousSMul H U] in
+lemma Twist.sourceEquiv_continuous (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U) :
+    Continuous (Twist.sourceEquiv φ hφ hact c) := by
+  sorry
+
+omit [IsTopologicalGroup U] [ContinuousSMul G U] [ContinuousSMul H U] in
+lemma Twist.sourceEquiv_symm_continuous (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U) :
+    Continuous (Twist.sourceEquiv φ hφ hact c).symm := by
+  sorry
+
+omit [IsTopologicalGroup U] [ContinuousSMul G U] [ContinuousSMul H U] in
+lemma Twist.sourceEquiv_smul (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U)
+    (h : H) (x : Twist c) :
+    Twist.sourceEquiv φ hφ hact c (φ h • x) = h • Twist.sourceEquiv φ hφ hact c x := by
+  sorry
+
+def Z1.twistRes (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U) :
+    Z1 G (Twist c) → Z1 H (Twist (Z1.res φ hφ hact c)) := by
+  sorry
+
+omit [IsTopologicalGroup U] [ContinuousSMul G U] [ContinuousSMul H U] in
+lemma Z1.twistRes_apply (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U)
+    (d : Z1 G (Twist c)) (h : H) :
+    Z1.twistRes φ hφ hact c d h = Twist.sourceEquiv φ hφ hact c (d (φ h)) := by
+  sorry
+
+omit [IsTopologicalGroup U] [ContinuousSMul G U] [ContinuousSMul H U] in
+lemma Z1.twistRes_one (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U) :
+    Z1.twistRes φ hφ hact c 1 = 1 := by
+  sorry
+
+lemma Z1.twistRes_smul (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U)
+    (x : Twist c) (d : Z1 G (Twist c)) :
+    Z1.twistRes φ hφ hact c (x • d) =
+      Twist.sourceEquiv φ hφ hact c x • Z1.twistRes φ hφ hact c d := by
+  sorry
+
+lemma Z1.twistRes_translation (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U)
+    (d : Z1 G (Twist c)) :
+    Z1.twistEquiv (Z1.res φ hφ hact c) (Z1.twistRes φ hφ hact c d) =
+      Z1.res φ hφ hact (Z1.twistEquiv c d) := by
+  sorry
+
+def H1.twistRes (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U) :
+    H1 G (Twist c) → H1 H (Twist (Z1.res φ hφ hact c)) := by
+  sorry
+
+lemma H1.twistRes_mk (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U)
+    (d : Z1 G (Twist c)) :
+    H1.twistRes φ hφ hact c (H1.mk d) = H1.mk (Z1.twistRes φ hφ hact c d) := by
+  sorry
+
+lemma H1.twistRes_one (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U) :
+    H1.twistRes φ hφ hact c 1 = 1 := by
+  sorry
+
+lemma H1.twistRes_translation (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U)
+    (a : H1 G (Twist c)) :
+    H1.twistEquiv (Z1.res φ hφ hact c) (H1.twistRes φ hφ hact c a) =
+      H1.res φ hφ hact (H1.twistEquiv c a) := by
+  sorry
+
+lemma Twist.sourceEquiv_gauge (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U)
+    (b : U) (x : Twist c) :
+    Twist.toOriginal (Z1.res φ hφ hact (b • c))
+      (Twist.sourceEquiv φ hφ hact (b • c) (Twist.gaugeEquiv c b x)) =
+    Twist.toOriginal (b • Z1.res φ hφ hact c)
+      (Twist.gaugeEquiv (Z1.res φ hφ hact c) b (Twist.sourceEquiv φ hφ hact c x)) := by
+  sorry
+
+lemma Z1.twistRes_injective (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U)
+    (hsur : Function.Surjective φ) : Function.Injective (Z1.twistRes φ hφ hact c) := by
+  sorry
+
+lemma H1.twistRes_injective (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U)
+    (hsur : Function.Surjective φ) : Function.Injective (H1.twistRes φ hφ hact c) := by
+  sorry
+
+lemma H1.twistRes_representative (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c d : Z1 G U)
+    (hcd : H1.mk c = H1.mk d) (a : H1 G (Twist c)) :
+    H1.twistRes φ hφ hact d (H1.changeRepresentative c d hcd a) =
+      H1.changeRepresentative (Z1.res φ hφ hact c) (Z1.res φ hφ hact d)
+        (by rw [← H1.res_mk, ← H1.res_mk, hcd]) (H1.twistRes φ hφ hact c a) := by
+  sorry
+
+lemma H1.twistRes_identity_translation (c : Z1 G U) (a : H1 G (Twist c)) :
+    H1.twistEquiv (Z1.res (MonoidHom.id G) continuous_id (fun _ _ => rfl) c)
+      (H1.twistRes (MonoidHom.id G) continuous_id (fun _ _ => rfl) c a) =
+        H1.twistEquiv c a := by
+  sorry
+
+section SourceComposition
+variable {K : Type*} [Group K] [TopologicalSpace K]
+  [MulDistribMulAction K U] [ContinuousSMul K U]
+
+lemma H1.twistRes_comp_translation (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x)
+    (ψ : K →* H) (hψ : Continuous ψ)
+    (hact' : ∀ (k : K) (x : U), k • x = ψ k • x)
+    (c : Z1 G U) (a : H1 G (Twist c)) :
+    H1.twistEquiv (Z1.res ψ hψ hact' (Z1.res φ hφ hact c))
+      (H1.twistRes ψ hψ hact' (Z1.res φ hφ hact c) (H1.twistRes φ hφ hact c a)) =
+        H1.res (φ.comp ψ) (hφ.comp hψ)
+          (fun k x => (hact' k x).trans (hact (ψ k) x)) (H1.twistEquiv c a) := by
+  sorry
+
+end SourceComposition
+
+end TwistedSourceRestriction
+end TauCeti.NonabelianCohomology
+
+namespace TauCeti.NonabelianCohomology
+section TwistedSourceTests
+variable {G H : Type*} [Group G] [TopologicalSpace G] [Group H] [TopologicalSpace H]
+  {U : Type*} [Group U] [TopologicalSpace U] [IsTopologicalGroup U]
+  [MulDistribMulAction G U] [ContinuousSMul G U]
+  [MulDistribMulAction H U] [ContinuousSMul H U]
+
+-- test: Twist.sourceEquiv.test_inverse
+omit [IsTopologicalGroup U] [ContinuousSMul G U] [ContinuousSMul H U] in
+example (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U) (x : Twist c) :
+    (Twist.sourceEquiv φ hφ hact c).symm (Twist.sourceEquiv φ hφ hact c x) = x := by
+  sorry
+
+-- test: Twist.sourceEquiv.test_semilinear
+omit [IsTopologicalGroup U] [ContinuousSMul G U] [ContinuousSMul H U] in
+example (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U) (h : H) (x : Twist c) :
+    Twist.toOriginal (Z1.res φ hφ hact c) (h • Twist.sourceEquiv φ hφ hact c x) =
+      c (φ h) * (φ h • Twist.toOriginal c x) * (c (φ h))⁻¹ := by
+  sorry
+
+-- test: Twist.sourceEquiv.test_noncommutative_action
+example :
+    let G := Equiv.Perm (Fin 2)
+    let U := Equiv.Perm (Fin 3)
+    letI : TopologicalSpace G := ⊥
+    letI : TopologicalSpace U := ⊥
+    letI : DiscreteTopology G := ⟨rfl⟩
+    letI : DiscreteTopology U := ⟨rfl⟩
+    letI : IsTopologicalGroup U := inferInstance
+    letI : MulDistribMulAction G U := {
+      smul := fun _ x => x
+      one_smul := fun _ => rfl
+      mul_smul := fun _ _ _ => rfl
+      smul_one := fun _ => rfl
+      smul_mul := fun _ _ _ => rfl }
+    letI : ContinuousSMul G U := ⟨continuous_snd⟩
+    let c : Z1 G U := ⟨fun g => if g = 1 then 1 else Equiv.swap 0 1,
+      continuous_of_discreteTopology, by decide⟩
+    let g : G := Equiv.swap 0 1
+    let x : Twist c := Equiv.swap 1 2
+    let e := Twist.sourceEquiv (MonoidHom.id G) continuous_id (fun _ _ => rfl) c
+    Twist.toOriginal (Z1.res (MonoidHom.id G) continuous_id (fun _ _ => rfl) c)
+      (e (g • x)) = Equiv.swap 0 2 ∧
+    Twist.toOriginal (Z1.res (MonoidHom.id G) continuous_id (fun _ _ => rfl) c)
+      (e (g • x)) ≠ Twist.toOriginal c x := by
+  sorry
+
+-- test: Z1.twistRes.test_identity
+omit [IsTopologicalGroup U] [ContinuousSMul G U] [ContinuousSMul H U] in
+example (c : Z1 G U) (d : Z1 G (Twist c)) (g : G) :
+    Twist.toOriginal (Z1.res (MonoidHom.id G) continuous_id (fun _ _ => rfl) c)
+      (Z1.twistRes (MonoidHom.id G) continuous_id (fun _ _ => rfl) c d g) =
+        Twist.toOriginal c (d g) := by
+  sorry
+
+-- test: Z1.twistRes.test_gauge_translation
+example (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U)
+    (x : Twist c) (d : Z1 G (Twist c)) :
+    Z1.twistEquiv (Z1.res φ hφ hact c) (Z1.twistRes φ hφ hact c (x • d)) =
+      Twist.toOriginal c x • Z1.res φ hφ hact (Z1.twistEquiv c d) := by
+  sorry
+
+-- test: Z1.twistRes.test_surjective_detection
+example (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U)
+    (hsur : Function.Surjective φ) (d : Z1 G (Twist c)) :
+    Z1.twistRes φ hφ hact c d = 1 ↔ d = 1 := by
+  sorry
+
+-- test: H1.twistRes.test_neutral
+example (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U) :
+    H1.twistEquiv (Z1.res φ hφ hact c) (H1.twistRes φ hφ hact c 1) =
+      H1.mk (Z1.res φ hφ hact c) := by
+  sorry
+
+-- test: H1.twistRes.test_gauge_classes
+example (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U)
+    (x : Twist c) (d : Z1 G (Twist c)) :
+    H1.twistRes φ hφ hact c (H1.mk (x • d)) = H1.twistRes φ hφ hact c (H1.mk d) := by
+  sorry
+
+-- test: H1.twistRes.test_surjective_reflection
+example (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U)
+    (hsur : Function.Surjective φ) (a : H1 G (Twist c)) :
+    H1.twistRes φ hφ hact c a = 1 ↔ a = 1 := by
+  sorry
+
+-- test: H1.twistRes.test_nonsurjective_loss
+example (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (hzero : ∀ h, φ h = 1)
+    (c : Z1 G U) (hc : H1.mk c ≠ 1) :
+    (H1.twistEquiv c).symm 1 ≠ 1 ∧
+      H1.twistRes φ hφ hact c ((H1.twistEquiv c).symm 1) = 1 := by
+  sorry
+
+end TwistedSourceTests
+end TauCeti.NonabelianCohomology
+/- END TWISTED SOURCE NATURALITY -/

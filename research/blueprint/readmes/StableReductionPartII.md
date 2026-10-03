@@ -6004,3 +6004,268 @@ Proof: Use the native certified quasi-isomorphism field of this actual resolutio
 Sources: Knudsen, [§3 Key Example and §4](https://arxiv.org/html/1106.1588v2); native Mathlib declarations at the packet baseline. These general-ring native adapters are authored deductions, not a new printed geometric theorem.
 
 The native Lean comparison signatures use HEq when the §13 admitted constructor bodies leave chain objects opaque. The checked native constructors identify those objects with the actual F=Fin2→R, and the comparisons preserve the same maps and signs.
+
+
+## Actual categorical Hom and higher polynomial Ext checkpoint
+
+The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain.
+
+The localization-defined CategoryTheory.Abelian.Ext and the left-derived linear Yoneda _root_.Ext are different pinned Mathlib interfaces. The former vanishing is proved directly with extMk_surjective/extMk_eq_zero_iff; the latter has a native R-module isomorphism with the actual Hom cochain homology. This is not a proof identifying the two general Ext definitions. Degree-zero isomorphisms are retained and no degree-zero vanishing is asserted. HEq protects only inherited opaque constructor signatures in the admitted sketch, not mathematical weakening.
+
+### Categorical Hom cochains of the section resolutions
+
+StableReductionPartII:MC.2/section-resolution-hom-isomorphism — NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso
+
+For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). Construct the actual native ModuleCat R isomorphism C(e).linearYonedaObj R (R⊗_A M) ≅ H(e,M). In every degree it sends a categorical morphism h:F→R⊗_A M to its underlying R-linear map h.hom; its inverse is ModuleCat.ofHom. The differential squares commute with precomposition by B(e,n), including degree zero.
+
+Hypotheses: A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe. Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations.
+
+Prerequisites: StableReductionPartII:MC.2/section-chain, StableReductionPartII:MC.2/section-hom-cochain, StableReductionPartII:MC.2/section-hom-cochain-differential, StableReductionPartII:MC.2/section-resolution-hom-differential, mathlib:ChainComplex.linearYonedaObj, mathlib:HomologicalComplex.Hom.isoOfComponents, mathlib:ModuleCat.homLinearEquiv, mathlib:LinearEquiv.toModuleIso.
+
+Proof: Use exactly the stated native comparison maps and native functor composition. Use the separately named actual differential comparison for the Hom squares; for Ext apply native isoExt and homologyFunctor.mapIso, not a new theory of Ext.
+
+Sources: knudsen2012; arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.; The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred. mathlib-codex-a71f92-section-ext; Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.; Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit.
+
+API:
+
+- NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso_apply: In every degree n, the forward component of sectionResolutionHomIso sends h:C(e)_n→R⊗_A M to the actual linear map h.hom. Its public HEq statement protects the inherited opaque constructors in the admitted sketch; in the native model this is an equality.
+- NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso_inv_apply: In every degree n the inverse component is exactly ModuleCat.ofHom composed with ModuleCat.homLinearEquiv.symm, as a native categorical map from the R-linear Hom module. The public HEq signature retains the same actual map while not unfolding admitted complex data.
+- NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso_natural: For every A-linear coefficient map f:M→M′, every e,n and actual categorical h:C(e)_n→R⊗_A M, the forward Hom-comparison component applied to h followed by id_R⊗f is exactly the underlying map (id_R⊗f)∘h.hom. These are all degreewise naturality squares of the actual Hom-complex comparison. No naturality assertion for an unconstructed geometric or completed-family Ext comparison is inferred.
+
+Tests:
+
+- NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso.test_actual_components: The forward comparison in every degree sends an actual categorical morphism to its R-linear map, by HEq, including degree zero.
+- NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso.test_inverse: The inverse followed by the forward comparison has the identity component in every degree of the actual Hom cochain.
+- NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso.test_naturality: Every A-linear coefficient map gives the stated Hom-comparison naturality square in every degree.
+
+### Components of the categorical Hom comparison
+
+StableReductionPartII:MC.2/section-resolution-hom-isomorphism-apply — NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso_apply
+
+For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). In every degree n, the forward component of sectionResolutionHomIso sends h:C(e)_n→R⊗_A M to the actual linear map h.hom. Its public HEq statement protects the inherited opaque constructors in the admitted sketch; in the native model this is an equality.
+
+Hypotheses: A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe. Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations.
+
+Prerequisites: StableReductionPartII:MC.2/section-resolution-hom-isomorphism.
+
+Proof: Evaluate the stated actual native comparison or transport through its named native isomorphism; use only the listed earlier facts and routine categorical/linear-map laws.
+
+Sources: knudsen2012; arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.; The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred. mathlib-codex-a71f92-section-ext; Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.; Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit.
+
+### Inverse components of the categorical Hom comparison
+
+StableReductionPartII:MC.2/section-resolution-hom-isomorphism-inverse — NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso_inv_apply
+
+For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). In every degree n the inverse component is exactly ModuleCat.ofHom composed with ModuleCat.homLinearEquiv.symm, as a native categorical map from the R-linear Hom module. The public HEq signature retains the same actual map while not unfolding admitted complex data.
+
+Hypotheses: A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe. Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations.
+
+Prerequisites: StableReductionPartII:MC.2/section-resolution-hom-isomorphism.
+
+Proof: Evaluate the stated actual native comparison or transport through its named native isomorphism; use only the listed earlier facts and routine categorical/linear-map laws.
+
+Sources: knudsen2012; arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.; The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred. mathlib-codex-a71f92-section-ext; Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.; Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit.
+
+### Positive exactness of actual categorical Hom precomposition
+
+StableReductionPartII:MC.2/section-resolution-categorical-hom-exact — NodeSectionFactorization.PolynomialModel.sectionResolutionHom_exact
+
+For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). For e=false and e=true and every n≥0, the actual maps Hom_R(C(e)_n,N)→Hom_R(C(e)_(n+1),N)→Hom_R(C(e)_(n+2),N), by precomposition with the resolution differentials, are Function.Exact. A cocycle is the precomposition of an actual predecessor morphism; no coefficient flatness is assumed.
+
+Hypotheses: A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe. Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations.
+
+Prerequisites: StableReductionPartII:MC.2/section-hom-differential-exact, StableReductionPartII:MC.2/section-resolution-hom-differential, mathlib:HomologicalComplex.d_comp_d.
+
+Proof: Evaluate the stated actual native comparison or transport through its named native isomorphism; use only the listed earlier facts and routine categorical/linear-map laws.
+
+Sources: knudsen2012; arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.; The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred. mathlib-codex-a71f92-section-ext; Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.; Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit.
+
+### Derived-functor Ext of the actual section ideal
+
+StableReductionPartII:MC.2/section-ideal-derived-ext-isomorphism — NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExtIso
+
+For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). For every n≥0 construct a native R-module isomorphism ((_root_.Ext R (ModuleCat R) n).obj (op J)).obj N ≅ H(false,M).homology n, by the native sectionIdealResolution.isoExt followed by homology of sectionResolutionHomIso. Here _root_.Ext is Mathlib's left-derived linear Yoneda bifunctor, not a new carrier or the localization-defined Abelian.Ext.
+
+Hypotheses: A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe. Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations.
+
+Prerequisites: StableReductionPartII:MC.2/section-ideal-projective-resolution, StableReductionPartII:MC.2/section-resolution-hom-isomorphism, mathlib:CategoryTheory.ProjectiveResolution.isoExt, mathlib:HomologicalComplex.homologyFunctor, mathlib:Ext.
+
+Proof: Use exactly the stated native comparison maps and native functor composition. Use the separately named actual differential comparison for the Hom squares; for Ext apply native isoExt and homologyFunctor.mapIso, not a new theory of Ext.
+
+Sources: knudsen2012; arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.; The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred. mathlib-codex-a71f92-section-ext; Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.; Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit.
+
+API:
+
+- NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExtIso_inverse: The forward and inverse maps of sectionIdealDerivedExtIso compose to the identity of the actual derived-functor Ext module, in every degree including degree zero.
+- NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExt_isZero: For every n≥0 the actual R-module ((_root_.Ext R (ModuleCat R) (n+1)).obj (op J)).obj (R⊗_A M) is native Limits.IsZero. Transport the already checked zero positive cohomology through the actual section-ideal Ext isomorphism.
+
+Tests:
+
+- NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExtIso.test_degree_zero: The ideal Ext comparison round-trips an arbitrary actual degree-zero Ext element; positive vanishing is not falsely extended to degree zero.
+- NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExtIso.test_nonflat: For A=Z, γ=1,δ=0,s=1,t=0 and the non-flat coefficient module M=Z/2, the actual derived-functor Ext^3(J,R⊗_Z M) module is zero.
+- NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExtIso.test_zero_ring: For the zero coefficient ring A=Z/1 and M=A, the actual ideal derived-functor Ext^1 module is zero; no Nontrivial hypothesis is introduced.
+
+### Derived-functor Ext of the actual section dual
+
+StableReductionPartII:MC.2/section-dual-derived-ext-isomorphism — NodeSectionFactorization.PolynomialModel.sectionDualDerivedExtIso
+
+For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). For every n≥0 construct a native R-module isomorphism ((_root_.Ext R (ModuleCat R) n).obj (op D)).obj N ≅ H(true,M).homology n, by the native sectionDualResolution.isoExt followed by homology of sectionResolutionHomIso. Its alternating phase is the actual dual resolution, not the ideal phase.
+
+Hypotheses: A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe. Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations.
+
+Prerequisites: StableReductionPartII:MC.2/section-dual-projective-resolution, StableReductionPartII:MC.2/section-resolution-hom-isomorphism, mathlib:CategoryTheory.ProjectiveResolution.isoExt, mathlib:HomologicalComplex.homologyFunctor, mathlib:Ext.
+
+Proof: Use exactly the stated native comparison maps and native functor composition. Use the separately named actual differential comparison for the Hom squares; for Ext apply native isoExt and homologyFunctor.mapIso, not a new theory of Ext.
+
+Sources: knudsen2012; arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.; The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred. mathlib-codex-a71f92-section-ext; Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.; Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit.
+
+API:
+
+- NodeSectionFactorization.PolynomialModel.sectionDualDerivedExtIso_inverse: The forward and inverse maps of sectionDualDerivedExtIso compose to the identity of the actual derived-functor Ext module, in every degree including degree zero.
+- NodeSectionFactorization.PolynomialModel.sectionDualDerivedExt_isZero: For every n≥0 the actual R-module ((_root_.Ext R (ModuleCat R) (n+1)).obj (op D)).obj (R⊗_A M) is native Limits.IsZero. Use the dual resolution and the corresponding actual Hom phase.
+
+Tests:
+
+- NodeSectionFactorization.PolynomialModel.sectionDualDerivedExtIso.test_degree_zero: The dual Ext comparison round-trips every actual degree-zero Ext element.
+- NodeSectionFactorization.PolynomialModel.sectionDualDerivedExtIso.test_nonreduced: For the nonreduced base A=Z/4, γ=δ=t=0,s=1 and M=A, the actual dual derived-functor Ext^2 module is zero.
+- NodeSectionFactorization.PolynomialModel.sectionDualDerivedExtIso.test_nonflat: For A=Z, γ=1,δ=0,s=1,t=0 and M=Z/2 without flatness, the actual dual derived-functor Ext^1 module is zero.
+
+### Inverse law for the ideal Ext comparison
+
+StableReductionPartII:MC.2/section-ideal-derived-ext-isomorphism-inverse — NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExtIso_inverse
+
+For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). The forward and inverse maps of sectionIdealDerivedExtIso compose to the identity of the actual derived-functor Ext module, in every degree including degree zero.
+
+Hypotheses: A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe. Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations.
+
+Prerequisites: StableReductionPartII:MC.2/section-ideal-derived-ext-isomorphism.
+
+Proof: Evaluate the stated actual native comparison or transport through its named native isomorphism; use only the listed earlier facts and routine categorical/linear-map laws.
+
+Sources: knudsen2012; arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.; The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred. mathlib-codex-a71f92-section-ext; Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.; Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit.
+
+### Inverse law for the dual Ext comparison
+
+StableReductionPartII:MC.2/section-dual-derived-ext-isomorphism-inverse — NodeSectionFactorization.PolynomialModel.sectionDualDerivedExtIso_inverse
+
+For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). The forward and inverse maps of sectionDualDerivedExtIso compose to the identity of the actual derived-functor Ext module, in every degree including degree zero.
+
+Hypotheses: A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe. Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations.
+
+Prerequisites: StableReductionPartII:MC.2/section-dual-derived-ext-isomorphism.
+
+Proof: Evaluate the stated actual native comparison or transport through its named native isomorphism; use only the listed earlier facts and routine categorical/linear-map laws.
+
+Sources: knudsen2012; arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.; The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred. mathlib-codex-a71f92-section-ext; Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.; Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit.
+
+### Positive derived-functor Ext vanishing for the section ideal
+
+StableReductionPartII:MC.2/section-ideal-derived-ext-vanishing — NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExt_isZero
+
+For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). For every n≥0 the actual R-module ((_root_.Ext R (ModuleCat R) (n+1)).obj (op J)).obj (R⊗_A M) is native Limits.IsZero. Transport the already checked zero positive cohomology through the actual section-ideal Ext isomorphism.
+
+Hypotheses: A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe. Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations.
+
+Prerequisites: StableReductionPartII:MC.2/section-ideal-derived-ext-isomorphism, StableReductionPartII:MC.2/section-hom-cochain-positive-homology, mathlib:CategoryTheory.Limits.IsZero.of_iso.
+
+Proof: Evaluate the stated actual native comparison or transport through its named native isomorphism; use only the listed earlier facts and routine categorical/linear-map laws.
+
+Sources: knudsen2012; arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.; The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred. mathlib-codex-a71f92-section-ext; Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.; Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit.
+
+### Positive derived-functor Ext vanishing for the section dual
+
+StableReductionPartII:MC.2/section-dual-derived-ext-vanishing — NodeSectionFactorization.PolynomialModel.sectionDualDerivedExt_isZero
+
+For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). For every n≥0 the actual R-module ((_root_.Ext R (ModuleCat R) (n+1)).obj (op D)).obj (R⊗_A M) is native Limits.IsZero. Use the dual resolution and the corresponding actual Hom phase.
+
+Hypotheses: A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe. Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations.
+
+Prerequisites: StableReductionPartII:MC.2/section-dual-derived-ext-isomorphism, StableReductionPartII:MC.2/section-hom-cochain-positive-homology, mathlib:CategoryTheory.Limits.IsZero.of_iso.
+
+Proof: Evaluate the stated actual native comparison or transport through its named native isomorphism; use only the listed earlier facts and routine categorical/linear-map laws.
+
+Sources: knudsen2012; arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.; The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred. mathlib-codex-a71f92-section-ext; Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.; Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit.
+
+### Positive native localization Ext vanishing for the section ideal
+
+StableReductionPartII:MC.2/section-ideal-localization-ext-vanishing — NodeSectionFactorization.PolynomialModel.sectionIdealExt_eq_zero
+
+For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). For every n≥0 and α:CategoryTheory.Abelian.Ext J (R⊗_A M) (n+1), α=0. Use the actual sectionIdealResolution and Mathlib extMk_surjective to represent α by a categorical cocycle; exact precomposition supplies a predecessor, and extMk_eq_zero_iff kills the class. This separately proves the localization-defined native Ext statement without assuming an isomorphism between the two Mathlib Ext definitions.
+
+Hypotheses: A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe. Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations.
+
+Prerequisites: StableReductionPartII:MC.2/section-ideal-projective-resolution, StableReductionPartII:MC.2/section-resolution-categorical-hom-exact, mathlib:CategoryTheory.Abelian.Ext, mathlib:CategoryTheory.ProjectiveResolution.extMk_surjective, mathlib:CategoryTheory.ProjectiveResolution.extMk_eq_zero_iff, mathlib:CategoryTheory.hasExt_of_enoughProjectives.
+
+Proof: Apply the native extMk_surjective to the specified actual projective resolution. Use sectionResolutionHom_exact for the cocycle and obtain an actual categorical boundary. Apply native extMk_eq_zero_iff; no identification of the two Ext carriers is assumed.
+
+Sources: knudsen2012; arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.; The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred. mathlib-codex-a71f92-section-ext; Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.; Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit.
+
+Tests:
+
+- NodeSectionFactorization.PolynomialModel.sectionIdealExt.test_nonflat: For A=Z, γ=1,δ=0,s=1,t=0 and M=Z/2, every element of native localization Abelian.Ext^4(J,R⊗M) is zero.
+- NodeSectionFactorization.PolynomialModel.sectionIdealExt.test_zero_ring: For A=Z/1 and M=A, every native localization Abelian.Ext^1(J,R⊗M) class is zero.
+
+### Positive native localization Ext vanishing for the section dual
+
+StableReductionPartII:MC.2/section-dual-localization-ext-vanishing — NodeSectionFactorization.PolynomialModel.sectionDualExt_eq_zero
+
+For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). For every n≥0 and α:CategoryTheory.Abelian.Ext D (R⊗_A M) (n+1), α=0. Use the actual sectionDualResolution, extMk_surjective, the true alternating dual precomposition and extMk_eq_zero_iff. No dual coefficient flatness or identification with a made-up Ext carrier is assumed.
+
+Hypotheses: A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe. Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations.
+
+Prerequisites: StableReductionPartII:MC.2/section-dual-projective-resolution, StableReductionPartII:MC.2/section-resolution-categorical-hom-exact, mathlib:CategoryTheory.Abelian.Ext, mathlib:CategoryTheory.ProjectiveResolution.extMk_surjective, mathlib:CategoryTheory.ProjectiveResolution.extMk_eq_zero_iff, mathlib:CategoryTheory.hasExt_of_enoughProjectives.
+
+Proof: Apply the native extMk_surjective to the specified actual projective resolution. Use sectionResolutionHom_exact for the cocycle and obtain an actual categorical boundary. Apply native extMk_eq_zero_iff; no identification of the two Ext carriers is assumed.
+
+Sources: knudsen2012; arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.; The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred. mathlib-codex-a71f92-section-ext; Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.; Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit.
+
+Tests:
+
+- NodeSectionFactorization.PolynomialModel.sectionDualExt.test_nonreduced: For A=Z/4, γ=δ=t=0,s=1 and M=A, every native localization Abelian.Ext^2(D,R⊗M) class is zero.
+
+### Coefficient naturality of the categorical Hom comparison
+
+StableReductionPartII:MC.2/section-resolution-hom-isomorphism-naturality — NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso_natural
+
+For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). For every A-linear coefficient map f:M→M′, every e,n and actual categorical h:C(e)_n→R⊗_A M, the forward Hom-comparison component applied to h followed by id_R⊗f is exactly the underlying map (id_R⊗f)∘h.hom. These are all degreewise naturality squares of the actual Hom-complex comparison. No naturality assertion for an unconstructed geometric or completed-family Ext comparison is inferred.
+
+Hypotheses: A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe. Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations.
+
+Prerequisites: StableReductionPartII:MC.2/section-resolution-hom-isomorphism, mathlib:TensorProduct.AlgebraTensorModule.map.
+
+Proof: Evaluate the stated actual native comparison or transport through its named native isomorphism; use only the listed earlier facts and routine categorical/linear-map laws.
+
+Sources: knudsen2012; arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.; The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred. mathlib-codex-a71f92-section-ext; Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.; Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit.
+
+### Zero preservation for the ideal Ext comparison
+
+StableReductionPartII:MC.2/section-ideal-derived-ext-isomorphism-zero — NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExtIso_zero
+
+For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). The forward native R-linear map of sectionIdealDerivedExtIso sends zero to zero in every degree.
+
+Hypotheses: A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe. Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations.
+
+Prerequisites: StableReductionPartII:MC.2/section-ideal-derived-ext-isomorphism.
+
+Proof: Use map_zero for the actual R-linear hom map of the native module isomorphism.
+
+Sources: knudsen2012; arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.; The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred. mathlib-codex-a71f92-section-ext; Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.; Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit.
+
+### Zero preservation for the dual Ext comparison
+
+StableReductionPartII:MC.2/section-dual-derived-ext-isomorphism-zero — NodeSectionFactorization.PolynomialModel.sectionDualDerivedExtIso_zero
+
+For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). The forward native R-linear map of sectionDualDerivedExtIso sends zero to zero in every degree.
+
+Hypotheses: A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe. Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations.
+
+Prerequisites: StableReductionPartII:MC.2/section-dual-derived-ext-isomorphism.
+
+Proof: Use map_zero for the actual R-linear hom map of the native module isomorphism.
+
+Sources: knudsen2012; arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.; The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred. mathlib-codex-a71f92-section-ext; Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.; Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit.
+
+Additional API:
+
+- NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExtIso_zero: The forward comparison sends the zero native Ext element to zero cohomology in every degree.
+- NodeSectionFactorization.PolynomialModel.sectionDualDerivedExtIso_zero: The forward comparison sends the zero native Ext element to zero cohomology in every degree.
