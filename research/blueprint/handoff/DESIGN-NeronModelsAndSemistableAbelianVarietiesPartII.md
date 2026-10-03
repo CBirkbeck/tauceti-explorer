@@ -424,6 +424,8 @@ def install():
 # END QUADRATIC INFINITY IMMUTABLE READER
 ```
 
+All five public recovery modes were exercised after pushing the immutable archive: native, admitted, validator, immutable reader and canonical. Every recovered output is byte-for-byte identical to the checked input, with the expected hash and line count.
+
 ## Where the next worker resumes
 
 1. Identify the actual relative-Proj cubic with the two affine charts, importing the generic chart/gluing API from SF.0. On the finite chart U=q(t), V=tq(t), the overlap with Y≠0 inverts V. After recovering t=V/U there, the reciprocal coordinate is u=1/t and z=1/V. Prove the actual overlap algebra maps and their inverse laws; on the infinity chart the overlap inverts z, equivalently u, since Q∞ is a unit. Retain q=t²+at+b and the specified quotient maps, rather than assume an isomorphism of arbitrary rings.

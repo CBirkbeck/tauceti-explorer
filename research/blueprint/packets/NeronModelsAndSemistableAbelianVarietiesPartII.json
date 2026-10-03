@@ -20145,7 +20145,12 @@
         "nativePrefixLines": 793,
         "admittedPrefixLines": 606
       },
-      "archive": "5e68ad29cdbd5dcbaba5e45d303f7f91bdd5001d"
+      "archive": "5e68ad29cdbd5dcbaba5e45d303f7f91bdd5001d",
+      "publicRecoveryRoundtrips": {
+        "modes": 5,
+        "allBytesEqual": true,
+        "archiveIsPublic": true
+      }
     },
     "publicationMain": "14122f5410315c7254b29874b6b80bf3f7bdd159"
   }
