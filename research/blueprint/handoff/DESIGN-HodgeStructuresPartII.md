@@ -1,3 +1,401 @@
+# Current checkpoint — integral tensor contraction powers
+
+Codex — codex-5ebb6f, 3 October 2026. Refs #3371. Winning claim5966052398 was confirmed by bot5966053322; the entire issue was read before claiming and after the exact confirmation. Mathematical base `8ff517d75158e529ea1c286a8940a0b36165d241`; immutable validation tree `ff86552a93ce2493a792da280518a4b271523ac9`. H.0 remains partial and H.1–H.8 not_read. All mathematical nodes remain unchecked.
+
+## Result and boundaries
+
+The actual tensor Higgs contraction is L+R, with separate-factor actions that commute over every commutative ring and for arbitrary E,F,Q. Ten Higgs-specific lemmas import the already-built integral binomial and commuting-nilpotence results. Their proof outlines give the integral binomial sum, the precise N+M−1 fixed-direction bound, larger exponents, individual nilpotence and uniform self-power bounds. The existing ordered-step and ordered-word contraction declarations are reused, with separate proof experiments for their unchanged contracts. Constant ordered contractions become powers, so genuine ordered factor bounds imply the same specified exponents for each factor contraction and hence N+M−1 for each tensor self-contraction.
+
+This does not prove the whole tensor-valued ordered iterate vanishes. The exact characteristic-two finite matrix regression has all four dual self-contraction squares zero and a mixed ordered contraction nonzero. Its coefficient actions commute, so even integrability does not fix that converse. The ℤ regression has tensor square nonzero and cube zero, detecting that max(N,M) cannot replace N+M−1. Over ZMod2 the two equal mixed terms cancel. These finite matrix assertions were executed independently with exact Python integers; their Lean test bodies were not executed in the final source.
+
+The actual affine tensor contraction has an integral binomial expansion and the N+M−1 self-contraction bound from ordered factor bounds, with no basis or integrability premise. The complete mixed E/F shuffle factorization proving I_(N+M−1)(T)=0 remains open; characteristic-two self-powers do not detect all ordered words. Cross-ring exterior-power/curvature transport, finite-projective restrictions and E1 sheaf identification, equality detection and gluing remain open, together with the same-λ nonzero-parameter balancing, determinant/Tate/period adapters, reserved general ringed-site key, all 149 source obligations and H.1–H.8. Earlier narrower frontier text is retained as checkpoint history.
+
+The reserved key still denotes finite locally free module sheaves on the specified differential ringed site, a central constant parameter and an actual additive Leibniz map with defined curvature and integrability. This affine strand does not replace it by a global frame or assume its tensor/sheaf operations. E1, CR.1, DD.1, D3 and the existing Coleman Jacobi supplier keep their ownership.
+
+## Contracts, sources and native reuse
+
+Ten new lemma nodes, ten consumed APIs and nine proposed native tests. Totals:207 nodes (12 definitions,33 constructions,139 lemmas,18 theorems,5 comparisons),230 raw APIs/222 checker-required definition-construction APIs,220 raw tests/207 checker-required tests,6 inherited planets,192 baseline citations,11 gaps and5 requests. All197 incoming mathematical contracts are preserved;193 whole node objects are identical. Three constructions only append APIs/tests. The tensor-nilpotence theorem only appends one prerequisite and one proof step spelling out the remaining mixed-shuffle obligation. All149 routed source obligations,8 routes,35 global omissions and coverage statuses remain unchanged. The incoming reader is a byte-identical prefix; the entire incoming canonical sketch follows one added Mathlib import byte-for-byte. The incoming handoff is preserved below.
+
+Fresh reading covered the complete issue before/after claim confirmation, WORKERS, all9 stage descriptions and the reserved key/survey/owner, all5 requests, reviewed Hodge L0–L3/E1/D3 rows and REV-AUDIT-10/22, and the current incoming continuation, recovery and validator/immutable adapter. Governing protocol and upstream exemplar reading earlier in this continuous session remains applicable; not all retained historical handoffs or149 source proofs were freshly reread. Current PartII link/restructure screens yielded no matching records; actual supplier paths were checked with the assembler.
+
+Fresh primary reading: Liu–Zhu [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), complete printed/PDF pp.6–9, including Theorem2.1(i)–(iv), equations(2.4)–(2.5), sheaf/tensor explanations and the Tate-twisted Higgs complex. The640639-byte PDF SHA256 is `8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79`. These arbitrary-ring deductions are not the p-adic correspondence or its source nilpotence proof, and no new source erratum or edition collation is claimed.
+
+At exact Mathlib082e2d3, complete selected statements and ambient hypotheses were read for Commute.add_pow and the two general commuting-nilpotence bounds, tensor actions/composition/powers/zero, TensorPower multilinear dual pairing and its evaluation, and List.ofFn_const. Generic tensor, endomorphism, binomial and nilpotence machinery is already built; only the actual Higgs adapters are planned. Recovered incoming native2777 lines have SHA256 `4a4b9d244408eedf440dcb51c515c800bac08bdcee450335a7f257d29a4223c6`; this complete prefix is byte-identical after one new import. The new source adds12 declarations including the2 reused ordered-contraction contracts and9 anonymous tests; native/admitted types match for10 new declarations and9 examples, and the2 reused headers match their existing canonical declarations.
+
+## Execution limit
+
+The final full Mathlib-only admitted sketch and separate native proof experiment were not compiled because free -g showed 17–19 GiB available, below the WORKERS threshold. Three preliminary source versions ran with 20–21 GiB; they reported a binomial-term conversion error, corrected in the final source. Their diagnostics do not certify these final sources or the nine added test proofs. Source/header equality, exact integral/characteristic-two matrix regressions and indexed/actual-intake/immutable-assembler checks were completed. The exact 2777-line previously checked native prefix is preserved. All 35 global omission entries remain.
+
+The existing build has exact Mathlib source HEAD082e2d37e8b0463410cdb532e111cd43d5a66174; its TauCeti checkout differs from the pinned f790474 source. Both proposed files import only Mathlib. No exact TauCeti compiled import is claimed, and all35 global omissions remain. No setup, cache, update, library build or LSP was run. Preliminary Lean processes were serial with1200-second limits and completed; no owned compile remains running. Resource checks below20GiB prevented subsequent Lean invocations; they were not bypassed.
+
+Final native proof-experiment source: 3090 lines,64 anonymous examples,31 inherited named test theorems,159 axiom-audit commands, SHA256 `e2e288fd7bc2f897c023ce4766d15e19c4215a20c095c5f4f96e9eed71ebc773`. It was **not compiled**; audit commands are not execution results.
+
+Final full admitted canonical source: 2894 lines,179 examples, SHA256 `eef0fb3fb9fe12fc727bb27e297369f2a79e6b2c51cf289686893aa740410fce`. It was **not compiled**;420 admission warnings are expected from the bodies, not observed. No zero-error/warning or final axiom receipt is claimed. The separate exact matrix regression is executable and checked; it is not a Lean certificate.
+
+## Actual immutable validation
+
+The actual indexed checker gives0 errors/warnings. The actual five-file intake gives0 problems/refusals. The actual assembler with an incoming same-tree control gives stage DAG3022/8663, own declaration DAG207/393 and combined scoped DAG3224/9307, all acyclic. All21 required supplier/stage paths are present, including the exact existing Coleman supplier. There are0 unresolved references or own skipped/pending links. Stage edges and unrelated skipped/pending records match the incoming control. All21 governing/style/audit/key/source/checker input guards and the5 incoming files are identical between the mathematical and immutable validation trees.845 paths were read; sorted JSON path-list SHA256 `058eeeb5e5c0bdfc5035fb51bc7ec615b0620060b78255e78566ae7f62f43681`. These are fixed-tree counts, not claims about future main.
+
+The public scripts below authenticate the source/hash/header contracts, execute the exact finite regressions and run the actual immutable checker/intake/assembler. They explicitly report source/hash/header-only Lean validation, never archive authentication as a new compile. The publication receipt gives public recovery. Save the first3 Python fences as verify.py, immutable_view.py and finite_models64.py outside an existing checkout. In that checkout, run `TAUCETI_REPO=EXISTING_CHECKOUT python3 verify.py EVIDENCE PINNED_DECLARATIONS.tsv` after recovery. Fetch the2 fixed Git objects if a shallow checkout lacks them. Do not copy a repository snapshot.
+
+### verify.py
+
+SHA256 `df51c1b15587415d1fb42146278c2d85c73a4159fe5f020e7c982570f3bc0ca7`.
+
+```python
+"""Verify actual indexed packet, five-file intake and immutable assembler; authenticate exact-source diagnostics without implying a new Lean run."""
+from pathlib import Path
+import ast,collections,copy,hashlib,json,os,re,subprocess,sys
+R=Path(os.environ.get('TAUCETI_REPO',str(Path.cwd()))).resolve();S=Path(sys.argv[1]).resolve();RID='HodgeStructuresPartII';STEM=RID
+MATH='8ff517d75158e529ea1c286a8940a0b36165d241'
+BASE=os.environ.get('HODGE_VALIDATE_BASE','ff86552a93ce2493a792da280518a4b271523ac9')
+FILES=['research/blueprint/'+d+'/'+('DESIGN-' if d=='handoff' else '')+RID+'.'+e for d,e in [('roadmaps','json'),('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]]
+def readref(ref,path):return subprocess.check_output(['git','show',ref+':'+path],cwd=R,text=True)
+proposal={f:(S/'proposal'/f).read_text() for f in FILES};p=json.loads(proposal[FILES[1]]);roadmap=json.loads(proposal[FILES[0]]);old=json.loads(readref(MATH,FILES[1]));oldroad=json.loads(readref(MATH,FILES[0]));nodes={n['id']:n for n in p['nodes']}
+assert len(old['nodes'])==197 and len(nodes)==207
+changes={'affine-tensor-field','affine-two-direction-field','affine-ordered-iterate','tensor-nilpotence'}
+for n in old['nodes']:
+ q=nodes[n['id']]
+ if n['id'].split('/')[-1] not in changes:assert q==n,n['id']
+ elif n['id'].endswith('/tensor-nilpotence'):
+  assert {k:v for k,v in q.items() if k not in ['prerequisites','proofSteps']}=={k:v for k,v in n.items() if k not in ['prerequisites','proofSteps']}
+  assert q['prerequisites'][:-1]==n['prerequisites'] and q['proofSteps'][:-1]==n['proofSteps']
+ else:
+  assert {k:v for k,v in q.items() if k not in ['api','tests']}=={k:v for k,v in n.items() if k not in ['api','tests']}
+  assert q['api'][:len(n['api'])]==n['api'] and q['tests'][:len(n['tests'])]==n['tests']
+for k in old:
+ if k not in ['summary','nodes','sources','baseline','coverage','gaps','verification','tensorContractionContinuation']:assert p[k]==old[k],k
+assert p['verification']['previousCheckpoint']==old['verification']
+assert p['sources'][:-1]==old['sources'] and p['baseline']['declarations'][:182]==old['baseline']['declarations']
+assert {k:v for k,v in p['baseline'].items() if k!='declarations'}=={k:v for k,v in old['baseline'].items() if k!='declarations'}
+assert p['gaps'][1:]==old['gaps'][1:]
+assert {k:v for k,v in p['gaps'][0].items() if k!='tensorContractionContinuation'}==old['gaps'][0]
+assert p['coverage'][1:]==old['coverage'][1:] and p['coverage'][0]['remaining'][:-1]==old['coverage'][0]['remaining']
+assert all(n['implementationStatus']=='unchecked' for n in p['nodes']) and p['status']=='partial'
+assert [c['status'] for c in p['coverage']]==[c['status'] for c in old['coverage']] and len(p['coverage'])==9
+assert {k:v for k,v in roadmap.items() if k not in ['stages','summary','readme','sources']}=={k:v for k,v in oldroad.items() if k not in ['stages','summary','readme','sources']}
+assert roadmap['sources'][:-1]==oldroad['sources'];assert roadmap['stages'][1:]==oldroad['stages'][1:]
+assert roadmap['stages'][0]['description'].startswith(oldroad['stages'][0]['description'])
+assert {k:v for k,v in roadmap['stages'][0].items() if k!='description'}=={k:v for k,v in oldroad['stages'][0].items() if k!='description'}
+assert proposal[FILES[2]].startswith(readref(MATH,FILES[2]));assert proposal[FILES[4]].endswith(readref(MATH,FILES[4]))
+for path in FILES:assert readref(MATH,path)==readref(BASE,path),('own input changed',path)
+native=(S/'Native.lean').read_text();canonical=(S/'Canonical.lean').read_text();new=(S/'New.lean').read_text()
+admitted=canonical.split('/- BEGIN AFFINE TENSOR CONTRACTION NILPOTENCE -/\n',1)[1].split('/- END AFFINE TENSOR CONTRACTION NILPOTENCE -/',1)[0]
+assert canonical==proposal[FILES[3]]
+assert canonical.startswith('import Mathlib.RingTheory.Nilpotent.Basic\n'+readref(MATH,FILES[3]))
+for name,key in [('Native','proofPrototype'),('Canonical','suggestedSketch')]:
+ assert hashlib.sha256((S/(name+'.lean')).read_bytes()).hexdigest()==p['verification'][key]['sourceSha256']
+assert hashlib.sha256(new.encode()).hexdigest()==p['tensorContractionContinuation']['newSourceSha256']
+assert native.startswith('import Mathlib.RingTheory.Nilpotent.Basic\n')
+assert hashlib.sha256(''.join(native.splitlines(keepends=True)[1:2778]).encode()).hexdigest()=='4a4b9d244408eedf440dcb51c515c800bac08bdcee450335a7f257d29a4223c6'
+assert not re.search(r'\bsorry\b|\baxiom\b',native)
+def headers(text,selected=None):
+ starts=list(re.finditer(r'^(?:noncomputable )?(def|lemma|theorem|example)\b(?: (\w+))?',text,re.M));out={}
+ for i,m in enumerate(starts):
+  if selected is not None and (m[1]=='example' or m[2] not in selected):continue
+  end=starts[i+1].start() if i+1<len(starts) else len(text);raw=text[m.start():end];depth=0;sep=None
+  for j,c in enumerate(raw):
+   if c in '([{':depth+=1
+   elif c in ')]}':depth-=1
+   if depth==0 and raw[j:j+2]==':=':sep=j;break
+  assert sep is not None,m.group()
+  name=m[2] if m[1]!='example' else re.search(r'-- test: ([^\n]+)\n\Z',text[:m.start()]).group(1)
+  out[(m[1],name)]=''.join(raw[:sep].split())
+ return out
+hh=headers(new);ha=headers(admitted);reuse={'affineOrderedStep_contraction','affineOrderedIterate_contraction'}
+assert {k:v for k,v in hh.items() if k[1] not in reuse}==ha
+oldheaders=headers(readref(MATH,FILES[3]),reuse)
+for k,v in hh.items():
+ if k[1] in reuse:assert oldheaders[k]==v,k
+assert len([k for k in ha if k[0]!='example'])==10 and len([k for k in ha if k[0]=='example'])==9
+readernew=proposal[FILES[2]][len(readref(MATH,FILES[2])):]
+assert '```lean' not in readernew and not re.search(r'\bsorry\b',readernew)
+for n in p['nodes'][197:]:
+ assert n['declaration'].split('.')[-1] in {k[1] for k in ha if k[0]!='example'}
+ assert n['declaration'] in readernew and n['statement'] in readernew
+assert not any('leanSignature' in n for n in p['nodes'][197:])
+newtests={t['name']:t['statement'] for n in p['nodes'][:197] for t in n.get('tests',[]) if t not in next(x for x in old['nodes'] if x['id']==n['id']).get('tests',[])}
+assert set(newtests)=={k[1] for k in ha if k[0]=='example'}
+for name,st in newtests.items():assert name in readernew and st in readernew
+resources={}
+for name,key in [('Native','proofPrototype'),('Canonical','suggestedSketch')]:
+ receipt=p['verification'][key];assert receipt['status']=='not compiled'
+ resources[name]={'mode':'source/hash/header only; no final Lean execution','sha256':receipt['sourceSha256'],'reason':receipt['reason']}
+assert hashlib.sha256((S/'finite_models64.py').read_bytes()).hexdigest()==p['tensorContractionContinuation']['finiteRegression']['scriptSha256']
+model=json.loads(subprocess.check_output([sys.executable,str(S/'finite_models64.py')],text=True))
+assert model==p['tensorContractionContinuation']['finiteRegression']['result']
+for path,text in proposal.items():
+ assert not re.search(r'[ \t]+$',text,re.M),path;assert not re.search(r'/(?:home|Users)/[^/\s]+/',text),path
+GUARDS=['research/blueprint/WORKERS.md','research/blueprint/PROTOCOL.md','research/blueprint/UPSTREAM_GUIDE.md','research/expansion/PROTOCOL.md','data/library-coverage.json','research/blueprint/reviews/REV-AUDIT-02.md','research/blueprint/reviews/REV-AUDIT-10.md','research/blueprint/reviews/REV-AUDIT-22.md','data/keydefs/KEYDEF-algebraicgeometry.json','research/blueprint/keydefs/owners.json','research/blueprint/reserved-ids.json','research/blueprint/papers/PAPER-LIU-ZHU-17.result.json','research/blueprint/papers/PAPER-LIU-ZHU-17.review.json','data/roadmap-retirements.json','content/tau-ceti/HodgeStructures/README.md','content/tau-ceti/JacobianChallenge/README.md','scripts/check_blueprint.py','scripts/source_issues.py','scripts/build.py','scripts/blueprints.py','research/blueprint/intake.py']
+for path in GUARDS:assert readref(MATH,path)==readref(BASE,path),('changed governing input',path)
+assert (S/'original-packet.json').read_text()==readref(MATH,FILES[1]);assert (S/'original-roadmap.json').read_text()==readref(MATH,FILES[0])
+import immutable_view as gv
+gv.install();sys.path.insert(0,str(R/'scripts'))
+import check_blueprint,build,blueprints
+errors,warnings,checker=check_blueprint.check(S/'proposal'/FILES[1],check_blueprint.load_index(Path(sys.argv[2])),check_blueprint.world());assert not errors and not warnings,(errors,warnings)
+tree=ast.parse((R/'research/blueprint/intake.py').read_text());names={'file_problems','auto_refusals','own_files','independent_of'}
+picked=[n for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id in {'ALLOWED','PRIVATE'} for t in n.targets) or isinstance(n,ast.FunctionDef) and n.name in names]
+env={'json':json,'re':re};exec(compile(ast.Module(body=picked,type_ignores=[]),'actual-intake', 'exec'),env)
+job=next(j for j in json.loads((R/'research/blueprint/queue.json').read_text())['jobs'] if j['id']=='DESIGN-'+RID)
+problems=[x for path,text in proposal.items() for x in env['file_problems'](path,text)];refusals=env['auto_refusals'](job,FILES,False,{'codex-5ebb6f'},set());assert not problems and not refusals,(problems,refusals)
+packets,documents,definitions=blueprints.load_promoted(R)
+keep=[x for x in packets if x[0]!=STEM];documents[STEM]='research/blueprint/readmes/'+STEM+'.md'
+own_definition=roadmap
+old_definition=json.loads((S/'original-roadmap.json').read_text())
+def assemble(candidate,definition):
+ build.load_promoted=lambda *args:(copy.deepcopy(keep+[(STEM,candidate)]),copy.deepcopy(documents),copy.deepcopy([d for d in definitions if d.get('id')!=RID]+[definition]))
+ return build.assemble(require_distances=False)[0]
+a=assemble(p,own_definition);b=assemble(old,old_definition)
+world={}
+for folder in ['data/decompositions','data/blueprints','research/blueprint/packets']:
+ for file in sorted((R/folder).glob('*.json')):
+  for n in json.loads(file.read_text()).get('nodes',[]):world.setdefault(n['id'],n)
+world.update(nodes)
+listedstageids={x['id'] for x in a['stages']}
+stageids=listedstageids|set(check_blueprint.world()[1])
+se={(e['source'],e['target']) for e in a['stageEdges']}
+assert se=={(e['source'],e['target']) for e in b['stageEdges']}
+def dag(vertices,edges):
+ vertices=set(vertices)|{v for e in edges for v in e}
+ following=collections.defaultdict(set);indeg={v:0 for v in vertices}
+ for s,t in edges:
+  if t not in following[s]:following[s].add(t);indeg[t]+=1
+ todo=[v for v,k in indeg.items() if k==0];count=0
+ while todo:
+  v=todo.pop();count+=1
+  for w in following[v]:
+   indeg[w]-=1
+   if indeg[w]==0:todo.append(w)
+ assert count==len(vertices),[v for v,k in indeg.items() if k][:10]
+ return {'vertices':len(vertices),'edges':len(edges),'acyclic':True}
+ownedges={(d,nid) for nid,n in nodes.items() for d in n['prerequisites'] if d in nodes}
+todo=list(nodes);seen=set();de=set();unresolved=set();baseref=set()
+while todo:
+ nid=todo.pop()
+ if nid in seen:continue
+ seen.add(nid)
+ for d in world[nid].get('prerequisites',[]):
+  if d.startswith(('mathlib:','tauceti:')) and d not in stageids:baseref.add(d);continue
+  de.add((d,nid))
+  if d in world:todo.append(d)
+  elif d not in stageids:unresolved.add(d)
+assert not unresolved,unresolved
+de|={(world[nid]['parentStageId'],nid) for nid in seen if world[nid].get('parentStageId')}
+de|={(q['supplier'],v) for q in p['requests'] for v in q.get('neededBy',[]) if v in nodes or v in stageids}
+out=collections.defaultdict(set)
+for s,t in se:out[s].add(t)
+def reachable(source,target):
+ todo=[source];seen=set()
+ while todo:
+  v=todo.pop()
+  if v==target:return True
+  if v not in seen:seen.add(v);todo.extend(out[v])
+ return False
+def stageof(v):
+ checked=set()
+ while v in world and v not in checked:checked.add(v);v=world[v].get('parentStageId')
+ return v
+roadmap=own_definition
+pairs={(d,RID+':'+s['key']) for s in roadmap['stages'] for d in s.get('requires',[])}
+pairs|={(d,stageof(nid)) for nid,n in nodes.items() for d in n['prerequisites'] if d in stageids and d not in world and d!=stageof(nid)}
+pairs|={(stageof(q['supplier']),stageof(v)) for q in p['requests'] for v in q['neededBy'] if stageof(q['supplier'])!=stageof(v)}
+rspairs=set()
+for file in (R/'research/blueprint/restructure').glob('*.result.json'):
+ q=json.loads(file.read_text())
+ if q.get('review',{}).get('status')!='accepted':continue
+ rspairs|={(x['source'],x['target']) for x in q.get('links',[]) if x.get('source','').startswith(RID+':') or x.get('target','').startswith(RID+':')}
+assert all(reachable(s,t) for s,t in pairs|rspairs),sorted((s,t) for s,t in pairs|rspairs if not reachable(s,t))
+ar={r['id']:r for r in a['roadmaps']};br={r['id']:r for r in b['roadmaps']}
+assert ar[RID]['blueprint']['declarations']==len(nodes)
+assert not ar[RID]['blueprint']['skippedLinks'] and not ar[RID].get('pendingLinks',[])
+def skips(r):return r.get('blueprint',{}).get('skippedLinks',[]),r.get('pendingLinks',[])
+assert all(skips(ar[x])==skips(br[x]) for x in br if x!=RID)
+summary={'stageDAG':dag(listedstageids,se),'ownDeclarationDAG':dag(nodes,ownedges),'scopedDAG':dag(listedstageids|seen,se|de),'reachableDeclarations':len(seen),'externalDeclarations':sorted(seen-set(nodes)),'baselineLeaves':len(baseref),'requiredPairs':len(pairs),'restructurePairs':len(rspairs),'unresolved':sorted(unresolved),'ownSkippedLinks':[],'ownPendingLinks':[],'otherSkipsMatch':True,'stageEdgesUnchanged':True}
+
+print(json.dumps({'graph':summary,'checker':{k:v for k,v in checker.items() if k!='packet'},'preservedNodeObjects':193,'preservedContracts':197,'newNodes':10,'newHeaders':10,'newTests':9,'rawApiItems':230,'rawTests':220,'sourceHashesVerified':True,'resources':resources,'intakeProblems':problems,'intakeRefusals':refusals,'guardsUnchanged':len(GUARDS),'immutableReadPaths':len(gv.READS),'immutableReadPathListSha256':hashlib.sha256(json.dumps(sorted(gv.READS)).encode()).hexdigest(),'verifierSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()},indent=2),flush=True)
+if 'graph' in p['tensorContractionContinuation']:assert p['tensorContractionContinuation']['graph']==summary
+```
+
+### immutable_view.py
+
+SHA256 `20acf811caf731bd424804ca32f761a25efb5b4d95557c9c5f883847bae02930`.
+
+```python
+"""Read the immutable audit tree without creating a repository snapshot."""
+import fnmatch
+import importlib.abc
+import importlib.util
+import io
+from pathlib import Path
+import subprocess
+import sys
+
+import os
+REPO = Path(os.environ.get('TAUCETI_REPO', str(Path.cwd())))
+BASE = os.environ.get('HODGE_VALIDATE_BASE', 'ff86552a93ce2493a792da280518a4b271523ac9')
+TRACKED = set(subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', BASE], cwd=REPO, text=True).splitlines())
+CACHE = {}
+READS = set()
+ORIGINAL = {name: getattr(Path, name) for name in ('read_text', 'read_bytes', 'exists', 'is_file', 'is_dir', 'glob', 'rglob', 'open', 'write_text', 'write_bytes')}
+
+def relative(path):
+    try:
+        return str(path.resolve().relative_to(REPO.resolve()))
+    except ValueError:
+        return None
+
+def blob(key):
+    if key not in TRACKED:
+        raise FileNotFoundError(key)
+    READS.add(key)
+    if key not in CACHE:
+        CACHE[key] = subprocess.check_output(['git', 'show', BASE + ':' + key], cwd=REPO)
+    return CACHE[key]
+
+def read_text(path, encoding=None, errors=None):
+    key = relative(path)
+    if key is None:
+        return ORIGINAL['read_text'](path, encoding=encoding, errors=errors)
+    return blob(key).decode(encoding or 'utf-8', errors or 'strict')
+
+def read_bytes(path):
+    key = relative(path)
+    return ORIGINAL['read_bytes'](path) if key is None else blob(key)
+
+def is_file(path):
+    key = relative(path)
+    return ORIGINAL['is_file'](path) if key is None else key in TRACKED
+
+def is_dir(path):
+    key = relative(path)
+    return ORIGINAL['is_dir'](path) if key is None else any(s.startswith(key.rstrip('/') + '/') for s in TRACKED) or key == '.'
+
+def exists(path):
+    key = relative(path)
+    return ORIGINAL['exists'](path) if key is None else is_file(path) or is_dir(path)
+
+def glob(path, pattern, recursive=False):
+    key = relative(path)
+    if key is None:
+        yield from ORIGINAL['rglob' if recursive else 'glob'](path, pattern)
+        return
+    prefix = '' if key == '.' else key.rstrip('/') + '/'
+    for candidate in sorted(TRACKED):
+        if not candidate.startswith(prefix):
+            continue
+        tail = candidate[len(prefix):]
+        if fnmatch.fnmatch(tail, pattern) and (recursive or '/' not in tail):
+            yield REPO / candidate
+
+def open_path(path, mode='r', buffering=-1, encoding=None, errors=None, newline=None):
+    key = relative(path)
+    if key is None:
+        return ORIGINAL['open'](path, mode, buffering, encoding, errors, newline)
+    if mode not in ('r', 'rb'):
+        raise PermissionError('audit tree is read-only')
+    return io.BytesIO(blob(key)) if mode == 'rb' else io.StringIO(blob(key).decode(encoding or 'utf-8', errors or 'strict'))
+
+def write_text(path, *args, **kwargs):
+    if relative(path) is not None:
+        raise PermissionError('audit tree is read-only')
+    return ORIGINAL['write_text'](path, *args, **kwargs)
+
+def write_bytes(path, *args, **kwargs):
+    if relative(path) is not None:
+        raise PermissionError('audit tree is read-only')
+    return ORIGINAL['write_bytes'](path, *args, **kwargs)
+
+class Loader(importlib.abc.Loader):
+    def __init__(self, key):
+        self.key = key
+    def create_module(self, spec):
+        return None
+    def exec_module(self, module):
+        module.__file__ = str(REPO / self.key)
+        exec(compile(blob(self.key), module.__file__, 'exec'), module.__dict__)
+
+class Finder(importlib.abc.MetaPathFinder):
+    def find_spec(self, fullname, path=None, target=None):
+        key = 'scripts/' + fullname + '.py'
+        if '.' not in fullname and key in TRACKED:
+            return importlib.util.spec_from_loader(fullname, Loader(key))
+
+def install():
+    for name, function in [('read_text', read_text), ('read_bytes', read_bytes), ('exists', exists), ('is_file', is_file), ('is_dir', is_dir), ('glob', glob), ('rglob', lambda path, pattern: glob(path, pattern, True)), ('open', open_path), ('write_text', write_text), ('write_bytes', write_bytes)]:
+        setattr(Path, name, function)
+    sys.meta_path.insert(0, Finder())
+```
+
+### finite_models64.py
+
+SHA256 `9d74c4f73566ce5bd78cc9733fd84c6313af6748d9ea8c95a7b160bb83938612`.
+
+```python
+"""Exact integral/characteristic-two regression calculations; not a Lean receipt."""
+import itertools,json
+J=[[0,1],[0,0]];I=[[1,0],[0,1]]
+def tensor(a,b):return [[a[i//len(b)][j//len(b)]*b[i%len(b)][j%len(b)] for j in range(len(a)*len(b))] for i in range(len(a)*len(b))]
+def add(a,b):return [[x+y for x,y in zip(ra,rb)] for ra,rb in zip(a,b)]
+def mul(a,b):return [[sum(a[i][k]*b[k][j] for k in range(len(a))) for j in range(len(a))] for i in range(len(a))]
+def scale(c,a):return [[c*x for x in row] for row in a]
+def mod(a):return [[x%2 for x in row] for row in a]
+A=tensor(J,I);B=tensor(I,J);C=add(A,B);Z=[[0]*4 for _ in range(4)]
+assert mul(A,B)==mul(B,A)==tensor(J,J)
+assert mul(A,A)==mul(B,B)==Z
+assert mul(C,C)==scale(2,tensor(J,J)) and mul(mul(C,C),C)==Z
+assert mul(C,C)[0][3]==2 and mod(mul(C,C))==Z
+for a,b in itertools.product(range(2),repeat=2):
+ D=add(scale(a,A),scale(b,B));assert mod(mul(D,D))==Z
+assert mod(mul(A,B))[0][3]==1
+print(json.dumps({'integerTensorSquare':mul(C,C),'integerTensorCubeZero':True,'charTwoTensorSquareZero':True,'charTwoAllFourSelfContractionSquaresZero':True,'charTwoMixedOrderedContractionNonzero':mod(mul(A,B)),'commutingCoefficientOperators':True,'boundary':'Exact finite matrix calculation only; no Lean execution or source correspondence certificate.'},indent=2))
+```
+
+## Resume
+
+Recover the final sources, check `free -g` and use an existing exact-Mathlib-pin build only if at least20GiB is available. Run one source at a time with a1200-second limit, first the native proof experiment and then the admitted canonical sketch; resolve any newly exposed test elaboration errors and record exact-file diagnostics. The complete mixed ordered-tensor shuffle factorization, cross-ring exterior comparison and E1 sheaf operations remain the mathematical frontier. The characteristic-two example prevents replacing that frontier by a self-power converse. All global/source/supplier/stage closure remains open.
+
+## Immutable public recovery
+
+The archived proof experiments and all3 replay scripts are in ancestor commit `9a34a674dc624e21c9ad7ae573abda4baeeb1808`. The archive carries inert native text in the allowed suggested Lean file and scripts in this handoff; it does not carry a final-file execution receipt. The submitted suggested file is the thin admitted canonical sketch. Its archive extraction, full incoming-prefix hash, new/admitted headers and exact finite matrix results were checked.
+
+Save the next complete Python fence as recover.py outside an existing checkout. Run `python3 recover.py SUBMITTED_COMMIT EVIDENCE`, then `TAUCETI_REPO=EXISTING_CHECKOUT python3 EVIDENCE/verify.py EVIDENCE PINNED_DECLARATIONS.tsv`. Recovery fetches6 individually hashed public artifacts and5 final overlays, plus2 mathematical controls; it never downloads a repository snapshot or runs Lean.
+
+Recovery SHA256 `dba199f04d0d44638e06d7438133122d5396c67490ffc95c345169f0923aed40`.
+
+```python
+"""Recover public immutable proof experiments and current proposals; never imply a Lean execution."""
+from pathlib import Path
+import hashlib,json,re,sys,time,urllib.request
+REF=sys.argv[1];D=Path(sys.argv[2]);D.mkdir(parents=True,exist_ok=True)
+ARCHIVE='9a34a674dc624e21c9ad7ae573abda4baeeb1808';MATH='8ff517d75158e529ea1c286a8940a0b36165d241'
+FILES=['research/blueprint/roadmaps/HodgeStructuresPartII.json', 'research/blueprint/packets/HodgeStructuresPartII.json', 'research/blueprint/readmes/HodgeStructuresPartII.md', 'research/blueprint/suggested/HodgeStructuresPartII.lean', 'research/blueprint/handoff/DESIGN-HodgeStructuresPartII.md']
+HASHES={'Native.lean': 'e2e288fd7bc2f897c023ce4766d15e19c4215a20c095c5f4f96e9eed71ebc773', 'Canonical.lean': 'eef0fb3fb9fe12fc727bb27e297369f2a79e6b2c51cf289686893aa740410fce', 'New.lean': 'ac26afe05685d41c3901e9a6e4509d813553fc76ad1bdddd36e8040490cc2665', 'verify.py': 'df51c1b15587415d1fb42146278c2d85c73a4159fe5f020e7c982570f3bc0ca7', 'immutable_view.py': '20acf811caf731bd424804ca32f761a25efb5b4d95557c9c5f883847bae02930', 'finite_models64.py': '9d74c4f73566ce5bd78cc9733fd84c6313af6748d9ea8c95a7b160bb83938612'}
+def raw(ref,path):
+ url='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'+ref+'/'+path
+ for attempt in range(4):
+  try:return urllib.request.urlopen(url,timeout=45).read().decode()
+  except Exception:
+   if attempt==3:raise
+   time.sleep(2)
+suggested=raw(ARCHIVE,FILES[3]);hand=raw(ARCHIVE,FILES[4])
+canonical=suggested.split('\n/- BEGIN NATIVE TENSOR CONTRACTION ARCHIVE\n',1)[0]
+native=suggested.split('/- BEGIN NATIVE TENSOR CONTRACTION ARCHIVE\n',1)[1].split('END NATIVE TENSOR CONTRACTION ARCHIVE -/',1)[0]
+new=suggested.split('/- BEGIN NEW TENSOR CONTRACTION ARCHIVE\n',1)[1].split('END NEW TENSOR CONTRACTION ARCHIVE -/',1)[0]
+blocks=re.findall(r'```python\n(.*?)\n```',hand,re.S)
+contents={'Native.lean':native,'Canonical.lean':canonical,'New.lean':new}
+for name,block in zip(['verify.py','immutable_view.py','finite_models64.py'],blocks[:3]):contents[name]=block+'\n'
+for name,text in contents.items():
+ assert hashlib.sha256(text.encode()).hexdigest()==HASHES[name],name
+ (D/name).write_text(text)
+for name,path in [('original-packet.json',FILES[1]),('original-roadmap.json',FILES[0])]:
+ (D/name).write_text(raw(MATH,path))
+for path in FILES:
+ dest=D/'proposal'/path;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_text(raw(REF,path))
+print(json.dumps({'archive':ARCHIVE,'submitted':REF,'verifiedArtifacts':HASHES,'proposals':5,'controls':2,'mode':'source/hash/header only; final Lean sources were not compiled'},indent=2))
+```
+
+## Preserved incoming handoff
+
 # Current checkpoint — affine monoidal scalar extension
 
 Codex — codex-a71f92, 3 October 2026. Refs #3371. Winning claim5965522722 was confirmed by bot5965523830; the entire issue was read before claiming and reread after that exact confirmation. Mathematical base `32fba6065c5b5600a8131bb1112c305aaf722a34`; immutable publication tree `71b4558841ec24cefb350e9ba0e7846201bce3b8`. H.0 remains partial and H.1–H.8 not_read. Every mathematical node remains unchecked.
