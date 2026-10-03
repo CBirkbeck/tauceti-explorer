@@ -13,7 +13,7 @@
     "AlgebraicModuliForArithmeticGeometry:R09.7"
   ],
   "status": "partial",
-  "summary": "Native Hom-sheaf assembly checkpoint: 19 new declarations, three constructions, 13 API items and 12 tests. Use full StrongTrans composition coherence and Mathlib local-bijection gluing to specify fibrewise fullness in the inherited adapter universe convention. All 365 untouched incoming node objects and the old full-faithfulness contract are retained; that parent gains only two prerequisite edges and one proof step. All implementations stay unchecked. Partial checkpoint with 366 declaration nodes. Adds 25 actual StrongTrans pullback adapters: five constructions and twenty lemmas, sixteen API items and fifteen native carrier/orientation tests. The actual local equivalences now compare the correct target pullbacks; arbitrary deeper-slice coherence and inverse Hom-sheaf gluing remain open. All incoming general gerbe/key-definition statements, source issues, requests, planets and ownership contracts are preserved; only the general full-faithfulness node receives two supplier edges and one proof step. No stage or reserved key is closed. Object-descent continuation: 27 native adapter and proof nodes retain local objects and isomorphisms, all three DescentData equations, actual global image morphisms, and fibrewise equivalence; coherent banded inverse and universe normalization remain open.",
+  "summary": "Native Hom-sheaf assembly checkpoint: 19 new declarations, three constructions, 13 API items and 12 tests. Use full StrongTrans composition coherence and Mathlib local-bijection gluing to specify fibrewise fullness in the inherited adapter universe convention. All 365 untouched incoming node objects and the old full-faithfulness contract are retained; that parent gains only two prerequisite edges and one proof step. All implementations stay unchecked. Partial checkpoint with 366 declaration nodes. Adds 25 actual StrongTrans pullback adapters: five constructions and twenty lemmas, sixteen API items and fifteen native carrier/orientation tests. The actual local equivalences now compare the correct target pullbacks; arbitrary deeper-slice coherence and inverse Hom-sheaf gluing remain open. All incoming general gerbe/key-definition statements, source issues, requests, planets and ownership contracts are preserved; only the general full-faithfulness node receives two supplier edges and one proof step. No stage or reserved key is closed. Object-descent continuation: 27 native adapter and proof nodes retain local objects and isomorphisms, all three DescentData equations, actual global image morphisms, and fibrewise equivalence; coherent banded inverse and universe normalization remain open. This continuation separates eight native fixed-band inverse/modification adapters, with an independent coefficient universe and admission-free prototype audits, from the still-requested generic coherent inverse StrongTrans. It does not certify the global gerbe equivalence.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1378,6 +1378,62 @@
         "module": "Mathlib/CategoryTheory/EssentialImage.lean",
         "provides": "The exact existing native Functor.objObjPreimageIso declaration is reused in the object-descent refinement.",
         "checked": "Actual statement and ambient hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Pseudofunctor.StrongTrans.homCategory",
+        "kind": "instance",
+        "module": "Mathlib/CategoryTheory/Bicategory/Modification/Pseudo.lean",
+        "sourceLine": 140,
+        "provides": "The native modification category on strong transformations, with actual hom/inverse evaluation.",
+        "checked": "Exact statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92. The corresponding native fixed-band adapter has an admission-free proof prototype and clean axiom audit."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.mapIso_injective",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Functor/FullyFaithful.lean",
+        "sourceLine": 70,
+        "provides": "A faithful functor is injective on actual isomorphisms, so the chosen inverse-band equation can be checked after mapping.",
+        "checked": "Exact statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92. The corresponding native fixed-band adapter has an admission-free proof prototype and clean axiom audit."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.inv",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Equivalence.lean",
+        "sourceLine": 633,
+        "provides": "The native chosen quasi-inverse of a functor with IsEquivalence, without a site-level StrongTrans claim.",
+        "checked": "Exact statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92. The corresponding native fixed-band adapter has an admission-free proof prototype and clean axiom audit."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.asEquivalence",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Equivalence.lean",
+        "sourceLine": 642,
+        "provides": "Packages the native functor, chosen inverse, actual unit/counit natural isomorphisms and triangle law.",
+        "checked": "Exact statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92. The corresponding native fixed-band adapter has an admission-free proof prototype and clean axiom audit."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.fun_inv_map",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Equivalence.lean",
+        "sourceLine": 672,
+        "provides": "The forward map of the chosen inverse arrow is conjugation by the actual counit and its inverse.",
+        "checked": "Exact statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92. The corresponding native fixed-band adapter has an admission-free proof prototype and clean axiom audit."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Equivalence",
+        "kind": "structure",
+        "module": "Mathlib/CategoryTheory/Equivalence.lean",
+        "sourceLine": 85,
+        "provides": "Actual functor/inverse data, unit and counit natural isomorphisms and the forward triangle equation.",
+        "checked": "Exact statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92. The corresponding native fixed-band adapter has an admission-free proof prototype and clean axiom audit."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Iso.ext",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Iso.lean",
+        "sourceLine": 79,
+        "provides": "Equality of the hom components implies equality of the actual isomorphisms, including inverses.",
+        "checked": "Exact statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92. The corresponding native fixed-band adapter has an admission-free proof prototype and clean axiom audit."
       }
     ]
   },
@@ -2130,6 +2186,23 @@
         "Mathlib/CategoryTheory/Sites/Sieves/Basic.lean": "9d65ddf7ea8f811b0a05126c2768a9cd3ede8ecce4e0e98cb43a1d2b572cad7b",
         "Mathlib/CategoryTheory/Sites/Grothendieck.lean": "7cfa1dbe1bc7ac44fabb7cef395478d7978e72e5282fa67310bf7248ff1d611d"
       }
+    },
+    {
+      "id": "OG-INVERSE-BAND-a71f92",
+      "title": "Native fixed-band inverse and modification transport",
+      "authors": "Martin Olsson (lectures), Anton Geraschenko and course-note contributors; Mathlib contributors; authored adapter deductions Codex — codex-a71f92",
+      "edition": "Exact author-hosted 2007 notes accessed 2026-10-03; pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://stacky.net/files/written/Stacks/Stacks.pdf",
+      "sha256": "716bf95c7a200194d5fd1f2af48372253fde5ea65487b5d362bcccb5e0b7426a",
+      "accessDate": "2026-10-03",
+      "readSections": [
+        "Fresh complete PDF122–123: Definition31.1, Remark31.2, whole Lemma31.3 proof, Lemma31.4 and Remark31.5. Only the visible beginning of31.6 and its warning are used. Existing E7/E8 source issues are retained; no completion of the H2 classification proof is claimed.",
+        "Fresh complete mathematical Stacks06NZ definition. It motivates gerbe hypotheses, not a coherent-inverse supplier.",
+        "Exact pinned StrongTrans fields and native modification/hom-category fields, Cat.Hom.toNatIso, native Aut conjugation and Functor.mapAut, faithful mapIso injectivity, Equivalence fields, inv, asEquivalence and fun_inv_map read in their source files. Eight adapter proof bodies and eight actual-carrier examples compile with eight clean kernel axiom audits. The inherited Mathlib-only extraction had specialized the BandPreserving class to v′, unlike the full canonical declaration. One exact binder replacement restores its independent w; all older adapter signatures keep their conventions.",
+        "Fresh whole issue and bot claim reread; reviewed audit rows and full REV-AUDIT01; full campaign reader and scoped stage descriptions/edges; accepted RS27 owner/supplier/keep records; nine required red-team claims/fixes; reserved gerbe definition and all eight survey API statements; owner/reservations; touching link entries. Two complete nearby upstream models read: JacobianChallenge and AdicSpaces. Earlier mathematical contracts are preserved, not claimed re-audited in full.",
+        "Bounded all-packet node search found no other owner of these fixed-band inverse/modification adapters. D0 owns generic ordinary stack/morphism machinery. Bounded pinned Bicategory/TauCeti category source searches found no matching gerbe or inverse-StrongTrans result; no exhaustive absence claim.",
+        "Fresh bounded open Mathlib PR searches for gerbe and StrongTrans returned no results. Indexed Zulip Formalizing stacks discussion inspected for native fibres, pseudofunctors and descent-data design; no unpinned implementation is consumed."
+      ]
     }
   ],
   "nodes": [
@@ -3020,12 +3093,18 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-full-faithful",
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-essential-surjective",
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism",
-        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/component-equivalence"
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/component-equivalence",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/inverse-band/chosen-inverse",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/inverse-band/modification-iff",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/inverse-band/unit-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/inverse-band/counit-band",
+        "DiamondsAndVStacks:D0"
       ],
       "proofSteps": [
         "Combine fibrewise full faithfulness and essential surjectivity.",
         "Choose inverses and transport the existing strong naturality; the lifted inverse and unit/counit preserve the band.",
-        "The new componentIsEquivalence adapter is only the fibrewise first step. A coherent inverse StrongTrans and its band-preserving unit/counit still require explicit further nodes and Lean signatures; they are not supplied by native component IsEquivalence alone."
+        "The new componentIsEquivalence adapter is only the fibrewise first step. A coherent inverse StrongTrans and its band-preserving unit/counit still require explicit further nodes and Lean signatures; they are not supplied by native component IsEquivalence alone.",
+        "Import from DiamondsAndVStacks:D0 the generic coherent inverse StrongTrans, actual component comparisons with the chosen native inverses, unit/counit modifications and triangle coherence. This supplier is still requested. Apply inverse-band/chosen-inverse for its band equation, inverse-band/modification-iff for independence of the supplied comparisons, and the unit/counit band leaves for the fibre equations. Neither the conditional adapter nor the fibre equations proves the missing generic supplier."
       ],
       "acceptance": [
         "The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses."
@@ -24995,6 +25074,496 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/inverse-band/fibre-nat-iso",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Natural isomorphisms transport the fixed band",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeBandEquivalence.fibreNatIso_map_band",
+      "statement": "For a fixed test object U, native functors P,Q:F(U)→G(U), and a natural isomorphism e:P≅Q, suppose P.mapAut(bF(U,x)(a))=bG(U,Px)(a) for every actual object x and coefficient a∈A(U). Then Q.mapAut(bF(U,x)(a))=bG(U,Qx)(a). Conjugation is along the actual component e_x, not an equality of objects.",
+      "hypotheses": [
+        "A specified site (C,J); F,G are native Cat-valued pseudofunctors with groupoid fibres and IsGerbe on J; bF,bG are the specified AbelianBanding data.",
+        "The coefficient sheaf A lives in an independent universe w; no equation identifying w with the fibre-hom universe is imposed.",
+        "No global neutralization or terminal object is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism",
+        "mathlib:CategoryTheory.NatIso.naturality_1",
+        "mathlib:CategoryTheory.Iso.ext",
+        "mathlib:CategoryTheory.Aut.autMulEquivOfIso",
+        "mathlib:CategoryTheory.Functor.mapAut"
+      ],
+      "proofSteps": [
+        "Apply naturality of the native natural isomorphism to the hom of bF(U,x)(a), using mathlib:CategoryTheory.NatIso.naturality_1.",
+        "Replace P.mapAut by its band equation, then use the conjugation projection of R09.4/abelian-banding along e_x.",
+        "Conclude equality of the actual automorphisms by native Iso.ext; their inverses follow from the native isomorphism structure."
+      ],
+      "acceptance": [
+        "With P=Q=η_U and e the identity natural isomorphism, the transported mapAut equation is exactly the original fixed-band equation, for every actual coefficient a.",
+        "The statement is a fixed-band adapter on existing native carriers; it does not assert a coherent inverse or derived H2 classification."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+          "how": "Separate the fixed-band calculation from the generic inverse strong-transformation and site-coherent unit/counit construction."
+        },
+        {
+          "where": "Olsson–Geraschenko 2007, Definition 31.1 and Lemma 31.3",
+          "how": "Respect the same specified abelian band in equivalences; an underlying unbanded equivalence is not enough."
+        }
+      ],
+      "tests": [
+        {
+          "name": "GerbeBandEquivalenceTests.fibre_refl",
+          "kind": "degenerate",
+          "statement": "With P=Q=η_U and e the identity natural isomorphism, the transported mapAut equation is exactly the original fixed-band equation, for every actual coefficient a."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeBandEquivalence"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-INVERSE-BAND-a71f92",
+          "locator": "Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored fixed-band deductions using the pinned native equivalence and modification API.",
+          "excerpt": "morphism",
+          "match": "This precise native coefficient-transport formula is an authored deduction, not a formula claimed to be printed in the notes. It uses the actual band conjugation equation and native natural-isomorphism/equivalence structures."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/inverse-band/fibre-family",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Fibrewise comparisons preserve the band",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeBandEquivalence.of_fibreNatIso",
+      "statement": "Let η,θ:F→G be native strong transformations and assume η preserves bF,bG. A family of actual native natural isomorphisms e_U:η_U≅θ_U, for every U, implies that θ preserves the same fixed band. No restriction coherence of this family is needed for this conclusion about component band equations; it is not thereby a modification.",
+      "hypotheses": [
+        "A specified site (C,J); F,G are native Cat-valued pseudofunctors with groupoid fibres and IsGerbe on J; bF,bG are the specified AbelianBanding data.",
+        "The coefficient sheaf A lives in an independent universe w; no equation identifying w with the fibre-hom universe is imposed.",
+        "No global neutralization or terminal object is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/inverse-band/fibre-nat-iso",
+        "mathlib:CategoryTheory.Pseudofunctor.StrongTrans"
+      ],
+      "proofSteps": [
+        "Evaluate the component comparisons at U.",
+        "Apply inverse-band/fibre-nat-iso to the actual component functors and the map_band projection of R09.4/band-preserving-morphism.",
+        "Package the resulting equations in the existing BandPreserving class; do not define a new transformation carrier."
+      ],
+      "acceptance": [
+        "The identity family η_U≅η_U yields BandPreserving bF bG η on the existing class, not a new transformation.",
+        "The statement is a fixed-band adapter on existing native carriers; it does not assert a coherent inverse or derived H2 classification."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+          "how": "Separate the fixed-band calculation from the generic inverse strong-transformation and site-coherent unit/counit construction."
+        },
+        {
+          "where": "Olsson–Geraschenko 2007, Definition 31.1 and Lemma 31.3",
+          "how": "Respect the same specified abelian band in equivalences; an underlying unbanded equivalence is not enough."
+        }
+      ],
+      "tests": [
+        {
+          "name": "GerbeBandEquivalenceTests.fibre_family_refl",
+          "kind": "degenerate",
+          "statement": "The identity family η_U≅η_U yields BandPreserving bF bG η on the existing class, not a new transformation."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeBandEquivalence"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-INVERSE-BAND-a71f92",
+          "locator": "Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored fixed-band deductions using the pinned native equivalence and modification API.",
+          "excerpt": "morphism",
+          "match": "This precise native coefficient-transport formula is an authored deduction, not a formula claimed to be printed in the notes. It uses the actual band conjugation equation and native natural-isomorphism/equivalence structures."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/inverse-band/modification-iso",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Invertible modifications preserve the fixed band",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeBandEquivalence.of_modificationIso",
+      "statement": "If η,θ:F→G are native strong transformations, η preserves the fixed band and e:η≅θ is an invertible native modification, then θ preserves the same fixed band. Evaluate both modification arrows at U, obtain the actual native Cat isomorphism, convert it to a natural isomorphism, and retain its inverse.",
+      "hypotheses": [
+        "A specified site (C,J); F,G are native Cat-valued pseudofunctors with groupoid fibres and IsGerbe on J; bF,bG are the specified AbelianBanding data.",
+        "The coefficient sheaf A lives in an independent universe w; no equation identifying w with the fibre-hom universe is imposed.",
+        "No global neutralization or terminal object is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/inverse-band/fibre-family",
+        "mathlib:CategoryTheory.Pseudofunctor.StrongTrans.homCategory",
+        "mathlib:CategoryTheory.Pseudofunctor.StrongTrans.Modification",
+        "mathlib:CategoryTheory.Cat.Hom.toNatIso"
+      ],
+      "proofSteps": [
+        "Use the native modification hom category, whose arrows are actual modifications.",
+        "Evaluate the hom and inverse of e at U; applying evaluation to both inverse equations proves that they form an isomorphism in Cat.",
+        "Use mathlib:CategoryTheory.Cat.Hom.toNatIso, then inverse-band/fibre-family."
+      ],
+      "acceptance": [
+        "The identity invertible native modification of η leaves its fixed-band property unchanged.",
+        "The statement is a fixed-band adapter on existing native carriers; it does not assert a coherent inverse or derived H2 classification."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+          "how": "Separate the fixed-band calculation from the generic inverse strong-transformation and site-coherent unit/counit construction."
+        },
+        {
+          "where": "Olsson–Geraschenko 2007, Definition 31.1 and Lemma 31.3",
+          "how": "Respect the same specified abelian band in equivalences; an underlying unbanded equivalence is not enough."
+        }
+      ],
+      "tests": [
+        {
+          "name": "GerbeBandEquivalenceTests.modification_refl",
+          "kind": "degenerate",
+          "statement": "The identity invertible native modification of η leaves its fixed-band property unchanged."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeBandEquivalence"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-INVERSE-BAND-a71f92",
+          "locator": "Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored fixed-band deductions using the pinned native equivalence and modification API.",
+          "excerpt": "morphism",
+          "match": "This precise native coefficient-transport formula is an authored deduction, not a formula claimed to be printed in the notes. It uses the actual band conjugation equation and native natural-isomorphism/equivalence structures."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/inverse-band/modification-iff",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Band preservation is modification-invariant",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeBandEquivalence.modificationIso_iff",
+      "statement": "For native η,θ:F→G and an invertible native modification e:η≅θ, η preserves bF,bG if and only if θ preserves bF,bG. The backwards implication evaluates e inverse rather than discarding the two-morphism.",
+      "hypotheses": [
+        "A specified site (C,J); F,G are native Cat-valued pseudofunctors with groupoid fibres and IsGerbe on J; bF,bG are the specified AbelianBanding data.",
+        "The coefficient sheaf A lives in an independent universe w; no equation identifying w with the fibre-hom universe is imposed.",
+        "No global neutralization or terminal object is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/inverse-band/modification-iso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism"
+      ],
+      "proofSteps": [
+        "Apply inverse-band/modification-iso to e for the forwards implication.",
+        "Apply the same lemma to the actual inverse e inverse for the backwards implication."
+      ],
+      "acceptance": [
+        "For an actual invertible native modification e:η≅θ, applying the invariance equivalence to e inverse gives BandPreserving θ if and only if BandPreserving η.",
+        "The statement is a fixed-band adapter on existing native carriers; it does not assert a coherent inverse or derived H2 classification."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+          "how": "Separate the fixed-band calculation from the generic inverse strong-transformation and site-coherent unit/counit construction."
+        },
+        {
+          "where": "Olsson–Geraschenko 2007, Definition 31.1 and Lemma 31.3",
+          "how": "Respect the same specified abelian band in equivalences; an underlying unbanded equivalence is not enough."
+        }
+      ],
+      "tests": [
+        {
+          "name": "GerbeBandEquivalenceTests.modification_symm",
+          "kind": "compatibility",
+          "statement": "For an actual invertible native modification e:η≅θ, applying the invariance equivalence to e inverse gives BandPreserving θ if and only if BandPreserving η."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeBandEquivalence"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-INVERSE-BAND-a71f92",
+          "locator": "Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored fixed-band deductions using the pinned native equivalence and modification API.",
+          "excerpt": "morphism",
+          "match": "This precise native coefficient-transport formula is an authored deduction, not a formula claimed to be printed in the notes. It uses the actual band conjugation equation and native natural-isomorphism/equivalence structures."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/inverse-band/component-inverse",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The chosen fibre inverse preserves band coefficients",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeBandEquivalence.inverse_map_band",
+      "statement": "For a band-preserving native η:F→G and U such that P=η_U is a native equivalence functor, its chosen native inverse P inverse sends bG(U,y)(a) to bF(U,P inverse(y))(a) by mapAut, for every actual y∈G(U) and a∈A(U). This is a statement about a fibre functor, not the existence of an inverse strong transformation.",
+      "hypotheses": [
+        "A specified site (C,J); F,G are native Cat-valued pseudofunctors with groupoid fibres and IsGerbe on J; bF,bG are the specified AbelianBanding data.",
+        "The coefficient sheaf A lives in an independent universe w; no equation identifying w with the fibre-hom universe is imposed.",
+        "No global neutralization or terminal object is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism",
+        "mathlib:CategoryTheory.Functor.mapIso_injective",
+        "mathlib:CategoryTheory.Functor.inv",
+        "mathlib:CategoryTheory.Functor.asEquivalence",
+        "mathlib:CategoryTheory.Functor.fun_inv_map",
+        "mathlib:CategoryTheory.Equivalence",
+        "mathlib:CategoryTheory.Iso.ext"
+      ],
+      "proofSteps": [
+        "Apply mathlib:CategoryTheory.Functor.mapIso_injective for the faithful component η_U.",
+        "On the right use the existing map_band equation; on the left use mathlib:CategoryTheory.Functor.fun_inv_map for the native chosen inverse.",
+        "Use the conjugation law of bG along the inverse of the native counit η_U(η_U inverse(y))≅y; this proves equality before faithful cancellation."
+      ],
+      "acceptance": [
+        "For every actual y∈G(U) and actual a∈A(U), the chosen native component inverse sends bG(U,y)(a) to bF(U,η_U inverse(y))(a). This tests the coefficient, not only its automorphism order.",
+        "The statement is a fixed-band adapter on existing native carriers; it does not assert a coherent inverse or derived H2 classification."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+          "how": "Separate the fixed-band calculation from the generic inverse strong-transformation and site-coherent unit/counit construction."
+        },
+        {
+          "where": "Olsson–Geraschenko 2007, Definition 31.1 and Lemma 31.3",
+          "how": "Respect the same specified abelian band in equivalences; an underlying unbanded equivalence is not enough."
+        }
+      ],
+      "tests": [
+        {
+          "name": "GerbeBandEquivalenceTests.inverse_coefficient",
+          "kind": "compatibility",
+          "statement": "For every actual y∈G(U) and actual a∈A(U), the chosen native component inverse sends bG(U,y)(a) to bF(U,η_U inverse(y))(a). This tests the coefficient, not only its automorphism order."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeBandEquivalence"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-INVERSE-BAND-a71f92",
+          "locator": "Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored fixed-band deductions using the pinned native equivalence and modification API.",
+          "excerpt": "morphism",
+          "match": "This precise native coefficient-transport formula is an authored deduction, not a formula claimed to be printed in the notes. It uses the actual band conjugation equation and native natural-isomorphism/equivalence structures."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/inverse-band/unit-band",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The fibre equivalence unit respects band coefficients",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeBandEquivalence.unit_band",
+      "statement": "For P=η_U a native equivalence functor and an actual x∈F(U), conjugation along the native equivalence unit x≅P inverse(Px) sends bF(U,x)(a) to bF(U,P inverse(Px))(a) for every a∈A(U). This uses the existing band conjugation law and makes no claim that these units have assembled to a site modification.",
+      "hypotheses": [
+        "A specified site (C,J); F is a gerbe with the specified AbelianBanding bF, G is a native Cat-valued pseudofunctor, and η:F→G is a native strong transformation.",
+        "At the specified U the actual component η_U is a native equivalence functor; A has independent coefficient universe w."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding",
+        "mathlib:CategoryTheory.Functor.asEquivalence",
+        "mathlib:CategoryTheory.Equivalence",
+        "mathlib:CategoryTheory.Aut.autMulEquivOfIso"
+      ],
+      "proofSteps": [
+        "Take the unitIso component of mathlib:CategoryTheory.Functor.asEquivalence.",
+        "Apply the conjugation projection of R09.4/abelian-banding in the source fibre to that exact isomorphism."
+      ],
+      "acceptance": [
+        "Conjugation along the actual native unit component sends the source coefficient at x to the same coefficient at η_U inverse(η_U x).",
+        "The statement is a fixed-band adapter on existing native carriers; it does not assert a coherent inverse or derived H2 classification."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+          "how": "Separate the fixed-band calculation from the generic inverse strong-transformation and site-coherent unit/counit construction."
+        },
+        {
+          "where": "Olsson–Geraschenko 2007, Definition 31.1 and Lemma 31.3",
+          "how": "Respect the same specified abelian band in equivalences; an underlying unbanded equivalence is not enough."
+        }
+      ],
+      "tests": [
+        {
+          "name": "GerbeBandEquivalenceTests.unit_coefficient",
+          "kind": "compatibility",
+          "statement": "Conjugation along the actual native unit component sends the source coefficient at x to the same coefficient at η_U inverse(η_U x)."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeBandEquivalence"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-INVERSE-BAND-a71f92",
+          "locator": "Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored fixed-band deductions using the pinned native equivalence and modification API.",
+          "excerpt": "morphism",
+          "match": "This precise native coefficient-transport formula is an authored deduction, not a formula claimed to be printed in the notes. It uses the actual band conjugation equation and native natural-isomorphism/equivalence structures."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/inverse-band/counit-band",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The fibre equivalence counit respects band coefficients",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeBandEquivalence.counit_band",
+      "statement": "For P=η_U a native equivalence functor and an actual y∈G(U), conjugation along the native equivalence counit P(P inverse(y))≅y sends bG(U,P(P inverse(y)))(a) to bG(U,y)(a) for every a∈A(U). This does not assert a coherent counit modification over the site.",
+      "hypotheses": [
+        "A specified site (C,J); G is a gerbe with the specified AbelianBanding bG, F is a native Cat-valued pseudofunctor, and η:F→G is a native strong transformation.",
+        "At the specified U the actual component η_U is a native equivalence functor; A has independent coefficient universe w."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding",
+        "mathlib:CategoryTheory.Functor.asEquivalence",
+        "mathlib:CategoryTheory.Equivalence",
+        "mathlib:CategoryTheory.Aut.autMulEquivOfIso"
+      ],
+      "proofSteps": [
+        "Take the counitIso component of mathlib:CategoryTheory.Functor.asEquivalence.",
+        "Apply the conjugation projection of R09.4/abelian-banding in the target fibre to that exact isomorphism."
+      ],
+      "acceptance": [
+        "Conjugation along the actual native counit component sends the coefficient at η_U(η_U inverse y) to the same coefficient at y.",
+        "The statement is a fixed-band adapter on existing native carriers; it does not assert a coherent inverse or derived H2 classification."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+          "how": "Separate the fixed-band calculation from the generic inverse strong-transformation and site-coherent unit/counit construction."
+        },
+        {
+          "where": "Olsson–Geraschenko 2007, Definition 31.1 and Lemma 31.3",
+          "how": "Respect the same specified abelian band in equivalences; an underlying unbanded equivalence is not enough."
+        }
+      ],
+      "tests": [
+        {
+          "name": "GerbeBandEquivalenceTests.counit_coefficient",
+          "kind": "compatibility",
+          "statement": "Conjugation along the actual native counit component sends the coefficient at η_U(η_U inverse y) to the same coefficient at y."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeBandEquivalence"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-INVERSE-BAND-a71f92",
+          "locator": "Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored fixed-band deductions using the pinned native equivalence and modification API.",
+          "excerpt": "morphism",
+          "match": "This precise native coefficient-transport formula is an authored deduction, not a formula claimed to be printed in the notes. It uses the actual band conjugation equation and native natural-isomorphism/equivalence structures."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/inverse-band/chosen-inverse",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "A supplied coherent inverse preserves the band",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeBandEquivalence.inverse_preserving",
+      "statement": "Suppose η:F→G is band-preserving, each η_U is a native equivalence functor, and a native strong transformation σ:G→F has been supplied together with actual natural isomorphisms e_U:σ_U≅η_U inverse. Then σ preserves bG,bF. Existence, strong-naturality identity/composition coherence, unit/counit modifications and triangle coherence of σ are not hypotheses manufactured by a theorem-valued placeholder record; they remain the explicitly requested generic supplier.",
+      "hypotheses": [
+        "A specified site (C,J); F,G are native Cat-valued pseudofunctors with groupoid fibres and IsGerbe on J; bF,bG are the specified AbelianBanding data.",
+        "The coefficient sheaf A lives in an independent universe w; no equation identifying w with the fibre-hom universe is imposed.",
+        "No global neutralization or terminal object is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/inverse-band/fibre-nat-iso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/inverse-band/component-inverse",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism",
+        "mathlib:CategoryTheory.Pseudofunctor.StrongTrans",
+        "mathlib:CategoryTheory.Functor.inv"
+      ],
+      "proofSteps": [
+        "At U install the supplied native equivalence instance and apply inverse-band/component-inverse.",
+        "Apply inverse-band/fibre-nat-iso with the two bandings reversed and the actual inverse natural isomorphism e_U inverse.",
+        "Package the resulting equations as BandPreserving bG bF σ. Do not infer existence of σ or coherence of its unit/counit from these equations."
+      ],
+      "acceptance": [
+        "For a supplied native σ:G→F and supplied actual comparisons σ_U≅η_U inverse at every U, the resulting property is BandPreserving bG bF σ; the comparisons are data, not a claim of their existence.",
+        "The statement is a fixed-band adapter on existing native carriers; it does not assert a coherent inverse or derived H2 classification."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+          "how": "Separate the fixed-band calculation from the generic inverse strong-transformation and site-coherent unit/counit construction."
+        },
+        {
+          "where": "Olsson–Geraschenko 2007, Definition 31.1 and Lemma 31.3",
+          "how": "Respect the same specified abelian band in equivalences; an underlying unbanded equivalence is not enough."
+        }
+      ],
+      "tests": [
+        {
+          "name": "GerbeBandEquivalenceTests.chosen_inverse",
+          "kind": "compatibility",
+          "statement": "For a supplied native σ:G→F and supplied actual comparisons σ_U≅η_U inverse at every U, the resulting property is BandPreserving bG bF σ; the comparisons are data, not a claim of their existence."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeBandEquivalence"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-INVERSE-BAND-a71f92",
+          "locator": "Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored fixed-band deductions using the pinned native equivalence and modification API.",
+          "excerpt": "morphism",
+          "match": "This precise native coefficient-transport formula is an authored deduction, not a formula claimed to be printed in the notes. It uses the actual band conjugation equation and native natural-isomorphism/equivalence structures."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -25154,6 +25723,13 @@
         "AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-kernel",
         "AlgebraicModuliForArithmeticGeometry:A0-extension/rigidified-picard-setoid"
       ]
+    },
+    {
+      "supplier": "DiamondsAndVStacks:D0",
+      "need": "For native Cat-valued pseudofunctors on a fixed small site and a native StrongTrans η whose every component is a native equivalence functor, construct a native inverse StrongTrans σ with actual natural isomorphisms σ_U≅η_U inverse, coherent strong-naturality identity/composition equations, invertible unit and counit modifications and both triangle coherences. Preserve the actual native fibre categories and arbitrary fixed universes. This is generic ordinary stack/morphism machinery; the moduli roadmap only proves its fixed-band adapters.",
+      "neededBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence"
+      ]
     }
   ],
   "coverage": [
@@ -25205,7 +25781,8 @@
         "The actual fixed-band component maps now have faithful fibres, an anchored Isom inverse with action/identity/composition laws and local covering-sieve equivalences. Build the coherent StrongTrans map on native slice Hom sheaves and glue those inverses before claiming fibrewise fullness. Essential surjectivity, inverse strong transformation and the full equivalence target remain open, alongside all inherited frontiers.",
         "Actual strong-naturality transport now lands in G(f)(ηUx) and G(f)(ηUy), with inverse round trips, anchor independence, coefficients, injectivity and covering-sieve equivalences. Compatibility along arbitrary g:W→V in the slice still requires the native η.naturality_comp and both pseudofunctor comparison maps; the supplied-global-anchor restriction law is only a special case. Build that coherent Hom-presheaf map, then glue local inverses using the native Hom sheaf before claiming fibrewise fullness. All inherited frontiers and supplier requests remain open.",
         "The arbitrary deeper-slice coherence, native Hom-presheaf/sheaf morphism, covering image-sieve argument, native locally-bijective sheaf inverse and actual fibre Full instance now have separate mathematical proof plans and admitted signatures. The new bodies have not been certified and the incoming native StrongTrans draft was itself uncompiled. The banded adapter family retains the same coefficient/fibre-hom universe convention; normalize and validate the independent-universe reserved-key interface before claiming the general theorem. Essential surjectivity, an inverse strong transformation, general gerbe equivalence, SF1 descended-band comparison, D0 torsor/classifying-stack comparison, nonneutral O(1) root gerbe, derived H2/classification, compatible-object profinite limits, R09.3 affine module descent elaboration, all other stage/source obligations and all 21 requests remain required.",
-        "The object-descent route is specified with native carriers and actual morphisms; inverse StrongTrans/band coherence, independent coefficient-universe normalization and admitted mathematical proof bodies remain open."
+        "The object-descent route is specified with native carriers and actual morphisms; inverse StrongTrans/band coherence, independent coefficient-universe normalization and admitted mathematical proof bodies remain open.",
+        "Fixed-band natural-isomorphism/modification invariance, native chosen fibre-inverse coefficients, and unit/counit fibre transport now have eight precise leaves and admission-free prototypes with independent coefficient universe. The generic coherent inverse StrongTrans and unit/counit/triangle assembly is explicitly requested from D0; the earlier Hom-sheaf/object-descent universe normalization and all other remaining obligations are unchanged."
       ]
     },
     {
@@ -25342,6 +25919,17 @@
           "Complete gerbe/H² classification effectivity and the other previously recorded campaign gaps."
         ],
         "validation": "Admitted suggested forms; see fresh compilation and public verification receipts in the handoff."
+      },
+      "inverseBandContinuation": {
+        "newNodes": 8,
+        "newTests": 8,
+        "provedSlice": "Eight independent-coefficient-universe fixed-band adapters have separate admission-free native proof prototypes and fresh axiom audits. Suggested signatures remain admitted and implementationStatus stays unchecked.",
+        "supplier": "DiamondsAndVStacks:D0",
+        "remains": [
+          "Construct and validate the requested coherent inverse StrongTrans, its comparison family, unit/counit modifications and triangle coherence; no such global construction is certified by the new conditional adapter.",
+          "Validate independent coefficient universes throughout the older Hom-sheaf/object-descent families, whose conventions remain unchanged.",
+          "All other incoming source, H2, profinite, module-descent and arithmetic representability obligations remain required."
+        ]
       }
     }
   ],
