@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-stage partial design with 421 declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked. For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain.",
+  "summary": "Seven-stage partial design with 440 incoming declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked. For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain. This continuation adds23 nodes (6constructions17lemmas),19 consumed API items and22 exact examples for the specified ν: all-open section injectivity, zero kernel after flat pullback and the existing relative normalization comparison/descent. The affine inclusion A_q→k[t] is not surjective. The resulting packet has463 nodes; all7stages remain partial. New native and admitted sources are uncompiled in this turn because available memory is below20GiB; all implementation statuses remain unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2435,6 +2435,86 @@
         "provides": "An actual algebra homomorphism preserves the specified coefficient algebra map, over a commutative semiring and arbitrary semiring algebras.",
         "checked": "Codex codex-a71f92 read the complete pinned statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; used in the native uniqueness and root-equation proofs.",
         "sourceSha256": "0cc5cf0d3af02f98ad61aea11c5298547f190d551eee978ea46a48f303fd3af0"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.ker_eq_bot",
+        "kind": "alias",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/SchemeTheoreticallyDominant.lean",
+        "line": 41,
+        "provides": "The kernel ideal sheaf of the specified morphism ν is zero.",
+        "checked": "Codex codex-5ebb6f read the complete declaration statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. Existing generic theory is imported, not replanned."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.normalization",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Normalization.lean",
+        "line": 123,
+        "provides": "For the specified finite ν:N→C, define Rν to be Mathlib’s relative normalization of C in N. Its affine sections use the integral closure inside the actual ν-pushforward section rings. This is relative to ν, not the absolute normalization of C in a generic-point function field.",
+        "checked": "Codex codex-5ebb6f read the complete declaration statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. Existing generic theory is imported, not replanned."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.toNormalization",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Normalization.lean",
+        "line": 133,
+        "provides": "Define the specified comparison i:N→Rν by Mathlib’s canonical map to relative normalization of ν.",
+        "checked": "Codex codex-5ebb6f read the complete declaration statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. Existing generic theory is imported, not replanned."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.fromNormalization",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Normalization.lean",
+        "line": 170,
+        "provides": "Define r:Rν→C to be Mathlib’s canonical integral morphism from the relative normalization of ν.",
+        "checked": "Codex codex-5ebb6f read the complete declaration statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. Existing generic theory is imported, not replanned."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsFinite.iff_isIntegralHom_and_locallyOfFiniteType",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/Finite.lean",
+        "line": 100,
+        "provides": "The comparison i:N→Rν is an isomorphism, because the already constructed ν is finite and therefore integral. This does not assert that ν:N→C is an isomorphism.",
+        "checked": "Codex codex-5ebb6f read the complete declaration statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. Existing generic theory is imported, not replanned."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.toNormalization_fromNormalization",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Normalization.lean",
+        "line": 186,
+        "provides": "The specified canonical morphisms satisfy i followed by r equals the previously glued ν.",
+        "checked": "Codex codex-5ebb6f read the complete declaration statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. Existing generic theory is imported, not replanned."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.normalizationObjIso",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Normalization.lean",
+        "line": 216,
+        "provides": "For each affine open U⊆C, define an isomorphism of commutative-ring objects Γ(Rν,r⁻¹U)≅integralClosure(Γ(C,U),Γ(N,ν⁻¹U)). The coefficient algebra structure is exactly the one induced by ν on U.",
+        "checked": "Codex codex-5ebb6f read the complete declaration statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. Existing generic theory is imported, not replanned."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.normalizationDesc",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Normalization.lean",
+        "line": 373,
+        "provides": "For any scheme T and specified factorization ν=f followed by g with g:T→C integral, define d:Rν→T by Mathlib’s normalizationDesc. The factorization equality is an input; it is not a field storing an absolute normalization theorem.",
+        "checked": "Codex codex-5ebb6f read the complete declaration statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. Existing generic theory is imported, not replanned."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.toNormalization_normalizationDesc",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Normalization.lean",
+        "line": 399,
+        "provides": "For every specified integral factorization ν=f followed by g, i followed by d equals f.",
+        "checked": "Codex codex-5ebb6f read the complete declaration statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. Existing generic theory is imported, not replanned."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.normalizationDesc_comp",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Normalization.lean",
+        "line": 414,
+        "provides": "For every specified integral factorization ν=f followed by g, d followed by g equals r.",
+        "checked": "Codex codex-5ebb6f read the complete declaration statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. Existing generic theory is imported, not replanned."
       }
     ]
   },
@@ -2903,6 +2983,18 @@
       "accessed": "2026-10-03",
       "readSections": [
         "Codex codex-a71f92: §3 terminology, both conductor diagrams, Propositions3.1–3.2 with displayed proofs/count table and Proposition3.3 statement/table. The new polynomial-coordinate multiplication and S-algebra universal map are authored deductions from the incoming native coordinates and parameter action, not printed theorems of this source. No fresh whole-paper or recursive supplier-proof reading claim."
+      ]
+    },
+    {
+      "id": "schroer-5ebb6f-relative-normalization",
+      "title": "There is no Enriques surface over the integers",
+      "authors": "Stefan Schröer",
+      "edition": "arXiv:2004.07025v3 HTML; separate from Annals197(2023)",
+      "url": "https://arxiv.org/html/2004.07025v3",
+      "sha256": "d14049912dcab6a438ed62363e246d0087c61342c51813ac482f5aba48d92456",
+      "accessed": "2026-10-03",
+      "readSections": [
+        "Fresh §3 terminology, both conductor diagrams, Propositions3.1–3.2 and their displayed proofs/count tables, Proposition3.3 statement/table. Relative normalization comparisons, dominance and the nonsurjectivity regression are authored specializations/deductions from the pinned libraries and prior chart construction, not printed theorems of this paper. No whole-paper or recursive supplier-proof closure claim."
       ]
     }
   ],
@@ -9876,7 +9968,8 @@
         "Use the specified infinity quotient chart, its coefficient-compatible localization equivalence and homogeneous coordinates. Import generic relative Proj charts/gluing from SF.0 to identify the actual projective cubic with the two-chart pinch and construct the finite normalization morphism. Then identify its conductor ideal sheaf and the actual O_C→ν_*O_P¹→j_*(E/k) sequence before deriving H0/H1; none of these global comparisons follows from an equation on coordinate tuples alone.",
         "Use the specified finite/infinity overlap equivalence and homogeneous coordinate compatibility as inputs to the actual SF.0 projective-chart/gluing comparison; these affine facts do not themselves construct the global normalization morphism.",
         "Use the specified native glued scheme C, glued source N and actual finite morphism ν with its two cartesian chart restrictions. The native reciprocal infinity map has u=1/t and z=1/(tq), and the curve structure map preserves coefficients. The identifications C with the specified Proj cubic and N with P¹, the normalization universal property, projectivity, conductor ideal sheaf and finite-pushforward H0/H1 remain required; this global chart morphism is not a substitute for those comparisons.",
-        "For every field k and q=t²+at+b, the specified finite global map ν:N→C is surjective; both schemes are integral, every source stalk is integrally closed, and an actual dense-open Scheme.PartialIso agrees with ν over Spec k. The projective-line and Proj identifications, normalization universal property, projectivity/properness, conductor ideal sheaf, structure-sheaf exact sequence and finite-pushforward H0/H1 remain separate obligations. The I₂ construction and all other inherited gaps remain open; seven stages stay partial and all implementations unchecked."
+        "For every field k and q=t²+at+b, the specified finite global map ν:N→C is surjective; both schemes are integral, every source stalk is integrally closed, and an actual dense-open Scheme.PartialIso agrees with ν over Spec k. The projective-line and Proj identifications, normalization universal property, projectivity/properness, conductor ideal sheaf, structure-sheaf exact sequence and finite-pushforward H0/H1 remain separate obligations. The I₂ construction and all other inherited gaps remain open; seven stages stay partial and all implementations unchecked.",
+        "Use the specified all-open section injection and native relative integral factorization of ν. Its section comparison and the affine nonsurjectivity regression keep the source and pinched curve distinct. These facts do not discharge the absolute generic-point normalization, projective-line/Proj, conductor ideal-sheaf exact sequence, finite-pushforward cohomology or independent I₂ obligations."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-point-proper-pushout",
@@ -9907,7 +10000,11 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-source-integral",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-source-stalks",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso-map",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-birational-over"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-birational-over",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-sections-injective",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-factorization",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-sections-iso",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-inclusion-not-surjective"
       ],
       "sources": [
         {
@@ -24987,6 +25084,1117 @@
       },
       "implementationStatus": "unchecked",
       "declarationName": "QuadraticPinch.polynomialHomEquivRoots_parameter"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-scheme-dominant",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Scheme-theoretical dominance of the glued map",
+      "kind": "lemma",
+      "statement": "For every field k and a,b∈k, the specified glued finite morphism ν:N→C is scheme-theoretically dominant.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k. C,N and ν are the previously specified quadratic pinched scheme, glued source and finite morphism. No perfectness, separability, characteristic or discriminant restriction is added. Affine-open, flatness and integral-factorization hypotheses are retained exactly where stated."
+      ],
+      "proofSteps": [
+        "Use the established surjectivity to obtain dominance. The target C is integral, hence reduced. Apply the existing reduced-target dominance criterion."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-global-surjective",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-curve-integral",
+        "mathlib:AlgebraicGeometry.IsSchemeTheoreticallyDominant.of_isDominant"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-relative-normalization",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored specialization of existing relative normalization and dominance APIs",
+          "match": "Motivates the actual pinched chart and structure-sheaf map. These relative integral-factorization comparisons and regressions are authored deductions; they do not establish absolute normalization, projectivity or coherent cohomology."
+        }
+      ],
+      "acceptance": [
+        "Use the actual ν and preimage section rings. Preserve the flatness and integrality hypotheses. The affine inclusion is not surjective, including the cusp and characteristic-two cases. All absolute normalization, Proj/P¹ and cohomology obligations remain separate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalization_schemeTheoreticallyDominant"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-kernel",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Vanishing kernel ideal sheaf",
+      "kind": "lemma",
+      "statement": "The kernel ideal sheaf of the specified morphism ν is zero.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k. C,N and ν are the previously specified quadratic pinched scheme, glued source and finite morphism. No perfectness, separability, characteristic or discriminant restriction is added. Affine-open, flatness and integral-factorization hypotheses are retained exactly where stated."
+      ],
+      "proofSteps": [
+        "Apply the native kernel characterization of scheme-theoretical dominance."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-scheme-dominant",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.ker_eq_bot"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-relative-normalization",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored specialization of existing relative normalization and dominance APIs",
+          "match": "Motivates the actual pinched chart and structure-sheaf map. These relative integral-factorization comparisons and regressions are authored deductions; they do not establish absolute normalization, projectivity or coherent cohomology."
+        }
+      ],
+      "acceptance": [
+        "Use the actual ν and preimage section rings. Preserve the flatness and integrality hypotheses. The affine inclusion is not surjective, including the cusp and characteristic-two cases. All absolute normalization, Proj/P¹ and cohomology obligations remain separate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalization_kernel"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-sections-injective",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Injective structure-sheaf section maps",
+      "kind": "lemma",
+      "statement": "For every open U of C, the actual map Γ(C,U)→Γ(N,ν⁻¹U) induced by ν is injective.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k. C,N and ν are the previously specified quadratic pinched scheme, glued source and finite morphism. No perfectness, separability, characteristic or discriminant restriction is added. Affine-open, flatness and integral-factorization hypotheses are retained exactly where stated."
+      ],
+      "proofSteps": [
+        "Finiteness supplies quasi-compactness. Apply the existing all-open section injectivity theorem, rather than only checking affine rings."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-scheme-dominant",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-is-finite",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.app_injective"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-relative-normalization",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored specialization of existing relative normalization and dominance APIs",
+          "match": "Motivates the actual pinched chart and structure-sheaf map. These relative integral-factorization comparisons and regressions are authored deductions; they do not establish absolute normalization, projectivity or coherent cohomology."
+        }
+      ],
+      "acceptance": [
+        "Use the actual ν and preimage section rings. Preserve the flatness and integrality hypotheses. The affine inclusion is not surjective, including the cusp and characteristic-two cases. All absolute normalization, Proj/P¹ and cohomology obligations remain separate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalization_sections_injective",
+      "tests": [
+        {
+          "name": "QuadraticPinch.Global.test_sections_cusp_injective",
+          "kind": "compatibility",
+          "statement": "The map on all-open structure-sheaf sections of the cusp is injective, not just the finite chart ring inclusion."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-flat-pullback-dominant",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Dominance after flat pullback",
+      "kind": "lemma",
+      "statement": "For any scheme T and flat morphism g:T→C, the specified pullback projection N×_C T→T is scheme-theoretically dominant.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k. C,N and ν are the previously specified quadratic pinched scheme, glued source and finite morphism. No perfectness, separability, characteristic or discriminant restriction is added. Affine-open, flatness and integral-factorization hypotheses are retained exactly where stated."
+      ],
+      "proofSteps": [
+        "Use the native flat-pullback instance with the finite, hence quasi-compact, specified ν. Retain the flatness hypothesis."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-scheme-dominant",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-is-finite",
+        "mathlib:AlgebraicGeometry.IsSchemeTheoreticallyDominant.pullbackSnd"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-relative-normalization",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored specialization of existing relative normalization and dominance APIs",
+          "match": "Motivates the actual pinched chart and structure-sheaf map. These relative integral-factorization comparisons and regressions are authored deductions; they do not establish absolute normalization, projectivity or coherent cohomology."
+        }
+      ],
+      "acceptance": [
+        "Use the actual ν and preimage section rings. Preserve the flatness and integrality hypotheses. The affine inclusion is not surjective, including the cusp and characteristic-two cases. All absolute normalization, Proj/P¹ and cohomology obligations remain separate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalization_flat_pullback_schemeTheoreticallyDominant"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-flat-pullback-kernel",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Kernel after flat pullback",
+      "kind": "lemma",
+      "statement": "For any flat g:T→C, the kernel ideal sheaf of N×_C T→T is zero.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k. C,N and ν are the previously specified quadratic pinched scheme, glued source and finite morphism. No perfectness, separability, characteristic or discriminant restriction is added. Affine-open, flatness and integral-factorization hypotheses are retained exactly where stated."
+      ],
+      "proofSteps": [
+        "Apply the native kernel projection to the previous pullback dominance result."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-flat-pullback-dominant",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.ker_eq_bot"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-relative-normalization",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored specialization of existing relative normalization and dominance APIs",
+          "match": "Motivates the actual pinched chart and structure-sheaf map. These relative integral-factorization comparisons and regressions are authored deductions; they do not establish absolute normalization, projectivity or coherent cohomology."
+        }
+      ],
+      "acceptance": [
+        "Use the actual ν and preimage section rings. Preserve the flatness and integrality hypotheses. The affine inclusion is not surjective, including the cusp and characteristic-two cases. All absolute normalization, Proj/P¹ and cohomology obligations remain separate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalization_flat_pullback_kernel",
+      "tests": [
+        {
+          "name": "QuadraticPinch.Global.test_flat_pullback_kernel",
+          "kind": "compatibility",
+          "statement": "For an arbitrary flat g:T→C, the actual pullback projection has zero kernel ideal sheaf."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Relative integral factorization of the glued map",
+      "kind": "construction",
+      "statement": "For the specified finite ν:N→C, define Rν to be Mathlib’s relative normalization of C in N. Its affine sections use the integral closure inside the actual ν-pushforward section rings. This is relative to ν, not the absolute normalization of C in a generic-point function field.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k. C,N and ν are the previously specified quadratic pinched scheme, glued source and finite morphism. No perfectness, separability, characteristic or discriminant restriction is added. Affine-open, flatness and integral-factorization hypotheses are retained exactly where stated."
+      ],
+      "proofSteps": [
+        "Instantiate existing relative normalization with the specified ν. Import its qcqs construction; do not plan a second normalization theory."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-is-finite",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.normalization"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-relative-normalization",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored specialization of existing relative normalization and dominance APIs",
+          "match": "Motivates the actual pinched chart and structure-sheaf map. These relative integral-factorization comparisons and regressions are authored deductions; they do not establish absolute normalization, projectivity or coherent cohomology."
+        }
+      ],
+      "acceptance": [
+        "Use the actual ν and preimage section rings. Preserve the flatness and integrality hypotheses. The affine inclusion is not surjective, including the cusp and characteristic-two cases. All absolute normalization, Proj/P¹ and cohomology obligations remain separate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.relativeNormalization",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Provide the specified injective structure-sheaf map and its existing relative integral factorization. This is an intermediate step; generic-point normalization, P¹ and coherent cohomology remain required."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.Global.relativeNormalization_factorization",
+          "role": "structure",
+          "statement": "The specified canonical morphisms satisfy i followed by r equals the previously glued ν."
+        },
+        {
+          "name": "QuadraticPinch.Global.toRelativeNormalization_isIso",
+          "role": "compatibility",
+          "statement": "The comparison i:N→Rν is an isomorphism, because the already constructed ν is finite and therefore integral. This does not assert that ν:N→C is an isomorphism."
+        },
+        {
+          "name": "QuadraticPinch.Global.relativeNormalizationSectionsIso",
+          "role": "compatibility",
+          "statement": "For each affine open U⊆C, define an isomorphism of commutative-ring objects Γ(Rν,r⁻¹U)≅integralClosure(Γ(C,U),Γ(N,ν⁻¹U)). The coefficient algebra structure is exactly the one induced by ν on U."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.Global.test_relativeNormalization_cusp",
+          "kind": "compatibility",
+          "statement": "For the cusp a=b=0 over an arbitrary field, the specified two canonical maps compose to the original ν."
+        },
+        {
+          "name": "QuadraticPinch.Global.test_relativeNormalization_char2",
+          "kind": "compatibility",
+          "statement": "For a=b=1 over F₂, the specified two canonical maps compose to the original ν, with the same coefficient field and target."
+        },
+        {
+          "name": "QuadraticPinch.Global.test_relativeNormalization_iso",
+          "kind": "characterisation",
+          "statement": "For arbitrary a,b, the actual relative normalization is isomorphic to the already glued source through the specified i."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/to-relative-normalization",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Canonical map into relative normalization",
+      "kind": "construction",
+      "statement": "Define the specified comparison i:N→Rν by Mathlib’s canonical map to relative normalization of ν.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k. C,N and ν are the previously specified quadratic pinched scheme, glued source and finite morphism. No perfectness, separability, characteristic or discriminant restriction is added. Affine-open, flatness and integral-factorization hypotheses are retained exactly where stated."
+      ],
+      "proofSteps": [
+        "Use the canonical map of the existing qcqs factorization of ν."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.toNormalization"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-relative-normalization",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored specialization of existing relative normalization and dominance APIs",
+          "match": "Motivates the actual pinched chart and structure-sheaf map. These relative integral-factorization comparisons and regressions are authored deductions; they do not establish absolute normalization, projectivity or coherent cohomology."
+        }
+      ],
+      "acceptance": [
+        "Use the actual ν and preimage section rings. Preserve the flatness and integrality hypotheses. The affine inclusion is not surjective, including the cusp and characteristic-two cases. All absolute normalization, Proj/P¹ and cohomology obligations remain separate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.toRelativeNormalization",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Provide the specified injective structure-sheaf map and its existing relative integral factorization. This is an intermediate step; generic-point normalization, P¹ and coherent cohomology remain required."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.Global.toRelativeNormalization_isIso",
+          "role": "compatibility",
+          "statement": "The comparison i:N→Rν is an isomorphism, because the already constructed ν is finite and therefore integral. This does not assert that ν:N→C is an isomorphism."
+        },
+        {
+          "name": "QuadraticPinch.Global.relativeNormalization_factorization",
+          "role": "structure",
+          "statement": "The specified canonical morphisms satisfy i followed by r equals the previously glued ν."
+        },
+        {
+          "name": "QuadraticPinch.Global.toRelativeNormalization_desc",
+          "role": "universal-property",
+          "statement": "For every specified integral factorization ν=f followed by g, i followed by d equals f."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.Global.test_toRelativeNormalization_cusp",
+          "kind": "compatibility",
+          "statement": "For the cusp a=b=0 over an arbitrary field, the specified two canonical maps compose to the original ν."
+        },
+        {
+          "name": "QuadraticPinch.Global.test_toRelativeNormalization_char2",
+          "kind": "compatibility",
+          "statement": "For a=b=1 over F₂, the specified two canonical maps compose to the original ν, with the same coefficient field and target."
+        },
+        {
+          "name": "QuadraticPinch.Global.test_toRelativeNormalization_descent",
+          "kind": "characterisation",
+          "statement": "For any specified integral factorization ν=f followed by g, the actual source triangle commutes."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/from-relative-normalization",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Canonical integral map to the curve",
+      "kind": "construction",
+      "statement": "Define r:Rν→C to be Mathlib’s canonical integral morphism from the relative normalization of ν.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k. C,N and ν are the previously specified quadratic pinched scheme, glued source and finite morphism. No perfectness, separability, characteristic or discriminant restriction is added. Affine-open, flatness and integral-factorization hypotheses are retained exactly where stated."
+      ],
+      "proofSteps": [
+        "Use the existing integral factorization map with ν and its actual target."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.fromNormalization"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-relative-normalization",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored specialization of existing relative normalization and dominance APIs",
+          "match": "Motivates the actual pinched chart and structure-sheaf map. These relative integral-factorization comparisons and regressions are authored deductions; they do not establish absolute normalization, projectivity or coherent cohomology."
+        }
+      ],
+      "acceptance": [
+        "Use the actual ν and preimage section rings. Preserve the flatness and integrality hypotheses. The affine inclusion is not surjective, including the cusp and characteristic-two cases. All absolute normalization, Proj/P¹ and cohomology obligations remain separate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.fromRelativeNormalization",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Provide the specified injective structure-sheaf map and its existing relative integral factorization. This is an intermediate step; generic-point normalization, P¹ and coherent cohomology remain required."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.Global.relativeNormalization_factorization",
+          "role": "structure",
+          "statement": "The specified canonical morphisms satisfy i followed by r equals the previously glued ν."
+        },
+        {
+          "name": "QuadraticPinch.Global.relativeNormalizationDesc_from",
+          "role": "universal-property",
+          "statement": "For every specified integral factorization ν=f followed by g, d followed by g equals r."
+        },
+        {
+          "name": "QuadraticPinch.Global.relativeNormalizationIso_inv_from",
+          "role": "compatibility",
+          "statement": "The inverse of e followed by ν equals the specified r:Rν→C."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.Global.test_fromRelativeNormalization_cusp",
+          "kind": "compatibility",
+          "statement": "For the cusp a=b=0 over an arbitrary field, the specified two canonical maps compose to the original ν."
+        },
+        {
+          "name": "QuadraticPinch.Global.test_fromRelativeNormalization_char2",
+          "kind": "compatibility",
+          "statement": "For a=b=1 over F₂, the specified two canonical maps compose to the original ν, with the same coefficient field and target."
+        },
+        {
+          "name": "QuadraticPinch.Global.test_fromRelativeNormalization_inverse",
+          "kind": "characterisation",
+          "statement": "For arbitrary a,b, the specified inverse comparison followed by ν is exactly the canonical map from Rν to C."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/to-relative-normalization-is-iso",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Invertibility of the relative comparison",
+      "kind": "lemma",
+      "statement": "The comparison i:N→Rν is an isomorphism, because the already constructed ν is finite and therefore integral. This does not assert that ν:N→C is an isomorphism.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k. C,N and ν are the previously specified quadratic pinched scheme, glued source and finite morphism. No perfectness, separability, characteristic or discriminant restriction is added. Affine-open, flatness and integral-factorization hypotheses are retained exactly where stated."
+      ],
+      "proofSteps": [
+        "Import the existing instance for an integral map’s toNormalization. No normality or projective-line argument is needed for this relative statement."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/to-relative-normalization",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-is-finite",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.toNormalization",
+        "mathlib:AlgebraicGeometry.IsFinite.iff_isIntegralHom_and_locallyOfFiniteType"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-relative-normalization",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored specialization of existing relative normalization and dominance APIs",
+          "match": "Motivates the actual pinched chart and structure-sheaf map. These relative integral-factorization comparisons and regressions are authored deductions; they do not establish absolute normalization, projectivity or coherent cohomology."
+        }
+      ],
+      "acceptance": [
+        "Use the actual ν and preimage section rings. Preserve the flatness and integrality hypotheses. The affine inclusion is not surjective, including the cusp and characteristic-two cases. All absolute normalization, Proj/P¹ and cohomology obligations remain separate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.toRelativeNormalization_isIso"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-iso",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Specified relative normalization isomorphism",
+      "kind": "construction",
+      "statement": "Define e:N≅Rν using the isomorphism instance for the canonical i; its forward map is exactly i.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k. C,N and ν are the previously specified quadratic pinched scheme, glued source and finite morphism. No perfectness, separability, characteristic or discriminant restriction is added. Affine-open, flatness and integral-factorization hypotheses are retained exactly where stated."
+      ],
+      "proofSteps": [
+        "Use the native categorical asIso of the specified canonical comparison, preserving its forward morphism."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/to-relative-normalization-is-iso"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-relative-normalization",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored specialization of existing relative normalization and dominance APIs",
+          "match": "Motivates the actual pinched chart and structure-sheaf map. These relative integral-factorization comparisons and regressions are authored deductions; they do not establish absolute normalization, projectivity or coherent cohomology."
+        }
+      ],
+      "acceptance": [
+        "Use the actual ν and preimage section rings. Preserve the flatness and integrality hypotheses. The affine inclusion is not surjective, including the cusp and characteristic-two cases. All absolute normalization, Proj/P¹ and cohomology obligations remain separate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.relativeNormalizationIso",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Provide the specified injective structure-sheaf map and its existing relative integral factorization. This is an intermediate step; generic-point normalization, P¹ and coherent cohomology remain required."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.Global.relativeNormalizationIso_hom",
+          "role": "compatibility",
+          "statement": "The forward map of e:N≅Rν is the specified i:N→Rν."
+        },
+        {
+          "name": "QuadraticPinch.Global.relativeNormalizationIso_inv_from",
+          "role": "compatibility",
+          "statement": "The inverse of e followed by ν equals the specified r:Rν→C."
+        },
+        {
+          "name": "QuadraticPinch.Global.relativeNormalizationDesc_eq",
+          "role": "universal-property",
+          "statement": "For every integral factorization ν=f followed by g, d equals the inverse of e followed by f."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.Global.test_iso_forward",
+          "kind": "compatibility",
+          "statement": "The specified isomorphism has the actual canonical comparison as its forward map."
+        },
+        {
+          "name": "QuadraticPinch.Global.test_iso_cusp_left",
+          "kind": "characterisation",
+          "statement": "For the cusp, the specified isomorphism followed by its inverse is the identity of the glued source."
+        },
+        {
+          "name": "QuadraticPinch.Global.test_iso_char2_right",
+          "kind": "characterisation",
+          "statement": "For a=b=1 over F₂, the specified inverse followed by the forward map is the identity of the actual relative normalization."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-factorization",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Exact relative factorization",
+      "kind": "lemma",
+      "statement": "The specified canonical morphisms satisfy i followed by r equals the previously glued ν.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k. C,N and ν are the previously specified quadratic pinched scheme, glued source and finite morphism. No perfectness, separability, characteristic or discriminant restriction is added. Affine-open, flatness and integral-factorization hypotheses are retained exactly where stated."
+      ],
+      "proofSteps": [
+        "Specialize the native factorization equality to ν."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/to-relative-normalization",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/from-relative-normalization",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.toNormalization_fromNormalization"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-relative-normalization",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored specialization of existing relative normalization and dominance APIs",
+          "match": "Motivates the actual pinched chart and structure-sheaf map. These relative integral-factorization comparisons and regressions are authored deductions; they do not establish absolute normalization, projectivity or coherent cohomology."
+        }
+      ],
+      "acceptance": [
+        "Use the actual ν and preimage section rings. Preserve the flatness and integrality hypotheses. The affine inclusion is not surjective, including the cusp and characteristic-two cases. All absolute normalization, Proj/P¹ and cohomology obligations remain separate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.relativeNormalization_factorization"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-iso-hom",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Forward comparison morphism",
+      "kind": "lemma",
+      "statement": "The forward map of e:N≅Rν is the specified i:N→Rν.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k. C,N and ν are the previously specified quadratic pinched scheme, glued source and finite morphism. No perfectness, separability, characteristic or discriminant restriction is added. Affine-open, flatness and integral-factorization hypotheses are retained exactly where stated."
+      ],
+      "proofSteps": [
+        "Read the native asIso forward projection."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-iso",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/to-relative-normalization"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-relative-normalization",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored specialization of existing relative normalization and dominance APIs",
+          "match": "Motivates the actual pinched chart and structure-sheaf map. These relative integral-factorization comparisons and regressions are authored deductions; they do not establish absolute normalization, projectivity or coherent cohomology."
+        }
+      ],
+      "acceptance": [
+        "Use the actual ν and preimage section rings. Preserve the flatness and integrality hypotheses. The affine inclusion is not surjective, including the cusp and characteristic-two cases. All absolute normalization, Proj/P¹ and cohomology obligations remain separate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.relativeNormalizationIso_hom"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-iso-inv-from",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Inverse comparison over the curve",
+      "kind": "lemma",
+      "statement": "The inverse of e followed by ν equals the specified r:Rν→C.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k. C,N and ν are the previously specified quadratic pinched scheme, glued source and finite morphism. No perfectness, separability, characteristic or discriminant restriction is added. Affine-open, flatness and integral-factorization hypotheses are retained exactly where stated."
+      ],
+      "proofSteps": [
+        "Rewrite ν as i followed by r and cancel the inverse followed by the forward isomorphism."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-iso-hom",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-factorization"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-relative-normalization",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored specialization of existing relative normalization and dominance APIs",
+          "match": "Motivates the actual pinched chart and structure-sheaf map. These relative integral-factorization comparisons and regressions are authored deductions; they do not establish absolute normalization, projectivity or coherent cohomology."
+        }
+      ],
+      "acceptance": [
+        "Use the actual ν and preimage section rings. Preserve the flatness and integrality hypotheses. The affine inclusion is not surjective, including the cusp and characteristic-two cases. All absolute normalization, Proj/P¹ and cohomology obligations remain separate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.relativeNormalizationIso_inv_from"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-sections-iso",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Affine integral-closure section comparison",
+      "kind": "construction",
+      "statement": "For each affine open U⊆C, define an isomorphism of commutative-ring objects Γ(Rν,r⁻¹U)≅integralClosure(Γ(C,U),Γ(N,ν⁻¹U)). The coefficient algebra structure is exactly the one induced by ν on U.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k. C,N and ν are the previously specified quadratic pinched scheme, glued source and finite morphism. No perfectness, separability, characteristic or discriminant restriction is added. Affine-open, flatness and integral-factorization hypotheses are retained exactly where stated."
+      ],
+      "proofSteps": [
+        "Specialize the existing normalizationObjIso using the actual ν-section scalar algebra. Retain the affine-open hypothesis and the actual preimage rings."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/from-relative-normalization",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-is-finite",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.normalizationObjIso"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-relative-normalization",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored specialization of existing relative normalization and dominance APIs",
+          "match": "Motivates the actual pinched chart and structure-sheaf map. These relative integral-factorization comparisons and regressions are authored deductions; they do not establish absolute normalization, projectivity or coherent cohomology."
+        }
+      ],
+      "acceptance": [
+        "Use the actual ν and preimage section rings. Preserve the flatness and integrality hypotheses. The affine inclusion is not surjective, including the cusp and characteristic-two cases. All absolute normalization, Proj/P¹ and cohomology obligations remain separate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.relativeNormalizationSectionsIso",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Provide the specified injective structure-sheaf map and its existing relative integral factorization. This is an intermediate step; generic-point normalization, P¹ and coherent cohomology remain required."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.Global.relativeNormalizationSectionsIso_hom_inv",
+          "role": "compatibility",
+          "statement": "For every affine open U⊆C, the specified affine section comparison followed by its inverse is the identity of Γ(Rν,r⁻¹U)."
+        },
+        {
+          "name": "QuadraticPinch.Global.relativeNormalizationSectionsIso_inv_hom",
+          "role": "compatibility",
+          "statement": "For every affine open U⊆C, the inverse section comparison followed by the comparison is the identity of the specified integral closure inside Γ(N,ν⁻¹U)."
+        },
+        {
+          "name": "QuadraticPinch.Global.relativeNormalizationSectionsIso_cancel",
+          "role": "compatibility",
+          "statement": "For any affine U⊆C and endomorphisms f,g of Γ(Rν,r⁻¹U), postcomposition with the specified section-comparison map gives equal maps if and only if f=g."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.Global.test_sections_left",
+          "kind": "characterisation",
+          "statement": "For any affine U, the actual comparison followed by its inverse is the identity on Γ(Rν,r⁻¹U)."
+        },
+        {
+          "name": "QuadraticPinch.Global.test_sections_cusp_right",
+          "kind": "characterisation",
+          "statement": "For any affine open of the cusp, the inverse comparison followed by the comparison is the identity on the specified integral closure."
+        },
+        {
+          "name": "QuadraticPinch.Global.test_sections_char2_right",
+          "kind": "characterisation",
+          "statement": "For any affine open when a=b=1 over F₂, the same inverse identity holds in the actual integral-closure ring."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-desc",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Descent through an integral factorization",
+      "kind": "construction",
+      "statement": "For any scheme T and specified factorization ν=f followed by g with g:T→C integral, define d:Rν→T by Mathlib’s normalizationDesc. The factorization equality is an input; it is not a field storing an absolute normalization theorem.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k. C,N and ν are the previously specified quadratic pinched scheme, glued source and finite morphism. No perfectness, separability, characteristic or discriminant restriction is added. Affine-open, flatness and integral-factorization hypotheses are retained exactly where stated."
+      ],
+      "proofSteps": [
+        "Instantiate the existing relative integral-factorization descent with the actual maps f,g and their equality to ν."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-is-finite",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.normalizationDesc"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-relative-normalization",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored specialization of existing relative normalization and dominance APIs",
+          "match": "Motivates the actual pinched chart and structure-sheaf map. These relative integral-factorization comparisons and regressions are authored deductions; they do not establish absolute normalization, projectivity or coherent cohomology."
+        }
+      ],
+      "acceptance": [
+        "Use the actual ν and preimage section rings. Preserve the flatness and integrality hypotheses. The affine inclusion is not surjective, including the cusp and characteristic-two cases. All absolute normalization, Proj/P¹ and cohomology obligations remain separate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.relativeNormalizationDesc",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Provide the specified injective structure-sheaf map and its existing relative integral factorization. This is an intermediate step; generic-point normalization, P¹ and coherent cohomology remain required."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.Global.toRelativeNormalization_desc",
+          "role": "universal-property",
+          "statement": "For every specified integral factorization ν=f followed by g, i followed by d equals f."
+        },
+        {
+          "name": "QuadraticPinch.Global.relativeNormalizationDesc_from",
+          "role": "universal-property",
+          "statement": "For every specified integral factorization ν=f followed by g, d followed by g equals r."
+        },
+        {
+          "name": "QuadraticPinch.Global.relativeNormalizationDesc_eq",
+          "role": "universal-property",
+          "statement": "For every integral factorization ν=f followed by g, d equals the inverse of e followed by f."
+        },
+        {
+          "name": "QuadraticPinch.Global.relativeNormalizationDesc_unique",
+          "role": "universal-property",
+          "statement": "For every specified integral factorization ν=f followed by g, any j:Rν→T with i followed by j equal to f equals d. Here the source triangle alone suffices because this particular i is an isomorphism."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.Global.test_desc_source",
+          "kind": "characterisation",
+          "statement": "In every specified integral factorization, the actual descent agrees with f after precomposition by i."
+        },
+        {
+          "name": "QuadraticPinch.Global.test_desc_target",
+          "kind": "compatibility",
+          "statement": "In every specified integral factorization, the actual descent is a morphism over C."
+        },
+        {
+          "name": "QuadraticPinch.Global.test_desc_unique",
+          "kind": "characterisation",
+          "statement": "Any map from Rν to T with the same source triangle equals the specified descent; the comparison is invertible for this particular ν."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/to-relative-normalization-desc",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Descent agrees on the source",
+      "kind": "lemma",
+      "statement": "For every specified integral factorization ν=f followed by g, i followed by d equals f.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k. C,N and ν are the previously specified quadratic pinched scheme, glued source and finite morphism. No perfectness, separability, characteristic or discriminant restriction is added. Affine-open, flatness and integral-factorization hypotheses are retained exactly where stated."
+      ],
+      "proofSteps": [
+        "Use the native source triangle for normalizationDesc."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-desc",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/to-relative-normalization",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.toNormalization_normalizationDesc"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-relative-normalization",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored specialization of existing relative normalization and dominance APIs",
+          "match": "Motivates the actual pinched chart and structure-sheaf map. These relative integral-factorization comparisons and regressions are authored deductions; they do not establish absolute normalization, projectivity or coherent cohomology."
+        }
+      ],
+      "acceptance": [
+        "Use the actual ν and preimage section rings. Preserve the flatness and integrality hypotheses. The affine inclusion is not surjective, including the cusp and characteristic-two cases. All absolute normalization, Proj/P¹ and cohomology obligations remain separate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.toRelativeNormalization_desc"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-desc-from",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Descent agrees over the target",
+      "kind": "lemma",
+      "statement": "For every specified integral factorization ν=f followed by g, d followed by g equals r.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k. C,N and ν are the previously specified quadratic pinched scheme, glued source and finite morphism. No perfectness, separability, characteristic or discriminant restriction is added. Affine-open, flatness and integral-factorization hypotheses are retained exactly where stated."
+      ],
+      "proofSteps": [
+        "Use the native target triangle for normalizationDesc."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-desc",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/from-relative-normalization",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.normalizationDesc_comp"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-relative-normalization",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored specialization of existing relative normalization and dominance APIs",
+          "match": "Motivates the actual pinched chart and structure-sheaf map. These relative integral-factorization comparisons and regressions are authored deductions; they do not establish absolute normalization, projectivity or coherent cohomology."
+        }
+      ],
+      "acceptance": [
+        "Use the actual ν and preimage section rings. Preserve the flatness and integrality hypotheses. The affine inclusion is not surjective, including the cusp and characteristic-two cases. All absolute normalization, Proj/P¹ and cohomology obligations remain separate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.relativeNormalizationDesc_from"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-desc-eq",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Descent via the specified inverse",
+      "kind": "lemma",
+      "statement": "For every integral factorization ν=f followed by g, d equals the inverse of e followed by f.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k. C,N and ν are the previously specified quadratic pinched scheme, glued source and finite morphism. No perfectness, separability, characteristic or discriminant restriction is added. Affine-open, flatness and integral-factorization hypotheses are retained exactly where stated."
+      ],
+      "proofSteps": [
+        "Cancel the epimorphic forward isomorphism i and apply its inverse law and the source triangle."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-desc",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-iso-hom",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/to-relative-normalization-desc"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-relative-normalization",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored specialization of existing relative normalization and dominance APIs",
+          "match": "Motivates the actual pinched chart and structure-sheaf map. These relative integral-factorization comparisons and regressions are authored deductions; they do not establish absolute normalization, projectivity or coherent cohomology."
+        }
+      ],
+      "acceptance": [
+        "Use the actual ν and preimage section rings. Preserve the flatness and integrality hypotheses. The affine inclusion is not surjective, including the cusp and characteristic-two cases. All absolute normalization, Proj/P¹ and cohomology obligations remain separate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.relativeNormalizationDesc_eq"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-desc-unique",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Uniqueness for the specified integral descent",
+      "kind": "lemma",
+      "statement": "For every specified integral factorization ν=f followed by g, any j:Rν→T with i followed by j equal to f equals d. Here the source triangle alone suffices because this particular i is an isomorphism.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k. C,N and ν are the previously specified quadratic pinched scheme, glued source and finite morphism. No perfectness, separability, characteristic or discriminant restriction is added. Affine-open, flatness and integral-factorization hypotheses are retained exactly where stated."
+      ],
+      "proofSteps": [
+        "Cancel the epimorphic forward comparison. Do not attribute this one-triangle strengthening to arbitrary qcqs maps."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-desc",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-iso-hom",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/to-relative-normalization-desc"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-relative-normalization",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored specialization of existing relative normalization and dominance APIs",
+          "match": "Motivates the actual pinched chart and structure-sheaf map. These relative integral-factorization comparisons and regressions are authored deductions; they do not establish absolute normalization, projectivity or coherent cohomology."
+        }
+      ],
+      "acceptance": [
+        "Use the actual ν and preimage section rings. Preserve the flatness and integrality hypotheses. The affine inclusion is not surjective, including the cusp and characteristic-two cases. All absolute normalization, Proj/P¹ and cohomology obligations remain separate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.relativeNormalizationDesc_unique"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-sections-hom-inv",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Inverse law on relative sections",
+      "kind": "lemma",
+      "statement": "For every affine open U⊆C, the specified affine section comparison followed by its inverse is the identity of Γ(Rν,r⁻¹U).",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k. C,N and ν are the previously specified quadratic pinched scheme, glued source and finite morphism. No perfectness, separability, characteristic or discriminant restriction is added. Affine-open, flatness and integral-factorization hypotheses are retained exactly where stated."
+      ],
+      "proofSteps": [
+        "Use the native categorical isomorphism inverse law on the actual section comparison."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-sections-iso"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-relative-normalization",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored specialization of existing relative normalization and dominance APIs",
+          "match": "Motivates the actual pinched chart and structure-sheaf map. These relative integral-factorization comparisons and regressions are authored deductions; they do not establish absolute normalization, projectivity or coherent cohomology."
+        }
+      ],
+      "acceptance": [
+        "Use the actual ν and preimage section rings. Preserve the flatness and integrality hypotheses. The affine inclusion is not surjective, including the cusp and characteristic-two cases. All absolute normalization, Proj/P¹ and cohomology obligations remain separate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.relativeNormalizationSectionsIso_hom_inv"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-sections-inv-hom",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Inverse law on the actual integral closure",
+      "kind": "lemma",
+      "statement": "For every affine open U⊆C, the inverse section comparison followed by the comparison is the identity of the specified integral closure inside Γ(N,ν⁻¹U).",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k. C,N and ν are the previously specified quadratic pinched scheme, glued source and finite morphism. No perfectness, separability, characteristic or discriminant restriction is added. Affine-open, flatness and integral-factorization hypotheses are retained exactly where stated."
+      ],
+      "proofSteps": [
+        "Use the other native categorical isomorphism inverse law, retaining the induced scalar algebra."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-sections-iso"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-relative-normalization",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored specialization of existing relative normalization and dominance APIs",
+          "match": "Motivates the actual pinched chart and structure-sheaf map. These relative integral-factorization comparisons and regressions are authored deductions; they do not establish absolute normalization, projectivity or coherent cohomology."
+        }
+      ],
+      "acceptance": [
+        "Use the actual ν and preimage section rings. Preserve the flatness and integrality hypotheses. The affine inclusion is not surjective, including the cusp and characteristic-two cases. All absolute normalization, Proj/P¹ and cohomology obligations remain separate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.relativeNormalizationSectionsIso_inv_hom"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-inclusion-not-surjective",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Affine inclusion is not surjective",
+      "kind": "lemma",
+      "statement": "For every field k and a,b∈k, the actual inclusion A_q=k+qk[t]→k[t], q=t²+at+b, is not surjective. In particular the relative comparison N≅Rν cannot be used to identify the pinched affine chart with its source.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k. C,N and ν are the previously specified quadratic pinched scheme, glued source and finite morphism. No perfectness, separability, characteristic or discriminant restriction is added. Affine-open, flatness and integral-factorization hypotheses are retained exactly where stated."
+      ],
+      "proofSteps": [
+        "If t were in A_q, its class in the existing cokernel would vanish. The previous nonzero-generator theorem for a monic degree-two q contradicts this. This is a ring-map counterexample, not a newly established global scheme isomorphism criterion."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-generator-nonzero",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-quadratic-degree",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-image-span"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-relative-normalization",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored specialization of existing relative normalization and dominance APIs",
+          "match": "Motivates the actual pinched chart and structure-sheaf map. These relative integral-factorization comparisons and regressions are authored deductions; they do not establish absolute normalization, projectivity or coherent cohomology."
+        }
+      ],
+      "acceptance": [
+        "Use the actual ν and preimage section rings. Preserve the flatness and integrality hypotheses. The affine inclusion is not surjective, including the cusp and characteristic-two cases. All absolute normalization, Proj/P¹ and cohomology obligations remain separate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.quadratic_normalization_inclusion_not_surjective",
+      "tests": [
+        {
+          "name": "QuadraticPinch.test_inclusion_cusp",
+          "kind": "non-example",
+          "statement": "The actual inclusion A_q→k[t] is not surjective for q=t² over an arbitrary field (the cusp)."
+        },
+        {
+          "name": "QuadraticPinch.test_inclusion_char2",
+          "kind": "non-example",
+          "statement": "The actual inclusion A_q→k[t] is not surjective for q=t²+t+1 over F₂; the nonsplit quadratic case also retains the missing generator t."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-sections-cancel",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Cancellation through the affine section comparison",
+      "kind": "lemma",
+      "statement": "For any affine U⊆C and endomorphisms f,g of Γ(Rν,r⁻¹U), postcomposition with the specified section-comparison map gives equal maps if and only if f=g.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k. C,N and ν are the previously specified quadratic pinched scheme, glued source and finite morphism. No perfectness, separability, characteristic or discriminant restriction is added. Affine-open, flatness and integral-factorization hypotheses are retained exactly where stated."
+      ],
+      "proofSteps": [
+        "The forward map of the actual section isomorphism is monomorphic. Apply native categorical cancellation."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-sections-iso"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-relative-normalization",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored specialization of existing relative normalization and dominance APIs",
+          "match": "Motivates the actual pinched chart and structure-sheaf map. These relative integral-factorization comparisons and regressions are authored deductions; they do not establish absolute normalization, projectivity or coherent cohomology."
+        }
+      ],
+      "acceptance": [
+        "Use the actual ν and preimage section rings. Preserve the flatness and integrality hypotheses. The affine inclusion is not surjective, including the cusp and characteristic-two cases. All absolute normalization, Proj/P¹ and cohomology obligations remain separate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.relativeNormalizationSectionsIso_cancel"
     }
   ],
   "requests": [
@@ -29412,5 +30620,45 @@
     "newNodes": 19,
     "newTests": 12,
     "boundary": "For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain."
+  },
+  "relativeNormalizationContinuation": {
+    "worker": "Codex — codex-5ebb6f",
+    "issue": 3378,
+    "mathBase": "1f2b694ddaf4ef708f6784ca776fac70e92edcc2",
+    "preservedContracts": 440,
+    "wholeNodeObjectsPreserved": 439,
+    "newNodes": 23,
+    "newConstructions": 6,
+    "newLemmas": 17,
+    "newTests": 22,
+    "newApiItems": 19,
+    "newNodeIds": [
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-scheme-dominant",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-kernel",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-sections-injective",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-flat-pullback-dominant",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-flat-pullback-kernel",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/to-relative-normalization",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/from-relative-normalization",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/to-relative-normalization-is-iso",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-iso",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-factorization",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-iso-hom",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-iso-inv-from",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-sections-iso",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-desc",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/to-relative-normalization-desc",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-desc-from",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-desc-eq",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-desc-unique",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-sections-hom-inv",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-sections-inv-hom",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-inclusion-not-surjective",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/relative-normalization-sections-cancel"
+    ],
+    "sourceScope": "Fresh source passages recorded above; generic relative normalization/dominance theories are imported. No absolute normalization or coherent-cohomology closure claim.",
+    "leanStatus": "Not compiled: free -g available13–16GiB during this continuation, below WORKERS20GiB minimum. Inherited native diagnostics are historical authenticated receipts only. The full canonical additionally imports4 unavailable Tau Ceti artifacts in the existing build.",
+    "frontier": "Absolute normalization in the generic-point function field; actual Proj cubic and P¹ comparisons; properness/projectivity; conductor ideal sheaf and exact sequence; finite pushforward H0/H1; independent I₂ geometry; all other inherited gaps and requests."
   }
 }

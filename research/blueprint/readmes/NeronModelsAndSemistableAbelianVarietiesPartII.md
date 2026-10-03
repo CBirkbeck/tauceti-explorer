@@ -1,3 +1,235 @@
+# Specified relative normalization continuation — Codex codex-5ebb6f
+
+This adds23 nodes (6constructions17lemmas),19 API entries and22 exact examples to the440-node incoming plan. Every field and quadratic coefficient pair remains allowed. The already glued finite ν:N→C has an injective map on structure-sheaf sections for every open, and its flat pullbacks have zero kernel ideal sheaf. Mathlib already constructs relative normalization and its integral-factorization universal map; these are imported and specialized to ν. Since ν is integral, its canonical comparison N→Rν is invertible. This is relative normalization of C in N. The comparison alone does not prove the roadmap’s absolute normalization in a generic-point function field.
+
+The affine section comparison uses the actual ν-induced scalar algebra and actual preimage section ring. The universal descent retains its integral target-map hypothesis and both triangles. For this particular invertible comparison, the source triangle determines descent. A separate regression shows that A_q→k[t] is not surjective, even for the cusp and nonsplit F₂ quadratic; this guards against confusing the relative comparison with an isomorphism from the source to the pinched curve.
+
+Schröer’s conductor discussion motivates the chart, while these exact results are authored deductions from the pinned libraries and inherited native construction. Fresh reading covers §3 terminology, both conductor diagrams, Propositions3.1–3.2 with their displayed proofs/count tables and Proposition3.3 statement/table, not the whole source or recursive supplier proofs.
+
+No new Lean run was permitted: available memory13–16GiB was below WORKERS’20GiB requirement. The new native proof text,22 examples and admitted signatures are therefore uncompiled. Historical inherited diagnostics do not certify these additions. The full canonical additionally imports4 Tau Ceti artifacts absent from the existing build. All implementations remain unchecked, all7 stages partial, and all17 gaps,23 requests,78 routes,21 source findings and29 planets are retained. The actual Proj/P¹, absolute normalization, conductor-sheaf exactness and coherent-cohomology comparisons remain required.
+
+## Scheme-theoretical dominance of the glued map
+
+QuadraticPinch.Global.normalization_schemeTheoreticallyDominant — For every field k and a,b∈k, the specified glued finite morphism ν:N→C is scheme-theoretically dominant.
+
+Proof outline: Use the established surjectivity to obtain dominance. The target C is integral, hence reduced. Apply the existing reduced-target dominance criterion.
+
+## Vanishing kernel ideal sheaf
+
+QuadraticPinch.Global.normalization_kernel — The kernel ideal sheaf of the specified morphism ν is zero.
+
+Proof outline: Apply the native kernel characterization of scheme-theoretical dominance.
+
+## Injective structure-sheaf section maps
+
+QuadraticPinch.Global.normalization_sections_injective — For every open U of C, the actual map Γ(C,U)→Γ(N,ν⁻¹U) induced by ν is injective.
+
+Proof outline: Finiteness supplies quasi-compactness. Apply the existing all-open section injectivity theorem, rather than only checking affine rings.
+
+Test QuadraticPinch.Global.test_sections_cusp_injective (compatibility): The map on all-open structure-sheaf sections of the cusp is injective, not just the finite chart ring inclusion.
+
+## Dominance after flat pullback
+
+QuadraticPinch.Global.normalization_flat_pullback_schemeTheoreticallyDominant — For any scheme T and flat morphism g:T→C, the specified pullback projection N×_C T→T is scheme-theoretically dominant.
+
+Proof outline: Use the native flat-pullback instance with the finite, hence quasi-compact, specified ν. Retain the flatness hypothesis.
+
+## Kernel after flat pullback
+
+QuadraticPinch.Global.normalization_flat_pullback_kernel — For any flat g:T→C, the kernel ideal sheaf of N×_C T→T is zero.
+
+Proof outline: Apply the native kernel projection to the previous pullback dominance result.
+
+Test QuadraticPinch.Global.test_flat_pullback_kernel (compatibility): For an arbitrary flat g:T→C, the actual pullback projection has zero kernel ideal sheaf.
+
+## Relative integral factorization of the glued map
+
+QuadraticPinch.Global.relativeNormalization — For the specified finite ν:N→C, define Rν to be Mathlib’s relative normalization of C in N. Its affine sections use the integral closure inside the actual ν-pushforward section rings. This is relative to ν, not the absolute normalization of C in a generic-point function field.
+
+Proof outline: Instantiate existing relative normalization with the specified ν. Import its qcqs construction; do not plan a second normalization theory.
+
+API QuadraticPinch.Global.relativeNormalization_factorization (structure): The specified canonical morphisms satisfy i followed by r equals the previously glued ν.
+
+API QuadraticPinch.Global.toRelativeNormalization_isIso (compatibility): The comparison i:N→Rν is an isomorphism, because the already constructed ν is finite and therefore integral. This does not assert that ν:N→C is an isomorphism.
+
+API QuadraticPinch.Global.relativeNormalizationSectionsIso (compatibility): For each affine open U⊆C, define an isomorphism of commutative-ring objects Γ(Rν,r⁻¹U)≅integralClosure(Γ(C,U),Γ(N,ν⁻¹U)). The coefficient algebra structure is exactly the one induced by ν on U.
+
+Test QuadraticPinch.Global.test_relativeNormalization_cusp (compatibility): For the cusp a=b=0 over an arbitrary field, the specified two canonical maps compose to the original ν.
+
+Test QuadraticPinch.Global.test_relativeNormalization_char2 (compatibility): For a=b=1 over F₂, the specified two canonical maps compose to the original ν, with the same coefficient field and target.
+
+Test QuadraticPinch.Global.test_relativeNormalization_iso (characterisation): For arbitrary a,b, the actual relative normalization is isomorphic to the already glued source through the specified i.
+
+## Canonical map into relative normalization
+
+QuadraticPinch.Global.toRelativeNormalization — Define the specified comparison i:N→Rν by Mathlib’s canonical map to relative normalization of ν.
+
+Proof outline: Use the canonical map of the existing qcqs factorization of ν.
+
+API QuadraticPinch.Global.toRelativeNormalization_isIso (compatibility): The comparison i:N→Rν is an isomorphism, because the already constructed ν is finite and therefore integral. This does not assert that ν:N→C is an isomorphism.
+
+API QuadraticPinch.Global.relativeNormalization_factorization (structure): The specified canonical morphisms satisfy i followed by r equals the previously glued ν.
+
+API QuadraticPinch.Global.toRelativeNormalization_desc (universal-property): For every specified integral factorization ν=f followed by g, i followed by d equals f.
+
+Test QuadraticPinch.Global.test_toRelativeNormalization_cusp (compatibility): For the cusp a=b=0 over an arbitrary field, the specified two canonical maps compose to the original ν.
+
+Test QuadraticPinch.Global.test_toRelativeNormalization_char2 (compatibility): For a=b=1 over F₂, the specified two canonical maps compose to the original ν, with the same coefficient field and target.
+
+Test QuadraticPinch.Global.test_toRelativeNormalization_descent (characterisation): For any specified integral factorization ν=f followed by g, the actual source triangle commutes.
+
+## Canonical integral map to the curve
+
+QuadraticPinch.Global.fromRelativeNormalization — Define r:Rν→C to be Mathlib’s canonical integral morphism from the relative normalization of ν.
+
+Proof outline: Use the existing integral factorization map with ν and its actual target.
+
+API QuadraticPinch.Global.relativeNormalization_factorization (structure): The specified canonical morphisms satisfy i followed by r equals the previously glued ν.
+
+API QuadraticPinch.Global.relativeNormalizationDesc_from (universal-property): For every specified integral factorization ν=f followed by g, d followed by g equals r.
+
+API QuadraticPinch.Global.relativeNormalizationIso_inv_from (compatibility): The inverse of e followed by ν equals the specified r:Rν→C.
+
+Test QuadraticPinch.Global.test_fromRelativeNormalization_cusp (compatibility): For the cusp a=b=0 over an arbitrary field, the specified two canonical maps compose to the original ν.
+
+Test QuadraticPinch.Global.test_fromRelativeNormalization_char2 (compatibility): For a=b=1 over F₂, the specified two canonical maps compose to the original ν, with the same coefficient field and target.
+
+Test QuadraticPinch.Global.test_fromRelativeNormalization_inverse (characterisation): For arbitrary a,b, the specified inverse comparison followed by ν is exactly the canonical map from Rν to C.
+
+## Invertibility of the relative comparison
+
+QuadraticPinch.Global.toRelativeNormalization_isIso — The comparison i:N→Rν is an isomorphism, because the already constructed ν is finite and therefore integral. This does not assert that ν:N→C is an isomorphism.
+
+Proof outline: Import the existing instance for an integral map’s toNormalization. No normality or projective-line argument is needed for this relative statement.
+
+## Specified relative normalization isomorphism
+
+QuadraticPinch.Global.relativeNormalizationIso — Define e:N≅Rν using the isomorphism instance for the canonical i; its forward map is exactly i.
+
+Proof outline: Use the native categorical asIso of the specified canonical comparison, preserving its forward morphism.
+
+API QuadraticPinch.Global.relativeNormalizationIso_hom (compatibility): The forward map of e:N≅Rν is the specified i:N→Rν.
+
+API QuadraticPinch.Global.relativeNormalizationIso_inv_from (compatibility): The inverse of e followed by ν equals the specified r:Rν→C.
+
+API QuadraticPinch.Global.relativeNormalizationDesc_eq (universal-property): For every integral factorization ν=f followed by g, d equals the inverse of e followed by f.
+
+Test QuadraticPinch.Global.test_iso_forward (compatibility): The specified isomorphism has the actual canonical comparison as its forward map.
+
+Test QuadraticPinch.Global.test_iso_cusp_left (characterisation): For the cusp, the specified isomorphism followed by its inverse is the identity of the glued source.
+
+Test QuadraticPinch.Global.test_iso_char2_right (characterisation): For a=b=1 over F₂, the specified inverse followed by the forward map is the identity of the actual relative normalization.
+
+## Exact relative factorization
+
+QuadraticPinch.Global.relativeNormalization_factorization — The specified canonical morphisms satisfy i followed by r equals the previously glued ν.
+
+Proof outline: Specialize the native factorization equality to ν.
+
+## Forward comparison morphism
+
+QuadraticPinch.Global.relativeNormalizationIso_hom — The forward map of e:N≅Rν is the specified i:N→Rν.
+
+Proof outline: Read the native asIso forward projection.
+
+## Inverse comparison over the curve
+
+QuadraticPinch.Global.relativeNormalizationIso_inv_from — The inverse of e followed by ν equals the specified r:Rν→C.
+
+Proof outline: Rewrite ν as i followed by r and cancel the inverse followed by the forward isomorphism.
+
+## Affine integral-closure section comparison
+
+QuadraticPinch.Global.relativeNormalizationSectionsIso — For each affine open U⊆C, define an isomorphism of commutative-ring objects Γ(Rν,r⁻¹U)≅integralClosure(Γ(C,U),Γ(N,ν⁻¹U)). The coefficient algebra structure is exactly the one induced by ν on U.
+
+Proof outline: Specialize the existing normalizationObjIso using the actual ν-section scalar algebra. Retain the affine-open hypothesis and the actual preimage rings.
+
+API QuadraticPinch.Global.relativeNormalizationSectionsIso_hom_inv (compatibility): For every affine open U⊆C, the specified affine section comparison followed by its inverse is the identity of Γ(Rν,r⁻¹U).
+
+API QuadraticPinch.Global.relativeNormalizationSectionsIso_inv_hom (compatibility): For every affine open U⊆C, the inverse section comparison followed by the comparison is the identity of the specified integral closure inside Γ(N,ν⁻¹U).
+
+API QuadraticPinch.Global.relativeNormalizationSectionsIso_cancel (compatibility): For any affine U⊆C and endomorphisms f,g of Γ(Rν,r⁻¹U), postcomposition with the specified section-comparison map gives equal maps if and only if f=g.
+
+Test QuadraticPinch.Global.test_sections_left (characterisation): For any affine U, the actual comparison followed by its inverse is the identity on Γ(Rν,r⁻¹U).
+
+Test QuadraticPinch.Global.test_sections_cusp_right (characterisation): For any affine open of the cusp, the inverse comparison followed by the comparison is the identity on the specified integral closure.
+
+Test QuadraticPinch.Global.test_sections_char2_right (characterisation): For any affine open when a=b=1 over F₂, the same inverse identity holds in the actual integral-closure ring.
+
+## Descent through an integral factorization
+
+QuadraticPinch.Global.relativeNormalizationDesc — For any scheme T and specified factorization ν=f followed by g with g:T→C integral, define d:Rν→T by Mathlib’s normalizationDesc. The factorization equality is an input; it is not a field storing an absolute normalization theorem.
+
+Proof outline: Instantiate the existing relative integral-factorization descent with the actual maps f,g and their equality to ν.
+
+API QuadraticPinch.Global.toRelativeNormalization_desc (universal-property): For every specified integral factorization ν=f followed by g, i followed by d equals f.
+
+API QuadraticPinch.Global.relativeNormalizationDesc_from (universal-property): For every specified integral factorization ν=f followed by g, d followed by g equals r.
+
+API QuadraticPinch.Global.relativeNormalizationDesc_eq (universal-property): For every integral factorization ν=f followed by g, d equals the inverse of e followed by f.
+
+API QuadraticPinch.Global.relativeNormalizationDesc_unique (universal-property): For every specified integral factorization ν=f followed by g, any j:Rν→T with i followed by j equal to f equals d. Here the source triangle alone suffices because this particular i is an isomorphism.
+
+Test QuadraticPinch.Global.test_desc_source (characterisation): In every specified integral factorization, the actual descent agrees with f after precomposition by i.
+
+Test QuadraticPinch.Global.test_desc_target (compatibility): In every specified integral factorization, the actual descent is a morphism over C.
+
+Test QuadraticPinch.Global.test_desc_unique (characterisation): Any map from Rν to T with the same source triangle equals the specified descent; the comparison is invertible for this particular ν.
+
+## Descent agrees on the source
+
+QuadraticPinch.Global.toRelativeNormalization_desc — For every specified integral factorization ν=f followed by g, i followed by d equals f.
+
+Proof outline: Use the native source triangle for normalizationDesc.
+
+## Descent agrees over the target
+
+QuadraticPinch.Global.relativeNormalizationDesc_from — For every specified integral factorization ν=f followed by g, d followed by g equals r.
+
+Proof outline: Use the native target triangle for normalizationDesc.
+
+## Descent via the specified inverse
+
+QuadraticPinch.Global.relativeNormalizationDesc_eq — For every integral factorization ν=f followed by g, d equals the inverse of e followed by f.
+
+Proof outline: Cancel the epimorphic forward isomorphism i and apply its inverse law and the source triangle.
+
+## Uniqueness for the specified integral descent
+
+QuadraticPinch.Global.relativeNormalizationDesc_unique — For every specified integral factorization ν=f followed by g, any j:Rν→T with i followed by j equal to f equals d. Here the source triangle alone suffices because this particular i is an isomorphism.
+
+Proof outline: Cancel the epimorphic forward comparison. Do not attribute this one-triangle strengthening to arbitrary qcqs maps.
+
+## Inverse law on relative sections
+
+QuadraticPinch.Global.relativeNormalizationSectionsIso_hom_inv — For every affine open U⊆C, the specified affine section comparison followed by its inverse is the identity of Γ(Rν,r⁻¹U).
+
+Proof outline: Use the native categorical isomorphism inverse law on the actual section comparison.
+
+## Inverse law on the actual integral closure
+
+QuadraticPinch.Global.relativeNormalizationSectionsIso_inv_hom — For every affine open U⊆C, the inverse section comparison followed by the comparison is the identity of the specified integral closure inside Γ(N,ν⁻¹U).
+
+Proof outline: Use the other native categorical isomorphism inverse law, retaining the induced scalar algebra.
+
+## Affine inclusion is not surjective
+
+QuadraticPinch.quadratic_normalization_inclusion_not_surjective — For every field k and a,b∈k, the actual inclusion A_q=k+qk[t]→k[t], q=t²+at+b, is not surjective. In particular the relative comparison N≅Rν cannot be used to identify the pinched affine chart with its source.
+
+Proof outline: If t were in A_q, its class in the existing cokernel would vanish. The previous nonzero-generator theorem for a monic degree-two q contradicts this. This is a ring-map counterexample, not a newly established global scheme isomorphism criterion.
+
+Test QuadraticPinch.test_inclusion_cusp (non-example): The actual inclusion A_q→k[t] is not surjective for q=t² over an arbitrary field (the cusp).
+
+Test QuadraticPinch.test_inclusion_char2 (non-example): The actual inclusion A_q→k[t] is not surjective for q=t²+t+1 over F₂; the nonsplit quadratic case also retains the missing generator t.
+
+## Cancellation through the affine section comparison
+
+QuadraticPinch.Global.relativeNormalizationSectionsIso_cancel — For any affine U⊆C and endomorphisms f,g of Γ(Rν,r⁻¹U), postcomposition with the specified section-comparison map gives equal maps if and only if f=g.
+
+Proof outline: The forward map of the actual section isomorphism is monomorphic. Apply native categorical cancellation.
+
+---
+
 # Polynomial multiplication and the coefficient-compatible universal map
 
 For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain.
