@@ -15,7 +15,7 @@
   "FunctionFieldArithmeticPartII:GC.5",
   "FunctionFieldArithmeticPartII:GC.6"
  ],
- "summary": "Partial 218-node positive-divisibility root-chart comparison checkpoint: 24 new declaration-sized leaves construct the native all-positive root algebra colimit, its injective finite insertions and root relations, extensions into the existing factorial colimit independent of the chosen multiple, both universal algebra maps and their actual inverse equivalence with finite-root formulas. All 194 inherited statement contracts, both source-route inventories, 39 planets, eight gaps and thirteen supplier requests remain. Every stage remains partial and every implementation unchecked. Coherent root-groupoid reindexing, grading, Spec limits and the fpqc quotient remain open; the full geometric suggested file remains uncompiled. Coherent ring-valued factorial scalar points now have actual chart-colimit scaling automorphisms and a native universal test family; universal Hopf and geometric quotient boundaries remain. Coherent scalar points and root-colimit scaling now have actual coefficient-ring naturality, including φ-semilinear chart functor laws and inverse scaling. The factorial unity-root algebra now has explicit native bialgebra/Hopf structures, a universal chart coaction, and a natural fixed-universe representation of coherent unit families; geometric identification and quotient obligations remain open. This continuation specifies coefficient naturality of the actual universal factorial coaction, counit and antipode via the existing heterobasic tensor map, including identity/composition and characteristic-two nonreduced tests. The actual factorial unity-root point equivalence is now specified as a multiplicative equivalence for the imported native convolution monoid, with antipode inverses and test-algebra naturality. Every stage remains partial and every implementation unchecked.",
+ "summary": "Partial 325-node root-chart point-action checkpoint: thirteen new declaration-sized nodes specify the actual tensor-lift action on arbitrary test-algebra points, native MulAction laws, test-algebra naturality, recovery of existing scaling and of the universal coaction, two antipode inverse laws and fixed zero-root points. All 312 incoming statement contracts, both route inventories, 39 planets, eight gaps and thirteen requests are retained. The geometric quotient, diagonalizable coordinate identification and whole geometric Lean compilation remain open. Partial 218-node positive-divisibility root-chart comparison checkpoint: 24 new declaration-sized leaves construct the native all-positive root algebra colimit, its injective finite insertions and root relations, extensions into the existing factorial colimit independent of the chosen multiple, both universal algebra maps and their actual inverse equivalence with finite-root formulas. All 194 inherited statement contracts, both source-route inventories, 39 planets, eight gaps and thirteen supplier requests remain. Every stage remains partial and every implementation unchecked. Coherent root-groupoid reindexing, grading, Spec limits and the fpqc quotient remain open; the full geometric suggested file remains uncompiled. Coherent ring-valued factorial scalar points now have actual chart-colimit scaling automorphisms and a native universal test family; universal Hopf and geometric quotient boundaries remain. Coherent scalar points and root-colimit scaling now have actual coefficient-ring naturality, including φ-semilinear chart functor laws and inverse scaling. The factorial unity-root algebra now has explicit native bialgebra/Hopf structures, a universal chart coaction, and a natural fixed-universe representation of coherent unit families; geometric identification and quotient obligations remain open. This continuation specifies coefficient naturality of the actual universal factorial coaction, counit and antipode via the existing heterobasic tensor map, including identity/composition and characteristic-two nonreduced tests. The actual factorial unity-root point equivalence is now specified as a multiplicative equivalence for the imported native convolution monoid, with antipode inverses and test-algebra naturality. Every stage remains partial and every implementation unchecked.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1484,6 +1484,12 @@
     "module": "TauCeti/Algebra/AlgebraicGroup/FunctorOfPoints.lean",
     "provides": "The existing convolution inverse evaluates h as p(S(h)); no commutativity hypothesis on the source Hopf algebra.",
     "checked": "Actual declaration and complete applicable variable lines read at the recorded exact pin, 2026-10-03; general convolution APIs imported rather than replanned."
+   },
+   {
+    "ref": "mathlib:MulAction",
+    "module": "Mathlib/Algebra/Group/Action/Defs.lean",
+    "provides": "The native monoid action carrier with its multiplication and unit laws; reuse this class for the root-specific point action.",
+    "checked": "Actual declaration and surrounding assumptions personally read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; no generic replacement is planned."
    }
   ]
  },
@@ -1651,6 +1657,16 @@
    "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/codex-5ebb6f-function-next62/research/blueprint/handoff/DESIGN-FunctionFieldArithmeticPartII.md",
    "readSections": [
     "Actual native convolution root products and identity, antipode inverse comparison, multiplicative point equivalence and its test-algebra naturality."
+   ]
+  },
+  {
+   "id": "FactorialPointAction-codex-a71f92",
+   "title": "The actual convolution action on factorial affine root-chart points",
+   "authors": "Codex — codex-a71f92",
+   "edition": "Authored coordinate deductions, 2026-10-03",
+   "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/codex-a71f92-n14-3403-point-action/research/blueprint/handoff/DESIGN-FunctionFieldArithmeticPartII.md",
+   "readSections": [
+    "Native coaction/tensor-lift action, actual monoid laws, inverse cancellation, universal recovery, scaling comparison and naturality; motivated by fresh selected reading of Talpo–Vistoli arXiv:1410.1164v2, complete printed/PDF pp.14–16. This is not a printed quotient theorem or a new whole-paper audit."
    ]
   }
  ],
@@ -7173,7 +7189,14 @@
     "FunctionFieldArithmeticPartII:RS.2/convolution-left-inverse",
     "FunctionFieldArithmeticPartII:RS.2/convolution-evaluation-naturality",
     "tauceti:TauCeti.AlgHom.instGroup",
-    "tauceti:TauCeti.AlgHom.convInv_apply"
+    "tauceti:TauCeti.AlgHom.convInv_apply",
+    "FunctionFieldArithmeticPartII:RS.2/point-mul-action",
+    "FunctionFieldArithmeticPartII:RS.2/point-action-naturality",
+    "FunctionFieldArithmeticPartII:RS.2/point-action-scaling",
+    "FunctionFieldArithmeticPartII:RS.2/point-action-universal",
+    "FunctionFieldArithmeticPartII:RS.2/point-action-left-inverse",
+    "FunctionFieldArithmeticPartII:RS.2/point-action-right-inverse",
+    "FunctionFieldArithmeticPartII:RS.2/point-action-fixed-zero-roots"
    ],
    "proofSteps": [
     "Use the existing actual factorial algebra C_f and its checked finite-coordinate API. The positive-divisibility comparison identifies it with C_div by mutually inverse native algebra maps, carrying every positive root v_n to u_i^(d_i/n) at any factorial multiple. The diagonalizable grading, Spec-limit transport and coherent fpqc torsor/root-groupoid contracts are separate remaining steps; no geometric conclusion follows merely from this algebra comparison.",
@@ -7185,7 +7208,8 @@
     "The actual coherent scalar point/scaling interface now commutes with every coefficient ring homomorphism, including the actual inverse maps. Use the specified φ-semilinear chart map and its root/coefficient functor laws; this is still an algebraic point-natural action, not the universal diagonalizable Hopf coaction or a Spec/fpqc quotient comparison.",
     "The actual factorial Hopf/coaction interface now supplies counitality, coassociativity, antipode identities, represented algebra-valued points and specialization to inherited scaling. Use these checked rank-one algebra maps as input, then separately identify the canonical diagonalizable coordinate Hopf algebra, its point convolution group and the transported positive-index action. The existing Spec-limit, coherent frame torsor and fpqc quotient-groupoid constructions are still required; no geometric conclusion is inferred from these algebra formulas.",
     "Before the separate geometric quotient construction, use the actual coaction, counit and antipode coefficient-naturality identities. They provide compatible ring maps on coefficients and all factorial roots; they do not supply the remaining fpqc frame-torsor or quotient-stack equivalence.",
-    "Use the actual convolution point/coherent-root multiplicative equivalence and its antipode inverse and test-algebra naturality. Import the existing Tau Ceti convolution-group instance, whose inverse is p∘S, rather than constructing another generic point group. The A[Q/Z] coordinate Hopf comparison, universe transports, root-object reindexing, affine Spec limits, fpqc frame torsors and geometric quotient equivalence remain distinct obligations."
+    "Use the actual convolution point/coherent-root multiplicative equivalence and its antipode inverse and test-algebra naturality. Import the existing Tau Ceti convolution-group instance, whose inverse is p∘S, rather than constructing another generic point group. The A[Q/Z] coordinate Hopf comparison, universe transports, root-object reindexing, affine Spec limits, fpqc frame torsors and geometric quotient equivalence remain distinct obligations.",
+    "Use the actual convolution action on chart algebra-valued points, its native action laws, inverse cancellation, naturality and universal tensor recovery. Fixed zero-root points expressly prevent inferring a free action or torsor from these formulas. The A[Q/Z] coordinate comparison, universe/index transports, coherent root-object groupoids, affine Spec limits, fpqc frame torsors and quotient-groupoid equivalence remain independent obligations."
    ],
    "acceptance": [
     "No reducedness, Noetherian or invertibility-of-the-exponent hypothesis is introduced."
@@ -18358,6 +18382,687 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/point-action",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "construction",
+   "title": "The represented action on root-chart points",
+   "declarationName": "TauCeti.RootStack.factorialPointAction",
+   "statement": "For arbitrary f∈A, g∈WithConv(AlgHom_A(H_A,B)) and x∈AlgHom_A(C_A(f),B), define α_f(g,x)=lift(g.ofConv,x)∘ρ_f using the native tensor-algebra lift. This is an actual A-algebra homomorphism C_A(f)→B.",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed.",
+    "C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid.",
+    "This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction",
+    "mathlib:Algebra.TensorProduct.lift"
+   ],
+   "proofSteps": [
+    "Compose the inherited coaction ρ_f with the imported tensor lift of g.ofConv and x. Their images commute because B is commutative; no new generic tensor construction is planned."
+   ],
+   "acceptance": [
+    "For arbitrary f∈A, g∈WithConv(AlgHom_A(H_A,B)) and x∈AlgHom_A(C_A(f),B), define α_f(g,x)=lift(g.ofConv,x)∘ρ_f using the native tensor-algebra lift. This is an actual A-algebra homomorphism C_A(f)→B."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply the actual natural root-chart point action and its universal coaction recovery before the distinct geometric grading, Spec-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialPointAction"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialPointAction-codex-a71f92",
+     "locator": "Authored root-coordinate deduction factorialPointAction; exact native proof and public replay in the handoff",
+     "match": "Authored algebraic deduction from inherited actual carriers and native baseline maps, motivated by Talpo–Vistoli §3.1 pp.14–16; not a printed quotient or torsor theorem."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.RootStack.factorialPointAction.root",
+     "statement": "For every index i, α_f(g,x)(u_i)=g.ofConv(h_i)·x(u_i).",
+     "role": "simp"
+    },
+    {
+     "name": "TauCeti.RootStack.factorialPointAction.one",
+     "statement": "For every chart point x, α_f(1,x)=x; the convolution identity is the counit point, not the identity endomorphism of H_A.",
+     "role": "simp"
+    },
+    {
+     "name": "TauCeti.RootStack.factorialPointAction.mul",
+     "statement": "For every g,h and chart point x, α_f(g*h,x)=α_f(g,α_f(h,x)).",
+     "role": "structure"
+    },
+    {
+     "name": "TauCeti.RootStack.factorialPointAction.naturality",
+     "statement": "For every A-algebra homomorphism k:B→C, k∘α_f(g,x)=α_f(toConv(k∘g.ofConv),k∘x).",
+     "role": "functoriality"
+    },
+    {
+     "name": "TauCeti.RootStack.factorialPointAction.scaling",
+     "statement": "For every coherent A-unit family s and chart point x, α_f(toConv(ι_B∘E_s),x)=x∘factorialScale(f,s), where E_s is the actual inherited evaluation map H_A→A.",
+     "role": "compatibility"
+    },
+    {
+     "name": "TauCeti.RootStack.factorialPointAction.universal",
+     "statement": "Taking B=H_A⊗_A C_A(f), g=toConv(includeLeft) and x=includeRight gives α_f(g,x)=ρ_f as actual algebra homomorphisms; all roots and nilpotents are retained.",
+     "role": "compatibility"
+    }
+   ],
+   "tests": [
+    {
+     "name": "pointActionTests.degree_two",
+     "kind": "value",
+     "statement": "At A=B=ZMod4 and f=0, the order-two root evaluates under the action as the product of the unity-root point value and the chart-point value."
+    },
+    {
+     "name": "pointActionTests.identity",
+     "kind": "degenerate",
+     "statement": "For every f and every B-valued chart point, the convolution identity acts as the identity."
+    },
+    {
+     "name": "pointActionTests.universal",
+     "kind": "compatibility",
+     "statement": "The actual tensor-inclusion universal points recover the whole inherited coaction."
+    },
+    {
+     "name": "pointActionTests.fixed_zero_roots",
+     "kind": "non-example",
+     "statement": "In characteristic two with f=0, any chart point evaluating every root to zero is fixed by every convolution point; this action alone is not a freeness certificate."
+    }
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/point-action-root",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "lemma",
+   "title": "The action on each finite root",
+   "declarationName": "TauCeti.RootStack.factorialPointAction.root",
+   "statement": "For every index i, α_f(g,x)(u_i)=g.ofConv(h_i)·x(u_i).",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed.",
+    "C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid.",
+    "This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/point-action",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-root",
+    "mathlib:Algebra.TensorProduct.lift_tmul"
+   ],
+   "proofSteps": [
+    "Apply the coaction root formula and the imported pure-tensor evaluation formula."
+   ],
+   "acceptance": [
+    "For every index i, α_f(g,x)(u_i)=g.ofConv(h_i)·x(u_i)."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply the actual natural root-chart point action and its universal coaction recovery before the distinct geometric grading, Spec-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialPointAction.root"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialPointAction-codex-a71f92",
+     "locator": "Authored root-coordinate deduction factorialPointAction.root; exact native proof and public replay in the handoff",
+     "match": "Authored algebraic deduction from inherited actual carriers and native baseline maps, motivated by Talpo–Vistoli §3.1 pp.14–16; not a printed quotient or torsor theorem."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/point-action-constant",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "lemma",
+   "title": "The action on coefficients",
+   "declarationName": "TauCeti.RootStack.factorialPointAction.constant",
+   "statement": "For every a∈A, α_f(g,x)(ι_C(a))=ι_B(a).",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed.",
+    "C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid.",
+    "This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/point-action"
+   ],
+   "proofSteps": [
+    "Use the coefficient-preservation field of the actual composite A-algebra homomorphism."
+   ],
+   "acceptance": [
+    "For every a∈A, α_f(g,x)(ι_C(a))=ι_B(a)."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply the actual natural root-chart point action and its universal coaction recovery before the distinct geometric grading, Spec-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialPointAction.constant"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialPointAction-codex-a71f92",
+     "locator": "Authored root-coordinate deduction factorialPointAction.constant; exact native proof and public replay in the handoff",
+     "match": "Authored algebraic deduction from inherited actual carriers and native baseline maps, motivated by Talpo–Vistoli §3.1 pp.14–16; not a printed quotient or torsor theorem."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/point-action-one",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "lemma",
+   "title": "The convolution identity acts identically",
+   "declarationName": "TauCeti.RootStack.factorialPointAction.one",
+   "statement": "For every chart point x, α_f(1,x)=x; the convolution identity is the counit point, not the identity endomorphism of H_A.",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed.",
+    "C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid.",
+    "This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/point-action-root",
+    "FunctionFieldArithmeticPartII:RS.2/convolution-one-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext"
+   ],
+   "proofSteps": [
+    "Compare the maps on all u_i. The inherited convolution identity evaluates each h_i to1, so multiplication leaves x(u_i) fixed."
+   ],
+   "acceptance": [
+    "For every chart point x, α_f(1,x)=x; the convolution identity is the counit point, not the identity endomorphism of H_A."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply the actual natural root-chart point action and its universal coaction recovery before the distinct geometric grading, Spec-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialPointAction.one"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialPointAction-codex-a71f92",
+     "locator": "Authored root-coordinate deduction factorialPointAction.one; exact native proof and public replay in the handoff",
+     "match": "Authored algebraic deduction from inherited actual carriers and native baseline maps, motivated by Talpo–Vistoli §3.1 pp.14–16; not a printed quotient or torsor theorem."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/point-action-mul",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "lemma",
+   "title": "Convolution composition of actions",
+   "declarationName": "TauCeti.RootStack.factorialPointAction.mul",
+   "statement": "For every g,h and chart point x, α_f(g*h,x)=α_f(g,α_f(h,x)).",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed.",
+    "C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid.",
+    "This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/point-action-root",
+    "FunctionFieldArithmeticPartII:RS.2/convolution-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext"
+   ],
+   "proofSteps": [
+    "Compare all distinguished roots by actual colimit extensionality. Convolution evaluates h_i to g(h_i)h(h_i); associativity in B gives the equality."
+   ],
+   "acceptance": [
+    "For every g,h and chart point x, α_f(g*h,x)=α_f(g,α_f(h,x))."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply the actual natural root-chart point action and its universal coaction recovery before the distinct geometric grading, Spec-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialPointAction.mul"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialPointAction-codex-a71f92",
+     "locator": "Authored root-coordinate deduction factorialPointAction.mul; exact native proof and public replay in the handoff",
+     "match": "Authored algebraic deduction from inherited actual carriers and native baseline maps, motivated by Talpo–Vistoli §3.1 pp.14–16; not a printed quotient or torsor theorem."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/point-mul-action",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "construction",
+   "title": "The native root-chart point action",
+   "declarationName": "TauCeti.RootStack.factorialPointMulAction",
+   "statement": "The operation α_f equips AlgHom_A(C_A(f),B) with a native MulAction of the imported convolution monoid WithConv(AlgHom_A(H_A,B)); this is installed locally using the inherited factorial bialgebra.",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed.",
+    "C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid.",
+    "This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/point-action",
+    "FunctionFieldArithmeticPartII:RS.2/point-action-one",
+    "FunctionFieldArithmeticPartII:RS.2/point-action-mul",
+    "mathlib:MulAction"
+   ],
+   "proofSteps": [
+    "Fill the native action fields with α_f, its identity law and its product law. Do not construct a replacement generic monoid or group."
+   ],
+   "acceptance": [
+    "The operation α_f equips AlgHom_A(C_A(f),B) with a native MulAction of the imported convolution monoid WithConv(AlgHom_A(H_A,B)); this is installed locally using the inherited factorial bialgebra."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply the actual natural root-chart point action and its universal coaction recovery before the distinct geometric grading, Spec-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialPointMulAction"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialPointAction-codex-a71f92",
+     "locator": "Authored root-coordinate deduction factorialPointMulAction; exact native proof and public replay in the handoff",
+     "match": "Authored algebraic deduction from inherited actual carriers and native baseline maps, motivated by Talpo–Vistoli §3.1 pp.14–16; not a printed quotient or torsor theorem."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.RootStack.factorialPointMulAction.smul",
+     "statement": "After locally installing factorialPointMulAction f, g•x=α_f(g,x).",
+     "role": "simp"
+    },
+    {
+     "name": "TauCeti.RootStack.factorialPointAction.one",
+     "statement": "For every chart point x, α_f(1,x)=x; the convolution identity is the counit point, not the identity endomorphism of H_A.",
+     "role": "simp"
+    },
+    {
+     "name": "TauCeti.RootStack.factorialPointAction.mul",
+     "statement": "For every g,h and chart point x, α_f(g*h,x)=α_f(g,α_f(h,x)).",
+     "role": "structure"
+    }
+   ],
+   "tests": [
+    {
+     "name": "pointMulActionTests.identity",
+     "kind": "degenerate",
+     "statement": "After local native action installation, the convolution unit fixes every point."
+    },
+    {
+     "name": "pointMulActionTests.composition",
+     "kind": "compatibility",
+     "statement": "After local native action installation, a convolution product acts as the successive two actions."
+    },
+    {
+     "name": "pointMulActionTests.zero_ring",
+     "kind": "value",
+     "statement": "At A=B=ZMod1 and f=0, the locally installed native action includes the zero-ring chart points and satisfies the unit law."
+    }
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/point-mul-action-smul",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "lemma",
+   "title": "Identification of scalar action",
+   "declarationName": "TauCeti.RootStack.factorialPointMulAction.smul",
+   "statement": "After locally installing factorialPointMulAction f, g•x=α_f(g,x).",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed.",
+    "C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid.",
+    "This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/point-mul-action"
+   ],
+   "proofSteps": [
+    "Unfold only the root-specific instance field; the equality is definitional."
+   ],
+   "acceptance": [
+    "After locally installing factorialPointMulAction f, g•x=α_f(g,x)."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply the actual natural root-chart point action and its universal coaction recovery before the distinct geometric grading, Spec-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialPointMulAction.smul"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialPointAction-codex-a71f92",
+     "locator": "Authored root-coordinate deduction factorialPointMulAction.smul; exact native proof and public replay in the handoff",
+     "match": "Authored algebraic deduction from inherited actual carriers and native baseline maps, motivated by Talpo–Vistoli §3.1 pp.14–16; not a printed quotient or torsor theorem."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/point-action-naturality",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "lemma",
+   "title": "Naturality in the test algebra",
+   "declarationName": "TauCeti.RootStack.factorialPointAction.naturality",
+   "statement": "For every A-algebra homomorphism k:B→C, k∘α_f(g,x)=α_f(toConv(k∘g.ofConv),k∘x).",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed.",
+    "C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid.",
+    "This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/point-action-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext"
+   ],
+   "proofSteps": [
+    "Apply root extensionality. The two root values agree because k preserves products."
+   ],
+   "acceptance": [
+    "For every A-algebra homomorphism k:B→C, k∘α_f(g,x)=α_f(toConv(k∘g.ofConv),k∘x)."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply the actual natural root-chart point action and its universal coaction recovery before the distinct geometric grading, Spec-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialPointAction.naturality"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialPointAction-codex-a71f92",
+     "locator": "Authored root-coordinate deduction factorialPointAction.naturality; exact native proof and public replay in the handoff",
+     "match": "Authored algebraic deduction from inherited actual carriers and native baseline maps, motivated by Talpo–Vistoli §3.1 pp.14–16; not a printed quotient or torsor theorem."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/point-action-scaling",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "lemma",
+   "title": "Recovery of the existing coefficient-valued scaling",
+   "declarationName": "TauCeti.RootStack.factorialPointAction.scaling",
+   "statement": "For every coherent A-unit family s and chart point x, α_f(toConv(ι_B∘E_s),x)=x∘factorialScale(f,s), where E_s is the actual inherited evaluation map H_A→A.",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed.",
+    "C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid.",
+    "This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/point-action-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-evaluation-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext"
+   ],
+   "proofSteps": [
+    "Compare all root values. Evaluation gives s_i, while the inherited scaling sends u_i to ι_C(s_i)u_i; x preserves coefficients and products."
+   ],
+   "acceptance": [
+    "For every coherent A-unit family s and chart point x, α_f(toConv(ι_B∘E_s),x)=x∘factorialScale(f,s), where E_s is the actual inherited evaluation map H_A→A."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply the actual natural root-chart point action and its universal coaction recovery before the distinct geometric grading, Spec-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialPointAction.scaling"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialPointAction-codex-a71f92",
+     "locator": "Authored root-coordinate deduction factorialPointAction.scaling; exact native proof and public replay in the handoff",
+     "match": "Authored algebraic deduction from inherited actual carriers and native baseline maps, motivated by Talpo–Vistoli §3.1 pp.14–16; not a printed quotient or torsor theorem."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/point-action-universal",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "lemma",
+   "title": "Universal recovery of the coaction",
+   "declarationName": "TauCeti.RootStack.factorialPointAction.universal",
+   "statement": "Taking B=H_A⊗_A C_A(f), g=toConv(includeLeft) and x=includeRight gives α_f(g,x)=ρ_f as actual algebra homomorphisms; all roots and nilpotents are retained.",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed.",
+    "C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid.",
+    "This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/point-action-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext"
+   ],
+   "proofSteps": [
+    "Compare each root using the native left/right tensor inclusions: (h_i⊗1)(1⊗u_i)=h_i⊗u_i. This recovers the whole coaction, not merely geometric-point values."
+   ],
+   "acceptance": [
+    "Taking B=H_A⊗_A C_A(f), g=toConv(includeLeft) and x=includeRight gives α_f(g,x)=ρ_f as actual algebra homomorphisms; all roots and nilpotents are retained."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply the actual natural root-chart point action and its universal coaction recovery before the distinct geometric grading, Spec-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialPointAction.universal"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialPointAction-codex-a71f92",
+     "locator": "Authored root-coordinate deduction factorialPointAction.universal; exact native proof and public replay in the handoff",
+     "match": "Authored algebraic deduction from inherited actual carriers and native baseline maps, motivated by Talpo–Vistoli §3.1 pp.14–16; not a printed quotient or torsor theorem."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/point-action-left-inverse",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "lemma",
+   "title": "Antipode cancellation on the left",
+   "declarationName": "TauCeti.RootStack.factorialPointAction.left_inverse",
+   "statement": "For every algebra map g:H_A→B and chart point x, α_f(toConv(g∘S),α_f(toConv(g),x))=x.",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed.",
+    "C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid.",
+    "This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/point-action-mul",
+    "FunctionFieldArithmeticPartII:RS.2/point-action-one",
+    "FunctionFieldArithmeticPartII:RS.2/convolution-left-inverse"
+   ],
+   "proofSteps": [
+    "Use the product action law backwards, the inherited left convolution inverse equation, then the identity action law."
+   ],
+   "acceptance": [
+    "For every algebra map g:H_A→B and chart point x, α_f(toConv(g∘S),α_f(toConv(g),x))=x."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply the actual natural root-chart point action and its universal coaction recovery before the distinct geometric grading, Spec-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialPointAction.left_inverse"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialPointAction-codex-a71f92",
+     "locator": "Authored root-coordinate deduction factorialPointAction.left_inverse; exact native proof and public replay in the handoff",
+     "match": "Authored algebraic deduction from inherited actual carriers and native baseline maps, motivated by Talpo–Vistoli §3.1 pp.14–16; not a printed quotient or torsor theorem."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/point-action-right-inverse",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "lemma",
+   "title": "Antipode cancellation on the right",
+   "declarationName": "TauCeti.RootStack.factorialPointAction.right_inverse",
+   "statement": "For every algebra map g:H_A→B and chart point x, α_f(toConv(g),α_f(toConv(g∘S),x))=x.",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed.",
+    "C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid.",
+    "This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/point-action-mul",
+    "FunctionFieldArithmeticPartII:RS.2/point-action-one",
+    "FunctionFieldArithmeticPartII:RS.2/convolution-right-inverse"
+   ],
+   "proofSteps": [
+    "Use the product action law backwards, the inherited right convolution inverse equation, then the identity action law."
+   ],
+   "acceptance": [
+    "For every algebra map g:H_A→B and chart point x, α_f(toConv(g),α_f(toConv(g∘S),x))=x."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply the actual natural root-chart point action and its universal coaction recovery before the distinct geometric grading, Spec-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialPointAction.right_inverse"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialPointAction-codex-a71f92",
+     "locator": "Authored root-coordinate deduction factorialPointAction.right_inverse; exact native proof and public replay in the handoff",
+     "match": "Authored algebraic deduction from inherited actual carriers and native baseline maps, motivated by Talpo–Vistoli §3.1 pp.14–16; not a printed quotient or torsor theorem."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/point-action-fixed-zero-roots",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "lemma",
+   "title": "Zero-root points are fixed",
+   "declarationName": "TauCeti.RootStack.factorialPointAction.fixed_zero_roots",
+   "statement": "If x(u_i)=0 for every i, then α_f(g,x)=x for every convolution point g. Hence no freeness or torsor claim follows from the existence of this action.",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed.",
+    "C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid.",
+    "This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/point-action-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext"
+   ],
+   "proofSteps": [
+    "Every acted root evaluates to g(h_i)·0=0. Root extensionality identifies the actual algebra maps."
+   ],
+   "acceptance": [
+    "If x(u_i)=0 for every i, then α_f(g,x)=x for every convolution point g. Hence no freeness or torsor claim follows from the existence of this action."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply the actual natural root-chart point action and its universal coaction recovery before the distinct geometric grading, Spec-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialPointAction.fixed_zero_roots"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialPointAction-codex-a71f92",
+     "locator": "Authored root-coordinate deduction factorialPointAction.fixed_zero_roots; exact native proof and public replay in the handoff",
+     "match": "Authored algebraic deduction from inherited actual carriers and native baseline maps, motivated by Talpo–Vistoli §3.1 pp.14–16; not a printed quotient or torsor theorem."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
@@ -21490,6 +22195,13 @@
    "unchangedNodeObjects": 291,
    "scope": "Actual native convolution comparison of factorial unity-root algebra points with coherent root families; no stage or implementation closure.",
    "sourceRead": "TV17 v2 complete printed/PDF pp.14–16 freshly read; derived coordinate formulas are authored. Historical incoming source and correction receipts are retained without new whole-source assertions."
+  },
+  {
+   "agent": "Codex — codex-a71f92",
+   "date": "2026-10-03",
+   "base": "0afca1373e81cb7b4345d0e096d419be9a40274d",
+   "strand": "Thirteen actual root-chart point-action declarations; all 312 incoming contracts retained and all ten stages remain partial.",
+   "remaining": "Identify the unity-root Hopf algebra with A[Q/Z], transport indices/universes, construct coherent root-object groupoids and affine Spec limits, then verify fpqc frame torsors and the infinite quotient. Retain both complete source routes and all eight existing gaps/thirteen requests."
   }
  ]
 }
