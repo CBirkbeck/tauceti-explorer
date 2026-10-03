@@ -3462,3 +3462,155 @@ example (p : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) (i : ℕ) :
 
 end FactorialConvolutionPoints
 end TauCeti.RootStack
+
+/-! Native action on factorial affine-chart points, distinct from quotient descent. -/
+namespace TauCeti.RootStack
+section FactorialPointAction
+variable {A B C : Type u} [CommRing A] [CommRing B] [CommRing C]
+variable [Algebra A B] [Algebra A C]
+open WithConv
+open scoped TensorProduct
+local instance : Bialgebra A (FactorialAffineColimit (1 : A)) := factorialBialgebra A
+
+def factorialPointAction (f : A)
+    (g : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B))
+    (x : FactorialAffineColimit f →ₐ[A] B) : FactorialAffineColimit f →ₐ[A] B := by
+  sorry
+
+lemma factorialPointAction.root (f : A)
+    (g : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B))
+    (x : FactorialAffineColimit f →ₐ[A] B) (i : ℕ) :
+    factorialPointAction f g x (factorialAffineInclusion f i (AdjoinRoot.root _)) =
+      g.ofConv (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) *
+        x (factorialAffineInclusion f i (AdjoinRoot.root _)) := by
+  sorry
+
+lemma factorialPointAction.constant (f a : A)
+    (g : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B))
+    (x : FactorialAffineColimit f →ₐ[A] B) :
+    factorialPointAction f g x (algebraMap A _ a) = algebraMap A B a := by
+  sorry
+
+lemma factorialPointAction.one (f : A) (x : FactorialAffineColimit f →ₐ[A] B) :
+    factorialPointAction f 1 x = x := by
+  sorry
+
+lemma factorialPointAction.mul (f : A)
+    (g h : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B))
+    (x : FactorialAffineColimit f →ₐ[A] B) :
+    factorialPointAction f (g*h) x =
+      factorialPointAction f g (factorialPointAction f h x) := by
+  sorry
+
+@[instance_reducible]
+def factorialPointMulAction (f : A) :
+    MulAction (WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B))
+      (FactorialAffineColimit f →ₐ[A] B) := by
+  sorry
+
+lemma factorialPointMulAction.smul (f : A)
+    (g : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B))
+    (x : FactorialAffineColimit f →ₐ[A] B) :
+    let := factorialPointMulAction (B := B) f
+    g • x = factorialPointAction f g x := by
+  sorry
+
+lemma factorialPointAction.naturality (f : A)
+    (g : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B))
+    (x : FactorialAffineColimit f →ₐ[A] B) (k : B →ₐ[A] C) :
+    k.comp (factorialPointAction f g x) =
+      factorialPointAction f (toConv (k.comp g.ofConv)) (k.comp x) := by
+  sorry
+
+lemma factorialPointAction.scaling (f : A) (s : factorialRootScalars A)
+    (x : FactorialAffineColimit f →ₐ[A] B) :
+    factorialPointAction f
+      (toConv ((Algebra.ofId A B).comp (factorialScalarEvaluation (A := A) s))) x =
+        x.comp (factorialScale f s) := by
+  sorry
+
+lemma factorialPointAction.universal (f : A) :
+    factorialPointAction f
+      (toConv (Algebra.TensorProduct.includeLeft :
+        FactorialAffineColimit (1 : A) →ₐ[A]
+          FactorialAffineColimit (1 : A) ⊗[A] FactorialAffineColimit f))
+      (Algebra.TensorProduct.includeRight : FactorialAffineColimit f →ₐ[A]
+        FactorialAffineColimit (1 : A) ⊗[A] FactorialAffineColimit f) =
+          factorialCoaction f := by
+  sorry
+
+lemma factorialPointAction.left_inverse (f : A)
+    (g : FactorialAffineColimit (1 : A) →ₐ[A] B)
+    (x : FactorialAffineColimit f →ₐ[A] B) :
+    factorialPointAction f (toConv (g.comp (factorialAntipode A)))
+      (factorialPointAction f (toConv g) x) = x := by
+  sorry
+
+lemma factorialPointAction.right_inverse (f : A)
+    (g : FactorialAffineColimit (1 : A) →ₐ[A] B)
+    (x : FactorialAffineColimit f →ₐ[A] B) :
+    factorialPointAction f (toConv g)
+      (factorialPointAction f (toConv (g.comp (factorialAntipode A))) x) = x := by
+  sorry
+
+lemma factorialPointAction.fixed_zero_roots (f : A)
+    (g : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B))
+    (x : FactorialAffineColimit f →ₐ[A] B)
+    (hx : ∀ i, x (factorialAffineInclusion f i (AdjoinRoot.root _)) = 0) :
+    factorialPointAction f g x = x := by
+  sorry
+
+-- pointActionTests.degree_two
+example (g : WithConv (FactorialAffineColimit (1 : ZMod 4) →ₐ[ZMod 4] ZMod 4))
+    (x : FactorialAffineColimit (0 : ZMod 4) →ₐ[ZMod 4] ZMod 4) :
+    factorialPointAction (0 : ZMod 4) g x
+      (factorialAffineInclusion (0 : ZMod 4) 1 (AdjoinRoot.root _)) =
+      g.ofConv (factorialAffineInclusion (1 : ZMod 4) 1 (AdjoinRoot.root _)) *
+        x (factorialAffineInclusion (0 : ZMod 4) 1 (AdjoinRoot.root _)) := by
+  sorry
+
+-- pointActionTests.identity
+example (f : A) (x : FactorialAffineColimit f →ₐ[A] B) :
+    factorialPointAction f 1 x = x := by
+  sorry
+
+-- pointActionTests.universal
+example (f : A) :
+    factorialPointAction f
+      (toConv (Algebra.TensorProduct.includeLeft :
+        FactorialAffineColimit (1 : A) →ₐ[A]
+          FactorialAffineColimit (1 : A) ⊗[A] FactorialAffineColimit f))
+      (Algebra.TensorProduct.includeRight : FactorialAffineColimit f →ₐ[A]
+        FactorialAffineColimit (1 : A) ⊗[A] FactorialAffineColimit f) =
+          factorialCoaction f := by
+  sorry
+
+-- pointActionTests.fixed_zero_roots
+example (g : WithConv (FactorialAffineColimit (1 : ZMod 2) →ₐ[ZMod 2] ZMod 2))
+    (x : FactorialAffineColimit (0 : ZMod 2) →ₐ[ZMod 2] ZMod 2)
+    (hx : ∀ i, x (factorialAffineInclusion (0 : ZMod 2) i (AdjoinRoot.root _)) = 0) :
+    factorialPointAction (0 : ZMod 2) g x = x := by
+  sorry
+
+-- pointMulActionTests.identity
+example (f : A) (x : FactorialAffineColimit f →ₐ[A] B) :
+    let := factorialPointMulAction (B := B) f
+    (1 : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) • x = x := by
+  sorry
+
+-- pointMulActionTests.composition
+example (f : A) (g h : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B))
+    (x : FactorialAffineColimit f →ₐ[A] B) :
+    let := factorialPointMulAction (B := B) f
+    (g*h) • x = g • (h • x) := by
+  sorry
+
+-- pointMulActionTests.zero_ring
+example (x : FactorialAffineColimit (0 : ZMod 1) →ₐ[ZMod 1] ZMod 1) :
+    let := factorialPointMulAction (B := ZMod 1) (0 : ZMod 1)
+    (1 : WithConv (FactorialAffineColimit (1 : ZMod 1) →ₐ[ZMod 1] ZMod 1)) • x = x := by
+  sorry
+
+
+end FactorialPointAction
+end TauCeti.RootStack
