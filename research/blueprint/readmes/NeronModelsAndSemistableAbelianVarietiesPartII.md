@@ -1,3 +1,162 @@
+# Full source-conductor ideals and canonical quotient maps
+
+Let f:Y→P be finite and schematically dominant, I its existing conductor ideal datum and J=I.comap f the actual native pullback ideal. On every affine U⊂P, set B=Γ(Y,f⁻¹U). The exact equality J(f⁻¹U)=c(im(f.app U),B) identifies the full ideal, including nilpotents. It holds without a Noetherian, reduced or globally affine hypothesis.
+
+The proof first treats affine schemes. The native ideal datum associated to the ambient conductor K has pushforward containing I. The library's comap/map adjunction bounds J by that datum. Conversely, every element of K comes from a target section whose membership in I gives membership in J. To pass to any affine U, restrict both conductor data along the actual open immersions and compare the actual section rings through topIso. The restricted section map is the conjugate of f.app U, so the conductor transports exactly. This conductor-specific argument imports native generic infrastructure and needs no new generic tensor-quotient theorem.
+
+The existing conductor_affine_quotients statement now has a native proof with its exact original header. The canonical source chart composes subschemeObjIso with quotient transport along equality of the full ideals. The source inclusion becomes b↦[b], and the actual conductor map becomes the quotient map induced by f.app U. The diagonal Z/4→Z/4×Z/4 test retains the nonzero square-zero section(2,2) and its nonzero square-zero chart coordinate; a radical replacement fails it. The empty open and inverse coordinates of every quotient representative are also tested.
+
+All596 incoming mathematical contracts remain. Only the conductor-affine-quotients node receives appended prerequisites and proof detail; the other595 whole node objects remain unchanged. All17 gaps,23 requests,29 planets,78 routes and21 source issues remain. The supplied SF.0/flat-annihilator theorem remains the generic finite-module owner; its conductor and sheaf consumers are still required. The all-open structure-sheaf exact sequence and geometric/categorical pushout do not follow merely from the checked affine maps. Earlier checkpoint boundaries below are retained as historical descriptions; this section states the current source-ideal frontier.
+
+The complete Stacks Lemma53.10.5 proof and Example53.10.6 motivate the conductor ideals. The stated general scheme comparisons are authored deductions from pinned native APIs, rather than an attribution of these broader hypotheses to that proper-curve source. This bounded continuation does not claim a fresh full-paper audit.
+
+The full ideal equality (I_f.comap f)(f⁻¹U)=c(im(f.app U),Γ(Y,f⁻¹U)) is now supplied for every affine U and finite schematically dominant f, using native ideal-sheaf adjunction and open restriction. The exact existing conductor_affine_quotients header has a native proof. The canonical source section chart is B/K for this full conductor K, and both its closed inclusion and the actual conductor map have the specified quotient-map coordinates. The nonreduced diagonal Z/4 example retains a nonzero square-zero coordinate. This resolves the previously recorded source-ideal comparison; no generic tensor-quotient theorem is replanned. The all-open structure-sheaf exact sequence, geometric/categorical pushout, flat-recomputed conductor, P¹/Proj, properness/projectivity, cohomology, I2 and later classification obligations remain required. All seven stages remain partial, all implementation statuses unchecked, and the full Tau-importing canonical file uncompiled.
+
+## The ambient conductor lies in the pulled-back ideal
+
+**TauCeti.GenusOne.FerrandPushout.conductorChart_ambient_le** — For a finite schematically dominant f:Y→P and affine U⊂P, put V=f⁻¹U and K=c(im(f.app U),Γ(Y,V)). Then K is contained in the actual component (I_f.comap f)(V), with its full ideal structure.
+
+Hypotheses: Exactly the finiteness, schematic dominance, affine-open and coordinate-isomorphism hypotheses in the statement; retain zero rings, empty opens and nilpotents.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-chart-ideal-inclusion, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf.
+
+Proof: Every element of K lies in the image of f.app U. Choose a preimage, identify its membership in I_f(U), and apply conductorChart_ideal_le. This uses no radical or reducedness.
+
+## The source conductor on affine schemes
+
+**TauCeti.GenusOne.FerrandPushout.conductorSourceIdeal_affine** — For finite schematically dominant f:Y→P with P and Y affine, the top component of I_f.comap f equals the ambient conductor of f.appTop. The statement keeps the native section rings and actual pullback ideal datum.
+
+Hypotheses: Exactly the finiteness, schematic dominance, affine-open and coordinate-isomorphism hypotheses in the statement; retain zero rings, empty opens and nilpotents.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-ideal-lower-bound, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ofIdealTop, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.le_of_isAffine, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.le_map_iff_comap_le, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ideal_map_of_isAffineHom.
+
+Proof: Let K̃ be the native ideal datum induced by the ambient conductor K. On the affine target, the exact component formula gives I_f≤K̃.map f. The pinned comap/map adjunction gives I_f.comap f≤K̃; compare global components and combine with the opposite inclusion. No tensor-quotient theorem is assumed.
+
+## Conductor ideals under open restriction
+
+**TauCeti.GenusOne.FerrandPushout.conductorIdealSheaf_restrict** — For finite schematically dominant f:Y→P and any open U⊂P, the conductor ideal datum of the actual restricted morphism f|U equals I_f.comap U.ι on the open subscheme U. This holds for nonaffine and empty U.
+
+Hypotheses: Exactly the finiteness, schematic dominance, affine-open and coordinate-isomorphism hypotheses in the statement; retain zero rings, empty opens and nilpotents.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-postcomposition, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ideal_comap_of_isOpenImmersion, mathlib:AlgebraicGeometry.morphismRestrict_app, mathlib:AlgebraicGeometry.IsSchemeTheoreticallyDominant.of_isPullback, mathlib:AlgebraicGeometry.isPullback_morphismRestrict.
+
+Proof: Native flat base change supplies schematic dominance of f|U. Evaluate both ideal data on every affine open V of U; the open-immersion component formula has the identity appIso. The restricted section map differs from f.app(U.ι(V)) only by the native equality-of-opens section isomorphism. Apply the previously proved conductor_postcomposition comparison.
+
+## Pullback conductor data under open restriction
+
+**TauCeti.GenusOne.FerrandPushout.conductorSourceIdeal_restrict** — For finite schematically dominant f and every open U, restrict I_f.comap f along (f⁻¹U).ι. The resulting full ideal datum equals I_(f|U).comap(f|U).
+
+Hypotheses: Exactly the finiteness, schematic dominance, affine-open and coordinate-isomorphism hypotheses in the statement; retain zero rings, empty opens and nilpotents.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-open-restriction, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_comp, mathlib:AlgebraicGeometry.morphismRestrict_ι.
+
+Proof: Substitute conductorIdealSheaf_restrict, combine the two comaps using the native composition law, and apply the commuting square for the actual restricted scheme map.
+
+## Conductor under changes of both ring coordinates
+
+**TauCeti.GenusOne.FerrandPushout.conductor_range_conjugate** — For arbitrary commutative rings, f:A→B, eA:C≃A and eB:D≃B, the ambient conductor of eB⁻¹∘f∘eA is exactly the inverse image under eB of the conductor of im f in B. Zero rings and nilpotents are retained.
+
+Hypotheses: Exactly the finiteness, schematic dominance, affine-open and coordinate-isomorphism hypotheses in the statement; retain zero rings, empty opens and nilpotents.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ring-cartesian.
+
+Proof: Use the native conductor membership condition ∀y,dy∈im(f). In one direction test eB⁻¹(b), choose the preimage under the conjugate map, and apply eB. In the other direction test eB(y), choose a preimage under f and pull it back by eA⁻¹. Both identities follow from multiplicativity and the two inverse laws.
+
+## Exact ideal coordinates on an open subscheme
+
+**TauCeti.GenusOne.FerrandPushout.conductorSourceIdeal_chart_transport** — For finite schematically dominant f and affine U, with V=f⁻¹U and J=I_f.comap f, the top component of J.comap V.ι equals the contraction of J(V) along the actual native topIso hom Γ(V,top)→Γ(Y,V).
+
+Hypotheses: Exactly the finiteness, schematic dominance, affine-open and coordinate-isomorphism hypotheses in the statement; retain zero rings, empty opens and nilpotents.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ideal_comap_of_isOpenImmersion, mathlib:AlgebraicGeometry.Scheme.Opens.topIso, mathlib:AlgebraicGeometry.Scheme.Opens.ι_appIso, mathlib:AlgebraicGeometry.Scheme.Opens.ι_image_top.
+
+Proof: Apply the native open-immersion component formula and its identity appIso. The remaining equality is transport of the actual ideal component along V.ι(top)=V; prove it by equality induction on affine opens. This records the precise section-ring coordinate map.
+
+## The source conductor on every affine chart
+
+**TauCeti.GenusOne.FerrandPushout.conductorSourceIdeal_chart** — For finite schematically dominant f:Y→P and every affine U⊂P, the exact full ideal (I_f.comap f)(f⁻¹U) equals c(im(f.app U),Γ(Y,f⁻¹U)). Neither P nor Y is assumed globally affine, Noetherian or reduced.
+
+Hypotheses: Exactly the finiteness, schematic dominance, affine-open and coordinate-isomorphism hypotheses in the statement; retain zero rings, empty opens and nilpotents.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-ideal-affine, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-ideal-open-restriction, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-ideal-chart-transport, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-range-conjugation, mathlib:Ideal.comap_injective_of_surjective, mathlib:AlgebraicGeometry.Scheme.Hom.resLE_app_top, mathlib:AlgebraicGeometry.Scheme.Hom.resLE_eq_morphismRestrict.
+
+Proof: Apply the affine theorem to f|U; finiteness makes f⁻¹U affine. Rewrite the restricted pullback datum and its top component. The actual restricted appTop equals U.topIso.hom followed by f.app U and (f⁻¹U).topIso.inv. Apply conductor_range_conjugate and cancel contraction along the surjective native topIso hom.
+
+## Membership in the actual pulled-back conductor
+
+**TauCeti.GenusOne.FerrandPushout.conductorSourceIdeal_mem** — For finite schematically dominant f, affine U and b∈Γ(Y,f⁻¹U), b belongs to (I_f.comap f)(f⁻¹U) exactly when b·c lies in the image of f.app U for every c in that same section ring.
+
+Hypotheses: Exactly the finiteness, schematic dominance, affine-open and coordinate-isomorphism hypotheses in the statement; retain zero rings, empty opens and nilpotents.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-ideal-chart.
+
+Proof: Rewrite the exact ideal using conductorSourceIdeal_chart and unfold native conductor membership. The criterion quantifies over the whole section ring.
+
+## The canonical source chart modulo the full conductor
+
+**TauCeti.GenusOne.FerrandPushout.conductorSourceObjIso** — For finite schematically dominant f and affine U, construct the actual CommRingCat isomorphism from sections of (I_f.comap f).subscheme over the inverse image of f⁻¹U to Γ(Y,f⁻¹U)/c(im(f.app U),Γ(Y,f⁻¹U)). Compose the native subschemeObjIso with quotient transport along the proved equality of full ideals.
+
+Hypotheses: Exactly the finiteness, schematic dominance, affine-open and coordinate-isomorphism hypotheses in the statement; retain zero rings, empty opens and nilpotents.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-ideal-chart, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeObjIso, mathlib:Ideal.quotEquivOfEq.
+
+Proof: Use the actual closed-subscheme section isomorphism, then the native quotEquivOfEq for conductorSourceIdeal_chart. All maps are specified; there is no chosen abstract quotient or replacement by reduced support.
+
+## The source inclusion in conductor coordinates
+
+**TauCeti.GenusOne.FerrandPushout.conductorSourceObjIso_inclusion** — For finite schematically dominant f and affine U, the actual source-conductor closed inclusion section map followed by conductorSourceObjIso.hom equals the native quotient map b↦[b] modulo the ambient conductor, as CommRingCat maps.
+
+Hypotheses: Exactly the finiteness, schematic dominance, affine-open and coordinate-isomorphism hypotheses in the statement; retain zero rings, empty opens and nilpotents.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-quotient-chart, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeι_app, mathlib:Ideal.quotEquivOfEq_mk.
+
+Proof: Substitute the pinned subschemeι_app equation, cancel its native chart inverse with the chart hom, and evaluate quotient transport on each representative.
+
+## Source-conductor coordinates of a section
+
+**TauCeti.GenusOne.FerrandPushout.conductorSourceObjIso_mk** — For finite schematically dominant f, affine U and b in the actual source section ring, the coordinate under conductorSourceObjIso of the restriction of b to the source conductor is exactly its quotient class modulo the ambient conductor.
+
+Hypotheses: Exactly the finiteness, schematic dominance, affine-open and coordinate-isomorphism hypotheses in the statement; retain zero rings, empty opens and nilpotents.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-quotient-chart-inclusion.
+
+Proof: Evaluate the equality of actual inclusion/coordinate maps at b.
+
+## Inverse coordinates of a conductor quotient class
+
+**TauCeti.GenusOne.FerrandPushout.conductorSourceObjIso_inv_mk** — For finite schematically dominant f, affine U and a source section b, conductorSourceObjIso.inv sends its ambient-conductor quotient class to the actual restriction of b along the source-conductor inclusion.
+
+Hypotheses: Exactly the finiteness, schematic dominance, affine-open and coordinate-isomorphism hypotheses in the statement; retain zero rings, empty opens and nilpotents.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-quotient-chart-representative.
+
+Proof: Rewrite the quotient representative using conductorSourceObjIso_mk and apply the native chart hom-inverse identity.
+
+## The conductor map with the exact ambient quotient
+
+**TauCeti.GenusOne.FerrandPushout.conductorChartMap_ambient_quotient** — For finite schematically dominant f and affine U, the actual conductorChartMap followed by conductorSourceObjIso.hom equals the target subschemeObjIso.hom followed by the native quotient map Γ(P,U)/I_f(U)→Γ(Y,f⁻¹U)/K induced by f.app U, where K is its full ambient conductor. Equality holds for the actual maps.
+
+Hypotheses: Exactly the finiteness, schematic dominance, affine-open and coordinate-isomorphism hypotheses in the statement; retain zero rings, empty opens and nilpotents.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-chart-map-square, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-quotient-chart-inclusion, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeι_app_surjective, mathlib:Ideal.quotientMap.
+
+Proof: Cancel the surjective target closed-inclusion section map. Apply the existing actual section square, the source inclusion-coordinate formula and the target subschemeι_app formula. Both composites evaluate to [f.app U(a)] on every representative.
+
+## API and typed tests
+
+API:
+
+- **TauCeti.GenusOne.FerrandPushout.conductorSourceObjIso_inclusion**: For finite schematically dominant f and affine U, the actual source-conductor closed inclusion section map followed by conductorSourceObjIso.hom equals the native quotient map b↦[b] modulo the ambient conductor, as CommRingCat maps.
+- **TauCeti.GenusOne.FerrandPushout.conductorSourceObjIso_mk**: For finite schematically dominant f, affine U and b in the actual source section ring, the coordinate under conductorSourceObjIso of the restriction of b to the source conductor is exactly its quotient class modulo the ambient conductor.
+- **TauCeti.GenusOne.FerrandPushout.conductorSourceObjIso_inv_mk**: For finite schematically dominant f, affine U and a source section b, conductorSourceObjIso.inv sends its ambient-conductor quotient class to the actual restriction of b along the source-conductor inclusion.
+- **TauCeti.GenusOne.FerrandPushout.conductorChartMap_ambient_quotient**: For finite schematically dominant f and affine U, the actual conductorChartMap followed by conductorSourceObjIso.hom equals the target subschemeObjIso.hom followed by the native quotient map Γ(P,U)/I_f(U)→Γ(Y,f⁻¹U)/K induced by f.app U, where K is its full ambient conductor. Equality holds for the actual maps.
+
+Tests:
+
+- **ConductorSourceChartChecked.quotient_representative**: For every affine U and every source section b, the inverse canonical B/K chart sends [b] to its actual restriction along the source-conductor closed inclusion.
+- **ConductorSourceChartChecked.empty_open**: On the empty affine target open, every actual source-conductor section has coordinate zero in the quotient of the native zero section ring.
+- **ConductorSourceChartChecked.nonreduced_diagonal**: For the actual finite schematically dominant diagonal Z/4→Z/4×Z/4, its ambient section conductor is zero. The source section corresponding to(2,2) is nonzero with square zero, and its actual source-conductor restriction has nonzero square-zero coordinate under conductorSourceObjIso. Replacing the conductor by its radical fails this test.
+
 # The actual conductor map and its quotient coordinates
 
 For a finite schematically dominant scheme map f:Y→P, let I be the existing full conductor ideal datum and J=I.comap f its actual native pullback. The existing conductorMap keeps exactly its prescribed definition: the native comapIso followed by the second fiber-product projection. The two projection identities prove its commuting square, identify the square as cartesian and prove the induced map finite. The map agrees with the native closed-subscheme lift and is uniquely determined by its composite with the target closed immersion.
