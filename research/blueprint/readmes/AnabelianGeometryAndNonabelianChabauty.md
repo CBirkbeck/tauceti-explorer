@@ -1,3 +1,205 @@
+# Actual invariant orbits and coefficient fibres
+
+This partial NC.3 checkpoint constructs H¹(G,K)/H⁰(G,V) ≃ image(j), then identifies that quotient with the actual neutral coefficient fibre for continuous surjective equivariant f. All 334 incoming whole node objects, source routes, reserved definitions, requests, gaps and planets are preserved. Every implementation stays unchecked.
+
+For the image equivalence, G has an arbitrary topology, U is a topological group with jointly continuous automorphism action, K is the actual kernel with a compatible jointly continuous action, and f is surjective and equivariant. V needs only a topology and automorphism action. Inclusion j is constant on the existing invariant orbits, and the established exact fibre/orbit criterion makes its descended map injective; actual range witnesses make it surjective. The inverse returns an orbit independently of a chosen kernel-class witness. It does not assert a unique kernel class.
+
+For the neutral-fibre equivalence, V additionally is a topological group with jointly continuous action and f is continuous. A neutral image of a representative d has a coboundary witness y. Lift y to x under f, inverse-gauge normalize d by x, and restrict that actual continuous cocycle to K. Its inclusion represents the same ambient class. This proves the exact range equality used in composing the equivalence. No continuous section, quotient-map hypothesis, centrality or topology on H¹ is imposed.
+
+The neutral kernel orbit is sent to the neutral ambient class, although the invariant action need not fix the neutral kernel class. Injectivity of j holds precisely when the invariant action is trivial on every kernel class; triviality of the acting group is sufficient but not necessary. The concrete sign-kernel test retains distinct three-cycle and inverse kernel classes while proving their equality in the actual orbit quotient.
+
+## Reading, ownership and execution
+
+Fresh parsed reading of [Kim’s exact arXiv v1](https://arxiv.org/pdf/math/0409456v1), printed pp.5–9, covers both complete Proposition proofs and the subgroup paragraph. The exact PDF hash is recorded. These quotient equivalences are authored abstract deductions from the continuous gauge conventions and preserved invariant action. They do not prove Kim’s geometric representability theorem or reproduce his distinct central H¹ action. No whole-paper, visual or published-version collation is claimed.
+
+The complete reviewed NC audit, REV-AUDIT-08, seven stages, reserved coefficient-class/all-degree étale K(pi,1) contract, seventeen supplier requests and latest handoff were reread. Pinned native orbit quotients, the equivalence of a bijection, and the equivalence of equal set subtypes are reused. A bounded fresh search in the continuous/group-cohomology directories supports the reviewed nonabelian absence; it is not a whole-library absence certificate. Previously read upstream documents remain hash guarded. All other incoming source routes and contracts are mechanically preserved.
+
+Exact native proof/test sources, matching admitted planning signatures, normalized compiler logs and source-bound receipts are recoverable from the suggested file’s inert archive. The whole native program and entire bounded Mathlib-only projection are elaborated serially. The full canonical Tau Ceti file is UNCOMPILED because no existing exact Tau Ceti build is available; the removed abelian comparisons receive no execution certificate.
+
+## Declarations, API and tests
+
+### Kernel orbits and the inclusion image
+
+Declaration: TauCeti.NonabelianCohomology.H1.kernelOrbitImageEquiv. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-image-equivalence.
+
+For surjective equivariant f:U→V and K=ker(f), construct the equivalence H¹(G,K)/H⁰(G,V) ≃ image(j), where j:H¹(G,K)→H¹(G,U) is the actual inclusion map and the quotient is by the previously constructed invariant action. Its forward map sends the orbit of a to j(a), with its actual range witness.
+
+Hypotheses: G has an arbitrary topology. U is a topological group with a jointly continuous G-action by automorphisms. K is the actual subgroup ker(f), with inherited topology and a supplied jointly continuous compatible G-action. f is equivariant and surjective. The image equivalence and injectivity characterisation need only a topology and automorphism action on V. The neutral-fibre statements additionally require V to be a topological group with jointly continuous G-action and require f to be continuous. No continuous section, quotient-map condition, centrality or topology on H¹ is assumed.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-class-action, AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-ambient-constant, AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-fibre-orbit, AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map, mathlib:Equiv.ofBijective, mathlib:MulAction.orbitRel, mathlib:MulAction.orbitRel_apply.
+
+Proof: Descend j to the existing action-orbit quotient using orbit constancy. Reflect equal quotient values using the exact fibre/orbit criterion; range witnesses give surjectivity. Apply the native equivalence constructor for a bijective function.
+
+API uses:
+
+- TauCeti.NonabelianCohomology.H1.kernelOrbitImageEquiv_mk: The underlying ambient class of the orbit of a under the image equivalence is exactly j(a).
+- TauCeti.NonabelianCohomology.H1.kernelOrbitImageEquiv_symm_mk: The inverse image equivalence sends j(a), equipped with its range witness a, to the invariant orbit of a.
+- TauCeti.NonabelianCohomology.H1.kernelOrbitImageEquiv_symm_projection: For every actual range element z, applying the equivalence after its inverse has underlying ambient value z.
+- TauCeti.NonabelianCohomology.H1.kernelOrbitImageEquiv_choice_independent: If j(a)=j(b), the invariant orbits of a and b are equal. Thus the inverse determines an orbit independently of a chosen range witness, without claiming a=b.
+- TauCeti.NonabelianCohomology.H1.kernelInvariantAction_injective_iff: For surjective f, j is injective exactly when every invariant v∈H⁰(G,V) fixes every class in H¹(G,K). This requires triviality of the action, not triviality of its acting group.
+
+
+Tests:
+
+- kernel_orbit_image_cocycle_projection (compatibility): For an actual continuous K-valued cocycle c, the image equivalence sends the invariant orbit of its gauge class to the gauge class of its actual included cocycle.
+- kernel_orbit_image_inverse_witness (characterisation): The inverse sends the actual inclusion image j(a), with range witness a, to the invariant orbit of a.
+- kernel_orbit_image_quotient_roundtrip (characterisation): For every orbit q, applying the image equivalence and then its inverse returns q, without choosing a fixed cocycle representative.
+- kernel_orbit_sign_distinct_classes_identified (non-example): With discrete trivial C₃-actions and the actual sign kernel of S₃, the three-cycle and inverse cocycles have distinct kernel cohomology classes but equal quotient orbits: the invariant −1 lifts to the transposition (01), which exchanges them. An inverse taking values in unique kernel classes would be wrong.
+
+
+### Orbit image evaluation
+
+Declaration: TauCeti.NonabelianCohomology.H1.kernelOrbitImageEquiv_mk. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-image-value.
+
+The underlying ambient class of the orbit of a under the image equivalence is exactly j(a).
+
+Hypotheses: G has an arbitrary topology. U is a topological group with a jointly continuous G-action by automorphisms. K is the actual subgroup ker(f), with inherited topology and a supplied jointly continuous compatible G-action. f is equivariant and surjective. The image equivalence and injectivity characterisation need only a topology and automorphism action on V. The neutral-fibre statements additionally require V to be a topological group with jointly continuous G-action and require f to be continuous. No continuous section, quotient-map condition, centrality or topology on H¹ is assumed.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-image-equivalence.
+
+Proof: Evaluate the quotient lift and native equivalence forward map.
+
+### Image inverse on a range witness
+
+Declaration: TauCeti.NonabelianCohomology.H1.kernelOrbitImageEquiv_symm_mk. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-image-inverse-witness.
+
+The inverse image equivalence sends j(a), equipped with its range witness a, to the invariant orbit of a.
+
+Hypotheses: G has an arbitrary topology. U is a topological group with a jointly continuous G-action by automorphisms. K is the actual subgroup ker(f), with inherited topology and a supplied jointly continuous compatible G-action. f is equivariant and surjective. The image equivalence and injectivity characterisation need only a topology and automorphism action on V. The neutral-fibre statements additionally require V to be a topological group with jointly continuous G-action and require f to be continuous. No continuous section, quotient-map condition, centrality or topology on H¹ is assumed.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-image-equivalence.
+
+Proof: Apply the equivalence left inverse to the actual orbit of a.
+
+### Projection after the image inverse
+
+Declaration: TauCeti.NonabelianCohomology.H1.kernelOrbitImageEquiv_symm_projection. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-image-inverse-projection.
+
+For every actual range element z, applying the equivalence after its inverse has underlying ambient value z.
+
+Hypotheses: G has an arbitrary topology. U is a topological group with a jointly continuous G-action by automorphisms. K is the actual subgroup ker(f), with inherited topology and a supplied jointly continuous compatible G-action. f is equivariant and surjective. The image equivalence and injectivity characterisation need only a topology and automorphism action on V. The neutral-fibre statements additionally require V to be a topological group with jointly continuous G-action and require f to be continuous. No continuous section, quotient-map condition, centrality or topology on H¹ is assumed.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-image-equivalence.
+
+Proof: Apply the right inverse and project the subtype value.
+
+### Independence of kernel-class witnesses
+
+Declaration: TauCeti.NonabelianCohomology.H1.kernelOrbitImageEquiv_choice_independent. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-image-choice-independence.
+
+If j(a)=j(b), the invariant orbits of a and b are equal. Thus the inverse determines an orbit independently of a chosen range witness, without claiming a=b.
+
+Hypotheses: G has an arbitrary topology. U is a topological group with a jointly continuous G-action by automorphisms. K is the actual subgroup ker(f), with inherited topology and a supplied jointly continuous compatible G-action. f is equivariant and surjective. The image equivalence and injectivity characterisation need only a topology and automorphism action on V. The neutral-fibre statements additionally require V to be a topological group with jointly continuous G-action and require f to be continuous. No continuous section, quotient-map condition, centrality or topology on H¹ is assumed.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-image-equivalence.
+
+Proof: Apply injectivity of the image equivalence to the equality of the two actual subtype values.
+
+### Kernel injectivity and the invariant action
+
+Declaration: TauCeti.NonabelianCohomology.H1.kernelInvariantAction_injective_iff. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-injectivity-characterisation.
+
+For surjective f, j is injective exactly when every invariant v∈H⁰(G,V) fixes every class in H¹(G,K). This requires triviality of the action, not triviality of its acting group.
+
+Hypotheses: G has an arbitrary topology. U is a topological group with a jointly continuous G-action by automorphisms. K is the actual subgroup ker(f), with inherited topology and a supplied jointly continuous compatible G-action. f is equivariant and surjective. The image equivalence and injectivity characterisation need only a topology and automorphism action on V. The neutral-fibre statements additionally require V to be a topological group with jointly continuous G-action and require f to be continuous. No continuous section, quotient-map condition, centrality or topology on H¹ is assumed.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-ambient-constant, AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-fibre-orbit.
+
+Proof: Injectivity and orbit constancy force every action value to equal its input. Conversely, the fibre/orbit criterion supplies an invariant carrying a to b; trivial action then gives a=b.
+
+### Kernel image equals the neutral coefficient fibre
+
+Declaration: TauCeti.NonabelianCohomology.H1.kernelInclusion_range_iff. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-inclusion-neutral-range.
+
+For continuous surjective equivariant f between topological groups with jointly continuous actions, a∈H¹(G,U) belongs to image(j) exactly when f₁(a)=1 in H¹(G,V), where f₁ is the actual continuous coefficient map.
+
+Hypotheses: G has an arbitrary topology. U is a topological group with a jointly continuous G-action by automorphisms. K is the actual subgroup ker(f), with inherited topology and a supplied jointly continuous compatible G-action. f is equivariant and surjective. The image equivalence and injectivity characterisation need only a topology and automorphism action on V. The neutral-fibre statements additionally require V to be a topological group with jointly continuous G-action and require f to be continuous. No continuous section, quotient-map condition, centrality or topology on H¹ is assumed.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map, AnabelianGeometryAndNonabelianChabauty:NC.3/mapped-inverse-gauge-normalization, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-neutral-criterion, AnabelianGeometryAndNonabelianChabauty:NC.3/h1-gauge-class.
+
+Proof: Kernel-valued representatives map to the constant identity cocycle. Conversely represent a, extract its image coboundary witness y, choose x with f(x)=y, and apply the already proved inverse-gauge normalization. Restrict the normalized continuous cocycle to K, reflecting the cocycle identity through its compatible inclusion; its included class equals a by gauge equivalence.
+
+### Kernel orbits and the neutral fibre
+
+Declaration: TauCeti.NonabelianCohomology.H1.kernelOrbitNeutralFibreEquiv. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-neutral-fibre-equivalence.
+
+For continuous surjective equivariant f, construct H¹(G,K)/H⁰(G,V) ≃ {a∈H¹(G,U) : f₁(a)=1}. Compose the actual orbit/image equivalence with the equality of the inclusion image and the neutral fibre. The source base point is the orbit of the neutral kernel class; no action-fixedness of that class is assumed.
+
+Hypotheses: G has an arbitrary topology. U is a topological group with a jointly continuous G-action by automorphisms. K is the actual subgroup ker(f), with inherited topology and a supplied jointly continuous compatible G-action. f is equivariant and surjective. The image equivalence and injectivity characterisation need only a topology and automorphism action on V. The neutral-fibre statements additionally require V to be a topological group with jointly continuous G-action and require f to be continuous. No continuous section, quotient-map condition, centrality or topology on H¹ is assumed.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-image-equivalence, AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-inclusion-neutral-range, mathlib:Set.equivOfEq.
+
+Proof: Identify the two subsets using the exact kernel-range criterion and compose with the native equivalence of equal set subtypes.
+
+API uses:
+
+- TauCeti.NonabelianCohomology.H1.kernelOrbitNeutralFibreEquiv_mk: The underlying ambient value of the neutral-fibre equivalence on the orbit of a is j(a).
+- TauCeti.NonabelianCohomology.H1.kernelOrbitNeutralFibreEquiv_symm_mk: The inverse neutral-fibre equivalence sends j(a), with its proved neutral-fibre membership, to the invariant orbit of a.
+- TauCeti.NonabelianCohomology.H1.kernelOrbitNeutralFibreEquiv_one: The equivalence sends the orbit of the neutral kernel class to the neutral ambient class. This is a statement about the quotient base point, not a claim that each invariant fixes the neutral kernel class.
+- TauCeti.NonabelianCohomology.H1.kernelOrbitNeutralFibreEquiv_inverse: For every actual neutral-fibre element a, mapping its inverse orbit forward returns the identical subtype element a, including the actual cohomology value.
+
+
+Tests:
+
+- kernel_orbit_neutral_identity (degenerate): The orbit of the neutral kernel class maps to the neutral ambient class.
+- kernel_orbit_neutral_image_witness (compatibility): The inverse at j(a), with its actual neutral-fibre membership proof, returns the invariant orbit of a.
+- kernel_orbit_neutral_full_inverse (characterisation): For every element of the actual neutral coefficient fibre, applying the inverse equivalence and then the forward equivalence returns the same fibre element.
+
+
+### Neutral-fibre orbit evaluation
+
+Declaration: TauCeti.NonabelianCohomology.H1.kernelOrbitNeutralFibreEquiv_mk. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-neutral-value.
+
+The underlying ambient value of the neutral-fibre equivalence on the orbit of a is j(a).
+
+Hypotheses: G has an arbitrary topology. U is a topological group with a jointly continuous G-action by automorphisms. K is the actual subgroup ker(f), with inherited topology and a supplied jointly continuous compatible G-action. f is equivariant and surjective. The image equivalence and injectivity characterisation need only a topology and automorphism action on V. The neutral-fibre statements additionally require V to be a topological group with jointly continuous G-action and require f to be continuous. No continuous section, quotient-map condition, centrality or topology on H¹ is assumed.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-neutral-fibre-equivalence.
+
+Proof: Evaluate the composite; the native equal-set subtype equivalence preserves the underlying element.
+
+### Neutral-fibre inverse on a kernel image
+
+Declaration: TauCeti.NonabelianCohomology.H1.kernelOrbitNeutralFibreEquiv_symm_mk. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-neutral-inverse-witness.
+
+The inverse neutral-fibre equivalence sends j(a), with its proved neutral-fibre membership, to the invariant orbit of a.
+
+Hypotheses: G has an arbitrary topology. U is a topological group with a jointly continuous G-action by automorphisms. K is the actual subgroup ker(f), with inherited topology and a supplied jointly continuous compatible G-action. f is equivariant and surjective. The image equivalence and injectivity characterisation need only a topology and automorphism action on V. The neutral-fibre statements additionally require V to be a topological group with jointly continuous G-action and require f to be continuous. No continuous section, quotient-map condition, centrality or topology on H¹ is assumed.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-neutral-fibre-equivalence, AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-inclusion-neutral-range.
+
+Proof: Apply the composite equivalence left inverse to the actual orbit.
+
+### Neutral-fibre base point
+
+Declaration: TauCeti.NonabelianCohomology.H1.kernelOrbitNeutralFibreEquiv_one. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-neutral-basepoint.
+
+The equivalence sends the orbit of the neutral kernel class to the neutral ambient class. This is a statement about the quotient base point, not a claim that each invariant fixes the neutral kernel class.
+
+Hypotheses: G has an arbitrary topology. U is a topological group with a jointly continuous G-action by automorphisms. K is the actual subgroup ker(f), with inherited topology and a supplied jointly continuous compatible G-action. f is equivariant and surjective. The image equivalence and injectivity characterisation need only a topology and automorphism action on V. The neutral-fibre statements additionally require V to be a topological group with jointly continuous G-action and require f to be continuous. No continuous section, quotient-map condition, centrality or topology on H¹ is assumed.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-neutral-fibre-equivalence, AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-one.
+
+Proof: The forward map is inclusion, and the actual coefficient inclusion preserves the neutral class.
+
+### Complete neutral-fibre inverse law
+
+Declaration: TauCeti.NonabelianCohomology.H1.kernelOrbitNeutralFibreEquiv_inverse. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-neutral-inverse.
+
+For every actual neutral-fibre element a, mapping its inverse orbit forward returns the identical subtype element a, including the actual cohomology value.
+
+Hypotheses: G has an arbitrary topology. U is a topological group with a jointly continuous G-action by automorphisms. K is the actual subgroup ker(f), with inherited topology and a supplied jointly continuous compatible G-action. f is equivariant and surjective. The image equivalence and injectivity characterisation need only a topology and automorphism action on V. The neutral-fibre statements additionally require V to be a topological group with jointly continuous G-action and require f to be continuous. No continuous section, quotient-map condition, centrality or topology on H¹ is assumed.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-neutral-fibre-equivalence.
+
+Proof: Apply the equivalence right inverse, with proof irrelevance for fibre membership.
+
+## Remaining work
+
+The actual quotient H¹(G,K)/H⁰(G,V) is now equivalent to the inclusion image; for continuous surjective equivariant f between topological groups with jointly continuous actions it is equivalent to the actual neutral coefficient fibre. Both inverse laws, range-witness independence and injectivity iff trivial invariant action are specified. The inverse selects an orbit, not a unique kernel class. Specialize and transport the action and quotient equivalences to the native inner-twisted, named and abstract embedded kernels, then to the original fibre over [f∘c]; construct their inclusion squares, representative compatibility and stabilizer descriptions. Arbitrary stable/non-normal subgroup adapters, central H²/cochain independence, genuine additive comparison, unipotent point topologies, geometric torsors, representability/local conditions and every reserved K(pi,1), Chen, BDMTV and RT-A2/A6 source/supplier obligation remain required.
+
+---
+
 # Quotient invariants acting on actual kernel cohomology
 
 This partial NC.3 continuation constructs a set action that classifies equal ambient images of kernel H¹ classes. It uses the existing continuous cocycles and native gauge-orbit sets. All incoming whole node objects, planets, source routes, requests, gaps and reserved contracts are preserved. No stage or implementation is complete.
