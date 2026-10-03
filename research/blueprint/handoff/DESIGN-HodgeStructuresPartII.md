@@ -326,6 +326,40 @@ def install():
     sys.meta_path.insert(0, Finder())
 ```
 
+## Immutable publication receipt and recovery
+
+Checked evidence archive [`e7a6241667642e8b3d923088d5251cf3930bc336`](https://github.com/CBirkbeck/tauceti-explorer/blob/e7a6241667642e8b3d923088d5251cf3930bc336/research/blueprint/suggested/HodgeStructuresPartII.lean) is an ancestor of this submission and changes only this issue's five deliverables. The suggested file contains three inert archive blocks: checked Native, exact admitted Canonical and the new proof fragment. The archive [handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/e7a6241667642e8b3d923088d5251cf3930bc336/research/blueprint/handoff/DESIGN-HodgeStructuresPartII.md) stores the two hash-identified replay scripts. The final suggested file removes the inert archives and is exactly the checked full canonical sketch.
+
+The immutable indexed checker and actual five-file intake pass with zero errors/warnings/problems/refusals. The actual stage DAG has3022vertices/8663edges; the owned declaration DAG187/358; the combined scoped DAG3204/9252. All are acyclic. The walk reaches188declarations, including the existing external Coleman Jacobi node and its parent stage;168baseline leaves and all21required stage paths. There are no unresolved references, own skipped/pending links or accepted restructuring routes. Stage edges and unrelated skips/pending records match the same-tree incoming control. All20governing guard inputs and all five incoming deliverables are byte-identical between mathematical and publication bases. The read-only replay inspects845immutable paths; sorted JSON path-list SHA256 `058eeeb5e5c0bdfc5035fb51bc7ec615b0620060b78255e78566ae7f62f43681`. These counts apply to the fixed publication tree, not later main states.
+
+The final overlay was checked again after removing inert archives. Public raw recovery of all three source artifacts and both replay scripts was tested after push, with exact local/public byte parity. Recovery alone is not a new Lean certification. The original successful execution logs are not distributed; the no-log public replay reports source/hash/header validation only.
+
+Save the following fence as recover-current.py outside the checkout and run `python3 recover-current.py <final-submitted-commit> <scratch-directory>`, then the validator command above. The program fetches the public immutable archive, verifies three source and two script hashes, downloads all five final overlays and checks the final suggested file against the exact admitted archive. No second clone or repository snapshot is needed. Delete reproduction scratch when done.
+
+```python
+from pathlib import Path
+from urllib.request import urlopen
+import hashlib,sys
+ARCHIVE='e7a6241667642e8b3d923088d5251cf3930bc336'
+RID='HodgeStructuresPartII'
+REF=sys.argv[1];OUT=Path(sys.argv[2]);OUT.mkdir(parents=True,exist_ok=True)
+def read(ref,path):return urlopen('https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'+ref+'/'+path,timeout=60).read().decode()
+def save(name,text,expected):
+ assert hashlib.sha256(text.encode()).hexdigest()==expected,name
+ (OUT/name).write_text(text)
+blob=read(ARCHIVE,'research/blueprint/suggested/'+RID+'.lean')
+for name,marker,sha in [('Native.lean', 'CHECKED ARBITRARY TENSOR CURVATURE', '98c2505a8a5902de25fe813572c4a69c880c6177fef7e9c9ca77601e40bdb534'), ('Canonical.lean', 'ADMITTED ARBITRARY TENSOR CURVATURE', '7621dfc3d49c296148599ecb4228a30604c96bb4030164630ac6d5715573a811'), ('New.lean', 'NEW ARBITRARY TENSOR CURVATURE', 'b7ae9f9ee22a960388b38e03c5230f6b836f2bcd63c51e3089ae08ce549422e0')]:
+ save(name,blob.split('BEGIN ARCHIVED '+marker+'\n',1)[1].split('END ARCHIVED '+marker+'\n',1)[0],sha)
+handoff=read(ARCHIVE,'research/blueprint/handoff/DESIGN-'+RID+'.md')
+for name,sha in [('verify.py', 'a9fbcfba951d0811aedd11827eccb16ac1128d297d86482ba9e2672e1397d0ab'), ('immutable_view.py', '23e32db852fb93d28936a66285f9d011c1fc35ec866895dae8bbdef4be2a35b3')]:
+ save(name,handoff.split('### '+name+'\n',1)[1].split('```python\n',1)[1].split('```',1)[0],sha)
+for folder,ext in [('roadmaps','json'),('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]:
+ path='research/blueprint/'+folder+'/'+('DESIGN-' if folder=='handoff' else '')+RID+'.'+ext
+ text=read(REF,path);dest=OUT/'proposal'/path;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_text(text)
+ if folder=='suggested':assert text==(OUT/'Canonical.lean').read_text()
+print('Recovered three hash-verified sources, two hash-verified validators, and five final overlays. Lean was not rerun.')
+```
+
 ---
 
 The complete incoming handoff follows unchanged. Earlier frontier and execution receipts are historical; the current result and remaining work are stated above.

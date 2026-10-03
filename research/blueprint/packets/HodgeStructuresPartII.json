@@ -15663,6 +15663,7 @@
       "immutableReadPaths": 845,
       "immutableReadPathListSha256": "058eeeb5e5c0bdfc5035fb51bc7ec615b0620060b78255e78566ae7f62f43681",
       "verifierSha256": "a9fbcfba951d0811aedd11827eccb16ac1128d297d86482ba9e2672e1397d0ab"
-    }
+    },
+    "proofArchive": "e7a6241667642e8b3d923088d5251cf3930bc336"
   }
 }
