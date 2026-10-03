@@ -1,3 +1,422 @@
+# Common-parameter affine exterior extension and tensor curvature
+
+Checkpoint by Codex — codex-a71f92, 2026-10-03. The packet is partial and every declaration remains unchecked. This is the actual affine component of the existing general Hodge plan, not a replacement of the ringed-site key by an affine surrogate.
+
+## Exact conventions and the correction term
+
+Write W for degree-one forms and Z for degree-two forms. The existing TwoForms input supplies an actual derivation d₀, additive d₁ and alternating bilinear wedge, with d₁(aω)=d₀a∧ω+a d₁ω and d₁d₀=0. These equations are inputs of an exterior calculus: this checkpoint does not construct universal forms. D and C are actual additive preconnections with the same element λ of the coefficient ring. Their underlying section maps are not incorrectly declared R-linear.
+
+The degree-one extension has the generator rule D₁(e⊗ω)=D(e)∧ω+λ(e⊗d₁ω). Both Leibniz equations are necessary to prove balance in the scalar relation ae⊗ω=e⊗aω; the receiving map is then the native balanced additive lift. For an arbitrary tensor x, its scalar correction is D₁(ax)=aD₁(x)+λ(id⊗(d₀a∧−))(x). Even when d₀λ=0, D₁ itself need not be R-linear.
+
+Curvature κ_D=D₁∘D is additive. For a varying parameter its precise scalar defect is κ_D(ae)−aκ_D(e)=λ(e⊗(d₀λ∧d₀a)). Thus the ordinary scalar-linearity conclusion follows under d₀λ=0, but that condition may not be silently erased from the global flat-bundle definition. The raw unit U_λ=λd has curvature λ(1⊗(d₀λ∧d₀a)); it is flat for a relatively constant parameter. This calculation distinguishes a raw preconnection from the reserved general flat connection carrier.
+
+For the actual common-λ tensor T=D⊗_λ C, the exterior extension of the left derivative contributes −tensorWedge(D(e)⊗C(f)); the right derivative contributes the identical tensor with a plus sign. Alternation derives from wedge(ω+α,ω+α)=0 and needs no division by two. Cancellation leaves κ_T(e⊗f)=ρ_Z(κ_D(e)⊗f)+a_Z⁻¹(e⊗κ_C(f)). This identity holds for arbitrary modules over every commutative coefficient ring, even before imposing d₀λ=0. Factor curvature vanishing implies tensor curvature vanishing on every tensor by additive tensor induction. It does not imply a converse.
+
+## Source and ownership boundary
+
+The fresh Esnault–Groechenig reading is exactly the author manuscript §4.2 opening definition, zero/one cases, and Lemma 4.9 statement and full printed proof, printed pages 23–24. Its downloaded SHA-256 is 0bfa00b7dbae7a59c193d3523028df826741f15d3e88cb50526f8656a7fb8e35. The fresh Stacks Tag 07J5 reading covers its displayed connection definition, exterior extension, integrability convention and complete Lemma 60.15.1 proof. The native identities here are authored algebraic deductions, not printed arbitrary-module sheaf tensor claims. The Simpson inputs and published Acta text have not been freshly checked.
+
+All four reviewed Hodge parent audit rows and the complete REV-AUDIT-02 report were read, together with the nearby upstream HodgeStructures and SemisimpleAlgebras documents. The nine own stage descriptions, exact reserved key and CR.1/E1/DD.1 supplier descriptions were read. These upstream theories stay imports. All eight assigned route briefs and their 149 item identifiers remain preserved; no fresh 149-source proof audit is claimed. Historical source receipts and the one existing source issue are retained as predecessor records. The 35 typed omission rows, six planets, eleven gaps and five requests remain intact.
+
+The packet has 23 new declaration-sized nodes, including three constructions: right wedge multiplication, the exterior extension pair, and the coefficient tensor wedge. The first two already had admitted helper signatures in the incoming suggested file; they are now explicitly owned, equipped with APIs and tested. They are not second definitions. The full reserved key still ranges over finite locally free objects on a ringed site with a relatively constant parameter, tensor/dual operations, twists and graded constructions. E1 still supplies actual native sheaf tensor/exterior restriction, equality detection and gluing; tensor products of global sections are not silently identified with sections of a sheaf tensor.
+
+## New declaration catalogue
+
+### Alternating wedge interchange
+
+Declaration: TwoForms.wedge_swap. Node: HodgeStructuresPartII:H.0/wedge-alternating-swap.
+
+For any ω,α∈W, ω∧α+α∧ω=0. This follows from alternation even when 2 is not invertible.
+
+Hypotheses: k and R are commutative rings with a k-algebra structure on R. E,F,W,Z are genuine R-modules with additive commutative groups; W carries its specified k-module structure. The existing TwoForms input has a derivation d₀:R→W, additive d₁:W→Z, alternating R-bilinear wedge W×W→Z, d₁(aω)=d₀a∧ω+a d₁ω, and d₁d₀=0. No universal forms, site or global sections tensor comparison is constructed by this input. D:E→E⊗W and C:F→F⊗W are actual additive maps satisfying the same-λ Leibniz equation. Neither map is assumed R-linear. No basis, finite generation, projectivity, flatness, characteristic, field or smoothness hypothesis is imposed. λ is an arbitrary element of R. The raw tensor-curvature equality does not require d₀λ=0. The global reserved flat-bundle key keeps its relative-constant parameter and finite locally free ringed-site contract unchanged.
+
+Proof: Expand (ω+α)∧(ω+α)=0 by bilinearity and cancel both diagonal terms.
+
+Prerequisites: HodgeStructuresPartII:H.0/intrinsic-preconnection.
+
+Acceptance: Use the actual additive preconnection and native tensor maps; retain the stated wedge order and every scalar correction. The separate admission-free affine certificate does not close the global sheaf key, supplier requests, source routes, or H.1–H.8.
+
+### Right exterior multiplication
+
+Declaration: TwoForms.wedgeRight. Node: HodgeStructuresPartII:H.0/wedge-right.
+
+For ω∈W, wedgeRight(ω):E⊗W→E⊗Z is the R-linear map id_E⊗(α↦α∧ω). The order is α then ω.
+
+Hypotheses: k and R are commutative rings with a k-algebra structure on R. E,F,W,Z are genuine R-modules with additive commutative groups; W carries its specified k-module structure. The existing TwoForms input has a derivation d₀:R→W, additive d₁:W→Z, alternating R-bilinear wedge W×W→Z, d₁(aω)=d₀a∧ω+a d₁ω, and d₁d₀=0. No universal forms, site or global sections tensor comparison is constructed by this input. D:E→E⊗W and C:F→F⊗W are actual additive maps satisfying the same-λ Leibniz equation. Neither map is assumed R-linear. No basis, finite generation, projectivity, flatness, characteristic, field or smoothness hypothesis is imposed. λ is an arbitrary element of R. The raw tensor-curvature equality does not require d₀λ=0. The global reserved flat-bundle key keeps its relative-constant parameter and finite locally free ringed-site contract unchanged.
+
+Proof: Flip the existing bilinear wedge and tensor its fixed-ω linear map with the identity.
+
+Prerequisites: HodgeStructuresPartII:H.0/intrinsic-preconnection, mathlib:TensorProduct.map, mathlib:LinearMap.flip.
+
+Acceptance: Use the actual additive preconnection and native tensor maps; retain the stated wedge order and every scalar correction. The separate admission-free affine certificate does not close the global sheaf key, supplier requests, source routes, or H.1–H.8.
+
+API outline:
+
+- TwoForms.wedgeRight_tmul (projection): wedgeRight(ω)(e⊗α)=e⊗(α∧ω).
+- TwoForms.wedgeRight_add (structure): wedgeRight(ω+α)(x)=wedgeRight(ω)(x)+wedgeRight(α)(x) for every x∈E⊗W.
+- TwoForms.wedgeRight_smul (structure): wedgeRight(aω)(x)=a·wedgeRight(ω)(x) for a∈R and x∈E⊗W.
+
+Unit tests:
+
+- TwoForms.wedgeRight.test_order (computation): wedgeRight(ω)(e⊗α)=e⊗(α∧ω), not e⊗(ω∧α).
+- TwoForms.wedgeRight.test_zero_form (degenerate): wedgeRight(0)(x)=0 for every genuine tensor x.
+- TwoForms.wedgeRight.test_scalar (compatibility): wedgeRight(aω)(x)=a wedgeRight(ω)(x).
+
+### Right wedge evaluation
+
+Declaration: TwoForms.wedgeRight_tmul. Node: HodgeStructuresPartII:H.0/wedge-right-tmul.
+
+wedgeRight(ω)(e⊗α)=e⊗(α∧ω).
+
+Hypotheses: k and R are commutative rings with a k-algebra structure on R. E,F,W,Z are genuine R-modules with additive commutative groups; W carries its specified k-module structure. The existing TwoForms input has a derivation d₀:R→W, additive d₁:W→Z, alternating R-bilinear wedge W×W→Z, d₁(aω)=d₀a∧ω+a d₁ω, and d₁d₀=0. No universal forms, site or global sections tensor comparison is constructed by this input. D:E→E⊗W and C:F→F⊗W are actual additive maps satisfying the same-λ Leibniz equation. Neither map is assumed R-linear. No basis, finite generation, projectivity, flatness, characteristic, field or smoothness hypothesis is imposed. λ is an arbitrary element of R. The raw tensor-curvature equality does not require d₀λ=0. The global reserved flat-bundle key keeps its relative-constant parameter and finite locally free ringed-site contract unchanged.
+
+Proof: Evaluate the native tensor map on an elementary tensor.
+
+Prerequisites: HodgeStructuresPartII:H.0/wedge-right, mathlib:TensorProduct.map_tmul.
+
+Acceptance: Use the actual additive preconnection and native tensor maps; retain the stated wedge order and every scalar correction. The separate admission-free affine certificate does not close the global sheaf key, supplier requests, source routes, or H.1–H.8.
+
+### Additivity of the right form
+
+Declaration: TwoForms.wedgeRight_add. Node: HodgeStructuresPartII:H.0/wedge-right-add.
+
+wedgeRight(ω+α)(x)=wedgeRight(ω)(x)+wedgeRight(α)(x) for every x∈E⊗W.
+
+Hypotheses: k and R are commutative rings with a k-algebra structure on R. E,F,W,Z are genuine R-modules with additive commutative groups; W carries its specified k-module structure. The existing TwoForms input has a derivation d₀:R→W, additive d₁:W→Z, alternating R-bilinear wedge W×W→Z, d₁(aω)=d₀a∧ω+a d₁ω, and d₁d₀=0. No universal forms, site or global sections tensor comparison is constructed by this input. D:E→E⊗W and C:F→F⊗W are actual additive maps satisfying the same-λ Leibniz equation. Neither map is assumed R-linear. No basis, finite generation, projectivity, flatness, characteristic, field or smoothness hypothesis is imposed. λ is an arbitrary element of R. The raw tensor-curvature equality does not require d₀λ=0. The global reserved flat-bundle key keeps its relative-constant parameter and finite locally free ringed-site contract unchanged.
+
+Proof: Use tensor induction; on elementary tensors use bilinearity in the second wedge argument.
+
+Prerequisites: HodgeStructuresPartII:H.0/wedge-right-tmul, mathlib:TensorProduct.induction_on.
+
+Acceptance: Use the actual additive preconnection and native tensor maps; retain the stated wedge order and every scalar correction. The separate admission-free affine certificate does not close the global sheaf key, supplier requests, source routes, or H.1–H.8.
+
+### Scalar action on the right form
+
+Declaration: TwoForms.wedgeRight_smul. Node: HodgeStructuresPartII:H.0/wedge-right-smul.
+
+wedgeRight(aω)(x)=a·wedgeRight(ω)(x) for a∈R and x∈E⊗W.
+
+Hypotheses: k and R are commutative rings with a k-algebra structure on R. E,F,W,Z are genuine R-modules with additive commutative groups; W carries its specified k-module structure. The existing TwoForms input has a derivation d₀:R→W, additive d₁:W→Z, alternating R-bilinear wedge W×W→Z, d₁(aω)=d₀a∧ω+a d₁ω, and d₁d₀=0. No universal forms, site or global sections tensor comparison is constructed by this input. D:E→E⊗W and C:F→F⊗W are actual additive maps satisfying the same-λ Leibniz equation. Neither map is assumed R-linear. No basis, finite generation, projectivity, flatness, characteristic, field or smoothness hypothesis is imposed. λ is an arbitrary element of R. The raw tensor-curvature equality does not require d₀λ=0. The global reserved flat-bundle key keeps its relative-constant parameter and finite locally free ringed-site contract unchanged.
+
+Proof: Use tensor induction and move the scalar from the right wedge argument to the tensor.
+
+Prerequisites: HodgeStructuresPartII:H.0/wedge-right-tmul, mathlib:TensorProduct.induction_on, mathlib:TensorProduct.tmul_smul.
+
+Acceptance: Use the actual additive preconnection and native tensor maps; retain the stated wedge order and every scalar correction. The separate admission-free affine certificate does not close the global sheaf key, supplier requests, source routes, or H.1–H.8.
+
+### Balanced exterior extension pair
+
+Declaration: Preconnection.extensionPair. Node: HodgeStructuresPartII:H.0/exterior-extension-pair.
+
+Define the biadditive pair P_D(e,ω)=wedgeRight(ω)(D(e))+λ(e⊗d₁ω). It has values in E⊗Z; its later balance proof, not separate R-linearity, permits the additive tensor lift.
+
+Hypotheses: k and R are commutative rings with a k-algebra structure on R. E,F,W,Z are genuine R-modules with additive commutative groups; W carries its specified k-module structure. The existing TwoForms input has a derivation d₀:R→W, additive d₁:W→Z, alternating R-bilinear wedge W×W→Z, d₁(aω)=d₀a∧ω+a d₁ω, and d₁d₀=0. No universal forms, site or global sections tensor comparison is constructed by this input. D:E→E⊗W and C:F→F⊗W are actual additive maps satisfying the same-λ Leibniz equation. Neither map is assumed R-linear. No basis, finite generation, projectivity, flatness, characteristic, field or smoothness hypothesis is imposed. λ is an arbitrary element of R. The raw tensor-curvature equality does not require d₀λ=0. The global reserved flat-bundle key keeps its relative-constant parameter and finite locally free ringed-site contract unchanged.
+
+Proof: Construct the two nested additive homomorphisms using additivity of D,d₁ and the right-wedge map.
+
+Prerequisites: HodgeStructuresPartII:H.0/intrinsic-preconnection, HodgeStructuresPartII:H.0/wedge-right-add, HodgeStructuresPartII:H.0/wedge-right-tmul.
+
+Acceptance: Use the actual additive preconnection and native tensor maps; retain the stated wedge order and every scalar correction. The separate admission-free affine certificate does not close the global sheaf key, supplier requests, source routes, or H.1–H.8.
+
+API outline:
+
+- Preconnection.extensionPair_apply (projection): P_D(e,ω)=wedgeRight(ω)(D(e))+λ(e⊗d₁ω).
+- Preconnection.extensionPair_add (structure): P_D(e+f,ω)=P_D(e,ω)+P_D(f,ω).
+- Preconnection.extension_balanced (universal-property): P_D(ae,ω)=P_D(e,aω); this is the precise relation required by the native additive tensor lift.
+
+Unit tests:
+
+- Preconnection.extensionPair.test_formula (computation): P_D(e,ω)=wedgeRight(ω)(D(e))+λ(e⊗d₁ω).
+- Preconnection.extensionPair.test_zero_section (degenerate): P_D(0,ω)=0.
+- Preconnection.extensionPair.test_balanced (characterisation): P_D(ae,ω)=P_D(e,aω), with no separate R-linearity assumed.
+
+### Exterior pair evaluation
+
+Declaration: Preconnection.extensionPair_apply. Node: HodgeStructuresPartII:H.0/exterior-extension-pair-apply.
+
+P_D(e,ω)=wedgeRight(ω)(D(e))+λ(e⊗d₁ω).
+
+Hypotheses: k and R are commutative rings with a k-algebra structure on R. E,F,W,Z are genuine R-modules with additive commutative groups; W carries its specified k-module structure. The existing TwoForms input has a derivation d₀:R→W, additive d₁:W→Z, alternating R-bilinear wedge W×W→Z, d₁(aω)=d₀a∧ω+a d₁ω, and d₁d₀=0. No universal forms, site or global sections tensor comparison is constructed by this input. D:E→E⊗W and C:F→F⊗W are actual additive maps satisfying the same-λ Leibniz equation. Neither map is assumed R-linear. No basis, finite generation, projectivity, flatness, characteristic, field or smoothness hypothesis is imposed. λ is an arbitrary element of R. The raw tensor-curvature equality does not require d₀λ=0. The global reserved flat-bundle key keeps its relative-constant parameter and finite locally free ringed-site contract unchanged.
+
+Proof: Unfold the pair's evaluation, without replacing it by an assumed R-linear map.
+
+Prerequisites: HodgeStructuresPartII:H.0/exterior-extension-pair.
+
+Acceptance: Use the actual additive preconnection and native tensor maps; retain the stated wedge order and every scalar correction. The separate admission-free affine certificate does not close the global sheaf key, supplier requests, source routes, or H.1–H.8.
+
+### Affine exterior extension evaluation
+
+Declaration: Preconnection.extend_tmul. Node: HodgeStructuresPartII:H.0/affine-exterior-extension-tmul.
+
+For the actual balanced degree-one additive lift, D₁(e⊗ω)=wedgeRight(ω)(D(e))+λ(e⊗d₁ω).
+
+Hypotheses: k and R are commutative rings with a k-algebra structure on R. E,F,W,Z are genuine R-modules with additive commutative groups; W carries its specified k-module structure. The existing TwoForms input has a derivation d₀:R→W, additive d₁:W→Z, alternating R-bilinear wedge W×W→Z, d₁(aω)=d₀a∧ω+a d₁ω, and d₁d₀=0. No universal forms, site or global sections tensor comparison is constructed by this input. D:E→E⊗W and C:F→F⊗W are actual additive maps satisfying the same-λ Leibniz equation. Neither map is assumed R-linear. No basis, finite generation, projectivity, flatness, characteristic, field or smoothness hypothesis is imposed. λ is an arbitrary element of R. The raw tensor-curvature equality does not require d₀λ=0. The global reserved flat-bundle key keeps its relative-constant parameter and finite locally free ringed-site contract unchanged.
+
+Proof: Evaluate the existing liftAddHom using its native generator equation; this is the affine component of the unchanged global exterior-extension contract.
+
+Prerequisites: HodgeStructuresPartII:H.0/exterior-extension, HodgeStructuresPartII:H.0/extension-balancing, HodgeStructuresPartII:H.0/exterior-extension-pair-apply, mathlib:TensorProduct.liftAddHom_tmul.
+
+Acceptance: Use the actual additive preconnection and native tensor maps; retain the stated wedge order and every scalar correction. The separate admission-free affine certificate does not close the global sheaf key, supplier requests, source routes, or H.1–H.8.
+
+### Exterior extension scalar correction
+
+Declaration: Preconnection.extend_smul. Node: HodgeStructuresPartII:H.0/affine-exterior-extension-scalar.
+
+For every a∈R and x∈E⊗W, D₁(ax)=aD₁(x)+λ(id_E⊗(d₀a∧−))(x). In general D₁ is additive, not R-linear.
+
+Hypotheses: k and R are commutative rings with a k-algebra structure on R. E,F,W,Z are genuine R-modules with additive commutative groups; W carries its specified k-module structure. The existing TwoForms input has a derivation d₀:R→W, additive d₁:W→Z, alternating R-bilinear wedge W×W→Z, d₁(aω)=d₀a∧ω+a d₁ω, and d₁d₀=0. No universal forms, site or global sections tensor comparison is constructed by this input. D:E→E⊗W and C:F→F⊗W are actual additive maps satisfying the same-λ Leibniz equation. Neither map is assumed R-linear. No basis, finite generation, projectivity, flatness, characteristic, field or smoothness hypothesis is imposed. λ is an arbitrary element of R. The raw tensor-curvature equality does not require d₀λ=0. The global reserved flat-bundle key keeps its relative-constant parameter and finite locally free ringed-site contract unchanged.
+
+Proof: Induct on x. On e⊗ω insert the λ-Leibniz equation for D(ae), evaluate wedgeRight, and transfer scalars in the tensor.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-exterior-extension-tmul, HodgeStructuresPartII:H.0/wedge-right-tmul, mathlib:TensorProduct.induction_on, mathlib:TensorProduct.map_tmul.
+
+Acceptance: Use the actual additive preconnection and native tensor maps; retain the stated wedge order and every scalar correction. The separate admission-free affine certificate does not close the global sheaf key, supplier requests, source routes, or H.1–H.8.
+
+### Opposite exterior orders cancel
+
+Declaration: TwoForms.wedgeRight_add_left. Node: HodgeStructuresPartII:H.0/wedge-right-left-cancellation.
+
+For ω∈W and x∈E⊗W, wedgeRight(ω)(x)+(id_E⊗(ω∧−))(x)=0.
+
+Hypotheses: k and R are commutative rings with a k-algebra structure on R. E,F,W,Z are genuine R-modules with additive commutative groups; W carries its specified k-module structure. The existing TwoForms input has a derivation d₀:R→W, additive d₁:W→Z, alternating R-bilinear wedge W×W→Z, d₁(aω)=d₀a∧ω+a d₁ω, and d₁d₀=0. No universal forms, site or global sections tensor comparison is constructed by this input. D:E→E⊗W and C:F→F⊗W are actual additive maps satisfying the same-λ Leibniz equation. Neither map is assumed R-linear. No basis, finite generation, projectivity, flatness, characteristic, field or smoothness hypothesis is imposed. λ is an arbitrary element of R. The raw tensor-curvature equality does not require d₀λ=0. The global reserved flat-bundle key keeps its relative-constant parameter and finite locally free ringed-site contract unchanged.
+
+Proof: Reduce to e⊗α and tensor the alternating interchange equation. Additivity extends the cancellation to every x.
+
+Prerequisites: HodgeStructuresPartII:H.0/wedge-alternating-swap, HodgeStructuresPartII:H.0/wedge-right-tmul, mathlib:TensorProduct.induction_on, mathlib:TensorProduct.map_tmul.
+
+Acceptance: Use the actual additive preconnection and native tensor maps; retain the stated wedge order and every scalar correction. The separate admission-free affine certificate does not close the global sheaf key, supplier requests, source routes, or H.1–H.8.
+
+### Affine curvature evaluation
+
+Declaration: Preconnection.curvature_apply. Node: HodgeStructuresPartII:H.0/affine-curvature-apply.
+
+The existing actual additive curvature is κ_D(e)=D₁(D(e)). This is the degree-zero affine component, not a new global sheaf carrier.
+
+Hypotheses: k and R are commutative rings with a k-algebra structure on R. E,F,W,Z are genuine R-modules with additive commutative groups; W carries its specified k-module structure. The existing TwoForms input has a derivation d₀:R→W, additive d₁:W→Z, alternating R-bilinear wedge W×W→Z, d₁(aω)=d₀a∧ω+a d₁ω, and d₁d₀=0. No universal forms, site or global sections tensor comparison is constructed by this input. D:E→E⊗W and C:F→F⊗W are actual additive maps satisfying the same-λ Leibniz equation. Neither map is assumed R-linear. No basis, finite generation, projectivity, flatness, characteristic, field or smoothness hypothesis is imposed. λ is an arbitrary element of R. The raw tensor-curvature equality does not require d₀λ=0. The global reserved flat-bundle key keeps its relative-constant parameter and finite locally free ringed-site contract unchanged.
+
+Proof: Evaluate the existing additive composite.
+
+Prerequisites: HodgeStructuresPartII:H.0/intrinsic-curvature, HodgeStructuresPartII:H.0/exterior-extension.
+
+Acceptance: Use the actual additive preconnection and native tensor maps; retain the stated wedge order and every scalar correction. The separate admission-free affine certificate does not close the global sheaf key, supplier requests, source routes, or H.1–H.8.
+
+### Curvature defect for a varying parameter
+
+Declaration: Preconnection.curvature_scalar_defect. Node: HodgeStructuresPartII:H.0/affine-curvature-scalar-defect.
+
+For every a∈R and e∈E, κ_D(ae)=aκ_D(e)+λ(e⊗(d₀λ∧d₀a)). No assumption d₀λ=0 is used.
+
+Hypotheses: k and R are commutative rings with a k-algebra structure on R. E,F,W,Z are genuine R-modules with additive commutative groups; W carries its specified k-module structure. The existing TwoForms input has a derivation d₀:R→W, additive d₁:W→Z, alternating R-bilinear wedge W×W→Z, d₁(aω)=d₀a∧ω+a d₁ω, and d₁d₀=0. No universal forms, site or global sections tensor comparison is constructed by this input. D:E→E⊗W and C:F→F⊗W are actual additive maps satisfying the same-λ Leibniz equation. Neither map is assumed R-linear. No basis, finite generation, projectivity, flatness, characteristic, field or smoothness hypothesis is imposed. λ is an arbitrary element of R. The raw tensor-curvature equality does not require d₀λ=0. The global reserved flat-bundle key keeps its relative-constant parameter and finite locally free ringed-site contract unchanged.
+
+Proof: Expand D(ae), apply the exterior scalar correction to both summands, use d₁d₀=0, and cancel the two opposite wedge orders. The remaining d₀λ term must not be discarded.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-curvature-apply, HodgeStructuresPartII:H.0/affine-exterior-extension-scalar, HodgeStructuresPartII:H.0/affine-exterior-extension-tmul, HodgeStructuresPartII:H.0/wedge-right-left-cancellation.
+
+Acceptance: Use the actual additive preconnection and native tensor maps; retain the stated wedge order and every scalar correction. The separate admission-free affine certificate does not close the global sheaf key, supplier requests, source routes, or H.1–H.8.
+
+### Curvature of the parameter unit
+
+Declaration: Preconnection.unit_curvature. Node: HodgeStructuresPartII:H.0/affine-unit-curvature.
+
+For the genuine unit preconnection U_λ(a)=λ(1⊗d₀a), κ_U(a)=λ(1⊗(d₀λ∧d₀a)). In particular the unit is flat when d₀λ=0.
+
+Hypotheses: k and R are commutative rings with a k-algebra structure on R. E,F,W,Z are genuine R-modules with additive commutative groups; W carries its specified k-module structure. The existing TwoForms input has a derivation d₀:R→W, additive d₁:W→Z, alternating R-bilinear wedge W×W→Z, d₁(aω)=d₀a∧ω+a d₁ω, and d₁d₀=0. No universal forms, site or global sections tensor comparison is constructed by this input. D:E→E⊗W and C:F→F⊗W are actual additive maps satisfying the same-λ Leibniz equation. Neither map is assumed R-linear. No basis, finite generation, projectivity, flatness, characteristic, field or smoothness hypothesis is imposed. λ is an arbitrary element of R. The raw tensor-curvature equality does not require d₀λ=0. The global reserved flat-bundle key keeps its relative-constant parameter and finite locally free ringed-site contract unchanged. The existing unit construction additionally uses the compatible scalar tower k→R→W.
+
+Proof: Insert the unit's actual additive formula and the degree-one scalar correction. Use d₀1=0 and d₁d₀a=0.
+
+Prerequisites: HodgeStructuresPartII:H.0/unit-connection, HodgeStructuresPartII:H.0/affine-curvature-apply, HodgeStructuresPartII:H.0/affine-exterior-extension-scalar, HodgeStructuresPartII:H.0/affine-exterior-extension-tmul.
+
+Acceptance: Use the actual additive preconnection and native tensor maps; retain the stated wedge order and every scalar correction. The separate admission-free affine certificate does not close the global sheaf key, supplier requests, source routes, or H.1–H.8.
+
+### Two coefficient tensors wedged
+
+Declaration: TwoForms.tensorWedge. Node: HodgeStructuresPartII:H.0/tensor-wedge.
+
+Define tensorWedge:(E⊗W)⊗(F⊗W)→(E⊗F)⊗Z as the R-linear native four-factor interchange followed by id_(E⊗F)⊗wedge. It sends (e⊗ω)⊗(f⊗α) to (e⊗f)⊗(ω∧α).
+
+Hypotheses: k and R are commutative rings with a k-algebra structure on R. E,F,W,Z are genuine R-modules with additive commutative groups; W carries its specified k-module structure. The existing TwoForms input has a derivation d₀:R→W, additive d₁:W→Z, alternating R-bilinear wedge W×W→Z, d₁(aω)=d₀a∧ω+a d₁ω, and d₁d₀=0. No universal forms, site or global sections tensor comparison is constructed by this input. D:E→E⊗W and C:F→F⊗W are actual additive maps satisfying the same-λ Leibniz equation. Neither map is assumed R-linear. No basis, finite generation, projectivity, flatness, characteristic, field or smoothness hypothesis is imposed. λ is an arbitrary element of R. The raw tensor-curvature equality does not require d₀λ=0. The global reserved flat-bundle key keeps its relative-constant parameter and finite locally free ringed-site contract unchanged.
+
+Proof: Use tensorTensorTensorComm to group E,F and W,W, then the linear lift of the existing wedge and the identity tensor map.
+
+Prerequisites: HodgeStructuresPartII:H.0/intrinsic-preconnection, mathlib:TensorProduct.tensorTensorTensorComm, mathlib:TensorProduct.lift, mathlib:TensorProduct.map.
+
+Acceptance: Use the actual additive preconnection and native tensor maps; retain the stated wedge order and every scalar correction. The separate admission-free affine certificate does not close the global sheaf key, supplier requests, source routes, or H.1–H.8.
+
+API outline:
+
+- TwoForms.tensorWedge_tmul (projection): tensorWedge((e⊗ω)⊗(f⊗α))=(e⊗f)⊗(ω∧α).
+- TwoForms.tensorWedge_zero (simp): tensorWedge(0)=0.
+- TwoForms.tensorWedge_add (structure): tensorWedge(x+y)=tensorWedge(x)+tensorWedge(y).
+
+Unit tests:
+
+- TwoForms.tensorWedge.test_pure (computation): tensorWedge((e⊗ω)⊗(f⊗α))=(e⊗f)⊗(ω∧α).
+- TwoForms.tensorWedge.test_zero (degenerate): tensorWedge(0⊗y)=0.
+- TwoForms.tensorWedge.test_integral_orientation (non-example): On R=ℤ, W=ℤ², Z=ℤ with determinant wedge and d₀=d₁=0, native unit normalization evaluates ((1⊗(1,0))⊗(1⊗(0,1))) to +1 and its form-reversed counterpart to −1. This rejects a zero wedge or reversed wedge convention.
+
+### Coefficient wedge evaluation
+
+Declaration: TwoForms.tensorWedge_tmul. Node: HodgeStructuresPartII:H.0/tensor-wedge-tmul.
+
+tensorWedge((e⊗ω)⊗(f⊗α))=(e⊗f)⊗(ω∧α).
+
+Hypotheses: k and R are commutative rings with a k-algebra structure on R. E,F,W,Z are genuine R-modules with additive commutative groups; W carries its specified k-module structure. The existing TwoForms input has a derivation d₀:R→W, additive d₁:W→Z, alternating R-bilinear wedge W×W→Z, d₁(aω)=d₀a∧ω+a d₁ω, and d₁d₀=0. No universal forms, site or global sections tensor comparison is constructed by this input. D:E→E⊗W and C:F→F⊗W are actual additive maps satisfying the same-λ Leibniz equation. Neither map is assumed R-linear. No basis, finite generation, projectivity, flatness, characteristic, field or smoothness hypothesis is imposed. λ is an arbitrary element of R. The raw tensor-curvature equality does not require d₀λ=0. The global reserved flat-bundle key keeps its relative-constant parameter and finite locally free ringed-site contract unchanged.
+
+Proof: Evaluate each native map on the four elementary factors in the stated order.
+
+Prerequisites: HodgeStructuresPartII:H.0/tensor-wedge, mathlib:TensorProduct.tensorTensorTensorComm_tmul, mathlib:TensorProduct.lift.tmul, mathlib:TensorProduct.map_tmul.
+
+Acceptance: Use the actual additive preconnection and native tensor maps; retain the stated wedge order and every scalar correction. The separate admission-free affine certificate does not close the global sheaf key, supplier requests, source routes, or H.1–H.8.
+
+### Right wedge through the right commutor
+
+Declaration: TwoForms.wedgeRight_rightComm. Node: HodgeStructuresPartII:H.0/wedge-right-comm-transport.
+
+wedgeRight(ω)(ρ_W(x⊗f))=ρ_Z(wedgeRight(ω)(x)⊗f), where ρ moves the coefficient factor past F.
+
+Hypotheses: k and R are commutative rings with a k-algebra structure on R. E,F,W,Z are genuine R-modules with additive commutative groups; W carries its specified k-module structure. The existing TwoForms input has a derivation d₀:R→W, additive d₁:W→Z, alternating R-bilinear wedge W×W→Z, d₁(aω)=d₀a∧ω+a d₁ω, and d₁d₀=0. No universal forms, site or global sections tensor comparison is constructed by this input. D:E→E⊗W and C:F→F⊗W are actual additive maps satisfying the same-λ Leibniz equation. Neither map is assumed R-linear. No basis, finite generation, projectivity, flatness, characteristic, field or smoothness hypothesis is imposed. λ is an arbitrary element of R. The raw tensor-curvature equality does not require d₀λ=0. The global reserved flat-bundle key keeps its relative-constant parameter and finite locally free ringed-site contract unchanged.
+
+Proof: Induct on x and evaluate the right commutor and wedge on elementary tensors.
+
+Prerequisites: HodgeStructuresPartII:H.0/wedge-right-tmul, mathlib:TensorProduct.rightComm_tmul, mathlib:TensorProduct.induction_on.
+
+Acceptance: Use the actual additive preconnection and native tensor maps; retain the stated wedge order and every scalar correction. The separate admission-free affine certificate does not close the global sheaf key, supplier requests, source routes, or H.1–H.8.
+
+### Negative mixed wedge through association
+
+Declaration: TwoForms.wedgeRight_assoc_mixed. Node: HodgeStructuresPartII:H.0/wedge-right-assoc-mixed.
+
+wedgeRight(ω)(a_W⁻¹(e⊗y))=−tensorWedge((e⊗ω)⊗y) for all y∈F⊗W. The minus sign is forced by α∧ω=−ω∧α.
+
+Hypotheses: k and R are commutative rings with a k-algebra structure on R. E,F,W,Z are genuine R-modules with additive commutative groups; W carries its specified k-module structure. The existing TwoForms input has a derivation d₀:R→W, additive d₁:W→Z, alternating R-bilinear wedge W×W→Z, d₁(aω)=d₀a∧ω+a d₁ω, and d₁d₀=0. No universal forms, site or global sections tensor comparison is constructed by this input. D:E→E⊗W and C:F→F⊗W are actual additive maps satisfying the same-λ Leibniz equation. Neither map is assumed R-linear. No basis, finite generation, projectivity, flatness, characteristic, field or smoothness hypothesis is imposed. λ is an arbitrary element of R. The raw tensor-curvature equality does not require d₀λ=0. The global reserved flat-bundle key keeps its relative-constant parameter and finite locally free ringed-site contract unchanged.
+
+Proof: Induct on y; on f⊗α exchange the wedge order using alternation, without dividing by 2.
+
+Prerequisites: HodgeStructuresPartII:H.0/wedge-alternating-swap, HodgeStructuresPartII:H.0/wedge-right-tmul, HodgeStructuresPartII:H.0/tensor-wedge-tmul, mathlib:TensorProduct.assoc_symm_tmul, mathlib:TensorProduct.induction_on.
+
+Acceptance: Use the actual additive preconnection and native tensor maps; retain the stated wedge order and every scalar correction. The separate admission-free affine certificate does not close the global sheaf key, supplier requests, source routes, or H.1–H.8.
+
+### Right wedge through association
+
+Declaration: TwoForms.wedgeRight_assoc. Node: HodgeStructuresPartII:H.0/wedge-right-assoc-transport.
+
+wedgeRight(ω)(a_W⁻¹(e⊗y))=a_Z⁻¹(e⊗wedgeRight(ω)(y)).
+
+Hypotheses: k and R are commutative rings with a k-algebra structure on R. E,F,W,Z are genuine R-modules with additive commutative groups; W carries its specified k-module structure. The existing TwoForms input has a derivation d₀:R→W, additive d₁:W→Z, alternating R-bilinear wedge W×W→Z, d₁(aω)=d₀a∧ω+a d₁ω, and d₁d₀=0. No universal forms, site or global sections tensor comparison is constructed by this input. D:E→E⊗W and C:F→F⊗W are actual additive maps satisfying the same-λ Leibniz equation. Neither map is assumed R-linear. No basis, finite generation, projectivity, flatness, characteristic, field or smoothness hypothesis is imposed. λ is an arbitrary element of R. The raw tensor-curvature equality does not require d₀λ=0. The global reserved flat-bundle key keeps its relative-constant parameter and finite locally free ringed-site contract unchanged.
+
+Proof: Induct on y and compare elementary tensor evaluations.
+
+Prerequisites: HodgeStructuresPartII:H.0/wedge-right-tmul, mathlib:TensorProduct.assoc_symm_tmul, mathlib:TensorProduct.induction_on.
+
+Acceptance: Use the actual additive preconnection and native tensor maps; retain the stated wedge order and every scalar correction. The separate admission-free affine certificate does not close the global sheaf key, supplier requests, source routes, or H.1–H.8.
+
+### Positive mixed wedge through commutation
+
+Declaration: TwoForms.wedgeRight_rightComm_mixed. Node: HodgeStructuresPartII:H.0/wedge-right-comm-mixed.
+
+wedgeRight(ω)(ρ_W(x⊗f))=tensorWedge(x⊗(f⊗ω)). The first wedge factor is the form in x.
+
+Hypotheses: k and R are commutative rings with a k-algebra structure on R. E,F,W,Z are genuine R-modules with additive commutative groups; W carries its specified k-module structure. The existing TwoForms input has a derivation d₀:R→W, additive d₁:W→Z, alternating R-bilinear wedge W×W→Z, d₁(aω)=d₀a∧ω+a d₁ω, and d₁d₀=0. No universal forms, site or global sections tensor comparison is constructed by this input. D:E→E⊗W and C:F→F⊗W are actual additive maps satisfying the same-λ Leibniz equation. Neither map is assumed R-linear. No basis, finite generation, projectivity, flatness, characteristic, field or smoothness hypothesis is imposed. λ is an arbitrary element of R. The raw tensor-curvature equality does not require d₀λ=0. The global reserved flat-bundle key keeps its relative-constant parameter and finite locally free ringed-site contract unchanged.
+
+Proof: Induct on x; evaluate the native maps without interchanging the two form factors.
+
+Prerequisites: HodgeStructuresPartII:H.0/wedge-right-tmul, HodgeStructuresPartII:H.0/tensor-wedge-tmul, mathlib:TensorProduct.rightComm_tmul, mathlib:TensorProduct.induction_on.
+
+Acceptance: Use the actual additive preconnection and native tensor maps; retain the stated wedge order and every scalar correction. The separate admission-free affine certificate does not close the global sheaf key, supplier requests, source routes, or H.1–H.8.
+
+### Tensor exterior extension of a left derivative
+
+Declaration: Preconnection.affineTensor_extend_left. Node: HodgeStructuresPartII:H.0/affine-parameter-tensor-extend-left.
+
+For T=D⊗_λ C and x∈E⊗W, T₁(ρ_W(x⊗f))=ρ_Z(D₁(x)⊗f)−tensorWedge(x⊗C(f)).
+
+Hypotheses: k and R are commutative rings with a k-algebra structure on R. E,F,W,Z are genuine R-modules with additive commutative groups; W carries its specified k-module structure. The existing TwoForms input has a derivation d₀:R→W, additive d₁:W→Z, alternating R-bilinear wedge W×W→Z, d₁(aω)=d₀a∧ω+a d₁ω, and d₁d₀=0. No universal forms, site or global sections tensor comparison is constructed by this input. D:E→E⊗W and C:F→F⊗W are actual additive maps satisfying the same-λ Leibniz equation. Neither map is assumed R-linear. No basis, finite generation, projectivity, flatness, characteristic, field or smoothness hypothesis is imposed. λ is an arbitrary element of R. The raw tensor-curvature equality does not require d₀λ=0. The global reserved flat-bundle key keeps its relative-constant parameter and finite locally free ringed-site contract unchanged.
+
+Proof: Induct on x, expand the genuine same-λ tensor derivative on e⊗f, and use the two right-wedge transport equations. Combine the d₁ contribution with the D₁ term.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-parameter-tensor-tmul, HodgeStructuresPartII:H.0/affine-exterior-extension-tmul, HodgeStructuresPartII:H.0/wedge-right-comm-transport, HodgeStructuresPartII:H.0/wedge-right-assoc-mixed, mathlib:TensorProduct.induction_on.
+
+Acceptance: Use the actual additive preconnection and native tensor maps; retain the stated wedge order and every scalar correction. The separate admission-free affine certificate does not close the global sheaf key, supplier requests, source routes, or H.1–H.8.
+
+### Tensor exterior extension of a right derivative
+
+Declaration: Preconnection.affineTensor_extend_right. Node: HodgeStructuresPartII:H.0/affine-parameter-tensor-extend-right.
+
+For T=D⊗_λ C and y∈F⊗W, T₁(a_W⁻¹(e⊗y))=a_Z⁻¹(e⊗C₁(y))+tensorWedge(D(e)⊗y).
+
+Hypotheses: k and R are commutative rings with a k-algebra structure on R. E,F,W,Z are genuine R-modules with additive commutative groups; W carries its specified k-module structure. The existing TwoForms input has a derivation d₀:R→W, additive d₁:W→Z, alternating R-bilinear wedge W×W→Z, d₁(aω)=d₀a∧ω+a d₁ω, and d₁d₀=0. No universal forms, site or global sections tensor comparison is constructed by this input. D:E→E⊗W and C:F→F⊗W are actual additive maps satisfying the same-λ Leibniz equation. Neither map is assumed R-linear. No basis, finite generation, projectivity, flatness, characteristic, field or smoothness hypothesis is imposed. λ is an arbitrary element of R. The raw tensor-curvature equality does not require d₀λ=0. The global reserved flat-bundle key keeps its relative-constant parameter and finite locally free ringed-site contract unchanged.
+
+Proof: Induct on y, expand the same-λ tensor derivative, and use positive mixed commutation plus plain association transport. Transfer the d₁ scalar term through the associator.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-parameter-tensor-tmul, HodgeStructuresPartII:H.0/affine-exterior-extension-tmul, HodgeStructuresPartII:H.0/wedge-right-comm-mixed, HodgeStructuresPartII:H.0/wedge-right-assoc-transport, mathlib:TensorProduct.induction_on.
+
+Acceptance: Use the actual additive preconnection and native tensor maps; retain the stated wedge order and every scalar correction. The separate admission-free affine certificate does not close the global sheaf key, supplier requests, source routes, or H.1–H.8.
+
+### Common-parameter tensor curvature
+
+Declaration: Preconnection.affineTensor_curvature_tmul. Node: HodgeStructuresPartII:H.0/affine-parameter-tensor-curvature.
+
+For every e,f, κ_(D⊗_λ C)(e⊗f)=ρ_Z(κ_D(e)⊗f)+a_Z⁻¹(e⊗κ_C(f)). This formula holds even when d₀λ≠0; the two signed mixed terms cancel.
+
+Hypotheses: k and R are commutative rings with a k-algebra structure on R. E,F,W,Z are genuine R-modules with additive commutative groups; W carries its specified k-module structure. The existing TwoForms input has a derivation d₀:R→W, additive d₁:W→Z, alternating R-bilinear wedge W×W→Z, d₁(aω)=d₀a∧ω+a d₁ω, and d₁d₀=0. No universal forms, site or global sections tensor comparison is constructed by this input. D:E→E⊗W and C:F→F⊗W are actual additive maps satisfying the same-λ Leibniz equation. Neither map is assumed R-linear. No basis, finite generation, projectivity, flatness, characteristic, field or smoothness hypothesis is imposed. λ is an arbitrary element of R. The raw tensor-curvature equality does not require d₀λ=0. The global reserved flat-bundle key keeps its relative-constant parameter and finite locally free ringed-site contract unchanged.
+
+Proof: Expand the actual additive curvature of the tensor sum and apply the left and right extension identities. Cancel −tensorWedge(D(e)⊗C(f)) with its positive counterpart.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-curvature-apply, HodgeStructuresPartII:H.0/affine-parameter-tensor-tmul, HodgeStructuresPartII:H.0/affine-parameter-tensor-extend-left, HodgeStructuresPartII:H.0/affine-parameter-tensor-extend-right.
+
+Acceptance: Use the actual additive preconnection and native tensor maps; retain the stated wedge order and every scalar correction. The separate admission-free affine certificate does not close the global sheaf key, supplier requests, source routes, or H.1–H.8.
+
+### Tensor of flat affine preconnections
+
+Declaration: Preconnection.affineTensor_flat. Node: HodgeStructuresPartII:H.0/affine-parameter-tensor-flat.
+
+If κ_D(e)=0 and κ_C(f)=0 for every factor input, then κ_(D⊗_λ C)(x)=0 for every x∈E⊗F. No converse or flatness of the underlying modules is asserted.
+
+Hypotheses: k and R are commutative rings with a k-algebra structure on R. E,F,W,Z are genuine R-modules with additive commutative groups; W carries its specified k-module structure. The existing TwoForms input has a derivation d₀:R→W, additive d₁:W→Z, alternating R-bilinear wedge W×W→Z, d₁(aω)=d₀a∧ω+a d₁ω, and d₁d₀=0. No universal forms, site or global sections tensor comparison is constructed by this input. D:E→E⊗W and C:F→F⊗W are actual additive maps satisfying the same-λ Leibniz equation. Neither map is assumed R-linear. No basis, finite generation, projectivity, flatness, characteristic, field or smoothness hypothesis is imposed. λ is an arbitrary element of R. The raw tensor-curvature equality does not require d₀λ=0. The global reserved flat-bundle key keeps its relative-constant parameter and finite locally free ringed-site contract unchanged. For every e∈E and f∈F, the actual factor curvatures vanish.
+
+Proof: Use tensor induction and additivity of the actual curvature. On elementary tensors insert the two factor vanishing equations.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-parameter-tensor-curvature, mathlib:TensorProduct.induction_on.
+
+Acceptance: Use the actual additive preconnection and native tensor maps; retain the stated wedge order and every scalar correction. The separate admission-free affine certificate does not close the global sheaf key, supplier requests, source routes, or H.1–H.8.
+
+## Additional consumer API and tests
+
+Preconnection.extend retains its incoming contract and adds:
+
+- Preconnection.extend_smul: For every a∈R and x∈E⊗W, D₁(ax)=aD₁(x)+λ(id_E⊗(d₀a∧−))(x). In general D₁ is additive, not R-linear.
+
+- Preconnection.extend.test_scalar_correction: D₁(a(e⊗ω))=aD₁(e⊗ω)+λ(e⊗(d₀a∧ω)).
+
+Preconnection.curvature retains its incoming contract and adds:
+
+- Preconnection.curvature_scalar_defect: For every a∈R and e∈E, κ_D(ae)=aκ_D(e)+λ(e⊗(d₀λ∧d₀a)). No assumption d₀λ=0 is used.
+- Preconnection.unit_curvature: For the genuine unit preconnection U_λ(a)=λ(1⊗d₀a), κ_U(a)=λ(1⊗(d₀λ∧d₀a)). In particular the unit is flat when d₀λ=0.
+
+- Preconnection.curvature.test_raw_parameter_defect: κ_D(ae)=aκ_D(e)+λ(e⊗(d₀λ∧d₀a)), without requiring d₀λ=0.
+- Preconnection.curvature.test_higgs_linear: At λ=0, κ_D(ae)=aκ_D(e).
+- Preconnection.unit.test_constant_flat: For d₀λ=0, κ_(unit λ)(a)=0 for every a.
+
+Preconnection.affineTensor retains its incoming contract and adds:
+
+- Preconnection.affineTensor_extend_left: For T=D⊗_λ C and x∈E⊗W, T₁(ρ_W(x⊗f))=ρ_Z(D₁(x)⊗f)−tensorWedge(x⊗C(f)).
+- Preconnection.affineTensor_extend_right: For T=D⊗_λ C and y∈F⊗W, T₁(a_W⁻¹(e⊗y))=a_Z⁻¹(e⊗C₁(y))+tensorWedge(D(e)⊗y).
+- Preconnection.affineTensor_curvature_tmul: For every e,f, κ_(D⊗_λ C)(e⊗f)=ρ_Z(κ_D(e)⊗f)+a_Z⁻¹(e⊗κ_C(f)). This formula holds even when d₀λ≠0; the two signed mixed terms cancel.
+- Preconnection.affineTensor_flat: If κ_D(e)=0 and κ_C(f)=0 for every factor input, then κ_(D⊗_λ C)(x)=0 for every x∈E⊗F. No converse or flatness of the underlying modules is asserted.
+
+- Preconnection.affineTensor.test_curvature_sum: κ_(D⊗_λ C)(e⊗f)=ρ_Z(κ_D(e)⊗f)+a_Z⁻¹(e⊗κ_C(f)).
+- Preconnection.affineTensor.test_flat_all_tensors: Actual pointwise vanishing of both factor curvatures implies κ_(D⊗_λ C)(x)=0 for every x, not just elementary tensors.
+
+## Verification and continuation
+
+The standalone actual-carrier certificate has no admissions or new axioms. Its kernel audits, full suggested-file elaboration, indexed blueprint check, actual intake path checks and immutable promoted/control graph checks are recorded in the handoff. The suggested file retains admitted planning bodies: a passing elaboration is not an implementation claim. The integral orientation test uses determinant wedge on ℤ² and obtains +1 and −1, rather than a vacuous zero-forms calculation. The generic tests inspect the actual scalar correction, balancing equation, curvature sum and all-tensor flatness implication.
+
+The codex-a71f92 common-λ affine exterior continuation constructs the actual balanced degree-one extension, proves its scalar correction and the exact curvature defect λ(e⊗d₀λ∧d₀a), computes unit curvature, and proves the full common-λ tensor-curvature formula and factor-flatness implication for arbitrary modules. No constant-λ assumption is used in the raw tensor-curvature equation. All 149 routed obligations, the reserved general finite-locally-free ringed-site key, E1 tensor/exterior restriction, equality detection/gluing, cross-ring exterior/curvature transport, arbitrary-Q tensor-valued shuffle, determinant/Tate/period adapters and H.1–H.8 remain open. Earlier narrower frontier paragraphs are preserved checkpoint history.
+
+## Preserved incoming reader
+
+The remainder is the unchanged predecessor reader, including its own attributed checkpoint and source-reading receipts. Its earlier frontier language is historical, not a fresh assertion of what this checkpoint has left unsolved.
+
 # Affine coherence for common-parameter connections
 
 Let k→R be a map of commutative rings, and let Ω be the specified intrinsic degree-zero/one/two calculus. Its first differential d₀:R→W is a derivation, its second differential d₁:W→Z is additive, and its alternating R-bilinear wedge and differentials satisfy the stated exterior identities. All coefficient tensors below are actual tensor products of R-modules.
