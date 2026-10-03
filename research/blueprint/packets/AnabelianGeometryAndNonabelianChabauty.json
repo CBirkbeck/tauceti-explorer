@@ -12,7 +12,7 @@
     "AnabelianGeometryAndNonabelianChabauty:NC.6"
   ],
   "status": "partial",
-  "summary": "Partial anabelian checkpoint with 175 declaration-sized nodes. Nineteen new native interfaces give continuous equivariant gauge conjugation between actual inner twists and the canonical pointed H¹ comparison for cohomologous representatives, with identity, inverse, composition and concrete gauge realization. Six tests retain the noncommutative conjugation direction and the class-equality requirement. All 156 inherited contracts and every key/source/supplier/omission boundary remain. All seven stages remain partial; no geometric torsor, K(π,1), Selmer or source route is closed.",
+  "summary": "Partial anabelian checkpoint with 196 declaration-sized nodes. Twenty-one new interfaces construct the actual source comparison of inner twists, direct cocycle pullback and native H¹ quotient lift, prove their translation squares, compatibility with gauge and canonical representative change, translated identity/composition and injectivity for surjective source maps. Ten tests preserve noncommutative inner actions, repointed neutral values and nonneutral loss under a constant source map. All 175 inherited contracts and key/source/supplier boundaries remain. NC.0 and NC.3 remain partial; the five other coverage records remain not_read. No geometric, K(π,1), Selmer, Chen or BDMTV route is closed.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -930,6 +930,27 @@
         "sourceSha256": "752c1b16f68c6d60d7c7eadb108c2564883bcec9c342b385a8c17c124ec2f644",
         "provides": "Native inverse equivalence on arbitrary sorts.",
         "checked": "Complete definition/body and ambient arbitrary-sort hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03. Existing native conjugation and cancellation API were reread and reused."
+      },
+      {
+        "ref": "mathlib:MulEquiv.trans",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Equiv/Defs.lean",
+        "provides": "Composition of actual multiplicative equivalences for the source adapter.",
+        "checked": "Exact statement and surrounding hypotheses freshly read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; reused native declarations, not new generic equivalence carriers."
+      },
+      {
+        "ref": "mathlib:MulEquiv.symm",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Equiv/Defs.lean",
+        "provides": "Inverse of an actual multiplicative equivalence with the target/source group structures retained.",
+        "checked": "Exact statement and surrounding hypotheses freshly read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; reused native declarations, not new generic equivalence carriers."
+      },
+      {
+        "ref": "mathlib:MulEquiv.symm_apply_apply",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Group/Equiv/Defs.lean",
+        "provides": "Cancellation of the source adapter with its actual inverse, used by its unit test.",
+        "checked": "Exact statement and surrounding hypotheses freshly read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; reused native declarations, not new generic equivalence carriers."
       }
     ]
   },
@@ -1139,6 +1160,20 @@
       "title": "The motivic fundamental group of P¹ ∖ {0,1,∞} and the theorem of Siegel",
       "authors": "Minhyong Kim",
       "edition": "Exact arXiv:math/0409456v1 PDF; authored continuous inner-group gauge deductions from §1",
+      "url": "https://arxiv.org/pdf/math/0409456v1",
+      "sha256": "00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941",
+      "accessed": "2026-10-03",
+      "readSections": [
+        "Complete continuous cochain/cocycle/gauge definitions and Proposition 1 statement and proof, printed pp.5–7",
+        "Coefficient-functor paragraph and opening Proposition 2"
+      ],
+      "readingExtent": "Selected passages only, not whole-paper, geometric torsor-classification, representability, Chen or BDMTV closure."
+    },
+    {
+      "id": "KimTwistedSource-codex-rtOQ9t",
+      "title": "The motivic fundamental group of P¹ ∖ {0,1,∞} and the theorem of Siegel",
+      "authors": "Minhyong Kim",
+      "edition": "Exact arXiv:math/0409456v1; authored source-group naturality deductions from the complete continuous cocycle/gauge conventions and Proposition 1 proof",
       "url": "https://arxiv.org/pdf/math/0409456v1",
       "sha256": "00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941",
       "accessed": "2026-10-03",
@@ -1457,7 +1492,8 @@
         "The coefficient-map leaves supply part (a). The new source-restriction leaves supply part (b) on actual cocycles, gauge-orbit classes and fixed subgroups, with identity/composition and mixed coefficient/source squares. Their subgroup comparisons identify the previously constructed restrictions. Geometric/additive and local-condition comparisons remain separate obligations.",
         "(a) f ∘ c is continuous and f(c(gh)) = f(c(g))·f(g•c(h)) = f(c(g))·g•f(c(h)); f(u·c) = f(u)·(f∘c) because f(u c(g) (g•u)⁻¹) = f(u) f(c(g)) (g•f(u))⁻¹. So the map descends to orbits and sends the trivial cocycle to the trivial cocycle.",
         "(b) c ∘ φ is continuous and (c∘φ)(g′h′) = c(φg′)·φ(g′)•c(φh′); the U-actions correspond, so the map descends.",
-        "Identities and composition hold on cocycles, hence on classes."
+        "Identities and composition hold on cocycles, hence on classes.",
+        "For repointed twisting comparisons under source restriction, import the direct twisted-source map, its proved translation square, representative-change naturality and translated composition law. The separately recorded geometric localization and local-condition identifications remain open; the abstract square does not establish them."
       ],
       "acceptance": [
         "Restriction to the decomposition group at a place v, H¹(G_T, U) → H¹(G_v, U), is the case (b) of the inclusion G_v → G_T used for Selmer conditions."
@@ -1478,7 +1514,10 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.3/source-coefficient-invariant-square",
         "AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-subgroup",
         "AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-surjective-injection",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-invariant-injection"
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-invariant-injection",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-h1-square",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-representative-square",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-composition-square"
       ],
       "sources": [
         {
@@ -11043,6 +11082,1059 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-equivalence",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "construction",
+      "title": "Source comparison of actual inner twists",
+      "declarationName": "TauCeti.NonabelianCohomology.Twist.sourceEquiv",
+      "statement": "Construct e_φ,c:Twist(c)≃*Twist(res_φ c) as j_(res_φ c)⁻¹∘j_c. The underlying topological groups coincide; the following semiequivariance lemma compares their source actions.",
+      "hypotheses": [
+        "G and H are groups with arbitrary topologies; U is a topological group with jointly continuous G and H actions by automorphisms. A continuous homomorphism φ:H→*G and compatibility h•x=φ(h)•x are explicit. No topological-group hypothesis on G or H, finiteness, discreteness, compactness or commutativity is added. For composition, K has the same kind of topology/action and ψ:K→*H is continuous with k•x=ψ(k)•x.",
+        "c,d are actual continuous cocycles. Twist(c) has underlying group/topology U and inner action g⋆_c x=c(g)(g•j_c(x))c(g)⁻¹; j_c is the native underlying group equivalence. τ_c(z)(g)=j_c(z(g))c(g) and T_c is its actual H¹ orbit equivalence, sending the twisted neutral class to [c]. Source restrictions res_φ are the inherited actual cocycle/H¹ constructions.",
+        "Injectivity declarations require Function.Surjective φ. Representative comparison requires [c]=[d]. The identity and composition squares retain their actual dependent twist targets and translate them into original-coefficient H¹; no geometric local-condition compatibility or representability theorem is assumed or concluded."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-underlying-group",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-restriction",
+        "mathlib:MulEquiv.trans",
+        "mathlib:MulEquiv.symm"
+      ],
+      "proofSteps": [
+        "Compose the existing native group identifications, using the inverse in the target direction."
+      ],
+      "acceptance": [
+        "Construct e_φ,c:Twist(c)≃*Twist(res_φ c) as j_(res_φ c)⁻¹∘j_c. The underlying topological groups coincide; the following semiequivariance lemma compares their source actions."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Twist.sourceEquiv"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwistedSource-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, full continuous cocycle/gauge definitions and Proposition 1 proof, printed pp.5–7; representative-change sentence on p.7",
+          "excerpt": "equivalent cocycles give isomorphic actions",
+          "match": "Authored abstract source-restriction deductions from the ordered continuous cocycle, gauge and inner-action conventions. These source-group squares are not claimed as printed geometric torsor or Selmer theorems in Kim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Twist.sourceEquiv_apply",
+          "role": "projection",
+          "statement": "For x∈Twist(c), j_(res_φ c)(e_φ,c(x))=j_c(x)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Twist.sourceEquiv_symm_apply",
+          "role": "projection",
+          "statement": "For y∈Twist(res_φ c), j_c(e_φ,c⁻¹(y))=j_(res_φ c)(y)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Twist.sourceEquiv_continuous",
+          "role": "compatibility",
+          "statement": "The function underlying e_φ,c is continuous for the actual inherited topologies."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Twist.sourceEquiv_symm_continuous",
+          "role": "compatibility",
+          "statement": "The inverse function e_φ,c⁻¹ is continuous. Thus the actual group equivalence is also a homeomorphism."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Twist.sourceEquiv_smul",
+          "role": "compatibility",
+          "statement": "For h∈H and x∈Twist(c), e_φ,c(φ(h)⋆_c x)=h⋆_(res_φ c)e_φ,c(x), using the actual G and H inner actions."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Twist.sourceEquiv_gauge",
+          "role": "compatibility",
+          "statement": "For b∈U and x∈Twist(c), j_(res_φ(b•c))(e_φ,b•c(e_c,b(x)))=j_(b•res_φ c)(e_(res_φ c),b(e_φ,c(x))). Ordinary restriction identifies res_φ(b•c)=b•res_φ c; the equality is stated under the actual underlying identifications to retain the exact dependent targets."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/functoriality",
+          "how": "Provide actual source naturality of twisting and representative change for the general nonabelian restriction API, before comparing arithmetic localization maps and geometric local conditions."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+          "how": "Keep repointed nonneutral-fibre descriptions compatible with restriction once separate twisted subgroup/quotient realizations are constructed; these geometric/group realization obligations remain open."
+        },
+        {
+          "where": "Kim Proposition 1, continuous cocycle/gauge conventions",
+          "how": "Supply the abstract source and representative compatibility calculations derived from those conventions without replacing Kim’s geometric torsor classification."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Twist.sourceEquiv.test_inverse",
+          "kind": "compatibility",
+          "statement": "For every φ,c,x, the actual inverse of e_φ,c applied to e_φ,c(x) is x."
+        },
+        {
+          "name": "Twist.sourceEquiv.test_semilinear",
+          "kind": "compatibility",
+          "statement": "For h∈H and x∈Twist(c), j_(res_φ c)(h⋆e_φ,c(x))=c(φ(h))(φ(h)•j_c(x))c(φ(h))⁻¹."
+        },
+        {
+          "name": "Twist.sourceEquiv.test_noncommutative_action",
+          "kind": "non-example",
+          "statement": "Give S₂ and S₃ discrete topologies and the trivial original S₂-action on S₃; let c(nonidentity)=(01), φ=id, g=(01)∈S₂ and x=(12)∈Twist(c). Then j_(res_id c)(e_id,c(g⋆x))=(02), which differs from j_c(x)=(12). This rejects reuse of the raw trivial action on the inner twist."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-value",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Value of the source comparison",
+      "declarationName": "TauCeti.NonabelianCohomology.Twist.sourceEquiv_apply",
+      "statement": "For x∈Twist(c), j_(res_φ c)(e_φ,c(x))=j_c(x).",
+      "hypotheses": [
+        "G and H are groups with arbitrary topologies; U is a topological group with jointly continuous G and H actions by automorphisms. A continuous homomorphism φ:H→*G and compatibility h•x=φ(h)•x are explicit. No topological-group hypothesis on G or H, finiteness, discreteness, compactness or commutativity is added. For composition, K has the same kind of topology/action and ψ:K→*H is continuous with k•x=ψ(k)•x.",
+        "c,d are actual continuous cocycles. Twist(c) has underlying group/topology U and inner action g⋆_c x=c(g)(g•j_c(x))c(g)⁻¹; j_c is the native underlying group equivalence. τ_c(z)(g)=j_c(z(g))c(g) and T_c is its actual H¹ orbit equivalence, sending the twisted neutral class to [c]. Source restrictions res_φ are the inherited actual cocycle/H¹ constructions.",
+        "Injectivity declarations require Function.Surjective φ. Representative comparison requires [c]=[d]. The identity and composition squares retain their actual dependent twist targets and translate them into original-coefficient H¹; no geometric local-condition compatibility or representability theorem is assumed or concluded."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-equivalence"
+      ],
+      "proofSteps": [
+        "Unfold the composed native equivalence."
+      ],
+      "acceptance": [
+        "For x∈Twist(c), j_(res_φ c)(e_φ,c(x))=j_c(x)."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Twist.sourceEquiv_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwistedSource-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, full continuous cocycle/gauge definitions and Proposition 1 proof, printed pp.5–7; representative-change sentence on p.7",
+          "excerpt": "equivalent cocycles give isomorphic actions",
+          "match": "Authored abstract source-restriction deductions from the ordered continuous cocycle, gauge and inner-action conventions. These source-group squares are not claimed as printed geometric torsor or Selmer theorems in Kim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-inverse-value",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Inverse source comparison",
+      "declarationName": "TauCeti.NonabelianCohomology.Twist.sourceEquiv_symm_apply",
+      "statement": "For y∈Twist(res_φ c), j_c(e_φ,c⁻¹(y))=j_(res_φ c)(y).",
+      "hypotheses": [
+        "G and H are groups with arbitrary topologies; U is a topological group with jointly continuous G and H actions by automorphisms. A continuous homomorphism φ:H→*G and compatibility h•x=φ(h)•x are explicit. No topological-group hypothesis on G or H, finiteness, discreteness, compactness or commutativity is added. For composition, K has the same kind of topology/action and ψ:K→*H is continuous with k•x=ψ(k)•x.",
+        "c,d are actual continuous cocycles. Twist(c) has underlying group/topology U and inner action g⋆_c x=c(g)(g•j_c(x))c(g)⁻¹; j_c is the native underlying group equivalence. τ_c(z)(g)=j_c(z(g))c(g) and T_c is its actual H¹ orbit equivalence, sending the twisted neutral class to [c]. Source restrictions res_φ are the inherited actual cocycle/H¹ constructions.",
+        "Injectivity declarations require Function.Surjective φ. Representative comparison requires [c]=[d]. The identity and composition squares retain their actual dependent twist targets and translate them into original-coefficient H¹; no geometric local-condition compatibility or representability theorem is assumed or concluded."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-equivalence"
+      ],
+      "proofSteps": [
+        "Unfold the inverse native equivalence."
+      ],
+      "acceptance": [
+        "For y∈Twist(res_φ c), j_c(e_φ,c⁻¹(y))=j_(res_φ c)(y)."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Twist.sourceEquiv_symm_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwistedSource-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, full continuous cocycle/gauge definitions and Proposition 1 proof, printed pp.5–7; representative-change sentence on p.7",
+          "excerpt": "equivalent cocycles give isomorphic actions",
+          "match": "Authored abstract source-restriction deductions from the ordered continuous cocycle, gauge and inner-action conventions. These source-group squares are not claimed as printed geometric torsor or Selmer theorems in Kim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-continuity",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Continuity of source comparison",
+      "declarationName": "TauCeti.NonabelianCohomology.Twist.sourceEquiv_continuous",
+      "statement": "The function underlying e_φ,c is continuous for the actual inherited topologies.",
+      "hypotheses": [
+        "G and H are groups with arbitrary topologies; U is a topological group with jointly continuous G and H actions by automorphisms. A continuous homomorphism φ:H→*G and compatibility h•x=φ(h)•x are explicit. No topological-group hypothesis on G or H, finiteness, discreteness, compactness or commutativity is added. For composition, K has the same kind of topology/action and ψ:K→*H is continuous with k•x=ψ(k)•x.",
+        "c,d are actual continuous cocycles. Twist(c) has underlying group/topology U and inner action g⋆_c x=c(g)(g•j_c(x))c(g)⁻¹; j_c is the native underlying group equivalence. τ_c(z)(g)=j_c(z(g))c(g) and T_c is its actual H¹ orbit equivalence, sending the twisted neutral class to [c]. Source restrictions res_φ are the inherited actual cocycle/H¹ constructions.",
+        "Injectivity declarations require Function.Surjective φ. Representative comparison requires [c]=[d]. The identity and composition squares retain their actual dependent twist targets and translate them into original-coefficient H¹; no geometric local-condition compatibility or representability theorem is assumed or concluded."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-equivalence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-value"
+      ],
+      "proofSteps": [
+        "Under j_c and j_(res_φ c) the function is the identity on U; use continuity of the identity."
+      ],
+      "acceptance": [
+        "The function underlying e_φ,c is continuous for the actual inherited topologies."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Twist.sourceEquiv_continuous"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwistedSource-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, full continuous cocycle/gauge definitions and Proposition 1 proof, printed pp.5–7; representative-change sentence on p.7",
+          "excerpt": "equivalent cocycles give isomorphic actions",
+          "match": "Authored abstract source-restriction deductions from the ordered continuous cocycle, gauge and inner-action conventions. These source-group squares are not claimed as printed geometric torsor or Selmer theorems in Kim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-inverse-continuity",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Continuity of inverse source comparison",
+      "declarationName": "TauCeti.NonabelianCohomology.Twist.sourceEquiv_symm_continuous",
+      "statement": "The inverse function e_φ,c⁻¹ is continuous. Thus the actual group equivalence is also a homeomorphism.",
+      "hypotheses": [
+        "G and H are groups with arbitrary topologies; U is a topological group with jointly continuous G and H actions by automorphisms. A continuous homomorphism φ:H→*G and compatibility h•x=φ(h)•x are explicit. No topological-group hypothesis on G or H, finiteness, discreteness, compactness or commutativity is added. For composition, K has the same kind of topology/action and ψ:K→*H is continuous with k•x=ψ(k)•x.",
+        "c,d are actual continuous cocycles. Twist(c) has underlying group/topology U and inner action g⋆_c x=c(g)(g•j_c(x))c(g)⁻¹; j_c is the native underlying group equivalence. τ_c(z)(g)=j_c(z(g))c(g) and T_c is its actual H¹ orbit equivalence, sending the twisted neutral class to [c]. Source restrictions res_φ are the inherited actual cocycle/H¹ constructions.",
+        "Injectivity declarations require Function.Surjective φ. Representative comparison requires [c]=[d]. The identity and composition squares retain their actual dependent twist targets and translate them into original-coefficient H¹; no geometric local-condition compatibility or representability theorem is assumed or concluded."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-equivalence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-inverse-value"
+      ],
+      "proofSteps": [
+        "The inverse is the same identity map on the inherited topology."
+      ],
+      "acceptance": [
+        "The inverse function e_φ,c⁻¹ is continuous. Thus the actual group equivalence is also a homeomorphism."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Twist.sourceEquiv_symm_continuous"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwistedSource-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, full continuous cocycle/gauge definitions and Proposition 1 proof, printed pp.5–7; representative-change sentence on p.7",
+          "excerpt": "equivalent cocycles give isomorphic actions",
+          "match": "Authored abstract source-restriction deductions from the ordered continuous cocycle, gauge and inner-action conventions. These source-group squares are not claimed as printed geometric torsor or Selmer theorems in Kim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-semilinearity",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Source semiequivariance of inner twists",
+      "declarationName": "TauCeti.NonabelianCohomology.Twist.sourceEquiv_smul",
+      "statement": "For h∈H and x∈Twist(c), e_φ,c(φ(h)⋆_c x)=h⋆_(res_φ c)e_φ,c(x), using the actual G and H inner actions.",
+      "hypotheses": [
+        "G and H are groups with arbitrary topologies; U is a topological group with jointly continuous G and H actions by automorphisms. A continuous homomorphism φ:H→*G and compatibility h•x=φ(h)•x are explicit. No topological-group hypothesis on G or H, finiteness, discreteness, compactness or commutativity is added. For composition, K has the same kind of topology/action and ψ:K→*H is continuous with k•x=ψ(k)•x.",
+        "c,d are actual continuous cocycles. Twist(c) has underlying group/topology U and inner action g⋆_c x=c(g)(g•j_c(x))c(g)⁻¹; j_c is the native underlying group equivalence. τ_c(z)(g)=j_c(z(g))c(g) and T_c is its actual H¹ orbit equivalence, sending the twisted neutral class to [c]. Source restrictions res_φ are the inherited actual cocycle/H¹ constructions.",
+        "Injectivity declarations require Function.Surjective φ. Representative comparison requires [c]=[d]. The identity and composition squares retain their actual dependent twist targets and translate them into original-coefficient H¹; no geometric local-condition compatibility or representability theorem is assumed or concluded."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisting",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-value"
+      ],
+      "proofSteps": [
+        "Apply j_(res_φ c) injectively. Both sides contain the same c(φ(h)) and its inverse; replace h•j_c(x) by φ(h)•j_c(x) using the explicit action compatibility."
+      ],
+      "acceptance": [
+        "For h∈H and x∈Twist(c), e_φ,c(φ(h)⋆_c x)=h⋆_(res_φ c)e_φ,c(x), using the actual G and H inner actions."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Twist.sourceEquiv_smul"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwistedSource-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, full continuous cocycle/gauge definitions and Proposition 1 proof, printed pp.5–7; representative-change sentence on p.7",
+          "excerpt": "equivalent cocycles give isomorphic actions",
+          "match": "Authored abstract source-restriction deductions from the ordered continuous cocycle, gauge and inner-action conventions. These source-group squares are not claimed as printed geometric torsor or Selmer theorems in Kim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-cocycle-map",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "construction",
+      "title": "Pullback of actual twisted cocycles",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.twistRes",
+      "statement": "Construct R¹_φ,c:Z¹(G,Twist(c))→Z¹(H,Twist(res_φ c)) by R¹_φ,c(z)(h)=e_φ,c(z(φ(h))). This is a directly defined continuous cocycle, prior to proving the translation square.",
+      "hypotheses": [
+        "G and H are groups with arbitrary topologies; U is a topological group with jointly continuous G and H actions by automorphisms. A continuous homomorphism φ:H→*G and compatibility h•x=φ(h)•x are explicit. No topological-group hypothesis on G or H, finiteness, discreteness, compactness or commutativity is added. For composition, K has the same kind of topology/action and ψ:K→*H is continuous with k•x=ψ(k)•x.",
+        "c,d are actual continuous cocycles. Twist(c) has underlying group/topology U and inner action g⋆_c x=c(g)(g•j_c(x))c(g)⁻¹; j_c is the native underlying group equivalence. τ_c(z)(g)=j_c(z(g))c(g) and T_c is its actual H¹ orbit equivalence, sending the twisted neutral class to [c]. Source restrictions res_φ are the inherited actual cocycle/H¹ constructions.",
+        "Injectivity declarations require Function.Surjective φ. Representative comparison requires [c]=[d]. The identity and composition squares retain their actual dependent twist targets and translate them into original-coefficient H¹; no geometric local-condition compatibility or representability theorem is assumed or concluded."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-equivalence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-continuity",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-semilinearity",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles",
+        "mathlib:Continuous.comp",
+        "mathlib:map_mul"
+      ],
+      "proofSteps": [
+        "Compose continuous maps. Apply the actual cocycle equation to φ(h)φ(k), use multiplicativity of e_φ,c and its semiequivariance."
+      ],
+      "acceptance": [
+        "Construct R¹_φ,c:Z¹(G,Twist(c))→Z¹(H,Twist(res_φ c)) by R¹_φ,c(z)(h)=e_φ,c(z(φ(h))). This is a directly defined continuous cocycle, prior to proving the translation square."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.twistRes"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwistedSource-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, full continuous cocycle/gauge definitions and Proposition 1 proof, printed pp.5–7; representative-change sentence on p.7",
+          "excerpt": "equivalent cocycles give isomorphic actions",
+          "match": "Authored abstract source-restriction deductions from the ordered continuous cocycle, gauge and inner-action conventions. These source-group squares are not claimed as printed geometric torsor or Selmer theorems in Kim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.twistRes_apply",
+          "role": "projection",
+          "statement": "For every h∈H, R¹_φ,c(z)(h)=e_φ,c(z(φ(h)))."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.twistRes_one",
+          "role": "compatibility",
+          "statement": "R¹_φ,c sends the constant one cocycle to the constant one cocycle."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.twistRes_smul",
+          "role": "compatibility",
+          "statement": "For x∈Twist(c) and z∈Z¹(G,Twist(c)), R¹_φ,c(x•z)=e_φ,c(x)•R¹_φ,c(z). This uses the actual gauge actions for their distinct inner source actions."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.twistRes_translation",
+          "role": "compatibility",
+          "statement": "For z∈Z¹(G,Twist(c)), τ_(res_φ c)(R¹_φ,c(z))=res_φ(τ_c(z)) as actual continuous cocycles."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.twistRes_injective",
+          "role": "compatibility",
+          "statement": "If φ is surjective as a function, then R¹_φ,c is injective. Neither continuity nor group-homomorphism structure alone implies this conclusion."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/functoriality",
+          "how": "Provide actual source naturality of twisting and representative change for the general nonabelian restriction API, before comparing arithmetic localization maps and geometric local conditions."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+          "how": "Keep repointed nonneutral-fibre descriptions compatible with restriction once separate twisted subgroup/quotient realizations are constructed; these geometric/group realization obligations remain open."
+        },
+        {
+          "where": "Kim Proposition 1, continuous cocycle/gauge conventions",
+          "how": "Supply the abstract source and representative compatibility calculations derived from those conventions without replacing Kim’s geometric torsor classification."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Z1.twistRes.test_identity",
+          "kind": "degenerate",
+          "statement": "For φ=id and every twisted cocycle z and g, j_(res_id c)(R¹_id,c(z)(g))=j_c(z(g))."
+        },
+        {
+          "name": "Z1.twistRes.test_gauge_translation",
+          "kind": "compatibility",
+          "statement": "For x∈Twist(c) and z a twisted cocycle, τ_(res_φ c)(R¹_φ,c(x•z))=j_c(x)•res_φ(τ_c(z))."
+        },
+        {
+          "name": "Z1.twistRes.test_surjective_detection",
+          "kind": "characterisation",
+          "statement": "For surjective φ, R¹_φ,c(z)=1 iff z=1; the actual cocycle pullback detects the neutral cocycle."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-cocycle-value",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Value of twisted cocycle pullback",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.twistRes_apply",
+      "statement": "For every h∈H, R¹_φ,c(z)(h)=e_φ,c(z(φ(h))).",
+      "hypotheses": [
+        "G and H are groups with arbitrary topologies; U is a topological group with jointly continuous G and H actions by automorphisms. A continuous homomorphism φ:H→*G and compatibility h•x=φ(h)•x are explicit. No topological-group hypothesis on G or H, finiteness, discreteness, compactness or commutativity is added. For composition, K has the same kind of topology/action and ψ:K→*H is continuous with k•x=ψ(k)•x.",
+        "c,d are actual continuous cocycles. Twist(c) has underlying group/topology U and inner action g⋆_c x=c(g)(g•j_c(x))c(g)⁻¹; j_c is the native underlying group equivalence. τ_c(z)(g)=j_c(z(g))c(g) and T_c is its actual H¹ orbit equivalence, sending the twisted neutral class to [c]. Source restrictions res_φ are the inherited actual cocycle/H¹ constructions.",
+        "Injectivity declarations require Function.Surjective φ. Representative comparison requires [c]=[d]. The identity and composition squares retain their actual dependent twist targets and translate them into original-coefficient H¹; no geometric local-condition compatibility or representability theorem is assumed or concluded."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-cocycle-map"
+      ],
+      "proofSteps": [
+        "Unfold the directly defined cocycle map."
+      ],
+      "acceptance": [
+        "For every h∈H, R¹_φ,c(z)(h)=e_φ,c(z(φ(h)))."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.twistRes_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwistedSource-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, full continuous cocycle/gauge definitions and Proposition 1 proof, printed pp.5–7; representative-change sentence on p.7",
+          "excerpt": "equivalent cocycles give isomorphic actions",
+          "match": "Authored abstract source-restriction deductions from the ordered continuous cocycle, gauge and inner-action conventions. These source-group squares are not claimed as printed geometric torsor or Selmer theorems in Kim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-cocycle-neutral",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Neutral twisted cocycle pullback",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.twistRes_one",
+      "statement": "R¹_φ,c sends the constant one cocycle to the constant one cocycle.",
+      "hypotheses": [
+        "G and H are groups with arbitrary topologies; U is a topological group with jointly continuous G and H actions by automorphisms. A continuous homomorphism φ:H→*G and compatibility h•x=φ(h)•x are explicit. No topological-group hypothesis on G or H, finiteness, discreteness, compactness or commutativity is added. For composition, K has the same kind of topology/action and ψ:K→*H is continuous with k•x=ψ(k)•x.",
+        "c,d are actual continuous cocycles. Twist(c) has underlying group/topology U and inner action g⋆_c x=c(g)(g•j_c(x))c(g)⁻¹; j_c is the native underlying group equivalence. τ_c(z)(g)=j_c(z(g))c(g) and T_c is its actual H¹ orbit equivalence, sending the twisted neutral class to [c]. Source restrictions res_φ are the inherited actual cocycle/H¹ constructions.",
+        "Injectivity declarations require Function.Surjective φ. Representative comparison requires [c]=[d]. The identity and composition squares retain their actual dependent twist targets and translate them into original-coefficient H¹; no geometric local-condition compatibility or representability theorem is assumed or concluded."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-cocycle-value"
+      ],
+      "proofSteps": [
+        "Use cocycle extensionality and multiplicativity of the native equivalence at one."
+      ],
+      "acceptance": [
+        "R¹_φ,c sends the constant one cocycle to the constant one cocycle."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.twistRes_one"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwistedSource-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, full continuous cocycle/gauge definitions and Proposition 1 proof, printed pp.5–7; representative-change sentence on p.7",
+          "excerpt": "equivalent cocycles give isomorphic actions",
+          "match": "Authored abstract source-restriction deductions from the ordered continuous cocycle, gauge and inner-action conventions. These source-group squares are not claimed as printed geometric torsor or Selmer theorems in Kim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-cocycle-gauge",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Gauge compatibility of twisted pullback",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.twistRes_smul",
+      "statement": "For x∈Twist(c) and z∈Z¹(G,Twist(c)), R¹_φ,c(x•z)=e_φ,c(x)•R¹_φ,c(z). This uses the actual gauge actions for their distinct inner source actions.",
+      "hypotheses": [
+        "G and H are groups with arbitrary topologies; U is a topological group with jointly continuous G and H actions by automorphisms. A continuous homomorphism φ:H→*G and compatibility h•x=φ(h)•x are explicit. No topological-group hypothesis on G or H, finiteness, discreteness, compactness or commutativity is added. For composition, K has the same kind of topology/action and ψ:K→*H is continuous with k•x=ψ(k)•x.",
+        "c,d are actual continuous cocycles. Twist(c) has underlying group/topology U and inner action g⋆_c x=c(g)(g•j_c(x))c(g)⁻¹; j_c is the native underlying group equivalence. τ_c(z)(g)=j_c(z(g))c(g) and T_c is its actual H¹ orbit equivalence, sending the twisted neutral class to [c]. Source restrictions res_φ are the inherited actual cocycle/H¹ constructions.",
+        "Injectivity declarations require Function.Surjective φ. Representative comparison requires [c]=[d]. The identity and composition squares retain their actual dependent twist targets and translate them into original-coefficient H¹; no geometric local-condition compatibility or representability theorem is assumed or concluded."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-cocycle-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-semilinearity",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1",
+        "mathlib:map_mul",
+        "mathlib:map_inv"
+      ],
+      "proofSteps": [
+        "Evaluate at h. Expand the ordered gauge formula, preserve products/inverses with e_φ,c, and use its semiequivariance."
+      ],
+      "acceptance": [
+        "For x∈Twist(c) and z∈Z¹(G,Twist(c)), R¹_φ,c(x•z)=e_φ,c(x)•R¹_φ,c(z). This uses the actual gauge actions for their distinct inner source actions."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.twistRes_smul"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwistedSource-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, full continuous cocycle/gauge definitions and Proposition 1 proof, printed pp.5–7; representative-change sentence on p.7",
+          "excerpt": "equivalent cocycles give isomorphic actions",
+          "match": "Authored abstract source-restriction deductions from the ordered continuous cocycle, gauge and inner-action conventions. These source-group squares are not claimed as printed geometric torsor or Selmer theorems in Kim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-cocycle-square",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Twisting and source restriction square",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.twistRes_translation",
+      "statement": "For z∈Z¹(G,Twist(c)), τ_(res_φ c)(R¹_φ,c(z))=res_φ(τ_c(z)) as actual continuous cocycles.",
+      "hypotheses": [
+        "G and H are groups with arbitrary topologies; U is a topological group with jointly continuous G and H actions by automorphisms. A continuous homomorphism φ:H→*G and compatibility h•x=φ(h)•x are explicit. No topological-group hypothesis on G or H, finiteness, discreteness, compactness or commutativity is added. For composition, K has the same kind of topology/action and ψ:K→*H is continuous with k•x=ψ(k)•x.",
+        "c,d are actual continuous cocycles. Twist(c) has underlying group/topology U and inner action g⋆_c x=c(g)(g•j_c(x))c(g)⁻¹; j_c is the native underlying group equivalence. τ_c(z)(g)=j_c(z(g))c(g) and T_c is its actual H¹ orbit equivalence, sending the twisted neutral class to [c]. Source restrictions res_φ are the inherited actual cocycle/H¹ constructions.",
+        "Injectivity declarations require Function.Surjective φ. Representative comparison requires [c]=[d]. The identity and composition squares retain their actual dependent twist targets and translate them into original-coefficient H¹; no geometric local-condition compatibility or representability theorem is assumed or concluded."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-cocycle-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-cocycle-equivalence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-value"
+      ],
+      "proofSteps": [
+        "Evaluate at h. The left side is j_c(z(φ(h)))c(φ(h)); this is the right side by ordinary restriction and the inherited translation formula."
+      ],
+      "acceptance": [
+        "For z∈Z¹(G,Twist(c)), τ_(res_φ c)(R¹_φ,c(z))=res_φ(τ_c(z)) as actual continuous cocycles."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.twistRes_translation"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwistedSource-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, full continuous cocycle/gauge definitions and Proposition 1 proof, printed pp.5–7; representative-change sentence on p.7",
+          "excerpt": "equivalent cocycles give isomorphic actions",
+          "match": "Authored abstract source-restriction deductions from the ordered continuous cocycle, gauge and inner-action conventions. These source-group squares are not claimed as printed geometric torsor or Selmer theorems in Kim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-h1-map",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "construction",
+      "title": "Source restriction on twisted orbit sets",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistRes",
+      "statement": "Construct R_φ,c:H¹(G,Twist(c))→H¹(H,Twist(res_φ c)) by [z]↦[R¹_φ,c(z)] on the actual native gauge-orbit quotient.",
+      "hypotheses": [
+        "G and H are groups with arbitrary topologies; U is a topological group with jointly continuous G and H actions by automorphisms. A continuous homomorphism φ:H→*G and compatibility h•x=φ(h)•x are explicit. No topological-group hypothesis on G or H, finiteness, discreteness, compactness or commutativity is added. For composition, K has the same kind of topology/action and ψ:K→*H is continuous with k•x=ψ(k)•x.",
+        "c,d are actual continuous cocycles. Twist(c) has underlying group/topology U and inner action g⋆_c x=c(g)(g•j_c(x))c(g)⁻¹; j_c is the native underlying group equivalence. τ_c(z)(g)=j_c(z(g))c(g) and T_c is its actual H¹ orbit equivalence, sending the twisted neutral class to [c]. Source restrictions res_φ are the inherited actual cocycle/H¹ constructions.",
+        "Injectivity declarations require Function.Surjective φ. Representative comparison requires [c]=[d]. The identity and composition squares retain their actual dependent twist targets and translate them into original-coefficient H¹; no geometric local-condition compatibility or representability theorem is assumed or concluded."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-cocycle-map",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-cocycle-gauge",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-gauge-class",
+        "mathlib:MulAction.orbitRel_apply"
+      ],
+      "proofSteps": [
+        "Lift the directly constructed cocycle pullback to the native quotient. A gauge witness x maps to the witness e_φ,c(x), by cocycle gauge compatibility."
+      ],
+      "acceptance": [
+        "Construct R_φ,c:H¹(G,Twist(c))→H¹(H,Twist(res_φ c)) by [z]↦[R¹_φ,c(z)] on the actual native gauge-orbit quotient."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistRes"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwistedSource-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, full continuous cocycle/gauge definitions and Proposition 1 proof, printed pp.5–7; representative-change sentence on p.7",
+          "excerpt": "equivalent cocycles give isomorphic actions",
+          "match": "Authored abstract source-restriction deductions from the ordered continuous cocycle, gauge and inner-action conventions. These source-group squares are not claimed as printed geometric torsor or Selmer theorems in Kim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistRes_mk",
+          "role": "projection",
+          "statement": "For every actual twisted cocycle z, R_φ,c([z])=[R¹_φ,c(z)]."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistRes_one",
+          "role": "compatibility",
+          "statement": "R_φ,c(1)=1 in H¹(H,Twist(res_φ c)). The target neutral point is in the twisted target, while T_(res_φ c)(1)=[res_φ c] in the original coefficient H¹."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistRes_translation",
+          "role": "compatibility",
+          "statement": "For every a∈H¹(G,Twist(c)), T_(res_φ c)(R_φ,c(a))=res_φ(T_c(a)) in the original H¹(H,U). This square is proved for the direct quotient lift, not inserted into its definition."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistRes_injective",
+          "role": "compatibility",
+          "statement": "If φ is surjective as a function, then R_φ,c is injective on the actual H¹ orbit sets. In particular it reflects their neutral classes."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistRes_representative",
+          "role": "compatibility",
+          "statement": "If [c]=[d], then R_φ,d∘C_c,d=C_(res_φ c),(res_φ d)∘R_φ,c. The target class equality is res_φ([c])=res_φ([d]); no gauge witness or canonical coefficient-group isomorphism is chosen."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistRes_identity_translation",
+          "role": "compatibility",
+          "statement": "For the identity source map on G, T_(res_id c)(R_id,c(a))=T_c(a). This states the identity law with the actual dependent twist targets visible; no arbitrary identification of actions is suppressed."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistRes_comp_translation",
+          "role": "compatibility",
+          "statement": "For ψ:K→*H and φ:H→*G with continuous maps and compatible K,H,G actions, T_(res_ψ(res_φ c))(R_ψ,res_φ c(R_φ,c(a)))=res_(φ∘ψ)(T_c(a)). The composite compatibility is k•x=ψ(k)•x=φ(ψ(k))•x. Applying the one-step square to φ∘ψ gives the same translated value; comparisons of dependent twist targets are explicit."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/functoriality",
+          "how": "Provide actual source naturality of twisting and representative change for the general nonabelian restriction API, before comparing arithmetic localization maps and geometric local conditions."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+          "how": "Keep repointed nonneutral-fibre descriptions compatible with restriction once separate twisted subgroup/quotient realizations are constructed; these geometric/group realization obligations remain open."
+        },
+        {
+          "where": "Kim Proposition 1, continuous cocycle/gauge conventions",
+          "how": "Supply the abstract source and representative compatibility calculations derived from those conventions without replacing Kim’s geometric torsor classification."
+        }
+      ],
+      "tests": [
+        {
+          "name": "H1.twistRes.test_neutral",
+          "kind": "compatibility",
+          "statement": "T_(res_φ c)(R_φ,c(1))=[res_φ c], retaining the repointed target; this value need not be neutral in the original coefficient H¹."
+        },
+        {
+          "name": "H1.twistRes.test_gauge_classes",
+          "kind": "compatibility",
+          "statement": "For x∈Twist(c) and a cocycle z, R_φ,c([x•z])=R_φ,c([z]) on the actual gauge-orbit quotient."
+        },
+        {
+          "name": "H1.twistRes.test_surjective_reflection",
+          "kind": "characterisation",
+          "statement": "For surjective φ, R_φ,c(a)=1 iff a=1 on the actual twisted H¹ orbit sets."
+        },
+        {
+          "name": "H1.twistRes.test_nonsurjective_loss",
+          "kind": "non-example",
+          "statement": "If φ(h)=1 for every h and [c]≠1 in the original H¹, then a=T_c⁻¹(1) is nonneutral but R_φ,c(a)=1. The existing discrete S₂→S₃ cocycle supplies a consistent nonneutral c, with trivial original actions and the constant homomorphism. This rejects injectivity or neutral reflection without surjectivity."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-h1-value",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Representative of twisted H¹ restriction",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistRes_mk",
+      "statement": "For every actual twisted cocycle z, R_φ,c([z])=[R¹_φ,c(z)].",
+      "hypotheses": [
+        "G and H are groups with arbitrary topologies; U is a topological group with jointly continuous G and H actions by automorphisms. A continuous homomorphism φ:H→*G and compatibility h•x=φ(h)•x are explicit. No topological-group hypothesis on G or H, finiteness, discreteness, compactness or commutativity is added. For composition, K has the same kind of topology/action and ψ:K→*H is continuous with k•x=ψ(k)•x.",
+        "c,d are actual continuous cocycles. Twist(c) has underlying group/topology U and inner action g⋆_c x=c(g)(g•j_c(x))c(g)⁻¹; j_c is the native underlying group equivalence. τ_c(z)(g)=j_c(z(g))c(g) and T_c is its actual H¹ orbit equivalence, sending the twisted neutral class to [c]. Source restrictions res_φ are the inherited actual cocycle/H¹ constructions.",
+        "Injectivity declarations require Function.Surjective φ. Representative comparison requires [c]=[d]. The identity and composition squares retain their actual dependent twist targets and translate them into original-coefficient H¹; no geometric local-condition compatibility or representability theorem is assumed or concluded."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-h1-map"
+      ],
+      "proofSteps": [
+        "Unfold the native quotient lift."
+      ],
+      "acceptance": [
+        "For every actual twisted cocycle z, R_φ,c([z])=[R¹_φ,c(z)]."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistRes_mk"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwistedSource-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, full continuous cocycle/gauge definitions and Proposition 1 proof, printed pp.5–7; representative-change sentence on p.7",
+          "excerpt": "equivalent cocycles give isomorphic actions",
+          "match": "Authored abstract source-restriction deductions from the ordered continuous cocycle, gauge and inner-action conventions. These source-group squares are not claimed as printed geometric torsor or Selmer theorems in Kim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-h1-neutral",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Pointedness of twisted source restriction",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistRes_one",
+      "statement": "R_φ,c(1)=1 in H¹(H,Twist(res_φ c)). The target neutral point is in the twisted target, while T_(res_φ c)(1)=[res_φ c] in the original coefficient H¹.",
+      "hypotheses": [
+        "G and H are groups with arbitrary topologies; U is a topological group with jointly continuous G and H actions by automorphisms. A continuous homomorphism φ:H→*G and compatibility h•x=φ(h)•x are explicit. No topological-group hypothesis on G or H, finiteness, discreteness, compactness or commutativity is added. For composition, K has the same kind of topology/action and ψ:K→*H is continuous with k•x=ψ(k)•x.",
+        "c,d are actual continuous cocycles. Twist(c) has underlying group/topology U and inner action g⋆_c x=c(g)(g•j_c(x))c(g)⁻¹; j_c is the native underlying group equivalence. τ_c(z)(g)=j_c(z(g))c(g) and T_c is its actual H¹ orbit equivalence, sending the twisted neutral class to [c]. Source restrictions res_φ are the inherited actual cocycle/H¹ constructions.",
+        "Injectivity declarations require Function.Surjective φ. Representative comparison requires [c]=[d]. The identity and composition squares retain their actual dependent twist targets and translate them into original-coefficient H¹; no geometric local-condition compatibility or representability theorem is assumed or concluded."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-h1-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-cocycle-neutral"
+      ],
+      "proofSteps": [
+        "Use the representative formula and the neutral cocycle pullback."
+      ],
+      "acceptance": [
+        "R_φ,c(1)=1 in H¹(H,Twist(res_φ c)). The target neutral point is in the twisted target, while T_(res_φ c)(1)=[res_φ c] in the original coefficient H¹."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistRes_one"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwistedSource-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, full continuous cocycle/gauge definitions and Proposition 1 proof, printed pp.5–7; representative-change sentence on p.7",
+          "excerpt": "equivalent cocycles give isomorphic actions",
+          "match": "Authored abstract source-restriction deductions from the ordered continuous cocycle, gauge and inner-action conventions. These source-group squares are not claimed as printed geometric torsor or Selmer theorems in Kim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-h1-square",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Source naturality of the twisting equivalence",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistRes_translation",
+      "statement": "For every a∈H¹(G,Twist(c)), T_(res_φ c)(R_φ,c(a))=res_φ(T_c(a)) in the original H¹(H,U). This square is proved for the direct quotient lift, not inserted into its definition.",
+      "hypotheses": [
+        "G and H are groups with arbitrary topologies; U is a topological group with jointly continuous G and H actions by automorphisms. A continuous homomorphism φ:H→*G and compatibility h•x=φ(h)•x are explicit. No topological-group hypothesis on G or H, finiteness, discreteness, compactness or commutativity is added. For composition, K has the same kind of topology/action and ψ:K→*H is continuous with k•x=ψ(k)•x.",
+        "c,d are actual continuous cocycles. Twist(c) has underlying group/topology U and inner action g⋆_c x=c(g)(g•j_c(x))c(g)⁻¹; j_c is the native underlying group equivalence. τ_c(z)(g)=j_c(z(g))c(g) and T_c is its actual H¹ orbit equivalence, sending the twisted neutral class to [c]. Source restrictions res_φ are the inherited actual cocycle/H¹ constructions.",
+        "Injectivity declarations require Function.Surjective φ. Representative comparison requires [c]=[d]. The identity and composition squares retain their actual dependent twist targets and translate them into original-coefficient H¹; no geometric local-condition compatibility or representability theorem is assumed or concluded."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-h1-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-cocycle-square",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-equivalence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-representative"
+      ],
+      "proofSteps": [
+        "Choose a cocycle representative of a; use quotient evaluation and the actual cocycle translation square."
+      ],
+      "acceptance": [
+        "For every a∈H¹(G,Twist(c)), T_(res_φ c)(R_φ,c(a))=res_φ(T_c(a)) in the original H¹(H,U). This square is proved for the direct quotient lift, not inserted into its definition."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistRes_translation"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwistedSource-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, full continuous cocycle/gauge definitions and Proposition 1 proof, printed pp.5–7; representative-change sentence on p.7",
+          "excerpt": "equivalent cocycles give isomorphic actions",
+          "match": "Authored abstract source-restriction deductions from the ordered continuous cocycle, gauge and inner-action conventions. These source-group squares are not claimed as printed geometric torsor or Selmer theorems in Kim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-gauge-square",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Source comparison and gauge conjugation",
+      "declarationName": "TauCeti.NonabelianCohomology.Twist.sourceEquiv_gauge",
+      "statement": "For b∈U and x∈Twist(c), j_(res_φ(b•c))(e_φ,b•c(e_c,b(x)))=j_(b•res_φ c)(e_(res_φ c),b(e_φ,c(x))). Ordinary restriction identifies res_φ(b•c)=b•res_φ c; the equality is stated under the actual underlying identifications to retain the exact dependent targets.",
+      "hypotheses": [
+        "G and H are groups with arbitrary topologies; U is a topological group with jointly continuous G and H actions by automorphisms. A continuous homomorphism φ:H→*G and compatibility h•x=φ(h)•x are explicit. No topological-group hypothesis on G or H, finiteness, discreteness, compactness or commutativity is added. For composition, K has the same kind of topology/action and ψ:K→*H is continuous with k•x=ψ(k)•x.",
+        "c,d are actual continuous cocycles. Twist(c) has underlying group/topology U and inner action g⋆_c x=c(g)(g•j_c(x))c(g)⁻¹; j_c is the native underlying group equivalence. τ_c(z)(g)=j_c(z(g))c(g) and T_c is its actual H¹ orbit equivalence, sending the twisted neutral class to [c]. Source restrictions res_φ are the inherited actual cocycle/H¹ constructions.",
+        "Injectivity declarations require Function.Surjective φ. Representative comparison requires [c]=[d]. The identity and composition squares retain their actual dependent twist targets and translate them into original-coefficient H¹; no geometric local-condition compatibility or representability theorem is assumed or concluded."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-gauge"
+      ],
+      "proofSteps": [
+        "Both sides are b j_c(x)b⁻¹. Use the native identification formulas and the ordinary cocycle restriction/gauge identity."
+      ],
+      "acceptance": [
+        "For b∈U and x∈Twist(c), j_(res_φ(b•c))(e_φ,b•c(e_c,b(x)))=j_(b•res_φ c)(e_(res_φ c),b(e_φ,c(x))). Ordinary restriction identifies res_φ(b•c)=b•res_φ c; the equality is stated under the actual underlying identifications to retain the exact dependent targets."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Twist.sourceEquiv_gauge"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwistedSource-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, full continuous cocycle/gauge definitions and Proposition 1 proof, printed pp.5–7; representative-change sentence on p.7",
+          "excerpt": "equivalent cocycles give isomorphic actions",
+          "match": "Authored abstract source-restriction deductions from the ordered continuous cocycle, gauge and inner-action conventions. These source-group squares are not claimed as printed geometric torsor or Selmer theorems in Kim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-cocycle-injection",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Surjective source maps detect twisted cocycles",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.twistRes_injective",
+      "statement": "If φ is surjective as a function, then R¹_φ,c is injective. Neither continuity nor group-homomorphism structure alone implies this conclusion.",
+      "hypotheses": [
+        "G and H are groups with arbitrary topologies; U is a topological group with jointly continuous G and H actions by automorphisms. A continuous homomorphism φ:H→*G and compatibility h•x=φ(h)•x are explicit. No topological-group hypothesis on G or H, finiteness, discreteness, compactness or commutativity is added. For composition, K has the same kind of topology/action and ψ:K→*H is continuous with k•x=ψ(k)•x.",
+        "c,d are actual continuous cocycles. Twist(c) has underlying group/topology U and inner action g⋆_c x=c(g)(g•j_c(x))c(g)⁻¹; j_c is the native underlying group equivalence. τ_c(z)(g)=j_c(z(g))c(g) and T_c is its actual H¹ orbit equivalence, sending the twisted neutral class to [c]. Source restrictions res_φ are the inherited actual cocycle/H¹ constructions.",
+        "Injectivity declarations require Function.Surjective φ. Representative comparison requires [c]=[d]. The identity and composition squares retain their actual dependent twist targets and translate them into original-coefficient H¹; no geometric local-condition compatibility or representability theorem is assumed or concluded."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-cocycle-square",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-surjective-injection",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-cocycle-equivalence",
+        "mathlib:Equiv.injective"
+      ],
+      "proofSteps": [
+        "Translate both inputs by τ_c, apply ordinary source restriction injectivity, and use the proved cocycle translation square and injectivity of τ_c."
+      ],
+      "acceptance": [
+        "If φ is surjective as a function, then R¹_φ,c is injective. Neither continuity nor group-homomorphism structure alone implies this conclusion."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.twistRes_injective"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwistedSource-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, full continuous cocycle/gauge definitions and Proposition 1 proof, printed pp.5–7; representative-change sentence on p.7",
+          "excerpt": "equivalent cocycles give isomorphic actions",
+          "match": "Authored abstract source-restriction deductions from the ordered continuous cocycle, gauge and inner-action conventions. These source-group squares are not claimed as printed geometric torsor or Selmer theorems in Kim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-h1-injection",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Surjective source maps detect twisted classes",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistRes_injective",
+      "statement": "If φ is surjective as a function, then R_φ,c is injective on the actual H¹ orbit sets. In particular it reflects their neutral classes.",
+      "hypotheses": [
+        "G and H are groups with arbitrary topologies; U is a topological group with jointly continuous G and H actions by automorphisms. A continuous homomorphism φ:H→*G and compatibility h•x=φ(h)•x are explicit. No topological-group hypothesis on G or H, finiteness, discreteness, compactness or commutativity is added. For composition, K has the same kind of topology/action and ψ:K→*H is continuous with k•x=ψ(k)•x.",
+        "c,d are actual continuous cocycles. Twist(c) has underlying group/topology U and inner action g⋆_c x=c(g)(g•j_c(x))c(g)⁻¹; j_c is the native underlying group equivalence. τ_c(z)(g)=j_c(z(g))c(g) and T_c is its actual H¹ orbit equivalence, sending the twisted neutral class to [c]. Source restrictions res_φ are the inherited actual cocycle/H¹ constructions.",
+        "Injectivity declarations require Function.Surjective φ. Representative comparison requires [c]=[d]. The identity and composition squares retain their actual dependent twist targets and translate them into original-coefficient H¹; no geometric local-condition compatibility or representability theorem is assumed or concluded."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-h1-square",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-surjective-injection",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-equivalence",
+        "mathlib:Equiv.injective"
+      ],
+      "proofSteps": [
+        "Compare after T_c; ordinary H¹ restriction is injective for a surjective φ. Apply the translation square and cancel T_c."
+      ],
+      "acceptance": [
+        "If φ is surjective as a function, then R_φ,c is injective on the actual H¹ orbit sets. In particular it reflects their neutral classes."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistRes_injective"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwistedSource-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, full continuous cocycle/gauge definitions and Proposition 1 proof, printed pp.5–7; representative-change sentence on p.7",
+          "excerpt": "equivalent cocycles give isomorphic actions",
+          "match": "Authored abstract source-restriction deductions from the ordered continuous cocycle, gauge and inner-action conventions. These source-group squares are not claimed as printed geometric torsor or Selmer theorems in Kim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-representative-square",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Source naturality of representative comparison",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistRes_representative",
+      "statement": "If [c]=[d], then R_φ,d∘C_c,d=C_(res_φ c),(res_φ d)∘R_φ,c. The target class equality is res_φ([c])=res_φ([d]); no gauge witness or canonical coefficient-group isomorphism is chosen.",
+      "hypotheses": [
+        "G and H are groups with arbitrary topologies; U is a topological group with jointly continuous G and H actions by automorphisms. A continuous homomorphism φ:H→*G and compatibility h•x=φ(h)•x are explicit. No topological-group hypothesis on G or H, finiteness, discreteness, compactness or commutativity is added. For composition, K has the same kind of topology/action and ψ:K→*H is continuous with k•x=ψ(k)•x.",
+        "c,d are actual continuous cocycles. Twist(c) has underlying group/topology U and inner action g⋆_c x=c(g)(g•j_c(x))c(g)⁻¹; j_c is the native underlying group equivalence. τ_c(z)(g)=j_c(z(g))c(g) and T_c is its actual H¹ orbit equivalence, sending the twisted neutral class to [c]. Source restrictions res_φ are the inherited actual cocycle/H¹ constructions.",
+        "Injectivity declarations require Function.Surjective φ. Representative comparison requires [c]=[d]. The identity and composition squares retain their actual dependent twist targets and translate them into original-coefficient H¹; no geometric local-condition compatibility or representability theorem is assumed or concluded."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-h1-square",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/representative-square",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-representative",
+        "mathlib:Equiv.injective"
+      ],
+      "proofSteps": [
+        "Apply injectivity of T_(res_φ d). The representative square and the two source translation squares identify both sides with res_φ(T_c(a))."
+      ],
+      "acceptance": [
+        "If [c]=[d], then R_φ,d∘C_c,d=C_(res_φ c),(res_φ d)∘R_φ,c. The target class equality is res_φ([c])=res_φ([d]); no gauge witness or canonical coefficient-group isomorphism is chosen."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistRes_representative"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwistedSource-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, full continuous cocycle/gauge definitions and Proposition 1 proof, printed pp.5–7; representative-change sentence on p.7",
+          "excerpt": "equivalent cocycles give isomorphic actions",
+          "match": "Authored abstract source-restriction deductions from the ordered continuous cocycle, gauge and inner-action conventions. These source-group squares are not claimed as printed geometric torsor or Selmer theorems in Kim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-identity-square",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Identity law under twisting translation",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistRes_identity_translation",
+      "statement": "For the identity source map on G, T_(res_id c)(R_id,c(a))=T_c(a). This states the identity law with the actual dependent twist targets visible; no arbitrary identification of actions is suppressed.",
+      "hypotheses": [
+        "G and H are groups with arbitrary topologies; U is a topological group with jointly continuous G and H actions by automorphisms. A continuous homomorphism φ:H→*G and compatibility h•x=φ(h)•x are explicit. No topological-group hypothesis on G or H, finiteness, discreteness, compactness or commutativity is added. For composition, K has the same kind of topology/action and ψ:K→*H is continuous with k•x=ψ(k)•x.",
+        "c,d are actual continuous cocycles. Twist(c) has underlying group/topology U and inner action g⋆_c x=c(g)(g•j_c(x))c(g)⁻¹; j_c is the native underlying group equivalence. τ_c(z)(g)=j_c(z(g))c(g) and T_c is its actual H¹ orbit equivalence, sending the twisted neutral class to [c]. Source restrictions res_φ are the inherited actual cocycle/H¹ constructions.",
+        "Injectivity declarations require Function.Surjective φ. Representative comparison requires [c]=[d]. The identity and composition squares retain their actual dependent twist targets and translate them into original-coefficient H¹; no geometric local-condition compatibility or representability theorem is assumed or concluded."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-h1-square",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-identity"
+      ],
+      "proofSteps": [
+        "Use the source translation square and the ordinary H¹ identity law."
+      ],
+      "acceptance": [
+        "For the identity source map on G, T_(res_id c)(R_id,c(a))=T_c(a). This states the identity law with the actual dependent twist targets visible; no arbitrary identification of actions is suppressed."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistRes_identity_translation"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwistedSource-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, full continuous cocycle/gauge definitions and Proposition 1 proof, printed pp.5–7; representative-change sentence on p.7",
+          "excerpt": "equivalent cocycles give isomorphic actions",
+          "match": "Authored abstract source-restriction deductions from the ordered continuous cocycle, gauge and inner-action conventions. These source-group squares are not claimed as printed geometric torsor or Selmer theorems in Kim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-composition-square",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Composition law under twisting translation",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistRes_comp_translation",
+      "statement": "For ψ:K→*H and φ:H→*G with continuous maps and compatible K,H,G actions, T_(res_ψ(res_φ c))(R_ψ,res_φ c(R_φ,c(a)))=res_(φ∘ψ)(T_c(a)). The composite compatibility is k•x=ψ(k)•x=φ(ψ(k))•x. Applying the one-step square to φ∘ψ gives the same translated value; comparisons of dependent twist targets are explicit.",
+      "hypotheses": [
+        "G and H are groups with arbitrary topologies; U is a topological group with jointly continuous G and H actions by automorphisms. A continuous homomorphism φ:H→*G and compatibility h•x=φ(h)•x are explicit. No topological-group hypothesis on G or H, finiteness, discreteness, compactness or commutativity is added. For composition, K has the same kind of topology/action and ψ:K→*H is continuous with k•x=ψ(k)•x.",
+        "c,d are actual continuous cocycles. Twist(c) has underlying group/topology U and inner action g⋆_c x=c(g)(g•j_c(x))c(g)⁻¹; j_c is the native underlying group equivalence. τ_c(z)(g)=j_c(z(g))c(g) and T_c is its actual H¹ orbit equivalence, sending the twisted neutral class to [c]. Source restrictions res_φ are the inherited actual cocycle/H¹ constructions.",
+        "Injectivity declarations require Function.Surjective φ. Representative comparison requires [c]=[d]. The identity and composition squares retain their actual dependent twist targets and translate them into original-coefficient H¹; no geometric local-condition compatibility or representability theorem is assumed or concluded."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-source-h1-square",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-composition"
+      ],
+      "proofSteps": [
+        "Apply the two source translation squares successively, then the ordinary H¹ source composition law."
+      ],
+      "acceptance": [
+        "For ψ:K→*H and φ:H→*G with continuous maps and compatible K,H,G actions, T_(res_ψ(res_φ c))(R_ψ,res_φ c(R_φ,c(a)))=res_(φ∘ψ)(T_c(a)). The composite compatibility is k•x=ψ(k)•x=φ(ψ(k))•x. Applying the one-step square to φ∘ψ gives the same translated value; comparisons of dependent twist targets are explicit."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistRes_comp_translation"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwistedSource-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, full continuous cocycle/gauge definitions and Proposition 1 proof, printed pp.5–7; representative-change sentence on p.7",
+          "excerpt": "equivalent cocycles give isomorphic actions",
+          "match": "Authored abstract source-restriction deductions from the ordered continuous cocycle, gauge and inner-action conventions. These source-group squares are not claimed as printed geometric torsor or Selmer theorems in Kim."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -11229,7 +12321,8 @@
         "Reverse-inclusion cocycle and H¹ transitions, their native type-valued diagram, actual inflation cocone and compact/discrete finite-quotient equivalence are specified. The colimit requires discrete U and does not extend the unipotent p-adic topology by assumption. Genuine additive cocycle conversion, compatibility with the existing TauCeti additive transition/colimit, representability, local conditions, inherited API/granularity and all geometric source/supplier obligations remain open.",
         "Current codex-J6LwjP twisting checkpoint supplies the actual continuous inner action, right-multiplication cocycle equivalence, gauge-orbit quotient equivalence, representative/neutral-fibre formulas and twisted-invariant criterion, with checked native prototypes and the nonneutral S₃ example. Subgroup/quotient and source/coefficient naturality of twisting, genuine additive comparison, unipotent point topologies, representability, local conditions and all geometric/source/supplier obligations remain open. The orbit bijection is pointed only after repointing its target at [c].",
         "Coefficient naturality of the actual inner twist, both cocycle/H¹ equivalences, identity/composition and the fibre over [f∘c] are specified by this checkpoint. Twisted subgroup and normal-quotient realization, source-group naturality, genuine additive comparison, unipotent point topologies, geometric torsors, representability and local conditions remain required constructions. The reserved all-coefficient/all-degree étale K(pi,1), its qualified raw-homotopy comparison, Chen /57–58, complete BDMTV NC.2/NC.5 routes and E9/E10 obligations are unchanged.",
-        "Continuous gauge conjugation between inner twists and the canonical pointed H¹ comparison for cohomologous representatives are now specified with checked native proofs, including the gauge-pushforward comparison and composition law. The group isomorphism still depends on a supplied gauge element; only the specified H¹ comparison avoids a gauge-witness choice. Source-group naturality, actual twisted subgroup/quotient realization, compatibility with local conditions, the genuine additive comparison, unipotent point topologies and all geometric/representability/source obligations remain open."
+        "Continuous gauge conjugation between inner twists and the canonical pointed H¹ comparison for cohomologous representatives are now specified with checked native proofs, including the gauge-pushforward comparison and composition law. The group isomorphism still depends on a supplied gauge element; only the specified H¹ comparison avoids a gauge-witness choice. Source-group naturality, actual twisted subgroup/quotient realization, compatibility with local conditions, the genuine additive comparison, unipotent point topologies and all geometric/representability/source obligations remain open.",
+        "Source-group naturality is supplied for continuous φ:H→*G with explicit action compatibility on U: the underlying actual inner twists, direct continuous cocycle pullback, native H¹ quotient lift, repointed translation squares, gauge conjugation and canonical representative comparison are compatible. Surjective φ gives injectivity and neutral reflection; a constant source map can kill a nonneutral class. Identity/composition are stated with actual dependent twists via their translations. Twisted subgroup/normal-quotient realizations, geometric local conditions, genuine additive comparison, unipotent point topologies, torsor classification, representability and all source/supplier obligations remain open."
       ]
     },
     {
@@ -11355,7 +12448,8 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.3"
       ],
       "detail": "The inherited exact-sequence ID is now one inclusion-kernel theorem, with six new nodes separating connecting construction/image/change, triviality, fixed-orbit fibres and normal exactness. All twenty prior IDs survive. continuous-cocycles, functoriality and central-extension still bundle independent declarations and need granular continuation; inherited omitted APIs/tests remain open. Twisting needs its target repointed at [c]. The promoted identity/inverse APIs and discrete one-fibre/killing lemmas are now declaration-sized and separately prototyped. D2 quotient action and actual quotient cocycle, D3 H¹ inflation map/injectivity, D4 neutral-fibre equality and D5 transition/colimit remain distinct missing interfaces. The pointwise gauge-witness theorem does not close them. Geometric degree-one G1 remains with existing IG.0/SF.2 requests and must not introduce an NC.3→NC.0 stage cycle. Current continuation: D2 actual quotient cocycles and their inverse equivalence are now supplied for arbitrary normal N; exact N-fixed quotient gauge witnesses are established. D3 actual H¹ inflation/injectivity, D4 neutral-fibre exactness and D5 colimits remain open. Native TauCeti additive descendZ1 is positive prior art; its canonical cocycle-conversion comparison and the full-file TauCeti build remain unverified. Current H¹ continuation: the actual pointed-set inflation and same-N injectivity are supplied under explicit quotient-action continuity. D4 neutral restriction fibre, D5 transitions/colimit, the canonical additive comparison and arbitrary-coefficient quotient-action continuity discharge remain open. Neutral-point reflection is not neutral-fibre exactness. Current neutral-fibre continuation supersedes only the D4-open wording: Actual subgroup restriction on continuous cocycles and native H¹ orbit sets, inverse-gauge normalization, image=neutral restriction fibre and unique same-N inflated class are supplied under explicit joint quotient-action continuity. General multiplicative quotient-action continuity discharge, reverse-inclusion transitions, compact-discrete filtered-colimit bijection and genuine additive cocycle conversion remain open. All representability, local-condition, source-proof, inherited API/granularity and geometric obligations remain open. Current quotient-action continuation supersedes continuity-open wording only in the stated scope: Joint multiplicative quotient-action continuity and the neutral-fibre equivalence are supplied for separately continuous multiplication on G (in particular topological groups), topological group U and jointly continuous ambient automorphism action. Earlier results for arbitrary group topologies retain their explicit quotient-action continuity hypothesis. Reverse-inclusion transitions, compact-discrete filtered-colimit bijection, canonical additive cocycle conversion, representability, local conditions, inherited API/granularity and geometric source/supplier obligations remain open. Finite-quotient continuation supersedes the D5-open wording in exactly this scope: Reverse-inclusion cocycle and H¹ transitions, their native type-valued diagram, actual inflation cocone and compact/discrete finite-quotient equivalence are specified. The colimit requires discrete U and does not extend the unipotent p-adic topology by assumption. Genuine additive cocycle conversion, compatibility with the existing TauCeti additive transition/colimit, representability, local conditions, inherited API/granularity and all geometric source/supplier obligations remain open.",
-      "gaugeRepresentativeContinuation": "Continuous gauge conjugation between inner twists and the canonical pointed H¹ comparison for cohomologous representatives are now specified with checked native proofs, including the gauge-pushforward comparison and composition law. The group isomorphism still depends on a supplied gauge element; only the specified H¹ comparison avoids a gauge-witness choice. Source-group naturality, actual twisted subgroup/quotient realization, compatibility with local conditions, the genuine additive comparison, unipotent point topologies and all geometric/representability/source obligations remain open."
+      "gaugeRepresentativeContinuation": "Continuous gauge conjugation between inner twists and the canonical pointed H¹ comparison for cohomologous representatives are now specified with checked native proofs, including the gauge-pushforward comparison and composition law. The group isomorphism still depends on a supplied gauge element; only the specified H¹ comparison avoids a gauge-witness choice. Source-group naturality, actual twisted subgroup/quotient realization, compatibility with local conditions, the genuine additive comparison, unipotent point topologies and all geometric/representability/source obligations remain open.",
+      "twistedSourceContinuation": "Source-group naturality is supplied for continuous φ:H→*G with explicit action compatibility on U: the underlying actual inner twists, direct continuous cocycle pullback, native H¹ quotient lift, repointed translation squares, gauge conjugation and canonical representative comparison are compatible. Surjective φ gives injectivity and neutral reflection; a constant source map can kill a nonneutral class. Identity/composition are stated with actual dependent twists via their translations. Twisted subgroup/normal-quotient realizations, geometric local conditions, genuine additive comparison, unipotent point topologies, torsor classification, representability and all source/supplier obligations remain open."
     }
   ],
   "sourceIssues": [],
