@@ -5106,3 +5106,586 @@ example (a : Multiplicative (A.obj.obj (op U))) :
 
 end TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests
 /- END GERBE HOM SHEAF ASSEMBLY -/
+
+/- BEGIN BANDED GERBE OBJECT DESCENT
+Only the native descent-data carrier is used. The component adapters retain
+the incoming coefficient universe v'. No inverse StrongTrans is constructed.
+All new mathematical proof obligations below are admitted design statements.
+-/
+namespace TauCeti.AlgebraicGeometry.GerbeMorphismDescent
+open CategoryTheory Opposite Bicategory
+open Pseudofunctor.LocallyDiscreteOpToCat
+open GerbeMorphismPullback
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+universe t
+variable {C : Type u} [Category.{v} C]
+variable {F G : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}}
+variable {J : GrothendieckTopology C} [hF : IsGerbe F J] [hG : IsGerbe G J]
+variable {A : Sheaf J AddCommGrpCat.{v'}}
+
+def componentFullyFaithful (bF : AbelianBanding F J A)
+    (bG : AbelianBanding G J A) (η : Pseudofunctor.StrongTrans F G)
+    [BandPreserving bF bG η] (U : C) :
+    (η.app (.mk (op U))).toFunctor.FullyFaithful := by sorry
+
+lemma componentFullyFaithful_map_preimage (bF : AbelianBanding F J A)
+    (bG : AbelianBanding G J A) (η : Pseudofunctor.StrongTrans F G)
+    [BandPreserving bF bG η] (U : C) {x y : F.obj (.mk (op U))}
+    (p : (η.app (.mk (op U))).toFunctor.obj x ⟶
+      (η.app (.mk (op U))).toFunctor.obj y) :
+    (η.app (.mk (op U))).toFunctor.map
+      ((componentFullyFaithful bF bG η U).preimage p) = p := by sorry
+
+def localImageSieve (η : Pseudofunctor.StrongTrans F G) {U : C}
+    (z : G.obj (.mk (op U))) : Sieve U := by sorry
+
+lemma localImageSieve_mem (η : Pseudofunctor.StrongTrans F G) {U V : C}
+    (z : G.obj (.mk (op U))) (f : V ⟶ U) :
+    localImageSieve η z f ↔ ∃ x : F.obj (.mk (op V)),
+      Nonempty ((η.app (.mk (op V))).toFunctor.obj x ≅
+        (G.map f.op.toLoc).toFunctor.obj z) := by sorry
+
+lemma localImageSieve_covering (η : Pseudofunctor.StrongTrans F G) {U : C}
+    (z : G.obj (.mk (op U))) : localImageSieve η z ∈ J U := by sorry
+
+lemma localImageSieve_identity (η : Pseudofunctor.StrongTrans F G) {U : C}
+    (z : G.obj (.mk (op U))) : localImageSieve η z (𝟙 U) ↔
+      ∃ x : F.obj (.mk (op U)),
+        Nonempty ((η.app (.mk (op U))).toFunctor.obj x ≅ z) := by sorry
+
+variable {ι : Type t} {U : C} {X : ι → C}
+
+def targetOverlapIso (η : Pseudofunctor.StrongTrans F G)
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    {Y : C} (q : Y ⟶ U) {i j : ι} (a : Y ⟶ X i) (b : Y ⟶ X j)
+    (ha : a ≫ f i = q) (hb : b ≫ f j = q) :
+    (η.app (.mk (op Y))).toFunctor.obj ((F.map a.op.toLoc).toFunctor.obj (x i)) ≅
+      (η.app (.mk (op Y))).toFunctor.obj ((F.map b.op.toLoc).toFunctor.obj (x j)) := by sorry
+
+lemma targetOverlapIso_formula (η : Pseudofunctor.StrongTrans F G)
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    {Y : C} (q : Y ⟶ U) {i j : ι} (a : Y ⟶ X i) (b : Y ⟶ X j)
+    (ha : a ≫ f i = q) (hb : b ≫ f j = q) :
+    targetOverlapIso η f x z e q a b ha hb =
+      comparison η a (x i) ≪≫ (G.map a.op.toLoc).toFunctor.mapIso (e i) ≪≫
+      (Pseudofunctor.DescentData.ofObj (F := G) (f := f) z).iso q a b ha hb ≪≫
+      ((G.map b.op.toLoc).toFunctor.mapIso (e j)).symm ≪≫
+      (comparison η b (x j)).symm := by sorry
+
+lemma targetOverlapIso_self (η : Pseudofunctor.StrongTrans F G)
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    {Y : C} (q : Y ⟶ U) {i : ι} (a : Y ⟶ X i) (ha : a ≫ f i = q) :
+    targetOverlapIso η f x z e q a a ha ha = Iso.refl _ := by sorry
+
+lemma targetOverlapIso_comp (η : Pseudofunctor.StrongTrans F G)
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    {Y : C} (q : Y ⟶ U) {i j k : ι}
+    (a : Y ⟶ X i) (b : Y ⟶ X j) (c : Y ⟶ X k)
+    (ha : a ≫ f i = q) (hb : b ≫ f j = q) (hc : c ≫ f k = q) :
+    targetOverlapIso η f x z e q a b ha hb ≪≫
+      targetOverlapIso η f x z e q b c hb hc =
+        targetOverlapIso η f x z e q a c ha hc := by sorry
+
+def liftedOverlapIso (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    {Y : C} (q : Y ⟶ U) {i j : ι} (a : Y ⟶ X i) (b : Y ⟶ X j)
+    (ha : a ≫ f i = q) (hb : b ≫ f j = q) :
+    (F.map a.op.toLoc).toFunctor.obj (x i) ≅
+      (F.map b.op.toLoc).toFunctor.obj (x j) := by sorry
+
+lemma liftedOverlapIso_map (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    {Y : C} (q : Y ⟶ U) {i j : ι} (a : Y ⟶ X i) (b : Y ⟶ X j)
+    (ha : a ≫ f i = q) (hb : b ≫ f j = q) :
+    (η.app (.mk (op Y))).toFunctor.mapIso
+      (liftedOverlapIso bF bG η f x z e q a b ha hb) =
+        targetOverlapIso η f x z e q a b ha hb := by sorry
+
+lemma liftedOverlapIso_self (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    {Y : C} (q : Y ⟶ U) {i : ι} (a : Y ⟶ X i) (ha : a ≫ f i = q) :
+    liftedOverlapIso bF bG η f x z e q a a ha ha = Iso.refl _ := by sorry
+
+lemma liftedOverlapIso_comp (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    {Y : C} (q : Y ⟶ U) {i j k : ι}
+    (a : Y ⟶ X i) (b : Y ⟶ X j) (c : Y ⟶ X k)
+    (ha : a ≫ f i = q) (hb : b ≫ f j = q) (hc : c ≫ f k = q) :
+    liftedOverlapIso bF bG η f x z e q a b ha hb ≪≫
+      liftedOverlapIso bF bG η f x z e q b c hb hc =
+        liftedOverlapIso bF bG η f x z e q a c ha hc := by sorry
+
+lemma liftedOverlapIso_pullHom (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    {Y Y' : C} (q : Y ⟶ U) (q' : Y' ⟶ U) (g : Y' ⟶ Y) (hq : g ≫ q = q')
+    {i j : ι} (a : Y ⟶ X i) (b : Y ⟶ X j)
+    (ha : a ≫ f i = q) (hb : b ≫ f j = q)
+    (ga : Y' ⟶ X i) (gb : Y' ⟶ X j)
+    (hga : g ≫ a = ga) (hgb : g ≫ b = gb)
+    (haa : ga ≫ f i = q') (hbb : gb ≫ f j = q') :
+    pullHom (liftedOverlapIso bF bG η f x z e q a b ha hb).hom g ga gb hga hgb =
+      (liftedOverlapIso bF bG η f x z e q' ga gb haa hbb).hom := by sorry
+
+/-- The objects and overlap maps are specified data. Coherence is admitted. -/
+def liftedDescentData (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z) : F.DescentData f where
+  obj := x
+  hom Y q i j a b ha hb := (liftedOverlapIso bF bG η f x z e q a b ha hb).hom
+  pullHom_hom := by sorry
+  hom_self := by sorry
+  hom_comp := by sorry
+
+lemma liftedDescentData_obj (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z) (i : ι) :
+    (liftedDescentData bF bG η f x z e).obj i = x i := by sorry
+
+lemma liftedDescentData_hom (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    {Y : C} (q : Y ⟶ U) {i j : ι} (a : Y ⟶ X i) (b : Y ⟶ X j)
+    (ha : a ≫ f i = q) (hb : b ≫ f j = q) :
+    (liftedDescentData bF bG η f x z e).hom q a b ha hb =
+      (liftedOverlapIso bF bG η f x z e q a b ha hb).hom := by sorry
+
+def imageLocalIso (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    (y : F.obj (.mk (op U)))
+    (r : Pseudofunctor.DescentData.ofObj (F := F) (f := f) y ≅
+      liftedDescentData bF bG η f x z e) (i : ι) :
+    (G.map (f i).op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj y) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z := by sorry
+
+lemma imageLocalIso_hom (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    (y : F.obj (.mk (op U)))
+    (r : Pseudofunctor.DescentData.ofObj (F := F) (f := f) y ≅
+      liftedDescentData bF bG η f x z e) (i : ι) :
+    (imageLocalIso bF bG η f x z e y r i).hom =
+      (comparison η (f i) y).inv ≫
+      (η.app (.mk (op (X i)))).toFunctor.map (r.hom.hom i) ≫ (e i).hom := by sorry
+
+lemma imageLocalIso_comm (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    (y : F.obj (.mk (op U)))
+    (r : Pseudofunctor.DescentData.ofObj (F := F) (f := f) y ≅
+      liftedDescentData bF bG η f x z e)
+    {Y : C} (q : Y ⟶ U) {i j : ι} (a : Y ⟶ X i) (b : Y ⟶ X j)
+    (ha : a ≫ f i = q) (hb : b ≫ f j = q) :
+    (G.map a.op.toLoc).toFunctor.map (imageLocalIso bF bG η f x z e y r i).hom ≫
+        (Pseudofunctor.DescentData.ofObj (F := G) (f := f) z).hom q a b ha hb =
+      (Pseudofunctor.DescentData.ofObj (F := G) (f := f)
+        ((η.app (.mk (op U))).toFunctor.obj y)).hom q a b ha hb ≫
+        (G.map b.op.toLoc).toFunctor.map (imageLocalIso bF bG η f x z e y r j).hom := by sorry
+
+def globalImageIso (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (hf : Sieve.ofArrows X f ∈ J U)
+    (x : ∀ i, F.obj (.mk (op (X i)))) (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    (y : F.obj (.mk (op U)))
+    (r : Pseudofunctor.DescentData.ofObj (F := F) (f := f) y ≅
+      liftedDescentData bF bG η f x z e) :
+    (η.app (.mk (op U))).toFunctor.obj y ≅ z := by sorry
+
+lemma globalImageIso_restrict (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (hf : Sieve.ofArrows X f ∈ J U)
+    (x : ∀ i, F.obj (.mk (op (X i)))) (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    (y : F.obj (.mk (op U)))
+    (r : Pseudofunctor.DescentData.ofObj (F := F) (f := f) y ≅
+      liftedDescentData bF bG η f x z e) (i : ι) :
+    (G.map (f i).op.toLoc).toFunctor.map (globalImageIso bF bG η f hf x z e y r).hom =
+      (imageLocalIso bF bG η f x z e y r i).hom := by sorry
+
+lemma globalImageIso_unique (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (hf : Sieve.ofArrows X f ∈ J U)
+    (x : ∀ i, F.obj (.mk (op (X i)))) (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    (y : F.obj (.mk (op U)))
+    (r : Pseudofunctor.DescentData.ofObj (F := F) (f := f) y ≅
+      liftedDescentData bF bG η f x z e)
+    (p : (η.app (.mk (op U))).toFunctor.obj y ≅ z)
+    (hp : ∀ i, (G.map (f i).op.toLoc).toFunctor.map p.hom =
+      (imageLocalIso bF bG η f x z e y r i).hom) :
+    p = globalImageIso bF bG η f hf x z e y r := by sorry
+
+lemma global_preimage (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (U : C) (z : G.obj (.mk (op U))) :
+    ∃ y : F.obj (.mk (op U)),
+      Nonempty ((η.app (.mk (op U))).toFunctor.obj y ≅ z) := by sorry
+
+lemma componentEssSurj (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η] (U : C) :
+    (η.app (.mk (op U))).toFunctor.EssSurj := by sorry
+
+lemma componentIsEquivalence (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η] (U : C) :
+    (η.app (.mk (op U))).toFunctor.IsEquivalence := by sorry
+
+/- BEGIN OBJECT DESCENT API -/
+lemma componentFullyFaithful_preimage_map (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (U : C) {x y : F.obj (.mk (op U))} (p : x ⟶ y) :
+    (componentFullyFaithful bF bG η U).preimage
+      ((η.app (.mk (op U))).toFunctor.map p) = p := by sorry
+
+lemma imageLocalIso_inv (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    (y : F.obj (.mk (op U)))
+    (r : Pseudofunctor.DescentData.ofObj (F := F) (f := f) y ≅
+      liftedDescentData bF bG η f x z e) (i : ι) :
+    (imageLocalIso bF bG η f x z e y r i).inv =
+      (e i).inv ≫ (η.app (.mk (op (X i)))).toFunctor.map (r.inv.hom i) ≫
+        (comparison η (f i) y).hom := by sorry
+
+lemma componentFullyFaithful_map_injective
+    (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (U : C) {x y : F.obj (.mk (op U))} (p q : x ⟶ y)
+    (hpq : (η.app (.mk (op U))).toFunctor.map p =
+      (η.app (.mk (op U))).toFunctor.map q) : p = q := by sorry
+
+lemma liftedDescentData_pullHom (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    {Y Y' : C} (q : Y ⟶ U) (q' : Y' ⟶ U) (g : Y' ⟶ Y) (hq : g ≫ q = q')
+    {i j : ι} (a : Y ⟶ X i) (b : Y ⟶ X j)
+    (ha : a ≫ f i = q) (hb : b ≫ f j = q)
+    (ga : Y' ⟶ X i) (gb : Y' ⟶ X j)
+    (hga : g ≫ a = ga) (hgb : g ≫ b = gb)
+    (haa : ga ≫ f i = q') (hbb : gb ≫ f j = q') :
+    pullHom ((liftedDescentData bF bG η f x z e).hom q a b ha hb) g ga gb hga hgb =
+      (liftedDescentData bF bG η f x z e).hom q' ga gb haa hbb := by sorry
+lemma globalImageIso_inv_restrict (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (hf : Sieve.ofArrows X f ∈ J U)
+    (x : ∀ i, F.obj (.mk (op (X i)))) (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    (y : F.obj (.mk (op U)))
+    (r : Pseudofunctor.DescentData.ofObj (F := F) (f := f) y ≅
+      liftedDescentData bF bG η f x z e) (i : ι) :
+    (G.map (f i).op.toLoc).toFunctor.map (globalImageIso bF bG η f hf x z e y r).inv =
+      (imageLocalIso bF bG η f x z e y r i).inv := by sorry
+/- END OBJECT DESCENT API -/
+
+namespace Tests
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.arrowRoundTrip
+example (bF : AbelianBanding F J A)
+    (bG : AbelianBanding G J A) (η : Pseudofunctor.StrongTrans F G)
+    [BandPreserving bF bG η] (U : C) {x y : F.obj (.mk (op U))}
+    (p : (η.app (.mk (op U))).toFunctor.obj x ⟶
+      (η.app (.mk (op U))).toFunctor.obj y) :
+    (η.app (.mk (op U))).toFunctor.map
+      ((componentFullyFaithful bF bG η U).preimage p) = p := by sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.sourceRoundTrip
+example (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (U : C) {x y : F.obj (.mk (op U))} (p : x ⟶ y) :
+    (componentFullyFaithful bF bG η U).preimage
+      ((η.app (.mk (op U))).toFunctor.map p) = p := by sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.nonidentityAutomorphism
+example (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (U : C) (x : F.obj (.mk (op U))) (p : x ⟶ x) (hp : p ≠ 𝟙 x) :
+    (η.app (.mk (op U))).toFunctor.map p ≠ 𝟙 _ := by sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.membershipData
+example (η : Pseudofunctor.StrongTrans F G) {U V : C}
+    (z : G.obj (.mk (op U))) (f : V ⟶ U) :
+    localImageSieve η z f ↔ ∃ x : F.obj (.mk (op V)),
+      Nonempty ((η.app (.mk (op V))).toFunctor.obj x ≅
+        (G.map f.op.toLoc).toFunctor.obj z) := by sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.deeperImage
+example (η : Pseudofunctor.StrongTrans F G) {U V W : C}
+    (z : G.obj (.mk (op U))) (f : V ⟶ U) (g : W ⟶ V)
+    (hf : localImageSieve η z f) : localImageSieve η z (g ≫ f) := by sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.identityImage
+example (η : Pseudofunctor.StrongTrans F G) {U : C}
+    (z : G.obj (.mk (op U))) : localImageSieve η z (𝟙 U) ↔
+      ∃ x : F.obj (.mk (op U)),
+        Nonempty ((η.app (.mk (op U))).toFunctor.obj x ≅ z) := by sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.selfOverlap
+example (η : Pseudofunctor.StrongTrans F G)
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    {Y : C} (q : Y ⟶ U) {i : ι} (a : Y ⟶ X i) (ha : a ≫ f i = q) :
+    targetOverlapIso η f x z e q a a ha ha = Iso.refl _ := by sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.tripleOverlap
+example (η : Pseudofunctor.StrongTrans F G)
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    {Y : C} (q : Y ⟶ U) {i j k : ι}
+    (a : Y ⟶ X i) (b : Y ⟶ X j) (c : Y ⟶ X k)
+    (ha : a ≫ f i = q) (hb : b ≫ f j = q) (hc : c ≫ f k = q) :
+    targetOverlapIso η f x z e q a b ha hb ≪≫
+      targetOverlapIso η f x z e q b c hb hc =
+        targetOverlapIso η f x z e q a c ha hc := by sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.reverseTargetOverlap
+example (η : Pseudofunctor.StrongTrans F G)
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    {Y : C} (q : Y ⟶ U) {i j : ι} (a : Y ⟶ X i) (b : Y ⟶ X j)
+    (ha : a ≫ f i = q) (hb : b ≫ f j = q) :
+    targetOverlapIso η f x z e q b a hb ha =
+      (targetOverlapIso η f x z e q a b ha hb).symm := by sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.liftedImage
+example (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    {Y : C} (q : Y ⟶ U) {i j : ι} (a : Y ⟶ X i) (b : Y ⟶ X j)
+    (ha : a ≫ f i = q) (hb : b ≫ f j = q) :
+    (η.app (.mk (op Y))).toFunctor.mapIso
+      (liftedOverlapIso bF bG η f x z e q a b ha hb) =
+        targetOverlapIso η f x z e q a b ha hb := by sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.reflectedCocycle
+example (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    {Y : C} (q : Y ⟶ U) {i j k : ι}
+    (a : Y ⟶ X i) (b : Y ⟶ X j) (c : Y ⟶ X k)
+    (ha : a ≫ f i = q) (hb : b ≫ f j = q) (hc : c ≫ f k = q) :
+    liftedOverlapIso bF bG η f x z e q a b ha hb ≪≫
+      liftedOverlapIso bF bG η f x z e q b c hb hc =
+        liftedOverlapIso bF bG η f x z e q a c ha hc := by sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.reverseLiftedOverlap
+example (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    {Y : C} (q : Y ⟶ U) {i j : ι} (a : Y ⟶ X i) (b : Y ⟶ X j)
+    (ha : a ≫ f i = q) (hb : b ≫ f j = q) :
+    liftedOverlapIso bF bG η f x z e q b a hb ha =
+      (liftedOverlapIso bF bG η f x z e q a b ha hb).symm := by sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.retainedLocalObject
+example (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z) (i : ι) :
+    (liftedDescentData bF bG η f x z e).obj i = x i := by sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.retainedLocalArrow
+example (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    {Y : C} (q : Y ⟶ U) {i j : ι} (a : Y ⟶ X i) (b : Y ⟶ X j)
+    (ha : a ≫ f i = q) (hb : b ≫ f j = q) :
+    (liftedDescentData bF bG η f x z e).hom q a b ha hb =
+      (liftedOverlapIso bF bG η f x z e q a b ha hb).hom := by sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.varyingBaseDescent
+example (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    {Y Y' : C} (q : Y ⟶ U) (q' : Y' ⟶ U) (g : Y' ⟶ Y) (hq : g ≫ q = q')
+    {i j : ι} (a : Y ⟶ X i) (b : Y ⟶ X j)
+    (ha : a ≫ f i = q) (hb : b ≫ f j = q)
+    (ga : Y' ⟶ X i) (gb : Y' ⟶ X j)
+    (hga : g ≫ a = ga) (hgb : g ≫ b = gb)
+    (haa : ga ≫ f i = q') (hbb : gb ≫ f j = q') :
+    pullHom ((liftedDescentData bF bG η f x z e).hom q a b ha hb) g ga gb hga hgb =
+      (liftedDescentData bF bG η f x z e).hom q' ga gb haa hbb := by sorry
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.forwardGluingImage
+example (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    (y : F.obj (.mk (op U)))
+    (r : Pseudofunctor.DescentData.ofObj (F := F) (f := f) y ≅
+      liftedDescentData bF bG η f x z e) (i : ι) :
+    (imageLocalIso bF bG η f x z e y r i).hom =
+      (comparison η (f i) y).inv ≫
+      (η.app (.mk (op (X i)))).toFunctor.map (r.hom.hom i) ≫ (e i).hom := by sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.inverseGluingImage
+example (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    (y : F.obj (.mk (op U)))
+    (r : Pseudofunctor.DescentData.ofObj (F := F) (f := f) y ≅
+      liftedDescentData bF bG η f x z e) (i : ι) :
+    (imageLocalIso bF bG η f x z e y r i).inv =
+      (e i).inv ≫ (η.app (.mk (op (X i)))).toFunctor.map (r.inv.hom i) ≫
+        (comparison η (f i) y).hom := by sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.nativeImageComm
+example (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    (y : F.obj (.mk (op U)))
+    (r : Pseudofunctor.DescentData.ofObj (F := F) (f := f) y ≅
+      liftedDescentData bF bG η f x z e)
+    {Y : C} (q : Y ⟶ U) {i j : ι} (a : Y ⟶ X i) (b : Y ⟶ X j)
+    (ha : a ≫ f i = q) (hb : b ≫ f j = q) :
+    (G.map a.op.toLoc).toFunctor.map (imageLocalIso bF bG η f x z e y r i).hom ≫
+        (Pseudofunctor.DescentData.ofObj (F := G) (f := f) z).hom q a b ha hb =
+      (Pseudofunctor.DescentData.ofObj (F := G) (f := f)
+        ((η.app (.mk (op U))).toFunctor.obj y)).hom q a b ha hb ≫
+        (G.map b.op.toLoc).toFunctor.map (imageLocalIso bF bG η f x z e y r j).hom := by sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.globalRestriction
+example (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (hf : Sieve.ofArrows X f ∈ J U)
+    (x : ∀ i, F.obj (.mk (op (X i)))) (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    (y : F.obj (.mk (op U)))
+    (r : Pseudofunctor.DescentData.ofObj (F := F) (f := f) y ≅
+      liftedDescentData bF bG η f x z e) (i : ι) :
+    (G.map (f i).op.toLoc).toFunctor.map (globalImageIso bF bG η f hf x z e y r).hom =
+      (imageLocalIso bF bG η f x z e y r i).hom := by sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.uniquenessForLocalData
+example (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    (f : ∀ i, X i ⟶ U) (hf : Sieve.ofArrows X f ∈ J U)
+    (x : ∀ i, F.obj (.mk (op (X i)))) (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    (y : F.obj (.mk (op U)))
+    (r : Pseudofunctor.DescentData.ofObj (F := F) (f := f) y ≅
+      liftedDescentData bF bG η f x z e)
+    (p : (η.app (.mk (op U))).toFunctor.obj y ≅ z)
+    (hp : ∀ i, (G.map (f i).op.toLoc).toFunctor.map p.hom =
+      (imageLocalIso bF bG η f x z e y r i).hom) :
+    p = globalImageIso bF bG η f hf x z e y r := by sorry
+
+-- test: TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.emptyCoverEffectivity
+example (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+    [IsEmpty ι]
+    (f : ∀ i, X i ⟶ U) (x : ∀ i, F.obj (.mk (op (X i))))
+    (z : G.obj (.mk (op U)))
+    (e : ∀ i, (η.app (.mk (op (X i)))).toFunctor.obj (x i) ≅
+      (G.map (f i).op.toLoc).toFunctor.obj z)
+    (hf : Sieve.ofArrows X f ∈ J U)
+    (y : F.obj (.mk (op U)))
+    (r : Pseudofunctor.DescentData.ofObj (F := F) (f := f) y ≅
+      liftedDescentData bF bG η f x z e) :
+    Nonempty ((η.app (.mk (op U))).toFunctor.obj y ≅ z) := by sorry
+
+end Tests
+
+end TauCeti.AlgebraicGeometry.GerbeMorphismDescent
+/- END BANDED GERBE OBJECT DESCENT -/
+
+/- OBJECT DESCENT RECEIPT 67
+{
+  "sourceArchive": "71d9add6aa2d1030d54c4eb51178ec75116c1972",
+  "fullCanonical": "028dc34fec4d95db4a1708e02cbe9f42928c8b409ab6d9732764dcc72bd9a143",
+  "mathlibCanonical": "9a9522ee22742f31711fdc2a2f45b12e51f7ce2771b005a4ee7d259fe18d12e5",
+  "elaboration": "Admitted Mathlib-only extraction passed; full canonical and inherited native draft not compiled."
+}
+-/
