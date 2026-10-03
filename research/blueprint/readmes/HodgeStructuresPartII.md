@@ -1,3 +1,166 @@
+# Affine identity and three-step pullback coherence
+
+Codex — codex-7e92bd · 3 October2026 · Refs #3371 · partial.
+
+The actual pullback along the identity calculus morphism is transport by the inverse native left-unitor. The forward and inverse operators, exterior extensions and curvature agree; flatness is equivalent. For a compatible four-ring tower, the two composites of existing cancellation maps are equal and horizontal for the actual three successive pullback operators. The direct calculus maps agree as structures. No new module, calculus or connection carrier is introduced.
+
+All comparison equations allow arbitrary λ. The polynomial test uses λ=x with dλ=1≠0; its identity-pullback coordinate is x. A Z/4 Higgs example retains the nonzero square-zero coordinate2. Integer tests keep all three scalar factors and compute30 from the actual triple operator. These check the affine comparison only.
+
+Actual affine identity pullback agrees with the native left-unitor, including extended differential, curvature and equivalent flatness for arbitrary λ. The two three-step module maps and direct calculus compositions agree, and both intertwine the actual three successive additive operators. Full categorical monoidal coherence/naturality, universal exterior-power and dual comparisons, and E1 sheaf restriction/equality detection/gluing remain. The reserved global key,149 routed items,35 omissions, five requests, eleven gaps, determinant/Tate/period adapters, arbitrary-Q tensor-valued shuffle and H.1–H.8 remain open. Earlier frontier text is checkpoint history.
+
+All349 incoming mathematical contracts remain:345 whole nodes are identical, three existing objects gain API/tests and one existing parent gains prerequisites/proof detail only. All225 baseline entries,149 routes,35 omissions, five requests, eleven gap obligations, six planets and the reserved general ringed-site key remain. The full canonical Mathlib file and native evidence are checked separately; all implementations remain unchecked.
+
+Fresh background reading is the complete [Stacks §60.15](https://stacks.math.columbia.edu/tag/07J5), including its displayed proof. Prior EG20 parameter-convention readings retain their own6021 attribution. The new arbitrary-module coherence formulas are authored deductions, not source-attributed crystal theorems. No new published-version or whole-paper collation is claimed.
+
+## Identity pullback as a preconnection
+
+HodgeStructuresPartII:H.0/affine-pullback-identity-equality. Proposed declaration: `Preconnection.affinePullback_refl_eq`.
+
+Transport of D along the inverse native left-unitor l:R⊗_R E≅E equals D.affinePullback(refl Ω) as a preconnection structure. This identity holds for arbitrary λ, including dΩλ≠0.
+
+Hypotheses: Arbitrary commutative coefficient rings and modules in independent universes, with the existing supplied TwoForms calculi and actual native semilinear maps. No basis, finite generation, projectivity, injectivity, flatness, nontriviality or characteristic hypothesis. Identity comparisons use a single ring R. Three-step comparisons use all displayed compatible algebra maps among R,S,T,U with native IsScalarTower equations; the right-associated route alone omits R→T. All degree-one k-module scalar towers needed for inherited transport and curvature interfaces are retained. The parameter λ is arbitrary. Neither dΩλ=0 nor integrability is needed for the comparison equations. The identity curvature/flatness results concern the actual unitor. Full categorical monoidal functor data, arbitrary-ring curvature reflection and sheaf descent are not claimed.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-unique, HodgeStructuresPartII:H.0/calculus-ring-identity, HodgeStructuresPartII:H.0/affine-coordinate-transport, mathlib:TensorProduct.lid, mathlib:TensorProduct.lid_tmul, mathlib:TensorProduct.lid_symm_apply.
+
+Proof: Apply the actual affine pullback uniqueness theorem. On the scalar-extension unit, the native unitor sends1⊗e to e, and its inverse is exactly the scalar unit. The transported operator therefore satisfies the required horizontal equation.
+
+## Inverse identity comparison
+
+HodgeStructuresPartII:H.0/affine-pullback-identity-horizontal-inverse. Proposed declaration: `Preconnection.affinePullback_refl_horizontal_inv`.
+
+For e∈E, the actual identity pullback evaluated at l⁻¹(e)=1⊗e equals (l⁻¹⊗id_W)D(e). The maps are the native module unitor and the existing additive operator.
+
+Hypotheses: Arbitrary commutative coefficient rings and modules in independent universes, with the existing supplied TwoForms calculi and actual native semilinear maps. No basis, finite generation, projectivity, injectivity, flatness, nontriviality or characteristic hypothesis. Identity comparisons use a single ring R. Three-step comparisons use all displayed compatible algebra maps among R,S,T,U with native IsScalarTower equations; the right-associated route alone omits R→T. All degree-one k-module scalar towers needed for inherited transport and curvature interfaces are retained. The parameter λ is arbitrary. Neither dΩλ=0 nor integrability is needed for the comparison equations. The identity curvature/flatness results concern the actual unitor. Full categorical monoidal functor data, arbitrary-ring curvature reflection and sheaf descent are not claimed.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-identity-equality, HodgeStructuresPartII:H.0/coordinate-transport-horizontal.
+
+Proof: Rewrite with the identity structural equality and apply the existing horizontal law for module transport.
+
+## Forward identity comparison
+
+HodgeStructuresPartII:H.0/affine-pullback-identity-horizontal. Proposed declaration: `Preconnection.affinePullback_refl_horizontal`.
+
+For every x∈R⊗_R E, D(l(x))=(l⊗id_W)D_id(x), where D_id is the actual pullback along refl Ω.
+
+Hypotheses: Arbitrary commutative coefficient rings and modules in independent universes, with the existing supplied TwoForms calculi and actual native semilinear maps. No basis, finite generation, projectivity, injectivity, flatness, nontriviality or characteristic hypothesis. Identity comparisons use a single ring R. Three-step comparisons use all displayed compatible algebra maps among R,S,T,U with native IsScalarTower equations; the right-associated route alone omits R→T. All degree-one k-module scalar towers needed for inherited transport and curvature interfaces are retained. The parameter λ is arbitrary. Neither dΩλ=0 nor integrability is needed for the comparison equations. The identity curvature/flatness results concern the actual unitor. Full categorical monoidal functor data, arbitrary-ring curvature reflection and sheaf descent are not claimed.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-identity-horizontal-inverse, HodgeStructuresPartII:H.0/affine-parameter-horizontal-inverse.
+
+Proof: Apply the existing inverse-horizontal theorem to the native inverse unitor and its proved equation. This gives equality for all tensors, not only generators.
+
+## Identity pullback and exterior extension
+
+HodgeStructuresPartII:H.0/affine-pullback-identity-extension. Proposed declaration: `Preconnection.affinePullback_refl_extend`.
+
+The supplied degree-one extended differentials commute with l⊗id_W on input and l⊗id_Z on output. This compares actual operators over the same ring and the same supplied calculus.
+
+Hypotheses: Arbitrary commutative coefficient rings and modules in independent universes, with the existing supplied TwoForms calculi and actual native semilinear maps. No basis, finite generation, projectivity, injectivity, flatness, nontriviality or characteristic hypothesis. Identity comparisons use a single ring R. Three-step comparisons use all displayed compatible algebra maps among R,S,T,U with native IsScalarTower equations; the right-associated route alone omits R→T. All degree-one k-module scalar towers needed for inherited transport and curvature interfaces are retained. The parameter λ is arbitrary. Neither dΩλ=0 nor integrability is needed for the comparison equations. The identity curvature/flatness results concern the actual unitor. Full categorical monoidal functor data, arbitrary-ring curvature reflection and sheaf descent are not claimed.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-identity-horizontal, HodgeStructuresPartII:H.0/extension-horizontal.
+
+Proof: Apply the existing exterior-extension naturality theorem to the actual forward horizontal unitor. No universal exterior-power comparison is inferred.
+
+## Identity pullback and curvature
+
+HodgeStructuresPartII:H.0/affine-pullback-identity-curvature. Proposed declaration: `Preconnection.affinePullback_refl_curvature`.
+
+For x∈R⊗_R E, κ_D(l(x))=(l⊗id_Z)κ_Did(x). This additive curvature comparison requires no dΩλ=0 condition.
+
+Hypotheses: Arbitrary commutative coefficient rings and modules in independent universes, with the existing supplied TwoForms calculi and actual native semilinear maps. No basis, finite generation, projectivity, injectivity, flatness, nontriviality or characteristic hypothesis. Identity comparisons use a single ring R. Three-step comparisons use all displayed compatible algebra maps among R,S,T,U with native IsScalarTower equations; the right-associated route alone omits R→T. All degree-one k-module scalar towers needed for inherited transport and curvature interfaces are retained. The parameter λ is arbitrary. Neither dΩλ=0 nor integrability is needed for the comparison equations. The identity curvature/flatness results concern the actual unitor. Full categorical monoidal functor data, arbitrary-ring curvature reflection and sheaf descent are not claimed.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-identity-horizontal, HodgeStructuresPartII:H.0/curvature-horizontal.
+
+Proof: Apply native curvature naturality to the actual unitor and its horizontal equation.
+
+## Flatness under identity pullback
+
+HodgeStructuresPartII:H.0/affine-pullback-identity-flatness. Proposed declaration: `Preconnection.affinePullback_refl_flat_iff`.
+
+The actual identity pullback has zero curvature everywhere if and only if D has zero curvature everywhere. The module comparison is an equivalence, so no scalar-extension faithfulness hypothesis is needed.
+
+Hypotheses: Arbitrary commutative coefficient rings and modules in independent universes, with the existing supplied TwoForms calculi and actual native semilinear maps. No basis, finite generation, projectivity, injectivity, flatness, nontriviality or characteristic hypothesis. Identity comparisons use a single ring R. Three-step comparisons use all displayed compatible algebra maps among R,S,T,U with native IsScalarTower equations; the right-associated route alone omits R→T. All degree-one k-module scalar towers needed for inherited transport and curvature interfaces are retained. The parameter λ is arbitrary. Neither dΩλ=0 nor integrability is needed for the comparison equations. The identity curvature/flatness results concern the actual unitor. Full categorical monoidal functor data, arbitrary-ring curvature reflection and sheaf descent are not claimed.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-identity-equality, HodgeStructuresPartII:H.0/coordinate-flatness-equivalence.
+
+Proof: Use the structural equality and existing invariance of flatness under module equivalence. This is identity pullback, not reflection from an arbitrary target ring.
+
+## Associativity of the supplied calculus maps
+
+HodgeStructuresPartII:H.0/tower-calculus-associativity. Proposed declaration: `TwoForms.Morphism.towerComp_assoc`.
+
+For a compatible four-ring tower R→S→T→U and actual calculus morphisms m,n,p, (p.towerComp n).towerComp m equals p.towerComp(n.towerComp m) at the native algebraMap R U. This is equality of full calculus-morphism structures.
+
+Hypotheses: Arbitrary commutative coefficient rings and modules in independent universes, with the existing supplied TwoForms calculi and actual native semilinear maps. No basis, finite generation, projectivity, injectivity, flatness, nontriviality or characteristic hypothesis. Identity comparisons use a single ring R. Three-step comparisons use all displayed compatible algebra maps among R,S,T,U with native IsScalarTower equations; the right-associated route alone omits R→T. All degree-one k-module scalar towers needed for inherited transport and curvature interfaces are retained. The parameter λ is arbitrary. Neither dΩλ=0 nor integrability is needed for the comparison equations. The identity curvature/flatness results concern the actual unitor. Full categorical monoidal functor data, arbitrary-ring curvature reflection and sheaf descent are not claimed.
+
+Prerequisites: HodgeStructuresPartII:H.0/tower-calculus-composition.
+
+Proof: Both degree-one and degree-two maps evaluate to the same composition. The native structures and proof irrelevance identify the compatibility fields; the Lean equality is reflexive.
+
+## Associativity of the actual pullback module maps
+
+HodgeStructuresPartII:H.0/affine-pullback-cancellation-associativity. Proposed declaration: `affinePullback_cancel_assoc`.
+
+On U⊗_T(T⊗_S(S⊗_R E)), first base-changing c_RST and then applying c_RTU equals first applying c_STU and then c_RSU, as U-linear maps to U⊗_R E. Each c is the existing AlgebraTensorModule.cancelBaseChange; no new module equivalence is defined.
+
+Hypotheses: Arbitrary commutative coefficient rings and modules in independent universes, with the existing supplied TwoForms calculi and actual native semilinear maps. No basis, finite generation, projectivity, injectivity, flatness, nontriviality or characteristic hypothesis. Identity comparisons use a single ring R. Three-step comparisons use all displayed compatible algebra maps among R,S,T,U with native IsScalarTower equations; the right-associated route alone omits R→T. All degree-one k-module scalar towers needed for inherited transport and curvature interfaces are retained. The parameter λ is arbitrary. Neither dΩλ=0 nor integrability is needed for the comparison equations. The identity curvature/flatness results concern the actual unitor. Full categorical monoidal functor data, arbitrary-ring curvature reflection and sheaf descent are not claimed.
+
+Prerequisites: mathlib:TensorProduct.AlgebraTensorModule.cancelBaseChange, mathlib:TensorProduct.AlgebraTensorModule.cancelBaseChange_tmul, mathlib:LinearMap.baseChange, mathlib:LinearMap.baseChange_tmul, mathlib:TensorProduct.induction_on.
+
+Proof: Use linear-map extensionality and induction in the three actual tensor factors. Additivity settles sums. On u⊗(t⊗(s⊗e)), the two coefficients are (s•t)•u and s•(t•u), equal by the specified scalar tower. This is the coherence adapter for the existing pullback comparison maps.
+
+## Three successive pullbacks are horizontal
+
+HodgeStructuresPartII:H.0/affine-pullback-triple-horizontal. Proposed declaration: `Preconnection.affinePullback_triple_horizontal`.
+
+Let D_triple be the actual three successive affine pullback additive maps. The direct pullback along (p.towerComp n).towerComp m is horizontal for c_RSU∘c_STU: D_direct(c_RSU(c_STU(x)))=((c_RSU∘c_STU)⊗id_L)D_triple(x) for every x. The direct parameter is the actual image of λ in U.
+
+Hypotheses: Arbitrary commutative coefficient rings and modules in independent universes, with the existing supplied TwoForms calculi and actual native semilinear maps. No basis, finite generation, projectivity, injectivity, flatness, nontriviality or characteristic hypothesis. Identity comparisons use a single ring R. Three-step comparisons use all displayed compatible algebra maps among R,S,T,U with native IsScalarTower equations; the right-associated route alone omits R→T. All degree-one k-module scalar towers needed for inherited transport and curvature interfaces are retained. The parameter λ is arbitrary. Neither dΩλ=0 nor integrability is needed for the comparison equations. The identity curvature/flatness results concern the actual unitor. Full categorical monoidal functor data, arbitrary-ring curvature reflection and sheaf descent are not claimed.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-tower-horizontal, HodgeStructuresPartII:H.0/affine-pullback-tower-apply, HodgeStructuresPartII:H.0/tower-calculus-composition, mathlib:TensorProduct.map_map.
+
+Proof: Apply the two-step horizontal theorem first to m and p.towerComp n, and then to n,p acting on D.affinePullback m. Replace each tower adapter by its exact successive additive operator. Compose the native tensor maps. This route needs no R→T algebra structure.
+
+## The other parenthesization gives the same operator
+
+HodgeStructuresPartII:H.0/affine-pullback-triple-horizontal-assoc. Proposed declaration: `Preconnection.affinePullback_triple_horizontal_assoc`.
+
+The direct pullback along p.towerComp(n.towerComp m) is horizontal for c_RTU∘baseChange_U(c_RST), with the same actual three successive additive operators. Thus both parenthesizations use equal module maps and equal direct calculus data.
+
+Hypotheses: Arbitrary commutative coefficient rings and modules in independent universes, with the existing supplied TwoForms calculi and actual native semilinear maps. No basis, finite generation, projectivity, injectivity, flatness, nontriviality or characteristic hypothesis. Identity comparisons use a single ring R. Three-step comparisons use all displayed compatible algebra maps among R,S,T,U with native IsScalarTower equations; the right-associated route alone omits R→T. All degree-one k-module scalar towers needed for inherited transport and curvature interfaces are retained. The parameter λ is arbitrary. Neither dΩλ=0 nor integrability is needed for the comparison equations. The identity curvature/flatness results concern the actual unitor. Full categorical monoidal functor data, arbitrary-ring curvature reflection and sheaf descent are not claimed.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-triple-horizontal, HodgeStructuresPartII:H.0/affine-pullback-cancellation-associativity, HodgeStructuresPartII:H.0/tower-calculus-associativity.
+
+Proof: Rewrite the actual composite module map by cancellation associativity and the actual calculus morphism by tower associativity. Apply the preceding three-step horizontal equality. No operator is selected by an existence assumption.
+
+## Consumed API and typed tests
+
+API additions to HodgeStructuresPartII:H.0/affine-pullback:
+
+- Preconnection.affinePullback_refl_eq: Transport of D along the inverse native left-unitor l:R⊗_R E≅E equals D.affinePullback(refl Ω) as a preconnection structure. This identity holds for arbitrary λ, including dΩλ≠0.
+- Preconnection.affinePullback_refl_horizontal_inv: For e∈E, the actual identity pullback evaluated at l⁻¹(e)=1⊗e equals (l⁻¹⊗id_W)D(e). The maps are the native module unitor and the existing additive operator.
+- Preconnection.affinePullback_refl_horizontal: For every x∈R⊗_R E, D(l(x))=(l⊗id_W)D_id(x), where D_id is the actual pullback along refl Ω.
+- Preconnection.affinePullback_refl_extend: The supplied degree-one extended differentials commute with l⊗id_W on input and l⊗id_Z on output. This compares actual operators over the same ring and the same supplied calculus.
+- Preconnection.affinePullback_refl_curvature: For x∈R⊗_R E, κ_D(l(x))=(l⊗id_Z)κ_Did(x). This additive curvature comparison requires no dΩλ=0 condition.
+- Preconnection.affinePullback_refl_flat_iff: The actual identity pullback has zero curvature everywhere if and only if D has zero curvature everywhere. The module comparison is an equivalence, so no scalar-extension faithfulness hypothesis is needed.
+
+API additions to HodgeStructuresPartII:H.0/tower-calculus-composition:
+
+- TwoForms.Morphism.towerComp_assoc: For a compatible four-ring tower R→S→T→U and actual calculus morphisms m,n,p, (p.towerComp n).towerComp m equals p.towerComp(n.towerComp m) at the native algebraMap R U. This is equality of full calculus-morphism structures.
+
+API additions to HodgeStructuresPartII:H.0/affine-pullback-tower:
+
+- Preconnection.affinePullback_triple_horizontal: Let D_triple be the actual three successive affine pullback additive maps. The direct pullback along (p.towerComp n).towerComp m is horizontal for c_RSU∘c_STU: D_direct(c_RSU(c_STU(x)))=((c_RSU∘c_STU)⊗id_L)D_triple(x) for every x. The direct parameter is the actual image of λ in U.
+- Preconnection.affinePullback_triple_horizontal_assoc: The direct pullback along p.towerComp(n.towerComp m) is horizontal for c_RTU∘baseChange_U(c_RST), with the same actual three successive additive operators. Thus both parenthesizations use equal module maps and equal direct calculus data.
+
+Test additions to HodgeStructuresPartII:H.0/affine-pullback:
+
+- PullbackCoherenceTests.identity_inverse: The inverse identity comparison evaluates on the actual unit tensor1⊗e for an arbitrary module and parameter.
+- PullbackCoherenceTests.identity_zero_section: The actual identity-pullback operator and its native forward unitor send the zero section to zero.
+- PullbackCoherenceTests.nonconstant_polynomial_parameter: For the supplied polynomial calculus on Z[x] and D=unit(x), dλ=1≠0, yet the actual identity-pullback operator at1⊗x has coordinate x under the two native unitors. The identity comparison must not require a constant parameter.
+- PullbackCoherenceTests.nonreduced_identity_higgs: For the scalar Higgs operator1 on Z/4, the actual identity-pullback coordinate at2⊗1 is2, nonzero with square zero.
+- PullbackCoherenceTests.triple_actual_scalar_factors: On actual integer tensors, both native three-step module paths send3⊗(2⊗(5⊗1)) to30⊗1, retaining every coefficient.
+- PullbackCoherenceTests.triple_nonzero_operator: For the scalar Higgs operator1 over Z with zero supplied differential, the actual three successive pullbacks at3⊗(2⊗(5⊗1)) have coordinate30 after native cancellation and unitors. This computes the operator, not merely the underlying module map.
+
 # Affine common-parameter tensor and pullback
 
 For two preconnections D,C with the same parameter λ, the native equivalence u:S⊗_R(E⊗_R F)≅(S⊗_R E)⊗_S(S⊗_R F) intertwines the actual pullback of D⊗C with the tensor of their actual pullbacks. Pullback of the unit connection identifies under the native right-unitor with f(λ)dΓ. The derivative term appears once. The proof first tensors actual semilinearly horizontal maps, then uses the scalar-unit comparison and uniqueness of affine pullback. All module and coefficient carriers are native and arbitrary.
