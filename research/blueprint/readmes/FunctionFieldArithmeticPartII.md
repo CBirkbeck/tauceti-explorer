@@ -1,3 +1,19 @@
+## Finite unit-root cyclic coordinates — 2026-10-03
+
+This checkpoint identifies the actual finite unity-root algebra
+`B_n = AdjoinRoot (X^n − C (1:A))` with
+`MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n))` for every positive n and arbitrary commutative A. Write t_n for the quotient root and e_[k] for the group-algebra basis vector. The map E_n sends t_n to e_[1]; its inverse sends a e_[k] to a·t_n^val(k). There is no choice of primitive root in A, and no reducedness, nontriviality, field or invertibility-of-n assumption. This is the coordinate algebra of μ_n, retaining its scheme-theoretic multiplicities.
+
+The fifteen new declaration nodes separate the multiplicative root character, the two universal algebra maps, their generator/basis formulas, the two inverse laws, the bundled equivalence, and its root, inverse-basis, coaction, divisibility, counit and root-antipode comparisons. The three construction interfaces for the character and forward/inverse lifts also cross-reference the common inverse and basis lemmas needed by their consumers; these records do not introduce duplicate declarations. Native `MonoidAlgebra.lift`, `AdjoinRoot.liftAlgHom`, both extensionality APIs, group-algebra Hopf structure and `AlgEquiv.ofAlgHom` are imported from the pinned library.
+
+For n|N the transported transition sends a e_[k] to a e_[(N/n)val(k)]. Thus the 2|6 map sends e_[1] to e_[3]. This direction is essential: the coordinate map is dual to μ_N→μ_n. On the finite root algebra, (id⊗E_n)ρ_1,n=ΔE_n; εE_n is root evaluation at one; S(E_n(t_n))=E_n(t_n^(n−1)). Each equality uses the actual imported maps.
+
+Twelve typed acceptance examples include n=1, exponent wraparound, cyclic multiplication, nontrivial basis coefficients, the 2|6 transition, zero rings, and the wild case A=ZMod 2,n=2. In the last case t_2−1 is nonzero and its square is zero. Replacing the coordinate group scheme by its field-valued points loses this example. The separate native proof extraction checks the assertions without admissions; the repository suggested file remains an admitted planning sketch and all implementation statuses remain unchecked.
+
+Source scope: fresh Talpo–Vistoli arXiv:1410.1164v2, complete printed/PDF pp.14–16, with p.14 visually checked. Section3.1 identifies the finite Cartier dual character groups and their inverse system. The explicit quotient/group-algebra comparison and formulas here are authored deductions from the pinned universal properties, not quoted printed theorems. The pinned Tau Ceti roots-of-unity file explicitly leaves this polynomial-coordinate comparison separate. A bounded current PR/Zulip check found related universal-property, cyclotomic-power and generic diagonalizable-Hopf work; none is imported or credited as implementing this comparison.
+
+The packet now contains340 nodes, including all325 incoming statement contracts and324 unchanged node objects. Both paper routes, the reserved general root-stack key, stable-curve imports,39 planets,8 gaps and13 requests are retained. Every stage remains partial. The next algebraic step is the compatible character embeddings Z/n→Q/Z and the actual A[Q/Z] Hopf-colimit comparison. It still requires its own proof. Root-object groupoid reindexing, arbitrary-universe transports, affine Spec limits, fpqc frame torsors and infinite quotient equivalence remain open, together with TOWER-AFF/KUMMER-FINITE/TOWER-TYPING/DVR. The inherited all-roots-of2 non-fppf counterexample and the distinction between chart point actions and torsors remain in force.
+
 # Coefficient naturality of coherent root-chart scaling
 
 This continuation specifies ring-valued scalar/scaling functoriality. All implementation statuses remain unchecked.
