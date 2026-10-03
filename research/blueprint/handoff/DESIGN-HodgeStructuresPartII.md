@@ -238,7 +238,110 @@ print(json.dumps({'graph':summary,'checker':{k:v for k,v in checker.items() if k
 SHA256: `c57f3deedf04fa9040f257a7ac79c13cc09e8a9ef77e0bdd3fa8eeeedd1189d6`.
 
 ```python
-undefined```
+"""Read the immutable audit tree without creating a repository snapshot."""
+import fnmatch
+import importlib.abc
+import importlib.util
+import io
+from pathlib import Path
+import subprocess
+import sys
+
+import os
+REPO = Path(os.environ.get('TAUCETI_REPO', str(Path.cwd())))
+BASE = os.environ.get('HODGE_VALIDATE_BASE', '588f2b8bd535f2c370ddaaa49a1cc4d850413ce7')
+TRACKED = set(subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', BASE], cwd=REPO, text=True).splitlines())
+CACHE = {}
+READS = set()
+ORIGINAL = {name: getattr(Path, name) for name in ('read_text', 'read_bytes', 'exists', 'is_file', 'is_dir', 'glob', 'rglob', 'open', 'write_text', 'write_bytes')}
+
+def relative(path):
+    try:
+        return str(path.resolve().relative_to(REPO.resolve()))
+    except ValueError:
+        return None
+
+def blob(key):
+    if key not in TRACKED:
+        raise FileNotFoundError(key)
+    READS.add(key)
+    if key not in CACHE:
+        CACHE[key] = subprocess.check_output(['git', 'show', BASE + ':' + key], cwd=REPO)
+    return CACHE[key]
+
+def read_text(path, encoding=None, errors=None):
+    key = relative(path)
+    if key is None:
+        return ORIGINAL['read_text'](path, encoding=encoding, errors=errors)
+    return blob(key).decode(encoding or 'utf-8', errors or 'strict')
+
+def read_bytes(path):
+    key = relative(path)
+    return ORIGINAL['read_bytes'](path) if key is None else blob(key)
+
+def is_file(path):
+    key = relative(path)
+    return ORIGINAL['is_file'](path) if key is None else key in TRACKED
+
+def is_dir(path):
+    key = relative(path)
+    return ORIGINAL['is_dir'](path) if key is None else any(s.startswith(key.rstrip('/') + '/') for s in TRACKED) or key == '.'
+
+def exists(path):
+    key = relative(path)
+    return ORIGINAL['exists'](path) if key is None else is_file(path) or is_dir(path)
+
+def glob(path, pattern, recursive=False):
+    key = relative(path)
+    if key is None:
+        yield from ORIGINAL['rglob' if recursive else 'glob'](path, pattern)
+        return
+    prefix = '' if key == '.' else key.rstrip('/') + '/'
+    for candidate in sorted(TRACKED):
+        if not candidate.startswith(prefix):
+            continue
+        tail = candidate[len(prefix):]
+        if fnmatch.fnmatch(tail, pattern) and (recursive or '/' not in tail):
+            yield REPO / candidate
+
+def open_path(path, mode='r', buffering=-1, encoding=None, errors=None, newline=None):
+    key = relative(path)
+    if key is None:
+        return ORIGINAL['open'](path, mode, buffering, encoding, errors, newline)
+    if mode not in ('r', 'rb'):
+        raise PermissionError('audit tree is read-only')
+    return io.BytesIO(blob(key)) if mode == 'rb' else io.StringIO(blob(key).decode(encoding or 'utf-8', errors or 'strict'))
+
+def write_text(path, *args, **kwargs):
+    if relative(path) is not None:
+        raise PermissionError('audit tree is read-only')
+    return ORIGINAL['write_text'](path, *args, **kwargs)
+
+def write_bytes(path, *args, **kwargs):
+    if relative(path) is not None:
+        raise PermissionError('audit tree is read-only')
+    return ORIGINAL['write_bytes'](path, *args, **kwargs)
+
+class Loader(importlib.abc.Loader):
+    def __init__(self, key):
+        self.key = key
+    def create_module(self, spec):
+        return None
+    def exec_module(self, module):
+        module.__file__ = str(REPO / self.key)
+        exec(compile(blob(self.key), module.__file__, 'exec'), module.__dict__)
+
+class Finder(importlib.abc.MetaPathFinder):
+    def find_spec(self, fullname, path=None, target=None):
+        key = 'scripts/' + fullname + '.py'
+        if '.' not in fullname and key in TRACKED:
+            return importlib.util.spec_from_loader(fullname, Loader(key))
+
+def install():
+    for name, function in [('read_text', read_text), ('read_bytes', read_bytes), ('exists', exists), ('is_file', is_file), ('is_dir', is_dir), ('glob', glob), ('rglob', lambda path, pattern: glob(path, pattern, True)), ('open', open_path), ('write_text', write_text), ('write_bytes', write_bytes)]:
+        setattr(Path, name, function)
+    sys.meta_path.insert(0, Finder())
+```
 
 ### finite_words.py
 
