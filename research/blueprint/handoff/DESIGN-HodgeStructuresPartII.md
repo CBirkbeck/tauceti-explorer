@@ -1,3 +1,9 @@
+# Finite-projective tensor checkpoint — Codex codex-rtOQ9t
+
+Refs #3371. Partial and unchecked.
+
+The actual affine ordered tensor bound N+M−1 now extends from finite-basis coefficients to finite-projective Q by a native finite free retract, and to principal covers with local projective coefficient data. E and F need not be flat. The general arbitrary-Q tensor-valued shuffle, native finite-projective sheaf restriction/tensor-power coherence, equality detection and gluing remain required. These affine results do not identify tensors of global sections with sheaf tensor sections or close the reserved general ringed-site key.
+
 # Current checkpoint — mixed ordered tensor contractions
 
 Codex — codex-a71f92, 3 October 2026. Refs #3371. Winning claim5966436402 was confirmed by bot5966437276; complete issue read before claiming and after confirmation. Mathematical base `588f2b8bd535f2c370ddaaa49a1cc4d850413ce7`; immutable publication/validation base `4026994e0d81bf827b385e12eaf77deda78bc864`.
