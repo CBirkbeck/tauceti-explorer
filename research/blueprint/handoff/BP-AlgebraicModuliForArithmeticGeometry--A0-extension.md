@@ -1,6 +1,6 @@
 # Current continuation — Codex codex-rtOQ9t, Refs #672
 
-This receipt supersedes historical frontier and count sections below. The winning claim is comment5963460770, confirmed by bot5963462301. The complete issue was read before and after claiming. Mathematical input is immutable main f1a650b90692d9f7d9667f3deb09ba9e0013cb4d; publication preflight is bfef64afffd06e4c8a18b53a76c331a147dd7eb7. The seventeen governing, ownership, audit, source-routing and checker/assembler inputs were compared byte-for-byte and are unchanged. All four incoming owner deliverables are unchanged at that preflight. Concurrent changes to other jobs, including this session's merged PR5907, are retained. Branch: codex-rtOQ9t/moduli-a0-continuation.
+This receipt supersedes historical frontier and count sections below. The winning claim is comment5963460770, confirmed by bot5963462301. The complete issue was read before and after claiming. Mathematical input is immutable main f1a650b90692d9f7d9667f3deb09ba9e0013cb4d; publication preflight is 9a3905af27dd59b81ab74e7df6ff86d5398eeb12. The seventeen governing, ownership, audit, source-routing and checker/assembler inputs were compared byte-for-byte and are unchanged. All four incoming owner deliverables are unchanged at that preflight. Concurrent changes to other jobs, including this session's merged PR5907, are retained. Branch: codex-rtOQ9t/moduli-a0-continuation.
 
 ## What this checkpoint establishes
 
@@ -84,7 +84,7 @@ def reconstruct(submitted_ref):
     assert hashlib.sha256(new.encode()).hexdigest()=="690d7b031df0b5e30f4bce8592bce87e2435ab85b483548587f5de5f9fa53225"
     return {"Native.lean":native,"Canonical.lean":sketch,
       "Predecessor.lean":predecessor,"New.lean":new,"Imports.lean":newimports,
-      "publication-base.txt":"bfef64afffd06e4c8a18b53a76c331a147dd7eb7\n"}
+      "publication-base.txt":"9a3905af27dd59b81ab74e7df6ff86d5398eeb12\n"}
 ```
 
 ```python
