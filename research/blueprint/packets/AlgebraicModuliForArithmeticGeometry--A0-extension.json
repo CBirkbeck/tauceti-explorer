@@ -13,7 +13,7 @@
     "AlgebraicModuliForArithmeticGeometry:R09.7"
   ],
   "status": "partial",
-  "summary": "Partial 179-node chosen-band inverse checkpoint: six consumed native leaves construct local coefficient families, prove their exact recovery and matching, glue through the prescribed coefficient sheaf even with an empty global fibre, and construct the actual coefficient group equivalence with inverse restriction laws. All 173 inherited statement/hypothesis/source/acceptance contracts and all source routes, reserved keys, nine gaps and 21 requests survive. All eight stages remain partial or not_read with unchecked implementations. The actual SF1 descended-slice comparison, specified geometric fixtures and all broader source/supplier obligations remain open. Full TauCeti file uncompiled; the admission-free native proof and admitted Mathlib extraction are checked separately. Codex codex-a71f92 adds the actual fixed-band presheaf and sheaf isomorphisms and their all-arrow evaluation uniqueness, retaining the central-section carrier, reserved gerbe contract and all open geometric supplier obligations. Constant point-site centre fixtures add actual component-profile equivalences, a native point-stack proof, the connected gerbe instance and the disconnected gerbe obstruction; the wider source and supplier frontiers remain partial. Connected-fibre continuation: 29 new declaration-sized leaves identify evaluation with the group centre and check the connected two-object C3 and one-object nonabelian S3 gerbes on native carriers; all remaining scope stays partial.",
+  "summary": "Partial 179-node chosen-band inverse checkpoint: six consumed native leaves construct local coefficient families, prove their exact recovery and matching, glue through the prescribed coefficient sheaf even with an empty global fibre, and construct the actual coefficient group equivalence with inverse restriction laws. All 173 inherited statement/hypothesis/source/acceptance contracts and all source routes, reserved keys, nine gaps and 21 requests survive. All eight stages remain partial or not_read with unchecked implementations. The actual SF1 descended-slice comparison, specified geometric fixtures and all broader source/supplier obligations remain open. Full TauCeti file uncompiled; the admission-free native proof and admitted Mathlib extraction are checked separately. Codex codex-a71f92 adds the actual fixed-band presheaf and sheaf isomorphisms and their all-arrow evaluation uniqueness, retaining the central-section carrier, reserved gerbe contract and all open geometric supplier obligations. Constant point-site centre fixtures add actual component-profile equivalences, a native point-stack proof, the connected gerbe instance and the disconnected gerbe obstruction; the wider source and supplier frontiers remain partial. Connected-fibre continuation: 29 new declaration-sized leaves identify evaluation with the group centre and check the connected two-object C3 and one-object nonabelian S3 gerbes on native carriers; all remaining scope stays partial. Nonconstant continuation: the actual band sections of any varying commutative-group presheaf are equivalent to its coefficients; native bottom-topology descent and sheaf comparisons instantiate C4 to C2 to C2 and the terminal-free two-chain site. No stage or reserved key closes.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -992,6 +992,114 @@
         "sourceSha256": "4f4ca009b6f8cbfc42a2c5503dba3859670abd5d43e1e8257273b4057f5bee93",
         "provides": "In a commutative group, the centre is the whole group.",
         "checked": "Actual statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-7e92bd; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CommGrpCat.toAddCommGrp",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Category/Grp/EquivalenceGroupAddGroup.lean",
+        "sourceLine": 41,
+        "sourceSha256": "13b2994ef50ea69239d6b72417ad1d1128533ee82cd1b619cb4df3989561098c",
+        "provides": "The existing additive-tag functor on commutative groups retains the actual carrier homomorphisms.",
+        "checked": "Actual statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:AddMonoidHom.toMultiplicative",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/TypeTags/Hom.lean",
+        "sourceLine": 25,
+        "sourceSha256": "9d368fb1507a9ed8743b5b886b46ca989402a05daf128a658364e55bf42ea6cb",
+        "provides": "The existing type-tag equivalence turns an additive homomorphism into the corresponding multiplicative homomorphism.",
+        "checked": "Actual statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ComposableArrows.mk₂",
+        "kind": "abbrev",
+        "module": "Mathlib/CategoryTheory/ComposableArrows/Basic.lean",
+        "sourceLine": 410,
+        "sourceSha256": "96f4ff71f570b96f03ce394ab10a4d13e6026f772afadb39f7ec40a27a7f4466",
+        "provides": "The existing constructor makes an actual Fin3 functor from two composable arrows, retaining their composite.",
+        "checked": "Actual statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.IsTerminal",
+        "kind": "abbrev",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/IsTerminal.lean",
+        "sourceLine": 51,
+        "sourceSha256": "8d5b5a158a7f940eb186b5cef72a8fcac31ca7ebf7bbe81891ff82e323f8da0f",
+        "provides": "The native terminal-object predicate is the limit of the empty diagram.",
+        "checked": "Actual statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.IsTerminal.from",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/IsTerminal.lean",
+        "sourceLine": 112,
+        "sourceSha256": "8d5b5a158a7f940eb186b5cef72a8fcac31ca7ebf7bbe81891ff82e323f8da0f",
+        "provides": "A native terminal-object witness supplies an arrow from every other object.",
+        "checked": "Actual statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ObjectProperty.isoMk",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/ObjectProperty/FullSubcategory.lean",
+        "sourceLine": 102,
+        "sourceSha256": "1dff56d1a7b031144855d5400955be63212df3ef8d216a98bc41ebeddcb2f03d",
+        "provides": "An isomorphism of underlying objects lifts to the existing full subcategory of an object property.",
+        "checked": "Actual statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Presheaf.isSheaf_bot",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Sites/Sheaf.lean",
+        "sourceLine": 439,
+        "sourceSha256": "e186b91a924c25ec3bdf802a47a2f83aeacac23e085e93025c0c875c07f4b1de",
+        "provides": "Every native presheaf is a sheaf for the bottom Grothendieck topology; this does not establish the stack predicate.",
+        "checked": "Actual statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.hom_inl_inr_false",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Sums/Basic.lean",
+        "sourceLine": 71,
+        "sourceSha256": "a506306839f7437ce3b754a1df908358beb5a27463efbf8fa7a314f296bf7196",
+        "provides": "An arrow from the left component to the right component of the native category sum is impossible.",
+        "checked": "Actual statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.hom_inr_inl_false",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Sums/Basic.lean",
+        "sourceLine": 75,
+        "sourceSha256": "a506306839f7437ce3b754a1df908358beb5a27463efbf8fa7a314f296bf7196",
+        "provides": "An arrow from the right component to the left component of the native category sum is impossible.",
+        "checked": "Actual statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.sum'",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Sums/Basic.lean",
+        "sourceLine": 137,
+        "sourceSha256": "a506306839f7437ce3b754a1df908358beb5a27463efbf8fa7a314f296bf7196",
+        "provides": "Two functors with common codomain give the existing functor from their disjoint category sum.",
+        "checked": "Actual statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:MulEquiv.toCommGrpIso",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Category/Grp/Basic.lean",
+        "sourceLine": 501,
+        "sourceSha256": "72e82023f670b938c7a59f7917e89f9abbcf009e2fc3195b1e862675cac5612c",
+        "provides": "An actual multiplicative equivalence gives an isomorphism in CommGrpCat; the source also generates AddEquiv.toAddCommGrpIso.",
+        "checked": "Actual statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:MonCat.toCat",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/SingleObj.lean",
+        "sourceLine": 240,
+        "sourceSha256": "6aca3a01c2a4beddfb1c80f82695834762e1ca0b30fe33ab0bb78d43aa24da03",
+        "provides": "The existing fully faithful functor sends a monoid to its actual one-object category and a homomorphism to its native functor.",
+        "checked": "Actual statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; exact indexed name confirmed."
       }
     ]
   },
@@ -1607,6 +1715,24 @@
       "accessed": "2026-10-03",
       "readSections": [
         "Entire Definition 8.11.1 and Lemma 8.11.8 statement and printed proof, including its omitted varying-base step."
+      ],
+      "relatedSources": [
+        {
+          "url": "https://stacks.math.columbia.edu/tag/0CJY",
+          "sha256": "41dd0c0a1e20dfe2fd60212274a30f259ae0875225b1540b069adf3f89f27a9e"
+        }
+      ]
+    },
+    {
+      "id": "SP-restriction-band-fixtures-rtOQ9t",
+      "title": "The Stacks Project: gerbes and abelian inertia; authored nonconstant restriction-band fixtures",
+      "authors": "The Stacks Project Authors; fixture deductions by Codex codex-rtOQ9t",
+      "edition": "Live HTML accessed 2026-10-03",
+      "url": "https://stacks.math.columbia.edu/tag/06NZ",
+      "sha256": "b60742528d35ea2612a54bc8d95096fb2e97a39e4cba59034918834e5f414535",
+      "accessed": "2026-10-03",
+      "readSections": [
+        "Entire Definition 8.11.1; entire Lemma 8.11.8 statement and printed proof, including its omitted varying-base step."
       ],
       "relatedSources": [
         {
@@ -15362,6 +15488,2277 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupMapId-hom",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The actual identity coherence component of the group diagram is the unit coefficient.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupMapId_hom",
+      "statement": "The actual identity coherence component of the group diagram is the unit coefficient.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupMapComp-hom",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The actual composition coherence component of the group diagram is the unit coefficient.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupMapComp_hom",
+      "statement": "The actual composition coherence component of the group diagram is the unit coefficient.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupMapComp-prime-hom",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The hom component of composition coherence with a specified composite is the unit coefficient.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupMapComp'_hom",
+      "statement": "The hom component of composition coherence with a specified composite is the unit coefficient.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupMapComp-prime-inv",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The inverse component of composition coherence with a specified composite is the unit coefficient.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupMapComp'_inv",
+      "statement": "The inverse component of composition coherence with a specified composite is the unit coefficient.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupOfObj-hom",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Every transition of the native descent datum induced from an object is the unit coefficient.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupOfObj_hom",
+      "statement": "Every transition of the native descent datum induced from an object is the unit coefficient.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupMapComp-prime-hom",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupMapComp-prime-inv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupPullHom",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Native pullHom on this diagram is exactly the coefficient homomorphism P.map(h.op).",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupPullHom",
+      "statement": "Native pullHom on this diagram is exactly the coefficient homomorphism P.map(h.op).",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupMapComp-prime-hom",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupMapComp-prime-inv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupIso",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "An element of P(U) gives an actual isomorphism between any two objects of the one-object group fibre, with inverse coefficient g inverse.",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupIso",
+      "statement": "An element of P(U) gives an actual isomorphism between any two objects of the one-object group fibre, with inverse coefficient g inverse.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupIso_hom",
+          "role": "compatibility",
+          "statement": "The actual hom of the coefficient isomorphism is g."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupIso_inv",
+          "role": "compatibility",
+          "statement": "The actual inverse of the coefficient isomorphism has coefficient g inverse."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupDiagram_gerbe",
+          "role": "compatibility",
+          "statement": "The SingleObj diagram of every commutative-group-valued presheaf is a gerbe for the bottom topology, without a terminal-object hypothesis."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Reserved general gerbe key and its nonconstant restriction-chain acceptance cases",
+          "how": "Test actual compatible-centre restriction and coefficient recovery on varying fibres, then package the native bottom-topology sheaf comparison without a terminal-object assumption."
+        }
+      ],
+      "tests": [
+        {
+          "name": "RestrictionBandTests.isoUnit",
+          "kind": "compatibility",
+          "statement": "The unit coefficient gives an isomorphism with the actual hom-inverse identity."
+        },
+        {
+          "name": "RestrictionBandTests.isoInverseQuarter",
+          "kind": "computation",
+          "statement": "The inverse of the C4 generator isomorphism has coefficient three."
+        },
+        {
+          "name": "RestrictionBandTests.isoQuarterRoundTrip",
+          "kind": "computation",
+          "statement": "The actual C4 generator hom followed by its inverse is the native identity."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupDiagram-stack",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "For every commutative-group-valued presheaf P on any category C, its native SingleObj diagram has effective descent for the bottom Grothendieck topology.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupDiagram_stack",
+      "statement": "For every commutative-group-valued presheaf P on any category C, its native SingleObj diagram has effective descent for the bottom Grothendieck topology.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupOfObj-hom",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupPullHom",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupIso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "A bottom-topology covering sieve is the top sieve. Use its identity arrow to construct the preimage on descent morphisms; the native commutation law recovers every other component.",
+        "For each native descent object, take its identity-arrow object and use its actual transition arrows to construct the comparison isomorphism. Native pullHom_hom and hom_comp prove the compatibility. This specializes native IsStack to this diagram; it does not re-plan D0 stackification."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupDiagram-gerbe",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The SingleObj diagram of every commutative-group-valued presheaf is a gerbe for the bottom topology, without a terminal-object hypothesis.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupDiagram_gerbe",
+      "statement": "The SingleObj diagram of every commutative-group-valued presheaf is a gerbe for the bottom topology, without a terminal-object hypothesis.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupDiagram-stack",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupIso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-singleCenter",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "A coefficient g of a commutative group gives a natural endomorphism of the identity on its native SingleObj category.",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.singleCenter",
+      "statement": "A coefficient g of a commutative group gives a natural endomorphism of the identity on its native SingleObj category.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.singleCenter_app",
+          "role": "compatibility",
+          "statement": "The actual component of the central endomorphism corresponding to g is g."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.singleCenter_mul",
+          "role": "compatibility",
+          "statement": "The coefficient-to-centre construction preserves multiplication."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.singleCenterUnit",
+          "role": "compatibility",
+          "statement": "A coefficient g of a commutative group gives a unit of the actual categorical centre, with inverse coefficient g inverse."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Reserved general gerbe key and its nonconstant restriction-chain acceptance cases",
+          "how": "Test actual compatible-centre restriction and coefficient recovery on varying fibres, then package the native bottom-topology sheaf comparison without a terminal-object assumption."
+        }
+      ],
+      "tests": [
+        {
+          "name": "RestrictionBandTests.centerNaturality",
+          "kind": "compatibility",
+          "statement": "The C4 generator central transformation commutes with every actual fibre arrow."
+        },
+        {
+          "name": "RestrictionBandTests.centerDoubleGenerator",
+          "kind": "computation",
+          "statement": "Multiplying the two generator central transformations gives coefficient two."
+        },
+        {
+          "name": "RestrictionBandTests.centerUnitOrderFour",
+          "kind": "computation",
+          "statement": "The actual central unit of the C4 generator has fourth power one."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-singleCenterUnit",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "A coefficient g of a commutative group gives a unit of the actual categorical centre, with inverse coefficient g inverse.",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.singleCenterUnit",
+      "statement": "A coefficient g of a commutative group gives a unit of the actual categorical centre, with inverse coefficient g inverse.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-singleCenter",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.singleCenterUnit_app",
+          "role": "compatibility",
+          "statement": "Evaluation of the central unit corresponding to g has actual component g."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.singleCenterUnit_mul",
+          "role": "compatibility",
+          "statement": "The coefficient-to-centre-unit construction preserves multiplication."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSection",
+          "role": "compatibility",
+          "statement": "A coefficient g in P(U) gives the actual compatible intrinsic-band section whose centre coefficient at every f:V to U is P(f.op)(g)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Reserved general gerbe key and its nonconstant restriction-chain acceptance cases",
+          "how": "Test actual compatible-centre restriction and coefficient recovery on varying fibres, then package the native bottom-topology sheaf comparison without a terminal-object assumption."
+        }
+      ],
+      "tests": [
+        {
+          "name": "RestrictionBandTests.centerUnitOrderFour",
+          "kind": "computation",
+          "statement": "The actual central unit of the C4 generator has fourth power one."
+        },
+        {
+          "name": "RestrictionBandTests.unitInverseCoefficient",
+          "kind": "compatibility",
+          "statement": "The inverse central unit of the C4 generator has actual component three."
+        },
+        {
+          "name": "RestrictionBandTests.unitDoubleGenerator",
+          "kind": "computation",
+          "statement": "Multiplying two generator central units gives the central unit of coefficient two."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-singleCenterUnit-app",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Evaluation of the central unit corresponding to g has actual component g.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.singleCenterUnit_app",
+      "statement": "Evaluation of the central unit corresponding to g has actual component g.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-singleCenterUnit",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupSection",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "A coefficient g in P(U) gives the actual compatible intrinsic-band section whose centre coefficient at every f:V to U is P(f.op)(g).",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSection",
+      "statement": "A coefficient g in P(U) gives the actual compatible intrinsic-band section whose centre coefficient at every f:V to U is P(f.op)(g).",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-singleCenterUnit",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSection_eval",
+          "role": "compatibility",
+          "statement": "Native evaluation of that compatible section at f:V to U has coefficient P(f.op)(g)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSection_one",
+          "role": "compatibility",
+          "statement": "The coefficient unit gives the unit compatible section."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSection_mul",
+          "role": "compatibility",
+          "statement": "The coefficient-to-compatible-section construction preserves multiplication."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Reserved general gerbe key and its nonconstant restriction-chain acceptance cases",
+          "how": "Test actual compatible-centre restriction and coefficient recovery on varying fibres, then package the native bottom-topology sheaf comparison without a terminal-object assumption."
+        }
+      ],
+      "tests": [
+        {
+          "name": "RestrictionBandTests.sectionEvaluation",
+          "kind": "compatibility",
+          "statement": "The source generator evaluates after restriction as the nonidentity C2 generator."
+        },
+        {
+          "name": "RestrictionBandTests.sectionKilled",
+          "kind": "computation",
+          "statement": "Restriction kills the compatible section of source coefficient two."
+        },
+        {
+          "name": "RestrictionBandTests.sectionComposition",
+          "kind": "compatibility",
+          "statement": "The two successive chain restrictions equal restriction along the actual composite."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupSection-eval",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Native evaluation of that compatible section at f:V to U has coefficient P(f.op)(g).",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSection_eval",
+      "statement": "Native evaluation of that compatible section at f:V to U has coefficient P(f.op)(g).",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupSection",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupSectionsEquiv",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "For every object U, P(U) is multiplicatively equivalent to the actual compatible intrinsic-band sections over U of the varying SingleObj diagram; the inverse evaluates the identity slice arrow.",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsEquiv",
+      "statement": "For every object U, P(U) is multiplicatively equivalent to the actual compatible intrinsic-band sections over U of the varying SingleObj diagram; the inverse evaluates the identity slice arrow.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupSection",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Read the identity-arrow centre component for the inverse. The stored compatible-family law along each f:V to U proves the section round trip, and the coefficient functor identity law proves the coefficient round trip."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsEquiv_symm_apply",
+          "role": "compatibility",
+          "statement": "The inverse coefficient is the actual centre-unit component at the identity slice arrow and native SingleObj object."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSection_eval",
+          "role": "compatibility",
+          "statement": "Native evaluation of that compatible section at f:V to U has coefficient P(f.op)(g)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsEquiv_restrict",
+          "role": "compatibility",
+          "statement": "Restriction along f:V to U sends the compatible section of g to the compatible section of P(f.op)(g)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Reserved general gerbe key and its nonconstant restriction-chain acceptance cases",
+          "how": "Test actual compatible-centre restriction and coefficient recovery on varying fibres, then package the native bottom-topology sheaf comparison without a terminal-object assumption."
+        }
+      ],
+      "tests": [
+        {
+          "name": "RestrictionBandTests.equivalenceLeftRoundTrip",
+          "kind": "compatibility",
+          "statement": "Inverse after forward recovers every coefficient in an arbitrary varying group presheaf."
+        },
+        {
+          "name": "RestrictionBandTests.equivalenceRightRoundTrip",
+          "kind": "compatibility",
+          "statement": "Forward after inverse recovers every compatible section on every slice arrow."
+        },
+        {
+          "name": "RestrictionBandTests.equivalenceDifferentCardinalities",
+          "kind": "computation",
+          "statement": "The actual source and target compatible-section types have four and two elements respectively."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupSectionsEquiv-restrict",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Restriction along f:V to U sends the compatible section of g to the compatible section of P(f.op)(g).",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsEquiv_restrict",
+      "statement": "Restriction along f:V to U sends the compatible section of g to the compatible section of P(f.op)(g).",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupSectionsEquiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupSectionsPresheafIso",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "For a small base category B, the existing additive coefficient presheaf is naturally isomorphic to the actual intrinsic-band presheaf of the varying group diagram.",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsPresheafIso",
+      "statement": "For a small base category B, the existing additive coefficient presheaf is naturally isomorphic to the actual intrinsic-band presheaf of the varying group diagram.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupSectionsEquiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupSectionsEquiv-restrict",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Use the native additive-group equivalence and NatIso.ofComponents. Actual restriction compatibility supplies naturality; lift through the native sheaf full subcategory only on the explicitly small bottom-topology site."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsPresheafIso_hom_app",
+          "role": "compatibility",
+          "statement": "The presheaf isomorphism sends an additive coefficient to the additive tag of its actual compatible section."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsEquiv_symm_apply",
+          "role": "compatibility",
+          "statement": "The inverse coefficient is the actual centre-unit component at the identity slice arrow and native SingleObj object."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsEquiv_restrict",
+          "role": "compatibility",
+          "statement": "Restriction along f:V to U sends the compatible section of g to the compatible section of P(f.op)(g)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Reserved general gerbe key and its nonconstant restriction-chain acceptance cases",
+          "how": "Test actual compatible-centre restriction and coefficient recovery on varying fibres, then package the native bottom-topology sheaf comparison without a terminal-object assumption."
+        }
+      ],
+      "tests": [
+        {
+          "name": "RestrictionBandTests.presheafForward",
+          "kind": "compatibility",
+          "statement": "The native presheaf isomorphism has the specified coefficient-to-section map at every object."
+        },
+        {
+          "name": "RestrictionBandTests.presheafInverse",
+          "kind": "compatibility",
+          "statement": "The forward and inverse components compose to the actual identity at every object."
+        },
+        {
+          "name": "RestrictionBandTests.presheafNaturality",
+          "kind": "compatibility",
+          "statement": "The presheaf isomorphism commutes with every actual restriction arrow."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupBandSheaf",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "For a small base category B, the actual intrinsic-band presheaf of the varying group diagram is a native sheaf for the bottom topology.",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupBandSheaf",
+      "statement": "For a small base category B, the actual intrinsic-band presheaf of the varying group diagram is a native sheaf for the bottom topology.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupSectionsEquiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp",
+        "mathlib:CategoryTheory.Presheaf.isSheaf_bot",
+        "mathlib:CategoryTheory.ObjectProperty.isoMk"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupBandSheaf_obj",
+          "role": "compatibility",
+          "statement": "The underlying presheaf of the bottom-topology band sheaf is the actual intrinsic-band presheaf."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsEquiv_restrict",
+          "role": "compatibility",
+          "statement": "Restriction along f:V to U sends the compatible section of g to the compatible section of P(f.op)(g)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupBandSheafIso",
+          "role": "compatibility",
+          "statement": "For a small base category B, the native bottom-topology coefficient sheaf is isomorphic to the native intrinsic-band sheaf, with both inverse laws."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Reserved general gerbe key and its nonconstant restriction-chain acceptance cases",
+          "how": "Test actual compatible-centre restriction and coefficient recovery on varying fibres, then package the native bottom-topology sheaf comparison without a terminal-object assumption."
+        }
+      ],
+      "tests": [
+        {
+          "name": "RestrictionBandTests.sheafNative",
+          "kind": "compatibility",
+          "statement": "The actual band presheaf satisfies the native bottom-topology sheaf predicate."
+        },
+        {
+          "name": "RestrictionBandTests.sheafObject",
+          "kind": "compatibility",
+          "statement": "The sheaf wrapper retains the actual compatible-section presheaf as its object."
+        },
+        {
+          "name": "RestrictionBandTests.sheafRestrictionGenerator",
+          "kind": "computation",
+          "statement": "The native additive band-sheaf restriction sends the C4 generator section to the C2 generator section."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupBandSheaf-obj",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The underlying presheaf of the bottom-topology band sheaf is the actual intrinsic-band presheaf.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupBandSheaf_obj",
+      "statement": "The underlying presheaf of the bottom-topology band sheaf is the actual intrinsic-band presheaf.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupBandSheaf",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupBandSheafIso",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "For a small base category B, the native bottom-topology coefficient sheaf is isomorphic to the native intrinsic-band sheaf, with both inverse laws.",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupBandSheafIso",
+      "statement": "For a small base category B, the native bottom-topology coefficient sheaf is isomorphic to the native intrinsic-band sheaf, with both inverse laws.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupSectionsPresheafIso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupBandSheaf",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp",
+        "mathlib:CategoryTheory.Presheaf.isSheaf_bot",
+        "mathlib:CategoryTheory.ObjectProperty.isoMk"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Use the native additive-group equivalence and NatIso.ofComponents. Actual restriction compatibility supplies naturality; lift through the native sheaf full subcategory only on the explicitly small bottom-topology site."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupBandSheafIso_hom",
+          "role": "compatibility",
+          "statement": "The underlying natural transformation of the native sheaf isomorphism is the coefficient-to-band presheaf isomorphism."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsPresheafIso_hom_app",
+          "role": "compatibility",
+          "statement": "The presheaf isomorphism sends an additive coefficient to the additive tag of its actual compatible section."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsEquiv_symm_apply",
+          "role": "compatibility",
+          "statement": "The inverse coefficient is the actual centre-unit component at the identity slice arrow and native SingleObj object."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Reserved general gerbe key and its nonconstant restriction-chain acceptance cases",
+          "how": "Test actual compatible-centre restriction and coefficient recovery on varying fibres, then package the native bottom-topology sheaf comparison without a terminal-object assumption."
+        }
+      ],
+      "tests": [
+        {
+          "name": "RestrictionBandTests.sheafIsoForwardInverse",
+          "kind": "compatibility",
+          "statement": "The forward and inverse native sheaf morphisms compose to the coefficient-sheaf identity."
+        },
+        {
+          "name": "RestrictionBandTests.sheafIsoInverseForward",
+          "kind": "compatibility",
+          "statement": "The inverse and forward native sheaf morphisms compose to the band-sheaf identity."
+        },
+        {
+          "name": "RestrictionBandTests.sheafIsoGenerator",
+          "kind": "computation",
+          "statement": "The native sheaf isomorphism sends the actual source generator to its compatible section."
+        },
+        {
+          "name": "RestrictionBandTests.terminalFreeSheafIso",
+          "kind": "compatibility",
+          "statement": "The actual coefficient-to-band sheaf isomorphism exists on the terminal-free site."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-chain-generator-restrict",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "In the actual C4 to C2 to C2 coefficient chain, restriction sends the source generator to the target generator.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.chain_generator_restrict",
+      "statement": "In the actual C4 to C2 to C2 coefficient chain, restriction sends the source generator to the target generator.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupSectionsEquiv-restrict",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp",
+        "mathlib:CategoryTheory.ComposableArrows.mk₂",
+        "mathlib:CategoryTheory.Functor.sum'",
+        "mathlib:AddMonoidHom.toMultiplicative",
+        "mathlib:ZMod.castHom"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-chain-generator-comp",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Successive restrictions along the actual two chain arrows equal restriction along their composite.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.chain_generator_comp",
+      "statement": "Successive restrictions along the actual two chain arrows equal restriction along their composite.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupSectionsEquiv-restrict",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp",
+        "mathlib:CategoryTheory.ComposableArrows.mk₂",
+        "mathlib:CategoryTheory.Functor.sum'",
+        "mathlib:AddMonoidHom.toMultiplicative",
+        "mathlib:ZMod.castHom"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-chain-two-killed",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Restriction in that chain kills the source coefficient two in C4.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.chain_two_killed",
+      "statement": "Restriction in that chain kills the source coefficient two in C4.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupSectionsEquiv-restrict",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp",
+        "mathlib:CategoryTheory.ComposableArrows.mk₂",
+        "mathlib:CategoryTheory.Functor.sum'",
+        "mathlib:AddMonoidHom.toMultiplicative",
+        "mathlib:ZMod.castHom"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-chain-restrict-not-injective",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The actual compatible-section restriction C4 to C2 is not injective.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.chain_restrict_not_injective",
+      "statement": "The actual compatible-section restriction C4 to C2 is not injective.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-chain-two-killed",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupSectionsEquiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp",
+        "mathlib:CategoryTheory.ComposableArrows.mk₂",
+        "mathlib:CategoryTheory.Functor.sum'",
+        "mathlib:AddMonoidHom.toMultiplicative",
+        "mathlib:ZMod.castHom"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "RestrictionBandTests.restrictionNotInjective",
+          "kind": "compatibility",
+          "statement": "The actual compatible-section restriction is not injective."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-twoChains-no-terminal",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The site formed by two disjoint opposite Fin3 chains has no terminal object.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.twoChains_no_terminal",
+      "statement": "The site formed by two disjoint opposite Fin3 chains has no terminal object.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp",
+        "mathlib:CategoryTheory.Limits.IsTerminal.from",
+        "mathlib:CategoryTheory.hom_inl_inr_false",
+        "mathlib:CategoryTheory.hom_inr_inl_false",
+        "mathlib:CategoryTheory.ComposableArrows.mk₂",
+        "mathlib:CategoryTheory.Functor.sum'",
+        "mathlib:AddMonoidHom.toMultiplicative",
+        "mathlib:ZMod.castHom"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "A hypothetical terminal object would receive an arrow from the other disjoint chain. Opposing that arrow contradicts the native empty cross-component Hom type."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "RestrictionBandTests.noTerminal",
+          "kind": "compatibility",
+          "statement": "No object of the actual two-chain site is terminal."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-twoChains-sections-equiv",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "At every object of the two-chain site, the actual coefficient group is multiplicatively equivalent to the actual compatible-section group.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.twoChains_sections_equiv",
+      "statement": "At every object of the two-chain site, the actual coefficient group is multiplicatively equivalent to the actual compatible-section group.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupSectionsEquiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp",
+        "mathlib:CategoryTheory.ComposableArrows.mk₂",
+        "mathlib:CategoryTheory.Functor.sum'",
+        "mathlib:AddMonoidHom.toMultiplicative",
+        "mathlib:ZMod.castHom"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "RestrictionBandTests.leftChainSourceCard",
+          "kind": "computation",
+          "statement": "The actual section type at the left C4 source has four elements."
+        },
+        {
+          "name": "RestrictionBandTests.rightChainTargetCard",
+          "kind": "computation",
+          "statement": "The actual section type at the right C2 target has two elements."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupIso-hom",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The actual hom of the coefficient isomorphism is g.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupIso_hom",
+      "statement": "The actual hom of the coefficient isomorphism is g.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupIso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupIso-inv",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The actual inverse of the coefficient isomorphism has coefficient g inverse.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupIso_inv",
+      "statement": "The actual inverse of the coefficient isomorphism has coefficient g inverse.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupIso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-singleCenter-app",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The actual component of the central endomorphism corresponding to g is g.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.singleCenter_app",
+      "statement": "The actual component of the central endomorphism corresponding to g is g.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-singleCenter",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-singleCenter-mul",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The coefficient-to-centre construction preserves multiplication.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.singleCenter_mul",
+      "statement": "The coefficient-to-centre construction preserves multiplication.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-singleCenter",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-singleCenterUnit-mul",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The coefficient-to-centre-unit construction preserves multiplication.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.singleCenterUnit_mul",
+      "statement": "The coefficient-to-centre-unit construction preserves multiplication.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-singleCenterUnit",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-singleCenter-mul",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupSection-one",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The coefficient unit gives the unit compatible section.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSection_one",
+      "statement": "The coefficient unit gives the unit compatible section.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupSectionsEquiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupSection-mul",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The coefficient-to-compatible-section construction preserves multiplication.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSection_mul",
+      "statement": "The coefficient-to-compatible-section construction preserves multiplication.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupSectionsEquiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupSectionsEquiv-symm-apply",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The inverse coefficient is the actual centre-unit component at the identity slice arrow and native SingleObj object.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsEquiv_symm_apply",
+      "statement": "The inverse coefficient is the actual centre-unit component at the identity slice arrow and native SingleObj object.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupSectionsEquiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupSectionsPresheafIso-hom-app",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The presheaf isomorphism sends an additive coefficient to the additive tag of its actual compatible section.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsPresheafIso_hom_app",
+      "statement": "The presheaf isomorphism sends an additive coefficient to the additive tag of its actual compatible section.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupSectionsPresheafIso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupBandSheafIso-hom",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The underlying natural transformation of the native sheaf isomorphism is the coefficient-to-band presheaf isomorphism.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupBandSheafIso_hom",
+      "statement": "The underlying natural transformation of the native sheaf isomorphism is the coefficient-to-band presheaf isomorphism.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupBandSheafIso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-chain-stack",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The concrete nonconstant C4 to C2 to C2 diagram is a native stack for the bottom topology.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.chain_stack",
+      "statement": "The concrete nonconstant C4 to C2 to C2 diagram is a native stack for the bottom topology.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupDiagram-stack",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp",
+        "mathlib:CategoryTheory.ComposableArrows.mk₂",
+        "mathlib:CategoryTheory.Functor.sum'",
+        "mathlib:AddMonoidHom.toMultiplicative",
+        "mathlib:ZMod.castHom"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-chain-gerbe",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The concrete nonconstant C4 to C2 to C2 diagram is an actual gerbe for the bottom topology.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.chain_gerbe",
+      "statement": "The concrete nonconstant C4 to C2 to C2 diagram is an actual gerbe for the bottom topology.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupDiagram-gerbe",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp",
+        "mathlib:CategoryTheory.ComposableArrows.mk₂",
+        "mathlib:CategoryTheory.Functor.sum'",
+        "mathlib:AddMonoidHom.toMultiplicative",
+        "mathlib:ZMod.castHom"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "RestrictionBandTests.chainGerbe",
+          "kind": "compatibility",
+          "statement": "The actual nonconstant chain diagram satisfies the gerbe contract."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-twoChains-stack",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The concrete varying diagram on two disjoint chains is a native stack for the bottom topology.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.twoChains_stack",
+      "statement": "The concrete varying diagram on two disjoint chains is a native stack for the bottom topology.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupDiagram-stack",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp",
+        "mathlib:CategoryTheory.ComposableArrows.mk₂",
+        "mathlib:CategoryTheory.Functor.sum'",
+        "mathlib:AddMonoidHom.toMultiplicative",
+        "mathlib:ZMod.castHom"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-twoChains-gerbe",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The concrete varying diagram on two disjoint chains is an actual gerbe for the bottom topology, although its site has no terminal object.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.twoChains_gerbe",
+      "statement": "The concrete varying diagram on two disjoint chains is an actual gerbe for the bottom topology, although its site has no terminal object.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupDiagram-gerbe",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp",
+        "mathlib:CategoryTheory.ComposableArrows.mk₂",
+        "mathlib:CategoryTheory.Functor.sum'",
+        "mathlib:AddMonoidHom.toMultiplicative",
+        "mathlib:ZMod.castHom"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "RestrictionBandTests.terminalFreeGerbe",
+          "kind": "compatibility",
+          "statement": "The actual two-chain varying diagram is a gerbe despite the absence of a terminal site object."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-chain-source-card",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The actual compatible-section type at the C4 source of the chain has exactly four elements.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.chain_source_card",
+      "statement": "The actual compatible-section type at the C4 source of the chain has exactly four elements.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupSectionsEquiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp",
+        "mathlib:CategoryTheory.ComposableArrows.mk₂",
+        "mathlib:CategoryTheory.Functor.sum'",
+        "mathlib:AddMonoidHom.toMultiplicative",
+        "mathlib:ZMod.castHom"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Transport cardinality through the actual section equivalence and compute the native finite coefficient type."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-chain-target-card",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The actual compatible-section type at the C2 target of the chain has exactly two elements.",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures.chain_target_card",
+      "statement": "The actual compatible-section type at the C2 target of the chain has exactly two elements.",
+      "hypotheses": [
+        "C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence.",
+        "The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe.",
+        "The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/restriction-band-fixture-groupSectionsEquiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility",
+        "mathlib:MonCat.toCat",
+        "mathlib:CommGrpCat.toAddCommGrp",
+        "mathlib:CategoryTheory.ComposableArrows.mk₂",
+        "mathlib:CategoryTheory.Functor.sum'",
+        "mathlib:AddMonoidHom.toMultiplicative",
+        "mathlib:ZMod.castHom"
+      ],
+      "proofSteps": [
+        "Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients.",
+        "Transport cardinality through the actual section equivalence and compute the native finite coefficient type."
+      ],
+      "acceptance": [
+        "Retain every slice arrow, actual centre unit, descent object, morphism and inverse law.",
+        "All implementationStatus values stay unchecked. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral root gerbes, profinite limits and general classification remain open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.RestrictionBandFixtures"
+      },
+      "sources": [
+        {
+          "excerpt": "A gerbe over a site",
+          "sourceId": "SP-restriction-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof; authored varying-presheaf bottom-topology fixture deductions",
+          "match": "Stacks supplies the gerbe definition and abelian-inertia context. The bottom-topology descent adapter, coefficient-to-band isomorphisms and C4/C2 examples are authored deductions, not claims about additional printed Stacks results."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -15566,7 +17963,8 @@
         "The gerbe, banding, neutralization, derived-H2 route, compatible profinite limits, torsor twisting and prime-to-p inertia branches are partial; resolve each recorded proof gap and request before closure.",
         "Import ordinary stacks from D0 and spaces/sites/diagonals from SF1. Algebraic/Deligne–Mumford properties, algebraicity of quotient stacks and coherent-sheaf moduli stacks, and exact Artin moduli criteria remain undecomposed.",
         "Finite-field rational-point atlases, stack differentials/degree/local-character adapters and groupoid mass remain pending at their paper locators. Import stable pointed-curve moduli from StableReductionPartII:key/moduli-curves and elliptic comparisons from ModularCurves1E/4A.",
-        "The incoming constant point fixtures remain. The connected two-object C3 gerbe now has exactly three actual compatible sections, with bijective evaluation at both objects. Its distinct objects are joined by actual arrows. The one-object S3 diagram is an actual gerbe but has only one compatible central section; evaluation is injective and is not surjective, and the transposition (0 1) is explicitly not attained. For arbitrary G the connected-fibre evaluation image is exactly its native centre subgroup. Still establish the actual SF1 descended-slice comparison, the D0 torsor/classifying-stack comparison, the prescribed nonconstant restriction-chain and terminal-free two-chain fixtures, and the nonneutral O(1) root-gerbe instance. The constant-diagram generality does not instantiate the nonconstant tests. No stage, other gap, request or reserved key is closed."
+        "The incoming constant point fixtures remain. The connected two-object C3 gerbe now has exactly three actual compatible sections, with bijective evaluation at both objects. Its distinct objects are joined by actual arrows. The one-object S3 diagram is an actual gerbe but has only one compatible central section; evaluation is injective and is not surjective, and the transposition (0 1) is explicitly not attained. For arbitrary G the connected-fibre evaluation image is exactly its native centre subgroup. Still establish the actual SF1 descended-slice comparison, the D0 torsor/classifying-stack comparison, the prescribed nonconstant restriction-chain and terminal-free two-chain fixtures, and the nonneutral O(1) root-gerbe instance. The constant-diagram generality does not instantiate the nonconstant tests. No stage, other gap, request or reserved key is closed.",
+        "Current continuation resolves the prescribed nonconstant C4 to C2 to C2 and terminal-free two-chain intrinsic-band fixtures, with actual native bottom-topology IsStack/IsGerbe proofs and coefficient-to-band presheaf/sheaf isomorphisms on explicitly small bases. The preceding remaining-work entry is retained verbatim as historical context; its two fixture obligations are now checked only in this stated bottom-topology scope. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, the nonneutral O(1) root-gerbe instance, derived H2 and general classification remain open."
       ]
     },
     {
@@ -17564,5 +19962,82 @@
     "incomingProofSha256": "1d7ad653a8ea6f316a5b7482d2353eb65ad010cfa8b69a8f01475322ad7944b2",
     "fullSuggestedStatus": "UNCOMPILED: required TauCeti LongExactSequence object file is absent and existing TauCeti build checkout differs from the source pin. The complete Mathlib-only extraction checks with 278 expected admission warnings only.",
     "scopeStatus": "Partial; all implementationStatus values remain unchecked; no stage or reserved key closed."
+  },
+  "restrictionFixtureContinuation": {
+    "worker": "Codex — codex-rtOQ9t",
+    "issue": 672,
+    "claimComment": 5964536940,
+    "botConfirmation": 5964538117,
+    "date": "2026-10-03",
+    "base": "84e885b95c0ad537079c0fe6fdbb122c8020ac33",
+    "newDeclarations": 42,
+    "newTests": 30,
+    "incomingNodeObjectsPreserved": 240,
+    "incomingProofSha256": "e3dc0ac303c2e361c03e34542c9e5f1c7cdc5ee1759c3f44a96fa753858bebe6",
+    "scopeStatus": "Partial; all implementationStatus values stay unchecked; no stage or reserved key closed.",
+    "archiveCommit": "541cd5f185dc1602fe6bf03ba3e20ce09bc41924",
+    "proofReceipts": {
+      "Native": {
+        "sha256": "72641adf79dcbd169411f250f1c66a076bc2aa8ffb5d664cec86564d801fd00a",
+        "lines": 3212,
+        "examples": 101,
+        "namedTests": 30,
+        "uniqueAxiomAudits": 188,
+        "errors": 0,
+        "admissionWarnings": 0,
+        "otherWarnings": 0,
+        "sorryAx": false,
+        "elapsedSeconds": 9.8,
+        "peakKiB": 2736592
+      },
+      "Canonical": {
+        "sha256": "a954079d60cae7bbab80d779f6ad7d73f4380715f4766de8b0e698369138cfb7",
+        "lines": 2718,
+        "examples": 171,
+        "errors": 0,
+        "admissionWarnings": 349,
+        "otherWarnings": 0,
+        "elapsedSeconds": 8.2,
+        "peakKiB": 3427096,
+        "scope": "Complete exact Mathlib-only extraction; all inherited Mathlib blocks and 30 new example headers retained. TauCeti cohomology and module blocks excluded by the explicit extraction recipe."
+      },
+      "FullCanonical": {
+        "sha256": "1bb97579e6af3d0d0afc277267ce7eabef598761dda892319d969a997b7ee75b",
+        "lines": 4100,
+        "examples": 189,
+        "status": "UNCOMPILED: required TauCeti LongExactSequence object file absent; existing TauCeti build checkout differs from pinned source. No build or Lake setup attempted."
+      }
+    },
+    "dependencyReceipts": {
+      "stageDAG": {
+        "vertices": 3017,
+        "edges": 8655,
+        "acyclic": true
+      },
+      "ownDeclarationDAG": {
+        "vertices": 282,
+        "edges": 589,
+        "acyclic": true
+      },
+      "scopedDAG": {
+        "vertices": 3292,
+        "edges": 9593,
+        "acyclic": true
+      },
+      "reachableDeclarations": 285,
+      "externalDeclarations": [
+        "DiamondsAndVStacks:D0/cech-to-derived-comparison",
+        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+        "DiamondsAndVStacks:D0/stackification"
+      ],
+      "baselineLeaves": 143,
+      "requiredPairs": 24,
+      "restructurePairs": 40,
+      "unresolved": [],
+      "ownSkippedLinks": [],
+      "ownPendingLinks": [],
+      "otherSkipsMatch": true,
+      "stageEdgesUnchanged": true
+    }
   }
 }
