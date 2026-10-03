@@ -1,3 +1,394 @@
+# Current continuation — Codex codex-a71f92, Refs #672
+
+This section supersedes the resume/frontier sections in the historical handoff preserved below. The worker won claim comment5963030266, confirmed by bot5963031556; the whole issue was read before and after claiming. Mathematical input is immutable main fb5db1bbb6ec5ef68ea8ff02a54ea0ade874f446. Publication preflight is 82974c4339c719693457ae009b07cbee4eed5772. The eighteen governing, task, ownership, audit and confirmed-finding input paths checked between these commits are byte-unchanged. Branch: codex-a71f92-g8-chosen-band-sheaf-672.
+
+## What is established
+
+Six new declaration-sized R09.4 leaves: the actual prescribed-band presheaf isomorphism; its exact forward-map identity; the actual sheaf isomorphism into any existing packaging of the precise compatible-centre presheaf; its underlying forward-map identity; cancellation of the carrier transport; and uniqueness from every base-arrow/fibre-object evaluation.
+
+The forward natural transformation is exactly the inherited coefficient map. The inverse is the established sectionwise coefficient inverse and commutes with every restriction. Native categorical inverse laws hold in the actual presheaf and sheaf categories. The target S is an actual native sheaf and its displayed underlying-presheaf equality identifies precisely the compatible-centre carrier. For the inherited central-section sheaf this equality is reflexive. It is not the missing SF1 descended-slice comparison.
+
+Two additional checked native examples go beyond the ten named public tests: they construct an actual target sheaf from A using isomorphism-invariance of the sheaf predicate, and prove the inherited existence-and-uniqueness criterion using only identity-arrow evaluations. Naturality derives every arbitrary-arrow evaluation from that criterion, so no global object is assumed. This special fixed-band existence witness does not replace or rerun the stronger historical prestack-sheaf proof.
+
+All179 incoming contracts and178 whole node objects are preserved. Only the inherited band-center-band-unique node receives the two actual sheaf suppliers and a proof-outline continuation; its mathematical statement, hypotheses, acceptance, sources and reserved interfaces are unchanged. The original gerbe key node is byte-for-byte unchanged as an object. All68 routed-source obligations,21 requests, source issues and key-definition records are retained; all103 earlier baseline entries remain an exact prefix. Six indexed native adapters bring the baseline list to109. The full-faithfulness map-preimage equation is a field of the indexed structure, not a separately indexed declaration.
+
+## Counts and mathematical frontier
+
+185 nodes:16 definitions,45 constructions,91 lemmas,28 theorems and5 comparisons.230 total API items and209 total tests; definition/construction totals222 API items and203 required tests.10 planets,109 baseline references,9 gaps,21 requests,8 scoped coverage records (4 partial,4 not_read),0 closed stages. Every implementationStatus remains unchecked.
+
+The fixed-band full-sheaf-comparison sub-obligation is discharged. The actual comparison with SF1’s descended slice sheaf, connected/disconnected point-site fixtures, terminal-free restriction-chain fixture and nonneutral O(1) root-gerbe fixture remain mandatory. No generic prestack-sheaf proof, full intrinsic-band key, derived-H2 classification, other gap, supplier request or stage is declared closed. Continue full source work on all wider module/Picard/cohomology, moduli, representability and resolution branches listed by coverage.
+
+## Source, ownership and finding receipt
+
+Fresh selected-source reading: the complete printed Stacks Lemma8.11.8 proof at [Tag0CJY](https://stacks.math.columbia.edu/tag/0CJY), including empty fibres and the explicitly omitted varying-base step; and all of [Definition8.4.1](https://stacks.math.columbia.edu/tag/026F). HTML hashes respectively41dd0c0a1e20dfe2fd60212274a30f259ae0875225b1540b069adf3f89f27a9e and0024923a8e370df81c72261a9765c15c3e1d3bbb8b59a46ab41605f2f2ae60a0, accessed2026-10-02. The new comparison is an authored deduction, not claimed as a printed proof in Stacks.
+
+The complete incoming1463-line native proof was read and is retained verbatim. Fresh native statements read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174: NatIso.ofComponents, the fully faithful sheaf inclusion, FullyFaithful/preimageIso and its map-preimage field, the actual sheaf predicate’s isomorphism invariance, Sheaf.hom_ext and equality-to-morphism/isomorphism transport. Searches of the pinned TauCeti tree and baseline index find no existing chosen-band sheaf comparison. Selected Mathlib source files are clean at the pinned HEAD. Historical whole-paper and upstream-style receipts stay credited to their original agents; this continuation does not claim a renewed whole-paper survey.
+
+All eight scoped reviewed audit rows, accepted RS27 decisions/explanation and selected R09.4 owner/link records, the full reserved gerbe survey contract, all links/overlaps mentioning this roadmap and the nine specified confirmed finding claims/fixes were reread. Boundaries remain: ordinary stacks/descent at D0; spaces/sites/diagonals/atlases at SF1; coherent duality at the reserved SF owner; stable pointed-curve moduli at StableReductionPartII; specific generalized-elliptic/abelian/PEL applications downstream. No new stage edge or ownership reassignment occurs.
+
+Confirmed findings stay handled as before: algebraicgeometry/1 imports SF1/D0; /2 retains approximation/G-ring/Popescu suppliers without a backward Artin cycle; /10 imports anchor descent; /11 imports affine Weil restriction; /12 imports Grassmannian/Proj anchors; /14 retains only non-Noetherian/Tor-amplitude extensions; /17 imports StableReductionPartII:key/moduli-curves; /18 and etale/25 import SchemeAndStackFoundations:key/coherent-duality. Preserving their routes does not assert their open mathematical obligations are solved.
+
+## Compilation and exact boundaries
+
+Independent checked native source: 1680 lines,44 examples,61 kernel-axiom audits, zero errors/warnings/admissions or admitted dependencies. All named audits use only propext, Classical.choice and Quot.sound. Runtime6.10s, peak2235052KiB. Source SHA256c9c358f60ad728a973a5014184304ad5d36e9738ca7b8e868ac5ae881c2aa378; normalized output SHA2561f0be18f315bb39e896786762e0673b7aabe403ed75bc3a15e1fc1ce079105ce. Its complete1463-line predecessor has SHA256a811521350986092ef1ad65db0556558274c1b330ee94716e9be86f40d9e0284 and is a byte-identical prefix.
+
+The final canonical public additions admit all11 new declaration/API bodies and10 named example bodies under PROTOCOL§13. All11 new headers and all10 named test types match the checked native source. Canonical full file3258 lines,102 examples, SHA25674994dd220199919340272829db42b32892dc4f2b189e737685789cb27563a0a. Its exact Mathlib-only extraction has1876 lines and84 examples, zero errors,166 admission warnings and no other warnings; runtime6.30s, peak3383180KiB. Extraction SHA2562fc49d2acc5a30a7eca416cb7889dbd994b1a73a47d043db36c76fb060da46ee; normalized output SHA256219d0496e89bbf799c9364fb98691edfc9bbe1e98c5b34a54d9af24e43dd5213.
+
+The full canonical suggested file is UNCOMPILED: the existing pinned build lacks the inherited imported TauCeti.CategoryTheory.Sites.SheafCohomology.LongExactSequence artifact. No TauCeti stub, dependency build, Lake-project setup, cache download or language server was introduced. One owned compiler process ran at a time, each with a1200-second timeout after at least49GiB available-memory checks (WORKERS minimum20GiB). No background compile remains. The Mathlib-only extraction does not validate the omitted TauCeti module/cohomology blocks.
+
+## Indexed checker, intake and actual atlas projection
+
+The actual immutable-tree indexed checker returns zero errors and zero warnings. Actual intake file checks, JSON, whitespace and private-path checks pass. The reader preserves its original complete prefix and contains every new statement, API and test. The suggested file preserves its original complete prefix. All original key, route, request, source-issue, planet and stage contracts are checked, not reconstructed from a count.
+
+At publication preflight: stage DAG3017 vertices/8655 edges; own declaration DAG185 vertices/386 edges; scoped stage-plus-reachable-declaration DAG3195 vertices/9105 edges. All are acyclic. The backward traversal reaches188 declarations (185 own plus the three exact D0 suppliers) and114 baseline leaves, with0 unresolved references. All24 required supplier paths and all40 accepted restructuring pairs touching this roadmap are reachable. Own skipped/pending links are empty, stage edges are unchanged and every other roadmap’s skipped/pending links is unchanged. This is a scoped projection, not a claim that every unrelated atlas declaration graph is closed.
+
+Actual checker/assembler runs from immutable Git blobs through a read-only source-tree proxy, overlaying only these four own deliverables; no repository snapshot, checkout, application/data edit or shared-worktree write is made. Validator SHA256b766ea26183e47be9bab12d01245b83d85f392aa680c47c6b2b1f7c91f4bbc8f; proxy SHA256d11d796f0a1b8e3b7f6502110ca3b60005b49316ac8354f2ae71e6a7ce36acbd.
+
+## Durable proof and reproduction
+
+The full native proof is publicly preserved in the allowed suggested-deliverable path at immutable [archive commit 7f447ac9bdda3cc93f9cf6ab5340462199cb61b6](https://github.com/CBirkbeck/tauceti-explorer/commit/7f447ac9bdda3cc93f9cf6ab5340462199cb61b6). It was refetched and verified byte-for-byte, including the whole predecessor prefix. The archive links the previous2bfc10cbb6324f3f15634465a13bcefe07a770ba proof as an additional parent; the final PR commit links this new archive as an additional parent. The final suggested file omits the archive comment and retains the admitted prototypes. No proof is left only in disposable scratch.
+
+Use the final PR head commit as submitted_ref. The following self-contained public reader returns the exact sources; materialize only your own disk scratch with apply_patch, then run one existing pinned-build Lean process per file. Normalize output by removing only the own scratch-directory prefix and the resource-timing tail.
+
+```python
+"""Read immutable public sources; return strings for own-scratch apply_patch only."""
+import hashlib
+from urllib.request import urlopen
+PATH="research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--A0-extension.lean"
+ARCHIVE="7f447ac9bdda3cc93f9cf6ab5340462199cb61b6"
+def read(ref):
+    return urlopen("https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/"+ref+"/"+PATH).read().decode()
+def reconstruct(submitted_ref):
+    archived=read(ARCHIVE)
+    native=archived.split("BEGIN ARCHIVED CHECKED CHOSEN BAND SHEAF COMPARISON\n",1)[1].split("END ARCHIVED CHECKED CHOSEN BAND SHEAF COMPARISON\n",1)[0]
+    assert hashlib.sha256(native.encode()).hexdigest()=="c9c358f60ad728a973a5014184304ad5d36e9738ca7b8e868ac5ae881c2aa378"
+    submitted=read(submitted_ref)
+    assert hashlib.sha256(submitted.encode()).hexdigest()=="74994dd220199919340272829db42b32892dc4f2b189e737685789cb27563a0a"
+    imports="\n".join(l for l in submitted.splitlines() if l.startswith("import Mathlib"))
+    prefix=submitted[submitted.index("open CategoryTheory Opposite Bicategory"):submitted.index("variable {A : Sheaf")]
+    marker="namespace TauCeti.AlgebraicGeometry\n\nopen CategoryTheory Opposite Bicategory\n\nvariable {C"
+    central=submitted[submitted.index(marker,submitted.index("/-! Intrinsic-band continuation")):]
+    sketch=imports+"\n"+prefix+"\nend TauCeti.AlgebraicGeometry\n"+central
+    assert hashlib.sha256(sketch.encode()).hexdigest()=="2fc49d2acc5a30a7eca416cb7889dbd994b1a73a47d043db36c76fb060da46ee"
+    predecessor=read("2bfc10cbb6324f3f15634465a13bcefe07a770ba")
+    oldnative=predecessor.split("BEGIN ARCHIVED CHECKED CHOSEN BAND INVERSE\n",1)[1].split("END ARCHIVED CHECKED CHOSEN BAND INVERSE\n",1)[0]
+    assert hashlib.sha256(oldnative.encode()).hexdigest()=="a811521350986092ef1ad65db0556558274c1b330ee94716e9be86f40d9e0284"
+    assert native.startswith(oldnative)
+    return native, sketch, oldnative
+```
+
+For the exact indexed/graph projection, use the complete historical read-only recipe below with this part STEM, the preflight commit, the current candidate and the preceding counts. Preserve all other promoted packets, including other parts if present; the latest projection has no other promoted part of this roadmap. The precise input maps are packet.json, reader.md, AlgebraicModuliForArithmeticGeometry--A0-extension.lean and handoff.md; do not write those paths in the shared repository. The checked validator source is preserved below to remove ambiguity.
+
+```python
+"""Actual immutable checker/intake/assembly; no repository snapshot or mutation."""
+from pathlib import Path
+import os,sys,json,re,ast,hashlib,collections,copy,subprocess
+import immutable_view as gv
+HERE=Path(__file__).resolve().parent
+RID="AlgebraicModuliForArithmeticGeometry";STEM=RID+"--A0-extension"
+FILES={"research/blueprint/packets/"+STEM+".json":"packet.json",
+ "research/blueprint/readmes/"+STEM+".md":"reader.md",
+ "research/blueprint/suggested/"+STEM+".lean":STEM+".lean",
+ "research/blueprint/handoff/BP-"+STEM+".md":"handoff.md"}
+original=json.loads(gv.blob(next(iter(FILES))))
+oldreader=gv.blob("research/blueprint/readmes/"+STEM+".md").decode()
+oldlean=gv.blob("research/blueprint/suggested/"+STEM+".lean").decode()
+for dst,name in FILES.items():gv.CACHE[dst]=(HERE/name).read_bytes()
+gv.install()
+import check_blueprint
+errors,warnings,summary=check_blueprint.check(gv.REPO/next(iter(FILES)),
+ check_blueprint.load_index(Path(os.environ["TAUCETI_BASELINE"])),check_blueprint.world())
+print(json.dumps({"checker":summary,"errors":errors,"warnings":warnings}),flush=True)
+assert not errors and not warnings,(errors,warnings)
+p=json.loads((HERE/"packet.json").read_text());reader=(HERE/"reader.md").read_text()
+lean=(HERE/(STEM+".lean")).read_text()
+old={n["id"]:n for n in original["nodes"]};new={n["id"]:n for n in p["nodes"]}
+changed=RID+":R09.4/band-center-band-unique"
+assert len(old)==179 and len(new)==185 and set(old)<=set(new)
+assert all(new[nid]==n for nid,n in old.items() if nid!=changed)
+for key,value in old[changed].items():
+ if key not in {"proofSteps","prerequisites"}:assert new[changed][key]==value,key
+assert new[changed]["proofSteps"][:-1]==old[changed]["proofSteps"]
+assert new[changed]["prerequisites"][:-2]==old[changed]["prerequisites"]
+for key in original:
+ if key not in {"summary","sources","nodes","baseline","coverage","gaps"}:assert p[key]==original[key],key
+assert p["sources"][:-2]==original["sources"]
+assert p["baseline"]["declarations"][:103]==original["baseline"]["declarations"]
+assert len(p["baseline"]["declarations"])==109
+assert p["gaps"][1:]==original["gaps"][1:] and len(p["gaps"])==9
+assert p["gaps"][0]["previousChosenBandDetail"]==original["gaps"][0]["detail"]
+for key,value in original["gaps"][0].items():
+ if key!="detail":assert p["gaps"][0][key]==value,key
+for row,row0 in zip(p["coverage"],original["coverage"]):
+ if row["stageId"]!=RID+":R09.4":assert row==row0
+ else:
+  assert row["status"]==row0["status"]
+  assert row["remaining"][:3]==row0["remaining"][:3]
+assert p["status"]=="partial" and all(n["implementationStatus"]=="unchecked" for n in new.values())
+assert new[RID+":key/gerbes"]==old[RID+":key/gerbes"]
+assert reader.startswith(oldreader)
+assert lean.startswith(oldlean)
+for nid,node in new.items():
+ if nid in old:continue
+ assert node["statement"] in reader and node["declarationName"] in reader,nid
+ assert node["declarationName"].removeprefix("TauCeti.AlgebraicGeometry.IntrinsicBandSections.") in lean,nid
+ for test in node.get("tests",[]):assert test["name"] in lean and test["statement"] in reader,test
+tree=ast.parse(gv.blob("research/blueprint/intake.py").decode())
+picked=[n for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id in {"ALLOWED","PRIVATE"} for t in n.targets) or isinstance(n,ast.FunctionDef) and n.name=="file_problems"]
+env={"json":json,"re":re};exec(compile(ast.Module(body=picked,type_ignores=[]),"actual-intake","exec"),env)
+problems=[v for dst,name in FILES.items() for v in env["file_problems"](dst,(HERE/name).read_text())]
+assert not problems,problems
+for name in FILES.values():
+ text=(HERE/name).read_text()
+ assert not re.search(r"[ \t]+$",text,re.M),name
+ assert not re.search(r"/(?:home|Users)/[^/\s]+/",text),name
+native=(HERE/"Native.lean").read_text()
+log=(HERE/"native.log").read_text();clog=(HERE/"canonical.log").read_text()
+assert native.startswith((HERE/"Predecessor.lean").read_text())
+assert log.count("depends on axioms:")==61 and not re.search(r"error|warning|sorryAx",log)
+assert "Exit status: 0" in log
+assert "error" not in clog and clog.count("warning:")==clog.count("warning: declaration uses")==166
+assert "Exit status: 0" in clog
+assert len(re.findall(r"^example\b",native,re.M))==44
+assert len(re.findall(r"^example\b",lean,re.M))==102
+assert not re.search(r"\bsorry\b",native)
+def headers(s):
+ return {m.group(1):re.sub(r"\s+"," ",m.group(0).split(":=",1)[0]).strip()
+  for m in re.finditer(r"^(?:noncomputable )?(?:def|lemma) (fromBanding(?:Presheaf|Sheaf)Iso\w*)[\s\S]*?:=",s,re.M)}
+assert headers(native)==headers(lean),(headers(native),headers(lean))
+def tests(s):
+ return {m.group(1):re.sub(r"\s+"," ",m.group(2)).strip() for m in
+  re.finditer(r"-- (Band(?:Presheaf|Sheaf)IsoTests\.\w+)\n(example[\s\S]*?):=",s)}
+assert len(tests(native))==10 and tests(native)==tests(lean)
+print(json.dumps({"preservedWholeNodeObjects":178,"incomingContracts":179,"newNodes":6,
+ "api":sum(len(n.get("api",[])) for n in p["nodes"]),
+ "tests":sum(len(n.get("tests",[])) for n in p["nodes"]),"intake":"pass",
+ "newPublicHeadersMatched":11,"namedTestHeadersMatched":10}),flush=True)
+import build,blueprints
+root=gv.REPO
+a0=json.loads((root/"data/atlas.json").read_text())
+packets,documents,definitions=blueprints.load_promoted(root)
+otherparts=[(stem,q) for stem,q in packets if q.get("roadmapId")==RID and stem!=STEM]
+
+keep=[x for x in packets if x[0]!=STEM]
+documents[STEM]="research/blueprint/readmes/"+STEM+".md"
+def assemble(candidate):
+ build.load_promoted=lambda *args:(copy.deepcopy(keep+[(STEM,candidate)]),copy.deepcopy(documents),copy.deepcopy(definitions))
+ return build.assemble(require_distances=False)[0]
+a=assemble(p);b=assemble(original)
+world={}
+for folder in ["data/decompositions","data/blueprints","research/blueprint/packets"]:
+ for path in sorted((root/folder).glob("*.json")):
+  q=json.loads(path.read_text())
+  for n in q.get("nodes",[]):world.setdefault(n["id"],n)
+world.update(new)
+stages={x["id"]:x for x in a["stages"]}
+stageids=set(stages)|set(check_blueprint.world()[1])
+stageedges={(e["source"],e["target"]) for e in a["stageEdges"]}
+def dag(vertices,edges):
+ vertices=set(vertices)|{v for edge in edges for v in edge}
+ out=collections.defaultdict(set);indeg={v:0 for v in vertices}
+ for source,target in edges:
+  if target not in out[source]:out[source].add(target);indeg[target]+=1
+ stack=[v for v,count in indeg.items() if count==0];count=0
+ while stack:
+  v=stack.pop();count+=1
+  for w in out[v]:
+   indeg[w]-=1
+   if indeg[w]==0:stack.append(w)
+ assert count==len(vertices),[v for v,count in indeg.items() if count][:15]
+ return {"vertices":len(vertices),"edges":len(edges),"acyclic":True}
+ownedges={(q,nid) for nid,node in new.items() for q in node.get("prerequisites",[]) if q in new}
+stack=list(new);seen=set();dep=set();unresolved=set();baseref=set()
+while stack:
+ nid=stack.pop()
+ if nid in seen:continue
+ seen.add(nid)
+ for q in world[nid].get("prerequisites",[]):
+  if q.startswith(("mathlib:","tauceti:")) and q not in stageids:baseref.add(q);continue
+  dep.add((q,nid))
+  if q in world:stack.append(q)
+  elif q not in stageids:unresolved.add(q)
+assert not unresolved,sorted(unresolved)
+dep|={(n["parentStageId"],nid) for nid,n in new.items() if n.get("parentStageId") in new}
+dep|={(request["supplier"],consumer) for request in p.get("requests",[]) for consumer in request.get("neededBy",[]) if consumer in new or consumer in stageids}
+roadmap=next(r for r in a["roadmaps"] if r["id"]==RID)
+expected_decl=len(new)+sum(len(q["nodes"]) for _,q in otherparts)
+assert roadmap["blueprint"]["declarations"]==expected_decl,(roadmap["blueprint"],expected_decl)
+assert not roadmap["blueprint"]["skippedLinks"] and not roadmap.get("pendingLinks",[])
+assert stageedges=={(e["source"],e["target"]) for e in b["stageEdges"]}
+def skips(atlas):
+ return {r["id"]:(r.get("blueprint",{}).get("skippedLinks",[]),r.get("pendingLinks",[])) for r in atlas["roadmaps"] if r["id"]!=RID}
+assert skips(a)==skips(b)
+out=collections.defaultdict(set)
+for source,target in stageedges:out[source].add(target)
+def reachable(source,target):
+ stack=[source];seen=set()
+ while stack:
+  v=stack.pop()
+  if v==target:return True
+  if v in seen:continue
+  seen.add(v);stack.extend(out[v]-seen)
+ return False
+pairs={(e["source"],e["target"]) for e in a0["stageEdges"] if e["target"].startswith(RID+":")}
+for node in p["nodes"]:
+ for q in node.get("prerequisites",[]):
+  if q in stageids and q not in world and q!=node["parentStageId"]:pairs.add((q,node["parentStageId"]))
+for req in p.get("requests",[]):
+ for consumer in req.get("neededBy",[]):
+  if consumer in new:pairs.add((req["supplier"],new[consumer]["parentStageId"]))
+  elif consumer in stageids:pairs.add((req["supplier"],consumer))
+missingpairs={(s,t) for s,t in pairs if not reachable(s,t)}
+oldout=collections.defaultdict(set)
+for edge in b['stageEdges']:oldout[edge['source']].add(edge['target'])
+def reachable0(source,target):
+ stack=[source];seen=set()
+ while stack:
+  v=stack.pop()
+  if v==target:return True
+  if v in seen:continue
+  seen.add(v);stack.extend(oldout[v]-seen)
+ return False
+assert missingpairs=={(s,t) for s,t in pairs if not reachable0(s,t)}
+assert not missingpairs, missingpairs
+# Independently retain all accepted restructure links touching the whole roadmap.
+acceptedpairs=set()
+for path in (root/"research/blueprint/restructure").glob("*.result.json"):
+ q=json.loads(path.read_text())
+ if q.get("review",{}).get("status")!="accepted":continue
+ for row in q.get("links",[]):
+  if any(row.get(k,"").startswith(RID+":") for k in ["source","target"]):
+   acceptedpairs.add((row["source"],row["target"]))
+assert all(reachable(s,t) for s,t in acceptedpairs),[(s,t) for s,t in acceptedpairs if not reachable(s,t)]
+report={"stageDAG":dag(stages,stageedges),"ownDAG":dag(new,ownedges),
+ "combinedDAG":dag(set(stages)|seen,stageedges|dep),"reachableDeclarations":len(seen),
+ "externalDeclarations":sorted(seen-set(new)),"reachableBaselineReferences":len(baseref),
+ "unresolved":sorted(unresolved),"otherPartsRetained":[stem for stem,_ in otherparts],
+ "partDeclarations":len(new),"partPlanets":sum("planet" in n for n in p["nodes"]),
+ "roadmapDeclarations":roadmap["blueprint"]["declarations"],
+ "requiredStagePairs":len(pairs),"requiredStagePairsReachable":len(pairs)-len(missingpairs),
+ "inheritedMissingStagePairs":sorted(missingpairs),
+ "acceptedRestructurePairs":len(acceptedpairs),"acceptedRestructurePairsReachable":len(acceptedpairs),
+ "stageEdgesUnchanged":True,"otherSkippedPendingUnchanged":True,"ownSkippedPendingEmpty":True}
+print(json.dumps(report,ensure_ascii=False,indent=2),flush=True)
+```
+
+The import named immutable_view in that validator is the following read-only proxy. Set TAUCETI_REPO to your existing clone, P8_VALIDATE_BASE to the recorded immutable preflight commit, and TAUCETI_BASELINE to the supplied declarations.tsv. These are explicit inputs, not downloads or generated library snapshots.
+
+```python
+"""Read the immutable audit tree without creating a repository snapshot."""
+import fnmatch
+import importlib.abc
+import importlib.util
+import io
+from pathlib import Path
+import subprocess
+import sys
+
+import os
+REPO = Path(os.environ.get('TAUCETI_REPO', str(Path.cwd())))
+BASE = os.environ.get('P8_VALIDATE_BASE', 'a6094bd6d7c7856944d7cf3b905c7e9bf11d90fd')
+TRACKED = set(subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', BASE], cwd=REPO, text=True).splitlines())
+CACHE = {}
+READS = set()
+ORIGINAL = {name: getattr(Path, name) for name in ('read_text', 'read_bytes', 'exists', 'is_file', 'is_dir', 'glob', 'rglob', 'open', 'write_text', 'write_bytes')}
+
+def relative(path):
+    try:
+        return str(path.relative_to(REPO))
+    except ValueError:
+        return None
+
+def blob(key):
+    if key not in TRACKED:
+        raise FileNotFoundError(key)
+    READS.add(key)
+    if key not in CACHE:
+        CACHE[key] = subprocess.check_output(['git', 'show', BASE + ':' + key], cwd=REPO)
+    return CACHE[key]
+
+def read_text(path, encoding=None, errors=None):
+    key = relative(path)
+    if key is None:
+        return ORIGINAL['read_text'](path, encoding=encoding, errors=errors)
+    return blob(key).decode(encoding or 'utf-8', errors or 'strict')
+
+def read_bytes(path):
+    key = relative(path)
+    return ORIGINAL['read_bytes'](path) if key is None else blob(key)
+
+def is_file(path):
+    key = relative(path)
+    return ORIGINAL['is_file'](path) if key is None else key in TRACKED
+
+def is_dir(path):
+    key = relative(path)
+    return ORIGINAL['is_dir'](path) if key is None else any(s.startswith(key.rstrip('/') + '/') for s in TRACKED) or key == '.'
+
+def exists(path):
+    key = relative(path)
+    return ORIGINAL['exists'](path) if key is None else is_file(path) or is_dir(path)
+
+def glob(path, pattern, recursive=False):
+    key = relative(path)
+    if key is None:
+        yield from ORIGINAL['rglob' if recursive else 'glob'](path, pattern)
+        return
+    prefix = '' if key == '.' else key.rstrip('/') + '/'
+    for candidate in sorted(TRACKED):
+        if not candidate.startswith(prefix):
+            continue
+        tail = candidate[len(prefix):]
+        if fnmatch.fnmatch(tail, pattern) and (recursive or '/' not in tail):
+            yield REPO / candidate
+
+def open_path(path, mode='r', buffering=-1, encoding=None, errors=None, newline=None):
+    key = relative(path)
+    if key is None:
+        return ORIGINAL['open'](path, mode, buffering, encoding, errors, newline)
+    if mode not in ('r', 'rb'):
+        raise PermissionError('audit tree is read-only')
+    return io.BytesIO(blob(key)) if mode == 'rb' else io.StringIO(blob(key).decode(encoding or 'utf-8', errors or 'strict'))
+
+def write_text(path, *args, **kwargs):
+    if relative(path) is not None:
+        raise PermissionError('audit tree is read-only')
+    return ORIGINAL['write_text'](path, *args, **kwargs)
+
+def write_bytes(path, *args, **kwargs):
+    if relative(path) is not None:
+        raise PermissionError('audit tree is read-only')
+    return ORIGINAL['write_bytes'](path, *args, **kwargs)
+
+class Loader(importlib.abc.Loader):
+    def __init__(self, key):
+        self.key = key
+    def create_module(self, spec):
+        return None
+    def exec_module(self, module):
+        module.__file__ = str(REPO / self.key)
+        exec(compile(blob(self.key), module.__file__, 'exec'), module.__dict__)
+
+class Finder(importlib.abc.MetaPathFinder):
+    def find_spec(self, fullname, path=None, target=None):
+        key = 'scripts/' + fullname + '.py'
+        if '.' not in fullname and key in TRACKED:
+            return importlib.util.spec_from_loader(fullname, Loader(key))
+
+def install():
+    for name, function in [('read_text', read_text), ('read_bytes', read_bytes), ('exists', exists), ('is_file', is_file), ('is_dir', is_dir), ('glob', glob), ('rglob', lambda path, pattern: glob(path, pattern, True)), ('open', open_path), ('write_text', write_text), ('write_bytes', write_bytes)]:
+        setattr(Path, name, function)
+    sys.meta_path.insert(0, Finder())
+```
+
+Once the pull request opens, this job’s own scratch is moved to recoverable trash; all material proof and reproduction evidence required above is public. No other worker’s files are removed.
+
+---
+
+# Historical handoff preserved below
+
+The following sections retain their original authors, input commits, receipts and historical frontiers. They are not fresh receipts for this continuation.
+
 # BP-AlgebraicModuliForArithmeticGeometry--A0-extension
 
 Codex — codex-J6LwjP; Refs #672. Claim 5962622101 won by bot confirmation 5962623882; the whole issue was read before and after confirmation. The live issue remains claimed by this session before submission. Base 099cf06f3b3c49aa0cb075268da13d97b3dc300e. Partial checkpoint: all eight stages and the reserved gerbe key retain their partial/not_read status; all 179 implementations remain unchecked.
