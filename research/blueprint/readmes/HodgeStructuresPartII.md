@@ -1,3 +1,120 @@
+# Affine coherence for common-parameter connections
+
+Let k→R be a map of commutative rings, and let Ω be the specified intrinsic degree-zero/one/two calculus. Its first differential d₀:R→W is a derivation, its second differential d₁:W→Z is additive, and its alternating R-bilinear wedge and differentials satisfy the stated exterior identities. All coefficient tensors below are actual tensor products of R-modules.
+
+A λ-preconnection D on an R-module E is additive and satisfies D(ae)=aD(e)+λ(e⊗d₀a). For the same λ on E and F, the actual affine tensor T(D,C) has value ρ(D(e)⊗f)+α⁻¹(e⊗C(f)) on e⊗f, where ρ moves the form factor to the right. Neither separate summand is required to be R-linear. Its balanced additive lift, already supplied, retains one copy of λ.
+
+These coherence laws require no basis, finite generation, projectivity, flatness, smoothness or characteristic assumption. They do not require d₀λ=0 or flatness of a preconnection. The latter conditions remain part of the integrable bundle interface. The existing unit API uses the compatible scalar tower k→R→W.
+
+For three inputs, the two bracketings produce three contributions, one from each input operator. The native associator takes each contribution to the corresponding tensor with its form in the last position. Tensor induction handles arbitrary coefficient tensors and arbitrary input tensors. The unit is the actual differential operator U_λ(a)=λ(1⊗d₀a); its scalar derivative is essential to both unitor equations. If a linear equivalence is horizontal, its actual inverse is horizontal by applying the inverse tensor map to the defining equality.
+
+The generic associator, symmetry, unit maps and their ordinary module identities belong to Mathlib. The new content is their compatibility with the additive λ-preconnections. No category carrier or generic tensor equivalence is reconstructed here.
+
+## Declarations and proof routes
+
+### Associativity of parameter tensor connections
+
+`Preconnection.affineTensor_assoc`. For common-λ preconnections D on E, C on F and B on G, let T_L=(D⊗C)⊗B and T_R=D⊗(C⊗B), using the actual affineTensor. The native α:(E⊗_R F)⊗_R G≃E⊗_R(F⊗_R G) is horizontal: T_R(αx)=(α⊗id_W)T_L(x) for every x.
+
+1. Apply tensor induction to x, and again to its E⊗F factor. All zero and sum cases follow by additivity.
+2. On (e⊗f)⊗g, expand both tensor preconnections and reassociate the sum into its three contributions from D(e), C(f) and B(g).
+3. Induct on each of those actual coefficient tensors. On pure coefficients, native associator/right-commutor/map evaluation gives exactly the same output tensor. No coefficient basis or integrability is used.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-parameter-tensor-tmul`, `mathlib:TensorProduct.assoc`, `mathlib:TensorProduct.assoc_tmul`, `mathlib:TensorProduct.assoc_symm_tmul`, `mathlib:TensorProduct.rightComm_tmul`, `mathlib:TensorProduct.map_tmul`, `mathlib:TensorProduct.induction_on`.
+
+### Inverses of horizontal parameter equivalences
+
+`Preconnection.horizontal_symm`. Let D on E and C on F be common-λ preconnections and u:E≃ₗ[R]F an actual linear equivalence. If C(u(e))=(u⊗id_W)D(e) for every e, then D(u⁻¹(f))=(u⁻¹⊗id_W)C(f) for every f. The inverse is the native inverse of u, with no extra horizontal-inverse hypothesis.
+
+1. Apply the forward equation at u⁻¹(f) and then the actual tensor map u⁻¹⊗id_W to both sides.
+2. Cancel u(u⁻¹(f)). Tensor induction on D(u⁻¹(f)) cancels u⁻¹u in the remaining coefficient tensor.
+
+Prerequisites: `HodgeStructuresPartII:H.0/intrinsic-preconnection`, `mathlib:TensorProduct.map`, `mathlib:TensorProduct.map_tmul`, `mathlib:TensorProduct.induction_on`, `mathlib:LinearEquiv.apply_symm_apply`, `mathlib:LinearEquiv.symm_apply_apply`.
+
+### Inverse associativity of parameter tensor connections
+
+`Preconnection.affineTensor_assoc_symm`. With T_L,T_R and α as above, T_L(α⁻¹x)=(α⁻¹⊗id_W)T_R(x) for every x∈E⊗_R(F⊗_R G). Thus both directions of the native associator intertwine the actual additive tensor preconnections.
+
+1. Apply horizontal_symm to the forward affineTensor_assoc equation and the native associator. Its inverse is not independently chosen.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-parameter-tensor-assoc`, `HodgeStructuresPartII:H.0/affine-parameter-horizontal-inverse`, `mathlib:TensorProduct.assoc`.
+
+### Left unit for parameter tensor connections
+
+`Preconnection.affineTensor_lid`. Write U_λ for the existing actual unit preconnection on R, U_λ(a)=λ(1⊗d₀a). For every common-λ D on E, the native left unitor ℓ:R⊗_R E≃E is horizontal: D(ℓx)=(ℓ⊗id_W)(U_λ⊗D)(x) for all x. In particular, on a⊗e the normalized value is aD(e)+λ(e⊗d₀a).
+
+1. Induct on the tensor x. On a⊗e, expand U_λ(a) and the tensor formula, then use the actual λ-Leibniz equation for D(ae).
+2. Move λ through the linear tensor permutations, interchange the two summands, and induct on the tensor D(e) to identify the second contribution with aD(e).
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-parameter-tensor-tmul`, `HodgeStructuresPartII:H.0/unit-connection`, `HodgeStructuresPartII:H.0/intrinsic-preconnection`, `mathlib:TensorProduct.lid`, `mathlib:TensorProduct.lid_tmul`, `mathlib:TensorProduct.rightComm_tmul`, `mathlib:TensorProduct.map_tmul`, `mathlib:TensorProduct.induction_on`, `mathlib:TensorProduct.smul_tmul'`.
+
+### Right unit for parameter tensor connections
+
+`Preconnection.affineTensor_rid`. For D on E and U_λ(a)=λ(1⊗d₀a), the native right unitor r:E⊗_R R≃E is horizontal: D(rx)=(r⊗id_W)(D⊗U_λ)(x) for every x. On e⊗a its normalized value is aD(e)+λ(e⊗d₀a).
+
+1. Induct on x and expand on e⊗a. The U_λ contribution is λ(e⊗d₀a), and tensor induction identifies the D contribution with aD(e).
+2. The defining λ-Leibniz equation is precisely the remaining equality.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-parameter-tensor-tmul`, `HodgeStructuresPartII:H.0/unit-connection`, `HodgeStructuresPartII:H.0/intrinsic-preconnection`, `mathlib:TensorProduct.rid`, `mathlib:TensorProduct.rid_tmul`, `mathlib:TensorProduct.assoc_symm_tmul`, `mathlib:TensorProduct.rightComm_tmul`, `mathlib:TensorProduct.map_tmul`, `mathlib:TensorProduct.induction_on`, `mathlib:TensorProduct.tmul_smul`.
+
+### Horizontal insertion of the left tensor unit
+
+`Preconnection.affineTensor_lid_symm`. The inverse left unitor is horizontal: (U_λ⊗D)(ℓ⁻¹e)=(ℓ⁻¹⊗id_W)D(e). Since the native inverse is ℓ⁻¹e=1⊗e, inserting the unit preserves the full coefficient tensor D(e).
+
+1. Apply horizontal_symm to affineTensor_lid and the native left unitor. Read the inverse as the actual insertion e↦1⊗e, using lid_symm_apply.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-parameter-tensor-left-unit`, `HodgeStructuresPartII:H.0/affine-parameter-horizontal-inverse`, `mathlib:TensorProduct.lid`, `mathlib:TensorProduct.lid_symm_apply`.
+
+### Horizontal insertion of the right tensor unit
+
+`Preconnection.affineTensor_rid_symm`. The inverse right unitor is horizontal: (D⊗U_λ)(r⁻¹e)=(r⁻¹⊗id_W)D(e). The native inverse r⁻¹e=e⊗1 therefore preserves the full coefficient tensor D(e).
+
+1. Apply horizontal_symm to affineTensor_rid and the native right unitor; rid_symm_apply fixes the actual inverse map.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-parameter-tensor-right-unit`, `HodgeStructuresPartII:H.0/affine-parameter-horizontal-inverse`, `mathlib:TensorProduct.rid`, `mathlib:TensorProduct.rid_symm_apply`.
+
+## Consumed API
+
+The existing `Preconnection.affineTensor` API includes the following coherence equations. The inverse-horizontality lemma is consumed by all three inverse statements.
+
+- `Preconnection.affineTensor_assoc` (compatibility): For common-λ preconnections D on E, C on F and B on G, let T_L=(D⊗C)⊗B and T_R=D⊗(C⊗B), using the actual affineTensor. The native α:(E⊗_R F)⊗_R G≃E⊗_R(F⊗_R G) is horizontal: T_R(αx)=(α⊗id_W)T_L(x) for every x.
+
+- `Preconnection.horizontal_symm` (functoriality): Let D on E and C on F be common-λ preconnections and u:E≃ₗ[R]F an actual linear equivalence. If C(u(e))=(u⊗id_W)D(e) for every e, then D(u⁻¹(f))=(u⁻¹⊗id_W)C(f) for every f. The inverse is the native inverse of u, with no extra horizontal-inverse hypothesis.
+
+- `Preconnection.affineTensor_assoc_symm` (compatibility): With T_L,T_R and α as above, T_L(α⁻¹x)=(α⁻¹⊗id_W)T_R(x) for every x∈E⊗_R(F⊗_R G). Thus both directions of the native associator intertwine the actual additive tensor preconnections.
+
+- `Preconnection.affineTensor_lid` (compatibility): Write U_λ for the existing actual unit preconnection on R, U_λ(a)=λ(1⊗d₀a). For every common-λ D on E, the native left unitor ℓ:R⊗_R E≃E is horizontal: D(ℓx)=(ℓ⊗id_W)(U_λ⊗D)(x) for all x. In particular, on a⊗e the normalized value is aD(e)+λ(e⊗d₀a).
+
+- `Preconnection.affineTensor_rid` (compatibility): For D on E and U_λ(a)=λ(1⊗d₀a), the native right unitor r:E⊗_R R≃E is horizontal: D(rx)=(r⊗id_W)(D⊗U_λ)(x) for every x. On e⊗a its normalized value is aD(e)+λ(e⊗d₀a).
+
+- `Preconnection.affineTensor_lid_symm` (compatibility): The inverse left unitor is horizontal: (U_λ⊗D)(ℓ⁻¹e)=(ℓ⁻¹⊗id_W)D(e). Since the native inverse is ℓ⁻¹e=1⊗e, inserting the unit preserves the full coefficient tensor D(e).
+
+- `Preconnection.affineTensor_rid_symm` (compatibility): The inverse right unitor is horizontal: (D⊗U_λ)(r⁻¹e)=(r⁻¹⊗id_W)D(e). The native inverse r⁻¹e=e⊗1 therefore preserves the full coefficient tensor D(e).
+
+## Discriminating tests
+
+- `Preconnection.affineTensor.test_three_factor_reassociation` (compatibility): On every (e⊗f)⊗g the three common-λ preconnections agree after the native associator; forms remain the last tensor factor.
+
+- `Preconnection.affineTensor.test_left_unit_derivative` (computation): For every a,e, normalize (U_λ⊗D)(a⊗e) by ℓ⊗id_W. The result is aD(e)+λ(e⊗d₀a), retaining the derivative of the scalar a.
+
+- `Preconnection.affineTensor.test_left_unit_insertion` (compatibility): The actual tensor preconnection on 1⊗e is (ℓ⁻¹⊗id_W)D(e).
+
+- `Preconnection.affineTensor.test_right_unit_insertion` (compatibility): The actual tensor preconnection on e⊗1 is (r⁻¹⊗id_W)D(e).
+
+- `Preconnection.affineTensor.test_polynomial_parameter_not_doubled` (non-example): There exists an explicit intrinsic TwoForms on A=ℤ[x], with W=A, zero degree-two module and d₀=∂/∂x, for which two unit(2) connections evaluated at x⊗1 and normalized by native unitors give 2, and do not give 4. The proof constructs the calculus from MvPolynomial.pderiv rather than assuming the nonzero derivative.
+
+The polynomial example uses A=MvPolynomial(Fin1,ℤ), W=A and the zero module Z=Fin0→A. It constructs TwoForms from the native partial derivative, with zero degree-one differential and zero wedge. This is a concrete rank-one affine calculus; it does not identify the sheaf of Kähler forms or assert the general sheaf comparison. The generator derivative equals1, so the displayed coefficient is exactly2 and differs from4 in ℤ[x].
+
+## Sources and boundary
+
+The parameter convention follows Esnault–Groechenig, [Rigid connections and F-isocrystals, author manuscript](https://www.mi.fu-berlin.de/users/esnault/preprints/helene/126_esn_gro.pdf), §4.2, printed23–24. The ordinary connection and integrability convention is also given in [Stacks Project, §60.15](https://stacks.math.columbia.edu/tag/07J5). The affine coherence proofs above are direct algebraic deductions, not named source theorems.
+
+General-λ tensor curvature and its integrability implication remain required. The native sheaf tensor, restriction compatibility, equality detection and gluing are separate from these module identities: tensors of global section modules are not identified with global sections of the sheaf tensor. The arbitrary-Q tensor-valued shuffle, cross-ring exterior transport, finite-projective sheaf restrictions, determinant/Tate/period adapters, all149 source obligations and the general reserved ringed-site key retain their full scope.
+
+The subsequent detailed roadmap retains the established objects, source routes and requested suppliers. Earlier progress paragraphs describe their respective input boundaries; the current affine coherence boundary is stated above.
+
+---
+
 # Common-parameter additive tensor checkpoint
 
 Two actual constructions and nine promoted lemmas extend the existing intrinsic preconnection on native module tensors. The definitions carry actual additive maps and defining equations; integrability remains separate. All235 declaration nodes remain unchecked, H.0 stays partial and H.1–H.8 stay not_read.
