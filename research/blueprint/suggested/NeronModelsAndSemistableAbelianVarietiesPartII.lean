@@ -16,6 +16,12 @@ ledger names every API, example and layer theorem whose full signature needs sup
 The two partial data structures below are not substitutes for their mathematical definitions.
 -/
 
+import Mathlib.LinearAlgebra.Isomorphisms
+import Mathlib.LinearAlgebra.Quotient.Basic
+import Mathlib.LinearAlgebra.FiniteDimensional.Basic
+import Mathlib.RingTheory.Ideal.Maps
+import Mathlib.Algebra.Module.Equiv.Basic
+import Mathlib.Algebra.Algebra.Tower
 import Mathlib.FieldTheory.Finite.GaloisField
 import Mathlib.FieldTheory.Finite.Extension
 import Mathlib.FieldTheory.Finiteness
@@ -2208,3 +2214,237 @@ example : ¬ (algebra (0 : k[X])).val.toRingHom.Finite := by sorry
 
 end TauCeti.GenusOne.QuadraticPinch
 /- END QUADRATIC AFFINE NORMALIZATION -/
+
+/-!
+Affine cokernel continuation, 2026-10-03. The actual native module actions are
+specified below; the newly planned declarations and tests have admitted bodies.
+Only the separate exact-header extraction is compiled. The full Tau Ceti-importing
+file remains uncompiled; no global conductor/sheaf/cohomology closure is asserted.
+-/
+
+namespace TauCeti.GenusOne.QuadraticPinch
+
+variable {k : Type u} [Field k]
+
+-- Native quotient structure, made explicit because AdjoinRoot seals its polynomial action.
+local instance polynomialQuotientAlgebra (q : k[X]) : Algebra k[X] (AdjoinRoot q) :=
+  (AdjoinRoot.mk q).toAlgebra
+
+local instance polynomialQuotientTower (q : k[X]) :
+    IsScalarTower k k[X] (AdjoinRoot q) :=
+  IsScalarTower.of_algebraMap_eq fun _ => rfl
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-image-span
+lemma normalization_image_span (q f : k[X]) :
+    f ∈ Submodule.span (algebra q) ({1} : Set k[X]) ↔ f ∈ algebra q := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-residue-image-span
+lemma conductor_image_span (q : k[X]) (z : AdjoinRoot q) :
+    z ∈ Submodule.span (algebra q) ({1} : Set (AdjoinRoot q)) ↔
+      z ∈ (⊥ : Subalgebra k (AdjoinRoot q)) := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-map
+def residueCokernelMap (q : k[X]) :
+    k[X] →ₗ[algebra q]
+      AdjoinRoot q ⧸ Submodule.span (algebra q) ({1} : Set (AdjoinRoot q)) := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-map-apply
+lemma residueCokernelMap_apply (q f : k[X]) :
+    residueCokernelMap q f =
+      (Submodule.Quotient.mk (AdjoinRoot.mk q f) :
+        AdjoinRoot q ⧸ Submodule.span (algebra q) ({1} : Set (AdjoinRoot q))) := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-map-kernel
+lemma residueCokernelMap_ker (q : k[X]) :
+    LinearMap.ker (residueCokernelMap q) =
+      Submodule.span (algebra q) ({1} : Set k[X]) := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-map-surjective
+lemma residueCokernelMap_surjective (q : k[X]) :
+    Function.Surjective (residueCokernelMap q) := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-equiv
+noncomputable def residueCokernelEquiv (q : k[X]) :
+    (k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) ≃ₗ[algebra q]
+      AdjoinRoot q ⧸ Submodule.span (algebra q) ({1} : Set (AdjoinRoot q)) := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-equiv-apply
+lemma residueCokernelEquiv_apply (q f : k[X]) :
+    residueCokernelEquiv q (Submodule.Quotient.mk f) =
+      (Submodule.Quotient.mk (AdjoinRoot.mk q f) :
+        AdjoinRoot q ⧸ Submodule.span (algebra q) ({1} : Set (AdjoinRoot q))) := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-equiv-inverse
+lemma residueCokernelEquiv_symm_apply (q f : k[X]) :
+    (residueCokernelEquiv q).symm
+      (Submodule.Quotient.mk (AdjoinRoot.mk q f)) =
+        (Submodule.Quotient.mk f :
+          k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-residue-restrict-scalars
+lemma conductor_span_restrictScalars (q : k[X]) :
+    (Submodule.span (algebra q) ({1} : Set (AdjoinRoot q))).restrictScalars k =
+      (⊥ : Subalgebra k (AdjoinRoot q)).toSubmodule := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-generator
+lemma normalization_quotient_reconstruction (q : k[X]) (hq : q.Monic)
+    (hd : q.natDegree = 2) (f : k[X]) :
+    (Submodule.Quotient.mk f :
+      k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) =
+        (moduleCoefficients q f).2 • Submodule.Quotient.mk Polynomial.X := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-scalar-action
+lemma normalization_quotient_scalar_action (q : k[X]) (hq : q.Monic)
+    (hd : q.natDegree = 2) (a : algebra q) (f : k[X]) :
+    a • (Submodule.Quotient.mk f :
+      k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) =
+        residue q hq hd a • Submodule.Quotient.mk f := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-generator-nonzero
+lemma normalization_quotient_generator_ne_zero (q : k[X]) (hq : q.Monic)
+    (hd : q.natDegree = 2) :
+    (Submodule.Quotient.mk Polynomial.X :
+      k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) ≠ 0 := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-annihilator-membership
+lemma normalization_quotient_annihilator_mem (q : k[X]) (hq : q.Monic)
+    (hd : q.natDegree = 2) (a : algebra q) :
+    a ∈ Module.annihilator (algebra q)
+      (k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) ↔
+        residue q hq hd a = 0 := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-annihilator
+lemma normalization_quotient_annihilator (q : k[X]) (hq : q.Monic)
+    (hd : q.natDegree = 2) :
+    Module.annihilator (algebra q)
+      (k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) =
+        (Ideal.span ({q} : Set k[X])).comap (algebra q).val.toRingHom := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-dimension
+lemma normalization_quotient_finrank (q : k[X]) (hq : q.Monic)
+    (hd : q.natDegree = 2) :
+    Module.finrank k (k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) = 1 := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-residue-annihilator
+lemma residueCokernelEquiv_annihilator (q : k[X]) (hq : q.Monic)
+    (hd : q.natDegree = 2) :
+    Module.annihilator (algebra q)
+      (AdjoinRoot q ⧸ Submodule.span (algebra q) ({1} : Set (AdjoinRoot q))) =
+        (Ideal.span ({q} : Set k[X])).comap (algebra q).val.toRingHom := by sorry
+
+-- test: QuadraticPinch.residueCokernelMap.constant
+example (q : k[X]) (c : k) : residueCokernelMap q (Polynomial.C c) = 0 := by sorry
+
+-- test: QuadraticPinch.residueCokernelMap.multiple
+example (q h : k[X]) : residueCokernelMap q (q * h) = 0 := by sorry
+
+-- test: QuadraticPinch.residueCokernelMap.cusp_root
+example : residueCokernelMap (Polynomial.X ^ 2 : (ZMod 2)[X]) Polynomial.X ≠ 0 := by sorry
+
+-- test: QuadraticPinch.residueCokernelEquiv.representatives
+example (q f : k[X]) :
+    residueCokernelEquiv q (Submodule.Quotient.mk f) =
+      (Submodule.Quotient.mk (AdjoinRoot.mk q f) :
+        AdjoinRoot q ⧸ Submodule.span (algebra q) ({1} : Set (AdjoinRoot q))) := by sorry
+
+-- test: QuadraticPinch.residueCokernelEquiv.unit
+example (f : k[X]) :
+    residueCokernelEquiv (1 : k[X]) (Submodule.Quotient.mk f) = 0 := by sorry
+
+-- test: QuadraticPinch.residueCokernelEquiv.zero
+example (f : k[X]) :
+    (residueCokernelEquiv (0 : k[X])).symm
+      (Submodule.Quotient.mk (AdjoinRoot.mk 0 f)) =
+        (Submodule.Quotient.mk f :
+          k[X] ⧸ Submodule.span (algebra (0 : k[X])) ({1} : Set k[X])) := by sorry
+
+-- test: QuadraticPinch.normalizationCokernel.cusp_dimension
+example :
+    Module.finrank (ZMod 2)
+      ((ZMod 2)[X] ⧸ Submodule.span (algebra (Polynomial.X ^ 2 : (ZMod 2)[X]))
+        ({1} : Set (ZMod 2)[X])) = 1 := by sorry
+
+-- test: QuadraticPinch.normalizationCokernel.nonsplit_dimension
+example :
+    Module.finrank (ZMod 2)
+      ((ZMod 2)[X] ⧸ Submodule.span
+        (algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 2)[X]))
+        ({1} : Set (ZMod 2)[X])) = 1 := by sorry
+
+-- test: QuadraticPinch.residueCokernelEquiv.repeated_char3
+example :
+    Module.annihilator
+      (algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 3)[X]))
+      (AdjoinRoot (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 3)[X]) ⧸
+        Submodule.span
+          (algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 3)[X]))
+          ({1} : Set (AdjoinRoot (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 3)[X])))) =
+      (Ideal.span ({Polynomial.X ^ 2 + Polynomial.X + 1} : Set (ZMod 3)[X])).comap
+        (algebra (Polynomial.X ^ 2 + Polynomial.X + 1 : (ZMod 3)[X])).val.toRingHom := by sorry
+
+-- test: QuadraticPinch.normalizationCokernel.unit_not_annihilator
+example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
+    (1 : algebra q) ∉ Module.annihilator (algebra q)
+      (k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) := by sorry
+
+-- test: QuadraticPinch.normalizationCokernel.conductor_action
+example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) (f : k[X]) :
+    (⟨q, (mem_algebra q _).mpr ⟨0, 1, by simp⟩⟩ : algebra q) •
+      (Submodule.Quotient.mk f :
+        k[X] ⧸ Submodule.span (algebra q) ({1} : Set k[X])) = 0 := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-residue-scalar-action
+lemma residueCokernelEquiv_scalar_action (q : k[X]) (hq : q.Monic)
+    (hd : q.natDegree = 2) (a : algebra q) (z : AdjoinRoot q) :
+    a • (Submodule.Quotient.mk z :
+      AdjoinRoot q ⧸ Submodule.span (algebra q) ({1} : Set (AdjoinRoot q))) =
+        residue q hq hd a • Submodule.Quotient.mk z := by sorry
+
+-- test: QuadraticPinch.residueCokernelEquiv.scalar_action
+example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
+    (a : algebra q) (z : AdjoinRoot q) :
+    a • (Submodule.Quotient.mk z :
+      AdjoinRoot q ⧸ Submodule.span (algebra q) ({1} : Set (AdjoinRoot q))) =
+        residue q hq hd a • Submodule.Quotient.mk z := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-normalization-restrict-scalars
+lemma normalization_span_restrictScalars (q : k[X]) :
+    (Submodule.span (algebra q) ({1} : Set k[X])).restrictScalars k =
+      (algebra q).toSubmodule := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-equiv-over-k
+noncomputable def residueCokernelEquiv_over_k (q : k[X]) :
+    (k[X] ⧸ (algebra q).toSubmodule) ≃ₗ[k]
+      AdjoinRoot q ⧸ (⊥ : Subalgebra k (AdjoinRoot q)).toSubmodule := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-equiv-over-k-apply
+lemma residueCokernelEquiv_over_k_apply (q f : k[X]) :
+    residueCokernelEquiv_over_k q (Submodule.Quotient.mk f) =
+      (Submodule.Quotient.mk (AdjoinRoot.mk q f) :
+        AdjoinRoot q ⧸ (⊥ : Subalgebra k (AdjoinRoot q)).toSubmodule) := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-equiv-over-k-inverse
+lemma residueCokernelEquiv_over_k_symm_apply (q f : k[X]) :
+    (residueCokernelEquiv_over_k q).symm
+      (Submodule.Quotient.mk (AdjoinRoot.mk q f)) =
+        (Submodule.Quotient.mk f : k[X] ⧸ (algebra q).toSubmodule) := by sorry
+
+-- test: QuadraticPinch.residueCokernelEquiv_over_k.cusp
+example (f : (ZMod 2)[X]) :
+    residueCokernelEquiv_over_k (Polynomial.X ^ 2 : (ZMod 2)[X])
+      (Submodule.Quotient.mk f) =
+      (Submodule.Quotient.mk (AdjoinRoot.mk (Polynomial.X ^ 2) f) :
+        AdjoinRoot (Polynomial.X ^ 2 : (ZMod 2)[X]) ⧸
+          (⊥ : Subalgebra (ZMod 2) (AdjoinRoot (Polynomial.X ^ 2 : (ZMod 2)[X]))).toSubmodule) := by sorry
+
+-- test: QuadraticPinch.residueCokernelEquiv_over_k.unit
+example (f : k[X]) :
+    residueCokernelEquiv_over_k (1 : k[X]) (Submodule.Quotient.mk f) = 0 := by sorry
+
+-- test: QuadraticPinch.residueCokernelEquiv_over_k.zero
+example (f : k[X]) :
+    (residueCokernelEquiv_over_k (0 : k[X])).symm
+      (Submodule.Quotient.mk (AdjoinRoot.mk 0 f)) =
+        (Submodule.Quotient.mk f : k[X] ⧸ (algebra (0 : k[X])).toSubmodule) := by sorry
+
+end TauCeti.GenusOne.QuadraticPinch
