@@ -1,3 +1,5 @@
+import Mathlib.AlgebraicGeometry.GammaSpecAdjunction
+import Mathlib.CategoryTheory.Limits.Preserves.Basic
 import Mathlib.Topology.Instances.AddCircle.Defs
 import TauCeti.Algebra.AddCircle
 import Mathlib.RingTheory.Bialgebra.Convolution
@@ -5099,3 +5101,255 @@ example : divisibilityInvariantEquiv (2 : ℤ) 4 ≠ divisibilityInvariantEquiv 
 
 end TauCeti.RootStack
 end
+
+/-! Actual positive-divisibility root charts as a scheme inverse limit. -/
+noncomputable section
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+namespace TauCeti.RootStack
+open CategoryTheory CategoryTheory.Limits Opposite AlgebraicGeometry
+variable {A : Type u} [CommRing A]
+attribute [local irreducible] divisibilityCoefficientMap factorialCoefficientMap
+
+def divisibilityRingDiagram (f : A) : RootDivIndex ⥤ CommRingCat.{u} where
+  obj n := CommRingCat.of (AffineRing f n.exponent)
+  map h := CommRingCat.ofHom (divisibilityAffineMap f _ _ (leOfHom h)).toRingHom
+  map_id n := by
+    apply CommRingCat.hom_ext
+    change (affineDivisibility f n.exponent n.exponent (dvd_refl _)).toRingHom = RingHom.id _
+    rw [affineDivisibility.identity]
+    rfl
+  map_comp {n N P} h k := by
+    apply CommRingCat.hom_ext
+    exact congrArg AlgHom.toRingHom (affineDivisibility.composition f
+      n.exponent N.exponent P.exponent (leOfHom h) (leOfHom k)).symm
+
+def divisibilityRingCocone (f : A) : Cocone (divisibilityRingDiagram f) where
+  pt := CommRingCat.of (DivisibilityAffineColimit f)
+  ι.app n := CommRingCat.ofHom (divisibilityAffineInclusion f n).toRingHom
+  ι.naturality n N h := by
+    apply CommRingCat.hom_ext
+    apply RingHom.ext
+    intro x
+    exact divisibilityAffineInclusion.transition f (leOfHom h) x
+
+def divisibilityRingCocone.isColimit (f : A) : IsColimit (divisibilityRingCocone f) where
+  desc s := CommRingCat.ofHom (DirectLimit.Ring.lift _ (divisibilityAffineMap f) s.pt
+    (fun n => (s.ι.app n).hom) (fun n N h x => by
+      exact congrArg (fun z => z.hom x) (s.w (homOfLE h))))
+  fac s n := by apply CommRingCat.hom_ext; rfl
+  uniq s m hm := by
+    apply CommRingCat.hom_ext
+    apply DirectLimit.Ring.hom_ext
+    intro n
+    exact congrArg CommRingCat.Hom.hom (hm n)
+
+def divisibilitySpecDiagram (f : A) : RootDivIndexᵒᵖ ⥤ Scheme.{u} :=
+  (divisibilityRingDiagram f).op ⋙ Scheme.Spec
+
+def divisibilitySpecCone (f : A) : Cone (divisibilitySpecDiagram f) :=
+  Scheme.Spec.mapCone (divisibilityRingCocone f).op
+
+lemma divisibilitySpecCone.projection (f : A) (n : RootDivIndex) :
+    (divisibilitySpecCone f).π.app (op n) =
+      Spec.map (CommRingCat.ofHom (divisibilityAffineInclusion f n).toRingHom) := by
+  sorry
+
+def divisibilitySpecCone.isLimit (f : A) : IsLimit (divisibilitySpecCone f) :=
+  isLimitOfPreserves Scheme.Spec (divisibilityRingCocone.isColimit f).op
+
+def divisibilitySpecLift (f : A) (s : Cone (divisibilitySpecDiagram f)) :
+    s.pt ⟶ Spec (CommRingCat.of (DivisibilityAffineColimit f)) :=
+  (divisibilitySpecCone.isLimit f).lift s
+
+lemma divisibilitySpecLift.projection (f : A) (s : Cone (divisibilitySpecDiagram f))
+    (n : RootDivIndex) :
+    divisibilitySpecLift f s ≫ (divisibilitySpecCone f).π.app (op n) = s.π.app (op n) := by
+  sorry
+
+lemma divisibilitySpecLift.unique (f : A) (s : Cone (divisibilitySpecDiagram f))
+    (g : s.pt ⟶ Spec (CommRingCat.of (DivisibilityAffineColimit f)))
+    (h : ∀ n, g ≫ (divisibilitySpecCone f).π.app (op n) = s.π.app (op n)) :
+    g = divisibilitySpecLift f s := by
+  sorry
+
+lemma divisibilitySpecCone.hom_ext (f : A) {T : Scheme.{u}}
+    (g h : T ⟶ Spec (CommRingCat.of (DivisibilityAffineColimit f)))
+    (heq : ∀ n, g ≫ (divisibilitySpecCone f).π.app (op n) =
+      h ≫ (divisibilitySpecCone f).π.app (op n)) : g = h := by
+  sorry
+
+def factorialDivisibilitySpecIso (f : A) :
+    Spec (CommRingCat.of (FactorialAffineColimit f)) ≅
+      Spec (CommRingCat.of (DivisibilityAffineColimit f)) :=
+  Scheme.Spec.mapIso (divisibilityFactorialEquiv f).toRingEquiv.toCommRingCatIso.op
+
+lemma factorialDivisibilitySpecIso.projection (f : A) (n : RootDivIndex) :
+    (factorialDivisibilitySpecIso f).hom ≫ (divisibilitySpecCone f).π.app (op n) =
+      Spec.map (CommRingCat.ofHom (factorialAffineExtension f n).toRingHom) := by
+  sorry
+
+lemma factorialDivisibilitySpecIso.factorial_projection (f : A) (i : ℕ) :
+    (factorialDivisibilitySpecIso f).hom ≫
+      (divisibilitySpecCone f).π.app (op (RootDivIndex.factorial i)) =
+      Spec.map (CommRingCat.ofHom (factorialAffineInclusion f i).toRingHom) := by
+  sorry
+
+def divisibilitySpecCoefficientMap {B : Type u} [CommRing B] (φ : A →+* B) (f : A) :
+    Spec (CommRingCat.of (DivisibilityAffineColimit (φ f))) ⟶
+      Spec (CommRingCat.of (DivisibilityAffineColimit f)) :=
+  Spec.map (CommRingCat.ofHom (divisibilityCoefficientMap φ f))
+
+lemma divisibilitySpecCoefficientMap.id (f : A) :
+    divisibilitySpecCoefficientMap (RingHom.id A) f = 𝟙 _ := by
+  sorry
+
+lemma divisibilitySpecCoefficientMap.comp {B C : Type u} [CommRing B] [CommRing C]
+    (φ : A →+* B) (ψ : B →+* C) (f : A) :
+    divisibilitySpecCoefficientMap (ψ.comp φ) f =
+      divisibilitySpecCoefficientMap ψ (φ f) ≫ divisibilitySpecCoefficientMap φ f := by
+  sorry
+
+lemma divisibilitySpecCone.over (f : A) (n : RootDivIndex) :
+    (divisibilitySpecCone f).π.app (op n) ≫ Spec.algebraMap A (AffineRing f n.exponent) =
+      Spec.algebraMap A (DivisibilityAffineColimit f) := by
+  sorry
+
+lemma divisibilitySpecLift.precomp (f : A) (s : Cone (divisibilitySpecDiagram f))
+    {T : Scheme.{u}} (g : T ⟶ s.pt) :
+    divisibilitySpecLift f (s.extend g) = g ≫ divisibilitySpecLift f s := by
+  sorry
+
+lemma divisibilitySpecCoefficientMap.base {B : Type u} [CommRing B]
+    (φ : A →+* B) (f : A) :
+    divisibilitySpecCoefficientMap φ f ≫ Spec.algebraMap A (DivisibilityAffineColimit f) =
+      Spec.algebraMap B (DivisibilityAffineColimit (φ f)) ≫
+        Spec.map (CommRingCat.ofHom φ) := by
+  sorry
+
+lemma divisibilitySpecCoefficientMap.factorial {B : Type u} [CommRing B]
+    (φ : A →+* B) (f : A) :
+    (factorialDivisibilitySpecIso (φ f)).hom ≫ divisibilitySpecCoefficientMap φ f =
+      Spec.map (CommRingCat.ofHom (factorialCoefficientMap φ f)) ≫
+        (factorialDivisibilitySpecIso f).hom := by
+  sorry
+
+end TauCeti.RootStack
+end
+
+
+namespace TauCeti.RootStack
+open CategoryTheory CategoryTheory.Limits Opposite AlgebraicGeometry
+variable {A : Type u} [CommRing A]
+
+-- test: divisibilityRingDiagram.test_two_six
+example (f : A) :
+    ((divisibilityRingDiagram f).map
+      (homOfLE (show (⟨2, by decide⟩ : RootDivIndex) ≤ ⟨6, by decide⟩ from by decide))).hom
+      (AdjoinRoot.root _) = (AdjoinRoot.root _ : AffineRing f 6) ^ 3 := by
+  sorry
+
+-- test: divisibilityRingDiagram.test_zero_ring_identity
+example : (divisibilityRingDiagram (0 : ZMod 1)).map
+    (𝟙 (⟨3, by decide⟩ : RootDivIndex)) = 𝟙 _ := by
+  sorry
+
+-- test: divisibilityRingDiagram.test_numeric_order
+example : ¬ Nonempty ((⟨2, by decide⟩ : RootDivIndex) ⟶ ⟨3, by decide⟩) := by
+  sorry
+
+-- test: divisibilityRingCocone.test_third_root
+example (f : A) : ((divisibilityRingCocone f).ι.app ⟨3, by decide⟩).hom
+    (AdjoinRoot.root _) = divisibilityAffineInclusion f ⟨3, by decide⟩ (AdjoinRoot.root _) := by
+  sorry
+
+-- test: divisibilityRingCocone.test_nonreduced_coefficient
+example : ((divisibilityRingCocone (2 : ZMod 4)).ι.app ⟨3, by decide⟩).hom
+    (algebraMap (ZMod 4) (AffineRing (2 : ZMod 4) 3) 2) =
+      algebraMap (ZMod 4) (DivisibilityAffineColimit (2 : ZMod 4)) 2 := by
+  sorry
+
+-- test: divisibilityRingCocone.test_zero_ring
+example (x : (divisibilityRingCocone (0 : ZMod 1)).pt) : x = 0 := by
+  sorry
+
+-- test: divisibilitySpecDiagram.test_third_chart
+example (f : A) : (divisibilitySpecDiagram f).obj (op ⟨3, by decide⟩) =
+    Spec (CommRingCat.of (AffineRing f 3)) := by
+  sorry
+
+-- test: divisibilitySpecDiagram.test_reversed_transition
+example (f : A) : (divisibilitySpecDiagram f).map
+    (homOfLE (show (⟨2, by decide⟩ : RootDivIndex) ≤ ⟨6, by decide⟩ from by decide)).op =
+      Spec.map (CommRingCat.ofHom (affineDivisibility f 2 6 (by decide)).toRingHom) := by
+  sorry
+
+-- test: divisibilitySpecDiagram.test_empty_zero_ring
+example : IsEmpty ((divisibilitySpecDiagram (0 : ZMod 1)).obj (op ⟨3, by decide⟩)) := by
+  sorry
+
+-- test: divisibilitySpecCone.test_third_projection
+example (f : A) : (divisibilitySpecCone f).π.app (op ⟨3, by decide⟩) =
+    Spec.map (CommRingCat.ofHom (divisibilityAffineInclusion f ⟨3, by decide⟩).toRingHom) := by
+  sorry
+
+-- test: divisibilitySpecCone.test_wild_base
+example : (divisibilitySpecCone (0 : ZMod 2)).π.app (op ⟨2, by decide⟩) ≫
+    Spec.algebraMap (ZMod 2) (AffineRing (0 : ZMod 2) 2) =
+      Spec.algebraMap (ZMod 2) (DivisibilityAffineColimit (0 : ZMod 2)) := by
+  sorry
+
+-- test: divisibilitySpecCone.test_zero_ring_limit
+example : IsLimit (divisibilitySpecCone (0 : ZMod 1)) := by
+  sorry
+
+-- test: divisibilitySpecLift.test_self
+example (f : A) : divisibilitySpecLift f (divisibilitySpecCone f) = 𝟙 _ := by
+  sorry
+
+-- test: divisibilitySpecLift.test_arbitrary_scheme
+example (f : A) (s : Cone (divisibilitySpecDiagram f)) :
+    divisibilitySpecLift f s ≫ (divisibilitySpecCone f).π.app (op ⟨3, by decide⟩) =
+      s.π.app (op ⟨3, by decide⟩) := by
+  sorry
+
+-- test: divisibilitySpecLift.test_precomposition
+example (f : A) (s : Cone (divisibilitySpecDiagram f)) {T : Scheme.{u}} (g : T ⟶ s.pt) :
+    divisibilitySpecLift f (s.extend g) = g ≫ divisibilitySpecLift f s := by
+  sorry
+
+-- test: factorialDivisibilitySpecIso.test_inverse
+example (f : A) : (factorialDivisibilitySpecIso f).hom ≫
+    (factorialDivisibilitySpecIso f).inv = 𝟙 _ := by
+  sorry
+
+-- test: factorialDivisibilitySpecIso.test_third_projection
+example : (factorialDivisibilitySpecIso (2 : ZMod 4)).hom ≫
+    (divisibilitySpecCone (2 : ZMod 4)).π.app (op ⟨3, by decide⟩) =
+      Spec.map (CommRingCat.ofHom (factorialAffineExtension (2 : ZMod 4) ⟨3, by decide⟩).toRingHom) := by
+  sorry
+
+-- test: factorialDivisibilitySpecIso.test_zero_ring
+example : (factorialDivisibilitySpecIso (0 : ZMod 1)).hom ≫
+    (divisibilitySpecCone (0 : ZMod 1)).π.app (op (RootDivIndex.factorial 0)) =
+      Spec.map (CommRingCat.ofHom (factorialAffineInclusion (0 : ZMod 1) 0).toRingHom) := by
+  sorry
+
+-- test: divisibilitySpecCoefficientMap.test_identity
+example : divisibilitySpecCoefficientMap (RingHom.id (ZMod 4)) 2 = 𝟙 _ := by
+  sorry
+
+-- test: divisibilitySpecCoefficientMap.test_nonflat_base
+example : divisibilitySpecCoefficientMap (Int.castRingHom (ZMod 4)) 2 ≫
+    Spec.algebraMap ℤ (DivisibilityAffineColimit (2 : ℤ)) =
+      Spec.algebraMap (ZMod 4) (DivisibilityAffineColimit (2 : ZMod 4)) ≫
+        Spec.map (CommRingCat.ofHom (Int.castRingHom (ZMod 4))) := by
+  sorry
+
+-- test: divisibilitySpecCoefficientMap.test_zero_ring_target
+example (φ : ZMod 4 →+* ZMod 1) : divisibilitySpecCoefficientMap
+    (φ.comp (Int.castRingHom (ZMod 4))) 2 =
+      divisibilitySpecCoefficientMap φ 2 ≫ divisibilitySpecCoefficientMap (Int.castRingHom (ZMod 4)) 2 := by
+  sorry
+
+end TauCeti.RootStack

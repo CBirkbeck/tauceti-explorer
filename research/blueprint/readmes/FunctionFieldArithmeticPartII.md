@@ -1,3 +1,313 @@
+# Native scheme limits of affine root charts
+
+Fix a commutative ring A and f∈A. For positive n, let B(n)=A[t_n]/(t_n^n−f), with the existing maps t_n↦t_N^(N/n) when n divides N. The indexing order is divisibility. Write D_A(f) for the actual all-positive-index colimit and C_A(f) for the actual factorial colimit.
+
+The root ring diagram and its actual inclusion cocone are now packaged in native CommRingCat. The direct-limit ring lift gives their universal property without requiring a prechosen A-algebra structure on a competing ring cocone. Opposite duality and the existing Γ–Spec adjunction carry this proved colimit to the native scheme limit with vertex Spec D_A(f). Consequently every compatible cone of maps from an arbitrary scheme T has a unique map T→Spec D_A(f); T need not be affine. The finite projections detect equality of scheme morphisms, and the universal map commutes with precomposition in T.
+
+The inherited algebra equivalence E_A:D_A(f)≃C_A(f) gives an actual scheme isomorphism Spec C_A(f)≅Spec D_A(f). Its composites with all positive-index projections are the Spec maps of the inherited factorial extensions; at factorial indices they are exactly the factorial inclusion maps. Arbitrary coefficient-ring maps give reversed scheme maps. Their identity, composition, structural-base square and factorial-comparison square hold as equalities of native scheme morphisms.
+
+These laws include nonflat coefficient maps, nilpotents, wild characteristic and zero rings. Tests retain the nonfactorial index3, the root transition2|6, the missing arrow2→3, the nilpotent coefficient2 in Z/4, and the actual empty spectrum over Z/1. The structural coefficient square is asserted; a Cartesian base-change square requires its separate tensor comparison.
+
+Talpo–Vistoli arXiv1410.1164v2 §3.1 printed p.14 supplies the affine inverse-limit description. Printed pp.14–16, including the surrounding cofinality and quotient arguments, were freshly reread as browser-extracted text. These native rank-one formulas are authored deductions; the paper's root-object and fpqc quotient comparisons retain their independent obligations. All448 incoming mathematical contracts remain, with only an appended supplier step on the infinite-affine-quotient parent. Historical sections below retain the frontier recorded by their authors; this opening states the current affine scheme frontier.
+
+The actual positive-divisibility affine chart is now specified as a native scheme inverse limit, with unique maps from arbitrary test schemes, finite projection/extensionality and precomposition laws. Native Spec carries the existing factorial algebra equivalence to a scheme isomorphism and reverses arbitrary coefficient maps, with structural-base and factorial-comparison squares. These are affine-chart results in a common arbitrary universe. Coherent root-object groupoid reindexing, higher-universe transport, Cartesian tensor base-change, fpqc frame torsors and the infinite quotient/DVR/Kummer routes remain open; all ten stages, eight gaps and thirteen supplier requests remain partial or open.
+
+## Positive-divisibility ring diagram
+
+**TauCeti.RootStack.divisibilityRingDiagram** — Define the native functor B:D→CommRingCat by B(n)=A[t_n]/(t_n^n−f), with B(n|N) sending t_n to t_N^(N/n) and fixing A. D is the existing positive-divisibility preorder.
+
+Hypotheses: A, B and C are arbitrary commutative rings in one common arbitrary universe; f∈A and unital ring maps φ:A→B and ψ:B→C are arbitrary. No nontriviality, reducedness, Noetherianity, flatness, unit-section or exponent-invertibility hypothesis is imposed. D is the existing positive-divisibility index with n≥1. B(n)=A[t_n]/(t_n^n−f) uses the actual AdjoinRoot algebra, its inherited divisibility maps and actual direct-limit rings D_A(f), C_A(f). All schemes, cones, ring maps and isomorphisms are native. The limit and lift laws apply to all test schemes in the coefficient universe, including nonaffine schemes. Higher-universe transport, Cartesian tensor base-change, fpqc frame torsors, coherent root-object groupoids and the infinite quotient-stack comparison are separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-affine-colimit, FunctionFieldArithmeticPartII:RS.2/affine-divisibility-identity, FunctionFieldArithmeticPartII:RS.2/affine-divisibility-composition.
+
+Proof: Package the inherited actual divisibility algebra maps as ring morphisms. Their existing identity and composition laws prove the functor laws; the indexing order is divisibility, not numerical order.
+
+API:
+
+- **TauCeti.RootStack.divisibilityRingDiagram**: Define the native functor B:D→CommRingCat by B(n)=A[t_n]/(t_n^n−f), with B(n|N) sending t_n to t_N^(N/n) and fixing A. D is the existing positive-divisibility preorder.
+- **TauCeti.RootStack.divisibilityRingCocone**: Construct the native ring cocone on B with vertex D_A(f), the existing positive-divisibility direct-limit ring, and legs the existing inclusions κ_n:B(n)→D_A(f).
+- **TauCeti.RootStack.divisibilityRingCocone.isColimit**: The displayed cocone with vertex D_A(f) is a colimit in native CommRingCat, for all ring cocones and without requiring their vertices to carry a preselected A-algebra structure.
+
+TESTS:
+
+- **TauCeti.RootStack.divisibilityRingDiagram.test_two_six**: At 2|6 the actual ring transition sends t_2 to t_6³ for every parameter f.
+- **TauCeti.RootStack.divisibilityRingDiagram.test_zero_ring_identity**: At the index3 chart over Z/1, the actual functor sends its identity arrow to the identity ring map.
+- **TauCeti.RootStack.divisibilityRingDiagram.test_numeric_order**: There is no index arrow2→3; numeric order cannot replace divisibility.
+
+## Root-algebra colimit cocone
+
+**TauCeti.RootStack.divisibilityRingCocone** — Construct the native ring cocone on B with vertex D_A(f), the existing positive-divisibility direct-limit ring, and legs the existing inclusions κ_n:B(n)→D_A(f).
+
+Hypotheses: A, B and C are arbitrary commutative rings in one common arbitrary universe; f∈A and unital ring maps φ:A→B and ψ:B→C are arbitrary. No nontriviality, reducedness, Noetherianity, flatness, unit-section or exponent-invertibility hypothesis is imposed. D is the existing positive-divisibility index with n≥1. B(n)=A[t_n]/(t_n^n−f) uses the actual AdjoinRoot algebra, its inherited divisibility maps and actual direct-limit rings D_A(f), C_A(f). All schemes, cones, ring maps and isomorphisms are native. The limit and lift laws apply to all test schemes in the coefficient universe, including nonaffine schemes. Higher-universe transport, Cartesian tensor base-change, fpqc frame torsors, coherent root-object groupoids and the infinite quotient-stack comparison are separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-ring-diagram, FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion, FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion-transition.
+
+Proof: Use the actual ring underlying D_A(f). The existing inclusion transition law is exactly the cocone naturality equation.
+
+API:
+
+- **TauCeti.RootStack.divisibilityRingCocone**: Construct the native ring cocone on B with vertex D_A(f), the existing positive-divisibility direct-limit ring, and legs the existing inclusions κ_n:B(n)→D_A(f).
+- **TauCeti.RootStack.divisibilityRingCocone.isColimit**: The displayed cocone with vertex D_A(f) is a colimit in native CommRingCat, for all ring cocones and without requiring their vertices to carry a preselected A-algebra structure.
+- **TauCeti.RootStack.divisibilitySpecCone**: Construct the native cone on X with vertex Spec D_A(f) and projections π_n=Spec(κ_n). It is the Spec image of the opposite ring cocone.
+
+TESTS:
+
+- **TauCeti.RootStack.divisibilityRingCocone.test_third_root**: The index3 ring cocone leg sends the actual chart generator to κ_3(t_3).
+- **TauCeti.RootStack.divisibilityRingCocone.test_nonreduced_coefficient**: For A=Z/4 and f=2, the index3 cocone leg preserves the actual nilpotent coefficient2.
+- **TauCeti.RootStack.divisibilityRingCocone.test_zero_ring**: Every element of the actual colimit cocone vertex at A=Z/1,f=0 equals zero.
+
+## Universal root-algebra cocone
+
+**TauCeti.RootStack.divisibilityRingCocone.isColimit** — The displayed cocone with vertex D_A(f) is a colimit in native CommRingCat, for all ring cocones and without requiring their vertices to carry a preselected A-algebra structure.
+
+Hypotheses: A, B and C are arbitrary commutative rings in one common arbitrary universe; f∈A and unital ring maps φ:A→B and ψ:B→C are arbitrary. No nontriviality, reducedness, Noetherianity, flatness, unit-section or exponent-invertibility hypothesis is imposed. D is the existing positive-divisibility index with n≥1. B(n)=A[t_n]/(t_n^n−f) uses the actual AdjoinRoot algebra, its inherited divisibility maps and actual direct-limit rings D_A(f), C_A(f). All schemes, cones, ring maps and isomorphisms are native. The limit and lift laws apply to all test schemes in the coefficient universe, including nonaffine schemes. Higher-universe transport, Cartesian tensor base-change, fpqc frame torsors, coherent root-object groupoids and the infinite quotient-stack comparison are separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-ring-cocone, mathlib:DirectLimit.Ring.lift, mathlib:DirectLimit.Ring.hom_ext.
+
+Proof: Given any ring cocone, apply the native direct-limit ring lift to its legs. Cocone naturality supplies compatibility. The lift evaluation gives factorization; direct-limit ring-map extensionality proves uniqueness.
+
+## Inverse diagram of root charts
+
+**TauCeti.RootStack.divisibilitySpecDiagram** — Define the native scheme diagram X:Dᵒᵖ→Scheme as Spec composed with the opposite of B. Its objects are Spec B(n), and an arrow n|N induces Spec B(N)→Spec B(n).
+
+Hypotheses: A, B and C are arbitrary commutative rings in one common arbitrary universe; f∈A and unital ring maps φ:A→B and ψ:B→C are arbitrary. No nontriviality, reducedness, Noetherianity, flatness, unit-section or exponent-invertibility hypothesis is imposed. D is the existing positive-divisibility index with n≥1. B(n)=A[t_n]/(t_n^n−f) uses the actual AdjoinRoot algebra, its inherited divisibility maps and actual direct-limit rings D_A(f), C_A(f). All schemes, cones, ring maps and isomorphisms are native. The limit and lift laws apply to all test schemes in the coefficient universe, including nonaffine schemes. Higher-universe transport, Cartesian tensor base-change, fpqc frame torsors, coherent root-object groupoids and the infinite quotient-stack comparison are separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-ring-diagram, mathlib:AlgebraicGeometry.Scheme.Spec.
+
+Proof: Apply the existing contravariant Spec functor to the root-specific ring diagram. Its native functor laws retain the reversed arrow direction.
+
+API:
+
+- **TauCeti.RootStack.divisibilitySpecDiagram**: Define the native scheme diagram X:Dᵒᵖ→Scheme as Spec composed with the opposite of B. Its objects are Spec B(n), and an arrow n|N induces Spec B(N)→Spec B(n).
+- **TauCeti.RootStack.divisibilitySpecCone**: Construct the native cone on X with vertex Spec D_A(f) and projections π_n=Spec(κ_n). It is the Spec image of the opposite ring cocone.
+- **TauCeti.RootStack.divisibilitySpecCone.isLimit**: The displayed cone with vertex Spec D_A(f) is a limit of X in the full native category Scheme. Its universal property ranges over every test scheme T in the coefficient universe, with no affineness assumption on T.
+
+TESTS:
+
+- **TauCeti.RootStack.divisibilitySpecDiagram.test_third_chart**: The object at index3 is the actual spectrum of A[t]/(t³−f).
+- **TauCeti.RootStack.divisibilitySpecDiagram.test_reversed_transition**: The opposite of the index arrow2|6 is sent to the actual Spec map of t_2↦t_6³.
+- **TauCeti.RootStack.divisibilitySpecDiagram.test_empty_zero_ring**: The actual index3 scheme over the zero ring is empty.
+
+## Infinite affine root-chart cone
+
+**TauCeti.RootStack.divisibilitySpecCone** — Construct the native cone on X with vertex Spec D_A(f) and projections π_n=Spec(κ_n). It is the Spec image of the opposite ring cocone.
+
+Hypotheses: A, B and C are arbitrary commutative rings in one common arbitrary universe; f∈A and unital ring maps φ:A→B and ψ:B→C are arbitrary. No nontriviality, reducedness, Noetherianity, flatness, unit-section or exponent-invertibility hypothesis is imposed. D is the existing positive-divisibility index with n≥1. B(n)=A[t_n]/(t_n^n−f) uses the actual AdjoinRoot algebra, its inherited divisibility maps and actual direct-limit rings D_A(f), C_A(f). All schemes, cones, ring maps and isomorphisms are native. The limit and lift laws apply to all test schemes in the coefficient universe, including nonaffine schemes. Higher-universe transport, Cartesian tensor base-change, fpqc frame torsors, coherent root-object groupoids and the infinite quotient-stack comparison are separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-scheme-diagram, FunctionFieldArithmeticPartII:RS.2/native-ring-cocone, mathlib:AlgebraicGeometry.Scheme.Spec.
+
+Proof: Take the opposite of the actual ring cocone and apply Spec.mapCone. No set of points, arbitrary cone predicate or replacement scheme carrier is introduced.
+
+API:
+
+- **TauCeti.RootStack.divisibilitySpecCone.projection**: At every positive index n, the projection π_n:Spec D_A(f)→Spec B(n) is exactly the native scheme morphism Spec(κ_n).
+- **TauCeti.RootStack.divisibilitySpecCone.isLimit**: The displayed cone with vertex Spec D_A(f) is a limit of X in the full native category Scheme. Its universal property ranges over every test scheme T in the coefficient universe, with no affineness assumption on T.
+- **TauCeti.RootStack.divisibilitySpecCone.hom_ext**: For every scheme T, two scheme maps g,h:T→Spec D_A(f) are equal if their composites with π_n agree for every positive n.
+- **TauCeti.RootStack.divisibilitySpecCone.over**: For every positive n, π_n followed by Spec B(n)→Spec A equals the structural map Spec D_A(f)→Spec A.
+
+TESTS:
+
+- **TauCeti.RootStack.divisibilitySpecCone.test_third_projection**: The nonfactorial index3 cone projection is exactly Spec(κ_3).
+- **TauCeti.RootStack.divisibilitySpecCone.test_wild_base**: For A=Z/2,f=0 and n=2, the actual projection commutes with the structural morphisms to Spec A.
+- **TauCeti.RootStack.divisibilitySpecCone.test_zero_ring_limit**: The actual empty-chart cone for A=Z/1,f=0 still has its native IsLimit witness.
+
+## Root-chart projections
+
+**TauCeti.RootStack.divisibilitySpecCone.projection** — At every positive index n, the projection π_n:Spec D_A(f)→Spec B(n) is exactly the native scheme morphism Spec(κ_n).
+
+Hypotheses: A, B and C are arbitrary commutative rings in one common arbitrary universe; f∈A and unital ring maps φ:A→B and ψ:B→C are arbitrary. No nontriviality, reducedness, Noetherianity, flatness, unit-section or exponent-invertibility hypothesis is imposed. D is the existing positive-divisibility index with n≥1. B(n)=A[t_n]/(t_n^n−f) uses the actual AdjoinRoot algebra, its inherited divisibility maps and actual direct-limit rings D_A(f), C_A(f). All schemes, cones, ring maps and isomorphisms are native. The limit and lift laws apply to all test schemes in the coefficient universe, including nonaffine schemes. Higher-universe transport, Cartesian tensor base-change, fpqc frame torsors, coherent root-object groupoids and the infinite quotient-stack comparison are separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-scheme-cone, FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion.
+
+Proof: Evaluate the mapped opposite cocone at n. Its morphism component is definitionally the native Spec map of the actual inclusion.
+
+## Infinite root chart as a scheme limit
+
+**TauCeti.RootStack.divisibilitySpecCone.isLimit** — The displayed cone with vertex Spec D_A(f) is a limit of X in the full native category Scheme. Its universal property ranges over every test scheme T in the coefficient universe, with no affineness assumption on T.
+
+Hypotheses: A, B and C are arbitrary commutative rings in one common arbitrary universe; f∈A and unital ring maps φ:A→B and ψ:B→C are arbitrary. No nontriviality, reducedness, Noetherianity, flatness, unit-section or exponent-invertibility hypothesis is imposed. D is the existing positive-divisibility index with n≥1. B(n)=A[t_n]/(t_n^n−f) uses the actual AdjoinRoot algebra, its inherited divisibility maps and actual direct-limit rings D_A(f), C_A(f). All schemes, cones, ring maps and isomorphisms are native. The limit and lift laws apply to all test schemes in the coefficient universe, including nonaffine schemes. Higher-universe transport, Cartesian tensor base-change, fpqc frame torsors, coherent root-object groupoids and the infinite quotient-stack comparison are separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-scheme-cone, FunctionFieldArithmeticPartII:RS.2/native-ring-colimit, mathlib:CategoryTheory.Limits.IsColimit.op, mathlib:AlgebraicGeometry.Spec.reflective, mathlib:CategoryTheory.Limits.isLimitOfPreserves.
+
+Proof: Opposite duality turns the proved ring colimit into a limit. The native Γ–Spec adjunction makes Spec a right adjoint, so the existing limit-preservation theorem gives the actual mapped cone its IsLimit witness.
+
+## Maps to the infinite root chart
+
+**TauCeti.RootStack.divisibilitySpecLift** — For any native cone s on X, with arbitrary scheme vertex T, construct the unique scheme morphism L_s:T→Spec D_A(f) whose composites with every π_n equal the corresponding legs of s.
+
+Hypotheses: A, B and C are arbitrary commutative rings in one common arbitrary universe; f∈A and unital ring maps φ:A→B and ψ:B→C are arbitrary. No nontriviality, reducedness, Noetherianity, flatness, unit-section or exponent-invertibility hypothesis is imposed. D is the existing positive-divisibility index with n≥1. B(n)=A[t_n]/(t_n^n−f) uses the actual AdjoinRoot algebra, its inherited divisibility maps and actual direct-limit rings D_A(f), C_A(f). All schemes, cones, ring maps and isomorphisms are native. The limit and lift laws apply to all test schemes in the coefficient universe, including nonaffine schemes. Higher-universe transport, Cartesian tensor base-change, fpqc frame torsors, coherent root-object groupoids and the infinite quotient-stack comparison are separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-scheme-limit, mathlib:CategoryTheory.Limits.IsLimit.
+
+Proof: Apply the lift component of the proved native IsLimit witness. The following factorization and uniqueness declarations expose its universal property.
+
+API:
+
+- **TauCeti.RootStack.divisibilitySpecLift.projection**: For every cone s and positive index n, L_s followed by π_n equals the n-th leg of s.
+- **TauCeti.RootStack.divisibilitySpecLift.unique**: If g:T→Spec D_A(f) has composite g followed by π_n equal to the n-th leg of s for every positive n, then g=L_s.
+- **TauCeti.RootStack.divisibilitySpecLift.precomp**: For any scheme morphism g:T′→T and cone s with vertex T, the lift of the cone obtained by precomposing every leg with g equals g followed by L_s.
+
+TESTS:
+
+- **TauCeti.RootStack.divisibilitySpecLift.test_self**: The lift of the actual limit cone to itself is the identity scheme morphism.
+- **TauCeti.RootStack.divisibilitySpecLift.test_arbitrary_scheme**: For a cone with arbitrary scheme vertex, the universal map recovers its actual index3 leg.
+- **TauCeti.RootStack.divisibilitySpecLift.test_precomposition**: Precomposing every leg with any scheme morphism produces the corresponding precomposition of the unique lift.
+
+## Finite projection of the universal map
+
+**TauCeti.RootStack.divisibilitySpecLift.projection** — For every cone s and positive index n, L_s followed by π_n equals the n-th leg of s.
+
+Hypotheses: A, B and C are arbitrary commutative rings in one common arbitrary universe; f∈A and unital ring maps φ:A→B and ψ:B→C are arbitrary. No nontriviality, reducedness, Noetherianity, flatness, unit-section or exponent-invertibility hypothesis is imposed. D is the existing positive-divisibility index with n≥1. B(n)=A[t_n]/(t_n^n−f) uses the actual AdjoinRoot algebra, its inherited divisibility maps and actual direct-limit rings D_A(f), C_A(f). All schemes, cones, ring maps and isomorphisms are native. The limit and lift laws apply to all test schemes in the coefficient universe, including nonaffine schemes. Higher-universe transport, Cartesian tensor base-change, fpqc frame torsors, coherent root-object groupoids and the infinite quotient-stack comparison are separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-scheme-lift, FunctionFieldArithmeticPartII:RS.2/native-scheme-limit.
+
+Proof: Apply the factorization component of the native IsLimit witness at the opposite positive index.
+
+## Uniqueness of the universal map
+
+**TauCeti.RootStack.divisibilitySpecLift.unique** — If g:T→Spec D_A(f) has composite g followed by π_n equal to the n-th leg of s for every positive n, then g=L_s.
+
+Hypotheses: A, B and C are arbitrary commutative rings in one common arbitrary universe; f∈A and unital ring maps φ:A→B and ψ:B→C are arbitrary. No nontriviality, reducedness, Noetherianity, flatness, unit-section or exponent-invertibility hypothesis is imposed. D is the existing positive-divisibility index with n≥1. B(n)=A[t_n]/(t_n^n−f) uses the actual AdjoinRoot algebra, its inherited divisibility maps and actual direct-limit rings D_A(f), C_A(f). All schemes, cones, ring maps and isomorphisms are native. The limit and lift laws apply to all test schemes in the coefficient universe, including nonaffine schemes. Higher-universe transport, Cartesian tensor base-change, fpqc frame torsors, coherent root-object groupoids and the infinite quotient-stack comparison are separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-scheme-lift, FunctionFieldArithmeticPartII:RS.2/native-scheme-limit.
+
+Proof: Use the uniqueness component of the native IsLimit witness, translating each opposite index to its underlying positive integer.
+
+## Detection of scheme maps at all root levels
+
+**TauCeti.RootStack.divisibilitySpecCone.hom_ext** — For every scheme T, two scheme maps g,h:T→Spec D_A(f) are equal if their composites with π_n agree for every positive n.
+
+Hypotheses: A, B and C are arbitrary commutative rings in one common arbitrary universe; f∈A and unital ring maps φ:A→B and ψ:B→C are arbitrary. No nontriviality, reducedness, Noetherianity, flatness, unit-section or exponent-invertibility hypothesis is imposed. D is the existing positive-divisibility index with n≥1. B(n)=A[t_n]/(t_n^n−f) uses the actual AdjoinRoot algebra, its inherited divisibility maps and actual direct-limit rings D_A(f), C_A(f). All schemes, cones, ring maps and isomorphisms are native. The limit and lift laws apply to all test schemes in the coefficient universe, including nonaffine schemes. Higher-universe transport, Cartesian tensor base-change, fpqc frame torsors, coherent root-object groupoids and the infinite quotient-stack comparison are separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-scheme-limit, mathlib:CategoryTheory.Limits.IsLimit.hom_ext.
+
+Proof: Apply native limit hom-extensionality to the explicit limit cone. This concerns actual scheme morphisms, including their structure-sheaf maps.
+
+## Factorial and divisibility scheme comparison
+
+**TauCeti.RootStack.factorialDivisibilitySpecIso** — The existing algebra equivalence E_A:D_A(f)≃ₐ[A]C_A(f) induces the native scheme isomorphism e_A:Spec C_A(f)≅Spec D_A(f), whose forward morphism is Spec(E_A).
+
+Hypotheses: A, B and C are arbitrary commutative rings in one common arbitrary universe; f∈A and unital ring maps φ:A→B and ψ:B→C are arbitrary. No nontriviality, reducedness, Noetherianity, flatness, unit-section or exponent-invertibility hypothesis is imposed. D is the existing positive-divisibility index with n≥1. B(n)=A[t_n]/(t_n^n−f) uses the actual AdjoinRoot algebra, its inherited divisibility maps and actual direct-limit rings D_A(f), C_A(f). All schemes, cones, ring maps and isomorphisms are native. The limit and lift laws apply to all test schemes in the coefficient universe, including nonaffine schemes. Higher-universe transport, Cartesian tensor base-change, fpqc frame torsors, coherent root-object groupoids and the infinite quotient-stack comparison are separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-equivalence, mathlib:RingEquiv.toCommRingCatIso, mathlib:CategoryTheory.Functor.mapIso, mathlib:AlgebraicGeometry.Scheme.Spec.
+
+Proof: Turn E_A into the native commutative-ring isomorphism, take its opposite and map that isomorphism through Spec. The inverse is supplied by the existing inverse algebra equivalence.
+
+API:
+
+- **TauCeti.RootStack.factorialDivisibilitySpecIso**: The existing algebra equivalence E_A:D_A(f)≃ₐ[A]C_A(f) induces the native scheme isomorphism e_A:Spec C_A(f)≅Spec D_A(f), whose forward morphism is Spec(E_A).
+- **TauCeti.RootStack.factorialDivisibilitySpecIso.projection**: For each positive n, e_A followed by π_n is Spec(e_n), where e_n:B(n)→C_A(f) is the inherited extension to any factorial multiple, independent of that choice.
+- **TauCeti.RootStack.factorialDivisibilitySpecIso.factorial_projection**: At n=(i+1)!, e_A followed by π_n equals Spec(ι_i), where ι_i is the actual i-th factorial inclusion into C_A(f).
+
+TESTS:
+
+- **TauCeti.RootStack.factorialDivisibilitySpecIso.test_inverse**: The actual factorial/divisibility scheme map followed by its inverse equals the identity.
+- **TauCeti.RootStack.factorialDivisibilitySpecIso.test_third_projection**: At A=Z/4,f=2, the index3 projection after the scheme comparison is the actual Spec of the factorial extension.
+- **TauCeti.RootStack.factorialDivisibilitySpecIso.test_zero_ring**: At A=Z/1,f=0, the first factorial projection agrees with the actual factorial inclusion under Spec.
+
+## Scheme comparison at every positive root index
+
+**TauCeti.RootStack.factorialDivisibilitySpecIso.projection** — For each positive n, e_A followed by π_n is Spec(e_n), where e_n:B(n)→C_A(f) is the inherited extension to any factorial multiple, independent of that choice.
+
+Hypotheses: A, B and C are arbitrary commutative rings in one common arbitrary universe; f∈A and unital ring maps φ:A→B and ψ:B→C are arbitrary. No nontriviality, reducedness, Noetherianity, flatness, unit-section or exponent-invertibility hypothesis is imposed. D is the existing positive-divisibility index with n≥1. B(n)=A[t_n]/(t_n^n−f) uses the actual AdjoinRoot algebra, its inherited divisibility maps and actual direct-limit rings D_A(f), C_A(f). All schemes, cones, ring maps and isomorphisms are native. The limit and lift laws apply to all test schemes in the coefficient universe, including nonaffine schemes. Higher-universe transport, Cartesian tensor base-change, fpqc frame torsors, coherent root-object groupoids and the infinite quotient-stack comparison are separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-factorial-scheme-iso, FunctionFieldArithmeticPartII:RS.2/native-scheme-projection, FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-inclusion, FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension, FunctionFieldArithmeticPartII:RS.2/root-factorial-cofinal, mathlib:AlgebraicGeometry.Spec.map_comp.
+
+Proof: Reverse composition with the native Spec law. Equality of the resulting ring maps follows from the existing finite-coordinate formula for E_A at the chosen cofinal factorial index.
+
+## Scheme comparison at factorial levels
+
+**TauCeti.RootStack.factorialDivisibilitySpecIso.factorial_projection** — At n=(i+1)!, e_A followed by π_n equals Spec(ι_i), where ι_i is the actual i-th factorial inclusion into C_A(f).
+
+Hypotheses: A, B and C are arbitrary commutative rings in one common arbitrary universe; f∈A and unital ring maps φ:A→B and ψ:B→C are arbitrary. No nontriviality, reducedness, Noetherianity, flatness, unit-section or exponent-invertibility hypothesis is imposed. D is the existing positive-divisibility index with n≥1. B(n)=A[t_n]/(t_n^n−f) uses the actual AdjoinRoot algebra, its inherited divisibility maps and actual direct-limit rings D_A(f), C_A(f). All schemes, cones, ring maps and isomorphisms are native. The limit and lift laws apply to all test schemes in the coefficient universe, including nonaffine schemes. Higher-universe transport, Cartesian tensor base-change, fpqc frame torsors, coherent root-object groupoids and the infinite quotient-stack comparison are separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-factorial-scheme-projection, FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension-factorial.
+
+Proof: Specialize the all-positive-index projection formula and use the inherited equality between the extension at a factorial index and its actual factorial inclusion.
+
+## Contravariant coefficient map of infinite root charts
+
+**TauCeti.RootStack.divisibilitySpecCoefficientMap** — For every unital ring map φ:A→B, construct F_S(φ):Spec D_B(φ(f))→Spec D_A(f) as the native Spec map of the existing coefficient ring map F_D(φ).
+
+Hypotheses: A, B and C are arbitrary commutative rings in one common arbitrary universe; f∈A and unital ring maps φ:A→B and ψ:B→C are arbitrary. No nontriviality, reducedness, Noetherianity, flatness, unit-section or exponent-invertibility hypothesis is imposed. D is the existing positive-divisibility index with n≥1. B(n)=A[t_n]/(t_n^n−f) uses the actual AdjoinRoot algebra, its inherited divisibility maps and actual direct-limit rings D_A(f), C_A(f). All schemes, cones, ring maps and isomorphisms are native. The limit and lift laws apply to all test schemes in the coefficient universe, including nonaffine schemes. Higher-universe transport, Cartesian tensor base-change, fpqc frame torsors, coherent root-object groupoids and the infinite quotient-stack comparison are separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-map, mathlib:AlgebraicGeometry.Scheme.Spec.
+
+Proof: Apply native Spec to the actual coefficient ring map. Arbitrary nonflat maps and zero-ring targets are retained; no Cartesian base-change comparison is asserted.
+
+API:
+
+- **TauCeti.RootStack.divisibilitySpecCoefficientMap.id**: For the identity map of A, F_S(id_A) is the identity morphism of Spec D_A(f).
+- **TauCeti.RootStack.divisibilitySpecCoefficientMap.comp**: For φ:A→B and ψ:B→C, F_S(ψ∘φ) is F_S(ψ) followed by F_S(φ), at the actual parameters f, φ(f) and ψ(φ(f)).
+- **TauCeti.RootStack.divisibilitySpecCoefficientMap.base**: F_S(φ) followed by Spec D_A(f)→Spec A equals Spec D_B(φ(f))→Spec B followed by Spec(φ).
+- **TauCeti.RootStack.divisibilitySpecCoefficientMap.factorial**: The square e_B followed by F_S(φ) equals Spec(F_C(φ)) followed by e_A, where F_C(φ) is the actual factorial coefficient ring map.
+
+TESTS:
+
+- **TauCeti.RootStack.divisibilitySpecCoefficientMap.test_identity**: The identity ring map of Z/4 at f=2 induces the identity infinite-chart scheme morphism.
+- **TauCeti.RootStack.divisibilitySpecCoefficientMap.test_nonflat_base**: For the nonflat quotient Z→Z/4 at f=2, the actual scheme coefficient map commutes with the structural coefficient square.
+- **TauCeti.RootStack.divisibilitySpecCoefficientMap.test_zero_ring_target**: For Z→Z/4 followed by any ring map Z/4→Z/1, the actual scheme map at f=2 is the reversed composite, including the zero-ring target.
+
+## Identity coefficient map of root charts
+
+**TauCeti.RootStack.divisibilitySpecCoefficientMap.id** — For the identity map of A, F_S(id_A) is the identity morphism of Spec D_A(f).
+
+Hypotheses: A, B and C are arbitrary commutative rings in one common arbitrary universe; f∈A and unital ring maps φ:A→B and ψ:B→C are arbitrary. No nontriviality, reducedness, Noetherianity, flatness, unit-section or exponent-invertibility hypothesis is imposed. D is the existing positive-divisibility index with n≥1. B(n)=A[t_n]/(t_n^n−f) uses the actual AdjoinRoot algebra, its inherited divisibility maps and actual direct-limit rings D_A(f), C_A(f). All schemes, cones, ring maps and isomorphisms are native. The limit and lift laws apply to all test schemes in the coefficient universe, including nonaffine schemes. Higher-universe transport, Cartesian tensor base-change, fpqc frame torsors, coherent root-object groupoids and the infinite quotient-stack comparison are separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-scheme-coefficient-map, FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-identity, mathlib:AlgebraicGeometry.Scheme.Spec.
+
+Proof: Use the inherited coefficient ring identity and the identity law of native Spec.
+
+## Contravariant composition of coefficient maps
+
+**TauCeti.RootStack.divisibilitySpecCoefficientMap.comp** — For φ:A→B and ψ:B→C, F_S(ψ∘φ) is F_S(ψ) followed by F_S(φ), at the actual parameters f, φ(f) and ψ(φ(f)).
+
+Hypotheses: A, B and C are arbitrary commutative rings in one common arbitrary universe; f∈A and unital ring maps φ:A→B and ψ:B→C are arbitrary. No nontriviality, reducedness, Noetherianity, flatness, unit-section or exponent-invertibility hypothesis is imposed. D is the existing positive-divisibility index with n≥1. B(n)=A[t_n]/(t_n^n−f) uses the actual AdjoinRoot algebra, its inherited divisibility maps and actual direct-limit rings D_A(f), C_A(f). All schemes, cones, ring maps and isomorphisms are native. The limit and lift laws apply to all test schemes in the coefficient universe, including nonaffine schemes. Higher-universe transport, Cartesian tensor base-change, fpqc frame torsors, coherent root-object groupoids and the infinite quotient-stack comparison are separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-scheme-coefficient-map, FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-composition, mathlib:AlgebraicGeometry.Spec.map_comp.
+
+Proof: Rewrite by the inherited coefficient composition law and apply Spec.map_comp with the two actual ring maps. Contravariance reverses their order.
+
+## Root-chart projections over the coefficient scheme
+
+**TauCeti.RootStack.divisibilitySpecCone.over** — For every positive n, π_n followed by Spec B(n)→Spec A equals the structural map Spec D_A(f)→Spec A.
+
+Hypotheses: A, B and C are arbitrary commutative rings in one common arbitrary universe; f∈A and unital ring maps φ:A→B and ψ:B→C are arbitrary. No nontriviality, reducedness, Noetherianity, flatness, unit-section or exponent-invertibility hypothesis is imposed. D is the existing positive-divisibility index with n≥1. B(n)=A[t_n]/(t_n^n−f) uses the actual AdjoinRoot algebra, its inherited divisibility maps and actual direct-limit rings D_A(f), C_A(f). All schemes, cones, ring maps and isomorphisms are native. The limit and lift laws apply to all test schemes in the coefficient universe, including nonaffine schemes. Higher-universe transport, Cartesian tensor base-change, fpqc frame torsors, coherent root-object groupoids and the infinite quotient-stack comparison are separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-scheme-projection, FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion, mathlib:AlgebraicGeometry.Spec.map_comp.
+
+Proof: Reverse the composite through Spec and use A-algebra compatibility of the actual inclusion κ_n.
+
+## Naturality in the test scheme
+
+**TauCeti.RootStack.divisibilitySpecLift.precomp** — For any scheme morphism g:T′→T and cone s with vertex T, the lift of the cone obtained by precomposing every leg with g equals g followed by L_s.
+
+Hypotheses: A, B and C are arbitrary commutative rings in one common arbitrary universe; f∈A and unital ring maps φ:A→B and ψ:B→C are arbitrary. No nontriviality, reducedness, Noetherianity, flatness, unit-section or exponent-invertibility hypothesis is imposed. D is the existing positive-divisibility index with n≥1. B(n)=A[t_n]/(t_n^n−f) uses the actual AdjoinRoot algebra, its inherited divisibility maps and actual direct-limit rings D_A(f), C_A(f). All schemes, cones, ring maps and isomorphisms are native. The limit and lift laws apply to all test schemes in the coefficient universe, including nonaffine schemes. Higher-universe transport, Cartesian tensor base-change, fpqc frame torsors, coherent root-object groupoids and the infinite quotient-stack comparison are separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-scheme-ext, FunctionFieldArithmeticPartII:RS.2/native-scheme-lift-projection, mathlib:CategoryTheory.Limits.Cone.extend.
+
+Proof: Compare both scheme maps after every finite projection. Lift factorization and associativity give the same precomposed leg; native limit extensionality concludes.
+
+## Coefficient base square for infinite charts
+
+**TauCeti.RootStack.divisibilitySpecCoefficientMap.base** — F_S(φ) followed by Spec D_A(f)→Spec A equals Spec D_B(φ(f))→Spec B followed by Spec(φ).
+
+Hypotheses: A, B and C are arbitrary commutative rings in one common arbitrary universe; f∈A and unital ring maps φ:A→B and ψ:B→C are arbitrary. No nontriviality, reducedness, Noetherianity, flatness, unit-section or exponent-invertibility hypothesis is imposed. D is the existing positive-divisibility index with n≥1. B(n)=A[t_n]/(t_n^n−f) uses the actual AdjoinRoot algebra, its inherited divisibility maps and actual direct-limit rings D_A(f), C_A(f). All schemes, cones, ring maps and isomorphisms are native. The limit and lift laws apply to all test schemes in the coefficient universe, including nonaffine schemes. Higher-universe transport, Cartesian tensor base-change, fpqc frame torsors, coherent root-object groupoids and the infinite quotient-stack comparison are separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-scheme-coefficient-map, FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-constant, mathlib:AlgebraicGeometry.Spec.map_comp.
+
+Proof: Reverse both composites through Spec. Ring-map extensionality reduces equality to the inherited formula on every coefficient a∈A.
+
+## Naturality of the factorial scheme comparison
+
+**TauCeti.RootStack.divisibilitySpecCoefficientMap.factorial** — The square e_B followed by F_S(φ) equals Spec(F_C(φ)) followed by e_A, where F_C(φ) is the actual factorial coefficient ring map.
+
+Hypotheses: A, B and C are arbitrary commutative rings in one common arbitrary universe; f∈A and unital ring maps φ:A→B and ψ:B→C are arbitrary. No nontriviality, reducedness, Noetherianity, flatness, unit-section or exponent-invertibility hypothesis is imposed. D is the existing positive-divisibility index with n≥1. B(n)=A[t_n]/(t_n^n−f) uses the actual AdjoinRoot algebra, its inherited divisibility maps and actual direct-limit rings D_A(f), C_A(f). All schemes, cones, ring maps and isomorphisms are native. The limit and lift laws apply to all test schemes in the coefficient universe, including nonaffine schemes. Higher-universe transport, Cartesian tensor base-change, fpqc frame torsors, coherent root-object groupoids and the infinite quotient-stack comparison are separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-factorial-scheme-iso, FunctionFieldArithmeticPartII:RS.2/native-scheme-coefficient-map, FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-transport, mathlib:AlgebraicGeometry.Spec.map_comp.
+
+Proof: Reverse both composites through Spec and compare the underlying ring maps. The inherited E_B∘F_D(φ)=F_C(φ)∘E_A transport formula proves equality at every colimit element.
+
 # Coefficient naturality for the positive-divisibility root tower
 
 Fix arbitrary commutative rings A, B and C in one arbitrary common universe, unital ring maps φ:A→B and ψ:B→C, and a parameter f∈A. Write D_A(f) for the native colimit of A[t_n]/(t_n^n−f) over positive integers ordered by divisibility, C_A(f) for the factorial colimit, E_A:D_A(f)≃C_A(f) for cofinality, and G_A=A[ℚ/ℤ] for the native rational-character algebra. Tensor products use their actual indicated coefficient rings. The existing left coaction is δ_A:D_A(f)→G_A⊗_A D_A(f), and I_A is its actual equalizer with x↦1⊗x.
