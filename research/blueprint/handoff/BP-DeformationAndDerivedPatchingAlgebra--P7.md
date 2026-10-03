@@ -1,87 +1,96 @@
-# Native adic-module coefficient checkpoint — Codex codex-7e92bd
+# Actual adic module image grading and projections — checkpoint
 
-Refs #551. Bot comment5973721716 explicitly confirmed this worker's claim5973720621. The complete issue body was read and verified unchanged after confirmation. Scope remains P7–P9 and R03.1–R03.5 under accepted RS-08; the R03.6 sibling and reserved Hilbert–Samuel key remain with their existing owners. This is a partial checkpoint; no stage, key definition, request or gap is marked closed.
+Codex — codex-rtOQ9t. Refs #551. This is partial; all eight stages, the reserved key,15 whole gaps and two requests remain open. Every implementation remains unchecked.
 
-## Mathematical result
+The exact existing native module image components, range equivalences, decomposition, graded scalar action, external graded-module equivalence and ambient projections now have admission-free native proof prototypes. Thirteen existing headers agree exactly with their incoming signatures. The scalar action is the original quotient action, and the external direct sum uses precisely GradedModule.isModule. Individual projections are A-linear, whereas the full external comparison is linear over gr_q(A).
 
-The exact existing native module denominator coefficient criterion, monomial kernel, piece inclusions, homogeneous action, expansion bijectivity and direct-sum equivalence now have admission-free native proof prototypes. They hold for any commutative ring A, ideal q and A-module M. No locality, Noetherianity, finite generation or freeness premise is added. Twelve existing declaration headers are preserved exactly.
+Ten new lemma nodes and ten API entries give actual recomposition/expansion equality, both inverse identities, agreement with native decomposition, projection/coefficient equality, image membership, idempotence and orthogonality, homogeneity and zero criteria, and equality detection through every projection. They apply to arbitrary commutative A, any ideal q and any A-module M, without local, Noetherian, finite, domain or free-module assumptions. No new generic graded carrier or scalar action is planned.
 
-The pinned restriction-of-scalars theorem identifies the existing denominator J·Rq(M) with q·Rq(M). Scalar-action induction proves coefficientwise membership in q^(n+1)M; native finite coefficient support gives the converse. Quotient vanishing proves the monomial kernel. The actual coefficient maps descend to the inherited G_n, retract their own inclusion and kill other degrees. They prove the old expansion injective, and the actual finite expansion of a Rees representative proves it surjective. The same native ring action satisfies the old degree-addition formula. Every inverse comparison coordinate is given by the actual coefficient map.
+Four new typed tests use actual quotient maps: the nonzero constant1 for the nonfree Z-module Z/4 at q=0, mixed degree0/1 classes and their three projections, the nonzero degree-one monomial2 over Z/4 at q=(2), and the unit-ideal zero quotient. The nilpotent coefficient remains nonzero; tests do not replace quotient computations by bare propositions or numbers.
 
-Twenty new declaration-sized nodes give two constructions and eighteen lemmas, eight API additions and ten typed tests. All351 incoming contracts are retained;347 entire objects are unchanged. Three existing objects append proof dependencies and refinements; the old direct-sum construction adds one API item. All412 old baseline objects,13 planets,15 gaps,two requests,eight open stages, historical continuation fields and source-issue/version objects are retained. Current totals are371 nodes,415 baseline declarations,283 raw API items,325 raw tests (248 counted by the checker). The reader retains the complete incoming document after its new section, and the canonical suggested file retains its complete incoming prefix. The new reader section qualifies superseded historical prototype omissions.
+All371 incoming mathematical contracts are preserved. Only the existing image-component and grading-registration constructions receive appended API/tests or proof dependencies; all369 other whole nodes remain unchanged. All415 old baseline entries,13 planets,15 gap objects, two requests, one source-issue/version envelope, eight coverage records, historical continuation fields and the exact reserved multiplicity key are retained. Two native baseline imports are appended. The complete incoming reader and canonical suggested prefix are retained exactly. Current totals are381 nodes(8definitions56constructions16theorems301lemmas),417 baseline declarations,293 API entries and329 raw tests(252 recognized by the checker).
 
-Tests use the actual carriers. The zero-ideal graded constant1 survives for the nonfree module ℤ/4 over ℤ. For A=M=ℤ/4 and q=(2), degree-one monomial2 and its coefficient both survive. For the unit ideal over ℤ, the nonzero Rees monomial single_2(1) is in the denominator. Raw coefficients still recover single_3(7) before quotienting. Mixed degrees recover their actual inputs, and the homogeneous action has the expected actual coefficient in degree r+n. No general Hilbert–Serre or native image-grading proof is claimed.
+## Reading and authentication
 
-## Sources and ownership
+The whole55002-character issue was read in seven bounded slices before claim5974617316 and again after exact numeric bot reply5974618295. Both bodies agree. The complete incoming handoff, four consumed image-grading contracts, exact reserved key node and KEYDEF entry, current R03.3 stage, both requests and relevant gap objects4–8 were freshly read. Reading.json records the bounded native proof ranges and BaselineReading.json the exact pinned native statements. No fresh manual audit of all371 nodes, the entire historical reader or every prior proof/citation is claimed.
 
-The complete displayed Stacks10.59 section and proofs, especially Proposition10.59.5, were freshly read. The arbitrary-ring comparisons here are authored native adapters of the pinned generic APIs, not a verbatim extension attributed to the local Noetherian source theorem. SourceReceipt.json records the retrieved source hash without bundling its text. NativeReading.json records bounded passages personally read at the pin. Exact new names were absent in both pinned source trees and current packets; broader matches were inspected. The unmerged associated-graded PRs retained by earlier workers remain leads only; no unpinned API is adopted.
+The reviewed R03.3 library audit row was freshly read in full. Eleven named unchanged own continuous-session protocol/upstream/audit/key reading scopes are reused only at exact hashes, through PriorOwnReading.json. These include at least two upstream documents. Current accepted RS-08 owning-roadmap/keeps projections and its accepted review status were read, as was the one exact touching-link/overlap entry. Larger review-correction output was truncated and is not claimed freshly read whole. The R03.6 sibling remains untouched, and the general Hilbert–Samuel key retains both intrinsic and ambient conventions.
 
-PriorOwnReading.json authenticates all23 unchanged inputs from this worker's earlier6013 reading, including governing protocols, reviewed AUDIT-17, RS-08 and ownership. The current reviewed R03.3 audit entry, whole current6024 handoff, consumed module contracts and full current gap/request lists were read. Larger peer historical reading output was truncated and is not claimed as freshly read in its entirety. The6024 archive was recovered from its exact public head:50 artifacts,nine helpers and four deliverables authenticated. The actual immutable publication verifier was rerun and its report matched byte-for-byte. IncomingNative.lean is that authenticated1577-line proof prefix.
+Incoming PR6028 at immutable headc380882b4d3e976c823f5a91d280561b36456614 was recovered from its public handoff. Fifty archived artifacts, nine helpers and four final deliverables authenticated; its actual immutable verifier was executed and reproduced the archived publication report byte-for-byte. NativePrefix.lean is the manifest-bound whole incoming proof file. The replay helpers were personally read before reuse. Exact new-name searches of pinned Mathlib, Tau ring theory and the incoming packet returned no matches; no exhaustive absence claim or unpinned external code adoption is made.
 
-## Validation
+Fresh primary reading covers complete currently displayed Stacks Section10.58, statements and proofs through Lemma10.58.10 and its displayed comments, https://stacks.math.columbia.edu/tag/00JV. Its homogeneous-piece use motivates the authored arbitrary-ring native adapters, without asserting Hilbert–Serre. SourceReading.json records the exact HTTP hash/access time without source text. No new complete-paper/PDF reading, recursive source closure or exhaustive correction/version collation is claimed; inherited source/version objects are retained whole with their historical attribution.
 
-The existing Lean4.34.0-rc2 compiler at commit6a10ac8c22beadecabdbb0919c2b50214762f91d used the exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 build and pinned existing dependencies. No Tau Ceti module is imported. No project setup, library build, update, cache fetch or language server was used. The two successful calls ran serially with at least20GiB available immediately beforehand, a1200-second timeout and8GiB compiler memory limit.
+## Compilation
 
-- Native.lean: 2000 lines,54 examples,156 axiom audits,0 errors,0 warnings. Source SHA-256 8d903853496ebbcb817541de6bc9d5029fa3cb2869322c64a80291e093db42ad; log SHA-256 7e4daa75c731354b12e0e80b321771776d43b7e6c6c25e0a8472129c1278e214. 35GiB available;73.4 seconds; peak RSS3502068KiB. No admissions or custom axioms.
-- Canonical.lean: 5282 lines,315 examples,0 axiom audits,0 errors,751 warnings. Source SHA-256 3fac45aa67d7ebd30e8379fb779472799017028f781e6978bd6c8546639ed2fb; log SHA-256 594f13b15a681766e3ed7f074a06e329d9fa6cbfee065712a5fcee422747f2eb. 35GiB available;65.6 seconds; peak RSS3781808KiB. The entire Mathlib-only canonical file compiled; admitted-proof warnings are its only warnings. Canonical proofs remain an unchecked plan.
+The exact existing Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 build and Lean4.34.0-rc2 commit6a10ac8c22beadecabdbb0919c2b50214762f91d were used serially after the memory guard, one thread,8192MiB managed-memory bound and1200-second timeout. No Tau import, Lake setup/update/cache/build or language server was used. Every compiler process has finished.
 
-All20 new declaration and ten test headers match their exact admitted projection; all12 proved existing headers match their incoming statements. The actual indexed packet checker, source/version checks and extracted actual intake rules pass with zero errors, warnings, source issues or refusals. The actual immutable build.assemble candidate/control comparison preserves whole foreign roadmap and stage objects, sibling declarations, every whole stage-edge object, and unrelated skip/pending objects.
+- Native.lean: 2287lines,58examples,exit0,0warnings,179axiom audits,41GiB available before the run,89.31seconds,peak3531540KiB. Source SHA256 `f0693d8d5e381026a49b76a50d384db8f0515d165d7e6d4e49623abdcece8ae3`; diagnostic SHA256 `79d65b0ff9f5d1f2520b60dabd12d33c719403dc4f4dbdf4e23571b54a189236`.
+- Canonical.lean: 5373lines,319examples,exit0,765warnings,0axiom audits,41GiB available before the run,68.0seconds,peak3789820KiB. Source SHA256 `976a386bc11b7731e9670a06dfca21fc8de8d9819b44b0e2c51690a6491dd753`; diagnostic SHA256 `f9cf312150d85c9620ddc798886b51d687a4bf4c01da874c30cd75d7eafe5fd5`.
 
-At the publication base the stage DAG has3003 vertices/8623 edges, the own DAG371/626, and the combined DAG3362/9621; all are acyclic. All65 accepted restructure pairs remain reachable;12 of13 required scoped stage pairs are reachable. The inherited LocalFieldsRamification layer0→R03.4 request remains open, exactly as in the incoming gap. No new missing stage paths or unresolved declaration dependencies are introduced. The complete roadmap has424 declarations, including the unchanged53 sibling declarations.
+Native.lean has zero warnings, errors, admissions or custom axioms; all179 axiom closures contain only propext,Classical.choice and Quot.sound. All ten new declaration and four test headers agree with their exact admitted projections, and all13 existing headers are preserved. The entire final Mathlib-only suggested file is Canonical.lean and compiled, with765 admission warnings only. Canonical bodies remain an unchecked plan.
 
-Mathematical base: d4e1964b6dfd7d2d382c6c1270933632b4837a31. Publication base: d4e1964b6dfd7d2d382c6c1270933632b4837a31. All29 guarded inputs, four incoming deliverables and the queue contract are authenticated against these immutable bases; PublicationDelta.json records the comparison. The verifier checks recorded Lean receipts and executes real Python checker/intake/assembler code; it does not rerun Lean. compile.py/runcheck.py can replay the two entire Lean files with an existing exact-pin build and the same resource guards. No compiler remains running at submission.
+## Immutable checks
 
-## Where to resume
+Mathematical control `6c1b624de9e26cb6602e278793db7be6c5b2c8dc`; publication control `8da7bfc6382725e4efa40e1435bee348f848f97c`. All29 guarded inputs and four incoming deliverables are unchanged across these controls; the queue contract is unchanged. The declaration index is SHA25686649a7d5f35d1178a45fe7aa4713741d03d43ff3b37bb8c91a1da1c794c8ce1.
 
-The actual module denominator coefficient criterion, monomial kernel, piece inclusions, homogeneous action and full finite direct-sum comparison now have admission-free native proof prototypes at the pin, on their exact existing contracts. Actual coefficient maps recover every inverse comparison coordinate. No locality, Noetherianity, finite generation or freeness premise is added. This supersedes historical prototype omissions for these precise adapters only. Next prove the existing native image-component grading and module projection compatibility, then homogeneous kernel/range/quotient gradings, scalar descent to the smaller ring, smaller-ring finite generation and degreewise length exactness for general Hilbert–Serre. General support-degree, intrinsic/ambient multiplicity, completion, associativity, every stage and routed-paper obligation remain open; all canonical bodies and implementation statuses remain admitted/unchecked.
+The actual indexed packet checker, source/version and intake checks pass without errors, warnings or refusals. The publication stage DAG has3003/8623vertices/edges, own DAG381/653 and combined DAG3372/9658; all are acyclic. All65accepted restructure pairs and12of13required stage pairs are reachable. The sole missing LocalFieldsRamification layer0→R03.4 path is inherited and recorded as a gap. Whole foreign roadmap/stage and stage-edge objects and the53 sibling declarations remain unchanged. Verification-mathematical.json and Verification.json are actual immutable verifier reports, not reconstructed summaries.
 
-Use the proved coefficient maps and exact old direct-sum equivalence to establish the existing native image-component grading, module projections and action compatibility. Then construct the homogeneous kernel/range/quotient gradings, scalar descent and smaller-ring finite generation, and the degreewise length exactness used by the existing Hilbert–Serre induction. The regular-module comparison with the ring grading also remains unchecked. Retain all support-degree, Artin–Rees, localization length, associativity, completion, intrinsic/ambient multiplicity, plane-curve, minimal-complex, patching and routed-source obligations. No eventual polynomial is supplied as its own existence premise.
+## Resume
 
-The immutable archive below contains only this job's named deliverables, proof/projection files, selected reading and compiler receipts, and replay helpers. No repository/library snapshot or private source is bundled. Public recovery authenticates every artifact and final deliverable; the worker reran the recovered verifier and checked its report against the archived validation before opening the PR.
+Use the actual native module grading and projections for homogeneous kernel, range and quotient component maps, then scalar descent to S/(x), smaller-ring finite generation, finite degree lengths and degreewise exactness. The registered component maps retain the actual original action, so positive-degree multiplication shifts degrees; do not treat individual projections as S-linear. Use the equality-detection theorem to check actual component maps. No eventual polynomial is supplied as its own existence premise.
 
-## Immutable public recovery
+General Hilbert–Serre induction, support/degree, Artin–Rees, top-dimensional localization length, associativity, completion, intrinsic/ambient multiplicity, curve/support dimension and all eight stage and routed-paper obligations remain required. The regular-module versus ring-grading comparison remains open. This supersedes historical prototype omissions only for the exact native adapters proved here; it closes no general theorem, source route, gap, request or implementation.
 
-Archive ancestor: 93995f817afbde7dbd16caf3f8d65ffe63bd6760. Manifest SHA-256: de3bb33f740efb02ceb5afb74e5ae831b7b143a3da023377d5164476388ab2e4. Compressed payload SHA-256: 41c37dfd57176353c1a4ff65a34367e1cbfa5d5def4fbe77410024667c0eb716. Recovery-helper SHA-256: e990ac4b5a414cc680ed04f0b8f42ab2948cef7caa20c5c98880f01697de18d7. The archive authenticates50 named artifacts and nine helpers. The final suggested file is the clean entire compiled Canonical.lean; its ancestor alone carries the compressed proof archive.
+## Public recovery
 
-Save the following exact helper as recover.py. Run it with an on-disk replay directory, the recorded archive ancestor, manifest and payload hashes, and the exact40-character PR head from GitHub. Use that exact head even after merge, never mutable main. Argument order: python3 recover.py REPLAY ARCHIVE MANIFEST PAYLOAD HEAD. It authenticates all archived artifacts, all four public deliverables, and its own exact executing code.
+The immutable archive records the exact native proofs, admitted projections, compiler diagnostics/receipts, precise reading receipts and all authoring/assembly/replay helpers. Recovery and immutable checking never execute Lean. The exact public recovery helper and both recovered verifiers are actually executed before submission, with their outputs compared byte-for-byte with the archived mathematical and publication reports. No repository/library snapshot or private source text is bundled.
+
+Immutable suggested-file archive ancestor `3c6ca232d39cc53b67a4f36a1b4ad6d3d4b2f434`; manifest SHA256 `0662436b5ead12c79d9fe46094ba00634309d87ec4b1977d6140771aa704b76b`; payload SHA256 `3eb25414d7b5af0900b7f9b361605657989385ac34c8b6a2054bcc161a3669dc`. It authenticates52 artifacts and all nine authoring/assembly/compiler/verification helpers. Recovery-helper SHA256 `dfc26b3c18f8c40a12f4a99419bb516c4e393e7d40d97716ac2d5ddbddbc71c6`.
+
+Save the exact script below as recover.py and pass an on-disk evidence directory and this PR’s full immutable final head. From an existing explorer checkout containing both controls, execute the recovered verify.py with the evidence directory and pinned declaration index. Run once with ROOT_ACTION_VALIDATE_BASE set to the mathematical base and once to the publication base. Compare actual outputs byte-for-byte with Verification-mathematical.json and Verification.json. The immutable adapter reads Git blobs directly and creates no repository snapshot. Both public replays are checked before submission.
+
+## Script: recover.py
 
 ```python
-"""Recover and authenticate this checkpoint from immutable public GitHub commits."""
+"""Recover authenticated adic module image-grading evidence; never execute Lean."""
 from pathlib import Path
-import base64,gzip,hashlib,json,re,sys,urllib.request
-OUT=Path(sys.argv[1]).resolve();ARCHIVE,MANIFEST,PAYLOAD,HEAD=sys.argv[2:6]
-for value in [ARCHIVE,HEAD]:assert re.fullmatch('[0-9a-f]{40}',value)
-for value in [MANIFEST,PAYLOAD]:assert re.fullmatch('[0-9a-f]{64}',value)
-RID='DeformationAndDerivedPatchingAlgebra';STEM=RID+'--P7'
-PREFIX='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
+import base64,hashlib,json,re,sys,urllib.request,zlib
+S=Path(sys.argv[1]).resolve();S.mkdir(parents=True,exist_ok=True)
+HEAD=sys.argv[2];assert re.fullmatch('[0-9a-f]{40}',HEAD)
+ROOT='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
+STEM='DeformationAndDerivedPatchingAlgebra--P7'
+ARCHIVE='3c6ca232d39cc53b67a4f36a1b4ad6d3d4b2f434'
+MANIFEST_SHA='0662436b5ead12c79d9fe46094ba00634309d87ec4b1977d6140771aa704b76b'
+PAYLOAD_SHA='3eb25414d7b5af0900b7f9b361605657989385ac34c8b6a2054bcc161a3669dc'
+EXPECTED={'packets': '4ea5d9de38bf1a87b18ef2940f0fe4051f1fc04abd5bddc94c9b6d43d7aa6a88', 'readmes': '1bb4a0eb7753e3bcee4d6579bea29fdbf495dd7d386bbd0032cbd6d51a40a8c3', 'suggested': '976a386bc11b7731e9670a06dfca21fc8de8d9819b44b0e2c51690a6491dd753'}
+sha=lambda b:hashlib.sha256(b).hexdigest()
 def fetch(ref,path):
- return urllib.request.urlopen(PREFIX+ref+'/'+path,timeout=60).read()
-def sha(b):return hashlib.sha256(b).hexdigest()
+ with urllib.request.urlopen(ROOT+ref+'/'+path,timeout=30)as r:return r.read()
 raw=fetch(ARCHIVE,'research/blueprint/suggested/'+STEM+'.lean').decode()
-m=re.search(r'BEGIN-7E92BD-COORDINATES-551\n([A-Za-z0-9+/=\n]+)\nEND-7E92BD-COORDINATES-551',raw);assert m
-compressed=base64.b64decode(m[1]);assert sha(compressed)==PAYLOAD
-entries=json.loads(gzip.decompress(compressed))
-assert all(re.fullmatch('[A-Za-z0-9_.-]+',n)for n in entries)
-decoded={n:base64.b64decode(v)for n,v in entries.items()}
-manifest=json.loads(decoded['artifact-manifest.json']);assert sha(decoded['artifact-manifest.json'])==MANIFEST
-assert set(decoded)==set(manifest)|{'artifact-manifest.json'}
-for n,meta in manifest.items():
- b=decoded[n];assert sha(b)==meta['sha256']and len(b)==meta['bytes']and len(b.splitlines())==meta['lines'],n
- assert not re.search(rb'/(?:home|tmp|Users)/|file'+rb'://',b),n
-assert Path(__file__).read_bytes()==decoded['recover.py']
-OUT.mkdir(parents=True,exist_ok=True)
-for n,b in decoded.items():(OUT/n).write_bytes(b)
-paths=['research/blueprint/'+f+'/'+('BP-'if f=='handoff'else'')+STEM+'.'+e for f,e in [('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]]
-hashes={}
-for path,name in zip(paths,['Candidate.json','Reader.md','Canonical.lean','Handoff.md']):
- b=fetch(HEAD,path);hashes[path]=sha(b)
- if name=='Handoff.md':
-  assert b.startswith(decoded[name]);assert decoded['recover.py'].decode().strip()in b.decode()
-  (OUT/'PublicHandoff.md').write_bytes(b)
- else:assert b==decoded[name],path
-record={'head':HEAD,'archive':ARCHIVE,'artifactsVerified':len(manifest),'archivedHelpersVerified':sum(n.endswith('.py')for n in manifest),'publicDeliverables':hashes,'recoverySha256':sha(decoded['recover.py']),'LeanExecuted':False}
-(OUT/'PublicRecovery.json').write_text(json.dumps(record,indent=2)+'\n')
-print(json.dumps(record,indent=2))
+pb=raw.split('/- BEGIN ARCHIVED ADIC MODULE PROJECTION PAYLOAD\n',1)[1].split('END ARCHIVED ADIC MODULE PROJECTION PAYLOAD -/',1)[0].encode()
+assert sha(pb)==PAYLOAD_SHA;payload=json.loads(pb)
+def unpack(name):
+ b=zlib.decompress(base64.b64decode(payload[name]['data']));assert sha(b)==payload[name]['sha256'],name
+ return b
+mb=unpack('artifact-manifest.json');assert sha(mb)==MANIFEST_SHA;meta=json.loads(mb)
+assert set(payload)==set(meta)|{'artifact-manifest.json'}and len(meta)==52
+assert {'author.py','assemble.py','compile.py','runcheck.py','projection.py','immutable_view.py','graph.py','verify.py','write_handoff.py'}<=set(meta)
+for name,m in meta.items():
+ assert Path(name).name==name and name not in {'.','..'}
+ b=unpack(name);assert sha(b)==m['sha256']and len(b)==m['bytes']and len(b.splitlines())==m['lines'],name
+ (S/name).write_bytes(b)
+(S/'artifact-manifest.json').write_bytes(mb);public={}
+for folder,ext,name in [('packets','json','Candidate.json'),('readmes','md','Reader.md'),('suggested','lean','Suggested.lean'),('handoff','md','Handoff.md')]:
+ path='research/blueprint/'+folder+'/'+('BP-'if folder=='handoff'else'')+STEM+'.'+ext
+ b=fetch(HEAD,path)
+ if folder in EXPECTED:assert sha(b)==EXPECTED[folder],path
+ (S/name).write_bytes(b);public[path]=sha(b)
+(S/(STEM+'.json')).write_bytes((S/'Candidate.json').read_bytes())
+assert(S/'Suggested.lean').read_bytes()==(S/'Canonical.lean').read_bytes()
+fence=chr(96)*3;handoff=(S/'Handoff.md').read_text();assert handoff.startswith((S/'HandoffBase.md').read_text())
+code=handoff.split('## Script: recover.py\n\n'+fence+'python\n',1)[1].split('\n'+fence+'\n',1)[0]+'\n'
+assert code==Path(__file__).read_text(),'Executing recovery script differs from public handoff.'
+(S/'recover.py').write_text(code)
+receipt=dict(head=HEAD,archive=ARCHIVE,artifactsVerified=len(meta),archivedHelpersVerified=9,publicDeliverables=public,recoverySha256=sha(code.encode()),LeanExecuted=False)
+(S/'public-recovery.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt,indent=2))
 ```
-
-From a repository checkout, run verify.py with the recovered directory and the pinned declaration index. ROOT_ACTION_VALIDATE_BASE may select the recorded mathematical or publication base; here they coincide. Compare the actual report byte-for-byte with verification-publication.json (also identical to verification-math.json). This executes the genuine immutable packet checker, source/version checks, intake rules and build.assemble candidate/control comparison; it does not execute Lean. The authenticated compiler receipts cover the two entire files; compile.py/runcheck.py can replay them serially with an existing exact-pin build under the recorded memory and time guards.

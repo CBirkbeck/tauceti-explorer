@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Coefficient projections and finite homogeneous decomposition continuation: register the actual native GradedAlgebra on the existing ordinary Rees quotient and prove degree-preserving coefficient change; the general module, finiteness, Hilbert–Serre and dimension arguments remain open. Native coefficient-change maps, exact graded injectivity and ring-equivalence transport, with a proved old coefficient-ideal/monomial/piece core. Finite-length local modules, actual adic quotient finiteness and cumulative/graded stabilization are refined with eight declaration-sized lemmas. Graded annihilator checkpoint: ten new declarations, three promoted API statements and six typed boundary tests. Actual graded quotient transport, extended graded lengths, the nonzero primary boundary and the zero-module unit-ideal boundary have independent native proofs. Polynomial and both multiplicity invariances explicitly depend on the existing admitted general polynomial specification. Annihilator-enlargement checkpoint: preserve all 247 incoming declaration objects and add six actual-carrier declarations, three promoted API items and four boundary tests. The action, power, quotient and extended-length equalities require no finiteness or faithful-module assumption. The six-proof/four-test native prototype is checked; canonical forms remain admitted and all implementation statuses unchecked. General Hilbert–Serre, dimension and all stage/source obligations remain open. Full actual curve graded assembly checkpoint: 20 new declarations (3 constructions), 16 API items and 13 boundary/compatibility tests. The polynomial map lands in the inherited Rees quotient, with exact full principal-kernel and component-compatible quotient-equivalence plans. All 210 incoming node objects and all ownership, source and general multiplicity boundaries remain intact. New proof bodies remain admitted. This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open. This continuation compares actual adic quotient carriers under scalar restriction, transfers cumulative lengths under surjective coefficient maps, and links the general intrinsic multiplicity API to the explicit finite-order plane-curve polynomial. It keeps a fixed degree-two extraction distinct from intrinsic multiplicity and from a dimension-two ambient interpretation. Degree-one and generator-presentation continuation:15 declaration-sized nodes,10 API items and9 typed tests, plus a native proof of the existing degree-one generation contract. Native adic-module generation continuation:20 declaration-sized nodes,14 API items and14 typed tests, with native proofs of the exact existing monomial and degree-zero/finite-generation contracts. Native module coefficient continuation:20 declaration-sized nodes,8 API items and10 typed tests, proving the exact existing denominator, monomial kernel, homogeneous action and finite decomposition without finiteness assumptions.",
+  "summary": "Coefficient projections and finite homogeneous decomposition continuation: register the actual native GradedAlgebra on the existing ordinary Rees quotient and prove degree-preserving coefficient change; the general module, finiteness, Hilbert–Serre and dimension arguments remain open. Native coefficient-change maps, exact graded injectivity and ring-equivalence transport, with a proved old coefficient-ideal/monomial/piece core. Finite-length local modules, actual adic quotient finiteness and cumulative/graded stabilization are refined with eight declaration-sized lemmas. Graded annihilator checkpoint: ten new declarations, three promoted API statements and six typed boundary tests. Actual graded quotient transport, extended graded lengths, the nonzero primary boundary and the zero-module unit-ideal boundary have independent native proofs. Polynomial and both multiplicity invariances explicitly depend on the existing admitted general polynomial specification. Annihilator-enlargement checkpoint: preserve all 247 incoming declaration objects and add six actual-carrier declarations, three promoted API items and four boundary tests. The action, power, quotient and extended-length equalities require no finiteness or faithful-module assumption. The six-proof/four-test native prototype is checked; canonical forms remain admitted and all implementation statuses unchecked. General Hilbert–Serre, dimension and all stage/source obligations remain open. Full actual curve graded assembly checkpoint: 20 new declarations (3 constructions), 16 API items and 13 boundary/compatibility tests. The polynomial map lands in the inherited Rees quotient, with exact full principal-kernel and component-compatible quotient-equivalence plans. All 210 incoming node objects and all ownership, source and general multiplicity boundaries remain intact. New proof bodies remain admitted. This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open. This continuation compares actual adic quotient carriers under scalar restriction, transfers cumulative lengths under surjective coefficient maps, and links the general intrinsic multiplicity API to the explicit finite-order plane-curve polynomial. It keeps a fixed degree-two extraction distinct from intrinsic multiplicity and from a dimension-two ambient interpretation. Degree-one and generator-presentation continuation:15 declaration-sized nodes,10 API items and9 typed tests, plus a native proof of the existing degree-one generation contract. Native adic-module generation continuation:20 declaration-sized nodes,14 API items and14 typed tests, with native proofs of the exact existing monomial and degree-zero/finite-generation contracts. Native module coefficient continuation:20 declaration-sized nodes,8 API items and10 typed tests, proving the exact existing denominator, monomial kernel, homogeneous action and finite decomposition without finiteness assumptions. The existing native adic module image grading, scalar action, direct-sum comparison and projections now have admission-free proof prototypes on their exact inherited signatures. Ten new lemmas give actual inverse identities, native decomposition agreement, coefficient projection, membership, orthogonality, homogeneity, zero detection and all-projection extensionality. This supersedes prototype omissions for these adapters only. Homogeneous kernel/range/quotient gradings, scalar descent and finiteness over the smaller ring and degreewise length exactness remain required for general Hilbert–Serre; no eventual polynomial is assumed as its own existence premise. Support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and every routed-source obligation remain open; implementation statuses stay unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2948,6 +2948,20 @@
         "module": "Mathlib/Algebra/BigOperators/Finsupp/Basic.lean",
         "provides": "theorem sum_single [AddCommMonoid M] (f : α →₀ M) : f.sum single = f :=",
         "checked": "Exact statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-7e92bd on3October2026; declaration index verified. Imported generic theorem, not replanned."
+      },
+      {
+        "ref": "mathlib:LinearMap.map_eq_zero_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
+        "provides": "For an injective semilinear map f, f(x)=0 iff x=0.",
+        "checked": "Exact declaration and surrounding semilinear hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, lines335–346; declaration index checked. Imported, not replanned."
+      },
+      {
+        "ref": "mathlib:DirectSum.decompose_of_mem_same",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/DirectSum/Decomposition.lean",
+        "provides": "For an actual member x of the degree-i component, the ambient value of its native decomposition coordinate i equals x.",
+        "checked": "Exact statement, proof and ambient decomposition assumptions read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, lines105–145; declaration index checked. Applied to the original quotient homogeneous action; imported, not replanned."
       }
     ]
   },
@@ -4086,6 +4100,17 @@
         "Complete Section10.59, especially the associated-graded module in Proposition10.59.5."
       ],
       "derivation": "Arbitrary-ring module denominator, monomial kernel, homogeneous action and finite decomposition are authored deductions from native pinned APIs. The general Hilbert–Serre induction is not proved."
+    },
+    {
+      "id": "HS-MODULE-PROJECTIONS-00JV",
+      "title": "Noetherian graded rings: actual homogeneous pieces for Hilbert–Serre",
+      "authors": "The Stacks Project Authors",
+      "edition": "Current displayed Section10.58,3October2026",
+      "url": "https://stacks.math.columbia.edu/tag/00JV",
+      "sha256": "e0e348edf92286999b39c2d44acbdbf72e8b3fb7b645f63df93ceed79aeffd63",
+      "readSections": [
+        "Complete currently displayed Section10.58 statements/proofs through Lemma10.58.10 and displayed comments. Only homogeneous-component motivation for Hilbert–Serre is consumed. New arbitrary-ring native adapters are authored deductions; no polynomial-existence theorem is asserted, no recursive citation or full-paper reading claimed."
+      ]
     }
   ],
   "nodes": [
@@ -8912,6 +8937,21 @@
           "name": "TauCeti.HilbertSamuel.adicModuleDecompose",
           "role": "data",
           "statement": "The A-linear d_M uses the inverse existing finite expansion followed by the direct sum of range equivalences."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleRecompose_componentEquiv",
+          "role": "compatibility",
+          "statement": "Let L=gr_q(M), G_n=q^nM/q(q^nM), i_n:G_n→L and e_n:G_n≃L_n be the existing maps, where L_n is the actual image of i_n. For every finitely supported x∈⊕G_n, native recomposition c of the componentwise image equivalences satisfies c((⊕e_n)(x))=adicModuleExpansion(x)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleDecompose_leftInverse",
+          "role": "relation",
+          "statement": "For the actual A-linear d_M:L→⊕L_n and canonical recomposition c:⊕L_n→L, c∘d_M=id_L as A-linear maps."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleDecompose_rightInverse",
+          "role": "relation",
+          "statement": "For the same native maps, d_M∘c=id_(⊕L_n) as A-linear maps; the identity holds on every finitely supported component vector."
         }
       ],
       "tests": [
@@ -9048,7 +9088,8 @@
         "Identify the canonical recomposition with the existing module expansion composed with inverse range equivalences. Check on each lof using the previous homogeneous-decomposition identity and ambient range formula; finite linear extensionality and equivalence inverse laws give both inverse identities required by DirectSum.Decomposition.ofLinearMap.",
         "Import the separately registered native homogeneous scalar-action lemma. The existing quotient action, rather than a transported alternative, is the input to the native external graded action.",
         "Use GradedModule.isModule explicitly for the external direct sum. The native GradedModule.linearEquiv is S-linear, whereas d_M and the individual ambient projections are A-linear. Individual degree projections are generally not S-linear: positive-degree scalars shift degree.",
-        "Compose DirectSum.decomposeLinearEquiv with DFinsupp.lapply n and the subtype linear map. The homogeneous inclusion identity gives π_i^M(ι_j^M x)=ι_j^M x if i=j, else zero. The graded scalar law gives π_(i+j)^M(a·x)=a·x for homogeneous inputs."
+        "Compose DirectSum.decomposeLinearEquiv with DFinsupp.lapply n and the subtype linear map. The homogeneous inclusion identity gives π_i^M(ι_j^M x)=ι_j^M x if i=j, else zero. The graded scalar law gives π_(i+j)^M(a·x)=a·x for homogeneous inputs.",
+        "The native proof now uses separately named actual recomposition/decomposition inverse identities before installing the existing DirectSum.Decomposition.ofLinearMap instance; the inherited quotient action supplies the graded scalar instance."
       ],
       "acceptance": [
         "The degree-one class of 2 in gr_(2)(Z/4) survives, while its square vanishes in degree two.",
@@ -9067,7 +9108,10 @@
         "mathlib:DFinsupp.lapply",
         "mathlib:DirectSum.decompose_coe",
         "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-scalar-action",
-        "mathlib:DirectSum.linearMap_ext"
+        "mathlib:DirectSum.linearMap_ext",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-decompose-left-inverse",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-decompose-right-inverse",
+        "mathlib:DirectSum.decompose_of_mem_same"
       ],
       "sources": [
         {
@@ -9117,6 +9161,41 @@
           "name": "TauCeti.HilbertSamuel.adicModuleProjection_smul",
           "role": "relation",
           "statement": "For a∈S_i and x∈L_j, π_(i+j)^M(a·x)=a·x for the original quotient action."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleGrading_decompose",
+          "role": "compatibility",
+          "statement": "For every x∈L, DirectSum.decompose(L_n)(x)=d_M(x). This is the exact native registered decomposition, with its original coefficient coordinates."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleProjection_coefficient",
+          "role": "compatibility",
+          "statement": "For every n≥0 and x∈L, π_n^M(x)=i_n(c_n^M(x)), where c_n^M is the previously proved quotient coefficient map. This identifies the native ambient projection on every class, including mixed degrees."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleProjection_mem",
+          "role": "characterisation",
+          "statement": "For every n≥0 and x∈L, π_n^M(x) belongs to the actual submodule L_n=range(i_n)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleProjection_comp",
+          "role": "relation",
+          "statement": "For every i,j≥0 and x∈L, π_i^M(π_j^M(x))=π_j^M(x) if i=j, and is zero otherwise. Thus every projection is idempotent and distinct projections are orthogonal."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleProjection_eq_self_iff",
+          "role": "characterisation",
+          "statement": "For every n≥0 and x∈L, π_n^M(x)=x if and only if x∈L_n. This refers to the actual image submodule of the inherited quotient, not a predicate replacing its construction."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleProjection_eq_zero_iff",
+          "role": "characterisation",
+          "statement": "For every n≥0 and x∈L, π_n^M(x)=0 if and only if c_n^M(x)=0 in the native degree quotient G_n."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleProjection_ext",
+          "role": "extensionality",
+          "statement": "For x,y∈L, if π_n^M(x)=π_n^M(y) for every n≥0, then x=y. No finite-generation, local-ring or faithful-scalar-extension assumption is required."
         }
       ],
       "tests": [
@@ -9134,6 +9213,26 @@
           "name": "HilbertSamuelAdicGradingTest.module_residue_action_zero",
           "kind": "computation",
           "statement": "For Z/4,q=(2),M=A/q, every a∈S_1 acts as zero on all of L."
+        },
+        {
+          "name": "AdicModuleProjectionTests.nonfree_constant",
+          "kind": "non-example",
+          "statement": "For A=Z,q=0,M=Z/4, the actual constant class of1 is nonzero and its native degree-zero projection is itself. M need not be free over A."
+        },
+        {
+          "name": "AdicModuleProjectionTests.mixed_degrees",
+          "kind": "compatibility",
+          "statement": "For any A,q,M and degree quotient classes a∈G_0,b∈G_1, the actual class x=i_0(a)+i_1(b) has π_0(x)=i_0(a), π_1(x)=i_1(b) and π_2(x)=0."
+        },
+        {
+          "name": "AdicModuleProjectionTests.nonreduced_degree_one",
+          "kind": "computation",
+          "statement": "For A=M=Z/4 and q=(2), the actual degree-one monomial2 is nonzero, its degree-one projection is itself and its degree-zero projection is zero. The computation retains the nilpotent coefficient2."
+        },
+        {
+          "name": "AdicModuleProjectionTests.unit_ideal",
+          "kind": "degenerate",
+          "statement": "For any A-module M and q=A, every actual ambient projection of every quotient class is zero."
         }
       ],
       "uses": [
@@ -23906,6 +24005,454 @@
         "namespace": "TauCeti.HilbertSamuel"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-recompose-range-equivalences",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Recomposition of the actual adic module image components",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleRecompose_componentEquiv",
+      "statement": "Let L=gr_q(M), G_n=q^nM/q(q^nM), i_n:G_n→L and e_n:G_n≃L_n be the existing maps, where L_n is the actual image of i_n. For every finitely supported x∈⊕G_n, native recomposition c of the componentwise image equivalences satisfies c((⊕e_n)(x))=adicModuleExpansion(x).",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q is any ideal, and M is any A-module. Degrees are natural numbers. No locality, Noetherianity, domain, proper-ideal, finite-generation or freeness premise is added."
+      ],
+      "proofSteps": [
+        "Compare the two A-linear maps on each direct-sum inclusion by DirectSum.linearMap_ext.",
+        "The native component equivalence has ambient value i_n; recomposition of lof_n(e_n(a)) is i_n(a), exactly the previously proved expansion formula. Finite linear extensionality gives the full equality."
+      ],
+      "acceptance": [
+        "Use the actual inherited Rees quotient, coefficient maps and finite direct sum.",
+        "Retain the zero/unit-ideal, nonfree-module and nonreduced-coefficient branches."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-components",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-expansion-single",
+        "mathlib:DirectSum.linearMap_ext",
+        "mathlib:DirectSum.congrLinearEquiv",
+        "mathlib:DirectSum.lmap_lof",
+        "mathlib:DirectSum.coeLinearMap_lof"
+      ],
+      "uses": [
+        {
+          "where": "Stacks Section10.58, Proposition10.58.7; existing R03.3 Hilbert–Serre consumer",
+          "how": "Provide actual homogeneous module projections and equality tests before constructing degreewise kernel/range/quotient and smaller-ring induction. No polynomial-existence result is asserted."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-MODULE-PROJECTIONS-00JV",
+          "locator": "Section10.58, Proposition10.58.7, complete currently displayed proof; pinned native decomposition/graded-module APIs",
+          "match": "The source motivates actual homogeneous pieces. This arbitrary-ring native projection statement is an authored deduction from the exact inherited maps and pinned APIs, not a quoted source generalization."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-decompose-left-inverse",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Recomposition after adic module decomposition",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleDecompose_leftInverse",
+      "statement": "For the actual A-linear d_M:L→⊕L_n and canonical recomposition c:⊕L_n→L, c∘d_M=id_L as A-linear maps.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q is any ideal, and M is any A-module. Degrees are natural numbers. No locality, Noetherianity, domain, proper-ideal, finite-generation or freeness premise is added."
+      ],
+      "proofSteps": [
+        "Apply A-linear extensionality to x∈L and unfold d_M=(⊕e_n)∘adicModuleDirectSumEquiv.symm.",
+        "The recomposition comparison gives the old expansion of its actual inverse coordinate vector. The existing equivalence inverse law returns x."
+      ],
+      "acceptance": [
+        "Use the actual inherited Rees quotient, coefficient maps and finite direct sum.",
+        "Retain the zero/unit-ideal, nonfree-module and nonreduced-coefficient branches."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-components",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-recompose-range-equivalences",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-direct-sum"
+      ],
+      "uses": [
+        {
+          "where": "Stacks Section10.58, Proposition10.58.7; existing R03.3 Hilbert–Serre consumer",
+          "how": "Provide actual homogeneous module projections and equality tests before constructing degreewise kernel/range/quotient and smaller-ring induction. No polynomial-existence result is asserted."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-MODULE-PROJECTIONS-00JV",
+          "locator": "Section10.58, Proposition10.58.7, complete currently displayed proof; pinned native decomposition/graded-module APIs",
+          "match": "The source motivates actual homogeneous pieces. This arbitrary-ring native projection statement is an authored deduction from the exact inherited maps and pinned APIs, not a quoted source generalization."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-decompose-right-inverse",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Adic module decomposition after recomposition",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleDecompose_rightInverse",
+      "statement": "For the same native maps, d_M∘c=id_(⊕L_n) as A-linear maps; the identity holds on every finitely supported component vector.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q is any ideal, and M is any A-module. Degrees are natural numbers. No locality, Noetherianity, domain, proper-ideal, finite-generation or freeness premise is added."
+      ],
+      "proofSteps": [
+        "Write E=⊕e_n. The recomposition comparison applied to E.symm(x) identifies c(x) with expansion(E.symm(x)).",
+        "Substitute this in d_M(c(x)). The old expansion equivalence and E cancel with their actual inverses. No infinite product or alternate action is used."
+      ],
+      "acceptance": [
+        "Use the actual inherited Rees quotient, coefficient maps and finite direct sum.",
+        "Retain the zero/unit-ideal, nonfree-module and nonreduced-coefficient branches."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-components",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-recompose-range-equivalences",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-direct-sum"
+      ],
+      "uses": [
+        {
+          "where": "Stacks Section10.58, Proposition10.58.7; existing R03.3 Hilbert–Serre consumer",
+          "how": "Provide actual homogeneous module projections and equality tests before constructing degreewise kernel/range/quotient and smaller-ring induction. No polynomial-existence result is asserted."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-MODULE-PROJECTIONS-00JV",
+          "locator": "Section10.58, Proposition10.58.7, complete currently displayed proof; pinned native decomposition/graded-module APIs",
+          "match": "The source motivates actual homogeneous pieces. This arbitrary-ring native projection statement is an authored deduction from the exact inherited maps and pinned APIs, not a quoted source generalization."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-native-decompose-agreement",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Agreement with native adic module decomposition",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleGrading_decompose",
+      "statement": "For every x∈L, DirectSum.decompose(L_n)(x)=d_M(x). This is the exact native registered decomposition, with its original coefficient coordinates.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q is any ideal, and M is any A-module. Degrees are natural numbers. No locality, Noetherianity, domain, proper-ideal, finite-generation or freeness premise is added."
+      ],
+      "proofSteps": [
+        "Unfold the registered DirectSum.Decomposition.ofLinearMap instance. Its decomposition field is the existing d_M, so the equality is definitional."
+      ],
+      "acceptance": [
+        "Use the actual inherited Rees quotient, coefficient maps and finite direct sum.",
+        "Retain the zero/unit-ideal, nonfree-module and nonreduced-coefficient branches."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-grading-registration"
+      ],
+      "uses": [
+        {
+          "where": "Stacks Section10.58, Proposition10.58.7; existing R03.3 Hilbert–Serre consumer",
+          "how": "Provide actual homogeneous module projections and equality tests before constructing degreewise kernel/range/quotient and smaller-ring induction. No polynomial-existence result is asserted."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-MODULE-PROJECTIONS-00JV",
+          "locator": "Section10.58, Proposition10.58.7, complete currently displayed proof; pinned native decomposition/graded-module APIs",
+          "match": "The source motivates actual homogeneous pieces. This arbitrary-ring native projection statement is an authored deduction from the exact inherited maps and pinned APIs, not a quoted source generalization."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-projection-coefficient",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The native projection is the actual coefficient inclusion",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleProjection_coefficient",
+      "statement": "For every n≥0 and x∈L, π_n^M(x)=i_n(c_n^M(x)), where c_n^M is the previously proved quotient coefficient map. This identifies the native ambient projection on every class, including mixed degrees.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q is any ideal, and M is any A-module. Degrees are natural numbers. No locality, Noetherianity, domain, proper-ideal, finite-generation or freeness premise is added."
+      ],
+      "proofSteps": [
+        "Use native decomposition extensionality to compare the two A-linear maps on each image component L_j. Choose its actual degree quotient representative.",
+        "The existing inclusion projection law and the coefficient retraction/other-degree-zero laws give equality separately for n=j and n≠j."
+      ],
+      "acceptance": [
+        "Use the actual inherited Rees quotient, coefficient maps and finite direct sum.",
+        "Retain the zero/unit-ideal, nonfree-module and nonreduced-coefficient branches."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-grading-registration",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-coefficient",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-coefficient-inclusion",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-coefficient-inclusion-other",
+        "mathlib:DirectSum.decompose_lhom_ext"
+      ],
+      "uses": [
+        {
+          "where": "Stacks Section10.58, Proposition10.58.7; existing R03.3 Hilbert–Serre consumer",
+          "how": "Provide actual homogeneous module projections and equality tests before constructing degreewise kernel/range/quotient and smaller-ring induction. No polynomial-existence result is asserted."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-MODULE-PROJECTIONS-00JV",
+          "locator": "Section10.58, Proposition10.58.7, complete currently displayed proof; pinned native decomposition/graded-module APIs",
+          "match": "The source motivates actual homogeneous pieces. This arbitrary-ring native projection statement is an authored deduction from the exact inherited maps and pinned APIs, not a quoted source generalization."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-projection-image-membership",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Actual image membership of an adic module projection",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleProjection_mem",
+      "statement": "For every n≥0 and x∈L, π_n^M(x) belongs to the actual submodule L_n=range(i_n).",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q is any ideal, and M is any A-module. Degrees are natural numbers. No locality, Noetherianity, domain, proper-ideal, finite-generation or freeness premise is added."
+      ],
+      "proofSteps": [
+        "Replace the projection by i_n(c_n^M(x)); its coefficient class is an explicit witness to actual range membership."
+      ],
+      "acceptance": [
+        "Use the actual inherited Rees quotient, coefficient maps and finite direct sum.",
+        "Retain the zero/unit-ideal, nonfree-module and nonreduced-coefficient branches."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-projection-coefficient",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-components"
+      ],
+      "uses": [
+        {
+          "where": "Stacks Section10.58, Proposition10.58.7; existing R03.3 Hilbert–Serre consumer",
+          "how": "Provide actual homogeneous module projections and equality tests before constructing degreewise kernel/range/quotient and smaller-ring induction. No polynomial-existence result is asserted."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-MODULE-PROJECTIONS-00JV",
+          "locator": "Section10.58, Proposition10.58.7, complete currently displayed proof; pinned native decomposition/graded-module APIs",
+          "match": "The source motivates actual homogeneous pieces. This arbitrary-ring native projection statement is an authored deduction from the exact inherited maps and pinned APIs, not a quoted source generalization."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-projection-orthogonality",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Idempotence and orthogonality of adic module projections",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleProjection_comp",
+      "statement": "For every i,j≥0 and x∈L, π_i^M(π_j^M(x))=π_j^M(x) if i=j, and is zero otherwise. Thus every projection is idempotent and distinct projections are orthogonal.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q is any ideal, and M is any A-module. Degrees are natural numbers. No locality, Noetherianity, domain, proper-ideal, finite-generation or freeness premise is added."
+      ],
+      "proofSteps": [
+        "Express π_j(x) as the actual degree-j inclusion of its coefficient. Apply the original projection-on-inclusion law with the actual same quotient class."
+      ],
+      "acceptance": [
+        "Use the actual inherited Rees quotient, coefficient maps and finite direct sum.",
+        "Retain the zero/unit-ideal, nonfree-module and nonreduced-coefficient branches."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-projection-coefficient",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-grading-registration"
+      ],
+      "uses": [
+        {
+          "where": "Stacks Section10.58, Proposition10.58.7; existing R03.3 Hilbert–Serre consumer",
+          "how": "Provide actual homogeneous module projections and equality tests before constructing degreewise kernel/range/quotient and smaller-ring induction. No polynomial-existence result is asserted."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-MODULE-PROJECTIONS-00JV",
+          "locator": "Section10.58, Proposition10.58.7, complete currently displayed proof; pinned native decomposition/graded-module APIs",
+          "match": "The source motivates actual homogeneous pieces. This arbitrary-ring native projection statement is an authored deduction from the exact inherited maps and pinned APIs, not a quoted source generalization."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-projection-homogeneous-criterion",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Homogeneity detected by the actual projection",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleProjection_eq_self_iff",
+      "statement": "For every n≥0 and x∈L, π_n^M(x)=x if and only if x∈L_n. This refers to the actual image submodule of the inherited quotient, not a predicate replacing its construction.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q is any ideal, and M is any A-module. Degrees are natural numbers. No locality, Noetherianity, domain, proper-ideal, finite-generation or freeness premise is added."
+      ],
+      "proofSteps": [
+        "If π_n(x)=x, substitute in the proved projection image-membership statement.",
+        "If x∈L_n, choose its actual degree quotient representative and apply the original same-degree inclusion law."
+      ],
+      "acceptance": [
+        "Use the actual inherited Rees quotient, coefficient maps and finite direct sum.",
+        "Retain the zero/unit-ideal, nonfree-module and nonreduced-coefficient branches."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-projection-image-membership",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-grading-registration"
+      ],
+      "uses": [
+        {
+          "where": "Stacks Section10.58, Proposition10.58.7; existing R03.3 Hilbert–Serre consumer",
+          "how": "Provide actual homogeneous module projections and equality tests before constructing degreewise kernel/range/quotient and smaller-ring induction. No polynomial-existence result is asserted."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-MODULE-PROJECTIONS-00JV",
+          "locator": "Section10.58, Proposition10.58.7, complete currently displayed proof; pinned native decomposition/graded-module APIs",
+          "match": "The source motivates actual homogeneous pieces. This arbitrary-ring native projection statement is an authored deduction from the exact inherited maps and pinned APIs, not a quoted source generalization."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-projection-zero-criterion",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Zero projection detected by the quotient coefficient",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleProjection_eq_zero_iff",
+      "statement": "For every n≥0 and x∈L, π_n^M(x)=0 if and only if c_n^M(x)=0 in the native degree quotient G_n.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q is any ideal, and M is any A-module. Degrees are natural numbers. No locality, Noetherianity, domain, proper-ideal, finite-generation or freeness premise is added."
+      ],
+      "proofSteps": [
+        "Use the projection coefficient formula. Injectivity of the existing degree inclusion and the pinned injective linear-map zero criterion give the equivalence."
+      ],
+      "acceptance": [
+        "Use the actual inherited Rees quotient, coefficient maps and finite direct sum.",
+        "Retain the zero/unit-ideal, nonfree-module and nonreduced-coefficient branches."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-projection-coefficient",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-piece-inclusion",
+        "mathlib:LinearMap.map_eq_zero_iff"
+      ],
+      "uses": [
+        {
+          "where": "Stacks Section10.58, Proposition10.58.7; existing R03.3 Hilbert–Serre consumer",
+          "how": "Provide actual homogeneous module projections and equality tests before constructing degreewise kernel/range/quotient and smaller-ring induction. No polynomial-existence result is asserted."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-MODULE-PROJECTIONS-00JV",
+          "locator": "Section10.58, Proposition10.58.7, complete currently displayed proof; pinned native decomposition/graded-module APIs",
+          "match": "The source motivates actual homogeneous pieces. This arbitrary-ring native projection statement is an authored deduction from the exact inherited maps and pinned APIs, not a quoted source generalization."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-projection-extensionality",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Equality detected by all native adic module projections",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleProjection_ext",
+      "statement": "For x,y∈L, if π_n^M(x)=π_n^M(y) for every n≥0, then x=y. No finite-generation, local-ring or faithful-scalar-extension assumption is required.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q is any ideal, and M is any A-module. Degrees are natural numbers. No locality, Noetherianity, domain, proper-ideal, finite-generation or freeness premise is added."
+      ],
+      "proofSteps": [
+        "The actual coefficient inclusions are injective, so all projection equalities give all quotient coefficient equalities.",
+        "The previously proved inverse-expansion coordinate formula identifies these with all coordinates of the two actual finite direct-sum inverse images. DFinsupp.ext and injectivity of the inverse equivalence give x=y."
+      ],
+      "acceptance": [
+        "Use the actual inherited Rees quotient, coefficient maps and finite direct sum.",
+        "Retain the zero/unit-ideal, nonfree-module and nonreduced-coefficient branches."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-projection-coefficient",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-piece-inclusion",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-direct-sum-inverse-coordinate",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-direct-sum",
+        "mathlib:DFinsupp.ext"
+      ],
+      "uses": [
+        {
+          "where": "Stacks Section10.58, Proposition10.58.7; existing R03.3 Hilbert–Serre consumer",
+          "how": "Provide actual homogeneous module projections and equality tests before constructing degreewise kernel/range/quotient and smaller-ring induction. No polynomial-existence result is asserted."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-MODULE-PROJECTIONS-00JV",
+          "locator": "Section10.58, Proposition10.58.7, complete currently displayed proof; pinned native decomposition/graded-module APIs",
+          "match": "The source motivates actual homogeneous pieces. This arbitrary-ring native projection statement is an authored deduction from the exact inherited maps and pinned APIs, not a quoted source generalization."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
     }
   ],
   "baselineCoverage": [
@@ -24048,7 +24595,8 @@
         "This native proof checkpoint establishes the old finite expansion, direct-sum equivalence, ring homogeneous decomposition, GradedAlgebra registration and projection laws on the ordinary Rees quotient, with no admitted native proof. The canonical suggested file remains an unchecked signature plan. Actual graded modules, their decompositions and actions, finite generation, general Hilbert–Serre, support/degree comparison, associativity of multiplicity and the full reserved Hilbert–Samuel target remain open; retain every older remaining item and gap.",
         "The old ordinary degree-one generation theorem now has an admission-free native proof using the pinned Rees generation theorem and actual quotient. The new degree-one linear map detects q² exactly and respects coefficient change. Every chosen ideal-generating family gives a surjective native polynomial algebra map; a finite family, or q.FG, implies finite type over A/q. Algebra maps from the quotient are determined on these degree-one classes. Still prove the actual graded-module decomposition/action and finite generation, then native homogeneous kernel/quotient gradings and the general Hilbert–Serre induction. Finite type of this ring does not establish finite generation of the graded module, its eventual polynomial, support-degree, intrinsic/ambient multiplicity, tangent-cone kernel, completion or any remaining routed-paper target.",
         "The actual native module monomial map, quotient scalar compatibility, degree-zero generation and finite generation now have admission-free native proof prototypes. The proof works over every commutative ring for arbitrary q; finite graded generation requires only Module.Finite A M, without q.FG or Noetherianity. Chosen module-generating families give explicit actual degree-zero generating families before and after the semilinear quotient. The unit ideal kills graded constants while Rees constants remain injective; the ℤ/4 input is explicitly nonfree over ℤ, and its zero-ideal graded constants satisfy the native four-torsion identity. Still prove the module denominator coefficient comparison, monomial kernel, homogeneous actions and full decomposition; then native homogeneous kernel/range/quotient gradings, smaller-ring finite generation, length exactness and general Hilbert–Serre. Every inherited support-degree, intrinsic/ambient multiplicity, completion, associativity, stage and routed-paper obligation remains open. Canonical proof bodies and all node/stage statuses stay unchecked/partial.",
-        "The actual module denominator coefficient criterion, monomial kernel, piece inclusions, homogeneous action and full finite direct-sum comparison now have admission-free native proof prototypes at the pin, on their exact existing contracts. Actual coefficient maps recover every inverse comparison coordinate. No locality, Noetherianity, finite generation or freeness premise is added. This supersedes historical prototype omissions for these precise adapters only. Next prove the existing native image-component grading and module projection compatibility, then homogeneous kernel/range/quotient gradings, scalar descent to the smaller ring, smaller-ring finite generation and degreewise length exactness for general Hilbert–Serre. General support-degree, intrinsic/ambient multiplicity, completion, associativity, every stage and routed-paper obligation remain open; all canonical bodies and implementation statuses remain admitted/unchecked."
+        "The actual module denominator coefficient criterion, monomial kernel, piece inclusions, homogeneous action and full finite direct-sum comparison now have admission-free native proof prototypes at the pin, on their exact existing contracts. Actual coefficient maps recover every inverse comparison coordinate. No locality, Noetherianity, finite generation or freeness premise is added. This supersedes historical prototype omissions for these precise adapters only. Next prove the existing native image-component grading and module projection compatibility, then homogeneous kernel/range/quotient gradings, scalar descent to the smaller ring, smaller-ring finite generation and degreewise length exactness for general Hilbert–Serre. General support-degree, intrinsic/ambient multiplicity, completion, associativity, every stage and routed-paper obligation remain open; all canonical bodies and implementation statuses remain admitted/unchecked.",
+        "The existing native adic module image grading, scalar action, direct-sum comparison and projections now have admission-free proof prototypes on their exact inherited signatures. Ten new lemmas give actual inverse identities, native decomposition agreement, coefficient projection, membership, orthogonality, homogeneity, zero detection and all-projection extensionality. This supersedes prototype omissions for these adapters only. Homogeneous kernel/range/quotient gradings, scalar descent and finiteness over the smaller ring and degreewise length exactness remain required for general Hilbert–Serre; no eventual polynomial is assumed as its own existence premise. Support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and every routed-source obligation remain open; implementation statuses stay unchecked."
       ]
     },
     {

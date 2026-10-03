@@ -5280,3 +5280,94 @@ example (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M]
 
 end
 end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+noncomputable section
+open scoped DirectSum
+variable {A : Type*} [CommRing A]
+variable (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M]
+
+lemma adicModuleRecompose_componentEquiv (x : ⨁ n : ℕ, adicModulePiece q M n) :
+    DirectSum.coeLinearMap (adicModuleComponents q M)
+      (DirectSum.congrLinearEquiv (adicModuleComponentEquiv q M) x) =
+        adicModuleExpansion q M x := by
+  sorry
+
+lemma adicModuleDecompose_leftInverse :
+    (DirectSum.coeLinearMap (adicModuleComponents q M)).comp (adicModuleDecompose q M) =
+      LinearMap.id := by
+  sorry
+
+lemma adicModuleDecompose_rightInverse :
+    (adicModuleDecompose q M).comp (DirectSum.coeLinearMap (adicModuleComponents q M)) =
+      LinearMap.id := by
+  sorry
+
+lemma adicModuleGrading_decompose (x : adicGradedModule q M) :
+    DirectSum.decompose (adicModuleComponents q M) x = adicModuleDecompose q M x := by
+  sorry
+
+lemma adicModuleProjection_coefficient (n : ℕ) (x : adicGradedModule q M) :
+    adicModuleProjection q M n x = adicModulePieceInclusion q M n (adicModuleCoefficient q M n x) := by
+  sorry
+
+lemma adicModuleProjection_mem (n : ℕ) (x : adicGradedModule q M) :
+    adicModuleProjection q M n x ∈ adicModuleComponents q M n := by
+  sorry
+
+lemma adicModuleProjection_comp (i j : ℕ) (x : adicGradedModule q M) :
+    adicModuleProjection q M i (adicModuleProjection q M j x) =
+      if i = j then adicModuleProjection q M j x else 0 := by
+  sorry
+
+lemma adicModuleProjection_eq_self_iff (n : ℕ) (x : adicGradedModule q M) :
+    adicModuleProjection q M n x = x ↔ x ∈ adicModuleComponents q M n := by
+  sorry
+
+lemma adicModuleProjection_eq_zero_iff (n : ℕ) (x : adicGradedModule q M) :
+    adicModuleProjection q M n x = 0 ↔ adicModuleCoefficient q M n x = 0 := by
+  sorry
+
+lemma adicModuleProjection_ext (x y : adicGradedModule q M)
+    (h : ∀ n, adicModuleProjection q M n x = adicModuleProjection q M n y) : x = y := by
+  sorry
+
+end
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+noncomputable section
+set_option backward.isDefEq.respectTransparency.types false
+set_option backward.isDefEq.respectTransparency false
+open scoped DirectSum
+variable {A : Type*} [CommRing A]
+
+-- test: AdicModuleProjectionTests.nonfree_constant
+example : let x := adicGradedConstant (⊥ : Ideal ℤ) (ZMod 4) 1
+    adicModuleProjection (⊥ : Ideal ℤ) (ZMod 4) 0 x = x ∧ x ≠ 0 := by
+  sorry
+
+-- test: AdicModuleProjectionTests.mixed_degrees
+example (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M]
+    (a : adicModulePiece q M 0) (b : adicModulePiece q M 1) :
+    let x := adicModulePieceInclusion q M 0 a + adicModulePieceInclusion q M 1 b
+    adicModuleProjection q M 0 x = adicModulePieceInclusion q M 0 a ∧
+    adicModuleProjection q M 1 x = adicModulePieceInclusion q M 1 b ∧
+    adicModuleProjection q M 2 x = 0 := by
+  sorry
+
+-- test: AdicModuleProjectionTests.nonreduced_degree_one
+example : let q : Ideal (ZMod 4) := Ideal.span {(2 : ZMod 4)}
+    ∃ x : adicGradedModule q (ZMod 4),
+      adicModuleProjection q (ZMod 4) 1 x = x ∧ x ≠ 0 ∧
+      adicModuleProjection q (ZMod 4) 0 x = 0 := by
+  sorry
+
+-- test: AdicModuleProjectionTests.unit_ideal
+example (M : Type*) [AddCommGroup M] [Module A M] (n : ℕ)
+    (x : adicGradedModule (⊤ : Ideal A) M) :
+    adicModuleProjection (⊤ : Ideal A) M n x = 0 := by
+  sorry
+
+end
+end TauCeti.HilbertSamuel
