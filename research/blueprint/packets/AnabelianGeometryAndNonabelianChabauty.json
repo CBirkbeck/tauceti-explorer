@@ -12,7 +12,7 @@
     "AnabelianGeometryAndNonabelianChabauty:NC.6"
   ],
   "status": "partial",
-  "summary": "Partial NC.0/NC.3 continuation: retain the reserved étale K(π,1) interface and all inherited source inventories; add the actual invariant-coset projection, connecting map, initial invariant-group exactness and quotient-level boundary fibres. No stage is closed or implementation claimed. The NC.0 continuation adds the direct finite-étale cohomological criterion, transfer to every finite cover, componentwise finite-étale invariance and two-cover coefficient dévissage with a separate constant-prime-field criterion. These extend the retained constant-coefficient criterion to prime-supported finite coefficients on connected noetherian schemes; the raw-homotopy equivalence retains its separate narrower scope. All stages and supplier proof leaves remain open. The characteristic-zero smooth-curve proof is now split into connected prime-degree covers, degree-two prime and prime-power killing, the geometric all-cover criterion, geometric killing-cover descent and separable-closure invariance. The curve theorem uses this cohomological route rather than raw homotopy. Generic curve, Picard/Kummer and limit interfaces are supplier requests, not completed foundations. The characteristic-zero product theorem retains its public statement and reserved owner, with three explicit finitary proof assemblies for finite positive-degree families, arbitrary product-cover classes and binary geometric closure. This discrete-descent checkpoint integrates the native one-fibre subgroup, compact normal-open killing, normal-coset/invariant-value and same-stage gauge-witness lemmas, plus simultaneous killing of finite varying-coefficient families. Quotient construction, pointed-set inflation/neutral-fibre exactness, colimits and the geometric degree-one dictionary remain open. This continuation completes actual normal-quotient cocycle descent/inflation and their inverse identities, using the already implemented native quotient action on U^N. The general cocycle-level equivalence and exact fixed gauge witnesses need neither compactness nor discreteness. The actual nonabelian H¹ map/injectivity/neutral fibre, finite-quotient transitions/colimits and canonical comparison to TauCeti's additive descent remain unfinished. This continuation adds actual nonabelian H¹ inflation and same-normal-subgroup injectivity, with explicit quotient-action continuity and no stage closure. This checkpoint adds actual restriction, inverse-gauge normalization and nonabelian inflation image=neutral restriction fibre with a unique same-N source class; no stage closure is asserted. Joint continuity of the native fixed-subgroup quotient action is specified for separately continuous multiplication on G. Inflation is packaged as a pointed equivalence with the neutral restriction fibre, without a separate quotient-action continuity input. All 85 previous node objects are preserved, and no stage is closed. The reverse-inclusion nonabelian transition diagram and its inflation-induced compact/discrete colimit are specified on actual native carriers; arithmetic and geometric stages remain partial.",
+  "summary": "Partial 112-node checkpoint: eleven declaration-sized leaves supply actual equivariant coefficient maps on continuous cocycles, invariant subgroups and nonabelian H¹, gauge compatibility and identity/composition laws. All 101 inherited mathematical contracts, reserved étale K(π,1) ownership, route/source inventories, eleven planets, nine gaps and sixteen requests remain. All seven stages stay partial and implementation statuses unchecked; additive conversion, source-group restriction generality, representability/local conditions and geometric obligations remain open.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -828,6 +828,55 @@
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/Colimit.lean",
         "provides": "Existing additive degree-one colimit for compact totally disconnected G and discrete abelian coefficients. Its canonical comparison with the nonabelian carrier remains a separate gap.",
         "checked": "Statement and surrounding hypotheses read at the exact recorded pin; generated duals were also exercised in the actual Lean proof."
+      },
+      {
+        "ref": "mathlib:MonoidHom.comp",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Hom/Defs.lean",
+        "provides": "Existing native coefficient homomorphism identity/composition/evaluation or preservation of multiplication, inverse and one, consumed by the nonabelian coefficient-map laws/tests.",
+        "checked": "Complete actual statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Algebra/Group/Hom/Defs.lean:779, 2026-10-02 by Codex codex-J6LwjP. Exact indexed name verified."
+      },
+      {
+        "ref": "mathlib:MonoidHom.id",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Hom/Defs.lean",
+        "provides": "Existing native coefficient homomorphism identity/composition/evaluation or preservation of multiplication, inverse and one, consumed by the nonabelian coefficient-map laws/tests.",
+        "checked": "Complete actual statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Algebra/Group/Hom/Defs.lean:750, 2026-10-02 by Codex codex-J6LwjP. Exact indexed name verified."
+      },
+      {
+        "ref": "mathlib:MonoidHom.comp_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Hom/Defs.lean",
+        "provides": "Existing native coefficient homomorphism identity/composition/evaluation or preservation of multiplication, inverse and one, consumed by the nonabelian coefficient-map laws/tests.",
+        "checked": "Complete actual statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Algebra/Group/Hom/Defs.lean:806, 2026-10-02 by Codex codex-J6LwjP. Exact indexed name verified."
+      },
+      {
+        "ref": "mathlib:MonoidHom.one_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Hom/Defs.lean",
+        "provides": "Existing native coefficient homomorphism identity/composition/evaluation or preservation of multiplication, inverse and one, consumed by the nonabelian coefficient-map laws/tests.",
+        "checked": "Complete actual statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Algebra/Group/Hom/Defs.lean:1026, 2026-10-02 by Codex codex-J6LwjP. Exact indexed name verified."
+      },
+      {
+        "ref": "mathlib:map_mul",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Hom/Defs.lean",
+        "provides": "Existing native coefficient homomorphism identity/composition/evaluation or preservation of multiplication, inverse and one, consumed by the nonabelian coefficient-map laws/tests.",
+        "checked": "Complete actual statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Algebra/Group/Hom/Defs.lean:326, 2026-10-02 by Codex codex-J6LwjP. Exact indexed name verified."
+      },
+      {
+        "ref": "mathlib:map_inv",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Hom/Defs.lean",
+        "provides": "Existing native coefficient homomorphism identity/composition/evaluation or preservation of multiplication, inverse and one, consumed by the nonabelian coefficient-map laws/tests.",
+        "checked": "Complete actual statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Algebra/Group/Hom/Defs.lean:440, 2026-10-02 by Codex codex-J6LwjP. Exact indexed name verified."
+      },
+      {
+        "ref": "mathlib:map_one",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Hom/Defs.lean",
+        "provides": "Existing native coefficient homomorphism identity/composition/evaluation or preservation of multiplication, inverse and one, consumed by the nonabelian coefficient-map laws/tests.",
+        "checked": "Complete actual statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Algebra/Group/Hom/Defs.lean:234, 2026-10-02 by Codex codex-J6LwjP. Exact indexed name verified."
       }
     ]
   },
@@ -1312,6 +1361,7 @@
         "G is a topological group and U a topological group with an action of G by group automorphisms (MulDistribMulAction G U) such that the action map G × U → U is continuous (ContinuousSMul G U). In (a) U′ satisfies the same hypotheses and f is continuous with f(g•u) = g•f(u); in (b) φ is continuous and G′ acts on U by g′•u = φ(g′)•u."
       ],
       "proofSteps": [
+        "The new declaration-sized coefficient-map leaves supply part (a) on the actual cocycles, invariant groups and H¹ orbit sets, with gauge, identity and composition laws. Part (b) for arbitrary source homomorphisms and the separately stated geometric/additive comparisons are not certified by these leaves.",
         "(a) f ∘ c is continuous and f(c(gh)) = f(c(g))·f(g•c(h)) = f(c(g))·g•f(c(h)); f(u·c) = f(u)·(f∘c) because f(u c(g) (g•u)⁻¹) = f(u) f(c(g)) (g•f(u))⁻¹. So the map descends to orbits and sends the trivial cocycle to the trivial cocycle.",
         "(b) c ∘ φ is continuous and (c∘φ)(g′h′) = c(φg′)·φ(g′)•c(φh′); the U-actions correspond, so the map descends.",
         "Identities and composition hold on cocycles, hence on classes."
@@ -1321,7 +1371,11 @@
       ],
       "prerequisites": [
         "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1",
-        "mathlib:ContinuousMonoidHom"
+        "mathlib:ContinuousMonoidHom",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-map",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-invariant-map",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-composition"
       ],
       "sources": [
         {
@@ -6936,6 +6990,623 @@
           "how": "Provides the named map or universal property used by the following declarations. This discrete-coefficient comparison does not supply representability or local Selmer conditions."
         }
       ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-map",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Coefficient map on continuous cocycles",
+      "kind": "construction",
+      "statement": "For a continuous G-equivariant homomorphism f:U→U′, construct the actual cocycle map c↦f∘c on the inherited continuous cocycle subtypes. Its exact evaluation, neutral cocycle and gauge formulas determine the induced pointed-set map.",
+      "hypotheses": [
+        "G is a group with a topology; coefficient groups U,U′,U″ have topologies and G-actions by automorphisms. For H¹ and gauge compatibility, each coefficient group is a topological group and the action is jointly continuous. Coefficient homomorphisms are continuous and G-equivariant. No compactness, discreteness, commutativity, finiteness, or topology of a unipotent algebraic group is assumed.",
+        "The H⁰ maps require only group structures and equivariant homomorphisms; no topology or continuity hypothesis enters them."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles",
+        "mathlib:Continuous.comp",
+        "mathlib:map_mul"
+      ],
+      "proofSteps": [
+        "Continuity is composition. Apply f to the ordered cocycle identity and use its multiplication law and equivariance.",
+        "The actual map is evaluated at every g; it is not an arbitrary choice of a cocycle with the same class."
+      ],
+      "acceptance": [
+        "Use the actual inherited continuous cocycles, native fixed subgroups and gauge-orbit quotient.",
+        "These are coefficient maps only. The arbitrary source-group restriction, additive conversion, finite-quotient additive compatibility, representability, local conditions and geometric source/supplier obligations remain separate."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, continuous cocycles and gauge orbits, printed pp.5–6; coefficient-functor paragraph after Proposition1, printed p.7",
+          "excerpt": "defining a functor on K-algebras",
+          "match": "The general maps for continuous equivariant coefficient homomorphisms and their explicit laws are authored deductions from the displayed cocycle/gauge definitions. No representability or geometric torsor-comparison theorem is claimed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.map"
+      },
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.map",
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.map",
+          "role": "constructor",
+          "statement": "For a continuous G-equivariant homomorphism f:U→U′, construct the actual cocycle map c↦f∘c on the inherited continuous cocycle subtypes. Its exact evaluation, neutral cocycle and gauge formulas determine the induced pointed-set map."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.map_apply",
+          "role": "simp",
+          "statement": "The exact cocycle-map value at g is f(c(g))."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.map_trivial",
+          "role": "simp",
+          "statement": "The trivial cocycle maps to the trivial cocycle."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.map_smul",
+          "role": "compatibility",
+          "statement": "For every x∈U and cocycle c, mapping the gauge transform x·c equals the gauge transform f(x)·(f∘c)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.map_id",
+          "role": "functoriality",
+          "statement": "The actual coefficient cocycle map induced by id_U is the identity function."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.map_comp",
+          "role": "functoriality",
+          "statement": "The actual cocycle map induced by f′∘f equals the composite of the cocycle maps induced by f and f′, in that order."
+        }
+      ],
+      "tests": [
+        {
+          "name": "coefficientCocyclesTests.identity",
+          "kind": "compatibility",
+          "statement": "The identity coefficient homomorphism fixes every actual continuous cocycle."
+        },
+        {
+          "name": "coefficientCocyclesTests.constant",
+          "kind": "degenerate",
+          "statement": "The coefficient homomorphism with constant value one takes every cocycle to the trivial cocycle."
+        },
+        {
+          "name": "coefficientCocyclesTests.value",
+          "kind": "characterisation",
+          "statement": "For every f,c,g the actual cocycle-map value is exactly f(c(g))."
+        },
+        {
+          "name": "coefficientCocyclesTests.transposition",
+          "kind": "computation",
+          "statement": "For the actual S₂→S₃ transposition cocycle with trivial action, the identity coefficient map sends the source transposition to the same target transposition."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/functoriality",
+          "how": "Supply the declaration-sized coefficient part of the inherited bundled functoriality contract."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map",
+          "how": "Gauge compatibility descends this exact map to cohomology classes."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-gauge",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Gauge compatibility of coefficient cocycle maps",
+      "kind": "lemma",
+      "statement": "For every x∈U and cocycle c, mapping the gauge transform x·c equals the gauge transform f(x)·(f∘c).",
+      "hypotheses": [
+        "G is a group with a topology; coefficient groups U,U′,U″ have topologies and G-actions by automorphisms. For H¹ and gauge compatibility, each coefficient group is a topological group and the action is jointly continuous. Coefficient homomorphisms are continuous and G-equivariant. No compactness, discreteness, commutativity, finiteness, or topology of a unipotent algebraic group is assumed.",
+        "The H⁰ maps require only group structures and equivariant homomorphisms; no topology or continuity hypothesis enters them."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-map",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1",
+        "mathlib:map_inv"
+      ],
+      "proofSteps": [
+        "Apply cocycle extensionality, keeping factor order, and expand f(x c(g) (g·x)⁻¹).",
+        "Use homomorphism multiplication/inverse preservation and G-equivariance."
+      ],
+      "acceptance": [
+        "Use the actual inherited continuous cocycles, native fixed subgroups and gauge-orbit quotient.",
+        "These are coefficient maps only. The arbitrary source-group restriction, additive conversion, finite-quotient additive compatibility, representability, local conditions and geometric source/supplier obligations remain separate."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, continuous cocycles and gauge orbits, printed pp.5–6; coefficient-functor paragraph after Proposition1, printed p.7",
+          "excerpt": "defining a functor on K-algebras",
+          "match": "The general maps for continuous equivariant coefficient homomorphisms and their explicit laws are authored deductions from the displayed cocycle/gauge definitions. No representability or geometric torsor-comparison theorem is claimed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.map_smul"
+      },
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.map_smul",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-identity",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Identity coefficient map on cocycles",
+      "kind": "lemma",
+      "statement": "The actual coefficient cocycle map induced by id_U is the identity function.",
+      "hypotheses": [
+        "G is a group with a topology; coefficient groups U,U′,U″ have topologies and G-actions by automorphisms. For H¹ and gauge compatibility, each coefficient group is a topological group and the action is jointly continuous. Coefficient homomorphisms are continuous and G-equivariant. No compactness, discreteness, commutativity, finiteness, or topology of a unipotent algebraic group is assumed.",
+        "The H⁰ maps require only group structures and equivariant homomorphisms; no topology or continuity hypothesis enters them."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-map",
+        "mathlib:MonoidHom.id"
+      ],
+      "proofSteps": [
+        "The underlying pointwise function is the identity; the subtype proofs are propositionally irrelevant."
+      ],
+      "acceptance": [
+        "Use the actual inherited continuous cocycles, native fixed subgroups and gauge-orbit quotient.",
+        "These are coefficient maps only. The arbitrary source-group restriction, additive conversion, finite-quotient additive compatibility, representability, local conditions and geometric source/supplier obligations remain separate."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, continuous cocycles and gauge orbits, printed pp.5–6; coefficient-functor paragraph after Proposition1, printed p.7",
+          "excerpt": "defining a functor on K-algebras",
+          "match": "The general maps for continuous equivariant coefficient homomorphisms and their explicit laws are authored deductions from the displayed cocycle/gauge definitions. No representability or geometric torsor-comparison theorem is claimed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.map_id"
+      },
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.map_id",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-composition",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Composition of coefficient cocycle maps",
+      "kind": "lemma",
+      "statement": "The actual cocycle map induced by f′∘f equals the composite of the cocycle maps induced by f and f′, in that order.",
+      "hypotheses": [
+        "G is a group with a topology; coefficient groups U,U′,U″ have topologies and G-actions by automorphisms. For H¹ and gauge compatibility, each coefficient group is a topological group and the action is jointly continuous. Coefficient homomorphisms are continuous and G-equivariant. No compactness, discreteness, commutativity, finiteness, or topology of a unipotent algebraic group is assumed.",
+        "The H⁰ maps require only group structures and equivariant homomorphisms; no topology or continuity hypothesis enters them."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-map",
+        "mathlib:MonoidHom.comp",
+        "mathlib:MonoidHom.comp_apply"
+      ],
+      "proofSteps": [
+        "Both sides evaluate exactly as f′(f(c(g))). Composition supplies continuity and equivariance of the composite."
+      ],
+      "acceptance": [
+        "Use the actual inherited continuous cocycles, native fixed subgroups and gauge-orbit quotient.",
+        "These are coefficient maps only. The arbitrary source-group restriction, additive conversion, finite-quotient additive compatibility, representability, local conditions and geometric source/supplier obligations remain separate."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, continuous cocycles and gauge orbits, printed pp.5–6; coefficient-functor paragraph after Proposition1, printed p.7",
+          "excerpt": "defining a functor on K-algebras",
+          "match": "The general maps for continuous equivariant coefficient homomorphisms and their explicit laws are authored deductions from the displayed cocycle/gauge definitions. No representability or geometric torsor-comparison theorem is claimed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.map_comp"
+      },
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.map_comp",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Coefficient map on nonabelian cohomology",
+      "kind": "construction",
+      "statement": "The continuous equivariant coefficient homomorphism f induces the actual map on gauge-orbit H¹, taking [c] to [f∘c]. It preserves the distinguished class and obeys identity and composition; H¹ remains a pointed set. No injectivity is asserted for arbitrary f.",
+      "hypotheses": [
+        "G is a group with a topology; coefficient groups U,U′,U″ have topologies and G-actions by automorphisms. For H¹ and gauge compatibility, each coefficient group is a topological group and the action is jointly continuous. Coefficient homomorphisms are continuous and G-equivariant. No compactness, discreteness, commutativity, finiteness, or topology of a unipotent algebraic group is assumed.",
+        "The H⁰ maps require only group structures and equivariant homomorphisms; no topology or continuity hypothesis enters them."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-gauge",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-orbit-criterion"
+      ],
+      "proofSteps": [
+        "Lift the actual cocycle-map class through the native orbit quotient.",
+        "If the source relation relates representatives via x, gauge compatibility relates their images via f(x), with inversion where the orbit-relation orientation requires it.",
+        "Compute on representatives; surjectivity of the actual class map proves the stated identity/composition laws."
+      ],
+      "acceptance": [
+        "Use the actual inherited continuous cocycles, native fixed subgroups and gauge-orbit quotient.",
+        "These are coefficient maps only. The arbitrary source-group restriction, additive conversion, finite-quotient additive compatibility, representability, local conditions and geometric source/supplier obligations remain separate."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, continuous cocycles and gauge orbits, printed pp.5–6; coefficient-functor paragraph after Proposition1, printed p.7",
+          "excerpt": "defining a functor on K-algebras",
+          "match": "The general maps for continuous equivariant coefficient homomorphisms and their explicit laws are authored deductions from the displayed cocycle/gauge definitions. No representability or geometric torsor-comparison theorem is claimed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.map"
+      },
+      "declarationName": "TauCeti.NonabelianCohomology.H1.map",
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.map",
+          "role": "constructor",
+          "statement": "The continuous equivariant coefficient homomorphism f induces the actual map on gauge-orbit H¹, taking [c] to [f∘c]. It preserves the distinguished class and obeys identity and composition; H¹ remains a pointed set. No injectivity is asserted for arbitrary f."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.map_mk",
+          "role": "simp",
+          "statement": "The actual map takes the class of c to the class of the actual cocycle f∘c."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.map_one",
+          "role": "simp",
+          "statement": "The actual H¹ coefficient map sends the neutral class to the neutral class."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.map_id",
+          "role": "functoriality",
+          "statement": "The H¹ map induced by id_U is the identity of the actual pointed set."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.map_comp",
+          "role": "functoriality",
+          "statement": "The actual pointed-set map on H¹ induced by f′∘f equals H¹(f′)∘H¹(f)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "coefficientClassesTests.identity",
+          "kind": "compatibility",
+          "statement": "The identity coefficient map fixes every actual H¹ class."
+        },
+        {
+          "name": "coefficientClassesTests.gauge",
+          "kind": "characterisation",
+          "statement": "A gauge-transformed representative maps to the class of f∘c, independently of the gauge witness."
+        },
+        {
+          "name": "coefficientClassesTests.one",
+          "kind": "degenerate",
+          "statement": "Every actual coefficient map takes the neutral class to the neutral class."
+        },
+        {
+          "name": "coefficientClassesTests.noninjective",
+          "kind": "non-example",
+          "statement": "The actual S₂→S₃ transposition class is nonneutral but maps to the neutral class under the constant-one coefficient homomorphism. Arbitrary coefficient maps are not injective."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/functoriality",
+          "how": "Supply the declaration-sized coefficient part of the inherited bundled functoriality contract."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-one",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Neutral class under coefficient maps",
+      "kind": "lemma",
+      "statement": "The actual H¹ coefficient map sends the neutral class to the neutral class.",
+      "hypotheses": [
+        "G is a group with a topology; coefficient groups U,U′,U″ have topologies and G-actions by automorphisms. For H¹ and gauge compatibility, each coefficient group is a topological group and the action is jointly continuous. Coefficient homomorphisms are continuous and G-equivariant. No compactness, discreteness, commutativity, finiteness, or topology of a unipotent algebraic group is assumed.",
+        "The H⁰ maps require only group structures and equivariant homomorphisms; no topology or continuity hypothesis enters them."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map",
+        "mathlib:map_one"
+      ],
+      "proofSteps": [
+        "The actual cocycle map sends the constant-one cocycle to itself, because f(1)=1. Take its class."
+      ],
+      "acceptance": [
+        "Use the actual inherited continuous cocycles, native fixed subgroups and gauge-orbit quotient.",
+        "These are coefficient maps only. The arbitrary source-group restriction, additive conversion, finite-quotient additive compatibility, representability, local conditions and geometric source/supplier obligations remain separate."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, continuous cocycles and gauge orbits, printed pp.5–6; coefficient-functor paragraph after Proposition1, printed p.7",
+          "excerpt": "defining a functor on K-algebras",
+          "match": "The general maps for continuous equivariant coefficient homomorphisms and their explicit laws are authored deductions from the displayed cocycle/gauge definitions. No representability or geometric torsor-comparison theorem is claimed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.map_one"
+      },
+      "declarationName": "TauCeti.NonabelianCohomology.H1.map_one",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-identity",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Identity coefficient map on cohomology",
+      "kind": "lemma",
+      "statement": "The H¹ map induced by id_U is the identity of the actual pointed set.",
+      "hypotheses": [
+        "G is a group with a topology; coefficient groups U,U′,U″ have topologies and G-actions by automorphisms. For H¹ and gauge compatibility, each coefficient group is a topological group and the action is jointly continuous. Coefficient homomorphisms are continuous and G-equivariant. No compactness, discreteness, commutativity, finiteness, or topology of a unipotent algebraic group is assumed.",
+        "The H⁰ maps require only group structures and equivariant homomorphisms; no topology or continuity hypothesis enters them."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-identity"
+      ],
+      "proofSteps": [
+        "Use actual class-map surjectivity and compute on each cocycle representative."
+      ],
+      "acceptance": [
+        "Use the actual inherited continuous cocycles, native fixed subgroups and gauge-orbit quotient.",
+        "These are coefficient maps only. The arbitrary source-group restriction, additive conversion, finite-quotient additive compatibility, representability, local conditions and geometric source/supplier obligations remain separate."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, continuous cocycles and gauge orbits, printed pp.5–6; coefficient-functor paragraph after Proposition1, printed p.7",
+          "excerpt": "defining a functor on K-algebras",
+          "match": "The general maps for continuous equivariant coefficient homomorphisms and their explicit laws are authored deductions from the displayed cocycle/gauge definitions. No representability or geometric torsor-comparison theorem is claimed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.map_id"
+      },
+      "declarationName": "TauCeti.NonabelianCohomology.H1.map_id",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-composition",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Composition of coefficient cohomology maps",
+      "kind": "lemma",
+      "statement": "The actual pointed-set map on H¹ induced by f′∘f equals H¹(f′)∘H¹(f).",
+      "hypotheses": [
+        "G is a group with a topology; coefficient groups U,U′,U″ have topologies and G-actions by automorphisms. For H¹ and gauge compatibility, each coefficient group is a topological group and the action is jointly continuous. Coefficient homomorphisms are continuous and G-equivariant. No compactness, discreteness, commutativity, finiteness, or topology of a unipotent algebraic group is assumed.",
+        "The H⁰ maps require only group structures and equivariant homomorphisms; no topology or continuity hypothesis enters them."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-composition"
+      ],
+      "proofSteps": [
+        "Use actual class-map surjectivity and the ordered cocycle composition formula."
+      ],
+      "acceptance": [
+        "Use the actual inherited continuous cocycles, native fixed subgroups and gauge-orbit quotient.",
+        "These are coefficient maps only. The arbitrary source-group restriction, additive conversion, finite-quotient additive compatibility, representability, local conditions and geometric source/supplier obligations remain separate."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, continuous cocycles and gauge orbits, printed pp.5–6; coefficient-functor paragraph after Proposition1, printed p.7",
+          "excerpt": "defining a functor on K-algebras",
+          "match": "The general maps for continuous equivariant coefficient homomorphisms and their explicit laws are authored deductions from the displayed cocycle/gauge definitions. No representability or geometric torsor-comparison theorem is claimed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.map_comp"
+      },
+      "declarationName": "TauCeti.NonabelianCohomology.H1.map_comp",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-invariant-map",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Coefficient homomorphism on invariant groups",
+      "kind": "construction",
+      "statement": "A G-equivariant group homomorphism f:U→U′ induces the actual group homomorphism U^G→(U′)^G with value x↦f(x). No topology or continuity condition is needed. It preserves the group operations and obeys identity and composition.",
+      "hypotheses": [
+        "G and U,U′,U″ are groups, with G acting by automorphisms on each coefficient group. Coefficient homomorphisms are G-equivariant. No topology or continuity hypothesis is required."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles",
+        "mathlib:FixedPoints.subgroup",
+        "mathlib:FixedPoints.mem_subgroup",
+        "mathlib:map_one",
+        "mathlib:map_mul"
+      ],
+      "proofSteps": [
+        "For fixed x, equivariance identifies g·f(x) with f(g·x)=f(x).",
+        "Bundle the pointwise restriction as the existing native MonoidHom between actual fixed subgroups; its multiplication and unit laws come from f."
+      ],
+      "acceptance": [
+        "Use the actual inherited continuous cocycles, native fixed subgroups and gauge-orbit quotient.",
+        "These are coefficient maps only. The arbitrary source-group restriction, additive conversion, finite-quotient additive compatibility, representability, local conditions and geometric source/supplier obligations remain separate."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, continuous cocycles and gauge orbits, printed pp.5–6; coefficient-functor paragraph after Proposition1, printed p.7",
+          "excerpt": "defining a functor on K-algebras",
+          "match": "The general maps for continuous equivariant coefficient homomorphisms and their explicit laws are authored deductions from the displayed cocycle/gauge definitions. No representability or geometric torsor-comparison theorem is claimed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H0.map"
+      },
+      "declarationName": "TauCeti.NonabelianCohomology.H0.map",
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.H0.map",
+          "role": "constructor",
+          "statement": "A G-equivariant group homomorphism f:U→U′ induces the actual group homomorphism U^G→(U′)^G with value x↦f(x). No topology or continuity condition is needed. It preserves the group operations and obeys identity and composition."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H0.map_apply",
+          "role": "simp",
+          "statement": "The underlying invariant-subgroup value is exactly f(x)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H0.map_id",
+          "role": "functoriality",
+          "statement": "The invariant-group homomorphism induced by id_U is the native identity homomorphism."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H0.map_comp",
+          "role": "functoriality",
+          "statement": "The invariant-group homomorphism induced by f′∘f equals the native composite of the restricted invariant homomorphisms."
+        }
+      ],
+      "tests": [
+        {
+          "name": "invariantCoefficientsTests.identity",
+          "kind": "compatibility",
+          "statement": "The identity homomorphism fixes every element of the actual invariant subgroup."
+        },
+        {
+          "name": "invariantCoefficientsTests.constant",
+          "kind": "degenerate",
+          "statement": "The constant-one coefficient homomorphism sends every invariant element to one."
+        },
+        {
+          "name": "invariantCoefficientsTests.value",
+          "kind": "characterisation",
+          "statement": "The restricted invariant homomorphism has value f(x) in the ambient coefficient group."
+        },
+        {
+          "name": "invariantCoefficientsTests.transposition",
+          "kind": "computation",
+          "statement": "For S₃ with trivial S₂-action, the invariant transposition is fixed by the native identity coefficient homomorphism."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/functoriality",
+          "how": "Supply the declaration-sized coefficient part of the inherited bundled functoriality contract."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-invariant-identity",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Identity coefficient homomorphism on invariants",
+      "kind": "lemma",
+      "statement": "The invariant-group homomorphism induced by id_U is the native identity homomorphism.",
+      "hypotheses": [
+        "G and U,U′,U″ are groups, with G acting by automorphisms on each coefficient group. Coefficient homomorphisms are G-equivariant. No topology or continuity hypothesis is required."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-invariant-map",
+        "mathlib:MonoidHom.id"
+      ],
+      "proofSteps": [
+        "The underlying map and fixed-subgroup witnesses agree; proof irrelevance identifies the bundled data."
+      ],
+      "acceptance": [
+        "Use the actual inherited continuous cocycles, native fixed subgroups and gauge-orbit quotient.",
+        "These are coefficient maps only. The arbitrary source-group restriction, additive conversion, finite-quotient additive compatibility, representability, local conditions and geometric source/supplier obligations remain separate."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, continuous cocycles and gauge orbits, printed pp.5–6; coefficient-functor paragraph after Proposition1, printed p.7",
+          "excerpt": "defining a functor on K-algebras",
+          "match": "The general maps for continuous equivariant coefficient homomorphisms and their explicit laws are authored deductions from the displayed cocycle/gauge definitions. No representability or geometric torsor-comparison theorem is claimed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H0.map_id"
+      },
+      "declarationName": "TauCeti.NonabelianCohomology.H0.map_id",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-invariant-composition",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Composition of invariant coefficient homomorphisms",
+      "kind": "lemma",
+      "statement": "The invariant-group homomorphism induced by f′∘f equals the native composite of the restricted invariant homomorphisms.",
+      "hypotheses": [
+        "G and U,U′,U″ are groups, with G acting by automorphisms on each coefficient group. Coefficient homomorphisms are G-equivariant. No topology or continuity hypothesis is required."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-invariant-map",
+        "mathlib:MonoidHom.comp"
+      ],
+      "proofSteps": [
+        "Compute both underlying homomorphisms as x↦f′(f(x)), using the actual subgroup carriers."
+      ],
+      "acceptance": [
+        "Use the actual inherited continuous cocycles, native fixed subgroups and gauge-orbit quotient.",
+        "These are coefficient maps only. The arbitrary source-group restriction, additive conversion, finite-quotient additive compatibility, representability, local conditions and geometric source/supplier obligations remain separate."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, continuous cocycles and gauge orbits, printed pp.5–6; coefficient-functor paragraph after Proposition1, printed p.7",
+          "excerpt": "defining a functor on K-algebras",
+          "match": "The general maps for continuous equivariant coefficient homomorphisms and their explicit laws are authored deductions from the displayed cocycle/gauge definitions. No representability or geometric torsor-comparison theorem is claimed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H0.map_comp"
+      },
+      "declarationName": "TauCeti.NonabelianCohomology.H0.map_comp",
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -8646,5 +9317,134 @@
       "Open Mathlib PR31613 checked at the recorded head; bounded Zulip web search did not identify a matching continuous finite-quotient implementation. This is not an exhaustive absence audit."
     ],
     "governingFilesUnchangedAtFetchedMain": "766de57f"
+  },
+  "coefficientMapContinuation": {
+    "agent": "Codex",
+    "session": "codex-J6LwjP",
+    "issue": 1020,
+    "claimComment": 5963166166,
+    "botConfirmation": 5963167606,
+    "base": "bcc37efa667a1f3c521b0d8e2407b9eda3fa87e6",
+    "addedNodes": [
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-map",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-gauge",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-identity",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-composition",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-one",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-identity",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-composition",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-invariant-map",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-invariant-identity",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-invariant-composition"
+    ],
+    "preservedStatementContracts": 101,
+    "unchangedOldNodeObjects": 100,
+    "sourceReading": "Fresh Kim arXiv math/0409456v1 continuous cocycle/gauge definitions on printed pp.5–6 and coefficient-functor paragraph on p.7. The displayed Proposition1 proof was read through its end. No full-paper, Proposition2 representability, Chen/BDMTV or fresh geometric erratum audit is claimed.",
+    "boundary": "Only coefficient part (a) of the inherited functoriality node is refined. Arbitrary source-group restriction, canonical additive cocycle conversion and finite-quotient comparison, local conditions/representability and all geometric supplier/source obligations remain open.",
+    "nativeArchive": "8b5be8854463dd4ec9ed5ab5934a76739e1eaf0d",
+    "nativeArchivePath": "research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty.lean",
+    "checkedEvidence": {
+      "Native.lean": {
+        "sha256": "f5623ec94e4bb750a876d6a0268f362a0ee90a96dbffff26f2cece8cb59d604e",
+        "lines": 1599,
+        "examples": 65,
+        "audits": 80,
+        "errors": 0,
+        "admissionWarnings": 0,
+        "otherWarnings": 0,
+        "admittedDependencies": false,
+        "diagnosticSha256": "fc4492c0dac6df0d2a9e4abf65042b65ee3e6cf4556e9fe96008327f8b3ea080",
+        "resource": "Elapsed 9.90 seconds; peak 3564648 KiB"
+      },
+      "Sketch.lean": {
+        "sha256": "e58f86b0e80e70373633541f28f21531c9e499aa67283db48b5bd496dff8056a",
+        "lines": 2042,
+        "examples": 107,
+        "audits": 0,
+        "errors": 0,
+        "admissionWarnings": 253,
+        "otherWarnings": 0,
+        "admittedDependencies": false,
+        "diagnosticSha256": "da60dccc3a6d1f0c30e8d4b5a81c390203e4f17865e0e81c56470770ffc18860",
+        "resource": "Elapsed 12.00 seconds; peak 3572184 KiB"
+      },
+      "canonical": {
+        "sha256": "f705f0230dd178140f6b7cec6f50ca8e39c750cc1294ede1569b33e6544e599b",
+        "lines": 2059,
+        "compiled": false,
+        "newExampleHeaderParity": 12,
+        "preservedPredecessorLines": 1867,
+        "publicHeaderParity": 15,
+        "newSignatureHeaders": 9,
+        "promotedHeaders": 6
+      }
+    },
+    "actualAssembler": {
+      "stage": {
+        "vertices": 3018,
+        "edges": 8655,
+        "acyclic": true
+      },
+      "own": {
+        "vertices": 112,
+        "edges": 250,
+        "acyclic": true
+      },
+      "combinedPrerequisites": {
+        "vertices": 3119,
+        "edges": 9053,
+        "acyclic": true
+      },
+      "virtualSupplierEndpoints": 51,
+      "reachableDeclarations": 112,
+      "unresolvedReferences": 0,
+      "actualBlueprint": {
+        "declarations": 112,
+        "planets": 11,
+        "kinds": {
+          "comparison": 6,
+          "construction": 20,
+          "definition": 3,
+          "lemma": 56,
+          "theorem": 27
+        },
+        "skippedLinks": []
+      },
+      "stageEdgesUnchanged": true,
+      "otherRoadmapSkippedPendingLinksUnchanged": true,
+      "requiredStagePairs": 20,
+      "requiredStagePairsReachable": 20,
+      "preservedStatementContracts": 101,
+      "unchangedNodeObjects": 100,
+      "addedNodes": 11,
+      "apiTotal": 125,
+      "testsTotal": 107,
+      "baseline": 123,
+      "gaps": 9,
+      "requests": 16,
+      "scriptSha256": "3c562c2d0e2cdb51c65e74cfaa9ef6eae7a6d88be9cbeff5b12f98b6154f2f97"
+    },
+    "publicationGuard": {
+      "publicationGuard": "f0401e396395a306b58cb28db79f3b24721e6fb3",
+      "unchangedTrackedInputs": [
+        "research/blueprint/WORKERS.md",
+        "research/blueprint/PROTOCOL.md",
+        "research/expansion/PROTOCOL.md",
+        "research/blueprint/UPSTREAM_GUIDE.md",
+        "data/library-coverage.json",
+        "research/blueprint/reviews/REV-AUDIT-08.md",
+        "data/keydefs/KEYDEF-algebraicgeometry.json",
+        "research/blueprint/reserved-ids.json",
+        "scripts/build.py",
+        "scripts/check_blueprint.py",
+        "research/blueprint/intake.py",
+        "research/blueprint/atlas/roadmaps/AnabelianGeometryAndNonabelianChabauty.json",
+        "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty.json",
+        "research/blueprint/readmes/AnabelianGeometryAndNonabelianChabauty.md",
+        "research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty.lean",
+        "research/blueprint/handoff/BP-AnabelianGeometryAndNonabelianChabauty.md"
+      ]
+    }
   }
 }
