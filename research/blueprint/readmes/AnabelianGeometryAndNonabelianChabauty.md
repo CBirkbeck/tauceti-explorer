@@ -1,3 +1,239 @@
+# Source-group naturality of twisting — current checkpoint
+
+For a continuous homomorphism φ:H→*G, with explicit compatible actions on U, this continuation identifies the actual inner twists and directly constructs cocycle and H¹ pullbacks. The twisting translations commute with those maps; canonical comparison between cohomologous representatives also commutes with restriction. Surjectivity of φ implies injectivity. A constant source map can kill a nonneutral class, so restriction alone supplies no reflection theorem.
+
+G and H carry arbitrary group topologies. U is a topological group and its actions are jointly continuous. No compactness, discreteness, commutativity or topological-group assumption on either source is inserted. The three constructions reuse the actual continuous cocycles, gauge-orbit H¹, inner actions and native group equivalences. Neither the direct cocycle map nor its quotient lift is defined by assuming its translation square.
+
+The packet has 196 nodes, including these 21 new declarations and ten tests. All 175 inherited mathematical contracts remain; only the existing functoriality node gains three prerequisites and one proof step. NC.0 and NC.3 remain partial, and the five other incoming coverage statuses remain not_read. All nodes remain unchecked. The all-coefficient/all-degree K(π,1) owner and its qualified raw-homotopy comparison, RT8 NS/ρ ownership, Chen /57–58, complete BDMTV routes, E9/E10 and all existing requests remain intact.
+
+The native proofs elaborate against the pinned Mathlib build. The complete canonical suggested file remains uncompiled because its actual Tau Ceti LowDegree import object is absent; its exact Mathlib projection is checked separately. These receipts support this checkpoint’s signatures and calculations, without closing the source or geometric obligations.
+
+The selected primary reading is Kim’s exact [arXiv:math/0409456v1](https://arxiv.org/pdf/math/0409456v1), complete continuous cochain/cocycle/gauge definitions and Proposition 1 proof on printed pp.5–7, with the coefficient-functor paragraph and opening Proposition 2. The new source-group identities are authored deductions from those conventions, not printed geometric classification or representability theorems. Broader source routes and the genuine additive comparison remain open.
+
+Write res_φ for inherited source restriction, j_c for the underlying group identification, τ_c for right-multiplication translation of cocycles, T_c for the resulting orbit-set equivalence and C_c,d=T_d⁻¹∘T_c for [c]=[d]. T_c sends the twisted neutral class to [c]. Identity and composition keep their actual dependent twist targets visible through these translation squares.
+
+## Source comparison of actual inner twists
+
+TauCeti.NonabelianCohomology.Twist.sourceEquiv
+
+Construct e_φ,c:Twist(c)≃*Twist(res_φ c) as j_(res_φ c)⁻¹∘j_c. The underlying topological groups coincide; the following semiequivariance lemma compares their source actions.
+
+Proof route: Compose the existing native group identifications, using the inverse in the target direction.
+
+API:
+
+- TauCeti.NonabelianCohomology.Twist.sourceEquiv_apply: For x∈Twist(c), j_(res_φ c)(e_φ,c(x))=j_c(x).
+- TauCeti.NonabelianCohomology.Twist.sourceEquiv_symm_apply: For y∈Twist(res_φ c), j_c(e_φ,c⁻¹(y))=j_(res_φ c)(y).
+- TauCeti.NonabelianCohomology.Twist.sourceEquiv_continuous: The function underlying e_φ,c is continuous for the actual inherited topologies.
+- TauCeti.NonabelianCohomology.Twist.sourceEquiv_symm_continuous: The inverse function e_φ,c⁻¹ is continuous. Thus the actual group equivalence is also a homeomorphism.
+- TauCeti.NonabelianCohomology.Twist.sourceEquiv_smul: For h∈H and x∈Twist(c), e_φ,c(φ(h)⋆_c x)=h⋆_(res_φ c)e_φ,c(x), using the actual G and H inner actions.
+- TauCeti.NonabelianCohomology.Twist.sourceEquiv_gauge: For b∈U and x∈Twist(c), j_(res_φ(b•c))(e_φ,b•c(e_c,b(x)))=j_(b•res_φ c)(e_(res_φ c),b(e_φ,c(x))). Ordinary restriction identifies res_φ(b•c)=b•res_φ c; the equality is stated under the actual underlying identifications to retain the exact dependent targets.
+
+Tests:
+
+- Twist.sourceEquiv.test_inverse: For every φ,c,x, the actual inverse of e_φ,c applied to e_φ,c(x) is x.
+- Twist.sourceEquiv.test_semilinear: For h∈H and x∈Twist(c), j_(res_φ c)(h⋆e_φ,c(x))=c(φ(h))(φ(h)•j_c(x))c(φ(h))⁻¹.
+- Twist.sourceEquiv.test_noncommutative_action: Give S₂ and S₃ discrete topologies and the trivial original S₂-action on S₃; let c(nonidentity)=(01), φ=id, g=(01)∈S₂ and x=(12)∈Twist(c). Then j_(res_id c)(e_id,c(g⋆x))=(02), which differs from j_c(x)=(12). This rejects reuse of the raw trivial action on the inner twist.
+
+## Value of the source comparison
+
+TauCeti.NonabelianCohomology.Twist.sourceEquiv_apply
+
+For x∈Twist(c), j_(res_φ c)(e_φ,c(x))=j_c(x).
+
+Proof route: Unfold the composed native equivalence.
+
+## Inverse source comparison
+
+TauCeti.NonabelianCohomology.Twist.sourceEquiv_symm_apply
+
+For y∈Twist(res_φ c), j_c(e_φ,c⁻¹(y))=j_(res_φ c)(y).
+
+Proof route: Unfold the inverse native equivalence.
+
+## Continuity of source comparison
+
+TauCeti.NonabelianCohomology.Twist.sourceEquiv_continuous
+
+The function underlying e_φ,c is continuous for the actual inherited topologies.
+
+Proof route: Under j_c and j_(res_φ c) the function is the identity on U; use continuity of the identity.
+
+## Continuity of inverse source comparison
+
+TauCeti.NonabelianCohomology.Twist.sourceEquiv_symm_continuous
+
+The inverse function e_φ,c⁻¹ is continuous. Thus the actual group equivalence is also a homeomorphism.
+
+Proof route: The inverse is the same identity map on the inherited topology.
+
+## Source semiequivariance of inner twists
+
+TauCeti.NonabelianCohomology.Twist.sourceEquiv_smul
+
+For h∈H and x∈Twist(c), e_φ,c(φ(h)⋆_c x)=h⋆_(res_φ c)e_φ,c(x), using the actual G and H inner actions.
+
+Proof route: Apply j_(res_φ c) injectively. Both sides contain the same c(φ(h)) and its inverse; replace h•j_c(x) by φ(h)•j_c(x) using the explicit action compatibility.
+
+## Pullback of actual twisted cocycles
+
+TauCeti.NonabelianCohomology.Z1.twistRes
+
+Construct R¹_φ,c:Z¹(G,Twist(c))→Z¹(H,Twist(res_φ c)) by R¹_φ,c(z)(h)=e_φ,c(z(φ(h))). This is a directly defined continuous cocycle, prior to proving the translation square.
+
+Proof route: Compose continuous maps. Apply the actual cocycle equation to φ(h)φ(k), use multiplicativity of e_φ,c and its semiequivariance.
+
+API:
+
+- TauCeti.NonabelianCohomology.Z1.twistRes_apply: For every h∈H, R¹_φ,c(z)(h)=e_φ,c(z(φ(h))).
+- TauCeti.NonabelianCohomology.Z1.twistRes_one: R¹_φ,c sends the constant one cocycle to the constant one cocycle.
+- TauCeti.NonabelianCohomology.Z1.twistRes_smul: For x∈Twist(c) and z∈Z¹(G,Twist(c)), R¹_φ,c(x•z)=e_φ,c(x)•R¹_φ,c(z). This uses the actual gauge actions for their distinct inner source actions.
+- TauCeti.NonabelianCohomology.Z1.twistRes_translation: For z∈Z¹(G,Twist(c)), τ_(res_φ c)(R¹_φ,c(z))=res_φ(τ_c(z)) as actual continuous cocycles.
+- TauCeti.NonabelianCohomology.Z1.twistRes_injective: If φ is surjective as a function, then R¹_φ,c is injective. Neither continuity nor group-homomorphism structure alone implies this conclusion.
+
+Tests:
+
+- Z1.twistRes.test_identity: For φ=id and every twisted cocycle z and g, j_(res_id c)(R¹_id,c(z)(g))=j_c(z(g)).
+- Z1.twistRes.test_gauge_translation: For x∈Twist(c) and z a twisted cocycle, τ_(res_φ c)(R¹_φ,c(x•z))=j_c(x)•res_φ(τ_c(z)).
+- Z1.twistRes.test_surjective_detection: For surjective φ, R¹_φ,c(z)=1 iff z=1; the actual cocycle pullback detects the neutral cocycle.
+
+## Value of twisted cocycle pullback
+
+TauCeti.NonabelianCohomology.Z1.twistRes_apply
+
+For every h∈H, R¹_φ,c(z)(h)=e_φ,c(z(φ(h))).
+
+Proof route: Unfold the directly defined cocycle map.
+
+## Neutral twisted cocycle pullback
+
+TauCeti.NonabelianCohomology.Z1.twistRes_one
+
+R¹_φ,c sends the constant one cocycle to the constant one cocycle.
+
+Proof route: Use cocycle extensionality and multiplicativity of the native equivalence at one.
+
+## Gauge compatibility of twisted pullback
+
+TauCeti.NonabelianCohomology.Z1.twistRes_smul
+
+For x∈Twist(c) and z∈Z¹(G,Twist(c)), R¹_φ,c(x•z)=e_φ,c(x)•R¹_φ,c(z). This uses the actual gauge actions for their distinct inner source actions.
+
+Proof route: Evaluate at h. Expand the ordered gauge formula, preserve products/inverses with e_φ,c, and use its semiequivariance.
+
+## Twisting and source restriction square
+
+TauCeti.NonabelianCohomology.Z1.twistRes_translation
+
+For z∈Z¹(G,Twist(c)), τ_(res_φ c)(R¹_φ,c(z))=res_φ(τ_c(z)) as actual continuous cocycles.
+
+Proof route: Evaluate at h. The left side is j_c(z(φ(h)))c(φ(h)); this is the right side by ordinary restriction and the inherited translation formula.
+
+## Source restriction on twisted orbit sets
+
+TauCeti.NonabelianCohomology.H1.twistRes
+
+Construct R_φ,c:H¹(G,Twist(c))→H¹(H,Twist(res_φ c)) by [z]↦[R¹_φ,c(z)] on the actual native gauge-orbit quotient.
+
+Proof route: Lift the directly constructed cocycle pullback to the native quotient. A gauge witness x maps to the witness e_φ,c(x), by cocycle gauge compatibility.
+
+API:
+
+- TauCeti.NonabelianCohomology.H1.twistRes_mk: For every actual twisted cocycle z, R_φ,c([z])=[R¹_φ,c(z)].
+- TauCeti.NonabelianCohomology.H1.twistRes_one: R_φ,c(1)=1 in H¹(H,Twist(res_φ c)). The target neutral point is in the twisted target, while T_(res_φ c)(1)=[res_φ c] in the original coefficient H¹.
+- TauCeti.NonabelianCohomology.H1.twistRes_translation: For every a∈H¹(G,Twist(c)), T_(res_φ c)(R_φ,c(a))=res_φ(T_c(a)) in the original H¹(H,U). This square is proved for the direct quotient lift, not inserted into its definition.
+- TauCeti.NonabelianCohomology.H1.twistRes_injective: If φ is surjective as a function, then R_φ,c is injective on the actual H¹ orbit sets. In particular it reflects their neutral classes.
+- TauCeti.NonabelianCohomology.H1.twistRes_representative: If [c]=[d], then R_φ,d∘C_c,d=C_(res_φ c),(res_φ d)∘R_φ,c. The target class equality is res_φ([c])=res_φ([d]); no gauge witness or canonical coefficient-group isomorphism is chosen.
+- TauCeti.NonabelianCohomology.H1.twistRes_identity_translation: For the identity source map on G, T_(res_id c)(R_id,c(a))=T_c(a). This states the identity law with the actual dependent twist targets visible; no arbitrary identification of actions is suppressed.
+- TauCeti.NonabelianCohomology.H1.twistRes_comp_translation: For ψ:K→*H and φ:H→*G with continuous maps and compatible K,H,G actions, T_(res_ψ(res_φ c))(R_ψ,res_φ c(R_φ,c(a)))=res_(φ∘ψ)(T_c(a)). The composite compatibility is k•x=ψ(k)•x=φ(ψ(k))•x. Applying the one-step square to φ∘ψ gives the same translated value; comparisons of dependent twist targets are explicit.
+
+Tests:
+
+- H1.twistRes.test_neutral: T_(res_φ c)(R_φ,c(1))=[res_φ c], retaining the repointed target; this value need not be neutral in the original coefficient H¹.
+- H1.twistRes.test_gauge_classes: For x∈Twist(c) and a cocycle z, R_φ,c([x•z])=R_φ,c([z]) on the actual gauge-orbit quotient.
+- H1.twistRes.test_surjective_reflection: For surjective φ, R_φ,c(a)=1 iff a=1 on the actual twisted H¹ orbit sets.
+- H1.twistRes.test_nonsurjective_loss: If φ(h)=1 for every h and [c]≠1 in the original H¹, then a=T_c⁻¹(1) is nonneutral but R_φ,c(a)=1. The existing discrete S₂→S₃ cocycle supplies a consistent nonneutral c, with trivial original actions and the constant homomorphism. This rejects injectivity or neutral reflection without surjectivity.
+
+## Representative of twisted H¹ restriction
+
+TauCeti.NonabelianCohomology.H1.twistRes_mk
+
+For every actual twisted cocycle z, R_φ,c([z])=[R¹_φ,c(z)].
+
+Proof route: Unfold the native quotient lift.
+
+## Pointedness of twisted source restriction
+
+TauCeti.NonabelianCohomology.H1.twistRes_one
+
+R_φ,c(1)=1 in H¹(H,Twist(res_φ c)). The target neutral point is in the twisted target, while T_(res_φ c)(1)=[res_φ c] in the original coefficient H¹.
+
+Proof route: Use the representative formula and the neutral cocycle pullback.
+
+## Source naturality of the twisting equivalence
+
+TauCeti.NonabelianCohomology.H1.twistRes_translation
+
+For every a∈H¹(G,Twist(c)), T_(res_φ c)(R_φ,c(a))=res_φ(T_c(a)) in the original H¹(H,U). This square is proved for the direct quotient lift, not inserted into its definition.
+
+Proof route: Choose a cocycle representative of a; use quotient evaluation and the actual cocycle translation square.
+
+## Source comparison and gauge conjugation
+
+TauCeti.NonabelianCohomology.Twist.sourceEquiv_gauge
+
+For b∈U and x∈Twist(c), j_(res_φ(b•c))(e_φ,b•c(e_c,b(x)))=j_(b•res_φ c)(e_(res_φ c),b(e_φ,c(x))). Ordinary restriction identifies res_φ(b•c)=b•res_φ c; the equality is stated under the actual underlying identifications to retain the exact dependent targets.
+
+Proof route: Both sides are b j_c(x)b⁻¹. Use the native identification formulas and the ordinary cocycle restriction/gauge identity.
+
+## Surjective source maps detect twisted cocycles
+
+TauCeti.NonabelianCohomology.Z1.twistRes_injective
+
+If φ is surjective as a function, then R¹_φ,c is injective. Neither continuity nor group-homomorphism structure alone implies this conclusion.
+
+Proof route: Translate both inputs by τ_c, apply ordinary source restriction injectivity, and use the proved cocycle translation square and injectivity of τ_c.
+
+## Surjective source maps detect twisted classes
+
+TauCeti.NonabelianCohomology.H1.twistRes_injective
+
+If φ is surjective as a function, then R_φ,c is injective on the actual H¹ orbit sets. In particular it reflects their neutral classes.
+
+Proof route: Compare after T_c; ordinary H¹ restriction is injective for a surjective φ. Apply the translation square and cancel T_c.
+
+## Source naturality of representative comparison
+
+TauCeti.NonabelianCohomology.H1.twistRes_representative
+
+If [c]=[d], then R_φ,d∘C_c,d=C_(res_φ c),(res_φ d)∘R_φ,c. The target class equality is res_φ([c])=res_φ([d]); no gauge witness or canonical coefficient-group isomorphism is chosen.
+
+Proof route: Apply injectivity of T_(res_φ d). The representative square and the two source translation squares identify both sides with res_φ(T_c(a)).
+
+## Identity law under twisting translation
+
+TauCeti.NonabelianCohomology.H1.twistRes_identity_translation
+
+For the identity source map on G, T_(res_id c)(R_id,c(a))=T_c(a). This states the identity law with the actual dependent twist targets visible; no arbitrary identification of actions is suppressed.
+
+Proof route: Use the source translation square and the ordinary H¹ identity law.
+
+## Composition law under twisting translation
+
+TauCeti.NonabelianCohomology.H1.twistRes_comp_translation
+
+For ψ:K→*H and φ:H→*G with continuous maps and compatible K,H,G actions, T_(res_ψ(res_φ c))(R_ψ,res_φ c(R_φ,c(a)))=res_(φ∘ψ)(T_c(a)). The composite compatibility is k•x=ψ(k)•x=φ(ψ(k))•x. Applying the one-step square to φ∘ψ gives the same translated value; comparisons of dependent twist targets are explicit.
+
+Proof route: Apply the two source translation squares successively, then the ordinary H¹ source composition law.
+
+## Remaining work
+
+Source-group naturality is supplied for continuous φ:H→*G with explicit action compatibility on U: the underlying actual inner twists, direct continuous cocycle pullback, native H¹ quotient lift, repointed translation squares, gauge conjugation and canonical representative comparison are compatible. Surjective φ gives injectivity and neutral reflection; a constant source map can kill a nonneutral class. Identity/composition are stated with actual dependent twists via their translations. Twisted subgroup/normal-quotient realizations, geometric local conditions, genuine additive comparison, unipotent point topologies, torsor classification, representability and all source/supplier obligations remain open.
+
+The actual arithmetic supplier R02.6 is about adjoint patching inequalities, including infinity and p=2, rather than an automatic supplier for all nonabelian Selmer geometry. This abstract continuation consumes no new Galois/Selmer theorem from it.
+
+---
+
 # Gauge transport and cocycle representatives — continuation
 
 Partial anabelian checkpoint with 175 declaration-sized nodes. Nineteen new native interfaces give continuous equivariant gauge conjugation between actual inner twists and the canonical pointed H¹ comparison for cohomologous representatives, with identity, inverse, composition and concrete gauge realization. Six tests retain the noncommutative conjugation direction and the class-equality requirement. All 156 inherited contracts and every key/source/supplier/omission boundary remain. All seven stages remain partial; no geometric torsor, K(π,1), Selmer or source route is closed.
