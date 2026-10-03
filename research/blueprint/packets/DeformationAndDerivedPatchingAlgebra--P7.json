@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Full actual curve graded assembly checkpoint: 20 new declarations (3 constructions), 16 API items and 13 boundary/compatibility tests. The polynomial map lands in the inherited Rees quotient, with exact full principal-kernel and component-compatible quotient-equivalence plans. All 210 incoming node objects and all ownership, source and general multiplicity boundaries remain intact. New proof bodies remain admitted. This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open. This continuation compares actual adic quotient carriers under scalar restriction, transfers cumulative lengths under surjective coefficient maps, and links the general intrinsic multiplicity API to the explicit finite-order plane-curve polynomial. It keeps a fixed degree-two extraction distinct from intrinsic multiplicity and from a dimension-two ambient interpretation.",
+  "summary": "Annihilator-enlargement checkpoint: preserve all 247 incoming declaration objects and add six actual-carrier declarations, three promoted API items and four boundary tests. The action, power, quotient and extended-length equalities require no finiteness or faithful-module assumption. The six-proof/four-test native prototype is checked; canonical forms remain admitted and all implementation statuses unchecked. General Hilbert–Serre, dimension and all stage/source obligations remain open. Full actual curve graded assembly checkpoint: 20 new declarations (3 constructions), 16 API items and 13 boundary/compatibility tests. The polynomial map lands in the inherited Rees quotient, with exact full principal-kernel and component-compatible quotient-equivalence plans. All 210 incoming node objects and all ownership, source and general multiplicity boundaries remain intact. New proof bodies remain admitted. This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open. This continuation compares actual adic quotient carriers under scalar restriction, transfers cumulative lengths under surjective coefficient maps, and links the general intrinsic multiplicity API to the explicit finite-order plane-curve polynomial. It keeps a fixed degree-two extraction distinct from intrinsic multiplicity and from a dimension-two ambient interpretation.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2395,6 +2395,48 @@
         "module": "Mathlib/Algebra/Polynomial/Degree/Operations.lean",
         "provides": "The coefficient above natural degree is zero.",
         "checked": "Complete statement and surrounding scalar/module hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:Submodule.sup_smul",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Algebra/Operations.lean",
+        "provides": "Ideal supremum distributes over its action on a submodule.",
+        "checked": "Complete statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:Submodule.mul_smul",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Ideal/Operations.lean",
+        "provides": "Ideal multiplication acts associatively on submodules.",
+        "checked": "Complete statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:Submodule.annihilator_top",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "The whole-submodule annihilator equals the whole-module annihilator.",
+        "checked": "Complete statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:Submodule.annihilator_mono",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "Submodule inclusion reverses annihilator inclusion.",
+        "checked": "Complete statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:Submodule.le_annihilator_iff",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "Containment in an annihilator is equivalent to zero ideal action.",
+        "checked": "Complete statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:Module.annihilator",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "The native ideal of scalars annihilating every module element.",
+        "checked": "Complete statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
       }
     ]
   },
@@ -3384,6 +3426,35 @@
           "sha256": "e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932"
         }
       ]
+    },
+    {
+      "id": "HS-ANNIHILATOR-a71f92",
+      "title": "Annihilator enlargement of the actual adic filtration",
+      "authors": "Stacks Project authors; Mathlib contributors; authored derivation and boundary analysis Codex — codex-a71f92",
+      "edition": "Stacks Remark 43.15.6; pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; checkpoint 2026-10-03",
+      "url": "https://stacks.math.columbia.edu/tag/0AZU",
+      "sha256": "fa26c4ba52a27c097c6bfc6ac9f8f2c2053ceacabd044bd3426d8ae8d8440e14",
+      "accessDate": "2026-10-03",
+      "readSections": [
+        "The complete mathematical sections Stacks 00K4 and 0AZU, especially Remark 43.15.6, were freshly read. Nested Hilbert–Serre, dimension and Koszul references are not discharged.",
+        "Pinned annihilators, inclusion reversal, zero-action criterion, distributed and associative ideal action, equal-submodule quotient equivalence, representative formula and linear-equivalence length equality were read with their hypotheses.",
+        "The nine reviewed DDPA audit rows and accepted review, accepted own RS-08 keeps/links/owners, eight scoped stages, reserved key owner/catalog and six sample API requirements, campaign reader and complete upstream Multiquadratic and SemisimpleAlgebras exemplars were read.",
+        "Bounded pinned-library/index searches and current packet/decomposition ownership scans found no competing owner of this exact annihilator-enlargement adapter. No whole-library absence claim is made.",
+        "Prior broad routed-paper readings and prototype receipts retain their historical attribution; this bounded checkpoint is not a fresh complete paper audit."
+      ],
+      "supportingSources": [
+        {
+          "url": "https://stacks.math.columbia.edu/tag/00K4",
+          "locator": "Section 10.59: cumulative length convention and graded input"
+        }
+      ],
+      "sourceHashes": {
+        "Mathlib/Algebra/Algebra/Operations.lean": "913909c0cc53d9f1a34cf059ee192a34bac9b6d62661a710a91bbc245a87f3cc",
+        "Mathlib/RingTheory/Ideal/Operations.lean": "4859dadb42353660e6827c0c070962279d8fabdc8eea013eeed783b5cab59c22",
+        "Mathlib/RingTheory/Ideal/Maps.lean": "a6cde2f875c2c8b9ea1aa57cf3aa654d5fd80981349de49f28556c77b56d9c11",
+        "Mathlib/LinearAlgebra/Quotient/Defs.lean": "ddb08efd66c7dd6f5e142ac3e1edc1189ea30de276f1e78f4193d6ee80676fb3",
+        "Mathlib/RingTheory/Length.lean": "28058afb0a726d046c7ef25ef25f86707d64762129baf08106944bcde811b466"
+      }
     }
   ],
   "nodes": [
@@ -17361,6 +17432,279 @@
           "statement": "For f=x² over 𝔽₂ with the stated ambient/curve local and primary data, intrinsic multiplicity over R is 2, whereas degree-two extraction over R is zero. The coefficient characteristic does not turn the integer length 2 into zero."
         }
       ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-enlargement-action",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Annihilator enlargement preserves ideal action",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.idealSupAnnihilator_smul",
+      "statement": "For every submodule N of M, (q+Ann_A(M))N=qN.",
+      "hypotheses": [
+        "A is a commutative ring, M is an additive commutative group with its given A-module structure, and q is an ideal of A. Ideal sum means lattice supremum. All actions, quotients and lengths are the pinned native ones. No Noetherian, local, finite-module, faithful-module, flatness or finite-length hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "N is contained in the whole module, so annihilator reverse inclusion shows that Ann_A(M) annihilates N.",
+        "Distribute the ideal sum acting on N and discard the zero summand."
+      ],
+      "acceptance": [
+        "For every submodule N of M, (q+Ann_A(M))N=qN."
+      ],
+      "prerequisites": [
+        "mathlib:Module.annihilator",
+        "mathlib:Submodule.annihilator_top",
+        "mathlib:Submodule.annihilator_mono",
+        "mathlib:Submodule.le_annihilator_iff",
+        "mathlib:Submodule.sup_smul"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-ANNIHILATOR-a71f92",
+          "locator": "Stacks 0AZU, Remark 43.15.6; idealSupAnnihilator_smul derived actual-carrier equality",
+          "match": "The remark permits adjoining Ann_A(M). The actions, all powers and actual quotients are directly identified using pinned module operations, before Hilbert–Serre or dimension theorems."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-enlargement-powers",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Annihilator enlargement preserves all adic powers",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.idealSupAnnihilator_pow_smul",
+      "statement": "For every r≥0 and submodule N of M, (q+Ann_A(M))^r N=q^r N.",
+      "hypotheses": [
+        "A is a commutative ring, M is an additive commutative group with its given A-module structure, and q is an ideal of A. Ideal sum means lattice supremum. All actions, quotients and lengths are the pinned native ones. No Noetherian, local, finite-module, faithful-module, flatness or finite-length hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "At r=0 both actions are the identity.",
+        "At the successor use associative ideal action, the induction hypothesis and the preceding action equality."
+      ],
+      "acceptance": [
+        "For every r≥0 and submodule N of M, (q+Ann_A(M))^r N=q^r N."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-enlargement-action",
+        "mathlib:Submodule.mul_smul"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-ANNIHILATOR-a71f92",
+          "locator": "Stacks 0AZU, Remark 43.15.6; idealSupAnnihilator_pow_smul derived actual-carrier equality",
+          "match": "The remark permits adjoining Ann_A(M). The actions, all powers and actual quotients are directly identified using pinned module operations, before Hilbert–Serre or dimension theorems."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-adic-quotient",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Canonical annihilator-enlargement quotient equivalence",
+      "kind": "construction",
+      "declaration": "TauCeti.HilbertSamuel.adicQuotientAnnihilatorEquiv",
+      "statement": "For every r≥0, the identity on representatives induces an A-linear equivalence M/((q+Ann_A(M))^r M) ≃ M/(q^r M).",
+      "hypotheses": [
+        "A is a commutative ring, M is an additive commutative group with its given A-module structure, and q is an ideal of A. Ideal sum means lattice supremum. All actions, quotients and lengths are the pinned native ones. No Noetherian, local, finite-module, faithful-module, flatness or finite-length hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "Apply the power equality to the whole module to identify the actual denominator submodules.",
+        "Use the native linear equivalence of quotients by equal submodules. No replacement carrier or finite-length assumption is introduced."
+      ],
+      "acceptance": [
+        "For every r≥0, the identity on representatives induces an A-linear equivalence M/((q+Ann_A(M))^r M) ≃ M/(q^r M)."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-enlargement-powers",
+        "mathlib:Submodule.quotEquivOfEq"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-ANNIHILATOR-a71f92",
+          "locator": "Stacks 0AZU, Remark 43.15.6; adicQuotientAnnihilatorEquiv derived actual-carrier equality",
+          "match": "The remark permits adjoining Ann_A(M). The actions, all powers and actual quotients are directly identified using pinned module operations, before Hilbert–Serre or dimension theorems."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "Module-relative ideals of definition in Stacks Remark 43.15.6",
+          "how": "Adjoin the annihilator only after identifying all actual adic quotients."
+        },
+        {
+          "where": "The general Hilbert–Samuel key and scalar-comparison API",
+          "how": "Keep changing an ideal by annihilators separate from changing the coefficient ring."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.adicQuotientAnnihilatorEquiv_mk",
+          "role": "simp",
+          "statement": "The annihilator-enlargement quotient equivalence sends the class of each m∈M to the class of m."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicQuotientAnnihilatorEquiv_symm_mk",
+          "role": "simp",
+          "statement": "The inverse annihilator-enlargement quotient equivalence sends the class of each m∈M to the class of m."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.function_sup_annihilator",
+          "role": "compatibility",
+          "statement": "For every n≥0, H(q+Ann_A(M);M,n)=H(q;M,n) as extended natural numbers, with H(q;M,n)=length_A(M/q^(n+1)M)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AnnihilatorAdicTests.identity_representative",
+          "kind": "computation",
+          "statement": "For A=M=ℚ, q=0 and r=1, the canonical comparison sends the class of 7 to the class of 7."
+        },
+        {
+          "name": "AnnihilatorAdicTests.zeroth_power",
+          "kind": "degenerate",
+          "statement": "For A=M=ℚ, q=0 and r=0, the image of the class of 7 is zero because the zeroth power acts as the whole module."
+        },
+        {
+          "name": "AnnihilatorAdicTests.nonfaithful_integer_module",
+          "kind": "non-example",
+          "statement": "For A=ℤ, M=ℤ/4ℤ and q=0, the class of 1 is preserved for every r≥0, without assuming the module is faithful."
+        },
+        {
+          "name": "AnnihilatorAdicTests.nonannihilating_ideal_fails",
+          "kind": "non-example",
+          "statement": "For A=M=ℚ, replacing q=0 by q+ℚ at r=1 changes the denominator from zero to the whole module; adding an arbitrary ideal instead of the annihilator is false."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-adic-quotient-mk",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Forward annihilator comparison on representatives",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicQuotientAnnihilatorEquiv_mk",
+      "statement": "The annihilator-enlargement quotient equivalence sends the class of each m∈M to the class of m.",
+      "hypotheses": [
+        "A is a commutative ring, M is an additive commutative group with its given A-module structure, and q is an ideal of A. Ideal sum means lattice supremum. All actions, quotients and lengths are the pinned native ones. No Noetherian, local, finite-module, faithful-module, flatness or finite-length hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "Apply the pinned representative formula for the quotient equivalence of equal submodules."
+      ],
+      "acceptance": [
+        "The annihilator-enlargement quotient equivalence sends the class of each m∈M to the class of m."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-adic-quotient",
+        "mathlib:Submodule.quotEquivOfEq_mk"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-ANNIHILATOR-a71f92",
+          "locator": "Stacks 0AZU, Remark 43.15.6; adicQuotientAnnihilatorEquiv_mk derived actual-carrier equality",
+          "match": "The remark permits adjoining Ann_A(M). The actions, all powers and actual quotients are directly identified using pinned module operations, before Hilbert–Serre or dimension theorems."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-adic-quotient-inverse-mk",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Inverse annihilator comparison on representatives",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicQuotientAnnihilatorEquiv_symm_mk",
+      "statement": "The inverse annihilator-enlargement quotient equivalence sends the class of each m∈M to the class of m.",
+      "hypotheses": [
+        "A is a commutative ring, M is an additive commutative group with its given A-module structure, and q is an ideal of A. Ideal sum means lattice supremum. All actions, quotients and lengths are the pinned native ones. No Noetherian, local, finite-module, faithful-module, flatness or finite-length hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "Apply injectivity of the forward equivalence, the inverse law, and its forward representative formula."
+      ],
+      "acceptance": [
+        "The inverse annihilator-enlargement quotient equivalence sends the class of each m∈M to the class of m."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-adic-quotient",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-adic-quotient-mk"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-ANNIHILATOR-a71f92",
+          "locator": "Stacks 0AZU, Remark 43.15.6; adicQuotientAnnihilatorEquiv_symm_mk derived actual-carrier equality",
+          "match": "The remark permits adjoining Ann_A(M). The actions, all powers and actual quotients are directly identified using pinned module operations, before Hilbert–Serre or dimension theorems."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function-annihilator-enlargement",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Annihilator enlargement preserves cumulative lengths",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.function_sup_annihilator",
+      "statement": "For every n≥0, H(q+Ann_A(M);M,n)=H(q;M,n) as extended natural numbers, with H(q;M,n)=length_A(M/q^(n+1)M).",
+      "hypotheses": [
+        "A is a commutative ring, M is an additive commutative group with its given A-module structure, and q is an ideal of A. Ideal sum means lattice supremum. All actions, quotients and lengths are the pinned native ones. No Noetherian, local, finite-module, faithful-module, flatness or finite-length hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "Take r=n+1 in the actual A-linear quotient equivalence.",
+        "Apply invariance of length under linear equivalence. Infinite lengths are retained; no polynomiality or multiplicity normalization is inferred."
+      ],
+      "acceptance": [
+        "For every n≥0, H(q+Ann_A(M);M,n)=H(q;M,n) as extended natural numbers, with H(q;M,n)=length_A(M/q^(n+1)M)."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-adic-quotient",
+        "mathlib:LinearEquiv.length_eq",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-ANNIHILATOR-a71f92",
+          "locator": "Stacks 0AZU, Remark 43.15.6; function_sup_annihilator derived actual-carrier equality",
+          "match": "The remark permits adjoining Ann_A(M). The actions, all powers and actual quotients are directly identified using pinned module operations, before Hilbert–Serre or dimension theorems."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
     }
   ],
   "baselineCoverage": [
@@ -19651,5 +19995,15 @@
       "Curve support dimension depends on the existing open general degree theorem; the ambient power-series dimension upper bound is not established.",
       "All incoming gaps, supplier requests, general cumulative/graded proof prerequisites and routed-paper obligations remain required."
     ]
+  },
+  "annihilatorContinuation": {
+    "agent": "Codex — codex-a71f92",
+    "date": "2026-10-03",
+    "incomingWholeNodesPreserved": 247,
+    "newDeclarations": 6,
+    "newApiItems": 3,
+    "newTests": 4,
+    "mathematicalBoundary": "No finiteness is needed for the action/power/quotient/extended-length equalities. Module-relative polynomiality and general dimension/multiplicity leaves remain open; native artifacts are prototypes, not an implementation.",
+    "syntaxRepairs": "Inherited notation and curve-parameter inference are repaired without altering preserved packet contracts."
   }
 }
