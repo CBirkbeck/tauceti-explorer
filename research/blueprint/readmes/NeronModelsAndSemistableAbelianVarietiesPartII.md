@@ -1,3 +1,347 @@
+# Generic-point fields and the absolute-normalization comparison
+
+Let k be any field, q=t²+at+b, C the previously glued pinched curve, N its specified glued source and ν:N→C the actual finite morphism. All objects in this section are those existing constructions; in particular the field objects are the schemes’ native generic-point stalks. No perfectness, separability, characteristic or discriminant assumption enters. The infinity chart H is an integral common open subscheme. Its two open immersions and their triangle with ν give ν(η_N)=η_C. Consequently the actual stalk map of ν transports to a specified map σ:K_C→K_N. Taking the common-chart triangle on stalks and cancelling its two isomorphisms proves that σ is an isomorphism. Its germ square retains each nonempty open and the actual pullback map on its sections.
+
+The native categorical isomorphism E has σ as forward map. Its inverse defines ζ:Spec K_C→N through Spec.map(E.inv) and the native generic-point morphism η_N. The Spec/stalk-map naturality square proves ζ followed by ν equals η=C.fromSpecStalk(η_C). The inverse field map, rather than an arbitrary identification of rational-function fields, is essential to this equality.
+
+The existing Tau Ceti theorem fromSpecFunctionField_preimage already identifies every nonempty-open preimage under η with the whole source. It is imported; the singleton spectrum and generic-point membership are not replanned. Together with affineness of the empty and full opens this supplies affinity of this particular η. Existing affine-to-quasi-compact and affine-to-separated-to-quasi-separated instances provide the hypotheses of Mathlib’s normalization construction. The native object η.normalization is used directly. An extra opaque Scheme carrier would obscure its canonical arrows and is unnecessary.
+
+Apply native normalizationDesc to η=ζ followed by ν, using that the existing finite ν is integral. This constructs δ:η.normalization→N, an integral morphism. Its generic-point and base triangles are both part of the API, and uniqueness requires both of them. Neither integrality nor that universal property proves δ is an isomorphism. The next required comparison must identify the actual affine integral closures in K_C with the rings of N, compatibly on overlaps. The earlier relative-normalization isomorphism N≅Rν is insufficient for this step: Rν normalizes the morphism ν in its source, while η.normalization uses the actual function field of C. Also, the actual inclusion A_q→k[t] is nonsurjective even though σ is an isomorphism.
+
+This distinction keeps the cusp q=t², nodal cases and the nonsplit characteristic-two polynomial t²+t+1 in the same construction. The finite map need not be an isomorphism. The plan still requires the absolute-normalization isomorphism, actual P¹/Proj identification, projectivity and properness, conductor ideal sheaf and its structure-sheaf sequence, finite-pushforward H0/H1, and the independent two-component I₂ geometry. The general Ferrand owner continues to cover schemes under the exact affine-neighborhood criterion and algebraic spaces in the stated full generality; this quadratic continuation does not narrow that owner. All seven stages remain partial. The roadmap’s existing 29 planets already describe the relevant targets; these intermediate declarations add none.
+
+The source motivation is Schröer’s arXiv:2004.07025v3 HTML §3 conductor diagrams and Propositions3.1–3.3. The formulas below are authored deductions from the previous chart construction and the exact pinned library statements. They are not attributed as printed results or as an absolute-normalization theorem of the paper. The inherited source findings and all routing qualifications remain as recorded below.
+
+## Image of the normalization generic point
+
+Declaration: `QuadraticPinch.Global.normalization_genericPoint` (`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-generic-point`).
+
+The actual morphism ν maps η_N, the native generic point of N, to η_C, the native generic point of C.
+
+k is any field; a,b∈k; q=t²+at+b. C is the existing glued pinched curve, N its existing two-chart source, ν:N→C the actual finite morphism and H their common infinity chart. No perfectness, separability, characteristic or discriminant assumption is imposed. Nonempty-open and triangle hypotheses are required exactly where stated.
+
+Construction/proof: The common infinity chart H is integral by the already established infinity-domain proof. Both H→N and H→C are open immersions into integral schemes. Evaluate the existing equality (H→N) followed by ν equals H→C at η_H, and apply the pinned generic-point image theorem to each open immersion.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-curve-integral`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-source-integral`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-infinity-domain`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-infinityiota-is-open-immersion`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinityiota-is-open-immersion`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-infinity-chart`, `mathlib:AlgebraicGeometry.genericPoint_eq_of_isOpenImmersion`.
+
+Acceptance: Use the actual generic-point stalk fields and the actual ν stalk map. Retain full quadratic/nilpotent and characteristic-two generality. No opaque carrier, proposition certificate, ν-isomorphism or unproved absolute-normalization-isomorphism assumption may replace the construction.
+
+Source: §3 conductor squares and Propositions3.1–3.3; authored generic-point specialization of the existing common infinity chart and pinned stalk/normalization APIs. Motivates the actual finite birational pinching. The stated map, inverse and integral factorization are authored deductions, not a printed assertion of absolute-normalization isomorphism or projectivity.
+
+## Nonempty preimages for the finite map
+
+Declaration: `QuadraticPinch.Global.normalization_preimage_nonempty` (`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-preimage-nonempty`).
+
+For any nonempty open U⊆C, its actual preimage ν⁻¹U is nonempty.
+
+k is any field; a,b∈k; q=t²+at+b. C is the existing glued pinched curve, N its existing two-chart source, ν:N→C the actual finite morphism and H their common infinity chart. No perfectness, separability, characteristic or discriminant assumption is imposed. Nonempty-open and triangle hypotheses are required exactly where stated.
+
+Construction/proof: Choose a point of U and a preimage under the previously proved surjective ν; its membership supplies the required native Nonempty instance.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-global-surjective`.
+
+Acceptance: Use the actual generic-point stalk fields and the actual ν stalk map. Retain full quadratic/nilpotent and characteristic-two generality. No opaque carrier, proposition certificate, ν-isomorphism or unproved absolute-normalization-isomorphism assumption may replace the construction.
+
+Source: §3 conductor squares and Propositions3.1–3.3; authored generic-point specialization of the existing common infinity chart and pinned stalk/normalization APIs. Motivates the actual finite birational pinching. The stated map, inverse and integral factorization are authored deductions, not a printed assertion of absolute-normalization isomorphism or projectivity.
+
+## Function-field map of the pinching
+
+Declaration: `QuadraticPinch.Global.normalizationFunctionFieldMap` (`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-map`).
+
+Define σ:K_C→K_N in native CommRingCat, where K_C=C.functionField and K_N=N.functionField, by the inverse stalk isomorphism for ν(η_N)=η_C followed by the actual ν.stalkMap at η_N.
+
+k is any field; a,b∈k; q=t²+at+b. C is the existing glued pinched curve, N its existing two-chart source, ν:N→C the actual finite morphism and H their common infinity chart. No perfectness, separability, characteristic or discriminant assumption is imposed. Nonempty-open and triangle hypotheses are required exactly where stated.
+
+Construction/proof: Import the Field instances of the native generic stalks from the two existing integral-scheme proofs. Transport K_C to the stalk at ν(η_N) using the inverse of the existing stalkCongr isomorphism attached to inseparability from the proved equality. Compose with the actual contravariant ν stalk map.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-generic-point`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-curve-integral`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-source-integral`, `mathlib:AlgebraicGeometry.Scheme.functionField`, `mathlib:TopCat.Presheaf.stalkCongr`.
+
+API:
+
+- `QuadraticPinch.Global.normalizationFunctionFieldMap_stalk` (characterisation): The map σ is exactly the inverse stalkCongr for ν(η_N)=η_C followed by ν.stalkMap(η_N); no arbitrary isomorphism of abstract fields is substituted.
+- `QuadraticPinch.Global.normalizationFunctionFieldMap_germ` (compatibility): For any nonempty U⊆C, germ_C,U followed by σ equals ν.app(U) followed by germ_N,ν⁻¹U, as maps Γ(C,U)→K_N, with the actual nonempty-preimage instance.
+- `QuadraticPinch.Global.normalizationFunctionFieldMap_isIso` (instance): The specified native map σ:K_C→K_N is an isomorphism in CommRingCat.
+
+Uses:
+
+- `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-map-germ`: Identify the genuine pullback of nonempty-open sections inside the native generic fields.
+- `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-map-is-iso`: Use the actual common-chart stalk factorization to prove invertibility.
+- `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-iso`: Its exact forward map provides the canonical field isomorphism.
+
+Tests:
+
+- `QuadraticPinch.Global.test_functionFieldMap_cusp_zero` (example): For the cusp a=b=0 over any field, the actual σ sends zero to zero.
+- `QuadraticPinch.Global.test_functionFieldMap_nonsplit_one` (example): For a=b=1 over F₂, the actual σ sends one to one; the nonsplit polynomial t²+t+1 imposes no separability workaround.
+- `QuadraticPinch.Global.test_functionFieldMap_nonzero` (characterisation): For any a,b and any nonzero x∈K_C, the actual σ(x) is nonzero.
+
+Acceptance: Use the actual generic-point stalk fields and the actual ν stalk map. Retain full quadratic/nilpotent and characteristic-two generality. No opaque carrier, proposition certificate, ν-isomorphism or unproved absolute-normalization-isomorphism assumption may replace the construction.
+
+Source: §3 conductor squares and Propositions3.1–3.3; authored generic-point specialization of the existing common infinity chart and pinned stalk/normalization APIs. Motivates the actual finite birational pinching. The stated map, inverse and integral factorization are authored deductions, not a printed assertion of absolute-normalization isomorphism or projectivity.
+
+## Specified stalk-map formula
+
+Declaration: `QuadraticPinch.Global.normalizationFunctionFieldMap_stalk` (`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-map-stalk`).
+
+The map σ is exactly the inverse stalkCongr for ν(η_N)=η_C followed by ν.stalkMap(η_N); no arbitrary isomorphism of abstract fields is substituted.
+
+k is any field; a,b∈k; q=t²+at+b. C is the existing glued pinched curve, N its existing two-chart source, ν:N→C the actual finite morphism and H their common infinity chart. No perfectness, separability, characteristic or discriminant assumption is imposed. Nonempty-open and triangle hypotheses are required exactly where stated.
+
+Construction/proof: Unfold the specified composition; equality transport uses Inseparable.of_eq.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-map`.
+
+Acceptance: Use the actual generic-point stalk fields and the actual ν stalk map. Retain full quadratic/nilpotent and characteristic-two generality. No opaque carrier, proposition certificate, ν-isomorphism or unproved absolute-normalization-isomorphism assumption may replace the construction.
+
+Source: §3 conductor squares and Propositions3.1–3.3; authored generic-point specialization of the existing common infinity chart and pinned stalk/normalization APIs. Motivates the actual finite birational pinching. The stated map, inverse and integral factorization are authored deductions, not a printed assertion of absolute-normalization isomorphism or projectivity.
+
+## Germ compatibility of the function-field map
+
+Declaration: `QuadraticPinch.Global.normalizationFunctionFieldMap_germ` (`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-map-germ`).
+
+For any nonempty U⊆C, germ_C,U followed by σ equals ν.app(U) followed by germ_N,ν⁻¹U, as maps Γ(C,U)→K_N, with the actual nonempty-preimage instance.
+
+k is any field; a,b∈k; q=t²+at+b. C is the existing glued pinched curve, N its existing two-chart source, ν:N→C the actual finite morphism and H their common infinity chart. No perfectness, separability, characteristic or discriminant assumption is imposed. Nonempty-open and triangle hypotheses are required exactly where stated.
+
+Construction/proof: Expand the native germ map and specified equality transport. Apply the pinned germ-specialization equality to remove the transport. Apply the actual scheme-morphism germ/stalkMap square; the separate ν-preimage lemma supplies the missing nonempty instance.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-map-stalk`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-preimage-nonempty`, `mathlib:AlgebraicGeometry.Scheme.germToFunctionField`, `mathlib:TopCat.Presheaf.germ_stalkSpecializes`, `mathlib:AlgebraicGeometry.Scheme.Hom.germ_stalkMap`.
+
+Acceptance: Use the actual generic-point stalk fields and the actual ν stalk map. Retain full quadratic/nilpotent and characteristic-two generality. No opaque carrier, proposition certificate, ν-isomorphism or unproved absolute-normalization-isomorphism assumption may replace the construction.
+
+Source: §3 conductor squares and Propositions3.1–3.3; authored generic-point specialization of the existing common infinity chart and pinned stalk/normalization APIs. Motivates the actual finite birational pinching. The stated map, inverse and integral factorization are authored deductions, not a printed assertion of absolute-normalization isomorphism or projectivity.
+
+## The actual function-field map is an isomorphism
+
+Declaration: `QuadraticPinch.Global.normalizationFunctionFieldMap_isIso` (`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-map-is-iso`).
+
+The specified native map σ:K_C→K_N is an isomorphism in CommRingCat.
+
+k is any field; a,b∈k; q=t²+at+b. C is the existing glued pinched curve, N its existing two-chart source, ν:N→C the actual finite morphism and H their common infinity chart. No perfectness, separability, characteristic or discriminant assumption is imposed. Nonempty-open and triangle hypotheses are required exactly where stated.
+
+Construction/proof: Take stalk maps of the common-infinity-chart triangle at η_H. Both chart stalk maps are isomorphisms by their open-immersion hypotheses. Use the pinned contravariant stalkMap composition law and cancel the source-chart stalk isomorphism. Identify its image point with η_N. The remaining equality-transport factor is already an isomorphism.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-map-stalk`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-infinity-domain`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-infinityiota-is-open-immersion`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinityiota-is-open-immersion`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-infinity-chart`, `mathlib:AlgebraicGeometry.genericPoint_eq_of_isOpenImmersion`, `mathlib:AlgebraicGeometry.Scheme.Hom.stalkMap_comp`, `mathlib:AlgebraicGeometry.IsOpenImmersion.iff_isIso_stalkMap`, `mathlib:CategoryTheory.IsIso.of_isIso_comp_left`.
+
+Acceptance: Use the actual generic-point stalk fields and the actual ν stalk map. Retain full quadratic/nilpotent and characteristic-two generality. No opaque carrier, proposition certificate, ν-isomorphism or unproved absolute-normalization-isomorphism assumption may replace the construction.
+
+Source: §3 conductor squares and Propositions3.1–3.3; authored generic-point specialization of the existing common infinity chart and pinned stalk/normalization APIs. Motivates the actual finite birational pinching. The stated map, inverse and integral factorization are authored deductions, not a printed assertion of absolute-normalization isomorphism or projectivity.
+
+## Canonical function-field isomorphism
+
+Declaration: `QuadraticPinch.Global.normalizationFunctionFieldIso` (`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-iso`).
+
+Define E:K_C≅K_N as the native categorical asIso of the specified σ and its proved IsIso instance; its forward map is the genuine transported ν stalk map.
+
+k is any field; a,b∈k; q=t²+at+b. C is the existing glued pinched curve, N its existing two-chart source, ν:N→C the actual finite morphism and H their common infinity chart. No perfectness, separability, characteristic or discriminant assumption is imposed. Nonempty-open and triangle hypotheses are required exactly where stated.
+
+Construction/proof: Apply existing asIso to σ with the preceding IsIso theorem. No new field carrier or normalization predicate is introduced.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-map`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-map-is-iso`, `mathlib:CategoryTheory.asIso`.
+
+API:
+
+- `QuadraticPinch.Global.normalizationFunctionFieldIso_hom` (projection): The forward map E.hom equals the actual σ.
+- `QuadraticPinch.Global.normalizationFunctionFieldIso_inv_hom` (simp): E.inv followed by σ equals the identity of K_N.
+- `QuadraticPinch.Global.normalizationFunctionFieldIso_hom_inv` (simp): σ followed by E.inv equals the identity of K_C.
+- `QuadraticPinch.Global.normalizationFunctionFieldIso_spec_triangle` (compatibility): Let η:Spec K_C→C and η_N:Spec K_N→N be the native fromSpecStalk morphisms. Then Spec.map(E.inv) followed by η_N followed by ν equals η.
+
+Uses:
+
+- `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-spec-triangle`: The inverse field map lifts the actual generic point of C to N.
+- `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison`: The actual inverse determines ζ in the integral factorization.
+- `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison-point`: Retain the specified generic-point lift in the universal property.
+
+Tests:
+
+- `QuadraticPinch.Global.test_functionFieldIso_cusp_roundtrip` (example): For the cusp over any field and every x∈K_C, E.inv(σ(x))=x.
+- `QuadraticPinch.Global.test_functionFieldIso_char2_roundtrip` (example): For a=b=1 over F₂ and every x∈K_N, σ(E.inv(x))=x.
+- `QuadraticPinch.Global.test_functionFieldIso_affine_nonexample` (non-example): For every a,b, σ is an isomorphism while the actual affine inclusion A_q→k[t] is not surjective. A function-field isomorphism does not identify the pinched affine scheme with its source.
+
+Acceptance: Use the actual generic-point stalk fields and the actual ν stalk map. Retain full quadratic/nilpotent and characteristic-two generality. No opaque carrier, proposition certificate, ν-isomorphism or unproved absolute-normalization-isomorphism assumption may replace the construction.
+
+Source: §3 conductor squares and Propositions3.1–3.3; authored generic-point specialization of the existing common infinity chart and pinned stalk/normalization APIs. Motivates the actual finite birational pinching. The stated map, inverse and integral factorization are authored deductions, not a printed assertion of absolute-normalization isomorphism or projectivity.
+
+## Forward map of the field isomorphism
+
+Declaration: `QuadraticPinch.Global.normalizationFunctionFieldIso_hom` (`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-iso-hom`).
+
+The forward map E.hom equals the actual σ.
+
+k is any field; a,b∈k; q=t²+at+b. C is the existing glued pinched curve, N its existing two-chart source, ν:N→C the actual finite morphism and H their common infinity chart. No perfectness, separability, characteristic or discriminant assumption is imposed. Nonempty-open and triangle hypotheses are required exactly where stated.
+
+Construction/proof: Use the defining forward map of native asIso.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-iso`.
+
+Acceptance: Use the actual generic-point stalk fields and the actual ν stalk map. Retain full quadratic/nilpotent and characteristic-two generality. No opaque carrier, proposition certificate, ν-isomorphism or unproved absolute-normalization-isomorphism assumption may replace the construction.
+
+Source: §3 conductor squares and Propositions3.1–3.3; authored generic-point specialization of the existing common infinity chart and pinned stalk/normalization APIs. Motivates the actual finite birational pinching. The stated map, inverse and integral factorization are authored deductions, not a printed assertion of absolute-normalization isomorphism or projectivity.
+
+## Inverse then forward on the source field
+
+Declaration: `QuadraticPinch.Global.normalizationFunctionFieldIso_inv_hom` (`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-iso-inv-hom`).
+
+E.inv followed by σ equals the identity of K_N.
+
+k is any field; a,b∈k; q=t²+at+b. C is the existing glued pinched curve, N its existing two-chart source, ν:N→C the actual finite morphism and H their common infinity chart. No perfectness, separability, characteristic or discriminant assumption is imposed. Nonempty-open and triangle hypotheses are required exactly where stated.
+
+Construction/proof: Use the native inverse/forward identity with the specified forward-map equation.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-iso-hom`.
+
+Acceptance: Use the actual generic-point stalk fields and the actual ν stalk map. Retain full quadratic/nilpotent and characteristic-two generality. No opaque carrier, proposition certificate, ν-isomorphism or unproved absolute-normalization-isomorphism assumption may replace the construction.
+
+Source: §3 conductor squares and Propositions3.1–3.3; authored generic-point specialization of the existing common infinity chart and pinned stalk/normalization APIs. Motivates the actual finite birational pinching. The stated map, inverse and integral factorization are authored deductions, not a printed assertion of absolute-normalization isomorphism or projectivity.
+
+## Forward then inverse on the curve field
+
+Declaration: `QuadraticPinch.Global.normalizationFunctionFieldIso_hom_inv` (`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-iso-hom-inv`).
+
+σ followed by E.inv equals the identity of K_C.
+
+k is any field; a,b∈k; q=t²+at+b. C is the existing glued pinched curve, N its existing two-chart source, ν:N→C the actual finite morphism and H their common infinity chart. No perfectness, separability, characteristic or discriminant assumption is imposed. Nonempty-open and triangle hypotheses are required exactly where stated.
+
+Construction/proof: Use the native forward/inverse identity with the specified forward-map equation.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-iso-hom`.
+
+Acceptance: Use the actual generic-point stalk fields and the actual ν stalk map. Retain full quadratic/nilpotent and characteristic-two generality. No opaque carrier, proposition certificate, ν-isomorphism or unproved absolute-normalization-isomorphism assumption may replace the construction.
+
+Source: §3 conductor squares and Propositions3.1–3.3; authored generic-point specialization of the existing common infinity chart and pinned stalk/normalization APIs. Motivates the actual finite birational pinching. The stated map, inverse and integral factorization are authored deductions, not a printed assertion of absolute-normalization isomorphism or projectivity.
+
+## Generic-point lift to the normalization source
+
+Declaration: `QuadraticPinch.Global.normalizationFunctionFieldIso_spec_triangle` (`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-spec-triangle`).
+
+Let η:Spec K_C→C and η_N:Spec K_N→N be the native fromSpecStalk morphisms. Then Spec.map(E.inv) followed by η_N followed by ν equals η.
+
+k is any field; a,b∈k; q=t²+at+b. C is the existing glued pinched curve, N its existing two-chart source, ν:N→C the actual finite morphism and H their common infinity chart. No perfectness, separability, characteristic or discriminant assumption is imposed. Nonempty-open and triangle hypotheses are required exactly where stated.
+
+Construction/proof: Apply native Spec/stalk-map naturality to the actual ν at η_N. The pinned Spec-specialization naturality removes the equality transport, giving Spec.map(σ) followed by η equals η_N followed by ν. Precompose with Spec.map(E.inv) and use contravariance of Spec and the proved σ/inverse identity.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-map-stalk`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-iso-hom-inv`, `mathlib:AlgebraicGeometry.Scheme.fromSpecStalk`, `mathlib:AlgebraicGeometry.Scheme.SpecMap_stalkMap_fromSpecStalk`, `mathlib:AlgebraicGeometry.Scheme.SpecMap_stalkSpecializes_fromSpecStalk`.
+
+Acceptance: Use the actual generic-point stalk fields and the actual ν stalk map. Retain full quadratic/nilpotent and characteristic-two generality. No opaque carrier, proposition certificate, ν-isomorphism or unproved absolute-normalization-isomorphism assumption may replace the construction.
+
+Source: §3 conductor squares and Propositions3.1–3.3; authored generic-point specialization of the existing common infinity chart and pinned stalk/normalization APIs. Motivates the actual finite birational pinching. The stated map, inverse and integral factorization are authored deductions, not a printed assertion of absolute-normalization isomorphism or projectivity.
+
+## Affinity of the actual generic-point morphism
+
+Declaration: `QuadraticPinch.Global.genericPointMorphism_isAffine` (`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/generic-point-morphism-affine`).
+
+The actual η=C.fromSpecStalk(η_C):Spec K_C→C is an affine morphism; its existing affine and separated instances therefore supply quasi-compactness and quasi-separatedness for native relative normalization.
+
+k is any field; a,b∈k; q=t²+at+b. C is the existing glued pinched curve, N its existing two-chart source, ν:N→C the actual finite morphism and H their common infinity chart. No perfectness, separability, characteristic or discriminant assumption is imposed. Nonempty-open and triangle hypotheses are required exactly where stated.
+
+Construction/proof: Import Tau Ceti’s existing generic-point morphism and nonempty-open-preimage theorem: η⁻¹U is the full source for nonempty U. A field spectrum is affine, so this preimage is affine. For an empty U its preimage is empty, which is affine by the pinned empty-open theorem. Apply native IsAffineHom. Import, rather than reconstruct, the existing affine-to-quasi-compact and affine-to-separated-to-quasi-separated instances.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-curve-integral`, `mathlib:AlgebraicGeometry.IsAffineHom`, `mathlib:AlgebraicGeometry.IsSeparated.of_isAffineHom`, `mathlib:AlgebraicGeometry.isAffineOpen_bot`, `mathlib:AlgebraicGeometry.isAffineOpen_top`, `tauceti:TauCeti.AlgebraicGeometry.Scheme.fromSpecFunctionField`, `tauceti:TauCeti.AlgebraicGeometry.Scheme.fromSpecFunctionField_preimage`, `tauceti:TauCeti.AlgebraicGeometry.Scheme.instUniqueSpecFunctionField`.
+
+Acceptance: Use the actual generic-point stalk fields and the actual ν stalk map. Retain full quadratic/nilpotent and characteristic-two generality. No opaque carrier, proposition certificate, ν-isomorphism or unproved absolute-normalization-isomorphism assumption may replace the construction.
+
+Source: §3 conductor squares and Propositions3.1–3.3; authored generic-point specialization of the existing common infinity chart and pinned stalk/normalization APIs. Motivates the actual finite birational pinching. The stated map, inverse and integral factorization are authored deductions, not a printed assertion of absolute-normalization isomorphism or projectivity.
+
+## Integral comparison from absolute normalization
+
+Declaration: `QuadraticPinch.Global.absoluteNormalizationComparison` (`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison`).
+
+With η=C.fromSpecStalk(η_C), use the existing native scheme η.normalization, the normalization of C in its actual function field. Define δ:η.normalization→N by native normalizationDesc of the factorization η=ζ followed by ν, where ζ=Spec.map(E.inv) followed by η_N. The already finite ν is integral. No isomorphism assertion for δ is made.
+
+k is any field; a,b∈k; q=t²+at+b. C is the existing glued pinched curve, N its existing two-chart source, ν:N→C the actual finite morphism and H their common infinity chart. No perfectness, separability, characteristic or discriminant assumption is imposed. Nonempty-open and triangle hypotheses are required exactly where stated.
+
+Construction/proof: The preceding affinity theorem supplies the native quasi-compact and quasi-separated hypotheses of normalization; use the existing normalization scheme and canonical arrows directly. The Spec triangle supplies the exact factorization equality. Import finite-implies-integral for the existing ν and apply native normalizationDesc to ζ and ν.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-spec-triangle`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/generic-point-morphism-affine`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-is-finite`, `mathlib:AlgebraicGeometry.Scheme.Hom.normalization`, `mathlib:AlgebraicGeometry.Scheme.Hom.normalizationDesc`, `mathlib:AlgebraicGeometry.IsFinite.iff_isIntegralHom_and_locallyOfFiniteType`.
+
+API:
+
+- `QuadraticPinch.Global.absoluteNormalizationComparison_point_triangle` (universal-property): The native η.toNormalization followed by δ equals the actual ζ=Spec.map(E.inv) followed by η_N.
+- `QuadraticPinch.Global.absoluteNormalizationComparison_from_triangle` (compatibility): The actual δ followed by ν equals the native η.fromNormalization:η.normalization→C.
+- `QuadraticPinch.Global.absoluteNormalizationComparison_integral` (instance): The specified actual δ:η.normalization→N is an integral morphism.
+- `QuadraticPinch.Global.absoluteNormalizationComparison_unique` (extensionality): For any actual d:η.normalization→N, if η.toNormalization followed by d equals ζ and d followed by ν equals η.fromNormalization, then d=δ. Both triangles are hypotheses; neither one alone is discarded.
+
+Uses:
+
+- `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison-point`: Identify the generic-point factorization of the normalization.
+- `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison-from`: Identify its genuine map to the original pinched scheme.
+- `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison-unique`: Characterize the candidate normalization comparison by both actual triangles.
+
+Tests:
+
+- `QuadraticPinch.Global.test_absoluteComparison_cusp` (example): For the cusp over any field, δ followed by ν equals the native η.fromNormalization.
+- `QuadraticPinch.Global.test_absoluteComparison_char2` (example): For a=b=1 over F₂, η.toNormalization followed by δ equals Spec.map(E.inv) followed by the actual η_N.
+- `QuadraticPinch.Global.test_absoluteComparison_integral` (characterisation): For all a,b over any field, the actual δ is integral, without asserting it is an isomorphism.
+
+Acceptance: Use the actual generic-point stalk fields and the actual ν stalk map. Retain full quadratic/nilpotent and characteristic-two generality. No opaque carrier, proposition certificate, ν-isomorphism or unproved absolute-normalization-isomorphism assumption may replace the construction.
+
+Source: §3 conductor squares and Propositions3.1–3.3; authored generic-point specialization of the existing common infinity chart and pinned stalk/normalization APIs. Motivates the actual finite birational pinching. The stated map, inverse and integral factorization are authored deductions, not a printed assertion of absolute-normalization isomorphism or projectivity.
+
+## Generic-point triangle of the comparison
+
+Declaration: `QuadraticPinch.Global.absoluteNormalizationComparison_point_triangle` (`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison-point`).
+
+The native η.toNormalization followed by δ equals the actual ζ=Spec.map(E.inv) followed by η_N.
+
+k is any field; a,b∈k; q=t²+at+b. C is the existing glued pinched curve, N its existing two-chart source, ν:N→C the actual finite morphism and H their common infinity chart. No perfectness, separability, characteristic or discriminant assumption is imposed. Nonempty-open and triangle hypotheses are required exactly where stated.
+
+Construction/proof: Apply the existing toNormalization/normalizationDesc triangle to the specified integral factorization.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison`, `mathlib:AlgebraicGeometry.Scheme.Hom.toNormalization_normalizationDesc`.
+
+Acceptance: Use the actual generic-point stalk fields and the actual ν stalk map. Retain full quadratic/nilpotent and characteristic-two generality. No opaque carrier, proposition certificate, ν-isomorphism or unproved absolute-normalization-isomorphism assumption may replace the construction.
+
+Source: §3 conductor squares and Propositions3.1–3.3; authored generic-point specialization of the existing common infinity chart and pinned stalk/normalization APIs. Motivates the actual finite birational pinching. The stated map, inverse and integral factorization are authored deductions, not a printed assertion of absolute-normalization isomorphism or projectivity.
+
+## Base triangle of the comparison
+
+Declaration: `QuadraticPinch.Global.absoluteNormalizationComparison_from_triangle` (`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison-from`).
+
+The actual δ followed by ν equals the native η.fromNormalization:η.normalization→C.
+
+k is any field; a,b∈k; q=t²+at+b. C is the existing glued pinched curve, N its existing two-chart source, ν:N→C the actual finite morphism and H their common infinity chart. No perfectness, separability, characteristic or discriminant assumption is imposed. Nonempty-open and triangle hypotheses are required exactly where stated.
+
+Construction/proof: Apply the existing normalizationDesc/fromNormalization triangle to the specified integral factorization.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison`, `mathlib:AlgebraicGeometry.Scheme.Hom.normalizationDesc_comp`.
+
+Acceptance: Use the actual generic-point stalk fields and the actual ν stalk map. Retain full quadratic/nilpotent and characteristic-two generality. No opaque carrier, proposition certificate, ν-isomorphism or unproved absolute-normalization-isomorphism assumption may replace the construction.
+
+Source: §3 conductor squares and Propositions3.1–3.3; authored generic-point specialization of the existing common infinity chart and pinned stalk/normalization APIs. Motivates the actual finite birational pinching. The stated map, inverse and integral factorization are authored deductions, not a printed assertion of absolute-normalization isomorphism or projectivity.
+
+## Integrality of the comparison
+
+Declaration: `QuadraticPinch.Global.absoluteNormalizationComparison_integral` (`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison-integral`).
+
+The specified actual δ:η.normalization→N is an integral morphism.
+
+k is any field; a,b∈k; q=t²+at+b. C is the existing glued pinched curve, N its existing two-chart source, ν:N→C the actual finite morphism and H their common infinity chart. No perfectness, separability, characteristic or discriminant assumption is imposed. Nonempty-open and triangle hypotheses are required exactly where stated.
+
+Construction/proof: Use the existing native integral-normalizationDesc instance: δ followed by the integral ν is the canonical integral η.fromNormalization, so integral cancellation applies.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison-from`, `mathlib:AlgebraicGeometry.Scheme.Hom.normalizationDesc`.
+
+Acceptance: Use the actual generic-point stalk fields and the actual ν stalk map. Retain full quadratic/nilpotent and characteristic-two generality. No opaque carrier, proposition certificate, ν-isomorphism or unproved absolute-normalization-isomorphism assumption may replace the construction.
+
+Source: §3 conductor squares and Propositions3.1–3.3; authored generic-point specialization of the existing common infinity chart and pinned stalk/normalization APIs. Motivates the actual finite birational pinching. The stated map, inverse and integral factorization are authored deductions, not a printed assertion of absolute-normalization isomorphism or projectivity.
+
+## Uniqueness with both normalization triangles
+
+Declaration: `QuadraticPinch.Global.absoluteNormalizationComparison_unique` (`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison-unique`).
+
+For any actual d:η.normalization→N, if η.toNormalization followed by d equals ζ and d followed by ν equals η.fromNormalization, then d=δ. Both triangles are hypotheses; neither one alone is discarded.
+
+k is any field; a,b∈k; q=t²+at+b. C is the existing glued pinched curve, N its existing two-chart source, ν:N→C the actual finite morphism and H their common infinity chart. No perfectness, separability, characteristic or discriminant assumption is imposed. Nonempty-open and triangle hypotheses are required exactly where stated.
+
+Construction/proof: The finite ν is affine. Compare d and δ by the pinned native normalization.hom_ext, using the point triangle and both base triangles.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison-point`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison-from`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-is-finite`, `mathlib:AlgebraicGeometry.Scheme.Hom.normalization.hom_ext`.
+
+Acceptance: Use the actual generic-point stalk fields and the actual ν stalk map. Retain full quadratic/nilpotent and characteristic-two generality. No opaque carrier, proposition certificate, ν-isomorphism or unproved absolute-normalization-isomorphism assumption may replace the construction.
+
+Source: §3 conductor squares and Propositions3.1–3.3; authored generic-point specialization of the existing common infinity chart and pinned stalk/normalization APIs. Motivates the actual finite birational pinching. The stated map, inverse and integral factorization are authored deductions, not a printed assertion of absolute-normalization isomorphism or projectivity.
+
+---
+
 # Specified relative normalization continuation — Codex codex-5ebb6f
 
 This adds23 nodes (6constructions17lemmas),19 API entries and22 exact examples to the440-node incoming plan. Every field and quadratic coefficient pair remains allowed. The already glued finite ν:N→C has an injective map on structure-sheaf sections for every open, and its flat pullbacks have zero kernel ideal sheaf. Mathlib already constructs relative normalization and its integral-factorization universal map; these are imported and specialized to ν. Since ν is integral, its canonical comparison N→Rν is invertible. This is relative normalization of C in N. The comparison alone does not prove the roadmap’s absolute normalization in a generic-point function field.
