@@ -3203,3 +3203,125 @@ example :
 
 end FactorialUniversalCoaction
 end TauCeti.RootStack
+
+/-! Coefficient naturality of the universal factorial coaction.
+All ring maps and tensor products below use the actual inherited native carriers. -/
+
+namespace TauCeti.RootStack
+section FactorialCoefficientCoaction
+variable {A B C : Type u} [CommRing A] [CommRing B] [CommRing C]
+open scoped TensorProduct
+local instance (i : ℕ) : NeZero (Nat.factorial (i+1)) := ⟨Nat.factorial_ne_zero _⟩
+
+def factorialUnitCoefficientMap (φ : A →+* B) :
+    FactorialAffineColimit (1 : A) →+* FactorialAffineColimit (1 : B) := by sorry
+lemma factorialUnitCoefficientMap.root (φ : A →+* B) (i : ℕ) :
+    factorialUnitCoefficientMap φ (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) =
+      factorialAffineInclusion (1 : B) i (AdjoinRoot.root _) := by sorry
+lemma factorialUnitCoefficientMap.constant (φ : A →+* B) (a : A) :
+    factorialUnitCoefficientMap φ (algebraMap A _ a) = algebraMap B _ (φ a) := by sorry
+lemma factorialUnitCoefficientMap.id :
+    factorialUnitCoefficientMap (RingHom.id A) = RingHom.id (FactorialAffineColimit (1 : A)) := by sorry
+lemma factorialUnitCoefficientMap.comp (φ : A →+* B) (ψ : B →+* C) :
+    factorialUnitCoefficientMap (ψ.comp φ) =
+      (factorialUnitCoefficientMap ψ).comp (factorialUnitCoefficientMap φ) := by sorry
+lemma factorialCounit.coefficient_naturality (φ : A →+* B) :
+    (factorialCounit B).toRingHom.comp (factorialUnitCoefficientMap φ) =
+      φ.comp (factorialCounit A).toRingHom := by sorry
+def factorialTensorCoefficientMap (φ : A →+* B) (f : A) :
+    (FactorialAffineColimit (1 : A) ⊗[A] FactorialAffineColimit f) →+*
+      (FactorialAffineColimit (1 : B) ⊗[B] FactorialAffineColimit (φ f)) := by sorry
+lemma factorialTensorCoefficientMap.tmul (φ : A →+* B) (f : A)
+    (h : FactorialAffineColimit (1 : A)) (x : FactorialAffineColimit f) :
+    factorialTensorCoefficientMap φ f (h ⊗ₜ[A] x) =
+      factorialUnitCoefficientMap φ h ⊗ₜ[B] factorialCoefficientMap φ f x := by sorry
+lemma factorialTensorCoefficientMap.constant (φ : A →+* B) (f a : A) :
+    factorialTensorCoefficientMap φ f (algebraMap A _ a) = algebraMap B _ (φ a) := by sorry
+set_option maxHeartbeats 2000000 in
+lemma factorialCoaction.coefficient_naturality (φ : A →+* B) (f : A) :
+    (factorialTensorCoefficientMap φ f).comp (factorialCoaction f).toRingHom =
+      (factorialCoaction (φ f)).toRingHom.comp (factorialCoefficientMap φ f) := by sorry
+lemma factorialUnitCoefficientMap.universal_scalars (φ : A →+* B) :
+    factorialRootScalars.map (factorialUnitCoefficientMap φ) (factorialUniversalScalars A) =
+      factorialUniversalScalars B := by sorry
+lemma factorialUnitCoefficientMap.inverse_value (φ : A →+* B) (i : ℕ) :
+    factorialUnitCoefficientMap φ
+      (((factorialUniversalScalars A)⁻¹).val i : FactorialAffineColimit (1 : A)) =
+      (((factorialUniversalScalars B)⁻¹).val i : FactorialAffineColimit (1 : B)) := by sorry
+lemma factorialAntipode.coefficient_naturality (φ : A →+* B) :
+    (factorialAntipode B).toRingHom.comp (factorialUnitCoefficientMap φ) =
+      (factorialUnitCoefficientMap φ).comp (factorialAntipode A).toRingHom := by sorry
+lemma factorialTensorCoefficientMap.root (φ : A →+* B) (f : A) (i : ℕ) :
+    factorialTensorCoefficientMap φ f
+      (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _) ⊗ₜ[A]
+        factorialAffineInclusion f i (AdjoinRoot.root _)) =
+      factorialAffineInclusion (1 : B) i (AdjoinRoot.root _) ⊗ₜ[B]
+        factorialAffineInclusion (φ f) i (AdjoinRoot.root _) := by sorry
+lemma factorialTensorCoefficientMap.id (f : A) :
+    factorialTensorCoefficientMap (RingHom.id A) f = RingHom.id _ := by sorry
+lemma factorialTensorCoefficientMap.comp (φ : A →+* B) (ψ : B →+* C) (f : A) :
+    factorialTensorCoefficientMap (ψ.comp φ) f =
+      (factorialTensorCoefficientMap ψ (φ f)).comp (factorialTensorCoefficientMap φ f) := by sorry
+end FactorialCoefficientCoaction
+end TauCeti.RootStack
+namespace TauCeti.RootStack
+section CoefficientNaturalityTests
+variable {A B C : Type u} [CommRing A] [CommRing B] [CommRing C]
+open scoped TensorProduct
+local instance (i : ℕ) : NeZero (Nat.factorial (i+1)) := ⟨Nat.factorial_ne_zero _⟩
+
+-- coefficientUnitTests.reduction_two
+example : factorialUnitCoefficientMap (Int.castRingHom (ZMod 2))
+    (algebraMap ℤ _ 2) = 0 := by sorry
+-- coefficientUnitTests.identity
+example (x : FactorialAffineColimit (1 : A)) :
+    factorialUnitCoefficientMap (RingHom.id A) x = x := by sorry
+-- coefficientUnitTests.composition
+example (φ : A →+* B) (ψ : B →+* C) (x : FactorialAffineColimit (1 : A)) :
+    factorialUnitCoefficientMap (ψ.comp φ) x =
+      factorialUnitCoefficientMap ψ (factorialUnitCoefficientMap φ x) := by sorry
+-- coefficientUnitTests.zero_ring
+example : factorialUnitCoefficientMap (Int.castRingHom (ZMod 1)) 1 = 0 := by sorry
+-- coefficientTensorTests.degree_two
+example (φ : A →+* B) (f : A) :
+    factorialTensorCoefficientMap φ f
+      (factorialAffineInclusion (1 : A) 1 (AdjoinRoot.root _) ⊗ₜ[A]
+        factorialAffineInclusion f 1 (AdjoinRoot.root _)) =
+      factorialAffineInclusion (1 : B) 1 (AdjoinRoot.root _) ⊗ₜ[B]
+        factorialAffineInclusion (φ f) 1 (AdjoinRoot.root _) := by sorry
+-- coefficientTensorTests.reduction_two
+example : factorialTensorCoefficientMap (Int.castRingHom (ZMod 2)) (0 : ℤ)
+    (algebraMap ℤ _ 2) = 0 := by sorry
+-- coefficientTensorTests.identity
+example (f : A) (x : FactorialAffineColimit (1 : A) ⊗[A] FactorialAffineColimit f) :
+    factorialTensorCoefficientMap (RingHom.id A) f x = x := by sorry
+-- coefficientTensorTests.composition
+example (φ : A →+* B) (ψ : B →+* C) (f : A)
+    (x : FactorialAffineColimit (1 : A) ⊗[A] FactorialAffineColimit f) :
+    factorialTensorCoefficientMap (ψ.comp φ) f x =
+      factorialTensorCoefficientMap ψ (φ f) (factorialTensorCoefficientMap φ f x) := by sorry
+-- coefficientTensorTests.zero_ring
+example : factorialTensorCoefficientMap (Int.castRingHom (ZMod 1)) (0 : ℤ) 1 = 0 := by sorry
+-- coefficientCoactionTests.square
+example (φ : A →+* B) (f : A) (x : FactorialAffineColimit f) :
+    factorialTensorCoefficientMap φ f (factorialCoaction f x) =
+      factorialCoaction (φ f) (factorialCoefficientMap φ f x) := by sorry
+-- coefficientCounitTests.square
+example (φ : A →+* B) (x : FactorialAffineColimit (1 : A)) :
+    factorialCounit B (factorialUnitCoefficientMap φ x) = φ (factorialCounit A x) := by sorry
+-- coefficientAntipodeTests.square
+example (φ : A →+* B) (x : FactorialAffineColimit (1 : A)) :
+    factorialAntipode B (factorialUnitCoefficientMap φ x) =
+      factorialUnitCoefficientMap φ (factorialAntipode A x) := by sorry
+set_option maxHeartbeats 2000000 in
+-- coefficientCoactionTests.wild_square_zero
+example : (factorialTensorCoefficientMap (Int.castRingHom (ZMod 2)) (0 : ℤ)
+    (factorialCoaction (0 : ℤ)
+      (factorialAffineInclusion (0 : ℤ) 1 (AdjoinRoot.root _)))) ^ 2 = 0 := by sorry
+set_option maxHeartbeats 2000000 in
+-- coefficientCoactionTests.wild_nonzero
+example : factorialTensorCoefficientMap (Int.castRingHom (ZMod 2)) (0 : ℤ)
+    (factorialCoaction (0 : ℤ)
+      (factorialAffineInclusion (0 : ℤ) 1 (AdjoinRoot.root _))) ≠ 0 := by sorry
+end CoefficientNaturalityTests
+end TauCeti.RootStack

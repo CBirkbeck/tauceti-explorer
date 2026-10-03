@@ -15,7 +15,7 @@
   "FunctionFieldArithmeticPartII:GC.5",
   "FunctionFieldArithmeticPartII:GC.6"
  ],
- "summary": "Partial 218-node positive-divisibility root-chart comparison checkpoint: 24 new declaration-sized leaves construct the native all-positive root algebra colimit, its injective finite insertions and root relations, extensions into the existing factorial colimit independent of the chosen multiple, both universal algebra maps and their actual inverse equivalence with finite-root formulas. All 194 inherited statement contracts, both source-route inventories, 39 planets, eight gaps and thirteen supplier requests remain. Every stage remains partial and every implementation unchecked. Coherent root-groupoid reindexing, grading, Spec limits and the fpqc quotient remain open; the full geometric suggested file remains uncompiled. Coherent ring-valued factorial scalar points now have actual chart-colimit scaling automorphisms and a native universal test family; universal Hopf and geometric quotient boundaries remain. Coherent scalar points and root-colimit scaling now have actual coefficient-ring naturality, including φ-semilinear chart functor laws and inverse scaling. The factorial unity-root algebra now has explicit native bialgebra/Hopf structures, a universal chart coaction, and a natural fixed-universe representation of coherent unit families; geometric identification and quotient obligations remain open.",
+ "summary": "Partial 218-node positive-divisibility root-chart comparison checkpoint: 24 new declaration-sized leaves construct the native all-positive root algebra colimit, its injective finite insertions and root relations, extensions into the existing factorial colimit independent of the chosen multiple, both universal algebra maps and their actual inverse equivalence with finite-root formulas. All 194 inherited statement contracts, both source-route inventories, 39 planets, eight gaps and thirteen supplier requests remain. Every stage remains partial and every implementation unchecked. Coherent root-groupoid reindexing, grading, Spec limits and the fpqc quotient remain open; the full geometric suggested file remains uncompiled. Coherent ring-valued factorial scalar points now have actual chart-colimit scaling automorphisms and a native universal test family; universal Hopf and geometric quotient boundaries remain. Coherent scalar points and root-colimit scaling now have actual coefficient-ring naturality, including φ-semilinear chart functor laws and inverse scaling. The factorial unity-root algebra now has explicit native bialgebra/Hopf structures, a universal chart coaction, and a natural fixed-universe representation of coherent unit families; geometric identification and quotient obligations remain open. This continuation specifies coefficient naturality of the actual universal factorial coaction, counit and antipode via the existing heterobasic tensor map, including identity/composition and characteristic-two nonreduced tests.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1414,6 +1414,34 @@
     "module": "Mathlib/Algebra/Group/Units/Defs.lean",
     "provides": "Actual units are equal whenever their underlying monoid values agree.",
     "checked": "Complete actual defining statement/body with ambient hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex — codex-a71f92; indexed name and native elaboration independently checked."
+   },
+   {
+    "ref": "mathlib:Algebra.TensorProduct.mapRingHom",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/TensorProduct/Maps.lean",
+    "provides": "Existing tensor ring homomorphism over different coefficient bases from three ring maps and two coefficient squares; imports the generic heterobasic construction.",
+    "checked": "Full declaration and applicable surrounding variables personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration-index name confirmed. This is a positive existing supplier, not a missing generic construction."
+   },
+   {
+    "ref": "mathlib:Algebra.TensorProduct.mapRingHom_tmul",
+    "kind": "lemma",
+    "module": "Mathlib/RingTheory/TensorProduct/Maps.lean",
+    "provides": "Evaluation of the existing heterobasic tensor ring homomorphism on a pure tensor.",
+    "checked": "Full declaration and applicable surrounding variables personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration-index name confirmed. This is a positive existing supplier, not a missing generic construction."
+   },
+   {
+    "ref": "mathlib:Algebra.TensorProduct.ringHom_ext",
+    "kind": "lemma",
+    "module": "Mathlib/RingTheory/TensorProduct/Basic.lean",
+    "provides": "Two ring homomorphisms from the actual native tensor algebra agree when their restrictions to both canonical factor inclusions agree.",
+    "checked": "Full declaration and applicable surrounding variables personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration-index name confirmed. This is a positive existing supplier, not a missing generic construction."
+   },
+   {
+    "ref": "mathlib:TensorProduct.induction_on",
+    "kind": "theorem",
+    "module": "Mathlib/LinearAlgebra/TensorProduct/Defs.lean",
+    "provides": "Existing native tensor induction for a proposition, with zero, pure-tensor and addition cases.",
+    "checked": "Complete declaration and surrounding semiring/module context personally read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration-index name confirmed."
    }
   ]
  },
@@ -1539,6 +1567,27 @@
     "Complete PDF/printed pages14–16: Proposition3.5 proof and cofinality remark, Cartier-dual tower and grading action, Lemma3.7 proof, Definition3.8, Proposition3.10 statement/proof, Lemma3.12 proof and Corollary3.13."
    ],
    "readingExtent": "Fresh reading of the specified passages and exact-byte PDF hash. The coaction and native Hopf specialization are authored deductions; no new whole-paper audit, diagonalizable-group-algebra identification or quotient-stack theorem is claimed."
+  },
+  {
+   "id": "TV17CoefficientNaturality-codex-rtOQ9t",
+   "title": "Infinite root stacks and quasi-coherent sheaves on logarithmic schemes",
+   "authors": "Mattia Talpo and Angelo Vistoli",
+   "edition": "arXiv:1410.1164v2, personal selected-passsage reading 2026-10-03",
+   "url": "https://arxiv.org/pdf/1410.1164v2",
+   "sha256": "92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2",
+   "readSections": [
+    "Complete printed/PDF pp.14–16, including displayed formulas, statements and proofs; not a fresh whole-paper audit."
+   ]
+  },
+  {
+   "id": "FactorialCoefficientNaturality-codex-rtOQ9t",
+   "title": "Coefficient naturality of the actual universal factorial root coaction",
+   "authors": "Codex — codex-rtOQ9t",
+   "edition": "Authored coordinate deductions, 2026-10-03; publication handoff and immutable native archive",
+   "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/codex-rtOQ9t/function-field-continuation-3403/research/blueprint/handoff/DESIGN-FunctionFieldArithmeticPartII.md",
+   "readSections": [
+    "Coefficient maps on unity roots, native heterobasic tensor map, actual coaction/counit/antipode squares, identity/composition and wild nonreduced acceptance tests."
+   ]
   }
  ],
  "nodes": [
@@ -7052,7 +7101,10 @@
     "FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-counit",
     "FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-specialization",
     "FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-points-naturality",
-    "FunctionFieldArithmeticPartII:RS.2/factorial-universal-hopf-algebra"
+    "FunctionFieldArithmeticPartII:RS.2/factorial-universal-hopf-algebra",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-coaction-naturality",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-counit-naturality",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-antipode-naturality"
    ],
    "proofSteps": [
     "Use the existing actual factorial algebra C_f and its checked finite-coordinate API. The positive-divisibility comparison identifies it with C_div by mutually inverse native algebra maps, carrying every positive root v_n to u_i^(d_i/n) at any factorial multiple. The diagonalizable grading, Spec-limit transport and coherent fpqc torsor/root-groupoid contracts are separate remaining steps; no geometric conclusion follows merely from this algebra comparison.",
@@ -7062,7 +7114,8 @@
     "Compare the two constructions on objects and torsor arrows, with their finite-stage and base-change coherence.",
     "The actual coherent-unit point families now have constructed automorphisms on C_f with root/coefficient, identity/composition and inverse formulas. This point interface is not the universal diagonalizable Hopf action and does not discharge the Spec-limit, fpqc torsor or quotient-groupoid obligations.",
     "The actual coherent scalar point/scaling interface now commutes with every coefficient ring homomorphism, including the actual inverse maps. Use the specified φ-semilinear chart map and its root/coefficient functor laws; this is still an algebraic point-natural action, not the universal diagonalizable Hopf coaction or a Spec/fpqc quotient comparison.",
-    "The actual factorial Hopf/coaction interface now supplies counitality, coassociativity, antipode identities, represented algebra-valued points and specialization to inherited scaling. Use these checked rank-one algebra maps as input, then separately identify the canonical diagonalizable coordinate Hopf algebra, its point convolution group and the transported positive-index action. The existing Spec-limit, coherent frame torsor and fpqc quotient-groupoid constructions are still required; no geometric conclusion is inferred from these algebra formulas."
+    "The actual factorial Hopf/coaction interface now supplies counitality, coassociativity, antipode identities, represented algebra-valued points and specialization to inherited scaling. Use these checked rank-one algebra maps as input, then separately identify the canonical diagonalizable coordinate Hopf algebra, its point convolution group and the transported positive-index action. The existing Spec-limit, coherent frame torsor and fpqc quotient-groupoid constructions are still required; no geometric conclusion is inferred from these algebra formulas.",
+    "Before the separate geometric quotient construction, use the actual coaction, counit and antipode coefficient-naturality identities. They provide compatible ring maps on coefficients and all factorial roots; they do not supply the remaining fpqc frame-torsor or quotient-stack equivalence."
    ],
    "acceptance": [
     "No reducedness, Noetherian or invertibility-of-the-exponent hypothesis is introduced."
@@ -16180,6 +16233,975 @@
      "how": "Supply the actual universal algebra coaction and represented coherent unit families before the remaining diagonalizable identification, positive-index transport and fpqc root-quotient constructions."
     }
    ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-map",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "construction",
+   "title": "Coefficient map on the unity-root algebra",
+   "declarationName": "TauCeti.RootStack.factorialUnitCoefficientMap",
+   "statement": "For any coefficient homomorphism φ:A→B, construct the actual ring homomorphism U_φ:H_A→H_B, where H_A=C_A(1), sending every factorial unity root h_i^A to h_i^B and every coefficient a to φ(a). Its target is H_B itself, so no chosen cast from C_B(φ(1)) is exposed to consumers.",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe and φ:A→B, ψ:B→C are arbitrary ring homomorphisms; f∈A is arbitrary. Zero rings, wild characteristic, nonreduced fibres and nonunit parameters are included. No injectivity, flatness, reducedness, domain, invertible-order or Noetherian hypothesis is imposed.",
+    "C_A(f) is the inherited actual factorial root colimit with orders (i+1)! and distinguished roots u_i. H_A=C_A(1), σ_A is its actual universal coherent unit family, F_(φ,f) is the inherited coefficient map, and ρ, ε, S are the inherited native coaction, counit and antipode.",
+    "These are equalities of actual ring maps with explicit source and target algebras. They do not assert a geometric pullback equivalence, arbitrary-universe transport, a diagonalizable coordinate comparison, Spec limits, fpqc torsor descent or quotient-stack equivalence."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-map",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-power",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-root"
+   ],
+   "proofSteps": [
+    "Restrict the target coefficient algebra through φ. Apply the actual factorial compatible-root lift with the target unity roots; their power relation follows from φ(1)=1 and their transition relation is the inherited chart relation. This specializes the existing coefficient lift with a literal unity target, without rebuilding the general construction."
+   ],
+   "acceptance": [
+    "For any coefficient homomorphism φ:A→B, construct the actual ring homomorphism U_φ:H_A→H_B, where H_A=C_A(1), sending every factorial unity root h_i^A to h_i^B and every coefficient a to φ(a). Its target is H_B itself, so no chosen cast from C_B(φ(1)) is exposed to consumers."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply coefficient compatibility of the actual algebra coaction before the separate geometric affine-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialUnitCoefficientMap"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialCoefficientNaturality-codex-rtOQ9t",
+     "locator": "Authored coordinate deduction factorialUnitCoefficientMap, handoff derivation and exact native proof replay",
+     "match": "Authored deduction from the actual inherited colimit and pinned native tensor map, motivated by the compatible grading action; no printed quotient theorem is claimed."
+    },
+    {
+     "sourceId": "TV17CoefficientNaturality-codex-rtOQ9t",
+     "locator": "§3.1 complete printed/PDF pp.14–16: Cartier duals, grading equivariance and affine quotient passage",
+     "match": "Motivates the compatible root action. This coefficient-map identity is an authored algebraic deduction, distinct from the remaining geometric quotient comparison."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.RootStack.factorialUnitCoefficientMap.root",
+     "role": "simp",
+     "statement": "For every i≥0, U_φ(h_i^A)=h_i^B in the actual factorial colimit H_B."
+    },
+    {
+     "name": "TauCeti.RootStack.factorialUnitCoefficientMap.constant",
+     "role": "simp",
+     "statement": "For every a∈A, U_φ(ι_A(a))=ι_B(φ(a)), with the existing native coefficient inclusions."
+    },
+    {
+     "name": "TauCeti.RootStack.factorialUnitCoefficientMap.id",
+     "role": "functoriality",
+     "statement": "U_id is the identity ring homomorphism of H_A."
+    },
+    {
+     "name": "TauCeti.RootStack.factorialUnitCoefficientMap.comp",
+     "role": "functoriality",
+     "statement": "For any ψ:B→C, U_(ψ∘φ)=U_ψ∘U_φ as actual ring homomorphisms H_A→H_C."
+    },
+    {
+     "name": "TauCeti.RootStack.factorialUnitCoefficientMap.universal_scalars",
+     "role": "compatibility",
+     "statement": "Mapping the actual universal coherent unit family σ_A through U_φ gives exactly σ_B as an equality in the inherited subgroup of coherent H_B-unit families."
+    },
+    {
+     "name": "TauCeti.RootStack.factorialUnitCoefficientMap.inverse_value",
+     "role": "compatibility",
+     "statement": "For every i, U_φ applied to the ring value of the i-th inverse unit of σ_A is the ring value of the i-th inverse unit of σ_B."
+    }
+   ],
+   "tests": [
+    {
+     "name": "coefficientUnitTests.reduction_two",
+     "kind": "computation",
+     "statement": "The actual unity coefficient map for ℤ→Z/2Z sends the coefficient 2 to 0."
+    },
+    {
+     "name": "coefficientUnitTests.identity",
+     "kind": "compatibility",
+     "statement": "The identity coefficient map fixes every element of H_A."
+    },
+    {
+     "name": "coefficientUnitTests.composition",
+     "kind": "compatibility",
+     "statement": "Successive coefficient maps agree with the map for the composite on every element of H_A."
+    },
+    {
+     "name": "coefficientUnitTests.zero_ring",
+     "kind": "degenerate",
+     "statement": "The unity coefficient map for ℤ→Z/1Z sends 1 to 0 in the actual target algebra."
+    }
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-root",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "lemma",
+   "title": "Root",
+   "declarationName": "TauCeti.RootStack.factorialUnitCoefficientMap.root",
+   "statement": "For every i≥0, U_φ(h_i^A)=h_i^B in the actual factorial colimit H_B.",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe and φ:A→B, ψ:B→C are arbitrary ring homomorphisms; f∈A is arbitrary. Zero rings, wild characteristic, nonreduced fibres and nonunit parameters are included. No injectivity, flatness, reducedness, domain, invertible-order or Noetherian hypothesis is imposed.",
+    "C_A(f) is the inherited actual factorial root colimit with orders (i+1)! and distinguished roots u_i. H_A=C_A(1), σ_A is its actual universal coherent unit family, F_(φ,f) is the inherited coefficient map, and ρ, ε, S are the inherited native coaction, counit and antipode.",
+    "These are equalities of actual ring maps with explicit source and target algebras. They do not assert a geometric pullback equivalence, arbitrary-universe transport, a diagonalizable coordinate comparison, Spec limits, fpqc torsor descent or quotient-stack equivalence."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-map",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift-root"
+   ],
+   "proofSteps": [
+    "Use the native compatible-root lift evaluation on every actual chart root."
+   ],
+   "acceptance": [
+    "For every i≥0, U_φ(h_i^A)=h_i^B in the actual factorial colimit H_B."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply coefficient compatibility of the actual algebra coaction before the separate geometric affine-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialUnitCoefficientMap.root"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialCoefficientNaturality-codex-rtOQ9t",
+     "locator": "Authored coordinate deduction factorialUnitCoefficientMap.root, handoff derivation and exact native proof replay",
+     "match": "Authored deduction from the actual inherited colimit and pinned native tensor map, motivated by the compatible grading action; no printed quotient theorem is claimed."
+    },
+    {
+     "sourceId": "TV17CoefficientNaturality-codex-rtOQ9t",
+     "locator": "§3.1 complete printed/PDF pp.14–16: Cartier duals, grading equivariance and affine quotient passage",
+     "match": "Motivates the compatible root action. This coefficient-map identity is an authored algebraic deduction, distinct from the remaining geometric quotient comparison."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-constant",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "lemma",
+   "title": "Constant",
+   "declarationName": "TauCeti.RootStack.factorialUnitCoefficientMap.constant",
+   "statement": "For every a∈A, U_φ(ι_A(a))=ι_B(φ(a)), with the existing native coefficient inclusions.",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe and φ:A→B, ψ:B→C are arbitrary ring homomorphisms; f∈A is arbitrary. Zero rings, wild characteristic, nonreduced fibres and nonunit parameters are included. No injectivity, flatness, reducedness, domain, invertible-order or Noetherian hypothesis is imposed.",
+    "C_A(f) is the inherited actual factorial root colimit with orders (i+1)! and distinguished roots u_i. H_A=C_A(1), σ_A is its actual universal coherent unit family, F_(φ,f) is the inherited coefficient map, and ρ, ε, S are the inherited native coaction, counit and antipode.",
+    "These are equalities of actual ring maps with explicit source and target algebras. They do not assert a geometric pullback equivalence, arbitrary-universe transport, a diagonalizable coordinate comparison, Spec limits, fpqc torsor descent or quotient-stack equivalence."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-map"
+   ],
+   "proofSteps": [
+    "Use the root lift’s algebra-homomorphism coefficient compatibility in the restricted target coefficient algebra."
+   ],
+   "acceptance": [
+    "For every a∈A, U_φ(ι_A(a))=ι_B(φ(a)), with the existing native coefficient inclusions."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply coefficient compatibility of the actual algebra coaction before the separate geometric affine-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialUnitCoefficientMap.constant"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialCoefficientNaturality-codex-rtOQ9t",
+     "locator": "Authored coordinate deduction factorialUnitCoefficientMap.constant, handoff derivation and exact native proof replay",
+     "match": "Authored deduction from the actual inherited colimit and pinned native tensor map, motivated by the compatible grading action; no printed quotient theorem is claimed."
+    },
+    {
+     "sourceId": "TV17CoefficientNaturality-codex-rtOQ9t",
+     "locator": "§3.1 complete printed/PDF pp.14–16: Cartier duals, grading equivariance and affine quotient passage",
+     "match": "Motivates the compatible root action. This coefficient-map identity is an authored algebraic deduction, distinct from the remaining geometric quotient comparison."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-identity",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "lemma",
+   "title": "Id",
+   "declarationName": "TauCeti.RootStack.factorialUnitCoefficientMap.id",
+   "statement": "U_id is the identity ring homomorphism of H_A.",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe and φ:A→B, ψ:B→C are arbitrary ring homomorphisms; f∈A is arbitrary. Zero rings, wild characteristic, nonreduced fibres and nonunit parameters are included. No injectivity, flatness, reducedness, domain, invertible-order or Noetherian hypothesis is imposed.",
+    "C_A(f) is the inherited actual factorial root colimit with orders (i+1)! and distinguished roots u_i. H_A=C_A(1), σ_A is its actual universal coherent unit family, F_(φ,f) is the inherited coefficient map, and ρ, ε, S are the inherited native coaction, counit and antipode.",
+    "These are equalities of actual ring maps with explicit source and target algebras. They do not assert a geometric pullback equivalence, arbitrary-universe transport, a diagonalizable coordinate comparison, Spec limits, fpqc torsor descent or quotient-stack equivalence."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-constant",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-semilinear-ringhom-ext"
+   ],
+   "proofSteps": [
+    "Apply the existing semilinear factorial-colimit ring-homomorphism extensionality theorem. Coefficients agree by the unity coefficient formula, and every chart root agrees by the unity root formula."
+   ],
+   "acceptance": [
+    "U_id is the identity ring homomorphism of H_A."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply coefficient compatibility of the actual algebra coaction before the separate geometric affine-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialUnitCoefficientMap.id"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialCoefficientNaturality-codex-rtOQ9t",
+     "locator": "Authored coordinate deduction factorialUnitCoefficientMap.id, handoff derivation and exact native proof replay",
+     "match": "Authored deduction from the actual inherited colimit and pinned native tensor map, motivated by the compatible grading action; no printed quotient theorem is claimed."
+    },
+    {
+     "sourceId": "TV17CoefficientNaturality-codex-rtOQ9t",
+     "locator": "§3.1 complete printed/PDF pp.14–16: Cartier duals, grading equivariance and affine quotient passage",
+     "match": "Motivates the compatible root action. This coefficient-map identity is an authored algebraic deduction, distinct from the remaining geometric quotient comparison."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-composition",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "lemma",
+   "title": "Comp",
+   "declarationName": "TauCeti.RootStack.factorialUnitCoefficientMap.comp",
+   "statement": "For any ψ:B→C, U_(ψ∘φ)=U_ψ∘U_φ as actual ring homomorphisms H_A→H_C.",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe and φ:A→B, ψ:B→C are arbitrary ring homomorphisms; f∈A is arbitrary. Zero rings, wild characteristic, nonreduced fibres and nonunit parameters are included. No injectivity, flatness, reducedness, domain, invertible-order or Noetherian hypothesis is imposed.",
+    "C_A(f) is the inherited actual factorial root colimit with orders (i+1)! and distinguished roots u_i. H_A=C_A(1), σ_A is its actual universal coherent unit family, F_(φ,f) is the inherited coefficient map, and ρ, ε, S are the inherited native coaction, counit and antipode.",
+    "These are equalities of actual ring maps with explicit source and target algebras. They do not assert a geometric pullback equivalence, arbitrary-universe transport, a diagonalizable coordinate comparison, Spec limits, fpqc torsor descent or quotient-stack equivalence."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-constant",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-semilinear-ringhom-ext"
+   ],
+   "proofSteps": [
+    "Apply the existing semilinear factorial-colimit ring-homomorphism extensionality theorem. Coefficients agree by the unity coefficient formula, and every chart root agrees by the unity root formula."
+   ],
+   "acceptance": [
+    "For any ψ:B→C, U_(ψ∘φ)=U_ψ∘U_φ as actual ring homomorphisms H_A→H_C."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply coefficient compatibility of the actual algebra coaction before the separate geometric affine-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialUnitCoefficientMap.comp"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialCoefficientNaturality-codex-rtOQ9t",
+     "locator": "Authored coordinate deduction factorialUnitCoefficientMap.comp, handoff derivation and exact native proof replay",
+     "match": "Authored deduction from the actual inherited colimit and pinned native tensor map, motivated by the compatible grading action; no printed quotient theorem is claimed."
+    },
+    {
+     "sourceId": "TV17CoefficientNaturality-codex-rtOQ9t",
+     "locator": "§3.1 complete printed/PDF pp.14–16: Cartier duals, grading equivariance and affine quotient passage",
+     "match": "Motivates the compatible root action. This coefficient-map identity is an authored algebraic deduction, distinct from the remaining geometric quotient comparison."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-counit-naturality",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "lemma",
+   "title": "Counit compatibility with coefficient change",
+   "declarationName": "TauCeti.RootStack.factorialCounit.coefficient_naturality",
+   "statement": "The actual counits satisfy ε_B∘U_φ=φ∘ε_A as ring homomorphisms H_A→B.",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe and φ:A→B, ψ:B→C are arbitrary ring homomorphisms; f∈A is arbitrary. Zero rings, wild characteristic, nonreduced fibres and nonunit parameters are included. No injectivity, flatness, reducedness, domain, invertible-order or Noetherian hypothesis is imposed.",
+    "C_A(f) is the inherited actual factorial root colimit with orders (i+1)! and distinguished roots u_i. H_A=C_A(1), σ_A is its actual universal coherent unit family, F_(φ,f) is the inherited coefficient map, and ρ, ε, S are the inherited native coaction, counit and antipode.",
+    "These are equalities of actual ring maps with explicit source and target algebras. They do not assert a geometric pullback equivalence, arbitrary-universe transport, a diagonalizable coordinate comparison, Spec limits, fpqc torsor descent or quotient-stack equivalence."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-constant",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-universal-counit",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-universal-counit-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-universal-counit-constant",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-semilinear-ringhom-ext"
+   ],
+   "proofSteps": [
+    "Apply the same semilinear colimit extensionality theorem. On coefficients both composites evaluate to φ(a); on every unity root both evaluate to 1 by the counit root formula and unity root formula."
+   ],
+   "acceptance": [
+    "The actual counits satisfy ε_B∘U_φ=φ∘ε_A as ring homomorphisms H_A→B."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply coefficient compatibility of the actual algebra coaction before the separate geometric affine-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialCounit.coefficient_naturality"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialCoefficientNaturality-codex-rtOQ9t",
+     "locator": "Authored coordinate deduction factorialCounit.coefficient_naturality, handoff derivation and exact native proof replay",
+     "match": "Authored deduction from the actual inherited colimit and pinned native tensor map, motivated by the compatible grading action; no printed quotient theorem is claimed."
+    },
+    {
+     "sourceId": "TV17CoefficientNaturality-codex-rtOQ9t",
+     "locator": "§3.1 complete printed/PDF pp.14–16: Cartier duals, grading equivariance and affine quotient passage",
+     "match": "Motivates the compatible root action. This coefficient-map identity is an authored algebraic deduction, distinct from the remaining geometric quotient comparison."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "tests": [
+    {
+     "name": "coefficientCounitTests.square",
+     "kind": "compatibility",
+     "statement": "For arbitrary x∈H_A, applying ε_B after U_φ agrees with applying φ after ε_A."
+    }
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-tensor-map",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "construction",
+   "title": "Coefficient map on the coaction tensor algebra",
+   "declarationName": "TauCeti.RootStack.factorialTensorCoefficientMap",
+   "statement": "Construct the actual ring homomorphism T_(φ,f):H_A⊗_A C_A(f)→H_B⊗_B C_B(φ(f)), using the existing native heterobasic tensor map on U_φ and the inherited coefficient map F_(φ,f). Both coefficient compatibility witnesses are proved from their coefficient formulas; the generic tensor construction is imported.",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe and φ:A→B, ψ:B→C are arbitrary ring homomorphisms; f∈A is arbitrary. Zero rings, wild characteristic, nonreduced fibres and nonunit parameters are included. No injectivity, flatness, reducedness, domain, invertible-order or Noetherian hypothesis is imposed.",
+    "C_A(f) is the inherited actual factorial root colimit with orders (i+1)! and distinguished roots u_i. H_A=C_A(1), σ_A is its actual universal coherent unit family, F_(φ,f) is the inherited coefficient map, and ρ, ε, S are the inherited native coaction, counit and antipode.",
+    "These are equalities of actual ring maps with explicit source and target algebras. They do not assert a geometric pullback equivalence, arbitrary-universe transport, a diagonalizable coordinate comparison, Spec limits, fpqc torsor descent or quotient-stack equivalence."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-constant",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-map",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-constant",
+    "mathlib:Algebra.TensorProduct.mapRingHom"
+   ],
+   "proofSteps": [
+    "Apply the existing heterobasic tensor ring-homomorphism constructor to φ, U_φ and F_(φ,f); prove its two coefficient squares using the unity and chart coefficient formulas."
+   ],
+   "acceptance": [
+    "Construct the actual ring homomorphism T_(φ,f):H_A⊗_A C_A(f)→H_B⊗_B C_B(φ(f)), using the existing native heterobasic tensor map on U_φ and the inherited coefficient map F_(φ,f). Both coefficient compatibility witnesses are proved from their coefficient formulas; the generic tensor construction is imported."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply coefficient compatibility of the actual algebra coaction before the separate geometric affine-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialTensorCoefficientMap"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialCoefficientNaturality-codex-rtOQ9t",
+     "locator": "Authored coordinate deduction factorialTensorCoefficientMap, handoff derivation and exact native proof replay",
+     "match": "Authored deduction from the actual inherited colimit and pinned native tensor map, motivated by the compatible grading action; no printed quotient theorem is claimed."
+    },
+    {
+     "sourceId": "TV17CoefficientNaturality-codex-rtOQ9t",
+     "locator": "§3.1 complete printed/PDF pp.14–16: Cartier duals, grading equivariance and affine quotient passage",
+     "match": "Motivates the compatible root action. This coefficient-map identity is an authored algebraic deduction, distinct from the remaining geometric quotient comparison."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.RootStack.factorialTensorCoefficientMap.tmul",
+     "role": "simp",
+     "statement": "For every h∈H_A and x∈C_A(f), T_(φ,f)(h⊗x)=U_φ(h)⊗F_(φ,f)(x)."
+    },
+    {
+     "name": "TauCeti.RootStack.factorialTensorCoefficientMap.constant",
+     "role": "simp",
+     "statement": "For every a∈A, T_(φ,f)(ι_A(a))=ι_B(φ(a)) in H_B⊗_B C_B(φ(f))."
+    },
+    {
+     "name": "TauCeti.RootStack.factorialTensorCoefficientMap.root",
+     "role": "simp",
+     "statement": "For every i, T_(φ,f)(h_i^A⊗u_i^f)=h_i^B⊗u_i^(φ(f)) in the actual target tensor algebra."
+    },
+    {
+     "name": "TauCeti.RootStack.factorialTensorCoefficientMap.id",
+     "role": "functoriality",
+     "statement": "T_(id,f) is the identity ring homomorphism on H_A⊗_A C_A(f)."
+    },
+    {
+     "name": "TauCeti.RootStack.factorialTensorCoefficientMap.comp",
+     "role": "functoriality",
+     "statement": "For any ψ:B→C, T_(ψ∘φ,f)=T_(ψ,φ(f))∘T_(φ,f) as actual ring homomorphisms into H_C⊗_C C_C(ψ(φ(f)))."
+    }
+   ],
+   "tests": [
+    {
+     "name": "coefficientTensorTests.degree_two",
+     "kind": "computation",
+     "statement": "The actual tensor coefficient map sends the degree-two pure root tensor to the target degree-two pure root tensor."
+    },
+    {
+     "name": "coefficientTensorTests.reduction_two",
+     "kind": "computation",
+     "statement": "The actual tensor coefficient map for ℤ→Z/2Z and f=0 sends the coefficient 2 to 0."
+    },
+    {
+     "name": "coefficientTensorTests.identity",
+     "kind": "compatibility",
+     "statement": "The identity tensor coefficient map fixes every element of H_A⊗_A C_A(f)."
+    },
+    {
+     "name": "coefficientTensorTests.composition",
+     "kind": "compatibility",
+     "statement": "Successive tensor coefficient maps agree with the map for the composite on every element of the actual source tensor algebra."
+    },
+    {
+     "name": "coefficientTensorTests.zero_ring",
+     "kind": "degenerate",
+     "statement": "The tensor coefficient map for ℤ→Z/1Z and f=0 sends 1 to 0 in the actual target tensor algebra."
+    }
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-tensor-pure",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "lemma",
+   "title": "Tmul",
+   "declarationName": "TauCeti.RootStack.factorialTensorCoefficientMap.tmul",
+   "statement": "For every h∈H_A and x∈C_A(f), T_(φ,f)(h⊗x)=U_φ(h)⊗F_(φ,f)(x).",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe and φ:A→B, ψ:B→C are arbitrary ring homomorphisms; f∈A is arbitrary. Zero rings, wild characteristic, nonreduced fibres and nonunit parameters are included. No injectivity, flatness, reducedness, domain, invertible-order or Noetherian hypothesis is imposed.",
+    "C_A(f) is the inherited actual factorial root colimit with orders (i+1)! and distinguished roots u_i. H_A=C_A(1), σ_A is its actual universal coherent unit family, F_(φ,f) is the inherited coefficient map, and ρ, ε, S are the inherited native coaction, counit and antipode.",
+    "These are equalities of actual ring maps with explicit source and target algebras. They do not assert a geometric pullback equivalence, arbitrary-universe transport, a diagonalizable coordinate comparison, Spec limits, fpqc torsor descent or quotient-stack equivalence."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-tensor-map",
+    "mathlib:Algebra.TensorProduct.mapRingHom_tmul"
+   ],
+   "proofSteps": [
+    "Specialize the existing native mapRingHom_tmul statement; no tensor carrier or universal property is replanned."
+   ],
+   "acceptance": [
+    "For every h∈H_A and x∈C_A(f), T_(φ,f)(h⊗x)=U_φ(h)⊗F_(φ,f)(x)."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply coefficient compatibility of the actual algebra coaction before the separate geometric affine-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialTensorCoefficientMap.tmul"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialCoefficientNaturality-codex-rtOQ9t",
+     "locator": "Authored coordinate deduction factorialTensorCoefficientMap.tmul, handoff derivation and exact native proof replay",
+     "match": "Authored deduction from the actual inherited colimit and pinned native tensor map, motivated by the compatible grading action; no printed quotient theorem is claimed."
+    },
+    {
+     "sourceId": "TV17CoefficientNaturality-codex-rtOQ9t",
+     "locator": "§3.1 complete printed/PDF pp.14–16: Cartier duals, grading equivariance and affine quotient passage",
+     "match": "Motivates the compatible root action. This coefficient-map identity is an authored algebraic deduction, distinct from the remaining geometric quotient comparison."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-tensor-constant",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "lemma",
+   "title": "Constant",
+   "declarationName": "TauCeti.RootStack.factorialTensorCoefficientMap.constant",
+   "statement": "For every a∈A, T_(φ,f)(ι_A(a))=ι_B(φ(a)) in H_B⊗_B C_B(φ(f)).",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe and φ:A→B, ψ:B→C are arbitrary ring homomorphisms; f∈A is arbitrary. Zero rings, wild characteristic, nonreduced fibres and nonunit parameters are included. No injectivity, flatness, reducedness, domain, invertible-order or Noetherian hypothesis is imposed.",
+    "C_A(f) is the inherited actual factorial root colimit with orders (i+1)! and distinguished roots u_i. H_A=C_A(1), σ_A is its actual universal coherent unit family, F_(φ,f) is the inherited coefficient map, and ρ, ε, S are the inherited native coaction, counit and antipode.",
+    "These are equalities of actual ring maps with explicit source and target algebras. They do not assert a geometric pullback equivalence, arbitrary-universe transport, a diagonalizable coordinate comparison, Spec limits, fpqc torsor descent or quotient-stack equivalence."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-tensor-pure",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-constant"
+   ],
+   "proofSteps": [
+    "Write the tensor coefficient as a pure tensor, apply the pure-tensor formula and the unity coefficient formula, and use preservation of 1."
+   ],
+   "acceptance": [
+    "For every a∈A, T_(φ,f)(ι_A(a))=ι_B(φ(a)) in H_B⊗_B C_B(φ(f))."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply coefficient compatibility of the actual algebra coaction before the separate geometric affine-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialTensorCoefficientMap.constant"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialCoefficientNaturality-codex-rtOQ9t",
+     "locator": "Authored coordinate deduction factorialTensorCoefficientMap.constant, handoff derivation and exact native proof replay",
+     "match": "Authored deduction from the actual inherited colimit and pinned native tensor map, motivated by the compatible grading action; no printed quotient theorem is claimed."
+    },
+    {
+     "sourceId": "TV17CoefficientNaturality-codex-rtOQ9t",
+     "locator": "§3.1 complete printed/PDF pp.14–16: Cartier duals, grading equivariance and affine quotient passage",
+     "match": "Motivates the compatible root action. This coefficient-map identity is an authored algebraic deduction, distinct from the remaining geometric quotient comparison."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-coaction-naturality",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "lemma",
+   "title": "Universal coaction compatibility with coefficient change",
+   "declarationName": "TauCeti.RootStack.factorialCoaction.coefficient_naturality",
+   "statement": "The actual universal coactions satisfy T_(φ,f)∘ρ_f=ρ_(φ(f))∘F_(φ,f) as ring homomorphisms C_A(f)→H_B⊗_B C_B(φ(f)).",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe and φ:A→B, ψ:B→C are arbitrary ring homomorphisms; f∈A is arbitrary. Zero rings, wild characteristic, nonreduced fibres and nonunit parameters are included. No injectivity, flatness, reducedness, domain, invertible-order or Noetherian hypothesis is imposed.",
+    "C_A(f) is the inherited actual factorial root colimit with orders (i+1)! and distinguished roots u_i. H_A=C_A(1), σ_A is its actual universal coherent unit family, F_(φ,f) is the inherited coefficient map, and ρ, ε, S are the inherited native coaction, counit and antipode.",
+    "These are equalities of actual ring maps with explicit source and target algebras. They do not assert a geometric pullback equivalence, arbitrary-universe transport, a diagonalizable coordinate comparison, Spec limits, fpqc torsor descent or quotient-stack equivalence."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-tensor-pure",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-tensor-constant",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-constant",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-semilinear-ringhom-ext"
+   ],
+   "proofSteps": [
+    "Apply semilinear colimit ring-homomorphism extensionality. The two coefficient composites are ι_B∘φ by coefficient compatibility. On u_i the coaction root formula and tensor pure-tensor formula give h_i^B⊗u_i^(φ(f)) on both sides."
+   ],
+   "acceptance": [
+    "The actual universal coactions satisfy T_(φ,f)∘ρ_f=ρ_(φ(f))∘F_(φ,f) as ring homomorphisms C_A(f)→H_B⊗_B C_B(φ(f))."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply coefficient compatibility of the actual algebra coaction before the separate geometric affine-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialCoaction.coefficient_naturality"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialCoefficientNaturality-codex-rtOQ9t",
+     "locator": "Authored coordinate deduction factorialCoaction.coefficient_naturality, handoff derivation and exact native proof replay",
+     "match": "Authored deduction from the actual inherited colimit and pinned native tensor map, motivated by the compatible grading action; no printed quotient theorem is claimed."
+    },
+    {
+     "sourceId": "TV17CoefficientNaturality-codex-rtOQ9t",
+     "locator": "§3.1 complete printed/PDF pp.14–16: Cartier duals, grading equivariance and affine quotient passage",
+     "match": "Motivates the compatible root action. This coefficient-map identity is an authored algebraic deduction, distinct from the remaining geometric quotient comparison."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "tests": [
+    {
+     "name": "coefficientCoactionTests.square",
+     "kind": "compatibility",
+     "statement": "For arbitrary x∈C_A(f), applying the tensor coefficient map after ρ_f agrees with applying ρ_(φ(f)) after F_(φ,f)."
+    },
+    {
+     "name": "coefficientCoactionTests.wild_square_zero",
+     "kind": "computation",
+     "statement": "Under coefficient reduction ℤ→Z/2Z with f=0, the actual image of the coaction on the degree-two root has square 0."
+    },
+    {
+     "name": "coefficientCoactionTests.wild_nonzero",
+     "kind": "non-example",
+     "statement": "Under coefficient reduction ℤ→Z/2Z with f=0, the actual image of the coaction on the degree-two root is nonzero; replacing the action by zero or discarding the nilpotent root fails this test."
+    }
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-universal-scalars",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "lemma",
+   "title": "Universal scalars",
+   "declarationName": "TauCeti.RootStack.factorialUnitCoefficientMap.universal_scalars",
+   "statement": "Mapping the actual universal coherent unit family σ_A through U_φ gives exactly σ_B as an equality in the inherited subgroup of coherent H_B-unit families.",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe and φ:A→B, ψ:B→C are arbitrary ring homomorphisms; f∈A is arbitrary. Zero rings, wild characteristic, nonreduced fibres and nonunit parameters are included. No injectivity, flatness, reducedness, domain, invertible-order or Noetherian hypothesis is imposed.",
+    "C_A(f) is the inherited actual factorial root colimit with orders (i+1)! and distinguished roots u_i. H_A=C_A(1), σ_A is its actual universal coherent unit family, F_(φ,f) is the inherited coefficient map, and ρ, ε, S are the inherited native coaction, counit and antipode.",
+    "These are equalities of actual ring maps with explicit source and target algebras. They do not assert a geometric pullback equivalence, arbitrary-universe transport, a diagonalizable coordinate comparison, Spec limits, fpqc torsor descent or quotient-stack equivalence."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalars",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalars-value",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-scalar-coefficient-map",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-scalar-coefficient-value",
+    "mathlib:Units.map",
+    "mathlib:Units.coe_map"
+   ],
+   "proofSteps": [
+    "Apply subtype/function/unit extensionality. On ring values use the actual universal-unit value formula, scalar-map value formula and unity-root coefficient formula."
+   ],
+   "acceptance": [
+    "Mapping the actual universal coherent unit family σ_A through U_φ gives exactly σ_B as an equality in the inherited subgroup of coherent H_B-unit families."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply coefficient compatibility of the actual algebra coaction before the separate geometric affine-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialUnitCoefficientMap.universal_scalars"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialCoefficientNaturality-codex-rtOQ9t",
+     "locator": "Authored coordinate deduction factorialUnitCoefficientMap.universal_scalars, handoff derivation and exact native proof replay",
+     "match": "Authored deduction from the actual inherited colimit and pinned native tensor map, motivated by the compatible grading action; no printed quotient theorem is claimed."
+    },
+    {
+     "sourceId": "TV17CoefficientNaturality-codex-rtOQ9t",
+     "locator": "§3.1 complete printed/PDF pp.14–16: Cartier duals, grading equivariance and affine quotient passage",
+     "match": "Motivates the compatible root action. This coefficient-map identity is an authored algebraic deduction, distinct from the remaining geometric quotient comparison."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-inverse-value",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "lemma",
+   "title": "Inverse value",
+   "declarationName": "TauCeti.RootStack.factorialUnitCoefficientMap.inverse_value",
+   "statement": "For every i, U_φ applied to the ring value of the i-th inverse unit of σ_A is the ring value of the i-th inverse unit of σ_B.",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe and φ:A→B, ψ:B→C are arbitrary ring homomorphisms; f∈A is arbitrary. Zero rings, wild characteristic, nonreduced fibres and nonunit parameters are included. No injectivity, flatness, reducedness, domain, invertible-order or Noetherian hypothesis is imposed.",
+    "C_A(f) is the inherited actual factorial root colimit with orders (i+1)! and distinguished roots u_i. H_A=C_A(1), σ_A is its actual universal coherent unit family, F_(φ,f) is the inherited coefficient map, and ρ, ε, S are the inherited native coaction, counit and antipode.",
+    "These are equalities of actual ring maps with explicit source and target algebras. They do not assert a geometric pullback equivalence, arbitrary-universe transport, a diagonalizable coordinate comparison, Spec limits, fpqc torsor descent or quotient-stack equivalence."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-universal-scalars",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-scalar-coefficient-value"
+   ],
+   "proofSteps": [
+    "Apply inverse and evaluation to the preceding equality of actual coherent unit families. The existing unit-map preserves inverses, and its scalar-value formula identifies the ring values."
+   ],
+   "acceptance": [
+    "For every i, U_φ applied to the ring value of the i-th inverse unit of σ_A is the ring value of the i-th inverse unit of σ_B."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply coefficient compatibility of the actual algebra coaction before the separate geometric affine-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialUnitCoefficientMap.inverse_value"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialCoefficientNaturality-codex-rtOQ9t",
+     "locator": "Authored coordinate deduction factorialUnitCoefficientMap.inverse_value, handoff derivation and exact native proof replay",
+     "match": "Authored deduction from the actual inherited colimit and pinned native tensor map, motivated by the compatible grading action; no printed quotient theorem is claimed."
+    },
+    {
+     "sourceId": "TV17CoefficientNaturality-codex-rtOQ9t",
+     "locator": "§3.1 complete printed/PDF pp.14–16: Cartier duals, grading equivariance and affine quotient passage",
+     "match": "Motivates the compatible root action. This coefficient-map identity is an authored algebraic deduction, distinct from the remaining geometric quotient comparison."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-antipode-naturality",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "lemma",
+   "title": "Antipode compatibility with coefficient change",
+   "declarationName": "TauCeti.RootStack.factorialAntipode.coefficient_naturality",
+   "statement": "The actual antipodes satisfy S_B∘U_φ=U_φ∘S_A as ring homomorphisms H_A→H_B.",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe and φ:A→B, ψ:B→C are arbitrary ring homomorphisms; f∈A is arbitrary. Zero rings, wild characteristic, nonreduced fibres and nonunit parameters are included. No injectivity, flatness, reducedness, domain, invertible-order or Noetherian hypothesis is imposed.",
+    "C_A(f) is the inherited actual factorial root colimit with orders (i+1)! and distinguished roots u_i. H_A=C_A(1), σ_A is its actual universal coherent unit family, F_(φ,f) is the inherited coefficient map, and ρ, ε, S are the inherited native coaction, counit and antipode.",
+    "These are equalities of actual ring maps with explicit source and target algebras. They do not assert a geometric pullback equivalence, arbitrary-universe transport, a diagonalizable coordinate comparison, Spec limits, fpqc torsor descent or quotient-stack equivalence."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-constant",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-inverse-value",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-universal-antipode",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-universal-antipode-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-semilinear-ringhom-ext"
+   ],
+   "proofSteps": [
+    "Apply semilinear colimit ring-homomorphism extensionality. Both coefficient composites are ι_B∘φ. On unity roots the antipode root formula reduces the equality to coefficient compatibility of the inverse universal-unit values."
+   ],
+   "acceptance": [
+    "The actual antipodes satisfy S_B∘U_φ=U_φ∘S_A as ring homomorphisms H_A→H_B."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply coefficient compatibility of the actual algebra coaction before the separate geometric affine-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialAntipode.coefficient_naturality"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialCoefficientNaturality-codex-rtOQ9t",
+     "locator": "Authored coordinate deduction factorialAntipode.coefficient_naturality, handoff derivation and exact native proof replay",
+     "match": "Authored deduction from the actual inherited colimit and pinned native tensor map, motivated by the compatible grading action; no printed quotient theorem is claimed."
+    },
+    {
+     "sourceId": "TV17CoefficientNaturality-codex-rtOQ9t",
+     "locator": "§3.1 complete printed/PDF pp.14–16: Cartier duals, grading equivariance and affine quotient passage",
+     "match": "Motivates the compatible root action. This coefficient-map identity is an authored algebraic deduction, distinct from the remaining geometric quotient comparison."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "tests": [
+    {
+     "name": "coefficientAntipodeTests.square",
+     "kind": "compatibility",
+     "statement": "For arbitrary x∈H_A, applying S_B after U_φ agrees with applying U_φ after S_A."
+    }
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-tensor-root",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "lemma",
+   "title": "Root",
+   "declarationName": "TauCeti.RootStack.factorialTensorCoefficientMap.root",
+   "statement": "For every i, T_(φ,f)(h_i^A⊗u_i^f)=h_i^B⊗u_i^(φ(f)) in the actual target tensor algebra.",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe and φ:A→B, ψ:B→C are arbitrary ring homomorphisms; f∈A is arbitrary. Zero rings, wild characteristic, nonreduced fibres and nonunit parameters are included. No injectivity, flatness, reducedness, domain, invertible-order or Noetherian hypothesis is imposed.",
+    "C_A(f) is the inherited actual factorial root colimit with orders (i+1)! and distinguished roots u_i. H_A=C_A(1), σ_A is its actual universal coherent unit family, F_(φ,f) is the inherited coefficient map, and ρ, ε, S are the inherited native coaction, counit and antipode.",
+    "These are equalities of actual ring maps with explicit source and target algebras. They do not assert a geometric pullback equivalence, arbitrary-universe transport, a diagonalizable coordinate comparison, Spec limits, fpqc torsor descent or quotient-stack equivalence."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-tensor-pure",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-root"
+   ],
+   "proofSteps": [
+    "Apply the pure-tensor formula and both unity-root and chart-root coefficient formulas."
+   ],
+   "acceptance": [
+    "For every i, T_(φ,f)(h_i^A⊗u_i^f)=h_i^B⊗u_i^(φ(f)) in the actual target tensor algebra."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply coefficient compatibility of the actual algebra coaction before the separate geometric affine-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialTensorCoefficientMap.root"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialCoefficientNaturality-codex-rtOQ9t",
+     "locator": "Authored coordinate deduction factorialTensorCoefficientMap.root, handoff derivation and exact native proof replay",
+     "match": "Authored deduction from the actual inherited colimit and pinned native tensor map, motivated by the compatible grading action; no printed quotient theorem is claimed."
+    },
+    {
+     "sourceId": "TV17CoefficientNaturality-codex-rtOQ9t",
+     "locator": "§3.1 complete printed/PDF pp.14–16: Cartier duals, grading equivariance and affine quotient passage",
+     "match": "Motivates the compatible root action. This coefficient-map identity is an authored algebraic deduction, distinct from the remaining geometric quotient comparison."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-tensor-identity",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "lemma",
+   "title": "Id",
+   "declarationName": "TauCeti.RootStack.factorialTensorCoefficientMap.id",
+   "statement": "T_(id,f) is the identity ring homomorphism on H_A⊗_A C_A(f).",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe and φ:A→B, ψ:B→C are arbitrary ring homomorphisms; f∈A is arbitrary. Zero rings, wild characteristic, nonreduced fibres and nonunit parameters are included. No injectivity, flatness, reducedness, domain, invertible-order or Noetherian hypothesis is imposed.",
+    "C_A(f) is the inherited actual factorial root colimit with orders (i+1)! and distinguished roots u_i. H_A=C_A(1), σ_A is its actual universal coherent unit family, F_(φ,f) is the inherited coefficient map, and ρ, ε, S are the inherited native coaction, counit and antipode.",
+    "These are equalities of actual ring maps with explicit source and target algebras. They do not assert a geometric pullback equivalence, arbitrary-universe transport, a diagonalizable coordinate comparison, Spec limits, fpqc torsor descent or quotient-stack equivalence."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-tensor-pure",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-identity",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-identity",
+    "mathlib:TensorProduct.induction_on"
+   ],
+   "proofSteps": [
+    "Use native tensor induction. Zero and addition are preserved; a pure tensor is fixed by the unity and chart coefficient identity laws."
+   ],
+   "acceptance": [
+    "T_(id,f) is the identity ring homomorphism on H_A⊗_A C_A(f)."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply coefficient compatibility of the actual algebra coaction before the separate geometric affine-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialTensorCoefficientMap.id"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialCoefficientNaturality-codex-rtOQ9t",
+     "locator": "Authored coordinate deduction factorialTensorCoefficientMap.id, handoff derivation and exact native proof replay",
+     "match": "Authored deduction from the actual inherited colimit and pinned native tensor map, motivated by the compatible grading action; no printed quotient theorem is claimed."
+    },
+    {
+     "sourceId": "TV17CoefficientNaturality-codex-rtOQ9t",
+     "locator": "§3.1 complete printed/PDF pp.14–16: Cartier duals, grading equivariance and affine quotient passage",
+     "match": "Motivates the compatible root action. This coefficient-map identity is an authored algebraic deduction, distinct from the remaining geometric quotient comparison."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-tensor-composition",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "kind": "lemma",
+   "title": "Comp",
+   "declarationName": "TauCeti.RootStack.factorialTensorCoefficientMap.comp",
+   "statement": "For any ψ:B→C, T_(ψ∘φ,f)=T_(ψ,φ(f))∘T_(φ,f) as actual ring homomorphisms into H_C⊗_C C_C(ψ(φ(f))).",
+   "hypotheses": [
+    "A,B,C are arbitrary commutative rings in one fixed universe and φ:A→B, ψ:B→C are arbitrary ring homomorphisms; f∈A is arbitrary. Zero rings, wild characteristic, nonreduced fibres and nonunit parameters are included. No injectivity, flatness, reducedness, domain, invertible-order or Noetherian hypothesis is imposed.",
+    "C_A(f) is the inherited actual factorial root colimit with orders (i+1)! and distinguished roots u_i. H_A=C_A(1), σ_A is its actual universal coherent unit family, F_(φ,f) is the inherited coefficient map, and ρ, ε, S are the inherited native coaction, counit and antipode.",
+    "These are equalities of actual ring maps with explicit source and target algebras. They do not assert a geometric pullback equivalence, arbitrary-universe transport, a diagonalizable coordinate comparison, Spec limits, fpqc torsor descent or quotient-stack equivalence."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-tensor-pure",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-composition",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-composition",
+    "mathlib:Algebra.TensorProduct.ringHom_ext"
+   ],
+   "proofSteps": [
+    "Use the native tensor ring-homomorphism extensionality theorem on the two canonical factor inclusions. The pure-tensor formula reduces the two restrictions to the unity and chart coefficient composition laws."
+   ],
+   "acceptance": [
+    "For any ψ:B→C, T_(ψ∘φ,f)=T_(ψ,φ(f))∘T_(φ,f) as actual ring homomorphisms into H_C⊗_C C_C(ψ(φ(f)))."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply coefficient compatibility of the actual algebra coaction before the separate geometric affine-limit, frame-torsor and quotient comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialTensorCoefficientMap.comp"
+   },
+   "sources": [
+    {
+     "sourceId": "FactorialCoefficientNaturality-codex-rtOQ9t",
+     "locator": "Authored coordinate deduction factorialTensorCoefficientMap.comp, handoff derivation and exact native proof replay",
+     "match": "Authored deduction from the actual inherited colimit and pinned native tensor map, motivated by the compatible grading action; no printed quotient theorem is claimed."
+    },
+    {
+     "sourceId": "TV17CoefficientNaturality-codex-rtOQ9t",
+     "locator": "§3.1 complete printed/PDF pp.14–16: Cartier duals, grading equivariance and affine quotient passage",
+     "match": "Motivates the compatible root action. This coefficient-map identity is an authored algebraic deduction, distinct from the remaining geometric quotient comparison."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
@@ -16375,7 +17397,8 @@
     "Finish coherent factorial reindexing, infinite affine quotient and finite-stage injectivity/surjectivity on Kummer classes; neither set limits nor field points replace these comparisons.",
     "The codex-J6LwjP point-scaling continuation constructs the actual coherent native unit-family subgroup, its chart-colimit algebra maps and actual automorphisms, and the universal nonconstant test family. The universal diagonalizable grading/Hopf action and naturality over all test algebras, coherent root-object reindexing, affine Spec limits, fpqc torsors/quotient groupoids, TOWER-AFF, KUMMER-FINITE, TOWER-TYPING and the DVR/Kummer bridge remain open; point-valued formulas do not close them.",
     "Actual coherent scalar maps and φ-semilinear chart maps now obey identity/composition and the forward/inverse scaling squares for arbitrary coefficient ring homomorphisms. The universal diagonalizable group scheme and Hopf coaction, transport through the positive-divisibility comparison, coherent root-object groupoid reindexing, Spec limits, fpqc frame torsors and the infinite quotient comparison remain required constructions. TOWER-AFF, KUMMER-FINITE, TOWER-TYPING, DVR/Kummer and the all-roots-of2 non-fppf distinctions and separate Yun–Zhang/symplectic source routes are unchanged.",
-    "The universal factorial algebra coaction, native bialgebra/Hopf structures and fixed-universe natural equivalence of algebra-valued points with coherent unit families now have explicit signatures and separate no-admission native evidence. Identify H_A with the canonical diagonalizable coordinate Hopf algebra A[Q/Z] and its convolution group of points; transport the coaction through the full positive-divisibility equivalence; prove coefficient-base-change/coaction compatibility and higher-universe adapters; construct coherent root-object groupoid reindexing, affine Spec limits, fpqc frame torsors and the infinite quotient comparison. Preserve TOWER-AFF, KUMMER-FINITE, TOWER-TYPING, DVR/Kummer, the all-roots-of2 non-fppf counterexample and both Yun–Zhang and symplectic source routes. No stage or implementation closes."
+    "The universal factorial algebra coaction, native bialgebra/Hopf structures and fixed-universe natural equivalence of algebra-valued points with coherent unit families now have explicit signatures and separate no-admission native evidence. Identify H_A with the canonical diagonalizable coordinate Hopf algebra A[Q/Z] and its convolution group of points; transport the coaction through the full positive-divisibility equivalence; prove coefficient-base-change/coaction compatibility and higher-universe adapters; construct coherent root-object groupoid reindexing, affine Spec limits, fpqc frame torsors and the infinite quotient comparison. Preserve TOWER-AFF, KUMMER-FINITE, TOWER-TYPING, DVR/Kummer, the all-roots-of2 non-fppf counterexample and both Yun–Zhang and symplectic source routes. No stage or implementation closes.",
+    "The fixed-universe coefficient maps now have explicit coaction/counit/antipode squares and separate native proof evidence. Still identify H_A with A[Q/Z], compare convolution points, transport positive-divisibility and higher-universe structures, and construct root groupoid reindexing, affine Spec limits, fpqc frame torsors and quotient comparisons. All existing TOWER-AFF/KUMMER-FINITE/TOWER-TYPING/DVR obligations remain."
    ]
   },
   {
@@ -18068,6 +19091,77 @@
     "Complete Jacobian README and StableReduction README at the immutable read base."
    ],
    "sourceReadExtent": "Complete indicated pp.14–16, not a new whole-paper audit."
+  },
+  "coefficientCoactionNaturality": {
+   "agent": "Codex — codex-rtOQ9t",
+   "date": "2026-10-03",
+   "auditTree": "7a0839ba10a362fba9724a9704e986412ea03aa8",
+   "reviewedRowsRead": "Complete FA.0–FA.7 aggregate audit rows and applicable REV-AUDIT-20/REV-RT-AUDIT-20 corrections; actual SF.1/SF.2/SF.3, R09.3–R09.5, D0, FA.2/FA.4 supplier descriptions and all incoming stage requires/requests. Broader historical source receipts retain their original provenance.",
+   "primaryScope": "Fresh complete TV17 v2 printed/PDF pp.14–16 with formulas/statements/proofs; exact PDF hash matches incoming receipt. No whole-paper, geometric quotient or upstream-absence certification.",
+   "upstreamDocumentsRead": "Complete JacobianChallenge and StableReduction README documents in this continuous session, at unchanged source pins.",
+   "nativeBoundary": "Exact incoming 3767-line native proof recovered by public hash and replayed, with all161 inherited examples and167 inherited audits. Selected consumed declarations were freshly read, not the whole inherited proof/source corpus. Existing tensor map primitives are imported; the literal unity-target adapter specializes the already planned coefficient lift. Full geometric suggested file remains uncompiled absent exact-pin compiled Tau Ceti supplier artifacts.",
+   "proofCheck": {
+    "archiveCommit": "f6525a32f107fbff6b945dd5d76e5ca6ea2c771b",
+    "native": {
+     "lines": 4092,
+     "sha256": "d418a342fe5852ce1241dda4189b3afdc153d27efbc184cb93e1bf1db2ce88c4",
+     "examples": 175,
+     "errors": 0,
+     "warnings": 0,
+     "admissionWarnings": 0,
+     "axiomAudits": 183,
+     "seconds": 47.62,
+     "peakRSSKiB": 3952652,
+     "availableGiBBeforeCompile": 36,
+     "exit": 0,
+     "normalizedDiagnosticSha256": "ba4a0baa886ec3b429abefc469cb97e3cc9f2679660a457051cd511b5f746f09"
+    },
+    "algebraProjection": {
+     "lines": 2416,
+     "sha256": "2a18012efdb87abfaedcc141b120218cf1135a6469cc4805367048bd1f368e67",
+     "examples": 175,
+     "errors": 0,
+     "warnings": 402,
+     "admissionWarnings": 402,
+     "axiomAudits": 0,
+     "seconds": 15.91,
+     "peakRSSKiB": 3480440,
+     "availableGiBBeforeCompile": 34,
+     "exit": 0,
+     "normalizedDiagnosticSha256": "54935563646e046fdf738b7a34cacba3edadf46f867ef00cece42faefeae3ce4"
+    },
+    "canonical": {
+     "lines": 3327,
+     "sha256": "d288d19e1218e4632cd4cb1abf06701436d9b21391e7df6925c4471e7f4f347b",
+     "examples": 195,
+     "compiled": false,
+     "reason": "Existing exact-pin build lacks native Tau Ceti geometric supplier imports. Only the exact whole Mathlib-only algebra projection and native replay were compiled."
+    },
+    "assembledGraph": {
+     "base": "b725306dcef5613ca909fcaafaded4840e72777c",
+     "stageDAG": {
+      "vertices": 3056,
+      "edges": 8723,
+      "acyclic": true
+     },
+     "ownDeclarationDAG": {
+      "vertices": 292,
+      "edges": 661,
+      "acyclic": true
+     },
+     "stagesAndReachableDeclarations": {
+      "vertices": 3360,
+      "edges": 9887,
+      "acyclic": true
+     },
+     "reachableDeclarations": 343,
+     "requiredStagePairs": 54,
+     "requiredStagePairsReachable": 54,
+     "allAcceptedRestructurePathsChecked": 3834,
+     "stageEdgesUnchanged": true,
+     "otherSkipsMatchOriginal": true
+    }
+   }
   }
  },
  "continuationBoundary": {
@@ -19211,6 +20305,15 @@
     ],
     "readingExtent": "Fresh reading of the specified passages and exact-byte PDF hash. The coaction and native Hopf specialization are authored deductions; no new whole-paper audit, diagonalizable-group-algebra identification or quotient-stack theorem is claimed."
    }
+  },
+  {
+   "agent": "Codex — codex-rtOQ9t",
+   "date": "2026-10-03",
+   "claim": "5965051651, bot5965052651",
+   "base": "7a0839ba10a362fba9724a9704e986412ea03aa8",
+   "newNodes": 16,
+   "preservedContracts": 276,
+   "scope": "Actual coefficient naturality of universal factorial coaction, counit and antipode; all ten stages remain partial and every implementation unchecked."
   }
  ]
 }
