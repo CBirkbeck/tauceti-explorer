@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Partial continuation: preserve all 61 inherited nodes and add eleven R03.3 declarations comparing the native stable-adic Rees module quotient with the actual associated graded module. Reuse native Rees carriers and quotient scalar descent; specify the coefficient denominator, piece inclusions, homogeneous action by the same graded ring, finite expansion, degree-zero generation, finite generation for finite M and the explicit regular-module specialization. All eight stages remain open. Graded Hilbert–Serre, dimension and every original source-route obligation remain gaps. The full Mathlib-only suggested file elaborates; all mathematical implementations remain unchecked. This continuation registers the native natural-indexed grading of the existing adic Rees ring and module through seven precise adapters, without changing the underlying carriers; polynomial induction remains open. Codex — codex-a71f92 integrates six finite-variable jet adapters from the plane-curve handoff: variable-ideal powers/order, denominator containment, native shifted map with projection, exact-order injectivity, right-exactness and the separate small-index branch. All 79 inherited nodes are unchanged; the general Hilbert–Serre and multiplicity comparisons remain open. This continuation adds the native total-jet kernel, polynomial equivalence, monomial basis and two-variable field-dimension computation; built double quotients and surjective scalar length restriction are cited without duplicate nodes. Codex — codex-5ebb6f adds the native series residue-field equivalence, coefficient surjectivity, extended-natural length comparison and finite-dimensional specialization, promotes the existing jet-finiteness API, and states total-jet R-module lengths. Seven declaration nodes and three APIs are added; all 89 inherited node objects remain unchanged. The residue and length foundation has an admission-free checked prototype; the submitted signatures and all implementation statuses remain unchecked. Integrates the credited finite plane-curve jet proof into nine unchecked native declarations, with all-index length and sharp cumulative postulation; scope remains partial. Codex — codex-rtOQ9t adds three reusable quotient-ring Hilbert–Samuel API lemmas and six actual boundary examples, refines the plane-curve adapter to their specialization, and retains all source/closure boundaries. This finite-variable continuation separates algebraic monomial-power membership, the order lower bound and a finite degree-r factorization; their admission-free native prototypes assemble the existing ideal-power/order equivalence without a domain assumption. The canonical plan remains partial and unchecked. Codex — codex-7e92bd refines the total-jet kernel/equivalence/basis/count proof chains through six declaration-sized coefficient and cardinality adapters, with an admission-free native prototype covering the actual polynomial equivalence, coefficient coordinates, monomial basis and all-cutoff two-variable count. All inherited general multiplicity and patching obligations remain open.",
+  "summary": "Partial continuation: preserve all 61 inherited nodes and add eleven R03.3 declarations comparing the native stable-adic Rees module quotient with the actual associated graded module. Reuse native Rees carriers and quotient scalar descent; specify the coefficient denominator, piece inclusions, homogeneous action by the same graded ring, finite expansion, degree-zero generation, finite generation for finite M and the explicit regular-module specialization. All eight stages remain open. Graded Hilbert–Serre, dimension and every original source-route obligation remain gaps. The full Mathlib-only suggested file elaborates; all mathematical implementations remain unchecked. This continuation registers the native natural-indexed grading of the existing adic Rees ring and module through seven precise adapters, without changing the underlying carriers; polynomial induction remains open. Codex — codex-a71f92 integrates six finite-variable jet adapters from the plane-curve handoff: variable-ideal powers/order, denominator containment, native shifted map with projection, exact-order injectivity, right-exactness and the separate small-index branch. All 79 inherited nodes are unchanged; the general Hilbert–Serre and multiplicity comparisons remain open. This continuation adds the native total-jet kernel, polynomial equivalence, monomial basis and two-variable field-dimension computation; built double quotients and surjective scalar length restriction are cited without duplicate nodes. Codex — codex-5ebb6f adds the native series residue-field equivalence, coefficient surjectivity, extended-natural length comparison and finite-dimensional specialization, promotes the existing jet-finiteness API, and states total-jet R-module lengths. Seven declaration nodes and three APIs are added; all 89 inherited node objects remain unchanged. The residue and length foundation has an admission-free checked prototype; the submitted signatures and all implementation statuses remain unchecked. Integrates the credited finite plane-curve jet proof into nine unchecked native declarations, with all-index length and sharp cumulative postulation; scope remains partial. Codex — codex-rtOQ9t adds three reusable quotient-ring Hilbert–Samuel API lemmas and six actual boundary examples, refines the plane-curve adapter to their specialization, and retains all source/closure boundaries. This finite-variable continuation separates algebraic monomial-power membership, the order lower bound and a finite degree-r factorization; their admission-free native prototypes assemble the existing ideal-power/order equivalence without a domain assumption. The canonical plan remains partial and unchecked. Codex — codex-7e92bd refines the total-jet kernel/equivalence/basis/count proof chains through six declaration-sized coefficient and cardinality adapters, with an admission-free native prototype covering the actual polynomial equivalence, coefficient coordinates, monomial basis and all-cutoff two-variable count. All inherited general multiplicity and patching obligations remain open. The exact-order variable-ideal preimage now has a separate lemma, and admission-free native prototypes connect the actual shifted multiplication/projection to the preceding principal-quotient proofs. The canonical suggested bodies and all stage coverage remain unchecked/partial.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1823,6 +1823,41 @@
         "module": "Mathlib/Data/Finsupp/Weight.lean",
         "provides": "For a finite index type, native finitely supported degree is the finite sum of the exponent values.",
         "checked": "Full statement, surrounding assumptions and displayed proof freshly read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:ENat.add_le_add_iff_left",
+        "kind": "theorem",
+        "module": "Mathlib/Data/ENat/Basic.lean",
+        "provides": "With k≠∞, k+n≤k+m iff n≤m in ℕ∞; no finiteness assumption on the other addends.",
+        "checked": "Actual statement, surrounding assumptions and displayed proof read at the exact pin on 2026-10-03 by Codex — codex-J6LwjP; HS-SHIFTED-ORDER-PIN records the source hash and bounded read scope."
+      },
+      {
+        "ref": "mathlib:ENat.natCast_add",
+        "kind": "theorem",
+        "module": "Mathlib/Data/ENat/Basic.lean",
+        "provides": "Natural-number addition agrees with addition after casting to ℕ∞.",
+        "checked": "Actual statement, surrounding assumptions and displayed proof read at the exact pin on 2026-10-03 by Codex — codex-J6LwjP; HS-SHIFTED-ORDER-PIN records the source hash and bounded read scope."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.monomial_zero_one",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "The zero-exponent coefficient-one monomial is the native series unit.",
+        "checked": "Actual statement, surrounding assumptions and displayed proof read at the exact pin on 2026-10-03 by Codex — codex-J6LwjP; HS-SHIFTED-ORDER-PIN records the source hash and bounded read scope."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.monomial_pow",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "The n-th power of a monomial m,a is the monomial n•m,a^n, for semiring coefficients.",
+        "checked": "Actual statement, surrounding assumptions and displayed proof read at the exact pin on 2026-10-03 by Codex — codex-J6LwjP; HS-SHIFTED-ORDER-PIN records the source hash and bounded read scope."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.coeff_zero_C",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "The coefficient at the zero exponent of the constant series C(a) is a.",
+        "checked": "Actual statement, surrounding assumptions and displayed proof read at the exact pin on 2026-10-03 by Codex — codex-J6LwjP; HS-SHIFTED-ORDER-PIN records the source hash and bounded read scope."
       }
     ]
   },
@@ -2580,6 +2615,24 @@
         "Mathlib/Data/Nat/Choose/Sum.lean": "d88800d197e20be7772e01499720c761b0140c4d0a21b889d590ef606665faf8",
         "Mathlib/Data/Fintype/BigOperators.lean": "3b6ad1533512371145deaee91ce55bee871a5866ec70f6c0db8b3adae53173b0",
         "Mathlib/SetTheory/Cardinal/Finite.lean": "d0bb8f1f00469a940dcc8ca404a9d4f7157516c40a4d6aa0fbbc622e50c42e94"
+      }
+    },
+    {
+      "id": "HS-SHIFTED-ORDER-PIN",
+      "title": "Exact-order cancellation and shifted native jet quotients",
+      "authors": "The Mathlib contributors; adapter proofs by Codex — codex-J6LwjP, continuing the credited DDPA-JET-HANDOFF and the codex-a71f92, codex-7e92bd and codex-5ebb6f prototypes",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/MvPowerSeries/NoZeroDivisors.lean",
+      "accessDate": "2026-10-03",
+      "readSections": [
+        "Fresh bounded reads of NoZeroDivisors.lean ambient semiring/no-zero-divisors assumptions, full weightedOrder_mul proof and order_mul statement; Order.lean native order, finite/zero criterion, coefficient vanishing and product lower bound; ENat/Basic.lean ambient assumptions, natural casts and finite-left-addend cancellation; series Basic.lean monomial-zero-one, monomial-power and coefficient-zero-C statements and displayed proofs. The entire recovered 186-line principal-quotient prototype was read; the recovered 531-line jet-coordinate proof is retained byte-for-byte, with selected coefficient and ideal-power sections freshly read. No whole-tree absence claim.",
+        "Fresh DDPA-JET-HANDOFF §4 read in full, including the actual sequence, small-index exclusion and length balance; §3 coefficient/ideal comparison also read. This is canonical quotient proof integration, not a new reading of every routed paper. Historical source and computational receipts remain attributed; no predecessor finite computational regression was rerun."
+      ],
+      "sourceHashes": {
+        "Mathlib/RingTheory/MvPowerSeries/NoZeroDivisors.lean": "dcd2c7eae0853f1ccb509a3b18aabd934d53f7657543650a152abccb28765c98",
+        "Mathlib/RingTheory/MvPowerSeries/Order.lean": "cda7e4c6c23c83c61b97a8b365d95faaf43cec5996a3c4aada0401ebe9ecdd34",
+        "Mathlib/Data/ENat/Basic.lean": "bafb690a7dfcf08866c2f499a1349d0d0ec3d45b7f3d6c5027e4af62238f1377",
+        "Mathlib/RingTheory/MvPowerSeries/Basic.lean": "fb6303b35ede9edf896a799d46d5656faca3e55f7f05cbfb02b86e3c7bb9b865"
       }
     }
   ],
@@ -7786,7 +7839,8 @@
         "Apply variable-ideal-power-order to a source element g. The native product-order lower bound gives order(fg)≥order(f)+order(g)≥d+(N+1−d)=N+1 in ENat.",
         "The equality of natural exponents follows from d≤N, so the natural subtraction is legitimate. The zero representative and f=0 are covered directly by extended-natural inequalities.",
         "Apply variable-ideal-power-order to fg. Express the conclusion as Submodule.comap of LinearMap.mulLeft R f, not Ideal.comap: multiplication by f is generally not a ring homomorphism.",
-        "Retain the separate variable-ideal-power-order adapter to infer f∈v^d from the order bound. Apply ideal-power-mul-denominator with n=N+1; d≤N implies d≤N+1. This imports the actual ideal-power algebra proof; it does not discharge the order-to-algebraic-ideal bridge."
+        "Retain the separate variable-ideal-power-order adapter to infer f∈v^d from the order bound. Apply ideal-power-mul-denominator with n=N+1; d≤N implies d≤N+1. This imports the actual ideal-power algebra proof; it does not discharge the order-to-algebraic-ideal bridge.",
+        "The current admission-free native prototype applies the proved ideal-power denominator to f∈v^d, using the checked order-to-ideal adapter. The canonical body remains admitted."
       ],
       "acceptance": [
         "For d=N the source ideal is v, not v^0.",
@@ -7841,7 +7895,10 @@
         "mathlib:Submodule.mapQ",
         "mathlib:Submodule.mapQ_apply",
         "mathlib:Submodule.factor",
-        "mathlib:Submodule.factor_mk"
+        "mathlib:Submodule.factor_mk",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/principal-quotient-multiplication",
+        "mathlib:MvPowerSeries.monomial_pow",
+        "mathlib:MvPowerSeries.coeff_zero_C"
       ],
       "sources": [
         {
@@ -7866,6 +7923,16 @@
           "name": "TauCeti.HilbertSamuel.jetProjection_apply",
           "role": "simp",
           "statement": "For every g∈R, π_f([g]_(v^(N+1)))=[g]_((f)+v^(N+1))."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.shiftedJetMap_eq_quotientMulMap",
+          "role": "compatibility",
+          "statement": "For d≤N and d≤order(f), shiftedJetMap is exactly quotientMulMap with J=v^(N+1−d), K=v^(N+1), multiplier f and the actual shifted denominator proof."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.jetProjection_eq_principalQuotientProjection",
+          "role": "compatibility",
+          "statement": "For every f and N, jetProjection is exactly principalQuotientProjection for K=v^(N+1); this equality does not require a finite variable set."
         }
       ],
       "tests": [
@@ -7888,6 +7955,16 @@
           "name": "HilbertSamuelJetTest.zero_equation",
           "kind": "degenerate",
           "statement": "For any finite σ and commutative k, f=0 and admissible d≤N, μ_f is the zero linear map. It satisfies the order lower bound but not the exact finite-order premise of the injectivity lemma."
+        },
+        {
+          "name": "HilbertSamuelShiftedOrderTest.loose_order_bound",
+          "kind": "non-example",
+          "statement": "Over ℚ in two variables, f=X_0² satisfies the lower bound d=1 at N=1, but shiftedJetMap is not injective: the nonzero class of 1 modulo v maps to zero modulo v²."
+        },
+        {
+          "name": "HilbertSamuelShiftedOrderTest.exactness_zero_divisors",
+          "kind": "compatibility",
+          "statement": "Over ℤ/4 in two variables, every admissible lower-order-bound shifted multiplication still has range equal to the projection kernel and a surjective projection."
         }
       ],
       "uses": [
@@ -7925,7 +8002,8 @@
         "Use the built native MvPowerSeries.order_mul, not a new order-multiplicativity theorem: order(fg)=d+order(g). If g=0 the source class is zero. Otherwise its order is finite and ENat cancellation of the finite d gives order(g)≥N+1−d.",
         "Apply variable-ideal-power-order to get g in the source denominator. Thus the kernel is zero, hence the linear map is injective. Equivalently kernel_mapQ transports the same preimage equality.",
         "An order lower bound alone is insufficient: a series of order larger than d can kill a nonzero source class, even over a field. Over Z/4 take f=2X_0 and g=2: both relevant low classes are nonzero but fg=0.",
-        "Apply principal-quotient-injectivity to the actual source and target ideals. Prove its reverse-membership criterion using exact finite order, the built order_mul and the separate variable-ideal-power-order adapter. Right exactness or ambient domain cancellation alone cannot replace this step."
+        "Apply principal-quotient-injectivity to the actual source and target ideals. Prove its reverse-membership criterion using exact finite order, the built order_mul and the separate variable-ideal-power-order adapter. Right exactness or ambient domain cancellation alone cannot replace this step.",
+        "The current admission-free native prototype applies exact-order-mul-ideal-preimage with r=N+1−d, rewrites d+(N+1−d)=N+1 under d≤N, and invokes the proved principal quotient injectivity criterion. Zero representatives need no separate finite-order conversion."
       ],
       "acceptance": [
         "For k=F₂ and f=X_0^4, d=N=4 the map is injective despite a nonreduced equation.",
@@ -7937,7 +8015,9 @@
         "mathlib:MvPowerSeries.order_mul",
         "mathlib:MvPowerSeries.order_eq_top_iff",
         "mathlib:Submodule.ker_mapQ",
-        "DeformationAndDerivedPatchingAlgebra:R03.3/principal-quotient-injectivity"
+        "DeformationAndDerivedPatchingAlgebra:R03.3/principal-quotient-injectivity",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/exact-order-mul-ideal-preimage",
+        "mathlib:MvPowerSeries.monomial_zero_one"
       ],
       "sources": [
         {
@@ -7952,6 +8032,11 @@
           "name": "HilbertSamuelJetTest.zero_divisor_base",
           "kind": "non-example",
           "statement": "For k=Z/4, σ=Fin 2, f=2X_0 and d=N=1, the order lower bound holds but μ_f is not injective: it kills the nonzero residue class of 2."
+        },
+        {
+          "name": "HilbertSamuelShiftedOrderTest.wrong_source_field",
+          "kind": "non-example",
+          "statement": "Over ℚ in two variables, unshifted multiplication by X_0 on R/v² is well-defined but not injective: it kills the nonzero class of X_0. Ambient domain cancellation cannot replace the shifted denominator."
         }
       ]
     },
@@ -7979,7 +8064,8 @@
         "For any kernel class choose h=fg+r with r∈v^(N+1), using singleton ideal span membership and the sum-ideal membership criterion. Then [h]=μ_f([g]) for the actual source class, proving kernel⊆range.",
         "Conversely the projection kills every fg because fg∈(f). Native range_mapQ records that the range is the image of the principal ideal under the middle quotient map, yielding the reverse inclusion.",
         "Only after shifted-jet-injective is added under its stricter hypotheses is this a short exact sequence. The further quotient-of-quotient equivalence with A/n^(N+1) and the length/dimension comparisons remain explicit continuation work; do not assert an A-linear structure on the shifted source.",
-        "Specialize principal-quotient-exact to A=R,J=v^(N+1−d),K=v^(N+1), using shifted-jet-denominator. The existing shifted map and projection have exactly the same native representative formulas, hence agree by quotient induction. The ring-level exactness proof is now explicit; the series denominator remains the earlier separate prerequisite."
+        "Specialize principal-quotient-exact to A=R,J=v^(N+1−d),K=v^(N+1), using shifted-jet-denominator. The existing shifted map and projection have exactly the same native representative formulas, hence agree by quotient induction. The ring-level exactness proof is now explicit; the series denominator remains the earlier separate prerequisite.",
+        "The current native prototype proves equality with quotientMulMap and principalQuotientProjection by their actual definitions, then imports the checked principal-quotient exactness proof. It has no domain or exact-order assumption."
       ],
       "acceptance": [
         "For f=0 both multiplication image and projection kernel are zero.",
@@ -8023,7 +8109,8 @@
         "Since N+1≤d≤order(f), variable-ideal-power-order gives f∈v^(N+1). The generated principal ideal lies in this power, so their sum is the same power.",
         "The canonical factor under this equality has identical source and target quotient relations. Its representative formula proves injectivity; its native factor_surjective proves surjectivity.",
         "For f=X_0^4,N=0 the projection is the residue-jet bijection, while the tempting multiplication R/v→R/v sends everything to zero. Guard the shifted construction with d≤N and never use truncated natural subtraction to extend injectivity to N<d.",
-        "After the existing order-to-ideal adapter establishes f∈v^(N+1), specialize principal-projection-in-ideal. The already planned projection is definitionally the same native factor. No generic bijection theorem is duplicated and no injective shifted map is asserted at small indices."
+        "After the existing order-to-ideal adapter establishes f∈v^(N+1), specialize principal-projection-in-ideal. The already planned projection is definitionally the same native factor. No generic bijection theorem is duplicated and no injective shifted map is asserted at small indices.",
+        "The current native prototype obtains f∈v^(N+1) from N<d and the order lower bound, then specializes the checked principal projection bijectivity theorem. The small-index example independently rejects a spurious unshifted injection."
       ],
       "acceptance": [
         "The zeroth jet of f=X_0^4 over ℚ is unaffected by the equation.",
@@ -10170,6 +10257,73 @@
           "statement": "The two-variable exponent index at cutoff three has cardinality 6, not the rectangular count 9."
         }
       ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/exact-order-mul-ideal-preimage",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Exact-order preimage of a variable-ideal power",
+      "declaration": "TauCeti.HilbertSamuel.mul_mem_variableIdeal_pow_iff",
+      "statement": "For finite σ, a commutative coefficient ring k with no zero divisors, R=MvPowerSeries σ k and v=span{X_i}, if native order(f)=(d:ℕ∞), then fg∈v^(d+r) if and only if g∈v^r, for every g∈R and d,r∈ℕ. The zero argument and r=0 are included.",
+      "hypotheses": [
+        "σ is finite; k is a commutative ring with NoZeroDivisors. All ideals and series are the native library objects.",
+        "The multiplier has exact finite native order d. No field, nontriviality, completeness, local-ring, irreducibility or reducedness hypothesis is added."
+      ],
+      "proofSteps": [
+        "Use variable-ideal-power-order to convert both memberships to inequalities in ℕ∞.",
+        "Rewrite native order_mul and the exact order of f. Natural addition casts to extended-natural addition.",
+        "Cancel only the finite left addend d using ENat.add_le_add_iff_left. The other addend order(g) may be infinite; no order.toNat or unjustified truncated subtraction is used.",
+        "This supplies the reverse-membership condition of principal-quotient-injectivity with r=N+1−d and d≤N. Right exactness uses the weaker lower-order bound separately."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order",
+        "mathlib:MvPowerSeries.order_mul",
+        "mathlib:ENat.natCast_add",
+        "mathlib:ENat.add_le_add_iff_left"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§4, equation (5) and injectivity argument following (6)",
+          "excerpt": "this proves injectivity",
+          "match": "The general finite-variable, no-zero-divisors coefficient extension is explicitly derived from the pinned order theorem and the already checked algebraic ideal-power adapter."
+        },
+        {
+          "sourceId": "HS-SHIFTED-ORDER-PIN",
+          "locator": "NoZeroDivisors.lean 138–185; ENat/Basic.lean 232–234; exact-order quotient adapter proof",
+          "excerpt": "multiplicativity",
+          "match": "The native order theorem is baseline; this node is only the algebraic ideal-preimage adapter."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "With g=0 the proof remains in ℕ∞ and does not cast infinity to a natural number.",
+        "A loose lower-order bound or zero-divisor coefficients must not imply this equivalence."
+      ],
+      "tests": [
+        {
+          "name": "HilbertSamuelShiftedOrderTest.zero_multiplier",
+          "kind": "non-example",
+          "statement": "For arbitrary finite σ and commutative k, the zero series times 1 belongs to every v^(1+r), but its order is not the finite value 1; it cannot satisfy the exact-order premise."
+        },
+        {
+          "name": "HilbertSamuelShiftedOrderTest.membership_zero_argument",
+          "kind": "degenerate",
+          "statement": "With no-zero-divisors coefficients and exact order(f)=d, f·0∈v^(d+r) iff 0∈v^r, including the infinite order of the zero argument."
+        },
+        {
+          "name": "HilbertSamuelShiftedOrderTest.membership_zero_cutoff",
+          "kind": "degenerate",
+          "statement": "For exact order(f)=d and every g, f·g∈v^d; the cancellation statement includes r=0."
+        }
+      ]
     }
   ],
   "baselineCoverage": [
@@ -10300,7 +10454,8 @@
         "The actual curve-jet comparison, shifted length balance, all-index cumulative/graded formulas, rational defect, sharp agreement and explicit cumulative-polynomial specialization now have separate native signatures and mathematical proof plans. Their submitted bodies and inherited ideal-power/order, shifted-sequence and jet basis/count bodies remain unchecked. Prove those native bodies, the tangent-cone kernel, curve dimension and intrinsic/ambient multiplicity comparisons. General Hilbert–Serre induction, degree/dimension, completion, Artin–Rees, associativity suppliers and all routed-paper obligations remain open.",
         "The general quotient-ring comparison, equation-containment adapter, quotient antitonicity and exact existing plane-curve scalar comparison now have admission-free native proof prototypes and six checked boundary examples. Canonical signatures remain admitted and all nodes unchecked. The numerical jet counts, ideal-power/order theorem, shifted multiplication/exactness, tangent-cone kernel, curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre, completion, Artin–Rees, associativity and every inherited routed-paper obligation remain open.",
         "The algebraic variable-ideal-power/order equivalence now has four admission-free native proofs and eleven boundary examples. Canonical bodies remain admitted and all nodes unchecked. Actual shifted series injectivity, jet kernel/equivalence/basis and counts, all-index curve lengths, tangent-cone kernel, curve dimension, general intrinsic/ambient multiplicity, Hilbert–Serre, completion, Artin–Rees and every routed-paper obligation remain open.",
-        "The codex-7e92bd coefficient-coordinate continuation now supplies admission-free native prototypes for total truncation kernel/surjectivity, the actual polynomial equivalence, low-coefficient linear equivalence, monomial basis, finite generation and all-cutoff two-variable rank/cardinality. This supersedes the preceding prototype omissions for those adapters only. Canonical bodies and all implementation statuses stay unchecked. Shifted series exact-order injectivity/exactness, all-index curve lengths, tangent cone and curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre, Artin–Rees, degree/dimension, completion, associativity, all eight stage targets and all routed-paper obligations remain open."
+        "The codex-7e92bd coefficient-coordinate continuation now supplies admission-free native prototypes for total truncation kernel/surjectivity, the actual polynomial equivalence, low-coefficient linear equivalence, monomial basis, finite generation and all-cutoff two-variable rank/cardinality. This supersedes the preceding prototype omissions for those adapters only. Canonical bodies and all implementation statuses stay unchecked. Shifted series exact-order injectivity/exactness, all-index curve lengths, tangent cone and curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre, Artin–Rees, degree/dimension, completion, associativity, all eight stage targets and all routed-paper obligations remain open.",
+        "The codex-J6LwjP exact-order continuation supplies checked native prototypes for the shifted denominator, actual map/projection agreement, exact-order injectivity, right exactness and small-index projection. Canonical bodies remain admitted. Combine these with the existing total-jet basis/count and quotient/scalar comparison to prove all-index curve lengths; then prove the tangent-cone kernel, curve dimension and intrinsic/ambient multiplicity comparisons. Preserve the separate small-index, zero/unit and zero-divisor boundaries. General Hilbert–Serre induction, degree/dimension, Artin–Rees, associativity, completion and every routed-paper/stage obligation remain open."
       ]
     },
     {
@@ -11700,5 +11855,12 @@
       }
     ],
     "priorArtSearchBoundary": "Bounded open-PR searches for Hilbert Samuel and MvPowerSeries; bounded public Zulip search returned no result. PR #44400 description/file list inspected: a restricted-series instance diamond, not this quotient basis. No general absence or current-PR correctness claim."
+  },
+  "shiftedOrderContinuation": {
+    "agent": "Codex — codex-J6LwjP",
+    "date": "2026-10-03",
+    "status": "partial",
+    "remaining": "The codex-J6LwjP exact-order continuation supplies checked native prototypes for the shifted denominator, actual map/projection agreement, exact-order injectivity, right exactness and small-index projection. Canonical bodies remain admitted. Combine these with the existing total-jet basis/count and quotient/scalar comparison to prove all-index curve lengths; then prove the tangent-cone kernel, curve dimension and intrinsic/ambient multiplicity comparisons. Preserve the separate small-index, zero/unit and zero-divisor boundaries. General Hilbert–Serre induction, degree/dimension, Artin–Rees, associativity, completion and every routed-paper/stage obligation remain open.",
+    "inheritedInputs": "All 122 incoming contracts and the reserved general multiplicity node are preserved; credited predecessor prototypes are retained in the checked native archive."
   }
 }
