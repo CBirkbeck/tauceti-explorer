@@ -4158,13 +4158,110 @@ example : ¬ ((⊤ : Ideal ℚ) ^ 1 • (⊤ : Submodule ℚ ℚ) =
 end
 end TauCeti.HilbertSamuel
 
-/- ANNIHILATOR_NATIVE_ARCHIVE
-BEGIN AnnihilatorNative.lean
-import Mathlib.RingTheory.Ideal.Maps
-import Mathlib.LinearAlgebra.Quotient.Basic
-import Mathlib.RingTheory.Length
-import Mathlib.Data.Rat.Defs
-import Mathlib.Data.ZMod.Basic
+/-! Graded annihilator and primary-boundary continuation (Codex — codex-rtOQ9t).
+Canonical planning forms remain admitted. Independent and conditional native evidence is archived separately. -/
+
+namespace TauCeti.HilbertSamuel
+open scoped Pointwise
+noncomputable section
+variable {A M : Type*} [CommRing A] [AddCommGroup M] [Module A M]
+
+lemma idealSupAnnihilator_smul_subtype (q : Ideal A) (L : Submodule A M)
+    (P : Submodule A L) :
+    (q ⊔ Module.annihilator A M) • P = q • P := by sorry
+
+def adicPieceAnnihilatorEquiv (q : Ideal A) (n : ℕ) :
+    adicModulePiece (q ⊔ Module.annihilator A M) M n ≃ₗ[A] adicModulePiece q M n := by sorry
+
+lemma adicPieceAnnihilatorEquiv_mk (q : Ideal A) (n : ℕ)
+    (m : ↥((q ⊔ Module.annihilator A M) ^ n • (⊤ : Submodule A M))) :
+    adicPieceAnnihilatorEquiv q n (Submodule.Quotient.mk m) =
+      Submodule.Quotient.mk
+        (LinearEquiv.ofEq _ _ (idealSupAnnihilator_pow_smul (M := M) q n ⊤) m) := by sorry
+
+lemma adicPieceAnnihilatorEquiv_symm_mk (q : Ideal A) (n : ℕ)
+    (m : ↥(q ^ n • (⊤ : Submodule A M))) :
+    (adicPieceAnnihilatorEquiv q n).symm (Submodule.Quotient.mk m) =
+      Submodule.Quotient.mk
+        ((LinearEquiv.ofEq _ _ (idealSupAnnihilator_pow_smul (M := M) q n ⊤)).symm m) := by sorry
+
+lemma gradedFunction_sup_annihilator (q : Ideal A) (n : ℕ) :
+    gradedFunction (M := M) (q ⊔ Module.annihilator A M) n =
+      gradedFunction (M := M) q n := by sorry
+
+lemma radical_sup_annihilator [IsLocalRing A] [Nontrivial M]
+    (q : Ideal A) (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    (q ⊔ Module.annihilator A M).radical = IsLocalRing.maximalIdeal A := by sorry
+
+lemma sup_annihilator_zero_module [Subsingleton M] (q : Ideal A) :
+    q ⊔ Module.annihilator A M = ⊤ := by sorry
+
+end
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+open scoped Pointwise
+noncomputable section
+variable {A M : Type*} [CommRing A] [AddCommGroup M] [Module A M]
+variable [IsNoetherianRing A] [IsLocalRing A] [Module.Finite A M] [Nontrivial M]
+
+lemma polynomial_sup_annihilator (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    polynomial (M := M) (q ⊔ Module.annihilator A M)
+      (radical_sup_annihilator q hq) = polynomial (M := M) q hq := by sorry
+
+lemma multiplicity_sup_annihilator (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    multiplicity (M := M) (q ⊔ Module.annihilator A M)
+      (radical_sup_annihilator q hq) = multiplicity (M := M) q hq := by sorry
+
+lemma multiplicityInDegree_sup_annihilator (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) (d : ℕ) :
+    multiplicityInDegree (M := M) (q ⊔ Module.annihilator A M)
+      (radical_sup_annihilator q hq) d = multiplicityInDegree (M := M) q hq d := by sorry
+
+end
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+open scoped Pointwise
+noncomputable section
+-- test: AnnihilatorGradedTests.degree_zero_representative
+example (m : ↥(((⊥ : Ideal ℚ) ⊔ Module.annihilator ℚ ℚ) ^ 0 •
+    (⊤ : Submodule ℚ ℚ))) :
+    adicPieceAnnihilatorEquiv (M := ℚ) (⊥ : Ideal ℚ) 0 (Submodule.Quotient.mk m) =
+      Submodule.Quotient.mk (LinearEquiv.ofEq _ _
+        (idealSupAnnihilator_pow_smul (M := ℚ) (⊥ : Ideal ℚ) 0 ⊤) m) := by sorry
+
+-- test: AnnihilatorGradedTests.nonfaithful_inverse
+example (m : ↥((⊥ : Ideal ℤ) ^ 0 • (⊤ : Submodule ℤ (ZMod 4)))) :
+    (adicPieceAnnihilatorEquiv (M := ZMod 4) (⊥ : Ideal ℤ) 0).symm
+      (Submodule.Quotient.mk m) = Submodule.Quotient.mk
+        ((LinearEquiv.ofEq _ _ (idealSupAnnihilator_pow_smul
+          (M := ZMod 4) (⊥ : Ideal ℤ) 0 ⊤)).symm m) := by sorry
+
+-- test: AnnihilatorGradedTests.positive_degree_zero
+example : adicPieceAnnihilatorEquiv (M := ℚ) (⊥ : Ideal ℚ) 1
+    (Submodule.Quotient.mk (0 : ↥(((⊥ : Ideal ℚ) ⊔ Module.annihilator ℚ ℚ) ^ 1 •
+      (⊤ : Submodule ℚ ℚ)))) = 0 := by sorry
+
+-- test: AnnihilatorGradedTests.nonzero_field_primary
+example : ((⊥ : Ideal ℚ) ⊔ Module.annihilator ℚ ℚ).radical =
+    IsLocalRing.maximalIdeal ℚ := by sorry
+
+-- test: AnnihilatorGradedTests.zero_module_not_primary
+example : ((⊥ : Ideal ℚ) ⊔ Module.annihilator ℚ (Fin 0 → ℚ)).radical ≠
+    IsLocalRing.maximalIdeal ℚ := by sorry
+
+-- test: AnnihilatorGradedTests.zero_module_finite_quotient
+example : function (M := Fin 0 → ℚ) (⊥ : Ideal ℚ) 0 = 0 := by sorry
+
+end
+end TauCeti.HilbertSamuel
+
+/- GRADED_ANNIHILATOR_NATIVE_ARCHIVE
+BEGIN Native.lean
+import Mathlib
 
 namespace TauCeti.HilbertSamuel
 open scoped Pointwise
@@ -4241,98 +4338,817 @@ example : ¬ ((⊤ : Ideal ℚ) ^ 1 • (⊤ : Submodule ℚ ℚ) =
 #print axioms function_sup_annihilator
 end
 end TauCeti.HilbertSamuel
-END AnnihilatorNative.lean
 
-BEGIN NewAdmitted.lean
+namespace TauCeti.HilbertSamuel
+open scoped Pointwise
+variable {A M : Type*} [CommRing A] [AddCommGroup M] [Module A M]
+noncomputable def gradedFunction (q : Ideal A) (n : ℕ) : ℕ∞ :=
+  Module.length A
+    (↥(q ^ n • (⊤ : Submodule A M)) ⧸
+      (q • (⊤ : Submodule A ↥(q ^ n • (⊤ : Submodule A M)))))
+
+
+abbrev adicModulePiece (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M] (n : ℕ) :=
+  ↥(q ^ n • (⊤ : Submodule A M)) ⧸
+    (q • (⊤ : Submodule A ↥(q ^ n • (⊤ : Submodule A M))))
+
+
+end TauCeti.HilbertSamuel
+
 namespace TauCeti.HilbertSamuel
 open scoped Pointwise
 noncomputable section
 variable {A M : Type*} [CommRing A] [AddCommGroup M] [Module A M]
 
+lemma idealSupAnnihilator_smul_subtype (q : Ideal A) (L : Submodule A M)
+    (P : Submodule A L) :
+    (q ⊔ Module.annihilator A M) • P = q • P := by
+  have hz : Module.annihilator A M • P = ⊥ := by
+    apply Submodule.le_annihilator_iff.mp
+    have hL : Module.annihilator A M ≤ Module.annihilator A L :=
+      L.subtype.annihilator_le_of_injective Subtype.val_injective
+    have hP : Module.annihilator A L ≤ P.annihilator := by
+      rw [← Submodule.annihilator_top]
+      exact Submodule.annihilator_mono (show P ≤ (⊤ : Submodule A L) from le_top)
+    exact hL.trans hP
+  rw [Submodule.sup_smul, hz, sup_bot_eq]
+
+def adicPieceAnnihilatorEquiv (q : Ideal A) (n : ℕ) :
+    adicModulePiece (q ⊔ Module.annihilator A M) M n ≃ₗ[A] adicModulePiece q M n := by
+  let e := LinearEquiv.ofEq _ _ (idealSupAnnihilator_pow_smul (M := M) q n ⊤)
+  refine Submodule.Quotient.equiv _ _ e ?_
+  rw [Submodule.map_smul'', Submodule.map_top, LinearMap.range_eq_top.mpr e.surjective]
+  exact idealSupAnnihilator_smul_subtype q (q ^ n • (⊤ : Submodule A M)) ⊤
+
+lemma adicPieceAnnihilatorEquiv_mk (q : Ideal A) (n : ℕ)
+    (m : ↥((q ⊔ Module.annihilator A M) ^ n • (⊤ : Submodule A M))) :
+    adicPieceAnnihilatorEquiv q n (Submodule.Quotient.mk m) =
+      Submodule.Quotient.mk
+        (LinearEquiv.ofEq _ _ (idealSupAnnihilator_pow_smul (M := M) q n ⊤) m) := rfl
+
+lemma adicPieceAnnihilatorEquiv_symm_mk (q : Ideal A) (n : ℕ)
+    (m : ↥(q ^ n • (⊤ : Submodule A M))) :
+    (adicPieceAnnihilatorEquiv q n).symm (Submodule.Quotient.mk m) =
+      Submodule.Quotient.mk
+        ((LinearEquiv.ofEq _ _ (idealSupAnnihilator_pow_smul (M := M) q n ⊤)).symm m) := by
+  apply (adicPieceAnnihilatorEquiv q n).injective
+  rw [LinearEquiv.apply_symm_apply, adicPieceAnnihilatorEquiv_mk,
+    LinearEquiv.apply_symm_apply]
+
+lemma gradedFunction_sup_annihilator (q : Ideal A) (n : ℕ) :
+    gradedFunction (M := M) (q ⊔ Module.annihilator A M) n =
+      gradedFunction (M := M) q n :=
+  (adicPieceAnnihilatorEquiv (M := M) q n).length_eq
+
+lemma radical_sup_annihilator [IsLocalRing A] [Nontrivial M]
+    (q : Ideal A) (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    (q ⊔ Module.annihilator A M).radical = IsLocalRing.maximalIdeal A := by
+  have ha : Module.annihilator A M ≤ IsLocalRing.maximalIdeal A :=
+    IsLocalRing.le_maximalIdeal (fun h => not_subsingleton M
+      (Module.annihilator_eq_top_iff.mp h))
+  apply le_antisymm
+  · exact ((IsLocalRing.maximalIdeal.isMaximal A).isPrime.isRadical.radical_le_iff).mpr
+      (sup_le (q.le_radical.trans hq.le) ha)
+  · exact hq.ge.trans (Ideal.radical_mono le_sup_left)
+
+lemma sup_annihilator_zero_module [Subsingleton M] (q : Ideal A) :
+    q ⊔ Module.annihilator A M = ⊤ := by
+  rw [Module.annihilator_eq_top_iff.mpr inferInstance, sup_top_eq]
+
+end
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+open scoped Pointwise
+noncomputable section
+-- test: AnnihilatorGradedTests.degree_zero_representative
+example (m : ↥(((⊥ : Ideal ℚ) ⊔ Module.annihilator ℚ ℚ) ^ 0 •
+    (⊤ : Submodule ℚ ℚ))) :
+    adicPieceAnnihilatorEquiv (M := ℚ) (⊥ : Ideal ℚ) 0 (Submodule.Quotient.mk m) =
+      Submodule.Quotient.mk (LinearEquiv.ofEq _ _
+        (idealSupAnnihilator_pow_smul (M := ℚ) (⊥ : Ideal ℚ) 0 ⊤) m) := by
+  exact adicPieceAnnihilatorEquiv_mk _ _ _
+-- test: AnnihilatorGradedTests.nonfaithful_inverse
+example (m : ↥((⊥ : Ideal ℤ) ^ 0 • (⊤ : Submodule ℤ (ZMod 4)))) :
+    (adicPieceAnnihilatorEquiv (M := ZMod 4) (⊥ : Ideal ℤ) 0).symm
+      (Submodule.Quotient.mk m) = Submodule.Quotient.mk
+        ((LinearEquiv.ofEq _ _ (idealSupAnnihilator_pow_smul
+          (M := ZMod 4) (⊥ : Ideal ℤ) 0 ⊤)).symm m) := by
+  exact adicPieceAnnihilatorEquiv_symm_mk _ _ _
+-- test: AnnihilatorGradedTests.positive_degree_zero
+example : adicPieceAnnihilatorEquiv (M := ℚ) (⊥ : Ideal ℚ) 1
+    (Submodule.Quotient.mk (0 : ↥(((⊥ : Ideal ℚ) ⊔ Module.annihilator ℚ ℚ) ^ 1 •
+      (⊤ : Submodule ℚ ℚ)))) = 0 := by
+  simp
+-- test: AnnihilatorGradedTests.nonzero_field_primary
+example : ((⊥ : Ideal ℚ) ⊔ Module.annihilator ℚ ℚ).radical =
+    IsLocalRing.maximalIdeal ℚ := by
+  apply radical_sup_annihilator (M := ℚ)
+  simp [IsLocalRing.maximalIdeal_eq_bot]
+-- test: AnnihilatorGradedTests.zero_module_not_primary
+example : ((⊥ : Ideal ℚ) ⊔ Module.annihilator ℚ (Fin 0 → ℚ)).radical ≠
+    IsLocalRing.maximalIdeal ℚ := by
+  rw [sup_annihilator_zero_module, Ideal.radical_top]
+  exact (IsLocalRing.maximalIdeal.isMaximal ℚ).ne_top.symm
+-- test: AnnihilatorGradedTests.zero_module_finite_quotient
+example : function (M := Fin 0 → ℚ) (⊥ : Ideal ℚ) 0 = 0 := by
+  exact Module.length_eq_zero
+end
+end TauCeti.HilbertSamuel
+
+#print axioms TauCeti.HilbertSamuel.idealSupAnnihilator_smul_subtype
+#print axioms TauCeti.HilbertSamuel.adicPieceAnnihilatorEquiv
+#print axioms TauCeti.HilbertSamuel.adicPieceAnnihilatorEquiv_mk
+#print axioms TauCeti.HilbertSamuel.adicPieceAnnihilatorEquiv_symm_mk
+#print axioms TauCeti.HilbertSamuel.gradedFunction_sup_annihilator
+#print axioms TauCeti.HilbertSamuel.radical_sup_annihilator
+#print axioms TauCeti.HilbertSamuel.sup_annihilator_zero_module
+END Native.lean
+BEGIN Conditional.lean
+import Mathlib
+
+namespace TauCeti.HilbertSamuel
+open scoped Pointwise
+noncomputable section
+variable {A M : Type*} [CommRing A] [AddCommGroup M] [Module A M]
+
+def function (q : Ideal A) (n : ℕ) : ℕ∞ :=
+  Module.length A (M ⧸ (q ^ (n + 1) • (⊤ : Submodule A M)))
+
 lemma idealSupAnnihilator_smul (q : Ideal A) (N : Submodule A M) :
     (q ⊔ Module.annihilator A M) • N = q • N := by
-  sorry
+  have hz : Module.annihilator A M • N = ⊥ := by
+    apply Submodule.le_annihilator_iff.mp
+    rw [← Submodule.annihilator_top]
+    exact Submodule.annihilator_mono le_top
+  rw [Submodule.sup_smul, hz, sup_bot_eq]
 
 lemma idealSupAnnihilator_pow_smul (q : Ideal A) (r : ℕ) (N : Submodule A M) :
     (q ⊔ Module.annihilator A M) ^ r • N = q ^ r • N := by
-  sorry
+  induction r with
+  | zero => simp
+  | succ r ih =>
+      rw [pow_succ', pow_succ', Submodule.mul_smul, Submodule.mul_smul, ih,
+        idealSupAnnihilator_smul]
 
 def adicQuotientAnnihilatorEquiv (q : Ideal A) (r : ℕ) :
     (M ⧸ ((q ⊔ Module.annihilator A M) ^ r • (⊤ : Submodule A M))) ≃ₗ[A]
-      M ⧸ (q ^ r • (⊤ : Submodule A M)) := by
-  sorry
+      M ⧸ (q ^ r • (⊤ : Submodule A M)) :=
+  Submodule.quotEquivOfEq _ _ (idealSupAnnihilator_pow_smul q r ⊤)
 
 lemma adicQuotientAnnihilatorEquiv_mk (q : Ideal A) (r : ℕ) (m : M) :
     adicQuotientAnnihilatorEquiv q r (Submodule.Quotient.mk m) =
       Submodule.Quotient.mk m := by
-  sorry
+  apply Submodule.quotEquivOfEq_mk
 
 lemma adicQuotientAnnihilatorEquiv_symm_mk (q : Ideal A) (r : ℕ) (m : M) :
     (adicQuotientAnnihilatorEquiv q r).symm (Submodule.Quotient.mk m) =
       Submodule.Quotient.mk m := by
-  sorry
+  apply (adicQuotientAnnihilatorEquiv q r).injective
+  simp only [LinearEquiv.apply_symm_apply, adicQuotientAnnihilatorEquiv_mk]
 
 lemma function_sup_annihilator (q : Ideal A) (n : ℕ) :
     function (M := M) (q ⊔ Module.annihilator A M) n =
       function (M := M) q n := by
-  sorry
+  exact (adicQuotientAnnihilatorEquiv (M := M) q (n + 1)).length_eq
 
 -- test: AnnihilatorAdicTests.identity_representative
 example : adicQuotientAnnihilatorEquiv (M := ℚ) (⊥ : Ideal ℚ) 1
     (Submodule.Quotient.mk (7 : ℚ)) = Submodule.Quotient.mk (7 : ℚ) := by
-  sorry
+  exact adicQuotientAnnihilatorEquiv_mk _ _ _
 
 -- test: AnnihilatorAdicTests.zeroth_power
 example : adicQuotientAnnihilatorEquiv (M := ℚ) (⊥ : Ideal ℚ) 0
     (Submodule.Quotient.mk (7 : ℚ)) = 0 := by
-  sorry
+  rw [adicQuotientAnnihilatorEquiv_mk]
+  change Ideal.Quotient.mk _ (7 : ℚ) = 0
+  simp [Ideal.Quotient.eq_zero_iff_mem]
 
 -- test: AnnihilatorAdicTests.nonfaithful_integer_module
 example (r : ℕ) : adicQuotientAnnihilatorEquiv (M := ZMod 4) (⊥ : Ideal ℤ) r
     (Submodule.Quotient.mk (1 : ZMod 4)) = Submodule.Quotient.mk (1 : ZMod 4) := by
-  sorry
+  exact adicQuotientAnnihilatorEquiv_mk _ _ _
 
 -- test: AnnihilatorAdicTests.nonannihilating_ideal_fails
 example : ¬ ((⊤ : Ideal ℚ) ^ 1 • (⊤ : Submodule ℚ ℚ) =
     (⊥ : Ideal ℚ) ^ 1 • (⊤ : Submodule ℚ ℚ)) := by
-  sorry
+  simp
+
+#print axioms idealSupAnnihilator_smul
+#print axioms idealSupAnnihilator_pow_smul
+#print axioms adicQuotientAnnihilatorEquiv
+#print axioms adicQuotientAnnihilatorEquiv_mk
+#print axioms adicQuotientAnnihilatorEquiv_symm_mk
+#print axioms function_sup_annihilator
+end
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+open scoped Pointwise
+variable {A M : Type*} [CommRing A] [AddCommGroup M] [Module A M]
+noncomputable def gradedFunction (q : Ideal A) (n : ℕ) : ℕ∞ :=
+  Module.length A
+    (↥(q ^ n • (⊤ : Submodule A M)) ⧸
+      (q • (⊤ : Submodule A ↥(q ^ n • (⊤ : Submodule A M)))))
+
+
+abbrev adicModulePiece (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M] (n : ℕ) :=
+  ↥(q ^ n • (⊤ : Submodule A M)) ⧸
+    (q • (⊤ : Submodule A ↥(q ^ n • (⊤ : Submodule A M))))
+
+
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+open scoped Pointwise
+noncomputable section
+variable {A M : Type*} [CommRing A] [AddCommGroup M] [Module A M]
+
+lemma idealSupAnnihilator_smul_subtype (q : Ideal A) (L : Submodule A M)
+    (P : Submodule A L) :
+    (q ⊔ Module.annihilator A M) • P = q • P := by
+  have hz : Module.annihilator A M • P = ⊥ := by
+    apply Submodule.le_annihilator_iff.mp
+    have hL : Module.annihilator A M ≤ Module.annihilator A L :=
+      L.subtype.annihilator_le_of_injective Subtype.val_injective
+    have hP : Module.annihilator A L ≤ P.annihilator := by
+      rw [← Submodule.annihilator_top]
+      exact Submodule.annihilator_mono (show P ≤ (⊤ : Submodule A L) from le_top)
+    exact hL.trans hP
+  rw [Submodule.sup_smul, hz, sup_bot_eq]
+
+def adicPieceAnnihilatorEquiv (q : Ideal A) (n : ℕ) :
+    adicModulePiece (q ⊔ Module.annihilator A M) M n ≃ₗ[A] adicModulePiece q M n := by
+  let e := LinearEquiv.ofEq _ _ (idealSupAnnihilator_pow_smul (M := M) q n ⊤)
+  refine Submodule.Quotient.equiv _ _ e ?_
+  rw [Submodule.map_smul'', Submodule.map_top, LinearMap.range_eq_top.mpr e.surjective]
+  exact idealSupAnnihilator_smul_subtype q (q ^ n • (⊤ : Submodule A M)) ⊤
+
+lemma adicPieceAnnihilatorEquiv_mk (q : Ideal A) (n : ℕ)
+    (m : ↥((q ⊔ Module.annihilator A M) ^ n • (⊤ : Submodule A M))) :
+    adicPieceAnnihilatorEquiv q n (Submodule.Quotient.mk m) =
+      Submodule.Quotient.mk
+        (LinearEquiv.ofEq _ _ (idealSupAnnihilator_pow_smul (M := M) q n ⊤) m) := rfl
+
+lemma adicPieceAnnihilatorEquiv_symm_mk (q : Ideal A) (n : ℕ)
+    (m : ↥(q ^ n • (⊤ : Submodule A M))) :
+    (adicPieceAnnihilatorEquiv q n).symm (Submodule.Quotient.mk m) =
+      Submodule.Quotient.mk
+        ((LinearEquiv.ofEq _ _ (idealSupAnnihilator_pow_smul (M := M) q n ⊤)).symm m) := by
+  apply (adicPieceAnnihilatorEquiv q n).injective
+  rw [LinearEquiv.apply_symm_apply, adicPieceAnnihilatorEquiv_mk,
+    LinearEquiv.apply_symm_apply]
+
+lemma gradedFunction_sup_annihilator (q : Ideal A) (n : ℕ) :
+    gradedFunction (M := M) (q ⊔ Module.annihilator A M) n =
+      gradedFunction (M := M) q n :=
+  (adicPieceAnnihilatorEquiv (M := M) q n).length_eq
+
+lemma radical_sup_annihilator [IsLocalRing A] [Nontrivial M]
+    (q : Ideal A) (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    (q ⊔ Module.annihilator A M).radical = IsLocalRing.maximalIdeal A := by
+  have ha : Module.annihilator A M ≤ IsLocalRing.maximalIdeal A :=
+    IsLocalRing.le_maximalIdeal (fun h => not_subsingleton M
+      (Module.annihilator_eq_top_iff.mp h))
+  apply le_antisymm
+  · exact ((IsLocalRing.maximalIdeal.isMaximal A).isPrime.isRadical.radical_le_iff).mpr
+      (sup_le (q.le_radical.trans hq.le) ha)
+  · exact hq.ge.trans (Ideal.radical_mono le_sup_left)
+
+lemma sup_annihilator_zero_module [Subsingleton M] (q : Ideal A) :
+    q ⊔ Module.annihilator A M = ⊤ := by
+  rw [Module.annihilator_eq_top_iff.mpr inferInstance, sup_top_eq]
+
+end
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+open scoped Pointwise
+noncomputable section
+-- test: AnnihilatorGradedTests.degree_zero_representative
+example (m : ↥(((⊥ : Ideal ℚ) ⊔ Module.annihilator ℚ ℚ) ^ 0 •
+    (⊤ : Submodule ℚ ℚ))) :
+    adicPieceAnnihilatorEquiv (M := ℚ) (⊥ : Ideal ℚ) 0 (Submodule.Quotient.mk m) =
+      Submodule.Quotient.mk (LinearEquiv.ofEq _ _
+        (idealSupAnnihilator_pow_smul (M := ℚ) (⊥ : Ideal ℚ) 0 ⊤) m) := by
+  exact adicPieceAnnihilatorEquiv_mk _ _ _
+-- test: AnnihilatorGradedTests.nonfaithful_inverse
+example (m : ↥((⊥ : Ideal ℤ) ^ 0 • (⊤ : Submodule ℤ (ZMod 4)))) :
+    (adicPieceAnnihilatorEquiv (M := ZMod 4) (⊥ : Ideal ℤ) 0).symm
+      (Submodule.Quotient.mk m) = Submodule.Quotient.mk
+        ((LinearEquiv.ofEq _ _ (idealSupAnnihilator_pow_smul
+          (M := ZMod 4) (⊥ : Ideal ℤ) 0 ⊤)).symm m) := by
+  exact adicPieceAnnihilatorEquiv_symm_mk _ _ _
+-- test: AnnihilatorGradedTests.positive_degree_zero
+example : adicPieceAnnihilatorEquiv (M := ℚ) (⊥ : Ideal ℚ) 1
+    (Submodule.Quotient.mk (0 : ↥(((⊥ : Ideal ℚ) ⊔ Module.annihilator ℚ ℚ) ^ 1 •
+      (⊤ : Submodule ℚ ℚ)))) = 0 := by
+  simp
+-- test: AnnihilatorGradedTests.nonzero_field_primary
+example : ((⊥ : Ideal ℚ) ⊔ Module.annihilator ℚ ℚ).radical =
+    IsLocalRing.maximalIdeal ℚ := by
+  apply radical_sup_annihilator (M := ℚ)
+  simp [IsLocalRing.maximalIdeal_eq_bot]
+-- test: AnnihilatorGradedTests.zero_module_not_primary
+example : ((⊥ : Ideal ℚ) ⊔ Module.annihilator ℚ (Fin 0 → ℚ)).radical ≠
+    IsLocalRing.maximalIdeal ℚ := by
+  rw [sup_annihilator_zero_module, Ideal.radical_top]
+  exact (IsLocalRing.maximalIdeal.isMaximal ℚ).ne_top.symm
+-- test: AnnihilatorGradedTests.zero_module_finite_quotient
+example : function (M := Fin 0 → ℚ) (⊥ : Ideal ℚ) 0 = 0 := by
+  exact Module.length_eq_zero
+end
+end TauCeti.HilbertSamuel
+
+#print axioms TauCeti.HilbertSamuel.idealSupAnnihilator_smul_subtype
+#print axioms TauCeti.HilbertSamuel.adicPieceAnnihilatorEquiv
+#print axioms TauCeti.HilbertSamuel.adicPieceAnnihilatorEquiv_mk
+#print axioms TauCeti.HilbertSamuel.adicPieceAnnihilatorEquiv_symm_mk
+#print axioms TauCeti.HilbertSamuel.gradedFunction_sup_annihilator
+#print axioms TauCeti.HilbertSamuel.radical_sup_annihilator
+#print axioms TauCeti.HilbertSamuel.sup_annihilator_zero_module
+
+namespace TauCeti.HilbertSamuel
+open scoped Pointwise
+noncomputable section
+variable {A M : Type*} [CommRing A] [AddCommGroup M] [Module A M]
+variable [IsNoetherianRing A] [IsLocalRing A] [Module.Finite A M]
+theorem existsUnique_polynomial (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    ∃! p : Polynomial ℚ, ∃ N : ℕ, ∀ n : ℕ, N ≤ n →
+      p.eval (n : ℚ) = ((function (M := M) q n).toNat : ℚ) := by sorry
+
+/-- R03.3/hilbert-samuel-polynomial: no extra polynomial datum from a caller. -/
+noncomputable def polynomial (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) : Polynomial ℚ :=
+  Classical.choose (existsUnique_polynomial (M := M) q hq).exists
+
+theorem polynomial_eventually (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    ∃ N : ℕ, ∀ n : ℕ, N ≤ n →
+      (polynomial (M := M) q hq).eval (n : ℚ) =
+        ((function (M := M) q n).toNat : ℚ) := by sorry
+
+theorem polynomial_unique (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) (p : Polynomial ℚ)
+    (hp : ∃ N : ℕ, ∀ n : ℕ, N ≤ n →
+      p.eval (n : ℚ) = ((function (M := M) q n).toNat : ℚ)) :
+    p = polynomial (M := M) q hq := by sorry
+
+
+noncomputable def multiplicity (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) : ℚ :=
+  ((polynomial (M := M) q hq).natDegree.factorial : ℚ) *
+    (polynomial (M := M) q hq).leadingCoeff
+
+
+noncomputable def multiplicityInDegree (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) (d : ℕ) : ℚ :=
+  (d.factorial : ℚ) * (polynomial (M := M) q hq).coeff d
+
+
+end
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+open scoped Pointwise
+noncomputable section
+variable {A M : Type*} [CommRing A] [AddCommGroup M] [Module A M]
+variable [IsNoetherianRing A] [IsLocalRing A] [Module.Finite A M] [Nontrivial M]
+
+lemma polynomial_sup_annihilator (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    polynomial (M := M) (q ⊔ Module.annihilator A M)
+      (radical_sup_annihilator q hq) = polynomial (M := M) q hq := by
+  apply polynomial_unique q hq
+  obtain ⟨N, hN⟩ := polynomial_eventually (M := M) (q ⊔ Module.annihilator A M)
+    (radical_sup_annihilator q hq)
+  refine ⟨N, fun n hn => ?_⟩
+  rw [hN n hn, function_sup_annihilator]
+
+lemma multiplicity_sup_annihilator (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    multiplicity (M := M) (q ⊔ Module.annihilator A M)
+      (radical_sup_annihilator q hq) = multiplicity (M := M) q hq := by
+  unfold multiplicity
+  rw [polynomial_sup_annihilator]
+
+lemma multiplicityInDegree_sup_annihilator (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) (d : ℕ) :
+    multiplicityInDegree (M := M) (q ⊔ Module.annihilator A M)
+      (radical_sup_annihilator q hq) d = multiplicityInDegree (M := M) q hq d := by
+  unfold multiplicityInDegree
+  rw [polynomial_sup_annihilator]
+
+end
+end TauCeti.HilbertSamuel
+
+#print axioms TauCeti.HilbertSamuel.polynomial_sup_annihilator
+#print axioms TauCeti.HilbertSamuel.multiplicity_sup_annihilator
+#print axioms TauCeti.HilbertSamuel.multiplicityInDegree_sup_annihilator
+END Conditional.lean
+BEGIN NewNative.lean
+namespace TauCeti.HilbertSamuel
+open scoped Pointwise
+noncomputable section
+variable {A M : Type*} [CommRing A] [AddCommGroup M] [Module A M]
+
+lemma idealSupAnnihilator_smul_subtype (q : Ideal A) (L : Submodule A M)
+    (P : Submodule A L) :
+    (q ⊔ Module.annihilator A M) • P = q • P := by
+  have hz : Module.annihilator A M • P = ⊥ := by
+    apply Submodule.le_annihilator_iff.mp
+    have hL : Module.annihilator A M ≤ Module.annihilator A L :=
+      L.subtype.annihilator_le_of_injective Subtype.val_injective
+    have hP : Module.annihilator A L ≤ P.annihilator := by
+      rw [← Submodule.annihilator_top]
+      exact Submodule.annihilator_mono (show P ≤ (⊤ : Submodule A L) from le_top)
+    exact hL.trans hP
+  rw [Submodule.sup_smul, hz, sup_bot_eq]
+
+def adicPieceAnnihilatorEquiv (q : Ideal A) (n : ℕ) :
+    adicModulePiece (q ⊔ Module.annihilator A M) M n ≃ₗ[A] adicModulePiece q M n := by
+  let e := LinearEquiv.ofEq _ _ (idealSupAnnihilator_pow_smul (M := M) q n ⊤)
+  refine Submodule.Quotient.equiv _ _ e ?_
+  rw [Submodule.map_smul'', Submodule.map_top, LinearMap.range_eq_top.mpr e.surjective]
+  exact idealSupAnnihilator_smul_subtype q (q ^ n • (⊤ : Submodule A M)) ⊤
+
+lemma adicPieceAnnihilatorEquiv_mk (q : Ideal A) (n : ℕ)
+    (m : ↥((q ⊔ Module.annihilator A M) ^ n • (⊤ : Submodule A M))) :
+    adicPieceAnnihilatorEquiv q n (Submodule.Quotient.mk m) =
+      Submodule.Quotient.mk
+        (LinearEquiv.ofEq _ _ (idealSupAnnihilator_pow_smul (M := M) q n ⊤) m) := rfl
+
+lemma adicPieceAnnihilatorEquiv_symm_mk (q : Ideal A) (n : ℕ)
+    (m : ↥(q ^ n • (⊤ : Submodule A M))) :
+    (adicPieceAnnihilatorEquiv q n).symm (Submodule.Quotient.mk m) =
+      Submodule.Quotient.mk
+        ((LinearEquiv.ofEq _ _ (idealSupAnnihilator_pow_smul (M := M) q n ⊤)).symm m) := by
+  apply (adicPieceAnnihilatorEquiv q n).injective
+  rw [LinearEquiv.apply_symm_apply, adicPieceAnnihilatorEquiv_mk,
+    LinearEquiv.apply_symm_apply]
+
+lemma gradedFunction_sup_annihilator (q : Ideal A) (n : ℕ) :
+    gradedFunction (M := M) (q ⊔ Module.annihilator A M) n =
+      gradedFunction (M := M) q n :=
+  (adicPieceAnnihilatorEquiv (M := M) q n).length_eq
+
+lemma radical_sup_annihilator [IsLocalRing A] [Nontrivial M]
+    (q : Ideal A) (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    (q ⊔ Module.annihilator A M).radical = IsLocalRing.maximalIdeal A := by
+  have ha : Module.annihilator A M ≤ IsLocalRing.maximalIdeal A :=
+    IsLocalRing.le_maximalIdeal (fun h => not_subsingleton M
+      (Module.annihilator_eq_top_iff.mp h))
+  apply le_antisymm
+  · exact ((IsLocalRing.maximalIdeal.isMaximal A).isPrime.isRadical.radical_le_iff).mpr
+      (sup_le (q.le_radical.trans hq.le) ha)
+  · exact hq.ge.trans (Ideal.radical_mono le_sup_left)
+
+lemma sup_annihilator_zero_module [Subsingleton M] (q : Ideal A) :
+    q ⊔ Module.annihilator A M = ⊤ := by
+  rw [Module.annihilator_eq_top_iff.mpr inferInstance, sup_top_eq]
+
+end
+end TauCeti.HilbertSamuel
+END NewNative.lean
+BEGIN NewConditional.lean
+namespace TauCeti.HilbertSamuel
+open scoped Pointwise
+noncomputable section
+variable {A M : Type*} [CommRing A] [AddCommGroup M] [Module A M]
+variable [IsNoetherianRing A] [IsLocalRing A] [Module.Finite A M] [Nontrivial M]
+
+lemma polynomial_sup_annihilator (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    polynomial (M := M) (q ⊔ Module.annihilator A M)
+      (radical_sup_annihilator q hq) = polynomial (M := M) q hq := by
+  apply polynomial_unique q hq
+  obtain ⟨N, hN⟩ := polynomial_eventually (M := M) (q ⊔ Module.annihilator A M)
+    (radical_sup_annihilator q hq)
+  refine ⟨N, fun n hn => ?_⟩
+  rw [hN n hn, function_sup_annihilator]
+
+lemma multiplicity_sup_annihilator (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    multiplicity (M := M) (q ⊔ Module.annihilator A M)
+      (radical_sup_annihilator q hq) = multiplicity (M := M) q hq := by
+  unfold multiplicity
+  rw [polynomial_sup_annihilator]
+
+lemma multiplicityInDegree_sup_annihilator (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) (d : ℕ) :
+    multiplicityInDegree (M := M) (q ⊔ Module.annihilator A M)
+      (radical_sup_annihilator q hq) d = multiplicityInDegree (M := M) q hq d := by
+  unfold multiplicityInDegree
+  rw [polynomial_sup_annihilator]
+
+end
+end TauCeti.HilbertSamuel
+END NewConditional.lean
+BEGIN NewTests.lean
+namespace TauCeti.HilbertSamuel
+open scoped Pointwise
+noncomputable section
+-- test: AnnihilatorGradedTests.degree_zero_representative
+example (m : ↥(((⊥ : Ideal ℚ) ⊔ Module.annihilator ℚ ℚ) ^ 0 •
+    (⊤ : Submodule ℚ ℚ))) :
+    adicPieceAnnihilatorEquiv (M := ℚ) (⊥ : Ideal ℚ) 0 (Submodule.Quotient.mk m) =
+      Submodule.Quotient.mk (LinearEquiv.ofEq _ _
+        (idealSupAnnihilator_pow_smul (M := ℚ) (⊥ : Ideal ℚ) 0 ⊤) m) := by
+  exact adicPieceAnnihilatorEquiv_mk _ _ _
+-- test: AnnihilatorGradedTests.nonfaithful_inverse
+example (m : ↥((⊥ : Ideal ℤ) ^ 0 • (⊤ : Submodule ℤ (ZMod 4)))) :
+    (adicPieceAnnihilatorEquiv (M := ZMod 4) (⊥ : Ideal ℤ) 0).symm
+      (Submodule.Quotient.mk m) = Submodule.Quotient.mk
+        ((LinearEquiv.ofEq _ _ (idealSupAnnihilator_pow_smul
+          (M := ZMod 4) (⊥ : Ideal ℤ) 0 ⊤)).symm m) := by
+  exact adicPieceAnnihilatorEquiv_symm_mk _ _ _
+-- test: AnnihilatorGradedTests.positive_degree_zero
+example : adicPieceAnnihilatorEquiv (M := ℚ) (⊥ : Ideal ℚ) 1
+    (Submodule.Quotient.mk (0 : ↥(((⊥ : Ideal ℚ) ⊔ Module.annihilator ℚ ℚ) ^ 1 •
+      (⊤ : Submodule ℚ ℚ)))) = 0 := by
+  simp
+-- test: AnnihilatorGradedTests.nonzero_field_primary
+example : ((⊥ : Ideal ℚ) ⊔ Module.annihilator ℚ ℚ).radical =
+    IsLocalRing.maximalIdeal ℚ := by
+  apply radical_sup_annihilator (M := ℚ)
+  simp [IsLocalRing.maximalIdeal_eq_bot]
+-- test: AnnihilatorGradedTests.zero_module_not_primary
+example : ((⊥ : Ideal ℚ) ⊔ Module.annihilator ℚ (Fin 0 → ℚ)).radical ≠
+    IsLocalRing.maximalIdeal ℚ := by
+  rw [sup_annihilator_zero_module, Ideal.radical_top]
+  exact (IsLocalRing.maximalIdeal.isMaximal ℚ).ne_top.symm
+-- test: AnnihilatorGradedTests.zero_module_finite_quotient
+example : function (M := Fin 0 → ℚ) (⊥ : Ideal ℚ) 0 = 0 := by
+  exact Module.length_eq_zero
+end
+end TauCeti.HilbertSamuel
+END NewTests.lean
+BEGIN NewAdmitted.lean
+
+/-! Graded annihilator and primary-boundary continuation (Codex — codex-rtOQ9t).
+Canonical planning forms remain admitted. Independent and conditional native evidence is archived separately. -/
+
+namespace TauCeti.HilbertSamuel
+open scoped Pointwise
+noncomputable section
+variable {A M : Type*} [CommRing A] [AddCommGroup M] [Module A M]
+
+lemma idealSupAnnihilator_smul_subtype (q : Ideal A) (L : Submodule A M)
+    (P : Submodule A L) :
+    (q ⊔ Module.annihilator A M) • P = q • P := by sorry
+
+def adicPieceAnnihilatorEquiv (q : Ideal A) (n : ℕ) :
+    adicModulePiece (q ⊔ Module.annihilator A M) M n ≃ₗ[A] adicModulePiece q M n := by sorry
+
+lemma adicPieceAnnihilatorEquiv_mk (q : Ideal A) (n : ℕ)
+    (m : ↥((q ⊔ Module.annihilator A M) ^ n • (⊤ : Submodule A M))) :
+    adicPieceAnnihilatorEquiv q n (Submodule.Quotient.mk m) =
+      Submodule.Quotient.mk
+        (LinearEquiv.ofEq _ _ (idealSupAnnihilator_pow_smul (M := M) q n ⊤) m) := by sorry
+
+lemma adicPieceAnnihilatorEquiv_symm_mk (q : Ideal A) (n : ℕ)
+    (m : ↥(q ^ n • (⊤ : Submodule A M))) :
+    (adicPieceAnnihilatorEquiv q n).symm (Submodule.Quotient.mk m) =
+      Submodule.Quotient.mk
+        ((LinearEquiv.ofEq _ _ (idealSupAnnihilator_pow_smul (M := M) q n ⊤)).symm m) := by sorry
+
+lemma gradedFunction_sup_annihilator (q : Ideal A) (n : ℕ) :
+    gradedFunction (M := M) (q ⊔ Module.annihilator A M) n =
+      gradedFunction (M := M) q n := by sorry
+
+lemma radical_sup_annihilator [IsLocalRing A] [Nontrivial M]
+    (q : Ideal A) (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    (q ⊔ Module.annihilator A M).radical = IsLocalRing.maximalIdeal A := by sorry
+
+lemma sup_annihilator_zero_module [Subsingleton M] (q : Ideal A) :
+    q ⊔ Module.annihilator A M = ⊤ := by sorry
+
+end
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+open scoped Pointwise
+noncomputable section
+variable {A M : Type*} [CommRing A] [AddCommGroup M] [Module A M]
+variable [IsNoetherianRing A] [IsLocalRing A] [Module.Finite A M] [Nontrivial M]
+
+lemma polynomial_sup_annihilator (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    polynomial (M := M) (q ⊔ Module.annihilator A M)
+      (radical_sup_annihilator q hq) = polynomial (M := M) q hq := by sorry
+
+lemma multiplicity_sup_annihilator (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    multiplicity (M := M) (q ⊔ Module.annihilator A M)
+      (radical_sup_annihilator q hq) = multiplicity (M := M) q hq := by sorry
+
+lemma multiplicityInDegree_sup_annihilator (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) (d : ℕ) :
+    multiplicityInDegree (M := M) (q ⊔ Module.annihilator A M)
+      (radical_sup_annihilator q hq) d = multiplicityInDegree (M := M) q hq d := by sorry
+
+end
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+open scoped Pointwise
+noncomputable section
+-- test: AnnihilatorGradedTests.degree_zero_representative
+example (m : ↥(((⊥ : Ideal ℚ) ⊔ Module.annihilator ℚ ℚ) ^ 0 •
+    (⊤ : Submodule ℚ ℚ))) :
+    adicPieceAnnihilatorEquiv (M := ℚ) (⊥ : Ideal ℚ) 0 (Submodule.Quotient.mk m) =
+      Submodule.Quotient.mk (LinearEquiv.ofEq _ _
+        (idealSupAnnihilator_pow_smul (M := ℚ) (⊥ : Ideal ℚ) 0 ⊤) m) := by sorry
+
+-- test: AnnihilatorGradedTests.nonfaithful_inverse
+example (m : ↥((⊥ : Ideal ℤ) ^ 0 • (⊤ : Submodule ℤ (ZMod 4)))) :
+    (adicPieceAnnihilatorEquiv (M := ZMod 4) (⊥ : Ideal ℤ) 0).symm
+      (Submodule.Quotient.mk m) = Submodule.Quotient.mk
+        ((LinearEquiv.ofEq _ _ (idealSupAnnihilator_pow_smul
+          (M := ZMod 4) (⊥ : Ideal ℤ) 0 ⊤)).symm m) := by sorry
+
+-- test: AnnihilatorGradedTests.positive_degree_zero
+example : adicPieceAnnihilatorEquiv (M := ℚ) (⊥ : Ideal ℚ) 1
+    (Submodule.Quotient.mk (0 : ↥(((⊥ : Ideal ℚ) ⊔ Module.annihilator ℚ ℚ) ^ 1 •
+      (⊤ : Submodule ℚ ℚ)))) = 0 := by sorry
+
+-- test: AnnihilatorGradedTests.nonzero_field_primary
+example : ((⊥ : Ideal ℚ) ⊔ Module.annihilator ℚ ℚ).radical =
+    IsLocalRing.maximalIdeal ℚ := by sorry
+
+-- test: AnnihilatorGradedTests.zero_module_not_primary
+example : ((⊥ : Ideal ℚ) ⊔ Module.annihilator ℚ (Fin 0 → ℚ)).radical ≠
+    IsLocalRing.maximalIdeal ℚ := by sorry
+
+-- test: AnnihilatorGradedTests.zero_module_finite_quotient
+example : function (M := Fin 0 → ℚ) (⊥ : Ideal ℚ) 0 = 0 := by sorry
 
 end
 end TauCeti.HilbertSamuel
 END NewAdmitted.lean
+BEGIN IncomingGradedDefinitions.lean
+namespace TauCeti.HilbertSamuel
+open scoped Pointwise
+variable {A M : Type*} [CommRing A] [AddCommGroup M] [Module A M]
+noncomputable def gradedFunction (q : Ideal A) (n : ℕ) : ℕ∞ :=
+  Module.length A
+    (↥(q ^ n • (⊤ : Submodule A M)) ⧸
+      (q • (⊤ : Submodule A ↥(q ^ n • (⊤ : Submodule A M)))))
 
+
+abbrev adicModulePiece (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M] (n : ℕ) :=
+  ↥(q ^ n • (⊤ : Submodule A M)) ⧸
+    (q • (⊤ : Submodule A ↥(q ^ n • (⊤ : Submodule A M))))
+
+
+end TauCeti.HilbertSamuel
+END IncomingGradedDefinitions.lean
+BEGIN IncomingPolynomialInterface.lean
+namespace TauCeti.HilbertSamuel
+open scoped Pointwise
+noncomputable section
+variable {A M : Type*} [CommRing A] [AddCommGroup M] [Module A M]
+variable [IsNoetherianRing A] [IsLocalRing A] [Module.Finite A M]
+theorem existsUnique_polynomial (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    ∃! p : Polynomial ℚ, ∃ N : ℕ, ∀ n : ℕ, N ≤ n →
+      p.eval (n : ℚ) = ((function (M := M) q n).toNat : ℚ) := by sorry
+
+/-- R03.3/hilbert-samuel-polynomial: no extra polynomial datum from a caller. -/
+noncomputable def polynomial (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) : Polynomial ℚ :=
+  Classical.choose (existsUnique_polynomial (M := M) q hq).exists
+
+theorem polynomial_eventually (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) :
+    ∃ N : ℕ, ∀ n : ℕ, N ≤ n →
+      (polynomial (M := M) q hq).eval (n : ℚ) =
+        ((function (M := M) q n).toNat : ℚ) := by sorry
+
+theorem polynomial_unique (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) (p : Polynomial ℚ)
+    (hp : ∃ N : ℕ, ∀ n : ℕ, N ≤ n →
+      p.eval (n : ℚ) = ((function (M := M) q n).toNat : ℚ)) :
+    p = polynomial (M := M) q hq := by sorry
+
+
+noncomputable def multiplicity (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) : ℚ :=
+  ((polynomial (M := M) q hq).natDegree.factorial : ℚ) *
+    (polynomial (M := M) q hq).leadingCoeff
+
+
+noncomputable def multiplicityInDegree (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A) (d : ℕ) : ℚ :=
+  (d.factorial : ℚ) * (polynomial (M := M) q hq).coeff d
+
+
+end
+end TauCeti.HilbertSamuel
+END IncomingPolynomialInterface.lean
+BEGIN NewAudits.lean
+#print axioms TauCeti.HilbertSamuel.idealSupAnnihilator_smul_subtype
+#print axioms TauCeti.HilbertSamuel.adicPieceAnnihilatorEquiv
+#print axioms TauCeti.HilbertSamuel.adicPieceAnnihilatorEquiv_mk
+#print axioms TauCeti.HilbertSamuel.adicPieceAnnihilatorEquiv_symm_mk
+#print axioms TauCeti.HilbertSamuel.gradedFunction_sup_annihilator
+#print axioms TauCeti.HilbertSamuel.radical_sup_annihilator
+#print axioms TauCeti.HilbertSamuel.sup_annihilator_zero_module
+END NewAudits.lean
 BEGIN NativeLog.txt
+               total        used        free      shared  buff/cache   available
+Mem:             125          66          20          16          56          58
+Swap:             32           0          32
 'TauCeti.HilbertSamuel.idealSupAnnihilator_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TauCeti.HilbertSamuel.idealSupAnnihilator_pow_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TauCeti.HilbertSamuel.adicQuotientAnnihilatorEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TauCeti.HilbertSamuel.adicQuotientAnnihilatorEquiv_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TauCeti.HilbertSamuel.adicQuotientAnnihilatorEquiv_symm_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TauCeti.HilbertSamuel.function_sup_annihilator' depends on axioms: [propext, Classical.choice, Quot.sound]
-	User time (seconds): 1.00
-	System time (seconds): 0.32
-	Percent of CPU this job got: 110%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.20
+'TauCeti.HilbertSamuel.idealSupAnnihilator_smul_subtype' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.adicPieceAnnihilatorEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.adicPieceAnnihilatorEquiv_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.adicPieceAnnihilatorEquiv_symm_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.gradedFunction_sup_annihilator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.radical_sup_annihilator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.sup_annihilator_zero_module' depends on axioms: [propext, Classical.choice, Quot.sound]
+	User time (seconds): 3.25
+	System time (seconds): 1.02
+	Percent of CPU this job got: 115%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:03.70
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 2251784
+	Maximum resident set size (kbytes): 6767516
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 52264
-	Voluntary context switches: 2939
-	Involuntary context switches: 38
+	Minor (reclaiming a frame) page faults: 183263
+	Voluntary context switches: 4334
+	Involuntary context switches: 158
 	Swaps: 0
 	File system inputs: 0
-	File system outputs: 8
+	File system outputs: 0
 	Socket messages sent: 0
 	Socket messages received: 0
 	Signals delivered: 0
 	Page size (bytes): 4096
 	Exit status: 0
 END NativeLog.txt
-
+BEGIN ConditionalLog.txt
+               total        used        free      shared  buff/cache   available
+Mem:             125          66          19          16          56          58
+Swap:             32           0          32
+'TauCeti.HilbertSamuel.idealSupAnnihilator_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.idealSupAnnihilator_pow_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.adicQuotientAnnihilatorEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.adicQuotientAnnihilatorEquiv_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.adicQuotientAnnihilatorEquiv_symm_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.function_sup_annihilator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.idealSupAnnihilator_smul_subtype' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.adicPieceAnnihilatorEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.adicPieceAnnihilatorEquiv_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.adicPieceAnnihilatorEquiv_symm_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.gradedFunction_sup_annihilator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.radical_sup_annihilator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.sup_annihilator_zero_module' depends on axioms: [propext, Classical.choice, Quot.sound]
+EVIDENCE/Conditional.lean:209:8: warning: declaration uses `sorry`
+EVIDENCE/Conditional.lean:219:8: warning: declaration uses `sorry`
+EVIDENCE/Conditional.lean:225:8: warning: declaration uses `sorry`
+'TauCeti.HilbertSamuel.polynomial_sup_annihilator' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.multiplicity_sup_annihilator' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.multiplicityInDegree_sup_annihilator' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+	User time (seconds): 3.45
+	System time (seconds): 1.04
+	Percent of CPU this job got: 115%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:03.90
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 6764192
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 182835
+	Voluntary context switches: 4275
+	Involuntary context switches: 172
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+END ConditionalLog.txt
 BEGIN CanonicalLog.txt
+               total        used        free      shared  buff/cache   available
+Mem:             125          68          17          16          57          57
+Swap:             32           0          32
 Submodule.IsQuotientEquivQuotientPrime.{u, v} {A : Type u} [CommRing A] {M : Type v} [AddCommGroup M] [Module A M]
   (N₁ N₂ : Submodule A M) : Prop
 Submodule.isQuotientEquivQuotientPrime_iff.{u, v} {A : Type u} [CommRing A] {M : Type v} [AddCommGroup M] [Module A M]
@@ -4982,27 +5798,115 @@ EVIDENCE/Canonical.lean:4139:0: warning: declaration uses `sorry`
 EVIDENCE/Canonical.lean:4144:0: warning: declaration uses `sorry`
 EVIDENCE/Canonical.lean:4149:0: warning: declaration uses `sorry`
 EVIDENCE/Canonical.lean:4154:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4169:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4173:4: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4176:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4182:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4188:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4192:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4196:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4208:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4213:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4218:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4230:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4237:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4244:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4249:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4253:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4257:0: warning: declaration uses `sorry`
 	User time (seconds): 48.58
-	System time (seconds): 1.02
-	Percent of CPU this job got: 126%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:39.12
+	System time (seconds): 1.32
+	Percent of CPU this job got: 127%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:39.22
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 3739616
+	Maximum resident set size (kbytes): 3738780
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 136134
-	Voluntary context switches: 70752
-	Involuntary context switches: 2757
+	Minor (reclaiming a frame) page faults: 163401
+	Voluntary context switches: 77054
+	Involuntary context switches: 2290
 	Swaps: 0
 	File system inputs: 0
-	File system outputs: 136
+	File system outputs: 192
 	Socket messages sent: 0
 	Socket messages received: 0
 	Signals delivered: 0
 	Page size (bytes): 4096
 	Exit status: 0
 END CanonicalLog.txt
--/
+BEGIN source-fetch.json
+{
+  "0AZU": {
+    "url": "https://stacks.math.columbia.edu/tag/0AZU",
+    "sha256": "fa26c4ba52a27c097c6bfc6ac9f8f2c2053ceacabd044bd3426d8ae8d8440e14",
+    "read": "2026-10-03"
+  },
+  "00K4": {
+    "url": "https://stacks.math.columbia.edu/tag/00K4",
+    "sha256": "e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932",
+    "read": "2026-10-03"
+  }
+}
+END source-fetch.json
+BEGIN native-tests.receipt.json
+{
+  "time": "2026-10-03T11:27:42.153398+00:00",
+  "file": "Native.lean",
+  "sha256": "b17d8f4e3183c9016680d46b9fa36636a4c242b4bf8734e5c3b26379c49e0392",
+  "availableGiB": 58,
+  "preflight": "               total        used        free      shared  buff/cache   available\nMem:             125          66          20          16          56          58\nSwap:             32           0          32\n",
+  "started": true,
+  "exit": 0
+}
+END native-tests.receipt.json
+BEGIN conditional-first.receipt.json
+{
+  "time": "2026-10-03T11:28:14.467354+00:00",
+  "file": "Conditional.lean",
+  "sha256": "441a93baa21cc6c0754c2f09b8e2e2b57e13b6359f3b30ed61335c799c8a4b58",
+  "availableGiB": 58,
+  "preflight": "               total        used        free      shared  buff/cache   available\nMem:             125          66          19          16          56          58\nSwap:             32           0          32\n",
+  "started": true,
+  "exit": 0
+}
+END conditional-first.receipt.json
+BEGIN canonical.receipt.json
+{
+  "time": "2026-10-03T11:38:27.792206+00:00",
+  "file": "Canonical.lean",
+  "sha256": "38b5f1cf3d1bff5d61219879b61a9de45e44e4213c0fc6d1d58be40e38f4d16e",
+  "availableGiB": 57,
+  "preflight": "               total        used        free      shared  buff/cache   available\nMem:             125          68          17          16          57          57\nSwap:             32           0          32\n",
+  "started": true,
+  "exit": 0
+}
+END canonical.receipt.json
+BEGIN guard.json
+{
+  "mathematicalBase": "697926a030708ea3b27c6f5e5f793db97f62e0e2",
+  "publicationBase": "8155f17cfe1b5ca6469df11f9e24a2249bc8d3d9",
+  "unchangedInputs": {
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--P7.json": "5341f55a9af0cbfa7a61c45d40b2d5117742afe5c5d247d5783dc409233f97f3",
+    "research/blueprint/readmes/DeformationAndDerivedPatchingAlgebra--P7.md": "ee336a8f745f15d91b743595026d6bfc9188096b67950724ef03e0979a5b986f",
+    "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--P7.lean": "2199645963906813b0567c8b6f2a5eb85c3f83fa7db569bdb28fd06f4af984f9",
+    "research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md": "a322de7373d25cbc9f7be94fa205b6b4b87b34a5d5b6acd956755652a357efe9",
+    "research/blueprint/WORKERS.md": "fb7b7a0a7f8993799fa32a125bf7ca6bf366991703cc18dda2affeeed848fa0f",
+    "research/blueprint/PROTOCOL.md": "d6619d1225a91feabc8e5ed22582d19fee540b2c8df6cc6d1ac7e6457f0283ad",
+    "research/expansion/PROTOCOL.md": "64ed4f8e43f28d3a6e4aa6e55a0dca10ba1b204806d394661915d200bfe47413",
+    "research/blueprint/UPSTREAM_GUIDE.md": "008b34f2bdf6dbcdf3dad03691b8b4aa16f3e68b847dd01e48db9f7432d00e6c",
+    "data/library-coverage.json": "6fe73095d574e7f98497e0dcc0eeec3a9ab0a2c04b4eed98ded8e678a3adea7a",
+    "research/blueprint/restructure/RS-08.result.json": "d49e0dbbac19febb66b11e1a0ef39b8e421f7b28db096b21073530d89052c992",
+    "research/blueprint/keydefs/KEYDEF-algebraicgeometry.json": "2b953d38aebb0c87739a8e62f6b28407738afa4eaa638e90a887008bce25c489",
+    "research/blueprint/reserved-ids.json": "7ed6dca24ba43f40b1943edb01d5158577498f054370881025d31f8cb94b6f66",
+    "scripts/check_blueprint.py": "4bb78c626487056fba3d2a070c61a5f03e9ffa8fb37cd7021a5cb1ed629d4494",
+    "scripts/source_issues.py": "206520f14bfa3392aeaf927a3d89f6b5238c7c06805185e7dddc61f0a0c94fce",
+    "scripts/check_errata.py": "5936b245f3a26ffe781faf80bd8294e40873ef82a31fb8fa89f424bfae71339c",
+    "research/blueprint/intake.py": "b36870cca5b69452ef5878417f5fb6d229be3dd1c5c2acc9dffad927031419df"
+  },
+  "ownStageDescriptionsUnchanged": true
+}
+END guard.json
+END GRADED_ANNIHILATOR_NATIVE_ARCHIVE -/

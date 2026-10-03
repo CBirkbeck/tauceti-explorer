@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Annihilator-enlargement checkpoint: preserve all 247 incoming declaration objects and add six actual-carrier declarations, three promoted API items and four boundary tests. The action, power, quotient and extended-length equalities require no finiteness or faithful-module assumption. The six-proof/four-test native prototype is checked; canonical forms remain admitted and all implementation statuses unchecked. General Hilbert–Serre, dimension and all stage/source obligations remain open. Full actual curve graded assembly checkpoint: 20 new declarations (3 constructions), 16 API items and 13 boundary/compatibility tests. The polynomial map lands in the inherited Rees quotient, with exact full principal-kernel and component-compatible quotient-equivalence plans. All 210 incoming node objects and all ownership, source and general multiplicity boundaries remain intact. New proof bodies remain admitted. This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open. This continuation compares actual adic quotient carriers under scalar restriction, transfers cumulative lengths under surjective coefficient maps, and links the general intrinsic multiplicity API to the explicit finite-order plane-curve polynomial. It keeps a fixed degree-two extraction distinct from intrinsic multiplicity and from a dimension-two ambient interpretation.",
+  "summary": "Graded annihilator checkpoint: ten new declarations, three promoted API statements and six typed boundary tests. Actual graded quotient transport, extended graded lengths, the nonzero primary boundary and the zero-module unit-ideal boundary have independent native proofs. Polynomial and both multiplicity invariances explicitly depend on the existing admitted general polynomial specification. Annihilator-enlargement checkpoint: preserve all 247 incoming declaration objects and add six actual-carrier declarations, three promoted API items and four boundary tests. The action, power, quotient and extended-length equalities require no finiteness or faithful-module assumption. The six-proof/four-test native prototype is checked; canonical forms remain admitted and all implementation statuses unchecked. General Hilbert–Serre, dimension and all stage/source obligations remain open. Full actual curve graded assembly checkpoint: 20 new declarations (3 constructions), 16 API items and 13 boundary/compatibility tests. The polynomial map lands in the inherited Rees quotient, with exact full principal-kernel and component-compatible quotient-equivalence plans. All 210 incoming node objects and all ownership, source and general multiplicity boundaries remain intact. New proof bodies remain admitted. This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open. This continuation compares actual adic quotient carriers under scalar restriction, transfers cumulative lengths under surjective coefficient maps, and links the general intrinsic multiplicity API to the explicit finite-order plane-curve polynomial. It keeps a fixed degree-two extraction distinct from intrinsic multiplicity and from a dimension-two ambient interpretation.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2437,6 +2437,83 @@
         "module": "Mathlib/RingTheory/Ideal/Maps.lean",
         "provides": "The native ideal of scalars annihilating every module element.",
         "checked": "Complete statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:LinearMap.annihilator_le_of_injective",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "An injective map reverses whole-module annihilator inclusion.",
+        "checked": "Complete declaration statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:Module.annihilator_eq_top_iff",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "Whole-module annihilator is the unit ideal exactly for a zero module.",
+        "checked": "Complete declaration statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:Submodule.map_smul''",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Ideal/Operations.lean",
+        "provides": "A linear map commutes with ideal action on submodules.",
+        "checked": "Complete declaration statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:Submodule.map_top",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Module/Submodule/Range.lean",
+        "provides": "Mapping the whole submodule gives the linear map range.",
+        "checked": "Complete declaration statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:LinearMap.range_eq_top",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Module/Submodule/Range.lean",
+        "provides": "Full range is equivalent to surjectivity.",
+        "checked": "Complete declaration statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:IsLocalRing.le_maximalIdeal",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/LocalRing/MaximalIdeal/Basic.lean",
+        "provides": "Every proper ideal of a local ring lies in its maximal ideal.",
+        "checked": "Complete declaration statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:IsLocalRing.maximalIdeal.isMaximal",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/LocalRing/MaximalIdeal/Basic.lean",
+        "provides": "The pinned local maximal ideal is maximal.",
+        "checked": "Complete declaration statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:Ideal.IsMaximal.isPrime",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Ideal/Maximal.lean",
+        "provides": "Maximal ideals are prime.",
+        "checked": "Complete declaration statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:Ideal.IsPrime.isRadical",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Ideal/Operations.lean",
+        "provides": "Prime ideals are radical.",
+        "checked": "Complete declaration statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:Ideal.IsRadical.radical_le_iff",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Ideal/Operations.lean",
+        "provides": "A radical ideal contains a radical exactly when it contains the starting ideal.",
+        "checked": "Complete declaration statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:Ideal.radical_mono",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Ideal/Operations.lean",
+        "provides": "Radical is monotone under ideal inclusion.",
+        "checked": "Complete declaration statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
       }
     ]
   },
@@ -3454,6 +3531,23 @@
         "Mathlib/RingTheory/Ideal/Maps.lean": "a6cde2f875c2c8b9ea1aa57cf3aa654d5fd80981349de49f28556c77b56d9c11",
         "Mathlib/LinearAlgebra/Quotient/Defs.lean": "ddb08efd66c7dd6f5e142ac3e1edc1189ea30de276f1e78f4193d6ee80676fb3",
         "Mathlib/RingTheory/Length.lean": "28058afb0a726d046c7ef25ef25f86707d64762129baf08106944bcde811b466"
+      }
+    },
+    {
+      "id": "HS-GRADED-ANNIHILATOR-rtOQ9t",
+      "title": "Algebraic multiplicities and Noetherian local Hilbert functions",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online version downloaded and read 2026-10-03",
+      "url": "https://stacks.math.columbia.edu/tag/0AZU",
+      "sha256": "fa26c4ba52a27c097c6bfc6ac9f8f2c2053ceacabd044bd3426d8ae8d8440e14",
+      "accessDate": "2026-10-03",
+      "readSections": [
+        "Complete mathematical statements and proofs of Sections 43.15 (0AZU) and 10.59 (00K4), especially Remark 43.15.6 and Definition 10.59.1."
+      ],
+      "companionSource": {
+        "url": "https://stacks.math.columbia.edu/tag/00K4",
+        "sha256": "e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932",
+        "read": "2026-10-03"
       }
     }
   ],
@@ -18156,6 +18250,469 @@
         "namespace": "TauCeti.HilbertSamuel"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-subtype-action",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Whole-module annihilators on submodule carriers",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.idealSupAnnihilator_smul_subtype",
+      "statement": "For every submodule L of M and submodule P of L, (q+Ann_A(M))P=qP, with P carrying the inherited A-action.",
+      "hypotheses": [
+        "A is a commutative ring; M is an additive commutative group with an A-module structure; q is any ideal of A. All carriers, ideal actions and extended lengths are the pinned native ones."
+      ],
+      "proofSteps": [
+        "Injectivity of the subtype map gives Ann_A(M)⊆Ann_A(L); reverse inclusion for P⊆L gives containment in Ann_A(P).",
+        "Use the zero-action criterion and distribution over ideal sum."
+      ],
+      "acceptance": [
+        "For every submodule L of M and submodule P of L, (q+Ann_A(M))P=qP, with P carrying the inherited A-action."
+      ],
+      "prerequisites": [
+        "mathlib:LinearMap.annihilator_le_of_injective",
+        "mathlib:Submodule.annihilator_top",
+        "mathlib:Submodule.annihilator_mono",
+        "mathlib:Submodule.le_annihilator_iff",
+        "mathlib:Submodule.sup_smul"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-GRADED-ANNIHILATOR-rtOQ9t",
+          "locator": "Remark 43.15.6; derived idealSupAnnihilator_smul_subtype comparison on actual pinned carriers",
+          "excerpt": "Ann",
+          "match": "Annihilator enlargement motivates the comparison. The actual graded quotient transport is derived from native module operations; the zero-module exception is recorded separately, and polynomial statements use the existing eventual specification."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-graded-piece-equivalence",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Annihilator comparison of actual graded pieces",
+      "kind": "construction",
+      "declaration": "TauCeti.HilbertSamuel.adicPieceAnnihilatorEquiv",
+      "statement": "For each n≥0, there is a canonical A-linear equivalence ((q+Ann_A(M))^n M)/((q+Ann_A(M))·((q+Ann_A(M))^n M)) ≃ (q^n M)/(q·q^n M). Quotients use the ideal-action submodule inside each numerator subtype.",
+      "hypotheses": [
+        "A is a commutative ring; M is an additive commutative group with an A-module structure; q is any ideal of A. All carriers, ideal actions and extended lengths are the pinned native ones."
+      ],
+      "proofSteps": [
+        "Use annihilator-enlargement-powers to identify the numerator submodules by LinearEquiv.ofEq.",
+        "Map ideal actions through this equivalence, use full range, and identify the target denominator with annihilator-subtype-action.",
+        "Apply the native quotient equivalence. Representatives preserve their value in M."
+      ],
+      "acceptance": [
+        "For each n≥0, there is a canonical A-linear equivalence ((q+Ann_A(M))^n M)/((q+Ann_A(M))·((q+Ann_A(M))^n M)) ≃ (q^n M)/(q·q^n M). Quotients use the ideal-action submodule inside each numerator subtype."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-enlargement-powers",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-subtype-action",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/graded-hilbert-function",
+        "mathlib:LinearEquiv.ofEq",
+        "mathlib:Submodule.Quotient.equiv",
+        "mathlib:Submodule.map_smul''",
+        "mathlib:Submodule.map_top",
+        "mathlib:LinearMap.range_eq_top"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-GRADED-ANNIHILATOR-rtOQ9t",
+          "locator": "Remark 43.15.6; derived adicPieceAnnihilatorEquiv comparison on actual pinned carriers",
+          "excerpt": "Ann",
+          "match": "Annihilator enlargement motivates the comparison. The actual graded quotient transport is derived from native module operations; the zero-module exception is recorded separately, and polynomial statements use the existing eventual specification."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "Stacks Remark 43.15.6, annihilator enlargement",
+          "how": "Identify successive quotient pieces before invoking a graded Hilbert theorem."
+        },
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity",
+          "how": "Keep graded-length invariance distinct from conditional cumulative polynomial and multiplicity invariance."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.adicPieceAnnihilatorEquiv_mk",
+          "role": "simp",
+          "statement": "The forward graded-piece comparison sends [m] to [e(m)], where e is the numerator equivalence induced by the power equality and e(m) has the same underlying element of M."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicPieceAnnihilatorEquiv_symm_mk",
+          "role": "simp",
+          "statement": "The inverse graded-piece comparison sends [m] to [e⁻¹(m)], where e is the same numerator equality equivalence."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.gradedFunction_sup_annihilator",
+          "role": "compatibility",
+          "statement": "For every n≥0, G(q+Ann_A(M);M,n)=G(q;M,n) in ℕ∞, with G the extended length of the actual nth graded quotient."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AnnihilatorGradedTests.degree_zero_representative",
+          "kind": "computation",
+          "statement": "For A=M=ℚ, q=0 and n=0, every class [m] is sent to the class of the same underlying rational by the numerator equality equivalence."
+        },
+        {
+          "name": "AnnihilatorGradedTests.nonfaithful_inverse",
+          "kind": "non-example",
+          "statement": "For A=ℤ, M=ℤ/4ℤ, q=0 and n=0, the inverse comparison preserves each underlying representative; no faithful-module hypothesis is allowed."
+        },
+        {
+          "name": "AnnihilatorGradedTests.positive_degree_zero",
+          "kind": "degenerate",
+          "statement": "For A=M=ℚ, q=0 and n=1, the comparison sends the zero representative to zero; its numerator is the zero submodule."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-graded-piece-mk",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Forward graded comparison on representatives",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicPieceAnnihilatorEquiv_mk",
+      "statement": "The forward graded-piece comparison sends [m] to [e(m)], where e is the numerator equivalence induced by the power equality and e(m) has the same underlying element of M.",
+      "hypotheses": [
+        "A is a commutative ring; M is an additive commutative group with an A-module structure; q is any ideal of A. All carriers, ideal actions and extended lengths are the pinned native ones."
+      ],
+      "proofSteps": [
+        "Unfold the native quotient equivalence and the numerator equality equivalence; its representative formula is definitional."
+      ],
+      "acceptance": [
+        "The forward graded-piece comparison sends [m] to [e(m)], where e is the numerator equivalence induced by the power equality and e(m) has the same underlying element of M."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-graded-piece-equivalence",
+        "mathlib:LinearEquiv.coe_ofEq_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-GRADED-ANNIHILATOR-rtOQ9t",
+          "locator": "Remark 43.15.6; derived adicPieceAnnihilatorEquiv_mk comparison on actual pinned carriers",
+          "excerpt": "Ann",
+          "match": "Annihilator enlargement motivates the comparison. The actual graded quotient transport is derived from native module operations; the zero-module exception is recorded separately, and polynomial statements use the existing eventual specification."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-graded-piece-inverse-mk",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Inverse graded comparison on representatives",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicPieceAnnihilatorEquiv_symm_mk",
+      "statement": "The inverse graded-piece comparison sends [m] to [e⁻¹(m)], where e is the same numerator equality equivalence.",
+      "hypotheses": [
+        "A is a commutative ring; M is an additive commutative group with an A-module structure; q is any ideal of A. All carriers, ideal actions and extended lengths are the pinned native ones."
+      ],
+      "proofSteps": [
+        "Apply forward injectivity and the forward representative formula; simplify the two inverse identities."
+      ],
+      "acceptance": [
+        "The inverse graded-piece comparison sends [m] to [e⁻¹(m)], where e is the same numerator equality equivalence."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-graded-piece-equivalence",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-graded-piece-mk"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-GRADED-ANNIHILATOR-rtOQ9t",
+          "locator": "Remark 43.15.6; derived adicPieceAnnihilatorEquiv_symm_mk comparison on actual pinned carriers",
+          "excerpt": "Ann",
+          "match": "Annihilator enlargement motivates the comparison. The actual graded quotient transport is derived from native module operations; the zero-module exception is recorded separately, and polynomial statements use the existing eventual specification."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/graded-function-annihilator-enlargement",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Annihilator invariance of graded lengths",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.gradedFunction_sup_annihilator",
+      "statement": "For every n≥0, G(q+Ann_A(M);M,n)=G(q;M,n) in ℕ∞, with G the extended length of the actual nth graded quotient.",
+      "hypotheses": [
+        "A is a commutative ring; M is an additive commutative group with an A-module structure; q is any ideal of A. All carriers, ideal actions and extended lengths are the pinned native ones."
+      ],
+      "proofSteps": [
+        "Apply length invariance to the actual graded-piece equivalence; no finite length or conversion to natural numbers is used."
+      ],
+      "acceptance": [
+        "For every n≥0, G(q+Ann_A(M);M,n)=G(q;M,n) in ℕ∞, with G the extended length of the actual nth graded quotient."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-graded-piece-equivalence",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/graded-hilbert-function",
+        "mathlib:LinearEquiv.length_eq"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-GRADED-ANNIHILATOR-rtOQ9t",
+          "locator": "Remark 43.15.6; derived gradedFunction_sup_annihilator comparison on actual pinned carriers",
+          "excerpt": "Ann",
+          "match": "Annihilator enlargement motivates the comparison. The actual graded quotient transport is derived from native module operations; the zero-module exception is recorded separately, and polynomial statements use the existing eventual specification."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/primary-annihilator-enlargement",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Primary annihilator enlargement for nonzero modules",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.radical_sup_annihilator",
+      "statement": "If A is local, M≠0 and radical(q)=m, then radical(q+Ann_A(M))=m.",
+      "hypotheses": [
+        "A is a commutative ring; M is an additive commutative group with an A-module structure; q is any ideal of A. All carriers, ideal actions and extended lengths are the pinned native ones.",
+        "A is local, M is nonzero, and radical(q) is the maximal ideal m. No Noetherian or finite-module hypothesis is needed for the radical equality."
+      ],
+      "proofSteps": [
+        "The unit-annihilator criterion and M≠0 make Ann_A(M) proper; every proper ideal lies in m.",
+        "Both q and Ann_A(M) lie in m, and m is prime and radical, giving the upper radical bound.",
+        "Monotonicity gives m=radical(q)⊆radical(q+Ann_A(M))."
+      ],
+      "acceptance": [
+        "If A is local, M≠0 and radical(q)=m, then radical(q+Ann_A(M))=m."
+      ],
+      "prerequisites": [
+        "mathlib:Module.annihilator_eq_top_iff",
+        "mathlib:IsLocalRing.le_maximalIdeal",
+        "mathlib:IsLocalRing.maximalIdeal.isMaximal",
+        "mathlib:Ideal.IsMaximal.isPrime",
+        "mathlib:Ideal.IsPrime.isRadical",
+        "mathlib:Ideal.IsRadical.radical_le_iff",
+        "mathlib:Ideal.radical_mono",
+        "mathlib:Ideal.le_radical"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-GRADED-ANNIHILATOR-rtOQ9t",
+          "locator": "Remark 43.15.6; derived radical_sup_annihilator comparison on actual pinned carriers",
+          "excerpt": "Ann",
+          "match": "Annihilator enlargement motivates the comparison. The actual graded quotient transport is derived from native module operations; the zero-module exception is recorded separately, and polynomial statements use the existing eventual specification."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/zero-module-annihilator-enlargement",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Zero-module annihilator boundary",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.sup_annihilator_zero_module",
+      "statement": "For a zero A-module M and every ideal q, q+Ann_A(M)=A.",
+      "hypotheses": [
+        "A is a commutative ring; M is an additive commutative group with an A-module structure; q is any ideal of A. All carriers, ideal actions and extended lengths are the pinned native ones.",
+        "M is a zero module; the final boundary clause assumes A is a nonzero local ring."
+      ],
+      "proofSteps": [
+        "Use the native unit-annihilator criterion and ideal-supremum simplification.",
+        "For the local-ring boundary the unit ideal has radical A, whereas the maximal ideal is proper."
+      ],
+      "acceptance": [
+        "For a zero A-module M and every ideal q, q+Ann_A(M)=A."
+      ],
+      "prerequisites": [
+        "mathlib:Module.annihilator_eq_top_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-GRADED-ANNIHILATOR-rtOQ9t",
+          "locator": "Remark 43.15.6; derived sup_annihilator_zero_module comparison on actual pinned carriers",
+          "excerpt": "Ann",
+          "match": "Annihilator enlargement motivates the comparison. The actual graded quotient transport is derived from native module operations; the zero-module exception is recorded separately, and polynomial statements use the existing eventual specification."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "AnnihilatorGradedTests.nonzero_field_primary",
+          "kind": "compatibility",
+          "statement": "For A=M=ℚ and q=0, radical(q+Ann_A(M)) is the maximal ideal 0."
+        },
+        {
+          "name": "AnnihilatorGradedTests.zero_module_not_primary",
+          "kind": "non-example",
+          "statement": "For A=ℚ, M=ℚ^(Fin 0)=0 and q=0, radical(q+Ann_A(M)) differs from the maximal ideal."
+        },
+        {
+          "name": "AnnihilatorGradedTests.zero_module_finite_quotient",
+          "kind": "degenerate",
+          "statement": "For A=ℚ, M=ℚ^(Fin 0)=0 and q=0, the actual cumulative quotient at n=0 has extended length 0, hence finite length despite failure of the enlarged-ideal primary condition."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-annihilator-enlargement",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Annihilator invariance of the eventual polynomial",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.polynomial_sup_annihilator",
+      "statement": "Under the finite Noetherian-local hypotheses with M≠0 and radical(q)=m, P(q+Ann_A(M);M)=P(q;M) for the existing cumulative n+1 polynomial constructor.",
+      "hypotheses": [
+        "A is a commutative ring; M is an additive commutative group with an A-module structure; q is any ideal of A. All carriers, ideal actions and extended lengths are the pinned native ones.",
+        "A is local, M is nonzero, and radical(q) is the maximal ideal m. No Noetherian or finite-module hypothesis is needed for the radical equality.",
+        "A is Noetherian and M is finite. The existing general eventual-polynomial theorem and its specification remain required, unproved prerequisites."
+      ],
+      "proofSteps": [
+        "Supply the enlarged-ideal radical proof from primary-annihilator-enlargement.",
+        "Use the existing polynomial eventual-evaluation specification, rewrite cumulative lengths by hilbert-samuel-function-annihilator-enlargement, and apply polynomial uniqueness.",
+        "This proof depends on the existing unproved general polynomial specification; it is not a proof of Hilbert–Serre existence."
+      ],
+      "acceptance": [
+        "Under the finite Noetherian-local hypotheses with M≠0 and radical(q)=m, P(q+Ann_A(M);M)=P(q;M) for the existing cumulative n+1 polynomial constructor."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/primary-annihilator-enlargement",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-polynomial",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function-annihilator-enlargement"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-GRADED-ANNIHILATOR-rtOQ9t",
+          "locator": "Remark 43.15.6; derived polynomial_sup_annihilator comparison on actual pinned carriers",
+          "excerpt": "Ann",
+          "match": "Annihilator enlargement motivates the comparison. The actual graded quotient transport is derived from native module operations; the zero-module exception is recorded separately, and polynomial statements use the existing eventual specification."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/intrinsic-multiplicity-annihilator-enlargement",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Annihilator invariance of intrinsic multiplicity",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.multiplicity_sup_annihilator",
+      "statement": "Under the preceding finite nonzero Noetherian-local hypotheses, intrinsic e(q+Ann_A(M);M)=e(q;M).",
+      "hypotheses": [
+        "A is a commutative ring; M is an additive commutative group with an A-module structure; q is any ideal of A. All carriers, ideal actions and extended lengths are the pinned native ones.",
+        "A is local, M is nonzero, and radical(q) is the maximal ideal m. No Noetherian or finite-module hypothesis is needed for the radical equality.",
+        "A is Noetherian and M is finite. The existing general eventual-polynomial theorem and its specification remain required, unproved prerequisites."
+      ],
+      "proofSteps": [
+        "Rewrite the polynomial in the exact intrinsic formula natDegree(P)!·leadingCoeff(P). No ambient dimension is substituted."
+      ],
+      "acceptance": [
+        "Under the preceding finite nonzero Noetherian-local hypotheses, intrinsic e(q+Ann_A(M);M)=e(q;M)."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-annihilator-enlargement",
+        "DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-GRADED-ANNIHILATOR-rtOQ9t",
+          "locator": "Remark 43.15.6; derived multiplicity_sup_annihilator comparison on actual pinned carriers",
+          "excerpt": "Ann",
+          "match": "Annihilator enlargement motivates the comparison. The actual graded quotient transport is derived from native module operations; the zero-module exception is recorded separately, and polynomial statements use the existing eventual specification."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/indexed-multiplicity-annihilator-enlargement",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Annihilator invariance of fixed-degree extraction",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.multiplicityInDegree_sup_annihilator",
+      "statement": "Under the preceding finite nonzero Noetherian-local hypotheses, for every d≥0 the raw coefficient extractors e(q+Ann_A(M);M,d)=e(q;M,d) agree. Calling either value a multiplicity still requires the inherited support-dimension upper bound.",
+      "hypotheses": [
+        "A is a commutative ring; M is an additive commutative group with an A-module structure; q is any ideal of A. All carriers, ideal actions and extended lengths are the pinned native ones.",
+        "A is local, M is nonzero, and radical(q) is the maximal ideal m. No Noetherian or finite-module hypothesis is needed for the radical equality.",
+        "A is Noetherian and M is finite. The existing general eventual-polynomial theorem and its specification remain required, unproved prerequisites."
+      ],
+      "proofSteps": [
+        "Rewrite the polynomial in d!·coeff(P,d); no degree bound is needed for the raw equality."
+      ],
+      "acceptance": [
+        "Under the preceding finite nonzero Noetherian-local hypotheses, for every d≥0 the raw coefficient extractors e(q+Ann_A(M);M,d)=e(q;M,d) agree. Calling either value a multiplicity still requires the inherited support-dimension upper bound."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-annihilator-enlargement",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/degree-indexed-multiplicity"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-GRADED-ANNIHILATOR-rtOQ9t",
+          "locator": "Remark 43.15.6; derived multiplicityInDegree_sup_annihilator comparison on actual pinned carriers",
+          "excerpt": "Ann",
+          "match": "Annihilator enlargement motivates the comparison. The actual graded quotient transport is derived from native module operations; the zero-module exception is recorded separately, and polynomial statements use the existing eventual specification."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
     }
   ],
   "baselineCoverage": [
@@ -18292,7 +18849,8 @@
         "The actual plane-curve and zero-equation functions now have independently proved unique eventual rational polynomials, explicit degree/leading-coefficient API and factorial coefficient arithmetic. Compare these with the existing general polynomial constructor through its proved specification, identify intrinsic/ambient multiplicities under proved support and dimension hypotheses, and prove the native tangent-cone kernel and curve dimension. General Hilbert–Serre induction, support/degree, Artin–Rees, completion, localization lengths, associativity, every routed source obligation and all eight stage targets remain required.",
         "The codex-a71f92 continuation proves the actual degree-wise series/ideal kernel adapters and coefficient-linear equation-jet projection, including both principal relation directions, small-index, zero/unit and characteristic-two nonreduced tests. It preserves the complete incoming proof prefix. Still construct the polynomial-valued homogeneous comparison, identify the map's image with the existing q^n/q^(n+1) carrier, and assemble the multiplicatively compatible full tangent-cone graded isomorphism. Curve/support dimension, comparison with the general Hilbert–Samuel constructor, intrinsic/ambient multiplicities, general Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed source obligation remain required; canonical bodies remain admitted and every node/stage retains unchecked/partial status.",
         "The actual equation-jet image is now compared with the native q^n/(q·q^n) carrier in A=R/(f), using the pinned general quotient theorem, with homogeneous representative and principal degreewise kernel adapters. Assemble the generator-compatible multiplication and full graded tangent-cone isomorphism. Curve/support dimension, comparison with the general cumulative polynomial and intrinsic/ambient multiplicity remain open. General Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed-paper obligation remain required; canonical bodies remain admitted and all nodes unchecked.",
-        "The full multiplicative map, surjectivity, homogeneous projection compatibility, finite-sum full principal kernel and generator/component-compatible tangent-cone equivalence now have explicit mathematical proof plans and admitted native Lean prototypes. Their new proof bodies have NOT been certified; historical Rees/ring-grading bodies remain required. This supersedes the missing assembly plan, not its implementation. Curve/support dimension, comparison with the general cumulative polynomial, intrinsic and ambient multiplicities, general Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and all routed-paper obligations remain open. Arbitrary commutative coefficients are allowed for the map; the principal kernel keeps NoZeroDivisors and exact finite order, with separate zero/unit and order-zero-nonunit branches."
+        "The full multiplicative map, surjectivity, homogeneous projection compatibility, finite-sum full principal kernel and generator/component-compatible tangent-cone equivalence now have explicit mathematical proof plans and admitted native Lean prototypes. Their new proof bodies have NOT been certified; historical Rees/ring-grading bodies remain required. This supersedes the missing assembly plan, not its implementation. Curve/support dimension, comparison with the general cumulative polynomial, intrinsic and ambient multiplicities, general Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and all routed-paper obligations remain open. Arbitrary commutative coefficients are allowed for the map; the principal kernel keeps NoZeroDivisors and exact finite order, with separate zero/unit and order-zero-nonunit branches.",
+        "Graded annihilator transport and the nonzero primary boundary now have independent native prototypes. General polynomial invariance is conditional on the existing admitted eventual specification, not a new proof of Hilbert–Serre. The M=0 exception in Stacks Remark 43.15.6 is recorded; formulate the remaining module-relative ideal-of-definition extension with this branch separate. All existing graded finiteness, general polynomial existence, support-degree, completion, associativity and routed-source obligations remain required."
       ]
     },
     {
@@ -18489,7 +19047,25 @@
       "fullGradedAssemblyContinuation": "The full multiplicative map, surjectivity, homogeneous projection compatibility, finite-sum full principal kernel and generator/component-compatible tangent-cone equivalence now have explicit mathematical proof plans and admitted native Lean prototypes. Their new proof bodies have NOT been certified; historical Rees/ring-grading bodies remain required. This supersedes the missing assembly plan, not its implementation. Curve/support dimension, comparison with the general cumulative polynomial, intrinsic and ambient multiplicities, general Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and all routed-paper obligations remain open. Arbitrary commutative coefficients are allowed for the map; the principal kernel keeps NoZeroDivisors and exact finite order, with separate zero/unit and order-zero-nonunit branches."
     }
   ],
-  "sourceIssues": [],
+  "sourceIssues": [
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra/E3",
+      "source": "HS-GRADED-ANNIHILATOR-rtOQ9t",
+      "kind": "error",
+      "locator": "Online version read 2026-10-03, Remark 43.15.6, conditions (1) and (5), compared with Definition 10.59.1 (00K4)",
+      "printed": "The following are equivalent",
+      "correction": "Require M≠0 in this equivalence of all five conditions, or state the M=0 branch separately. Conditions (3)–(5) hold for M=0, while I+Ann_A(0)=A is not an ideal of definition under Definition 10.59.1. The adic quotient and graded-piece identities themselves remain valid for M=0.",
+      "reason": "Take A=ℚ, I=0, M=ℚ^(Fin 0)=0. The actual quotient M/IM has length 0, so condition (5) holds. Ann_A(M)=A, whose radical is A rather than the proper maximal ideal 0, so condition (1) fails. Two admission-free native examples check these exact conclusions. This affects the printed five-condition equivalence only, not the general module-primary Hilbert–Samuel constructor.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Comments on the official 0AZU section, read 2026-10-03: the two comments concern Definition 43.15.1, not this zero-module exception.",
+        "GitHub official stacks/stacks-project issue searches for 0AZU and for ideal of definition plus zero, including closed issues, returned zero matches on 2026-10-03.",
+        "Official repository issue search for multiplicity plus zero returned zero matches; bounded web searches for the remark and zero-module corrections found no correction. This is a bounded novelty search.",
+        "The atlas source-issues register and blueprint errata searched for 0AZU or 43.15.6: no existing entry."
+      ]
+    }
+  ],
   "validationBoundary": "The original five baseline entries and baselineCoverage are preserved verbatim. The new declarations were inspected at the exact pin, with source blobs recorded. KW passages were parsed-only after failed screenshots. No Lean compilation or closed stage is asserted. Initial CI exposed that the checker treats any tauceti: prefix as a baseline declaration before testing stage IDs. The algebraic endpoint now has only baseline/local-node prerequisites, matching its five signatures. The local-field and framed-lifting extensions remain explicit requests, gaps and remainingExtensions; no upstream stage is falsely listed as a proved baseline theorem. The handoff's initial uploaded packet hash refers to the pre-CI version; the amended packet is validated by the new submission run. Continuation of 28 September 2026 (cc-39fac3): the suggested file was compiled at the pins with the v4.34.0-rc2 lean against the prebuilt Mathlib 082e2d3 oleans. Before this continuation it had one error, an elab_as_elim motive failure in the prime-filtration induction wrapper, fixed by passing (motive := motive). After the fix and the R03.3 additions it has 0 errors and only placeholder-proof warnings; the R03.4 intermediate-field signatures elaborate. Continuation by Codex — codex-a71f92, 2026-10-02: fresh selected source passages and sixteen additional pinned declaration statements inspected. The general polynomial theorem is not inferred from the pinned rational-series hilbertPoly API. New signatures not compiled; prior compilation receipts are historical only. All new nodes remain unchecked and all stages remain partial/not_read. Codex — codex-J6LwjP read all applicable DDPA AUDIT-17 entries, the accepted RS-08 keeps/links/owner decisions, the original roadmap and integrated P7 node. New baseline statements were read at the pin. This is a mathematical continuation, not an independent review of the earlier checkpoint or a new confirmation of the paper errata. Current codex-J6LwjP receipt: the entire suggested file elaborates with Lean v4.34.0-rc2 against existing Mathlib 082e2d3 oleans, 0 errors and 112 placeholder-proof warnings. No Tau Ceti module is imported or built. Prior no-compilation statements describe earlier checkpoints only. All mathematical implementations remain unchecked; none of the eight stages is closed. Codex — codex-a71f92 cumulative continuation: native quotient and Bernoulli statements freshly inspected at the pin. Only the cumulative-existence consumer is refined; 43 of 44 inherited nodes are unchanged. New signatures are uncompiled because the available source trees have no existing pinned build; the earlier compilation receipt is historical. All new nodes remain unchecked. Current codex-J6LwjP curve-jet integration preserves all 96 inherited node objects and the reserved key definition. New signatures elaborate but are admitted under section 13. Rerun finite exact arithmetic does not certify any formal-series theorem, tangent cone, dimension, multiplicity or source closure. Codex — codex-rtOQ9t: actual native proofs of the three new API lemmas and the unchanged planeCurve_jet_length signature, with six actual examples, checked separately without admissions. Canonical bodies remain admitted under section 13. Previous receipts retain their authorship and historical scope; no new routed-paper closure or independent review is claimed.",
   "keyDefinitionBoundary": {
     "reservedId": "DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity",
@@ -20456,5 +21032,29 @@
     "newTests": 4,
     "mathematicalBoundary": "No finiteness is needed for the action/power/quotient/extended-length equalities. Module-relative polynomiality and general dimension/multiplicity leaves remain open; native artifacts are prototypes, not an implementation.",
     "syntaxRepairs": "Inherited notation and curve-parameter inference are repaired without altering preserved packet contracts."
+  },
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/0AZU",
+      "read": "2026-10-03",
+      "sha256": "fa26c4ba52a27c097c6bfc6ac9f8f2c2053ceacabd044bd3426d8ae8d8440e14"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/00K4",
+      "read": "2026-10-03",
+      "sha256": "e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932"
+    }
+  ],
+  "gradedAnnihilatorContinuation": {
+    "worker": "Codex — codex-rtOQ9t",
+    "incomingNodesPreserved": 253,
+    "newDeclarations": 10,
+    "newApiItems": 3,
+    "newTests": 6,
+    "independentNewDeclarations": 7,
+    "conditionalNewDeclarations": 3,
+    "boundary": "Graded annihilator transport and the nonzero primary boundary now have independent native prototypes. General polynomial invariance is conditional on the existing admitted eventual specification, not a new proof of Hilbert–Serre. The M=0 exception in Stacks Remark 43.15.6 is recorded; formulate the remaining module-relative ideal-of-definition extension with this branch separate. All existing graded finiteness, general polynomial existence, support-degree, completion, associativity and routed-source obligations remain required."
   }
 }
