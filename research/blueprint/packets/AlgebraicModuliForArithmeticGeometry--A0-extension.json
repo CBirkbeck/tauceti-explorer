@@ -13,7 +13,7 @@
     "AlgebraicModuliForArithmeticGeometry:R09.7"
   ],
   "status": "partial",
-  "summary": "Native fixed-band morphism groupoid checkpoint:17 declaration-sized refinements (one definition, three constructions, thirteen lemmas),16 API entries and12 typed tests. All420 incoming declarations retain their contracts; only the neutral/all self-equivalence parents gain one dependency and one proof step each. The420-node source coverage, ten gaps and22 supplier requests remain required. Native Hom-sheaf assembly checkpoint: 19 new declarations, three constructions, 13 API items and 12 tests. Use full StrongTrans composition coherence and Mathlib local-bijection gluing to specify fibrewise fullness in the inherited adapter universe convention. All 365 untouched incoming node objects and the old full-faithfulness contract are retained; that parent gains only two prerequisite edges and one proof step. All implementations stay unchecked. Partial checkpoint with 366 declaration nodes. Adds 25 actual StrongTrans pullback adapters: five constructions and twenty lemmas, sixteen API items and fifteen native carrier/orientation tests. The actual local equivalences now compare the correct target pullbacks; arbitrary deeper-slice coherence and inverse Hom-sheaf gluing remain open. All incoming general gerbe/key-definition statements, source issues, requests, planets and ownership contracts are preserved; only the general full-faithfulness node receives two supplier edges and one proof step. No stage or reserved key is closed. Object-descent continuation: 27 native adapter and proof nodes retain local objects and isomorphisms, all three DescentData equations, actual global image morphisms, and fibrewise equivalence; coherent banded inverse and universe normalization remain open. This continuation separates eight native fixed-band inverse/modification adapters, with an independent coefficient universe and admission-free prototype audits, from the still-requested generic coherent inverse StrongTrans. It does not certify the global gerbe equivalence.",
+  "summary": "Native fixed-band morphism groupoid checkpoint:17 declaration-sized refinements (one definition, three constructions, thirteen lemmas),16 API entries and12 typed tests. All420 incoming declarations retain their contracts; only the neutral/all self-equivalence parents gain one dependency and one proof step each. The420-node source coverage, ten gaps and22 supplier requests remain required. Native Hom-sheaf assembly checkpoint: 19 new declarations, three constructions, 13 API items and 12 tests. Use full StrongTrans composition coherence and Mathlib local-bijection gluing to specify fibrewise fullness in the inherited adapter universe convention. All 365 untouched incoming node objects and the old full-faithfulness contract are retained; that parent gains only two prerequisite edges and one proof step. All implementations stay unchecked. Partial checkpoint with 366 declaration nodes. Adds 25 actual StrongTrans pullback adapters: five constructions and twenty lemmas, sixteen API items and fifteen native carrier/orientation tests. The actual local equivalences now compare the correct target pullbacks; arbitrary deeper-slice coherence and inverse Hom-sheaf gluing remain open. All incoming general gerbe/key-definition statements, source issues, requests, planets and ownership contracts are preserved; only the general full-faithfulness node receives two supplier edges and one proof step. No stage or reserved key is closed. Object-descent continuation: 27 native adapter and proof nodes retain local objects and isomorphisms, all three DescentData equations, actual global image morphisms, and fibrewise equivalence; coherent banded inverse and universe normalization remain open. This continuation separates eight native fixed-band inverse/modification adapters, with an independent coefficient universe and admission-free prototype audits, from the still-requested generic coherent inverse StrongTrans. It does not certify the global gerbe equivalence. This continuation bundles actual fibre Isom actions in native Action, maps every native fixed-band modification to equivariant postcomposition, and supplies choice-independent natural local-object transport. These pointwise leaves retain independent coefficient universes and possible empty section sets; the full torsor-sheaf comparison remains open.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1542,6 +1542,60 @@
         "sourceSha256": "b47eab342f3e7d08f4ff8d4a16d4580b0273d63f1a790b25560236c92d4cace7",
         "provides": "The chosen native inverse equals any supplied right inverse.",
         "checked": "Exact statement, ambient hypotheses and relevant defining fields read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:Action",
+        "kind": "structure",
+        "module": "Mathlib/CategoryTheory/Action/Basic.lean",
+        "sourceLine": 44,
+        "sourceSha256": "f77ddee62b1491667184c83c5accd077e87f49033c74e8888696c93c78150813",
+        "provides": "The native Action carrier or exact statement used by the fixed-band fibre action construction.",
+        "checked": "Exact statement, ambient hypotheses and defining fields read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex codex-rtOQ9t."
+      },
+      {
+        "ref": "mathlib:Action.Hom",
+        "kind": "structure",
+        "module": "Mathlib/CategoryTheory/Action/Basic.lean",
+        "sourceLine": 89,
+        "sourceSha256": "f77ddee62b1491667184c83c5accd077e87f49033c74e8888696c93c78150813",
+        "provides": "The native Action.Hom carrier or exact statement used by the fixed-band fibre action construction.",
+        "checked": "Exact statement, ambient hypotheses and defining fields read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex codex-rtOQ9t."
+      },
+      {
+        "ref": "mathlib:Action.hom_ext",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Action/Basic.lean",
+        "sourceLine": 126,
+        "sourceSha256": "f77ddee62b1491667184c83c5accd077e87f49033c74e8888696c93c78150813",
+        "provides": "The native Action.hom_ext carrier or exact statement used by the fixed-band fibre action construction.",
+        "checked": "Exact statement, ambient hypotheses and defining fields read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex codex-rtOQ9t."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.mapIso",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Iso.lean",
+        "sourceLine": 475,
+        "sourceSha256": "b47eab342f3e7d08f4ff8d4a16d4580b0273d63f1a790b25560236c92d4cace7",
+        "provides": "The native CategoryTheory.Functor.mapIso carrier or exact statement used by the fixed-band fibre action construction.",
+        "checked": "Exact statement, ambient hypotheses and defining fields read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex codex-rtOQ9t."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.mapIso_refl",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Iso.lean",
+        "sourceLine": 491,
+        "sourceSha256": "b47eab342f3e7d08f4ff8d4a16d4580b0273d63f1a790b25560236c92d4cace7",
+        "provides": "The native CategoryTheory.Functor.mapIso_refl carrier or exact statement used by the fixed-band fibre action construction.",
+        "checked": "Exact statement, ambient hypotheses and defining fields read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex codex-rtOQ9t."
+      },
+      {
+        "ref": "mathlib:TypeCat.ofHom",
+        "kind": "abbrev",
+        "module": "Mathlib/CategoryTheory/Types/Basic.lean",
+        "sourceLine": 131,
+        "sourceSha256": "1d4d9ab541d36ee5a2c9e60d140219967740a36c74e147bdf77f0a32f4ec7fbb",
+        "provides": "The native TypeCat.ofHom carrier or exact statement used by the fixed-band fibre action construction.",
+        "checked": "Exact statement, ambient hypotheses and defining fields read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex codex-rtOQ9t."
       }
     ]
   },
@@ -2325,6 +2379,20 @@
         "Exact pinned StrongTrans modification/homCategory/isoMk; Cat.Hom.isoMk, Cat.Hom₂.ext; NatIso.ofComponents; ObjectProperty.FullSubcategory/category/ι/homMk/fullyFaithfulι/hom_ext/isoMk; Groupoid.ofIsIso; native inverse uniqueness and Iso.ext."
       ],
       "readingAgent": "Codex — codex-J6LwjP"
+    },
+    {
+      "id": "OG-rtOQ9t-fibre-actions",
+      "title": "Fibre action functors and choice-independent transport, motivated by the Olsson–Geraschenko gerbe notes",
+      "authors": "Martin Olsson (lectures), Anton Geraschenko and contributors; native deductions by Codex codex-rtOQ9t",
+      "edition": "Exact author-hosted notes accessed2026-10-03",
+      "url": "https://stacky.net/files/written/Stacks/Stacks.pdf",
+      "sha256": "716bf95c7a200194d5fd1f2af48372253fde5ea65487b5d362bcccb5e0b7426a",
+      "readSections": [
+        "Complete printed122–123: Definition31.1, Remark31.2, full Lemma31.3 proof, Lemma31.4 and Remark31.5; only the visible warning/beginning of31.6.",
+        "Actual native Action/Hom/category, End/Aut multiplication, band conjugation, mapAut/mapIso, StrongTrans modification identities/composition, TypeCat.ofHom and NatIso.ofComponents fields at the pinned Mathlib commit.",
+        "The formulas and independence proof are authored deductions. All inherited source issues, sources and reading receipts retain their original provenance."
+      ],
+      "readingAgent": "Codex — codex-rtOQ9t"
     }
   ],
   "nodes": [
@@ -3452,14 +3520,16 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4/neutralization-equivalence",
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism",
         "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
-        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/groupoid"
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/groupoid",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-nat-iso-independent"
       ],
       "proofSteps": [
         "Conjugate along F≃BA.",
         "Evaluate a band-preserving equivalence on the trivial torsor to obtain P.",
         "Locally trivialize Q to compare its image with Q⊗P; band preservation makes the comparison independent of the chosen trivialization.",
         "Recover modifications by evaluation at the trivial torsor and descent, giving full faithfulness.",
-        "Use banded-hom/groupoid on the actual native fixed-band full subcategory. Its arrows retain all compatible modifications and their genuine component inverses. Constructing the torsor comparison functor, its full faithfulness and its coherent inverse remains a separate obligation; invertibility of modifications does not prove that comparison."
+        "Use banded-hom/groupoid on the actual native fixed-band full subcategory. Its arrows retain all compatible modifications and their genuine component inverses. Constructing the torsor comparison functor, its full faithfulness and its coherent inverse remains a separate obligation; invertibility of modifications does not prove that comparison.",
+        "Use the native pointwise action functor, actual modification evaluation, and choice-independent natural local-object transport; still prove restriction coherence and the full torsor-sheaf comparison before this target is discharged."
       ],
       "acceptance": [
         "For A=Z/3Z over an algebraically closed point, the self-equivalence groupoid has one isomorphism class and three automorphisms of its identity object.",
@@ -4991,12 +5061,14 @@
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism",
         "AlgebraicModuliForArithmeticGeometry:R09.4/isom-torsor",
-        "AlgebraicModuliForArithmeticGeometry:R09.4/banding-iso-independent"
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banding-iso-independent",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-nat-iso-independent"
       ],
       "proofSteps": [
         "Replacing φ by φ∘a changes η(φ) by the matching band automorphism η(a).",
         "Band preservation and the band conjugation equation move η(a) past p and cancel a⁻¹.",
-        "Functoriality of η gives composition; its strong naturality gives the restriction comparison."
+        "Functoriality of η gives composition; its strong naturality gives the restriction comparison.",
+        "Use the native pointwise action functor, actual modification evaluation, and choice-independent natural local-object transport; still prove restriction coherence and the full torsor-sheaf comparison before this target is discharged."
       ],
       "acceptance": [
         "The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses."
@@ -5116,13 +5188,15 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
         "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
         "DiamondsAndVStacks:D0/stackification",
-        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/groupoid"
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/groupoid",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-nat-iso-independent"
       ],
       "proofSteps": [
         "On a cover with local objects, use the neutral-gerbe equivalence.",
         "Choice-independent transport glues both functors and their unit and counit.",
         "Descent of modifications makes the functor fully faithful as a functor of groupoids.",
-        "Use banded-hom/groupoid on the actual native fixed-band full subcategory. Its arrows retain all compatible modifications and their genuine component inverses. Constructing the torsor comparison functor, its full faithfulness and its coherent inverse remains a separate obligation; invertibility of modifications does not prove that comparison."
+        "Use banded-hom/groupoid on the actual native fixed-band full subcategory. Its arrows retain all compatible modifications and their genuine component inverses. Constructing the torsor comparison functor, its full faithfulness and its coherent inverse remains a separate obligation; invertibility of modifications does not prove that comparison.",
+        "Use the native pointwise action functor, actual modification evaluation, and choice-independent natural local-object transport; still prove restriction coherence and the full torsor-sheaf comparison before this target is discharged."
       ],
       "acceptance": [
         "Taking isomorphism classes gives H1(A), but the groupoid retains A automorphisms of the identity.",
@@ -26301,6 +26375,1563 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/fibre-action",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The bundled fibre Isom action",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedIsom.fibreAction",
+      "statement": "Bundle Isom_F(U)(x,y) as the native Action (Type v′) of Multiplicative(A(U)), with coefficient a acting by p ↦ p followed by b_y(a). Its carrier may be empty; the coefficient universe w is independent of v′.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors with specified object and fibre-morphism universes.",
+        "F,G have the actual IsGerbe fields, and bF,bG are specified AbelianBanding data for a sheaf A of abelian groups in independent coefficient universe w. The self case uses F=G and bF=bG=b.",
+        "The section Isom carriers need not be nonempty. No terminal object, global neutralization, constant coefficient sheaf, inverse strong transformation or equality w=v′ is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding",
+        "mathlib:Action",
+        "mathlib:Action.Hom",
+        "mathlib:TypeCat.ofHom"
+      ],
+      "proofSteps": [
+        "Use the existing band automorphism homomorphism as postcomposition on the actual Iso type.",
+        "Aut and End multiplication reverse categorical composition, so rho(ac)=rho(c) followed by rho(a). No anchor or nonempty instance enters the constructor."
+      ],
+      "acceptance": [
+        "Use the actual native Action, StrongTrans and Iso carriers and their stated forward/inverse maps.",
+        "This is fibrewise action transport; restriction coherence, the torsor-sheaf functor, full faithfulness and the coherent inverse/unit/counit remain required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Extract the pointwise action functor and choice-independent local-object transport before proving sheaf restriction and descent."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retain every actual modification and its inverse in the comparison of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedIsom"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-rtOQ9t-fibre-actions",
+          "locator": "Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123; authored native-action deductions.",
+          "match": "Motivation and band conjugation are source-checked; the exact Action/functor/natural-isomorphism formulas are authored deductions, not printed formulas or a claimed full torsor equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedIsom.fibreAction_apply",
+          "role": "simp",
+          "statement": "For a in Multiplicative(A(U)) and p:x≅y, the underlying function rho(a) sends p to p followed by b_y(a)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedIsom.fibreAction_empty",
+          "role": "simp",
+          "statement": "If Isom_F(U)(x,y) is empty, the carrier of fibreAction(b,x,y) is empty as well."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedIsom.band_commute",
+          "role": "simp",
+          "statement": "For q:y≅z, b_y(a) followed by q equals q followed by b_z(a); this is the existing band conjugation equation used by the bundled action API."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.FibreActionTests.actual_coefficient",
+          "kind": "computation",
+          "statement": "On an actual p:x≅y, coefficient a acts by p followed by the prescribed b_y(a)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.FibreActionTests.empty_sections",
+          "kind": "non-example",
+          "statement": "A supplied empty Isom section set is still the carrier of a valid bundled action and remains empty."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.FibreActionTests.multiplication_order",
+          "kind": "compatibility",
+          "statement": "The coefficient action satisfies rho(ac)=rho(c) followed by rho(a), matching native End multiplication."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/fibre-action-apply",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The bundled action uses the actual band automorphism",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedIsom.fibreAction_apply",
+      "statement": "For a in Multiplicative(A(U)) and p:x≅y, the underlying function rho(a) sends p to p followed by b_y(a).",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors with specified object and fibre-morphism universes.",
+        "F,G have the actual IsGerbe fields, and bF,bG are specified AbelianBanding data for a sheaf A of abelian groups in independent coefficient universe w. The self case uses F=G and bF=bG=b.",
+        "The section Isom carriers need not be nonempty. No terminal object, global neutralization, constant coefficient sheaf, inverse strong transformation or equality w=v′ is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/fibre-action"
+      ],
+      "proofSteps": [
+        "Project the computed native action and TypeCat.ofHom fields."
+      ],
+      "acceptance": [
+        "Use the actual native Action, StrongTrans and Iso carriers and their stated forward/inverse maps.",
+        "This is fibrewise action transport; restriction coherence, the torsor-sheaf functor, full faithfulness and the coherent inverse/unit/counit remain required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Extract the pointwise action functor and choice-independent local-object transport before proving sheaf restriction and descent."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retain every actual modification and its inverse in the comparison of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedIsom"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-rtOQ9t-fibre-actions",
+          "locator": "Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123; authored native-action deductions.",
+          "match": "Motivation and band conjugation are source-checked; the exact Action/functor/natural-isomorphism formulas are authored deductions, not printed formulas or a claimed full torsor equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/fibre-action-empty",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Empty Isom sections remain empty in the bundled action",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedIsom.fibreAction_empty",
+      "statement": "If Isom_F(U)(x,y) is empty, the carrier of fibreAction(b,x,y) is empty as well.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors with specified object and fibre-morphism universes.",
+        "F,G have the actual IsGerbe fields, and bF,bG are specified AbelianBanding data for a sheaf A of abelian groups in independent coefficient universe w. The self case uses F=G and bF=bG=b.",
+        "The section Isom carriers need not be nonempty. No terminal object, global neutralization, constant coefficient sheaf, inverse strong transformation or equality w=v′ is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/fibre-action"
+      ],
+      "proofSteps": [
+        "The carrier is definitionally the actual Iso type; retain the supplied IsEmpty witness."
+      ],
+      "acceptance": [
+        "Use the actual native Action, StrongTrans and Iso carriers and their stated forward/inverse maps.",
+        "This is fibrewise action transport; restriction coherence, the torsor-sheaf functor, full faithfulness and the coherent inverse/unit/counit remain required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Extract the pointwise action functor and choice-independent local-object transport before proving sheaf restriction and descent."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retain every actual modification and its inverse in the comparison of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedIsom"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-rtOQ9t-fibre-actions",
+          "locator": "Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123; authored native-action deductions.",
+          "match": "Motivation and band conjugation are source-checked; the exact Action/functor/natural-isomorphism formulas are authored deductions, not printed formulas or a claimed full torsor equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/postcompose-action-iso",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Postcomposition as an isomorphism of band actions",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedIsom.postcomposeActionIso",
+      "statement": "For q:y≅z, postcomposition p ↦ p followed by q is an isomorphism fibreAction(b,x,y) ≅ fibreAction(b,x,z) in the native action category. Its inverse uses q inverse.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors with specified object and fibre-morphism universes.",
+        "F,G have the actual IsGerbe fields, and bF,bG are specified AbelianBanding data for a sheaf A of abelian groups in independent coefficient universe w. The self case uses F=G and bF=bG=b.",
+        "The section Isom carriers need not be nonempty. No terminal object, global neutralization, constant coefficient sheaf, inverse strong transformation or equality w=v′ is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/fibre-action",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding",
+        "mathlib:Action.Hom",
+        "mathlib:Action.hom_ext"
+      ],
+      "proofSteps": [
+        "Band conjugation makes postcomposition commute with every coefficient.",
+        "Construct actual forward and inverse Action.Hom fields and cancel q with q inverse."
+      ],
+      "acceptance": [
+        "Use the actual native Action, StrongTrans and Iso carriers and their stated forward/inverse maps.",
+        "This is fibrewise action transport; restriction coherence, the torsor-sheaf functor, full faithfulness and the coherent inverse/unit/counit remain required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Extract the pointwise action functor and choice-independent local-object transport before proving sheaf restriction and descent."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retain every actual modification and its inverse in the comparison of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedIsom"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-rtOQ9t-fibre-actions",
+          "locator": "Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123; authored native-action deductions.",
+          "match": "Motivation and band conjugation are source-checked; the exact Action/functor/natural-isomorphism formulas are authored deductions, not printed formulas or a claimed full torsor equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedIsom.postcomposeActionIso_apply",
+          "role": "simp",
+          "statement": "For q:y≅z and p:x≅y, the forward underlying function of postcomposeActionIso(b,q) is p followed by q."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedIsom.postcomposeActionIso_inv_apply",
+          "role": "simp",
+          "statement": "For q:y≅z and p:x≅z, the inverse underlying function is p followed by q inverse."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedIsom.postcomposeActionIso_comp",
+          "role": "compatibility",
+          "statement": "Postcomposition by q followed by r equals the composition of postcomposeActionIso(b,q) and postcomposeActionIso(b,r), with the original source object x fixed."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.FibreActionTests.postcompose_forward",
+          "kind": "computation",
+          "statement": "The forward function on p is p followed by the supplied q."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.FibreActionTests.postcompose_roundtrip",
+          "kind": "characterisation",
+          "statement": "Forward postcomposition by q and inverse postcomposition by q inverse return the original p."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.FibreActionTests.postcompose_composition",
+          "kind": "compatibility",
+          "statement": "Postcomposition by q followed by r equals composing the two native action isomorphisms."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/postcompose-action-iso-apply",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Forward postcomposition in the action category",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedIsom.postcomposeActionIso_apply",
+      "statement": "For q:y≅z and p:x≅y, the forward underlying function of postcomposeActionIso(b,q) is p followed by q.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors with specified object and fibre-morphism universes.",
+        "F,G have the actual IsGerbe fields, and bF,bG are specified AbelianBanding data for a sheaf A of abelian groups in independent coefficient universe w. The self case uses F=G and bF=bG=b.",
+        "The section Isom carriers need not be nonempty. No terminal object, global neutralization, constant coefficient sheaf, inverse strong transformation or equality w=v′ is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/postcompose-action-iso"
+      ],
+      "proofSteps": [
+        "Project the computed forward function."
+      ],
+      "acceptance": [
+        "Use the actual native Action, StrongTrans and Iso carriers and their stated forward/inverse maps.",
+        "This is fibrewise action transport; restriction coherence, the torsor-sheaf functor, full faithfulness and the coherent inverse/unit/counit remain required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Extract the pointwise action functor and choice-independent local-object transport before proving sheaf restriction and descent."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retain every actual modification and its inverse in the comparison of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedIsom"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-rtOQ9t-fibre-actions",
+          "locator": "Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123; authored native-action deductions.",
+          "match": "Motivation and band conjugation are source-checked; the exact Action/functor/natural-isomorphism formulas are authored deductions, not printed formulas or a claimed full torsor equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/postcompose-action-iso-inv-apply",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Inverse postcomposition in the action category",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedIsom.postcomposeActionIso_inv_apply",
+      "statement": "For q:y≅z and p:x≅z, the inverse underlying function is p followed by q inverse.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors with specified object and fibre-morphism universes.",
+        "F,G have the actual IsGerbe fields, and bF,bG are specified AbelianBanding data for a sheaf A of abelian groups in independent coefficient universe w. The self case uses F=G and bF=bG=b.",
+        "The section Isom carriers need not be nonempty. No terminal object, global neutralization, constant coefficient sheaf, inverse strong transformation or equality w=v′ is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/postcompose-action-iso"
+      ],
+      "proofSteps": [
+        "Project the computed inverse function."
+      ],
+      "acceptance": [
+        "Use the actual native Action, StrongTrans and Iso carriers and their stated forward/inverse maps.",
+        "This is fibrewise action transport; restriction coherence, the torsor-sheaf functor, full faithfulness and the coherent inverse/unit/counit remain required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Extract the pointwise action functor and choice-independent local-object transport before proving sheaf restriction and descent."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retain every actual modification and its inverse in the comparison of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedIsom"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-rtOQ9t-fibre-actions",
+          "locator": "Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123; authored native-action deductions.",
+          "match": "Motivation and band conjugation are source-checked; the exact Action/functor/natural-isomorphism formulas are authored deductions, not printed formulas or a claimed full torsor equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/postcompose-action-iso-comp",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Composing equivariant postcomposition isomorphisms",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedIsom.postcomposeActionIso_comp",
+      "statement": "Postcomposition by q followed by r equals the composition of postcomposeActionIso(b,q) and postcomposeActionIso(b,r), with the original source object x fixed.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors with specified object and fibre-morphism universes.",
+        "F,G have the actual IsGerbe fields, and bF,bG are specified AbelianBanding data for a sheaf A of abelian groups in independent coefficient universe w. The self case uses F=G and bF=bG=b.",
+        "The section Isom carriers need not be nonempty. No terminal object, global neutralization, constant coefficient sheaf, inverse strong transformation or equality w=v′ is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/postcompose-action-iso",
+        "mathlib:Action.hom_ext"
+      ],
+      "proofSteps": [
+        "Apply native Iso and Action.Hom extensionality and associativity of Iso composition."
+      ],
+      "acceptance": [
+        "Use the actual native Action, StrongTrans and Iso carriers and their stated forward/inverse maps.",
+        "This is fibrewise action transport; restriction coherence, the torsor-sheaf functor, full faithfulness and the coherent inverse/unit/counit remain required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Extract the pointwise action functor and choice-independent local-object transport before proving sheaf restriction and descent."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retain every actual modification and its inverse in the comparison of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedIsom"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-rtOQ9t-fibre-actions",
+          "locator": "Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123; authored native-action deductions.",
+          "match": "Motivation and band conjugation are source-checked; the exact Action/functor/natural-isomorphism formulas are authored deductions, not printed formulas or a claimed full torsor equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/component-iso",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "A native modification component as a fibre isomorphism",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.componentIso",
+      "statement": "For a native arrow m:X→Y in HomCategory(bF,bG), its component at U and x is the actual fibre isomorphism X_U(x)≅Y_U(x) obtained by asIso from m_U(x).",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors with specified object and fibre-morphism universes.",
+        "F,G have the actual IsGerbe fields, and bF,bG are specified AbelianBanding data for a sheaf A of abelian groups in independent coefficient universe w. The self case uses F=G and bF=bG=b.",
+        "The section Isom carriers need not be nonempty. No terminal object, global neutralization, constant coefficient sheaf, inverse strong transformation or equality w=v′ is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-category",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-iso"
+      ],
+      "proofSteps": [
+        "The target gerbe makes the native natural-transformation component IsIso.",
+        "Use asIso of that arrow; retain the existing StrongTrans and full-subcategory carriers."
+      ],
+      "acceptance": [
+        "Use the actual native Action, StrongTrans and Iso carriers and their stated forward/inverse maps.",
+        "This is fibrewise action transport; restriction coherence, the torsor-sheaf functor, full faithfulness and the coherent inverse/unit/counit remain required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Extract the pointwise action functor and choice-independent local-object transport before proving sheaf restriction and descent."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retain every actual modification and its inverse in the comparison of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-rtOQ9t-fibre-actions",
+          "locator": "Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123; authored native-action deductions.",
+          "match": "Motivation and band conjugation are source-checked; the exact Action/functor/natural-isomorphism formulas are authored deductions, not printed formulas or a claimed full torsor equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.componentIso_hom",
+          "role": "simp",
+          "statement": "The forward arrow of componentIso(m,U,x) is exactly the component of the actual native modification m, with no quotient or replacement carrier."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.componentIso_id",
+          "role": "simp",
+          "statement": "The component isomorphism of the identity native modification at U,x is Iso.refl of X_U(x)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.componentIso_comp",
+          "role": "compatibility",
+          "statement": "componentIso(m followed by n,U,x) equals componentIso(m,U,x) followed by componentIso(n,U,x)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.componentIso_inv",
+          "role": "compatibility",
+          "statement": "The component of the existing homIso(m) inverse is the inverse of componentIso(m,U,x)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.FibreActionTests.native_component",
+          "kind": "compatibility",
+          "statement": "The forward fibre arrow is exactly the component of the given native modification."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.FibreActionTests.native_component_inverse",
+          "kind": "characterisation",
+          "statement": "Evaluation of the native modification inverse is the inverse of the evaluated component isomorphism."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.FibreActionTests.native_component_composition",
+          "kind": "compatibility",
+          "statement": "Evaluation of actual vertical modification composition agrees with composition of fibre isomorphisms."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/component-iso-hom",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The component isomorphism retains its forward arrow",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.componentIso_hom",
+      "statement": "The forward arrow of componentIso(m,U,x) is exactly the component of the actual native modification m, with no quotient or replacement carrier.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors with specified object and fibre-morphism universes.",
+        "F,G have the actual IsGerbe fields, and bF,bG are specified AbelianBanding data for a sheaf A of abelian groups in independent coefficient universe w. The self case uses F=G and bF=bG=b.",
+        "The section Isom carriers need not be nonempty. No terminal object, global neutralization, constant coefficient sheaf, inverse strong transformation or equality w=v′ is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/component-iso"
+      ],
+      "proofSteps": [
+        "Project asIso.hom."
+      ],
+      "acceptance": [
+        "Use the actual native Action, StrongTrans and Iso carriers and their stated forward/inverse maps.",
+        "This is fibrewise action transport; restriction coherence, the torsor-sheaf functor, full faithfulness and the coherent inverse/unit/counit remain required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Extract the pointwise action functor and choice-independent local-object transport before proving sheaf restriction and descent."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retain every actual modification and its inverse in the comparison of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-rtOQ9t-fibre-actions",
+          "locator": "Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123; authored native-action deductions.",
+          "match": "Motivation and band conjugation are source-checked; the exact Action/functor/natural-isomorphism formulas are authored deductions, not printed formulas or a claimed full torsor equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/component-iso-id",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Identity modifications give identity fibre isomorphisms",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.componentIso_id",
+      "statement": "The component isomorphism of the identity native modification at U,x is Iso.refl of X_U(x).",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors with specified object and fibre-morphism universes.",
+        "F,G have the actual IsGerbe fields, and bF,bG are specified AbelianBanding data for a sheaf A of abelian groups in independent coefficient universe w. The self case uses F=G and bF=bG=b.",
+        "The section Isom carriers need not be nonempty. No terminal object, global neutralization, constant coefficient sheaf, inverse strong transformation or equality w=v′ is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/component-iso"
+      ],
+      "proofSteps": [
+        "Native full-subcategory identities, modification identities and natural-transformation identities evaluate to the identity arrow; use Iso.ext."
+      ],
+      "acceptance": [
+        "Use the actual native Action, StrongTrans and Iso carriers and their stated forward/inverse maps.",
+        "This is fibrewise action transport; restriction coherence, the torsor-sheaf functor, full faithfulness and the coherent inverse/unit/counit remain required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Extract the pointwise action functor and choice-independent local-object transport before proving sheaf restriction and descent."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retain every actual modification and its inverse in the comparison of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-rtOQ9t-fibre-actions",
+          "locator": "Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123; authored native-action deductions.",
+          "match": "Motivation and band conjugation are source-checked; the exact Action/functor/natural-isomorphism formulas are authored deductions, not printed formulas or a claimed full torsor equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/component-iso-comp",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Modification composition evaluates to Iso composition",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.componentIso_comp",
+      "statement": "componentIso(m followed by n,U,x) equals componentIso(m,U,x) followed by componentIso(n,U,x).",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors with specified object and fibre-morphism universes.",
+        "F,G have the actual IsGerbe fields, and bF,bG are specified AbelianBanding data for a sheaf A of abelian groups in independent coefficient universe w. The self case uses F=G and bF=bG=b.",
+        "The section Isom carriers need not be nonempty. No terminal object, global neutralization, constant coefficient sheaf, inverse strong transformation or equality w=v′ is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/component-iso"
+      ],
+      "proofSteps": [
+        "Native vertical modification composition is componentwise composition; use Iso.ext."
+      ],
+      "acceptance": [
+        "Use the actual native Action, StrongTrans and Iso carriers and their stated forward/inverse maps.",
+        "This is fibrewise action transport; restriction coherence, the torsor-sheaf functor, full faithfulness and the coherent inverse/unit/counit remain required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Extract the pointwise action functor and choice-independent local-object transport before proving sheaf restriction and descent."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retain every actual modification and its inverse in the comparison of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-rtOQ9t-fibre-actions",
+          "locator": "Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123; authored native-action deductions.",
+          "match": "Motivation and band conjugation are source-checked; the exact Action/functor/natural-isomorphism formulas are authored deductions, not printed formulas or a claimed full torsor equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/component-iso-inv",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The native modification inverse evaluates to the fibre inverse",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.componentIso_inv",
+      "statement": "The component of the existing homIso(m) inverse is the inverse of componentIso(m,U,x).",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors with specified object and fibre-morphism universes.",
+        "F,G have the actual IsGerbe fields, and bF,bG are specified AbelianBanding data for a sheaf A of abelian groups in independent coefficient universe w. The self case uses F=G and bF=bG=b.",
+        "The section Isom carriers need not be nonempty. No terminal object, global neutralization, constant coefficient sheaf, inverse strong transformation or equality w=v′ is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/component-iso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-iso"
+      ],
+      "proofSteps": [
+        "Compare the computed inverse modification component with the same asIso inverse and apply Iso.ext."
+      ],
+      "acceptance": [
+        "Use the actual native Action, StrongTrans and Iso carriers and their stated forward/inverse maps.",
+        "This is fibrewise action transport; restriction coherence, the torsor-sheaf functor, full faithfulness and the coherent inverse/unit/counit remain required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Extract the pointwise action functor and choice-independent local-object transport before proving sheaf restriction and descent."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retain every actual modification and its inverse in the comparison of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-rtOQ9t-fibre-actions",
+          "locator": "Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123; authored native-action deductions.",
+          "match": "Motivation and band conjugation are source-checked; the exact Action/functor/natural-isomorphism formulas are authored deductions, not printed formulas or a claimed full torsor equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/fibre-isom-action-functor",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Fixed-band morphisms acting on fibre Isom sets",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomActionFunctor",
+      "statement": "For U, x in F(U), and y in G(U), construct the native functor HomCategory(bF,bG) → Action(Type v′, Multiplicative(A(U))). It sends X to the action on Isom_G(U)(y,X_U(x)) and sends a native modification m to postcomposition by its actual component isomorphism.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors with specified object and fibre-morphism universes.",
+        "F,G have the actual IsGerbe fields, and bF,bG are specified AbelianBanding data for a sheaf A of abelian groups in independent coefficient universe w. The self case uses F=G and bF=bG=b.",
+        "The section Isom carriers need not be nonempty. No terminal object, global neutralization, constant coefficient sheaf, inverse strong transformation or equality w=v′ is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/fibre-action",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/postcompose-action-iso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/component-iso-id",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/component-iso-comp",
+        "mathlib:Action"
+      ],
+      "proofSteps": [
+        "Use the actual Iso carrier and its band action at each native strong transformation.",
+        "Use postcomposeActionIso for every modification; component identity and composition prove the functor laws.",
+        "No section, neutrality, terminal object or inverse strong transformation is required."
+      ],
+      "acceptance": [
+        "Use the actual native Action, StrongTrans and Iso carriers and their stated forward/inverse maps.",
+        "This is fibrewise action transport; restriction coherence, the torsor-sheaf functor, full faithfulness and the coherent inverse/unit/counit remain required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Extract the pointwise action functor and choice-independent local-object transport before proving sheaf restriction and descent."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retain every actual modification and its inverse in the comparison of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-rtOQ9t-fibre-actions",
+          "locator": "Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123; authored native-action deductions.",
+          "match": "Motivation and band conjugation are source-checked; the exact Action/functor/natural-isomorphism formulas are authored deductions, not printed formulas or a claimed full torsor equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomActionFunctor_obj",
+          "role": "simp",
+          "statement": "The carrier of the action assigned to X is exactly Isom_G(U)(y,X_U(x))."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomActionFunctor_map_apply",
+          "role": "simp",
+          "statement": "On p:y≅X_U(x), the underlying function assigned to m:X→Y sends p to p followed by componentIso(m,U,x)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomActionFunctor_map_inverse",
+          "role": "simp",
+          "statement": "The action functor map of homIso(m) inverse is the inverse arrow of postcomposeActionIso(bG,componentIso(m,U,x))."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.FibreActionTests.functor_actual_carrier",
+          "kind": "characterisation",
+          "statement": "The functor object has the actual carrier Isom_G(U)(y,X_U(x))."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.FibreActionTests.functor_coefficient_naturality",
+          "kind": "compatibility",
+          "statement": "Every native modification map commutes with each coefficient action, in the native Action.Hom equation."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.FibreActionTests.functor_native_inverse",
+          "kind": "compatibility",
+          "statement": "The native inverse modification maps to the inverse of postcomposition by the evaluated component."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/fibre-isom-action-functor-obj",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The action functor retains the actual Isom carrier",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomActionFunctor_obj",
+      "statement": "The carrier of the action assigned to X is exactly Isom_G(U)(y,X_U(x)).",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors with specified object and fibre-morphism universes.",
+        "F,G have the actual IsGerbe fields, and bF,bG are specified AbelianBanding data for a sheaf A of abelian groups in independent coefficient universe w. The self case uses F=G and bF=bG=b.",
+        "The section Isom carriers need not be nonempty. No terminal object, global neutralization, constant coefficient sheaf, inverse strong transformation or equality w=v′ is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/fibre-isom-action-functor"
+      ],
+      "proofSteps": [
+        "Project the computed functor object and native action carrier."
+      ],
+      "acceptance": [
+        "Use the actual native Action, StrongTrans and Iso carriers and their stated forward/inverse maps.",
+        "This is fibrewise action transport; restriction coherence, the torsor-sheaf functor, full faithfulness and the coherent inverse/unit/counit remain required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Extract the pointwise action functor and choice-independent local-object transport before proving sheaf restriction and descent."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retain every actual modification and its inverse in the comparison of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-rtOQ9t-fibre-actions",
+          "locator": "Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123; authored native-action deductions.",
+          "match": "Motivation and band conjugation are source-checked; the exact Action/functor/natural-isomorphism formulas are authored deductions, not printed formulas or a claimed full torsor equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/fibre-isom-action-functor-map-apply",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The action functor retains native modification evaluation",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomActionFunctor_map_apply",
+      "statement": "On p:y≅X_U(x), the underlying function assigned to m:X→Y sends p to p followed by componentIso(m,U,x).",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors with specified object and fibre-morphism universes.",
+        "F,G have the actual IsGerbe fields, and bF,bG are specified AbelianBanding data for a sheaf A of abelian groups in independent coefficient universe w. The self case uses F=G and bF=bG=b.",
+        "The section Isom carriers need not be nonempty. No terminal object, global neutralization, constant coefficient sheaf, inverse strong transformation or equality w=v′ is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/fibre-isom-action-functor"
+      ],
+      "proofSteps": [
+        "Project the computed functor map and postcomposition function."
+      ],
+      "acceptance": [
+        "Use the actual native Action, StrongTrans and Iso carriers and their stated forward/inverse maps.",
+        "This is fibrewise action transport; restriction coherence, the torsor-sheaf functor, full faithfulness and the coherent inverse/unit/counit remain required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Extract the pointwise action functor and choice-independent local-object transport before proving sheaf restriction and descent."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retain every actual modification and its inverse in the comparison of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-rtOQ9t-fibre-actions",
+          "locator": "Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123; authored native-action deductions.",
+          "match": "Motivation and band conjugation are source-checked; the exact Action/functor/natural-isomorphism formulas are authored deductions, not printed formulas or a claimed full torsor equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/fibre-isom-action-functor-map-inverse",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The action functor carries the actual modification inverse",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomActionFunctor_map_inverse",
+      "statement": "The action functor map of homIso(m) inverse is the inverse arrow of postcomposeActionIso(bG,componentIso(m,U,x)).",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors with specified object and fibre-morphism universes.",
+        "F,G have the actual IsGerbe fields, and bF,bG are specified AbelianBanding data for a sheaf A of abelian groups in independent coefficient universe w. The self case uses F=G and bF=bG=b.",
+        "The section Isom carriers need not be nonempty. No terminal object, global neutralization, constant coefficient sheaf, inverse strong transformation or equality w=v′ is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/fibre-isom-action-functor",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/component-iso-inv"
+      ],
+      "proofSteps": [
+        "Evaluate the native inverse modification, then use the inverse postcomposition formula."
+      ],
+      "acceptance": [
+        "Use the actual native Action, StrongTrans and Iso carriers and their stated forward/inverse maps.",
+        "This is fibrewise action transport; restriction coherence, the torsor-sheaf functor, full faithfulness and the coherent inverse/unit/counit remain required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Extract the pointwise action functor and choice-independent local-object transport before proving sheaf restriction and descent."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retain every actual modification and its inverse in the comparison of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-rtOQ9t-fibre-actions",
+          "locator": "Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123; authored native-action deductions.",
+          "match": "Motivation and band conjugation are source-checked; the exact Action/functor/natural-isomorphism formulas are authored deductions, not printed formulas or a claimed full torsor equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Transporting the self-morphism action along a fibre isomorphism",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportActionIso",
+      "statement": "For X in HomCategory(b,b) and e:x≅x′, construct an isomorphism between the action on Isom(x,X_U(x)) and the action on Isom(x′,X_U(x′)). It sends p to e inverse followed by p followed by X_U(e); its inverse uses e and X_U(e inverse).",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors with specified object and fibre-morphism universes.",
+        "F,G have the actual IsGerbe fields, and bF,bG are specified AbelianBanding data for a sheaf A of abelian groups in independent coefficient universe w. The self case uses F=G and bF=bG=b.",
+        "The section Isom carriers need not be nonempty. No terminal object, global neutralization, constant coefficient sheaf, inverse strong transformation or equality w=v′ is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/fibre-isom-action-functor",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding",
+        "mathlib:CategoryTheory.Functor.mapIso"
+      ],
+      "proofSteps": [
+        "Use actual native functor images of e and e inverse.",
+        "Band conjugation for X_U(e) proves equivariance; functoriality and the inverse equations prove both round trips."
+      ],
+      "acceptance": [
+        "Use the actual native Action, StrongTrans and Iso carriers and their stated forward/inverse maps.",
+        "This is fibrewise action transport; restriction coherence, the torsor-sheaf functor, full faithfulness and the coherent inverse/unit/counit remain required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Extract the pointwise action functor and choice-independent local-object transport before proving sheaf restriction and descent."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retain every actual modification and its inverse in the comparison of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-rtOQ9t-fibre-actions",
+          "locator": "Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123; authored native-action deductions.",
+          "match": "Motivation and band conjugation are source-checked; the exact Action/functor/natural-isomorphism formulas are authored deductions, not printed formulas or a claimed full torsor equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportActionIso_apply",
+          "role": "simp",
+          "statement": "The forward underlying function is p ↦ e inverse followed by p followed by X_U(e)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportActionIso_inv_apply",
+          "role": "simp",
+          "statement": "The inverse underlying function is p ↦ e followed by p followed by X_U(e inverse)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportActionIso_id",
+          "role": "simp",
+          "statement": "Transport by Iso.refl(x) is the identity isomorphism of the native self-morphism action."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportActionIso_comp",
+          "role": "compatibility",
+          "statement": "Transport along e:x≅x′ followed by f:x′≅x″ equals transport along e followed by transport along f."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportActionIso_independent",
+          "role": "compatibility",
+          "statement": "For X in HomCategory(b,b) and any two actual isomorphisms e,f:x≅x′, selfTransportActionIso(X,e) equals selfTransportActionIso(X,f). No choice of a connecting arrow is retained."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.SelfTransportTests.actual_arrow_transport",
+          "kind": "computation",
+          "statement": "The forward function sends p to e inverse followed by p followed by X_U(e)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.SelfTransportTests.no_chosen_arrow",
+          "kind": "characterisation",
+          "statement": "Two arbitrary connecting isomorphisms e,f give the same action isomorphism for an actual band-preserving X."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.SelfTransportTests.identity_transport",
+          "kind": "degenerate",
+          "statement": "Using Iso.refl(x) gives the native identity action isomorphism."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso-apply",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The self-transport forward formula",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportActionIso_apply",
+      "statement": "The forward underlying function is p ↦ e inverse followed by p followed by X_U(e).",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors with specified object and fibre-morphism universes.",
+        "F,G have the actual IsGerbe fields, and bF,bG are specified AbelianBanding data for a sheaf A of abelian groups in independent coefficient universe w. The self case uses F=G and bF=bG=b.",
+        "The section Isom carriers need not be nonempty. No terminal object, global neutralization, constant coefficient sheaf, inverse strong transformation or equality w=v′ is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso"
+      ],
+      "proofSteps": [
+        "Project the computed forward function, preserving its domain and codomain objects."
+      ],
+      "acceptance": [
+        "Use the actual native Action, StrongTrans and Iso carriers and their stated forward/inverse maps.",
+        "This is fibrewise action transport; restriction coherence, the torsor-sheaf functor, full faithfulness and the coherent inverse/unit/counit remain required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Extract the pointwise action functor and choice-independent local-object transport before proving sheaf restriction and descent."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retain every actual modification and its inverse in the comparison of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-rtOQ9t-fibre-actions",
+          "locator": "Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123; authored native-action deductions.",
+          "match": "Motivation and band conjugation are source-checked; the exact Action/functor/natural-isomorphism formulas are authored deductions, not printed formulas or a claimed full torsor equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso-inv-apply",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The self-transport inverse formula",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportActionIso_inv_apply",
+      "statement": "The inverse underlying function is p ↦ e followed by p followed by X_U(e inverse).",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors with specified object and fibre-morphism universes.",
+        "F,G have the actual IsGerbe fields, and bF,bG are specified AbelianBanding data for a sheaf A of abelian groups in independent coefficient universe w. The self case uses F=G and bF=bG=b.",
+        "The section Isom carriers need not be nonempty. No terminal object, global neutralization, constant coefficient sheaf, inverse strong transformation or equality w=v′ is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso"
+      ],
+      "proofSteps": [
+        "Project the computed inverse function."
+      ],
+      "acceptance": [
+        "Use the actual native Action, StrongTrans and Iso carriers and their stated forward/inverse maps.",
+        "This is fibrewise action transport; restriction coherence, the torsor-sheaf functor, full faithfulness and the coherent inverse/unit/counit remain required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Extract the pointwise action functor and choice-independent local-object transport before proving sheaf restriction and descent."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retain every actual modification and its inverse in the comparison of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-rtOQ9t-fibre-actions",
+          "locator": "Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123; authored native-action deductions.",
+          "match": "Motivation and band conjugation are source-checked; the exact Action/functor/natural-isomorphism formulas are authored deductions, not printed formulas or a claimed full torsor equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso-id",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Transport by the identity fibre arrow",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportActionIso_id",
+      "statement": "Transport by Iso.refl(x) is the identity isomorphism of the native self-morphism action.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors with specified object and fibre-morphism universes.",
+        "F,G have the actual IsGerbe fields, and bF,bG are specified AbelianBanding data for a sheaf A of abelian groups in independent coefficient universe w. The self case uses F=G and bF=bG=b.",
+        "The section Isom carriers need not be nonempty. No terminal object, global neutralization, constant coefficient sheaf, inverse strong transformation or equality w=v′ is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso",
+        "mathlib:CategoryTheory.Functor.mapIso_refl"
+      ],
+      "proofSteps": [
+        "Evaluate the identity image and apply native action-arrow extensionality."
+      ],
+      "acceptance": [
+        "Use the actual native Action, StrongTrans and Iso carriers and their stated forward/inverse maps.",
+        "This is fibrewise action transport; restriction coherence, the torsor-sheaf functor, full faithfulness and the coherent inverse/unit/counit remain required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Extract the pointwise action functor and choice-independent local-object transport before proving sheaf restriction and descent."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retain every actual modification and its inverse in the comparison of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-rtOQ9t-fibre-actions",
+          "locator": "Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123; authored native-action deductions.",
+          "match": "Motivation and band conjugation are source-checked; the exact Action/functor/natural-isomorphism formulas are authored deductions, not printed formulas or a claimed full torsor equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso-comp",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Transport along successive fibre isomorphisms",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportActionIso_comp",
+      "statement": "Transport along e:x≅x′ followed by f:x′≅x″ equals transport along e followed by transport along f.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors with specified object and fibre-morphism universes.",
+        "F,G have the actual IsGerbe fields, and bF,bG are specified AbelianBanding data for a sheaf A of abelian groups in independent coefficient universe w. The self case uses F=G and bF=bG=b.",
+        "The section Isom carriers need not be nonempty. No terminal object, global neutralization, constant coefficient sheaf, inverse strong transformation or equality w=v′ is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso",
+        "mathlib:CategoryTheory.Functor.mapIso_trans"
+      ],
+      "proofSteps": [
+        "Functor.mapIso_trans and associativity give equality of the actual forward functions."
+      ],
+      "acceptance": [
+        "Use the actual native Action, StrongTrans and Iso carriers and their stated forward/inverse maps.",
+        "This is fibrewise action transport; restriction coherence, the torsor-sheaf functor, full faithfulness and the coherent inverse/unit/counit remain required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Extract the pointwise action functor and choice-independent local-object transport before proving sheaf restriction and descent."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retain every actual modification and its inverse in the comparison of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-rtOQ9t-fibre-actions",
+          "locator": "Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123; authored native-action deductions.",
+          "match": "Motivation and band conjugation are source-checked; the exact Action/functor/natural-isomorphism formulas are authored deductions, not printed formulas or a claimed full torsor equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-nat-iso",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Natural transport of fixed-band self-morphism actions",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportNatIso",
+      "statement": "For e:x≅x′, assemble selfTransportActionIso(X,e) into a native natural isomorphism between fibreIsomActionFunctor(b,b,U,x,x) and fibreIsomActionFunctor(b,b,U,x′,x′). Naturality is with respect to every actual native modification.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors with specified object and fibre-morphism universes.",
+        "F,G have the actual IsGerbe fields, and bF,bG are specified AbelianBanding data for a sheaf A of abelian groups in independent coefficient universe w. The self case uses F=G and bF=bG=b.",
+        "The section Isom carriers need not be nonempty. No terminal object, global neutralization, constant coefficient sheaf, inverse strong transformation or equality w=v′ is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/component-iso-hom",
+        "mathlib:CategoryTheory.NatIso.ofComponents"
+      ],
+      "proofSteps": [
+        "The component is the existing selfTransportActionIso.",
+        "Naturality of m_U at e gives X_U(e) followed by m_U(x′) = m_U(x) followed by Y_U(e). Precompose by e inverse and p.",
+        "Native NatIso.ofComponents supplies inverse naturality."
+      ],
+      "acceptance": [
+        "Use the actual native Action, StrongTrans and Iso carriers and their stated forward/inverse maps.",
+        "This is fibrewise action transport; restriction coherence, the torsor-sheaf functor, full faithfulness and the coherent inverse/unit/counit remain required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Extract the pointwise action functor and choice-independent local-object transport before proving sheaf restriction and descent."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retain every actual modification and its inverse in the comparison of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-rtOQ9t-fibre-actions",
+          "locator": "Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123; authored native-action deductions.",
+          "match": "Motivation and band conjugation are source-checked; the exact Action/functor/natural-isomorphism formulas are authored deductions, not printed formulas or a claimed full torsor equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportNatIso_app",
+          "role": "simp",
+          "statement": "At X, the natural isomorphism component is exactly selfTransportActionIso(X,e)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportNatIso_independent",
+          "role": "compatibility",
+          "statement": "For e,f:x≅x′, the resulting native natural isomorphisms of self-morphism action functors are equal."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportNatIso_id",
+          "role": "simp",
+          "statement": "Natural transport along Iso.refl(x) is the identity natural isomorphism of the native action functor."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportNatIso_comp",
+          "role": "compatibility",
+          "statement": "Natural transport along e followed by f equals the composition of the native natural transports along e and f."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.SelfTransportTests.modification_naturality",
+          "kind": "compatibility",
+          "statement": "For every native modification m the action-functor maps commute with the natural transport components."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.SelfTransportTests.natural_composition",
+          "kind": "compatibility",
+          "statement": "Transport along e followed by f agrees as a native natural isomorphism with composing the two transports."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.SelfTransportTests.natural_independence",
+          "kind": "characterisation",
+          "statement": "Arbitrary e,f between the same objects produce equal native natural isomorphisms."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-nat-iso-app",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The natural transport uses the specified action isomorphisms",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportNatIso_app",
+      "statement": "At X, the natural isomorphism component is exactly selfTransportActionIso(X,e).",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors with specified object and fibre-morphism universes.",
+        "F,G have the actual IsGerbe fields, and bF,bG are specified AbelianBanding data for a sheaf A of abelian groups in independent coefficient universe w. The self case uses F=G and bF=bG=b.",
+        "The section Isom carriers need not be nonempty. No terminal object, global neutralization, constant coefficient sheaf, inverse strong transformation or equality w=v′ is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-nat-iso"
+      ],
+      "proofSteps": [
+        "Project the native NatIso.ofComponents field."
+      ],
+      "acceptance": [
+        "Use the actual native Action, StrongTrans and Iso carriers and their stated forward/inverse maps.",
+        "This is fibrewise action transport; restriction coherence, the torsor-sheaf functor, full faithfulness and the coherent inverse/unit/counit remain required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Extract the pointwise action functor and choice-independent local-object transport before proving sheaf restriction and descent."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retain every actual modification and its inverse in the comparison of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-rtOQ9t-fibre-actions",
+          "locator": "Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123; authored native-action deductions.",
+          "match": "Motivation and band conjugation are source-checked; the exact Action/functor/natural-isomorphism formulas are authored deductions, not printed formulas or a claimed full torsor equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso-independent",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Self-action transport is independent of the connecting arrow",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportActionIso_independent",
+      "statement": "For X in HomCategory(b,b) and any two actual isomorphisms e,f:x≅x′, selfTransportActionIso(X,e) equals selfTransportActionIso(X,f). No choice of a connecting arrow is retained.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors with specified object and fibre-morphism universes.",
+        "F,G have the actual IsGerbe fields, and bF,bG are specified AbelianBanding data for a sheaf A of abelian groups in independent coefficient universe w. The self case uses F=G and bF=bG=b.",
+        "The section Isom carriers need not be nonempty. No terminal object, global neutralization, constant coefficient sheaf, inverse strong transformation or equality w=v′ is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding",
+        "mathlib:CategoryTheory.Functor.mapAut"
+      ],
+      "proofSteps": [
+        "Express f followed by e inverse as the band automorphism b_x(a) using the actual autEquiv inverse.",
+        "Band preservation identifies X_U(b_x(a)) with b_X_U(x)(a).",
+        "Band conjugation along p moves the matching automorphism past p; cancel after precomposing f inverse and postcomposing X_U(e)."
+      ],
+      "acceptance": [
+        "Use the actual native Action, StrongTrans and Iso carriers and their stated forward/inverse maps.",
+        "This is fibrewise action transport; restriction coherence, the torsor-sheaf functor, full faithfulness and the coherent inverse/unit/counit remain required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Extract the pointwise action functor and choice-independent local-object transport before proving sheaf restriction and descent."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retain every actual modification and its inverse in the comparison of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-rtOQ9t-fibre-actions",
+          "locator": "Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123; authored native-action deductions.",
+          "match": "Motivation and band conjugation are source-checked; the exact Action/functor/natural-isomorphism formulas are authored deductions, not printed formulas or a claimed full torsor equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-nat-iso-independent",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Natural self-action transport is independent of the connecting arrow",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportNatIso_independent",
+      "statement": "For e,f:x≅x′, the resulting native natural isomorphisms of self-morphism action functors are equal.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors with specified object and fibre-morphism universes.",
+        "F,G have the actual IsGerbe fields, and bF,bG are specified AbelianBanding data for a sheaf A of abelian groups in independent coefficient universe w. The self case uses F=G and bF=bG=b.",
+        "The section Isom carriers need not be nonempty. No terminal object, global neutralization, constant coefficient sheaf, inverse strong transformation or equality w=v′ is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-nat-iso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso-independent"
+      ],
+      "proofSteps": [
+        "Apply native Iso and natural-transformation extensionality to the equality at every X."
+      ],
+      "acceptance": [
+        "Use the actual native Action, StrongTrans and Iso carriers and their stated forward/inverse maps.",
+        "This is fibrewise action transport; restriction coherence, the torsor-sheaf functor, full faithfulness and the coherent inverse/unit/counit remain required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Extract the pointwise action functor and choice-independent local-object transport before proving sheaf restriction and descent."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retain every actual modification and its inverse in the comparison of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-rtOQ9t-fibre-actions",
+          "locator": "Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123; authored native-action deductions.",
+          "match": "Motivation and band conjugation are source-checked; the exact Action/functor/natural-isomorphism formulas are authored deductions, not printed formulas or a claimed full torsor equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-nat-iso-id",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Identity natural transport of self-morphism actions",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportNatIso_id",
+      "statement": "Natural transport along Iso.refl(x) is the identity natural isomorphism of the native action functor.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors with specified object and fibre-morphism universes.",
+        "F,G have the actual IsGerbe fields, and bF,bG are specified AbelianBanding data for a sheaf A of abelian groups in independent coefficient universe w. The self case uses F=G and bF=bG=b.",
+        "The section Isom carriers need not be nonempty. No terminal object, global neutralization, constant coefficient sheaf, inverse strong transformation or equality w=v′ is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-nat-iso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso-id"
+      ],
+      "proofSteps": [
+        "Apply equality at every native transformation and natural-transformation extensionality."
+      ],
+      "acceptance": [
+        "Use the actual native Action, StrongTrans and Iso carriers and their stated forward/inverse maps.",
+        "This is fibrewise action transport; restriction coherence, the torsor-sheaf functor, full faithfulness and the coherent inverse/unit/counit remain required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Extract the pointwise action functor and choice-independent local-object transport before proving sheaf restriction and descent."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retain every actual modification and its inverse in the comparison of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-rtOQ9t-fibre-actions",
+          "locator": "Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123; authored native-action deductions.",
+          "match": "Motivation and band conjugation are source-checked; the exact Action/functor/natural-isomorphism formulas are authored deductions, not printed formulas or a claimed full torsor equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-nat-iso-comp",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Composing natural transports of self-morphism actions",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportNatIso_comp",
+      "statement": "Natural transport along e followed by f equals the composition of the native natural transports along e and f.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors with specified object and fibre-morphism universes.",
+        "F,G have the actual IsGerbe fields, and bF,bG are specified AbelianBanding data for a sheaf A of abelian groups in independent coefficient universe w. The self case uses F=G and bF=bG=b.",
+        "The section Isom carriers need not be nonempty. No terminal object, global neutralization, constant coefficient sheaf, inverse strong transformation or equality w=v′ is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-nat-iso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso-comp"
+      ],
+      "proofSteps": [
+        "Use componentwise transport composition and native natural-transformation extensionality."
+      ],
+      "acceptance": [
+        "Use the actual native Action, StrongTrans and Iso carriers and their stated forward/inverse maps.",
+        "This is fibrewise action transport; restriction coherence, the torsor-sheaf functor, full faithfulness and the coherent inverse/unit/counit remain required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Extract the pointwise action functor and choice-independent local-object transport before proving sheaf restriction and descent."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retain every actual modification and its inverse in the comparison of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-rtOQ9t-fibre-actions",
+          "locator": "Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123; authored native-action deductions.",
+          "match": "Motivation and band conjugation are source-checked; the exact Action/functor/natural-isomorphism formulas are authored deductions, not printed formulas or a claimed full torsor equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -26520,7 +28151,8 @@
         "The arbitrary deeper-slice coherence, native Hom-presheaf/sheaf morphism, covering image-sieve argument, native locally-bijective sheaf inverse and actual fibre Full instance now have separate mathematical proof plans and admitted signatures. The new bodies have not been certified and the incoming native StrongTrans draft was itself uncompiled. The banded adapter family retains the same coefficient/fibre-hom universe convention; normalize and validate the independent-universe reserved-key interface before claiming the general theorem. Essential surjectivity, an inverse strong transformation, general gerbe equivalence, SF1 descended-band comparison, D0 torsor/classifying-stack comparison, nonneutral O(1) root gerbe, derived H2/classification, compatible-object profinite limits, R09.3 affine module descent elaboration, all other stage/source obligations and all 21 requests remain required.",
         "The object-descent route is specified with native carriers and actual morphisms; inverse StrongTrans/band coherence, independent coefficient-universe normalization and admitted mathematical proof bodies remain open.",
         "Fixed-band natural-isomorphism/modification invariance, native chosen fibre-inverse coefficients, and unit/counit fibre transport now have eight precise leaves and admission-free prototypes with independent coefficient universe. The generic coherent inverse StrongTrans and unit/counit/triangle assembly is explicitly requested from D0; the earlier Hom-sheaf/object-descent universe normalization and all other remaining obligations are unchanged.",
-        "Use the native fixed-band morphism groupoid in the torsor comparison and construct its actual functors/coherent unit and counit. This checkpoint supplies modification inverses, not the coherent inverse StrongTrans requested from D0 or the general self-equivalence classification."
+        "Use the native fixed-band morphism groupoid in the torsor comparison and construct its actual functors/coherent unit and counit. This checkpoint supplies modification inverses, not the coherent inverse StrongTrans requested from D0 or the general self-equivalence classification.",
+        "Native pointwise Isom action functors and choice-independent natural local-object transports now have separate leaves. Prove compatibility with arbitrary site restrictions, construct the torsor-sheaf functor on actual modifications, and prove its full faithfulness and coherent inverse/unit/counit. Pointwise action carriers may be empty, and no sheaf torsor or global neutralization follows from this checkpoint alone. All previous gaps and22 supplier requests remain."
       ]
     },
     {
