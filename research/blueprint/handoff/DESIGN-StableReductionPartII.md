@@ -402,7 +402,5 @@ def install():
     for name, function in [('read_text', read_text), ('read_bytes', read_bytes), ('exists', exists), ('is_file', is_file), ('is_dir', is_dir), ('glob', glob), ('rglob', lambda path, pattern: glob(path, pattern, True)), ('open', open_path), ('write_text', write_text), ('write_bytes', write_bytes)]:
         setattr(Path, name, function)
     sys.meta_path.insert(0, Finder())
-
-
 # END ARCHIVED COEFFICIENT MODULE HOM IMMUTABLE READER
 ```
