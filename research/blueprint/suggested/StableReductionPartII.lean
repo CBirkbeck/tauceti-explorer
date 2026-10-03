@@ -3611,3 +3611,356 @@ example :
 end
 end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
 /- END COMPLETED COEFFICIENT COMPARISON -/
+
+/- BEGIN FINITE TWO-BASE COMPARISON -/
+
+namespace TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+noncomputable section
+open TensorProduct
+variable (A : Type*) [CommRing A] (γ δ s t : A)
+variable (p : Ideal A) (m : Ideal (Ring A γ δ s t)) (n : ℕ)
+
+/-- The finite coefficient ring has its actual completed-coefficient action. -/
+@[instance_reducible]
+def completionResidueAlgebra : Algebra (AdicCompletion p A) (A ⧸ p ^ n) := by
+  sorry
+
+lemma completionResidueAlgebra_map (a : AdicCompletion p A) :
+    letI := completionResidueAlgebra A p n
+    algebraMap (AdicCompletion p A) (A ⧸ p ^ n) a = AdicCompletion.evalₐ p n a := by
+  sorry
+
+lemma completionResidueAlgebra_of (a : A) :
+    letI := completionResidueAlgebra A p n
+    algebraMap (AdicCompletion p A) (A ⧸ p ^ n) (AdicCompletion.of p A a) =
+      Ideal.Quotient.mk (p ^ n) a := by
+  sorry
+
+lemma completionResidueAlgebra_surjective :
+    letI := completionResidueAlgebra A p n
+    Function.Surjective (algebraMap (AdicCompletion p A) (A ⧸ p ^ n)) := by
+  sorry
+
+/-- The finite polynomial chart is an algebra over the actual finite coefficient ring. -/
+@[instance_reducible]
+def completionFiniteChartAlgebra (h : p ≤ m.comap (coefficientHom A γ δ s t)) :
+    Algebra (A ⧸ p ^ n) ((Ring A γ δ s t) ⧸ m ^ n) := by
+  sorry
+
+lemma completionFiniteChartAlgebra_map (h : p ≤ m.comap (coefficientHom A γ δ s t))
+    (a : A ⧸ p ^ n) :
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    algebraMap (A ⧸ p ^ n) ((Ring A γ δ s t) ⧸ m ^ n) a =
+      completionCoefficientLevel A γ δ s t p m h n a := by
+  sorry
+
+lemma completionFiniteChartAlgebra_mk (h : p ≤ m.comap (coefficientHom A γ δ s t))
+    (a : A) :
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    algebraMap (A ⧸ p ^ n) ((Ring A γ δ s t) ⧸ m ^ n)
+      (Ideal.Quotient.mk (p ^ n) a) =
+      Ideal.Quotient.mk (m ^ n) (coefficientHom A γ δ s t a) := by
+  sorry
+
+lemma completionFiniteChartAlgebra_family (h : p ≤ m.comap (coefficientHom A γ δ s t))
+    (a : AdicCompletion p A) :
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    algebraMap (A ⧸ p ^ n) ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n a) =
+      completionCoefficientFamily A γ δ s t p m h n a := by
+  sorry
+
+/-- Finite generation identifies the kernel of the actual residue evaluation. -/
+lemma completionResidueAlgebra_kernel (hp : p.FG) (a : AdicCompletion p A)
+    (ha : AdicCompletion.evalₐ p n a = 0) :
+    a ∈ p ^ n • (⊤ : Submodule A (AdicCompletion p A)) := by
+  sorry
+
+lemma completionFiniteCoefficient_annihilate (h : p ≤ m.comap (coefficientHom A γ δ s t)) (b : A) (hb : b ∈ p ^ n) (q : ((Ring A γ δ s t) ⧸ m ^ n)) :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+    b • q = 0 := by
+  sorry
+
+lemma completionFiniteCoefficient_tower (h : p ≤ m.comap (coefficientHom A γ δ s t)) :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+    IsScalarTower A (AdicCompletion p A) ((Ring A γ δ s t) ⧸ m ^ n) := by
+  sorry
+
+variable (N : Type*) [AddCommGroup N] [Module A N] [Module (AdicCompletion p A) N]
+variable [IsScalarTower A (AdicCompletion p A) N]
+
+lemma completionFiniteTensor_kernel_vanish [IsScalarTower A (AdicCompletion p A) N]
+    (h : p ≤ m.comap (coefficientHom A γ δ s t)) (c : AdicCompletion p A)
+    (hc : c ∈ p ^ n • (⊤ : Submodule A (AdicCompletion p A))) (q : ((Ring A γ δ s t) ⧸ m ^ n)) (z : N) :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+    q ⊗ₜ[A] (c • z) = 0 := by
+  sorry
+
+lemma completionFiniteTensor_balance_kernel [IsScalarTower A (AdicCompletion p A) N]
+    (hp : p.FG) (h : p ≤ m.comap (coefficientHom A γ δ s t)) (a : AdicCompletion p A) (q : ((Ring A γ δ s t) ⧸ m ^ n)) (z : N) :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+    (a • q) ⊗ₜ[A] z = q ⊗ₜ[A] (a • z) := by
+  sorry
+
+lemma completionFiniteTensor_compatible [IsScalarTower A (AdicCompletion p A) N]
+    (hp : p.FG) (h : p ≤ m.comap (coefficientHom A γ δ s t)) :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+    CompatibleSMul A (AdicCompletion p A) ((Ring A γ δ s t) ⧸ m ^ n) N := by
+  sorry
+
+/-- The finite nodal quotient comparison for every completed-coefficient module. -/
+def completionFiniteTensorEquiv [IsScalarTower A (AdicCompletion p A) N]
+    (hp : p.FG) (h : p ≤ m.comap (coefficientHom A γ δ s t)) :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+    (((Ring A γ δ s t) ⧸ m ^ n) ⊗[A] N) ≃ₗ[((Ring A γ δ s t) ⧸ m ^ n)] (((Ring A γ δ s t) ⧸ m ^ n) ⊗[AdicCompletion p A] N) := by
+  sorry
+
+lemma completionFiniteTensorEquiv_tmul (hp : p.FG) (h : p ≤ m.comap (coefficientHom A γ δ s t)) (q : ((Ring A γ δ s t) ⧸ m ^ n)) (z : N) :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+    completionFiniteTensorEquiv A γ δ s t p m n N hp h (q ⊗ₜ[A] z) = q ⊗ₜ[AdicCompletion p A] z := by
+  sorry
+
+lemma completionFiniteTensorEquiv_symm_tmul (hp : p.FG) (h : p ≤ m.comap (coefficientHom A γ δ s t)) (q : ((Ring A γ δ s t) ⧸ m ^ n)) (z : N) :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+    (completionFiniteTensorEquiv A γ δ s t p m n N hp h).symm (q ⊗ₜ[AdicCompletion p A] z) = q ⊗ₜ[A] z := by
+  sorry
+
+lemma completionFiniteTensorEquiv_source (hp : p.FG) (h : p ≤ m.comap (coefficientHom A γ δ s t))
+    (x :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+      ((Ring A γ δ s t) ⧸ m ^ n) ⊗[A] N) :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+    (completionFiniteTensorEquiv A γ δ s t p m n N hp h).symm (completionFiniteTensorEquiv A γ δ s t p m n N hp h x) = x := by
+  sorry
+
+lemma completionFiniteTensorEquiv_target (hp : p.FG) (h : p ≤ m.comap (coefficientHom A γ δ s t))
+    (x :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+      ((Ring A γ δ s t) ⧸ m ^ n) ⊗[AdicCompletion p A] N) :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+    completionFiniteTensorEquiv A γ δ s t p m n N hp h ((completionFiniteTensorEquiv A γ δ s t p m n N hp h).symm x) = x := by
+  sorry
+
+lemma completionFiniteTensorEquiv_balance (hp : p.FG) (h : p ≤ m.comap (coefficientHom A γ δ s t)) (a : AdicCompletion p A) (q : ((Ring A γ δ s t) ⧸ m ^ n)) (z : N) :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+    (a • q) ⊗ₜ[A] z = q ⊗ₜ[A] (a • z) := by
+  sorry
+
+variable (L : Type*) [AddCommGroup L] [Module ((Ring A γ δ s t) ⧸ m ^ n) L]
+
+/-- Postcompose actual Hom targets with the finite coefficient equivalence. -/
+def completionFiniteHomEquiv [IsScalarTower A (AdicCompletion p A) N]
+    (hp : p.FG) (h : p ≤ m.comap (coefficientHom A γ δ s t)) :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+    (L →ₗ[((Ring A γ δ s t) ⧸ m ^ n)] ((Ring A γ δ s t) ⧸ m ^ n) ⊗[A] N) ≃ₗ[((Ring A γ δ s t) ⧸ m ^ n)]
+      (L →ₗ[((Ring A γ δ s t) ⧸ m ^ n)] ((Ring A γ δ s t) ⧸ m ^ n) ⊗[AdicCompletion p A] N) := by
+  sorry
+
+lemma completionFiniteHomEquiv_apply (hp : p.FG) (h : p ≤ m.comap (coefficientHom A γ δ s t))
+    (f :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+      (L →ₗ[((Ring A γ δ s t) ⧸ m ^ n)] ((Ring A γ δ s t) ⧸ m ^ n) ⊗[A] N)) (x : L) :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+    completionFiniteHomEquiv A γ δ s t p m n N L hp h f x = completionFiniteTensorEquiv A γ δ s t p m n N hp h (f x) := by
+  sorry
+
+lemma completionFiniteHomEquiv_symm_apply (hp : p.FG) (h : p ≤ m.comap (coefficientHom A γ δ s t))
+    (f :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+      (L →ₗ[((Ring A γ δ s t) ⧸ m ^ n)] ((Ring A γ δ s t) ⧸ m ^ n) ⊗[AdicCompletion p A] N)) (x : L) :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+    (completionFiniteHomEquiv A γ δ s t p m n N L hp h).symm f x = (completionFiniteTensorEquiv A γ δ s t p m n N hp h).symm (f x) := by
+  sorry
+
+lemma completionFiniteHomEquiv_roundtrip (hp : p.FG) (h : p ≤ m.comap (coefficientHom A γ δ s t))
+    (f :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+      (L →ₗ[((Ring A γ δ s t) ⧸ m ^ n)] ((Ring A γ δ s t) ⧸ m ^ n) ⊗[A] N)) :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+    (completionFiniteHomEquiv A γ δ s t p m n N L hp h).symm (completionFiniteHomEquiv A γ δ s t p m n N L hp h f) = f := by
+  sorry
+
+end
+end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+
+
+namespace TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+noncomputable section
+open TensorProduct
+variable (A : Type*) [CommRing A] (γ δ s t : A)
+variable (p : Ideal A) (m : Ideal (Ring A γ δ s t)) (n : ℕ)
+
+-- test: NodeSectionFactorization.PolynomialModel.completionResidueAlgebra.test_native_evaluation
+example (a : AdicCompletion p A) :
+    letI := completionResidueAlgebra A p n
+    algebraMap (AdicCompletion p A) (A ⧸ p ^ n) a = AdicCompletion.evalₐ p n a := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.completionResidueAlgebra.test_unit
+example  :
+    letI := completionResidueAlgebra A p n
+    algebraMap (AdicCompletion p A) (A ⧸ p ^ n) (AdicCompletion.of p A (1 : A)) = 1 := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.completionResidueAlgebra.test_zero
+example  :
+    letI := completionResidueAlgebra A p n
+    algebraMap (AdicCompletion p A) (A ⧸ p ^ n) 0 = 0 := by
+  sorry
+
+variable (h : p ≤ m.comap (coefficientHom A γ δ s t))
+
+-- test: NodeSectionFactorization.PolynomialModel.completionFiniteChartAlgebra.test_original_coefficient
+example (a : A) :
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    algebraMap (A ⧸ p ^ n) ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n) a) =
+      Ideal.Quotient.mk (m ^ n) (coefficientHom A γ δ s t a) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.completionFiniteChartAlgebra.test_zero
+example  :
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    algebraMap (A ⧸ p ^ n) ((Ring A γ δ s t) ⧸ m ^ n) 0 = 0 := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.completionFiniteChartAlgebra.test_completed_square
+example (a : AdicCompletion p A) :
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    algebraMap (A ⧸ p ^ n) ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n a) =
+      completionCoefficientFamily A γ δ s t p m h n a := by
+  sorry
+
+variable (N : Type*) [AddCommGroup N] [Module A N] [Module (AdicCompletion p A) N]
+variable [IsScalarTower A (AdicCompletion p A) N]
+variable (hp : p.FG)
+
+-- test: NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv.test_forward_pure
+example (q : ((Ring A γ δ s t) ⧸ m ^ n)) (z : N) :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+    completionFiniteTensorEquiv A γ δ s t p m n N hp h (q ⊗ₜ[A] z) = q ⊗ₜ[AdicCompletion p A] z := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv.test_inverse_pure
+example (q : ((Ring A γ δ s t) ⧸ m ^ n)) (z : N) :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+    (completionFiniteTensorEquiv A γ δ s t p m n N hp h).symm (q ⊗ₜ[AdicCompletion p A] z) = q ⊗ₜ[A] z := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv.test_completed_balancing
+example (a : AdicCompletion p A) (q : ((Ring A γ δ s t) ⧸ m ^ n)) (z : N) :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+    (a • q) ⊗ₜ[A] z = q ⊗ₜ[A] (a • z) := by
+  sorry
+
+variable (L : Type*) [AddCommGroup L] [Module ((Ring A γ δ s t) ⧸ m ^ n) L]
+
+-- test: NodeSectionFactorization.PolynomialModel.completionFiniteHomEquiv.test_zero
+example  :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+    completionFiniteHomEquiv A γ δ s t p m n N L hp h (0 : L →ₗ[((Ring A γ δ s t) ⧸ m ^ n)] ((Ring A γ δ s t) ⧸ m ^ n) ⊗[A] N) = 0 := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.completionFiniteHomEquiv.test_roundtrip
+example (f :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+      L →ₗ[((Ring A γ δ s t) ⧸ m ^ n)] ((Ring A γ δ s t) ⧸ m ^ n) ⊗[A] N) :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+    (completionFiniteHomEquiv A γ δ s t p m n N L hp h).symm (completionFiniteHomEquiv A γ δ s t p m n N L hp h f) = f := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.completionFiniteHomEquiv.test_section_target
+example (f :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+      (((Ring A γ δ s t) ⧸ m ^ n) ⊗[Ring A γ δ s t] (sectionIdeal A γ δ s t)) →ₗ[((Ring A γ δ s t) ⧸ m ^ n)] ((Ring A γ δ s t) ⧸ m ^ n) ⊗[A] N)
+    (x : (((Ring A γ δ s t) ⧸ m ^ n) ⊗[Ring A γ δ s t] (sectionIdeal A γ δ s t))) :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+    completionFiniteHomEquiv A γ δ s t p m n N (((Ring A γ δ s t) ⧸ m ^ n) ⊗[Ring A γ δ s t] (sectionIdeal A γ δ s t)) hp h f x =
+      completionFiniteTensorEquiv A γ δ s t p m n N hp h (f x) := by
+  sorry
+
+end
+end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+/- END FINITE TWO-BASE COMPARISON -/

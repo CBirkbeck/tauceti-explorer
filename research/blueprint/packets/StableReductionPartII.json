@@ -13,7 +13,7 @@
     "StableReductionPartII:MC.7"
   ],
   "status": "partial",
-  "summary": "Partial pointed-moduli roadmap. Adds twelve consumed declaration-sized inputs for ordinary R-bidual reflexivity of the actual polynomial section ideal, with explicit inverse F↦F(incl), native evaluation equivalence and dual reflexivity through the existing Mathlib instance. All inherited contracts remain, all eight stages stay partial, and arbitrary coefficient-module Hom exchange, higher Ext, completion and family geometry remain required. The actual polynomial coefficient-module Hom comparisons D⊗_A M≃Hom_R(J,R⊗_A M) and J⊗_A M≃Hom_R(D,R⊗_A M) are R-linear, canonical on pure tensors, natural for arbitrary A-linear coefficient maps and compatible with native bidual evaluation when M=A. Signed coordinate lemmas and universal transpose exactness give bijectivity for every M without a flatness assumption; no higher Ext, relative stable-reflexivity or geometric closure is inferred. The actual R-module Hom cochains for the polynomial section ideal and dual are specified with correct alternating phases, signed augmentation cycles and zero native positive cohomology for every coefficient module. The augmented projective-resolution/Ext identification remains required. This checkpoint supplies the actual native projective resolutions of the polynomial section ideal and its dual; the higher Ext and geometric comparisons remain open. The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain. The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial. This continuation supplies the actual completed coefficient algebra and its exact two-base tensor quotient, keeping the full relative completion theorem open.",
+  "summary": "Partial pointed-moduli roadmap. Adds twelve consumed declaration-sized inputs for ordinary R-bidual reflexivity of the actual polynomial section ideal, with explicit inverse F↦F(incl), native evaluation equivalence and dual reflexivity through the existing Mathlib instance. All inherited contracts remain, all eight stages stay partial, and arbitrary coefficient-module Hom exchange, higher Ext, completion and family geometry remain required. The actual polynomial coefficient-module Hom comparisons D⊗_A M≃Hom_R(J,R⊗_A M) and J⊗_A M≃Hom_R(D,R⊗_A M) are R-linear, canonical on pure tensors, natural for arbitrary A-linear coefficient maps and compatible with native bidual evaluation when M=A. Signed coordinate lemmas and universal transpose exactness give bijectivity for every M without a flatness assumption; no higher Ext, relative stable-reflexivity or geometric closure is inferred. The actual R-module Hom cochains for the polynomial section ideal and dual are specified with correct alternating phases, signed augmentation cycles and zero native positive cohomology for every coefficient module. The augmented projective-resolution/Ext identification remains required. This checkpoint supplies the actual native projective resolutions of the polynomial section ideal and its dual; the higher Ext and geometric comparisons remain open. The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain. The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial. This continuation supplies the actual completed coefficient algebra and its exact two-base tensor quotient, keeping the full relative completion theorem open. Finite quotient two-base coefficient comparison for every completed-base module, with finite-generation kernel control and actual Hom target transport.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1523,6 +1523,83 @@
         "module": "Mathlib/LinearAlgebra/TensorProduct/Basic.lean",
         "provides": "Use the pure-tensor law of the imported native map.",
         "checked": "Full declaration statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03."
+      },
+      {
+        "ref": "mathlib:Algebra.compHom",
+        "kind": "abbrev",
+        "module": "Mathlib/Algebra/Algebra/Defs.lean",
+        "provides": "Compose the actual finite chart algebra with the original or completed coefficient evaluation.",
+        "checked": "Full statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. This is a specialized adapter, not a duplicate generic construction."
+      },
+      {
+        "ref": "mathlib:IsScalarTower.of_algebraMap_smul",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Algebra/Tower.lean",
+        "provides": "Construct the scalar tower from equality of actual original-coefficient actions.",
+        "checked": "Full statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. This is a specialized adapter, not a duplicate generic construction."
+      },
+      {
+        "ref": "mathlib:TensorProduct.equivOfCompatibleSMul",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Basic.lean",
+        "provides": "Reuse the native equivalence after proving balancing both ways.",
+        "checked": "Full statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. This is a specialized adapter, not a duplicate generic construction."
+      },
+      {
+        "ref": "mathlib:TensorProduct.CompatibleSMul",
+        "kind": "class",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Defs.lean",
+        "provides": "Use the actual native compatible-scalar class and its immediately following anonymous scalar-tower instance to obtain reverse compatibility from A→Â towers.",
+        "checked": "Full statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. This is a specialized adapter, not a duplicate generic construction."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.congrRight",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Equiv/Basic.lean",
+        "provides": "Postcompose actual linear-map spaces with the finite tensor equivalence.",
+        "checked": "Full statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. This is a specialized adapter, not a duplicate generic construction."
+      },
+      {
+        "ref": "mathlib:AdicCompletion.pow_smul_top_eq_ker_eval",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdicCompletion/Completeness.lean",
+        "provides": "For finitely generated p, identify the finite module-evaluation kernel with pⁿ·Â.",
+        "checked": "Full statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. This is a specialized adapter, not a duplicate generic construction."
+      },
+      {
+        "ref": "mathlib:Submodule.smul_induction_on",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Algebra/Operations.lean",
+        "provides": "Induct on the actual ideal-multiple submodule of the completion.",
+        "checked": "Full statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. This is a specialized adapter, not a duplicate generic construction."
+      },
+      {
+        "ref": "mathlib:AdicCompletion.factor_evalₐ_eq_eval",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdicCompletion/Algebra.lean",
+        "provides": "Transport algebra evaluation zero to native module evaluation zero.",
+        "checked": "Full statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. This is a specialized adapter, not a duplicate generic construction."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.eq_zero_iff_mem",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "Show coefficient ideal powers act by zero in the finite chart.",
+        "checked": "Full statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. This is a specialized adapter, not a duplicate generic construction."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.mk_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "Choose an original coefficient representative of a completed finite residue.",
+        "checked": "Full statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. This is a specialized adapter, not a duplicate generic construction."
+      },
+      {
+        "ref": "mathlib:AdicCompletion.surjective_evalₐ",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdicCompletion/Algebra.lean",
+        "provides": "Import actual evaluation surjectivity.",
+        "checked": "Full statement and surrounding typeclass context read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. This is a specialized adapter, not a duplicate generic construction."
       }
     ]
   },
@@ -1575,7 +1652,8 @@
         "§§1–3, printed pp.161–191 (PDF1–31), rendered scan",
         "Appendix, printed191–199 (PDF31–39), fresh visual selected read by codex-5ebb6f; cited Bourbaki proof and Proposition7 exercise remain unresolved.",
         "2026-10-03 codex-7e92bd: full Appendix physical31–39/printed191–199 freshly rendered and read. Bourbaki III5.4.4 and Proposition7 exercise still unresolved.",
-        "2026-10-03 codex-J6LwjP: fresh selected visual read physical31–35/printed191–195 (ambient noetherian flat setup, exact four-condition criterion, proof and Propositions4–6), plus physical37/printed197. This is not a fresh full-Appendix read. Bourbaki III5.4.4 remains unread; Proposition7 proof is not supplied."
+        "2026-10-03 codex-J6LwjP: fresh selected visual read physical31–35/printed191–195 (ambient noetherian flat setup, exact four-condition criterion, proof and Propositions4–6), plus physical37/printed197. This is not a fresh full-Appendix read. Bourbaki III5.4.4 remains unread; Proposition7 proof is not supplied.",
+        "2026-10-03 codex-rtOQ9t: selected fresh visual read of the complete physical pages31–35/printed191–195, including ambient hypotheses, Theorem2 and its proof, Propositions4–7 and the start of the nodal example. This is not a fresh full-paper or full-Appendix read; Bourbaki III5.4.4 is unread and Proposition7 supplies no proof."
       ]
     },
     {
@@ -4439,7 +4517,10 @@
         "StableReductionPartII:MC.2/completion-coefficient-hom-original",
         "StableReductionPartII:MC.2/completion-coefficient-scalar-tower",
         "StableReductionPartII:MC.2/completion-coefficient-tensor-surjective",
-        "StableReductionPartII:MC.2/completion-coefficient-tensor-kernel"
+        "StableReductionPartII:MC.2/completion-coefficient-tensor-kernel",
+        "StableReductionPartII:MC.2/finite-tensor-source-roundtrip",
+        "StableReductionPartII:MC.2/finite-tensor-target-roundtrip",
+        "StableReductionPartII:MC.2/finite-hom-evaluation"
       ],
       "proofSteps": [
         "Apply the separately named polynomial dual, residue, coefficient-flatness, ring-linear tensor and actual quotient-base-change calculations; these are inputs to the completed-local comparison, not the global conclusion.",
@@ -4452,7 +4533,8 @@
         "Use the actual finite-free native projective resolutions with signed P_J/P_D augmentations and the checked precomposition differential comparison. The remaining categorical Hom-complex/native Ext, exact relative stable-reflexivity, two-base completion and geometric descent comparisons are separate obligations.",
         "The actual categorical Hom-complex isomorphisms and both native Mathlib higher Ext vanishing statements are now separate checked polynomial inputs for every coefficient module. Apply the exact Appendix/Ile relative stable-reflexivity and two-base completion comparisons only after their own proofs, then the pointed hull identification, family/sheaf descent and arbitrary-base approximation; this Ext calculation alone is not that geometric argument.",
         "The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial.",
-        "The actual ideal-adic coefficient homomorphism Â→R̂ is now constructed from compatible native finite quotients for the polynomial nodal chart whenever p⊆ι⁻¹(m). Its original-coefficient square, finite evaluations, uniqueness and actual A→Â→R̂ scalar tower have explicit native signatures and proof bodies. The complete new native and admitted files are not freshly compiled in this continuation because available memory is below the WORKERS.md threshold. For every Â-module N, the native R̂-linear comparison R̂⊗_A N→R̂⊗_Â N is surjective, with its exact Â-linear kernel generated by completed-coefficient balancing differences. This identifies the additional quotient; injectivity is not claimed. Next establish the reusable owner-level relative stable-reflexivity formulation and the actual two-base completion Hom/Ext or universally acyclic-complex comparison with justified faithful reflection, then the pointed completed-local hull, coefficient-compatible sheaf descent and arbitrary-base approximation. Bourbaki III5.4.4 remains unread and Proposition7 remains an exercise input. All eight stages remain partial."
+        "The actual ideal-adic coefficient homomorphism Â→R̂ is now constructed from compatible native finite quotients for the polynomial nodal chart whenever p⊆ι⁻¹(m). Its original-coefficient square, finite evaluations, uniqueness and actual A→Â→R̂ scalar tower have explicit native signatures and proof bodies. The complete new native and admitted files are not freshly compiled in this continuation because available memory is below the WORKERS.md threshold. For every Â-module N, the native R̂-linear comparison R̂⊗_A N→R̂⊗_Â N is surjective, with its exact Â-linear kernel generated by completed-coefficient balancing differences. This identifies the additional quotient; injectivity is not claimed. Next establish the reusable owner-level relative stable-reflexivity formulation and the actual two-base completion Hom/Ext or universally acyclic-complex comparison with justified faithful reflection, then the pointed completed-local hull, coefficient-compatible sheaf descent and arbitrary-base approximation. Bourbaki III5.4.4 remains unread and Proposition7 remains an exercise input. All eight stages remain partial.",
+        "For finitely generated p and every Â-module N, the finite quotients now have an explicit actual equivalence Qₙ⊗_A N≃Qₙ⊗_Â N and postcomposition equivalences on actual Hom spaces, including L=Qₙ⊗_R J. The proof uses the native completion evaluation kernel pⁿ·Â and submodule induction; N need not factor through A/pⁿ or be flat. This finite-level result does not prove injectivity of R̂⊗_A N→R̂⊗_Â N. Passing through an inverse limit would require justified tensor/Hom/Ext comparison hypotheses and cannot be inferred for arbitrary N. Knudsen Proposition6, Proposition7, owner-level stable-reflexivity, faithful reflection, hull identification, sheaf descent, approximation and all eight geometric stages remain open. Current Native and FullCanonical are uncompiled proof draft and admitted plan respectively; older compilation receipts are historical only."
       ],
       "acceptance": [
         "Do not strengthen this to J·J∨=J throughout a smoothing family: that equality holds only on the nodal-section locus."
@@ -20521,6 +20603,1092 @@
         "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
       },
       "declarationName": "NodeSectionFactorization.PolynomialModel.completionCoefficientTensor_ker"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-residue-algebra",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Completed coefficients on the finite base",
+      "kind": "construction",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. Equip Bₙ with the Â-algebra defined by the native finite evaluation evalₙ.",
+      "hypotheses": [
+        "The displayed finite-generation hypothesis is used only where stated. All actions are the specified actual restrictions. No flatness of N, no noetherianity or localness, and no discriminant hypothesis is introduced. The completed-base module N is arbitrary."
+      ],
+      "prerequisites": [
+        "mathlib:AdicCompletion.evalₐ"
+      ],
+      "proofSteps": [
+        "Use the algebra attached to the actual evaluation ring homomorphism."
+      ],
+      "acceptance": [
+        "Use the actual native polynomial chart, ideal quotients, adic completion, tensor product and linear-map spaces. No comparison conclusion is an input hypothesis.",
+        "A finite quotient equivalence does not identify the whole completed tensor products and does not close Proposition6, Proposition7, stable-reflexivity, pointed hull or moduli geometry."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix ambient setup, Definition1, Theorem2 and Propositions6–7, printed191–195 (physical31–35)",
+          "match": "Motivates the two coefficient bases and arbitrary completed-base modules. The finite-level comparison and its submodule induction proof are authored library adapters. Proposition6 cites Bourbaki III5.4.4, not this proof; Proposition7 leaves its proof as an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionResidueAlgebra",
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionResidueAlgebra_map",
+          "role": "simp",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. The chosen algebra map Â→Bₙ is evalₙ on every a∈Â."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionResidueAlgebra_of",
+          "role": "simp",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For a∈A, evalₙ(e_A(a))=[a]."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionResidueAlgebra_surjective",
+          "role": "simp",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. The actual algebra map Â→Bₙ is surjective."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionResidueAlgebra_kernel",
+          "role": "characterisation",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. Assume p is finitely generated. If evalₙ(a)=0, then a∈pⁿ·Â, viewed as pⁿ acting on the whole A-module Â."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Supplies finite-level two-base coefficient inputs for the explicit completion frontier."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionResidueAlgebra.test_native_evaluation",
+          "kind": "compatibility",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. Its actual algebra map agrees with evalₙ on every completed coefficient."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionResidueAlgebra.test_unit",
+          "kind": "example",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. The original coefficient 1 maps to 1."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionResidueAlgebra.test_zero",
+          "kind": "example",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. The completed zero maps to zero."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-residue-algebra-map",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Residue algebra map is evaluation",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. The chosen algebra map Â→Bₙ is evalₙ on every a∈Â.",
+      "hypotheses": [
+        "The displayed finite-generation hypothesis is used only where stated. All actions are the specified actual restrictions. No flatness of N, no noetherianity or localness, and no discriminant hypothesis is introduced. The completed-base module N is arbitrary."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-residue-algebra"
+      ],
+      "proofSteps": [
+        "Unfold the chosen ring-hom algebra."
+      ],
+      "acceptance": [
+        "Use the actual native polynomial chart, ideal quotients, adic completion, tensor product and linear-map spaces. No comparison conclusion is an input hypothesis.",
+        "A finite quotient equivalence does not identify the whole completed tensor products and does not close Proposition6, Proposition7, stable-reflexivity, pointed hull or moduli geometry."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix ambient setup, Definition1, Theorem2 and Propositions6–7, printed191–195 (physical31–35)",
+          "match": "Motivates the two coefficient bases and arbitrary completed-base modules. The finite-level comparison and its submodule induction proof are authored library adapters. Proposition6 cites Bourbaki III5.4.4, not this proof; Proposition7 leaves its proof as an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionResidueAlgebra_map"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-residue-original",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Original coefficients in the finite base",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For a∈A, evalₙ(e_A(a))=[a].",
+      "hypotheses": [
+        "The displayed finite-generation hypothesis is used only where stated. All actions are the specified actual restrictions. No flatness of N, no noetherianity or localness, and no discriminant hypothesis is introduced. The completed-base module N is arbitrary."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-residue-algebra",
+        "mathlib:AdicCompletion.evalₐ_of"
+      ],
+      "proofSteps": [
+        "Apply the native evaluation formula on original coefficients."
+      ],
+      "acceptance": [
+        "Use the actual native polynomial chart, ideal quotients, adic completion, tensor product and linear-map spaces. No comparison conclusion is an input hypothesis.",
+        "A finite quotient equivalence does not identify the whole completed tensor products and does not close Proposition6, Proposition7, stable-reflexivity, pointed hull or moduli geometry."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix ambient setup, Definition1, Theorem2 and Propositions6–7, printed191–195 (physical31–35)",
+          "match": "Motivates the two coefficient bases and arbitrary completed-base modules. The finite-level comparison and its submodule induction proof are authored library adapters. Proposition6 cites Bourbaki III5.4.4, not this proof; Proposition7 leaves its proof as an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionResidueAlgebra_of"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-residue-surjective",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Finite residue evaluation is surjective",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. The actual algebra map Â→Bₙ is surjective.",
+      "hypotheses": [
+        "The displayed finite-generation hypothesis is used only where stated. All actions are the specified actual restrictions. No flatness of N, no noetherianity or localness, and no discriminant hypothesis is introduced. The completed-base module N is arbitrary."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-residue-algebra",
+        "mathlib:AdicCompletion.surjective_evalₐ"
+      ],
+      "proofSteps": [
+        "Import native surjectivity, not density in a topology."
+      ],
+      "acceptance": [
+        "Use the actual native polynomial chart, ideal quotients, adic completion, tensor product and linear-map spaces. No comparison conclusion is an input hypothesis.",
+        "A finite quotient equivalence does not identify the whole completed tensor products and does not close Proposition6, Proposition7, stable-reflexivity, pointed hull or moduli geometry."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix ambient setup, Definition1, Theorem2 and Propositions6–7, printed191–195 (physical31–35)",
+          "match": "Motivates the two coefficient bases and arbitrary completed-base modules. The finite-level comparison and its submodule induction proof are authored library adapters. Proposition6 cites Bourbaki III5.4.4, not this proof; Proposition7 leaves its proof as an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionResidueAlgebra_surjective"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-chart-algebra",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Finite nodal coefficient algebra",
+      "kind": "construction",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. Equip Qₙ with the Bₙ-algebra induced by the previously constructed λₙ.",
+      "hypotheses": [
+        "The displayed finite-generation hypothesis is used only where stated. All actions are the specified actual restrictions. No flatness of N, no noetherianity or localness, and no discriminant hypothesis is introduced. The completed-base module N is arbitrary."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/completion-coefficient-level"
+      ],
+      "proofSteps": [
+        "Use the actual quotient coefficient ring homomorphism."
+      ],
+      "acceptance": [
+        "Use the actual native polynomial chart, ideal quotients, adic completion, tensor product and linear-map spaces. No comparison conclusion is an input hypothesis.",
+        "A finite quotient equivalence does not identify the whole completed tensor products and does not close Proposition6, Proposition7, stable-reflexivity, pointed hull or moduli geometry."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix ambient setup, Definition1, Theorem2 and Propositions6–7, printed191–195 (physical31–35)",
+          "match": "Motivates the two coefficient bases and arbitrary completed-base modules. The finite-level comparison and its submodule induction proof are authored library adapters. Proposition6 cites Bourbaki III5.4.4, not this proof; Proposition7 leaves its proof as an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteChartAlgebra",
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteChartAlgebra_map",
+          "role": "simp",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. The chosen algebra map Bₙ→Qₙ equals λₙ."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteChartAlgebra_mk",
+          "role": "simp",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For a∈A, λₙ([a])=[ι(a)]."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteChartAlgebra_family",
+          "role": "simp",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For a∈Â, λₙ(evalₙ(a)) equals the existing completed coefficient family at n."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteCoefficient_annihilate",
+          "role": "simp",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For b∈pⁿ and q∈Qₙ, bq=0."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteCoefficient_tower",
+          "role": "characterisation",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. The chosen actions form the actual scalar tower A→Â→Qₙ."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Supplies finite-level two-base coefficient inputs for the explicit completion frontier."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteChartAlgebra.test_original_coefficient",
+          "kind": "compatibility",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. The original coefficient a maps to [ι(a)]."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteChartAlgebra.test_zero",
+          "kind": "example",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. The finite coefficient zero maps to zero."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteChartAlgebra.test_completed_square",
+          "kind": "compatibility",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For every a∈Â the completed coefficient square at n equals the inherited compatible family."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-chart-algebra-map",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Finite chart algebra map",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. The chosen algebra map Bₙ→Qₙ equals λₙ.",
+      "hypotheses": [
+        "The displayed finite-generation hypothesis is used only where stated. All actions are the specified actual restrictions. No flatness of N, no noetherianity or localness, and no discriminant hypothesis is introduced. The completed-base module N is arbitrary."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-chart-algebra"
+      ],
+      "proofSteps": [
+        "Unfold the chosen algebra."
+      ],
+      "acceptance": [
+        "Use the actual native polynomial chart, ideal quotients, adic completion, tensor product and linear-map spaces. No comparison conclusion is an input hypothesis.",
+        "A finite quotient equivalence does not identify the whole completed tensor products and does not close Proposition6, Proposition7, stable-reflexivity, pointed hull or moduli geometry."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix ambient setup, Definition1, Theorem2 and Propositions6–7, printed191–195 (physical31–35)",
+          "match": "Motivates the two coefficient bases and arbitrary completed-base modules. The finite-level comparison and its submodule induction proof are authored library adapters. Proposition6 cites Bourbaki III5.4.4, not this proof; Proposition7 leaves its proof as an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteChartAlgebra_map"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-chart-original",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Original coefficients in the finite chart",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For a∈A, λₙ([a])=[ι(a)].",
+      "hypotheses": [
+        "The displayed finite-generation hypothesis is used only where stated. All actions are the specified actual restrictions. No flatness of N, no noetherianity or localness, and no discriminant hypothesis is introduced. The completed-base module N is arbitrary."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-chart-algebra",
+        "StableReductionPartII:MC.2/completion-coefficient-level-representatives"
+      ],
+      "proofSteps": [
+        "Use the inherited quotient representative formula."
+      ],
+      "acceptance": [
+        "Use the actual native polynomial chart, ideal quotients, adic completion, tensor product and linear-map spaces. No comparison conclusion is an input hypothesis.",
+        "A finite quotient equivalence does not identify the whole completed tensor products and does not close Proposition6, Proposition7, stable-reflexivity, pointed hull or moduli geometry."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix ambient setup, Definition1, Theorem2 and Propositions6–7, printed191–195 (physical31–35)",
+          "match": "Motivates the two coefficient bases and arbitrary completed-base modules. The finite-level comparison and its submodule induction proof are authored library adapters. Proposition6 cites Bourbaki III5.4.4, not this proof; Proposition7 leaves its proof as an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteChartAlgebra_mk"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-chart-completed-square",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Completed coefficients in the finite chart",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For a∈Â, λₙ(evalₙ(a)) equals the existing completed coefficient family at n.",
+      "hypotheses": [
+        "The displayed finite-generation hypothesis is used only where stated. All actions are the specified actual restrictions. No flatness of N, no noetherianity or localness, and no discriminant hypothesis is introduced. The completed-base module N is arbitrary."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-chart-algebra",
+        "StableReductionPartII:MC.2/completion-coefficient-family"
+      ],
+      "proofSteps": [
+        "Unfold the existing compatible coefficient family."
+      ],
+      "acceptance": [
+        "Use the actual native polynomial chart, ideal quotients, adic completion, tensor product and linear-map spaces. No comparison conclusion is an input hypothesis.",
+        "A finite quotient equivalence does not identify the whole completed tensor products and does not close Proposition6, Proposition7, stable-reflexivity, pointed hull or moduli geometry."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix ambient setup, Definition1, Theorem2 and Propositions6–7, printed191–195 (physical31–35)",
+          "match": "Motivates the two coefficient bases and arbitrary completed-base modules. The finite-level comparison and its submodule induction proof are authored library adapters. Proposition6 cites Bourbaki III5.4.4, not this proof; Proposition7 leaves its proof as an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteChartAlgebra_family"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-residue-kernel",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Kernel of the finite completion evaluation",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. Assume p is finitely generated. If evalₙ(a)=0, then a∈pⁿ·Â, viewed as pⁿ acting on the whole A-module Â.",
+      "hypotheses": [
+        "The displayed finite-generation hypothesis is used only where stated. All actions are the specified actual restrictions. No flatness of N, no noetherianity or localness, and no discriminant hypothesis is introduced. The completed-base module N is arbitrary."
+      ],
+      "prerequisites": [
+        "mathlib:AdicCompletion.pow_smul_top_eq_ker_eval",
+        "mathlib:AdicCompletion.factor_evalₐ_eq_eval"
+      ],
+      "proofSteps": [
+        "Transport zero across the native quotient factor identifying algebra evaluation with module evaluation. Apply the pinned kernel equality for a finitely generated ideal."
+      ],
+      "acceptance": [
+        "Use the actual native polynomial chart, ideal quotients, adic completion, tensor product and linear-map spaces. No comparison conclusion is an input hypothesis.",
+        "A finite quotient equivalence does not identify the whole completed tensor products and does not close Proposition6, Proposition7, stable-reflexivity, pointed hull or moduli geometry."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix ambient setup, Definition1, Theorem2 and Propositions6–7, printed191–195 (physical31–35)",
+          "match": "Motivates the two coefficient bases and arbitrary completed-base modules. The finite-level comparison and its submodule induction proof are authored library adapters. Proposition6 cites Bourbaki III5.4.4, not this proof; Proposition7 leaves its proof as an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionResidueAlgebra_kernel"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-chart-power-annihilate",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Coefficient powers annihilate the finite chart",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For b∈pⁿ and q∈Qₙ, bq=0.",
+      "hypotheses": [
+        "The displayed finite-generation hypothesis is used only where stated. All actions are the specified actual restrictions. No flatness of N, no noetherianity or localness, and no discriminant hypothesis is introduced. The completed-base module N is arbitrary."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-chart-algebra",
+        "mathlib:Ideal.Quotient.eq_zero_iff_mem",
+        "mathlib:Algebra.compHom"
+      ],
+      "proofSteps": [
+        "The chosen A-action factors through Bₙ. The quotient class of b is zero, so its coefficient image annihilates q."
+      ],
+      "acceptance": [
+        "Use the actual native polynomial chart, ideal quotients, adic completion, tensor product and linear-map spaces. No comparison conclusion is an input hypothesis.",
+        "A finite quotient equivalence does not identify the whole completed tensor products and does not close Proposition6, Proposition7, stable-reflexivity, pointed hull or moduli geometry."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix ambient setup, Definition1, Theorem2 and Propositions6–7, printed191–195 (physical31–35)",
+          "match": "Motivates the two coefficient bases and arbitrary completed-base modules. The finite-level comparison and its submodule induction proof are authored library adapters. Proposition6 cites Bourbaki III5.4.4, not this proof; Proposition7 leaves its proof as an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteCoefficient_annihilate"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-chart-coefficient-tower",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The finite chart scalar tower",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. The chosen actions form the actual scalar tower A→Â→Qₙ.",
+      "hypotheses": [
+        "The displayed finite-generation hypothesis is used only where stated. All actions are the specified actual restrictions. No flatness of N, no noetherianity or localness, and no discriminant hypothesis is introduced. The completed-base module N is arbitrary."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-residue-original",
+        "StableReductionPartII:MC.2/finite-chart-algebra",
+        "mathlib:IsScalarTower.of_algebraMap_smul",
+        "mathlib:Algebra.compHom",
+        "mathlib:AdicCompletion.algebraMap_apply"
+      ],
+      "proofSteps": [
+        "Evaluate the completed image of b∈A and compare the two actual scalar actions on Qₙ. Apply the native scalar-tower constructor."
+      ],
+      "acceptance": [
+        "Use the actual native polynomial chart, ideal quotients, adic completion, tensor product and linear-map spaces. No comparison conclusion is an input hypothesis.",
+        "A finite quotient equivalence does not identify the whole completed tensor products and does not close Proposition6, Proposition7, stable-reflexivity, pointed hull or moduli geometry."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix ambient setup, Definition1, Theorem2 and Propositions6–7, printed191–195 (physical31–35)",
+          "match": "Motivates the two coefficient bases and arbitrary completed-base modules. The finite-level comparison and its submodule induction proof are authored library adapters. Proposition6 cites Bourbaki III5.4.4, not this proof; Proposition7 leaves its proof as an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteCoefficient_tower"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-power-vanish",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Completion kernel vanishes in the finite tensor",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. For c∈pⁿ·Â, q∈Qₙ and z∈N, q⊗_A(cz)=0.",
+      "hypotheses": [
+        "The displayed finite-generation hypothesis is used only where stated. All actions are the specified actual restrictions. No flatness of N, no noetherianity or localness, and no discriminant hypothesis is introduced. The completed-base module N is arbitrary."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-chart-power-annihilate",
+        "mathlib:Submodule.smul_induction_on"
+      ],
+      "proofSteps": [
+        "Induct on c in the submodule generated by products b·d with b∈pⁿ and d∈Â. Move b across the A-tensor using the actual tower on N; its action on Qₙ is zero. Addition follows from tensor additivity."
+      ],
+      "acceptance": [
+        "Use the actual native polynomial chart, ideal quotients, adic completion, tensor product and linear-map spaces. No comparison conclusion is an input hypothesis.",
+        "A finite quotient equivalence does not identify the whole completed tensor products and does not close Proposition6, Proposition7, stable-reflexivity, pointed hull or moduli geometry."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix ambient setup, Definition1, Theorem2 and Propositions6–7, printed191–195 (physical31–35)",
+          "match": "Motivates the two coefficient bases and arbitrary completed-base modules. The finite-level comparison and its submodule induction proof are authored library adapters. Proposition6 cites Bourbaki III5.4.4, not this proof; Proposition7 leaves its proof as an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensor_kernel_vanish"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-completed-balance",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Completed scalars balance at finite level",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. Assume p is finitely generated. For a∈Â, q∈Qₙ and z∈N, (aq)⊗_A z=q⊗_A(az).",
+      "hypotheses": [
+        "The displayed finite-generation hypothesis is used only where stated. All actions are the specified actual restrictions. No flatness of N, no noetherianity or localness, and no discriminant hypothesis is introduced. The completed-base module N is arbitrary."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-residue-kernel",
+        "StableReductionPartII:MC.2/finite-tensor-power-vanish",
+        "StableReductionPartII:MC.2/finite-chart-completed-square",
+        "mathlib:Ideal.Quotient.mk_surjective",
+        "mathlib:AdicCompletion.evalₐ_of",
+        "mathlib:AdicCompletion.algebraMap_apply"
+      ],
+      "proofSteps": [
+        "Choose b∈A lifting evalₙ(a). The difference a−e_A(b) belongs to pⁿ·Â. Its action contributes zero to the A-tensor by the preceding lemma, and zero to Qₙ by the chosen finite action. Reduce to the ordinary A-balancing relation."
+      ],
+      "acceptance": [
+        "Use the actual native polynomial chart, ideal quotients, adic completion, tensor product and linear-map spaces. No comparison conclusion is an input hypothesis.",
+        "A finite quotient equivalence does not identify the whole completed tensor products and does not close Proposition6, Proposition7, stable-reflexivity, pointed hull or moduli geometry."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix ambient setup, Definition1, Theorem2 and Propositions6–7, printed191–195 (physical31–35)",
+          "match": "Motivates the two coefficient bases and arbitrary completed-base modules. The finite-level comparison and its submodule induction proof are authored library adapters. Proposition6 cites Bourbaki III5.4.4, not this proof; Proposition7 leaves its proof as an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensor_balance_kernel"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-compatible",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Compatible completed scalars at finite level",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. Assume p is finitely generated. The actual actions satisfy native CompatibleSMul(A,Â,Qₙ,N).",
+      "hypotheses": [
+        "The displayed finite-generation hypothesis is used only where stated. All actions are the specified actual restrictions. No flatness of N, no noetherianity or localness, and no discriminant hypothesis is introduced. The completed-base module N is arbitrary."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-completed-balance"
+      ],
+      "proofSteps": [
+        "Package the proved balancing equality in the existing native class."
+      ],
+      "acceptance": [
+        "Use the actual native polynomial chart, ideal quotients, adic completion, tensor product and linear-map spaces. No comparison conclusion is an input hypothesis.",
+        "A finite quotient equivalence does not identify the whole completed tensor products and does not close Proposition6, Proposition7, stable-reflexivity, pointed hull or moduli geometry."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix ambient setup, Definition1, Theorem2 and Propositions6–7, printed191–195 (physical31–35)",
+          "match": "Motivates the two coefficient bases and arbitrary completed-base modules. The finite-level comparison and its submodule induction proof are authored library adapters. Proposition6 cites Bourbaki III5.4.4, not this proof; Proposition7 leaves its proof as an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensor_compatible"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-equivalence",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Finite two-base tensor equivalence",
+      "kind": "construction",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. Assume p is finitely generated. Construct the actual Qₙ-linear equivalence Eₙ,N:Qₙ⊗_A N≃Qₙ⊗_Â N.",
+      "hypotheses": [
+        "The displayed finite-generation hypothesis is used only where stated. All actions are the specified actual restrictions. No flatness of N, no noetherianity or localness, and no discriminant hypothesis is introduced. The completed-base module N is arbitrary."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-compatible",
+        "StableReductionPartII:MC.2/finite-chart-coefficient-tower",
+        "mathlib:TensorProduct.CompatibleSMul",
+        "mathlib:TensorProduct.equivOfCompatibleSMul"
+      ],
+      "proofSteps": [
+        "The new balancing lemma supplies one native CompatibleSMul instance. The actual A→Â scalar towers supply the reverse instance. Specialize the existing native tensor equivalence; its two maps preserve pure tensors."
+      ],
+      "acceptance": [
+        "Use the actual native polynomial chart, ideal quotients, adic completion, tensor product and linear-map spaces. No comparison conclusion is an input hypothesis.",
+        "A finite quotient equivalence does not identify the whole completed tensor products and does not close Proposition6, Proposition7, stable-reflexivity, pointed hull or moduli geometry."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix ambient setup, Definition1, Theorem2 and Propositions6–7, printed191–195 (physical31–35)",
+          "match": "Motivates the two coefficient bases and arbitrary completed-base modules. The finite-level comparison and its submodule induction proof are authored library adapters. Proposition6 cites Bourbaki III5.4.4, not this proof; Proposition7 leaves its proof as an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv",
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensor_kernel_vanish",
+          "role": "characterisation",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. For c∈pⁿ·Â, q∈Qₙ and z∈N, q⊗_A(cz)=0."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensor_balance_kernel",
+          "role": "characterisation",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. Assume p is finitely generated. For a∈Â, q∈Qₙ and z∈N, (aq)⊗_A z=q⊗_A(az)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensor_compatible",
+          "role": "characterisation",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. Assume p is finitely generated. The actual actions satisfy native CompatibleSMul(A,Â,Qₙ,N)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv_tmul",
+          "role": "simp",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. Assume p is finitely generated. Eₙ,N(q⊗_A z)=q⊗_Â z."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv_symm_tmul",
+          "role": "simp",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. Assume p is finitely generated. Eₙ,N⁻¹(q⊗_Â z)=q⊗_A z."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv_source",
+          "role": "simp",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. Assume p is finitely generated. For every x∈Qₙ⊗_A N, Eₙ,N⁻¹(Eₙ,N(x))=x."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv_target",
+          "role": "simp",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. Assume p is finitely generated. For every y∈Qₙ⊗_Â N, Eₙ,N(Eₙ,N⁻¹(y))=y."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv_balance",
+          "role": "characterisation",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. Assume p is finitely generated. For a∈Â, q∈Qₙ and z∈N, (aq)⊗_A z=q⊗_A(az)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Supplies finite-level two-base coefficient inputs for the explicit completion frontier."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv.test_forward_pure",
+          "kind": "compatibility",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. With p finitely generated, Eₙ,N(q⊗_A z)=q⊗_Â z."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv.test_inverse_pure",
+          "kind": "compatibility",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. With p finitely generated, Eₙ,N⁻¹(q⊗_Â z)=q⊗_A z."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv.test_completed_balancing",
+          "kind": "compatibility",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. With p finitely generated, every a∈Â balances across the original A-tensor; this excludes a spurious comparison that ignores completed coefficients."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-forward-pure",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Finite comparison on pure tensors",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. Assume p is finitely generated. Eₙ,N(q⊗_A z)=q⊗_Â z.",
+      "hypotheses": [
+        "The displayed finite-generation hypothesis is used only where stated. All actions are the specified actual restrictions. No flatness of N, no noetherianity or localness, and no discriminant hypothesis is introduced. The completed-base module N is arbitrary."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-equivalence"
+      ],
+      "proofSteps": [
+        "Unfold the native comparison on a pure tensor."
+      ],
+      "acceptance": [
+        "Use the actual native polynomial chart, ideal quotients, adic completion, tensor product and linear-map spaces. No comparison conclusion is an input hypothesis.",
+        "A finite quotient equivalence does not identify the whole completed tensor products and does not close Proposition6, Proposition7, stable-reflexivity, pointed hull or moduli geometry."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix ambient setup, Definition1, Theorem2 and Propositions6–7, printed191–195 (physical31–35)",
+          "match": "Motivates the two coefficient bases and arbitrary completed-base modules. The finite-level comparison and its submodule induction proof are authored library adapters. Proposition6 cites Bourbaki III5.4.4, not this proof; Proposition7 leaves its proof as an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv_tmul"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-inverse-pure",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Inverse finite comparison on pure tensors",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. Assume p is finitely generated. Eₙ,N⁻¹(q⊗_Â z)=q⊗_A z.",
+      "hypotheses": [
+        "The displayed finite-generation hypothesis is used only where stated. All actions are the specified actual restrictions. No flatness of N, no noetherianity or localness, and no discriminant hypothesis is introduced. The completed-base module N is arbitrary."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-equivalence"
+      ],
+      "proofSteps": [
+        "Unfold the native inverse comparison on a pure tensor."
+      ],
+      "acceptance": [
+        "Use the actual native polynomial chart, ideal quotients, adic completion, tensor product and linear-map spaces. No comparison conclusion is an input hypothesis.",
+        "A finite quotient equivalence does not identify the whole completed tensor products and does not close Proposition6, Proposition7, stable-reflexivity, pointed hull or moduli geometry."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix ambient setup, Definition1, Theorem2 and Propositions6–7, printed191–195 (physical31–35)",
+          "match": "Motivates the two coefficient bases and arbitrary completed-base modules. The finite-level comparison and its submodule induction proof are authored library adapters. Proposition6 cites Bourbaki III5.4.4, not this proof; Proposition7 leaves its proof as an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv_symm_tmul"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-source-roundtrip",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Finite comparison source round trip",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. Assume p is finitely generated. For every x∈Qₙ⊗_A N, Eₙ,N⁻¹(Eₙ,N(x))=x.",
+      "hypotheses": [
+        "The displayed finite-generation hypothesis is used only where stated. All actions are the specified actual restrictions. No flatness of N, no noetherianity or localness, and no discriminant hypothesis is introduced. The completed-base module N is arbitrary."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-equivalence"
+      ],
+      "proofSteps": [
+        "Use the native linear-equivalence inverse law on an arbitrary tensor sum."
+      ],
+      "acceptance": [
+        "Use the actual native polynomial chart, ideal quotients, adic completion, tensor product and linear-map spaces. No comparison conclusion is an input hypothesis.",
+        "A finite quotient equivalence does not identify the whole completed tensor products and does not close Proposition6, Proposition7, stable-reflexivity, pointed hull or moduli geometry."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix ambient setup, Definition1, Theorem2 and Propositions6–7, printed191–195 (physical31–35)",
+          "match": "Motivates the two coefficient bases and arbitrary completed-base modules. The finite-level comparison and its submodule induction proof are authored library adapters. Proposition6 cites Bourbaki III5.4.4, not this proof; Proposition7 leaves its proof as an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv_source"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-target-roundtrip",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Finite comparison target round trip",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. Assume p is finitely generated. For every y∈Qₙ⊗_Â N, Eₙ,N(Eₙ,N⁻¹(y))=y.",
+      "hypotheses": [
+        "The displayed finite-generation hypothesis is used only where stated. All actions are the specified actual restrictions. No flatness of N, no noetherianity or localness, and no discriminant hypothesis is introduced. The completed-base module N is arbitrary."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-equivalence"
+      ],
+      "proofSteps": [
+        "Use the native inverse law on an arbitrary completed-base tensor."
+      ],
+      "acceptance": [
+        "Use the actual native polynomial chart, ideal quotients, adic completion, tensor product and linear-map spaces. No comparison conclusion is an input hypothesis.",
+        "A finite quotient equivalence does not identify the whole completed tensor products and does not close Proposition6, Proposition7, stable-reflexivity, pointed hull or moduli geometry."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix ambient setup, Definition1, Theorem2 and Propositions6–7, printed191–195 (physical31–35)",
+          "match": "Motivates the two coefficient bases and arbitrary completed-base modules. The finite-level comparison and its submodule induction proof are authored library adapters. Proposition6 cites Bourbaki III5.4.4, not this proof; Proposition7 leaves its proof as an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv_target"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-balance",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Finite equivalence detects completed balancing",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. Assume p is finitely generated. For a∈Â, q∈Qₙ and z∈N, (aq)⊗_A z=q⊗_A(az).",
+      "hypotheses": [
+        "The displayed finite-generation hypothesis is used only where stated. All actions are the specified actual restrictions. No flatness of N, no noetherianity or localness, and no discriminant hypothesis is introduced. The completed-base module N is arbitrary."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-forward-pure",
+        "StableReductionPartII:MC.2/finite-tensor-equivalence"
+      ],
+      "proofSteps": [
+        "Apply injectivity of Eₙ,N and native balancing in its completed-base codomain."
+      ],
+      "acceptance": [
+        "Use the actual native polynomial chart, ideal quotients, adic completion, tensor product and linear-map spaces. No comparison conclusion is an input hypothesis.",
+        "A finite quotient equivalence does not identify the whole completed tensor products and does not close Proposition6, Proposition7, stable-reflexivity, pointed hull or moduli geometry."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix ambient setup, Definition1, Theorem2 and Propositions6–7, printed191–195 (physical31–35)",
+          "match": "Motivates the two coefficient bases and arbitrary completed-base modules. The finite-level comparison and its submodule induction proof are authored library adapters. Proposition6 cites Bourbaki III5.4.4, not this proof; Proposition7 leaves its proof as an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv_balance"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-hom-equivalence",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Finite two-base Hom target equivalence",
+      "kind": "construction",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. Assume p is finitely generated. For arbitrary Qₙ-module L construct the actual Qₙ-linear equivalence Hₙ,N,L:Hom_Qₙ(L,Qₙ⊗_A N)≃Hom_Qₙ(L,Qₙ⊗_Â N) by postcomposition with Eₙ,N.",
+      "hypotheses": [
+        "The displayed finite-generation hypothesis is used only where stated. All actions are the specified actual restrictions. No flatness of N, no noetherianity or localness, and no discriminant hypothesis is introduced. The completed-base module N is arbitrary."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-equivalence",
+        "mathlib:LinearEquiv.congrRight"
+      ],
+      "proofSteps": [
+        "Specialize native postcomposition on linear-map spaces. Neither finite presentation nor projectivity of L is required."
+      ],
+      "acceptance": [
+        "Use the actual native polynomial chart, ideal quotients, adic completion, tensor product and linear-map spaces. No comparison conclusion is an input hypothesis.",
+        "A finite quotient equivalence does not identify the whole completed tensor products and does not close Proposition6, Proposition7, stable-reflexivity, pointed hull or moduli geometry."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix ambient setup, Definition1, Theorem2 and Propositions6–7, printed191–195 (physical31–35)",
+          "match": "Motivates the two coefficient bases and arbitrary completed-base modules. The finite-level comparison and its submodule induction proof are authored library adapters. Proposition6 cites Bourbaki III5.4.4, not this proof; Proposition7 leaves its proof as an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteHomEquiv",
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteHomEquiv_apply",
+          "role": "simp",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. Assume p is finitely generated. For Qₙ-module L, f:L→Qₙ⊗_A N and x∈L, Hₙ,N,L(f)(x)=Eₙ,N(f(x))."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteHomEquiv_symm_apply",
+          "role": "simp",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. Assume p is finitely generated. Hₙ,N,L⁻¹(g)(x)=Eₙ,N⁻¹(g(x)) for every g:L→Qₙ⊗_Â N."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteHomEquiv_roundtrip",
+          "role": "simp",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. Assume p is finitely generated. Hₙ,N,L⁻¹(Hₙ,N,L(f))=f for every Qₙ-linear f:L→Qₙ⊗_A N."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Supplies finite-level two-base coefficient inputs for the explicit completion frontier."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteHomEquiv.test_zero",
+          "kind": "example",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. With p finitely generated, Hₙ,N,L sends the zero linear map to zero."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteHomEquiv.test_roundtrip",
+          "kind": "compatibility",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. With p finitely generated, every actual Qₙ-linear map is recovered by the inverse after postcomposition."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteHomEquiv.test_section_target",
+          "kind": "compatibility",
+          "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. With p finitely generated, specialize L=Qₙ⊗_R J for the actual section ideal J=(X−s,Y−t). For every f and x, H(f)(x)=E(f(x)). This is an actual module input, not a placeholder hull."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-hom-evaluation",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Finite Hom comparison on elements",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. Assume p is finitely generated. For Qₙ-module L, f:L→Qₙ⊗_A N and x∈L, Hₙ,N,L(f)(x)=Eₙ,N(f(x)).",
+      "hypotheses": [
+        "The displayed finite-generation hypothesis is used only where stated. All actions are the specified actual restrictions. No flatness of N, no noetherianity or localness, and no discriminant hypothesis is introduced. The completed-base module N is arbitrary."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-hom-equivalence"
+      ],
+      "proofSteps": [
+        "Unfold native postcomposition."
+      ],
+      "acceptance": [
+        "Use the actual native polynomial chart, ideal quotients, adic completion, tensor product and linear-map spaces. No comparison conclusion is an input hypothesis.",
+        "A finite quotient equivalence does not identify the whole completed tensor products and does not close Proposition6, Proposition7, stable-reflexivity, pointed hull or moduli geometry."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix ambient setup, Definition1, Theorem2 and Propositions6–7, printed191–195 (physical31–35)",
+          "match": "Motivates the two coefficient bases and arbitrary completed-base modules. The finite-level comparison and its submodule induction proof are authored library adapters. Proposition6 cites Bourbaki III5.4.4, not this proof; Proposition7 leaves its proof as an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteHomEquiv_apply"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-hom-inverse-evaluation",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Inverse finite Hom comparison on elements",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. Assume p is finitely generated. Hₙ,N,L⁻¹(g)(x)=Eₙ,N⁻¹(g(x)) for every g:L→Qₙ⊗_Â N.",
+      "hypotheses": [
+        "The displayed finite-generation hypothesis is used only where stated. All actions are the specified actual restrictions. No flatness of N, no noetherianity or localness, and no discriminant hypothesis is introduced. The completed-base module N is arbitrary."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-hom-equivalence"
+      ],
+      "proofSteps": [
+        "Unfold inverse postcomposition."
+      ],
+      "acceptance": [
+        "Use the actual native polynomial chart, ideal quotients, adic completion, tensor product and linear-map spaces. No comparison conclusion is an input hypothesis.",
+        "A finite quotient equivalence does not identify the whole completed tensor products and does not close Proposition6, Proposition7, stable-reflexivity, pointed hull or moduli geometry."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix ambient setup, Definition1, Theorem2 and Propositions6–7, printed191–195 (physical31–35)",
+          "match": "Motivates the two coefficient bases and arbitrary completed-base modules. The finite-level comparison and its submodule induction proof are authored library adapters. Proposition6 cites Bourbaki III5.4.4, not this proof; Proposition7 leaves its proof as an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteHomEquiv_symm_apply"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-hom-roundtrip",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Finite Hom comparison round trip",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R the inherited native coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), and n≥0. Put Â=AdicCompletion(p,A), Bₙ=A/pⁿ and Qₙ=R/mⁿ. The actual actions on Qₙ are induced by λₙ:Bₙ→Qₙ, A→Bₙ and evalₙ:Â→Bₙ. For arbitrary Â-module N equip N with its restricted A-action; require the actual scalar tower A→Â→N. Neither flatness nor finite generation of N is assumed, and its action need not factor through Bₙ. Assume p is finitely generated. Hₙ,N,L⁻¹(Hₙ,N,L(f))=f for every Qₙ-linear f:L→Qₙ⊗_A N.",
+      "hypotheses": [
+        "The displayed finite-generation hypothesis is used only where stated. All actions are the specified actual restrictions. No flatness of N, no noetherianity or localness, and no discriminant hypothesis is introduced. The completed-base module N is arbitrary."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-hom-equivalence"
+      ],
+      "proofSteps": [
+        "Apply the native linear-equivalence inverse identity."
+      ],
+      "acceptance": [
+        "Use the actual native polynomial chart, ideal quotients, adic completion, tensor product and linear-map spaces. No comparison conclusion is an input hypothesis.",
+        "A finite quotient equivalence does not identify the whole completed tensor products and does not close Proposition6, Proposition7, stable-reflexivity, pointed hull or moduli geometry."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix ambient setup, Definition1, Theorem2 and Propositions6–7, printed191–195 (physical31–35)",
+          "match": "Motivates the two coefficient bases and arbitrary completed-base modules. The finite-level comparison and its submodule induction proof are authored library adapters. Proposition6 cites Bourbaki III5.4.4, not this proof; Proposition7 leaves its proof as an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteHomEquiv_roundtrip"
     }
   ],
   "requests": [
@@ -21504,7 +22672,8 @@
         "The actual augmented finite-free R-projective resolutions of J and D are now specified and separately checked with native QuasiIso. Their Hom precomposition differentials equal the existing arbitrary-coefficient cochain maps. Next identify the categorical Hom complex and native higher Ext; then apply the exact Appendix/Ile relative stable-reflexivity and two-base completion theorems, pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. The differential equality alone is not an Ext comparison.",
         "The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain.",
         "The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial.",
-        "The actual ideal-adic coefficient homomorphism Â→R̂ is now constructed from compatible native finite quotients for the polynomial nodal chart whenever p⊆ι⁻¹(m). Its original-coefficient square, finite evaluations, uniqueness and actual A→Â→R̂ scalar tower have explicit native signatures and proof bodies. The complete new native and admitted files are not freshly compiled in this continuation because available memory is below the WORKERS.md threshold. For every Â-module N, the native R̂-linear comparison R̂⊗_A N→R̂⊗_Â N is surjective, with its exact Â-linear kernel generated by completed-coefficient balancing differences. This identifies the additional quotient; injectivity is not claimed. Next establish the reusable owner-level relative stable-reflexivity formulation and the actual two-base completion Hom/Ext or universally acyclic-complex comparison with justified faithful reflection, then the pointed completed-local hull, coefficient-compatible sheaf descent and arbitrary-base approximation. Bourbaki III5.4.4 remains unread and Proposition7 remains an exercise input. All eight stages remain partial."
+        "The actual ideal-adic coefficient homomorphism Â→R̂ is now constructed from compatible native finite quotients for the polynomial nodal chart whenever p⊆ι⁻¹(m). Its original-coefficient square, finite evaluations, uniqueness and actual A→Â→R̂ scalar tower have explicit native signatures and proof bodies. The complete new native and admitted files are not freshly compiled in this continuation because available memory is below the WORKERS.md threshold. For every Â-module N, the native R̂-linear comparison R̂⊗_A N→R̂⊗_Â N is surjective, with its exact Â-linear kernel generated by completed-coefficient balancing differences. This identifies the additional quotient; injectivity is not claimed. Next establish the reusable owner-level relative stable-reflexivity formulation and the actual two-base completion Hom/Ext or universally acyclic-complex comparison with justified faithful reflection, then the pointed completed-local hull, coefficient-compatible sheaf descent and arbitrary-base approximation. Bourbaki III5.4.4 remains unread and Proposition7 remains an exercise input. All eight stages remain partial.",
+        "For finitely generated p and every Â-module N, the finite quotients now have an explicit actual equivalence Qₙ⊗_A N≃Qₙ⊗_Â N and postcomposition equivalences on actual Hom spaces, including L=Qₙ⊗_R J. The proof uses the native completion evaluation kernel pⁿ·Â and submodule induction; N need not factor through A/pⁿ or be flat. This finite-level result does not prove injectivity of R̂⊗_A N→R̂⊗_Â N. Passing through an inverse limit would require justified tensor/Hom/Ext comparison hypotheses and cannot be inferred for arbitrary N. Knudsen Proposition6, Proposition7, owner-level stable-reflexivity, faithful reflection, hull identification, sheaf descent, approximation and all eight geometric stages remain open. Current Native and FullCanonical are uncompiled proof draft and admitted plan respectively; older compilation receipts are historical only."
       ]
     },
     {
@@ -21908,7 +23077,7 @@
       "neededBy": [
         "StableReductionPartII:MC.2/dual-section-ideal"
       ],
-      "detail": "The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial. Do not replace R̂⊗_Ŝ N by R̂⊗_S N for an arbitrary Ŝ-module N. Knudsen Proposition6 cites Bourbaki III5.4.4 without an argument; Proposition7 is an exercise. These remain unproved inputs here. The general stable-Hom/Ext formula in Ile §2.3 is false without additional hypotheses (E11) and is not a substitute. The actual ideal-adic coefficient homomorphism Â→R̂ is now constructed from compatible native finite quotients for the polynomial nodal chart whenever p⊆ι⁻¹(m). Its original-coefficient square, finite evaluations, uniqueness and actual A→Â→R̂ scalar tower have explicit native signatures and proof bodies. The complete new native and admitted files are not freshly compiled in this continuation because available memory is below the WORKERS.md threshold. For every Â-module N, the native R̂-linear comparison R̂⊗_A N→R̂⊗_Â N is surjective, with its exact Â-linear kernel generated by completed-coefficient balancing differences. This identifies the additional quotient; injectivity is not claimed. Next establish the reusable owner-level relative stable-reflexivity formulation and the actual two-base completion Hom/Ext or universally acyclic-complex comparison with justified faithful reflection, then the pointed completed-local hull, coefficient-compatible sheaf descent and arbitrary-base approximation. Bourbaki III5.4.4 remains unread and Proposition7 remains an exercise input. All eight stages remain partial."
+      "detail": "The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial. Do not replace R̂⊗_Ŝ N by R̂⊗_S N for an arbitrary Ŝ-module N. Knudsen Proposition6 cites Bourbaki III5.4.4 without an argument; Proposition7 is an exercise. These remain unproved inputs here. The general stable-Hom/Ext formula in Ile §2.3 is false without additional hypotheses (E11) and is not a substitute. The actual ideal-adic coefficient homomorphism Â→R̂ is now constructed from compatible native finite quotients for the polynomial nodal chart whenever p⊆ι⁻¹(m). Its original-coefficient square, finite evaluations, uniqueness and actual A→Â→R̂ scalar tower have explicit native signatures and proof bodies. The complete new native and admitted files are not freshly compiled in this continuation because available memory is below the WORKERS.md threshold. For every Â-module N, the native R̂-linear comparison R̂⊗_A N→R̂⊗_Â N is surjective, with its exact Â-linear kernel generated by completed-coefficient balancing differences. This identifies the additional quotient; injectivity is not claimed. Next establish the reusable owner-level relative stable-reflexivity formulation and the actual two-base completion Hom/Ext or universally acyclic-complex comparison with justified faithful reflection, then the pointed completed-local hull, coefficient-compatible sheaf descent and arbitrary-base approximation. Bourbaki III5.4.4 remains unread and Proposition7 remains an exercise input. All eight stages remain partial. For finitely generated p and every Â-module N, the finite quotients now have an explicit actual equivalence Qₙ⊗_A N≃Qₙ⊗_Â N and postcomposition equivalences on actual Hom spaces, including L=Qₙ⊗_R J. The proof uses the native completion evaluation kernel pⁿ·Â and submodule induction; N need not factor through A/pⁿ or be flat. This finite-level result does not prove injectivity of R̂⊗_A N→R̂⊗_Â N. Passing through an inverse limit would require justified tensor/Hom/Ext comparison hypotheses and cannot be inferred for arbitrary N. Knudsen Proposition6, Proposition7, owner-level stable-reflexivity, faithful reflection, hull identification, sheaf descent, approximation and all eight geometric stages remain open. Current Native and FullCanonical are uncompiled proof draft and admitted plan respectively; older compilation receipts are historical only."
     }
   ],
   "sourceIssues": [
@@ -22453,7 +23622,7 @@
   "prototypeCoverage": {
     "status": "partial",
     "compiled": false,
-    "reason": "The entire current Mathlib-only admitted sketch elaborates. A separately checked admission-free native archive preserves all prior polynomial/tensor/bidual bodies and supplies the actual arbitrary-coefficient-module Hom maps, signed coordinate proofs, R-linear isomorphisms, coefficient naturality and M=A unit/bidual comparisons. Higher Ext, relative stable reflexivity, two-base completion and all geometry remain open. The specialized actual Hom cochain signatures, positive native cohomology and signed augmentation cycles are now expressible; native resolution/Ext comparison remains outside this checkpoint. The actual native projective-resolution signatures and differential comparisons are now expressible; categorical Hom-complex/Ext comparisons remain open. The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain. The actual ideal-adic coefficient homomorphism Â→R̂ is now constructed from compatible native finite quotients for the polynomial nodal chart whenever p⊆ι⁻¹(m). Its original-coefficient square, finite evaluations, uniqueness and actual A→Â→R̂ scalar tower have explicit native signatures and proof bodies. The complete new native and admitted files are not freshly compiled in this continuation because available memory is below the WORKERS.md threshold. For every Â-module N, the native R̂-linear comparison R̂⊗_A N→R̂⊗_Â N is surjective, with its exact Â-linear kernel generated by completed-coefficient balancing differences. This identifies the additional quotient; injectivity is not claimed. Next establish the reusable owner-level relative stable-reflexivity formulation and the actual two-base completion Hom/Ext or universally acyclic-complex comparison with justified faithful reflection, then the pointed completed-local hull, coefficient-compatible sheaf descent and arbitrary-base approximation. Bourbaki III5.4.4 remains unread and Proposition7 remains an exercise input. All eight stages remain partial. Current complete suggested file not freshly compiled: available memory is below20 GB. Historical compilation receipts refer only to their own recovered source hashes.",
+    "reason": "The entire current Mathlib-only admitted sketch elaborates. A separately checked admission-free native archive preserves all prior polynomial/tensor/bidual bodies and supplies the actual arbitrary-coefficient-module Hom maps, signed coordinate proofs, R-linear isomorphisms, coefficient naturality and M=A unit/bidual comparisons. Higher Ext, relative stable reflexivity, two-base completion and all geometry remain open. The specialized actual Hom cochain signatures, positive native cohomology and signed augmentation cycles are now expressible; native resolution/Ext comparison remains outside this checkpoint. The actual native projective-resolution signatures and differential comparisons are now expressible; categorical Hom-complex/Ext comparisons remain open. The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain. The actual ideal-adic coefficient homomorphism Â→R̂ is now constructed from compatible native finite quotients for the polynomial nodal chart whenever p⊆ι⁻¹(m). Its original-coefficient square, finite evaluations, uniqueness and actual A→Â→R̂ scalar tower have explicit native signatures and proof bodies. The complete new native and admitted files are not freshly compiled in this continuation because available memory is below the WORKERS.md threshold. For every Â-module N, the native R̂-linear comparison R̂⊗_A N→R̂⊗_Â N is surjective, with its exact Â-linear kernel generated by completed-coefficient balancing differences. This identifies the additional quotient; injectivity is not claimed. Next establish the reusable owner-level relative stable-reflexivity formulation and the actual two-base completion Hom/Ext or universally acyclic-complex comparison with justified faithful reflection, then the pointed completed-local hull, coefficient-compatible sheaf descent and arbitrary-base approximation. Bourbaki III5.4.4 remains unread and Proposition7 remains an exercise input. All eight stages remain partial. Current complete suggested file not freshly compiled: available memory is below20 GB. Historical compilation receipts refer only to their own recovered source hashes. For finitely generated p and every Â-module N, the finite quotients now have an explicit actual equivalence Qₙ⊗_A N≃Qₙ⊗_Â N and postcomposition equivalences on actual Hom spaces, including L=Qₙ⊗_R J. The proof uses the native completion evaluation kernel pⁿ·Â and submodule induction; N need not factor through A/pⁿ or be flat. This finite-level result does not prove injectivity of R̂⊗_A N→R̂⊗_Â N. Passing through an inverse limit would require justified tensor/Hom/Ext comparison hypotheses and cannot be inferred for arbitrary N. Knudsen Proposition6, Proposition7, owner-level stable-reflexivity, faithful reflection, hull identification, sheaf descent, approximation and all eight geometric stages remain open. Current Native and FullCanonical are uncompiled proof draft and admitted plan respectively; older compilation receipts are historical only.",
     "expressedNodes": [
       "StableReductionPartII:MC.2/binary-node-form",
       "StableReductionPartII:MC.2/node-factorization-products",
@@ -22688,7 +23857,31 @@
       "StableReductionPartII:MC.2/completion-coefficient-tensor-pure",
       "StableReductionPartII:MC.2/completion-coefficient-tensor-surjective",
       "StableReductionPartII:MC.2/completion-coefficient-tensor-balancing",
-      "StableReductionPartII:MC.2/completion-coefficient-tensor-kernel"
+      "StableReductionPartII:MC.2/completion-coefficient-tensor-kernel",
+      "StableReductionPartII:MC.2/finite-residue-algebra",
+      "StableReductionPartII:MC.2/finite-residue-algebra-map",
+      "StableReductionPartII:MC.2/finite-residue-original",
+      "StableReductionPartII:MC.2/finite-residue-surjective",
+      "StableReductionPartII:MC.2/finite-chart-algebra",
+      "StableReductionPartII:MC.2/finite-chart-algebra-map",
+      "StableReductionPartII:MC.2/finite-chart-original",
+      "StableReductionPartII:MC.2/finite-chart-completed-square",
+      "StableReductionPartII:MC.2/finite-residue-kernel",
+      "StableReductionPartII:MC.2/finite-chart-power-annihilate",
+      "StableReductionPartII:MC.2/finite-chart-coefficient-tower",
+      "StableReductionPartII:MC.2/finite-tensor-power-vanish",
+      "StableReductionPartII:MC.2/finite-tensor-completed-balance",
+      "StableReductionPartII:MC.2/finite-tensor-compatible",
+      "StableReductionPartII:MC.2/finite-tensor-equivalence",
+      "StableReductionPartII:MC.2/finite-tensor-forward-pure",
+      "StableReductionPartII:MC.2/finite-tensor-inverse-pure",
+      "StableReductionPartII:MC.2/finite-tensor-source-roundtrip",
+      "StableReductionPartII:MC.2/finite-tensor-target-roundtrip",
+      "StableReductionPartII:MC.2/finite-tensor-balance",
+      "StableReductionPartII:MC.2/finite-hom-equivalence",
+      "StableReductionPartII:MC.2/finite-hom-evaluation",
+      "StableReductionPartII:MC.2/finite-hom-inverse-evaluation",
+      "StableReductionPartII:MC.2/finite-hom-roundtrip"
     ],
     "expressedApi": [
       "NodeForm.eval",
