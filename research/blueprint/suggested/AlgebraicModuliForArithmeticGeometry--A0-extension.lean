@@ -1,3 +1,6 @@
+import Mathlib.Algebra.Torsor.Defs
+import Mathlib.CategoryTheory.Sites.CartesianMonoidal
+import Mathlib.CategoryTheory.Monoidal.Types.Basic
 import Mathlib.Algebra.Category.Grp.Basic
 import Mathlib.CategoryTheory.ComposableArrows.Basic
 import Mathlib.CategoryTheory.Sums.Basic
@@ -4098,3 +4101,325 @@ example :
       groupBandSheaf twoChainPresheaf) := by sorry
 
 end TauCeti.AlgebraicGeometry.RestrictionBandFixtures.RestrictionBandTests
+
+/-! Isom sheaves and their principal band action; proposed signatures only. -/
+
+namespace TauCeti.AlgebraicGeometry.BandedIsom
+open CategoryTheory Opposite Bicategory
+open Pseudofunctor.LocallyDiscreteOpToCat
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type u} [Category.{v} C]
+variable (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
+variable (J : GrothendieckTopology C) [IsGerbe F J]
+variable (A : Sheaf J AddCommGrpCat.{v'}) (b : AbelianBanding F J A)
+variable {U : C} {x y z : F.obj (.mk (op U))}
+
+/-- The action is defined without a global isomorphism or chosen neutralization. -/
+def act (b : AbelianBanding F J A) (p : x ≅ y) (a : Multiplicative (A.obj.obj (op U))) : x ≅ y := by
+  sorry
+
+lemma act_one (p : x ≅ y) : act F J A b p 1 = p := by
+  sorry
+
+lemma act_mul (p : x ≅ y) (a c : Multiplicative (A.obj.obj (op U))) :
+    act F J A b p (a * c) = act F J A b (act F J A b p c) a := by
+  sorry
+
+/-- The unique coefficient carrying p to q, computed using the actual inverse of p. -/
+def difference (b : AbelianBanding F J A) (p q : x ≅ y) : Multiplicative (A.obj.obj (op U)) := by
+  sorry
+
+lemma act_difference (p q : x ≅ y) : act F J A b p (difference F J A b p q) = q := by
+  sorry
+
+lemma difference_act (p : x ≅ y) (a : Multiplicative (A.obj.obj (op U))) :
+    difference F J A b p (act F J A b p a) = a := by
+  sorry
+
+lemma difference_self (p : x ≅ y) : difference F J A b p p = 1 := by
+  sorry
+
+lemma act_precompose (p : x ≅ y) (a : Multiplicative (A.obj.obj (op U))) :
+    act F J A b p a = b.autEquiv U x a ≪≫ p := by
+  sorry
+
+lemma act_postcompose (p : x ≅ y) (q : y ≅ z)
+    (a : Multiplicative (A.obj.obj (op U))) :
+    act F J A b p a ≪≫ q = act F J A b (p ≪≫ q) a := by
+  sorry
+
+/-- Principal comparison exists even when the global section type is empty. -/
+def principalEquiv (b : AbelianBanding F J A) (x y : F.obj (.mk (op U))) :
+    ((x ≅ y) × Multiplicative (A.obj.obj (op U))) ≃ ((x ≅ y) × (x ≅ y)) := by
+  sorry
+
+/-- Native torsor instance is offered only under explicit nonemptiness. -/
+@[instance_reducible]
+def isomTorsor (b : AbelianBanding F J A) (x y : F.obj (.mk (op U))) (h : Nonempty (x ≅ y)) :
+    Torsor (Multiplicative (A.obj.obj (op U))) (x ≅ y) := by
+  sorry
+
+/-- An actual anchor trivializes the section torsor. -/
+def coordinateEquiv (b : AbelianBanding F J A) (p : x ≅ y) :
+    Multiplicative (A.obj.obj (op U)) ≃ (x ≅ y) := by
+  sorry
+
+lemma coordinate_one (p : x ≅ y) : coordinateEquiv F J A b p 1 = p := by
+  sorry
+
+lemma coordinate_change (p q : x ≅ y) (a : Multiplicative (A.obj.obj (op U))) :
+    coordinateEquiv F J A b q a =
+      coordinateEquiv F J A b p (a * difference F J A b p q) := by
+  sorry
+
+lemma difference_cocycle (p q r : x ≅ y) :
+    difference F J A b p r = difference F J A b q r * difference F J A b p q := by
+  sorry
+
+lemma restrict_act {V : C} (f : V ⟶ U) (p : x ≅ y)
+    (a : Multiplicative (A.obj.obj (op U))) :
+    (F.map f.op.toLoc).toFunctor.mapIso (act F J A b p a) =
+      act F J A b ((F.map f.op.toLoc).toFunctor.mapIso p)
+        (Multiplicative.ofAdd ((A.obj.map f.op) a.toAdd)) := by
+  sorry
+
+lemma restrict_difference {V : C} (f : V ⟶ U) (p q : x ≅ y) :
+    difference F J A b ((F.map f.op.toLoc).toFunctor.mapIso p)
+      ((F.map f.op.toLoc).toFunctor.mapIso q) =
+        Multiplicative.ofAdd ((A.obj.map f.op) (difference F J A b p q).toAdd) := by
+  sorry
+
+/-- Isomorphism to the already built Hom type: the groupoid condition is essential. -/
+noncomputable def homEquiv (J : GrothendieckTopology C) [IsGerbe F J] (x y : F.obj (.mk (op U))) : (x ≅ y) ≃ (x ⟶ y) := by
+  sorry
+
+def homAct (b : AbelianBanding F J A) (p : x ⟶ y) (a : Multiplicative (A.obj.obj (op U))) : x ⟶ y := by
+  sorry
+
+noncomputable def homPrincipalEquiv (b : AbelianBanding F J A) (x y : F.obj (.mk (op U))) :
+    ((x ⟶ y) × Multiplicative (A.obj.obj (op U))) ≃ ((x ⟶ y) × (x ⟶ y)) := by
+  sorry
+
+lemma homPrincipalEquiv_apply (p : x ⟶ y) (a : Multiplicative (A.obj.obj (op U))) :
+    homPrincipalEquiv F J A b x y (p,a) = (p, homAct F J A b p a) := by
+  sorry
+
+/-- Actual Hom restriction includes the pseudofunctor comparison isomorphisms. -/
+lemma pullHom_act {V W : C} (f : V ⟶ U) (h : W ⟶ V) (hf : W ⟶ U)
+    (hh : h ≫ f = hf)
+    (p : (F.map f.op.toLoc).toFunctor.obj x ⟶ (F.map f.op.toLoc).toFunctor.obj y)
+    (a : Multiplicative (A.obj.obj (op V))) :
+    pullHom (homAct F J A b p a) h hf hf hh hh =
+      homAct F J A b (pullHom p h hf hf hh hh)
+        (Multiplicative.ofAdd ((A.obj.map h.op) a.toAdd)) := by
+  sorry
+
+/-- Pair presheaf underlying the existing Hom sheaf on C/U. -/
+def pairPresheaf (x y : F.obj (.mk (op U))) : (Over U)ᵒᵖ ⥤ Type v' := by
+  sorry
+
+/-- Product of the same Hom presheaf with the restricted coefficient presheaf. -/
+def actionPresheaf (A : Sheaf J AddCommGrpCat.{v'}) (x y : F.obj (.mk (op U))) : (Over U)ᵒᵖ ⥤ Type v' := by
+  sorry
+
+/-- Native natural principal comparison, retaining all slice-arrow coherence. -/
+noncomputable def principalPresheafIso (b : AbelianBanding F J A) (x y : F.obj (.mk (op U))) :
+    actionPresheaf F J A x y ≅ pairPresheaf F x y := by
+  sorry
+
+lemma pair_isSheaf (x y : F.obj (.mk (op U))) :
+    Presheaf.IsSheaf (J.over U) (pairPresheaf F x y) := by
+  sorry
+
+lemma action_isSheaf (b : AbelianBanding F J A) (x y : F.obj (.mk (op U))) :
+    Presheaf.IsSheaf (J.over U) (actionPresheaf F J A x y) := by
+  sorry
+
+noncomputable def pairSheaf (x y : F.obj (.mk (op U))) : Sheaf (J.over U) (Type v') := by
+  sorry
+
+noncomputable def actionSheaf (b : AbelianBanding F J A) (x y : F.obj (.mk (op U))) : Sheaf (J.over U) (Type v') := by
+  sorry
+
+/-- Actual sheaf principal comparison, on the already built native sheaf carrier. -/
+noncomputable def principalSheafIso (x y : F.obj (.mk (op U))) :
+    actionSheaf F J A b x y ≅ pairSheaf F J x y := by
+  sorry
+
+lemma hom_localNonempty (x y : F.obj (.mk (op U))) :
+    ∃ R : Sieve U, R ∈ J U ∧ ∀ ⦃V : C⦄ (f : V ⟶ U), R f →
+      Nonempty ((F.map f.op.toLoc).toFunctor.obj x ⟶ (F.map f.op.toLoc).toFunctor.obj y) := by
+  sorry
+
+lemma principalEquiv_apply (p : x ≅ y) (a : Multiplicative (A.obj.obj (op U))) :
+    principalEquiv F J A b x y (p,a) = (p, act F J A b p a) := by
+  sorry
+
+lemma principalEquiv_symm_apply (p q : x ≅ y) :
+    (principalEquiv F J A b x y).symm (p,q) = (p, difference F J A b p q) := by
+  sorry
+
+lemma coordinate_apply (p : x ≅ y) (a : Multiplicative (A.obj.obj (op U))) :
+    coordinateEquiv F J A b p a = act F J A b p a := by
+  sorry
+
+lemma coordinate_symm_apply (p q : x ≅ y) :
+    (coordinateEquiv F J A b p).symm q = difference F J A b p q := by
+  sorry
+
+lemma principalSheafIso_hom (x y : F.obj (.mk (op U))) :
+    HEq (principalSheafIso F J A b x y).hom.hom (principalPresheafIso F J A b x y).hom := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.BandedIsom
+
+namespace TauCeti.AlgebraicGeometry.BandedIsom.Tests
+open CategoryTheory Opposite Bicategory
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type u} [Category.{v} C]
+variable (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
+variable (J : GrothendieckTopology C) [IsGerbe F J]
+variable (A : Sheaf J AddCommGrpCat.{v'}) (b : AbelianBanding F J A)
+variable {U : C} {x y z : F.obj (.mk (op U))}
+
+-- BandedIsom.Tests.zeroAction
+example (p : x ≅ y) : act F J A b p 1 = p := by
+  sorry
+
+-- BandedIsom.Tests.actionOrder
+example (p : x ≅ y) (a c : Multiplicative (A.obj.obj (op U))) :
+    act F J A b (act F J A b p c) a = act F J A b p (a*c) := by
+  sorry
+
+-- BandedIsom.Tests.precomposition
+example (p : x ≅ y) (a : Multiplicative (A.obj.obj (op U))) :
+    act F J A b p a = b.autEquiv U x a ≪≫ p := by
+  sorry
+
+-- BandedIsom.Tests.composition
+example (p : x ≅ y) (q : y ≅ z) (a : Multiplicative (A.obj.obj (op U))) :
+    act F J A b p a ≪≫ q = act F J A b (p ≪≫ q) a := by
+  sorry
+
+-- BandedIsom.Tests.uniqueCoefficient
+example (p q : x ≅ y) :
+    ∃! a : Multiplicative (A.obj.obj (op U)), act F J A b p a = q := by
+  sorry
+
+-- BandedIsom.Tests.differenceZero
+example (p : x ≅ y) : difference F J A b p p = 1 := by
+  sorry
+
+-- BandedIsom.Tests.differenceRecovery
+example (p q : x ≅ y) :
+    act F J A b p (difference F J A b p q) = q := by
+  sorry
+
+-- BandedIsom.Tests.differenceCocycle
+example (p q r : x ≅ y) :
+    difference F J A b p r = difference F J A b q r * difference F J A b p q := by
+  sorry
+
+-- BandedIsom.Tests.principalLeft
+example (t : (x ≅ y) × Multiplicative (A.obj.obj (op U))) :
+    (principalEquiv F J A b x y).symm (principalEquiv F J A b x y t) = t := by
+  sorry
+
+-- BandedIsom.Tests.principalRight
+example (t : (x ≅ y) × (x ≅ y)) :
+    principalEquiv F J A b x y ((principalEquiv F J A b x y).symm t) = t := by
+  sorry
+
+-- BandedIsom.Tests.principalWithoutAnchor
+example (b : AbelianBanding F J A) :
+    Nonempty (((x ≅ y) × Multiplicative (A.obj.obj (op U))) ≃ ((x ≅ y) × (x ≅ y))) := by
+  sorry
+
+omit [IsGerbe F J] in
+-- BandedIsom.Tests.noPointCreated
+example [IsEmpty (x ≅ y)] :
+    IsEmpty ((x ≅ y) × Multiplicative (A.obj.obj (op U))) := by
+  sorry
+
+-- BandedIsom.Tests.torsorDivision
+example (p q : x ≅ y) :
+    (letI := isomTorsor F J A b x y ⟨p⟩
+     (p /ₛ q : Multiplicative (A.obj.obj (op U))) • q = p) := by
+  sorry
+
+-- BandedIsom.Tests.selfCoefficient
+example (a : Multiplicative (A.obj.obj (op U))) :
+    coordinateEquiv F J A b (Iso.refl x) a = b.autEquiv U x a := by
+  sorry
+
+-- BandedIsom.Tests.selfZero
+example : coordinateEquiv F J A b (Iso.refl x) 1 = Iso.refl x := by
+  sorry
+
+-- BandedIsom.Tests.nonzeroMoves
+example (p : x ≅ y) (a : Multiplicative (A.obj.obj (op U))) (ha : a ≠ 1) :
+    act F J A b p a ≠ p := by
+  sorry
+
+-- BandedIsom.Tests.zeroBandUnique
+example (b : AbelianBanding F J A) [Subsingleton (A.obj.obj (op U))] (p q : x ≅ y) : p = q := by
+  sorry
+
+-- BandedIsom.Tests.changedAnchor
+example (p q : x ≅ y) :
+    coordinateEquiv F J A b p (difference F J A b p q) = q := by
+  sorry
+
+-- BandedIsom.Tests.homUsesActualArrow
+example (p : x ≅ y) : homEquiv F J x y p = p.hom := by
+  sorry
+
+-- BandedIsom.Tests.homComparison
+example (p : x ⟶ y) (a : Multiplicative (A.obj.obj (op U))) :
+    homPrincipalEquiv F J A b x y (p,a) = (p,p ≫ (b.autEquiv U y a).hom) := by
+  sorry
+
+-- BandedIsom.Tests.restrictionAction
+example {V : C} (f : V ⟶ U) (p : x ≅ y)
+    (a : Multiplicative (A.obj.obj (op U))) :
+    (F.map f.op.toLoc).toFunctor.mapIso (act F J A b p a) =
+      act F J A b ((F.map f.op.toLoc).toFunctor.mapIso p)
+        (Multiplicative.ofAdd ((A.obj.map f.op) a.toAdd)) := by
+  sorry
+
+-- BandedIsom.Tests.restrictionDifference
+example {V : C} (f : V ⟶ U) (p q : x ≅ y) :
+    difference F J A b ((F.map f.op.toLoc).toFunctor.mapIso p)
+      ((F.map f.op.toLoc).toFunctor.mapIso q) =
+        Multiplicative.ofAdd ((A.obj.map f.op) (difference F J A b p q).toAdd) := by
+  sorry
+
+-- BandedIsom.Tests.pairSheafNative
+example : Presheaf.IsSheaf (J.over U) (pairPresheaf F x y) := by
+  sorry
+
+-- BandedIsom.Tests.actionSheafNative
+example (b : AbelianBanding F J A) :
+    Presheaf.IsSheaf (J.over U) (actionPresheaf F J A x y) := by
+  sorry
+
+-- BandedIsom.Tests.sheafLeft
+example :
+    (principalSheafIso F J A b x y).hom ≫ (principalSheafIso F J A b x y).inv =
+      𝟙 (actionSheaf F J A b x y) := by
+  sorry
+
+-- BandedIsom.Tests.sheafRight
+example :
+    (principalSheafIso F J A b x y).inv ≫ (principalSheafIso F J A b x y).hom =
+      𝟙 (pairSheaf F J x y) := by
+  sorry
+
+-- BandedIsom.Tests.sheafUnderlying
+example :
+    HEq (principalSheafIso F J A b x y).hom.hom (principalPresheafIso F J A b x y).hom := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.BandedIsom.Tests
