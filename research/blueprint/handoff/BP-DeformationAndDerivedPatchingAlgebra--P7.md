@@ -134,7 +134,8 @@ assert hashlib.sha256(canonical.encode()).hexdigest()=="d4436ea6117da50ee365d688
 hand=blob(archive,"research/blueprint/handoff/BP-"+stem+".md")
 def section(heading,language):
  tail=hand.split("\n## "+heading+"\n",1)[1]
- return tail.split("\n```"+language+"\n",1)[1].split("\n```\n",1)[0]
+ data=tail.split("\n```"+language+"\n",1)[1].split("\n```\n",1)[0]
+ return data if data.endswith("\n") else data+"\n"
 files={name:blob(candidate,path)for path,name in paths.items()}
 assert files["Canonical.lean"]==canonical
 files.update({"Native.lean":native,
