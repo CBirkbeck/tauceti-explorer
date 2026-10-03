@@ -13,7 +13,7 @@
     "AlgebraicModuliForArithmeticGeometry:R09.7"
   ],
   "status": "partial",
-  "summary": "Partial 179-node chosen-band inverse checkpoint: six consumed native leaves construct local coefficient families, prove their exact recovery and matching, glue through the prescribed coefficient sheaf even with an empty global fibre, and construct the actual coefficient group equivalence with inverse restriction laws. All 173 inherited statement/hypothesis/source/acceptance contracts and all source routes, reserved keys, nine gaps and 21 requests survive. All eight stages remain partial or not_read with unchecked implementations. The actual SF1 descended-slice comparison, specified geometric fixtures and all broader source/supplier obligations remain open. Full TauCeti file uncompiled; the admission-free native proof and admitted Mathlib extraction are checked separately. Codex codex-a71f92 adds the actual fixed-band presheaf and sheaf isomorphisms and their all-arrow evaluation uniqueness, retaining the central-section carrier, reserved gerbe contract and all open geometric supplier obligations.",
+  "summary": "Partial 179-node chosen-band inverse checkpoint: six consumed native leaves construct local coefficient families, prove their exact recovery and matching, glue through the prescribed coefficient sheaf even with an empty global fibre, and construct the actual coefficient group equivalence with inverse restriction laws. All 173 inherited statement/hypothesis/source/acceptance contracts and all source routes, reserved keys, nine gaps and 21 requests survive. All eight stages remain partial or not_read with unchecked implementations. The actual SF1 descended-slice comparison, specified geometric fixtures and all broader source/supplier obligations remain open. Full TauCeti file uncompiled; the admission-free native proof and admitted Mathlib extraction are checked separately. Codex codex-a71f92 adds the actual fixed-band presheaf and sheaf isomorphisms and their all-arrow evaluation uniqueness, retaining the central-section carrier, reserved gerbe contract and all open geometric supplier obligations. Constant point-site centre fixtures add actual component-profile equivalences, a native point-stack proof, the connected gerbe instance and the disconnected gerbe obstruction; the wider source and supplier frontiers remain partial.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -803,6 +803,132 @@
         "checked": "Exact statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-a71f92 on 2026-10-02.",
         "sourceLine": 130,
         "sourceSha256": "94c995fd165ad4c7a422bca4b64d422deb2207bc490967487bb20b16b2d3315e"
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Cat.of",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Category/Cat.lean",
+        "sourceLine": 54,
+        "sourceSha256": "9e0a731c46c8986adc4395a43e7cf14616db47ca16882b1f868bc85934beaa72",
+        "provides": "Bundles the existing fibre category as an object of the native bicategory Cat.",
+        "checked": "Actual declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.EssSurj",
+        "kind": "class",
+        "module": "Mathlib/CategoryTheory/EssentialImage.lean",
+        "sourceLine": 106,
+        "sourceSha256": "a72ca2e0427028cf8ab5256b008727458aa002d52b8ca0d962eb4ef808b81691",
+        "provides": "The native essential-surjectivity predicate retains an actual preimage object and a categorical isomorphism, not only an isomorphism-class equality.",
+        "checked": "Actual declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.IsEquivalence",
+        "kind": "class",
+        "module": "Mathlib/CategoryTheory/Equivalence.lean",
+        "sourceLine": 606,
+        "sourceSha256": "7cdcf9ca9aa50982c7471a2f4124e667f164fd68dfc6bdad08272c6565a457ea",
+        "provides": "The existing equivalence predicate requires faithful, full and essentially-surjective instances of the actual canonical descent functor.",
+        "checked": "Actual declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.const",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Functor/Const.lean",
+        "sourceLine": 36,
+        "sourceSha256": "e4f0f3a1ec0ba21d7bc7149c8cf8e0907ada124ef1e01ad49bff52f414df6123",
+        "provides": "The actual constant functor, whose object values are D and whose morphism values are identity functors.",
+        "checked": "Actual declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.toPseudofunctor'",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Bicategory/Functor/LocallyDiscrete.lean",
+        "sourceLine": 144,
+        "sourceSha256": "412205e7e04b7980e29d4825d0c13a48d5c40f1c79b3fb009bfb76d0306ada1a",
+        "provides": "Promotes the actual constant Cat-valued functor to a pseudofunctor from a locally discrete category, retaining the native equality transport constraints.",
+        "checked": "Actual declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.GrothendieckTopology.bot_covering",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Sites/Grothendieck.lean",
+        "sourceLine": 332,
+        "sourceSha256": "7cfa1dbe1bc7ac44fabb7cef395478d7978e72e5282fa67310bf7248ff1d611d",
+        "provides": "A sieve covers for the bottom topology exactly when it is maximal, used in the point-stack and disconnected-gerbe proofs.",
+        "checked": "Actual declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Prod.hom_ext",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Products/Basic.lean",
+        "sourceLine": 55,
+        "sourceSha256": "7d04b57043d610daef8c683e752fe6750a5e5fa868a4ed92ea2e8bedb7a6c6e4",
+        "provides": "Equality of both factor morphisms proves equality of actual morphisms in the product fibre category.",
+        "checked": "Actual declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Pseudofunctor.IsStack.of_isStackFor",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Sites/Descent/IsStack.lean",
+        "sourceLine": 77,
+        "sourceSha256": "389633d8611b769455a07fdb1d0b591848dfba27ba09f12274dd391d086d2a10",
+        "provides": "The native stack constructor from actual equivalences of the canonical descent functors on all covering sieves, used only for the concrete point fixtures.",
+        "checked": "Actual declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.SingleObj.category",
+        "kind": "instance",
+        "module": "Mathlib/CategoryTheory/SingleObj.lean",
+        "sourceLine": 68,
+        "sourceSha256": "6aca3a01c2a4beddfb1c80f82695834762e1ca0b30fe33ab0bb78d43aa24da03",
+        "provides": "The native one-object category of a monoid, with identity 1 and composition g times f.",
+        "checked": "Actual declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.SingleObj.comp_as_mul",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/SingleObj.lean",
+        "sourceLine": 76,
+        "sourceSha256": "6aca3a01c2a4beddfb1c80f82695834762e1ca0b30fe33ab0bb78d43aa24da03",
+        "provides": "The exact native reversed-composition formula f followed by g equals g times f.",
+        "checked": "Actual declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.SingleObj.groupoid",
+        "kind": "instance",
+        "module": "Mathlib/CategoryTheory/SingleObj.lean",
+        "sourceLine": 84,
+        "sourceSha256": "6aca3a01c2a4beddfb1c80f82695834762e1ca0b30fe33ab0bb78d43aa24da03",
+        "provides": "The native groupoid instance of the one-object category of a group; supplies inversion of every fibre morphism.",
+        "checked": "Actual declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.isIso_prod_iff",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Products/Basic.lean",
+        "sourceLine": 112,
+        "sourceSha256": "7d04b57043d610daef8c683e752fe6750a5e5fa868a4ed92ea2e8bedb7a6c6e4",
+        "provides": "A morphism in a product category is invertible exactly when its two components are invertible.",
+        "checked": "Actual declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:Nat.card_congr",
+        "kind": "theorem",
+        "module": "Mathlib/SetTheory/Cardinal/Finite.lean",
+        "sourceLine": 91,
+        "sourceSha256": "d0bb8f1f00469a940dcc8ca404a9d4f7157516c40a4d6aa0fbbc622e50c42e94",
+        "provides": "An actual type equivalence transports the natural-number cardinality of the compatible-section type.",
+        "checked": "Actual declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:Nat.card_eq_fintype_card",
+        "kind": "theorem",
+        "module": "Mathlib/SetTheory/Cardinal/Finite.lean",
+        "sourceLine": 45,
+        "sourceSha256": "d0bb8f1f00469a940dcc8ca404a9d4f7157516c40a4d6aa0fbbc622e50c42e94",
+        "provides": "For a genuine finite type, the natural-number cardinality equals the computable Fintype cardinality, used for the exact counts 3,9,1.",
+        "checked": "Actual declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; exact indexed name confirmed."
       }
     ]
   },
@@ -1388,6 +1514,24 @@
       "accessed": "2026-10-02",
       "readSections": [
         "Entire printed Definition 8.4.1; native stack/prestack carrier remains imported."
+      ]
+    },
+    {
+      "id": "SP-point-band-fixtures-rtOQ9t",
+      "title": "The Stacks Project, Gerbes and intrinsic bands; native point-fixture deductions",
+      "authors": "The Stacks Project Authors; fixture deductions by Codex codex-rtOQ9t",
+      "edition": "Live HTML accessed 2026-10-03",
+      "url": "https://stacks.math.columbia.edu/tag/06NZ",
+      "sha256": "b60742528d35ea2612a54bc8d95096fb2e97a39e4cba59034918834e5f414535",
+      "accessed": "2026-10-03",
+      "readSections": [
+        "Entire Definition 8.11.1; entire Lemma 8.11.8 statement and printed proof at 0CJY, including the explicitly omitted varying-base step."
+      ],
+      "relatedSources": [
+        {
+          "url": "https://stacks.math.columbia.edu/tag/0CJY",
+          "sha256": "41dd0c0a1e20dfe2fd60212274a30f259ae0875225b1540b069adf3f89f27a9e"
+        }
       ]
     }
   ],
@@ -12039,6 +12183,1374 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-constant-section",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Constant centre sections on every slice",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandFixtures.constantSection",
+      "statement": "For the native constant Cat-valued pseudofunctor with fibre D, send z in the units of the categorical centre of D to the compatible central section with value z at every arrow V to U. This is actual centre-unit data, including its inverse.",
+      "hypotheses": [
+        "C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences.",
+        "D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat.",
+        "Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-sections",
+        "mathlib:CategoryTheory.Functor.const",
+        "mathlib:CategoryTheory.Functor.toPseudofunctor'",
+        "mathlib:CategoryTheory.Cat.of",
+        "mathlib:CategoryTheory.SingleObj.category",
+        "mathlib:CategoryTheory.SingleObj.groupoid"
+      ],
+      "proofSteps": [
+        "Use the existing constant functor and its promotion to a pseudofunctor; every restriction functor is the identity of D.",
+        "The family with constant value z satisfies the inherited all-arrow compatibility equation by the identity functor. Subgroup operations remain the native ones."
+      ],
+      "acceptance": [
+        "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
+        "These fixture results do not identify a general D0 torsor stack, prove the SF1 descended-slice comparison or close the gerbe key."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandFixtures"
+      },
+      "sources": [
+        {
+          "sourceId": "SP-point-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof; authored native point-diagram deductions",
+          "match": "The gerbe connectedness requirement and abelian-centre argument motivate these exact native examples. The profile equivalences, native point stack proof and finite counts are authored deductions, not results asserted to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandFixtures.constantSection",
+          "role": "constructor",
+          "statement": "For the native constant Cat-valued pseudofunctor with fibre D, send z in the units of the categorical centre of D to the compatible central section with value z at every arrow V to U. This is actual centre-unit data, including its inverse."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandFixtures.constantSection_val",
+          "role": "compatibility",
+          "statement": "At every f:V to U, the value of constantSection(U,z) is exactly z."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandFixtures.constantSection_restrict",
+          "role": "compatibility",
+          "statement": "Restriction of constantSection(U,z) along f:V to U is exactly constantSection(V,z)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ConstantCentreTests.one",
+          "kind": "degenerate",
+          "statement": "The identity centre unit gives the identity compatible section."
+        },
+        {
+          "name": "ConstantCentreTests.multiply",
+          "kind": "compatibility",
+          "statement": "Multiplying the input centre units multiplies the actual compatible sections in the same order."
+        },
+        {
+          "name": "ConstantCentreTests.allArrows",
+          "kind": "characterisation",
+          "statement": "Every slice arrow component is exactly the given full centre unit."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation",
+          "how": "Provides an actual native site/fibre fixture and its exact centre and evaluation maps for the existing intrinsic-band tests."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-constant-section-val",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Every slice component retains the given centre unit",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandFixtures.constantSection_val",
+      "statement": "At every f:V to U, the value of constantSection(U,z) is exactly z.",
+      "hypotheses": [
+        "C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences.",
+        "D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat.",
+        "Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-constant-section"
+      ],
+      "proofSteps": [
+        "Unfold the constant family and the inherited value projection."
+      ],
+      "acceptance": [
+        "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
+        "These fixture results do not identify a general D0 torsor stack, prove the SF1 descended-slice comparison or close the gerbe key."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandFixtures"
+      },
+      "sources": [
+        {
+          "sourceId": "SP-point-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof; authored native point-diagram deductions",
+          "match": "The gerbe connectedness requirement and abelian-centre argument motivate these exact native examples. The profile equivalences, native point stack proof and finite counts are authored deductions, not results asserted to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-constant-sections-equiv",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "All constant-diagram sections come from one centre unit",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandFixtures.constantSectionsEquiv",
+      "statement": "For every U, the units of the categorical centre of D are multiplicatively equivalent to the compatible central sections of the native constant diagram over U. The inverse evaluates the whole centre unit at the identity arrow of U.",
+      "hypotheses": [
+        "C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences.",
+        "D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat.",
+        "Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-constant-section",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-ext",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility"
+      ],
+      "proofSteps": [
+        "Define the inverse by the centre-unit value at the identity arrow.",
+        "The centre-unit round trip is definitional. For the section round trip, use compatibility from the identity arrow of U to each f:V to U. Constant pullback acts identically on all fibre objects.",
+        "Apply inherited central-section extensionality at every V,f,x; multiplication is pointwise. No topology, stack property or terminal base object is used."
+      ],
+      "acceptance": [
+        "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
+        "These fixture results do not identify a general D0 torsor stack, prove the SF1 descended-slice comparison or close the gerbe key."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandFixtures"
+      },
+      "sources": [
+        {
+          "sourceId": "SP-point-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof; authored native point-diagram deductions",
+          "match": "The gerbe connectedness requirement and abelian-centre argument motivate these exact native examples. The profile equivalences, native point stack proof and finite counts are authored deductions, not results asserted to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandFixtures.constantSectionsEquiv",
+          "role": "constructor",
+          "statement": "For every U, the units of the categorical centre of D are multiplicatively equivalent to the compatible central sections of the native constant diagram over U. The inverse evaluates the whole centre unit at the identity arrow of U."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandFixtures.constantSectionsEquiv_apply",
+          "role": "projection",
+          "statement": "The forward map of constantSectionsEquiv(U) is exactly constantSection(U)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandFixtures.constantSectionsEquiv_symm_apply",
+          "role": "projection",
+          "statement": "The inverse of constantSectionsEquiv(U) sends s to its actual centre-unit value at the identity arrow of U."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandFixtures.constantSectionsEquiv_restrict",
+          "role": "compatibility",
+          "statement": "For every f:V to U, restricting the section corresponding to z over U gives the section corresponding to that same z over V."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ConstantEquivTests.centreRoundTrip",
+          "kind": "characterisation",
+          "statement": "The forward map followed by the actual inverse recovers every centre unit."
+        },
+        {
+          "name": "ConstantEquivTests.sectionRoundTrip",
+          "kind": "characterisation",
+          "statement": "The actual inverse followed by the forward map recovers every compatible section."
+        },
+        {
+          "name": "ConstantEquivTests.restriction",
+          "kind": "compatibility",
+          "statement": "Every base-arrow restriction retains the same centre unit."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation",
+          "how": "Provides an actual native site/fibre fixture and its exact centre and evaluation maps for the existing intrinsic-band tests."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-constant-sections-equiv-restrict",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Constant centre equivalence commutes with restriction",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandFixtures.constantSectionsEquiv_restrict",
+      "statement": "For every f:V to U, restricting the section corresponding to z over U gives the section corresponding to that same z over V.",
+      "hypotheses": [
+        "C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences.",
+        "D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat.",
+        "Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-constant-sections-equiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-restrict"
+      ],
+      "proofSteps": [
+        "Unfold the constant family and native restriction reindexing."
+      ],
+      "acceptance": [
+        "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
+        "These fixture results do not identify a general D0 torsor stack, prove the SF1 descended-slice comparison or close the gerbe key."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandFixtures"
+      },
+      "sources": [
+        {
+          "sourceId": "SP-point-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof; authored native point-diagram deductions",
+          "match": "The gerbe connectedness requirement and abelian-centre argument motivate these exact native examples. The profile equivalences, native point stack proof and finite counts are authored deductions, not results asserted to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-center",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "One central coefficient for each fibre component",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandFixtures.componentCenter",
+      "statement": "For a commutative group G and type I, use the existing product category of the discrete category on I and the native one-object category of G. A profile a:I to G determines a natural endomorphism of its identity functor with component (identity,a(i)) at (i,star).",
+      "hypotheses": [
+        "C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences.",
+        "D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat.",
+        "Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity."
+      ],
+      "prerequisites": [
+        "mathlib:CategoryTheory.Prod.hom_ext",
+        "mathlib:CategoryTheory.SingleObj.comp_as_mul",
+        "mathlib:CategoryTheory.CatCenter",
+        "mathlib:CategoryTheory.Functor.const",
+        "mathlib:CategoryTheory.Functor.toPseudofunctor'",
+        "mathlib:CategoryTheory.Cat.of",
+        "mathlib:CategoryTheory.SingleObj.category",
+        "mathlib:CategoryTheory.SingleObj.groupoid"
+      ],
+      "proofSteps": [
+        "Use the native discrete and product category carriers; no groupoid or centre is redefined.",
+        "A morphism in the discrete factor implies equality of component labels. After substituting this equality, naturality is exactly commutativity of G, with the native reversed-composition convention of SingleObj."
+      ],
+      "acceptance": [
+        "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
+        "These fixture results do not identify a general D0 torsor stack, prove the SF1 descended-slice comparison or close the gerbe key."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandFixtures"
+      },
+      "sources": [
+        {
+          "sourceId": "SP-point-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof; authored native point-diagram deductions",
+          "match": "The gerbe connectedness requirement and abelian-centre argument motivate these exact native examples. The profile equivalences, native point stack proof and finite counts are authored deductions, not results asserted to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandFixtures.componentCenter",
+          "role": "constructor",
+          "statement": "For a commutative group G and type I, use the existing product category of the discrete category on I and the native one-object category of G. A profile a:I to G determines a natural endomorphism of its identity functor with component (identity,a(i)) at (i,star)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandFixtures.componentCenter_app",
+          "role": "projection",
+          "statement": "At an arbitrary object x, componentCenter(a) is the pair of the identity discrete morphism and a at the actual component label of x."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandFixtures.componentCenter_naturality",
+          "role": "compatibility",
+          "statement": "For every fibre morphism f:x to y, f followed by the centre component at y equals the centre component at x followed by f."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ComponentCentreTests.component",
+          "kind": "computation",
+          "statement": "At canonical object i the centre endomorphism is the actual pair (identity,a(i))."
+        },
+        {
+          "name": "ComponentCentreTests.unit",
+          "kind": "degenerate",
+          "statement": "The constant identity profile has identity component at every canonical object."
+        },
+        {
+          "name": "ComponentCentreTests.naturality",
+          "kind": "compatibility",
+          "statement": "Every actual fibre morphism commutes with the constructed centre components."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation",
+          "how": "Provides an actual native site/fibre fixture and its exact centre and evaluation maps for the existing intrinsic-band tests."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-center-unit",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Componentwise inverse gives an actual centre unit",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandFixtures.componentCenterUnit",
+      "statement": "The profile centre has a unit whose value is componentCenter(a) and whose inverse is componentCenter(i maps to a(i) inverse). Both multiplication identities hold in the actual categorical centre.",
+      "hypotheses": [
+        "C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences.",
+        "D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat.",
+        "Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-center",
+        "mathlib:CategoryTheory.CatCenter.ext",
+        "mathlib:CategoryTheory.Prod.hom_ext"
+      ],
+      "proofSteps": [
+        "Use pointwise group inversion for the inverse natural transformation.",
+        "Compare components of the two composites by categorical-centre extensionality. Discrete morphisms are unique; the group components are the two group inverse identities."
+      ],
+      "acceptance": [
+        "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
+        "These fixture results do not identify a general D0 torsor stack, prove the SF1 descended-slice comparison or close the gerbe key."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandFixtures"
+      },
+      "sources": [
+        {
+          "sourceId": "SP-point-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof; authored native point-diagram deductions",
+          "match": "The gerbe connectedness requirement and abelian-centre argument motivate these exact native examples. The profile equivalences, native point stack proof and finite counts are authored deductions, not results asserted to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandFixtures.componentCenterUnit",
+          "role": "constructor",
+          "statement": "The profile centre has a unit whose value is componentCenter(a) and whose inverse is componentCenter(i maps to a(i) inverse). Both multiplication identities hold in the actual categorical centre."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandFixtures.componentCenterUnit_val",
+          "role": "compatibility",
+          "statement": "The value of componentCenterUnit(a) is exactly componentCenter(a)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandFixtures.componentCenterUnit_inv",
+          "role": "compatibility",
+          "statement": "The inverse value of componentCenterUnit(a) is exactly componentCenter of the pointwise inverse profile."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ComponentUnitTests.value",
+          "kind": "compatibility",
+          "statement": "The unit value is the actual profile centre."
+        },
+        {
+          "name": "ComponentUnitTests.inverse",
+          "kind": "compatibility",
+          "statement": "The unit inverse value uses pointwise group inverses."
+        },
+        {
+          "name": "ComponentUnitTests.roundTrip",
+          "kind": "characterisation",
+          "statement": "Multiplying the actual value and inverse gives the identity categorical centre."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation",
+          "how": "Provides an actual native site/fibre fixture and its exact centre and evaluation maps for the existing intrinsic-band tests."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-center-equiv",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The centre units are exactly component profiles",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandFixtures.componentCenterEquiv",
+      "statement": "The pointwise profile group I to G is multiplicatively equivalent to the units of the categorical centre of the discrete-component product groupoid. Its inverse reads the group component at each canonical object (i,star).",
+      "hypotheses": [
+        "C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences.",
+        "D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat.",
+        "Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-center-unit",
+        "mathlib:CategoryTheory.CatCenter.ext",
+        "mathlib:CategoryTheory.Prod.hom_ext"
+      ],
+      "proofSteps": [
+        "Read a centre unit at every canonical object to recover the profile.",
+        "The profile round trip is definitional. For the centre-unit round trip, compare natural-transformation components; the discrete component is unique and every SingleObj object equals star.",
+        "Centre multiplication composes morphisms in the native order; the profile construction has exactly the resulting pointwise multiplication."
+      ],
+      "acceptance": [
+        "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
+        "These fixture results do not identify a general D0 torsor stack, prove the SF1 descended-slice comparison or close the gerbe key."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandFixtures"
+      },
+      "sources": [
+        {
+          "sourceId": "SP-point-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof; authored native point-diagram deductions",
+          "match": "The gerbe connectedness requirement and abelian-centre argument motivate these exact native examples. The profile equivalences, native point stack proof and finite counts are authored deductions, not results asserted to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandFixtures.componentCenterEquiv",
+          "role": "constructor",
+          "statement": "The pointwise profile group I to G is multiplicatively equivalent to the units of the categorical centre of the discrete-component product groupoid. Its inverse reads the group component at each canonical object (i,star)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandFixtures.componentCenterEquiv_apply",
+          "role": "projection",
+          "statement": "The forward map of componentCenterEquiv is exactly componentCenterUnit."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandFixtures.componentCenterEquiv_symm_apply",
+          "role": "projection",
+          "statement": "For any centre unit z and label i, the inverse profile at i is the group component of z at the actual canonical object (i,star)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ComponentEquivTests.coefficientRoundTrip",
+          "kind": "characterisation",
+          "statement": "The actual inverse recovers every profile from its constructed centre unit."
+        },
+        {
+          "name": "ComponentEquivTests.centreRoundTrip",
+          "kind": "characterisation",
+          "statement": "Reconstructing the profile of any actual centre unit recovers that unit."
+        },
+        {
+          "name": "ComponentEquivTests.inertiaCoordinates",
+          "kind": "computation",
+          "statement": "At every canonical fibre object the actual centre-unit hom has group component a(i)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation",
+          "how": "Provides an actual native site/fibre fixture and its exact centre and evaluation maps for the existing intrinsic-band tests."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-sections-equiv",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Compatible sections of a constant component groupoid",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandFixtures.componentSectionsEquiv",
+      "statement": "For every base category C and U in C, the profile group I to G is multiplicatively equivalent to the actual compatible central sections of the constant diagram with fibre Discrete(I) times SingleObj(G). This retains every slice arrow, fibre object and inverse.",
+      "hypotheses": [
+        "C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences.",
+        "D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat.",
+        "Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-center-equiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-constant-sections-equiv"
+      ],
+      "proofSteps": [
+        "Compose the proved profile-to-centre-unit equivalence with the proved constant-diagram central-section equivalence.",
+        "Use the native multiplicative equivalence composition; both inverse round trips and multiplication follow from these two genuine equivalences."
+      ],
+      "acceptance": [
+        "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
+        "These fixture results do not identify a general D0 torsor stack, prove the SF1 descended-slice comparison or close the gerbe key."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandFixtures"
+      },
+      "sources": [
+        {
+          "sourceId": "SP-point-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof; authored native point-diagram deductions",
+          "match": "The gerbe connectedness requirement and abelian-centre argument motivate these exact native examples. The profile equivalences, native point stack proof and finite counts are authored deductions, not results asserted to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandFixtures.componentSectionsEquiv",
+          "role": "constructor",
+          "statement": "For every base category C and U in C, the profile group I to G is multiplicatively equivalent to the actual compatible central sections of the constant diagram with fibre Discrete(I) times SingleObj(G). This retains every slice arrow, fibre object and inverse."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandFixtures.componentSectionsEquiv_eval",
+          "role": "compatibility",
+          "statement": "For every f:V to U and component i, the group component of actual evaluation of the section associated to a at (i,star) is a(i)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandFixtures.componentSectionsEquiv_restrict",
+          "role": "compatibility",
+          "statement": "For every f:V to U, restriction of the section associated to a over U equals the section associated to the same profile over V."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandFixtures.componentSectionsEquiv_symm_apply",
+          "role": "projection",
+          "statement": "For any compatible section s over U and label i, its inverse profile coefficient is the group component of its centre-unit value at the identity arrow of U, evaluated at the canonical fibre object (i,star)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ComponentSectionTests.evaluation",
+          "kind": "computation",
+          "statement": "At every base arrow and canonical fibre object, actual band evaluation has group component a(i)."
+        },
+        {
+          "name": "ComponentSectionTests.restriction",
+          "kind": "compatibility",
+          "statement": "Every actual base-arrow restriction of a profile section retains the same profile."
+        },
+        {
+          "name": "ComponentSectionTests.roundTrip",
+          "kind": "characterisation",
+          "statement": "The actual inverse recovers the entire profile from its compatible section."
+        },
+        {
+          "name": "BandPointTests.stack",
+          "kind": "compatibility",
+          "statement": "The two-component C3 point diagram satisfies the native stack predicate for the bottom topology."
+        },
+        {
+          "name": "BandPointTests.gerbe",
+          "kind": "compatibility",
+          "statement": "The connected C3 point diagram satisfies the native gerbe predicate for the bottom topology."
+        },
+        {
+          "name": "BandPointTests.generator",
+          "kind": "computation",
+          "statement": "In the connected C3 point gerbe, evaluation of the profile with additive coefficient 1 has actual group hom component 1 in Z/3Z."
+        },
+        {
+          "name": "BandPointTests.trivialDiscreteTwoObjects",
+          "kind": "non-example",
+          "statement": "The two-component diagram with trivial inertia is a native stack on the point site and fails the native gerbe predicate."
+        },
+        {
+          "name": "BandPointTests.disconnectedWitness",
+          "kind": "non-example",
+          "statement": "In the two-component C3 point diagram there exists a nonidentity compatible section whose actual evaluation at the false component is the identity automorphism."
+        },
+        {
+          "name": "BandPointTests.connected",
+          "kind": "characterisation",
+          "statement": "In the connected C3 point fixture, evaluation at the canonical object is bijective onto its actual automorphisms."
+        },
+        {
+          "name": "BandPointTests.disconnected",
+          "kind": "non-example",
+          "statement": "In the two-component C3 point fixture, evaluation at the false component is not injective."
+        },
+        {
+          "name": "BandPointTests.notGerbe",
+          "kind": "non-example",
+          "statement": "The two-component C3 point diagram fails the native gerbe predicate."
+        },
+        {
+          "name": "BandPointTests.connectedCardinality",
+          "kind": "computation",
+          "statement": "The actual compatible-section type of the connected C3 point diagram has cardinality three."
+        },
+        {
+          "name": "BandPointTests.disconnectedCardinality",
+          "kind": "computation",
+          "statement": "The actual compatible-section type of the two-component C3 point diagram has cardinality nine."
+        },
+        {
+          "name": "BandPointTests.terminalFibre",
+          "kind": "degenerate",
+          "statement": "The actual compatible-section type of the one-component trivial-inertia point diagram has cardinality one."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation",
+          "how": "Provides an actual native site/fibre fixture and its exact centre and evaluation maps for the existing intrinsic-band tests."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-sections-equiv-eval",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Actual band evaluation reads the selected component",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandFixtures.componentSectionsEquiv_eval",
+      "statement": "For every f:V to U and component i, the group component of actual evaluation of the section associated to a at (i,star) is a(i).",
+      "hypotheses": [
+        "C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences.",
+        "D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat.",
+        "Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-sections-equiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation"
+      ],
+      "proofSteps": [
+        "Unfold the two actual equivalences and the inherited centre-unit-to-object-automorphism evaluation."
+      ],
+      "acceptance": [
+        "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
+        "These fixture results do not identify a general D0 torsor stack, prove the SF1 descended-slice comparison or close the gerbe key."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandFixtures"
+      },
+      "sources": [
+        {
+          "sourceId": "SP-point-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof; authored native point-diagram deductions",
+          "match": "The gerbe connectedness requirement and abelian-centre argument motivate these exact native examples. The profile equivalences, native point stack proof and finite counts are authored deductions, not results asserted to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-sections-equiv-restrict",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Component profiles are unchanged by constant restriction",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandFixtures.componentSectionsEquiv_restrict",
+      "statement": "For every f:V to U, restriction of the section associated to a over U equals the section associated to the same profile over V.",
+      "hypotheses": [
+        "C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences.",
+        "D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat.",
+        "Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-sections-equiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-constant-sections-equiv-restrict",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-restrict"
+      ],
+      "proofSteps": [
+        "Unfold the composed equivalence and constant restriction; all slice values are unchanged."
+      ],
+      "acceptance": [
+        "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
+        "These fixture results do not identify a general D0 torsor stack, prove the SF1 descended-slice comparison or close the gerbe key."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandFixtures"
+      },
+      "sources": [
+        {
+          "sourceId": "SP-point-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof; authored native point-diagram deductions",
+          "match": "The gerbe connectedness requirement and abelian-centre argument motivate these exact native examples. The profile equivalences, native point stack proof and finite counts are authored deductions, not results asserted to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-eval-bijective",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "One component gives bijective band evaluation",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandFixtures.component_eval_bijective",
+      "statement": "If I is subsingleton and i is an actual member of I, evaluation at (i,star) and the identity arrow of U is a bijection from compatible central sections to the actual automorphism group of that object.",
+      "hypotheses": [
+        "C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences.",
+        "D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat.",
+        "Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-sections-equiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-sections-equiv-eval",
+        "mathlib:CategoryTheory.Prod.hom_ext"
+      ],
+      "proofSteps": [
+        "For injectivity write both sections as actual profiles via the proved equivalence. Equality of evaluated automorphisms implies equality of the profile values at i; subsingleton labels imply equality at every label.",
+        "For surjectivity take the constant profile equal to the group component of the given actual automorphism. Its evaluation has the same hom: the discrete component is unique and the group component is preserved. An isomorphism is determined by its hom."
+      ],
+      "acceptance": [
+        "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
+        "These fixture results do not identify a general D0 torsor stack, prove the SF1 descended-slice comparison or close the gerbe key."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandFixtures"
+      },
+      "sources": [
+        {
+          "sourceId": "SP-point-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof; authored native point-diagram deductions",
+          "match": "The gerbe connectedness requirement and abelian-centre argument motivate these exact native examples. The profile equivalences, native point stack proof and finite counts are authored deductions, not results asserted to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-eval-not-injective",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Two components prevent detection by one evaluation",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandFixtures.component_eval_not_injective",
+      "statement": "For the two-component groupoid and g in G unequal to the identity, evaluation at the false component is not injective. Profiles (identity,g) and (identity,identity) give distinct actual compatible sections with equal evaluation there.",
+      "hypotheses": [
+        "C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences.",
+        "D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat.",
+        "Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-sections-equiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-sections-equiv-eval",
+        "mathlib:CategoryTheory.Prod.hom_ext"
+      ],
+      "proofSteps": [
+        "Construct the two actual sections using the profile equivalence. Their false-component evaluation is the same automorphism.",
+        "If injectivity identified the sections, the profile equivalence would identify their true components, contradicting g unequal to identity."
+      ],
+      "acceptance": [
+        "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
+        "These fixture results do not identify a general D0 torsor stack, prove the SF1 descended-slice comparison or close the gerbe key."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandFixtures"
+      },
+      "sources": [
+        {
+          "sourceId": "SP-point-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof; authored native point-diagram deductions",
+          "match": "The gerbe connectedness requirement and abelian-centre argument motivate these exact native examples. The profile equivalences, native point stack proof and finite counts are authored deductions, not results asserted to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-fibre-no-cross-iso",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Different discrete components cannot be isomorphic",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandFixtures.fibre_no_cross_iso",
+      "statement": "There is no isomorphism from the false-component canonical object to the true-component canonical object of the native product groupoid.",
+      "hypotheses": [
+        "C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences.",
+        "D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat.",
+        "Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity."
+      ],
+      "prerequisites": [
+        "mathlib:CategoryTheory.Functor.const",
+        "mathlib:CategoryTheory.Functor.toPseudofunctor'",
+        "mathlib:CategoryTheory.Cat.of",
+        "mathlib:CategoryTheory.SingleObj.category",
+        "mathlib:CategoryTheory.SingleObj.groupoid"
+      ],
+      "proofSteps": [
+        "The first component of any proposed isomorphism hom would be a discrete morphism from false to true, and therefore an impossible equality of those two labels."
+      ],
+      "acceptance": [
+        "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
+        "These fixture results do not identify a general D0 torsor stack, prove the SF1 descended-slice comparison or close the gerbe key."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandFixtures"
+      },
+      "sources": [
+        {
+          "sourceId": "SP-point-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof; authored native point-diagram deductions",
+          "match": "The gerbe connectedness requirement and abelian-centre argument motivate these exact native examples. The profile equivalences, native point stack proof and finite counts are authored deductions, not results asserted to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-constant-two-components-not-gerbe",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The constant disconnected diagram is not a gerbe",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandFixtures.constant_two_components_not_gerbe",
+      "statement": "For every actual U of any base category, the native constant diagram with two discrete components is not a gerbe for the bottom topology, whose only covering sieve is the maximal sieve.",
+      "hypotheses": [
+        "C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences.",
+        "D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat.",
+        "Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-fibre-no-cross-iso",
+        "AlgebraicModuliForArithmeticGeometry:key/gerbes",
+        "mathlib:CategoryTheory.GrothendieckTopology.bot_covering"
+      ],
+      "proofSteps": [
+        "Assume the native gerbe condition and apply its local-isomorphism field to the two canonical objects over U.",
+        "The covering sieve is maximal. Its identity arrow belongs to it, so the local-isomorphism field supplies an isomorphism between these objects. Constant restriction leaves both unchanged; apply the cross-component obstruction. No unproved stack assertion is used."
+      ],
+      "acceptance": [
+        "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
+        "These fixture results do not identify a general D0 torsor stack, prove the SF1 descended-slice comparison or close the gerbe key."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandFixtures"
+      },
+      "sources": [
+        {
+          "sourceId": "SP-point-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof; authored native point-diagram deductions",
+          "match": "The gerbe connectedness requirement and abelian-centre argument motivate these exact native examples. The profile equivalences, native point stack proof and finite counts are authored deductions, not results asserted to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-point-is-stack",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The component diagram is a native stack on the point site",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandFixtures.point_isStack",
+      "statement": "For the one-object discrete point category with bottom topology, the native constant component diagram satisfies the existing pseudofunctor stack predicate. This is an instance proof for these fixtures, not a new stack or descent carrier.",
+      "hypotheses": [
+        "C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences.",
+        "D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat.",
+        "Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity."
+      ],
+      "prerequisites": [
+        "mathlib:CategoryTheory.Pseudofunctor.IsStack.of_isStackFor",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData.isoMk",
+        "mathlib:CategoryTheory.Functor.FullyFaithful",
+        "mathlib:CategoryTheory.Functor.IsEquivalence",
+        "mathlib:CategoryTheory.Functor.EssSurj",
+        "mathlib:CategoryTheory.eqToIso",
+        "mathlib:CategoryTheory.GrothendieckTopology.bot_covering",
+        "mathlib:CategoryTheory.Functor.const",
+        "mathlib:CategoryTheory.Functor.toPseudofunctor'",
+        "mathlib:CategoryTheory.Cat.of",
+        "mathlib:CategoryTheory.SingleObj.category",
+        "mathlib:CategoryTheory.SingleObj.groupoid"
+      ],
+      "proofSteps": [
+        "Every covering sieve is maximal. Its native arrow-index category has just one object: all point objects and point morphisms are equal, and the sieve-membership proof is irrelevant. Retain the identity-arrow index.",
+        "The actual canonical descent functor is fully faithful: recover each descent morphism at the identity index, and use equality of indices for its map-preimage and preimage-map laws.",
+        "For an actual native descent object choose its value at that index. Native DescentData.isoMk compares the canonical object with it by equality transport at every index. Its compatibility reduces to the native self-transition identity.",
+        "These are actual full, faithful and essentially-surjective instances of the canonical functor. Invoke the pinned stack constructor."
+      ],
+      "acceptance": [
+        "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
+        "These fixture results do not identify a general D0 torsor stack, prove the SF1 descended-slice comparison or close the gerbe key."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandFixtures"
+      },
+      "sources": [
+        {
+          "sourceId": "SP-point-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof; authored native point-diagram deductions",
+          "match": "The gerbe connectedness requirement and abelian-centre argument motivate these exact native examples. The profile equivalences, native point stack proof and finite counts are authored deductions, not results asserted to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-point-connected-gerbe",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The connected constant point fixture is a gerbe",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandFixtures.point_connected_gerbe",
+      "statement": "On the one-object discrete point site, the native diagram with the single component PUnit and group G is a gerbe: it is a stack in groupoids, has an object, and all objects are isomorphic.",
+      "hypotheses": [
+        "C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences.",
+        "D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat.",
+        "Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-point-is-stack",
+        "AlgebraicModuliForArithmeticGeometry:key/gerbes",
+        "mathlib:CategoryTheory.isIso_prod_iff",
+        "mathlib:CategoryTheory.Functor.const",
+        "mathlib:CategoryTheory.Functor.toPseudofunctor'",
+        "mathlib:CategoryTheory.Cat.of",
+        "mathlib:CategoryTheory.SingleObj.category",
+        "mathlib:CategoryTheory.SingleObj.groupoid"
+      ],
+      "proofSteps": [
+        "Use the checked native point stack instance. Every morphism in each factor is invertible, so use the native product isomorphism criterion.",
+        "Use the maximal covering sieve for local nonemptiness and local isomorphism. The canonical object exists and the object type is subsingleton, so equality transport supplies the required isomorphisms."
+      ],
+      "acceptance": [
+        "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
+        "These fixture results do not identify a general D0 torsor stack, prove the SF1 descended-slice comparison or close the gerbe key."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandFixtures"
+      },
+      "sources": [
+        {
+          "sourceId": "SP-point-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof; authored native point-diagram deductions",
+          "match": "The gerbe connectedness requirement and abelian-centre argument motivate these exact native examples. The profile equivalences, native point stack proof and finite counts are authored deductions, not results asserted to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-constant-section-restrict",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The constant-section constructor respects reindexing",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandFixtures.constantSection_restrict",
+      "statement": "Restriction of constantSection(U,z) along f:V to U is exactly constantSection(V,z).",
+      "hypotheses": [
+        "C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences.",
+        "D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat.",
+        "Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-constant-section",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-restrict"
+      ],
+      "proofSteps": [
+        "Unfold the actual constant family and reindexing."
+      ],
+      "acceptance": [
+        "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
+        "These fixture results do not identify a general D0 torsor stack, prove the SF1 descended-slice comparison or close the gerbe key."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandFixtures"
+      },
+      "sources": [
+        {
+          "sourceId": "SP-point-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof; authored native point-diagram deductions",
+          "match": "The gerbe connectedness requirement and abelian-centre argument motivate these exact native examples. The profile equivalences, native point stack proof and finite counts are authored deductions, not results asserted to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-constant-sections-equiv-apply",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The constant equivalence has its specified forward map",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandFixtures.constantSectionsEquiv_apply",
+      "statement": "The forward map of constantSectionsEquiv(U) is exactly constantSection(U).",
+      "hypotheses": [
+        "C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences.",
+        "D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat.",
+        "Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-constant-sections-equiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-constant-section"
+      ],
+      "proofSteps": [
+        "Unfold the native multiplicative equivalence."
+      ],
+      "acceptance": [
+        "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
+        "These fixture results do not identify a general D0 torsor stack, prove the SF1 descended-slice comparison or close the gerbe key."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandFixtures"
+      },
+      "sources": [
+        {
+          "sourceId": "SP-point-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof; authored native point-diagram deductions",
+          "match": "The gerbe connectedness requirement and abelian-centre argument motivate these exact native examples. The profile equivalences, native point stack proof and finite counts are authored deductions, not results asserted to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-constant-sections-equiv-symm-apply",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The constant inverse reads the whole identity value",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandFixtures.constantSectionsEquiv_symm_apply",
+      "statement": "The inverse of constantSectionsEquiv(U) sends s to its actual centre-unit value at the identity arrow of U.",
+      "hypotheses": [
+        "C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences.",
+        "D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat.",
+        "Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-constant-sections-equiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-sections"
+      ],
+      "proofSteps": [
+        "Unfold the specified inverse; no chosen fibre object is involved."
+      ],
+      "acceptance": [
+        "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
+        "These fixture results do not identify a general D0 torsor stack, prove the SF1 descended-slice comparison or close the gerbe key."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandFixtures"
+      },
+      "sources": [
+        {
+          "sourceId": "SP-point-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof; authored native point-diagram deductions",
+          "match": "The gerbe connectedness requirement and abelian-centre argument motivate these exact native examples. The profile equivalences, native point stack proof and finite counts are authored deductions, not results asserted to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-center-app",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The component centre has its exact endomorphism",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandFixtures.componentCenter_app",
+      "statement": "At an arbitrary object x, componentCenter(a) is the pair of the identity discrete morphism and a at the actual component label of x.",
+      "hypotheses": [
+        "C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences.",
+        "D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat.",
+        "Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-center"
+      ],
+      "proofSteps": [
+        "Unfold the native natural-transformation component."
+      ],
+      "acceptance": [
+        "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
+        "These fixture results do not identify a general D0 torsor stack, prove the SF1 descended-slice comparison or close the gerbe key."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandFixtures"
+      },
+      "sources": [
+        {
+          "sourceId": "SP-point-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof; authored native point-diagram deductions",
+          "match": "The gerbe connectedness requirement and abelian-centre argument motivate these exact native examples. The profile equivalences, native point stack proof and finite counts are authored deductions, not results asserted to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-center-naturality",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The component centre commutes with every fibre morphism",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandFixtures.componentCenter_naturality",
+      "statement": "For every fibre morphism f:x to y, f followed by the centre component at y equals the centre component at x followed by f.",
+      "hypotheses": [
+        "C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences.",
+        "D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat.",
+        "Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-center",
+        "mathlib:CategoryTheory.CatCenter.naturality"
+      ],
+      "proofSteps": [
+        "Use the actual naturality field of the constructed categorical centre, with the native categorical order."
+      ],
+      "acceptance": [
+        "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
+        "These fixture results do not identify a general D0 torsor stack, prove the SF1 descended-slice comparison or close the gerbe key."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandFixtures"
+      },
+      "sources": [
+        {
+          "sourceId": "SP-point-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof; authored native point-diagram deductions",
+          "match": "The gerbe connectedness requirement and abelian-centre argument motivate these exact native examples. The profile equivalences, native point stack proof and finite counts are authored deductions, not results asserted to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-center-unit-val",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The component unit retains its centre",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandFixtures.componentCenterUnit_val",
+      "statement": "The value of componentCenterUnit(a) is exactly componentCenter(a).",
+      "hypotheses": [
+        "C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences.",
+        "D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat.",
+        "Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-center-unit",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-center"
+      ],
+      "proofSteps": [
+        "Unfold the actual Units value field."
+      ],
+      "acceptance": [
+        "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
+        "These fixture results do not identify a general D0 torsor stack, prove the SF1 descended-slice comparison or close the gerbe key."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandFixtures"
+      },
+      "sources": [
+        {
+          "sourceId": "SP-point-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof; authored native point-diagram deductions",
+          "match": "The gerbe connectedness requirement and abelian-centre argument motivate these exact native examples. The profile equivalences, native point stack proof and finite counts are authored deductions, not results asserted to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-center-unit-inv",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The component unit retains its coordinate inverse",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandFixtures.componentCenterUnit_inv",
+      "statement": "The inverse value of componentCenterUnit(a) is exactly componentCenter of the pointwise inverse profile.",
+      "hypotheses": [
+        "C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences.",
+        "D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat.",
+        "Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-center-unit",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-center"
+      ],
+      "proofSteps": [
+        "Unfold the actual Units inverse field."
+      ],
+      "acceptance": [
+        "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
+        "These fixture results do not identify a general D0 torsor stack, prove the SF1 descended-slice comparison or close the gerbe key."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandFixtures"
+      },
+      "sources": [
+        {
+          "sourceId": "SP-point-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof; authored native point-diagram deductions",
+          "match": "The gerbe connectedness requirement and abelian-centre argument motivate these exact native examples. The profile equivalences, native point stack proof and finite counts are authored deductions, not results asserted to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-center-equiv-apply",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The component equivalence retains its unit constructor",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandFixtures.componentCenterEquiv_apply",
+      "statement": "The forward map of componentCenterEquiv is exactly componentCenterUnit.",
+      "hypotheses": [
+        "C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences.",
+        "D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat.",
+        "Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-center-equiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-center-unit"
+      ],
+      "proofSteps": [
+        "Unfold the specified forward map."
+      ],
+      "acceptance": [
+        "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
+        "These fixture results do not identify a general D0 torsor stack, prove the SF1 descended-slice comparison or close the gerbe key."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandFixtures"
+      },
+      "sources": [
+        {
+          "sourceId": "SP-point-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof; authored native point-diagram deductions",
+          "match": "The gerbe connectedness requirement and abelian-centre argument motivate these exact native examples. The profile equivalences, native point stack proof and finite counts are authored deductions, not results asserted to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-center-equiv-symm-apply",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The component inverse evaluates canonical objects",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandFixtures.componentCenterEquiv_symm_apply",
+      "statement": "For any centre unit z and label i, the inverse profile at i is the group component of z at the actual canonical object (i,star).",
+      "hypotheses": [
+        "C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences.",
+        "D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat.",
+        "Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-center-equiv"
+      ],
+      "proofSteps": [
+        "Unfold the inverse map; retain the complete centre-unit carrier."
+      ],
+      "acceptance": [
+        "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
+        "These fixture results do not identify a general D0 torsor stack, prove the SF1 descended-slice comparison or close the gerbe key."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandFixtures"
+      },
+      "sources": [
+        {
+          "sourceId": "SP-point-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof; authored native point-diagram deductions",
+          "match": "The gerbe connectedness requirement and abelian-centre argument motivate these exact native examples. The profile equivalences, native point stack proof and finite counts are authored deductions, not results asserted to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-sections-equiv-symm-apply",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The section inverse reads all component coefficients",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandFixtures.componentSectionsEquiv_symm_apply",
+      "statement": "For any compatible section s over U and label i, its inverse profile coefficient is the group component of its centre-unit value at the identity arrow of U, evaluated at the canonical fibre object (i,star).",
+      "hypotheses": [
+        "C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences.",
+        "D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat.",
+        "Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-sections-equiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-component-center-equiv-symm-apply",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-fixture-constant-sections-equiv-symm-apply"
+      ],
+      "proofSteps": [
+        "Unfold the inverse of the composed native multiplicative equivalence and its two specified inverses."
+      ],
+      "acceptance": [
+        "Use the actual inherited compatible-centre subgroup, restriction and automorphism evaluation, with no opaque replacement of descent or equality.",
+        "These fixture results do not identify a general D0 torsor stack, prove the SF1 descended-slice comparison or close the gerbe key."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandFixtures"
+      },
+      "sources": [
+        {
+          "sourceId": "SP-point-band-fixtures-rtOQ9t",
+          "locator": "Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof; authored native point-diagram deductions",
+          "match": "The gerbe connectedness requirement and abelian-centre argument motivate these exact native examples. The profile equivalences, native point stack proof and finite counts are authored deductions, not results asserted to be printed in Stacks."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -12243,7 +13755,7 @@
         "The gerbe, banding, neutralization, derived-H2 route, compatible profinite limits, torsor twisting and prime-to-p inertia branches are partial; resolve each recorded proof gap and request before closure.",
         "Import ordinary stacks from D0 and spaces/sites/diagonals from SF1. Algebraic/Deligne–Mumford properties, algebraicity of quotient stacks and coherent-sheaf moduli stacks, and exact Artin moduli criteria remain undecomposed.",
         "Finite-field rational-point atlases, stack differentials/degree/local-character adapters and groupoid mass remain pending at their paper locators. Import stable pointed-curve moduli from StableReductionPartII:key/moduli-curves and elliptic comparisons from ModularCurves1E/4A.",
-        "The prescribed-band coefficient comparison now has an actual native natural isomorphism and a full sheaf isomorphism into any existing packaging of the precise compatible-centre presheaf. Its transported forward map is exactly c_b and its inverse is the established compatible sectionwise inverse. All base-arrow/fibre-object evaluation equations determine the sheaf isomorphism uniquely. No global gerbe object, terminal object or neutrality is assumed. This discharges the fixed-band full-sheaf-comparison sub-obligation only. Establish the comparison with the actual SF1 descended slice sheaf and instantiate the connected/disconnected point sites, restriction-chain site and nonneutral O(1) root gerbe before intrinsic-band closure. The stronger general prestack-sheaf receipt is historical and is not rerun here; no stage or reserved-key closure is claimed."
+        "Native constant point diagrams now instantiate the connected C3 gerbe, two-component C3 stack that is not a gerbe, and two-component trivial-inertia stack that is not a gerbe. The actual compatible-centre subgroup has cardinalities three, nine and one in the stated cases; evaluation is bijective in the connected case and noninjective in the disconnected case, with a genuine nonidentity-section witness. The generic constant-diagram equivalence retains all slice arrows and needs no topology or terminal object. Still establish the actual SF1 descended-slice comparison, the comparison with D0 torsor/classifying-stack carriers, the connected two-object and nonabelian S3 fixtures, the prescribed nonconstant restriction-chain and terminal-free two-chain fixtures, and the nonneutral O(1) root-gerbe instance. No stage, other gap, request or reserved key is closed."
       ]
     },
     {
@@ -12275,14 +13787,15 @@
   "gaps": [
     {
       "title": "Compatibility of the intrinsic band over varying slice objects",
-      "detail": "The prescribed-band coefficient comparison now has an actual native natural isomorphism and a full sheaf isomorphism into any existing packaging of the precise compatible-centre presheaf. Its transported forward map is exactly c_b and its inverse is the established compatible sectionwise inverse. All base-arrow/fibre-object evaluation equations determine the sheaf isomorphism uniquely. No global gerbe object, terminal object or neutrality is assumed. This discharges the fixed-band full-sheaf-comparison sub-obligation only. Establish the comparison with the actual SF1 descended slice sheaf and instantiate the connected/disconnected point sites, restriction-chain site and nonneutral O(1) root gerbe before intrinsic-band closure. The stronger general prestack-sheaf receipt is historical and is not rerun here; no stage or reserved-key closure is claimed.",
+      "detail": "Native constant point diagrams now instantiate the connected C3 gerbe, two-component C3 stack that is not a gerbe, and two-component trivial-inertia stack that is not a gerbe. The actual compatible-centre subgroup has cardinalities three, nine and one in the stated cases; evaluation is bijective in the connected case and noninjective in the disconnected case, with a genuine nonidentity-section witness. The generic constant-diagram equivalence retains all slice arrows and needs no topology or terminal object. Still establish the actual SF1 descended-slice comparison, the comparison with D0 torsor/classifying-stack carriers, the connected two-object and nonabelian S3 fixtures, the prescribed nonconstant restriction-chain and terminal-free two-chain fixtures, and the nonneutral O(1) root-gerbe instance. No stage, other gap, request or reserved key is closed.",
       "neededBy": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-sheaf",
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-glued-comparison"
       ],
       "previousDetail": "Stacks8.11.8 explicitly omits this final verification. Check independence under refinements and the composition law for all restriction maps before claiming the construction source-closed. This continuation supplies15 explicit compatible-center-section leaves with cover/refinement, mapId/mapComp and restriction identity/composition proof outlines. The mathematical varying-base route is now decomposed; implement the new native signatures, verify sectionwise sheaf descent and the SF1 slice-glued carrier comparison, and elaborate before claiming this gap closed. The chosen-band coefficient-to-center and comparison/reindexing branch now has native proofs; the general Hom-gluing and evaluation-locality obligations, a locally glued inverse, and the actual SF1 descended-slice comparison remain open. Codex codex-a71f92 supplies native evaluation-locality, covering-sieve separatedness, gerbe evaluation injectivity and fixed-band coefficient injectivity; these proofs do not depend on the admitted central-section sheaf theorem. General Hom-gluing, abelian-inertia surjectivity, the locally glued inverse and the actual SF1 descended-slice comparison are still open. This continuation checks the specialized matching-central-family transition, native descent isomorphism and fully faithful descended automorphism, retaining the inverse. The current continuation proves fibre-morphism naturality and constructs the actual fibre-centre unit, with inverse and uniqueness. Compatibility under arbitrary base restriction on pulled-back covers and assembly into a global central section remain unfinished; neither the sheaf theorem nor evaluation surjectivity follows from the fibre-centre receipt.",
-      "previousChosenBandDetail": "The compatible-centre construction retains its previous native cover/gluing/sheaf/evaluation receipts. The fixed-band coefficient comparison now has a native local-to-global inverse: actual local gerbe objects produce matching coefficients, the prescribed sheaf A glues them, and joint covering separatedness proves the section round trip. Both inverse laws, restriction compatibility and independence of chosen local object families are checked without a global object. This resolves the chosen-band sectionwise-inverse sub-obligation only. Package the full compatible sheaf isomorphism and compare with the actual SF1 descended slice sheaf; instantiate the connected/disconnected point sites, restriction-chain site and nonneutral O(1) root gerbe. No complete intrinsic-band, reserved-key or stage closure is claimed."
+      "previousChosenBandDetail": "The compatible-centre construction retains its previous native cover/gluing/sheaf/evaluation receipts. The fixed-band coefficient comparison now has a native local-to-global inverse: actual local gerbe objects produce matching coefficients, the prescribed sheaf A glues them, and joint covering separatedness proves the section round trip. Both inverse laws, restriction compatibility and independence of chosen local object families are checked without a global object. This resolves the chosen-band sectionwise-inverse sub-obligation only. Package the full compatible sheaf isomorphism and compare with the actual SF1 descended slice sheaf; instantiate the connected/disconnected point sites, restriction-chain site and nonneutral O(1) root gerbe. No complete intrinsic-band, reserved-key or stage closure is claimed.",
+      "previousPointFixtureDetail": "The prescribed-band coefficient comparison now has an actual native natural isomorphism and a full sheaf isomorphism into any existing packaging of the precise compatible-centre presheaf. Its transported forward map is exactly c_b and its inverse is the established compatible sectionwise inverse. All base-arrow/fibre-object evaluation equations determine the sheaf isomorphism uniquely. No global gerbe object, terminal object or neutrality is assumed. This discharges the fixed-band full-sheaf-comparison sub-obligation only. Establish the comparison with the actual SF1 descended slice sheaf and instantiate the connected/disconnected point sites, restriction-chain site and nonneutral O(1) root gerbe before intrinsic-band closure. The stronger general prestack-sheaf receipt is historical and is not rerun here; no stage or reserved-key closure is claimed."
     },
     {
       "title": "Contracted-product composition and universal property for change of band",
