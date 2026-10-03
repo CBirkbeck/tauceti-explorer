@@ -1,3 +1,7 @@
+import Mathlib.Algebra.Polynomial.Roots
+import Mathlib.Algebra.Polynomial.Degree.SmallDegree
+import Mathlib.Order.Interval.Set.Infinite
+import Mathlib.Data.Nat.Choose.Cast
 import Mathlib.RingTheory.MvPowerSeries.NoZeroDivisors
 import Mathlib.Algebra.Field.ZMod
 import Mathlib.LinearAlgebra.Complex.FiniteDimensional
@@ -2790,3 +2794,241 @@ example :
     let v : Ideal R := Ideal.span (Set.range MvPowerSeries.X)
     Module.Finite (ZMod 1) (R ⧸ (Ideal.span {0} ⊔ v ^ 1)) := by sorry
 end TauCeti.HilbertSamuel
+
+/- Exact postulation continuation. Native proofs are archived separately; these are planning signatures. -/
+namespace TauCeti.HilbertSamuel
+noncomputable section
+lemma planeJetCount_defect (d N : ℕ) :
+    ((Nat.choose (N + 2) 2 - Nat.choose (N + 2 - d) 2 : ℕ) : ℚ) -
+      ((d : ℚ) * ((N : ℚ) + 1) - (d : ℚ) * ((d : ℚ) - 1) / 2) =
+        (Nat.choose (d - N - 1) 2 : ℚ) := by sorry
+
+lemma planeJetCount_step (d N : ℕ) :
+    Nat.choose (N + 2) 2 - Nat.choose (N + 2 - d) 2 =
+      min (N + 1) d + (Nat.choose (N + 1) 2 - Nat.choose (N + 1 - d) 2) := by sorry
+
+variable {k : Type*} [Field k] (f : MvPowerSeries (Fin 2) k)
+lemma planeCurve_graded_stable_iff (d N : ℕ) (hd : f.order = (d : ℕ∞)) :
+    gradedFunction (M := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k))))) (Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k)))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k))))) N = (d : ℕ∞) ↔ d ≤ N + 1 := by sorry
+
+lemma planeCurve_postulation_predecessor (d : ℕ) (hd : f.order = (d : ℕ∞)) (h3 : 3 ≤ d) :
+    ((function (A := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k))))) (M := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k))))) (Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k)))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k))))) (d - 3)).toNat : ℚ) -
+      ((d : ℚ) * ((d - 3 : ℕ) + 1) - (d : ℚ) * ((d : ℚ) - 1) / 2) = 1 := by sorry
+
+lemma planeZeroEquation_gradedFunction (N : ℕ) :
+    let I : Ideal (MvPowerSeries (Fin 2) k) := Ideal.span {(0 : MvPowerSeries (Fin 2) k)}
+    let B := (MvPowerSeries (Fin 2) k) ⧸ I
+    let q := (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → MvPowerSeries (Fin 2) k))).map (Ideal.Quotient.mk I)
+    gradedFunction (M := B) q N = ((N + 1 : ℕ) : ℕ∞) := by sorry
+
+end
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+noncomputable section
+namespace CurvePostulationTests
+local notation "R" => MvPowerSeries (Fin 2) (ZMod 2)
+local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → R))
+local notation "x" => (MvPowerSeries.X (0 : Fin 2) : R)
+local notation "B4" => R ⧸ Ideal.span {x ^ 4}
+local notation "q4" => Ideal.map (Ideal.Quotient.mk (Ideal.span {x ^ 4})) v
+-- test: CurvePostulationTests.char_two_thresholds
+example :
+    ((function (M := B4) q4 2).toNat : ℚ) = 6 ∧
+      gradedFunction (M := B4) q4 2 ≠ 4 ∧ gradedFunction (M := B4) q4 3 = 4 := by sorry
+
+-- test: CurvePostulationTests.negative_polynomial
+example :
+    ((function (M := B4) q4 0).toNat : ℚ) - (-2) = 3 := by sorry
+
+-- test: CurvePostulationTests.sharp_predecessor
+example :
+    ((function (M := B4) q4 1).toNat : ℚ) - 2 = 1 := by sorry
+
+-- test: CurvePostulationTests.graded_threshold
+example (N : ℕ) :
+    gradedFunction (M := B4) q4 N = 4 ↔ 3 ≤ N := by sorry
+
+-- test: CurvePostulationTests.cumulative_threshold
+example (N : ℕ) :
+    ((function (M := B4) q4 N).toNat : ℚ) = 4 * ((N : ℚ) + 1) - 6 ↔ 2 ≤ N := by sorry
+
+-- test: CurvePostulationTests.unit_graded
+example (N : ℕ) :
+    let B := R ⧸ Ideal.span {(1 : R)}
+    let q := (v).map (Ideal.Quotient.mk (Ideal.span {(1 : R)}))
+    gradedFunction (M := B) q N = 0 := by sorry
+
+-- test: CurvePostulationTests.smooth_graded
+example (N : ℕ) :
+    let B := R ⧸ Ideal.span {x}
+    let q := (v).map (Ideal.Quotient.mk (Ideal.span {x}))
+    gradedFunction (M := B) q N = 1 := by sorry
+
+-- test: CurvePostulationTests.zero_equation_growth
+example (N : ℕ) :
+    let B := R ⧸ Ideal.span {(0 : R)}
+    let q := (v).map (Ideal.Quotient.mk (Ideal.span {(0 : R)}))
+    (0 : R).order = ⊤ ∧ gradedFunction (M := B) q N = ((N + 1 : ℕ) : ℕ∞) := by sorry
+
+-- test: CurvePostulationTests.unit_defect
+example (N : ℕ) :
+    ((Nat.choose (N + 2) 2 - Nat.choose (N + 2 - 0) 2 : ℕ) : ℚ) = 0 := by sorry
+
+-- test: CurvePostulationTests.small_cutoff_defect
+example :
+    (Nat.choose 4 2 : ℚ) - ((100 : ℚ) * 3 - 100 * 99 / 2) = Nat.choose 97 2 := by sorry
+
+end CurvePostulationTests
+end
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+open Polynomial
+noncomputable section ExplicitLengthPolynomials
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-explicit-polynomial
+def planeCurvePolynomial (d : ℕ) : Polynomial ℚ := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-explicit-polynomial-eval
+lemma planeCurvePolynomial_eval (d : ℕ) (t : ℚ) :
+    (planeCurvePolynomial d).eval t = (d : ℚ) * (t + 1) - (d : ℚ) * ((d : ℚ) - 1) / 2 := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-explicit-polynomial-zero
+lemma planeCurvePolynomial_zero : planeCurvePolynomial 0 = 0 := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-explicit-polynomial-degree
+lemma planeCurvePolynomial_natDegree (d : ℕ) (hd : d ≠ 0) :
+    (planeCurvePolynomial d).natDegree = 1 := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-explicit-polynomial-leading-coefficient
+lemma planeCurvePolynomial_leadingCoeff (d : ℕ) :
+    (planeCurvePolynomial d).leadingCoeff = (d : ℚ) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-explicit-polynomial-normalization
+lemma planeCurvePolynomial_factorial_leadingCoeff (d : ℕ) :
+    ((planeCurvePolynomial d).natDegree.factorial : ℚ) * (planeCurvePolynomial d).leadingCoeff = (d : ℚ) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-surface-explicit-polynomial
+def planeSurfacePolynomial : Polynomial ℚ := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-surface-explicit-polynomial-eval
+lemma planeSurfacePolynomial_eval (N : ℕ) :
+    planeSurfacePolynomial.eval (N : ℚ) = (Nat.choose (N + 2) 2 : ℚ) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-surface-explicit-polynomial-degree
+lemma planeSurfacePolynomial_natDegree : planeSurfacePolynomial.natDegree = 2 := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-surface-explicit-polynomial-leading-coefficient
+lemma planeSurfacePolynomial_leadingCoeff : planeSurfacePolynomial.leadingCoeff = (1 / 2 : ℚ) := by sorry
+
+lemma planeSurfacePolynomial_factorial_leadingCoeff :
+    (planeSurfacePolynomial.natDegree.factorial : ℚ) * planeSurfacePolynomial.leadingCoeff = 1 := by sorry
+
+variable {k : Type*} [Field k] (f : MvPowerSeries (Fin 2) k)
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-polynomial-eval-iff
+lemma planeCurvePolynomial_eval_iff (d N : ℕ) (hd : f.order = (d : ℕ∞)) :
+    (planeCurvePolynomial d).eval (N : ℚ) = ((function (A := ((MvPowerSeries (Fin 2) k) ⧸ Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k)))) (M := ((MvPowerSeries (Fin 2) k) ⧸ Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k)))) ((Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k)))).map (Ideal.Quotient.mk (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k))))) N).toNat : ℚ) ↔ d ≤ N + 2 := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-polynomial-tail
+lemma planeCurvePolynomial_tail (d : ℕ) (hd : f.order = (d : ℕ∞)) :
+    ∀ N ≥ d - 2, (planeCurvePolynomial d).eval (N : ℚ) = ((function (A := ((MvPowerSeries (Fin 2) k) ⧸ Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k)))) (M := ((MvPowerSeries (Fin 2) k) ⧸ Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k)))) ((Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k)))).map (Ideal.Quotient.mk (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k))))) N).toNat : ℚ) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-polynomial-unique
+lemma planeCurvePolynomial_unique (d : ℕ) (hd : f.order = (d : ℕ∞)) (P : Polynomial ℚ)
+    (hP : ∃ K : ℕ, ∀ N ≥ K, P.eval (N : ℚ) = ((function (A := ((MvPowerSeries (Fin 2) k) ⧸ Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k)))) (M := ((MvPowerSeries (Fin 2) k) ⧸ Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k)))) ((Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k)))).map (Ideal.Quotient.mk (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k))))) N).toNat : ℚ)) :
+    P = planeCurvePolynomial d := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-native-polynomial-existence
+lemma planeCurve_existsUnique_polynomial (d : ℕ) (hd : f.order = (d : ℕ∞)) :
+    ∃! P : Polynomial ℚ, ∃ K : ℕ, ∀ N ≥ K, P.eval (N : ℚ) = ((function (A := ((MvPowerSeries (Fin 2) k) ⧸ Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k)))) (M := ((MvPowerSeries (Fin 2) k) ⧸ Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k)))) ((Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k)))).map (Ideal.Quotient.mk (Ideal.span ({f} : Set (MvPowerSeries (Fin 2) k))))) N).toNat : ℚ) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-zero-equation-polynomial-eval
+lemma planeZeroEquation_polynomial_eval (N : ℕ) :
+    planeSurfacePolynomial.eval (N : ℚ) = ((function (A := ((MvPowerSeries (Fin 2) k) ⧸ Ideal.span ({(0 : MvPowerSeries (Fin 2) k)} : Set (MvPowerSeries (Fin 2) k)))) (M := ((MvPowerSeries (Fin 2) k) ⧸ Ideal.span ({(0 : MvPowerSeries (Fin 2) k)} : Set (MvPowerSeries (Fin 2) k)))) ((Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k)))).map (Ideal.Quotient.mk (Ideal.span ({(0 : MvPowerSeries (Fin 2) k)} : Set (MvPowerSeries (Fin 2) k))))) N).toNat : ℚ) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-zero-equation-polynomial-unique
+lemma planeZeroEquation_polynomial_unique (P : Polynomial ℚ)
+    (hP : ∃ K : ℕ, ∀ N ≥ K, P.eval (N : ℚ) = ((function (A := ((MvPowerSeries (Fin 2) k) ⧸ Ideal.span ({(0 : MvPowerSeries (Fin 2) k)} : Set (MvPowerSeries (Fin 2) k)))) (M := ((MvPowerSeries (Fin 2) k) ⧸ Ideal.span ({(0 : MvPowerSeries (Fin 2) k)} : Set (MvPowerSeries (Fin 2) k)))) ((Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k)))).map (Ideal.Quotient.mk (Ideal.span ({(0 : MvPowerSeries (Fin 2) k)} : Set (MvPowerSeries (Fin 2) k))))) N).toNat : ℚ)) :
+    P = planeSurfacePolynomial := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-zero-equation-native-polynomial-existence
+lemma planeZeroEquation_existsUnique_polynomial :
+    ∃! P : Polynomial ℚ, ∃ K : ℕ, ∀ N ≥ K, P.eval (N : ℚ) = ((function (A := ((MvPowerSeries (Fin 2) k) ⧸ Ideal.span ({(0 : MvPowerSeries (Fin 2) k)} : Set (MvPowerSeries (Fin 2) k)))) (M := ((MvPowerSeries (Fin 2) k) ⧸ Ideal.span ({(0 : MvPowerSeries (Fin 2) k)} : Set (MvPowerSeries (Fin 2) k)))) ((Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k)))).map (Ideal.Quotient.mk (Ideal.span ({(0 : MvPowerSeries (Fin 2) k)} : Set (MvPowerSeries (Fin 2) k))))) N).toNat : ℚ) := by sorry
+
+end ExplicitLengthPolynomials
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel.CurvePolynomialTests
+open Polynomial
+noncomputable section
+local notation "R" => MvPowerSeries (Fin 2) (ZMod 2)
+local notation "x" => (MvPowerSeries.X (0 : Fin 2) : R)
+local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → R))
+local notation "B4" => R ⧸ Ideal.span {x ^ 4}
+local notation "q4" => Ideal.map (Ideal.Quotient.mk (Ideal.span {x ^ 4})) v
+
+-- test: CurvePolynomialTests.quartic_formula
+example :
+    planeCurvePolynomial 4 = C 4 * X - C 2 ∧
+      (planeCurvePolynomial 4).natDegree = 1 ∧ (planeCurvePolynomial 4).leadingCoeff = 4 := by sorry
+
+-- test: CurvePolynomialTests.unit_zero
+example :
+    planeCurvePolynomial 0 = 0 ∧ (planeCurvePolynomial 0).degree = ⊥ ∧
+      ((planeCurvePolynomial 0).natDegree.factorial : ℚ) * (planeCurvePolynomial 0).leadingCoeff = 0 := by sorry
+
+-- test: CurvePolynomialTests.smooth_polynomial
+example : planeCurvePolynomial 1 = X + 1 := by sorry
+
+-- test: CurvePolynomialTests.characteristic_two_unique
+example (P : Polynomial ℚ)
+    (hP : ∃ K : ℕ, ∀ N ≥ K, P.eval (N : ℚ) = ((function (M := B4) q4 N).toNat : ℚ)) :
+    P = C 4 * X - C 2 := by sorry
+
+-- test: CurvePolynomialTests.sharp_tail
+example :
+    (∀ (N : ℕ), N ≥ 2 → (planeCurvePolynomial 4).eval (N : ℚ) = ((function (M := B4) q4 N).toNat : ℚ)) ∧
+      (planeCurvePolynomial 4).eval (1 : ℚ) ≠ ((function (M := B4) q4 1).toNat : ℚ) := by sorry
+
+-- test: CurvePolynomialTests.cumulative_not_graded
+example :
+    planeCurvePolynomial 4 ≠ C 4 ∧ gradedFunction (M := B4) q4 3 = 4 := by sorry
+
+-- test: CurvePolynomialTests.coefficient_characteristic_is_not_length
+example :
+    (Polynomial.C (4 : ZMod 2) * Polynomial.X - Polynomial.C 2 : Polynomial (ZMod 2)) = 0 ∧
+      function (M := B4) q4 0 = 1 := by sorry
+
+-- test: CurvePolynomialTests.surface_shape
+example :
+    planeSurfacePolynomial = C (1 / 2) * (X + 1) * (X + 2) ∧
+      planeSurfacePolynomial.natDegree = 2 ∧ planeSurfacePolynomial.leadingCoeff = (1 / 2 : ℚ) := by sorry
+
+-- test: CurvePolynomialTests.surface_all_lengths
+example (N : ℕ) :
+    let B := R ⧸ Ideal.span {(0 : R)}
+    let q := (v).map (Ideal.Quotient.mk (Ideal.span {(0 : R)}))
+    planeSurfacePolynomial.eval (N : ℚ) = ((function (M := B) q N).toNat : ℚ) ∧
+      (planeSurfacePolynomial.natDegree.factorial : ℚ) * planeSurfacePolynomial.leadingCoeff = 1 := by sorry
+
+-- test: CurvePolynomialTests.zero_and_unit_quotients
+example :
+    let B0 := R ⧸ Ideal.span {(0 : R)}
+    let q0 := (v).map (Ideal.Quotient.mk (Ideal.span {(0 : R)}))
+    let B1 := R ⧸ Ideal.span {(1 : R)}
+    let q1 := (v).map (Ideal.Quotient.mk (Ideal.span {(1 : R)}))
+    function (M := B0) q0 0 = 1 ∧ function (M := B1) q1 0 = 0 ∧
+      planeSurfacePolynomial ≠ planeCurvePolynomial 0 := by sorry
+
+-- test: CurvePolynomialTests.surface_unique
+example (P : Polynomial ℚ)
+    (hP : ∃ K : ℕ, ∀ N ≥ K,
+      P.eval (N : ℚ) = ((function
+        (M := R ⧸ Ideal.span {(0 : R)})
+        ((v).map (Ideal.Quotient.mk (Ideal.span {(0 : R)}))) N).toNat : ℚ)) :
+    P = planeSurfacePolynomial := by sorry
+
+end
+end TauCeti.HilbertSamuel.CurvePolynomialTests

@@ -3793,3 +3793,379 @@ HilbertPolynomial file was read, not its 1010-line theorem proof), while
 proves regularity of finite-variable series over regular local rings (its
 70-line file was read). The exact heads and read boundaries are recorded
 in jetCoordinatesContinuation. Neither is a pinned baseline proof used here.
+
+
+## Actual graded plane-curve lengths and sharp postulation — codex-rtOQ9t
+
+The incoming 125 mathematical contracts and reserved general multiplicity definition remain. Five new arithmetic/curve lemmas complete the exact finite-jet proof frontier without replacing any quotient, function, polynomial or length carrier. The two existing graded/defect nodes gain only a separately named arithmetic prerequisite and proof step. Their exact native signatures, the generic quotient transition and both cumulative/graded formulas have now been checked with admission-free proofs. All implementations remain unchecked.
+
+For R=k[[x,y]], A=R/(f), q=image(x,y), write H_N for the actual cumulative function and G_N for the actual successive-quotient length. When order(f)=d is finite, H_N=choose(N+2,2)−choose(N+2−d,2) and G_N=min(N+1,d). The first equality is a natural difference before the extended-natural cast. The native exact sequence gives H_N=G_N+H_(N−1) at positive indices; its N=0 right quotient is A/top with length zero. Finiteness is proved from the sum before converting G_N to a natural value. The rational defect is choose(d−N−1,2), so cumulative agreement starts at max(0,d−2), while G_N=d starts at max(0,d−1). For f=x⁴ over F₂ these are indices two and three. Units d=0 have zero lengths without a local-ring instance on their zero quotient. For f=0, native order is infinity and G_N=N+1.
+
+### Rational defect of the plane-jet count
+
+`TauCeti.HilbertSamuel.planeJetCount_defect` (`DeformationAndDerivedPatchingAlgebra:R03.3/plane-jet-binomial-defect`). For all natural d,N, cast [choose(N+2,2)−choose(N+2−d,2)] to ℚ and subtract d(N+1)−d(d−1)/2 in ℚ. The result is choose(d−N−1,2), cast to ℚ. Every subtraction inside a binomial argument and the first count difference is natural; subtraction in the polynomial and defect is rational.
+
+Hypotheses: d,N are arbitrary natural numbers; all rational arithmetic takes place in ℚ independently of any coefficient characteristic.
+
+Proof: Use monotonicity to justify casting the natural count difference to a rational difference. When d≤N+2 the opposite defect binomial vanishes. Expand the two native binomials with the rational cast formula and substitute the exact natural-subtraction cast; the polynomial identity follows. When N+2<d, the second source binomial vanishes. Cast d−N−1 using the proved subtraction bounds and expand the remaining two binomials. Rational arithmetic proves the identity without a condition on the coefficient field characteristic.
+
+Dependencies: `mathlib:Nat.cast_choose_two`, `mathlib:Nat.choose_le_choose`, `mathlib:Nat.choose_eq_zero_of_lt`.
+
+`CurvePostulationTests.negative_polynomial` (non-example): For the same actual characteristic-two quartic, H(0).toNat−(−2)=3 in ℚ. Rational polynomial values and rational subtraction are not truncated at zero.
+
+`CurvePostulationTests.unit_defect` (degenerate): For d=0 and every N, the native natural plane-jet count difference is zero before its rational cast.
+
+`CurvePostulationTests.small_cutoff_defect` (non-example): For d=100,N=2, the small ambient jet count 6 minus the rational polynomial value equals choose(97,2); the low-cutoff defect is retained.
+
+### Successive plane-jet count difference
+
+`TauCeti.HilbertSamuel.planeJetCount_step` (`DeformationAndDerivedPatchingAlgebra:R03.3/plane-jet-count-step`). For all natural d,N, choose(N+2,2)−choose(N+2−d,2) = min(N+1,d) + [choose(N+1,2)−choose(N+1−d,2)] in ℕ. All subtractions are natural, including the small cutoffs and d=0.
+
+Hypotheses: d,N are arbitrary natural numbers; all rational arithmetic takes place in ℚ independently of any coefficient characteristic.
+
+Proof: Apply the existing Pascal recurrence to the ambient triangular number. For d≤N+1, the second triangular argument is also a successor. Monotonicity bounds the subtracted binomial, and the two recurrences give the required equality with min=d. For N+1<d, both subtracted binomials vanish and min=N+1. This separately retains d=0, N=0 and the low-index branch.
+
+Dependencies: `mathlib:Nat.choose_succ_succ`, `mathlib:Nat.choose_le_choose`, `mathlib:Nat.choose_eq_zero_of_lt`.
+
+### Sharp graded stabilization of a formal plane curve
+
+`TauCeti.HilbertSamuel.planeCurve_graded_stable_iff` (`DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-graded-stable`). If native order(f)=d, then the actual successive-quotient length G_N of A=k[[x,y]]/(f) at the image q of (x,y) equals d in ℕ∞ if and only if d≤N+1. Hence its first stable index is max(0,d−1), distinct from the cumulative agreement index max(0,d−2).
+
+Hypotheses: k is an arbitrary field. All rings, ideals, submodules, quotients, scalar actions, functions and lengths are the actual native carriers in the inherited definitions. No reducedness, irreducibility, algebraic closure, perfection or characteristic-zero assumption is imposed. For a finite-order statement, f∈MvPowerSeries (Fin 2) k and native order(f)=(d:ℕ∞); this excludes f=0 and includes units d=0. The predecessor-defect theorem additionally requires 3≤d. The zero-equation theorem has f=0 and no finite d.
+
+Proof: Apply the proved native graded-function formula G_N=min(N+1,d), without replacing its actual quotient module. The minimum equals the right term exactly when d≤N+1; natural casts preserve and reflect this inequality. Units d=0 remain included without asserting a local-ring instance on their zero quotient.
+
+Dependencies: `DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-graded-function`.
+
+`CurvePostulationTests.char_two_thresholds` (non-example): For actual A=F₂[[x,y]]/(x⁴), H(2).toNat=6 while G(2)≠4 and G(3)=4. Cumulative agreement at index two does not imply graded stabilization there.
+
+`CurvePostulationTests.graded_threshold` (characterisation): For the actual characteristic-two quartic and every N, G(N)=4 if and only if 3≤N.
+
+`CurvePostulationTests.unit_graded` (degenerate): For actual A=F₂[[x,y]]/(1) and every N, G(N)=0. No nontrivial local-ring instance on this zero ring is assumed.
+
+`CurvePostulationTests.smooth_graded` (computation): For actual A=F₂[[x,y]]/(x) and every N, G(N)=1.
+
+### Unit postulation defect before sharp agreement
+
+`TauCeti.HilbertSamuel.planeCurve_postulation_predecessor` (`DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-postulation-predecessor`). If native order(f)=d and 3≤d, then the actual cumulative function at N=d−3, converted to a natural number only after the finite-jet theorem, has rational defect exactly 1 from d(N+1)−d(d−1)/2. Thus agreement cannot begin one index before max(0,d−2).
+
+Hypotheses: k is an arbitrary field. All rings, ideals, submodules, quotients, scalar actions, functions and lengths are the actual native carriers in the inherited definitions. No reducedness, irreducibility, algebraic closure, perfection or characteristic-zero assumption is imposed. For a finite-order statement, f∈MvPowerSeries (Fin 2) k and native order(f)=(d:ℕ∞); this excludes f=0 and includes units d=0. The predecessor-defect theorem additionally requires 3≤d. The zero-equation theorem has f=0 and no finite d.
+
+Proof: Specialize the exact rational postulation-defect formula to N=d−3. The assumption 3≤d gives d−(d−3)−1=2 in natural arithmetic; the native binomial choose(2,2)=1 proves sharpness. The argument uses actual cumulative lengths, not a prescribed numerical function.
+
+Dependencies: `DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-postulation-defect`.
+
+`CurvePostulationTests.sharp_predecessor` (computation): For the actual characteristic-two quartic at N=1, H(1).toNat−2=1, exactly the last nonzero cumulative defect.
+
+`CurvePostulationTests.cumulative_threshold` (characterisation): For the actual characteristic-two quartic and every N, H(N).toNat=4(N+1)−6 in ℚ if and only if 2≤N.
+
+### Successive-quotient lengths for the zero equation
+
+`TauCeti.HilbertSamuel.planeZeroEquation_gradedFunction` (`DeformationAndDerivedPatchingAlgebra:R03.3/plane-zero-equation-graded`). For every N and the actual A=k[[x,y]]/(0), q=image(x,y), the native gradedFunction q N equals N+1 cast to ℕ∞. The zero equation has infinite native order and belongs to this separate regular-surface branch, rather than the finite-order unit branch.
+
+Hypotheses: k is an arbitrary field. All rings, ideals, submodules, quotients, scalar actions, functions and lengths are the actual native carriers in the inherited definitions. No reducedness, irreducibility, algebraic closure, perfection or characteristic-zero assumption is imposed. For a finite-order statement, f∈MvPowerSeries (Fin 2) k and native order(f)=(d:ℕ∞); this excludes f=0 and includes units d=0. The predecessor-defect theorem additionally requires 3≤d. The zero-equation theorem has f=0 and no finite d.
+
+Proof: Use the actual native quotient-transition exact sequence over A, with cumulative zero-equation lengths choose(N+2,2). At N=0 the right quotient is A/top and has length zero. At a successor the graded summand is finite because the cumulative sum is a finite natural cast; establish this before using toNat. Take the natural values of the extended-natural sum, apply Pascal recurrence to the two triangular counts, and recover the graded extended-natural value N+1.
+
+Dependencies: `DeformationAndDerivedPatchingAlgebra:R03.3/plane-zero-equation-function`, `DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-length-step`, `mathlib:Nat.choose_succ_succ`, `mathlib:ENat.toNat_add`, `mathlib:ENat.natCast_toNat_eq_self`, `mathlib:ENat.natCast_ne_top`.
+
+`CurvePostulationTests.zero_equation_growth` (non-example): For actual A=F₂[[x,y]]/(0), native order(0)=∞ and G(N)=N+1 for every N. The zero equation cannot be assigned the finite order zero of a unit.
+
+The source calculations are credited to DDPA-CURVE-POSTULATION §§1–3, freshly read on 2026-10-03; the native exact sequence and numerical identities are now separately checked. Stacks 00K4 fixes the cumulative/graded convention. None of this asserts general graded Hilbert–Serre existence, the degree/dimension theorem, curve dimension, tangent-cone comparison or the full intrinsic/ambient multiplicity key.
+
+The actual native graded function, general quotient-transition length proof, exact rational postulation defect, sharp cumulative threshold, sharp graded threshold, unit defect just before agreement, and separate zero-equation graded branch now have admission-free proof prototypes. All ten new named tests use actual characteristic-two quotient modules or the exact native integer/rational count expressions. Canonical bodies remain admitted and all nodes unchecked. Still prove the full tangent-cone kernel and dimension of the actual curve ring, compare with the existing cumulative polynomial/intrinsic and ambient multiplicities without assuming generic existence, and discharge general Hilbert–Serre induction, support/degree, Artin–Rees, localization lengths, completion, associativity, all eight stage targets and every inherited routed-paper obligation. The graded and cumulative sharp thresholds are distinct; the zero equation has no finite order.
+
+The current handoff records the exact public native proof archive, complete reconstruction and validator scripts, both complete-file Lean checks, and the scoped atlas comparison. The canonical file is a planning signature file: its 367 expected admission warnings do not certify implementation. The native prototype has nine mathematical proofs and ten new named tests with no admissions; all 130 packet nodes remain unchecked.
+
+
+# Explicit rational polynomials of actual plane quotient lengths
+
+For an arbitrary field k, write R=k[[x,y]], v=(x,y), A=R/(f) and
+q=image(v) in the actual quotient ring. All length functions and quotients
+are the inherited native objects. If native order(f)=d∈ℕ, define the
+closed-form rational polynomial P_d=d(T+1)−d(d−1)/2. Its evaluation
+equals H_q,A(N).toNat precisely when d≤N+2, so the sharp permanent tail
+begins at max(0,d−2). The coefficient field need not have characteristic
+zero: the polynomial records integer lengths in ℚ. No division by two
+is performed in k. Units d=0 give P₀=0 and the actual zero quotient.
+
+A rational polynomial agreeing with these actual cumulative lengths on
+any tail N≥K equals P_d. Indeed the natural interval N≥max(K,d−2) is
+infinite, its image in ℚ is infinite by injectivity of the natural cast,
+and both polynomials agree there. Apply Mathlib’s already proved
+infinite-evaluation uniqueness theorem. Supplying P_d and the actual
+sharp-tail theorem proves existence and uniqueness for this special case
+without a general Hilbert–Serre existence premise. This is an actual
+quotient-length proof, not a polynomial prescribed by a numerical test.
+
+At d>0, P_d has natural degree one and leading coefficient d. At d=0 it
+is the zero polynomial, with degree −∞, natural degree zero and leading
+coefficient zero. For all d, its natural-degree factorial times leading
+coefficient is d. This arithmetic does not assign dimension zero to a
+zero module. The general reserved multiplicity definition remains
+unchanged and still requires its general existence and support-degree
+theorems. Equality with the existing general polynomial constructor must
+use that constructor’s eventual-value specification; no checked native
+proof of that unfinished general constructor is asserted here.
+
+For f=0, the actual A=R/(0) has cumulative lengths choose(N+2,2) at every
+index. Its unique rational polynomial is instead Q=(T+1)(T+2)/2, of
+natural degree two and leading coefficient 1/2. Its factorial coefficient
+is one. The zero equation has infinite order and cannot be assigned the
+finite order zero of a unit. Native Krull dimensions and the tangent-cone
+kernel are independent obligations; polynomial degrees are not claimed
+as proofs of them.
+
+These calculations build on the credited DDPA-CURVE-POSTULATION §§1–3
+finite-jet argument. The uniqueness adapter follows the exact pinned
+Mathlib HilbertPoly proof, with its generic Roots uniqueness and native
+infinite intervals, and consumes Mathlib’s linear/quadratic polynomial
+API. Stacks 00K4 supplies the graded/cumulative convention and general
+existence target; it is not cited as the author of this special calculation.
+No generic polynomial, dimension or local-ring carrier is duplicated.
+
+## Explicit cumulative polynomial of equation order
+
+DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-explicit-polynomial — TauCeti.HilbertSamuel.planeCurvePolynomial.
+
+For every natural d, form P_d=d(T+1)−d(d−1)/2 in the existing rational polynomial ring. Both d casts precede rational subtraction. This is the explicit closed form for the cumulative function of a finite-order plane equation, not a new general Hilbert–Samuel polynomial constructor.
+
+Hypotheses: Polynomial arithmetic is in ℚ. All equation coefficient fields are arbitrary; no algebraic closure, perfectness, reducedness, irreducibility or characteristic-zero assumption is imposed. For finite-order statements, native order(f)=(d:ℕ∞), which excludes the zero equation and includes unit equations. Actual rings, ideal images, module actions, quotient lengths and previously proved finite-value conversions are used exactly as in the inherited plan. No curve Krull dimension or general Hilbert–Serre existence theorem is assumed.
+
+Proof: Form the displayed element of the native polynomial ring over ℚ. The parameter is an arbitrary natural number, including zero. No equation ring or length carrier is defined here.
+
+Prerequisites: existing rational polynomial ring and ordinary arithmetic.
+
+API TauCeti.HilbertSamuel.planeCurvePolynomial_eval (simp): For d∈ℕ and t∈ℚ, P_d(t)=d(t+1)−d(d−1)/2 with all arithmetic in ℚ.
+
+API TauCeti.HilbertSamuel.planeCurvePolynomial_zero (simp): P_0=0 as a rational polynomial. Its degree is −∞, while native natDegree(0)=0; no dimension-zero interpretation of the zero module follows.
+
+API TauCeti.HilbertSamuel.planeCurvePolynomial_natDegree (characterisation): For d≠0, natDegree(P_d)=1. This is a polynomial degree assertion, not a theorem asserting the Krull dimension of k[[x,y]]/(f).
+
+API TauCeti.HilbertSamuel.planeCurvePolynomial_leadingCoeff (compatibility): For every d∈ℕ, leadingCoeff(P_d)=d in ℚ, including d=0.
+
+API TauCeti.HilbertSamuel.planeCurvePolynomial_factorial_leadingCoeff (compatibility): For all d, natDegree(P_d)!·leadingCoeff(P_d)=d in ℚ. This arithmetic extraction from the explicit polynomial does not redefine multiplicity or certify the general multiplicity object.
+
+Test CurvePolynomialTests.quartic_formula (computation): For d=4 the explicit rational polynomial is 4T−2, of natural degree one and leading coefficient four.
+
+Test CurvePolynomialTests.unit_zero (degenerate): At d=0 the explicit polynomial is zero with degree −∞ and factorial-leading-coefficient extraction zero; native natural degree zero is not interpreted as dimension zero.
+
+Test CurvePolynomialTests.smooth_polynomial (computation): For d=1 the explicit cumulative polynomial is T+1.
+
+Test CurvePolynomialTests.cumulative_not_graded (non-example): P₄ is not the constant polynomial 4, although the actual graded length of the characteristic-two quartic at index 3 equals 4.
+
+Test CurvePolynomialTests.coefficient_characteristic_is_not_length (non-example): The expression 4T−2 in F₂[T] vanishes, while the actual quartic quotient has cumulative length one at N=0. Integer quotient lengths cannot be read in the coefficient field.
+
+## Evaluation of the explicit curve polynomial
+
+DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-explicit-polynomial-eval — TauCeti.HilbertSamuel.planeCurvePolynomial_eval.
+
+For d∈ℕ and t∈ℚ, P_d(t)=d(t+1)−d(d−1)/2 with all arithmetic in ℚ.
+
+Hypotheses: Polynomial arithmetic is in ℚ. All equation coefficient fields are arbitrary; no algebraic closure, perfectness, reducedness, irreducibility or characteristic-zero assumption is imposed. For finite-order statements, native order(f)=(d:ℕ∞), which excludes the zero equation and includes unit equations. Actual rings, ideal images, module actions, quotient lengths and previously proved finite-value conversions are used exactly as in the inherited plan. No curve Krull dimension or general Hilbert–Serre existence theorem is assumed.
+
+Proof: Evaluate native constants, the variable, addition, multiplication and subtraction. This identity is used before comparing with actual quotient lengths.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-explicit-polynomial.
+
+## Zero polynomial at unit equation order
+
+DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-explicit-polynomial-zero — TauCeti.HilbertSamuel.planeCurvePolynomial_zero.
+
+P_0=0 as a rational polynomial. Its degree is −∞, while native natDegree(0)=0; no dimension-zero interpretation of the zero module follows.
+
+Hypotheses: Polynomial arithmetic is in ℚ. All equation coefficient fields are arbitrary; no algebraic closure, perfectness, reducedness, irreducibility or characteristic-zero assumption is imposed. For finite-order statements, native order(f)=(d:ℕ∞), which excludes the zero equation and includes unit equations. Actual rings, ideal images, module actions, quotient lengths and previously proved finite-value conversions are used exactly as in the inherited plan. No curve Krull dimension or general Hilbert–Serre existence theorem is assumed.
+
+Proof: Evaluate the parameter-zero closed form in the native polynomial ring. The native zero-polynomial degree conventions are retained.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-explicit-polynomial.
+
+## Degree of the positive-order curve polynomial
+
+DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-explicit-polynomial-degree — TauCeti.HilbertSamuel.planeCurvePolynomial_natDegree.
+
+For d≠0, natDegree(P_d)=1. This is a polynomial degree assertion, not a theorem asserting the Krull dimension of k[[x,y]]/(f).
+
+Hypotheses: Polynomial arithmetic is in ℚ. All equation coefficient fields are arbitrary; no algebraic closure, perfectness, reducedness, irreducibility or characteristic-zero assumption is imposed. For finite-order statements, native order(f)=(d:ℕ∞), which excludes the zero equation and includes unit equations. Actual rings, ideal images, module actions, quotient lengths and previously proved finite-value conversions are used exactly as in the inherited plan. No curve Krull dimension or general Hilbert–Serre existence theorem is assumed.
+
+Proof: Expand P_d as dT+[d−d(d−1)/2]. The coefficient d is nonzero in ℚ. Apply the existing native linear-polynomial degree theorem, without imposing characteristic zero on the equation coefficient field.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-explicit-polynomial, mathlib:Polynomial.natDegree_linear.
+
+## Leading coefficient for every equation order
+
+DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-explicit-polynomial-leading-coefficient — TauCeti.HilbertSamuel.planeCurvePolynomial_leadingCoeff.
+
+For every d∈ℕ, leadingCoeff(P_d)=d in ℚ, including d=0.
+
+Hypotheses: Polynomial arithmetic is in ℚ. All equation coefficient fields are arbitrary; no algebraic closure, perfectness, reducedness, irreducibility or characteristic-zero assumption is imposed. For finite-order statements, native order(f)=(d:ℕ∞), which excludes the zero equation and includes unit equations. Actual rings, ideal images, module actions, quotient lengths and previously proved finite-value conversions are used exactly as in the inherited plan. No curve Krull dimension or general Hilbert–Serre existence theorem is assumed.
+
+Proof: At d=0 use the zero-polynomial identity. Otherwise expand into the linear normal form and apply the native leading-coefficient theorem with the rational nonzero leading term.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-explicit-polynomial, DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-explicit-polynomial-zero, mathlib:Polynomial.leadingCoeff_linear.
+
+## Degree factorial normalization of the curve polynomial
+
+DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-explicit-polynomial-normalization — TauCeti.HilbertSamuel.planeCurvePolynomial_factorial_leadingCoeff.
+
+For all d, natDegree(P_d)!·leadingCoeff(P_d)=d in ℚ. This arithmetic extraction from the explicit polynomial does not redefine multiplicity or certify the general multiplicity object.
+
+Hypotheses: Polynomial arithmetic is in ℚ. All equation coefficient fields are arbitrary; no algebraic closure, perfectness, reducedness, irreducibility or characteristic-zero assumption is imposed. For finite-order statements, native order(f)=(d:ℕ∞), which excludes the zero equation and includes unit equations. Actual rings, ideal images, module actions, quotient lengths and previously proved finite-value conversions are used exactly as in the inherited plan. No curve Krull dimension or general Hilbert–Serre existence theorem is assumed.
+
+Proof: At d=0 the leading coefficient vanishes, including the native 0!=1 convention. At d≠0 use native degree one, 1!=1 and leading coefficient d.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-explicit-polynomial-degree, DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-explicit-polynomial-leading-coefficient, DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-explicit-polynomial-zero.
+
+## Explicit cumulative polynomial of the zero equation
+
+DeformationAndDerivedPatchingAlgebra:R03.3/plane-surface-explicit-polynomial — TauCeti.HilbertSamuel.planeSurfacePolynomial.
+
+Form Q(T)=(T²+3T+2)/2 in the existing rational polynomial ring, equivalently (T+1)(T+2)/2. This is the cumulative polynomial of the actual zero-equation quotient, distinct from P_0.
+
+Hypotheses: Polynomial arithmetic is in ℚ. All equation coefficient fields are arbitrary; no algebraic closure, perfectness, reducedness, irreducibility or characteristic-zero assumption is imposed. For finite-order statements, native order(f)=(d:ℕ∞), which excludes the zero equation and includes unit equations. Actual rings, ideal images, module actions, quotient lengths and previously proved finite-value conversions are used exactly as in the inherited plan. No curve Krull dimension or general Hilbert–Serre existence theorem is assumed.
+
+Proof: Build the native rational polynomial C(1/2)T²+C(3/2)T+1. Rational denominators are used only for integer lengths, never inverted in the coefficient field of a formal series.
+
+Prerequisites: existing rational polynomial ring and ordinary arithmetic.
+
+API TauCeti.HilbertSamuel.planeSurfacePolynomial_eval (simp): For every N∈ℕ, Q(N)=choose(N+2,2) cast to ℚ.
+
+API TauCeti.HilbertSamuel.planeSurfacePolynomial_natDegree (characterisation): natDegree(Q)=2 in the native rational polynomial ring.
+
+API TauCeti.HilbertSamuel.planeSurfacePolynomial_leadingCoeff (compatibility): leadingCoeff(Q)=1/2 in ℚ.
+
+API TauCeti.HilbertSamuel.planeSurfacePolynomial_factorial_leadingCoeff (compatibility): natDegree(Q)!·leadingCoeff(Q)=1 in ℚ. This follows from degree two and leading coefficient 1/2 and is only an arithmetic polynomial extraction.
+
+Test CurvePolynomialTests.surface_shape (compatibility): Q=(T+1)(T+2)/2, with natural degree two and leading coefficient 1/2 in ℚ.
+
+Test CurvePolynomialTests.surface_all_lengths (compatibility): Over F₂ and for every N, Q(N) equals the actual zero-equation cumulative quotient length and its factorial-leading-coefficient extraction is one.
+
+Test CurvePolynomialTests.zero_and_unit_quotients (non-example): Actual F₂[[x,y]]/(0) has cumulative value one at N=0, while F₂[[x,y]]/(1) has value zero; Q≠P₀. No nontrivial local-ring instance is imposed on the unit quotient.
+
+## Binomial evaluations of the surface polynomial
+
+DeformationAndDerivedPatchingAlgebra:R03.3/plane-surface-explicit-polynomial-eval — TauCeti.HilbertSamuel.planeSurfacePolynomial_eval.
+
+For every N∈ℕ, Q(N)=choose(N+2,2) cast to ℚ.
+
+Hypotheses: Polynomial arithmetic is in ℚ. All equation coefficient fields are arbitrary; no algebraic closure, perfectness, reducedness, irreducibility or characteristic-zero assumption is imposed. For finite-order statements, native order(f)=(d:ℕ∞), which excludes the zero equation and includes unit equations. Actual rings, ideal images, module actions, quotient lengths and previously proved finite-value conversions are used exactly as in the inherited plan. No curve Krull dimension or general Hilbert–Serre existence theorem is assumed.
+
+Proof: Use the native rational choose-two cast formula and evaluate the actual polynomial. Rational algebra gives (N+2)(N+1)/2, with no subtraction before casts.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/plane-surface-explicit-polynomial, mathlib:Nat.cast_choose_two.
+
+## Degree of the surface cumulative polynomial
+
+DeformationAndDerivedPatchingAlgebra:R03.3/plane-surface-explicit-polynomial-degree — TauCeti.HilbertSamuel.planeSurfacePolynomial_natDegree.
+
+natDegree(Q)=2 in the native rational polynomial ring.
+
+Hypotheses: Polynomial arithmetic is in ℚ. All equation coefficient fields are arbitrary; no algebraic closure, perfectness, reducedness, irreducibility or characteristic-zero assumption is imposed. For finite-order statements, native order(f)=(d:ℕ∞), which excludes the zero equation and includes unit equations. Actual rings, ideal images, module actions, quotient lengths and previously proved finite-value conversions are used exactly as in the inherited plan. No curve Krull dimension or general Hilbert–Serre existence theorem is assumed.
+
+Proof: Its rational quadratic coefficient 1/2 is nonzero. Reuse the pinned quadratic-polynomial degree theorem.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/plane-surface-explicit-polynomial, mathlib:Polynomial.natDegree_quadratic.
+
+## Leading coefficient of the surface cumulative polynomial
+
+DeformationAndDerivedPatchingAlgebra:R03.3/plane-surface-explicit-polynomial-leading-coefficient — TauCeti.HilbertSamuel.planeSurfacePolynomial_leadingCoeff.
+
+leadingCoeff(Q)=1/2 in ℚ.
+
+Hypotheses: Polynomial arithmetic is in ℚ. All equation coefficient fields are arbitrary; no algebraic closure, perfectness, reducedness, irreducibility or characteristic-zero assumption is imposed. For finite-order statements, native order(f)=(d:ℕ∞), which excludes the zero equation and includes unit equations. Actual rings, ideal images, module actions, quotient lengths and previously proved finite-value conversions are used exactly as in the inherited plan. No curve Krull dimension or general Hilbert–Serre existence theorem is assumed.
+
+Proof: Its rational quadratic coefficient is nonzero. Reuse the pinned quadratic leading-coefficient theorem; do not use a denominator in the possibly characteristic-two equation field.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/plane-surface-explicit-polynomial, mathlib:Polynomial.leadingCoeff_quadratic.
+
+## Explicit polynomial and actual cumulative agreement
+
+DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-polynomial-eval-iff — TauCeti.HilbertSamuel.planeCurvePolynomial_eval_iff.
+
+For any field k, f∈k[[x,y]] with native order(f)=d∈ℕ and every N, P_d(N)=length_A(A/q^(N+1)).toNat in ℚ if and only if d≤N+2, where A=k[[x,y]]/(f) and q is the actual image of the variable ideal.
+
+Hypotheses: Polynomial arithmetic is in ℚ. All equation coefficient fields are arbitrary; no algebraic closure, perfectness, reducedness, irreducibility or characteristic-zero assumption is imposed. For finite-order statements, native order(f)=(d:ℕ∞), which excludes the zero equation and includes unit equations. Actual rings, ideal images, module actions, quotient lengths and previously proved finite-value conversions are used exactly as in the inherited plan. No curve Krull dimension or general Hilbert–Serre existence theorem is assumed.
+
+Proof: Evaluate P_d and apply the already proved actual postulation equivalence. Finiteness was established in the inherited plane-curve-function proof before converting lengths to naturals.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-explicit-polynomial-eval, DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-postulation-iff.
+
+## Sharp permanent agreement with actual curve lengths
+
+DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-polynomial-tail — TauCeti.HilbertSamuel.planeCurvePolynomial_tail.
+
+With these actual carriers and exact finite order d, for every N≥d−2, P_d(N)=length_A(A/q^(N+1)).toNat in ℚ. The subtraction in the natural cutoff d−2 is truncated.
+
+Hypotheses: Polynomial arithmetic is in ℚ. All equation coefficient fields are arbitrary; no algebraic closure, perfectness, reducedness, irreducibility or characteristic-zero assumption is imposed. For finite-order statements, native order(f)=(d:ℕ∞), which excludes the zero equation and includes unit equations. Actual rings, ideal images, module actions, quotient lengths and previously proved finite-value conversions are used exactly as in the inherited plan. No curve Krull dimension or general Hilbert–Serre existence theorem is assumed.
+
+Proof: Natural arithmetic gives d≤N+2 at precisely this tail. Apply the actual agreement equivalence; small orders d=0,1,2 have cutoff zero.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-polynomial-eval-iff.
+
+Test CurvePolynomialTests.sharp_tail (non-example): For the actual characteristic-two quartic, agreement with P₄ holds at every natural N≥2, but fails at N=1.
+
+## Uniqueness from an arbitrary actual curve tail
+
+DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-polynomial-unique — TauCeti.HilbertSamuel.planeCurvePolynomial_unique.
+
+For the actual finite-order plane curve, if P∈ℚ[T] agrees with its cumulative quotient lengths for every N≥K for some K∈ℕ, then P=P_d. No degree bound or caller-provided existence hypothesis on the actual function is needed.
+
+Hypotheses: Polynomial arithmetic is in ℚ. All equation coefficient fields are arbitrary; no algebraic closure, perfectness, reducedness, irreducibility or characteristic-zero assumption is imposed. For finite-order statements, native order(f)=(d:ℕ∞), which excludes the zero equation and includes unit equations. Actual rings, ideal images, module actions, quotient lengths and previously proved finite-value conversions are used exactly as in the inherited plan. No curve Krull dimension or general Hilbert–Serre existence theorem is assumed.
+
+Proof: Take the infinite natural interval N≥max(K,d−2). Its image under the injective natural cast to ℚ is infinite. On it, the supplied equality and the proved actual tail give P(N)=P_d(N). Apply the existing native infinite-evaluation uniqueness theorem, following the pinned HilbertPoly uniqueness proof. No new generic polynomial uniqueness theory is planned.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-polynomial-tail, mathlib:Polynomial.eq_of_infinite_eval_eq, mathlib:Set.Ici_infinite, mathlib:Set.infinite_image_iff, mathlib:Nat.cast_injective.
+
+Test CurvePolynomialTests.characteristic_two_unique (characterisation): For actual A=F₂[[x,y]]/(x⁴), every rational polynomial eventually agreeing with the actual quotient lengths equals 4T−2, even though the coefficient field is finite.
+
+## Native existence and uniqueness for plane-curve lengths
+
+DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-native-polynomial-existence — TauCeti.HilbertSamuel.planeCurve_existsUnique_polynomial.
+
+For every field k and actual equation f of exact finite order d, there exists exactly one rational polynomial agreeing eventually with N↦length_A(A/q^(N+1)).toNat. It is P_d, with the explicit witness d−2. This includes unit equations and their zero quotient without a nontrivial local-ring instance.
+
+Hypotheses: Polynomial arithmetic is in ℚ. All equation coefficient fields are arbitrary; no algebraic closure, perfectness, reducedness, irreducibility or characteristic-zero assumption is imposed. For finite-order statements, native order(f)=(d:ℕ∞), which excludes the zero equation and includes unit equations. Actual rings, ideal images, module actions, quotient lengths and previously proved finite-value conversions are used exactly as in the inherited plan. No curve Krull dimension or general Hilbert–Serre existence theorem is assumed.
+
+Proof: Supply the actual explicit polynomial with the already proved sharp tail as existence witness. Apply the actual tail uniqueness theorem for any competing polynomial. This special-case existence proof uses no general Noetherian/local Hilbert–Serre theorem.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-polynomial-tail, DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-polynomial-unique.
+
+## Surface polynomial equals every actual zero-equation length
+
+DeformationAndDerivedPatchingAlgebra:R03.3/plane-zero-equation-polynomial-eval — TauCeti.HilbertSamuel.planeZeroEquation_polynomial_eval.
+
+For any field k, A=k[[x,y]]/(0), q=image(x,y), and every N≥0, Q(N)=length_A(A/q^(N+1)).toNat in ℚ. The zero equation has infinite order and is not the unit-order branch.
+
+Hypotheses: Polynomial arithmetic is in ℚ. All equation coefficient fields are arbitrary; no algebraic closure, perfectness, reducedness, irreducibility or characteristic-zero assumption is imposed. For finite-order statements, native order(f)=(d:ℕ∞), which excludes the zero equation and includes unit equations. Actual rings, ideal images, module actions, quotient lengths and previously proved finite-value conversions are used exactly as in the inherited plan. No curve Krull dimension or general Hilbert–Serre existence theorem is assumed.
+
+Proof: Apply the inherited actual zero-equation cumulative function theorem, an explicitly finite natural cast. Convert that cast to its natural value and apply the native binomial evaluation of Q.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/plane-surface-explicit-polynomial-eval, DeformationAndDerivedPatchingAlgebra:R03.3/plane-zero-equation-function, mathlib:ENat.toNat_natCast.
+
+## Uniqueness for the zero-equation cumulative function
+
+DeformationAndDerivedPatchingAlgebra:R03.3/plane-zero-equation-polynomial-unique — TauCeti.HilbertSamuel.planeZeroEquation_polynomial_unique.
+
+For the actual zero-equation quotient over any field, any rational polynomial agreeing with cumulative lengths on an arbitrary natural tail equals Q.
+
+Hypotheses: Polynomial arithmetic is in ℚ. All equation coefficient fields are arbitrary; no algebraic closure, perfectness, reducedness, irreducibility or characteristic-zero assumption is imposed. For finite-order statements, native order(f)=(d:ℕ∞), which excludes the zero equation and includes unit equations. Actual rings, ideal images, module actions, quotient lengths and previously proved finite-value conversions are used exactly as in the inherited plan. No curve Krull dimension or general Hilbert–Serre existence theorem is assumed.
+
+Proof: Use the infinite rational image of the supplied natural tail. The all-index actual length equality identifies both evaluations there. Apply native infinite-evaluation uniqueness. Infinite order of the zero series is retained.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/plane-zero-equation-polynomial-eval, mathlib:Polynomial.eq_of_infinite_eval_eq, mathlib:Set.Ici_infinite, mathlib:Set.infinite_image_iff, mathlib:Nat.cast_injective.
+
+Test CurvePolynomialTests.surface_unique (characterisation): Any rational polynomial agreeing eventually with the actual zero-equation cumulative quotient lengths over F₂ equals Q.
+
+## Native polynomial existence for the zero equation
+
+DeformationAndDerivedPatchingAlgebra:R03.3/plane-zero-equation-native-polynomial-existence — TauCeti.HilbertSamuel.planeZeroEquation_existsUnique_polynomial.
+
+The actual cumulative quotient-length function of k[[x,y]]/(0) has a unique eventual rational polynomial Q. The existence witness is zero, since every nonnegative index already agrees.
+
+Hypotheses: Polynomial arithmetic is in ℚ. All equation coefficient fields are arbitrary; no algebraic closure, perfectness, reducedness, irreducibility or characteristic-zero assumption is imposed. For finite-order statements, native order(f)=(d:ℕ∞), which excludes the zero equation and includes unit equations. Actual rings, ideal images, module actions, quotient lengths and previously proved finite-value conversions are used exactly as in the inherited plan. No curve Krull dimension or general Hilbert–Serre existence theorem is assumed.
+
+Proof: Supply Q and the proved all-index actual evaluation theorem. Any second eventual witness equals Q by the native uniqueness specialization.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/plane-zero-equation-polynomial-eval, DeformationAndDerivedPatchingAlgebra:R03.3/plane-zero-equation-polynomial-unique.
+
+All eight stages remain partial and every implementation status remains unchecked. The native unique-polynomial proof boundary is distinct from the still-required general Hilbert–Serre theorem, native curve dimension, tangent-cone kernel, completion and the full intrinsic/ambient multiplicity comparison. No inherited target, supplier request, gap, source finding or planet is removed.

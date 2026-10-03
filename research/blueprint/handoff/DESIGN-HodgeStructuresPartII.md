@@ -1,3 +1,254 @@
+# Current checkpoint — affine Higgs tensor fields, Codex codex-7e92bd
+
+Refs #3371. Claim comment 5964630347 was confirmed by bot comment 5964631570; the whole issue was read before claiming and reread unchanged after confirmation. Status remains partial; every mathematical node remains unchecked.
+
+Twelve new declarations and five native tests specify the actual tensor Higgs field on arbitrary R-modules. They give the pure-tensor formula, zero case, contractions, commuting contractions, finite-coefficient-basis integrability, coefficient postcomposition, horizontal tensor maps, native symmetry, both unitors and associativity. Only the integrability proof assumes a finite basis of Q; E and F may have torsion. All other identities allow arbitrary Q. No division by two occurs.
+
+The integer scalar-unit test retains coefficient 2; over ZMod 2 two nonzero scalar unit fields tensor to zero. A separate integral test uses E=ZMod 2 and F=ZMod 4 and proves tensor integrability without freeness. The tensor unit is the zero field on R, distinct from a nonzero scalar unit field.
+
+All 161 incoming contracts remain; 160 whole node objects are unchanged. The existing intrinsic tensor consumer adds seven affine prerequisites and one proof step while retaining its original contract, API and tests. There are 173 nodes (12 definitions, 31 constructions, 107 lemmas, 18 theorems, 5 comparisons), 205 API items, 192 construction/definition tests (194 raw tests), 6 planets, 178 baseline declarations, 11 gaps, 5 requests and 9 stages. All 8 routes and 149 source obligations, 35 global omission entries and all stage statuses remain.
+
+## Reading and ownership
+
+Fresh source reading: Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), complete §2.1 printed pp.6–9, Theorem 2.1(i)–(v), equations(2.4)–(2.5), explanations and Remarks 2.1–2.5; preceding Theorem 1.6, Remark 1.10 and conventions. The retained PDF is 640639 bytes, SHA-256 `8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79`. The arbitrary-ring affine generality and proofs are authored deductions. No whole-paper or correspondence-proof read is claimed.
+
+The full nine stage contracts, reserved key and full algebraic-geometry survey entry, all four reviewed parent Hodge audit rows, E1/D3 audit rows, CR.1/E1/DD.1/D3 supplier contracts, all five requests, applicable accepted restructuring ownership and all eight matching joining briefs were read. HodgeStructures and SemisimpleAlgebras upstream readers were read earlier in this worker loop. This does not claim a fresh proof decomposition of all 149 obligations. Existing tensor balancing, intrinsic tensor, tensor curvature, tensor nilpotence and determinant tensor plans were compared before adding the affine specialization.
+
+Pinned statements used for this continuation were read in Mathlib TensorProduct/{Basic, Map, Associator}.lean, including hypotheses and pure-tensor evaluations. The baseline retains its 168 incoming entries and adds 10 checked entries. Generic tensor carriers, associator, symmetry, unitors, exterior powers and the incoming coefficient/contraction API are imported. The global sheaf operations remain with E1, ordinary calculus with CR.1, Rees with DD.1, VHS with D3 and Jacobi with the existing ColemanPowerSeries declaration.
+
+Fresh bounded prior-art checks on 2026-10-03: Mathlib GitHub PR search `Higgs OR "lambda connection"` returned no matches; web-indexed Zulip search `site:leanprover.zulipchat.com "Higgs" "tensor"` returned no matches. These are bounded queries, not a global absence claim.
+
+## Checked sources and limits
+
+Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti source pin `f790474821cf4256814db967cb154e7af3d0c369`. The existing build uses Lean 4.34.0-rc2 and exactly that Mathlib commit. Its Tau Ceti checkout is `cf386627e9176a3827c1a5fe804989fd94a4d216`; these checks use individual Mathlib imports and the inherited exact native expression for the already-built Tau Ceti tensor-to-exterior projection. They do not certify pinned Tau Ceti imports or omitted global sheaf signatures.
+
+One Lean process at a time, 42 GiB available before each final compilation, 1200-second timeout, no Lake setup/update/cache or library builds. Both processes exited 0. Native: 2256 lines, 38 inherited anonymous examples, 31 named test theorems, 121 axiom audits, 0 errors/warnings/admissions; 15.91 s, 2800464 KiB maximum RSS. Only propext, Classical.choice, Quot.sound occur. Full submitted sketch: 2428 lines, 153 examples, 360 admission warnings and 0 other errors/warnings; 8.70 s, 3093064 KiB maximum RSS. Its signatures match the new proof headers exactly after converting the five named test theorems to planning examples. The 1982-line incoming proof prefix is byte-identical.
+
+Native SHA-256 `f545f31f504c9c406ef3920b3194c8ce17fa70b17be084eb3ee967019b3f3b3f`; full sketch `0f1dda6b30b762a4e84cee6dbff8f89d0972719f171f70da289fe5e42fc4eeb1`. Log hashes after replacing the evidence-directory prefix with EVIDENCE: native `c1eaf363c6575763c37231c646c08399a0c9c90a56df2c268c58864973cb656e`; sketch `ce419e338ccb08932b1328ca71709c9b21a7ffdc6f4d4546560b96616c05171b`.
+
+The indexed packet checker reports 0 errors and 0 warnings. The actual intake file/ownership checks report no problems or refusals. The actual proposed-definition overlay retains all other promoted packets: stage graph 3022 vertices/8663 edges; own graph 173/319; combined scoped graph 3190/9199. All are acyclic. The scoped walk reaches 174 declarations, 164 baseline leaves and 21 required stage paths, with no unresolved references, skipped or pending own links. Every reached declaration's parent stage is included, including the external Coleman declaration. Other promotions' skips and the stage-edge set match the incoming control. This establishes graph integrity, not mathematical closure of supplier gaps.
+
+Read base `d66f0b304e762d1fff6864197a34cd309b359a34`; publication base `0f8afef629b4d0be5a436d2d5da7112ee34a9999`. All own incoming deliverables and scoped governing/ownership inputs were unchanged between them; only other workers' Neron/StableReduction deliverables and queue state advanced. The final diff is restricted to this issue's five deliverables.
+
+## Resume
+
+Prove the actual tensor-curvature formula for arbitrary Q, then the integral shuffle bound N+M−1 for positive input ordered bounds. The latter is already owned by the existing tensor-nilpotence plan and must not be replaced by a characteristic-zero symmetric-power argument. Carry the affine operations through the existing cross-ring tensor comparisons, prove the exterior base-change comparison and finite-projective restriction, and obtain actual E1 sheaf equality detection and gluing. Nonzero-parameter additive balancing and the same-λ Leibniz equation, determinant/Tate/period adapters, all 149 source obligations and H.1–H.8 remain. No tensor-of-global-sections identification, nilpotence inference from integrability, or converse reflection through nonfaithful maps is justified by this checkpoint.
+
+## Public proof and check recovery
+
+The preceding own commit [`e8d6c4669f3f554b76a5da37fe9bb3bb2d2ef371`](https://github.com/CBirkbeck/tauceti-explorer/commit/e8d6c4669f3f554b76a5da37fe9bb3bb2d2ef371) retains the checked native proof as an inert block in the suggested file, between BEGIN/END ARCHIVED CHECKED AFFINE HIGGS TENSOR. The final file contains admitted planning bodies. Incoming proof archive: `6aee6d294b8c701ace0d22b07a8bb8156ed176ca`, SHA-256 `080280d3d9a967ac305cd457d40280d8f46edcbf3d0d5a9d58290c0ab490a3f7`.
+
+Save the following three Python blocks as recover.py, verify.py, graph.py in a disk-backed evidence directory. From the submitted repository checkout, run `python3 EVIDENCE/recover.py SUBMITTED_COMMIT EVIDENCE`, then `python3 EVIDENCE/verify.py EVIDENCE PINNED_DECLARATIONS_TSV` and `python3 EVIDENCE/graph.py EVIDENCE`. The recovery downloads immutable public sources and checks their hashes; it never certifies a new compilation. The verifier reports source/header-only validation if Lean logs are absent. To reproduce execution, first check available memory, then sequentially run each recovered Native.lean and Canonical.lean with `/usr/bin/time -v timeout 1200 lake env lean` from an existing exact-Mathlib-pin build, redirecting to native.log and canonical.log in the evidence directory. Re-run verify.py after both commands finish. Do not create or build a Lake project.
+
+### recover.py (SHA-256 62c27d6fb140df05022c788eda7985b76d0e059b52fe6c74449a6fecf112c95c)
+
+```python
+from pathlib import Path
+from urllib.request import urlopen
+import hashlib,json,sys
+PATH='research/blueprint/suggested/HodgeStructuresPartII.lean'
+ARCHIVE='e8d6c4669f3f554b76a5da37fe9bb3bb2d2ef371'
+INCOMING='6aee6d294b8c701ace0d22b07a8bb8156ed176ca'
+BASE='d66f0b304e762d1fff6864197a34cd309b359a34'
+PUBLICATION='0f8afef629b4d0be5a436d2d5da7112ee34a9999'
+def read(ref,path=PATH):
+ return urlopen('https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'+ref+'/'+path).read().decode()
+def section(text,start,end):return text.split(start+'\n',1)[1].split(end,1)[0]
+def sha(text):return hashlib.sha256(text.encode()).hexdigest()
+def reconstruct(submitted_ref):
+ native=section(read(ARCHIVE),'/- BEGIN ARCHIVED CHECKED AFFINE HIGGS TENSOR','END ARCHIVED CHECKED AFFINE HIGGS TENSOR -/')
+ assert sha(native)=='f545f31f504c9c406ef3920b3194c8ce17fa70b17be084eb3ee967019b3f3b3f'
+ incoming=section(read(INCOMING),'/- BEGIN ARCHIVED CHECKED HIGGS FINITE COORDINATES','END ARCHIVED CHECKED HIGGS FINITE COORDINATES -/')
+ assert sha(incoming)=='080280d3d9a967ac305cd457d40280d8f46edcbf3d0d5a9d58290c0ab490a3f7'
+ assert native.startswith(incoming)
+ tail=native[len(incoming):];i=tail.index('#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineTensorField\n')
+ new,audits=tail[:i],tail[i:]
+ full=read(submitted_ref);assert sha(full)=='0f1dda6b30b762a4e84cee6dbff8f89d0972719f171f70da289fe5e42fc4eeb1'
+ admitted=section(full,'/- BEGIN AFFINE HIGGS TENSOR FIELD -/','/- END AFFINE HIGGS TENSOR FIELD -/')
+ assert full.startswith(read(BASE))
+ return {'Native.lean':native,'IncomingNative.lean':incoming,'New.lean':new,'Audits.lean':audits,
+  'Canonical.lean':full,'NewAdmitted.lean':admitted,'base.txt':BASE+'\n','publication-base.txt':PUBLICATION+'\n',
+  'original-packet.json':read(BASE,'research/blueprint/packets/HodgeStructuresPartII.json'),
+  'original-roadmap.json':read(BASE,'research/blueprint/roadmaps/HodgeStructuresPartII.json')}
+if __name__=='__main__':
+ out=Path(sys.argv[2]);out.mkdir(parents=True,exist_ok=True)
+ for name,text in reconstruct(sys.argv[1]).items():(out/name).write_text(text)
+```
+
+### verify.py (SHA-256 03e74d782071df9fd04d769b92ef02483a7b50f4dbf2ccc923926c140aba0521)
+
+```python
+from pathlib import Path
+import ast,collections,hashlib,json,re,subprocess,sys
+R=Path.cwd();S=Path(sys.argv[1]);RID='HodgeStructuresPartII'
+files=['research/blueprint/'+f+'/'+('DESIGN-' if f=='handoff' else '')+RID+'.'+ext for f,ext in [('roadmaps','json'),('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]]
+p=json.loads((R/files[1]).read_text());old=json.loads((S/'original-packet.json').read_text());nodes={n['id']:n for n in p['nodes']}
+assert len(old['nodes'])==161 and len(nodes)==173
+consumer=RID+':H.0/intrinsic-tensor'
+for n in old['nodes']:
+ v=nodes[n['id']]
+ if n['id']!=consumer:assert v==n,n['id']
+ else:
+  assert {k:x for k,x in v.items() if k not in ['prerequisites','proofSteps']}=={k:x for k,x in n.items() if k not in ['prerequisites','proofSteps']}
+  assert v['prerequisites'][:-7]==n['prerequisites'] and v['proofSteps'][:-1]==n['proofSteps']
+for k in old:
+ if k not in ['summary','nodes','sources','baseline','coverage','gaps','verification']:assert p[k]==old[k],k
+assert p['verification']['previousCheckpoint']==old['verification']
+assert p['sources'][:-1]==old['sources'] and p['baseline']['declarations'][:168]==old['baseline']['declarations']
+assert {k:v for k,v in p['baseline'].items() if k!='declarations'}=={k:v for k,v in old['baseline'].items() if k!='declarations'}
+assert p['gaps'][1:]==old['gaps'][1:]
+assert {k:v for k,v in p['gaps'][0].items() if k!='tensorContinuation'}==old['gaps'][0]
+assert p['coverage'][1:]==old['coverage'][1:] and p['coverage'][0]['remaining'][:-1]==old['coverage'][0]['remaining']
+assert {k:v for k,v in p['coverage'][0].items() if k!='remaining'}=={k:v for k,v in old['coverage'][0].items() if k!='remaining'}
+assert all(n['implementationStatus']=='unchecked' for n in p['nodes']) and p['status']=='partial'
+road=json.loads((R/files[0]).read_text());oldroad=json.loads((S/'original-roadmap.json').read_text())
+assert {k:v for k,v in road.items() if k!='summary'}=={k:v for k,v in oldroad.items() if k!='summary'}
+base=(S/'base.txt').read_text().strip()
+def blob(path):return subprocess.check_output(['git','show',base+':'+path],text=True)
+full=(R/files[3]).read_text();reader=(R/files[2]).read_text()
+incoming=(S/'IncomingNative.lean').read_text();new=(S/'New.lean').read_text();native=(S/'Native.lean').read_text();audits=(S/'Audits.lean').read_text()
+assert hashlib.sha256(incoming.encode()).hexdigest()=='080280d3d9a967ac305cd457d40280d8f46edcbf3d0d5a9d58290c0ab490a3f7'
+assert native==incoming+new+audits and not re.search(r'\bsorry\b|\baxiom\b',native)
+assert full.startswith(blob(files[3])) and reader.startswith(blob(files[2]).rstrip()+'\n')
+admitted=full.split('/- BEGIN AFFINE HIGGS TENSOR FIELD -/\n')[1].split('/- END AFFINE HIGGS TENSOR FIELD -/')[0]
+def headers(text):
+ lines=text.splitlines(keepends=True);out={};i=0
+ while i<len(lines):
+  m=re.match(r'^(def|lemma|theorem|example)\b(?: ([\w.]+))?',lines[i])
+  if not m:i+=1;continue
+  j=i+1
+  while j<len(lines) and (not lines[j].strip() or lines[j][0].isspace()):j+=1
+  raw=''.join(lines[i:j]);sep=raw.index(' :=');header=raw[:sep]
+  test=m[1] in ['example','theorem'];name=lines[i-1].removeprefix('-- test: ').strip() if test else m[2]
+  if m[1]=='theorem':header=header.replace('theorem '+m[2],'example',1)
+  out[('test' if test else m[1],name)]=' '.join(header.split());i=j
+ return out
+hh=headers(new);assert hh==headers(admitted)
+decls={name for (kind,name) in hh if kind!='test'};tests={name for (kind,name) in hh if kind=='test'}
+assert len(decls)==12 and len(tests)==5
+for n in p['nodes'][161:]:
+ assert n['declaration'].split('.')[-1] in decls and n['declaration'] in reader and n['statement'] in reader
+ for a in n.get('api',[]):assert a['name'] in reader and a['statement'] in reader and a['name'].split('.')[-1] in decls
+ for t in n.get('tests',[]):assert t['name'] in tests and t['statement'] in reader
+assert {t['name'] for n in p['nodes'][161:] for t in n.get('tests',[])}==tests
+assert (S/'Canonical.lean').read_text()==full and (S/'NewAdmitted.lean').read_text()==admitted
+lean={}
+for name,count,warnings in [('Native',121,0),('Canonical',0,360)]:
+ path=S/(name.lower()+'.log')
+ if not path.exists():lean[name]='No local execution log supplied; source/header validation only.';continue
+ log=path.read_text();assert 'Exit status: 0' in log and not re.search(r'error(?:\(|:)|sorryAx',log)
+ assert log.count('warning:')==log.count('warning: declaration uses')==warnings
+ assert log.count('depends on axioms:')+log.count('does not depend on any axioms')==count
+ found=re.findall(r'depends on axioms: \[(.*?)\]',log,re.S)
+ assert all(set(re.findall(r'\b(?:\w+\.)*\w+\b',v))<={'propext','Classical.choice','Quot.sound'} for v in found)
+ lean[name]={'warnings':warnings,'audits':count,'exit':0}
+tree=ast.parse((R/'research/blueprint/intake.py').read_text());names={'file_problems','auto_refusals','own_files','independent_of'}
+picked=[n for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id in {'ALLOWED','PRIVATE'} for t in n.targets) or isinstance(n,ast.FunctionDef) and n.name in names]
+env={'json':json,'re':re};exec(compile(ast.Module(body=picked,type_ignores=[]),'actual-intake','exec'),env)
+job=next(j for j in json.loads((R/'research/blueprint/queue.json').read_text())['jobs'] if j['id']=='DESIGN-'+RID)
+problems=[x for path in files for x in env['file_problems'](path,(R/path).read_text())]
+refusals=env['auto_refusals'](job,files,False,{'codex-7e92bd'},set());assert not problems and not refusals,(problems,refusals)
+for path in files:
+ text=(R/path).read_text();assert not re.search(r'[ \t]+$',text,re.M),path
+ assert not re.search(r'/(?:home|Users)/[^/\s]+/',text),path
+pub=(S/'publication-base.txt').read_text().strip()
+changed=set(subprocess.check_output(['git','diff','--name-only',pub],text=True).splitlines());assert changed<=set(files),changed
+sys.path.insert(0,str(R/'scripts'));import check_blueprint
+errors,warnings,summary=check_blueprint.check(R/files[1],check_blueprint.load_index(Path(sys.argv[2])),check_blueprint.world());assert not errors and not warnings,(errors,warnings)
+report={'oldNodeObjectsPreserved':160,'oldContractsPreserved':161,'newHeadersMatched':12,'newTestsMatched':5,'incomingProofPreserved':True,'canonicalPrefixPreserved':True,'readerPrefixPreserved':True,'intakeFileProblems':problems,'intakeAutoRefusals':refusals,'checker':summary,'rawApiItems':205,'rawTests':194,'lean':lean,'scriptSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+print(json.dumps(report,indent=2))
+```
+
+### graph.py (SHA-256 86806311039d79146845a1256165e103a2f83510e10b4486134d1522144d11d0)
+
+```python
+from pathlib import Path
+import os,sys,json,collections,copy
+R=Path.cwd();S=Path(sys.argv[1]);RID='HodgeStructuresPartII';STEM=RID
+sys.path.insert(0,str(R/'scripts'))
+import check_blueprint
+p=json.loads((R/'research/blueprint/packets'/f'{STEM}.json').read_text())
+old=json.loads((S/'original-packet.json').read_text())
+nodes={n['id']:n for n in p['nodes']}
+import build,blueprints
+packets,documents,definitions=blueprints.load_promoted(R)
+keep=[x for x in packets if x[0]!=STEM];documents[STEM]='research/blueprint/readmes/'+STEM+'.md'
+own_definition=json.loads((R/'research/blueprint/roadmaps'/f'{RID}.json').read_text())
+old_definition=json.loads((S/'original-roadmap.json').read_text())
+def assemble(candidate,definition):
+ build.load_promoted=lambda *args:(copy.deepcopy(keep+[(STEM,candidate)]),copy.deepcopy(documents),copy.deepcopy([d for d in definitions if d.get('id')!=RID]+[definition]))
+ return build.assemble(require_distances=False)[0]
+a=assemble(p,own_definition);b=assemble(old,old_definition)
+world={}
+for folder in ['data/decompositions','data/blueprints','research/blueprint/packets']:
+ for file in sorted((R/folder).glob('*.json')):
+  for n in json.loads(file.read_text()).get('nodes',[]):world.setdefault(n['id'],n)
+world.update(nodes)
+listedstageids={x['id'] for x in a['stages']}
+stageids=listedstageids|set(check_blueprint.world()[1])
+se={(e['source'],e['target']) for e in a['stageEdges']}
+assert se=={(e['source'],e['target']) for e in b['stageEdges']}
+def dag(vertices,edges):
+ vertices=set(vertices)|{v for e in edges for v in e}
+ following=collections.defaultdict(set);indeg={v:0 for v in vertices}
+ for s,t in edges:
+  if t not in following[s]:following[s].add(t);indeg[t]+=1
+ todo=[v for v,k in indeg.items() if k==0];count=0
+ while todo:
+  v=todo.pop();count+=1
+  for w in following[v]:
+   indeg[w]-=1
+   if indeg[w]==0:todo.append(w)
+ assert count==len(vertices),[v for v,k in indeg.items() if k][:10]
+ return {'vertices':len(vertices),'edges':len(edges),'acyclic':True}
+ownedges={(d,nid) for nid,n in nodes.items() for d in n['prerequisites'] if d in nodes}
+todo=list(nodes);seen=set();de=set();unresolved=set();baseref=set()
+while todo:
+ nid=todo.pop()
+ if nid in seen:continue
+ seen.add(nid)
+ for d in world[nid].get('prerequisites',[]):
+  if d.startswith(('mathlib:','tauceti:')) and d not in stageids:baseref.add(d);continue
+  de.add((d,nid))
+  if d in world:todo.append(d)
+  elif d not in stageids:unresolved.add(d)
+assert not unresolved,unresolved
+de|={(world[nid]['parentStageId'],nid) for nid in seen if world[nid].get('parentStageId')}
+de|={(q['supplier'],v) for q in p['requests'] for v in q.get('neededBy',[]) if v in nodes or v in stageids}
+out=collections.defaultdict(set)
+for s,t in se:out[s].add(t)
+def reachable(source,target):
+ todo=[source];seen=set()
+ while todo:
+  v=todo.pop()
+  if v==target:return True
+  if v not in seen:seen.add(v);todo.extend(out[v])
+ return False
+def stageof(v):
+ checked=set()
+ while v in world and v not in checked:checked.add(v);v=world[v].get('parentStageId')
+ return v
+roadmap=own_definition
+pairs={(d,RID+':'+s['key']) for s in roadmap['stages'] for d in s.get('requires',[])}
+pairs|={(d,stageof(nid)) for nid,n in nodes.items() for d in n['prerequisites'] if d in stageids and d not in world and d!=stageof(nid)}
+pairs|={(stageof(q['supplier']),stageof(v)) for q in p['requests'] for v in q['neededBy'] if stageof(q['supplier'])!=stageof(v)}
+rspairs=set()
+for file in (R/'research/blueprint/restructure').glob('*.result.json'):
+ q=json.loads(file.read_text())
+ if q.get('review',{}).get('status')!='accepted':continue
+ rspairs|={(x['source'],x['target']) for x in q.get('links',[]) if x.get('source','').startswith(RID+':') or x.get('target','').startswith(RID+':')}
+assert all(reachable(s,t) for s,t in pairs|rspairs),sorted((s,t) for s,t in pairs|rspairs if not reachable(s,t))
+ar={r['id']:r for r in a['roadmaps']};br={r['id']:r for r in b['roadmaps']}
+assert ar[RID]['blueprint']['declarations']==len(nodes)
+assert not ar[RID]['blueprint']['skippedLinks'] and not ar[RID].get('pendingLinks',[])
+def skips(r):return r.get('blueprint',{}).get('skippedLinks',[]),r.get('pendingLinks',[])
+assert all(skips(ar[x])==skips(br[x]) for x in br if x!=RID)
+summary={'stageDAG':dag(listedstageids,se),'ownDeclarationDAG':dag(nodes,ownedges),'scopedDAG':dag(listedstageids|seen,se|de),'reachableDeclarations':len(seen),'externalDeclarations':sorted(seen-set(nodes)),'baselineLeaves':len(baseref),'requiredPairs':len(pairs),'restructurePairs':len(rspairs),'unresolved':sorted(unresolved),'ownSkippedLinks':[],'ownPendingLinks':[],'otherSkipsMatch':True,'stageEdgesUnchanged':True}
+print(json.dumps(summary,indent=2))
+```
+
+## Preserved incoming handoff
+
 # Native affine Higgs exterior-square continuation — Codex codex-rtOQ9t
 
 Partial checkpoint for issue #3371. This receipt supersedes the historical receipts below. All 131 incoming whole node objects remain unchanged, including the reserved Higgs/parameter-connection key and every original statement, hypothesis, source, API, test, planet and acceptance contract. Seventeen new mathematical nodes and fifteen named native tests extend the affine frontier. No stage, key definition, source route or implementation is closed.
@@ -828,3 +1079,486 @@ The live issue body, winning claim and eleven governing/job/audit/key inputs wer
 First discharge the E1 underived sheaf tensor-power restriction contract on the existing native module-sheaf carrier. On an affine principal chart, give actual localized E,Q identifications and the tensor comparison, then prove that restriction of the sheaf field is the present chart field and that restriction of every sheaf iterate is the present ordered iterate. Apply the current cover detector only after those identifications. Construct the sheaf field/iterate equality and gluing argument with the actual covering topology and restriction maps. Finite-projective coordinates need no selected global basis. Keep positive nilpotence, fixed common bounds, and varying local bounds distinct; use finite-subcover extraction when available, and do not assert a uniform bound on an arbitrary non-quasi-compact site.
 
 Continue the inherited CR.1 ordinary/exterior, E1 tensor/dual/exactness/pullback/descent, DD.1 bounded Rees and D3 common variation inputs. Global exterior-integrability and determinant comparisons, Tate coefficient equivariance, unbounded Liu–Zhu period-lattice adaptation, rank bounds and all eight binding source routes/149 obligations remain. Retain split versus flat-injection reflection and the exterior/ordered/symmetrized counterexamples. All H.1–H.8 source decompositions still await complete statements and supporting proofs.
+
+## 2026-10-03 — finite-coordinate exterior continuation, Codex codex-a71f92
+
+Issue #3371; claim5964283610, winning bot5964285974. Read base db8d11ce7c8cf6ffaab96a2bb34cad358d8b81be; publication validation base 84e885b95c0ad537079c0fe6fdbb122c8020ac33. Partial checkpoint, not a complete roadmap or formal library implementation.
+
+The actual arbitrary-ring finite-direction exterior double sum and swap-involution cancellation are proved. The exterior-dual contraction equals the signed endomorphism commutator for arbitrary E,Q. Integrability implies all dual contractions commute with no basis assumption; converses use a chosen finite basis of Q, never of E. The coordinate and all-dual criteria and independence of coefficient basis are checked. Eleven new tests include empty and zero fields, reconstruction, dependent directions, a torsion ℤ-module and noncommuting operators in three coefficient directions in characteristic two.
+
+All148 incoming node objects,182 API entries,178 tests,six planets,165 baseline prefix declarations,all149 routed IDs,eight route records,source findings,reserved key,five requests,eleven gaps and nine stage objects/dependencies are retained. The packet now has161 nodes,194 APIs,189 total tests (187 required definition/construction tests),168 baseline declarations. H.0 partial,H.1–H.8 not_read; every node unchecked. The existing contraction/apply/reconstruction/zero nodes are reused rather than duplicated. The historical verification object is retained under previousCheckpoint.
+
+Fresh reading: entire parent HodgeStructures and nearby SemisimpleAlgebras README documents; full reviewed HodgeL0–L3,E1,D3 rows and review metadata; current reserved survey/owner records; full matched eight accepted joining briefs; current CR.1/E1/DD.1/D3 stage contracts; relevant accepted RS04/05/18 owners and reviews. Exact pinned tensor,basis,exterior/dual,finite pair-sum and involution statements/ambient hypotheses were read. Generated additive names are elaborated, while the declaration index records their multiplicative source declarations. Bounded native folders,open Mathlib Higgs PR search and indexed Zulip searches found no matching implementation in those scopes; no exhaustive absence claim. Fresh Heuer published Definition1.2(2),complete Definition4.1/Remark4.2 only; the PDF SHA-256 is7608fff18ccbc47b96bd54cfe01f31f8ccd9953889834cc9f6c39787563175cd. No whole-paper,correspondence-proof,edition-collation or new source-error claim.
+
+Resume with the global E1 restriction/tensor/exterior/dual identifications,equality detection/gluing and finite-projective coefficient localization. Prove arbitrary-Q cross-ring exterior projection/base-change coherence and the global Ω²⊗T² comparison. Retain all λ-connection/Griffiths/Rees,period/Tate,rank/determinant and higher Hodge source obligations. A tensor of global sections is never identified with sections of a sheaf tensor. The finite-coordinate proof does not discharge the global higgs-commuting node or reserved key.
+
+One owned Lean process at a time,each bounded by1200 seconds,with38GiB available before the final checks. No project setup,cache fetch,library build or Lean server. Both processes finished with exit0. Native1982 lines,38 inherited anonymous examples,26 named test theorems,104 axiom audits: zero warnings/errors/admissions,only propext,Classical.choice,Quot.sound. Full suggested2313 lines,148 examples: zero errors,343 admitted-declaration warnings only. Complete predecessor native prefix and complete canonical prefix are byte-identical. The actual indexed checker,intake functions,read-only candidate/control atlas assembly and all three scoped DAGs pass; all21 required supplier paths remain,with no unresolved reference or own skipped/pending link. Unrelated promoted packets are preserved,not assembled in isolation.
+
+### Immutable receipt
+
+```json
+{
+  "agent": "Codex — codex-a71f92",
+  "issue": 3371,
+  "status": "partial",
+  "readBase": "db8d11ce7c8cf6ffaab96a2bb34cad358d8b81be",
+  "publicationBase": "84e885b95c0ad537079c0fe6fdbb122c8020ac33",
+  "scope": "Thirteen affine finite-coordinate exterior/integrability declarations and eleven native tests; no global sheaf, full-source, key or stage closure.",
+  "leanCompiled": true,
+  "proofPrototype": {
+    "sourceSha256": "080280d3d9a967ac305cd457d40280d8f46edcbf3d0d5a9d58290c0ab490a3f7",
+    "normalizedLogSha256": "98367b942b6e22ae17cd183fa4bad53ee2256a62f968e75103282ef09652d206",
+    "lines": 1982,
+    "inheritedAnonymousExamples": 38,
+    "namedTestTheorems": 26,
+    "newNativeTests": 11,
+    "axiomAudits": 104,
+    "newAxiomAudits": 28,
+    "errors": 0,
+    "warnings": 0,
+    "admissions": 0,
+    "allowedAxioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "runtimeSeconds": 14.21,
+    "maxRSSKiB": 2736880,
+    "availableGiBBefore": 38,
+    "exitCode": 0,
+    "predecessorArchive": "85de2bc3717d1f17126f7499971c16d97430f5bd",
+    "predecessorSha256": "d2148dcb26656b193e3df0b31f4c1bda186dcee263ccbbc7f0a437453e9a1b89",
+    "predecessorPrefixByteIdentical": true,
+    "scope": "Actual Mathlib-only tensor/exterior/dual proof; Tau Ceti projection uses its exact already-built Mathlib expression. Four existing contraction declarations are reused, not duplicate packet nodes."
+  },
+  "submittedSketch": {
+    "sourceSha256": "e23cd742da9dac9cb48a1e2435ec9cf25506de31a67375d8bd8f48e480d39e19",
+    "normalizedLogSha256": "2264b749dd258245ae8ec8f5c8c0bc7a4c6b3072adfc53c3c533c8e6ba4d0e54",
+    "lines": 2313,
+    "examples": 148,
+    "errors": 0,
+    "admittedWarnings": 343,
+    "otherWarnings": 0,
+    "runtimeSeconds": 8,
+    "maxRSSKiB": 3096856,
+    "availableGiBBefore": 38,
+    "exitCode": 0,
+    "incomingPrefixByteIdentical": true,
+    "newDeclarationHeadersMatched": 13,
+    "newTestTypesMatched": 11,
+    "scope": "Entire admitted Mathlib-only planning file under protocol13. All35 inherited global omission entries remain. No Tau Ceti compiled import or global sheaf implementation is certified."
+  },
+  "indexedCheckerErrors": 0,
+  "indexedCheckerWarnings": 0,
+  "intakeProblems": 0,
+  "preservedWholeNodes": 148,
+  "newMathematicalNodes": 13,
+  "inventory": {
+    "nodes": 161,
+    "api": 194,
+    "totalTests": 189,
+    "requiredDefinitionConstructionTests": 187,
+    "planets": 6,
+    "baselineDeclarations": 168,
+    "gaps": 11,
+    "requests": 5,
+    "stages": 9,
+    "closed": 0
+  },
+  "projection": {
+    "stageDAG": {
+      "vertices": 3022,
+      "edges": 8663,
+      "acyclic": true
+    },
+    "ownDAG": {
+      "vertices": 161,
+      "edges": 297,
+      "acyclic": true
+    },
+    "combinedDAG": {
+      "vertices": 3178,
+      "edges": 9003,
+      "acyclic": true
+    },
+    "reachableDeclarations": 162,
+    "externalDeclarations": [
+      "ColemanPowerSeries:L1/derivation-determinant-unit"
+    ],
+    "reachableBaselineReferences": 154,
+    "unresolved": [],
+    "otherPartsRetained": [],
+    "partDeclarations": 161,
+    "partPlanets": 6,
+    "roadmapDeclarations": 161,
+    "requiredStagePairs": 21,
+    "requiredStagePairsReachable": 21,
+    "inheritedMissingStagePairs": [],
+    "acceptedRestructurePairs": 0,
+    "acceptedRestructurePairsReachable": 0,
+    "stageEdgesUnchanged": true,
+    "otherSkippedPendingUnchanged": true,
+    "ownSkippedPendingEmpty": true
+  },
+  "validatorSha256": "1fd10bd56e3bf3087f421f678c9fcda107f8ca180f9ada0f423149e2e2e37f57",
+  "immutableHelperSha256": "160f2f694855ef31823bd231cd592343762ed67746a5cd5151d2767ff1dbde21",
+  "scopedInputsUnchanged": 25
+}
+```
+
+### Public proof and validation recovery
+
+The final handoff links the reachable immutable archive. In its suggested/HodgeStructuresPartII.lean blob,extract the exact bytes between a newline followed by `/- BEGIN ARCHIVED CHECKED HIGGS FINITE COORDINATES` and a newline followed by `END ARCHIVED CHECKED HIGGS FINITE COORDINATES -/`. The first marker line ends with a newline; the Native.lean bytes start immediately after it and retain their final newline. Expected SHA-256:080280d3d9a967ac305cd457d40280d8f46edcbf3d0d5a9d58290c0ab490a3f7. This archive carries checked proof bodies,not the admitted submitted sketch.
+
+Save the five final deliverables to a separate disk scratch directory with paths roadmaps/,packets/,readmes/,suggested/,handoff/ beneath it. Use the two exact Python fences below as immutable_view.py and validate.py. Recover the following JSON values as Native.log,Canonical.log,Native.resources,Canonical.resources using apply_patch; they are exact normalized diagnostics and public timing/exit receipts. The proof itself is Native.lean. No repository snapshot,checkout,write or build is required. Set TAUCETI_REPO to the shared clone,TAUCETI_BASELINE to the existing pinned declarations.tsv,N9_VALIDATE_BASE to the final commit's first parent and PYTHONDONTWRITEBYTECODE=1. Run python3 validate.py from scratch. It loads the actual pinned repository checker,intake and assembler through read-only git-show views. To recompile,use the already existing exact Mathlib build and Lean4.34.0-rc2,one process,free>=20GiB,timeout1200; never create a Lake project or fetch a cache.
+
+Evidence JSON (filenames are scratch-relative):
+
+```json
+{
+  "Native.log": "'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineCoefficientMap' depends on axioms: [propext, Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineCoefficientMap_apply' depends on axioms: [propext,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineCoefficientMap_id' depends on axioms: [propext, Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineCoefficientMap_zero' depends on axioms: [propext,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineCoefficientMap_comp' depends on axioms: [propext,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_coefficientMap' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_coefficientMap_zero' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_coefficientMap_zero_iff' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedStep' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedStep_natural' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_natural' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_coefficientMap_zero_iff_of_flat' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_natural_zero_iff_of_flat' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineBaseChange' depends on axioms: [propext, Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineBaseChange_natural' depends on axioms: [propext, Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineBaseChange_coefficientMap' depends on axioms: [propext,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_baseChange_natural' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineBaseChange_zero_iff' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_baseChange_one_zero_iff' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineTensorPowerBaseChange' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineTensorPowerBaseChange_symm_apply' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineTensorPowerBaseChange_unit' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineTensorPowerBaseChange_prepend' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedBaseChange' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedBaseChange_tmul' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedBaseChange_step' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_baseChange_comparison' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_baseChange_zero_of_arbitrary_coefficients' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_baseChange_zero_iff_of_arbitrary_coefficients' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineChartField' depends on axioms: [propext, Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineChartField_horizontal' depends on axioms: [propext,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineChartField_zero' depends on axioms: [propext, Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineChartField_refl' depends on axioms: [propext, Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_chart_comparison' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_chart_zero_iff' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_chart_zero_of' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_away_cover_zero_iff' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_chart_cover_zero_iff' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_finite_chart_bound' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_chart_local_nilpotent_iff' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineChartField_eq_iff_horizontal' depends on axioms: [propext,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineChartField_transition' depends on axioms: [propext,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_chart_transition' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineExteriorSquare' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineExteriorSquare_zero' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineExteriorSquare_natural' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineExteriorSquare_equiv_zero_iff' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineExteriorSquare_coefficientMap' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineExteriorSquare_coefficientMap_zero' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineExteriorSquare_coefficientEquiv_zero_iff' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineTwoDirectionField' depends on axioms: [propext, Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineTwoDirectionField_apply' depends on axioms: [propext,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineExteriorSquare_twoDirection' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineExteriorSquare_twoDirection_zero_of_commute' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineExteriorSquare_twoDirection_zero_iff' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineExteriorSquare_twoCoordinates_zero_iff' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineExteriorSquare_chart_transition' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineExteriorSquare_chart_zero_iff' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_unitField' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_unitField_ne_zero' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.ExteriorSquareTests.zero' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.ExteriorSquareTests.torsion_coefficients' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.ExteriorSquareTests.scalar_line' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.TwoDirectionTests.apply' depends on axioms: [propext, Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.TwoDirectionTests.zero' depends on axioms: [propext, Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.TwoDirectionTests.dependent_directions' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.TwoDirectionTests.commutator_detection' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.ExteriorSquareTests.noncommuting_integer' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.ExteriorSquareTests.noncommuting_char_two' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.ExteriorSquareTests.coefficient_erasure' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.ExteriorSquareTests.coefficient_equiv' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.ChartExteriorTests.transition' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.ChartExteriorTests.zero_iff' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.ExteriorSquareTests.degree_two_not_nilpotence' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.ExteriorSquareTests.integrable_not_nilpotent' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineContractions' depends on axioms: [propext, Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineContractions_apply' depends on axioms: [propext, Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineContractions_reconstruct' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineFiniteDirectionField' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineFiniteDirectionField_apply' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineFiniteDirectionField_reconstruct' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineExteriorSquare_finiteDirection' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineExteriorSquare_finiteDirection_zero_of_commute' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineExteriorSquare_contraction' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineContractions_zero' depends on axioms: [propext, Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineFiniteDirectionField_contraction' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineFiniteDirectionField_coordinate' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineExteriorSquare_zero_commute' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineExteriorSquare_finiteBasis_zero_iff' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineExteriorSquare_coordinate_zero_iff' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineExteriorSquare_dual_zero_iff' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineExteriorSquare_coordinates_basis_independent' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.FiniteDirectionTests.apply' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.FiniteDirectionTests.empty' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.FiniteDirectionTests.zero' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.FiniteDirectionTests.reconstruct' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.FiniteDirectionTests.coordinate' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.FiniteDirectionTests.dependent' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.FiniteDirectionTests.one_direction' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.FiniteDirectionTests.torsion_module' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.FiniteDirectionTests.char_two_three_coordinates' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.FiniteDirectionTests.all_duals' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.FiniteDirectionTests.basis_independent' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n",
+  "Canonical.log": "suggested/HodgeStructuresPartII.lean:96:4: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:97:4: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:99:4: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:100:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:102:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:104:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:108:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:110:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:112:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:121:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:123:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:125:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:128:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:130:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:133:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:137:4: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:138:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:140:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:142:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:145:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:147:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:150:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:156:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:165:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:167:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:169:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:172:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:174:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:176:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:182:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:188:4: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:189:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:191:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:192:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:195:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:197:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:199:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:205:4: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:206:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:210:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:212:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:215:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:217:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:220:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:226:4: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:227:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:230:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:233:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:236:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:239:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:242:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:247:4: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:248:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:250:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:252:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:254:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:256:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:258:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:262:4: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:264:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:267:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:270:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:274:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:277:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:280:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:284:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:290:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:292:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:294:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:297:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:302:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:307:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:314:4: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:317:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:320:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:325:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:329:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:333:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:337:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:344:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:349:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:353:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:356:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:361:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:373:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:377:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:383:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:390:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:398:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:435:4: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:438:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:443:4: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:446:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:451:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:458:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:468:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:471:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:475:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:486:4: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:488:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:491:4: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:493:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:496:4: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:498:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:502:4: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:504:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:507:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:511:4: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:514:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:517:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:523:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:526:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:528:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:531:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:534:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:537:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:540:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:543:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:545:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:547:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:549:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:552:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:555:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:913:4: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:915:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:919:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:921:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:924:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:927:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:931:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:934:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:939:18: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:941:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:944:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:948:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:955:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:961:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:964:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:968:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:972:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:987:18: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:990:18: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:993:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:997:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1001:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1009:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1015:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1020:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1025:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1028:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1031:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1035:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1040:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1043:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1047:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1053:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1056:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1060:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1067:4: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1070:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1074:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1080:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1087:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1092:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1098:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1103:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1117:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1131:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1137:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1144:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1155:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1161:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1165:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1172:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1181:4: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1189:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1195:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1204:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1213:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1220:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1226:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1232:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1240:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1255:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1281:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1289:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1297:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1302:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1308:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1314:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1320:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1330:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1337:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1342:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1346:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1350:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1353:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1357:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1372:18: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1375:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1379:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1382:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1387:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1393:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1398:8: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1404:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1408:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1413:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1418:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1436:4: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1439:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1442:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1445:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1448:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1452:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1458:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1462:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1467:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1471:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1476:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1481:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1488:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1504:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1514:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1521:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1528:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1536:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1548:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1566:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1573:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1578:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1587:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1591:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1596:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1602:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1606:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1610:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1615:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1622:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1630:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1646:12: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1650:4: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1653:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1656:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1661:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1667:4: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1671:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1675:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1681:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1685:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1689:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1703:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1709:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1716:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1721:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1727:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1733:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1737:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1742:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1746:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1764:4: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1768:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1774:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1778:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1783:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1792:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1798:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1817:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1827:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1832:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1838:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1855:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1861:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1867:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1874:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1883:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1897:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1904:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1924:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1931:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1938:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1948:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1958:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1968:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1976:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1984:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:1989:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2015:4: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2017:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2020:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2026:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2031:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2036:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2040:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2046:4: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2048:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2051:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2055:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2059:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2063:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2072:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2080:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2086:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2090:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2096:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2100:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2105:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2110:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2114:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2118:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2122:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2127:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2133:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2139:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2147:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2152:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2161:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2168:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2173:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2188:4: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2191:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2194:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2198:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2202:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2206:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2213:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2217:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2221:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2226:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2231:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2237:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2243:6: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2252:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2256:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2260:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2264:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2269:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2274:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2278:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2283:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2289:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2298:0: warning: declaration uses `sorry`\nsuggested/HodgeStructuresPartII.lean:2305:0: warning: declaration uses `sorry`\n",
+  "Native.resources": "\tElapsed (wall clock) time (h:mm:ss or m:ss): 0:14.21\n\tMaximum resident set size (kbytes): 2736880\n\tExit status: 0\n",
+  "Canonical.resources": "\tElapsed (wall clock) time (h:mm:ss or m:ss): 0:08.00\n\tMaximum resident set size (kbytes): 3096856\n\tExit status: 0\n"
+}
+```
+
+### immutable_view.py (SHA-256 160f2f694855ef31823bd231cd592343762ed67746a5cd5151d2767ff1dbde21)
+
+```python
+"""Read the immutable audit tree without creating a repository snapshot."""
+import fnmatch
+import importlib.abc
+import importlib.util
+import io
+from pathlib import Path
+import subprocess
+import sys
+
+import os
+REPO = Path(os.environ.get('TAUCETI_REPO', str(Path.cwd())))
+BASE = os.environ.get('N9_VALIDATE_BASE', 'db8d11ce7c8cf6ffaab96a2bb34cad358d8b81be')
+TRACKED = set(subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', BASE], cwd=REPO, text=True).splitlines())
+CACHE = {}
+READS = set()
+ORIGINAL = {name: getattr(Path, name) for name in ('read_text', 'read_bytes', 'exists', 'is_file', 'is_dir', 'glob', 'rglob', 'open', 'write_text', 'write_bytes')}
+
+def relative(path):
+    try:
+        return str(path.relative_to(REPO))
+    except ValueError:
+        return None
+
+def blob(key):
+    if key not in TRACKED:
+        raise FileNotFoundError(key)
+    READS.add(key)
+    if key not in CACHE:
+        CACHE[key] = subprocess.check_output(['git', 'show', BASE + ':' + key], cwd=REPO)
+    return CACHE[key]
+
+def read_text(path, encoding=None, errors=None):
+    key = relative(path)
+    if key is None:
+        return ORIGINAL['read_text'](path, encoding=encoding, errors=errors)
+    return blob(key).decode(encoding or 'utf-8', errors or 'strict')
+
+def read_bytes(path):
+    key = relative(path)
+    return ORIGINAL['read_bytes'](path) if key is None else blob(key)
+
+def is_file(path):
+    key = relative(path)
+    return ORIGINAL['is_file'](path) if key is None else key in TRACKED
+
+def is_dir(path):
+    key = relative(path)
+    return ORIGINAL['is_dir'](path) if key is None else any(s.startswith(key.rstrip('/') + '/') for s in TRACKED) or key == '.'
+
+def exists(path):
+    key = relative(path)
+    return ORIGINAL['exists'](path) if key is None else is_file(path) or is_dir(path)
+
+def glob(path, pattern, recursive=False):
+    key = relative(path)
+    if key is None:
+        yield from ORIGINAL['rglob' if recursive else 'glob'](path, pattern)
+        return
+    prefix = '' if key == '.' else key.rstrip('/') + '/'
+    for candidate in sorted(TRACKED):
+        if not candidate.startswith(prefix):
+            continue
+        tail = candidate[len(prefix):]
+        if fnmatch.fnmatch(tail, pattern) and (recursive or '/' not in tail):
+            yield REPO / candidate
+
+def open_path(path, mode='r', buffering=-1, encoding=None, errors=None, newline=None):
+    key = relative(path)
+    if key is None:
+        return ORIGINAL['open'](path, mode, buffering, encoding, errors, newline)
+    if mode not in ('r', 'rb'):
+        raise PermissionError('audit tree is read-only')
+    return io.BytesIO(blob(key)) if mode == 'rb' else io.StringIO(blob(key).decode(encoding or 'utf-8', errors or 'strict'))
+
+def write_text(path, *args, **kwargs):
+    if relative(path) is not None:
+        raise PermissionError('audit tree is read-only')
+    return ORIGINAL['write_text'](path, *args, **kwargs)
+
+def write_bytes(path, *args, **kwargs):
+    if relative(path) is not None:
+        raise PermissionError('audit tree is read-only')
+    return ORIGINAL['write_bytes'](path, *args, **kwargs)
+
+class Loader(importlib.abc.Loader):
+    def __init__(self, key):
+        self.key = key
+    def create_module(self, spec):
+        return None
+    def exec_module(self, module):
+        module.__file__ = str(REPO / self.key)
+        exec(compile(blob(self.key), module.__file__, 'exec'), module.__dict__)
+
+class Finder(importlib.abc.MetaPathFinder):
+    def find_spec(self, fullname, path=None, target=None):
+        key = 'scripts/' + fullname + '.py'
+        if '.' not in fullname and key in TRACKED:
+            return importlib.util.spec_from_loader(fullname, Loader(key))
+
+def install():
+    for name, function in [('read_text', read_text), ('read_bytes', read_bytes), ('exists', exists), ('is_file', is_file), ('is_dir', is_dir), ('glob', glob), ('rglob', lambda path, pattern: glob(path, pattern, True)), ('open', open_path), ('write_text', write_text), ('write_bytes', write_bytes)]:
+        setattr(Path, name, function)
+    sys.meta_path.insert(0, Finder())
+```
+
+### validate.py (SHA-256 1fd10bd56e3bf3087f421f678c9fcda107f8ca180f9ada0f423149e2e2e37f57)
+
+```python
+"""Actual immutable checker, intake, atlas projection, preservation and native parity."""
+from pathlib import Path
+import os,sys,json,re,ast,hashlib,collections,copy
+import immutable_view as gv
+HERE=Path(__file__).resolve().parent
+RID="HodgeStructuresPartII";STEM=RID
+FILES={"research/blueprint/roadmaps/"+RID+".json":"roadmaps/"+RID+".json",
+"research/blueprint/packets/"+RID+".json":"packets/"+RID+".json",
+"research/blueprint/readmes/"+RID+".md":"readmes/"+RID+".md",
+"research/blueprint/suggested/"+RID+".lean":"suggested/"+RID+".lean",
+"research/blueprint/handoff/DESIGN-"+RID+".md":"handoff/DESIGN-"+RID+".md"}
+PACKET="research/blueprint/packets/"+RID+".json"
+original=json.loads(gv.blob(PACKET))
+oldroadmap=json.loads(gv.blob("research/blueprint/roadmaps/"+RID+".json"))
+oldreader=gv.blob("research/blueprint/readmes/"+RID+".md").decode()
+oldlean=gv.blob("research/blueprint/suggested/"+RID+".lean").decode()
+for dst,name in FILES.items():gv.CACHE[dst]=(HERE/name).read_bytes()
+gv.install()
+import check_blueprint
+errors,warnings,summary=check_blueprint.check(gv.REPO/PACKET,
+check_blueprint.load_index(Path(os.environ["TAUCETI_BASELINE"])),check_blueprint.world())
+print(json.dumps({"checker":summary,"errors":errors,"warnings":warnings}),flush=True)
+assert not errors and not warnings,(errors,warnings)
+p=json.loads((HERE/FILES[PACKET]).read_text())
+reader=(HERE/("readmes/"+RID+".md")).read_text()
+lean=(HERE/("suggested/"+RID+".lean")).read_text()
+old={n["id"]:n for n in original["nodes"]};new={n["id"]:n for n in p["nodes"]}
+assert len(old)==148 and len(new)==161 and set(old)<=set(new)
+assert all(new[nid]==n for nid,n in old.items())
+allowed={"summary","sources","nodes","baseline","coverage","verification","libraryAudit"}
+for key in original:
+ if key not in allowed:assert p[key]==original[key],key
+assert p["sources"][:-1]==original["sources"]
+assert p["baseline"]["declarations"][:165]==original["baseline"]["declarations"]
+assert len(p["baseline"]["declarations"])==168
+for key,value in original["baseline"].items():
+ if key!="declarations":assert p["baseline"][key]==value,key
+assert p["summary"].startswith(original["summary"])
+assert p["coverage"][1:]==original["coverage"][1:]
+for key,value in original["coverage"][0].items():
+ if key=="remaining":assert p["coverage"][0][key][:-1]==value
+ else:assert p["coverage"][0][key]==value
+for key,value in original["libraryAudit"].items():assert p["libraryAudit"][key]==value
+assert p["status"]=="partial" and all(n["implementationStatus"]=="unchecked" for n in new.values())
+assert new[RID+":key/higgs-parameter-connections"]==old[RID+":key/higgs-parameter-connections"]
+r=json.loads((HERE/("roadmaps/"+RID+".json")).read_text())
+for key,value in oldroadmap.items():
+ if key!="summary":assert r[key]==value,key
+assert r["summary"].startswith(oldroadmap["summary"])
+assert reader.startswith(oldreader)
+assert lean.startswith(oldlean)
+for nid,node in new.items():
+ if nid in old:continue
+ assert node["statement"] in reader and node["declaration"] in reader,nid
+ assert node["declaration"].split(".")[-1] in lean,nid
+ for test in node.get("tests",[]):assert test["name"] in lean and test["statement"] in reader,test
+tree=ast.parse(gv.blob("research/blueprint/intake.py").decode())
+picked=[n for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id in {"ALLOWED","PRIVATE"} for t in n.targets) or isinstance(n,ast.FunctionDef) and n.name=="file_problems"]
+env={"json":json,"re":re};exec(compile(ast.Module(body=picked,type_ignores=[]),"actual-intake","exec"),env)
+problems=[v for dst,name in FILES.items() for v in env["file_problems"](dst,(HERE/name).read_text())]
+assert not problems,problems
+for name in FILES.values():
+ txt=(HERE/name).read_text()
+ assert not re.search(r"[ \t]+$",txt,re.M),name
+ assert not re.search(r"/(?:home|Users)/[^/\s]+/",txt),name
+native=(HERE/"Native.lean").read_text()
+assert hashlib.sha256(native.encode()).hexdigest()=="080280d3d9a967ac305cd457d40280d8f46edcbf3d0d5a9d58290c0ab490a3f7"
+assert hashlib.sha256(lean.encode()).hexdigest()=="e23cd742da9dac9cb48a1e2435ec9cf25506de31a67375d8bd8f48e480d39e19"
+assert hashlib.sha256(native[:80941].encode()).hexdigest()=="d2148dcb26656b193e3df0b31f4c1bda186dcee263ccbbc7f0a437453e9a1b89"
+nlog=(HERE/"Native.log").read_text();clog=(HERE/"Canonical.log").read_text()
+assert nlog.count("depends on axioms:")==104 and not re.search(r"error:|warning:|sorryAx",nlog)
+allowed_axioms={"propext","Classical.choice","Quot.sound"}
+for audit in re.finditer(r"depends on axioms:\s*\[([\s\S]*?)\]",nlog):
+ assert set(a.strip() for a in audit.group(1).split(",") if a.strip())<=allowed_axioms
+assert "Exit status: 0" in (HERE/"Native.resources").read_text()
+assert "error:" not in clog and clog.count("warning:")==clog.count("warning: declaration uses")==343
+assert "Exit status: 0" in (HERE/"Canonical.resources").read_text()
+assert len(re.findall(r"^example\b",native,re.M))==38
+assert len(re.findall(r"^theorem \w*Tests\.",native,re.M))==26
+assert len(re.findall(r"^example\b",lean,re.M))==148
+assert not re.search(r"\bsorry\b|sorryAx|^axiom\b",native,re.M)
+names=["affineFiniteDirectionField","affineFiniteDirectionField_apply","affineFiniteDirectionField_reconstruct","affineExteriorSquare_finiteDirection","affineExteriorSquare_finiteDirection_zero_of_commute","affineExteriorSquare_contraction","affineFiniteDirectionField_contraction","affineFiniteDirectionField_coordinate","affineExteriorSquare_zero_commute","affineExteriorSquare_finiteBasis_zero_iff","affineExteriorSquare_coordinate_zero_iff","affineExteriorSquare_dual_zero_iff","affineExteriorSquare_coordinates_basis_independent"]
+def headers(s):
+ found={}
+ for name in names:
+  match=re.search(r"^(?:noncomputable )?(?:def|lemma|theorem) "+re.escape(name)+r"\b[\s\S]*?:=",s,re.M)
+  assert match,name
+  found[name]=match.group(0).split(":=",1)[0].rstrip()
+ return found
+assert headers(native)==headers(lean)
+newtests=["TwistedHiggsBundle.affineFiniteDirectionField.test_apply","TwistedHiggsBundle.affineFiniteDirectionField.test_empty","TwistedHiggsBundle.affineFiniteDirectionField.test_zero","TwistedHiggsBundle.affineFiniteDirectionField.test_reconstruct","TwistedHiggsBundle.affineFiniteDirectionField.test_coordinate","TwistedHiggsBundle.affineFiniteDirectionField.test_dependent","TwistedHiggsBundle.affineFiniteDirectionField.test_one_direction","TwistedHiggsBundle.affineFiniteDirectionField.test_torsion_module","TwistedHiggsBundle.affineFiniteDirectionField.test_char_two_three_coordinates","TwistedHiggsBundle.affineFiniteDirectionField.test_all_duals","TwistedHiggsBundle.affineFiniteDirectionField.test_basis_independent"]
+def tests(s,is_native):
+ found={}
+ for name in newtests:
+  match=re.search(r"-- test: "+re.escape(name)+r"\n((?:example|theorem)[\s\S]*?) := (?:by\n|sorry)",s)
+  assert match,name
+  header=re.sub(r"^theorem FiniteDirectionTests\.\w+","example",match.group(1))
+  found[name]=header.rstrip()
+ return found
+assert tests(native,True)==tests(lean,False)
+print(json.dumps({"preservedWholeNodeObjects":148,"newNodes":13,
+"api":sum(len(n.get("api",[])) for n in p["nodes"]),
+"tests":sum(len(n.get("tests",[])) for n in p["nodes"]),"intake":"pass",
+"newPublicHeadersMatched":13,"namedTestTypesMatched":11}),flush=True)
+import build,blueprints
+root=gv.REPO
+a0=json.loads((root/"data/atlas.json").read_text())
+packets,documents,definitions=blueprints.load_promoted(root)
+otherparts=[(stem,q) for stem,q in packets if q.get("roadmapId")==RID and stem!=STEM]
+assert not otherparts
+own_definition=json.loads((HERE/"roadmaps"/(RID+".json")).read_text())
+old_definition=json.loads(gv.blob("research/blueprint/roadmaps/"+RID+".json"))
+definitions=[q for q in definitions if q.get("id")!=RID]+[own_definition]
+
+keep=[x for x in packets if x[0]!=STEM]
+documents[STEM]="research/blueprint/readmes/"+STEM+".md"
+def assemble(candidate, definition):
+ build.load_promoted=lambda *args:(copy.deepcopy(keep+[(STEM,candidate)]),copy.deepcopy(documents),copy.deepcopy([q for q in definitions if q.get('id')!=RID]+[definition]))
+ return build.assemble(require_distances=False)[0]
+a=assemble(p,own_definition);b=assemble(original,old_definition)
+world={}
+for folder in ["data/decompositions","data/blueprints","research/blueprint/packets"]:
+ for path in sorted((root/folder).glob("*.json")):
+  q=json.loads(path.read_text())
+  for n in q.get("nodes",[]):world.setdefault(n["id"],n)
+world.update(new)
+stages={x["id"]:x for x in a["stages"]}
+stageids=set(stages)|set(check_blueprint.world()[1])
+stageedges={(e["source"],e["target"]) for e in a["stageEdges"]}
+def dag(vertices,edges):
+ vertices=set(vertices)|{v for edge in edges for v in edge}
+ out=collections.defaultdict(set);indeg={v:0 for v in vertices}
+ for source,target in edges:
+  if target not in out[source]:out[source].add(target);indeg[target]+=1
+ stack=[v for v,count in indeg.items() if count==0];count=0
+ while stack:
+  v=stack.pop();count+=1
+  for w in out[v]:
+   indeg[w]-=1
+   if indeg[w]==0:stack.append(w)
+ assert count==len(vertices),[v for v,count in indeg.items() if count][:15]
+ return {"vertices":len(vertices),"edges":len(edges),"acyclic":True}
+ownedges={(q,nid) for nid,node in new.items() for q in node.get("prerequisites",[]) if q in new}
+stack=list(new);seen=set();dep=set();unresolved=set();baseref=set()
+while stack:
+ nid=stack.pop()
+ if nid in seen:continue
+ seen.add(nid)
+ for q in world[nid].get("prerequisites",[]):
+  if q.startswith(("mathlib:","tauceti:")) and q not in stageids:baseref.add(q);continue
+  dep.add((q,nid))
+  if q in world:stack.append(q)
+  elif q not in stageids:unresolved.add(q)
+assert not unresolved,sorted(unresolved)
+dep|={(n["parentStageId"],nid) for nid,n in new.items() if n.get("parentStageId") in new}
+dep|={(request["supplier"],consumer) for request in p.get("requests",[]) for consumer in request.get("neededBy",[]) if consumer in new or consumer in stageids}
+roadmap=next(r for r in a["roadmaps"] if r["id"]==RID)
+expected_decl=len(new)+sum(len(q["nodes"]) for _,q in otherparts)
+assert roadmap["blueprint"]["declarations"]==expected_decl,(roadmap["blueprint"],expected_decl)
+assert not roadmap["blueprint"]["skippedLinks"] and not roadmap.get("pendingLinks",[])
+assert stageedges=={(e["source"],e["target"]) for e in b["stageEdges"]}
+def skips(atlas):
+ return {r["id"]:(r.get("blueprint",{}).get("skippedLinks",[]),r.get("pendingLinks",[])) for r in atlas["roadmaps"] if r["id"]!=RID}
+assert skips(a)==skips(b)
+out=collections.defaultdict(set)
+for source,target in stageedges:out[source].add(target)
+def reachable(source,target):
+ stack=[source];seen=set()
+ while stack:
+  v=stack.pop()
+  if v==target:return True
+  if v in seen:continue
+  seen.add(v);stack.extend(out[v]-seen)
+ return False
+pairs={(e["source"],e["target"]) for e in a0["stageEdges"] if e["target"].startswith(RID+":")}
+pairs |= {(source,RID+":"+row["key"]) for row in own_definition["stages"] for source in row.get("requires",[])}
+for node in p["nodes"]:
+ for q in node.get("prerequisites",[]):
+  if q in stageids and q not in world and q!=node["parentStageId"]:pairs.add((q,node["parentStageId"]))
+for req in p.get("requests",[]):
+ for consumer in req.get("neededBy",[]):
+  if consumer in new:pairs.add((req["supplier"],new[consumer]["parentStageId"]))
+  elif consumer in stageids:pairs.add((req["supplier"],consumer))
+missingpairs={(s,t) for s,t in pairs if not reachable(s,t)}
+oldout=collections.defaultdict(set)
+for edge in b['stageEdges']:oldout[edge['source']].add(edge['target'])
+def reachable0(source,target):
+ stack=[source];seen=set()
+ while stack:
+  v=stack.pop()
+  if v==target:return True
+  if v in seen:continue
+  seen.add(v);stack.extend(oldout[v]-seen)
+ return False
+assert missingpairs=={(s,t) for s,t in pairs if not reachable0(s,t)}
+assert not missingpairs, missingpairs
+# Independently retain all accepted restructure links touching the whole roadmap.
+acceptedpairs=set()
+for path in (root/"research/blueprint/restructure").glob("*.result.json"):
+ q=json.loads(path.read_text())
+ if q.get("review",{}).get("status")!="accepted":continue
+ for row in q.get("links",[]):
+  if any(row.get(k,"").startswith(RID+":") for k in ["source","target"]):
+   acceptedpairs.add((row["source"],row["target"]))
+assert all(reachable(s,t) for s,t in acceptedpairs),[(s,t) for s,t in acceptedpairs if not reachable(s,t)]
+report={"stageDAG":dag(stages,stageedges),"ownDAG":dag(new,ownedges),
+ "combinedDAG":dag(set(stages)|seen,stageedges|dep),"reachableDeclarations":len(seen),
+ "externalDeclarations":sorted(seen-set(new)),"reachableBaselineReferences":len(baseref),
+ "unresolved":sorted(unresolved),"otherPartsRetained":[stem for stem,_ in otherparts],
+ "partDeclarations":len(new),"partPlanets":sum("planet" in n for n in p["nodes"]),
+ "roadmapDeclarations":roadmap["blueprint"]["declarations"],
+ "requiredStagePairs":len(pairs),"requiredStagePairsReachable":len(pairs)-len(missingpairs),
+ "inheritedMissingStagePairs":sorted(missingpairs),
+ "acceptedRestructurePairs":len(acceptedpairs),"acceptedRestructurePairsReachable":len(acceptedpairs),
+ "stageEdgesUnchanged":True,"otherSkippedPendingUnchanged":True,"ownSkippedPendingEmpty":True}
+print(json.dumps(report,ensure_ascii=False,indent=2),flush=True)
+controlnew={n["id"]:n for n in original["nodes"]}
+controledges={(q,nid) for nid,node in controlnew.items() for q in node.get("prerequisites",[]) if q in controlnew}
+print(json.dumps({"controlOwnDAG":dag(controlnew,controledges),"incomingDeclarations":len(controlnew),"incomingPlanets":sum("planet" in n for n in original["nodes"])}),flush=True)
+
+print(json.dumps({"readPathCount":len(gv.READS),"readPathsSha256":hashlib.sha256("\\n".join(sorted(gv.READS)).encode()).hexdigest()}),flush=True)
+```
+
+### Published native archive
+
+Checked proof and replay evidence: [immutable archive 6aee6d294b8c701ace0d22b07a8bb8156ed176ca](https://github.com/CBirkbeck/tauceti-explorer/tree/6aee6d294b8c701ace0d22b07a8bb8156ed176ca). The archive’s suggested blob contains the exact native proof between the finite-coordinate markers above; its handoff contains the exact normalized diagnostics and both replay scripts. Public blobs were fetched back and compared byte-for-byte, and the extracted proof was checked again in the existing pinned build. The submitted canonical sketch remains admitted; the archive is retained as an additional parent of the final job commit, with only authorized deliverable paths in both commits.
+
+Final publication replay uses first-parent 1cb7fbca1727576cfc5c3fa0de58b9f1092552ea. All25 governing/own/source/key/audit/restructure inputs are byte-identical to the read base. The full actual candidate/control assembler was replayed at this fresh immutable parent and retains the receipt above: zero checker warnings/errors,zero intake findings,all three scoped DAGs acyclic,all21 supplier paths and unchanged unrelated skipped/pending links. The extracted public proof has the exact recorded source hash and compiles again with exit0,zero diagnostics and104 ordinary axiom audits. No owned compiler remains running.
