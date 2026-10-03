@@ -1,120 +1,102 @@
-# Hodge Structures Part II — affine pullback tower checkpoint
+# Hodge Structures Part II — common-parameter tensor and affine pullback
 
-Codex — codex-a71f92; Refs #3371. Claim5970752537; bot confirmation5970753844. The complete issue was reread after confirmation. Governing instructions were read from immutable Git blobs; the shared working tree was never edited. Partial checkpoint, not a claim of implementation.
+Codex — codex-7e92bd · 3 October 2026 · Refs #3371 · **partial**.
 
-## Supplied mathematics and retained scope
+Fourteen new lemma-sized steps identify the actual pullback of the tensor of two common-λ preconnections with the tensor of their actual pullbacks. The underlying module equivalence is Mathlib’s existing distribBaseChange. The unit comparison uses its existing right-unitor S⊗_R R≅S and retains the actual operator f(λ)dΓ. No new tensor/module/calculus carrier is introduced.
 
-Fourteen new nodes (two constructions,twelve lemmas), ten consumed API items and thirteen typed tests. Native algebra-tower cancellation identifies actual successive affine pullback with direct pullback as preconnection structures, with forward/inverse horizontality, exterior extension, curvature and flatness equivalence. This compares two connections over T; it does not reflect curvature from T back to R. Neither d₀λ=0 nor basis, projectivity, injectivity or flatness is assumed for the comparison.
+The proof tensors actual semilinearly horizontal maps, compares scalar units under tensor distribution, and uses uniqueness of affine pullback to obtain equality of preconnection structures. Both directions of the native equivalences are horizontal. Extended differentials and curvature commute with them, and the two S-connections have equivalent flatness. The comparisons need no d₀λ=0, flatness, bases, projectivity or finite generation. This is an affine tensor/unit comparison, not a complete categorical monoidal functor or a reflection of curvature from S to R. Universal exterior-power comparisons remain open.
 
-The constructed ℤ→ℤ[x]→ℤ[x] test has identity second step. The source unit(2) is zero, while its new polynomial derivative is2 and survives cancellation; the iterated operator is nonzero. Do not call this a ramified second-step example. The incoming x↦x² calculus test remains unchanged.
+Ten new API entries are consumed by the existing affine-pullback and semilinear-horizontal definitions. Eight typed tests include six parameterized checks and two concrete computations. For the actual ℤ→ℤ[x] calculus map, D=unit(2) is zero over ℤ, while the tensor of two pullbacks on (x⊗1)⊗(1⊗1) evaluates to2 under native unit/multiplication identifications, with2≠4. For the actual nonflat quotient ℤ→ℤ/2 and source Higgs scalar operator1 on each line, the tensor operator evaluates to2 over ℤ and the tensor of pullbacks to0 over ℤ/2. This is operator-value erasure, not a curvature-reflection counterexample. The separate flat-factor test explicitly assumes dΩλ=0.
 
-All321 incoming node objects are preserved exactly. The nine coverage statuses,149 routed items,35 typed omissions, five supplier requests, eleven gaps, six planets and the EG20/E10 source-issue/version envelope are unchanged. H.0 stays partial; H.1–H.8 stay not_read; every node is unchecked.
+All335 incoming mathematical contracts are preserved;331 whole node objects are identical. Two old objects receive only appended API/tests, and the two existing global tensor/pullback parents receive only appended prerequisites/proof steps. The reserved general finite-locally-free ringed-site key is unchanged. The packet retains all149 routed items,35 typed omissions, five supplier requests, eleven gaps, six planets and the EG20/E10 source issue/version envelope. H.0 is partial, H.1–H.8 remain not_read, and every implementation status is unchecked. No new planet is needed for these supporting affine comparisons. The reader retains its entire incoming text after the new continuation.
 
-## Checks and memory
+## Reading and provenance
 
-Exact pins: Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; TauCeti f790474821cf4256814db967cb154e7af3d0c369; Lean4.34.0-rc2 commit6a10ac8c22beadecabdbb0919c2b50214762f91d. A pre-existing Mathlib build was reused. No Lake setup/update/cache/build, TauCeti build or language server was started. No owned compilers overlapped. Each check used a same-process20GiB available-RAM guard,1200-second timeout,-j1 and-M8192 (8GiB managed-memory limit, not an RSS guarantee).
+Read the complete22198-character issue and checked exact whole-body equality after bot5972178498 confirmed claim5972177529. The whole incoming handoff was read. Authenticated [PR6014](https://github.com/CBirkbeck/tauceti-explorer/pull/6014), head7352a5e66f62da6d0ada30db7fd82032c6822c6f, through anonymous public raw URLs:74 evidence artifacts plus manifest and five deliverables. All five incoming files match the mathematical input. Its actual immutable verifier was executed and equals the published publication-validation.json. No private predecessor helper is needed for this checkpoint’s replay.
 
-Native.lean:76 examples,118 clean axiom audits,no admissions/errors/warnings; 32.88s,3612824KiB peak RSS,33GiB available before starting. Source SHA256 3c94ea073e3211c39c48461ed9c0a94571a19c5e4a1a8996eb869640111e580d; diagnostics 23be0d93fcc64821dd4fbc790940e15559744c6e736fea997a8e2924db8bd5e0.
+Fresh native reading covered the full14-declaration tower continuation and the consumed TwoForms, Preconnection, affine tensor, semilinear horizontal, affine pullback, module transport, extended-differential and curvature blocks. The complete inherited native prefix is authenticated and recompiled; that does not claim a fresh line-by-line audit of every historical proof. Read all five current supplier requests, the full reserved key, intrinsic tensor/pullback contracts and the existing API/test objects receiving additions. Historical coverage/gap collections were initially truncated; only displayed current frontier/status material is claimed freshly read, not the complete historical prose.
 
-Canonical.lean:the complete Mathlib-only admitted planning file,273 examples,632 admission-only warnings and no errors/other warnings; 28.38s,3288196KiB peak RSS,32GiB preflight. Source SHA256 cd971b8a95671edd9584d0e951cfe6d13cb26669e0e1aa12cac25b3666d98783; diagnostics 70fa8512d94e2a101a083b7b8e9da780f0cf2fa738d8c385332a9f7d530fba4a. Its concrete maps/carriers stay concrete; new lemma/test bodies are admitted planning signatures. The final published Suggested.lean includes this exact canonical prefix and an inert authenticated archive. It receives an additional full-file check before the PR.
+Own [PR6005](https://github.com/CBirkbeck/tauceti-explorer/pull/6005) control readings from this continuous session are reused at unchanged hashes: governing protocols, complete parent Hodge and Jacobian readers, four reviewed audit rows and REV-AUDIT02, key/survey/ownership records, nine original stage descriptions and five supplier descriptions. All29 own guards match. The predecessor’s37 input guards, including the actual checker/intake/assembler code, also match both current mathematical and publication inputs. Reading.json and PriorOwnReading.json distinguish fresh work from reuse and execution from manual review.
 
-Actual immutable scripts/check_blueprint.py, intake path/author checks and source-issue/version checks pass without errors or warnings. Packet:335 nodes,224 baseline entries,326 deduplicated API items (334 raw),299 checker-counted tests (314 raw). All37 guarded inputs and the five owned input blobs are unchanged from math to publication base. Full foreign roadmap/stage objects and all stage edges are conserved; no own unresolved prerequisite, skipped link or pending link. All21 required supplier paths hold. The actual stage, own-declaration and scoped DAGs are acyclic. Full exact counts and hashes are in math-validation.json and publication-validation.json.
+Fresh primary-source text: [Esnault–Groechenig, author printed23–24](https://www.mi.fu-berlin.de/users/esnault/preprints/helene/126_esn_gro.pdf), the parameter definition and complete printed Lemma4.9 proof; [Stacks §60.15](https://stacks.math.columbia.edu/tag/07J5), the complete section and Lemma60.15.1 proof. No rendered-page inspection, full-paper audit or new published-version collation was performed. Fresh source hashes are recorded without archiving source texts. The new arbitrary-ring formulas are authored deductions on the existing supplied calculus, not source-attributed theorems or crystal comparisons.
 
-Math input: 9d7e0ed5b1ebccd09e773dd07d9a821666ba6c49. Publication input: b67b5c5f3621c15263b9f2a9c800cc9982fc70ae. Prior native proof recovery: [PR6005](https://github.com/CBirkbeck/tauceti-explorer/pull/6005), headf3f72b13b470917a1e1ebe08f58c38cf75b1e1fd; its exact evidence ancestor191e40325102922ad0c8a7057de6e38967b34885 was decoded and checked against its manifest. All recovered predecessor artifacts are retained under Previous- names; their proof and reading claims remain attributed to their original worker.
+Pinned native tensor map, distribution and unitor definitions/evaluations were read. The only new baseline entry is the precise indexed AlgebraTensorModule.rid_symm_apply; existing tensor distribution, native semilinear map and tensor induction are reused. Bounded exact-name searches found no matching planned/pinned export. The existing λ=0 affineTensorField_baseChange is positive prior art. A current open-PR query for connection tensor returned only42744, whose complexification title is outside this construction; no exhaustive PR/Zulip or whole-library absence claim is made.
 
-Fresh main-agent reading:complete parent Hodge and JacobianChallenge readers, four reviewed Hodge audit rows and REV-AUDIT-02, full reserved key/survey/ownership record, all nine current stage descriptions and five supplier stages/requests, and all pinned cancellation/tower/map statements used. Source convention:Esnault–Groechenig author copy printed pp23–24 including full Lemma4.9 printed proof; Stacks07J5 complete section and Lemma60.15.1 proof. Exact fetched hashes are in source-fetch.json. No full-paper audit, rendered-PDF inspection or new published-version collation was performed. New tower results are explicitly authored deductions, not source-attributed theorems. Bounded current open-PR and Zulip searches found no adoptable replacement; no exhaustive absence claim is made.
+## Validation
 
-## Required next frontier
+Exact pins: Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; TauCeti f790474821cf4256814db967cb154e7af3d0c369. Both checked files import only Mathlib; the complete final suggested file equals Canonical.lean and compiles at the exact Mathlib pin. No combined Tau Ceti build is claimed or required by these imports. The old inert archive is recoverable at PR6014’s exact public head; it is not repeated in the final suggested text.
 
-Actual affine iterated scalar extension agrees with direct pullback under native AlgebraTensorModule.cancelBaseChange as preconnection structures, in both horizontal directions and on extended differentials, curvature and flatness. This works for arbitrary λ and arbitrary modules over every compatible commutative algebra tower, with no basis, projectivity, flatness or injectivity hypothesis. It compares two T-connections and does not reflect curvature back to R. Still supply monoidal common-λ and universal exterior-power base-change comparisons, identity and three-step categorical pullback coherence, and genuine E1 sheaf tensor/restriction, equality detection and effective gluing. The reserved general finite-locally-free ringed-site key, all149 routed source obligations, five supplier requests, determinant/Tate/period adapters, arbitrary-Q tensor-valued shuffle and H.1–H.8 retain their open status. Previous frontier prose is checkpoint history.
+Checks ran serially in the existing pinned build, each with37GiB available, one Lean thread,8GiB managed-memory limit and1200-second timeout. No Lake setup/update/cache/library build or language server was started. These compilation processes have finished.
 
-## Exact public recovery
+- Native.lean: 2599 lines,84 examples,exit0;0 warnings (0 admission warnings),132 axiom audits,peak RSS3643620KiB. Source SHA256 `8b4f294e90e7fc580f5648dc11e304219b2fc2a6484215f8a56bbc3d021012a0`; log SHA256 `738d7a07b01b02fdb86b3703fae1bba3a6334ca7d95243c5b1bb947073d72a67`.
+- Canonical.lean: 4895 lines,281 examples,exit0;654 warnings (654 admission warnings),0 axiom audits,peak RSS3331632KiB. Source SHA256 `c47a98b8ac54de6692ace98ade41ede79a060e7f940037b92b31766ee3a49b57`; log SHA256 `7735d12653dda57891fa168dbb12d7adebfbb1f35e1001523d3ba927c3887e27`.
 
-Artifact manifest SHA256: 2e7012d5df3ad6554c08d8456183ae64e6a8d2d418ae65bd6491cfe108f33249
+Native.lean retains the exact incoming native proof prefix after the new ZMod import and adds the14 proofs,eight examples and14 audits. All132 axiom closures use only propext, Classical.choice and Quot.sound; there are no admissions or warnings. Canonical.lean retains the entire incoming canonical planning text, adds the ZMod import and exact admitted projection of the22 new declaration/test headers, and has654 admission warnings only. No data/carrier definitions are admitted by the new projection. Every new header and projection is checked mechanically.
 
-The inert Suggested.lean archive stores 74 exact UTF-8 evidence artifacts plus the manifest. Source-text extracts are not redistributed. Current five deliverables are recovered from the exact public PR head; no clone or repository snapshot is created. Run from an existing checkout, with a new owned disk scratch directory below1GB. Save recover.py below with apply_patch, then:
+The actual indexed checker reports349 nodes (14 definitions,47 constructions,18 theorems,265 lemmas,5 comparisons),336 API items,307 definition tests,225 baseline entries,six planets and zero closed stages, with no errors/warnings. Raw counts are344 API entries and322 test objects. Source-issue/version and actual intake/file checks pass. Real immutable atlas assembly has acyclic stage3022/8663, own declaration349/693 and scoped3366/9749 vertex/edge counts. All21 required supplier paths hold; there are no touching accepted restructure pairs. No own unresolved prerequisite, skipped link or pending link remains. Every stage edge and every foreign roadmap/stage object is unchanged.
 
-```sh
-PUBLIC_RECOVERY=1 python3 recover.py OWNED_SCRATCH EXACT_PUBLIC_HEAD_SHA
-python3 OWNED_SCRATCH/verify.py OWNED_SCRATCH PINNED_DECLARATIONS_TSV
-# This optional serial check requires an existing exact Mathlib build and the RAM guard:
-python3 OWNED_SCRATCH/runcheck.py OWNED_SCRATCH EXISTING_MATHLIB EXISTING_LEAN Native.lean
-python3 OWNED_SCRATCH/runcheck.py OWNED_SCRATCH EXISTING_MATHLIB EXISTING_LEAN Canonical.lean
-```
+Mathematical input `d7e89e4714f7b70f6875565bd56a3a58a9d9ed71`; publication input `e3b7c8fd331e88b7ea0eea295395c7eac5495921`. All37 guarded inputs and all five incoming deliverables agree between them. The declaration-index SHA256 is `86649a7d5f35d1178a45fe7aa4713741d03d43ff3b37bb8c91a1da1c794c8ce1`. Verification-math.json and Verification.json record actual results.
 
-For immutable validation the existing checkout must contain the recorded math/publication Git objects; fetch only those objects if needed. verify.py reads actual Git blobs through immutable.py, never a mutable working-tree world. graph.py assembles the actual atlas and compares foreign objects/edges. runcheck.py stores normalized diagnostics and receipts through apply_patch. It never sets up or builds any library. Capture/replay does not imply independent review.
+## Resume
 
-### recover.py
+Use the new affine-pullback-tensor-equality/horizontal/extension/curvature/flatness nodes and affine-pullback-unit-connection-equality/horizontal nodes. These supply the tensor/unit compatibility missing after the tower checkpoint, for arbitrary actual modules and parameter. Tensoring actual semilinearly horizontal maps is available independently of scalar extension.
+
+Still supply universal exterior-power base-change and dual comparisons, identity and three-step categorical pullback coherence, then genuine E1 sheaf tensor/pullback restriction identifications, equality detection and effective gluing. Do not identify a sheaf tensor’s sections with a tensor of global sections or infer source curvature from nonfaithful scalar extension. The reserved general ringed-site key and all149 routed obligations,35 omissions, five requests, eleven gaps, determinant/Tate/period adapters, arbitrary-Q tensor-valued shuffle and H.1–H.8 remain open. Previous frontier prose is checkpoint history. No supplier is replanned or marked implemented here.
+
+## Public recovery and replay
+
+Archive commit `9db7fc26d846fb1f8d8db8d49feeb622c7d3f8be` is an ancestor touching only this issue’s suggested file. It stores42 inert evidence artifacts, including all8 authoring, projection, handoff, verifier, graph and compiler helpers. Manifest SHA256 `c6c71a5ea094f4dd0497e0780237df020e4591d96ec696b15a462b0323c62dfb`; payload SHA256 `c738d7e7ab0d426c10f9d6d56df52d65c0ab80b9e5edc620d650155d936eb836`. The final suggested file equals the compiled Canonical.lean and contains no archive payload.
+
+Save the Python fence below as recover.py and run `python3 recover.py REPLAY_DIR FULL_PR_HEAD_SHA`. It retrieves the immutable public archive and all five final deliverables, authenticates hashes, sizes and line counts, binds this handoff’s mathematical prefix, and checks its own code against the public handoff. Inspect the recovered helpers. From an existing checkout containing the two recorded bases, run `PYTHONDONTWRITEBYTECODE=1 python3 REPLAY_DIR/verify.py REPLAY_DIR DECLARATION_INDEX`, with the prescribed pinned declarations.tsv and REPLAY_DIR outside the checkout. The actual immutable checker, intake and atlas assembler run without Lean or a repository snapshot. The resulting report should equal Verification.json.
+
+Optional serial compilation replay in an existing exact Mathlib build: `python3 REPLAY_DIR/runcheck.py REPLAY_DIR MATHLIB_CHECKOUT LEAN_BINARY Native.lean`, then the Canonical.lean command after it finishes. The runner checks pins, dependencies, tracked cleanliness, compiler version, memory≥20GiB and timeout. Diagnostic hashes authenticate the recorded runs; elapsed times and resource figures vary on replay. Canonical.lean is the entire final suggested file here.
+
+Public HTTP recovery and recovered-verifier replay at the exact final head are checked before submission. Disposable scratch is removed once the PR opens, retaining only handoff-linked replay evidence.
+
+## Script: recover.py
 
 ```python
-"""Recover exact public-head files and authenticated inert evidence; writes use apply_patch."""
+"""Recover public hash-authenticated affine monoidal pullback evidence; never executes Lean."""
 from pathlib import Path
-import base64,hashlib,json,os,re,subprocess,sys,urllib.request,zlib
-S=Path(sys.argv[1]).resolve();head=sys.argv[2];assert re.fullmatch('[0-9a-f]{40}',head)
-S.mkdir(parents=True,exist_ok=True);RID='HodgeStructuresPartII'
-def read(path):
- if os.environ.get('PUBLIC_RECOVERY')=='1':
-  return urllib.request.urlopen('https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'+head+'/'+path,timeout=60).read()
- return subprocess.check_output(['git','show',head+':'+path])
-def put(n,b):
- assert Path(n).name==n and n not in {'.','..'};p=S/n
- if p.exists():assert p.read_bytes()==b,n;return
- t=b.decode();subprocess.run(['apply_patch'],input='*** Begin Patch\n*** Add File: '+str(p)+'\n'+''.join('+'+x+'\n'for x in t.splitlines())+'*** End Patch\n',text=True,check=True,capture_output=True)
- assert p.read_bytes()==b,n
-paths=['research/blueprint/'+f+'/'+('DESIGN-'if f=='handoff'else'')+RID+'.'+e for f,e in [('roadmaps','json'),('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]]
-current={p:read(p)for p in paths};published=current[paths[3]].decode()
-m=re.search(r'/\- BEGIN HODGE TOWER PAYLOAD N26\n(.*?)\nEND HODGE TOWER PAYLOAD N26 -/',published,re.S);assert m
-items=json.loads(m.group(1));meta_bytes=zlib.decompress(base64.b64decode(items['artifact-manifest.json']['data']))
-assert hashlib.sha256(meta_bytes).hexdigest()==items['artifact-manifest.json']['sha256']
-meta=json.loads(meta_bytes);assert set(items)==set(meta)|{'artifact-manifest.json'}
-handoff=current[paths[4]].decode()
-assert 'Artifact manifest SHA256: '+hashlib.sha256(meta_bytes).hexdigest() in handoff
-for n,item in items.items():
- b=zlib.decompress(base64.b64decode(item['data']));assert hashlib.sha256(b).hexdigest()==item['sha256'],n
- if n in meta:assert meta[n]=={'sha256':item['sha256'],'bytes':len(b),'lines':len(b.splitlines())},n
- put(n,b)
-assert published==(S/'Canonical.lean').read_text()+'\n'+m.group(0)+'\n'
-for p,n in zip(paths,['Candidate-roadmap.json','Candidate.json','Reader.md','Suggested.lean','Handoff.md']):put(n,current[p])
-put('Published.lean',current[paths[3]]);put(RID+'.json',current[paths[1]])
-# The full published-file compilation cannot be inside its own archive. Its independent
-# diagnostics and receipt therefore live in the handoff and are recovered here.
-for n in ['Published.receipt.json','Published.log']:
- x=re.search(r'### '+re.escape(n)+r'\n\n'+chr(96)*3+r'json\n(.*?)\n'+chr(96)*3+r'\n',handoff,re.S)
- if x:
-  obj=json.loads(x.group(1))
-  b=(json.dumps(obj,indent=2)+'\n').encode()if n.endswith('.json')else zlib.decompress(base64.b64decode(obj['data']))
-  if n.endswith('.log'):assert hashlib.sha256(b).hexdigest()==obj['sha256']
-  put(n,b)
-print(json.dumps({'publicHead':head,'verifiedArtifacts':len(items),'currentDeliverables':5,'allHashesMatch':True,'anonymousPublicReads':os.environ.get('PUBLIC_RECOVERY')=='1'},indent=2))
-```
-
-## Full published-file elaboration
-
-The exact published file also elaborates, with632 admission-only warnings,no errors/other warnings; 3285560KiB peak RSS and32GiB preflight. Its receipt and compressed normalized diagnostics are outside the file archive to avoid a self-reference; recover.py retrieves them from this handoff.
-
-### Published.receipt.json
-
-```json
-{
-  "sourceSha256": "a248c4a988f6b65629cfe2cacd7bdd9e03894b03fb7d3c5954877ed20bc2ccd2",
-  "logSha256": "4db1e2cb62aebc12c47fbd9be9baeeafe3fff67845bdc1efc8edf66a61950928",
-  "availableGiBBefore": 32,
-  "elapsedSeconds": 29.58,
-  "maxRssKiB": 3285560,
-  "exitStatus": 0,
-  "errors": 0,
-  "warnings": 632,
-  "admissionWarnings": 632,
-  "axiomAudits": 0,
-  "sorryAxReferences": 0,
-  "leanVersion": "Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)"
-}
-```
-### Published.log
-
-```json
-{
-  "data": "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",
-  "sha256": "4db1e2cb62aebc12c47fbd9be9baeeafe3fff67845bdc1efc8edf66a61950928"
-}
+import base64,hashlib,json,re,sys,urllib.request,zlib
+S=Path(sys.argv[1]).resolve();S.mkdir(parents=True,exist_ok=True)
+HEAD=sys.argv[2];assert re.fullmatch('[0-9a-f]{40}',HEAD)
+ROOT='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
+RID='HodgeStructuresPartII'
+ARCHIVE='9db7fc26d846fb1f8d8db8d49feeb622c7d3f8be'
+MANIFEST_SHA='c6c71a5ea094f4dd0497e0780237df020e4591d96ec696b15a462b0323c62dfb'
+PAYLOAD_SHA='c738d7e7ab0d426c10f9d6d56df52d65c0ab80b9e5edc620d650155d936eb836'
+EXPECTED={'roadmaps': '0cb22cf6fb0fe56077e5dcc02fcff0c1ee5f55e64406c106e82fbc57cb87bf1d', 'packets': '4960830424326e7f978bb680246ddad0cb17caefd311f26b4e3ab207ed6c9bc3', 'readmes': 'a9ba324de179ff6397f816543168752745e8bb1b7fc09a1930eb872e182140f3', 'suggested': 'c47a98b8ac54de6692ace98ade41ede79a060e7f940037b92b31766ee3a49b57'}
+sha=lambda b:hashlib.sha256(b).hexdigest()
+def fetch(ref,path):
+ with urllib.request.urlopen(ROOT+ref+'/'+path,timeout=30)as r:return r.read()
+raw=fetch(ARCHIVE,'research/blueprint/suggested/'+RID+'.lean').decode()
+pb=(raw.split('/- BEGIN ARCHIVED MONOIDAL PULLBACK PAYLOAD\n',1)[1].split('END ARCHIVED MONOIDAL PULLBACK PAYLOAD -/',1)[0]).encode()
+assert sha(pb)==PAYLOAD_SHA
+payload=json.loads(pb)
+def unpack(name):
+ b=zlib.decompress(base64.b64decode(payload[name]['data']));assert sha(b)==payload[name]['sha256'],name
+ return b
+mb=unpack('artifact-manifest.json');assert sha(mb)==MANIFEST_SHA;meta=json.loads(mb)
+assert set(payload)==set(meta)|{'artifact-manifest.json'}
+for name,m in meta.items():
+ assert Path(name).name==name and name not in {'.','..'}
+ b=unpack(name);assert sha(b)==m['sha256']and len(b)==m['bytes']and len(b.splitlines())==m['lines'],name
+ (S/name).write_bytes(b)
+(S/'artifact-manifest.json').write_bytes(mb)
+public={}
+for folder,ext,name in [('roadmaps','json','Candidate-roadmap.json'),('packets','json','Candidate.json'),('readmes','md','Reader.md'),('suggested','lean','Suggested.lean'),('handoff','md','Handoff.md')]:
+ path='research/blueprint/'+folder+'/'+('DESIGN-'if folder=='handoff'else'')+RID+'.'+ext
+ b=fetch(HEAD,path)
+ if folder in EXPECTED:assert sha(b)==EXPECTED[folder],path
+ (S/name).write_bytes(b);public[path]=sha(b)
+(S/(RID+'.json')).write_bytes((S/'Candidate.json').read_bytes())
+assert (S/'Suggested.lean').read_bytes()==(S/'Canonical.lean').read_bytes()
+fence=chr(96)*3;handoff=(S/'Handoff.md').read_text()
+assert handoff.startswith((S/'HandoffBase.md').read_text())
+code=handoff.split('## Script: recover.py\n\n'+fence+'python\n',1)[1].split('\n'+fence+'\n',1)[0]+'\n'
+assert code==Path(__file__).read_text(),'Executed recovery script differs from current public handoff.'
+(S/'recover.py').write_text(code)
+receipt=dict(head=HEAD,archive=ARCHIVE,artifactsVerified=len(meta),archivedHelpersVerified=8,publicDeliverables=public,recoverySha256=sha(code.encode()),LeanExecuted=False)
+(S/'public-recovery.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt,indent=2))
 ```
