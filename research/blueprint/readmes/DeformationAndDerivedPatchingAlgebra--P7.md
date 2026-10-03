@@ -1,3 +1,153 @@
+# Graded annihilator comparison and the primary boundary
+
+The nth graded piece is the actual quotient of the submodule q^nM by q acting on that submodule. Adjoining Ann_A(M) identifies both numerator and denominator, so the comparison preserves underlying representatives and extended lengths even for nonfaithful and zero modules. No finite-length assumption is used in this transport.
+
+For a nonzero module over a local ring, its annihilator is proper and lies in the maximal ideal. Thus an m-primary ideal stays m-primary after enlargement. For the zero module the enlarged ideal is the unit ideal. The full five-condition equivalence in [Stacks Remark 43.15.6](https://stacks.math.columbia.edu/tag/0AZU) therefore needs the separate zero branch recorded as source issue DeformationAndDerivedPatchingAlgebra/E3; finite quotient length alone does not establish proper primary enlargement.
+
+The cumulative polynomial comparisons use the existing eventual-evaluation and uniqueness specifications. General Hilbert–Serre existence remains an explicit open prerequisite. Intrinsic multiplicity retains its own polynomial degree; fixed-degree extraction uses the same requested d on both sides and requires the inherited support bound when interpreted as multiplicity. No new multiplicity constructor is introduced.
+
+## Whole-module annihilators on submodule carriers
+
+Declaration: TauCeti.HilbertSamuel.idealSupAnnihilator_smul_subtype.
+
+For every submodule L of M and submodule P of L, (q+Ann_A(M))P=qP, with P carrying the inherited A-action.
+
+Hypotheses: A is a commutative ring; M is an additive commutative group with an A-module structure; q is any ideal of A. All carriers, ideal actions and extended lengths are the pinned native ones.
+
+Proof: Injectivity of the subtype map gives Ann_A(M)⊆Ann_A(L); reverse inclusion for P⊆L gives containment in Ann_A(P). Use the zero-action criterion and distribution over ideal sum.
+
+Prerequisites: mathlib:LinearMap.annihilator_le_of_injective, mathlib:Submodule.annihilator_top, mathlib:Submodule.annihilator_mono, mathlib:Submodule.le_annihilator_iff, mathlib:Submodule.sup_smul.
+
+## Annihilator comparison of actual graded pieces
+
+Declaration: TauCeti.HilbertSamuel.adicPieceAnnihilatorEquiv.
+
+For each n≥0, there is a canonical A-linear equivalence ((q+Ann_A(M))^n M)/((q+Ann_A(M))·((q+Ann_A(M))^n M)) ≃ (q^n M)/(q·q^n M). Quotients use the ideal-action submodule inside each numerator subtype.
+
+Hypotheses: A is a commutative ring; M is an additive commutative group with an A-module structure; q is any ideal of A. All carriers, ideal actions and extended lengths are the pinned native ones.
+
+Proof: Use annihilator-enlargement-powers to identify the numerator submodules by LinearEquiv.ofEq. Map ideal actions through this equivalence, use full range, and identify the target denominator with annihilator-subtype-action. Apply the native quotient equivalence. Representatives preserve their value in M.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-enlargement-powers, DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-subtype-action, DeformationAndDerivedPatchingAlgebra:R03.3/graded-hilbert-function, mathlib:LinearEquiv.ofEq, mathlib:Submodule.Quotient.equiv, mathlib:Submodule.map_smul'', mathlib:Submodule.map_top, mathlib:LinearMap.range_eq_top.
+
+API TauCeti.HilbertSamuel.adicPieceAnnihilatorEquiv_mk: The forward graded-piece comparison sends [m] to [e(m)], where e is the numerator equivalence induced by the power equality and e(m) has the same underlying element of M.
+
+API TauCeti.HilbertSamuel.adicPieceAnnihilatorEquiv_symm_mk: The inverse graded-piece comparison sends [m] to [e⁻¹(m)], where e is the same numerator equality equivalence.
+
+API TauCeti.HilbertSamuel.gradedFunction_sup_annihilator: For every n≥0, G(q+Ann_A(M);M,n)=G(q;M,n) in ℕ∞, with G the extended length of the actual nth graded quotient.
+
+Test AnnihilatorGradedTests.degree_zero_representative (computation): For A=M=ℚ, q=0 and n=0, every class [m] is sent to the class of the same underlying rational by the numerator equality equivalence.
+
+Test AnnihilatorGradedTests.nonfaithful_inverse (non-example): For A=ℤ, M=ℤ/4ℤ, q=0 and n=0, the inverse comparison preserves each underlying representative; no faithful-module hypothesis is allowed.
+
+Test AnnihilatorGradedTests.positive_degree_zero (degenerate): For A=M=ℚ, q=0 and n=1, the comparison sends the zero representative to zero; its numerator is the zero submodule.
+
+## Forward graded comparison on representatives
+
+Declaration: TauCeti.HilbertSamuel.adicPieceAnnihilatorEquiv_mk.
+
+The forward graded-piece comparison sends [m] to [e(m)], where e is the numerator equivalence induced by the power equality and e(m) has the same underlying element of M.
+
+Hypotheses: A is a commutative ring; M is an additive commutative group with an A-module structure; q is any ideal of A. All carriers, ideal actions and extended lengths are the pinned native ones.
+
+Proof: Unfold the native quotient equivalence and the numerator equality equivalence; its representative formula is definitional.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-graded-piece-equivalence, mathlib:LinearEquiv.coe_ofEq_apply.
+
+## Inverse graded comparison on representatives
+
+Declaration: TauCeti.HilbertSamuel.adicPieceAnnihilatorEquiv_symm_mk.
+
+The inverse graded-piece comparison sends [m] to [e⁻¹(m)], where e is the same numerator equality equivalence.
+
+Hypotheses: A is a commutative ring; M is an additive commutative group with an A-module structure; q is any ideal of A. All carriers, ideal actions and extended lengths are the pinned native ones.
+
+Proof: Apply forward injectivity and the forward representative formula; simplify the two inverse identities.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-graded-piece-equivalence, DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-graded-piece-mk.
+
+## Annihilator invariance of graded lengths
+
+Declaration: TauCeti.HilbertSamuel.gradedFunction_sup_annihilator.
+
+For every n≥0, G(q+Ann_A(M);M,n)=G(q;M,n) in ℕ∞, with G the extended length of the actual nth graded quotient.
+
+Hypotheses: A is a commutative ring; M is an additive commutative group with an A-module structure; q is any ideal of A. All carriers, ideal actions and extended lengths are the pinned native ones.
+
+Proof: Apply length invariance to the actual graded-piece equivalence; no finite length or conversion to natural numbers is used.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-graded-piece-equivalence, DeformationAndDerivedPatchingAlgebra:R03.3/graded-hilbert-function, mathlib:LinearEquiv.length_eq.
+
+## Primary annihilator enlargement for nonzero modules
+
+Declaration: TauCeti.HilbertSamuel.radical_sup_annihilator.
+
+If A is local, M≠0 and radical(q)=m, then radical(q+Ann_A(M))=m.
+
+Hypotheses: A is a commutative ring; M is an additive commutative group with an A-module structure; q is any ideal of A. All carriers, ideal actions and extended lengths are the pinned native ones. A is local, M is nonzero, and radical(q) is the maximal ideal m. No Noetherian or finite-module hypothesis is needed for the radical equality.
+
+Proof: The unit-annihilator criterion and M≠0 make Ann_A(M) proper; every proper ideal lies in m. Both q and Ann_A(M) lie in m, and m is prime and radical, giving the upper radical bound. Monotonicity gives m=radical(q)⊆radical(q+Ann_A(M)).
+
+Prerequisites: mathlib:Module.annihilator_eq_top_iff, mathlib:IsLocalRing.le_maximalIdeal, mathlib:IsLocalRing.maximalIdeal.isMaximal, mathlib:Ideal.IsMaximal.isPrime, mathlib:Ideal.IsPrime.isRadical, mathlib:Ideal.IsRadical.radical_le_iff, mathlib:Ideal.radical_mono, mathlib:Ideal.le_radical.
+
+## Zero-module annihilator boundary
+
+Declaration: TauCeti.HilbertSamuel.sup_annihilator_zero_module.
+
+For a zero A-module M and every ideal q, q+Ann_A(M)=A.
+
+Hypotheses: A is a commutative ring; M is an additive commutative group with an A-module structure; q is any ideal of A. All carriers, ideal actions and extended lengths are the pinned native ones. M is a zero module; the final boundary clause assumes A is a nonzero local ring.
+
+Proof: Use the native unit-annihilator criterion and ideal-supremum simplification. For the local-ring boundary the unit ideal has radical A, whereas the maximal ideal is proper.
+
+Prerequisites: mathlib:Module.annihilator_eq_top_iff.
+
+Test AnnihilatorGradedTests.nonzero_field_primary (compatibility): For A=M=ℚ and q=0, radical(q+Ann_A(M)) is the maximal ideal 0.
+
+Test AnnihilatorGradedTests.zero_module_not_primary (non-example): For A=ℚ, M=ℚ^(Fin 0)=0 and q=0, radical(q+Ann_A(M)) differs from the maximal ideal.
+
+Test AnnihilatorGradedTests.zero_module_finite_quotient (degenerate): For A=ℚ, M=ℚ^(Fin 0)=0 and q=0, the actual cumulative quotient at n=0 has extended length 0, hence finite length despite failure of the enlarged-ideal primary condition.
+
+## Annihilator invariance of the eventual polynomial
+
+Declaration: TauCeti.HilbertSamuel.polynomial_sup_annihilator.
+
+Under the finite Noetherian-local hypotheses with M≠0 and radical(q)=m, P(q+Ann_A(M);M)=P(q;M) for the existing cumulative n+1 polynomial constructor.
+
+Hypotheses: A is a commutative ring; M is an additive commutative group with an A-module structure; q is any ideal of A. All carriers, ideal actions and extended lengths are the pinned native ones. A is local, M is nonzero, and radical(q) is the maximal ideal m. No Noetherian or finite-module hypothesis is needed for the radical equality. A is Noetherian and M is finite. The existing general eventual-polynomial theorem and its specification remain required, unproved prerequisites.
+
+Proof: Supply the enlarged-ideal radical proof from primary-annihilator-enlargement. Use the existing polynomial eventual-evaluation specification, rewrite cumulative lengths by hilbert-samuel-function-annihilator-enlargement, and apply polynomial uniqueness. This proof depends on the existing unproved general polynomial specification; it is not a proof of Hilbert–Serre existence.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/primary-annihilator-enlargement, DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-polynomial, DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function-annihilator-enlargement.
+
+## Annihilator invariance of intrinsic multiplicity
+
+Declaration: TauCeti.HilbertSamuel.multiplicity_sup_annihilator.
+
+Under the preceding finite nonzero Noetherian-local hypotheses, intrinsic e(q+Ann_A(M);M)=e(q;M).
+
+Hypotheses: A is a commutative ring; M is an additive commutative group with an A-module structure; q is any ideal of A. All carriers, ideal actions and extended lengths are the pinned native ones. A is local, M is nonzero, and radical(q) is the maximal ideal m. No Noetherian or finite-module hypothesis is needed for the radical equality. A is Noetherian and M is finite. The existing general eventual-polynomial theorem and its specification remain required, unproved prerequisites.
+
+Proof: Rewrite the polynomial in the exact intrinsic formula natDegree(P)!·leadingCoeff(P). No ambient dimension is substituted.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-annihilator-enlargement, DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity.
+
+## Annihilator invariance of fixed-degree extraction
+
+Declaration: TauCeti.HilbertSamuel.multiplicityInDegree_sup_annihilator.
+
+Under the preceding finite nonzero Noetherian-local hypotheses, for every d≥0 the raw coefficient extractors e(q+Ann_A(M);M,d)=e(q;M,d) agree. Calling either value a multiplicity still requires the inherited support-dimension upper bound.
+
+Hypotheses: A is a commutative ring; M is an additive commutative group with an A-module structure; q is any ideal of A. All carriers, ideal actions and extended lengths are the pinned native ones. A is local, M is nonzero, and radical(q) is the maximal ideal m. No Noetherian or finite-module hypothesis is needed for the radical equality. A is Noetherian and M is finite. The existing general eventual-polynomial theorem and its specification remain required, unproved prerequisites.
+
+Proof: Rewrite the polynomial in d!·coeff(P,d); no degree bound is needed for the raw equality.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-annihilator-enlargement, DeformationAndDerivedPatchingAlgebra:R03.3/degree-indexed-multiplicity.
+
+All implementation statuses remain unchecked. The seven new independent declarations and six new tests have successful native evidence; the three polynomial-dependent proofs have inherited admission dependencies. The canonical suggested forms remain admitted. Every previous declaration, API, example, planet, request, gap and scope target is preserved below.
+
+---
+
 # Annihilator enlargement of the actual adic filtration
 
 Codex — codex-a71f92, 3 October 2026. This section is the current partial checkpoint; the complete incoming reader below remains attributed historical context. All 247 incoming node objects, the reserved general Hilbert–Samuel key, 13 existing planets, 15 gaps, two supplier requests and eight unclosed scoped stages are retained. Six declarations (one construction and five lemmas), three promoted API items and four named tests extend the R03.3 strand. This is not a new carrier for an existing quotient or a claim that the whole key definition is closed.
