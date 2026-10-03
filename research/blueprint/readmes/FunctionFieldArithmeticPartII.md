@@ -1,3 +1,281 @@
+# Arbitrary base change of infinite affine root charts
+
+Fix any commutative ring A, f∈A and a unital ring map φ:A→B. Write D_A(f) for the inherited direct limit of A[t_n]/(t_n^n−f) over all positive exponents, ordered by divisibility. The existing coefficient map F_φ sends every coefficient and every compatible root to its counterpart over B.
+
+The coefficient square is now proved to be a pushout of actual commutative rings. For a compatible pair α:D_A(f)→C and β:B→C, the finite root equation constructs a map from every B-root algebra to C. Compatibility with divisibility transitions produces a map δ:D_B(φ(f))→C. Its coefficient and root formulas give both factorizations, and ring-map extensionality gives uniqueness. No flatness assumption is used.
+
+Comparing this pushout with Mathlib's tensor-product pushout gives the actual B-algebra equivalence B⊗_A D_A(f)≃D_B(φ(f)), sending b⊗x to b·F_φ(x). Its inverse sends each positive-index root to1⊗ the corresponding original root. The native Spec pushout theorem gives a pullback of schemes, and the canonical comparison is a scheme isomorphism with the categorical fibre product. Both projections are identified as actual scheme morphisms. This universal property includes nonaffine test schemes in the fixed coefficient universe.
+
+Fourteen tests cover nonfactorial index3, transition2|6, a nilpotent coefficient in Z/4, wild characteristic2, and zero rings. Under Z→Z/4, the nonzero original coefficient4 becomes zero in the tensor product. Conversely, the square-zero root over Z/2 remains nonzero in the tensor product under the comparison. These tests distinguish arbitrary base change from injectivity or reduction.
+
+Stacks §26.17, including the entire affine fibre-product proof, was freshly read. Stacks Lemma32.2.1 was also read in full for inverse-limit context. The root-specific universal maps are authored deductions from the inherited root equations. Own PR6022's Talpo–Vistoli printed pp.14–16 reading is reused unchanged; no fresh whole-paper audit is claimed.
+
+All469 incoming mathematical contracts remain;468 whole node objects are identical. Only the infinite-base-change parent receives appended prerequisites and a proof step. The root-stack theorem for general bases still requires its own coherent groupoid and fpqc descent comparisons. Historical frontier sections below remain as their authors recorded them; this opening states the current affine-chart frontier.
+
+The arbitrary coefficient base-change square of the actual positive-divisibility affine root chart now has a native ring pushout and scheme pullback witness. Its concrete B-algebra tensor equivalence B⊗_A D_A(f)≃D_B(φ(f)) identifies pure tensors and inverse roots; its actual categorical scheme isomorphism identifies both projections. Flatness is not assumed and nilpotents are retained. Coherent root-object groupoid reindexing, higher-universe transport, finite-projection coherence for the general stack comparison, fpqc frame torsors and the infinite quotient/DVR/Kummer routes remain open. All ten stages, eight gaps and thirteen supplier requests remain partial or open.
+
+## Root-colimit ring-map extensionality
+
+**TauCeti.RootStack.divisibilityAffineColimit.ringHom_ext** — For ring maps g,h:D_A(f)→C, equality on every coefficient a∈A and every positive-index root κ_n(t_n) implies g=h. C need not carry a specified A-algebra structure.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made. D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B. The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-affine-colimit, FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion, mathlib:DirectLimit.Ring.hom_ext, mathlib:AdjoinRoot.ringHom_ext.
+
+Proof: Apply native direct-limit ring-map extensionality. At each finite chart, AdjoinRoot ring-map extensionality reduces equality to the coefficient and root hypotheses; the actual inclusions preserve coefficients.
+
+## Finite root map from compatible coefficient data
+
+**TauCeti.RootStack.divisibilityBaseChangeLevel** — For α:D_A(f)→C and β:B→C with α(a)=β(φ(a)) for every a∈A, construct L_n:B[t_n]/(t_n^n−φ(f))→C with t_n↦α(κ_n(t_n)) and coefficient map β, at every positive n.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made. D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B. The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion-power, mathlib:AdjoinRoot.lift.
+
+Proof: Use the native AdjoinRoot lift. The image of the root polynomial vanishes because κ_n(t_n)^n=f, α preserves powers, and the compatibility hypothesis identifies α(f) with β(φ(f)).
+
+API:
+
+- **TauCeti.RootStack.divisibilityBaseChangeLevel.root**: L_n(t_n)=α(κ_n(t_n)) for every positive n.
+- **TauCeti.RootStack.divisibilityBaseChangeLevel.constant**: L_n(b)=β(b) for every b∈B and every positive n, where b is included through the actual coefficient algebra map.
+- **TauCeti.RootStack.divisibilityBaseChangeLevel.transition**: If n divides N, L_N composed with the actual root transition B(n)→B(N), t_n↦t_N^(N/n), equals L_n as a ring map.
+
+TESTS:
+
+- **TauCeti.RootStack.divisibilityBaseChangeLevel.test_nilpotent_constant**: Over Z/4 at f=2 and nonfactorial index3, the finite universal map preserves the actual nilpotent coefficient2.
+- **TauCeti.RootStack.divisibilityBaseChangeLevel.test_wild_root**: Over Z/2 at f=0 and n=2, the image of the actual root under the finite universal map has square zero.
+- **TauCeti.RootStack.divisibilityBaseChangeLevel.test_two_six**: For arbitrary compatible α and β, the level6 image of t_6³ equals the level2 image of t_2.
+
+## Finite base-change root formula
+
+**TauCeti.RootStack.divisibilityBaseChangeLevel.root** — L_n(t_n)=α(κ_n(t_n)) for every positive n.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made. D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B. The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-base-change-level.
+
+Proof: Evaluate the actual AdjoinRoot lift on its distinguished root using the native lift-root law.
+
+## Finite base-change coefficient formula
+
+**TauCeti.RootStack.divisibilityBaseChangeLevel.constant** — L_n(b)=β(b) for every b∈B and every positive n, where b is included through the actual coefficient algebra map.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made. D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B. The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-base-change-level.
+
+Proof: Identify the native AdjoinRoot algebra map with its coefficient ring map and apply the lift-on-coefficients law.
+
+## Compatibility with positive divisibility
+
+**TauCeti.RootStack.divisibilityBaseChangeLevel.transition** — If n divides N, L_N composed with the actual root transition B(n)→B(N), t_n↦t_N^(N/n), equals L_n as a ring map.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made. D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B. The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-base-change-level-root, FunctionFieldArithmeticPartII:RS.2/native-base-change-level-constant, FunctionFieldArithmeticPartII:RS.2/affine-divisibility-root, FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion-root, mathlib:AdjoinRoot.ringHom_ext.
+
+Proof: Compare the ring maps on coefficients and the root. Coefficients give β on both sides. On the root, preservation of powers and the inherited inclusion transition identify α(κ_N(t_N)^(N/n)) with α(κ_n(t_n)).
+
+## Universal map from the base-changed root colimit
+
+**TauCeti.RootStack.divisibilityBaseChangeDesc** — For compatible α:D_A(f)→C and β:B→C, construct δ:D_B(φ(f))→C from the finite maps L_n, for arbitrary commutative C in the coefficient universe.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made. D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B. The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-base-change-level-transition, mathlib:DirectLimit.Ring.lift.
+
+Proof: Apply the native direct-limit ring lift to the concrete family L_n. The preceding equality of ring maps supplies elementwise compatibility for every divisibility arrow.
+
+API:
+
+- **TauCeti.RootStack.divisibilityBaseChangeDesc.level**: For x in the actual n-th root algebra over B, δ(κ_n(x))=L_n(x).
+- **TauCeti.RootStack.divisibilityBaseChangeDesc.constant**: For every b∈B, δ(b)=β(b) under the actual coefficient inclusion B→D_B(φ(f)).
+- **TauCeti.RootStack.divisibilityBaseChangeDesc.root**: For every positive n, δ(κ_n(t_n))=α(κ_n(t_n)), with the left root over B and the right root over A.
+- **TauCeti.RootStack.divisibilityBaseChangeDesc.coefficient**: δ composed with F_φ:D_A(f)→D_B(φ(f)), the existing coefficient ring map, equals α.
+- **TauCeti.RootStack.divisibilityBaseChangeDesc.unique**: A ring map g:D_B(φ(f))→C with g(b)=β(b) for every b∈B and g∘F_φ=α equals δ.
+
+TESTS:
+
+- **TauCeti.RootStack.divisibilityBaseChangeDesc.test_nonflat_identity**: For Z→Z/4 at f=2, descent from the actual coefficient map and B-inclusion is the identity on every element of D_B(2).
+- **TauCeti.RootStack.divisibilityBaseChangeDesc.test_polynomial**: For arbitrary compatible α and β, descent sends the actual third root plus coefficient b to α of the third root plus β(b).
+- **TauCeti.RootStack.divisibilityBaseChangeDesc.test_zero_target**: For a compatible cocone with target Z/1, the actual descent map sends every colimit element to zero.
+
+## Universal map at every finite chart
+
+**TauCeti.RootStack.divisibilityBaseChangeDesc.level** — For x in the actual n-th root algebra over B, δ(κ_n(x))=L_n(x).
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made. D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B. The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-base-change-desc, FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion.
+
+Proof: Evaluate the actual direct-limit ring lift on a finite inclusion. The displayed formula is definitional for the inherited direct-limit carrier.
+
+## Universal map on coefficients
+
+**TauCeti.RootStack.divisibilityBaseChangeDesc.constant** — For every b∈B, δ(b)=β(b) under the actual coefficient inclusion B→D_B(φ(f)).
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made. D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B. The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-base-change-desc-level, FunctionFieldArithmeticPartII:RS.2/native-base-change-level-constant.
+
+Proof: Express the coefficient through the positive index1 inclusion using its algebra-map law, evaluate δ at that finite level, and use the finite coefficient formula.
+
+## Universal map on all positive roots
+
+**TauCeti.RootStack.divisibilityBaseChangeDesc.root** — For every positive n, δ(κ_n(t_n))=α(κ_n(t_n)), with the left root over B and the right root over A.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made. D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B. The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-base-change-desc-level, FunctionFieldArithmeticPartII:RS.2/native-base-change-level-root.
+
+Proof: Specialize evaluation at a finite chart to its distinguished root and use the finite root formula.
+
+## Factorization of the inherited coefficient map
+
+**TauCeti.RootStack.divisibilityBaseChangeDesc.coefficient** — δ composed with F_φ:D_A(f)→D_B(φ(f)), the existing coefficient ring map, equals α.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made. D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B. The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-base-change-desc-constant, FunctionFieldArithmeticPartII:RS.2/native-base-change-desc-root, FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-constant, FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-root, FunctionFieldArithmeticPartII:RS.2/native-ring-hom-ext.
+
+Proof: Use root-colimit ring-map extensionality. On A-coefficients, use the given compatibility of α and β; on every root, combine the existing coefficient-root formula with the new universal-root formula.
+
+## Uniqueness of the base-change universal map
+
+**TauCeti.RootStack.divisibilityBaseChangeDesc.unique** — A ring map g:D_B(φ(f))→C with g(b)=β(b) for every b∈B and g∘F_φ=α equals δ.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made. D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B. The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-base-change-desc-constant, FunctionFieldArithmeticPartII:RS.2/native-base-change-desc-root, FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-root, FunctionFieldArithmeticPartII:RS.2/native-ring-hom-ext.
+
+Proof: Compare g and δ on B-coefficients and every positive root. Apply the factorization equality g∘F_φ=α to each original root and use the inherited coefficient-root formula.
+
+## Arbitrary base change as a ring pushout
+
+**TauCeti.RootStack.divisibilityBaseChangeIsPushout** — The actual square A→B, A→D_A(f), B→D_B(φ(f)), D_A(f)→D_B(φ(f)) is a pushout in native CommRingCat for every unital φ:A→B.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made. D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B. The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-constant, FunctionFieldArithmeticPartII:RS.2/native-base-change-desc, FunctionFieldArithmeticPartII:RS.2/native-base-change-desc-constant, FunctionFieldArithmeticPartII:RS.2/native-base-change-desc-coefficient, FunctionFieldArithmeticPartII:RS.2/native-base-change-desc-unique, mathlib:CategoryTheory.Limits.PushoutCocone.IsColimit.mk, mathlib:CategoryTheory.IsPushout.of_isColimit.
+
+Proof: The inherited coefficient formula proves the square commutes. For an arbitrary native pushout cocone, take α and β to be its right and left ring maps. Its cocone equation supplies compatibility, δ supplies descent, the two factorization laws give both legs, and uniqueness gives the native IsColimit witness.
+
+## Cartesian base-change square of infinite affine charts
+
+**TauCeti.RootStack.divisibilitySpecCoefficientMap.isPullback** — The square Spec D_B(φ(f))→Spec B, Spec D_B(φ(f))→Spec D_A(f), Spec B→Spec A, Spec D_A(f)→Spec A is a pullback in the native category Scheme, for every φ.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made. D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B. The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-base-change-pushout, FunctionFieldArithmeticPartII:RS.2/native-scheme-coefficient-map, mathlib:AlgebraicGeometry.isPullback_SpecMap_of_isPushout.
+
+Proof: Apply the pinned native theorem sending commutative-ring pushouts to scheme pullbacks to the actual root-specific ring square. Its universal property ranges over arbitrary test schemes, not just affine schemes or their points.
+
+## Tensor description of the base-changed root algebra
+
+**TauCeti.RootStack.divisibilityTensorEquiv** — Given an A-algebra B, construct the native B-algebra equivalence E:B⊗_A D_A(f)≃D_B(φ(f)), where φ is the actual algebra map A→B.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made. D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B. The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-base-change-pushout, mathlib:CommRingCat.isPushout_tensorProduct, mathlib:CategoryTheory.IsPushout.isoIsPushout, mathlib:CategoryTheory.IsPushout.inl_isoIsPushout_hom, mathlib:CategoryTheory.Iso.commRingCatIsoToRingEquiv.
+
+Proof: Compare the native tensor-product ring pushout with the proved root-colimit pushout using uniqueness of colimits. Convert the resulting native ring isomorphism to a ring equivalence; its left-leg formula proves B-algebra compatibility.
+
+API:
+
+- **TauCeti.RootStack.divisibilityTensorEquiv.right**: For every x∈D_A(f), E(1⊗x)=F_φ(x).
+- **TauCeti.RootStack.divisibilityTensorEquiv.tmul**: For every b∈B and x∈D_A(f), E(b⊗x)=b·F_φ(x), where the coefficient b is included in D_B(φ(f)).
+- **TauCeti.RootStack.divisibilityTensorEquiv.inverse_root**: For every positive n, E⁻¹(κ_n(t_n))=1⊗κ_n(t_n), with the left root over B and the right root over A.
+
+TESTS:
+
+- **TauCeti.RootStack.divisibilityTensorEquiv.test_nonflat_killed_constant**: The coefficient4 is nonzero in D_Z(2), while its pure tensor1⊗4 over Z/4 is zero. Tensor base-change equivalence does not assert injectivity of the original coefficient map.
+- **TauCeti.RootStack.divisibilityTensorEquiv.test_nonzero_nilpotent**: Over Z/2 at f=0, the inverse tensor image of the degree2 root is nonzero and has square zero; the wild nilpotent is retained in the actual tensor algebra.
+- **TauCeti.RootStack.divisibilityTensorEquiv.test_third_root**: For Z→Z/4 at f=2 and index3, the inverse comparison carries the actual B-root to1⊗ the actual Z-root.
+- **TauCeti.RootStack.divisibilityTensorEquiv.test_zero_ring**: With B=Z/1 and A=Z, every tensor maps to zero in the actual base-changed root colimit.
+
+## Tensor comparison on the original root algebra
+
+**TauCeti.RootStack.divisibilityTensorEquiv.right** — For every x∈D_A(f), E(1⊗x)=F_φ(x).
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made. D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B. The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-base-change-tensor-equivalence, mathlib:CategoryTheory.IsPushout.inr_isoIsPushout_hom.
+
+Proof: Evaluate the native right-leg identity of the pushout comparison at x. The tensor right leg is the actual map x↦1⊗x.
+
+## Tensor comparison on pure tensors
+
+**TauCeti.RootStack.divisibilityTensorEquiv.tmul** — For every b∈B and x∈D_A(f), E(b⊗x)=b·F_φ(x), where the coefficient b is included in D_B(φ(f)).
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made. D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B. The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-base-change-tensor-right, mathlib:Algebra.TensorProduct.algebraMap_apply.
+
+Proof: Write b⊗x as the B-coefficient b times 1⊗x inside the actual tensor algebra. Apply multiplicativity, B-algebra compatibility and the right-leg formula.
+
+## Inverse tensor comparison on roots
+
+**TauCeti.RootStack.divisibilityTensorEquiv.inverse_root** — For every positive n, E⁻¹(κ_n(t_n))=1⊗κ_n(t_n), with the left root over B and the right root over A.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made. D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B. The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-base-change-tensor-right, FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-root.
+
+Proof: Apply injectivity of E. Its inverse law simplifies the left side; the right-leg and coefficient-root formulas identify the right side with the same root.
+
+## Infinite affine chart as the actual categorical base change
+
+**TauCeti.RootStack.divisibilitySpecBaseChangeIso** — For arbitrary φ:A→B, construct a native scheme isomorphism Spec D_B(φ(f))≅Spec B×_(Spec A)Spec D_A(f), with the right side the actual categorical pullback.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made. D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B. The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-base-change-pullback, mathlib:CategoryTheory.IsPullback.isoPullback.
+
+Proof: Use the canonical native isomorphism from the proved root-specific pullback cone to the selected categorical pullback. The ring maps and resulting structure-sheaf maps are retained.
+
+API:
+
+- **TauCeti.RootStack.divisibilitySpecBaseChangeIso.fst**: The scheme comparison followed by the pullback first projection equals the actual structural morphism Spec D_B(φ(f))→Spec B.
+- **TauCeti.RootStack.divisibilitySpecBaseChangeIso.snd**: The scheme comparison followed by the pullback second projection equals the existing coefficient morphism Spec D_B(φ(f))→Spec D_A(f).
+- **TauCeti.RootStack.divisibilitySpecBaseChangeIso.inverse_snd**: The inverse scheme comparison followed by the coefficient morphism equals the pullback second projection to Spec D_A(f).
+
+TESTS:
+
+- **TauCeti.RootStack.divisibilitySpecBaseChangeIso.test_nonflat_pullback**: For the nonflat quotient Z→Z/4 and f=2, the four actual structural/coefficient scheme maps form a native IsPullback square.
+- **TauCeti.RootStack.divisibilitySpecBaseChangeIso.test_first_projection**: For Z→Z/4 and f=2, the first categorical projection after the scheme comparison is the actual structural map to Spec Z/4.
+- **TauCeti.RootStack.divisibilitySpecBaseChangeIso.test_wild_projection**: For Z→Z/2 and f=0, the second categorical projection after the scheme comparison is the actual coefficient scheme morphism.
+- **TauCeti.RootStack.divisibilitySpecBaseChangeIso.test_zero_ring_inverse**: For Z→Z/1 and f=0, the actual scheme comparison followed by its inverse is the identity, including the empty-chart case.
+
+## First projection of the affine base-change comparison
+
+**TauCeti.RootStack.divisibilitySpecBaseChangeIso.fst** — The scheme comparison followed by the pullback first projection equals the actual structural morphism Spec D_B(φ(f))→Spec B.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made. D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B. The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-base-change-scheme-iso, mathlib:CategoryTheory.IsPullback.isoPullback_hom_fst.
+
+Proof: Apply the first-leg identity of the native pullback comparison to the proved root-chart pullback square.
+
+## Second projection of the affine base-change comparison
+
+**TauCeti.RootStack.divisibilitySpecBaseChangeIso.snd** — The scheme comparison followed by the pullback second projection equals the existing coefficient morphism Spec D_B(φ(f))→Spec D_A(f).
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made. D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B. The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-base-change-scheme-iso, mathlib:CategoryTheory.IsPullback.isoPullback_hom_snd.
+
+Proof: Apply the second-leg identity of the native pullback comparison; the leg is the actual inherited Spec map of F_φ.
+
+## Inverse comparison and the original chart projection
+
+**TauCeti.RootStack.divisibilitySpecBaseChangeIso.inverse_snd** — The inverse scheme comparison followed by the coefficient morphism equals the pullback second projection to Spec D_A(f).
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made. D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B. The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-base-change-scheme-iso, mathlib:CategoryTheory.IsPullback.isoPullback_inv_snd.
+
+Proof: Use the native inverse second-leg identity, equivalently cancel the actual scheme isomorphism in the forward second-projection equation.
+
 # Native scheme limits of affine root charts
 
 Fix a commutative ring A and f∈A. For positive n, let B(n)=A[t_n]/(t_n^n−f), with the existing maps t_n↦t_N^(N/n) when n divides N. The indexing order is divisibility. Write D_A(f) for the actual all-positive-index colimit and C_A(f) for the actual factorial colimit.

@@ -1,3 +1,5 @@
+import Mathlib.AlgebraicGeometry.Pullbacks
+import Mathlib.Algebra.Category.Ring.Constructions
 import Mathlib.AlgebraicGeometry.GammaSpecAdjunction
 import Mathlib.CategoryTheory.Limits.Preserves.Basic
 import Mathlib.Topology.Instances.AddCircle.Defs
@@ -5353,3 +5355,272 @@ example (φ : ZMod 4 →+* ZMod 1) : divisibilitySpecCoefficientMap
   sorry
 
 end TauCeti.RootStack
+
+noncomputable section
+set_option maxHeartbeats 800000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+universe uBaseChange
+namespace TauCeti.RootStack
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
+open scoped TensorProduct
+variable {A B C : Type uBaseChange} [CommRing A] [CommRing B] [CommRing C]
+attribute [local irreducible] divisibilityCoefficientMap factorialCoefficientMap
+
+lemma divisibilityAffineColimit.ringHom_ext (f : A)
+    {g h : DivisibilityAffineColimit f →+* C}
+    (hc : ∀ a, g (algebraMap A _ a) = h (algebraMap A _ a))
+    (hr : ∀ n, g (divisibilityAffineInclusion f n (AdjoinRoot.root _)) =
+      h (divisibilityAffineInclusion f n (AdjoinRoot.root _))) : g = h := by
+  sorry
+
+def divisibilityBaseChangeLevel (φ : A →+* B) (f : A)
+    (α : DivisibilityAffineColimit f →+* C) (β : B →+* C)
+    (h : ∀ a, α (algebraMap A _ a) = β (φ a)) (n : RootDivIndex) :
+    AffineRing (φ f) n.exponent →+* C :=
+  AdjoinRoot.lift β (α (divisibilityAffineInclusion f n (AdjoinRoot.root _))) (by
+    simp only [Polynomial.eval₂_sub, Polynomial.eval₂_pow, Polynomial.eval₂_X,
+      Polynomial.eval₂_C]
+    rw [← map_pow, divisibilityAffineInclusion.pow, h, sub_self])
+
+lemma divisibilityBaseChangeLevel.root (φ : A →+* B) (f : A)
+    (α : DivisibilityAffineColimit f →+* C) (β : B →+* C)
+    (h : ∀ a, α (algebraMap A _ a) = β (φ a)) (n : RootDivIndex) :
+    divisibilityBaseChangeLevel φ f α β h n (AdjoinRoot.root _) =
+      α (divisibilityAffineInclusion f n (AdjoinRoot.root _)) := by
+  sorry
+
+lemma divisibilityBaseChangeLevel.constant (φ : A →+* B) (f : A)
+    (α : DivisibilityAffineColimit f →+* C) (β : B →+* C)
+    (h : ∀ a, α (algebraMap A _ a) = β (φ a)) (n : RootDivIndex) (b : B) :
+    divisibilityBaseChangeLevel φ f α β h n (algebraMap B _ b) = β b := by
+  sorry
+
+lemma divisibilityBaseChangeLevel.transition (φ : A →+* B) (f : A)
+    (α : DivisibilityAffineColimit f →+* C) (β : B →+* C)
+    (h : ∀ a, α (algebraMap A _ a) = β (φ a)) {n N : RootDivIndex} (hn : n ≤ N) :
+    (divisibilityBaseChangeLevel φ f α β h N).comp
+      (divisibilityAffineMap (φ f) n N hn).toRingHom =
+      divisibilityBaseChangeLevel φ f α β h n := by
+  sorry
+
+def divisibilityBaseChangeDesc (φ : A →+* B) (f : A)
+    (α : DivisibilityAffineColimit f →+* C) (β : B →+* C)
+    (h : ∀ a, α (algebraMap A _ a) = β (φ a)) :
+    DivisibilityAffineColimit (φ f) →+* C :=
+  DirectLimit.Ring.lift _ (divisibilityAffineMap (φ f)) C
+    (divisibilityBaseChangeLevel φ f α β h)
+    (fun _n _N hn x => DFunLike.congr_fun (divisibilityBaseChangeLevel.transition φ f α β h hn) x)
+
+lemma divisibilityBaseChangeDesc.level (φ : A →+* B) (f : A)
+    (α : DivisibilityAffineColimit f →+* C) (β : B →+* C)
+    (h : ∀ a, α (algebraMap A _ a) = β (φ a)) (n : RootDivIndex)
+    (x : AffineRing (φ f) n.exponent) :
+    divisibilityBaseChangeDesc φ f α β h (divisibilityAffineInclusion (φ f) n x) =
+      divisibilityBaseChangeLevel φ f α β h n x := by
+  sorry
+
+lemma divisibilityBaseChangeDesc.constant (φ : A →+* B) (f : A)
+    (α : DivisibilityAffineColimit f →+* C) (β : B →+* C)
+    (h : ∀ a, α (algebraMap A _ a) = β (φ a)) (b : B) :
+    divisibilityBaseChangeDesc φ f α β h (algebraMap B _ b) = β b := by
+  sorry
+
+lemma divisibilityBaseChangeDesc.root (φ : A →+* B) (f : A)
+    (α : DivisibilityAffineColimit f →+* C) (β : B →+* C)
+    (h : ∀ a, α (algebraMap A _ a) = β (φ a)) (n : RootDivIndex) :
+    divisibilityBaseChangeDesc φ f α β h
+      (divisibilityAffineInclusion (φ f) n (AdjoinRoot.root _)) =
+      α (divisibilityAffineInclusion f n (AdjoinRoot.root _)) := by
+  sorry
+
+lemma divisibilityBaseChangeDesc.coefficient (φ : A →+* B) (f : A)
+    (α : DivisibilityAffineColimit f →+* C) (β : B →+* C)
+    (h : ∀ a, α (algebraMap A _ a) = β (φ a)) :
+    (divisibilityBaseChangeDesc φ f α β h).comp (divisibilityCoefficientMap φ f) = α := by
+  sorry
+
+lemma divisibilityBaseChangeDesc.unique (φ : A →+* B) (f : A)
+    (α : DivisibilityAffineColimit f →+* C) (β : B →+* C)
+    (h : ∀ a, α (algebraMap A _ a) = β (φ a))
+    (g : DivisibilityAffineColimit (φ f) →+* C)
+    (hb : ∀ b, g (algebraMap B _ b) = β b)
+    (hc : g.comp (divisibilityCoefficientMap φ f) = α) :
+    g = divisibilityBaseChangeDesc φ f α β h := by
+  sorry
+
+lemma divisibilityBaseChangeIsPushout (φ : A →+* B) (f : A) :
+    IsPushout (CommRingCat.ofHom φ) (CommRingCat.ofHom (algebraMap A (DivisibilityAffineColimit f)))
+      (CommRingCat.ofHom (algebraMap B (DivisibilityAffineColimit (φ f))))
+      (CommRingCat.ofHom (divisibilityCoefficientMap φ f)) := by
+  sorry
+
+lemma divisibilitySpecCoefficientMap.isPullback (φ : A →+* B) (f : A) :
+    IsPullback (Spec.algebraMap B (DivisibilityAffineColimit (φ f)))
+      (divisibilitySpecCoefficientMap φ f) (Spec.map (CommRingCat.ofHom φ))
+      (Spec.algebraMap A (DivisibilityAffineColimit f)) := by
+  sorry
+
+end TauCeti.RootStack
+end
+
+noncomputable section
+set_option maxHeartbeats 800000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+universe uBaseCompare
+namespace TauCeti.RootStack
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
+open scoped TensorProduct
+variable {A B : Type uBaseCompare} [CommRing A] [CommRing B]
+attribute [local irreducible] divisibilityCoefficientMap factorialCoefficientMap
+
+def divisibilityTensorEquiv [Algebra A B] (f : A) :
+    B ⊗[A] DivisibilityAffineColimit f ≃ₐ[B]
+      DivisibilityAffineColimit (algebraMap A B f) :=
+  let e := (CommRingCat.isPushout_tensorProduct A B (DivisibilityAffineColimit f)).isoIsPushout _ _
+    (divisibilityBaseChangeIsPushout (algebraMap A B) f)
+  { __ := e.commRingCatIsoToRingEquiv
+    commutes' b := congrArg (fun k => k.hom b)
+      ((CommRingCat.isPushout_tensorProduct A B (DivisibilityAffineColimit f)).inl_isoIsPushout_hom _ _
+        (divisibilityBaseChangeIsPushout (algebraMap A B) f)) }
+
+lemma divisibilityTensorEquiv.right [Algebra A B] (f : A) (x : DivisibilityAffineColimit f) :
+    divisibilityTensorEquiv (B := B) f (1 ⊗ₜ[A] x) =
+      divisibilityCoefficientMap (algebraMap A B) f x := by
+  sorry
+
+lemma divisibilityTensorEquiv.tmul [Algebra A B] (f : A) (b : B)
+    (x : DivisibilityAffineColimit f) :
+    divisibilityTensorEquiv (B := B) f (b ⊗ₜ[A] x) =
+      algebraMap B _ b * divisibilityCoefficientMap (algebraMap A B) f x := by
+  sorry
+
+lemma divisibilityTensorEquiv.inverse_root [Algebra A B] (f : A) (n : RootDivIndex) :
+    (divisibilityTensorEquiv (B := B) f).symm
+      (divisibilityAffineInclusion (algebraMap A B f) n (AdjoinRoot.root _)) =
+        1 ⊗ₜ[A] divisibilityAffineInclusion f n (AdjoinRoot.root _) := by
+  sorry
+
+def divisibilitySpecBaseChangeIso (φ : A →+* B) (f : A) :
+    Spec (CommRingCat.of (DivisibilityAffineColimit (φ f))) ≅
+      pullback (Spec.map (CommRingCat.ofHom φ)) (Spec.algebraMap A (DivisibilityAffineColimit f)) :=
+  (divisibilitySpecCoefficientMap.isPullback φ f).isoPullback
+
+lemma divisibilitySpecBaseChangeIso.fst (φ : A →+* B) (f : A) :
+    (divisibilitySpecBaseChangeIso φ f).hom ≫ pullback.fst _ _ =
+      Spec.algebraMap B (DivisibilityAffineColimit (φ f)) := by
+  sorry
+
+lemma divisibilitySpecBaseChangeIso.snd (φ : A →+* B) (f : A) :
+    (divisibilitySpecBaseChangeIso φ f).hom ≫ pullback.snd _ _ =
+      divisibilitySpecCoefficientMap φ f := by
+  sorry
+
+lemma divisibilitySpecBaseChangeIso.inverse_snd (φ : A →+* B) (f : A) :
+    (divisibilitySpecBaseChangeIso φ f).inv ≫ divisibilitySpecCoefficientMap φ f =
+      pullback.snd _ _ := by
+  sorry
+
+end TauCeti.RootStack
+end
+
+noncomputable section
+set_option maxHeartbeats 800000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+universe uBCtest
+namespace TauCeti.RootStack
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
+open scoped TensorProduct
+variable {A B C : Type uBCtest} [CommRing A] [CommRing B] [CommRing C]
+attribute [local irreducible] divisibilityCoefficientMap factorialCoefficientMap
+
+-- test: divisibilityBaseChangeLevel.test_nilpotent_constant
+example : divisibilityBaseChangeLevel (RingHom.id (ZMod 4)) 2 (RingHom.id _)
+    (algebraMap (ZMod 4) (DivisibilityAffineColimit (2 : ZMod 4)))
+    (fun _ => rfl) ⟨3, by decide⟩ (algebraMap (ZMod 4) _ 2) =
+      algebraMap (ZMod 4) (DivisibilityAffineColimit (2 : ZMod 4)) 2 := by
+  sorry
+
+-- test: divisibilityBaseChangeLevel.test_wild_root
+example : divisibilityBaseChangeLevel (RingHom.id (ZMod 2)) 0 (RingHom.id _)
+    (algebraMap (ZMod 2) (DivisibilityAffineColimit (0 : ZMod 2)))
+    (fun _ => rfl) ⟨2, by decide⟩ (AdjoinRoot.root _) ^ 2 = 0 := by
+  sorry
+
+-- test: divisibilityBaseChangeLevel.test_two_six
+example (φ : A →+* B) (f : A) (α : DivisibilityAffineColimit f →+* C)
+    (β : B →+* C) (h : ∀ a, α (algebraMap A _ a) = β (φ a)) :
+    divisibilityBaseChangeLevel φ f α β h ⟨6, by decide⟩ (AdjoinRoot.root _ ^ 3) =
+      divisibilityBaseChangeLevel φ f α β h ⟨2, by decide⟩ (AdjoinRoot.root _) := by
+  sorry
+
+-- test: divisibilityBaseChangeDesc.test_nonflat_identity
+example (x : DivisibilityAffineColimit ((Int.castRingHom (ZMod 4)) (2 : ℤ))) :
+    divisibilityBaseChangeDesc (Int.castRingHom (ZMod 4)) (2 : ℤ)
+      (divisibilityCoefficientMap _ _) (algebraMap (ZMod 4) _)
+      (divisibilityCoefficientMap.constant _ _) x = x := by
+  sorry
+
+-- test: divisibilityBaseChangeDesc.test_polynomial
+example (φ : A →+* B) (f : A) (α : DivisibilityAffineColimit f →+* C)
+    (β : B →+* C) (h : ∀ a, α (algebraMap A _ a) = β (φ a)) (b : B) :
+    divisibilityBaseChangeDesc φ f α β h
+      (divisibilityAffineInclusion (φ f) ⟨3, by decide⟩ (AdjoinRoot.root _) + algebraMap B _ b) =
+      α (divisibilityAffineInclusion f ⟨3, by decide⟩ (AdjoinRoot.root _)) + β b := by
+  sorry
+
+-- test: divisibilityBaseChangeDesc.test_zero_target
+example (φ : ℤ →+* ZMod 4) (f : ℤ) (α : DivisibilityAffineColimit f →+* ZMod 1)
+    (β : ZMod 4 →+* ZMod 1) (h : ∀ a, α (algebraMap ℤ _ a) = β (φ a))
+    (x : DivisibilityAffineColimit (φ f)) :
+    divisibilityBaseChangeDesc φ f α β h x = 0 := by
+  sorry
+
+-- test: divisibilityTensorEquiv.test_nonflat_killed_constant
+example : algebraMap ℤ (DivisibilityAffineColimit (2 : ℤ)) 4 ≠ 0 ∧
+    (1 : ZMod 4) ⊗ₜ[ℤ] algebraMap ℤ (DivisibilityAffineColimit (2 : ℤ)) 4 = 0 := by
+  sorry
+
+-- test: divisibilityTensorEquiv.test_nonzero_nilpotent
+example : let z := (divisibilityTensorEquiv (B := ZMod 2) (0 : ℤ)).symm (divisibilityAffineInclusion (0 : ZMod 2) ⟨2, by decide⟩ (AdjoinRoot.root _)); z ≠ 0 ∧ z ^ 2 = 0 := by
+  sorry
+
+-- test: divisibilityTensorEquiv.test_third_root
+example : (divisibilityTensorEquiv (B := ZMod 4) (2 : ℤ)).symm
+    (divisibilityAffineInclusion (algebraMap ℤ (ZMod 4) 2) ⟨3, by decide⟩ (AdjoinRoot.root _)) =
+      (1 : ZMod 4) ⊗ₜ[ℤ] divisibilityAffineInclusion (2 : ℤ) ⟨3, by decide⟩ (AdjoinRoot.root _) := by
+  sorry
+
+-- test: divisibilityTensorEquiv.test_zero_ring
+example (x : ZMod 1 ⊗[ℤ] DivisibilityAffineColimit (0 : ℤ)) :
+    divisibilityTensorEquiv (B := ZMod 1) (0 : ℤ) x = 0 := by
+  sorry
+
+-- test: divisibilitySpecBaseChangeIso.test_nonflat_pullback
+example : IsPullback
+    (Spec.algebraMap (ZMod 4) (DivisibilityAffineColimit ((Int.castRingHom (ZMod 4)) (2 : ℤ))))
+    (divisibilitySpecCoefficientMap (Int.castRingHom (ZMod 4)) (2 : ℤ))
+    (Spec.map (CommRingCat.ofHom (Int.castRingHom (ZMod 4))))
+    (Spec.algebraMap ℤ (DivisibilityAffineColimit (2 : ℤ))) := by
+  sorry
+
+-- test: divisibilitySpecBaseChangeIso.test_first_projection
+example : (divisibilitySpecBaseChangeIso (Int.castRingHom (ZMod 4)) (2 : ℤ)).hom ≫
+    pullback.fst _ _ =
+      Spec.algebraMap (ZMod 4) (DivisibilityAffineColimit ((Int.castRingHom (ZMod 4)) (2 : ℤ))) := by
+  sorry
+
+-- test: divisibilitySpecBaseChangeIso.test_wild_projection
+example : (divisibilitySpecBaseChangeIso (Int.castRingHom (ZMod 2)) (0 : ℤ)).hom ≫
+    pullback.snd _ _ = divisibilitySpecCoefficientMap (Int.castRingHom (ZMod 2)) (0 : ℤ) := by
+  sorry
+
+-- test: divisibilitySpecBaseChangeIso.test_zero_ring_inverse
+example : (divisibilitySpecBaseChangeIso (Int.castRingHom (ZMod 1)) (0 : ℤ)).hom ≫
+    (divisibilitySpecBaseChangeIso (Int.castRingHom (ZMod 1)) (0 : ℤ)).inv = 𝟙 _ := by
+  sorry
+
+end TauCeti.RootStack
+end

@@ -15,7 +15,7 @@
     "FunctionFieldArithmeticPartII:GC.5",
     "FunctionFieldArithmeticPartII:GC.6"
   ],
-  "summary": "Partial roadmap with 388 declaration-sized nodes. Arbitrary-section rational-character LEFT coaction now has the explicit heterobasic coefficient square, identity/composition and unchanged-weight formulas, and one-way preservation of universal coinvariance. New conditional proof bodies are checked against incoming admitted coordinate/coaction contracts. All incoming source routes, general root-stack scope, nonreduced fibres and geometric/sheaf boundaries remain; no implementation or stage is certified closed. Separate native evidence proves the existing rational-character/infinite unity-root coordinate block; three computation lemmas expose natural representatives and factorial levels. No geometric or stage closure is asserted. The ten arbitrary-section rational LEFT coaction contracts now have separate admission-free exact-Mathlib proof evidence, and the ten coefficient contracts of PR5978 are replayed without their former admitted inputs. The defining-degree boundary and three additional tests are specified. Two inherited tensor-power precedence errors are corrected only in the Lean prototypes, leaving all mathematical contracts unchanged. Next complete full exact-pin Tau typing, positive-index/higher-universe transport, convolution-point identification, coherent root-object reindexing, affine Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons. These algebraic certificates do not identify all coinvariants with A. Preserve all eight gaps, thirteen requests and both source routes. The actual finite coaction equalizer is identified with the coefficient algebra through diagonal/zero-row coordinates, uniformly in wild characteristic and with arbitrary nonreduced coefficients. The factorial arbitrary-section root algebra has the actual native coefficient invariant subalgebra A. Rational-character extraction and injective finite-stage inclusions supply a finite-level criterion, existence and uniqueness of the coefficient, and the native equalizer algebra equivalence, also for wild and nonreduced bases. This algebraic calculation does not discharge the geometric quotient, Spec-limit, root-groupoid or fpqc frame-descent contracts. Positive-divisibility coaction continuation:20 explicit declarations,15 consumed API items and14 typed examples; invariant algebra identified without a geometric quotient claim. Positive-divisibility coefficient continuation:23 explicit declarations,18 API items and12 typed tests establish coefficient functoriality of the universal coaction and actual invariant algebra. Native scheme-limit continuation:21 declarations,23 API entries and21 typed tests specify the actual affine inverse-limit and its coefficient/factorial dictionary.",
+  "summary": "Partial roadmap with 388 declaration-sized nodes. Arbitrary-section rational-character LEFT coaction now has the explicit heterobasic coefficient square, identity/composition and unchanged-weight formulas, and one-way preservation of universal coinvariance. New conditional proof bodies are checked against incoming admitted coordinate/coaction contracts. All incoming source routes, general root-stack scope, nonreduced fibres and geometric/sheaf boundaries remain; no implementation or stage is certified closed. Separate native evidence proves the existing rational-character/infinite unity-root coordinate block; three computation lemmas expose natural representatives and factorial levels. No geometric or stage closure is asserted. The ten arbitrary-section rational LEFT coaction contracts now have separate admission-free exact-Mathlib proof evidence, and the ten coefficient contracts of PR5978 are replayed without their former admitted inputs. The defining-degree boundary and three additional tests are specified. Two inherited tensor-power precedence errors are corrected only in the Lean prototypes, leaving all mathematical contracts unchanged. Next complete full exact-pin Tau typing, positive-index/higher-universe transport, convolution-point identification, coherent root-object reindexing, affine Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons. These algebraic certificates do not identify all coinvariants with A. Preserve all eight gaps, thirteen requests and both source routes. The actual finite coaction equalizer is identified with the coefficient algebra through diagonal/zero-row coordinates, uniformly in wild characteristic and with arbitrary nonreduced coefficients. The factorial arbitrary-section root algebra has the actual native coefficient invariant subalgebra A. Rational-character extraction and injective finite-stage inclusions supply a finite-level criterion, existence and uniqueness of the coefficient, and the native equalizer algebra equivalence, also for wild and nonreduced bases. This algebraic calculation does not discharge the geometric quotient, Spec-limit, root-groupoid or fpqc frame-descent contracts. Positive-divisibility coaction continuation:20 explicit declarations,15 consumed API items and14 typed examples; invariant algebra identified without a geometric quotient claim. Positive-divisibility coefficient continuation:23 explicit declarations,18 API items and12 typed tests establish coefficient functoriality of the universal coaction and actual invariant algebra. Native scheme-limit continuation:21 declarations,23 API entries and21 typed tests specify the actual affine inverse-limit and its coefficient/factorial dictionary. Native affine base-change continuation:21 declarations,14 API entries and14 typed tests specify the actual ring pushout, tensor equivalence and Cartesian scheme comparison.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1900,6 +1900,90 @@
         "module": "Mathlib/RingTheory/Spectrum/Prime/Basic.lean",
         "provides": "Native PrimeSpectrum.isEmpty_iff_subsingleton used for the root-chart ring/scheme universal-property and zero-ring tests.",
         "checked": "Complete statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; indexed declaration at line71."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.PushoutCocone.IsColimit.mk",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/PullbackCone.lean",
+        "provides": "Native CategoryTheory.Limits.PushoutCocone.IsColimit.mk used for the root-specific ring pushout, tensor comparison or scheme pullback.",
+        "checked": "Complete statement and applicable ambient assumptions read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; indexed declaration at line448."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsPushout.of_isColimit",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/IsPullback/Defs.lean",
+        "provides": "Native CategoryTheory.IsPushout.of_isColimit used for the root-specific ring pushout, tensor comparison or scheme pullback.",
+        "checked": "Complete statement and applicable ambient assumptions read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; indexed declaration at line270."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.isPullback_SpecMap_of_isPushout",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Pullbacks.lean",
+        "provides": "Native AlgebraicGeometry.isPullback_SpecMap_of_isPushout used for the root-specific ring pushout, tensor comparison or scheme pullback.",
+        "checked": "Complete statement and applicable ambient assumptions read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; indexed declaration at line793."
+      },
+      {
+        "ref": "mathlib:CommRingCat.isPushout_tensorProduct",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Category/Ring/Constructions.lean",
+        "provides": "Native CommRingCat.isPushout_tensorProduct used for the root-specific ring pushout, tensor comparison or scheme pullback.",
+        "checked": "Complete statement and applicable ambient assumptions read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; indexed declaration at line116."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsPushout.isoIsPushout",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/IsPullback/Defs.lean",
+        "provides": "Native CategoryTheory.IsPushout.isoIsPushout used for the root-specific ring pushout, tensor comparison or scheme pullback.",
+        "checked": "Complete statement and applicable ambient assumptions read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; indexed declaration at line303."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsPushout.inl_isoIsPushout_hom",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/IsPullback/Defs.lean",
+        "provides": "Native CategoryTheory.IsPushout.inl_isoIsPushout_hom used for the root-specific ring pushout, tensor comparison or scheme pullback.",
+        "checked": "Complete statement and applicable ambient assumptions read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; indexed declaration at line308."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Iso.commRingCatIsoToRingEquiv",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Category/Ring/Basic.lean",
+        "provides": "Native CategoryTheory.Iso.commRingCatIsoToRingEquiv used for the root-specific ring pushout, tensor comparison or scheme pullback.",
+        "checked": "Complete statement and applicable ambient assumptions read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; indexed declaration at line710."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsPushout.inr_isoIsPushout_hom",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/IsPullback/Defs.lean",
+        "provides": "Native CategoryTheory.IsPushout.inr_isoIsPushout_hom used for the root-specific ring pushout, tensor comparison or scheme pullback.",
+        "checked": "Complete statement and applicable ambient assumptions read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; indexed declaration at line313."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsPullback.isoPullback",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/IsPullback/Defs.lean",
+        "provides": "Native CategoryTheory.IsPullback.isoPullback used for the root-specific ring pushout, tensor comparison or scheme pullback.",
+        "checked": "Complete statement and applicable ambient assumptions read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; indexed declaration at line193."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsPullback.isoPullback_hom_fst",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/IsPullback/Defs.lean",
+        "provides": "Native CategoryTheory.IsPullback.isoPullback_hom_fst used for the root-specific ring pushout, tensor comparison or scheme pullback.",
+        "checked": "Complete statement and applicable ambient assumptions read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; indexed declaration at line199."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsPullback.isoPullback_hom_snd",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/IsPullback/Defs.lean",
+        "provides": "Native CategoryTheory.IsPullback.isoPullback_hom_snd used for the root-specific ring pushout, tensor comparison or scheme pullback.",
+        "checked": "Complete statement and applicable ambient assumptions read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; indexed declaration at line206."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsPullback.isoPullback_inv_snd",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/IsPullback/Defs.lean",
+        "provides": "Native CategoryTheory.IsPullback.isoPullback_inv_snd used for the root-specific ring pushout, tensor comparison or scheme pullback.",
+        "checked": "Complete statement and applicable ambient assumptions read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; indexed declaration at line216."
       }
     ]
   },
@@ -2208,6 +2292,18 @@
       "accessed": "2026-10-03",
       "readSections": [
         "Fresh complete browser-extracted printed pages14–16 including Proposition3.5/Remark3.6, entire §3.1 local model/inverse-limit paragraph, Lemma3.7, Definition3.8 and the full Lemma3.12/Proposition3.10 proofs and Corollary3.13. No rendered-page or fresh whole-paper/version audit."
+      ]
+    },
+    {
+      "id": "RootChartBaseChange-codex-7e92bd",
+      "title": "Affine fibre products and root-colimit base change; authored deduction from Stacks §26.17",
+      "authors": "The Stacks Project Authors; root-specific deductions by Codex — codex-7e92bd",
+      "edition": "Displayed online text, accessed3 October2026",
+      "url": "https://stacks.math.columbia.edu/tag/01JO",
+      "sha256": "63f6e1836712f7c2a70a444047a6fca99ff6a7ad72eb55c001f7821c3b5d2724",
+      "accessed": "2026-10-03",
+      "readSections": [
+        "Complete displayed §26.17 and proofs freshly read, including Lemma26.17.2 on affine fibre products. Stacks Lemma32.2.1 tag01YW was also read in full as inverse-limit context; source and HTTP receipts are separate."
       ]
     }
   ],
@@ -3087,12 +3183,16 @@
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/infinite-root-stack",
-        "FunctionFieldArithmeticPartII:RS.1/base-change"
+        "FunctionFieldArithmeticPartII:RS.1/base-change",
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-tensor-equivalence",
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-scheme-first",
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-scheme-second"
       ],
       "proofSteps": [
         "Apply finite base change at every exponent.",
         "The comparisons preserve all transition isomorphisms and cocycles.",
-        "Construct inverse functors componentwise on compatible systems."
+        "Construct inverse functors componentwise on compatible systems.",
+        "For the rank-one affine chart, use the actual arbitrary-ring-map pushout and the native scheme base-change isomorphism, with both projections and the tensor root/coefficient formulas. Then separately construct coherent componentwise root-object equivalences, finite-projection coherence and fpqc descent to obtain the stated root-stack comparison on general bases."
       ],
       "acceptance": [
         "This includes the closed fibre of a mixed-characteristic DVR."
@@ -27788,6 +27888,1347 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/native-ring-hom-ext",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Root-colimit ring-map extensionality",
+      "declarationName": "TauCeti.RootStack.divisibilityAffineColimit.ringHom_ext",
+      "statement": "For ring maps g,h:D_A(f)→C, equality on every coefficient a∈A and every positive-index root κ_n(t_n) implies g=h. C need not carry a specified A-algebra structure.",
+      "hypotheses": [
+        "A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made.",
+        "D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B.",
+        "The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-colimit",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion",
+        "mathlib:DirectLimit.Ring.hom_ext",
+        "mathlib:AdjoinRoot.ringHom_ext"
+      ],
+      "proofSteps": [
+        "Apply native direct-limit ring-map extensionality. At each finite chart, AdjoinRoot ring-map extensionality reduces equality to the coefficient and root hypotheses; the actual inclusions preserve coefficients."
+      ],
+      "acceptance": [
+        "For ring maps g,h:D_A(f)→C, equality on every coefficient a∈A and every positive-index root κ_n(t_n) implies g=h. C need not carry a specified A-algebra structure.",
+        "Retain actual ring maps, tensor products and native scheme morphisms, including structure-sheaf data, nonflat coefficients and nilpotents."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Supplies the rank-one affine-chart Cartesian base-change calculation. Coherent root-object comparisons and their finite-stage and fpqc descent laws are independently required for the infinite root-stack statement."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Makes the affine root chart compatible with arbitrary change of coefficient ring before the separately required frame-torsor and quotient-groupoid comparisons."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "RootChartBaseChange-codex-7e92bd",
+          "locator": "Stacks Project §26.17, Lemma26.17.2 (tag01JO), affine fibre products and the tensor-product universal property; authored rank-one root-colimit deduction.",
+          "match": "The cited complete proof supplies the native geometric interpretation of ring pushouts. The root-specific universal map is deduced from the existing finite root equations and their divisibility compatibility. No fpqc root-stack comparison is inferred."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed p.14 inverse-limit description; Proposition3.10 pp.15–16 delimits the separate quotient-stack use.",
+          "match": "Uses the inherited all-positive-index affine chart. The tensor and native scheme comparison laws here are authored deductions, not a claim that these exact Lean API statements occur in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/native-base-change-level",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "construction",
+      "title": "Finite root map from compatible coefficient data",
+      "declarationName": "TauCeti.RootStack.divisibilityBaseChangeLevel",
+      "statement": "For α:D_A(f)→C and β:B→C with α(a)=β(φ(a)) for every a∈A, construct L_n:B[t_n]/(t_n^n−φ(f))→C with t_n↦α(κ_n(t_n)) and coefficient map β, at every positive n.",
+      "hypotheses": [
+        "A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made.",
+        "D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B.",
+        "The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion-power",
+        "mathlib:AdjoinRoot.lift"
+      ],
+      "proofSteps": [
+        "Use the native AdjoinRoot lift. The image of the root polynomial vanishes because κ_n(t_n)^n=f, α preserves powers, and the compatibility hypothesis identifies α(f) with β(φ(f))."
+      ],
+      "acceptance": [
+        "For α:D_A(f)→C and β:B→C with α(a)=β(φ(a)) for every a∈A, construct L_n:B[t_n]/(t_n^n−φ(f))→C with t_n↦α(κ_n(t_n)) and coefficient map β, at every positive n.",
+        "Retain actual ring maps, tensor products and native scheme morphisms, including structure-sheaf data, nonflat coefficients and nilpotents."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.divisibilityBaseChangeLevel.root",
+          "role": "compatibility",
+          "statement": "L_n(t_n)=α(κ_n(t_n)) for every positive n."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityBaseChangeLevel.constant",
+          "role": "compatibility",
+          "statement": "L_n(b)=β(b) for every b∈B and every positive n, where b is included through the actual coefficient algebra map."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityBaseChangeLevel.transition",
+          "role": "compatibility",
+          "statement": "If n divides N, L_N composed with the actual root transition B(n)→B(N), t_n↦t_N^(N/n), equals L_n as a ring map."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.divisibilityBaseChangeLevel.test_nilpotent_constant",
+          "kind": "computation",
+          "statement": "Over Z/4 at f=2 and nonfactorial index3, the finite universal map preserves the actual nilpotent coefficient2."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityBaseChangeLevel.test_wild_root",
+          "kind": "degenerate",
+          "statement": "Over Z/2 at f=0 and n=2, the image of the actual root under the finite universal map has square zero."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityBaseChangeLevel.test_two_six",
+          "kind": "compatibility",
+          "statement": "For arbitrary compatible α and β, the level6 image of t_6³ equals the level2 image of t_2."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Supplies the rank-one affine-chart Cartesian base-change calculation. Coherent root-object comparisons and their finite-stage and fpqc descent laws are independently required for the infinite root-stack statement."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Makes the affine root chart compatible with arbitrary change of coefficient ring before the separately required frame-torsor and quotient-groupoid comparisons."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "RootChartBaseChange-codex-7e92bd",
+          "locator": "Stacks Project §26.17, Lemma26.17.2 (tag01JO), affine fibre products and the tensor-product universal property; authored rank-one root-colimit deduction.",
+          "match": "The cited complete proof supplies the native geometric interpretation of ring pushouts. The root-specific universal map is deduced from the existing finite root equations and their divisibility compatibility. No fpqc root-stack comparison is inferred."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed p.14 inverse-limit description; Proposition3.10 pp.15–16 delimits the separate quotient-stack use.",
+          "match": "Uses the inherited all-positive-index affine chart. The tensor and native scheme comparison laws here are authored deductions, not a claim that these exact Lean API statements occur in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/native-base-change-level-root",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Finite base-change root formula",
+      "declarationName": "TauCeti.RootStack.divisibilityBaseChangeLevel.root",
+      "statement": "L_n(t_n)=α(κ_n(t_n)) for every positive n.",
+      "hypotheses": [
+        "A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made.",
+        "D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B.",
+        "The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-level"
+      ],
+      "proofSteps": [
+        "Evaluate the actual AdjoinRoot lift on its distinguished root using the native lift-root law."
+      ],
+      "acceptance": [
+        "L_n(t_n)=α(κ_n(t_n)) for every positive n.",
+        "Retain actual ring maps, tensor products and native scheme morphisms, including structure-sheaf data, nonflat coefficients and nilpotents."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Supplies the rank-one affine-chart Cartesian base-change calculation. Coherent root-object comparisons and their finite-stage and fpqc descent laws are independently required for the infinite root-stack statement."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Makes the affine root chart compatible with arbitrary change of coefficient ring before the separately required frame-torsor and quotient-groupoid comparisons."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "RootChartBaseChange-codex-7e92bd",
+          "locator": "Stacks Project §26.17, Lemma26.17.2 (tag01JO), affine fibre products and the tensor-product universal property; authored rank-one root-colimit deduction.",
+          "match": "The cited complete proof supplies the native geometric interpretation of ring pushouts. The root-specific universal map is deduced from the existing finite root equations and their divisibility compatibility. No fpqc root-stack comparison is inferred."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed p.14 inverse-limit description; Proposition3.10 pp.15–16 delimits the separate quotient-stack use.",
+          "match": "Uses the inherited all-positive-index affine chart. The tensor and native scheme comparison laws here are authored deductions, not a claim that these exact Lean API statements occur in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/native-base-change-level-constant",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Finite base-change coefficient formula",
+      "declarationName": "TauCeti.RootStack.divisibilityBaseChangeLevel.constant",
+      "statement": "L_n(b)=β(b) for every b∈B and every positive n, where b is included through the actual coefficient algebra map.",
+      "hypotheses": [
+        "A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made.",
+        "D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B.",
+        "The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-level"
+      ],
+      "proofSteps": [
+        "Identify the native AdjoinRoot algebra map with its coefficient ring map and apply the lift-on-coefficients law."
+      ],
+      "acceptance": [
+        "L_n(b)=β(b) for every b∈B and every positive n, where b is included through the actual coefficient algebra map.",
+        "Retain actual ring maps, tensor products and native scheme morphisms, including structure-sheaf data, nonflat coefficients and nilpotents."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Supplies the rank-one affine-chart Cartesian base-change calculation. Coherent root-object comparisons and their finite-stage and fpqc descent laws are independently required for the infinite root-stack statement."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Makes the affine root chart compatible with arbitrary change of coefficient ring before the separately required frame-torsor and quotient-groupoid comparisons."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "RootChartBaseChange-codex-7e92bd",
+          "locator": "Stacks Project §26.17, Lemma26.17.2 (tag01JO), affine fibre products and the tensor-product universal property; authored rank-one root-colimit deduction.",
+          "match": "The cited complete proof supplies the native geometric interpretation of ring pushouts. The root-specific universal map is deduced from the existing finite root equations and their divisibility compatibility. No fpqc root-stack comparison is inferred."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed p.14 inverse-limit description; Proposition3.10 pp.15–16 delimits the separate quotient-stack use.",
+          "match": "Uses the inherited all-positive-index affine chart. The tensor and native scheme comparison laws here are authored deductions, not a claim that these exact Lean API statements occur in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/native-base-change-level-transition",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Compatibility with positive divisibility",
+      "declarationName": "TauCeti.RootStack.divisibilityBaseChangeLevel.transition",
+      "statement": "If n divides N, L_N composed with the actual root transition B(n)→B(N), t_n↦t_N^(N/n), equals L_n as a ring map.",
+      "hypotheses": [
+        "A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made.",
+        "D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B.",
+        "The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-level-root",
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-level-constant",
+        "FunctionFieldArithmeticPartII:RS.2/affine-divisibility-root",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion-root",
+        "mathlib:AdjoinRoot.ringHom_ext"
+      ],
+      "proofSteps": [
+        "Compare the ring maps on coefficients and the root. Coefficients give β on both sides. On the root, preservation of powers and the inherited inclusion transition identify α(κ_N(t_N)^(N/n)) with α(κ_n(t_n))."
+      ],
+      "acceptance": [
+        "If n divides N, L_N composed with the actual root transition B(n)→B(N), t_n↦t_N^(N/n), equals L_n as a ring map.",
+        "Retain actual ring maps, tensor products and native scheme morphisms, including structure-sheaf data, nonflat coefficients and nilpotents."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Supplies the rank-one affine-chart Cartesian base-change calculation. Coherent root-object comparisons and their finite-stage and fpqc descent laws are independently required for the infinite root-stack statement."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Makes the affine root chart compatible with arbitrary change of coefficient ring before the separately required frame-torsor and quotient-groupoid comparisons."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "RootChartBaseChange-codex-7e92bd",
+          "locator": "Stacks Project §26.17, Lemma26.17.2 (tag01JO), affine fibre products and the tensor-product universal property; authored rank-one root-colimit deduction.",
+          "match": "The cited complete proof supplies the native geometric interpretation of ring pushouts. The root-specific universal map is deduced from the existing finite root equations and their divisibility compatibility. No fpqc root-stack comparison is inferred."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed p.14 inverse-limit description; Proposition3.10 pp.15–16 delimits the separate quotient-stack use.",
+          "match": "Uses the inherited all-positive-index affine chart. The tensor and native scheme comparison laws here are authored deductions, not a claim that these exact Lean API statements occur in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/native-base-change-desc",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "construction",
+      "title": "Universal map from the base-changed root colimit",
+      "declarationName": "TauCeti.RootStack.divisibilityBaseChangeDesc",
+      "statement": "For compatible α:D_A(f)→C and β:B→C, construct δ:D_B(φ(f))→C from the finite maps L_n, for arbitrary commutative C in the coefficient universe.",
+      "hypotheses": [
+        "A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made.",
+        "D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B.",
+        "The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-level-transition",
+        "mathlib:DirectLimit.Ring.lift"
+      ],
+      "proofSteps": [
+        "Apply the native direct-limit ring lift to the concrete family L_n. The preceding equality of ring maps supplies elementwise compatibility for every divisibility arrow."
+      ],
+      "acceptance": [
+        "For compatible α:D_A(f)→C and β:B→C, construct δ:D_B(φ(f))→C from the finite maps L_n, for arbitrary commutative C in the coefficient universe.",
+        "Retain actual ring maps, tensor products and native scheme morphisms, including structure-sheaf data, nonflat coefficients and nilpotents."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.divisibilityBaseChangeDesc.level",
+          "role": "compatibility",
+          "statement": "For x in the actual n-th root algebra over B, δ(κ_n(x))=L_n(x)."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityBaseChangeDesc.constant",
+          "role": "compatibility",
+          "statement": "For every b∈B, δ(b)=β(b) under the actual coefficient inclusion B→D_B(φ(f))."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityBaseChangeDesc.root",
+          "role": "compatibility",
+          "statement": "For every positive n, δ(κ_n(t_n))=α(κ_n(t_n)), with the left root over B and the right root over A."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityBaseChangeDesc.coefficient",
+          "role": "compatibility",
+          "statement": "δ composed with F_φ:D_A(f)→D_B(φ(f)), the existing coefficient ring map, equals α."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityBaseChangeDesc.unique",
+          "role": "universal-property",
+          "statement": "A ring map g:D_B(φ(f))→C with g(b)=β(b) for every b∈B and g∘F_φ=α equals δ."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.divisibilityBaseChangeDesc.test_nonflat_identity",
+          "kind": "compatibility",
+          "statement": "For Z→Z/4 at f=2, descent from the actual coefficient map and B-inclusion is the identity on every element of D_B(2)."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityBaseChangeDesc.test_polynomial",
+          "kind": "computation",
+          "statement": "For arbitrary compatible α and β, descent sends the actual third root plus coefficient b to α of the third root plus β(b)."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityBaseChangeDesc.test_zero_target",
+          "kind": "degenerate",
+          "statement": "For a compatible cocone with target Z/1, the actual descent map sends every colimit element to zero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Supplies the rank-one affine-chart Cartesian base-change calculation. Coherent root-object comparisons and their finite-stage and fpqc descent laws are independently required for the infinite root-stack statement."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Makes the affine root chart compatible with arbitrary change of coefficient ring before the separately required frame-torsor and quotient-groupoid comparisons."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "RootChartBaseChange-codex-7e92bd",
+          "locator": "Stacks Project §26.17, Lemma26.17.2 (tag01JO), affine fibre products and the tensor-product universal property; authored rank-one root-colimit deduction.",
+          "match": "The cited complete proof supplies the native geometric interpretation of ring pushouts. The root-specific universal map is deduced from the existing finite root equations and their divisibility compatibility. No fpqc root-stack comparison is inferred."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed p.14 inverse-limit description; Proposition3.10 pp.15–16 delimits the separate quotient-stack use.",
+          "match": "Uses the inherited all-positive-index affine chart. The tensor and native scheme comparison laws here are authored deductions, not a claim that these exact Lean API statements occur in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/native-base-change-desc-level",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Universal map at every finite chart",
+      "declarationName": "TauCeti.RootStack.divisibilityBaseChangeDesc.level",
+      "statement": "For x in the actual n-th root algebra over B, δ(κ_n(x))=L_n(x).",
+      "hypotheses": [
+        "A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made.",
+        "D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B.",
+        "The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-desc",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion"
+      ],
+      "proofSteps": [
+        "Evaluate the actual direct-limit ring lift on a finite inclusion. The displayed formula is definitional for the inherited direct-limit carrier."
+      ],
+      "acceptance": [
+        "For x in the actual n-th root algebra over B, δ(κ_n(x))=L_n(x).",
+        "Retain actual ring maps, tensor products and native scheme morphisms, including structure-sheaf data, nonflat coefficients and nilpotents."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Supplies the rank-one affine-chart Cartesian base-change calculation. Coherent root-object comparisons and their finite-stage and fpqc descent laws are independently required for the infinite root-stack statement."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Makes the affine root chart compatible with arbitrary change of coefficient ring before the separately required frame-torsor and quotient-groupoid comparisons."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "RootChartBaseChange-codex-7e92bd",
+          "locator": "Stacks Project §26.17, Lemma26.17.2 (tag01JO), affine fibre products and the tensor-product universal property; authored rank-one root-colimit deduction.",
+          "match": "The cited complete proof supplies the native geometric interpretation of ring pushouts. The root-specific universal map is deduced from the existing finite root equations and their divisibility compatibility. No fpqc root-stack comparison is inferred."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed p.14 inverse-limit description; Proposition3.10 pp.15–16 delimits the separate quotient-stack use.",
+          "match": "Uses the inherited all-positive-index affine chart. The tensor and native scheme comparison laws here are authored deductions, not a claim that these exact Lean API statements occur in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/native-base-change-desc-constant",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Universal map on coefficients",
+      "declarationName": "TauCeti.RootStack.divisibilityBaseChangeDesc.constant",
+      "statement": "For every b∈B, δ(b)=β(b) under the actual coefficient inclusion B→D_B(φ(f)).",
+      "hypotheses": [
+        "A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made.",
+        "D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B.",
+        "The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-desc-level",
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-level-constant"
+      ],
+      "proofSteps": [
+        "Express the coefficient through the positive index1 inclusion using its algebra-map law, evaluate δ at that finite level, and use the finite coefficient formula."
+      ],
+      "acceptance": [
+        "For every b∈B, δ(b)=β(b) under the actual coefficient inclusion B→D_B(φ(f)).",
+        "Retain actual ring maps, tensor products and native scheme morphisms, including structure-sheaf data, nonflat coefficients and nilpotents."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Supplies the rank-one affine-chart Cartesian base-change calculation. Coherent root-object comparisons and their finite-stage and fpqc descent laws are independently required for the infinite root-stack statement."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Makes the affine root chart compatible with arbitrary change of coefficient ring before the separately required frame-torsor and quotient-groupoid comparisons."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "RootChartBaseChange-codex-7e92bd",
+          "locator": "Stacks Project §26.17, Lemma26.17.2 (tag01JO), affine fibre products and the tensor-product universal property; authored rank-one root-colimit deduction.",
+          "match": "The cited complete proof supplies the native geometric interpretation of ring pushouts. The root-specific universal map is deduced from the existing finite root equations and their divisibility compatibility. No fpqc root-stack comparison is inferred."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed p.14 inverse-limit description; Proposition3.10 pp.15–16 delimits the separate quotient-stack use.",
+          "match": "Uses the inherited all-positive-index affine chart. The tensor and native scheme comparison laws here are authored deductions, not a claim that these exact Lean API statements occur in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/native-base-change-desc-root",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Universal map on all positive roots",
+      "declarationName": "TauCeti.RootStack.divisibilityBaseChangeDesc.root",
+      "statement": "For every positive n, δ(κ_n(t_n))=α(κ_n(t_n)), with the left root over B and the right root over A.",
+      "hypotheses": [
+        "A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made.",
+        "D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B.",
+        "The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-desc-level",
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-level-root"
+      ],
+      "proofSteps": [
+        "Specialize evaluation at a finite chart to its distinguished root and use the finite root formula."
+      ],
+      "acceptance": [
+        "For every positive n, δ(κ_n(t_n))=α(κ_n(t_n)), with the left root over B and the right root over A.",
+        "Retain actual ring maps, tensor products and native scheme morphisms, including structure-sheaf data, nonflat coefficients and nilpotents."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Supplies the rank-one affine-chart Cartesian base-change calculation. Coherent root-object comparisons and their finite-stage and fpqc descent laws are independently required for the infinite root-stack statement."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Makes the affine root chart compatible with arbitrary change of coefficient ring before the separately required frame-torsor and quotient-groupoid comparisons."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "RootChartBaseChange-codex-7e92bd",
+          "locator": "Stacks Project §26.17, Lemma26.17.2 (tag01JO), affine fibre products and the tensor-product universal property; authored rank-one root-colimit deduction.",
+          "match": "The cited complete proof supplies the native geometric interpretation of ring pushouts. The root-specific universal map is deduced from the existing finite root equations and their divisibility compatibility. No fpqc root-stack comparison is inferred."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed p.14 inverse-limit description; Proposition3.10 pp.15–16 delimits the separate quotient-stack use.",
+          "match": "Uses the inherited all-positive-index affine chart. The tensor and native scheme comparison laws here are authored deductions, not a claim that these exact Lean API statements occur in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/native-base-change-desc-coefficient",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Factorization of the inherited coefficient map",
+      "declarationName": "TauCeti.RootStack.divisibilityBaseChangeDesc.coefficient",
+      "statement": "δ composed with F_φ:D_A(f)→D_B(φ(f)), the existing coefficient ring map, equals α.",
+      "hypotheses": [
+        "A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made.",
+        "D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B.",
+        "The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-desc-constant",
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-desc-root",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-constant",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-root",
+        "FunctionFieldArithmeticPartII:RS.2/native-ring-hom-ext"
+      ],
+      "proofSteps": [
+        "Use root-colimit ring-map extensionality. On A-coefficients, use the given compatibility of α and β; on every root, combine the existing coefficient-root formula with the new universal-root formula."
+      ],
+      "acceptance": [
+        "δ composed with F_φ:D_A(f)→D_B(φ(f)), the existing coefficient ring map, equals α.",
+        "Retain actual ring maps, tensor products and native scheme morphisms, including structure-sheaf data, nonflat coefficients and nilpotents."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Supplies the rank-one affine-chart Cartesian base-change calculation. Coherent root-object comparisons and their finite-stage and fpqc descent laws are independently required for the infinite root-stack statement."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Makes the affine root chart compatible with arbitrary change of coefficient ring before the separately required frame-torsor and quotient-groupoid comparisons."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "RootChartBaseChange-codex-7e92bd",
+          "locator": "Stacks Project §26.17, Lemma26.17.2 (tag01JO), affine fibre products and the tensor-product universal property; authored rank-one root-colimit deduction.",
+          "match": "The cited complete proof supplies the native geometric interpretation of ring pushouts. The root-specific universal map is deduced from the existing finite root equations and their divisibility compatibility. No fpqc root-stack comparison is inferred."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed p.14 inverse-limit description; Proposition3.10 pp.15–16 delimits the separate quotient-stack use.",
+          "match": "Uses the inherited all-positive-index affine chart. The tensor and native scheme comparison laws here are authored deductions, not a claim that these exact Lean API statements occur in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/native-base-change-desc-unique",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Uniqueness of the base-change universal map",
+      "declarationName": "TauCeti.RootStack.divisibilityBaseChangeDesc.unique",
+      "statement": "A ring map g:D_B(φ(f))→C with g(b)=β(b) for every b∈B and g∘F_φ=α equals δ.",
+      "hypotheses": [
+        "A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made.",
+        "D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B.",
+        "The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-desc-constant",
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-desc-root",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-root",
+        "FunctionFieldArithmeticPartII:RS.2/native-ring-hom-ext"
+      ],
+      "proofSteps": [
+        "Compare g and δ on B-coefficients and every positive root. Apply the factorization equality g∘F_φ=α to each original root and use the inherited coefficient-root formula."
+      ],
+      "acceptance": [
+        "A ring map g:D_B(φ(f))→C with g(b)=β(b) for every b∈B and g∘F_φ=α equals δ.",
+        "Retain actual ring maps, tensor products and native scheme morphisms, including structure-sheaf data, nonflat coefficients and nilpotents."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Supplies the rank-one affine-chart Cartesian base-change calculation. Coherent root-object comparisons and their finite-stage and fpqc descent laws are independently required for the infinite root-stack statement."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Makes the affine root chart compatible with arbitrary change of coefficient ring before the separately required frame-torsor and quotient-groupoid comparisons."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "RootChartBaseChange-codex-7e92bd",
+          "locator": "Stacks Project §26.17, Lemma26.17.2 (tag01JO), affine fibre products and the tensor-product universal property; authored rank-one root-colimit deduction.",
+          "match": "The cited complete proof supplies the native geometric interpretation of ring pushouts. The root-specific universal map is deduced from the existing finite root equations and their divisibility compatibility. No fpqc root-stack comparison is inferred."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed p.14 inverse-limit description; Proposition3.10 pp.15–16 delimits the separate quotient-stack use.",
+          "match": "Uses the inherited all-positive-index affine chart. The tensor and native scheme comparison laws here are authored deductions, not a claim that these exact Lean API statements occur in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/native-base-change-pushout",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "theorem",
+      "title": "Arbitrary base change as a ring pushout",
+      "declarationName": "TauCeti.RootStack.divisibilityBaseChangeIsPushout",
+      "statement": "The actual square A→B, A→D_A(f), B→D_B(φ(f)), D_A(f)→D_B(φ(f)) is a pushout in native CommRingCat for every unital φ:A→B.",
+      "hypotheses": [
+        "A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made.",
+        "D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B.",
+        "The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-constant",
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-desc",
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-desc-constant",
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-desc-coefficient",
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-desc-unique",
+        "mathlib:CategoryTheory.Limits.PushoutCocone.IsColimit.mk",
+        "mathlib:CategoryTheory.IsPushout.of_isColimit"
+      ],
+      "proofSteps": [
+        "The inherited coefficient formula proves the square commutes. For an arbitrary native pushout cocone, take α and β to be its right and left ring maps. Its cocone equation supplies compatibility, δ supplies descent, the two factorization laws give both legs, and uniqueness gives the native IsColimit witness."
+      ],
+      "acceptance": [
+        "The actual square A→B, A→D_A(f), B→D_B(φ(f)), D_A(f)→D_B(φ(f)) is a pushout in native CommRingCat for every unital φ:A→B.",
+        "Retain actual ring maps, tensor products and native scheme morphisms, including structure-sheaf data, nonflat coefficients and nilpotents."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Supplies the rank-one affine-chart Cartesian base-change calculation. Coherent root-object comparisons and their finite-stage and fpqc descent laws are independently required for the infinite root-stack statement."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Makes the affine root chart compatible with arbitrary change of coefficient ring before the separately required frame-torsor and quotient-groupoid comparisons."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "RootChartBaseChange-codex-7e92bd",
+          "locator": "Stacks Project §26.17, Lemma26.17.2 (tag01JO), affine fibre products and the tensor-product universal property; authored rank-one root-colimit deduction.",
+          "match": "The cited complete proof supplies the native geometric interpretation of ring pushouts. The root-specific universal map is deduced from the existing finite root equations and their divisibility compatibility. No fpqc root-stack comparison is inferred."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed p.14 inverse-limit description; Proposition3.10 pp.15–16 delimits the separate quotient-stack use.",
+          "match": "Uses the inherited all-positive-index affine chart. The tensor and native scheme comparison laws here are authored deductions, not a claim that these exact Lean API statements occur in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/native-base-change-pullback",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "theorem",
+      "title": "Cartesian base-change square of infinite affine charts",
+      "declarationName": "TauCeti.RootStack.divisibilitySpecCoefficientMap.isPullback",
+      "statement": "The square Spec D_B(φ(f))→Spec B, Spec D_B(φ(f))→Spec D_A(f), Spec B→Spec A, Spec D_A(f)→Spec A is a pullback in the native category Scheme, for every φ.",
+      "hypotheses": [
+        "A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made.",
+        "D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B.",
+        "The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-pushout",
+        "FunctionFieldArithmeticPartII:RS.2/native-scheme-coefficient-map",
+        "mathlib:AlgebraicGeometry.isPullback_SpecMap_of_isPushout"
+      ],
+      "proofSteps": [
+        "Apply the pinned native theorem sending commutative-ring pushouts to scheme pullbacks to the actual root-specific ring square. Its universal property ranges over arbitrary test schemes, not just affine schemes or their points."
+      ],
+      "acceptance": [
+        "The square Spec D_B(φ(f))→Spec B, Spec D_B(φ(f))→Spec D_A(f), Spec B→Spec A, Spec D_A(f)→Spec A is a pullback in the native category Scheme, for every φ.",
+        "Retain actual ring maps, tensor products and native scheme morphisms, including structure-sheaf data, nonflat coefficients and nilpotents."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Supplies the rank-one affine-chart Cartesian base-change calculation. Coherent root-object comparisons and their finite-stage and fpqc descent laws are independently required for the infinite root-stack statement."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Makes the affine root chart compatible with arbitrary change of coefficient ring before the separately required frame-torsor and quotient-groupoid comparisons."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "RootChartBaseChange-codex-7e92bd",
+          "locator": "Stacks Project §26.17, Lemma26.17.2 (tag01JO), affine fibre products and the tensor-product universal property; authored rank-one root-colimit deduction.",
+          "match": "The cited complete proof supplies the native geometric interpretation of ring pushouts. The root-specific universal map is deduced from the existing finite root equations and their divisibility compatibility. No fpqc root-stack comparison is inferred."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed p.14 inverse-limit description; Proposition3.10 pp.15–16 delimits the separate quotient-stack use.",
+          "match": "Uses the inherited all-positive-index affine chart. The tensor and native scheme comparison laws here are authored deductions, not a claim that these exact Lean API statements occur in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/native-base-change-tensor-equivalence",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "construction",
+      "title": "Tensor description of the base-changed root algebra",
+      "declarationName": "TauCeti.RootStack.divisibilityTensorEquiv",
+      "statement": "Given an A-algebra B, construct the native B-algebra equivalence E:B⊗_A D_A(f)≃D_B(φ(f)), where φ is the actual algebra map A→B.",
+      "hypotheses": [
+        "A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made.",
+        "D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B.",
+        "The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-pushout",
+        "mathlib:CommRingCat.isPushout_tensorProduct",
+        "mathlib:CategoryTheory.IsPushout.isoIsPushout",
+        "mathlib:CategoryTheory.IsPushout.inl_isoIsPushout_hom",
+        "mathlib:CategoryTheory.Iso.commRingCatIsoToRingEquiv"
+      ],
+      "proofSteps": [
+        "Compare the native tensor-product ring pushout with the proved root-colimit pushout using uniqueness of colimits. Convert the resulting native ring isomorphism to a ring equivalence; its left-leg formula proves B-algebra compatibility."
+      ],
+      "acceptance": [
+        "Given an A-algebra B, construct the native B-algebra equivalence E:B⊗_A D_A(f)≃D_B(φ(f)), where φ is the actual algebra map A→B.",
+        "Retain actual ring maps, tensor products and native scheme morphisms, including structure-sheaf data, nonflat coefficients and nilpotents."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.divisibilityTensorEquiv.right",
+          "role": "compatibility",
+          "statement": "For every x∈D_A(f), E(1⊗x)=F_φ(x)."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityTensorEquiv.tmul",
+          "role": "compatibility",
+          "statement": "For every b∈B and x∈D_A(f), E(b⊗x)=b·F_φ(x), where the coefficient b is included in D_B(φ(f))."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityTensorEquiv.inverse_root",
+          "role": "compatibility",
+          "statement": "For every positive n, E⁻¹(κ_n(t_n))=1⊗κ_n(t_n), with the left root over B and the right root over A."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.divisibilityTensorEquiv.test_nonflat_killed_constant",
+          "kind": "non-example",
+          "statement": "The coefficient4 is nonzero in D_Z(2), while its pure tensor1⊗4 over Z/4 is zero. Tensor base-change equivalence does not assert injectivity of the original coefficient map."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityTensorEquiv.test_nonzero_nilpotent",
+          "kind": "degenerate",
+          "statement": "Over Z/2 at f=0, the inverse tensor image of the degree2 root is nonzero and has square zero; the wild nilpotent is retained in the actual tensor algebra."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityTensorEquiv.test_third_root",
+          "kind": "computation",
+          "statement": "For Z→Z/4 at f=2 and index3, the inverse comparison carries the actual B-root to1⊗ the actual Z-root."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityTensorEquiv.test_zero_ring",
+          "kind": "degenerate",
+          "statement": "With B=Z/1 and A=Z, every tensor maps to zero in the actual base-changed root colimit."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Supplies the rank-one affine-chart Cartesian base-change calculation. Coherent root-object comparisons and their finite-stage and fpqc descent laws are independently required for the infinite root-stack statement."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Makes the affine root chart compatible with arbitrary change of coefficient ring before the separately required frame-torsor and quotient-groupoid comparisons."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "RootChartBaseChange-codex-7e92bd",
+          "locator": "Stacks Project §26.17, Lemma26.17.2 (tag01JO), affine fibre products and the tensor-product universal property; authored rank-one root-colimit deduction.",
+          "match": "The cited complete proof supplies the native geometric interpretation of ring pushouts. The root-specific universal map is deduced from the existing finite root equations and their divisibility compatibility. No fpqc root-stack comparison is inferred."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed p.14 inverse-limit description; Proposition3.10 pp.15–16 delimits the separate quotient-stack use.",
+          "match": "Uses the inherited all-positive-index affine chart. The tensor and native scheme comparison laws here are authored deductions, not a claim that these exact Lean API statements occur in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/native-base-change-tensor-right",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Tensor comparison on the original root algebra",
+      "declarationName": "TauCeti.RootStack.divisibilityTensorEquiv.right",
+      "statement": "For every x∈D_A(f), E(1⊗x)=F_φ(x).",
+      "hypotheses": [
+        "A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made.",
+        "D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B.",
+        "The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-tensor-equivalence",
+        "mathlib:CategoryTheory.IsPushout.inr_isoIsPushout_hom"
+      ],
+      "proofSteps": [
+        "Evaluate the native right-leg identity of the pushout comparison at x. The tensor right leg is the actual map x↦1⊗x."
+      ],
+      "acceptance": [
+        "For every x∈D_A(f), E(1⊗x)=F_φ(x).",
+        "Retain actual ring maps, tensor products and native scheme morphisms, including structure-sheaf data, nonflat coefficients and nilpotents."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Supplies the rank-one affine-chart Cartesian base-change calculation. Coherent root-object comparisons and their finite-stage and fpqc descent laws are independently required for the infinite root-stack statement."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Makes the affine root chart compatible with arbitrary change of coefficient ring before the separately required frame-torsor and quotient-groupoid comparisons."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "RootChartBaseChange-codex-7e92bd",
+          "locator": "Stacks Project §26.17, Lemma26.17.2 (tag01JO), affine fibre products and the tensor-product universal property; authored rank-one root-colimit deduction.",
+          "match": "The cited complete proof supplies the native geometric interpretation of ring pushouts. The root-specific universal map is deduced from the existing finite root equations and their divisibility compatibility. No fpqc root-stack comparison is inferred."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed p.14 inverse-limit description; Proposition3.10 pp.15–16 delimits the separate quotient-stack use.",
+          "match": "Uses the inherited all-positive-index affine chart. The tensor and native scheme comparison laws here are authored deductions, not a claim that these exact Lean API statements occur in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/native-base-change-tensor-pure",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Tensor comparison on pure tensors",
+      "declarationName": "TauCeti.RootStack.divisibilityTensorEquiv.tmul",
+      "statement": "For every b∈B and x∈D_A(f), E(b⊗x)=b·F_φ(x), where the coefficient b is included in D_B(φ(f)).",
+      "hypotheses": [
+        "A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made.",
+        "D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B.",
+        "The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-tensor-right",
+        "mathlib:Algebra.TensorProduct.algebraMap_apply"
+      ],
+      "proofSteps": [
+        "Write b⊗x as the B-coefficient b times 1⊗x inside the actual tensor algebra. Apply multiplicativity, B-algebra compatibility and the right-leg formula."
+      ],
+      "acceptance": [
+        "For every b∈B and x∈D_A(f), E(b⊗x)=b·F_φ(x), where the coefficient b is included in D_B(φ(f)).",
+        "Retain actual ring maps, tensor products and native scheme morphisms, including structure-sheaf data, nonflat coefficients and nilpotents."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Supplies the rank-one affine-chart Cartesian base-change calculation. Coherent root-object comparisons and their finite-stage and fpqc descent laws are independently required for the infinite root-stack statement."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Makes the affine root chart compatible with arbitrary change of coefficient ring before the separately required frame-torsor and quotient-groupoid comparisons."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "RootChartBaseChange-codex-7e92bd",
+          "locator": "Stacks Project §26.17, Lemma26.17.2 (tag01JO), affine fibre products and the tensor-product universal property; authored rank-one root-colimit deduction.",
+          "match": "The cited complete proof supplies the native geometric interpretation of ring pushouts. The root-specific universal map is deduced from the existing finite root equations and their divisibility compatibility. No fpqc root-stack comparison is inferred."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed p.14 inverse-limit description; Proposition3.10 pp.15–16 delimits the separate quotient-stack use.",
+          "match": "Uses the inherited all-positive-index affine chart. The tensor and native scheme comparison laws here are authored deductions, not a claim that these exact Lean API statements occur in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/native-base-change-tensor-inverse-root",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Inverse tensor comparison on roots",
+      "declarationName": "TauCeti.RootStack.divisibilityTensorEquiv.inverse_root",
+      "statement": "For every positive n, E⁻¹(κ_n(t_n))=1⊗κ_n(t_n), with the left root over B and the right root over A.",
+      "hypotheses": [
+        "A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made.",
+        "D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B.",
+        "The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-tensor-right",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-root"
+      ],
+      "proofSteps": [
+        "Apply injectivity of E. Its inverse law simplifies the left side; the right-leg and coefficient-root formulas identify the right side with the same root."
+      ],
+      "acceptance": [
+        "For every positive n, E⁻¹(κ_n(t_n))=1⊗κ_n(t_n), with the left root over B and the right root over A.",
+        "Retain actual ring maps, tensor products and native scheme morphisms, including structure-sheaf data, nonflat coefficients and nilpotents."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Supplies the rank-one affine-chart Cartesian base-change calculation. Coherent root-object comparisons and their finite-stage and fpqc descent laws are independently required for the infinite root-stack statement."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Makes the affine root chart compatible with arbitrary change of coefficient ring before the separately required frame-torsor and quotient-groupoid comparisons."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "RootChartBaseChange-codex-7e92bd",
+          "locator": "Stacks Project §26.17, Lemma26.17.2 (tag01JO), affine fibre products and the tensor-product universal property; authored rank-one root-colimit deduction.",
+          "match": "The cited complete proof supplies the native geometric interpretation of ring pushouts. The root-specific universal map is deduced from the existing finite root equations and their divisibility compatibility. No fpqc root-stack comparison is inferred."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed p.14 inverse-limit description; Proposition3.10 pp.15–16 delimits the separate quotient-stack use.",
+          "match": "Uses the inherited all-positive-index affine chart. The tensor and native scheme comparison laws here are authored deductions, not a claim that these exact Lean API statements occur in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/native-base-change-scheme-iso",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "construction",
+      "title": "Infinite affine chart as the actual categorical base change",
+      "declarationName": "TauCeti.RootStack.divisibilitySpecBaseChangeIso",
+      "statement": "For arbitrary φ:A→B, construct a native scheme isomorphism Spec D_B(φ(f))≅Spec B×_(Spec A)Spec D_A(f), with the right side the actual categorical pullback.",
+      "hypotheses": [
+        "A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made.",
+        "D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B.",
+        "The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-pullback",
+        "mathlib:CategoryTheory.IsPullback.isoPullback"
+      ],
+      "proofSteps": [
+        "Use the canonical native isomorphism from the proved root-specific pullback cone to the selected categorical pullback. The ring maps and resulting structure-sheaf maps are retained."
+      ],
+      "acceptance": [
+        "For arbitrary φ:A→B, construct a native scheme isomorphism Spec D_B(φ(f))≅Spec B×_(Spec A)Spec D_A(f), with the right side the actual categorical pullback.",
+        "Retain actual ring maps, tensor products and native scheme morphisms, including structure-sheaf data, nonflat coefficients and nilpotents."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.divisibilitySpecBaseChangeIso.fst",
+          "role": "compatibility",
+          "statement": "The scheme comparison followed by the pullback first projection equals the actual structural morphism Spec D_B(φ(f))→Spec B."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilitySpecBaseChangeIso.snd",
+          "role": "compatibility",
+          "statement": "The scheme comparison followed by the pullback second projection equals the existing coefficient morphism Spec D_B(φ(f))→Spec D_A(f)."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilitySpecBaseChangeIso.inverse_snd",
+          "role": "compatibility",
+          "statement": "The inverse scheme comparison followed by the coefficient morphism equals the pullback second projection to Spec D_A(f)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.divisibilitySpecBaseChangeIso.test_nonflat_pullback",
+          "kind": "compatibility",
+          "statement": "For the nonflat quotient Z→Z/4 and f=2, the four actual structural/coefficient scheme maps form a native IsPullback square."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilitySpecBaseChangeIso.test_first_projection",
+          "kind": "computation",
+          "statement": "For Z→Z/4 and f=2, the first categorical projection after the scheme comparison is the actual structural map to Spec Z/4."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilitySpecBaseChangeIso.test_wild_projection",
+          "kind": "compatibility",
+          "statement": "For Z→Z/2 and f=0, the second categorical projection after the scheme comparison is the actual coefficient scheme morphism."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilitySpecBaseChangeIso.test_zero_ring_inverse",
+          "kind": "degenerate",
+          "statement": "For Z→Z/1 and f=0, the actual scheme comparison followed by its inverse is the identity, including the empty-chart case."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Supplies the rank-one affine-chart Cartesian base-change calculation. Coherent root-object comparisons and their finite-stage and fpqc descent laws are independently required for the infinite root-stack statement."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Makes the affine root chart compatible with arbitrary change of coefficient ring before the separately required frame-torsor and quotient-groupoid comparisons."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "RootChartBaseChange-codex-7e92bd",
+          "locator": "Stacks Project §26.17, Lemma26.17.2 (tag01JO), affine fibre products and the tensor-product universal property; authored rank-one root-colimit deduction.",
+          "match": "The cited complete proof supplies the native geometric interpretation of ring pushouts. The root-specific universal map is deduced from the existing finite root equations and their divisibility compatibility. No fpqc root-stack comparison is inferred."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed p.14 inverse-limit description; Proposition3.10 pp.15–16 delimits the separate quotient-stack use.",
+          "match": "Uses the inherited all-positive-index affine chart. The tensor and native scheme comparison laws here are authored deductions, not a claim that these exact Lean API statements occur in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/native-base-change-scheme-first",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "First projection of the affine base-change comparison",
+      "declarationName": "TauCeti.RootStack.divisibilitySpecBaseChangeIso.fst",
+      "statement": "The scheme comparison followed by the pullback first projection equals the actual structural morphism Spec D_B(φ(f))→Spec B.",
+      "hypotheses": [
+        "A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made.",
+        "D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B.",
+        "The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-scheme-iso",
+        "mathlib:CategoryTheory.IsPullback.isoPullback_hom_fst"
+      ],
+      "proofSteps": [
+        "Apply the first-leg identity of the native pullback comparison to the proved root-chart pullback square."
+      ],
+      "acceptance": [
+        "The scheme comparison followed by the pullback first projection equals the actual structural morphism Spec D_B(φ(f))→Spec B.",
+        "Retain actual ring maps, tensor products and native scheme morphisms, including structure-sheaf data, nonflat coefficients and nilpotents."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Supplies the rank-one affine-chart Cartesian base-change calculation. Coherent root-object comparisons and their finite-stage and fpqc descent laws are independently required for the infinite root-stack statement."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Makes the affine root chart compatible with arbitrary change of coefficient ring before the separately required frame-torsor and quotient-groupoid comparisons."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "RootChartBaseChange-codex-7e92bd",
+          "locator": "Stacks Project §26.17, Lemma26.17.2 (tag01JO), affine fibre products and the tensor-product universal property; authored rank-one root-colimit deduction.",
+          "match": "The cited complete proof supplies the native geometric interpretation of ring pushouts. The root-specific universal map is deduced from the existing finite root equations and their divisibility compatibility. No fpqc root-stack comparison is inferred."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed p.14 inverse-limit description; Proposition3.10 pp.15–16 delimits the separate quotient-stack use.",
+          "match": "Uses the inherited all-positive-index affine chart. The tensor and native scheme comparison laws here are authored deductions, not a claim that these exact Lean API statements occur in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/native-base-change-scheme-second",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Second projection of the affine base-change comparison",
+      "declarationName": "TauCeti.RootStack.divisibilitySpecBaseChangeIso.snd",
+      "statement": "The scheme comparison followed by the pullback second projection equals the existing coefficient morphism Spec D_B(φ(f))→Spec D_A(f).",
+      "hypotheses": [
+        "A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made.",
+        "D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B.",
+        "The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-scheme-iso",
+        "mathlib:CategoryTheory.IsPullback.isoPullback_hom_snd"
+      ],
+      "proofSteps": [
+        "Apply the second-leg identity of the native pullback comparison; the leg is the actual inherited Spec map of F_φ."
+      ],
+      "acceptance": [
+        "The scheme comparison followed by the pullback second projection equals the existing coefficient morphism Spec D_B(φ(f))→Spec D_A(f).",
+        "Retain actual ring maps, tensor products and native scheme morphisms, including structure-sheaf data, nonflat coefficients and nilpotents."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Supplies the rank-one affine-chart Cartesian base-change calculation. Coherent root-object comparisons and their finite-stage and fpqc descent laws are independently required for the infinite root-stack statement."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Makes the affine root chart compatible with arbitrary change of coefficient ring before the separately required frame-torsor and quotient-groupoid comparisons."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "RootChartBaseChange-codex-7e92bd",
+          "locator": "Stacks Project §26.17, Lemma26.17.2 (tag01JO), affine fibre products and the tensor-product universal property; authored rank-one root-colimit deduction.",
+          "match": "The cited complete proof supplies the native geometric interpretation of ring pushouts. The root-specific universal map is deduced from the existing finite root equations and their divisibility compatibility. No fpqc root-stack comparison is inferred."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed p.14 inverse-limit description; Proposition3.10 pp.15–16 delimits the separate quotient-stack use.",
+          "match": "Uses the inherited all-positive-index affine chart. The tensor and native scheme comparison laws here are authored deductions, not a claim that these exact Lean API statements occur in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/native-base-change-scheme-inverse-second",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Inverse comparison and the original chart projection",
+      "declarationName": "TauCeti.RootStack.divisibilitySpecBaseChangeIso.inverse_snd",
+      "statement": "The inverse scheme comparison followed by the coefficient morphism equals the pullback second projection to Spec D_A(f).",
+      "hypotheses": [
+        "A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made.",
+        "D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B.",
+        "The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-scheme-iso",
+        "mathlib:CategoryTheory.IsPullback.isoPullback_inv_snd"
+      ],
+      "proofSteps": [
+        "Use the native inverse second-leg identity, equivalently cancel the actual scheme isomorphism in the forward second-projection equation."
+      ],
+      "acceptance": [
+        "The inverse scheme comparison followed by the coefficient morphism equals the pullback second projection to Spec D_A(f).",
+        "Retain actual ring maps, tensor products and native scheme morphisms, including structure-sheaf data, nonflat coefficients and nilpotents."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Supplies the rank-one affine-chart Cartesian base-change calculation. Coherent root-object comparisons and their finite-stage and fpqc descent laws are independently required for the infinite root-stack statement."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Makes the affine root chart compatible with arbitrary change of coefficient ring before the separately required frame-torsor and quotient-groupoid comparisons."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "RootChartBaseChange-codex-7e92bd",
+          "locator": "Stacks Project §26.17, Lemma26.17.2 (tag01JO), affine fibre products and the tensor-product universal property; authored rank-one root-colimit deduction.",
+          "match": "The cited complete proof supplies the native geometric interpretation of ring pushouts. The root-specific universal map is deduced from the existing finite root equations and their divisibility compatibility. No fpqc root-stack comparison is inferred."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed p.14 inverse-limit description; Proposition3.10 pp.15–16 delimits the separate quotient-stack use.",
+          "match": "Uses the inherited all-positive-index affine chart. The tensor and native scheme comparison laws here are authored deductions, not a claim that these exact Lean API statements occur in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -27992,7 +29433,8 @@
         "The arbitrary-section rational coefficient square now has ten explicit planning nodes and a conditional proof check over admitted incoming coordinate/coaction contracts. Implement those admitted contracts, check the complete exact-pin canonical file, and separately construct higher-universe/full-index transport, Spec limits, fpqc frame torsors and quotient comparison. Arbitrary coefficient maps only preserve coinvariance; no reflection or invariant-algebra conclusion is inferred.",
         "The 28 rational-coordinate declarations and three computation lemmas now have separate exact-Mathlib native proof evidence, including arbitrary coefficients and wild nilpotents. Next prove the admitted arbitrary-section rational coaction contracts over this actual equivalence, then replay the inherited conditional coefficient square without those admissions. Full canonical Tau typing, higher-universe/full-positive-index transport, coherent root-groupoid reindexing, affine Spec limits, fpqc frame torsors and the quotient/DVR/Kummer comparisons remain open. Preserve all eight gaps, thirteen requests and both source routes.",
         "The ten arbitrary-section rational LEFT coaction contracts now have separate admission-free exact-Mathlib proof evidence, and the ten coefficient contracts of PR5978 are replayed without their former admitted inputs. The defining-degree boundary and three additional tests are specified. Two inherited tensor-power precedence errors are corrected only in the Lean prototypes, leaving all mathematical contracts unchanged. Next complete full exact-pin Tau typing, positive-index/higher-universe transport, convolution-point identification, coherent root-object reindexing, affine Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons. These algebraic certificates do not identify all coinvariants with A. Preserve all eight gaps, thirteen requests and both source routes.",
-        "Current continuation frontier, superseding historical affine Spec-limit omissions above: The actual positive-divisibility affine chart is now specified as a native scheme inverse limit, with unique maps from arbitrary test schemes, finite projection/extensionality and precomposition laws. Native Spec carries the existing factorial algebra equivalence to a scheme isomorphism and reverses arbitrary coefficient maps, with structural-base and factorial-comparison squares. These are affine-chart results in a common arbitrary universe. Coherent root-object groupoid reindexing, higher-universe transport, Cartesian tensor base-change, fpqc frame torsors and the infinite quotient/DVR/Kummer routes remain open; all ten stages, eight gaps and thirteen supplier requests remain partial or open."
+        "Current continuation frontier, superseding historical affine Spec-limit omissions above: The actual positive-divisibility affine chart is now specified as a native scheme inverse limit, with unique maps from arbitrary test schemes, finite projection/extensionality and precomposition laws. Native Spec carries the existing factorial algebra equivalence to a scheme isomorphism and reverses arbitrary coefficient maps, with structural-base and factorial-comparison squares. These are affine-chart results in a common arbitrary universe. Coherent root-object groupoid reindexing, higher-universe transport, Cartesian tensor base-change, fpqc frame torsors and the infinite quotient/DVR/Kummer routes remain open; all ten stages, eight gaps and thirteen supplier requests remain partial or open.",
+        "Current continuation frontier, superseding historical affine Cartesian base-change omissions above: The arbitrary coefficient base-change square of the actual positive-divisibility affine root chart now has a native ring pushout and scheme pullback witness. Its concrete B-algebra tensor equivalence B⊗_A D_A(f)≃D_B(φ(f)) identifies pure tensors and inverse roots; its actual categorical scheme isomorphism identifies both projections. Flatness is not assumed and nilpotents are retained. Coherent root-object groupoid reindexing, higher-universe transport, finite-projection coherence for the general stack comparison, fpqc frame torsors and the infinite quotient/DVR/Kummer routes remain open. All ten stages, eight gaps and thirteen supplier requests remain partial or open."
       ]
     },
     {
@@ -28225,7 +29667,7 @@
     {
       "id": "TOWER-TYPING",
       "title": "Typed infinite fpqc comparison and root-limit coherence",
-      "detail": "The finite affine maps/basis and root-specific proof leaves are explicit. Complete the TOWER-AFF limit-torsor verification on native affine schemes and the factorial compatible-object comparison with the actual root groupoid carrier. The infinite quotient/Kummer/geometric signatures still need those carriers; native finite algebra signatures do not certify the infinite comparison. The native affine-chart IsLimit, universal maps and factorial/coefficient scheme comparisons now have explicit contracts and separate proof evidence; the remaining TOWER-AFF and coherent root-groupoid obligations are unchanged.",
+      "detail": "The finite affine maps/basis and root-specific proof leaves are explicit. Complete the TOWER-AFF limit-torsor verification on native affine schemes and the factorial compatible-object comparison with the actual root groupoid carrier. The infinite quotient/Kummer/geometric signatures still need those carriers; native finite algebra signatures do not certify the infinite comparison. The native affine-chart IsLimit, universal maps and factorial/coefficient scheme comparisons now have explicit contracts and separate proof evidence; the remaining TOWER-AFF and coherent root-groupoid obligations are unchanged. The arbitrary affine-chart coefficient square now has an explicit native ring pushout, tensor equivalence and categorical scheme pullback with both projections. This discharges the affine Cartesian comparison only; higher-universe, coherent root-groupoid and TOWER-AFF fpqc obligations remain open.",
       "neededBy": [
         "FunctionFieldArithmeticPartII:RS.2/factorial-root-limit",
         "FunctionFieldArithmeticPartII:RS.2/kummer-torsor-limit",
