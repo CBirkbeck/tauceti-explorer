@@ -1,3 +1,313 @@
+# Finite two-base coherence — current continuation
+
+This partial checkpoint for issue #3342 adds ten declarations: one construction and nine lemmas, eight API additions and six acceptance examples. The packet now has 382 nodes (8 definitions, 75 constructions, 230 lemmas, 67 theorems, one application and one comparison), 317 raw API entries and 313 raw tests. The definition/construction checker counts 316 API entries and 286 required tests. There are 221 pinned baseline declarations, 35 planets, 135 requests and fifteen gaps. All eight stages remain partial and every implementation remains unchecked. Historical counts and receipts in the preserved reader below refer to their earlier revisions.
+
+Let R be the existing polynomial nodal chart over an arbitrary commutative A. Suppose p⊆A maps into m⊆R, and write Â for the actual p-adic completion. The finite quotient transition R/mʲ→R/mⁱ for i≤j respects the specified Â-actions because the incoming completed-coefficient maps commute with the native quotient transitions. Packaging it as a native Â-algebra homomorphism exposes its original ring map, identity, composition and scalar laws. This construction requires no finite-generation hypothesis.
+
+When p is finitely generated, the existing comparison (R/mⁿ)⊗_A N≃(R/mⁿ)⊗_Â N for arbitrary Â-modules N now commutes with every quotient transition, in both directions. It is also natural in every Â-linear coefficient map N→N′, again in both directions. Restrict the quotient transition or coefficient map to A on the original-base side; retain its Â-linearity on the completed-base side. Tensor induction reduces each square to its actual pure-tensor formula and extends it to every finite sum. Neither coefficient module is assumed flat, finitely generated or annihilated by a power of p.
+
+A separate scalar lemma identifies the inherited A-action on R/mⁿ with multiplication by the finite coefficient image. This is a propositional comparison of the actual existing actions. Native quotient representatives reduce it to the earlier coefficient-inclusion-action result on R. It repairs the annihilation, scalar-tower and finite balancing proofs; assuming the two inferred scalar structures were definitionally identical had caused the incoming draft to fail.
+
+The fresh whole-file check also repaired seven layout errors in typed let-expressions, removed five duplicate scalar-tower binders and imported the pinned completion-kernel theorem's actual module. No mathematical hypothesis or acceptance condition was weakened. All 368 other incoming node objects are unchanged; three existing proof routes gain this scalar prerequisite and one existing construction gains the new API/tests. The full reserved moduli-groupoid contract, six key consumers, 21 Yuan/DGH routes, eleven source issues, supplier boundaries and all remaining geometry are retained.
+
+The separate 5,457-line native proof artifact now checks at pinned Mathlib with 189 examples and 328 axiom audits: zero errors, warnings, admissions or admitted dependencies, 43.32 seconds, 4,086,664 KiB peak memory. The 4,220-line suggested file checks separately with 251 examples and 621 expected admission warnings, no other warnings or errors, 35.22 seconds, 3,639,336 KiB peak memory. Both checks used the existing Mathlib build and passed the 20 GiB preflight. These prototype receipts do not close any geometric stage or implementation status. The exact public artifact recovery is in the handoff.
+
+Fresh source reading covers complete rendered PDF34–35, printed194–195, of [Knudsen II](https://journals.msp.org/mscand/article/download/1622/1621/1653), SHA-256 18e04bbf5c24a460ff10e965ebf665ea0229378c6a9521bd279909476012e230. Earlier personal reading of the full Appendix is retained with unchanged source bytes. Proposition6 still cites unread Bourbaki III5.4.4; Proposition7 is stated as an exercise. The new finite transition and naturality equations are explicit deductions from the incoming adapters and pinned Mathlib. They are not a proof of either completion criterion.
+
+The next work is to assemble the coherent finite family into actual inverse-limit diagrams and comparisons, with all hypotheses needed to relate those limits to completed tensor, Hom or Ext objects. Ordinary tensor products do not automatically commute with inverse limits. In particular, the whole completed comparison's surjectivity and balancing kernel do not imply injectivity. Relative stable reflexivity, faithful reflection, the pointed completed-local hull, family/sheaf descent, finite-presentation approximation and all MC.0–MC.7 geometric obligations remain open.
+
+## New declaration catalogue
+
+### The finite quotient retains its native original-coefficient action
+
+Identifier: StableReductionPartII:MC.2/finite-chart-original-scalar. Proposed declaration: NodeSectionFactorization.PolynomialModel.completionFiniteCoefficient_original_smul.
+
+For b∈A and q∈R/mⁿ, the inherited scalar b·q equals completionCoefficientLevelₙ([b]) times q in the native quotient ring.
+
+Hypotheses:
+
+- A is any commutative ring; R is the existing polynomial nodal chart Ring A γ δ s t, with the actual coefficient homomorphism. Ideals p⊆A and m⊆R satisfy p⊆coefficientHom⁻¹(m). The finite coefficient and chart actions are the incoming completionResidueAlgebra, completionFiniteChartAlgebra and their composed native scalar actions.
+- This scalar comparison holds without finite generation of p and without any coefficient module.
+
+Prerequisites: StableReductionPartII:MC.2/coefficient-inclusion-action, StableReductionPartII:MC.2/completion-coefficient-level, StableReductionPartII:MC.2/completion-coefficient-level-representatives, mathlib:Ideal.Quotient.mk_surjective, mathlib:Algebra.smul_def.
+
+Proof route:
+
+- Choose an actual original chart representative r of q using native quotient surjectivity.
+- The inherited quotient A-action sends b·[r] to [b·r]. In R the existing coefficient-inclusion-action node identifies b·r with coefficientHom(b)r.
+- The finite coefficient map sends [b] to [coefficientHom(b)]; the native quotient ring hom preserves products. This proves the equation without assuming that two independently inferred scalar structures are definitionally equal.
+
+Acceptance:
+
+- The theorem compares the already inherited scalar action with the displayed coefficient map. It does not replace that action or add an equality assumption.
+
+Source: Knudsen II Appendix Propositions6–7, printed194–195/PDF34–35: motivation and explicit unresolved completion boundary; authored finite-transition deduction from the incoming polynomial adapters and pinned Mathlib maps. Implementation status: unchecked.
+
+### Finite quotient transition over completed coefficients
+
+Identifier: StableReductionPartII:MC.2/finite-transition-algebra. Proposed declaration: NodeSectionFactorization.PolynomialModel.completionFiniteTransition.
+
+For i≤j, equip the actual native quotient transition R/mʲ→R/mⁱ with its Â-algebra-hom structure, using the incoming finite completed-coefficient actions.
+
+Hypotheses:
+
+- A is any commutative ring; R is the existing polynomial nodal chart Ring A γ δ s t, with the actual coefficient homomorphism. Ideals p⊆A and m⊆R satisfy p⊆coefficientHom⁻¹(m). The finite coefficient and chart actions are the incoming completionResidueAlgebra, completionFiniteChartAlgebra and their composed native scalar actions.
+- For the four tensor-naturality lemmas, p is finitely generated and N,N′ are arbitrary Â=AdicCompletion p A modules, with specified A-actions satisfying the native scalar-tower equations. The transition algebra homomorphism and its four structural laws do not require p finitely generated.
+- No noetherianity or locality of A or R, finite generation or flatness of N, global tensor/limit interchange, or injectivity of the whole completed-ring tensor comparison is assumed.
+
+Prerequisites: StableReductionPartII:MC.2/completion-coefficient-family-transition, StableReductionPartII:MC.2/finite-chart-completed-square, mathlib:AlgHom, mathlib:Ideal.Quotient.factorPow.
+
+Proof route:
+
+- Retain the native Ideal.Quotient.factorPow ring map; only its completed-coefficient compatibility needs an adapter.
+- The incoming equation factorPow∘completionCoefficientFamilyⱼ=completionCoefficientFamilyᵢ is exactly the algebra-map square. Evaluate it at an arbitrary a∈Â, without assuming that a comes from A.
+- Package that square in the native AlgHom structure. Finite generation of p is unnecessary for this transition.
+
+Acceptance:
+
+- For i≤j, equip the actual native quotient transition R/mʲ→R/mⁱ with its Â-algebra-hom structure, using the incoming finite completed-coefficient actions.
+
+API:
+
+- NodeSectionFactorization.PolynomialModel.completionFiniteTransition_toRingHom: The ring homomorphism underlying completionFiniteTransition is exactly Ideal.Quotient.factorPow m hij.
+- NodeSectionFactorization.PolynomialModel.completionFiniteTransition_refl: The completed-coefficient transition from level n to itself is the identity Â-algebra homomorphism.
+- NodeSectionFactorization.PolynomialModel.completionFiniteTransition_comp: For i≤j≤k, the level-k-to-j transition followed by the level-j-to-i transition equals the direct level-k-to-i transition as Â-algebra homomorphisms.
+- NodeSectionFactorization.PolynomialModel.completionFiniteTransition_smul: For every a∈Â and q∈R/mʲ, the finite transition sends a·q to a times the image of q, with the specified incoming completed-coefficient actions.
+
+Unit tests:
+
+- NodeSectionFactorization.PolynomialModel.completionFiniteTransition.test_representative: For an actual r∈R and i≤j, the transition takes the class of r modulo mʲ to the class of the same r modulo mⁱ.
+- NodeSectionFactorization.PolynomialModel.completionFiniteTransition.test_zero_level: Every level-j element maps to zero at level zero, where R/m⁰ is the zero ring.
+- NodeSectionFactorization.PolynomialModel.completionFiniteTransition.test_completed_scalar: An arbitrary completed coefficient a∈Â commutes with the actual transition; a is not required to be the image of an original coefficient.
+
+Uses:
+
+- StableReductionPartII:MC.2/finite-tensor-transition: Use the actual completed-coefficient linear map and its scalar restriction on the two tensor products.
+- StableReductionPartII:MC.2/dual-section-ideal; Knudsen II Appendix Proposition6: Prepare a coherent finite quotient family for the still-required two-base completion argument. Finite coherence alone does not identify the whole completed tensor products.
+
+Source: Knudsen II Appendix Propositions6–7, printed194–195/PDF34–35: motivation and explicit unresolved completion boundary; authored finite-transition deduction from the incoming polynomial adapters and pinned Mathlib maps. Implementation status: unchecked.
+
+### Underlying finite transition ring map
+
+Identifier: StableReductionPartII:MC.2/finite-transition-native. Proposed declaration: NodeSectionFactorization.PolynomialModel.completionFiniteTransition_toRingHom.
+
+The ring homomorphism underlying completionFiniteTransition is exactly Ideal.Quotient.factorPow m hij.
+
+Hypotheses:
+
+- A is any commutative ring; R is the existing polynomial nodal chart Ring A γ δ s t, with the actual coefficient homomorphism. Ideals p⊆A and m⊆R satisfy p⊆coefficientHom⁻¹(m). The finite coefficient and chart actions are the incoming completionResidueAlgebra, completionFiniteChartAlgebra and their composed native scalar actions.
+- For the four tensor-naturality lemmas, p is finitely generated and N,N′ are arbitrary Â=AdicCompletion p A modules, with specified A-actions satisfying the native scalar-tower equations. The transition algebra homomorphism and its four structural laws do not require p finitely generated.
+- No noetherianity or locality of A or R, finite generation or flatness of N, global tensor/limit interchange, or injectivity of the whole completed-ring tensor comparison is assumed.
+
+Prerequisites: StableReductionPartII:MC.2/finite-transition-algebra.
+
+Proof route:
+
+- Unfold only the new adapter; its underlying ring map was specified to be the pinned quotient transition.
+- Keep the native quotient carriers and direction R/mʲ→R/mⁱ for i≤j.
+
+Acceptance:
+
+- The ring homomorphism underlying completionFiniteTransition is exactly Ideal.Quotient.factorPow m hij.
+
+Source: Knudsen II Appendix Propositions6–7, printed194–195/PDF34–35: motivation and explicit unresolved completion boundary; authored finite-transition deduction from the incoming polynomial adapters and pinned Mathlib maps. Implementation status: unchecked.
+
+### Identity finite completed-coefficient transition
+
+Identifier: StableReductionPartII:MC.2/finite-transition-identity. Proposed declaration: NodeSectionFactorization.PolynomialModel.completionFiniteTransition_refl.
+
+The completed-coefficient transition from level n to itself is the identity Â-algebra homomorphism.
+
+Hypotheses:
+
+- A is any commutative ring; R is the existing polynomial nodal chart Ring A γ δ s t, with the actual coefficient homomorphism. Ideals p⊆A and m⊆R satisfy p⊆coefficientHom⁻¹(m). The finite coefficient and chart actions are the incoming completionResidueAlgebra, completionFiniteChartAlgebra and their composed native scalar actions.
+- For the four tensor-naturality lemmas, p is finitely generated and N,N′ are arbitrary Â=AdicCompletion p A modules, with specified A-actions satisfying the native scalar-tower equations. The transition algebra homomorphism and its four structural laws do not require p finitely generated.
+- No noetherianity or locality of A or R, finite generation or flatness of N, global tensor/limit interchange, or injectivity of the whole completed-ring tensor comparison is assumed.
+
+Prerequisites: StableReductionPartII:MC.2/finite-transition-native, mathlib:AlgHom.ext, mathlib:Ideal.Quotient.mk_surjective.
+
+Proof route:
+
+- Apply native AlgHom extensionality and quotient induction.
+- On an original chart representative, the native factor map with equal powers sends the class to itself.
+
+Acceptance:
+
+- The completed-coefficient transition from level n to itself is the identity Â-algebra homomorphism.
+
+Source: Knudsen II Appendix Propositions6–7, printed194–195/PDF34–35: motivation and explicit unresolved completion boundary; authored finite-transition deduction from the incoming polynomial adapters and pinned Mathlib maps. Implementation status: unchecked.
+
+### Composition of finite completed-coefficient transitions
+
+Identifier: StableReductionPartII:MC.2/finite-transition-compose. Proposed declaration: NodeSectionFactorization.PolynomialModel.completionFiniteTransition_comp.
+
+For i≤j≤k, the level-k-to-j transition followed by the level-j-to-i transition equals the direct level-k-to-i transition as Â-algebra homomorphisms.
+
+Hypotheses:
+
+- A is any commutative ring; R is the existing polynomial nodal chart Ring A γ δ s t, with the actual coefficient homomorphism. Ideals p⊆A and m⊆R satisfy p⊆coefficientHom⁻¹(m). The finite coefficient and chart actions are the incoming completionResidueAlgebra, completionFiniteChartAlgebra and their composed native scalar actions.
+- For the four tensor-naturality lemmas, p is finitely generated and N,N′ are arbitrary Â=AdicCompletion p A modules, with specified A-actions satisfying the native scalar-tower equations. The transition algebra homomorphism and its four structural laws do not require p finitely generated.
+- No noetherianity or locality of A or R, finite generation or flatness of N, global tensor/limit interchange, or injectivity of the whole completed-ring tensor comparison is assumed.
+
+Prerequisites: StableReductionPartII:MC.2/finite-transition-native, mathlib:AlgHom.ext, mathlib:Ideal.Quotient.mk_surjective.
+
+Proof route:
+
+- Apply algebra-hom extensionality, then native quotient induction on a class represented by r∈R.
+- Both paths send that class to the class of the same r modulo mⁱ. Proof witnesses of the order relations do not enter the resulting map.
+
+Acceptance:
+
+- For i≤j≤k, the level-k-to-j transition followed by the level-j-to-i transition equals the direct level-k-to-i transition as Â-algebra homomorphisms.
+
+Source: Knudsen II Appendix Propositions6–7, printed194–195/PDF34–35: motivation and explicit unresolved completion boundary; authored finite-transition deduction from the incoming polynomial adapters and pinned Mathlib maps. Implementation status: unchecked.
+
+### Completed scalars commute with finite transition
+
+Identifier: StableReductionPartII:MC.2/finite-transition-scalar. Proposed declaration: NodeSectionFactorization.PolynomialModel.completionFiniteTransition_smul.
+
+For every a∈Â and q∈R/mʲ, the finite transition sends a·q to a times the image of q, with the specified incoming completed-coefficient actions.
+
+Hypotheses:
+
+- A is any commutative ring; R is the existing polynomial nodal chart Ring A γ δ s t, with the actual coefficient homomorphism. Ideals p⊆A and m⊆R satisfy p⊆coefficientHom⁻¹(m). The finite coefficient and chart actions are the incoming completionResidueAlgebra, completionFiniteChartAlgebra and their composed native scalar actions.
+- For the four tensor-naturality lemmas, p is finitely generated and N,N′ are arbitrary Â=AdicCompletion p A modules, with specified A-actions satisfying the native scalar-tower equations. The transition algebra homomorphism and its four structural laws do not require p finitely generated.
+- No noetherianity or locality of A or R, finite generation or flatness of N, global tensor/limit interchange, or injectivity of the whole completed-ring tensor comparison is assumed.
+
+Prerequisites: StableReductionPartII:MC.2/finite-transition-algebra, mathlib:AlgHom.toLinearMap.
+
+Proof route:
+
+- Use the underlying Â-linear map of the new algebra homomorphism.
+- Its scalar law is the native map_smul law, with no restriction on the origin of a.
+
+Acceptance:
+
+- For every a∈Â and q∈R/mʲ, the finite transition sends a·q to a times the image of q, with the specified incoming completed-coefficient actions.
+
+Source: Knudsen II Appendix Propositions6–7, printed194–195/PDF34–35: motivation and explicit unresolved completion boundary; authored finite-transition deduction from the incoming polynomial adapters and pinned Mathlib maps. Implementation status: unchecked.
+
+### Finite tensor comparison commutes with every quotient transition
+
+Identifier: StableReductionPartII:MC.2/finite-tensor-transition. Proposed declaration: NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv_transition.
+
+For every i≤j and x∈(R/mʲ)⊗_A N, first transition over A and then apply the level-i comparison equals first apply the level-j comparison and then transition over Â.
+
+Hypotheses:
+
+- A is any commutative ring; R is the existing polynomial nodal chart Ring A γ δ s t, with the actual coefficient homomorphism. Ideals p⊆A and m⊆R satisfy p⊆coefficientHom⁻¹(m). The finite coefficient and chart actions are the incoming completionResidueAlgebra, completionFiniteChartAlgebra and their composed native scalar actions.
+- For the four tensor-naturality lemmas, p is finitely generated and N,N′ are arbitrary Â=AdicCompletion p A modules, with specified A-actions satisfying the native scalar-tower equations. The transition algebra homomorphism and its four structural laws do not require p finitely generated.
+- No noetherianity or locality of A or R, finite generation or flatness of N, global tensor/limit interchange, or injectivity of the whole completed-ring tensor comparison is assumed.
+
+Prerequisites: StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/finite-tensor-forward-pure, StableReductionPartII:MC.2/finite-chart-coefficient-tower, mathlib:LinearMap.restrictScalars, mathlib:LinearMap.rTensor, mathlib:LinearMap.rTensor_tmul.
+
+Proof route:
+
+- Use the actual Â-linear quotient transition and restrict its scalars along A→Â for the source tensor map.
+- Tensor induction reduces equality to zero, sums and q⊗z. The inherited forward pure-tensor formula and native rTensor formula send both sides to factorPow(q)⊗z.
+- All arbitrary finite tensor sums are covered. No flatness, finite generation or discrete p-power action on N is assumed.
+
+Acceptance:
+
+- For every i≤j and x∈(R/mʲ)⊗_A N, first transition over A and then apply the level-i comparison equals first apply the level-j comparison and then transition over Â.
+
+Source: Knudsen II Appendix Propositions6–7, printed194–195/PDF34–35: motivation and explicit unresolved completion boundary; authored finite-transition deduction from the incoming polynomial adapters and pinned Mathlib maps. Implementation status: unchecked.
+
+### Inverse finite comparison commutes with every quotient transition
+
+Identifier: StableReductionPartII:MC.2/finite-tensor-inverse-transition. Proposed declaration: NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv_symm_transition.
+
+For every i≤j and x∈(R/mʲ)⊗_Â N, the level-i inverse after transition equals the A-transition after the level-j inverse.
+
+Hypotheses:
+
+- A is any commutative ring; R is the existing polynomial nodal chart Ring A γ δ s t, with the actual coefficient homomorphism. Ideals p⊆A and m⊆R satisfy p⊆coefficientHom⁻¹(m). The finite coefficient and chart actions are the incoming completionResidueAlgebra, completionFiniteChartAlgebra and their composed native scalar actions.
+- For the four tensor-naturality lemmas, p is finitely generated and N,N′ are arbitrary Â=AdicCompletion p A modules, with specified A-actions satisfying the native scalar-tower equations. The transition algebra homomorphism and its four structural laws do not require p finitely generated.
+- No noetherianity or locality of A or R, finite generation or flatness of N, global tensor/limit interchange, or injectivity of the whole completed-ring tensor comparison is assumed.
+
+Prerequisites: StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/finite-tensor-inverse-pure, StableReductionPartII:MC.2/finite-chart-coefficient-tower, mathlib:LinearMap.restrictScalars, mathlib:LinearMap.rTensor, mathlib:LinearMap.rTensor_tmul.
+
+Proof route:
+
+- Apply tensor induction over Â.
+- The inherited inverse pure-tensor formula and the actual restricted transition take q⊗z to factorPow(q)⊗z; additivity supplies all sums.
+- This is an actual inverse compatibility equation, not an assertion that arbitrary independent levelwise inverses form a compatible family.
+
+Acceptance:
+
+- For every i≤j and x∈(R/mʲ)⊗_Â N, the level-i inverse after transition equals the A-transition after the level-j inverse.
+
+Source: Knudsen II Appendix Propositions6–7, printed194–195/PDF34–35: motivation and explicit unresolved completion boundary; authored finite-transition deduction from the incoming polynomial adapters and pinned Mathlib maps. Implementation status: unchecked.
+
+### Finite comparison is natural in the completed coefficient module
+
+Identifier: StableReductionPartII:MC.2/finite-tensor-coefficient-naturality. Proposed declaration: NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv_coefficient.
+
+For every Â-linear f:N→N′, applying id⊗f over A and then the finite comparison equals applying the finite comparison and then id⊗f over Â.
+
+Hypotheses:
+
+- A is any commutative ring; R is the existing polynomial nodal chart Ring A γ δ s t, with the actual coefficient homomorphism. Ideals p⊆A and m⊆R satisfy p⊆coefficientHom⁻¹(m). The finite coefficient and chart actions are the incoming completionResidueAlgebra, completionFiniteChartAlgebra and their composed native scalar actions.
+- For the four tensor-naturality lemmas, p is finitely generated and N,N′ are arbitrary Â=AdicCompletion p A modules, with specified A-actions satisfying the native scalar-tower equations. The transition algebra homomorphism and its four structural laws do not require p finitely generated.
+- No noetherianity or locality of A or R, finite generation or flatness of N, global tensor/limit interchange, or injectivity of the whole completed-ring tensor comparison is assumed.
+
+Prerequisites: StableReductionPartII:MC.2/finite-tensor-forward-pure, StableReductionPartII:MC.2/finite-chart-coefficient-tower, mathlib:LinearMap.restrictScalars, mathlib:LinearMap.lTensor, mathlib:LinearMap.lTensor_tmul.
+
+Proof route:
+
+- Restrict f to A for the source tensor and retain its original Â-linear structure for the target tensor.
+- For a pure tensor q⊗z, both paths are q⊗f(z) by the native lTensor law and inherited finite comparison formula.
+- Extend by tensor induction. Both coefficient modules are arbitrary; torsion and nonflat examples are allowed.
+
+Acceptance:
+
+- For every Â-linear f:N→N′, applying id⊗f over A and then the finite comparison equals applying the finite comparison and then id⊗f over Â.
+
+Source: Knudsen II Appendix Propositions6–7, printed194–195/PDF34–35: motivation and explicit unresolved completion boundary; authored finite-transition deduction from the incoming polynomial adapters and pinned Mathlib maps. Implementation status: unchecked.
+
+### Inverse finite comparison is coefficient-natural
+
+Identifier: StableReductionPartII:MC.2/finite-tensor-inverse-coefficient. Proposed declaration: NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv_symm_coefficient.
+
+For every Â-linear f:N→N′, the inverse finite comparison intertwines id⊗f over Â with id⊗f over A.
+
+Hypotheses:
+
+- A is any commutative ring; R is the existing polynomial nodal chart Ring A γ δ s t, with the actual coefficient homomorphism. Ideals p⊆A and m⊆R satisfy p⊆coefficientHom⁻¹(m). The finite coefficient and chart actions are the incoming completionResidueAlgebra, completionFiniteChartAlgebra and their composed native scalar actions.
+- For the four tensor-naturality lemmas, p is finitely generated and N,N′ are arbitrary Â=AdicCompletion p A modules, with specified A-actions satisfying the native scalar-tower equations. The transition algebra homomorphism and its four structural laws do not require p finitely generated.
+- No noetherianity or locality of A or R, finite generation or flatness of N, global tensor/limit interchange, or injectivity of the whole completed-ring tensor comparison is assumed.
+
+Prerequisites: StableReductionPartII:MC.2/finite-tensor-inverse-pure, StableReductionPartII:MC.2/finite-chart-coefficient-tower, mathlib:LinearMap.restrictScalars, mathlib:LinearMap.lTensor, mathlib:LinearMap.lTensor_tmul.
+
+Proof route:
+
+- Use tensor induction over Â and the inherited inverse pure-tensor equation.
+- Check the exact restriction of f to A on the target side; both paths take q⊗z to q⊗f(z).
+- Together with forward naturality and the inherited inverse laws, this gives a coefficient-natural family of levelwise equivalences.
+
+Acceptance:
+
+- For every Â-linear f:N→N′, the inverse finite comparison intertwines id⊗f over Â with id⊗f over A.
+
+Source: Knudsen II Appendix Propositions6–7, printed194–195/PDF34–35: motivation and explicit unresolved completion boundary; authored finite-transition deduction from the incoming polynomial adapters and pinned Mathlib maps. Implementation status: unchecked.
+
+## Extended API of the existing finite tensor equivalence
+
+- NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv_transition: For every i≤j and x∈(R/mʲ)⊗_A N, first transition over A and then apply the level-i comparison equals first apply the level-j comparison and then transition over Â.
+- NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv_symm_transition: For every i≤j and x∈(R/mʲ)⊗_Â N, the level-i inverse after transition equals the A-transition after the level-j inverse.
+- NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv_coefficient: For every Â-linear f:N→N′, applying id⊗f over A and then the finite comparison equals applying the finite comparison and then id⊗f over Â.
+- NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv_symm_coefficient: For every Â-linear f:N→N′, the inverse finite comparison intertwines id⊗f over Â with id⊗f over A.
+
+Additional unit tests:
+
+- NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv.test_arbitrary_transition: For any finite tensor sum x at level j and i≤j, the comparison commutes with the actual quotient transition; x is not assumed pure.
+- NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv.test_coefficient_naturality: For every completed-coefficient-linear map f:N→N′, the forward finite comparison intertwines the actual native left tensor maps.
+- NodeSectionFactorization.PolynomialModel.completionFiniteTensorEquiv.test_inverse_coefficient: The inverse finite comparison intertwines the same coefficient maps on arbitrary completed-base tensors, with the original-side scalar restriction explicit.
+
+## Preserved predecessor reader and historical receipts
+
+The current continuation above supplies the current counts, proof receipts and frontier. The incoming reader is retained verbatim below.
+
 ## Finite quotients compare the two coefficient bases
 
 Let A be a commutative ring and fix γ,δ,s,t∈A. Use the existing polynomial nodal chart
