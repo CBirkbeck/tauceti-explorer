@@ -1,3 +1,45 @@
+# Finite conductor generators and a common denominator
+
+The finite spanning-family conductor criterion, product common-denominator equivalence and native fraction membership in its extended ideal retain arbitrary commutative bases, noninjective coefficient maps, empty families and nilpotent denominators. The recomputed localized-B conductor and global IdealSheafData restriction comparisons remain separate required identifications; no stage closes.
+
+For f:A→B the actual coefficient map, c=f⁻¹(c(im f,B)), and a finite spanning family g, the proofs test the genuine image subring, use a native quotient-module kernel, and multiply finitely many denominators. They never replace image membership by membership in a generated ideal or assume a denominator is regular. Generic finite-module flat-annihilator theory remains an SF.0 import.
+
+## Conductor membership on a spanning family
+
+FerrandPushout.conductor_mem_iff_generators: For every commutative A-algebra B, g:Fin n→B with span_A(range g)=B, and a∈A, a belongs to the contracted arbitrary-image conductor if and only if f(a)g_i belongs to im f for every i. The map f is the actual algebraMap; n=0, noninjective maps and zero rings are allowed.
+
+Let N=A·1⊂B and K be the native inverse image of zero under the A-linear map b↦a·[b] in B/N. Membership in K is exactly f(a)b∈im f. If every generator lies in K, span(range g)=top forces K=top. Hence the condition holds for every b, which is exactly the existing subring conductor. The converse evaluates its universal condition on each g_i.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor, mathlib:Submodule.comap, mathlib:Submodule.mem_comap, mathlib:Submodule.mem_bot, mathlib:LinearMap.smul_apply, mathlib:Submodule.mkQ, mathlib:Submodule.mkQ_apply, mathlib:Submodule.Quotient.mk_smul, mathlib:Submodule.Quotient.mk_eq_zero, mathlib:Submodule.mem_span_singleton, mathlib:Submodule.span_le, mathlib:RingHom.mem_range, mathlib:Ideal.mem_comap.
+
+## One denominator for all conductor generators
+
+FerrandPushout.conductor_common_denominator: With the same actual algebra and finite spanning family, and any multiplicative subset S⊂A, (for every i there is s_i∈S with f(s_i a)g_i∈im f) is equivalent to (there is s∈S with sa in the contracted conductor). Neither cancellation nor injectivity is assumed; S may contain zero.
+
+Choose the finitely many s_i, and let s be their product. It belongs to S, including the empty-product case. For each i factor s=(product over j≠i)s_j·s_i. Since im f is closed under multiplication by f(A), f(sa)g_i lies in im f. Apply the conductor generator criterion. Conversely use the same conductor denominator for every generator. No inference cancels a zero divisor or divides by a denominator in A.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-generator-criterion, mathlib:Finset.prod_erase_mul, mathlib:Submonoid.prod_mem, mathlib:RingHom.mem_range.
+
+## Native fractions in the extended conductor
+
+FerrandPushout.conductor_fraction_mem_iff_generators: Let L be any actual S-localization of A, with its native A-algebra and IsLocalization instance. For every t∈S the native fraction a/t lies in the ideal extended from the contracted conductor if and only if for each generator g_i there exists s_i∈S with f(s_i a)g_i∈im f. The supplied denominator t imposes no regularity condition.
+
+Use the pinned native fraction/extended-ideal criterion: a/t lies in cL exactly when some s∈S has sa∈c. Apply the conductor-specific common-denominator equivalence. Keep the supplied localization carrier and actual coefficient map; this does not yet identify cL with the recomputed conductor of the localized B-algebra.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-common-denominator, mathlib:IsLocalization.mk'_mem_map_algebraMap_iff.
+
+The existing conductor-finite-localization proof consumes all three lemmas; the conductor ideal-sheaf consumer retains its full recomputed-conductor obligation. The native localization carrier remains supplied explicitly.
+
+ConductorGenerators.nonspanning: For F₂→F₂×F₂ diagonally, the single element 1 passes the coefficient-1 multiplication test, but coefficient1 is not in the conductor. The omitted span=top hypothesis would therefore give a false criterion.
+
+ConductorGenerators.nilpotent_denominator: For the diagonal Z/4-algebra Z/4×Z/4, coefficient2 is not in the conductor, but denominator2 lies in its powers monoid and sends coefficient2 to zero in the conductor. Clearing denominators may use nilpotents.
+
+ConductorGenerators.empty_zero_algebra: For the actual ℤ-algebra Z/1 the empty Fin0 family spans the zero module and every integer belongs to the contracted conductor; injectivity of the original coefficient map is not assumed.
+
+ConductorGenerators.cusp_fraction: For every field k and the actual cusp subalgebra A=k+X²k[X], every a∈A gives a native fraction a/1 in the extended conductor after inverting the actual element X²∈A. Use the existing spanning family {1,X} and denominatorX².
+
+Sources: Stacks07T8, full displayed statement/proof read 3 October2026, and Ferrand p554 conductor context. These formulas are explicitly derived conductor-specific statements. Every incoming key contract, route row, source issue, gap and supplier request remains unchanged.
+
 # Affine conductor reconstruction and its exact sequence
 
 Continuation by Codex codex-7e92bd, 3 October 2026. The earlier roadmap follows this addition unchanged. This checkpoint closes a concrete proof step already required by G.0: reconstructing a ring from a common ideal, identifying exactly which hypotheses make the reconstruction possible, and expressing the result as an additive exact sequence. It also transfers the full contracted conductor ideals across the actual normalization isomorphism constructed in the previous checkpoint. All seven stages remain partial; the suggested Lean file is a planning artifact and every implementation status remains unchecked.
