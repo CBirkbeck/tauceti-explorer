@@ -15,7 +15,7 @@
     "FunctionFieldArithmeticPartII:GC.5",
     "FunctionFieldArithmeticPartII:GC.6"
   ],
-  "summary": "Partial roadmap with 388 declaration-sized nodes. Arbitrary-section rational-character LEFT coaction now has the explicit heterobasic coefficient square, identity/composition and unchanged-weight formulas, and one-way preservation of universal coinvariance. New conditional proof bodies are checked against incoming admitted coordinate/coaction contracts. All incoming source routes, general root-stack scope, nonreduced fibres and geometric/sheaf boundaries remain; no implementation or stage is certified closed. Separate native evidence proves the existing rational-character/infinite unity-root coordinate block; three computation lemmas expose natural representatives and factorial levels. No geometric or stage closure is asserted. The ten arbitrary-section rational LEFT coaction contracts now have separate admission-free exact-Mathlib proof evidence, and the ten coefficient contracts of PR5978 are replayed without their former admitted inputs. The defining-degree boundary and three additional tests are specified. Two inherited tensor-power precedence errors are corrected only in the Lean prototypes, leaving all mathematical contracts unchanged. Next complete full exact-pin Tau typing, positive-index/higher-universe transport, convolution-point identification, coherent root-object reindexing, affine Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons. These algebraic certificates do not identify all coinvariants with A. Preserve all eight gaps, thirteen requests and both source routes. The actual finite coaction equalizer is identified with the coefficient algebra through diagonal/zero-row coordinates, uniformly in wild characteristic and with arbitrary nonreduced coefficients.",
+  "summary": "Partial roadmap with 388 declaration-sized nodes. Arbitrary-section rational-character LEFT coaction now has the explicit heterobasic coefficient square, identity/composition and unchanged-weight formulas, and one-way preservation of universal coinvariance. New conditional proof bodies are checked against incoming admitted coordinate/coaction contracts. All incoming source routes, general root-stack scope, nonreduced fibres and geometric/sheaf boundaries remain; no implementation or stage is certified closed. Separate native evidence proves the existing rational-character/infinite unity-root coordinate block; three computation lemmas expose natural representatives and factorial levels. No geometric or stage closure is asserted. The ten arbitrary-section rational LEFT coaction contracts now have separate admission-free exact-Mathlib proof evidence, and the ten coefficient contracts of PR5978 are replayed without their former admitted inputs. The defining-degree boundary and three additional tests are specified. Two inherited tensor-power precedence errors are corrected only in the Lean prototypes, leaving all mathematical contracts unchanged. Next complete full exact-pin Tau typing, positive-index/higher-universe transport, convolution-point identification, coherent root-object reindexing, affine Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons. These algebraic certificates do not identify all coinvariants with A. Preserve all eight gaps, thirteen requests and both source routes. The actual finite coaction equalizer is identified with the coefficient algebra through diagonal/zero-row coordinates, uniformly in wild characteristic and with arbitrary nonreduced coefficients. The factorial arbitrary-section root algebra has the actual native coefficient invariant subalgebra A. Rational-character extraction and injective finite-stage inclusions supply a finite-level criterion, existence and uniqueness of the coefficient, and the native equalizer algebra equivalence, also for wild and nonreduced bases. This algebraic calculation does not discharge the geometric quotient, Spec-limit, root-groupoid or fpqc frame-descent contracts.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1788,6 +1788,27 @@
         "module": "Mathlib/Algebra/Algebra/Hom.lean",
         "provides": "The native scalar algebra homomorphism from the coefficient algebra.",
         "checked": "Actual statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; generic baseline fact imported, not replanned."
+      },
+      {
+        "ref": "mathlib:TensorProduct.map",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
+        "provides": "Native (semi)linear tensor map, evaluated on pure tensors.",
+        "checked": "Statement read at pinned commit 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:TensorProduct.lid",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Associator.lean",
+        "provides": "Native linear equivalence A⊗_A C≃C with a⊗x mapped to a·x.",
+        "checked": "Statement read at pinned commit 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:Module.Basis.equivFun_self",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+        "provides": "The j-coordinate of basis vector i is one for i=j and zero otherwise.",
+        "checked": "Statement read at pinned commit 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
       }
     ]
   },
@@ -2038,6 +2059,28 @@
       "accessDate": "2026-10-03",
       "readSections": [
         "Printed pp. 14–16, selected finite character grading, Lemma 3.7 proof and Corollary 3.13 finite chart; no fresh whole-paper read"
+      ]
+    },
+    {
+      "id": "TV17InfiniteCoinvariants-N24",
+      "title": "Infinite root stacks and quasi-coherent sheaves on logarithmic schemes",
+      "authors": "Mattia Talpo and Angelo Vistoli",
+      "edition": "arXiv1410.1164v2, 12 December 2017",
+      "url": "https://arxiv.org/pdf/1410.1164v2",
+      "sha256": "92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2",
+      "accessed": "2026-10-03",
+      "readSections": [
+        "Fresh complete printed/PDF pp.14–16: Proposition3.5 proof and cofinality remark, character grading, Lemma3.7 degree-zero proof, Definition3.8, Lemma3.12 and Proposition3.10 proofs, Corollary3.13. No fresh whole-paper audit."
+      ]
+    },
+    {
+      "id": "InfiniteCoinvariants-codex-a71f92-N24",
+      "title": "Rational-character coefficients and infinite affine coinvariants",
+      "authors": "Codex — codex-a71f92",
+      "edition": "Authored N24 derivation, 2026-10-03",
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/codex-a71f92-n24-3403-infinite-coinvariants/research/blueprint/readmes/FunctionFieldArithmeticPartII.md",
+      "readSections": [
+        "All nine declaration statements, their proof interiors and all twelve explicit acceptance examples in the matching reader. The no-admission native proof is recoverable from the suggested-file evidence archive."
       ]
     }
   ],
@@ -23954,6 +23997,565 @@
           "statement": "For a subsingleton coefficient ring, the inverse invariant-algebra equivalence sends every invariant element to 0 for every positive exponent."
         }
       ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/qz-tensor-character-coefficient",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "construction",
+      "title": "Rational-character tensor coefficient",
+      "declarationName": "TauCeti.RootStack.qzTensorCoefficient",
+      "statement": "For q∈Q/Z define the native A-linear map P_q:G⊗_A C→C by composing the existing group-algebra coefficient equivalence, evaluation at q, the tensor map with id_C and the native left unitor. Thus P_q(e_r a⊗x)=a·x if r=q, and 0 otherwise.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring in the fixed universe, f∈A arbitrary; no nontriviality, reducedness, Noetherianity, flatness or exponent-invertibility hypothesis is imposed.",
+        "Put d_i=(i+1)!, B_i=A[t_i]/(t_i^d_i−f), C=C_A(f)=colim_i B_i with its actual injective maps ι_i, G=A[Q/Z] using the native rational AddCircle of period 1, and η_f:C→G⊗_A C the inherited LEFT coaction. Write u_i=ι_i(t_i), χ_n(k)=[k/n], and e_q for a character basis vector."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit",
+        "FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-constant",
+        "mathlib:MonoidAlgebra.coeffLinearEquiv",
+        "mathlib:Finsupp.lapply",
+        "mathlib:TensorProduct.map",
+        "mathlib:TensorProduct.lid"
+      ],
+      "proofSteps": [
+        "Use the native coefficient linear equivalence and native Finsupp evaluation; compose their linear maps.",
+        "Tensor the coefficient functional with id_C, then compose with the existing native A⊗_A C≃C. This is a coefficient map, not an algebra homomorphism.",
+        "Evaluate a character basis tensor using the native tensor-map and unitor formulas; linearity supplies sums and scalar multiples."
+      ],
+      "acceptance": [
+        "Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.qzTensorCoefficient.single",
+          "role": "simp",
+          "statement": "P_q(e_r a⊗x) is a·x when r=q and zero otherwise."
+        },
+        {
+          "name": "TauCeti.RootStack.qzTensorCoefficient.constant",
+          "role": "simp",
+          "statement": "P_q(1⊗x)=x for q=0 and zero for q≠0."
+        },
+        {
+          "name": "TauCeti.RootStack.qzTensorCoefficient.coaction_constant",
+          "role": "compatibility",
+          "statement": "P_q(η_f(a)) is the actual coefficient image of a for q=0, and zero for q≠0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.qzTensorCoefficient.test_matching",
+          "kind": "computation",
+          "statement": "For every q,a,x, P_q(e_q a⊗x)=a·x."
+        },
+        {
+          "name": "TauCeti.RootStack.qzTensorCoefficient.test_nonzero_character",
+          "kind": "non-example",
+          "statement": "For q≠0, P_q(1⊗x)=0; this excludes evaluation on the second tensor factor."
+        },
+        {
+          "name": "TauCeti.RootStack.qzTensorCoefficient.test_zero_character",
+          "kind": "compatibility",
+          "statement": "P_0(1⊗x)=x, agreeing with the native tensor left unitor."
+        },
+        {
+          "name": "TauCeti.RootStack.qzTensorCoefficient.test_zero_ring",
+          "kind": "degenerate",
+          "statement": "For A=Z/1 and f=0 every character coefficient of 1⊗x is zero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supply the actual affine invariant algebra; coherent root-object groupoids, Spec limits and fpqc frame torsors are separate geometric inputs."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "InfiniteCoinvariants-codex-a71f92-N24",
+          "locator": "Authored deduction qzTensorCoefficient in the matching reader section, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, Lemma3.7 degree-zero proof and Corollary3.13",
+          "excerpt": "Extract one rational character coefficient before applying finite-level injectivity.",
+          "match": "This concrete factorial-colimit statement is an authored consequence of the listed native universal properties, not a named theorem printed in the paper; the motivating grading argument is read separately."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/qz-character-fin-injective",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Distinct finite rational characters",
+      "declarationName": "TauCeti.RootStack.affineQZCharacter.fin_injective",
+      "statement": "For n≥1, the map Fin(n)→Q/Z sending j to χ_n(j) is injective.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring in the fixed universe, f∈A arbitrary; no nontriviality, reducedness, Noetherianity, flatness or exponent-invertibility hypothesis is imposed.",
+        "Put d_i=(i+1)!, B_i=A[t_i]/(t_i^d_i−f), C=C_A(f)=colim_i B_i with its actual injective maps ι_i, G=A[Q/Z] using the native rational AddCircle of period 1, and η_f:C→G⊗_A C the inherited LEFT coaction. Write u_i=ι_i(t_i), χ_n(k)=[k/n], and e_q for a character basis vector."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/qz-character-injective",
+        "mathlib:ZMod.val_natCast_of_lt"
+      ],
+      "proofSteps": [
+        "Apply the inherited injectivity of χ_n on Z/n to an equality of characters.",
+        "Apply the native residue-value map to the resulting equality in Z/n; values of natural residues below n equal their original integers, so Fin extensionality proves equality."
+      ],
+      "acceptance": [
+        "Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supply the actual affine invariant algebra; coherent root-object groupoids, Spec limits and fpqc frame torsors are separate geometric inputs."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "InfiniteCoinvariants-codex-a71f92-N24",
+          "locator": "Authored deduction affineQZCharacter.fin_injective in the matching reader section, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, Lemma3.7 degree-zero proof and Corollary3.13",
+          "excerpt": "Extract one rational character coefficient before applying finite-level injectivity.",
+          "match": "This concrete factorial-colimit statement is an authored consequence of the listed native universal properties, not a named theorem printed in the paper; the motivating grading argument is read separately."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/qz-coaction-finite-coefficient",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Character coefficient of a finite root expansion",
+      "declarationName": "TauCeti.RootStack.factorialQZCoaction.coefficient_sum",
+      "statement": "For i≥0, c:Fin(d_i)→A and k∈Fin(d_i), P_(χ_d_i(k))(η_f(ι_i(Σ_j c_j t_i^j)))=ι_i(c_k t_i^k).",
+      "hypotheses": [
+        "A is an arbitrary commutative ring in the fixed universe, f∈A arbitrary; no nontriviality, reducedness, Noetherianity, flatness or exponent-invertibility hypothesis is imposed.",
+        "Put d_i=(i+1)!, B_i=A[t_i]/(t_i^d_i−f), C=C_A(f)=colim_i B_i with its actual injective maps ι_i, G=A[Q/Z] using the native rational AddCircle of period 1, and η_f:C→G⊗_A C the inherited LEFT coaction. Write u_i=ι_i(t_i), χ_n(k)=[k/n], and e_q for a character basis vector."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/qz-tensor-character-coefficient",
+        "FunctionFieldArithmeticPartII:RS.2/qz-character-fin-injective",
+        "FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-power",
+        "FunctionFieldArithmeticPartII:RS.2/qz-character-natcast",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion"
+      ],
+      "proofSteps": [
+        "Use the inherited power formula η_f(u_i^j)=e_(χ_d_i(j))⊗u_i^j and native A-linearity.",
+        "Apply P_(χ_d_i(k)) term by term; distinctness of the finite characters kills every j≠k.",
+        "The remaining term is c_k u_i^k=ι_i(c_k t_i^k); neither the scalar nor the root is cancelled."
+      ],
+      "acceptance": [
+        "Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supply the actual affine invariant algebra; coherent root-object groupoids, Spec limits and fpqc frame torsors are separate geometric inputs."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "InfiniteCoinvariants-codex-a71f92-N24",
+          "locator": "Authored deduction factorialQZCoaction.coefficient_sum in the matching reader section, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, Lemma3.7 degree-zero proof and Corollary3.13",
+          "excerpt": "Extract one rational character coefficient before applying finite-level injectivity.",
+          "match": "This concrete factorial-colimit statement is an authored consequence of the listed native universal properties, not a named theorem printed in the paper; the motivating grading argument is read separately."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/qz-coaction-finite-invariant-criterion",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Finite-level criterion for infinite coinvariance",
+      "declarationName": "TauCeti.RootStack.factorialQZCoaction.invariants_sum_iff",
+      "statement": "For i≥0 and c:Fin(d_i)→A, η_f(ι_i(Σ_j c_j t_i^j))=1⊗ι_i(Σ_j c_j t_i^j) if and only if c_j=0 for every j≠0.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring in the fixed universe, f∈A arbitrary; no nontriviality, reducedness, Noetherianity, flatness or exponent-invertibility hypothesis is imposed.",
+        "Put d_i=(i+1)!, B_i=A[t_i]/(t_i^d_i−f), C=C_A(f)=colim_i B_i with its actual injective maps ι_i, G=A[Q/Z] using the native rational AddCircle of period 1, and η_f:C→G⊗_A C the inherited LEFT coaction. Write u_i=ι_i(t_i), χ_n(k)=[k/n], and e_q for a character basis vector."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/qz-coaction-finite-coefficient",
+        "FunctionFieldArithmeticPartII:RS.2/qz-tensor-character-coefficient",
+        "FunctionFieldArithmeticPartII:RS.2/qz-character-fin-injective",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-injective",
+        "FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-constant",
+        "mathlib:AdjoinRoot.powerBasis'",
+        "mathlib:Polynomial.monic_X_pow_sub_C",
+        "mathlib:Polynomial.natDegree_X_pow_sub_C",
+        "mathlib:Module.Basis.reindex",
+        "mathlib:Module.Basis.reindex_apply",
+        "mathlib:Module.Basis.equivFun_self"
+      ],
+      "proofSteps": [
+        "For k≠0 its rational character is nonzero by finite-character injectivity. Apply P_(χ_d_i(k)) to universal coinvariance: the right-hand coefficient is zero, and the left-hand coefficient is ι_i(c_k t_i^k).",
+        "Use actual finite-stage injectivity to get c_k t_i^k=0 in B_i. Over a nontrivial A, apply the k-th coordinate of the reindexed monic power basis to conclude c_k=0. For a subsingleton A the same conclusion is immediate. No regularity of t_i is used.",
+        "Conversely, sum reduction leaves only c_0; the algebra-map coefficient formula and constant coaction give 1⊗c_0."
+      ],
+      "acceptance": [
+        "At d_1=2 over F_2 the criterion is precisely c_1=0, not invariance under μ_2(F_2).",
+        "At f=0 over Z/4 the expansion with c_1=2 and c_0=0 is not coinvariant, although its nonconstant coefficient is nilpotent."
+      ],
+      "api": [],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.factorialQZCoaction.test_wild_coefficient_criterion",
+          "kind": "characterisation",
+          "statement": "At level one, A=F₂ and f=0, universal coinvariance of the two-coefficient expansion is equivalent to c_1=0."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialQZCoaction.test_nonzero_nilpotent_rejected",
+          "kind": "non-example",
+          "statement": "At level one over Z/4 with f=0, the expansion c_0=0,c_1=2 is not coinvariant, although c_1 is a nonzero nilpotent."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supply the actual affine invariant algebra; coherent root-object groupoids, Spec limits and fpqc frame torsors are separate geometric inputs."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "InfiniteCoinvariants-codex-a71f92-N24",
+          "locator": "Authored deduction factorialQZCoaction.invariants_sum_iff in the matching reader section, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, Lemma3.7 degree-zero proof and Corollary3.13",
+          "excerpt": "Extract one rational character coefficient before applying finite-level injectivity.",
+          "match": "This concrete factorial-colimit statement is an authored consequence of the listed native universal properties, not a named theorem printed in the paper; the motivating grading argument is read separately."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/qz-coaction-invariants",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "theorem",
+      "title": "Infinite affine coinvariants",
+      "declarationName": "TauCeti.RootStack.factorialQZCoaction.invariants",
+      "statement": "For every x∈C_A(f), η_f(x)=1⊗x if and only if x=algebraMap(a) for some a∈A.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring in the fixed universe, f∈A arbitrary; no nontriviality, reducedness, Noetherianity, flatness or exponent-invertibility hypothesis is imposed.",
+        "Put d_i=(i+1)!, B_i=A[t_i]/(t_i^d_i−f), C=C_A(f)=colim_i B_i with its actual injective maps ι_i, G=A[Q/Z] using the native rational AddCircle of period 1, and η_f:C→G⊗_A C the inherited LEFT coaction. Write u_i=ι_i(t_i), χ_n(k)=[k/n], and e_q for a character basis vector."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/qz-coaction-finite-invariant-criterion",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-elements",
+        "FunctionFieldArithmeticPartII:RS.1/affine-invariants",
+        "FunctionFieldArithmeticPartII:RS.1/affine-invariant-coefficient-criterion",
+        "mathlib:AdjoinRoot.powerBasis'",
+        "mathlib:Polynomial.monic_X_pow_sub_C",
+        "mathlib:Polynomial.natDegree_X_pow_sub_C",
+        "mathlib:Module.Basis.sum_equivFun",
+        "mathlib:Module.Basis.reindex",
+        "mathlib:Module.Basis.reindex_apply",
+        "FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-constant"
+      ],
+      "proofSteps": [
+        "Represent x at an actual finite level by the direct-limit element theorem. Handle the zero ring directly.",
+        "Use the monic power basis to expand this representative, apply the finite-level criterion to force its nonzero-weight coefficients to vanish.",
+        "Invoke the inherited finite invariant criterion and finite invariant theorem on that same representative. Its coefficient image passes to the same coefficient in the colimit.",
+        "Constants satisfy coinvariance by the inherited constant formula. This does not commute invariants with an arbitrary filtered colimit or arbitrary base change without proof."
+      ],
+      "acceptance": [
+        "Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supply the actual affine invariant algebra; coherent root-object groupoids, Spec limits and fpqc frame torsors are separate geometric inputs."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "InfiniteCoinvariants-codex-a71f92-N24",
+          "locator": "Authored deduction factorialQZCoaction.invariants in the matching reader section, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, Lemma3.7 degree-zero proof and Corollary3.13",
+          "excerpt": "Extract one rational character coefficient before applying finite-level injectivity.",
+          "match": "This concrete factorial-colimit statement is an authored consequence of the listed native universal properties, not a named theorem printed in the paper; the motivating grading argument is read separately."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-injective",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Faithful coefficient inclusion in the root colimit",
+      "declarationName": "TauCeti.RootStack.factorialAffineColimit.coefficient_injective",
+      "statement": "For every f∈A the actual coefficient map A→C_A(f) is injective.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring in the fixed universe, f∈A arbitrary; no nontriviality, reducedness, Noetherianity, flatness or exponent-invertibility hypothesis is imposed.",
+        "Put d_i=(i+1)!, B_i=A[t_i]/(t_i^d_i−f), C=C_A(f)=colim_i B_i with its actual injective maps ι_i, G=A[Q/Z] using the native rational AddCircle of period 1, and η_f:C→G⊗_A C the inherited LEFT coaction. Write u_i=ι_i(t_i), χ_n(k)=[k/n], and e_q for a character basis vector."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-injective",
+        "mathlib:AdjoinRoot.of.injective_of_monic_of_degree_pos",
+        "mathlib:Polynomial.monic_X_pow_sub_C",
+        "mathlib:Polynomial.degree_X_pow_sub_C"
+      ],
+      "proofSteps": [
+        "Factor the coefficient map through level i=0, whose exponent is one.",
+        "The positive-degree monic quotient coefficient map is injective; then use the actual injective finite-level inclusion into C_A(f). The subsingleton coefficient ring satisfies injectivity directly."
+      ],
+      "acceptance": [
+        "Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supply the actual affine invariant algebra; coherent root-object groupoids, Spec limits and fpqc frame torsors are separate geometric inputs."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "InfiniteCoinvariants-codex-a71f92-N24",
+          "locator": "Authored deduction factorialAffineColimit.coefficient_injective in the matching reader section, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, Lemma3.7 degree-zero proof and Corollary3.13",
+          "excerpt": "Extract one rational character coefficient before applying finite-level injectivity.",
+          "match": "This concrete factorial-colimit statement is an authored consequence of the listed native universal properties, not a named theorem printed in the paper; the motivating grading argument is read separately."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/qz-coaction-invariants-unique",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Unique invariant coefficient",
+      "declarationName": "TauCeti.RootStack.factorialQZCoaction.invariants_unique",
+      "statement": "If η_f(x)=1⊗x, there exists a unique a∈A with x=algebraMap(a).",
+      "hypotheses": [
+        "A is an arbitrary commutative ring in the fixed universe, f∈A arbitrary; no nontriviality, reducedness, Noetherianity, flatness or exponent-invertibility hypothesis is imposed.",
+        "Put d_i=(i+1)!, B_i=A[t_i]/(t_i^d_i−f), C=C_A(f)=colim_i B_i with its actual injective maps ι_i, G=A[Q/Z] using the native rational AddCircle of period 1, and η_f:C→G⊗_A C the inherited LEFT coaction. Write u_i=ι_i(t_i), χ_n(k)=[k/n], and e_q for a character basis vector."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/qz-coaction-invariants",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-injective"
+      ],
+      "proofSteps": [
+        "Take a coefficient supplied by the invariant theorem.",
+        "Any two coefficients with that image agree by coefficient-map injectivity."
+      ],
+      "acceptance": [
+        "For A=Z/1 every x has the unique coefficient 0.",
+        "For every A,f,a the image of a has exactly coefficient a."
+      ],
+      "api": [],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.factorialQZCoaction.test_unique_constants",
+          "kind": "characterisation",
+          "statement": "For every A,f,a, the actual coefficient image of a has the unique coefficient a."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialQZCoaction.test_coefficient_unique_zero_ring",
+          "kind": "degenerate",
+          "statement": "For A=Z/1 and f=0 every colimit element has the unique coefficient zero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supply the actual affine invariant algebra; coherent root-object groupoids, Spec limits and fpqc frame torsors are separate geometric inputs."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "InfiniteCoinvariants-codex-a71f92-N24",
+          "locator": "Authored deduction factorialQZCoaction.invariants_unique in the matching reader section, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, Lemma3.7 degree-zero proof and Corollary3.13",
+          "excerpt": "Extract one rational character coefficient before applying finite-level injectivity.",
+          "match": "This concrete factorial-colimit statement is an authored consequence of the listed native universal properties, not a named theorem printed in the paper; the motivating grading argument is read separately."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/factorial-coaction-invariants",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "theorem",
+      "title": "Coinvariants in unity-root coordinates",
+      "declarationName": "TauCeti.RootStack.factorialCoaction.invariants",
+      "statement": "For every x∈C_A(f), ρ_f(x)=1⊗x in C_A(1)⊗_A C_A(f) if and only if x=algebraMap(a) for some a∈A.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring in the fixed universe, f∈A arbitrary; no nontriviality, reducedness, Noetherianity, flatness or exponent-invertibility hypothesis is imposed.",
+        "Put d_i=(i+1)!, B_i=A[t_i]/(t_i^d_i−f), C=C_A(f)=colim_i B_i with its actual injective maps ι_i, G=A[Q/Z] using the native rational AddCircle of period 1, and η_f:C→G⊗_A C the inherited LEFT coaction. Write u_i=ι_i(t_i), χ_n(k)=[k/n], and e_q for a character basis vector."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/qz-coaction-invariants",
+        "FunctionFieldArithmeticPartII:RS.2/qz-chart-coinvariance"
+      ],
+      "proofSteps": [
+        "Use the inherited native tensor-algebra equivalence to reflect universal coinvariance between ρ_f and η_f.",
+        "Apply the proved rational-coordinate invariant theorem to the same x. This is equality of universal coactions, not a comparison using scalar points."
+      ],
+      "acceptance": [
+        "Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supply the actual affine invariant algebra; coherent root-object groupoids, Spec limits and fpqc frame torsors are separate geometric inputs."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "InfiniteCoinvariants-codex-a71f92-N24",
+          "locator": "Authored deduction factorialCoaction.invariants in the matching reader section, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, Lemma3.7 degree-zero proof and Corollary3.13",
+          "excerpt": "Extract one rational character coefficient before applying finite-level injectivity.",
+          "match": "This concrete factorial-colimit statement is an authored consequence of the listed native universal properties, not a named theorem printed in the paper; the motivating grading argument is read separately."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/factorial-invariant-algebra-equivalence",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "construction",
+      "title": "Infinite invariant algebra",
+      "declarationName": "TauCeti.RootStack.factorialInvariantEquiv",
+      "statement": "Let I_f be the native AlgHom.equalizer of η_f:C_A(f)→A[Q/Z]⊗_A C_A(f) and the right inclusion x↦1⊗x. Construct the A-algebra equivalence A≃I_f induced by the actual coefficient map.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring in the fixed universe, f∈A arbitrary; no nontriviality, reducedness, Noetherianity, flatness or exponent-invertibility hypothesis is imposed.",
+        "Put d_i=(i+1)!, B_i=A[t_i]/(t_i^d_i−f), C=C_A(f)=colim_i B_i with its actual injective maps ι_i, G=A[Q/Z] using the native rational AddCircle of period 1, and η_f:C→G⊗_A C the inherited LEFT coaction. Write u_i=ι_i(t_i), χ_n(k)=[k/n], and e_q for a character basis vector."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/qz-coaction-invariants",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-injective",
+        "mathlib:AlgHom.equalizer",
+        "mathlib:AlgHom.mem_equalizer",
+        "mathlib:AlgHom.codRestrict",
+        "mathlib:Algebra.ofId",
+        "mathlib:AlgEquiv.ofBijective"
+      ],
+      "proofSteps": [
+        "Restrict the coefficient A-algebra homomorphism to the native equalizer; constant coinvariance proves membership.",
+        "Its underlying map is injective by coefficient inclusion and surjective by the invariant theorem. Apply the existing native bijective algebra-hom equivalence constructor.",
+        "The forward map is coefficient inclusion, and the inverse is the coefficient of that same invariant element. Do not construct a separate opaque invariant carrier or infer geometric coarse universality."
+      ],
+      "acceptance": [
+        "Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.factorialInvariantEquiv.apply_coe",
+          "role": "simp",
+          "statement": "The underlying chart element of factorialInvariantEquiv(f)(a) is the coefficient image of a."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialInvariantEquiv.inverse_coe",
+          "role": "compatibility",
+          "statement": "Including the inverse coefficient of x∈I_f back into C_A(f) gives x itself."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialInvariantEquiv.eq_iff",
+          "role": "characterisation",
+          "statement": "For x∈I_f and a∈A, the inverse coefficient of x is a if and only if x itself is the actual coefficient image of a."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.factorialInvariantEquiv.test_coefficient_two",
+          "kind": "computation",
+          "statement": "For A=Z/4 and f=2, the forward image of coefficient 2 is its actual chart inclusion."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialInvariantEquiv.test_zero_ring",
+          "kind": "degenerate",
+          "statement": "For A=Z/1 and f=0 the forward image of the sole coefficient is zero."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialInvariantEquiv.test_unity",
+          "kind": "compatibility",
+          "statement": "For f=1 every forward image is universally coinvariant for the original unity-root coaction ρ_1."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialInvariantEquiv.test_inverse",
+          "kind": "characterisation",
+          "statement": "For every x in the native equalizer, applying the forward map to its inverse coefficient recovers exactly x."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supply the actual affine invariant algebra; coherent root-object groupoids, Spec limits and fpqc frame torsors are separate geometric inputs."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "InfiniteCoinvariants-codex-a71f92-N24",
+          "locator": "Authored deduction factorialInvariantEquiv in the matching reader section, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, Lemma3.7 degree-zero proof and Corollary3.13",
+          "excerpt": "Extract one rational character coefficient before applying finite-level injectivity.",
+          "match": "This concrete factorial-colimit statement is an authored consequence of the listed native universal properties, not a named theorem printed in the paper; the motivating grading argument is read separately."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
