@@ -77,7 +77,7 @@ blocks=re.findall(r'\x60\x60\x60python\n(.*?)\n\x60\x60\x60',contents[FILES[4]],
 names=['verify.py','immutable_view.py','finite_roots.py','prepare_typing.py']
 hashes={}
 for name,block in zip(names,blocks[1:5]):
- t=block.removesuffix('\n')
+ t=block
  put(name,t);hashes[name]=hashlib.sha256(t.encode()).hexdigest()
 assert len(hashes)==4
 print(json.dumps({'head':HEAD,'files':{f:hashlib.sha256(t.encode()).hexdigest() for f,t in contents.items()},'newSignatureSha256':hashlib.sha256(canonical[start:].encode()).hexdigest(),'helperHashes':hashes},indent=2))
