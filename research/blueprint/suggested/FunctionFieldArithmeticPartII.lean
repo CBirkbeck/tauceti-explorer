@@ -4841,3 +4841,261 @@ example (f a b : A) (h : (divisibilityInvariantEquiv f a).val =
 
 end TauCeti.RootStack
 end
+
+noncomputable section
+set_option maxHeartbeats 800000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+universe uDivCoeff
+namespace TauCeti.RootStack
+variable {A B C : Type uDivCoeff} [CommRing A] [CommRing B] [CommRing C]
+open scoped TensorProduct
+
+def divisibilityCoefficientMap (φ : A →+* B) (f : A) :
+    DivisibilityAffineColimit f →+* DivisibilityAffineColimit (φ f) :=
+  (divisibilityFactorialEquiv (φ f)).symm.toRingHom.comp
+    ((factorialCoefficientMap φ f).comp (divisibilityFactorialEquiv f).toRingHom)
+
+lemma divisibilityCoefficientMap.transport (φ : A →+* B) (f : A)
+    (x : DivisibilityAffineColimit f) :
+    divisibilityFactorialEquiv (φ f) (divisibilityCoefficientMap φ f x) =
+      factorialCoefficientMap φ f (divisibilityFactorialEquiv f x) := by
+  sorry
+
+lemma divisibilityCoefficientMap.constant (φ : A →+* B) (f a : A) :
+    divisibilityCoefficientMap φ f (algebraMap A _ a) = algebraMap B _ (φ a) := by
+  sorry
+
+lemma divisibilityCoefficientMap.root (φ : A →+* B) (f : A) (n : RootDivIndex) :
+    divisibilityCoefficientMap φ f (divisibilityAffineInclusion f n (AdjoinRoot.root _)) =
+      divisibilityAffineInclusion (φ f) n (AdjoinRoot.root _) := by
+  sorry
+
+lemma divisibilityCoefficientMap.id (f : A) :
+    divisibilityCoefficientMap (RingHom.id A) f = RingHom.id _ := by
+  sorry
+
+lemma divisibilityCoefficientMap.comp (φ : A →+* B) (ψ : B →+* C) (f : A) :
+    divisibilityCoefficientMap (ψ.comp φ) f =
+      (divisibilityCoefficientMap ψ (φ f)).comp (divisibilityCoefficientMap φ f) := by
+  sorry
+
+def divisibilityQZTensorCoefficientMap (φ : A →+* B) (f : A) :
+    (MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
+      DivisibilityAffineColimit f) →+*
+    (MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ))) ⊗[B]
+      DivisibilityAffineColimit (φ f)) :=
+  (divisibilityQZTensorEquiv (φ f)).symm.toRingHom.comp
+    ((factorialQZTensorCoefficientMap φ f).comp (divisibilityQZTensorEquiv f).toRingHom)
+
+lemma divisibilityQZTensorCoefficientMap.transport (φ : A →+* B) (f : A)
+    (y : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
+      DivisibilityAffineColimit f) :
+    divisibilityQZTensorEquiv (φ f) (divisibilityQZTensorCoefficientMap φ f y) =
+      factorialQZTensorCoefficientMap φ f (divisibilityQZTensorEquiv f y) := by
+  sorry
+
+lemma divisibilityQZTensorCoefficientMap.tmul (φ : A →+* B) (f : A)
+    (g : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))))
+    (x : DivisibilityAffineColimit f) :
+    divisibilityQZTensorCoefficientMap φ f (g ⊗ₜ[A] x) =
+      MonoidAlgebra.mapRingHom (Multiplicative (AddCircle (1 : ℚ))) φ g ⊗ₜ[B]
+        divisibilityCoefficientMap φ f x := by
+  sorry
+
+lemma divisibilityQZTensorCoefficientMap.single (φ : A →+* B) (f a : A)
+    (q : AddCircle (1 : ℚ)) (x : DivisibilityAffineColimit f) :
+    divisibilityQZTensorCoefficientMap φ f
+      (MonoidAlgebra.single (Multiplicative.ofAdd q) a ⊗ₜ[A] x) =
+      MonoidAlgebra.single (Multiplicative.ofAdd q) (φ a) ⊗ₜ[B]
+        divisibilityCoefficientMap φ f x := by
+  sorry
+
+lemma divisibilityQZTensorCoefficientMap.constant (φ : A →+* B) (f a : A) :
+    divisibilityQZTensorCoefficientMap φ f (algebraMap A _ a) =
+      algebraMap B _ (φ a) := by
+  sorry
+
+lemma divisibilityQZTensorCoefficientMap.id (f : A) :
+    divisibilityQZTensorCoefficientMap (RingHom.id A) f = RingHom.id _ := by
+  sorry
+
+lemma divisibilityQZTensorCoefficientMap.comp (φ : A →+* B) (ψ : B →+* C) (f : A) :
+    divisibilityQZTensorCoefficientMap (ψ.comp φ) f =
+      (divisibilityQZTensorCoefficientMap ψ (φ f)).comp
+        (divisibilityQZTensorCoefficientMap φ f) := by
+  sorry
+
+lemma divisibilityQZCoaction.coefficient_naturality (φ : A →+* B) (f : A) :
+    (divisibilityQZTensorCoefficientMap φ f).comp (divisibilityQZCoaction f).toRingHom =
+      (divisibilityQZCoaction (φ f)).toRingHom.comp (divisibilityCoefficientMap φ f) := by
+  sorry
+
+lemma divisibilityQZCoaction.map_coinvariant (φ : A →+* B) (f : A)
+    (x : DivisibilityAffineColimit f)
+    (hx : divisibilityQZCoaction f x =
+      (1 : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[A] x) :
+    divisibilityQZCoaction (φ f) (divisibilityCoefficientMap φ f x) =
+      (1 : MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[B]
+        divisibilityCoefficientMap φ f x := by
+  sorry
+
+def divisibilityInvariantCoefficientMap (φ : A →+* B) (f : A) :
+    ↥(AlgHom.equalizer (divisibilityQZCoaction f)
+      (Algebra.TensorProduct.includeRight : DivisibilityAffineColimit f →ₐ[A]
+        MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
+          DivisibilityAffineColimit f)) →+*
+    ↥(AlgHom.equalizer (divisibilityQZCoaction (φ f))
+      (Algebra.TensorProduct.includeRight : DivisibilityAffineColimit (φ f) →ₐ[B]
+        MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ))) ⊗[B]
+          DivisibilityAffineColimit (φ f))) where
+  toFun x := ⟨divisibilityCoefficientMap φ f x.val,
+    divisibilityQZCoaction.map_coinvariant φ f x.val x.property⟩
+  map_one' := Subtype.ext (map_one _)
+  map_mul' x y := Subtype.ext (map_mul _ x.val y.val)
+  map_zero' := Subtype.ext (map_zero _)
+  map_add' x y := Subtype.ext (map_add _ x.val y.val)
+
+lemma divisibilityInvariantCoefficientMap.coe (φ : A →+* B) (f : A)
+    (x : ↥(AlgHom.equalizer (divisibilityQZCoaction f)
+      (Algebra.TensorProduct.includeRight : DivisibilityAffineColimit f →ₐ[A]
+        MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
+          DivisibilityAffineColimit f))) :
+    (divisibilityInvariantCoefficientMap φ f x).val =
+      divisibilityCoefficientMap φ f x.val := by
+  sorry
+
+lemma divisibilityInvariantCoefficientMap.forward (φ : A →+* B) (f a : A) :
+    divisibilityInvariantCoefficientMap φ f (divisibilityInvariantEquiv f a) =
+      divisibilityInvariantEquiv (φ f) (φ a) := by
+  sorry
+
+lemma divisibilityInvariantCoefficientMap.coordinate (φ : A →+* B) (f : A)
+    (x : ↥(AlgHom.equalizer (divisibilityQZCoaction f)
+      (Algebra.TensorProduct.includeRight : DivisibilityAffineColimit f →ₐ[A]
+        MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
+          DivisibilityAffineColimit f))) :
+    (divisibilityInvariantEquiv (φ f)).symm (divisibilityInvariantCoefficientMap φ f x) =
+      φ ((divisibilityInvariantEquiv f).symm x) := by
+  sorry
+
+lemma divisibilityInvariantCoefficientMap.id (f : A) :
+    divisibilityInvariantCoefficientMap (RingHom.id A) f = RingHom.id _ := by
+  sorry
+
+attribute [local irreducible] divisibilityQZCoaction
+
+lemma divisibilityInvariantCoefficientMap.comp (φ : A →+* B) (ψ : B →+* C) (f : A) :
+    divisibilityInvariantCoefficientMap (ψ.comp φ) f =
+      (divisibilityInvariantCoefficientMap ψ (φ f)).comp
+        (divisibilityInvariantCoefficientMap φ f) := by
+  sorry
+
+lemma divisibilityInvariantCoefficientMap.injective_iff (φ : A →+* B) (f : A) :
+    Function.Injective (divisibilityInvariantCoefficientMap φ f) ↔ Function.Injective φ := by
+  sorry
+
+lemma divisibilityInvariantCoefficientMap.surjective_iff (φ : A →+* B) (f : A) :
+    Function.Surjective (divisibilityInvariantCoefficientMap φ f) ↔ Function.Surjective φ := by
+  sorry
+
+end TauCeti.RootStack
+end
+
+
+noncomputable section
+set_option maxHeartbeats 800000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+universe uDivCoeffTest
+namespace TauCeti.RootStack
+variable {A B : Type uDivCoeffTest} [CommRing A] [CommRing B]
+open scoped TensorProduct
+
+-- test: divisibilityCoefficientMap.test_third_root
+example : divisibilityCoefficientMap (Int.castRingHom (ZMod 4)) (2 : ℤ)
+    (divisibilityAffineInclusion (2 : ℤ) ⟨3, by decide⟩ (AdjoinRoot.root _)) =
+      divisibilityAffineInclusion ((Int.castRingHom (ZMod 4)) (2 : ℤ))
+        ⟨3, by decide⟩ (AdjoinRoot.root _) := by
+  sorry
+
+-- test: divisibilityCoefficientMap.test_identity
+example (f : A) (x : DivisibilityAffineColimit f) :
+    divisibilityCoefficientMap (RingHom.id A) f x = x := by
+  sorry
+
+-- test: divisibilityCoefficientMap.test_zero_ring
+example (x : DivisibilityAffineColimit (0 : ZMod 2)) :
+    divisibilityCoefficientMap (ZMod.castHom (by decide : 1 ∣ 2) (ZMod 1))
+      (0 : ZMod 2) x = 0 := by
+  sorry
+
+-- test: divisibilityCoefficientMap.test_killed_constant
+example : algebraMap ℤ (DivisibilityAffineColimit (2 : ℤ)) 4 ≠ 0 ∧
+    divisibilityCoefficientMap (Int.castRingHom (ZMod 4)) (2 : ℤ)
+      (algebraMap ℤ _ 4) = 0 := by
+  sorry
+
+-- test: divisibilityQZTensorCoefficientMap.test_character
+example : divisibilityQZTensorCoefficientMap (Int.castRingHom (ZMod 4)) (2 : ℤ)
+    (MonoidAlgebra.single (Multiplicative.ofAdd ((1 / 3 : ℚ) : AddCircle (1 : ℚ))) (2 : ℤ)
+      ⊗ₜ[ℤ] divisibilityAffineInclusion (2 : ℤ) ⟨3, by decide⟩ (AdjoinRoot.root _)) =
+    MonoidAlgebra.single (Multiplicative.ofAdd ((1 / 3 : ℚ) : AddCircle (1 : ℚ)))
+      ((Int.castRingHom (ZMod 4)) (2 : ℤ)) ⊗ₜ[ZMod 4]
+      divisibilityAffineInclusion ((Int.castRingHom (ZMod 4)) (2 : ℤ))
+        ⟨3, by decide⟩ (AdjoinRoot.root _) := by
+  sorry
+
+-- test: divisibilityQZTensorCoefficientMap.test_identity
+example (f : A) (y : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
+    DivisibilityAffineColimit f) : divisibilityQZTensorCoefficientMap (RingHom.id A) f y = y := by
+  sorry
+
+-- test: divisibilityQZTensorCoefficientMap.test_zero_ring
+example (y : MonoidAlgebra (ZMod 2) (Multiplicative (AddCircle (1 : ℚ))) ⊗[ZMod 2]
+    DivisibilityAffineColimit (0 : ZMod 2)) :
+    divisibilityQZTensorCoefficientMap (ZMod.castHom (by decide : 1 ∣ 2) (ZMod 1))
+      (0 : ZMod 2) y = 0 := by
+  sorry
+
+-- test: divisibilityQZTensorCoefficientMap.test_coaction
+example (x : DivisibilityAffineColimit (2 : ℤ)) :
+    divisibilityQZTensorCoefficientMap (Int.castRingHom (ZMod 4)) (2 : ℤ)
+      (divisibilityQZCoaction (2 : ℤ) x) =
+    divisibilityQZCoaction ((Int.castRingHom (ZMod 4)) (2 : ℤ))
+      (divisibilityCoefficientMap (Int.castRingHom (ZMod 4)) (2 : ℤ) x) := by
+  sorry
+
+-- test: divisibilityInvariantCoefficientMap.test_coefficient
+example : divisibilityInvariantCoefficientMap (Int.castRingHom (ZMod 4)) (2 : ℤ)
+    (divisibilityInvariantEquiv (2 : ℤ) 3) =
+    divisibilityInvariantEquiv ((Int.castRingHom (ZMod 4)) (2 : ℤ))
+      ((Int.castRingHom (ZMod 4)) (3 : ℤ)) := by
+  sorry
+
+-- test: divisibilityInvariantCoefficientMap.test_coordinate
+example (φ : A →+* B) (f : A)
+    (x : ↥(AlgHom.equalizer (divisibilityQZCoaction f)
+      (Algebra.TensorProduct.includeRight : DivisibilityAffineColimit f →ₐ[A]
+        MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
+          DivisibilityAffineColimit f))) :
+    (divisibilityInvariantEquiv (φ f)).symm (divisibilityInvariantCoefficientMap φ f x) =
+      φ ((divisibilityInvariantEquiv f).symm x) := by
+  sorry
+
+-- test: divisibilityInvariantCoefficientMap.test_zero_ring
+example : Function.Surjective
+    (divisibilityInvariantCoefficientMap (ZMod.castHom (by decide : 1 ∣ 2) (ZMod 1))
+      (0 : ZMod 2)) := by
+  sorry
+
+-- test: divisibilityInvariantCoefficientMap.test_killed_coefficient
+example : divisibilityInvariantEquiv (2 : ℤ) 4 ≠ divisibilityInvariantEquiv (2 : ℤ) 0 ∧
+    divisibilityInvariantCoefficientMap (Int.castRingHom (ZMod 4)) (2 : ℤ)
+      (divisibilityInvariantEquiv (2 : ℤ) 4) =
+    divisibilityInvariantCoefficientMap (Int.castRingHom (ZMod 4)) (2 : ℤ)
+      (divisibilityInvariantEquiv (2 : ℤ) 0) := by
+  sorry
+
+end TauCeti.RootStack
+end
