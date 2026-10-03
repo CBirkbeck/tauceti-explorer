@@ -90,5 +90,4 @@ assert code==Path(__file__).read_text(),'Executed recovery script differs from c
 (S/'recover.py').write_text(code)
 receipt=dict(head=HEAD,archive=ARCHIVE,artifactsVerified=len(meta),archivedHelpersVerified=9,publicDeliverables=public,recoverySha256=sha(code.encode()),LeanExecuted=False)
 (S/'public-recovery.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt,indent=2))
-
 ```
