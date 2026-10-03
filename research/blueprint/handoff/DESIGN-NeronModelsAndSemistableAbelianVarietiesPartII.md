@@ -1,3 +1,1164 @@
+# DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII — polynomial module basis checkpoint
+
+Codex — codex-rtOQ9t; 2026-10-03; Refs #3378. Claim [5965619472](https://github.com/CBirkbeck/tauceti-explorer/issues/3378#issuecomment-5965619472) was confirmed by [5965620545](https://github.com/CBirkbeck/tauceti-explorer/issues/3378#issuecomment-5965620545). The complete18717-character issue was read before the claim and reread unchanged after confirmation. Mathematical read base `71b4558841ec24cefb350e9ba0e7846201bce3b8`; publication base `e8900fee9630d5937acb359fc7db190573c379f5`. This continues merged PR5943. Only the five named deliverables are changed.
+
+## Result and boundary
+
+For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked.
+
+The19 new declarations comprise four constructions and15 lemmas, with15 API items and12 tests. The existing quadratic coordinates supply the unique polynomial pair. The new scalar action is the actual native algebra induced by polynomial evaluation, and the basis is native Module.Basis (Fin2) k[T] A_q. The parameter homomorphism is proved injective, identifying k[T] with its image k[q]. Finite generation, free-module structure, rank2 and flatness are proved for that specified action. Componentwise pair multiplication is not carried to multiplication in A_q; the cusp test detects this distinction. These results do not change the separate finite normalization map A_q→k[t].
+
+All402 incoming node objects are preserved exactly, including the full reserved Ferrand predicate, general scheme/algebraic-space existence distinctions and all geometric consumers. The78 routes,21 source findings,17 gaps,23 requests,29 planets and finite classification certificate remain. Seven coverage rows stay partial; every mathematical implementation is unchecked. The stale missing-freeness sentence is corrected within the existing affine gap and coverage, without removing their geometric and supplier obligations.
+
+## Reading and attribution
+
+Fresh reading covers all seven current stage descriptions, the full23 requests, the existing normal-form/coordinate/basis contracts and selected actual proofs, the full reserved Ferrand node/API/tests, its catalog/owner/reserved records, the reviewed R11.1–R11.6 audit rows and complete REV-AUDIT-10 report. There is no direct reviewed Part II row. StableReduction's introductory conventions/supplier contracts and EllipticCurves' opening coordinate-ring/function-field boundary were read. The inherited complete reader, all routed papers and all recursive supplier proofs were not freshly recollated; inherited reading extents retain their attribution.
+
+The complete §3 passage of [Schröer, arXiv2004.07025v3 HTML](https://arxiv.org/html/2004.07025v3) was freshly read: terminology, both conductor diagrams, Propositions3.1–3.2 with displayed proofs/count table and Proposition3.3 statement/table. HTML SHA256 `d14049912dcab6a438ed62363e246d0087c61342c51813ac482f5aba48d92456`. The parameter-module statements are authored deductions from existing affine coordinates and pinned native module theory, not printed theorems of Schröer and not a proof of normalization/cohomological closure.
+
+The incoming2560-line checked prototype is recovered from [archive12b140b](https://github.com/CBirkbeck/tauceti-explorer/blob/12b140b038d98cf753027717be939c61625b094f/research/blueprint/suggested/NeronModelsAndSemistableAbelianVarietiesPartII.lean). Its chain did not include the old coordinate bodies. Those existing proofs are separately recovered from [commit8337fdeb](https://github.com/CBirkbeck/tauceti-explorer/blob/8337fdebca30e16ce95570df80f9680e05659f32/research/blueprint/suggested/NeronModelsAndSemistableAbelianVarietiesPartII.lean), whose whole source SHA256 is `be50fcb22ae6401fb49cbc293095732925344d37d1b8ec88734a13ac492d35cc`. Take its last QuadraticPinch namespace through just before the test_split marker, retain everything from quadratic-normal-form-exists onward, and reuse the already identical existing algebra/membership/constants carrier. The337-line helper block is checked with all20 existing mathematical declarations and13 examples. This does not add duplicate roadmap nodes or pretend these old proofs are new work.
+
+The positive pinned statements read include Polynomial.aeval, aeval_subalgebra_coe, comp_eq_aeval; RingHom.toAlgebra and its exact scalar/algebra-map construction; Module.Basis.finTwoProd and both vectors/representation; Basis.map; Module.Free.of_basis; Module.Finite.of_basis; Module.finrank_eq_card_basis with strong-rank hypotheses; and Module.Flat.of_free. Generic basis/module carriers remain baseline imports. GitHub searches for quadratic pinch PRs and Ferrand issues in Mathlib returned no matches; Zulip search gave no usable result. These limited searches support no comprehensive absence claim, and no external code was copied.
+
+## Exact checks and resource boundary
+
+Mathlib source pin082e2d37e8b0463410cdb532e111cd43d5a66174 and existing Lean4.34.0-rc2 were used. The Tau Ceti source audit is at f790474821cf4256814db967cb154e7af3d0c369, while the available build's Tau Ceti revision is cf386627e9176a3827c1a5fe804989fd94a4d216. This does not certify the complete pinned Tau Ceti artifact tree. No library build, project setup, cache download or language server was started. Only one owned compiler ran at a time, with1200-second timeout. Memory fell below20GiB during preparation; checks were postponed, and one early owned run was stopped before guard-corrected retries. The final successful native and admitted runs started with27GiB and28GiB available respectively. No compiler remains running.
+
+- Native:3126 lines,141 inherited anonymous examples plus19 named tests (seven inherited and12 new),274 axiom audits, zero errors/warnings/admissions;38.72seconds,7010568KiB peak RSS. Only propext, Classical.choice and Quot.sound occur in the audited dependencies. SHA256 `af6ee4f03ea9d7933189c3a6fa0e6f760671d0855eb87f37f987d05d2ae8df27`.
+- Admitted bounded Mathlib-only projection:2072 lines,160 anonymous examples,20 inherited audits;360 expected admission warnings, no other errors/warnings;29.81seconds,6863436KiB peak RSS. It is exactly the incoming1695-line projection plus the exact existing coordinate headers/examples and all new headers/examples; it is not a projection of every canonical declaration. SHA256 `1dff3c6bf172a34edbb3cfc0b023c2b2d41ac384116be4652db152b8bd763f7a`.
+- Full canonical suggested file:3639 lines,241 examples, **uncompiled**. SHA256 `b1e229f4e94d41b368a5fa5b420ebb9b384c7887074c4969ad8387b51d898c6f`. All11 configured Lean artifact roots were checked: the four required artifacts remain absent (EllipticCurve.Affine.Point.VariableChange, WeilDivisor.Scheme.Basic, Curves.StableReduction.Model.Basic and EllipticCurve.PointCount).
+
+The indexed blueprint checker reports zero errors/warnings,421 nodes,248 required/raw API items,218 required tests (252 raw),293 baseline declarations,29 planets,17 gaps and23 requests. All19 new mathematical headers and12 new test headers match the admitted forms; all33 existing helper/example headers match too. The actual intake functions report no file problems or auto-refusals; the five-path allowlist, whitespace and local-path checks pass.
+
+Actual atlas assembly injects the proposed roadmap definition and packet while retaining all other promotions. Stage DAG3043 vertices/8727 edges; own declarations421/1150; scoped DAG3435/10486, including reached declarations' parent-stage edges. All are acyclic. All69 required supplier paths and all3613 live accepted-restructuring stage paths are reachable; unresolved identifiers, own skipped links and pending links are empty. Other roadmap skip/pending sets and stage edges match the incoming control. These checks were rerun at the publication base. The five incoming deliverables, governing instructions, reviewed audit, key ownership and checker/intake sources were unchanged at fast-forward; the queue transition matches this confirmed claim.
+
+## Public recovery
+
+The exact successful native and admitted sources are archived as inert comments in [commit 3bac08e874adc2ce841c65f9781a608cbb004e65](https://github.com/CBirkbeck/tauceti-explorer/blob/3bac08e874adc2ce841c65f9781a608cbb004e65/research/blueprint/suggested/NeronModelsAndSemistableAbelianVarietiesPartII.lean). The submitted head removes the archive comments and admits every new body under PROTOCOL§13. The scripts below recover exact whole sources and all prefixes/tails by character counts and SHA256, using only public immutable GitHub files. They do not depend on discarded local scratch or unpublished ancestor commits.
+
+Save the first three Python blocks as recover.py, verify.py and graph.py. In a checkout of the submitted commit, run:
+
+```bash
+python3 recover.py SUBMITTED_COMMIT evidence
+python3 verify.py evidence DECLARATION_INDEX
+python3 graph.py evidence
+```
+
+The recovered sources permit serial Lean replay in an already existing build after checking20GiB available. Recovery alone reports source/header checks and never fabricates execution logs. The normalized transcripts below record the successful executions reported here, and are distinct from a fresh replay.
+
+### recover.py
+
+SHA256 `52cde41c945bb4eef7757d191cd62c0df330d2cd21f37ef2203f5aaabbe0364b`.
+
+```python
+from pathlib import Path
+from urllib.request import urlopen
+import hashlib,sys,json
+RID='NeronModelsAndSemistableAbelianVarietiesPartII'
+PATH='research/blueprint/suggested/'+RID+'.lean'
+ARCHIVE='3bac08e874adc2ce841c65f9781a608cbb004e65'
+BASE='71b4558841ec24cefb350e9ba0e7846201bce3b8'
+PUBLICATION='e8900fee9630d5937acb359fc7db190573c379f5'
+ARTIFACTS={'Native': {'sha256': 'af6ee4f03ea9d7933189c3a6fa0e6f760671d0855eb87f37f987d05d2ae8df27', 'characters': 149952, 'lines': 3126, 'examples': 141}, 'Sketch': {'sha256': '1dff3c6bf172a34edbb3cfc0b023c2b2d41ac384116be4652db152b8bd763f7a', 'characters': 86867, 'lines': 2072, 'examples': 160}, 'New': {'sha256': 'b6b08ba0d544cdcbf2ce040966450c873eafbe04ba166de60078731c6aa4c3b8', 'characters': 7257, 'lines': 177, 'examples': 0}, 'NewAdmitted': {'sha256': '876dd4b7a5bc99d0ee9f7b2ad45eed3a8ae0a03d8249333316a3fe281b1ca9d7', 'characters': 5037, 'lines': 178, 'examples': 12}, 'Predecessor': {'sha256': 'd571e516b665401d131ceb1eb36075534643f944e5c23e08f1ecb95cb8484242', 'characters': 124740, 'lines': 2560, 'examples': 128}, 'CoordinateHelpers': {'sha256': '904596b81649d671e66239c012095a9e810e662646d240114249ffb386e70f75', 'characters': 14537, 'lines': 337, 'examples': 13}, 'CoordinateAdmitted': {'sha256': 'c2c6eede5b616302c3af5b873e359d81dd992e8422f3bacff89c059193cd2046', 'characters': 7084, 'lines': 199, 'examples': 13}, 'IncomingSketch': {'sha256': '595837bfbab2a6ba34d305d431ad48c5c66fe16527f27d0cf68b7f214f46c83e', 'characters': 74746, 'lines': 1695, 'examples': 135}, 'Audits': {'sha256': 'ffb56abdd6dc9b63cedc94d84a04b1dd53e67a5a43588c11e6bccb54224b1e22', 'characters': 3418, 'lines': 52, 'examples': 0}, 'FullCanonical': {'sha256': 'b1e229f4e94d41b368a5fa5b420ebb9b384c7887074c4969ad8387b51d898c6f', 'characters': 171568, 'lines': 3639, 'examples': 241}, 'nativeLog': {'warnings': 0, 'audits': 274, 'timing': 'ELAPSED 38.72 RSS 7010568 EXIT 0'}, 'sketchLog': {'warnings': 360, 'audits': 20, 'timing': 'ELAPSED 29.81 RSS 6863436 EXIT 0'}}
+
+def read(ref,path=PATH):return urlopen('https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'+ref+'/'+path).read().decode()
+def section(txt,start,end):return txt.split(start+'\n',1)[1].split(end,1)[0]
+def reconstruct(submitted):
+ archive=read(ARCHIVE)
+ native=section(archive,'/- BEGIN ARCHIVED CHECKED QUADRATIC POLYNOMIAL MODULE','END ARCHIVED CHECKED QUADRATIC POLYNOMIAL MODULE -/')
+ sketch=section(archive,'/- BEGIN ARCHIVED ADMITTED QUADRATIC POLYNOMIAL MODULE','END ARCHIVED ADMITTED QUADRATIC POLYNOMIAL MODULE -/')
+ result={'Native.lean':native,'Sketch.lean':sketch,'FullCanonical.lean':read(submitted)}
+ pos=0
+ for name in ['Predecessor','CoordinateHelpers','New','Audits']:
+  count=ARTIFACTS[name]['characters'];result[name+'.lean']=native[pos:pos+count];pos+=count
+ assert pos==len(native)
+ pos=0
+ for name in ['IncomingSketch','CoordinateAdmitted','NewAdmitted']:
+  count=ARTIFACTS[name]['characters'];result[name+'.lean']=sketch[pos:pos+count];pos+=count
+ assert pos==len(sketch)
+ for name,txt in result.items():assert hashlib.sha256(txt.encode()).hexdigest()==ARTIFACTS[name.removesuffix('.lean')]['sha256'],name
+ for folder,ext in [('roadmaps','json'),('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]:
+  path='research/blueprint/'+folder+'/'+('DESIGN-' if folder=='handoff' else '')+RID+'.'+ext
+  old=read(BASE,path);assert read(PUBLICATION,path)==old,path
+  result['incoming-'+folder+'.'+ext]=old
+ result['base.txt']=BASE+'\n';result['publication-base.txt']=PUBLICATION+'\n';result['artifacts.json']=json.dumps(ARTIFACTS,indent=2)+'\n'
+ return result
+if __name__=='__main__':
+ out=Path(sys.argv[2]);out.mkdir(parents=True,exist_ok=True)
+ result=reconstruct(sys.argv[1])
+ for name,txt in result.items():(out/name).write_text(txt)
+ print('Recovered',len(result),'public artifacts; source hashes match. No Lean execution is claimed.')
+```
+
+### verify.py
+
+SHA256 `048fa7348f13f193dec5f3f3de800903a210009eece41e241cc38a4fcc51b107`.
+
+```python
+from pathlib import Path
+import sys,json,re,ast,hashlib,subprocess
+R=Path.cwd();S=Path(sys.argv[1]);RID='NeronModelsAndSemistableAbelianVarietiesPartII'
+files=['research/blueprint/'+f+'/'+('DESIGN-' if f=='handoff' else '')+RID+'.'+ext for f,ext in [('roadmaps','json'),('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]]
+p=json.loads((R/files[1]).read_text());old=json.loads((S/'incoming-packets.json').read_text());road=json.loads((R/files[0]).read_text());oldroad=json.loads((S/'incoming-roadmaps.json').read_text())
+assert len(old['nodes'])==402 and len(p['nodes'])==421
+assert p['nodes'][:402]==old['nodes']
+for k in old:
+ if k not in ['summary','nodes','sources','baseline','coverage','gaps']:assert p[k]==old[k],k
+assert p['sources'][:-1]==old['sources'] and p['baseline']['declarations'][:285]==old['baseline']['declarations']
+assert {k:v for k,v in p['baseline'].items() if k!='declarations'}=={k:v for k,v in old['baseline'].items() if k!='declarations'}
+changedgaps=[]
+for a,b in zip(p['gaps'],old['gaps']):
+ if a!=b:
+  assert b['id']=='quadratic-pinching-native-exports'
+  assert {k:v for k,v in a.items() if k not in ['detail','polynomialModuleContinuation']}=={k:v for k,v in b.items() if k!='detail'}
+  assert a['detail']==b['detail'].replace('A k[q]-module instance/freeness interface is not constructed.','The current polynomial-module continuation supplies the specified k[q]-action and finite basis; the geometric and supplier obligations remain open.')
+  changedgaps.append(b['id'])
+assert len(changedgaps)==1 and len(p['gaps'])==len(old['gaps'])==17
+for a,b in zip(p['coverage'],old['coverage']):
+ if a['stageId']==RID+':G.1':
+  assert {k:v for k,v in a.items() if k!='remaining'}=={k:v for k,v in b.items() if k!='remaining'}
+  expected=[t.replace('A k[q]-module instance/freeness interface is not constructed.','The current polynomial-module continuation supplies the specified k[q]-action and native finite basis; geometric and supplier obligations in this row remain open.').replace('Keep the unrelated k[q]-freeness target and all nodal/inseparable/I2 distinctions.','The current continuation supplies the distinct k[q]-freeness target; keep all nodal/inseparable/I2 distinctions.') for t in b['remaining']]
+  assert a['remaining'][:-1]==expected
+ else:assert a==b
+assert p['status']=='partial' and len(p['coverage'])==7 and all(n['implementationStatus']=='unchecked' for n in p['nodes'])
+assert all(c['status']=='partial' for c in p['coverage'])
+for k in oldroad:
+ if k not in ['summary','stages','sources']:assert road[k]==oldroad[k],k
+assert road['sources'][:-1]==oldroad['sources']
+for a,b in zip(road['stages'],oldroad['stages']):
+ if a['key']=='G.1':assert a['description'].startswith(b['description']) and {k:v for k,v in a.items() if k!='description'}=={k:v for k,v in b.items() if k!='description'}
+ else:assert a==b
+full=(R/files[3]).read_text();reader=(R/files[2]).read_text()
+extra='import Mathlib.LinearAlgebra.Basis.Fin\nimport Mathlib.LinearAlgebra.FreeModule.Finite.Basic\nimport Mathlib.RingTheory.Flat.Basic\nimport Mathlib.LinearAlgebra.Dimension.StrongRankCondition\n'
+assert full.startswith((S/'incoming-suggested.lean').read_text().replace('import Mathlib.',extra+'import Mathlib.',1))
+assert reader.endswith((S/'incoming-readmes.md').read_text())
+new=(S/'New.lean').read_text();admitted=(S/'NewAdmitted.lean').read_text();native=(S/'Native.lean').read_text();sketch=(S/'Sketch.lean').read_text()
+assert native==(S/'Predecessor.lean').read_text()+(S/'CoordinateHelpers.lean').read_text()+new+(S/'Audits.lean').read_text()
+assert sketch==(S/'IncomingSketch.lean').read_text()+(S/'CoordinateAdmitted.lean').read_text()+admitted
+assert not re.search(r'\bsorry\b|\baxiom\b',native)
+assert full.split('/- BEGIN QUADRATIC POLYNOMIAL MODULE -/\n')[1].split('/- END QUADRATIC POLYNOMIAL MODULE -/')[0]==admitted
+assert (S/'FullCanonical.lean').read_text()==full
+def headers(txt):
+ ms=list(re.finditer(r'^(def|lemma|instance|example)\b(?: (\w+))?',txt,re.M));result=[]
+ for i,m in enumerate(ms):
+  raw=txt[m.start():ms[i+1].start() if i+1<len(ms) else len(txt)]
+  bm=re.search(r' :=(?: by\b| rfl\b|\n)',raw);assert bm,(m.group(),raw[:400])
+  h=raw[:bm.start()]
+  if (m.group(2) or '').startswith('test_'):h=re.sub(r'^lemma \w+','example',h)
+  result.append(' '.join(h.split()))
+ return result
+assert len(headers(new))==31 and headers(new)==headers(admitted)
+assert headers((S/'CoordinateHelpers.lean').read_text())==headers((S/'CoordinateAdmitted.lean').read_text())
+for n in p['nodes'][402:]:
+ assert n['declarationName'] in reader and n['statement'] in reader
+ assert re.search(r'^(def|lemma|instance) '+re.escape(n['declarationName'].removeprefix('QuadraticPinch.'))+r'\b',new,re.M)
+ for a in n.get('api',[]):assert a['name'] in reader and a['statement'] in reader
+ for t in n.get('tests',[]):assert t['statement'] in reader and '-- test: '+t['name'] in admitted
+lean={}
+for name,audits,warnings in [('Native',274,0),('Sketch',20,360)]:
+ path=S/(name.lower()+'.log')
+ if not path.exists():lean[name]='Execution log absent; source/header checks only.';continue
+ log=path.read_text();assert 'EXIT 0' in log and not re.search(r'error(?:\(|:)|sorryAx',log)
+ assert log.count('warning:')==log.count('warning: declaration uses')==warnings
+ assert log.count('depends on axioms:')+log.count('does not depend on any axioms')==audits
+ found=re.findall(r'depends on axioms: \[(.*?)\]',log,re.S)
+ assert all(set(re.findall(r'\b(?:\w+\.)*\w+\b',v))<={'propext','Classical.choice','Quot.sound'} for v in found)
+ lean[name]={'audits':audits,'warnings':warnings,'exit':0,'sha256':hashlib.sha256((S/(name+'.lean')).read_bytes()).hexdigest()}
+tree=ast.parse((R/'research/blueprint/intake.py').read_text());names={'file_problems','auto_refusals','own_files','independent_of'}
+picked=[n for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id in {'ALLOWED','PRIVATE'} for t in n.targets) or isinstance(n,ast.FunctionDef) and n.name in names]
+env={'json':json,'re':re};exec(compile(ast.Module(body=picked,type_ignores=[]),'actual-intake','exec'),env)
+job=next(j for j in json.loads((R/'research/blueprint/queue.json').read_text())['jobs'] if j['id']=='DESIGN-'+RID)
+problems=[x for path in files for x in env['file_problems'](path,(R/path).read_text())]
+refusals=env['auto_refusals'](job,files,False,{'codex-rtOQ9t'},set());assert not problems and not refusals,(problems,refusals)
+for path in files:
+ txt=(R/path).read_text();assert not re.search(r'[ \t]+$',txt,re.M),path
+ assert not re.search(r'/(?:home|Users)/[^/\s]+/',txt),path
+pub=(S/'publication-base.txt').read_text().strip()
+changedpaths=set(subprocess.check_output(['git','diff','--name-only',pub],text=True).splitlines());assert changedpaths<=set(files),changedpaths
+sys.path.insert(0,str(R/'scripts'));import check_blueprint
+errors,warnings,summary=check_blueprint.check(R/files[1],check_blueprint.load_index(Path(sys.argv[2])),check_blueprint.world());assert not errors and not warnings,(errors,warnings)
+summary['packet']=files[1]
+report={'oldContractsPreserved':402,'wholeOldNodesPreserved':402,'newHeadersMatched':19,'newTestHeadersMatched':12,'existingCoordinateHeadersMatched':33,'priorSourceRoutes':len(p['routeCoverage']),'sourceFindings':len(p['sourceIssues']),'nativePrefixPreserved':True,'admittedPrefixPreserved':True,'readerSuffixPreserved':True,'intakeFileProblems':problems,'intakeAutoRefusals':refusals,'checker':summary,'rawApiItems':sum(len(n.get('api',[])) for n in p['nodes']),'rawTests':sum(len(n.get('tests',[])) for n in p['nodes']),'lean':lean,'fullCanonicalCompiled':False,'scriptSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+print(json.dumps(report,indent=2))
+```
+
+### graph.py
+
+SHA256 `76c5b8fceacb02a4f4f6419a0c087b43718899955cc45ec0555b9ebde626d6f9`.
+
+```python
+from pathlib import Path
+import os,sys,json,collections,copy
+R=Path.cwd();S=Path(sys.argv[1]);RID='NeronModelsAndSemistableAbelianVarietiesPartII';STEM=RID
+sys.path.insert(0,str(R/'scripts'))
+import check_blueprint
+p=json.loads((R/'research/blueprint/packets'/f'{STEM}.json').read_text())
+old=json.loads((S/'incoming-packets.json').read_text())
+nodes={n['id']:n for n in p['nodes']}
+import build,blueprints
+packets,documents,definitions=blueprints.load_promoted(R)
+keep=[x for x in packets if x[0]!=STEM];documents[STEM]='research/blueprint/readmes/'+STEM+'.md'
+own_definition=json.loads((R/'research/blueprint/roadmaps'/f'{RID}.json').read_text())
+old_definition=json.loads((S/'incoming-roadmaps.json').read_text())
+def assemble(candidate,definition):
+ build.load_promoted=lambda *args:(copy.deepcopy(keep+[(STEM,candidate)]),copy.deepcopy(documents),copy.deepcopy([d for d in definitions if d.get('id')!=RID]+[definition]))
+ return build.assemble(require_distances=False)[0]
+a=assemble(p,own_definition);b=assemble(old,old_definition)
+world={}
+for folder in ['data/decompositions','data/blueprints','research/blueprint/packets']:
+ for file in sorted((R/folder).glob('*.json')):
+  for n in json.loads(file.read_text()).get('nodes',[]):world.setdefault(n['id'],n)
+world.update(nodes)
+listedstageids={x['id'] for x in a['stages']}
+stageids=listedstageids|set(check_blueprint.world()[1])
+se={(e['source'],e['target']) for e in a['stageEdges']}
+assert se=={(e['source'],e['target']) for e in b['stageEdges']}
+def dag(vertices,edges):
+ vertices=set(vertices)|{v for e in edges for v in e}
+ following=collections.defaultdict(set);indeg={v:0 for v in vertices}
+ for s,t in edges:
+  if t not in following[s]:following[s].add(t);indeg[t]+=1
+ todo=[v for v,k in indeg.items() if k==0];count=0
+ while todo:
+  v=todo.pop();count+=1
+  for w in following[v]:
+   indeg[w]-=1
+   if indeg[w]==0:todo.append(w)
+ assert count==len(vertices),[v for v,k in indeg.items() if k][:10]
+ return {'vertices':len(vertices),'edges':len(edges),'acyclic':True}
+ownedges={(d,nid) for nid,n in nodes.items() for d in n['prerequisites'] if d in nodes}
+todo=list(nodes);seen=set();de=set();unresolved=set();baseref=set()
+while todo:
+ nid=todo.pop()
+ if nid in seen:continue
+ seen.add(nid)
+ for d in world[nid].get('prerequisites',[]):
+  if d.startswith(('mathlib:','tauceti:')) and d not in stageids:baseref.add(d);continue
+  de.add((d,nid))
+  if d in world:todo.append(d)
+  elif d not in stageids:unresolved.add(d)
+assert not unresolved,unresolved
+de|={(world[nid]['parentStageId'],nid) for nid in seen if world[nid].get('parentStageId')}
+de|={(q['supplier'],v) for q in p['requests'] for v in q.get('neededBy',[]) if v in nodes or v in stageids}
+out=collections.defaultdict(set)
+for s,t in se:out[s].add(t)
+def reachable(source,target):
+ todo=[source];seen=set()
+ while todo:
+  v=todo.pop()
+  if v==target:return True
+  if v not in seen:seen.add(v);todo.extend(out[v])
+ return False
+def stageof(v):
+ checked=set()
+ while v in world and v not in checked:checked.add(v);v=world[v].get('parentStageId')
+ return v
+roadmap=own_definition
+pairs={(d,RID+':'+s['key']) for s in roadmap['stages'] for d in s.get('requires',[])}
+pairs|={(d,stageof(nid)) for nid,n in nodes.items() for d in n['prerequisites'] if d in stageids and d not in world and d!=stageof(nid)}
+pairs|={(stageof(q['supplier']),stageof(v)) for q in p['requests'] for v in q['neededBy'] if stageof(q['supplier'])!=stageof(v)}
+rspairs=set()
+for file in (R/'research/blueprint/restructure').glob('*.result.json'):
+ q=json.loads(file.read_text())
+ if q.get('review',{}).get('status')!='accepted':continue
+ rspairs|={(x['source'],x['target']) for x in q.get('links',[])}
+rspairs={pair for pair in rspairs if pair[0] in listedstageids and pair[1] in listedstageids}
+assert all(reachable(s,t) for s,t in pairs|rspairs),sorted((s,t) for s,t in pairs|rspairs if not reachable(s,t))
+ar={r['id']:r for r in a['roadmaps']};br={r['id']:r for r in b['roadmaps']}
+assert ar[RID]['blueprint']['declarations']==len(nodes)
+assert not ar[RID]['blueprint']['skippedLinks'] and not ar[RID].get('pendingLinks',[])
+def skips(r):return r.get('blueprint',{}).get('skippedLinks',[]),r.get('pendingLinks',[])
+assert all(skips(ar[x])==skips(br[x]) for x in br if x!=RID)
+summary={'stageDAG':dag(listedstageids,se),'ownDeclarationDAG':dag(nodes,ownedges),'scopedDAG':dag(listedstageids|seen,se|de),'reachableDeclarations':len(seen),'externalDeclarations':sorted(seen-set(nodes)),'baselineLeaves':len(baseref),'requiredPairs':len(pairs),'restructurePairs':len(rspairs),'unresolved':sorted(unresolved),'ownSkippedLinks':[],'ownPendingLinks':[],'otherSkipsMatch':True,'stageEdgesUnchanged':True}
+print(json.dumps(summary,indent=2))
+```
+
+## Successful execution transcripts
+
+### native
+
+```text
+'TauCeti.GenusOne.QuadraticPinch.algebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.mem_algebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.constants' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.normalization_remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.moduleCoefficients' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.moduleCoefficients_fst' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.moduleCoefficients_snd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.moduleCoefficients_reconstruct' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.normalization_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.normalization_module_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.finite_normalization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.normalization_spec_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.fraction_ring' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.integral_closure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.integral_iff_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.fractionEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.fractionEquiv_algebraMap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.fractionEquiv_symm_algebraMap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.fractionEquiv_symm_X' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.module_generator_map_not_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.normalization_image_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.conductor_image_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.residueCokernelMap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.residueCokernelMap_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.residueCokernelMap_ker' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.residueCokernelMap_surjective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.residueCokernelEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.residueCokernelEquiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.residueCokernelEquiv_symm_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.conductor_span_restrictScalars' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.normalization_quotient_reconstruction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.normalization_quotient_finrank' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.residueCokernelEquiv_annihilator' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.polynomialQuotientAlgebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.polynomialQuotientTower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.residueCokernelEquiv_scalar_action' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.normalization_span_restrictScalars' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.residueCokernelEquiv_over_k' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.residueCokernelEquiv_over_k_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.residueCokernelEquiv_over_k_symm_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.normalization_quotient_annihilator' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.normalization_quotient_annihilator_mem' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.normalization_quotient_generator_ne_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.normalization_quotient_scalar_action' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.residue_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.residue_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.residue_normal_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.linear_remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.scalar_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.remainder_scalar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.constant_remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.curve' depends on axioms: [propext]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.denominator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.relation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.Chart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.equation_chart' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.bezout' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.root_relation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.denominatorInverse' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.mul_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.denominator_isUnit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.toLocalization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.fromLocalization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.toLocalization_root' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.to_from' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.from_to' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.equiv_base' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.equiv_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.fromLocalization_inv' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.equiv_inverse_base' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.equiv_inverse_inv' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.localization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.spec_openImmersion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.normalizationCoordinates' depends on axioms: [propext]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.normalization_homogeneous' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.normalization_nonzero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.normalization_equation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.InfinityChart.infinity_nonsingular' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.Ring' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.coordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.inverseVariable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.coordinate_mul_inverse' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.inverse_isUnit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.quadratic_isUnit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.reciprocal_quadratic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.reciprocal_denominator_isUnit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.reciprocal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.reciprocal_algebraMap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.reciprocal_coordinate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.reciprocal_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.reciprocal_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.equiv_coordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.equiv_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.equiv_algebraMap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.equiv_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.quadratic_monic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.quadratic_reversed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.coordinate_isUnit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.normalization_overlap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.specIso' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.specIso_hom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.specIso_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.specIso_hom_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.finiteDenominator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.finiteDenominator_val' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.finiteDenominator_conductor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.finite_localization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.finite_away_bijective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.finiteEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.finiteEquiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.finiteEquiv_algebraMap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.finiteEquiv_symm_algebraMap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.InfinityOpen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.infinity_localization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.infinityEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.infinityEquiv_algebraMap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.infinityEquiv_symm_algebraMap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.infinityEquiv_roundtrip' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.infinity_root_isUnit_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.infinity_basicOpen_root' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.chartEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.chartEquiv_algebraMap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.chartEquiv_roundtrip' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.chartEquiv_inverse_roundtrip' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.quadratic_aeval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.coordinate_algebraMap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.inverseVariable_formula' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Overlap.infinityOpen_coordinate_isUnit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.finiteChart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.infinityChart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.overlapChart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.finiteOpen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.finiteOpen_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.finiteOpen_isOpenImmersion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.finiteOpen_range' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.infinityOpen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.infinityOpen_isOpenImmersion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.infinityOpen_range' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.curve' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.finiteι' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.infinityι' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.finiteι_isOpenImmersion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.infinityι_isOpenImmersion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.chart_condition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.curve_hom_ext' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.charts_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.charts_intersection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.chart_preimage' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.chart_isPullback' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.desc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.finiteι_desc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.infinityι_desc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalizationChart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalizationChart_isFinite' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalizationOpen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalizationOpen_isOpenImmersion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalizationOpen_range' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalizationChart_preimage' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalization_chart_condition' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalizationSource' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.sourceFiniteι' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.sourceInfinityι' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.sourceFiniteι_isOpenImmersion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.sourceInfinityι_isOpenImmersion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.source_chart_condition' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.source_hom_ext' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.source_charts_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalization_finite_chart' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalization_infinity_chart' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalization_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalization_preimage_finite' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalization_preimage_infinity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalization_finite_isPullback' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalization_infinity_isPullback' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.openCover' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.openCover_index' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.openCover_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.openCover_infinity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalization_isFinite' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.finiteOpen_to_base' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.infinityOpen_to_base' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.structureMap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.structureMap_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.structureMap_infinity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalization_to_base_finite' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalization_to_base_infinity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.infinityTransition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.infinityOpen_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.infinityTransition_coordinate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.infinityTransition_constants' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.infinityTransition_root' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.infinity_denominator_ne_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.infinity_isDomain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.overlap_isDomain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalizationChart_surjective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalization_surjective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.finiteOpen_dense' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalizationOpen_dense' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.infinityι_dense' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.sourceInfinityι_dense' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.curve_isIntegral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.source_isIntegral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalizationPartialIso' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalizationPartialIso_source' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalizationPartialIso_target' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalizationPartialIso_map' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalizationPartialIso_over' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalization_birationalOver' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.infinity_isIntegrallyClosed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.source_stalk_isIntegrallyClosed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.normalizationPartialIso_inverse' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.test_cusp_source' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.test_split_target' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.test_nonsplit_inverse' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.test_over_coefficients' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.test_inseparable_stalks' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.test_nonsplit_surjective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.Global.test_cusp_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.exists_normal_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.normal_form_degrees' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.normal_form_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.pinch_normal_form_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.pinch_spanning' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.generation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.quadratic_natDegree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.coordinateMap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.coordinateMap_coe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.coordinateMap_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.coordinates_coe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.coordinates_symm_normal_form' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.coordinates_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.basis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.basis_inl' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.basis_inr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.basis_repr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.basis_reconstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.basis_degrees' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.parameterHom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.parameterAlgebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.parameterHom_coe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.parameter_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.polynomialCoordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.polynomialCoordinates_coe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.polynomialCoordinates_inverse' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.polynomialBasis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.polynomialBasis_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.polynomialBasis_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.polynomialBasis_repr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.polynomialModule_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.polynomialModule_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.polynomialModule_finrank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.polynomialModule_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.parameterHom_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.parameterHom_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.polynomialCoordinates_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.polynomialCoordinates_reconstruction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.test_parameter_X' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.test_parameter_cusp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.test_parameter_char2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.test_parameter_action' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.test_parameter_unit_action' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.test_parameter_not_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.test_polynomial_roundtrip' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.test_polynomial_char2_scalar' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.test_polynomial_not_multiplicative' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.test_polynomial_basis_vectors' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.test_polynomial_basis_cusp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.test_polynomial_basis_repr' depends on axioms: [propext, Classical.choice, Quot.sound]
+ELAPSED 38.72 RSS 7010568 EXIT 0
+```
+
+### sketch
+
+```text
+'TauCeti.GenusOne.QuadraticPinch.algebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.mem_algebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.constants' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.normalization_remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.moduleCoefficients' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.moduleCoefficients_fst' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.moduleCoefficients_snd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.moduleCoefficients_reconstruct' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.normalization_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.normalization_module_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.finite_normalization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.normalization_spec_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.fraction_ring' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.integral_closure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.integral_iff_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.fractionEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.fractionEquiv_algebraMap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.fractionEquiv_symm_algebraMap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.fractionEquiv_symm_X' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.GenusOne.QuadraticPinch.module_generator_map_not_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+evidence/Sketch.lean:289:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:292:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:296:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:300:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:305:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:309:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:312:18: warning: declaration uses `sorry`
+evidence/Sketch.lean:316:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:321:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:327:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:331:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:463:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:469:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:474:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:480:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:486:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:490:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:497:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:500:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:503:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:506:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:512:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:516:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:523:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:529:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:536:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:547:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:552:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:557:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:564:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:570:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:574:18: warning: declaration uses `sorry`
+evidence/Sketch.lean:578:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:583:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:589:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:597:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:601:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:611:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:613:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:615:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:619:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:623:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:627:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:631:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:633:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:636:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:639:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:641:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:643:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:648:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:651:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:654:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:656:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:660:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:665:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:669:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:673:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:677:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:680:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:684:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:686:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:690:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:693:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:696:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:700:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:704:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:707:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:710:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:713:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:717:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:720:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:723:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:726:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:730:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:733:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:736:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:739:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:742:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:746:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:750:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:755:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:761:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:765:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:770:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:774:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:778:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:781:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:784:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:920:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:924:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:926:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:928:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:931:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:933:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:936:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:940:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:943:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:945:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:949:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:952:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:955:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:958:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:964:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:967:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:970:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:974:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:976:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:978:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:980:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:982:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:992:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:996:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:999:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1002:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1008:7: warning: declaration uses `sorry`
+evidence/Sketch.lean:1011:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1014:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1017:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1023:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1028:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:1031:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1036:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1039:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1051:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1056:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:1058:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1062:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1066:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1069:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1074:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1081:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:1083:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1087:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1090:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1099:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1101:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1104:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1108:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1113:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1116:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1119:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1122:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1125:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1128:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1132:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1135:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1138:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1142:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1145:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1148:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1151:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1155:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1159:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1162:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1165:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1168:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1171:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1174:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1177:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1181:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1184:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1187:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1190:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1194:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1199:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1203:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1207:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1212:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1216:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1220:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1224:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1228:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1232:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1236:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1241:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1260:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:1262:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1267:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1271:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1275:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:1277:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1281:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1287:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:1289:7: warning: declaration uses `sorry`
+evidence/Sketch.lean:1291:7: warning: declaration uses `sorry`
+evidence/Sketch.lean:1293:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1295:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1299:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1302:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1306:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1310:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1314:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1317:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1321:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:1325:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1329:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1334:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:1336:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1339:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:1341:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1346:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1349:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1353:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1358:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:1360:7: warning: declaration uses `sorry`
+evidence/Sketch.lean:1362:7: warning: declaration uses `sorry`
+evidence/Sketch.lean:1364:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1366:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1370:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1373:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1377:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1382:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:1384:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1387:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1390:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1394:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1397:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1400:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1403:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1407:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:1409:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1411:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1414:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1418:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1420:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1424:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1429:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:1431:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1435:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1439:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1443:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1448:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:1450:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1453:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1457:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1461:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1466:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1469:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1472:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1475:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1478:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1481:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1484:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1487:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1490:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1493:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1496:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1499:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1502:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1505:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1508:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1511:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1514:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1517:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1520:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1523:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1526:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1529:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1532:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1535:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1538:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1541:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1544:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1547:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1550:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1553:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1556:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1559:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1562:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1571:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1575:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1579:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1583:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1587:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1591:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1595:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1599:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1603:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1607:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1611:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1615:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:1619:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1624:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1629:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1635:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1640:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1645:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1649:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1654:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1660:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1665:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1670:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1677:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1682:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1687:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1691:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1701:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1707:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1713:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1718:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1724:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1730:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1736:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1743:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1749:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1755:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1760:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1765:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:1771:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1777:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1781:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:1787:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1793:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1801:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1810:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:1815:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1821:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1827:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1835:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1841:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1847:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1853:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1858:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1863:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1869:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1875:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1879:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1887:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1891:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:1899:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:1903:9: warning: declaration uses `sorry`
+evidence/Sketch.lean:1907:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1912:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1917:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:1922:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1928:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1933:4: warning: declaration uses `sorry`
+evidence/Sketch.lean:1938:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1942:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1947:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1953:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1958:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1963:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1968:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1973:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1978:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1982:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1988:6: warning: declaration uses `sorry`
+evidence/Sketch.lean:1996:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:2002:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:2007:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:2013:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:2020:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:2026:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:2031:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:2037:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:2044:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:2052:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:2059:0: warning: declaration uses `sorry`
+evidence/Sketch.lean:2066:0: warning: declaration uses `sorry`
+ELAPSED 29.81 RSS 6863436 EXIT 0
+```
+
+## Where to resume
+
+Use the actual k[T]-module action and finite basis when connecting the affine chart to the projective parameter map. Read and prove the remaining Proj/projective-line identifications and normalization universal property, then the conductor ideal sheaf, actual structure-sheaf sequence and finite-pushforward H0/H1. Independently construct the I₂ incidence geometry. All other source, fibration, multiple-fiber, surface and completeness-certificate obligations remain as recorded in the packet. Opening this PR ends the claim; the worker continues with the next available job in WORKERS order.
+
+## Incoming handoff and inherited public evidence
+
 # DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII — normality and birational comparison checkpoint
 
 Codex — codex-7e92bd; 2026-10-03; Refs #3378. Claim [5965364188](https://github.com/CBirkbeck/tauceti-explorer/issues/3378#issuecomment-5965364188) was confirmed by [5965365222](https://github.com/CBirkbeck/tauceti-explorer/issues/3378#issuecomment-5965365222). The complete18717-character issue was read before claiming and reread unchanged after confirmation. Mathematical base `b725306dcef5613ca909fcaafaded4840e72777c`; publication base `32fba6065c5b5600a8131bb1112c305aaf722a34`. This continues merged PR5936. Only the five issue deliverables are changed.
