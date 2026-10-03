@@ -1,3 +1,473 @@
+# Hodge Structures Part II — coordinate transport and curvature
+
+Codex — codex-5ebb6f; Refs #3371. Claim5969127796 won by bot reply5969128907. This is a partial continuation on the unchanged reserved finite locally free ringed-site key.
+
+Nineteen declaration-sized nodes add actual affine horizontal extension/curvature, module-coordinate transport, identity/composition/inverse coherence, flatness equivalence, and the constant-parameter curvature linear map with its tensor formula. Two constructions carry14 use-derived APIs and seven typed tests. All265 incoming contracts remain;263 whole node objects are unchanged. Only local-descent and coordinate-comparison gain five prerequisites and one proof step each. Six planets,11 gaps, five supplier requests,149 assigned route items,35 typed omission rows and the inherited EG20/E10 finding are retained. All implementation statuses remain unchecked. H.0 remains partial; H.1–H.8 remain not_read.
+
+The actual affine source is additive, not R-linear: D(ae)=aD(e)+λe⊗d₀a. For an actual module equivalence u, Dᵘ=(u⊗id)D u⁻¹ keeps the parameter. The native ℤ[x]² shear u(a,b)=(a+xb,b), D=2d, sends the right-unitor-normalized transported derivative at (0,1) to (−2,0), which is nonzero. It tests the changing-frame derivative. Horizontal exterior extension and curvature identities require no d₀λ=0; the native curvatureLinear and its APIs state that hypothesis explicitly. Native/canonical headers match exactly, including the compatible scalar tower. No module basis, finite generation, projectivity or flatness is added.
+
+The actual-carrier Native.lean has1201 lines,35 examples and67 axiom audits. It compiled at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 with no admissions, errors or warnings;41GiB was available and peak RSS3537600KiB. Canonical.lean is the complete3824-line suggested plan with232 typed examples; it compiled with547 admission warnings only,43GiB available and peak RSS3220384KiB. These are serial checks in an existing build. The final suggested file is exactly Canonical.lean; the inert authenticated proof archive is in its ancestor commit only. This does not mark any planned declaration as implemented or close the geometric key.
+
+Incoming PR5986's five public deliverables and15 archived artifacts were authenticated at head31d94cb3ad2d51f95050305b32f981da3dd7f1e6. Its918-line native source and3673-line mathematical canonical prefix are preserved byte-for-byte. Only its authenticated inert payload wrapper was removed before appending the new canonical signatures. Latest mainf657d46ef5fc38701e8d557af899fe173038a6d7 was screened before publication and had identical five issue inputs.
+
+Fresh reading covered the full governing protocols; all own stages and the reserved survey/owner contract; parent Hodge L0–L3 and E1/D3 reviewed audit evidence; eight joining briefs and the CR.1/E1/DD.1/D3 supplier contracts and accepted RS-04/05/18 ownership entries; the full upstream HodgeStructures and SemisimpleAlgebras readers; selected actual pinned tensor map/equivalence/induction/extensionality and module-equivalence definitions. Fresh source passages were [Esnault–Groechenig's44-page author manuscript](https://www.mi.fu-berlin.de/users/esnault/preprints/helene/126_esn_gro.pdf), §4.2's opening definition, zero/one cases and Lemma4.9's entire printed proof, pp.23–24 (SHA2560bfa00b7dbae7a59c193d3523028df826741f15d3e88cb50526f8656a7fb8e35); and the entire displayed mathematical [Stacks07J5](https://stacks.math.columbia.edu/tag/07J5) section and Lemma60.15.1 proof (HTML SHA256f76cdf52eac191ad0baa040bc0160491838ec725db3579837fac2e60d874ceea). The new affine identities are authored deductions. The published Acta PDF, Simpson inputs, other source routes and historical source receipts were not freshly certified. No new source error or corrigendum search is asserted; the actual indexed checker validates the retained source finding.
+
+All global sheaf tensor/restriction/equality-detection and effective-descent interfaces remain open with E1; ring-changing exterior transport, global finite locally free comparisons, five supplier requests and all source/geometry stages remain open. The next mathematical step is a genuine differential-calculus map across coefficient rings, with balanced parameter pullback and curvature naturality, followed by actual sheaf restriction and descent. Do not treat same-ring coordinate conjugation as that ring-changing construction.
+
+The immutable indexed checker and actual five-path intake report no errors, warnings or refusals. The graph replay uses actual promoted/control assembly and checks whole foreign roadmap and stage objects, unchanged stage edges, acyclic stage/own/scoped graphs and every supplier route. No live atlas is written.
+
+Validation: {"checker": {"packet": "recovered/HodgeStructuresPartII.json", "roadmap": "HodgeStructuresPartII", "status": "partial", "nodes": 284, "kinds": {"definition": 12, "construction": 40, "theorem": 18, "lemma": 209, "comparison": 5}, "apiItems": 285, "unitTests": 260, "planets": 6, "baselineDeclarations": 212, "prerequisites": {"baseline": 450, "node (this packet)": 561, "stage": 40, "node (blueprint)": 1}, "gaps": 11, "requests": 5, "stagesInScope": 9, "stagesClosed": 0}, "graph": {"stageDAG": {"vertices": 3022, "edges": 8663, "acyclic": true}, "ownDeclarationDAG": {"vertices": 284, "edges": 561, "acyclic": true}, "scopedDAG": {"vertices": 3301, "edges": 9552, "acyclic": true}, "reachableDeclarations": 285, "externalDeclarations": ["ColemanPowerSeries:L1/derivation-determinant-unit"], "baselineLeaves": 199, "requiredPairs": 21, "restructurePairs": 0, "unresolved": [], "ownSkippedLinks": [], "ownPendingLinks": [], "otherSkipsMatch": true, "stageEdgesUnchanged": true, "wholeForeignRoadmapsUnchanged": true, "wholeForeignStagesUnchanged": true, "immutableBase": "bc09ee60ffaaf17ea3a32ae1dce51b92a58430ad", "immutableReadPaths": 843, "immutableReadPathSha256": "c08a52747d8fbeccdf7953d26630127c60c4971c61f0341551907cbffc7c51ed"}}
+
+## Recovery receipt
+
+```json
+{
+  "agent": "Codex \u2014 codex-5ebb6f",
+  "issue": 3371,
+  "immutableBase": "bc09ee60ffaaf17ea3a32ae1dce51b92a58430ad",
+  "archiveCommit": "a4192208d2f0e13a62bb8a09ec8fc34256ab0bd6",
+  "archivePath": "research/blueprint/suggested/HodgeStructuresPartII.lean",
+  "canonicalSha256": "c03d730447e6de5d0017c14dfd48a11c3b88c316de5794fd8d7f050b52ab0203",
+  "nativeSha256": "adeb14071bb7b13b24ca189a04e0a066b6c04069b66d09911ac1033cab226396",
+  "artifactHashes": {
+    "Native.lean": "adeb14071bb7b13b24ca189a04e0a066b6c04069b66d09911ac1033cab226396",
+    "Canonical.lean": "c03d730447e6de5d0017c14dfd48a11c3b88c316de5794fd8d7f050b52ab0203",
+    "IncomingNative.lean": "ecbfa65e5ccbae49c225aa2cdb00868cf8a7e53ed3233e098a1b2c1b41a1ae32",
+    "IncomingCanonical.lean": "e78383894c3dba502ed03aaf1401cdcf5951ab99f49fece5d1f049e86aba1fc7",
+    "NewProofs.lean": "03d7b379c8b99ef05aeb2790b993953014f62e211f4cacdc1b3e1d97bdb685d8",
+    "NewTests.lean": "13ecf43a1f0b66f8b77a313f4a10cfd1b714749311f6bf0dbeaa8cb82fa8799a",
+    "NewAdmitted.lean": "b25a7680523facf44ced14c3411c8c715870cc0039dcbbcb5d15bc03e8626342",
+    "Audits.lean": "edfe84d70d003963efacf8e8a177e1756edf0a44c8886cec3cd9cfae1e6cd81b",
+    "new-tests.json": "4ff1efe34261c25dfe281256154ac6a4cc08968cf45c3ac47040499a487d0cf9",
+    "new-nodes.json": "2393249127b24a6c0f01e9f48e419d3886baf0a2c1efc76125ccf0a46d23846f",
+    "compilation-summary.json": "26be5d135764d3776e9ca1479b0b18d137c396b71850670337baf68a3e97ce64",
+    "native.diag": "f786cfacaa45cda93dc3171f1c0f232c8913c488bdb2276a7316ed6f2b97daaf",
+    "canonical.diag": "50e8d8791eb3fc92d8953eb7cd3dea580dc3b2e79f1a1c7ae05af621663adb45",
+    "native.json": "ab1e9a7299a13b768673147e3a5ba5250fd1391f2c5381e661a6289a527a5678",
+    "canonical.json": "3e9eba72b8b095618ce3bbd5ba6372a855ed4f3a4ff0be100f3df0b60714bd82",
+    "verification.json": "ebe98227c38e2097c36f8728a1d3f841aca7445715b8a052657486f42dd434fb",
+    "graph.json": "93fe2061709a00e0fdebaed1d0f289ecc19ed2f1997d9813705ea3354a04df2c",
+    "validation-ledger.json": "e213517046dee828b0c76d97ea6a9ee40dcd00ae7970b1aafe22718e989f58df"
+  },
+  "scriptHashes": {
+    "recover.py": "93c374388e3af0c680d0af0f971c7938908d040c806adba960e42f65da4b7716",
+    "verify.py": "bd96a6a18a1bd1c5b194e6d9ea20f6921262b7a89db88f03f0803f3ad381b1c4",
+    "immutable.py": "16cfd5879d78ea1f37177915163914449d9430d8adcb130d0669db4bd5921ca7",
+    "graph.py": "27f74f9042ccb78b00fd3ca9a9e226b5c50ca6e9161b2f9103b71f6a27f4880c",
+    "run_lean.py": "b9ec03270a09e0b588a23e1a409d994dc568bc3a9f581b8024550bc34830db4c"
+  },
+  "verificationSha256": "ebe98227c38e2097c36f8728a1d3f841aca7445715b8a052657486f42dd434fb",
+  "graphSha256": "93fe2061709a00e0fdebaed1d0f289ecc19ed2f1997d9813705ea3354a04df2c"
+}
+```
+
+From a repository containing the immutable base, save these five scripts in an empty scratch folder. Run `python3 recover.py RECOVERED PUBLIC_HEAD_SHA`, then `PYTHONDONTWRITEBYTECODE=1 python3 RECOVERED/verify.py RECOVERED DECLARATIONS_INDEX` and `PYTHONDONTWRITEBYTECODE=1 python3 RECOVERED/graph.py RECOVERED` from the repository. Set `TAUCETI_PUBLIC_ONLY=1` for HTTP-only artifact recovery. The checker and graph read immutable git blobs; they do not create a repository snapshot. Optional serial Lean replay is `python3 RECOVERED/run_lean.py Native.lean EXISTING_BUILD native-replay` and then the corresponding Canonical.lean command. Use only an existing exact pinned build; the script refuses below20GiB and times out at20minutes.
+
+## Script:recover.py
+
+```python
+"""Recover the five public deliverables and the ancestor's authenticated proof payload."""
+from pathlib import Path
+import sys,os,subprocess,urllib.request,re,json,zlib,base64,hashlib
+out=Path(sys.argv[1]).resolve();head=sys.argv[2]
+assert re.fullmatch('[0-9a-f]{40}',head)
+out.mkdir(parents=True,exist_ok=True);RID='HodgeStructuresPartII'
+def read(ref,path):
+ assert re.fullmatch('[0-9a-f]{40}',ref)
+ if os.environ.get('TAUCETI_PUBLIC_ONLY')!='1':
+  result=subprocess.run(['git','show',ref+':'+path],stdout=subprocess.PIPE,stderr=subprocess.DEVNULL)
+  if result.returncode==0:return result.stdout
+ url='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'+ref+'/'+path
+ for attempt in range(3):
+  try:return urllib.request.urlopen(url,timeout=60).read()
+  except Exception:
+   if attempt==2:raise
+
+def save(name,data):
+ assert name==Path(name).name and name not in {'.','..'}
+ target=out/name
+ if target.exists():assert target.read_bytes()==data,name
+ else:target.write_bytes(data)
+paths={f'research/blueprint/roadmaps/{RID}.json':'Candidate-roadmap.json',f'research/blueprint/packets/{RID}.json':'Candidate.json',f'research/blueprint/readmes/{RID}.md':'Reader.md',f'research/blueprint/suggested/{RID}.lean':'Published.lean',f'research/blueprint/handoff/DESIGN-{RID}.md':'Handoff.md'}
+current={path:read(head,path) for path in paths};handoff=current[f'research/blueprint/handoff/DESIGN-{RID}.md'].decode()
+m=re.search(r'^## Recovery receipt\n\n\x60\x60\x60json\n(.*?)\n\x60\x60\x60\n',handoff,re.M|re.S);assert m
+receipt=json.loads(m.group(1));base=receipt['immutableBase'];archive=receipt['archiveCommit']
+archived=read(archive,f'research/blueprint/suggested/{RID}.lean').decode()
+m=re.search(r'/\- BEGIN CODEX 5EBB6F HODGE COORDINATE CURVATURE ARCHIVE\n(.*?)\nEND CODEX 5EBB6F HODGE COORDINATE CURVATURE ARCHIVE -/',archived,re.S);assert m
+items=json.loads(zlib.decompress(base64.b64decode(m.group(1))));assert len(items)==18
+manifest={}
+for name,item in items.items():
+ data=item['text'].encode();digest=hashlib.sha256(data).hexdigest();assert digest==item['sha256'];save(name,data);manifest[name]=digest
+assert manifest==receipt['artifactHashes']
+assert archived==(out/'Canonical.lean').read_text()+'\n'+m.group(0)+'\n'
+assert current[f'research/blueprint/suggested/{RID}.lean']==(out/'Canonical.lean').read_bytes()
+for path,name in paths.items():save(name,current[path])
+save(RID+'.json',current[f'research/blueprint/packets/{RID}.json'])
+save('artifact-manifest.json',(json.dumps(manifest,indent=2)+'\n').encode())
+originals=['OriginalRoadmap.json','OriginalPacket.json','OriginalReader.md','OriginalSuggested.lean','OriginalHandoff.md']
+for path,name in zip(paths,originals):save(name,read(base,path))
+for name in ['recover.py','verify.py','immutable.py','graph.py','run_lean.py']:
+ m=re.search(r'^## Script:'+re.escape(name)+r'\n\n\x60\x60\x60python\n(.*?)\n\x60\x60\x60\n',handoff,re.M|re.S);assert m,name
+ data=(m.group(1)+'\n').encode();assert hashlib.sha256(data).hexdigest()==receipt['scriptHashes'][name];save(name,data)
+print(json.dumps({'publicHead':head,'immutableBase':base,'archiveCommit':archive,'authenticatedArtifacts':len(items),'deliverables':5,'originals':5,'scripts':5,'allHashesMatch':True},indent=2))
+```
+
+## Script:verify.py
+
+```python
+"""Replay conservation, exact typed correspondence, indexed checker and actual intake."""
+from pathlib import Path
+import sys,json,re,ast,hashlib,copy
+R=Path.cwd();S=Path(sys.argv[1]).resolve();RID='HodgeStructuresPartII';P=RID+':H.0/'
+paths=['research/blueprint/'+folder+'/'+('DESIGN-' if folder=='handoff' else '')+RID+'.'+ext for folder,ext in [('roadmaps','json'),('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]]
+contents=dict(zip(paths,[(S/n).read_text() for n in ['Candidate-roadmap.json','Candidate.json','Reader.md','Published.lean','Handoff.md']]))
+p=json.loads(contents[paths[1]]);old=json.loads((S/'OriginalPacket.json').read_text())
+road=json.loads(contents[paths[0]]);oldroad=json.loads((S/'OriginalRoadmap.json').read_text())
+assert len(p['nodes'])==284 and len(old['nodes'])==265
+allowed={'local-descent':{'prerequisites','proofSteps'},'coordinate-comparison':{'prerequisites','proofSteps'}}
+whole=0
+for a,b in zip(p['nodes'],old['nodes']):
+ if a==b:whole+=1;continue
+ slug=a['id'].rsplit('/',1)[-1];fields=allowed[slug]
+ assert {k:v for k,v in a.items() if k not in fields}=={k:v for k,v in b.items() if k not in fields},slug
+ for field in fields:assert a[field][:len(b[field])]==b[field],(slug,field)
+assert whole==263
+mutable={'nodes','summary','baseline','sources','coverage','gaps','verification'}
+for k in old:
+ if k not in mutable:assert p[k]==old[k],k
+assert p['baseline']['declarations'][:len(old['baseline']['declarations'])]==old['baseline']['declarations']
+assert {k:v for k,v in p['baseline'].items() if k!='declarations'}=={k:v for k,v in old['baseline'].items() if k!='declarations'}
+assert p['sources'][:len(old['sources'])]==old['sources']
+assert p['coverage'][1:]==old['coverage'][1:]
+assert p['coverage'][0]['remaining'][:-1]==old['coverage'][0]['remaining']
+assert {k:v for k,v in p['coverage'][0].items() if k!='remaining'}=={k:v for k,v in old['coverage'][0].items() if k!='remaining'}
+assert p['gaps'][1:]==old['gaps'][1:]
+assert {k:v for k,v in p['gaps'][0].items() if k!='coordinateCurvatureContinuation'}==old['gaps'][0]
+assert p['verification']['previousCheckpoint']==old['verification']
+assert p['status']=='partial' and all(n['implementationStatus']=='unchecked' for n in p['nodes'])
+assert len(p['requests'])==5 and len(p['gaps'])==11 and len(p['sourceIssues'])==1
+assert sum(len(r['items']) for m in p['routeManifest'] for r in m['inputRoutes'])==149
+assert {k:v for k,v in road.items() if k not in ['summary','stages']}=={k:v for k,v in oldroad.items() if k not in ['summary','stages']}
+assert road['stages'][1:]==oldroad['stages'][1:]
+assert road['stages'][0]['description'].startswith(oldroad['stages'][0]['description'])
+assert {k:v for k,v in road['stages'][0].items() if k!='description'}=={k:v for k,v in oldroad['stages'][0].items() if k!='description'}
+assert contents[paths[2]].endswith((S/'OriginalReader.md').read_text())
+assert contents[paths[4]].endswith((S/'OriginalHandoff.md').read_text())
+native=(S/'Native.lean').read_text();canonical=(S/'Canonical.lean').read_text()
+assert native=='\n'.join((S/n).read_text() for n in ['IncomingNative.lean','NewProofs.lean','NewTests.lean','Audits.lean'])
+assert canonical==(S/'IncomingCanonical.lean').read_text()+'\n'+(S/'NewAdmitted.lean').read_text()
+assert contents[paths[3]]==canonical
+original=(S/'OriginalSuggested.lean').read_text()
+m=re.search(r'/\- BEGIN CODEx A71F92 PARAMETER CURVATURE PAYLOAD\n(.*?)\nEND CODEx A71F92 PARAMETER CURVATURE PAYLOAD -/',original,re.S);assert m
+import base64,zlib
+incoming=json.loads(zlib.decompress(base64.b64decode(m.group(1))))
+for item in incoming.values():assert hashlib.sha256(item['text'].encode()).hexdigest()==item['sha256']
+assert original==(S/'IncomingCanonical.lean').read_text()+'\n'+m.group(0)+'\n'
+assert incoming['Native.lean']['text']==(S/'IncomingNative.lean').read_text()
+assert not re.search(r'\bsorry\b|^axiom\b',native,re.M)
+def headers(text):
+ found={}
+ for match in re.finditer(r'^(def|lemma|theorem|example)\b(?: ([\w.]+))?',text,re.M):
+  depth=0;end=None
+  for i in range(match.start(),len(text)):
+   c=text[i]
+   if c in '([{':depth+=1
+   elif c in ')]}':depth-=1
+   if depth==0 and text.startswith(':=',i):end=i;break
+  assert end is not None
+  label=match.group(2) if match.group(1)!='example' else 'example#'+str(sum(x.startswith('example#') for x in found))
+  assert label not in found,label
+  found[label]=' '.join(text[match.start():end].split())
+ return found
+nh=headers((S/'NewProofs.lean').read_text());ch=headers((S/'NewAdmitted.lean').read_text());nt=headers((S/'NewTests.lean').read_text())
+expected={**nh,**nt};assert expected==ch
+names={n['declaration'] for n in p['nodes'][-19:]};assert names==set(nh)
+tests=json.loads((S/'new-tests.json').read_text());assert len(tests)==7
+assert {x['name'] for x in tests}==set(re.findall(r'^-- test: (.+)$',(S/'NewTests.lean').read_text(),re.M))
+for n in p['nodes'][-19:]:
+ assert n['declaration'] in contents[paths[2]] and n['statement'] in contents[paths[2]]
+ for item in n.get('api',[])+n.get('tests',[]):assert item['name'] in contents[paths[2]] and item['statement'] in contents[paths[2]]
+for path,text in contents.items():
+ assert not re.search(r'/(?:home|tmp|Users)/|file'+'://',text),path
+ assert not re.search(r'[ \t]+$',text,re.M),path
+resources=json.loads((S/'compilation-summary.json').read_text());assert p['verification']['compilation']==resources
+for name,log,want,ex,audits in [('Native.lean','native.diag',0,35,67),('Canonical.lean','canonical.diag',547,232,0)]:
+ text=(S/log).read_text();rec=resources[name]
+ assert rec['exitCode']==0 and rec['availableGiB']>=20
+ assert not re.search(r': error(?:\([^)]*\))?:',text)
+ warnings=re.findall(r'warning: (.+)',text);assert len(warnings)==want and all(w=='declaration uses `sorry`' for w in warnings)
+ assert text.count('depends on axioms:')==audits and rec['axiomAudits']==audits
+ assert rec['examples']==ex and len(re.findall(r'^example\b',(S/name).read_text(),re.M))==ex
+ assert rec['sourceSha256']==hashlib.sha256((S/name).read_bytes()).hexdigest()
+ assert rec['diagnosticSha256']==hashlib.sha256(text.encode()).hexdigest()
+ if audits:
+  assert 'sorryAx' not in text
+  ax=re.findall(r'depends on axioms:\s*\[([^]]*)\]',text,re.S);assert len(ax)==audits
+  assert all(set(re.findall(r'[\w.]+',v))<= {'propext','Classical.choice','Quot.sound'} for v in ax)
+if (S/'artifact-manifest.json').exists():
+ for name,sha in json.loads((S/'artifact-manifest.json').read_text()).items():assert hashlib.sha256((S/name).read_bytes()).hexdigest()==sha,name
+import immutable
+immutable.install()
+sys.path.insert(0,str(R/'scripts'))
+import check_blueprint
+index=check_blueprint.load_index(sys.argv[2]);assert index[0] is not None
+errors,warnings,summary=check_blueprint.check(S/(RID+'.json'),index,check_blueprint.world());assert not errors and not warnings,(errors,warnings)
+summary['packet']='recovered/'+RID+'.json'
+tree=ast.parse((R/'research/blueprint/intake.py').read_text());wanted={'file_problems','auto_refusals','own_files','independent_of'}
+picked=[n for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id in {'ALLOWED','PRIVATE'} for t in n.targets) or isinstance(n,ast.FunctionDef) and n.name in wanted]
+env={'json':json,'re':re};exec(compile(ast.Module(body=picked,type_ignores=[]),'actual-intake','exec'),env)
+job=next(j for j in json.loads((R/'research/blueprint/queue.json').read_text())['jobs'] if j['id']=='DESIGN-'+RID)
+problems=[x for f in paths for x in env['file_problems'](f,contents[f])]
+refusals=env['auto_refusals'](job,paths,False,{'codex-5ebb6f'},set());assert not problems and not refusals,(problems,refusals)
+print(json.dumps({'checker':summary,'intakeProblems':problems,'intakeRefusals':refusals,'wholeIncomingNodesUnchanged':whole,'allIncomingContractsPreserved':265,'newNodes':19,'newAPIItems':14,'newTests':7,'matchedNewHeaders':len(ch),'nativeCanonicalHeadersExact':True,'rawAPIItems':sum(len(n.get('api',[])) for n in p['nodes']),'rawTests':sum(len(n.get('tests',[])) for n in p['nodes']),'compilation':resources,'allNodesUnchecked':True,'immutableBase':immutable.BASE},indent=2))
+```
+
+## Script:immutable.py
+
+```python
+"""Read the immutable audit tree without creating a repository snapshot."""
+import fnmatch
+import importlib.abc
+import importlib.util
+import io
+from pathlib import Path
+import subprocess
+import sys
+
+import os
+REPO = Path(os.environ.get('TAUCETI_REPO', str(Path.cwd())))
+BASE = os.environ.get('HODGE_VALIDATE_BASE', 'bc09ee60ffaaf17ea3a32ae1dce51b92a58430ad')
+TRACKED = set(subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', BASE], cwd=REPO, text=True).splitlines())
+CACHE = {}
+READS = set()
+ORIGINAL = {name: getattr(Path, name) for name in ('read_text', 'read_bytes', 'exists', 'is_file', 'is_dir', 'glob', 'rglob', 'open', 'write_text', 'write_bytes')}
+
+def relative(path):
+    try:
+        return str(path.resolve().relative_to(REPO.resolve()))
+    except ValueError:
+        return None
+
+def blob(key):
+    if key not in TRACKED:
+        raise FileNotFoundError(key)
+    READS.add(key)
+    if key not in CACHE:
+        CACHE[key] = subprocess.check_output(['git', 'show', BASE + ':' + key], cwd=REPO)
+    return CACHE[key]
+
+def read_text(path, encoding=None, errors=None):
+    key = relative(path)
+    if key is None:
+        return ORIGINAL['read_text'](path, encoding=encoding, errors=errors)
+    return blob(key).decode(('utf-8' if encoding in (None, 'locale') else encoding), errors or 'strict')
+
+def read_bytes(path):
+    key = relative(path)
+    return ORIGINAL['read_bytes'](path) if key is None else blob(key)
+
+def is_file(path):
+    key = relative(path)
+    return ORIGINAL['is_file'](path) if key is None else key in TRACKED
+
+def is_dir(path):
+    key = relative(path)
+    return ORIGINAL['is_dir'](path) if key is None else any(s.startswith(key.rstrip('/') + '/') for s in TRACKED) or key == '.'
+
+def exists(path):
+    key = relative(path)
+    return ORIGINAL['exists'](path) if key is None else is_file(path) or is_dir(path)
+
+def glob(path, pattern, recursive=False):
+    key = relative(path)
+    if key is None:
+        yield from ORIGINAL['rglob' if recursive else 'glob'](path, pattern)
+        return
+    prefix = '' if key == '.' else key.rstrip('/') + '/'
+    for candidate in sorted(TRACKED):
+        if not candidate.startswith(prefix):
+            continue
+        tail = candidate[len(prefix):]
+        if fnmatch.fnmatch(tail, pattern) and (recursive or '/' not in tail):
+            yield REPO / candidate
+
+def open_path(path, mode='r', buffering=-1, encoding=None, errors=None, newline=None):
+    key = relative(path)
+    if key is None:
+        return ORIGINAL['open'](path, mode, buffering, encoding, errors, newline)
+    if mode not in ('r', 'rb'):
+        raise PermissionError('audit tree is read-only')
+    return io.BytesIO(blob(key)) if mode == 'rb' else io.StringIO(blob(key).decode(('utf-8' if encoding in (None, 'locale') else encoding), errors or 'strict'))
+
+def write_text(path, *args, **kwargs):
+    if relative(path) is not None:
+        raise PermissionError('audit tree is read-only')
+    return ORIGINAL['write_text'](path, *args, **kwargs)
+
+def write_bytes(path, *args, **kwargs):
+    if relative(path) is not None:
+        raise PermissionError('audit tree is read-only')
+    return ORIGINAL['write_bytes'](path, *args, **kwargs)
+
+class Loader(importlib.abc.Loader):
+    def __init__(self, key):
+        self.key = key
+    def create_module(self, spec):
+        return None
+    def exec_module(self, module):
+        module.__file__ = str(REPO / self.key)
+        exec(compile(blob(self.key), module.__file__, 'exec'), module.__dict__)
+
+class Finder(importlib.abc.MetaPathFinder):
+    def find_spec(self, fullname, path=None, target=None):
+        key = 'scripts/' + fullname + '.py'
+        if '.' not in fullname and key in TRACKED:
+            return importlib.util.spec_from_loader(fullname, Loader(key))
+
+def install():
+    for name, function in [('read_text', read_text), ('read_bytes', read_bytes), ('exists', exists), ('is_file', is_file), ('is_dir', is_dir), ('glob', glob), ('rglob', lambda path, pattern: glob(path, pattern, True)), ('open', open_path), ('write_text', write_text), ('write_bytes', write_bytes)]:
+        setattr(Path, name, function)
+    sys.meta_path.insert(0, Finder())
+```
+
+## Script:graph.py
+
+```python
+from pathlib import Path
+import os,sys,json,collections,copy
+R=Path.cwd();S=Path(sys.argv[1]);RID='HodgeStructuresPartII';STEM=RID
+sys.path.insert(0,str(R/'scripts'))
+p=json.loads((S/'Candidate.json').read_text())
+old=json.loads((S/'OriginalPacket.json').read_text())
+nodes={n['id']:n for n in p['nodes']}
+import immutable
+immutable.install()
+import check_blueprint
+import build,blueprints
+packets,documents,definitions=blueprints.load_promoted(R)
+keep=[x for x in packets if x[0]!=STEM];documents[STEM]='research/blueprint/readmes/'+STEM+'.md'
+own_definition=json.loads((S/'Candidate-roadmap.json').read_text())
+old_definition=json.loads((S/'OriginalRoadmap.json').read_text())
+def assemble(candidate,definition):
+ build.load_promoted=lambda *args:(copy.deepcopy(keep+[(STEM,candidate)]),copy.deepcopy(documents),copy.deepcopy([d for d in definitions if d.get('id')!=RID]+[definition]))
+ return build.assemble(require_distances=False)[0]
+a=assemble(p,own_definition);b=assemble(old,old_definition)
+world={}
+for folder in ['data/decompositions','data/blueprints','research/blueprint/packets']:
+ for file in sorted((R/folder).glob('*.json')):
+  for n in json.loads(file.read_text()).get('nodes',[]):world.setdefault(n['id'],n)
+world.update(nodes)
+listedstageids={x['id'] for x in a['stages']}
+stageids=listedstageids|set(check_blueprint.world()[1])
+se={(e['source'],e['target']) for e in a['stageEdges']}
+assert se=={(e['source'],e['target']) for e in b['stageEdges']}
+def dag(vertices,edges):
+ vertices=set(vertices)|{v for e in edges for v in e}
+ following=collections.defaultdict(set);indeg={v:0 for v in vertices}
+ for s,t in edges:
+  if t not in following[s]:following[s].add(t);indeg[t]+=1
+ todo=[v for v,k in indeg.items() if k==0];count=0
+ while todo:
+  v=todo.pop();count+=1
+  for w in following[v]:
+   indeg[w]-=1
+   if indeg[w]==0:todo.append(w)
+ assert count==len(vertices),[v for v,k in indeg.items() if k][:10]
+ return {'vertices':len(vertices),'edges':len(edges),'acyclic':True}
+ownedges={(d,nid) for nid,n in nodes.items() for d in n['prerequisites'] if d in nodes}
+todo=list(nodes);seen=set();de=set();unresolved=set();baseref=set()
+while todo:
+ nid=todo.pop()
+ if nid in seen:continue
+ seen.add(nid)
+ for d in world[nid].get('prerequisites',[]):
+  if d.startswith(('mathlib:','tauceti:')) and d not in stageids:baseref.add(d);continue
+  de.add((d,nid))
+  if d in world:todo.append(d)
+  elif d not in stageids:unresolved.add(d)
+assert not unresolved,unresolved
+de|={(world[nid]['parentStageId'],nid) for nid in seen if world[nid].get('parentStageId')}
+de|={(q['supplier'],v) for q in p['requests'] for v in q.get('neededBy',[]) if v in nodes or v in stageids}
+out=collections.defaultdict(set)
+for s,t in se:out[s].add(t)
+def reachable(source,target):
+ todo=[source];seen=set()
+ while todo:
+  v=todo.pop()
+  if v==target:return True
+  if v not in seen:seen.add(v);todo.extend(out[v])
+ return False
+def stageof(v):
+ checked=set()
+ while v in world and v not in checked:checked.add(v);v=world[v].get('parentStageId')
+ return v
+roadmap=own_definition
+pairs={(d,RID+':'+s['key']) for s in roadmap['stages'] for d in s.get('requires',[])}
+pairs|={(d,stageof(nid)) for nid,n in nodes.items() for d in n['prerequisites'] if d in stageids and d not in world and d!=stageof(nid)}
+pairs|={(stageof(q['supplier']),stageof(v)) for q in p['requests'] for v in q['neededBy'] if stageof(q['supplier'])!=stageof(v)}
+rspairs=set()
+for file in (R/'research/blueprint/restructure').glob('*.result.json'):
+ q=json.loads(file.read_text())
+ if q.get('review',{}).get('status')!='accepted':continue
+ rspairs|={(x['source'],x['target']) for x in q.get('links',[]) if x.get('source','').startswith(RID+':') or x.get('target','').startswith(RID+':')}
+assert all(reachable(s,t) for s,t in pairs|rspairs),sorted((s,t) for s,t in pairs|rspairs if not reachable(s,t))
+ar={r['id']:r for r in a['roadmaps']};br={r['id']:r for r in b['roadmaps']}
+assert ar[RID]['blueprint']['declarations']==len(nodes)
+assert not ar[RID]['blueprint']['skippedLinks'] and not ar[RID].get('pendingLinks',[])
+def skips(r):return r.get('blueprint',{}).get('skippedLinks',[]),r.get('pendingLinks',[])
+assert all(skips(ar[x])==skips(br[x]) for x in br if x!=RID)
+assert {k:v for k,v in ar.items() if k!=RID}=={k:v for k,v in br.items() if k!=RID}
+astages={x['id']:x for x in a['stages']};bstages={x['id']:x for x in b['stages']}
+assert {k:v for k,v in astages.items() if not k.startswith(RID+':')}=={k:v for k,v in bstages.items() if not k.startswith(RID+':')}
+summary={'stageDAG':dag(listedstageids,se),'ownDeclarationDAG':dag(nodes,ownedges),'scopedDAG':dag(listedstageids|seen,se|de),'reachableDeclarations':len(seen),'externalDeclarations':sorted(seen-set(nodes)),'baselineLeaves':len(baseref),'requiredPairs':len(pairs),'restructurePairs':len(rspairs),'unresolved':sorted(unresolved),'ownSkippedLinks':[],'ownPendingLinks':[],'otherSkipsMatch':True,'stageEdgesUnchanged':True,'wholeForeignRoadmapsUnchanged':True,'wholeForeignStagesUnchanged':True}
+summary['immutableBase']=immutable.BASE
+summary['immutableReadPaths']=len(immutable.READS)
+import hashlib
+summary['immutableReadPathSha256']=hashlib.sha256(json.dumps(sorted(immutable.READS)).encode()).hexdigest()
+print(json.dumps(summary,indent=2))
+```
+
+## Script:run_lean.py
+
+```python
+"""Serial replay in an existing pinned Mathlib build; creates no Lake project."""
+from pathlib import Path
+import datetime, hashlib, json, os, subprocess, sys
+
+out = Path(__file__).resolve().parent
+artifact, build, stem = sys.argv[1:]
+build = Path(build).resolve()
+source = out / artifact
+assert source.is_file() and source.parent == out
+pin = '082e2d37e8b0463410cdb532e111cd43d5a66174'
+mathlib = build / '.lake/packages/mathlib'
+assert subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=mathlib, text=True).strip() == pin
+free = subprocess.check_output(['free', '-g'], text=True)
+available = int(free.splitlines()[1].split()[-1])
+receipt = {'artifact': artifact, 'sha256': hashlib.sha256(source.read_bytes()).hexdigest(),
+           'mathlib': pin, 'availableGiB': available,
+           'startedUTC': datetime.datetime.now(datetime.timezone.utc).isoformat()}
+if available < 20:
+    receipt['refused'] = 'Less than 20 GiB available'
+    (out / (stem + '.json')).write_text(json.dumps(receipt, indent=2) + '\n')
+    print(json.dumps(receipt)); sys.exit(75)
+result = subprocess.run(['/usr/bin/time', '-v', 'timeout', '--kill-after=30s', '1200',
+                         'lake', 'env', 'lean', str(source)], cwd=build,
+                        stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+log = result.stdout.replace(str(out), '<recovered>').replace(str(build), '<existing-build>')
+(out / (stem + '.diag')).write_text(log)
+receipt.update(exitCode=result.returncode,
+               endedUTC=datetime.datetime.now(datetime.timezone.utc).isoformat(),
+               logSha256=hashlib.sha256(log.encode()).hexdigest())
+(out / (stem + '.json')).write_text(json.dumps(receipt, indent=2) + '\n')
+print(json.dumps(receipt)); print(log[-12000:])
+sys.exit(result.returncode)
+```
+
+---
+
+## Preserved incoming handoff
+
 # DESIGN-HodgeStructuresPartII — common-λ affine tensor curvature
 
 Codex — codex-a71f92, 2026-10-03. Refs #3371. This is a partial checkpoint, not an implementation or a completed source decomposition.
