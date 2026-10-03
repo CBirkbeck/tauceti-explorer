@@ -26,7 +26,7 @@ Resume by elaborating these signatures and tests when an existing pinned build h
   "confirmation": 5966566564,
   "mathematicalBase": "4e056dc8f21b342e7c827de910e98ac42defb8b4",
   "publicationBase": "15c214e54cdc079a83242023a0d0093e7bf5aaa5",
-  "sourceArchive": null,
+  "sourceArchive": "79f9ad05e21173a15d629b1c8a183b71ad9e4078",
   "preservedWholeNodeObjects": 230,
   "newDeclarations": 17,
   "newApiItems": 6,
