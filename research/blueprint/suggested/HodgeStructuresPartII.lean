@@ -1,3 +1,4 @@
+import Mathlib.RingTheory.Nilpotent.Basic
 import Mathlib.LinearAlgebra.ExteriorPower.Pairing
 import Mathlib.LinearAlgebra.Matrix.Notation
 import Mathlib.RingTheory.Localization.BaseChange
@@ -2756,3 +2757,138 @@ example :
 end
 end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
 /- END AFFINE TENSOR BASE CHANGE -/
+
+/- BEGIN AFFINE TENSOR CONTRACTION NILPOTENCE -/
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+open scoped TensorProduct
+variable {R E F Q : Type*} [CommRing R]
+  [AddCommGroup E] [Module R E] [AddCommGroup F] [Module R F]
+  [AddCommGroup Q] [Module R Q]
+
+lemma affineTensorField_contractions_separate_commute
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (v : Module.Dual R Q) :
+    Commute ((affineContractions θ v).rTensor F) ((affineContractions ψ v).lTensor E) := by
+  sorry
+
+lemma affineTensorField_contractions_pow
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (v : Module.Dual R Q) (k : ℕ) :
+    affineContractions (affineTensorField θ ψ) v ^ k =
+      ∑ i ∈ Finset.range (k+1),
+        (k.choose i) •
+          TensorProduct.map (affineContractions θ v ^ i)
+            (affineContractions ψ v ^ (k-i)) := by
+  sorry
+
+lemma affineTensorField_contractions_bound
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (v : Module.Dual R Q)
+    (N M : ℕ) (hθ : affineContractions θ v ^ N = 0)
+    (hψ : affineContractions ψ v ^ M = 0) :
+    affineContractions (affineTensorField θ ψ) v ^ (N+M-1) = 0 := by
+  sorry
+
+lemma affineTensorField_contractions_bound_of_le
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (v : Module.Dual R Q)
+    (N M k : ℕ) (hθ : affineContractions θ v ^ N = 0)
+    (hψ : affineContractions ψ v ^ M = 0) (hk : N+M ≤ k+1) :
+    affineContractions (affineTensorField θ ψ) v ^ k = 0 := by
+  sorry
+
+lemma affineTensorField_contractions_isNilpotent
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (v : Module.Dual R Q)
+    (hθ : IsNilpotent (affineContractions θ v))
+    (hψ : IsNilpotent (affineContractions ψ v)) :
+    IsNilpotent (affineContractions (affineTensorField θ ψ) v) := by
+  sorry
+
+lemma affineTensorField_contractions_uniform_bound
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (N M : ℕ)
+    (hθ : ∀ v : Module.Dual R Q, affineContractions θ v ^ N = 0)
+    (hψ : ∀ v : Module.Dual R Q, affineContractions ψ v ^ M = 0) :
+    ∀ v : Module.Dual R Q,
+      affineContractions (affineTensorField θ ψ) v ^ (N+M-1) = 0 := by
+  sorry
+
+lemma affineOrderedIterate_contraction_constant (θ : E →ₗ[R] E ⊗[R] Q)
+    (n : ℕ) (v : Module.Dual R Q) :
+    affineContractions (affineOrderedIterate θ n)
+      (TensorPower.multilinearMapToDual R Q n (fun _ => v)) =
+        affineContractions θ v ^ n := by
+  sorry
+
+lemma affineOrderedIterate_contractions_bound (θ : E →ₗ[R] E ⊗[R] Q)
+    (N : ℕ) (hθ : affineOrderedIterate θ N = 0) (v : Module.Dual R Q) :
+    affineContractions θ v ^ N = 0 := by
+  sorry
+
+lemma affineTensorField_contractions_bound_of_ordered
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (N M : ℕ)
+    (hθ : affineOrderedIterate θ N = 0) (hψ : affineOrderedIterate ψ M = 0)
+    (v : Module.Dual R Q) :
+    affineContractions (affineTensorField θ ψ) v ^ (N+M-1) = 0 := by
+  sorry
+
+lemma affineTwoDirectionField_contractions (A B : Module.End R E) (q r : Q)
+    (v : Module.Dual R Q) :
+    affineContractions (affineTwoDirectionField A B q r) v = v q • A + v r • B := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_contracted_binomial
+example (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (v : Module.Dual R Q) (k : ℕ) :
+    affineContractions (affineTensorField θ ψ) v ^ k =
+      ∑ i ∈ Finset.range (k+1), (k.choose i) •
+        TensorProduct.map (affineContractions θ v ^ i)
+          (affineContractions ψ v ^ (k-i)) := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_ordered_to_contracted
+example (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (N M : ℕ) (hθ : affineOrderedIterate θ N = 0) (hψ : affineOrderedIterate ψ M = 0)
+    (v : Module.Dual R Q) :
+    affineContractions (affineTensorField θ ψ) v ^ (N+M-1) = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_bound_one
+example (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (v : Module.Dual R Q) (hθ : affineContractions θ v = 0)
+    (hψ : affineContractions ψ v = 0) :
+    affineContractions (affineTensorField θ ψ) v = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_larger_bound
+example (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (v : Module.Dual R Q) (hθ : affineContractions θ v ^ 2 = 0)
+    (hψ : affineContractions ψ v ^ 2 = 0) :
+    affineContractions (affineTensorField θ ψ) v ^ 5 = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineOrderedIterate.test_contraction_degree_zero
+example (θ : E →ₗ[R] E ⊗[R] Q) (v : Module.Dual R Q) :
+    affineContractions (affineOrderedIterate θ 0)
+      (TensorPower.multilinearMapToDual R Q 0 (fun _ => v)) = 1 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_integer_sharp_bound
+example :
+    let J : Module.End ℤ (ℤ × ℤ) := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_char_two_square_cancellation
+example :
+    let J : Module.End (ZMod 2) (ZMod 2 × ZMod 2) := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTwoDirectionField.test_contracted_formula
+example (A B : Module.End R E) (q r : Q) (v : Module.Dual R Q) :
+    affineContractions (affineTwoDirectionField A B q r) v = v q • A + v r • B := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_self_powers_do_not_detect_ordered
+example :
+    let K := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+/- END AFFINE TENSOR CONTRACTION NILPOTENCE -/

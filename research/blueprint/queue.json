@@ -11881,8 +11881,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #3378"
+   "state": "external",
+   "note": "claimed on GitHub issue #3378"
   },
   {
    "id": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
@@ -13129,8 +13129,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-FunctionFieldArithmeticPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #3403"
+   "state": "external",
+   "note": "claimed on GitHub issue #3403"
   },
   {
    "id": "REV-DESIGN-FunctionFieldArithmeticPartII",
@@ -21655,9 +21655,9 @@
     "REV-RS-27"
    ],
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--A0-extension.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #672"
+   "note": "released on GitHub issue #672"
   },
   {
    "id": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension",
@@ -30150,7 +30150,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-AnabelianGeometryAndNonabelianChabauty.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-ArithmeticGaloisDuality",
     "BP-ColemanIntegration",
@@ -30160,7 +30160,7 @@
     "BP-PadicHodgeTheory--R06.5",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "claimed on GitHub issue #1020"
+   "note": "released on GitHub issue #1020"
   },
   {
    "id": "REV-AnabelianGeometryAndNonabelianChabauty",

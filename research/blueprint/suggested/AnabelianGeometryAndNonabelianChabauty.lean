@@ -3221,3 +3221,347 @@ example (c : Z1 G U) (f : U →* V)
 end TwistedKernelTests
 end TauCeti.NonabelianCohomology
 /- END TWISTED KERNELS 63 -/
+
+/- BEGIN NATIVE TWISTED QUOTIENT ACTION AND COHOMOLOGY -/
+namespace TauCeti.NonabelianCohomology
+section TwistedQuotients
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [IsTopologicalGroup U]
+  [MulDistribMulAction G U] [ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V] [IsTopologicalGroup V]
+  [MulDistribMulAction G V] [ContinuousSMul G V]
+
+@[instance_reducible]
+def Twist.quotientAction (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :
+    MulDistribMulAction G (Twist c ⧸ (Twist.map c f hf hG).ker) := by sorry
+
+lemma Twist.quotientAction_mk (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (g : G) (x : Twist c) :
+    (letI := Twist.quotientAction c f hf hG
+     g • (QuotientGroup.mk x : Twist c ⧸ (Twist.map c f hf hG).ker) =
+       QuotientGroup.mk (g • x)) := by sorry
+
+lemma Twist.quotientContinuousSMul (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :
+    (letI := Twist.quotientAction c f hf hG
+     ContinuousSMul G (Twist c ⧸ (Twist.map c f hf hG).ker)) := by sorry
+
+lemma Twist.quotientEquiv_smul (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (hsur : Function.Surjective f) :
+    (letI := Twist.quotientAction c f hf hG
+     ∀ (g : G) (q : Twist c ⧸ (Twist.map c f hf hG).ker),
+     Twist.quotientEquiv c f hf hG hsur (g • q) =
+       g • Twist.quotientEquiv c f hf hG hsur q) := by sorry
+
+lemma Twist.quotientEquiv_symm_smul (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (hsur : Function.Surjective f) :
+    (letI := Twist.quotientAction c f hf hG
+     ∀ (g : G) (y : Twist (Z1.map f hf hG c)),
+     (Twist.quotientEquiv c f hf hG hsur).symm (g • y) =
+       g • (Twist.quotientEquiv c f hf hG hsur).symm y) := by sorry
+
+def Z1.twistedQuotient (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :
+    (letI := Twist.quotientAction c f hf hG
+     Z1 G (Twist c) → Z1 G (Twist c ⧸ (Twist.map c f hf hG).ker)) := by sorry
+
+lemma Z1.twistedQuotient_apply (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (d : Z1 G (Twist c)) (g : G) :
+    (letI := Twist.quotientAction c f hf hG
+     Z1.twistedQuotient c f hf hG d g = QuotientGroup.mk (d g)) := by sorry
+
+lemma Z1.twistedQuotient_one (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :
+    (letI := Twist.quotientAction c f hf hG
+     Z1.twistedQuotient c f hf hG 1 = 1) := by sorry
+
+lemma Z1.twistedQuotient_gauge (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (x : Twist c) (d : Z1 G (Twist c)) :
+    (letI := Twist.quotientAction c f hf hG
+     letI := Twist.quotientContinuousSMul c f hf hG
+     Z1.twistedQuotient c f hf hG (x • d) =
+       (QuotientGroup.mk x : Twist c ⧸ (Twist.map c f hf hG).ker) •
+         Z1.twistedQuotient c f hf hG d) := by sorry
+
+def H1.twistedQuotient (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :
+    (letI := Twist.quotientAction c f hf hG
+     letI := Twist.quotientContinuousSMul c f hf hG
+     H1 G (Twist c) → H1 G (Twist c ⧸ (Twist.map c f hf hG).ker)) := by sorry
+
+lemma H1.twistedQuotient_mk (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (d : Z1 G (Twist c)) :
+    (letI := Twist.quotientAction c f hf hG
+     letI := Twist.quotientContinuousSMul c f hf hG
+     H1.twistedQuotient c f hf hG (H1.mk d) =
+       H1.mk (Z1.twistedQuotient c f hf hG d)) := by sorry
+
+lemma H1.twistedQuotient_one (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :
+    (letI := Twist.quotientAction c f hf hG
+     letI := Twist.quotientContinuousSMul c f hf hG
+     H1.twistedQuotient c f hf hG 1 = 1) := by sorry
+
+def Z1.twistedQuotientEquiv (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (hsur : Function.Surjective f) (hquot : Topology.IsQuotientMap f) :
+    (letI := Twist.quotientAction c f hf hG
+     Z1 G (Twist c ⧸ (Twist.map c f hf hG).ker) ≃
+       Z1 G (Twist (Z1.map f hf hG c))) := by sorry
+
+lemma Z1.twistedQuotientEquiv_apply (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (hsur : Function.Surjective f) (hquot : Topology.IsQuotientMap f) :
+    (letI := Twist.quotientAction c f hf hG
+     ∀ (d : Z1 G (Twist c ⧸ (Twist.map c f hf hG).ker)) (g : G),
+     Z1.twistedQuotientEquiv c f hf hG hsur hquot d g =
+       Twist.quotientEquiv c f hf hG hsur (d g)) := by sorry
+
+lemma Z1.twistedQuotientEquiv_symm_apply (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (hsur : Function.Surjective f) (hquot : Topology.IsQuotientMap f)
+    (d : Z1 G (Twist (Z1.map f hf hG c))) (g : G) :
+    (letI := Twist.quotientAction c f hf hG
+     (Z1.twistedQuotientEquiv c f hf hG hsur hquot).symm d g =
+       (Twist.quotientEquiv c f hf hG hsur).symm (d g)) := by sorry
+
+lemma Z1.twistedQuotientEquiv_one (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (hsur : Function.Surjective f) (hquot : Topology.IsQuotientMap f) :
+    (letI := Twist.quotientAction c f hf hG
+     Z1.twistedQuotientEquiv c f hf hG hsur hquot 1 = 1) := by sorry
+
+lemma Z1.twistedQuotientEquiv_gauge (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (hsur : Function.Surjective f) (hquot : Topology.IsQuotientMap f) :
+    (letI := Twist.quotientAction c f hf hG
+     letI := Twist.quotientContinuousSMul c f hf hG
+     ∀ (x : Twist c ⧸ (Twist.map c f hf hG).ker)
+       (d : Z1 G (Twist c ⧸ (Twist.map c f hf hG).ker)),
+     Z1.twistedQuotientEquiv c f hf hG hsur hquot (x • d) =
+       Twist.quotientEquiv c f hf hG hsur x •
+         Z1.twistedQuotientEquiv c f hf hG hsur hquot d) := by sorry
+
+lemma Z1.twistedQuotientEquiv_projection (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (hsur : Function.Surjective f) (hquot : Topology.IsQuotientMap f)
+    (d : Z1 G (Twist c)) :
+    (letI := Twist.quotientAction c f hf hG
+     Z1.twistedQuotientEquiv c f hf hG hsur hquot
+       (Z1.twistedQuotient c f hf hG d) =
+       Z1.map (Twist.map c f hf hG) (Twist.map_continuous c f hf hG)
+         (Twist.map_smul c f hf hG) d) := by sorry
+
+def H1.twistedQuotientEquiv (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (hsur : Function.Surjective f) (hquot : Topology.IsQuotientMap f) :
+    (letI := Twist.quotientAction c f hf hG
+     letI := Twist.quotientContinuousSMul c f hf hG
+     H1 G (Twist c ⧸ (Twist.map c f hf hG).ker) ≃
+       H1 G (Twist (Z1.map f hf hG c))) := by sorry
+
+lemma H1.twistedQuotientEquiv_mk (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (hsur : Function.Surjective f) (hquot : Topology.IsQuotientMap f) :
+    (letI := Twist.quotientAction c f hf hG
+     letI := Twist.quotientContinuousSMul c f hf hG
+     ∀ d : Z1 G (Twist c ⧸ (Twist.map c f hf hG).ker),
+     H1.twistedQuotientEquiv c f hf hG hsur hquot (H1.mk d) =
+       H1.mk (Z1.twistedQuotientEquiv c f hf hG hsur hquot d)) := by sorry
+
+lemma H1.twistedQuotientEquiv_symm_mk (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (hsur : Function.Surjective f) (hquot : Topology.IsQuotientMap f)
+    (d : Z1 G (Twist (Z1.map f hf hG c))) :
+    (letI := Twist.quotientAction c f hf hG
+     letI := Twist.quotientContinuousSMul c f hf hG
+     (H1.twistedQuotientEquiv c f hf hG hsur hquot).symm (H1.mk d) =
+       H1.mk ((Z1.twistedQuotientEquiv c f hf hG hsur hquot).symm d)) := by sorry
+
+lemma H1.twistedQuotientEquiv_one (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (hsur : Function.Surjective f) (hquot : Topology.IsQuotientMap f) :
+    (letI := Twist.quotientAction c f hf hG
+     letI := Twist.quotientContinuousSMul c f hf hG
+     H1.twistedQuotientEquiv c f hf hG hsur hquot 1 = 1) := by sorry
+
+lemma H1.twistedQuotientEquiv_projection (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (hsur : Function.Surjective f) (hquot : Topology.IsQuotientMap f)
+    (a : H1 G (Twist c)) :
+    (letI := Twist.quotientAction c f hf hG
+     letI := Twist.quotientContinuousSMul c f hf hG
+     H1.twistedQuotientEquiv c f hf hG hsur hquot (H1.twistedQuotient c f hf hG a) =
+       H1.map (Twist.map c f hf hG) (Twist.map_continuous c f hf hG)
+         (Twist.map_smul c f hf hG) a) := by sorry
+
+lemma H1.twistedQuotient_kernel (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :
+    (letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     letI := Twist.quotientAction c f hf hG
+     letI := Twist.quotientContinuousSMul c f hf hG
+     ∀ a : H1 G (Twist.map c f hf hG).ker,
+     H1.twistedQuotient c f hf hG (H1.twistedKernelInclusion c f hf hG a) = 1) := by sorry
+
+lemma H1.twistedQuotientEquiv_translation (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (hsur : Function.Surjective f) (hquot : Topology.IsQuotientMap f)
+    (a : H1 G (Twist c)) :
+    (letI := Twist.quotientAction c f hf hG
+     letI := Twist.quotientContinuousSMul c f hf hG
+     H1.twistEquiv (Z1.map f hf hG c)
+       (H1.twistedQuotientEquiv c f hf hG hsur hquot
+         (H1.twistedQuotient c f hf hG a)) =
+       H1.map f hf hG (H1.twistEquiv c a)) := by sorry
+
+lemma H1.twistedQuotient_fibre (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (hsur : Function.Surjective f) (hquot : Topology.IsQuotientMap f)
+    (a : H1 G (Twist c)) :
+    (letI := Twist.quotientAction c f hf hG
+     letI := Twist.quotientContinuousSMul c f hf hG
+     H1.twistedQuotient c f hf hG a = 1 ↔
+       H1.map f hf hG (H1.twistEquiv c a) = H1.mk (Z1.map f hf hG c)) := by sorry
+
+end TwistedQuotients
+end TauCeti.NonabelianCohomology
+
+namespace TauCeti.NonabelianCohomology
+section TwistedQuotientTests
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [IsTopologicalGroup U]
+  [MulDistribMulAction G U] [ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V] [IsTopologicalGroup V]
+  [MulDistribMulAction G V] [ContinuousSMul G V]
+
+-- test: Twist.quotientAction.test_unit
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (g : G) :
+    (letI := Twist.quotientAction c f hf hG
+     g • (1 : Twist c ⧸ (Twist.map c f hf hG).ker) = 1) := by sorry
+
+-- test: Twist.quotientAction.test_projection
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (g : G) (x : Twist c) :
+    (letI := Twist.quotientAction c f hf hG
+     g • (QuotientGroup.mk x : Twist c ⧸ (Twist.map c f hf hG).ker) =
+       QuotientGroup.mk (g • x)) := by sorry
+
+-- test: Twist.quotientAction.test_joint_continuity
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :
+    (letI := Twist.quotientAction c f hf hG
+     Continuous (fun z : G × (Twist c ⧸ (Twist.map c f hf hG).ker) => z.1 • z.2)) := by sorry
+
+-- test: Twist.quotientAction.test_nontrivial_twist
+example (c : Z1 G U) (g : G) (x : Twist c) (hne : g • x ≠ x) :
+    (letI := Twist.quotientAction c (MonoidHom.id U) continuous_id (fun (_ : G) _ => rfl)
+     g • (QuotientGroup.mk x : Twist c ⧸
+       (Twist.map c (MonoidHom.id U) continuous_id (fun (_ : G) _ => rfl)).ker) ≠
+       QuotientGroup.mk x) := by sorry
+
+-- test: Z1.twistedQuotient.test_value
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (d : Z1 G (Twist c)) (g : G) :
+    (letI := Twist.quotientAction c f hf hG
+     Z1.twistedQuotient c f hf hG d g = QuotientGroup.mk (d g)) := by sorry
+
+-- test: Z1.twistedQuotient.test_constant_map
+example (c : Z1 G U) (d : Z1 G (Twist c)) :
+    (let f : U →* V := 1
+     let hG : ∀ (g : G) (x : U), f (g • x) = g • f x :=
+       fun g _ => (smul_one g).symm
+     letI := Twist.quotientAction c f continuous_const hG
+     Z1.twistedQuotient c f continuous_const hG d = 1) := by sorry
+
+-- test: Z1.twistedQuotient.test_gauge
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (x : Twist c) (d : Z1 G (Twist c)) :
+    (letI := Twist.quotientAction c f hf hG
+     letI := Twist.quotientContinuousSMul c f hf hG
+     Z1.twistedQuotient c f hf hG (x • d) =
+       (QuotientGroup.mk x : Twist c ⧸ (Twist.map c f hf hG).ker) •
+         Z1.twistedQuotient c f hf hG d) := by sorry
+
+-- test: H1.twistedQuotient.test_neutral
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :
+    (letI := Twist.quotientAction c f hf hG
+     letI := Twist.quotientContinuousSMul c f hf hG
+     H1.twistedQuotient c f hf hG 1 = 1) := by sorry
+
+-- test: H1.twistedQuotient.test_representative
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (d : Z1 G (Twist c)) :
+    (letI := Twist.quotientAction c f hf hG
+     letI := Twist.quotientContinuousSMul c f hf hG
+     H1.twistedQuotient c f hf hG (H1.mk d) =
+       H1.mk (Z1.twistedQuotient c f hf hG d)) := by sorry
+
+-- test: H1.twistedQuotient.test_kernel
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :
+    (letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     letI := Twist.quotientAction c f hf hG
+     letI := Twist.quotientContinuousSMul c f hf hG
+     ∀ a : H1 G (Twist.map c f hf hG).ker,
+     H1.twistedQuotient c f hf hG (H1.twistedKernelInclusion c f hf hG a) = 1) := by sorry
+
+-- test: Z1.twistedQuotientEquiv.test_round_trip
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (hsur : Function.Surjective f) (hquot : Topology.IsQuotientMap f) :
+    (letI := Twist.quotientAction c f hf hG
+     ∀ d : Z1 G (Twist c ⧸ (Twist.map c f hf hG).ker),
+     (Z1.twistedQuotientEquiv c f hf hG hsur hquot).symm
+       (Z1.twistedQuotientEquiv c f hf hG hsur hquot d) = d) := by sorry
+
+-- test: Z1.twistedQuotientEquiv.test_projection_triangle
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (hsur : Function.Surjective f) (hquot : Topology.IsQuotientMap f)
+    (d : Z1 G (Twist c)) :
+    (letI := Twist.quotientAction c f hf hG
+     Z1.twistedQuotientEquiv c f hf hG hsur hquot (Z1.twistedQuotient c f hf hG d) =
+       Z1.map (Twist.map c f hf hG) (Twist.map_continuous c f hf hG)
+         (Twist.map_smul c f hf hG) d) := by sorry
+
+-- test: Z1.twistedQuotientEquiv.test_neutral
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (hsur : Function.Surjective f) (hquot : Topology.IsQuotientMap f) :
+    (letI := Twist.quotientAction c f hf hG
+     Z1.twistedQuotientEquiv c f hf hG hsur hquot 1 = 1) := by sorry
+
+-- test: H1.twistedQuotientEquiv.test_round_trip
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (hsur : Function.Surjective f) (hquot : Topology.IsQuotientMap f) :
+    (letI := Twist.quotientAction c f hf hG
+     letI := Twist.quotientContinuousSMul c f hf hG
+     ∀ a : H1 G (Twist c ⧸ (Twist.map c f hf hG).ker),
+     (H1.twistedQuotientEquiv c f hf hG hsur hquot).symm
+       (H1.twistedQuotientEquiv c f hf hG hsur hquot a) = a) := by sorry
+
+-- test: H1.twistedQuotientEquiv.test_neutral
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (hsur : Function.Surjective f) (hquot : Topology.IsQuotientMap f) :
+    (letI := Twist.quotientAction c f hf hG
+     letI := Twist.quotientContinuousSMul c f hf hG
+     H1.twistedQuotientEquiv c f hf hG hsur hquot 1 = 1) := by sorry
+
+-- test: H1.twistedQuotientEquiv.test_repointed_fibre
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (hsur : Function.Surjective f) (hquot : Topology.IsQuotientMap f)
+    (a : H1 G (Twist c)) :
+    (letI := Twist.quotientAction c f hf hG
+     letI := Twist.quotientContinuousSMul c f hf hG
+     H1.twistedQuotient c f hf hG a = 1 ↔
+       H1.map f hf hG (H1.twistEquiv c a) = H1.mk (Z1.map f hf hG c)) := by sorry
+
+end TwistedQuotientTests
+end TauCeti.NonabelianCohomology
+-- END NATIVE TWISTED QUOTIENT ACTION AND COHOMOLOGY
