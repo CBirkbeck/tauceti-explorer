@@ -15,7 +15,7 @@
     "FunctionFieldArithmeticPartII:GC.5",
     "FunctionFieldArithmeticPartII:GC.6"
   ],
-  "summary": "Partial 218-node positive-divisibility root-chart comparison checkpoint: 24 new declaration-sized leaves construct the native all-positive root algebra colimit, its injective finite insertions and root relations, extensions into the existing factorial colimit independent of the chosen multiple, both universal algebra maps and their actual inverse equivalence with finite-root formulas. All 194 inherited statement contracts, both source-route inventories, 39 planets, eight gaps and thirteen supplier requests remain. Every stage remains partial and every implementation unchecked. Coherent root-groupoid reindexing, grading, Spec limits and the fpqc quotient remain open; the full geometric suggested file remains uncompiled.",
+  "summary": "Partial 218-node positive-divisibility root-chart comparison checkpoint: 24 new declaration-sized leaves construct the native all-positive root algebra colimit, its injective finite insertions and root relations, extensions into the existing factorial colimit independent of the chosen multiple, both universal algebra maps and their actual inverse equivalence with finite-root formulas. All 194 inherited statement contracts, both source-route inventories, 39 planets, eight gaps and thirteen supplier requests remain. Every stage remains partial and every implementation unchecked. Coherent root-groupoid reindexing, grading, Spec limits and the fpqc quotient remain open; the full geometric suggested file remains uncompiled. Coherent ring-valued factorial scalar points now have actual chart-colimit scaling automorphisms and a native universal test family; universal Hopf and geometric quotient boundaries remain.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1318,6 +1318,27 @@
         "sourceLine": 878,
         "sourceSha256": "58ce3acade8dc0f9fcba9e7b1084ac58549612289fe5a68eeabdcab23d4c6b8b",
         "checked": "Complete statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-5ebb6f. Direct-limit component algebra structures and directed-system hypotheses were opened; no finite-presentation assumption is added."
+      },
+      {
+        "ref": "mathlib:Subgroup",
+        "kind": "structure",
+        "module": "Mathlib/Algebra/Group/Subgroup/Defs.lean",
+        "provides": "Native subgroup of the actual function group, with identity/product/inverse closure.",
+        "checked": "Complete statement/body with ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact indexed name checked on2026-10-03."
+      },
+      {
+        "ref": "mathlib:rootsOfUnity.mkOfPowEq",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/RootsOfUnity/Basic.lean",
+        "provides": "A positive-power-one element gives an actual native root-of-unity unit.",
+        "checked": "Complete statement/body with ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact indexed name checked on2026-10-03."
+      },
+      {
+        "ref": "mathlib:rootsOfUnity.coe_mkOfPowEq",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/RootsOfUnity/Basic.lean",
+        "provides": "The underlying value of that native root-of-unity constructor is the original ring element.",
+        "checked": "Complete statement/body with ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact indexed name checked on2026-10-03."
       }
     ]
   },
@@ -1393,6 +1414,19 @@
       "readSections": [
         "Complete statement and proof of Lemma 59.28.3, finite-free unit-parameter cover; used with n>0."
       ]
+    },
+    {
+      "id": "TV17ScalarPoints-codex-J6LwjP",
+      "title": "Infinite root stacks and quasi-coherent sheaves on logarithmic schemes",
+      "authors": "Mattia Talpo and Angelo Vistoli",
+      "edition": "arXiv:1410.1164v2, 12 December 2017",
+      "url": "https://arxiv.org/pdf/1410.1164v2",
+      "sha256": "92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2",
+      "accessed": "2026-10-03",
+      "readSections": [
+        "§3.1 printed pp.14–16: local models, Cartier duals and equivariant finite projections; Lemma3.7 complete proof, Definition3.8, Lemma3.12 complete proof, Proposition3.10 complete statement/proof and Corollary3.13"
+      ],
+      "readingExtent": "Selected source passages, not a fresh whole-paper audit. Coherent unit-valued factorial points and the algebra automorphisms below are authored algebraic deductions; no universal Hopf action or fpqc quotient is certified."
     }
   ],
   "nodes": [
@@ -7002,14 +7036,17 @@
         "FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-elements",
         "FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-equivalence",
         "FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-inclusion",
-        "FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-root"
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-root",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-equivalence",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-inverse-root"
       ],
       "proofSteps": [
         "Use the existing actual factorial algebra C_f and its checked finite-coordinate API. The positive-divisibility comparison identifies it with C_div by mutually inverse native algebra maps, carrying every positive root v_n to u_i^(d_i/n) at any factorial multiple. The diagonalizable grading, Spec-limit transport and coherent fpqc torsor/root-groupoid contracts are separate remaining steps; no geometric conclusion follows merely from this algebra comparison.",
         "For every compatible root system over T, form the finite frame torsors respecting its power identifications. Their maps are the finite μ transitions and are affine faithfully flat.",
         "The TOWER-AFF contract makes their inverse limit an affine fpqc G-torsor; its universal frames give an equivariant map to Spec B_infinity.",
         "Conversely an equivariant G-torsor map supplies the finite root data by finite quotient and the root-coordinate functions.",
-        "Compare the two constructions on objects and torsor arrows, with their finite-stage and base-change coherence."
+        "Compare the two constructions on objects and torsor arrows, with their finite-stage and base-change coherence.",
+        "The actual coherent-unit point families now have constructed automorphisms on C_f with root/coefficient, identity/composition and inverse formulas. This point interface is not the universal diagonalizable Hopf action and does not discharge the Spec-limit, fpqc torsor or quotient-groupoid obligations."
       ],
       "acceptance": [
         "No reducedness, Noetherian or invertibility-of-the-exponent hypothesis is introduced."
@@ -13079,6 +13116,766 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/factorial-root-scalars",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "definition",
+      "title": "Coherent factorial root-of-unity points",
+      "declarationName": "TauCeti.RootStack.factorialRootScalars",
+      "statement": "Define the subgroup S(A) of families σ:N→Aˣ such that σ_i^(d_i)=1 and σ_j^(d_j/d_i)=σ_i for every i≤j. Its identity, products and inverses are pointwise native unit operations. This is an A-valued point interface, not a replacement for the universal group scheme.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A and d_i=(i+1)! for i∈N. C_f is the existing actual factorial chart colimit with roots u_i and inclusions. No reducedness, Noetherian condition, coefficient field, invertibility of exponents or unit condition on f is imposed.",
+        "A coherent scalar is a family σ_i∈Aˣ satisfying σ_i^(d_i)=1 and σ_j^(d_j/d_i)=σ_i for all i≤j. The native carrier is a subgroup of the function group N→Aˣ; it models ring-valued points only. It is not the universal diagonalizable group scheme, its Hopf algebra or its fpqc torsors.",
+        "Algebra maps fix every coefficient. Scaling is u_i↦σ_i u_i. Inverse and composition use the actual inherited subgroup operations and native algebra-map equivalences, with actual inverse proofs."
+      ],
+      "prerequisites": [
+        "mathlib:Subgroup",
+        "mathlib:rootsOfUnity"
+      ],
+      "proofSteps": [
+        "Use the native function group of units. The displayed root equations and compatibility define its subgroup.",
+        "Unit powers preserve identity and, since A is commutative, pointwise products; inverse powers preserve the same equations. Construct the actual subgroup instances, rather than assume closure."
+      ],
+      "acceptance": [
+        "Define the subgroup S(A) of families σ:N→Aˣ such that σ_i^(d_i)=1 and σ_j^(d_j/d_i)=σ_i for every i≤j. Its identity, products and inverses are pointwise native unit operations. This is an A-valued point interface, not a replacement for the universal group scheme."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack",
+        "name": "TauCeti.RootStack.factorialRootScalars"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17ScalarPoints-codex-J6LwjP",
+          "locator": "§3.1 printed pp.14–16: Cartier-dual tower, grading/equivariant projections, Definition3.8 and Proposition3.10 proof; rank-one algebraic adapter",
+          "excerpt": "grading",
+          "match": "Authored deduction for actual ring-valued coherent points and their colimit scaling. The universal diagonalizable action, group scheme, Spec limits, torsors and quotient groupoids remain separate obligations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supply the actual coherent scalar-point automorphisms and inverse laws on the already constructed chart colimit; do not infer the universal Hopf action or fpqc quotient."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.factorialRootScalars",
+          "role": "constructor",
+          "statement": "Define the subgroup S(A) of families σ:N→Aˣ such that σ_i^(d_i)=1 and σ_j^(d_j/d_i)=σ_i for every i≤j. Its identity, products and inverses are pointwise native unit operations. This is an A-valued point interface, not a replacement for the universal group scheme."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialRootScalars.pow",
+          "role": "compatibility",
+          "statement": "For σ∈S(A), the underlying scalar σ_i∈A satisfies σ_i^(d_i)=1."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialRootScalars.transition",
+          "role": "compatibility",
+          "statement": "For i≤j and σ∈S(A), the underlying ring values satisfy σ_j^(d_j/d_i)=σ_i."
+        }
+      ],
+      "tests": [
+        {
+          "name": "factorialRootScalars.test_one",
+          "kind": "degenerate",
+          "statement": "The identity scalar family has value1 at every index."
+        },
+        {
+          "name": "factorialRootScalars.test_inverse",
+          "kind": "compatibility",
+          "statement": "The actual inverse family cancels its scalar at each index in the native unit group."
+        },
+        {
+          "name": "factorialRootScalars.test_individual_roots",
+          "kind": "non-example",
+          "statement": "Over Z the family with value−1 at index1 and1 elsewhere satisfies every individual d_i-th-root-of-unity equation."
+        },
+        {
+          "name": "factorialRootScalars.test_incoherent",
+          "kind": "non-example",
+          "statement": "That family over Z is not coherent: the index2-to-index1 cube transition would require1=−1. Individual finite orders do not define an infinite point."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/factorial-root-scalars-power",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Orders of coherent scalar values",
+      "declarationName": "TauCeti.RootStack.factorialRootScalars.pow",
+      "statement": "For σ∈S(A), the underlying scalar σ_i∈A satisfies σ_i^(d_i)=1.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A and d_i=(i+1)! for i∈N. C_f is the existing actual factorial chart colimit with roots u_i and inclusions. No reducedness, Noetherian condition, coefficient field, invertibility of exponents or unit condition on f is imposed.",
+        "A coherent scalar is a family σ_i∈Aˣ satisfying σ_i^(d_i)=1 and σ_j^(d_j/d_i)=σ_i for all i≤j. The native carrier is a subgroup of the function group N→Aˣ; it models ring-valued points only. It is not the universal diagonalizable group scheme, its Hopf algebra or its fpqc torsors.",
+        "Algebra maps fix every coefficient. Scaling is u_i↦σ_i u_i. Inverse and composition use the actual inherited subgroup operations and native algebra-map equivalences, with actual inverse proofs."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scalars"
+      ],
+      "proofSteps": [
+        "Apply the native unit-to-ring map to the defining power equation."
+      ],
+      "acceptance": [
+        "For σ∈S(A), the underlying scalar σ_i∈A satisfies σ_i^(d_i)=1."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack",
+        "name": "TauCeti.RootStack.factorialRootScalars.pow"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17ScalarPoints-codex-J6LwjP",
+          "locator": "§3.1 printed pp.14–16: Cartier-dual tower, grading/equivariant projections, Definition3.8 and Proposition3.10 proof; rank-one algebraic adapter",
+          "excerpt": "grading",
+          "match": "Authored deduction for actual ring-valued coherent points and their colimit scaling. The universal diagonalizable action, group scheme, Spec limits, torsors and quotient groupoids remain separate obligations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supply the actual coherent scalar-point automorphisms and inverse laws on the already constructed chart colimit; do not infer the universal Hopf action or fpqc quotient."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/factorial-root-scalars-transition",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Compatibility of coherent scalar values",
+      "declarationName": "TauCeti.RootStack.factorialRootScalars.transition",
+      "statement": "For i≤j and σ∈S(A), the underlying ring values satisfy σ_j^(d_j/d_i)=σ_i.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A and d_i=(i+1)! for i∈N. C_f is the existing actual factorial chart colimit with roots u_i and inclusions. No reducedness, Noetherian condition, coefficient field, invertibility of exponents or unit condition on f is imposed.",
+        "A coherent scalar is a family σ_i∈Aˣ satisfying σ_i^(d_i)=1 and σ_j^(d_j/d_i)=σ_i for all i≤j. The native carrier is a subgroup of the function group N→Aˣ; it models ring-valued points only. It is not the universal diagonalizable group scheme, its Hopf algebra or its fpqc torsors.",
+        "Algebra maps fix every coefficient. Scaling is u_i↦σ_i u_i. Inverse and composition use the actual inherited subgroup operations and native algebra-map equivalences, with actual inverse proofs."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scalars"
+      ],
+      "proofSteps": [
+        "Apply the actual unit-to-ring map to the defining transition equation."
+      ],
+      "acceptance": [
+        "For i≤j and σ∈S(A), the underlying ring values satisfy σ_j^(d_j/d_i)=σ_i."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack",
+        "name": "TauCeti.RootStack.factorialRootScalars.transition"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17ScalarPoints-codex-J6LwjP",
+          "locator": "§3.1 printed pp.14–16: Cartier-dual tower, grading/equivariant projections, Definition3.8 and Proposition3.10 proof; rank-one algebraic adapter",
+          "excerpt": "grading",
+          "match": "Authored deduction for actual ring-valued coherent points and their colimit scaling. The universal diagonalizable action, group scheme, Spec limits, torsors and quotient groupoids remain separate obligations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supply the actual coherent scalar-point automorphisms and inverse laws on the already constructed chart colimit; do not infer the universal Hopf action or fpqc quotient."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "construction",
+      "title": "Coherent scaling of the actual chart colimit",
+      "declarationName": "TauCeti.RootStack.factorialScale",
+      "statement": "For σ∈S(A), construct an A-algebra homomorphism s_σ:C_f→C_f sending every actual root u_i to σ_i u_i.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A and d_i=(i+1)! for i∈N. C_f is the existing actual factorial chart colimit with roots u_i and inclusions. No reducedness, Noetherian condition, coefficient field, invertibility of exponents or unit condition on f is imposed.",
+        "A coherent scalar is a family σ_i∈Aˣ satisfying σ_i^(d_i)=1 and σ_j^(d_j/d_i)=σ_i for all i≤j. The native carrier is a subgroup of the function group N→Aˣ; it models ring-valued points only. It is not the universal diagonalizable group scheme, its Hopf algebra or its fpqc torsors.",
+        "Algebra maps fix every coefficient. Scaling is u_i↦σ_i u_i. Inverse and composition use the actual inherited subgroup operations and native algebra-map equivalences, with actual inverse proofs."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scalars-power",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scalars-transition",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-root",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-power"
+      ],
+      "proofSteps": [
+        "The scaled root has d_i-th power f because σ_i^(d_i)=1.",
+        "For i≤j its transition power is σ_j^(d_j/d_i)u_j^(d_j/d_i)=σ_i u_i.",
+        "Apply the existing actual compatible-root algebra lift; no formal assumed colimit map is introduced."
+      ],
+      "acceptance": [
+        "For σ∈S(A), construct an A-algebra homomorphism s_σ:C_f→C_f sending every actual root u_i to σ_i u_i."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack",
+        "name": "TauCeti.RootStack.factorialScale"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17ScalarPoints-codex-J6LwjP",
+          "locator": "§3.1 printed pp.14–16: Cartier-dual tower, grading/equivariant projections, Definition3.8 and Proposition3.10 proof; rank-one algebraic adapter",
+          "excerpt": "grading",
+          "match": "Authored deduction for actual ring-valued coherent points and their colimit scaling. The universal diagonalizable action, group scheme, Spec limits, torsors and quotient groupoids remain separate obligations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supply the actual coherent scalar-point automorphisms and inverse laws on the already constructed chart colimit; do not infer the universal Hopf action or fpqc quotient."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.factorialScale",
+          "role": "constructor",
+          "statement": "For σ∈S(A), construct an A-algebra homomorphism s_σ:C_f→C_f sending every actual root u_i to σ_i u_i."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialScale.root",
+          "role": "compatibility",
+          "statement": "For every i, s_σ(u_i)=σ_i u_i in the actual colimit, using its coefficient algebra map."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialScale.constant",
+          "role": "compatibility",
+          "statement": "For a∈A, s_σ(a)=a through the specified A-algebra map."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialScale.one",
+          "role": "compatibility",
+          "statement": "Scaling by the identity family is the identity A-algebra homomorphism of C_f."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialScale.mul",
+          "role": "compatibility",
+          "statement": "For σ,τ∈S(A), s_(στ)=s_σ∘s_τ as actual A-algebra homomorphisms."
+        }
+      ],
+      "tests": [
+        {
+          "name": "factorialScale.test_one",
+          "kind": "degenerate",
+          "statement": "Scaling by the identity family fixes every element of the actual colimit."
+        },
+        {
+          "name": "factorialScale.test_constant",
+          "kind": "computation",
+          "statement": "Over Z/4Z with f=2, coherent scaling fixes the coefficient3 in the actual colimit."
+        },
+        {
+          "name": "factorialScale.test_composition",
+          "kind": "compatibility",
+          "statement": "On every actual element, scaling by a product family equals successive scaling by its two families."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-root",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Value of scaling on each root",
+      "declarationName": "TauCeti.RootStack.factorialScale.root",
+      "statement": "For every i, s_σ(u_i)=σ_i u_i in the actual colimit, using its coefficient algebra map.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A and d_i=(i+1)! for i∈N. C_f is the existing actual factorial chart colimit with roots u_i and inclusions. No reducedness, Noetherian condition, coefficient field, invertibility of exponents or unit condition on f is imposed.",
+        "A coherent scalar is a family σ_i∈Aˣ satisfying σ_i^(d_i)=1 and σ_j^(d_j/d_i)=σ_i for all i≤j. The native carrier is a subgroup of the function group N→Aˣ; it models ring-valued points only. It is not the universal diagonalizable group scheme, its Hopf algebra or its fpqc torsors.",
+        "Algebra maps fix every coefficient. Scaling is u_i↦σ_i u_i. Inverse and composition use the actual inherited subgroup operations and native algebra-map equivalences, with actual inverse proofs."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift-root"
+      ],
+      "proofSteps": [
+        "Evaluate the actual universal root lift on the finite root inclusion."
+      ],
+      "acceptance": [
+        "For every i, s_σ(u_i)=σ_i u_i in the actual colimit, using its coefficient algebra map."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack",
+        "name": "TauCeti.RootStack.factorialScale.root"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17ScalarPoints-codex-J6LwjP",
+          "locator": "§3.1 printed pp.14–16: Cartier-dual tower, grading/equivariant projections, Definition3.8 and Proposition3.10 proof; rank-one algebraic adapter",
+          "excerpt": "grading",
+          "match": "Authored deduction for actual ring-valued coherent points and their colimit scaling. The universal diagonalizable action, group scheme, Spec limits, torsors and quotient groupoids remain separate obligations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supply the actual coherent scalar-point automorphisms and inverse laws on the already constructed chart colimit; do not infer the universal Hopf action or fpqc quotient."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-constant",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Scaling fixes coefficients",
+      "declarationName": "TauCeti.RootStack.factorialScale.constant",
+      "statement": "For a∈A, s_σ(a)=a through the specified A-algebra map.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A and d_i=(i+1)! for i∈N. C_f is the existing actual factorial chart colimit with roots u_i and inclusions. No reducedness, Noetherian condition, coefficient field, invertibility of exponents or unit condition on f is imposed.",
+        "A coherent scalar is a family σ_i∈Aˣ satisfying σ_i^(d_i)=1 and σ_j^(d_j/d_i)=σ_i for all i≤j. The native carrier is a subgroup of the function group N→Aˣ; it models ring-valued points only. It is not the universal diagonalizable group scheme, its Hopf algebra or its fpqc torsors.",
+        "Algebra maps fix every coefficient. Scaling is u_i↦σ_i u_i. Inverse and composition use the actual inherited subgroup operations and native algebra-map equivalences, with actual inverse proofs."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling"
+      ],
+      "proofSteps": [
+        "Use the constructed A-algebra homomorphism coefficient law."
+      ],
+      "acceptance": [
+        "For a∈A, s_σ(a)=a through the specified A-algebra map."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack",
+        "name": "TauCeti.RootStack.factorialScale.constant"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17ScalarPoints-codex-J6LwjP",
+          "locator": "§3.1 printed pp.14–16: Cartier-dual tower, grading/equivariant projections, Definition3.8 and Proposition3.10 proof; rank-one algebraic adapter",
+          "excerpt": "grading",
+          "match": "Authored deduction for actual ring-valued coherent points and their colimit scaling. The universal diagonalizable action, group scheme, Spec limits, torsors and quotient groupoids remain separate obligations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supply the actual coherent scalar-point automorphisms and inverse laws on the already constructed chart colimit; do not infer the universal Hopf action or fpqc quotient."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-one",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Identity coherent scaling",
+      "declarationName": "TauCeti.RootStack.factorialScale.one",
+      "statement": "Scaling by the identity family is the identity A-algebra homomorphism of C_f.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A and d_i=(i+1)! for i∈N. C_f is the existing actual factorial chart colimit with roots u_i and inclusions. No reducedness, Noetherian condition, coefficient field, invertibility of exponents or unit condition on f is imposed.",
+        "A coherent scalar is a family σ_i∈Aˣ satisfying σ_i^(d_i)=1 and σ_j^(d_j/d_i)=σ_i for all i≤j. The native carrier is a subgroup of the function group N→Aˣ; it models ring-valued points only. It is not the universal diagonalizable group scheme, its Hopf algebra or its fpqc torsors.",
+        "Algebra maps fix every coefficient. Scaling is u_i↦σ_i u_i. Inverse and composition use the actual inherited subgroup operations and native algebra-map equivalences, with actual inverse proofs."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-root",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext"
+      ],
+      "proofSteps": [
+        "On each actual root the scalar is1. Native root extensionality determines the entire colimit map."
+      ],
+      "acceptance": [
+        "Scaling by the identity family is the identity A-algebra homomorphism of C_f."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack",
+        "name": "TauCeti.RootStack.factorialScale.one"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17ScalarPoints-codex-J6LwjP",
+          "locator": "§3.1 printed pp.14–16: Cartier-dual tower, grading/equivariant projections, Definition3.8 and Proposition3.10 proof; rank-one algebraic adapter",
+          "excerpt": "grading",
+          "match": "Authored deduction for actual ring-valued coherent points and their colimit scaling. The universal diagonalizable action, group scheme, Spec limits, torsors and quotient groupoids remain separate obligations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supply the actual coherent scalar-point automorphisms and inverse laws on the already constructed chart colimit; do not infer the universal Hopf action or fpqc quotient."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-mul",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Composition of coherent scalings",
+      "declarationName": "TauCeti.RootStack.factorialScale.mul",
+      "statement": "For σ,τ∈S(A), s_(στ)=s_σ∘s_τ as actual A-algebra homomorphisms.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A and d_i=(i+1)! for i∈N. C_f is the existing actual factorial chart colimit with roots u_i and inclusions. No reducedness, Noetherian condition, coefficient field, invertibility of exponents or unit condition on f is imposed.",
+        "A coherent scalar is a family σ_i∈Aˣ satisfying σ_i^(d_i)=1 and σ_j^(d_j/d_i)=σ_i for all i≤j. The native carrier is a subgroup of the function group N→Aˣ; it models ring-valued points only. It is not the universal diagonalizable group scheme, its Hopf algebra or its fpqc torsors.",
+        "Algebra maps fix every coefficient. Scaling is u_i↦σ_i u_i. Inverse and composition use the actual inherited subgroup operations and native algebra-map equivalences, with actual inverse proofs."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-root",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-constant",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext"
+      ],
+      "proofSteps": [
+        "Both sides send u_i to σ_iτ_i u_i and fix the coefficients.",
+        "Use commutativity in A and the colimit and native quotient root extensionality."
+      ],
+      "acceptance": [
+        "For σ,τ∈S(A), s_(στ)=s_σ∘s_τ as actual A-algebra homomorphisms."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack",
+        "name": "TauCeti.RootStack.factorialScale.mul"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17ScalarPoints-codex-J6LwjP",
+          "locator": "§3.1 printed pp.14–16: Cartier-dual tower, grading/equivariant projections, Definition3.8 and Proposition3.10 proof; rank-one algebraic adapter",
+          "excerpt": "grading",
+          "match": "Authored deduction for actual ring-valued coherent points and their colimit scaling. The universal diagonalizable action, group scheme, Spec limits, torsors and quotient groupoids remain separate obligations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supply the actual coherent scalar-point automorphisms and inverse laws on the already constructed chart colimit; do not infer the universal Hopf action or fpqc quotient."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-equivalence",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "construction",
+      "title": "Actual coherent scaling automorphisms",
+      "declarationName": "TauCeti.RootStack.factorialScaleEquiv",
+      "statement": "Construct an A-algebra automorphism C_f≃C_f with forward map s_σ and inverse map s_(σ⁻¹). Its two inverse laws follow from the actual composition law and the identity family.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A and d_i=(i+1)! for i∈N. C_f is the existing actual factorial chart colimit with roots u_i and inclusions. No reducedness, Noetherian condition, coefficient field, invertibility of exponents or unit condition on f is imposed.",
+        "A coherent scalar is a family σ_i∈Aˣ satisfying σ_i^(d_i)=1 and σ_j^(d_j/d_i)=σ_i for all i≤j. The native carrier is a subgroup of the function group N→Aˣ; it models ring-valued points only. It is not the universal diagonalizable group scheme, its Hopf algebra or its fpqc torsors.",
+        "Algebra maps fix every coefficient. Scaling is u_i↦σ_i u_i. Inverse and composition use the actual inherited subgroup operations and native algebra-map equivalences, with actual inverse proofs."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-mul",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-one",
+        "mathlib:AlgEquiv.ofAlgHom"
+      ],
+      "proofSteps": [
+        "Use the existing native subgroup inverse, and the proved composition rule in both orders.",
+        "The products σσ⁻¹ and σ⁻¹σ are the identity family. Apply native AlgEquiv.ofAlgHom with these proved inverse equations."
+      ],
+      "acceptance": [
+        "Construct an A-algebra automorphism C_f≃C_f with forward map s_σ and inverse map s_(σ⁻¹). Its two inverse laws follow from the actual composition law and the identity family."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack",
+        "name": "TauCeti.RootStack.factorialScaleEquiv"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17ScalarPoints-codex-J6LwjP",
+          "locator": "§3.1 printed pp.14–16: Cartier-dual tower, grading/equivariant projections, Definition3.8 and Proposition3.10 proof; rank-one algebraic adapter",
+          "excerpt": "grading",
+          "match": "Authored deduction for actual ring-valued coherent points and their colimit scaling. The universal diagonalizable action, group scheme, Spec limits, torsors and quotient groupoids remain separate obligations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supply the actual coherent scalar-point automorphisms and inverse laws on the already constructed chart colimit; do not infer the universal Hopf action or fpqc quotient."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.factorialScaleEquiv",
+          "role": "constructor",
+          "statement": "Construct an A-algebra automorphism C_f≃C_f with forward map s_σ and inverse map s_(σ⁻¹). Its two inverse laws follow from the actual composition law and the identity family."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialScaleEquiv.root",
+          "role": "compatibility",
+          "statement": "The constructed automorphism sends each u_i to σ_i u_i, with the given coefficient map."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialScaleEquiv.inverse_root",
+          "role": "compatibility",
+          "statement": "The inverse constructed automorphism sends u_i to σ_i⁻¹u_i."
+        }
+      ],
+      "tests": [
+        {
+          "name": "factorialScaleEquiv.test_roundtrip",
+          "kind": "compatibility",
+          "statement": "For every element, applying the actual scaling equivalence and its actual inverse returns that element."
+        },
+        {
+          "name": "factorialScaleEquiv.test_root",
+          "kind": "computation",
+          "statement": "The actual degree2 root is sent to σ_1 times that root, with coefficients fixed."
+        },
+        {
+          "name": "factorialScaleEquiv.test_wild_zero",
+          "kind": "non-example",
+          "statement": "Over F_2 with f=0, every actual coherent scaling keeps the degree2 root nonzero. This root is square-zero; passing to a reduced colimit would fail."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-equivalence-root",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Automorphism value on finite roots",
+      "declarationName": "TauCeti.RootStack.factorialScaleEquiv.root",
+      "statement": "The constructed automorphism sends each u_i to σ_i u_i, with the given coefficient map.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A and d_i=(i+1)! for i∈N. C_f is the existing actual factorial chart colimit with roots u_i and inclusions. No reducedness, Noetherian condition, coefficient field, invertibility of exponents or unit condition on f is imposed.",
+        "A coherent scalar is a family σ_i∈Aˣ satisfying σ_i^(d_i)=1 and σ_j^(d_j/d_i)=σ_i for all i≤j. The native carrier is a subgroup of the function group N→Aˣ; it models ring-valued points only. It is not the universal diagonalizable group scheme, its Hopf algebra or its fpqc torsors.",
+        "Algebra maps fix every coefficient. Scaling is u_i↦σ_i u_i. Inverse and composition use the actual inherited subgroup operations and native algebra-map equivalences, with actual inverse proofs."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-equivalence",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-root"
+      ],
+      "proofSteps": [
+        "The forward native equivalence map is the constructed algebra scaling."
+      ],
+      "acceptance": [
+        "The constructed automorphism sends each u_i to σ_i u_i, with the given coefficient map."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack",
+        "name": "TauCeti.RootStack.factorialScaleEquiv.root"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17ScalarPoints-codex-J6LwjP",
+          "locator": "§3.1 printed pp.14–16: Cartier-dual tower, grading/equivariant projections, Definition3.8 and Proposition3.10 proof; rank-one algebraic adapter",
+          "excerpt": "grading",
+          "match": "Authored deduction for actual ring-valued coherent points and their colimit scaling. The universal diagonalizable action, group scheme, Spec limits, torsors and quotient groupoids remain separate obligations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supply the actual coherent scalar-point automorphisms and inverse laws on the already constructed chart colimit; do not infer the universal Hopf action or fpqc quotient."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-inverse-root",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Inverse automorphism on finite roots",
+      "declarationName": "TauCeti.RootStack.factorialScaleEquiv.inverse_root",
+      "statement": "The inverse constructed automorphism sends u_i to σ_i⁻¹u_i.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A and d_i=(i+1)! for i∈N. C_f is the existing actual factorial chart colimit with roots u_i and inclusions. No reducedness, Noetherian condition, coefficient field, invertibility of exponents or unit condition on f is imposed.",
+        "A coherent scalar is a family σ_i∈Aˣ satisfying σ_i^(d_i)=1 and σ_j^(d_j/d_i)=σ_i for all i≤j. The native carrier is a subgroup of the function group N→Aˣ; it models ring-valued points only. It is not the universal diagonalizable group scheme, its Hopf algebra or its fpqc torsors.",
+        "Algebra maps fix every coefficient. Scaling is u_i↦σ_i u_i. Inverse and composition use the actual inherited subgroup operations and native algebra-map equivalences, with actual inverse proofs."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-equivalence",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-root"
+      ],
+      "proofSteps": [
+        "The native equivalence inverse is the constructed scaling for the actual inverse scalar family."
+      ],
+      "acceptance": [
+        "The inverse constructed automorphism sends u_i to σ_i⁻¹u_i."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack",
+        "name": "TauCeti.RootStack.factorialScaleEquiv.inverse_root"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17ScalarPoints-codex-J6LwjP",
+          "locator": "§3.1 printed pp.14–16: Cartier-dual tower, grading/equivariant projections, Definition3.8 and Proposition3.10 proof; rank-one algebraic adapter",
+          "excerpt": "grading",
+          "match": "Authored deduction for actual ring-valued coherent points and their colimit scaling. The universal diagonalizable action, group scheme, Spec limits, torsors and quotient groupoids remain separate obligations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supply the actual coherent scalar-point automorphisms and inverse laws on the already constructed chart colimit; do not infer the universal Hopf action or fpqc quotient."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalars",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "construction",
+      "title": "Universal coherent unit family",
+      "declarationName": "TauCeti.RootStack.factorialUniversalScalars",
+      "statement": "In the actual coefficient algebra C_1=colim_i A[T]/(T^(d_i)−1), construct the coherent unit family whose i-th underlying value is its actual root u_i. Its positive power is1, so the native roots-of-unity constructor supplies each unit.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A and d_i=(i+1)! for i∈N. C_f is the existing actual factorial chart colimit with roots u_i and inclusions. No reducedness, Noetherian condition, coefficient field, invertibility of exponents or unit condition on f is imposed.",
+        "A coherent scalar is a family σ_i∈Aˣ satisfying σ_i^(d_i)=1 and σ_j^(d_j/d_i)=σ_i for all i≤j. The native carrier is a subgroup of the function group N→Aˣ; it models ring-valued points only. It is not the universal diagonalizable group scheme, its Hopf algebra or its fpqc torsors.",
+        "Algebra maps fix every coefficient. Scaling is u_i↦σ_i u_i. Inverse and composition use the actual inherited subgroup operations and native algebra-map equivalences, with actual inverse proofs."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scalars",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-power",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-root",
+        "mathlib:rootsOfUnity.mkOfPowEq",
+        "mathlib:rootsOfUnity.coe_mkOfPowEq"
+      ],
+      "proofSteps": [
+        "Each root has positive d_i-th power1; use native rootsOfUnity.mkOfPowEq, not an assumed unit witness.",
+        "The native colimit root power compatibility proves compatibility of units by unit-value injectivity. This constructs an actual nonconstant test coefficient ring without choosing analytic roots."
+      ],
+      "acceptance": [
+        "In the actual coefficient algebra C_1=colim_i A[T]/(T^(d_i)−1), construct the coherent unit family whose i-th underlying value is its actual root u_i. Its positive power is1, so the native roots-of-unity constructor supplies each unit."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack",
+        "name": "TauCeti.RootStack.factorialUniversalScalars"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17ScalarPoints-codex-J6LwjP",
+          "locator": "§3.1 printed pp.14–16: Cartier-dual tower, grading/equivariant projections, Definition3.8 and Proposition3.10 proof; rank-one algebraic adapter",
+          "excerpt": "grading",
+          "match": "Authored deduction for actual ring-valued coherent points and their colimit scaling. The universal diagonalizable action, group scheme, Spec limits, torsors and quotient groupoids remain separate obligations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supply the actual coherent scalar-point automorphisms and inverse laws on the already constructed chart colimit; do not infer the universal Hopf action or fpqc quotient."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.factorialUniversalScalars",
+          "role": "constructor",
+          "statement": "In the actual coefficient algebra C_1=colim_i A[T]/(T^(d_i)−1), construct the coherent unit family whose i-th underlying value is its actual root u_i. Its positive power is1, so the native roots-of-unity constructor supplies each unit."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialUniversalScalars.value",
+          "role": "compatibility",
+          "statement": "The underlying value of the i-th universal coherent unit is exactly the actual i-th root in C_1."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialRootScalars.transition",
+          "role": "compatibility",
+          "statement": "For i≤j and σ∈S(A), the underlying ring values satisfy σ_j^(d_j/d_i)=σ_i."
+        }
+      ],
+      "tests": [
+        {
+          "name": "factorialUniversalScalars.test_root",
+          "kind": "computation",
+          "statement": "For coefficients Z/4Z, the degree2 universal scalar has square1 in the actual C_1."
+        },
+        {
+          "name": "factorialUniversalScalars.test_nontrivial",
+          "kind": "non-example",
+          "statement": "Over the actual C_1 with initial coefficients F_3, the degree2 universal unit differs from1. Injective finite insertion and evaluation of its chart root at−1 prove this."
+        },
+        {
+          "name": "factorialUniversalScalars.test_zero_ring",
+          "kind": "degenerate",
+          "statement": "For initial coefficient ring Z/1Z the universal coherent scalar family is the identity. The construction retains the zero ring."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalars-value",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Underlying universal scalar value",
+      "declarationName": "TauCeti.RootStack.factorialUniversalScalars.value",
+      "statement": "The underlying value of the i-th universal coherent unit is exactly the actual i-th root in C_1.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A and d_i=(i+1)! for i∈N. C_f is the existing actual factorial chart colimit with roots u_i and inclusions. No reducedness, Noetherian condition, coefficient field, invertibility of exponents or unit condition on f is imposed.",
+        "A coherent scalar is a family σ_i∈Aˣ satisfying σ_i^(d_i)=1 and σ_j^(d_j/d_i)=σ_i for all i≤j. The native carrier is a subgroup of the function group N→Aˣ; it models ring-valued points only. It is not the universal diagonalizable group scheme, its Hopf algebra or its fpqc torsors.",
+        "Algebra maps fix every coefficient. Scaling is u_i↦σ_i u_i. Inverse and composition use the actual inherited subgroup operations and native algebra-map equivalences, with actual inverse proofs."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalars",
+        "mathlib:rootsOfUnity.coe_mkOfPowEq"
+      ],
+      "proofSteps": [
+        "Use the actual native roots-of-unity constructor value formula."
+      ],
+      "acceptance": [
+        "The underlying value of the i-th universal coherent unit is exactly the actual i-th root in C_1."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack",
+        "name": "TauCeti.RootStack.factorialUniversalScalars.value"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17ScalarPoints-codex-J6LwjP",
+          "locator": "§3.1 printed pp.14–16: Cartier-dual tower, grading/equivariant projections, Definition3.8 and Proposition3.10 proof; rank-one algebraic adapter",
+          "excerpt": "grading",
+          "match": "Authored deduction for actual ring-valued coherent points and their colimit scaling. The universal diagonalizable action, group scheme, Spec limits, torsors and quotient groupoids remain separate obligations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supply the actual coherent scalar-point automorphisms and inverse laws on the already constructed chart colimit; do not infer the universal Hopf action or fpqc quotient."
+        }
+      ]
     }
   ],
   "requests": [
@@ -13271,7 +14068,8 @@
         "Resolve supplier contract JAC-A.",
         "Resolve recorded gap LEAN-GEOMETRY.",
         "Complete TOWER-AFF, KUMMER-FINITE and TOWER-TYPING. Infinite torsors and H1 use fpqc; finite Kummer remains fppf. Preserve the roots-of2 counterexample.",
-        "Finish coherent factorial reindexing, infinite affine quotient and finite-stage injectivity/surjectivity on Kummer classes; neither set limits nor field points replace these comparisons."
+        "Finish coherent factorial reindexing, infinite affine quotient and finite-stage injectivity/surjectivity on Kummer classes; neither set limits nor field points replace these comparisons.",
+        "The codex-J6LwjP point-scaling continuation constructs the actual coherent native unit-family subgroup, its chart-colimit algebra maps and actual automorphisms, and the universal nonconstant test family. The universal diagonalizable grading/Hopf action and naturality over all test algebras, coherent root-object reindexing, affine Spec limits, fpqc torsors/quotient groupoids, TOWER-AFF, KUMMER-FINITE, TOWER-TYPING and the DVR/Kummer bridge remain open; point-valued formulas do not close them."
       ]
     },
     {
@@ -15961,6 +16759,45 @@
       },
       "publicRecoverySha256": "44dd4729adadcaa09a3b5e31b0a07c378afdb5f5bef8641a6f5bda7d2ae71b6f",
       "publicValidatorSha256": "c28a80d203f53c402efab538deb0e951f20b7ac68ec1dabc00bf420408b2ec03"
+    },
+    {
+      "agent": "Codex — codex-J6LwjP",
+      "issue": 3403,
+      "claimComment": 5964119256,
+      "winningBotComment": 5964120367,
+      "readBase": "f8680e820b542a5f2caba153c1ab7a762e56bd51",
+      "status": "partial",
+      "newNodes": [
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scalars",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scalars-power",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scalars-transition",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-root",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-constant",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-one",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-mul",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-equivalence",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-equivalence-root",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-inverse-root",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalars",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalars-value"
+      ],
+      "remaining": [
+        "The codex-J6LwjP point-scaling continuation constructs the actual coherent native unit-family subgroup, its chart-colimit algebra maps and actual automorphisms, and the universal nonconstant test family. The universal diagonalizable grading/Hopf action and naturality over all test algebras, coherent root-object reindexing, affine Spec limits, fpqc torsors/quotient groupoids, TOWER-AFF, KUMMER-FINITE, TOWER-TYPING and the DVR/Kummer bridge remain open; point-valued formulas do not close them."
+      ],
+      "source": {
+        "id": "TV17ScalarPoints-codex-J6LwjP",
+        "title": "Infinite root stacks and quasi-coherent sheaves on logarithmic schemes",
+        "authors": "Mattia Talpo and Angelo Vistoli",
+        "edition": "arXiv:1410.1164v2, 12 December 2017",
+        "url": "https://arxiv.org/pdf/1410.1164v2",
+        "sha256": "92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2",
+        "accessed": "2026-10-03",
+        "readSections": [
+          "§3.1 printed pp.14–16: local models, Cartier duals and equivariant finite projections; Lemma3.7 complete proof, Definition3.8, Lemma3.12 complete proof, Proposition3.10 complete statement/proof and Corollary3.13"
+        ],
+        "readingExtent": "Selected source passages, not a fresh whole-paper audit. Coherent unit-valued factorial points and the algebra automorphisms below are authored algebraic deductions; no universal Hopf action or fpqc quotient is certified."
+      }
     }
   ]
 }

@@ -22,6 +22,7 @@ import Mathlib.RingTheory.Polynomial.Ideal
 import Mathlib.Algebra.Polynomial.Bivariate
 import Mathlib.LinearAlgebra.Projection
 import Mathlib.LinearAlgebra.Pi
+import Mathlib.LinearAlgebra.TensorProduct.Pi
 
 /-!
 This file is not the roadmap and is not exhaustive. The roadmap document
@@ -2471,6 +2472,338 @@ example (F : Module.Dual R₀ D₀) :
 -- NodeSectionFactorization.PolynomialModel.sectionIdealReflexive.test_dual
 example : Module.IsReflexive R₀ D₀ := by
   sorry
+
+end
+end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+
+/- Coefficient tensor--Hom comparison, with the inherited left R-module structure. -/
+namespace TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+noncomputable section
+set_option maxHeartbeats 1000000
+open TensorProduct
+variable (A : Type*) [CommRing A] (γ δ s t : A)
+local notation "F₀" => polynomial A γ δ s t
+local notation "R₀" => Ring A γ δ s t
+local notation "ι₀" => coefficientHom A γ δ s t
+local notation "u₀" => AdjoinRoot.root F₀
+local notation "v₀" => AdjoinRoot.of F₀ (Polynomial.X : Polynomial A)
+local notation "c₀" => u₀ - ι₀ s
+local notation "d₀" => v₀ - ι₀ t
+local notation "J₀" => (Ideal.span {c₀,d₀} : Ideal R₀)
+local notation "D₀" => Module.Dual R₀ J₀
+local notation "Φ₀" => left (ι₀ γ) (ι₀ δ) u₀ v₀ (ι₀ s) (ι₀ t)
+local notation "Ψ₀" => right (ι₀ γ) (ι₀ δ) u₀ v₀ (ι₀ s) (ι₀ t)
+local notation "ΦA" => (LinearMap.restrictScalars A (Matrix.mulVecLin (Φ₀)))
+local notation "ΨA" => (LinearMap.restrictScalars A (Matrix.mulVecLin (Ψ₀)))
+local notation "ΦTA" => (LinearMap.restrictScalars A (Matrix.mulVecLin (Matrix.transpose (Φ₀))))
+local notation "ΨTA" => (LinearMap.restrictScalars A (Matrix.mulVecLin (Matrix.transpose (Ψ₀))))
+local notation "pA" => (LinearEquiv.restrictScalars A (sectionRotation A γ δ s t))
+local notation "PDA" => (LinearMap.restrictScalars A (dualPresentation A γ δ s t))
+local notation "PJA" => (LinearMap.restrictScalars A (idealPresentation A γ δ s t))
+variable (M : Type*) [AddCommGroup M] [Module A M]
+local notation "N₀" => R₀ ⊗[A] M
+
+def sectionDualTensorHom : D₀ ⊗[A] M →ₗ[R₀] (J₀ →ₗ[R₀] N₀) := by
+  sorry
+
+lemma sectionDualTensorHom_tmul (h : D₀) (m : M) (j : J₀) :
+    sectionDualTensorHom A γ δ s t M (h ⊗ₜ[A] m) j = h j ⊗ₜ[A] m := by
+  sorry
+
+def sectionFreeTensorHom :
+    (Fin 2 → R₀) ⊗[A] M ≃ₗ[A] ((Fin 2 → R₀) →ₗ[R₀] N₀) := by
+  sorry
+
+lemma sectionFreeTensorHom_tmul (z w : Fin 2 → R₀) (m : M) :
+    sectionFreeTensorHom A γ δ s t M (z ⊗ₜ[A] m) w =
+      (w 0 * z 0 + w 1 * z 1) ⊗ₜ[A] m := by
+  sorry
+
+lemma sectionFreeTensorHom_matrix (W : Matrix (Fin 2) (Fin 2) R₀)
+    (z : (Fin 2 → R₀) ⊗[A] M) :
+    sectionFreeTensorHom A γ δ s t M
+      (((W.transpose.mulVecLin).restrictScalars A).rTensor M z) =
+    (sectionFreeTensorHom A γ δ s t M z).comp W.mulVecLin := by
+  sorry
+
+def sectionIdealHomCoordinates : (J₀ →ₗ[R₀] N₀) →ₗ[A] (Fin 2 → R₀) ⊗[A] M := by
+  sorry
+
+lemma sectionIdealHomCoordinates_injective :
+    Function.Injective (sectionIdealHomCoordinates A γ δ s t M) := by
+  sorry
+
+lemma sectionIdealHomCoordinates_relation (h : J₀ →ₗ[R₀] N₀) :
+    ((ΨTA).rTensor M) (sectionIdealHomCoordinates A γ δ s t M h) = 0 := by
+  sorry
+
+lemma sectionIdealPresentation_generators (z : Fin 2 → R₀) :
+    idealPresentation A γ δ s t z =
+    z 0 • (⟨c₀,sectionFirst_mem A γ δ s t⟩ : J₀) -
+      z 1 • (⟨d₀,sectionSecond_mem A γ δ s t⟩ : J₀) := by
+  sorry
+
+lemma sectionIdealHomCoordinates_presentation (z : (Fin 2 → R₀) ⊗[A] M) :
+    sectionIdealHomCoordinates A γ δ s t M
+      (sectionDualTensorHom A γ δ s t M ((PDA).rTensor M z)) =
+    -((pA).rTensor M) ((ΨA).rTensor M z) := by
+  sorry
+
+lemma transposeLeft_rTensor_rotation :
+    ((ΦTA).rTensor M).comp ((pA).rTensor M).toLinearMap =
+      ((pA).rTensor M).toLinearMap.comp ((ΨA).rTensor M) := by
+  sorry
+
+lemma sectionDualTensorHom_injective :
+    Function.Injective (sectionDualTensorHom A γ δ s t M) := by
+  sorry
+
+lemma sectionDualTensorHom_surjective :
+    Function.Surjective (sectionDualTensorHom A γ δ s t M) := by
+  sorry
+
+def sectionDualTensorHomEquiv : D₀ ⊗[A] M ≃ₗ[R₀] (J₀ →ₗ[R₀] N₀) := by
+  sorry
+
+lemma sectionDualTensorHomEquiv_tmul (h : D₀) (m : M) (j : J₀) :
+    sectionDualTensorHomEquiv A γ δ s t M (h ⊗ₜ[A] m) j = h j ⊗ₜ[A] m := by
+  sorry
+
+lemma sectionDualTensorHom_natural {M' : Type*} [AddCommGroup M'] [Module A M']
+    (f : M →ₗ[A] M') (x : D₀ ⊗[A] M) (j : J₀) :
+    sectionDualTensorHom A γ δ s t M'
+      (AlgebraTensorModule.map (LinearMap.id : D₀ →ₗ[R₀] D₀) f x) j =
+    AlgebraTensorModule.map (LinearMap.id : R₀ →ₗ[R₀] R₀) f
+      (sectionDualTensorHom A γ δ s t M x j) := by
+  sorry
+
+def sectionIdealTensorHom : J₀ ⊗[A] M →ₗ[R₀] (D₀ →ₗ[R₀] N₀) := by
+  sorry
+
+lemma sectionIdealTensorHom_tmul (j : J₀) (m : M) (h : D₀) :
+    sectionIdealTensorHom A γ δ s t M (j ⊗ₜ[A] m) h = h j ⊗ₜ[A] m := by
+  sorry
+
+def sectionDualHomCoordinates : (D₀ →ₗ[R₀] N₀) →ₗ[A] (Fin 2 → R₀) ⊗[A] M := by
+  sorry
+
+lemma sectionDualHomCoordinates_injective :
+    Function.Injective (sectionDualHomCoordinates A γ δ s t M) := by
+  sorry
+
+lemma sectionDualHomCoordinates_relation (h : D₀ →ₗ[R₀] N₀) :
+    ((ΦTA).rTensor M) (sectionDualHomCoordinates A γ δ s t M h) = 0 := by
+  sorry
+
+lemma sectionDualHomCoordinates_presentation (z : (Fin 2 → R₀) ⊗[A] M) :
+    sectionDualHomCoordinates A γ δ s t M
+      (sectionIdealTensorHom A γ δ s t M ((PJA).rTensor M z)) =
+    ((pA).rTensor M) ((ΦA).rTensor M z) := by
+  sorry
+
+lemma transposeRight_rTensor_rotation :
+    ((ΨTA).rTensor M).comp ((pA).rTensor M).toLinearMap =
+      ((pA).rTensor M).toLinearMap.comp ((ΦA).rTensor M) := by
+  sorry
+
+lemma sectionIdealTensorHom_injective :
+    Function.Injective (sectionIdealTensorHom A γ δ s t M) := by
+  sorry
+
+lemma sectionIdealTensorHom_surjective :
+    Function.Surjective (sectionIdealTensorHom A γ δ s t M) := by
+  sorry
+
+def sectionIdealTensorHomEquiv : J₀ ⊗[A] M ≃ₗ[R₀] (D₀ →ₗ[R₀] N₀) := by
+  sorry
+
+lemma sectionIdealTensorHomEquiv_tmul (j : J₀) (m : M) (h : D₀) :
+    sectionIdealTensorHomEquiv A γ δ s t M (j ⊗ₜ[A] m) h = h j ⊗ₜ[A] m := by
+  sorry
+
+lemma sectionIdealTensorHom_natural {M' : Type*} [AddCommGroup M'] [Module A M']
+    (f : M →ₗ[A] M') (x : J₀ ⊗[A] M) (h : D₀) :
+    sectionIdealTensorHom A γ δ s t M'
+      (AlgebraTensorModule.map (LinearMap.id : J₀ →ₗ[R₀] J₀) f x) h =
+    AlgebraTensorModule.map (LinearMap.id : R₀ →ₗ[R₀] R₀) f
+      (sectionIdealTensorHom A γ δ s t M x h) := by
+  sorry
+
+lemma sectionDualTensorHomEquiv_inverse (h : D₀) (m : M) :
+    (sectionDualTensorHomEquiv A γ δ s t M).symm
+      (sectionDualTensorHom A γ δ s t M (h ⊗ₜ[A] m)) = h ⊗ₜ[A] m := by
+  sorry
+
+lemma sectionIdealTensorHomEquiv_inverse (j : J₀) (m : M) :
+    (sectionIdealTensorHomEquiv A γ δ s t M).symm
+      (sectionIdealTensorHom A γ δ s t M (j ⊗ₜ[A] m)) = j ⊗ₜ[A] m := by
+  sorry
+
+lemma sectionDualTensorHomEquiv_unique
+    (e : D₀ ⊗[A] M ≃ₗ[R₀] (J₀ →ₗ[R₀] N₀))
+    (he : ∀ (h : D₀) (m : M) (j : J₀), e (h ⊗ₜ[A] m) j = h j ⊗ₜ[A] m) :
+    e = sectionDualTensorHomEquiv A γ δ s t M := by
+  sorry
+
+lemma sectionIdealTensorHomEquiv_unique
+    (e : J₀ ⊗[A] M ≃ₗ[R₀] (D₀ →ₗ[R₀] N₀))
+    (he : ∀ (j : J₀) (m : M) (h : D₀), e (j ⊗ₜ[A] m) h = h j ⊗ₜ[A] m) :
+    e = sectionIdealTensorHomEquiv A γ δ s t M := by
+  sorry
+
+lemma sectionDualTensorHom_unit (x : D₀ ⊗[A] A) :
+    (AlgebraTensorModule.rid A R₀ R₀).toLinearMap.comp
+      (sectionDualTensorHom A γ δ s t A x) =
+    (AlgebraTensorModule.rid A R₀ D₀) x := by
+  sorry
+
+lemma sectionIdealTensorHom_unit (x : J₀ ⊗[A] A) :
+    (AlgebraTensorModule.rid A R₀ R₀).toLinearMap.comp
+      (sectionIdealTensorHom A γ δ s t A x) =
+    Module.Dual.eval R₀ J₀ ((AlgebraTensorModule.rid A R₀ J₀) x) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionDualTensorHom.test_zero
+example : sectionDualTensorHom A γ δ s t M 0 = 0 := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionDualTensorHom.test_inclusion
+example (j : J₀) (m : M) :
+    sectionDualTensorHom A γ δ s t M (dualMultiplication A γ δ s t 1 ⊗ₜ[A] m) j =
+    (j : R₀) ⊗ₜ[A] m := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionDualTensorHom.test_negative_epsilon
+example (m : M) :
+    sectionDualTensorHom A γ δ s t M ((-dualGenerator A γ δ s t : D₀) ⊗ₜ[A] m)
+      ⟨c₀,sectionFirst_mem A γ δ s t⟩ =
+    (ι₀ δ * v₀ + ι₀ δ * ι₀ t + ι₀ γ * u₀) ⊗ₜ[A] m := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionIdealTensorHom.test_zero
+example : sectionIdealTensorHom A γ δ s t M 0 = 0 := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionIdealTensorHom.test_inclusion
+example (j : J₀) (m : M) :
+    sectionIdealTensorHom A γ δ s t M (j ⊗ₜ[A] m) (dualMultiplication A γ δ s t 1) =
+    (j : R₀) ⊗ₜ[A] m := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionIdealTensorHom.test_negative_second
+example (m : M) :
+    sectionIdealTensorHom A γ δ s t M
+      ((-⟨d₀,sectionSecond_mem A γ δ s t⟩ : J₀) ⊗ₜ[A] m)
+      (dualGenerator A γ δ s t) =
+    (-(u₀ + ι₀ s + ι₀ γ * ι₀ t)) ⊗ₜ[A] m := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionIdealHomCoordinates.test_zero
+example : sectionIdealHomCoordinates A γ δ s t M 0 = 0 := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionIdealHomCoordinates.test_negative_second
+example (h : J₀ →ₗ[R₀] N₀) :
+    sectionFreeTensorHom A γ δ s t M
+      (sectionIdealHomCoordinates A γ δ s t M h) (Pi.single (1 : Fin 2) (1 : R₀)) =
+    -h ⟨d₀,sectionSecond_mem A γ δ s t⟩ := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionIdealHomCoordinates.test_faithful
+example (h k : J₀ →ₗ[R₀] N₀)
+    (hk : sectionIdealHomCoordinates A γ δ s t M h =
+      sectionIdealHomCoordinates A γ δ s t M k) : h = k := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionDualHomCoordinates.test_zero
+example : sectionDualHomCoordinates A γ δ s t M 0 = 0 := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionDualHomCoordinates.test_negative_epsilon
+example (h : D₀ →ₗ[R₀] N₀) :
+    sectionFreeTensorHom A γ δ s t M
+      (sectionDualHomCoordinates A γ δ s t M h) (Pi.single (1 : Fin 2) (1 : R₀)) =
+    -h (dualGenerator A γ δ s t) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionDualHomCoordinates.test_faithful
+example (h k : D₀ →ₗ[R₀] N₀)
+    (hk : sectionDualHomCoordinates A γ δ s t M h =
+      sectionDualHomCoordinates A γ δ s t M k) : h = k := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionDualTensorHomEquiv.test_inverse
+example (h : D₀) (m : M) :
+    (sectionDualTensorHomEquiv A γ δ s t M).symm
+      (sectionDualTensorHom A γ δ s t M (h ⊗ₜ[A] m)) = h ⊗ₜ[A] m := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionDualTensorHomEquiv.test_ring_action
+example (r : R₀) (x : D₀ ⊗[A] M) (j : J₀) :
+    sectionDualTensorHomEquiv A γ δ s t M (r • x) j =
+    r • sectionDualTensorHomEquiv A γ δ s t M x j := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionDualTensorHomEquiv.test_torsion
+example : Function.Bijective (sectionDualTensorHom ℤ 0 0 0 0 (ZMod 3)) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionIdealTensorHomEquiv.test_inverse
+example (j : J₀) (m : M) :
+    (sectionIdealTensorHomEquiv A γ δ s t M).symm
+      (sectionIdealTensorHom A γ δ s t M (j ⊗ₜ[A] m)) = j ⊗ₜ[A] m := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionIdealTensorHomEquiv.test_ring_action
+example (r : R₀) (x : J₀ ⊗[A] M) (h : D₀) :
+    sectionIdealTensorHomEquiv A γ δ s t M (r • x) h =
+    r • sectionIdealTensorHomEquiv A γ δ s t M x h := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionIdealTensorHomEquiv.test_torsion
+example : Function.Bijective (sectionIdealTensorHom ℤ 0 0 0 0 (ZMod 3)) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionDualTensorHom.test_naturality
+example {M' : Type*} [AddCommGroup M'] [Module A M'] (f : M →ₗ[A] M')
+    (x : D₀ ⊗[A] M) (j : J₀) :
+    sectionDualTensorHom A γ δ s t M'
+      (AlgebraTensorModule.map (LinearMap.id : D₀ →ₗ[R₀] D₀) f x) j =
+    AlgebraTensorModule.map (LinearMap.id : R₀ →ₗ[R₀] R₀) f
+      (sectionDualTensorHom A γ δ s t M x j) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionIdealTensorHom.test_naturality
+example {M' : Type*} [AddCommGroup M'] [Module A M'] (f : M →ₗ[A] M')
+    (x : J₀ ⊗[A] M) (h : D₀) :
+    sectionIdealTensorHom A γ δ s t M'
+      (AlgebraTensorModule.map (LinearMap.id : J₀ →ₗ[R₀] J₀) f x) h =
+    AlgebraTensorModule.map (LinearMap.id : R₀ →ₗ[R₀] R₀) f
+      (sectionIdealTensorHom A γ δ s t M x h) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionDualTensorHom.test_unit
+example (x : D₀ ⊗[A] A) :
+    (AlgebraTensorModule.rid A R₀ R₀).toLinearMap.comp
+      (sectionDualTensorHom A γ δ s t A x) =
+    (AlgebraTensorModule.rid A R₀ D₀) x := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionIdealTensorHom.test_bidual
+example (x : J₀ ⊗[A] A) :
+    (AlgebraTensorModule.rid A R₀ R₀).toLinearMap.comp
+      (sectionIdealTensorHom A γ δ s t A x) =
+    Module.Dual.eval R₀ J₀ ((AlgebraTensorModule.rid A R₀ J₀) x) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionDualTensorHomEquiv.test_nonreduced
+example : Function.Bijective (sectionDualTensorHom (ZMod 4) 0 0 0 0 (ZMod 4)) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionIdealTensorHomEquiv.test_zero_ring
+example : Function.Bijective (sectionIdealTensorHom (ZMod 1) 0 0 0 0 (ZMod 1)) := by
+  sorry
+
 
 end
 end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
