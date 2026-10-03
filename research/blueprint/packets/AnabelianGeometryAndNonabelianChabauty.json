@@ -12250,8 +12250,7 @@
           "match": "Authored kernel, restricted-action and quotient-topology deductions from the actual continuous inner twist and coefficient-map conventions, using native Mathlib kernels and first isomorphism theorem. These are not claimed as named printed Kim geometric, representability or Selmer theorems."
         }
       ],
-      "implementationStatus": "unchecked",
-      "leanSignature": "lemma Twist.kernel_mem (c : Z1 G U) (f : U →* V) (hf : Continuous f)\n    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (x : Twist c) :\n    x ∈ (Twist.map c f hf hG).ker ↔ f (Twist.toOriginal c x) = 1"
+      "implementationStatus": "unchecked"
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-stability",
@@ -12299,8 +12298,7 @@
           "match": "Authored kernel, restricted-action and quotient-topology deductions from the actual continuous inner twist and coefficient-map conventions, using native Mathlib kernels and first isomorphism theorem. These are not claimed as named printed Kim geometric, representability or Selmer theorems."
         }
       ],
-      "implementationStatus": "unchecked",
-      "leanSignature": "lemma Twist.kernel_stable (c : Z1 G U) (f : U →* V) (hf : Continuous f)\n    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (g : G)\n    {x : Twist c} (hx : x ∈ (Twist.map c f hf hG).ker) :\n    g • x ∈ (Twist.map c f hf hG).ker"
+      "implementationStatus": "unchecked"
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-equivalence",
@@ -12349,7 +12347,6 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "leanSignature": "def Twist.kernelEquiv (c : Z1 G U) (f : U →* V) (hf : Continuous f)\n    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :\n    (Twist.map c f hf hG).ker ≃* f.ker",
       "api": [
         {
           "name": "TauCeti.NonabelianCohomology.Twist.kernelEquiv_value",
@@ -12430,8 +12427,7 @@
           "match": "Authored kernel, restricted-action and quotient-topology deductions from the actual continuous inner twist and coefficient-map conventions, using native Mathlib kernels and first isomorphism theorem. These are not claimed as named printed Kim geometric, representability or Selmer theorems."
         }
       ],
-      "implementationStatus": "unchecked",
-      "leanSignature": "lemma Twist.kernelEquiv_value (c : Z1 G U) (f : U →* V) (hf : Continuous f)\n    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)\n    (x : (Twist.map c f hf hG).ker) :\n    (Twist.kernelEquiv c f hf hG x).val = Twist.toOriginal c x.val"
+      "implementationStatus": "unchecked"
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-equivalence-continuous",
@@ -12478,8 +12474,7 @@
           "match": "Authored kernel, restricted-action and quotient-topology deductions from the actual continuous inner twist and coefficient-map conventions, using native Mathlib kernels and first isomorphism theorem. These are not claimed as named printed Kim geometric, representability or Selmer theorems."
         }
       ],
-      "implementationStatus": "unchecked",
-      "leanSignature": "lemma Twist.kernelEquiv_continuous (c : Z1 G U) (f : U →* V) (hf : Continuous f)\n    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :\n    Continuous (Twist.kernelEquiv c f hf hG)"
+      "implementationStatus": "unchecked"
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-equivalence-inverse-continuous",
@@ -12526,8 +12521,7 @@
           "match": "Authored kernel, restricted-action and quotient-topology deductions from the actual continuous inner twist and coefficient-map conventions, using native Mathlib kernels and first isomorphism theorem. These are not claimed as named printed Kim geometric, representability or Selmer theorems."
         }
       ],
-      "implementationStatus": "unchecked",
-      "leanSignature": "lemma Twist.kernelEquiv_symm_continuous (c : Z1 G U) (f : U →* V) (hf : Continuous f)\n    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :\n    Continuous (Twist.kernelEquiv c f hf hG).symm"
+      "implementationStatus": "unchecked"
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-action",
@@ -12575,7 +12569,6 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "leanSignature": "def Twist.kernelAction (c : Z1 G U) (f : U →* V) (hf : Continuous f)\n    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :\n    MulDistribMulAction G (Twist.map c f hf hG).ker",
       "api": [
         {
           "name": "TauCeti.NonabelianCohomology.Twist.kernel_stable",
@@ -12656,8 +12649,7 @@
           "match": "Authored kernel, restricted-action and quotient-topology deductions from the actual continuous inner twist and coefficient-map conventions, using native Mathlib kernels and first isomorphism theorem. These are not claimed as named printed Kim geometric, representability or Selmer theorems."
         }
       ],
-      "implementationStatus": "unchecked",
-      "leanSignature": "lemma Twist.kernelAction_value (c : Z1 G U) (f : U →* V) (hf : Continuous f)\n    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (g : G)\n    (x : (Twist.map c f hf hG).ker) :\n    (letI := Twist.kernelAction c f hf hG\n     (g • x).val = g • x.val)"
+      "implementationStatus": "unchecked"
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-action-continuity",
@@ -12704,8 +12696,7 @@
           "match": "Authored kernel, restricted-action and quotient-topology deductions from the actual continuous inner twist and coefficient-map conventions, using native Mathlib kernels and first isomorphism theorem. These are not claimed as named printed Kim geometric, representability or Selmer theorems."
         }
       ],
-      "implementationStatus": "unchecked",
-      "leanSignature": "lemma Twist.kernelContinuousSMul (c : Z1 G U) (f : U →* V) (hf : Continuous f)\n    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :\n    (letI := Twist.kernelAction c f hf hG\n     ContinuousSMul G (Twist.map c f hf hG).ker)"
+      "implementationStatus": "unchecked"
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-inclusion",
@@ -12756,7 +12747,6 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "leanSignature": "def H1.twistedKernelInclusion (c : Z1 G U) (f : U →* V) (hf : Continuous f)\n    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :\n    (letI := Twist.kernelAction c f hf hG\n     letI := Twist.kernelContinuousSMul c f hf hG\n     H1 G (Twist.map c f hf hG).ker → H1 G (Twist c))",
       "api": [
         {
           "name": "TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_mk",
@@ -12842,8 +12832,7 @@
           "match": "Authored kernel, restricted-action and quotient-topology deductions from the actual continuous inner twist and coefficient-map conventions, using native Mathlib kernels and first isomorphism theorem. These are not claimed as named printed Kim geometric, representability or Selmer theorems."
         }
       ],
-      "implementationStatus": "unchecked",
-      "leanSignature": "lemma H1.twistedKernelInclusion_mk (c : Z1 G U) (f : U →* V) (hf : Continuous f)\n    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :\n    (letI := Twist.kernelAction c f hf hG\n     letI := Twist.kernelContinuousSMul c f hf hG\n     ∀ d : Z1 G (Twist.map c f hf hG).ker,\n     H1.twistedKernelInclusion c f hf hG (H1.mk d) =\n       H1.mk (Z1.map (Twist.map c f hf hG).ker.subtype continuous_subtype_val\n         (fun g x => Twist.kernelAction_value c f hf hG g x) d))"
+      "implementationStatus": "unchecked"
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-neutral",
@@ -12890,8 +12879,7 @@
           "match": "Authored kernel, restricted-action and quotient-topology deductions from the actual continuous inner twist and coefficient-map conventions, using native Mathlib kernels and first isomorphism theorem. These are not claimed as named printed Kim geometric, representability or Selmer theorems."
         }
       ],
-      "implementationStatus": "unchecked",
-      "leanSignature": "lemma H1.twistedKernelInclusion_one (c : Z1 G U) (f : U →* V) (hf : Continuous f)\n    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :\n    (letI := Twist.kernelAction c f hf hG\n     letI := Twist.kernelContinuousSMul c f hf hG\n     H1.twistedKernelInclusion c f hf hG 1 = 1)"
+      "implementationStatus": "unchecked"
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-image",
@@ -12938,8 +12926,7 @@
           "match": "Authored kernel, restricted-action and quotient-topology deductions from the actual continuous inner twist and coefficient-map conventions, using native Mathlib kernels and first isomorphism theorem. These are not claimed as named printed Kim geometric, representability or Selmer theorems."
         }
       ],
-      "implementationStatus": "unchecked",
-      "leanSignature": "lemma H1.twistedKernelInclusion_image (c : Z1 G U) (f : U →* V) (hf : Continuous f)\n    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :\n    (letI := Twist.kernelAction c f hf hG\n     letI := Twist.kernelContinuousSMul c f hf hG\n     ∀ a : H1 G (Twist.map c f hf hG).ker,\n     H1.map (Twist.map c f hf hG) (Twist.map_continuous c f hf hG)\n       (Twist.map_smul c f hf hG) (H1.twistedKernelInclusion c f hf hG a) = 1)"
+      "implementationStatus": "unchecked"
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-repointed-fibre",
@@ -12987,8 +12974,7 @@
           "match": "Authored kernel, restricted-action and quotient-topology deductions from the actual continuous inner twist and coefficient-map conventions, using native Mathlib kernels and first isomorphism theorem. These are not claimed as named printed Kim geometric, representability or Selmer theorems."
         }
       ],
-      "implementationStatus": "unchecked",
-      "leanSignature": "lemma H1.twistedKernelInclusion_fibre (c : Z1 G U) (f : U →* V) (hf : Continuous f)\n    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :\n    (letI := Twist.kernelAction c f hf hG\n     letI := Twist.kernelContinuousSMul c f hf hG\n     ∀ a : H1 G (Twist.map c f hf hG).ker,\n     H1.map f hf hG (H1.twistEquiv c (H1.twistedKernelInclusion c f hf hG a)) =\n       H1.mk (Z1.map f hf hG c))"
+      "implementationStatus": "unchecked"
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-map-surjectivity",
@@ -13036,8 +13022,7 @@
           "match": "Authored kernel, restricted-action and quotient-topology deductions from the actual continuous inner twist and coefficient-map conventions, using native Mathlib kernels and first isomorphism theorem. These are not claimed as named printed Kim geometric, representability or Selmer theorems."
         }
       ],
-      "implementationStatus": "unchecked",
-      "leanSignature": "lemma Twist.map_surjective (c : Z1 G U) (f : U →* V) (hf : Continuous f)\n    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)\n    (hsur : Function.Surjective f) : Function.Surjective (Twist.map c f hf hG)"
+      "implementationStatus": "unchecked"
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-quotient-equivalence",
@@ -13087,7 +13072,6 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "leanSignature": "def Twist.quotientEquiv (c : Z1 G U) (f : U →* V) (hf : Continuous f)\n    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)\n    (hsur : Function.Surjective f) :\n    Twist c ⧸ (Twist.map c f hf hG).ker ≃* Twist (Z1.map f hf hG c)",
       "api": [
         {
           "name": "TauCeti.NonabelianCohomology.Twist.quotientEquiv_mk",
@@ -13173,8 +13157,7 @@
           "match": "Authored kernel, restricted-action and quotient-topology deductions from the actual continuous inner twist and coefficient-map conventions, using native Mathlib kernels and first isomorphism theorem. These are not claimed as named printed Kim geometric, representability or Selmer theorems."
         }
       ],
-      "implementationStatus": "unchecked",
-      "leanSignature": "lemma Twist.quotientEquiv_mk (c : Z1 G U) (f : U →* V) (hf : Continuous f)\n    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)\n    (hsur : Function.Surjective f) (x : Twist c) :\n    Twist.quotientEquiv c f hf hG hsur (QuotientGroup.mk x) = Twist.map c f hf hG x"
+      "implementationStatus": "unchecked"
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-quotient-continuous",
@@ -13223,8 +13206,7 @@
           "match": "Authored kernel, restricted-action and quotient-topology deductions from the actual continuous inner twist and coefficient-map conventions, using native Mathlib kernels and first isomorphism theorem. These are not claimed as named printed Kim geometric, representability or Selmer theorems."
         }
       ],
-      "implementationStatus": "unchecked",
-      "leanSignature": "lemma Twist.quotientEquiv_continuous (c : Z1 G U) (f : U →* V) (hf : Continuous f)\n    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)\n    (hsur : Function.Surjective f) :\n    Continuous (Twist.quotientEquiv c f hf hG hsur)"
+      "implementationStatus": "unchecked"
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-quotient-inverse-continuous",
@@ -13274,8 +13256,7 @@
           "match": "Authored kernel, restricted-action and quotient-topology deductions from the actual continuous inner twist and coefficient-map conventions, using native Mathlib kernels and first isomorphism theorem. These are not claimed as named printed Kim geometric, representability or Selmer theorems."
         }
       ],
-      "implementationStatus": "unchecked",
-      "leanSignature": "lemma Twist.quotientEquiv_symm_continuous (c : Z1 G U) (f : U →* V) (hf : Continuous f)\n    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)\n    (hsur : Function.Surjective f) (hquot : Topology.IsQuotientMap f) :\n    Continuous (Twist.quotientEquiv c f hf hG hsur).symm"
+      "implementationStatus": "unchecked"
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-quotient-homeomorphism",
@@ -13324,7 +13305,6 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "leanSignature": "def Twist.quotientHomeomorph (c : Z1 G U) (f : U →* V) (hf : Continuous f)\n    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)\n    (hsur : Function.Surjective f) (hquot : Topology.IsQuotientMap f) :\n    Twist c ⧸ (Twist.map c f hf hG).ker ≃ₜ Twist (Z1.map f hf hG c)",
       "api": [
         {
           "name": "TauCeti.NonabelianCohomology.Twist.quotientHomeomorph_mk",
@@ -13406,8 +13386,7 @@
           "match": "Authored kernel, restricted-action and quotient-topology deductions from the actual continuous inner twist and coefficient-map conventions, using native Mathlib kernels and first isomorphism theorem. These are not claimed as named printed Kim geometric, representability or Selmer theorems."
         }
       ],
-      "implementationStatus": "unchecked",
-      "leanSignature": "lemma Twist.quotientHomeomorph_mk (c : Z1 G U) (f : U →* V) (hf : Continuous f)\n    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)\n    (hsur : Function.Surjective f) (hquot : Topology.IsQuotientMap f) (x : Twist c) :\n    Twist.quotientHomeomorph c f hf hG hsur hquot (QuotientGroup.mk x) =\n      Twist.map c f hf hG x"
+      "implementationStatus": "unchecked"
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-quotient-homeomorphism-comparison",
@@ -13454,8 +13433,7 @@
           "match": "Authored kernel, restricted-action and quotient-topology deductions from the actual continuous inner twist and coefficient-map conventions, using native Mathlib kernels and first isomorphism theorem. These are not claimed as named printed Kim geometric, representability or Selmer theorems."
         }
       ],
-      "implementationStatus": "unchecked",
-      "leanSignature": "lemma Twist.quotientHomeomorph_toEquiv (c : Z1 G U) (f : U →* V) (hf : Continuous f)\n    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)\n    (hsur : Function.Surjective f) (hquot : Topology.IsQuotientMap f) :\n    (Twist.quotientHomeomorph c f hf hG hsur hquot).toEquiv =\n      (Twist.quotientEquiv c f hf hG hsur).toEquiv"
+      "implementationStatus": "unchecked"
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-quotient-homeomorphism-multiplication",
@@ -13502,8 +13480,7 @@
           "match": "Authored kernel, restricted-action and quotient-topology deductions from the actual continuous inner twist and coefficient-map conventions, using native Mathlib kernels and first isomorphism theorem. These are not claimed as named printed Kim geometric, representability or Selmer theorems."
         }
       ],
-      "implementationStatus": "unchecked",
-      "leanSignature": "lemma Twist.quotientHomeomorph_mul (c : Z1 G U) (f : U →* V) (hf : Continuous f)\n    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)\n    (hsur : Function.Surjective f) (hquot : Topology.IsQuotientMap f)\n    (x y : Twist c ⧸ (Twist.map c f hf hG).ker) :\n    Twist.quotientHomeomorph c f hf hG hsur hquot (x*y) =\n      Twist.quotientHomeomorph c f hf hG hsur hquot x *\n        Twist.quotientHomeomorph c f hf hG hsur hquot y"
+      "implementationStatus": "unchecked"
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-quotient-topology-criterion",
@@ -13553,8 +13530,7 @@
           "match": "Authored kernel, restricted-action and quotient-topology deductions from the actual continuous inner twist and coefficient-map conventions, using native Mathlib kernels and first isomorphism theorem. These are not claimed as named printed Kim geometric, representability or Selmer theorems."
         }
       ],
-      "implementationStatus": "unchecked",
-      "leanSignature": "lemma Twist.quotientEquiv_symm_continuous_iff (c : Z1 G U) (f : U →* V)\n    (hf : Continuous f) (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)\n    (hsur : Function.Surjective f) :\n    Continuous (Twist.quotientEquiv c f hf hG hsur).symm ↔ Topology.IsQuotientMap f"
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
