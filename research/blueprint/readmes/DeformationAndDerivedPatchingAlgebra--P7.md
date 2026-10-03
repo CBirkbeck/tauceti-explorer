@@ -1,3 +1,265 @@
+# Scalar restriction and actual curve multiplicity
+
+This continuation keeps the intrinsic normalization of the reserved Hilbert–Samuel key. With a surjective coefficient map A→B, an actual B-module M has the same adic quotient carriers and cumulative lengths over A and B. The carrier equivalence itself is valid without surjectivity or flatness: restrict the mapped-power denominator to A, identify it with q^r M, and compose the two native quotient equivalences. Surjectivity enters only when identifying the two scalar-ring lengths. Infinite values remain in extended natural numbers until a finite local polynomial witness is used.
+
+For a finite-order equation f in R=k[[x,y]], C=R/(f), v=(x,y) and its image q, the chosen general polynomial on C is the already specified explicit polynomial P_d(T)=d(T+1)−d(d−1)/2. Its intrinsic multiplicity is d; for d>0 it has degree one and coefficient one equal to d. The actual quotient R→C then gives intrinsic multiplicity d for module C over R as well, while extracting coefficient two gives zero. Fixed-index scalar comparison does not identify normalizations with different dimension indices. To interpret the degree-two extraction as ambient multiplicity, separately establish dim R=2. The incoming general degree/support-dimension theorem is still an open proof input to the support-dimension corollary.
+
+The Stacks definitions distinguish dimension-normalized multiplicity from polynomial growth degree. The scalar formulas here are authored consequences of the pinned quotient and length APIs and the inherited curve polynomial, not a claim that Stacks supplies a formal implementation. See [Stacks 00K4](https://stacks.math.columbia.edu/tag/00K4) and [Stacks 0AZU](https://stacks.math.columbia.edu/tag/0AZU).
+
+Every local and primary-ideal premise in the new formulas is stated explicitly. The ordinary automatic adapters for these formal power-series quotients remain required. This is a partial blueprint; new signatures, tests and proposed proof bodies are uncompiled. All 230 incoming contracts, the 15 gaps, two requests, 13 planets, eight partial stages and other roadmap parts remain intact. The unit equation is checked with its zero cumulative function, without introducing a local instance on its zero quotient. The zero equation has infinite order and retains surface growth. The nilpotent characteristic-two example has rational multiplicity 2, because residue characteristic does not reduce a module length modulo 2.
+
+## Adic quotients commute with scalar restriction
+
+TauCeti.HilbertSamuel.adicQuotientRestrictionEquiv (DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-scalar-restriction).
+
+For every r≥0, the identity on M induces the A-linear equivalence M/(q^r M) ≃ M/((qB)^r M), where the latter quotient is restricted from B to A.
+
+Hypotheses: A and B are commutative rings with the given A-algebra structure on B. M is an additive commutative group with A- and B-module structures forming the given scalar tower. q is an ideal of A; qB is its image in B. All quotients and scalar actions are native ones.
+
+Proof plan: Restrict the target denominator to A. Mapping commutes with ideal powers, and restriction of a mapped ideal acting on a B-submodule equals the original ideal acting on the restricted submodule. Thus the denominators agree as A-submodules. Compose the native equivalence for equal submodules with the native quotient scalar-restriction equivalence. This compares the actual quotient relations. It does not use tensor products, flatness, surjectivity or finite length.
+
+Prerequisites: mathlib:Ideal.map_pow, mathlib:Submodule.restrictScalars_map_smul_eq, mathlib:Submodule.restrictScalars_top, mathlib:Submodule.quotEquivOfEq, mathlib:Submodule.Quotient.restrictScalarsEquiv.
+
+API TauCeti.HilbertSamuel.adicQuotientRestrictionEquiv_mk [simp]: For every m∈M, the scalar-restriction quotient equivalence sends the class of m to the class of m.
+
+API TauCeti.HilbertSamuel.adicQuotientRestrictionEquiv_symm_mk [simp]: The inverse quotient equivalence also sends the class of each m∈M to its class.
+
+API TauCeti.HilbertSamuel.function_restrictScalars_of_surjective [compatibility]: If A→B is surjective, then for every n≥0, H(q;M,n) over A equals H(qB;M,n) over B as extended natural numbers.
+
+API TauCeti.HilbertSamuel.polynomial_restrictScalars_of_surjective [compatibility]: Under surjectivity and the stated finite local hypotheses, the chosen Hilbert–Samuel polynomial over A is equal to that over B.
+
+API TauCeti.HilbertSamuel.multiplicity_restrictScalars_of_surjective [compatibility]: Under the polynomial comparison hypotheses, intrinsic multiplicity e(q;M) over A equals e(qB;M) over B.
+
+API TauCeti.HilbertSamuel.multiplicityInDegree_restrictScalars_of_surjective [compatibility]: Under the polynomial comparison hypotheses, for the same D≥0 on both sides, D! times the degree-D coefficient over A equals the degree-D extraction over B.
+
+Test ScalarCurveTests.identity_representative [computation]: For A=B=M=ℚ, q=0 and r=1, the scalar comparison sends the class of 7 to the class of 7.
+
+Test ScalarCurveTests.zeroth_power_zero_quotient [degenerate]: For A=B=M=ℚ, q=0 and r=0, the image of the class of 7 under the comparison is zero because the denominator is the whole module.
+
+Test ScalarCurveTests.nonflat_integer_mod_two [non-example]: For the nonflat quotient ℤ→𝔽₂ and M=𝔽₂, every quotient at q=(2) has length one over ℤ; in particular H((2);𝔽₂,4)=1.
+
+## The scalar comparison preserves representatives
+
+TauCeti.HilbertSamuel.adicQuotientRestrictionEquiv_mk (DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-scalar-restriction-mk).
+
+For every m∈M, the scalar-restriction quotient equivalence sends the class of m to the class of m.
+
+Hypotheses: A and B are commutative rings with the given A-algebra structure on B. M is an additive commutative group with A- and B-module structures forming the given scalar tower. q is an ideal of A; qB is its image in B. All quotients and scalar actions are native ones.
+
+Proof plan: Evaluate both native constituent equivalences on the literal quotient representative.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-scalar-restriction, mathlib:Submodule.quotEquivOfEq_mk, mathlib:Submodule.Quotient.restrictScalarsEquiv_mk.
+
+## The inverse scalar comparison preserves representatives
+
+TauCeti.HilbertSamuel.adicQuotientRestrictionEquiv_symm_mk (DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-scalar-restriction-inverse-mk).
+
+The inverse quotient equivalence also sends the class of each m∈M to its class.
+
+Hypotheses: A and B are commutative rings with the given A-algebra structure on B. M is an additive commutative group with A- and B-module structures forming the given scalar tower. q is an ideal of A; qB is its image in B. All quotients and scalar actions are native ones.
+
+Proof plan: Apply injectivity of the forward equivalence and its representative formula.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-scalar-restriction, DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-scalar-restriction-mk.
+
+## Cumulative lengths under a surjective coefficient map
+
+TauCeti.HilbertSamuel.function_restrictScalars_of_surjective (DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function-scalar-restriction).
+
+If A→B is surjective, then for every n≥0, H(q;M,n) over A equals H(qB;M,n) over B as extended natural numbers.
+
+Hypotheses: A and B are commutative rings with the given A-algebra structure on B. M is an additive commutative group with A- and B-module structures forming the given scalar tower. q is an ideal of A; qB is its image in B. All quotients and scalar actions are native ones. The coefficient map A→B is surjective. No locality, finiteness, flatness or finite-length assumption is required.
+
+Proof plan: Compare the quotient carriers at r=n+1 by the actual equivalence. Its A-linear length equality is followed by the pinned equality of lengths under a surjective scalar map. Keep equality in extended natural numbers: infinite-length values are included, and no toNat is used.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-scalar-restriction, DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function, mathlib:LinearEquiv.length_eq, mathlib:Module.length_eq_of_surjective.
+
+Test ScalarCurveTests.infinite_length_retained [degenerate]: For the identity coefficient map on ℤ, q=0 and M=ℤ, H(q;M,7)=∞. Scalar comparisons must not replace this value by zero using toNat.
+
+## The eventual polynomial under a surjective coefficient map
+
+TauCeti.HilbertSamuel.polynomial_restrictScalars_of_surjective (DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-polynomial-scalar-restriction).
+
+Under surjectivity and the stated finite local hypotheses, the chosen Hilbert–Samuel polynomial over A is equal to that over B.
+
+Hypotheses: A and B are commutative rings with the given A-algebra structure on B. M is an additive commutative group with A- and B-module structures forming the given scalar tower. q is an ideal of A; qB is its image in B. All quotients and scalar actions are native ones. For polynomial and multiplicity comparisons, A and B are Noetherian local rings, M is finite over both, and q and qB have radicals equal to their respective maximal ideals. Both primary-ideal hypotheses are explicit; no kernel-containment premise is silently discarded. The coefficient map A→B is surjective.
+
+Proof plan: Take the eventual evaluation witness for the A-polynomial. Transport its cumulative function values using the all-index extended-natural equality, then apply the existing uniqueness API of the B-polynomial. This consumes the existing general eventual-polynomial specification. It does not prove its Hilbert–Serre input.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function-scalar-restriction, DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-polynomial.
+
+## Intrinsic multiplicity under a surjective coefficient map
+
+TauCeti.HilbertSamuel.multiplicity_restrictScalars_of_surjective (DeformationAndDerivedPatchingAlgebra:R03.3/intrinsic-multiplicity-scalar-restriction).
+
+Under the polynomial comparison hypotheses, intrinsic multiplicity e(q;M) over A equals e(qB;M) over B.
+
+Hypotheses: A and B are commutative rings with the given A-algebra structure on B. M is an additive commutative group with A- and B-module structures forming the given scalar tower. q is an ideal of A; qB is its image in B. All quotients and scalar actions are native ones. For polynomial and multiplicity comparisons, A and B are Noetherian local rings, M is finite over both, and q and qB have radicals equal to their respective maximal ideals. Both primary-ideal hypotheses are explicit; no kernel-containment premise is silently discarded. The coefficient map A→B is surjective.
+
+Proof plan: Equal polynomials have equal natural degree and leading coefficient; substitute into the existing intrinsic factorial-times-leading-coefficient definition. This applies to the zero module too. It never replaces intrinsic degree by the dimension of the coefficient ring.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-polynomial-scalar-restriction, DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity.
+
+## A fixed coefficient extraction under scalar restriction
+
+TauCeti.HilbertSamuel.multiplicityInDegree_restrictScalars_of_surjective (DeformationAndDerivedPatchingAlgebra:R03.3/degree-indexed-multiplicity-scalar-restriction).
+
+Under the polynomial comparison hypotheses, for the same D≥0 on both sides, D! times the degree-D coefficient over A equals the degree-D extraction over B.
+
+Hypotheses: A and B are commutative rings with the given A-algebra structure on B. M is an additive commutative group with A- and B-module structures forming the given scalar tower. q is an ideal of A; qB is its image in B. All quotients and scalar actions are native ones. For polynomial and multiplicity comparisons, A and B are Noetherian local rings, M is finite over both, and q and qB have radicals equal to their respective maximal ideals. Both primary-ideal hypotheses are explicit; no kernel-containment premise is silently discarded. The coefficient map is surjective; D is the same integer in both expressions.
+
+Proof plan: Substitute equality of the polynomials in the existing coefficient-extraction definition. Different ambient dimension indices are not compared by this theorem.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-polynomial-scalar-restriction, DeformationAndDerivedPatchingAlgebra:R03.3/degree-indexed-multiplicity.
+
+## The actual curve polynomial equals its explicit polynomial
+
+TauCeti.HilbertSamuel.planeCurve_polynomial_eq_explicit (DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-general-polynomial-explicit).
+
+The chosen general Hilbert–Samuel polynomial of q on C is the existing planeCurvePolynomial d, namely d(T+1)−d(d−1)/2.
+
+Hypotheses: k is a field, R=k[[x,y]], f is an element of R, I=(f), C=R/I, v=(x,y), and q is the image of v under the actual quotient map. C is supplied with Noetherian and local instances and q has radical equal to its maximal ideal. Exact finite order(f)=d is assumed. No characteristic-zero or reducedness hypothesis is used.
+
+Proof plan: Apply the existing curve-specific uniqueness theorem to the general polynomial and its eventual evaluation witness. No caller-supplied polynomial is introduced.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-polynomial, DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-polynomial-unique, DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-explicit-polynomial.
+
+Test ScalarCurveTests.node_actual_polynomial [computation]: For f=x * y over ℚ, the general curve Hilbert–Samuel polynomial is 2T+1.
+
+Test ScalarCurveTests.nonreduced_char_two_actual_polynomial [computation]: For f=x ^ 2 over ZMod 2, the general curve Hilbert–Samuel polynomial is 2T+1.
+
+Test ScalarCurveTests.order_three_actual_polynomial [computation]: For f=x ^ 3 over ℚ, the general curve Hilbert–Samuel polynomial is 3T.
+
+Test ScalarCurveTests.zero_equation_surface_boundary [non-example]: For f=0 over ℚ, the order is infinite and H(q;C,1)=3, retaining the quadratic surface growth rather than an order-zero curve polynomial.
+
+## Intrinsic multiplicity of a finite-order plane equation
+
+TauCeti.HilbertSamuel.planeCurve_multiplicity (DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-intrinsic-multiplicity).
+
+The intrinsic multiplicity e(q;C) is d, including d=0 when the stated local data exists.
+
+Hypotheses: k is a field, R=k[[x,y]], f is an element of R, I=(f), C=R/I, v=(x,y), and q is the image of v under the actual quotient map. C is supplied with Noetherian and local instances and q has radical equal to its maximal ideal. Exact finite order(f)=d is assumed. No characteristic-zero or reducedness hypothesis is used.
+
+Proof plan: Substitute the explicit curve polynomial into the intrinsic definition and consume its factorial-times-leading-coefficient identity. For a field, d=0 is a unit equation and its quotient is the zero ring, so ordinary local-ring data is unavailable there. Unit boundary tests use the cumulative function without asserting a local instance.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-general-polynomial-explicit, DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-explicit-polynomial-normalization, DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity.
+
+Test ScalarCurveTests.smooth_intrinsic [computation]: For k=ℚ and f=x, the actual curve quotient at the image of (x,y), with the stated local/primary data, has intrinsic multiplicity 1.
+
+Test ScalarCurveTests.node_intrinsic [computation]: For k=ℚ and f=x * y, the actual curve quotient at the image of (x,y), with the stated local/primary data, has intrinsic multiplicity 2.
+
+Test ScalarCurveTests.cusp_intrinsic [computation]: For k=ℚ and f=y ^ 2 - x ^ 3, the actual curve quotient at the image of (x,y), with the stated local/primary data, has intrinsic multiplicity 2.
+
+Test ScalarCurveTests.nonreduced_char_two_intrinsic [computation]: For k=ZMod 2 and f=x ^ 2, the actual curve quotient at the image of (x,y), with the stated local/primary data, has intrinsic multiplicity 2.
+
+Test ScalarCurveTests.order_three_intrinsic [computation]: For k=ℚ and f=x ^ 3, the actual curve quotient at the image of (x,y), with the stated local/primary data, has intrinsic multiplicity 3.
+
+Test ScalarCurveTests.unit_function_boundary [degenerate]: For f=1 over ℚ, the actual quotient is zero and every cumulative function value is zero. No local-ring instance or finite nonzero order is supplied for the zero quotient.
+
+## Degree of the actual curve polynomial
+
+TauCeti.HilbertSamuel.planeCurve_polynomial_degree (DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-general-polynomial-degree).
+
+If d≠0, the chosen Hilbert–Samuel polynomial of q on C has natural degree one.
+
+Hypotheses: k is a field, R=k[[x,y]], f is an element of R, I=(f), C=R/I, v=(x,y), and q is the image of v under the actual quotient map. C is supplied with Noetherian and local instances and q has radical equal to its maximal ideal. Exact finite order(f)=d is assumed. No characteristic-zero or reducedness hypothesis is used. d is nonzero.
+
+Proof plan: Substitute the explicit polynomial and use its existing degree-one formula.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-general-polynomial-explicit, DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-explicit-polynomial-degree.
+
+## Leading coefficient of the actual curve polynomial
+
+TauCeti.HilbertSamuel.planeCurve_polynomial_leadingCoeff (DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-general-polynomial-leading-coefficient).
+
+The chosen Hilbert–Samuel polynomial of q on C has leading coefficient d as a rational number.
+
+Hypotheses: k is a field, R=k[[x,y]], f is an element of R, I=(f), C=R/I, v=(x,y), and q is the image of v under the actual quotient map. C is supplied with Noetherian and local instances and q has radical equal to its maximal ideal. Exact finite order(f)=d is assumed. No characteristic-zero or reducedness hypothesis is used.
+
+Proof plan: Substitute the explicit polynomial and use its existing leading-coefficient formula.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-general-polynomial-explicit, DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-explicit-polynomial-leading-coefficient.
+
+## Curve support dimension from the degree theorem
+
+TauCeti.HilbertSamuel.planeCurve_supportDim (DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-support-dimension-from-polynomial).
+
+If C is nontrivial and d≠0, its support dimension as a module over itself equals one.
+
+Hypotheses: k is a field, R=k[[x,y]], f is an element of R, I=(f), C=R/I, v=(x,y), and q is the image of v under the actual quotient map. C is supplied with Noetherian and local instances and q has radical equal to its maximal ideal. Exact finite order(f)=d is assumed. No characteristic-zero or reducedness hypothesis is used. C is nontrivial and d≠0.
+
+Proof plan: Combine the already planned general polynomial-degree/support-dimension theorem with the degree-one curve formula. The general degree theorem remains a required open proof input. This conditional consequence is not an independent proof of it or of the ambient power-series dimension upper bound.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-general-polynomial-degree, DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-degree.
+
+Test ScalarCurveTests.node_support_dimension [compatibility]: For f=xy over ℚ with nontrivial actual quotient and the stated local/primary data, the planned general degree theorem gives support dimension one. This test depends on that open theorem.
+
+## Degree-one multiplicity of the curve module
+
+TauCeti.HilbertSamuel.planeCurve_multiplicityInDegree_one (DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-degree-one-multiplicity).
+
+If d≠0, the degree-one extraction of the actual curve polynomial is d.
+
+Hypotheses: k is a field, R=k[[x,y]], f is an element of R, I=(f), C=R/I, v=(x,y), and q is the image of v under the actual quotient map. C is supplied with Noetherian and local instances and q has radical equal to its maximal ideal. Exact finite order(f)=d is assumed. No characteristic-zero or reducedness hypothesis is used. d is nonzero.
+
+Proof plan: Identify coefficient one with the leading coefficient using the proved polynomial-degree identity, and multiply by 1!.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-general-polynomial-degree, DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-general-polynomial-leading-coefficient, DeformationAndDerivedPatchingAlgebra:R03.3/degree-indexed-multiplicity, mathlib:Polynomial.coeff_natDegree.
+
+## Higher coefficient extractions of the curve polynomial
+
+TauCeti.HilbertSamuel.planeCurve_multiplicityInDegree_gt_one (DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-higher-degree-multiplicity-zero).
+
+If d≠0 and D>1, the degree-D extraction of the actual curve polynomial is zero.
+
+Hypotheses: k is a field, R=k[[x,y]], f is an element of R, I=(f), C=R/I, v=(x,y), and q is the image of v under the actual quotient map. C is supplied with Noetherian and local instances and q has radical equal to its maximal ideal. Exact finite order(f)=d is assumed. No characteristic-zero or reducedness hypothesis is used. d≠0 and D>1.
+
+Proof plan: A coefficient above natural degree is zero. Multiply by D!. No dimension theorem is needed for this polynomial statement.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-general-polynomial-degree, DeformationAndDerivedPatchingAlgebra:R03.3/degree-indexed-multiplicity, mathlib:Polynomial.coeff_eq_zero_of_natDegree_lt.
+
+Test ScalarCurveTests.nilpotent_higher_extraction [computation]: For f=x² over 𝔽₂, the actual curve polynomial has degree-three extraction zero despite nonzero nilpotents.
+
+## Degree-two extraction in the ambient scalar ring
+
+TauCeti.HilbertSamuel.planeCurve_multiplicityInDegree_two_restrictScalars (DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-degree-two-restricted-multiplicity-zero).
+
+For d≠0, the degree-two extraction for module C over R at v is zero.
+
+Hypotheses: k is a field, R=k[[x,y]], f is an element of R, I=(f), C=R/I, v=(x,y), and q is the image of v under the actual quotient map. C is supplied with Noetherian and local instances and q has radical equal to its maximal ideal. Exact finite order(f)=d is assumed. No characteristic-zero or reducedness hypothesis is used. For results over R with module C, R is also supplied with Noetherian and local instances, C is finite over R, and v has radical equal to the maximal ideal of R. A degree-two coefficient extraction is not an assertion that dim R=2; that dimension statement remains an independent required input. d is nonzero.
+
+Proof plan: Use the actual surjective ring quotient as coefficient map. The same degree-two extraction equals that in C, whose polynomial has degree one. The result is raw coefficient extraction. Calling it ambient-normalized multiplicity additionally requires the separate dimension-two statement for R.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/degree-indexed-multiplicity-scalar-restriction, DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-higher-degree-multiplicity-zero, mathlib:Ideal.Quotient.mk_surjective.
+
+## Intrinsic multiplicity with ambient scalars
+
+TauCeti.HilbertSamuel.planeCurve_multiplicity_restrictScalars (DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-intrinsic-restricted-multiplicity).
+
+The intrinsic multiplicity of module C over R at v equals d.
+
+Hypotheses: k is a field, R=k[[x,y]], f is an element of R, I=(f), C=R/I, v=(x,y), and q is the image of v under the actual quotient map. C is supplied with Noetherian and local instances and q has radical equal to its maximal ideal. Exact finite order(f)=d is assumed. No characteristic-zero or reducedness hypothesis is used. For results over R with module C, R is also supplied with Noetherian and local instances, C is finite over R, and v has radical equal to the maximal ideal of R. A degree-two coefficient extraction is not an assertion that dim R=2; that dimension statement remains an independent required input.
+
+Proof plan: Apply intrinsic multiplicity invariance along the actual quotient R→C, then use the intrinsic curve formula.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/intrinsic-multiplicity-scalar-restriction, DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-intrinsic-multiplicity, mathlib:Ideal.Quotient.mk_surjective.
+
+## Degree-two extraction differs from intrinsic multiplicity
+
+TauCeti.HilbertSamuel.planeCurve_degree_two_ne_intrinsic (DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-degree-two-intrinsic-distinction).
+
+For d≠0, the degree-two extraction for C over R is different from its intrinsic multiplicity: the former is zero and the latter is d.
+
+Hypotheses: k is a field, R=k[[x,y]], f is an element of R, I=(f), C=R/I, v=(x,y), and q is the image of v under the actual quotient map. C is supplied with Noetherian and local instances and q has radical equal to its maximal ideal. Exact finite order(f)=d is assumed. No characteristic-zero or reducedness hypothesis is used. For results over R with module C, R is also supplied with Noetherian and local instances, C is finite over R, and v has radical equal to the maximal ideal of R. A degree-two coefficient extraction is not an assertion that dim R=2; that dimension statement remains an independent required input. d is nonzero.
+
+Proof plan: Use the two scalar-comparison formulas and the nonzero rational image of a nonzero natural number. With an additional dim R=2 input this is precisely the lower-dimensional module counterexample to equating ambient-normalized and intrinsic multiplicity.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-degree-two-restricted-multiplicity-zero, DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-intrinsic-restricted-multiplicity.
+
+Test ScalarCurveTests.nilpotent_intrinsic_degree_two_distinction [non-example]: For f=x² over 𝔽₂ with the stated ambient/curve local and primary data, intrinsic multiplicity over R is 2, whereas degree-two extraction over R is zero. The coefficient characteristic does not turn the integer length 2 into zero.
+
+## Incoming mathematical document and attribution
+
 # Full curve tangent-cone assembly checkpoint
 
 Codex — codex-7e92bd; Refs #551. This partial blueprint connects the existing native curve degree quotients to the existing Rees model of the associated graded ring. It adds 20 declarations, including three constructions, 16 API entries and 13 tests. All 210 incoming node objects, all eight stage statuses, both requests, all 15 gaps and the full general Hilbert–Samuel key contract remain in place. No implementation or stage is certified complete.
