@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-stage partial design with 421 declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked.",
+  "summary": "Seven-stage partial design with 421 declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked. For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2426,6 +2426,15 @@
         "line": 231,
         "provides": "Native flatness from freeness over a commutative semiring.",
         "checked": "Codex codex-rtOQ9t read the complete statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. This generic result is imported, not replanned."
+      },
+      {
+        "ref": "mathlib:AlgHom.commutes",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Algebra/Hom.lean",
+        "line": 203,
+        "provides": "An actual algebra homomorphism preserves the specified coefficient algebra map, over a commutative semiring and arbitrary semiring algebras.",
+        "checked": "Codex codex-a71f92 read the complete pinned statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; used in the native uniqueness and root-equation proofs.",
+        "sourceSha256": "0cc5cf0d3af02f98ad61aea11c5298547f190d551eee978ea46a48f303fd3af0"
       }
     ]
   },
@@ -2882,6 +2891,18 @@
       "accessed": "2026-10-03",
       "readSections": [
         "Codex codex-rtOQ9t: complete §3 terminology and both conductor diagrams, Propositions3.1–3.2 with displayed proofs and count table, Proposition3.3 statement/table. The rank-two polynomial-module calculation is an authored deduction from the incoming native quadratic coordinates and the pinned basis API, not a printed theorem of this paper. No fresh whole-paper or recursive-source closure claim."
+      ]
+    },
+    {
+      "id": "schroer-a71f92-polynomial-universal-map",
+      "title": "There is no Enriques surface over the integers",
+      "authors": "Stefan Schröer",
+      "edition": "arXiv:2004.07025v3 HTML; distinct from the Annals197(2023) edition",
+      "url": "https://arxiv.org/html/2004.07025v3",
+      "sha256": "d14049912dcab6a438ed62363e246d0087c61342c51813ac482f5aba48d92456",
+      "accessed": "2026-10-03",
+      "readSections": [
+        "Codex codex-a71f92: §3 terminology, both conductor diagrams, Propositions3.1–3.2 with displayed proofs/count table and Proposition3.3 statement/table. The new polynomial-coordinate multiplication and S-algebra universal map are authored deductions from the incoming native coordinates and parameter action, not printed theorems of this source. No fresh whole-paper or recursive supplier-proof reading claim."
       ]
     }
   ],
@@ -9765,12 +9786,16 @@
         "Use the exact native substitution range and full relation-kernel lemmas.",
         "The V-coordinate transport, monic remainder formula and inherited pinch-normal-form injectivity prove the kernel by divisibility in both directions.",
         "The canonical quotient algebra equivalence uses the native first-isomorphism theorem and equal-ideal quotient transport. Its quotient-class, inverse and generator equations identify the actual substitution map.",
-        "This supplies the affine bivariate presentation only. Finite normalization/localization/fraction-field and projective/node/cohomology comparisons remain separate owner obligations."
+        "This supplies the affine bivariate presentation only. Finite normalization/localization/fraction-field and projective/node/cohomology comparisons remain separate owner obligations.",
+        "For its specified polynomial parameter S=k[T], the actual coefficient multiplication and quadratic relation now give the coefficient-compatible mapping property Hom_S(A_q,B)≃{y:y²+aTy+bT²−T³=0}. This native algebraic comparison does not replace the geometric normalization universal property."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-substitution-range",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-substitution-kernel",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-quotient-equivalence"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-quotient-equivalence",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-coordinates-mul",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-basis-square",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-hom-roots"
       ],
       "sources": [
         {
@@ -24524,6 +24549,898 @@
       },
       "implementationStatus": "unchecked",
       "declarationName": "QuadraticPinch.polynomialCoordinates_reconstruction"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-product",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Multiplication in polynomial coordinates",
+      "kind": "construction",
+      "statement": "Define the coefficient product z⋆w=(z₀w₀+(T³−bT²)z₁w₁, z₀w₁+z₁w₀−aTz₁w₁) on S×S. This is an explicit function furnishing the coordinates of multiplication in the existing ring A_q, not componentwise pair multiplication or a second ring carrier.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed."
+      ],
+      "proofSteps": [
+        "Use the existing two-term reconstruction and the relation q=t²+at+b. The displayed function specifies the coefficient pair; its multiplicative comparison is a separate lemma."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-coordinates"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-polynomial-universal-map",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored algebraic deduction from the incoming quadratic coordinates and parameter action",
+          "excerpt": "conductor square",
+          "match": "The source motivates the quadratic pinching chart. The explicit coordinate multiplication and S-algebra mapping property are authored deductions, not printed theorems of Schröer or geometric normalization/cohomology results."
+        }
+      ],
+      "acceptance": [
+        "The cusp, split and repeated-root quadratics, arbitrary characteristic and independent-universe coefficient algebras retain the same specified algebra and scalar action."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialProduct",
+      "api": [
+        {
+          "name": "QuadraticPinch.polynomialCoordinates_mul",
+          "role": "compatibility",
+          "statement": "For all z,w∈S×S, e(z⋆w)=e(z)e(w) in the actual pinched algebra A_q."
+        },
+        {
+          "name": "QuadraticPinch.polynomialCoordinates_inverse_mul",
+          "role": "characterisation",
+          "statement": "For all f,g∈A_q, e⁻¹(fg)=e⁻¹(f)⋆e⁻¹(g)."
+        },
+        {
+          "name": "QuadraticPinch.polynomialProduct_unit",
+          "role": "compatibility",
+          "statement": "For every a,b and z∈S×S, (1,0)⋆z=z."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.test_product_cusp",
+          "kind": "computation",
+          "statement": "For a=b=0 over any field, the actual coefficient product (0,1)⋆(0,1) is (T³,0); componentwise pair multiplication would instead give (0,1)."
+        },
+        {
+          "name": "QuadraticPinch.test_product_char2",
+          "kind": "computation",
+          "statement": "For a=b=1 over F₂, the actual coefficient product (0,1)⋆(0,1) is (T³−T²,−T). Both quadratic coefficients survive in characteristic two."
+        },
+        {
+          "name": "QuadraticPinch.test_product_unit",
+          "kind": "degenerate",
+          "statement": "For every a,b and z∈S×S, (1,0)⋆z=z."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-presentation",
+          "how": "Expose the exact multiplication and coefficient-compatible universal map of the already constructed affine presentation without introducing a second ring carrier."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Provide explicit affine coordinate operations and maps for the scheme and structure-sheaf comparisons; these geometric comparisons remain distinct obligations."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-coordinates-mul",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Multiplicative coordinate comparison",
+      "kind": "lemma",
+      "statement": "For all z,w∈S×S, e(z⋆w)=e(z)e(w) in the actual pinched algebra A_q.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed."
+      ],
+      "proofSteps": [
+        "Compare both sides after the actual subalgebra inclusion. Composition respects polynomial addition, subtraction and multiplication; expansion of q=t²+at+b gives the equality."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-product",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-coordinates-coe"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-polynomial-universal-map",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored algebraic deduction from the incoming quadratic coordinates and parameter action",
+          "excerpt": "conductor square",
+          "match": "The source motivates the quadratic pinching chart. The explicit coordinate multiplication and S-algebra mapping property are authored deductions, not printed theorems of Schröer or geometric normalization/cohomology results."
+        }
+      ],
+      "acceptance": [
+        "The cusp, split and repeated-root quadratics, arbitrary characteristic and independent-universe coefficient algebras retain the same specified algebra and scalar action."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialCoordinates_mul"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-inverse-mul",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Coordinates of a product",
+      "kind": "lemma",
+      "statement": "For all f,g∈A_q, e⁻¹(fg)=e⁻¹(f)⋆e⁻¹(g).",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed."
+      ],
+      "proofSteps": [
+        "Apply injectivity of e to the established multiplicative comparison and its two inverse laws."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-coordinates-mul",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-coordinates"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-polynomial-universal-map",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored algebraic deduction from the incoming quadratic coordinates and parameter action",
+          "excerpt": "conductor square",
+          "match": "The source motivates the quadratic pinching chart. The explicit coordinate multiplication and S-algebra mapping property are authored deductions, not printed theorems of Schröer or geometric normalization/cohomology results."
+        }
+      ],
+      "acceptance": [
+        "The cusp, split and repeated-root quadratics, arbitrary characteristic and independent-universe coefficient algebras retain the same specified algebra and scalar action."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialCoordinates_inverse_mul"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-basis-unit",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "First basis vector is the ring unit",
+      "kind": "lemma",
+      "statement": "The actual first polynomial-module basis vector b0 equals 1 in A_q, not only after ambient coercion.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed."
+      ],
+      "proofSteps": [
+        "Use subtype extensionality and the incoming ambient equation for b0."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-basis-zero"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-polynomial-universal-map",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored algebraic deduction from the incoming quadratic coordinates and parameter action",
+          "excerpt": "conductor square",
+          "match": "The source motivates the quadratic pinching chart. The explicit coordinate multiplication and S-algebra mapping property are authored deductions, not printed theorems of Schröer or geometric normalization/cohomology results."
+        }
+      ],
+      "acceptance": [
+        "The cusp, split and repeated-root quadratics, arbitrary characteristic and independent-universe coefficient algebras retain the same specified algebra and scalar action."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialBasis_zero_eq_one"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-basis-square",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Quadratic relation of the second basis vector",
+      "kind": "lemma",
+      "statement": "In the actual S-algebra A_q, v²=θ(T³−bT²)−θ(aT)v, with v=b1=tq. Equivalently v²+aT·v+bT²−T³=0. The coefficients are evaluated at q, not at t.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed."
+      ],
+      "proofSteps": [
+        "Compare ambient coercions, use θ(P)=P(q) and v=tq, and expand q=t²+at+b."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-basis-one",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-parameter-coe",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-parameter-algebra"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-polynomial-universal-map",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored algebraic deduction from the incoming quadratic coordinates and parameter action",
+          "excerpt": "conductor square",
+          "match": "The source motivates the quadratic pinching chart. The explicit coordinate multiplication and S-algebra mapping property are authored deductions, not printed theorems of Schröer or geometric normalization/cohomology results."
+        }
+      ],
+      "acceptance": [
+        "The cusp, split and repeated-root quadratics, arbitrary characteristic and independent-universe coefficient algebras retain the same specified algebra and scalar action."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialBasis_square"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-evaluation",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Linear evaluation of a pinched element",
+      "kind": "construction",
+      "statement": "For an arbitrary y∈B, construct the actual S-linear map E_y:A_q→B given by E_y(f)=ι(e⁻¹(f)₀)+ι(e⁻¹(f)₁)y. No root equation on y is required to construct this linear map, and multiplicativity is not assumed.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed.",
+        "B is an arbitrary commutative S-algebra, in an independent universe; B need not be a field, reduced or nonzero. Write ι:S→B for its actual algebra map, R=T³−bT² and L=aT. Write v=b1=tq in A_q."
+      ],
+      "proofSteps": [
+        "The inverse coordinate equivalence is S-linear. Addition and the specified S-action, together with the actual coefficient algebra map into B, prove the native linear-map laws."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-coordinates"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-polynomial-universal-map",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored algebraic deduction from the incoming quadratic coordinates and parameter action",
+          "excerpt": "conductor square",
+          "match": "The source motivates the quadratic pinching chart. The explicit coordinate multiplication and S-algebra mapping property are authored deductions, not printed theorems of Schröer or geometric normalization/cohomology results."
+        }
+      ],
+      "acceptance": [
+        "The cusp, split and repeated-root quadratics, arbitrary characteristic and independent-universe coefficient algebras retain the same specified algebra and scalar action."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialEvaluation",
+      "api": [
+        {
+          "name": "QuadraticPinch.polynomialEvaluation_apply",
+          "role": "characterisation",
+          "statement": "For every y∈B and z∈S×S, E_y(e(z))=ι(z₀)+ι(z₁)y."
+        },
+        {
+          "name": "QuadraticPinch.polynomialEvaluation_mul",
+          "role": "compatibility",
+          "statement": "If y∈B satisfies y²=ι(T³−bT²)−ι(aT)y, then E_y(fg)=E_y(f)E_y(g) for all f,g∈A_q."
+        },
+        {
+          "name": "QuadraticPinch.polynomialEvaluation_parameter",
+          "role": "compatibility",
+          "statement": "For every y∈B and P∈S, E_y(θ(P))=ι(P), without assuming that y satisfies the quadratic relation."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.test_evaluation_parameter",
+          "kind": "compatibility",
+          "statement": "For every y∈B and P∈S, the actual E_y(θ(P)) equals ι(P); no root equation is required."
+        },
+        {
+          "name": "QuadraticPinch.test_evaluation_zero",
+          "kind": "degenerate",
+          "statement": "For every a,b and y∈B, E_y(0)=0 in the actual target ring."
+        },
+        {
+          "name": "QuadraticPinch.test_evaluation_second",
+          "kind": "characterisation",
+          "statement": "For every a,b and y∈B, E_y(e(0,1))=y, not the first coefficient or its scalar evaluation."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-presentation",
+          "how": "Expose the exact multiplication and coefficient-compatible universal map of the already constructed affine presentation without introducing a second ring carrier."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Provide explicit affine coordinate operations and maps for the scheme and structure-sheaf comparisons; these geometric comparisons remain distinct obligations."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-evaluation-apply",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Evaluation in coefficient coordinates",
+      "kind": "lemma",
+      "statement": "For every y∈B and z∈S×S, E_y(e(z))=ι(z₀)+ι(z₁)y.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed.",
+        "B is an arbitrary commutative S-algebra, in an independent universe; B need not be a field, reduced or nonzero. Write ι:S→B for its actual algebra map, R=T³−bT² and L=aT. Write v=b1=tq in A_q."
+      ],
+      "proofSteps": [
+        "Use the inverse law of the existing coordinate equivalence."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-evaluation"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-polynomial-universal-map",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored algebraic deduction from the incoming quadratic coordinates and parameter action",
+          "excerpt": "conductor square",
+          "match": "The source motivates the quadratic pinching chart. The explicit coordinate multiplication and S-algebra mapping property are authored deductions, not printed theorems of Schröer or geometric normalization/cohomology results."
+        }
+      ],
+      "acceptance": [
+        "The cusp, split and repeated-root quadratics, arbitrary characteristic and independent-universe coefficient algebras retain the same specified algebra and scalar action."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialEvaluation_apply"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-evaluation-mul",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Multiplicativity at a relation root",
+      "kind": "lemma",
+      "statement": "If y∈B satisfies y²=ι(T³−bT²)−ι(aT)y, then E_y(fg)=E_y(f)E_y(g) for all f,g∈A_q.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed.",
+        "B is an arbitrary commutative S-algebra, in an independent universe; B need not be a field, reduced or nonzero. Write ι:S→B for its actual algebra map, R=T³−bT² and L=aT. Write v=b1=tq in A_q."
+      ],
+      "proofSteps": [
+        "Apply the inverse multiplication formula; the coefficient algebra map preserves ring operations. Subtract the product of the two evaluations and use the displayed root equation multiplied by the two second coefficients."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-evaluation",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-inverse-mul"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-polynomial-universal-map",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored algebraic deduction from the incoming quadratic coordinates and parameter action",
+          "excerpt": "conductor square",
+          "match": "The source motivates the quadratic pinching chart. The explicit coordinate multiplication and S-algebra mapping property are authored deductions, not printed theorems of Schröer or geometric normalization/cohomology results."
+        }
+      ],
+      "acceptance": [
+        "The cusp, split and repeated-root quadratics, arbitrary characteristic and independent-universe coefficient algebras retain the same specified algebra and scalar action."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialEvaluation_mul"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-lift",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Algebra map determined by the second basis vector",
+      "kind": "construction",
+      "statement": "For every y∈B satisfying y²=ι(T³−bT²)−ι(aT)y, construct the actual S-algebra homomorphism F_y:A_q→B whose underlying function is E_y. Its unit and coefficient images are the actual ring unit and the specified map ι.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed.",
+        "B is an arbitrary commutative S-algebra, in an independent universe; B need not be a field, reduced or nonzero. Write ι:S→B for its actual algebra map, R=T³−bT² and L=aT. Write v=b1=tq in A_q."
+      ],
+      "proofSteps": [
+        "Reuse the native linear map and the established multiplicative law. Identify the ring unit and θ(P) with e(1,0) and e(P,0); the evaluation formula proves the unit and coefficient-map conditions."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-evaluation",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-evaluation-mul",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-evaluation-apply",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-parameter-coordinates"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-polynomial-universal-map",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored algebraic deduction from the incoming quadratic coordinates and parameter action",
+          "excerpt": "conductor square",
+          "match": "The source motivates the quadratic pinching chart. The explicit coordinate multiplication and S-algebra mapping property are authored deductions, not printed theorems of Schröer or geometric normalization/cohomology results."
+        }
+      ],
+      "acceptance": [
+        "The cusp, split and repeated-root quadratics, arbitrary characteristic and independent-universe coefficient algebras retain the same specified algebra and scalar action."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialLift",
+      "api": [
+        {
+          "name": "QuadraticPinch.polynomialLift_apply",
+          "role": "simp",
+          "statement": "For every relation root y and z∈S×S, F_y(e(z))=ι(z₀)+ι(z₁)y."
+        },
+        {
+          "name": "QuadraticPinch.polynomialLift_basis",
+          "role": "simp",
+          "statement": "For every relation root y, F_y(v)=y for the actual v=b1=tq."
+        },
+        {
+          "name": "QuadraticPinch.polynomialLift_unique",
+          "role": "universal-property",
+          "statement": "For every relation root y and actual S-algebra homomorphism F:A_q→B with F(v)=y, F=F_y."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.test_lift_self",
+          "kind": "compatibility",
+          "statement": "For B=A_q with its specified S-algebra structure and y=v with its proved quadratic relation, the actual F_v is the identity S-algebra homomorphism of A_q."
+        },
+        {
+          "name": "QuadraticPinch.test_lift_root",
+          "kind": "characterisation",
+          "statement": "For every relation root y in every commutative S-algebra B, the actual lift sends the actual second basis vector v to y."
+        },
+        {
+          "name": "QuadraticPinch.test_lift_unique",
+          "kind": "characterisation",
+          "statement": "Every actual S-algebra homomorphism sending v to a specified relation root y is equal to the constructed F_y."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-presentation",
+          "how": "Expose the exact multiplication and coefficient-compatible universal map of the already constructed affine presentation without introducing a second ring carrier."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Provide explicit affine coordinate operations and maps for the scheme and structure-sheaf comparisons; these geometric comparisons remain distinct obligations."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-lift-apply",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Algebra map on a coefficient pair",
+      "kind": "lemma",
+      "statement": "For every relation root y and z∈S×S, F_y(e(z))=ι(z₀)+ι(z₁)y.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed.",
+        "B is an arbitrary commutative S-algebra, in an independent universe; B need not be a field, reduced or nonzero. Write ι:S→B for its actual algebra map, R=T³−bT² and L=aT. Write v=b1=tq in A_q."
+      ],
+      "proofSteps": [
+        "The underlying function of F_y is E_y, so use the established evaluation formula."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-lift",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-evaluation-apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-polynomial-universal-map",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored algebraic deduction from the incoming quadratic coordinates and parameter action",
+          "excerpt": "conductor square",
+          "match": "The source motivates the quadratic pinching chart. The explicit coordinate multiplication and S-algebra mapping property are authored deductions, not printed theorems of Schröer or geometric normalization/cohomology results."
+        }
+      ],
+      "acceptance": [
+        "The cusp, split and repeated-root quadratics, arbitrary characteristic and independent-universe coefficient algebras retain the same specified algebra and scalar action."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialLift_apply"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-lift-basis",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Image of the second basis vector",
+      "kind": "lemma",
+      "statement": "For every relation root y, F_y(v)=y for the actual v=b1=tq.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed.",
+        "B is an arbitrary commutative S-algebra, in an independent universe; B need not be a field, reduced or nonzero. Write ι:S→B for its actual algebra map, R=T³−bT² and L=aT. Write v=b1=tq in A_q."
+      ],
+      "proofSteps": [
+        "The second basis vector is the coordinate image of (0,1); evaluate that pair."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-lift-apply",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-basis"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-polynomial-universal-map",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored algebraic deduction from the incoming quadratic coordinates and parameter action",
+          "excerpt": "conductor square",
+          "match": "The source motivates the quadratic pinching chart. The explicit coordinate multiplication and S-algebra mapping property are authored deductions, not printed theorems of Schröer or geometric normalization/cohomology results."
+        }
+      ],
+      "acceptance": [
+        "The cusp, split and repeated-root quadratics, arbitrary characteristic and independent-universe coefficient algebras retain the same specified algebra and scalar action."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialLift_basis"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-lift-unique",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Uniqueness of the algebra lift",
+      "kind": "lemma",
+      "statement": "For every relation root y and actual S-algebra homomorphism F:A_q→B with F(v)=y, F=F_y.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed.",
+        "B is an arbitrary commutative S-algebra, in an independent universe; B need not be a field, reduced or nonzero. Write ι:S→B for its actual algebra map, R=T³−bT² and L=aT. Write v=b1=tq in A_q."
+      ],
+      "proofSteps": [
+        "Reconstruct each f as P·b0+Q·v. Both homomorphisms preserve the specified S-coefficients, addition and multiplication, and have identical values on 1 and v."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-lift-basis",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-basis-unit",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-reconstruction",
+        "mathlib:AlgHom.commutes"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-polynomial-universal-map",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored algebraic deduction from the incoming quadratic coordinates and parameter action",
+          "excerpt": "conductor square",
+          "match": "The source motivates the quadratic pinching chart. The explicit coordinate multiplication and S-algebra mapping property are authored deductions, not printed theorems of Schröer or geometric normalization/cohomology results."
+        }
+      ],
+      "acceptance": [
+        "The cusp, split and repeated-root quadratics, arbitrary characteristic and independent-universe coefficient algebras retain the same specified algebra and scalar action."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialLift_unique"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-hom-relation",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Every algebra map produces a relation root",
+      "kind": "lemma",
+      "statement": "For every actual S-algebra homomorphism F:A_q→B, its value F(v) satisfies F(v)²=ι(T³−bT²)−ι(aT)F(v).",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed.",
+        "B is an arbitrary commutative S-algebra, in an independent universe; B need not be a field, reduced or nonzero. Write ι:S→B for its actual algebra map, R=T³−bT² and L=aT. Write v=b1=tq in A_q."
+      ],
+      "proofSteps": [
+        "Apply F to the proved native relation and use preservation of ring operations and the coefficient map."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-basis-square",
+        "mathlib:AlgHom.commutes"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-polynomial-universal-map",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored algebraic deduction from the incoming quadratic coordinates and parameter action",
+          "excerpt": "conductor square",
+          "match": "The source motivates the quadratic pinching chart. The explicit coordinate multiplication and S-algebra mapping property are authored deductions, not printed theorems of Schröer or geometric normalization/cohomology results."
+        }
+      ],
+      "acceptance": [
+        "The cusp, split and repeated-root quadratics, arbitrary characteristic and independent-universe coefficient algebras retain the same specified algebra and scalar action."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialHom_relation"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-hom-roots",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Algebra homomorphisms as quadratic roots",
+      "kind": "construction",
+      "statement": "Construct the actual equivalence between S-algebra homomorphisms A_q→B and the subtype of y∈B satisfying y²=ι(T³−bT²)−ι(aT)y. The forward map is F↦F(v), and the inverse is y↦F_y. It describes maps of the specified parameter algebra, not a geometric normalization universal property.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed.",
+        "B is an arbitrary commutative S-algebra, in an independent universe; B need not be a field, reduced or nonzero. Write ι:S→B for its actual algebra map, R=T³−bT² and L=aT. Write v=b1=tq in A_q."
+      ],
+      "proofSteps": [
+        "The relation lemma makes the forward map land in the actual root subtype. Lift uniqueness gives the homomorphism-side inverse law, and the second-basis-vector formula gives the root-side inverse law."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-hom-relation",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-lift",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-lift-basis",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-lift-unique"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-polynomial-universal-map",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored algebraic deduction from the incoming quadratic coordinates and parameter action",
+          "excerpt": "conductor square",
+          "match": "The source motivates the quadratic pinching chart. The explicit coordinate multiplication and S-algebra mapping property are authored deductions, not printed theorems of Schröer or geometric normalization/cohomology results."
+        }
+      ],
+      "acceptance": [
+        "The cusp, split and repeated-root quadratics, arbitrary characteristic and independent-universe coefficient algebras retain the same specified algebra and scalar action."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialHomEquivRoots",
+      "api": [
+        {
+          "name": "QuadraticPinch.polynomialHomEquivRoots_apply",
+          "role": "projection",
+          "statement": "For every actual S-algebra homomorphism F, the underlying element of its image under the homomorphism/root equivalence is F(v)."
+        },
+        {
+          "name": "QuadraticPinch.polynomialHomEquivRoots_symm_apply",
+          "role": "compatibility",
+          "statement": "For every element y of the actual root subtype, the inverse homomorphism/root equivalence is exactly F_y, constructed with y’s displayed relation proof."
+        },
+        {
+          "name": "QuadraticPinch.polynomialHomEquivRoots_parameter",
+          "role": "compatibility",
+          "statement": "For every actual root-subtype element y and every P∈S, the inverse homomorphism/root correspondence sends θ(P) to ι(P)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.test_hom_roots_forward_inverse",
+          "kind": "characterisation",
+          "statement": "For every actual root-subtype element y, mapping y to its inverse homomorphism and then taking its forward root recovers y, including its relation subtype."
+        },
+        {
+          "name": "QuadraticPinch.test_hom_roots_inverse_forward",
+          "kind": "compatibility",
+          "statement": "For every actual S-algebra homomorphism F, constructing the lift of its forward root recovers exactly F."
+        },
+        {
+          "name": "QuadraticPinch.test_hom_roots_parameter",
+          "kind": "compatibility",
+          "statement": "For every root-subtype element y and P∈S, the actual inverse correspondence sends θ(P) to ι(P), with no change of the parameter action."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-presentation",
+          "how": "Expose the exact multiplication and coefficient-compatible universal map of the already constructed affine presentation without introducing a second ring carrier."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Provide explicit affine coordinate operations and maps for the scheme and structure-sheaf comparisons; these geometric comparisons remain distinct obligations."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-hom-roots-apply",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Forward quadratic root comparison",
+      "kind": "lemma",
+      "statement": "For every actual S-algebra homomorphism F, the underlying element of its image under the homomorphism/root equivalence is F(v).",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed.",
+        "B is an arbitrary commutative S-algebra, in an independent universe; B need not be a field, reduced or nonzero. Write ι:S→B for its actual algebra map, R=T³−bT² and L=aT. Write v=b1=tq in A_q."
+      ],
+      "proofSteps": [
+        "Read the specified forward function of the constructed equivalence."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-hom-roots"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-polynomial-universal-map",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored algebraic deduction from the incoming quadratic coordinates and parameter action",
+          "excerpt": "conductor square",
+          "match": "The source motivates the quadratic pinching chart. The explicit coordinate multiplication and S-algebra mapping property are authored deductions, not printed theorems of Schröer or geometric normalization/cohomology results."
+        }
+      ],
+      "acceptance": [
+        "The cusp, split and repeated-root quadratics, arbitrary characteristic and independent-universe coefficient algebras retain the same specified algebra and scalar action."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialHomEquivRoots_apply"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-hom-roots-inverse",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Inverse quadratic root comparison",
+      "kind": "lemma",
+      "statement": "For every element y of the actual root subtype, the inverse homomorphism/root equivalence is exactly F_y, constructed with y’s displayed relation proof.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed.",
+        "B is an arbitrary commutative S-algebra, in an independent universe; B need not be a field, reduced or nonzero. Write ι:S→B for its actual algebra map, R=T³−bT² and L=aT. Write v=b1=tq in A_q."
+      ],
+      "proofSteps": [
+        "Read the specified inverse function; no alternative choice of coefficient action is introduced."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-hom-roots"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-polynomial-universal-map",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored algebraic deduction from the incoming quadratic coordinates and parameter action",
+          "excerpt": "conductor square",
+          "match": "The source motivates the quadratic pinching chart. The explicit coordinate multiplication and S-algebra mapping property are authored deductions, not printed theorems of Schröer or geometric normalization/cohomology results."
+        }
+      ],
+      "acceptance": [
+        "The cusp, split and repeated-root quadratics, arbitrary characteristic and independent-universe coefficient algebras retain the same specified algebra and scalar action."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialHomEquivRoots_symm_apply"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-product-unit",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Unit for coefficient multiplication",
+      "kind": "lemma",
+      "statement": "For every a,b and z∈S×S, (1,0)⋆z=z.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed."
+      ],
+      "proofSteps": [
+        "Substitute (1,0) in the explicit coefficient formula and simplify polynomial ring operations."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-product"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-polynomial-universal-map",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored algebraic deduction from the incoming quadratic coordinates and parameter action",
+          "excerpt": "conductor square",
+          "match": "The source motivates the quadratic pinching chart. The explicit coordinate multiplication and S-algebra mapping property are authored deductions, not printed theorems of Schröer or geometric normalization/cohomology results."
+        }
+      ],
+      "acceptance": [
+        "The cusp, split and repeated-root quadratics, arbitrary characteristic and independent-universe coefficient algebras retain the same specified algebra and scalar action."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialProduct_unit"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-evaluation-parameter",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Linear evaluation fixes the parameter",
+      "kind": "lemma",
+      "statement": "For every y∈B and P∈S, E_y(θ(P))=ι(P), without assuming that y satisfies the quadratic relation.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed.",
+        "B is an arbitrary commutative S-algebra, in an independent universe; B need not be a field, reduced or nonzero. Write ι:S→B for its actual algebra map, R=T³−bT² and L=aT. Write v=b1=tq in A_q."
+      ],
+      "proofSteps": [
+        "Write θ(P)=e(P,0) by the incoming parameter comparison and use the coordinate evaluation equation."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-evaluation-apply",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-parameter-coordinates"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-polynomial-universal-map",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored algebraic deduction from the incoming quadratic coordinates and parameter action",
+          "excerpt": "conductor square",
+          "match": "The source motivates the quadratic pinching chart. The explicit coordinate multiplication and S-algebra mapping property are authored deductions, not printed theorems of Schröer or geometric normalization/cohomology results."
+        }
+      ],
+      "acceptance": [
+        "The cusp, split and repeated-root quadratics, arbitrary characteristic and independent-universe coefficient algebras retain the same specified algebra and scalar action."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialEvaluation_parameter"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-hom-roots-parameter",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Root correspondence fixes every coefficient",
+      "kind": "lemma",
+      "statement": "For every actual root-subtype element y and every P∈S, the inverse homomorphism/root correspondence sends θ(P) to ι(P).",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed.",
+        "B is an arbitrary commutative S-algebra, in an independent universe; B need not be a field, reduced or nonzero. Write ι:S→B for its actual algebra map, R=T³−bT² and L=aT. Write v=b1=tq in A_q."
+      ],
+      "proofSteps": [
+        "The inverse correspondence is an actual S-algebra homomorphism; apply its native coefficient-map compatibility."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-hom-roots",
+        "mathlib:AlgHom.commutes"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-a71f92-polynomial-universal-map",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored algebraic deduction from the incoming quadratic coordinates and parameter action",
+          "excerpt": "conductor square",
+          "match": "The source motivates the quadratic pinching chart. The explicit coordinate multiplication and S-algebra mapping property are authored deductions, not printed theorems of Schröer or geometric normalization/cohomology results."
+        }
+      ],
+      "acceptance": [
+        "The cusp, split and repeated-root quadratics, arbitrary characteristic and independent-universe coefficient algebras retain the same specified algebra and scalar action."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialHomEquivRoots_parameter"
     }
   ],
   "requests": [
@@ -28939,5 +29856,15 @@
       "stageEdgesUnchanged": true
     },
     "boundary": "For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked."
+  },
+  "polynomialUniversalMapContinuation": {
+    "agent": "Codex — codex-a71f92",
+    "date": "2026-10-03",
+    "claim": 5965924400,
+    "botConfirmation": 5965925268,
+    "mathReadBase": "eb8f66757359665c389efb1cd6ad4481af968629",
+    "newNodes": 19,
+    "newTests": 12,
+    "boundary": "For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain."
   }
 }
