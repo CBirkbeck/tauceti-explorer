@@ -15,7 +15,7 @@
     "FunctionFieldArithmeticPartII:GC.5",
     "FunctionFieldArithmeticPartII:GC.6"
   ],
-  "summary": "Partial roadmap with 388 declaration-sized nodes. Arbitrary-section rational-character LEFT coaction now has the explicit heterobasic coefficient square, identity/composition and unchanged-weight formulas, and one-way preservation of universal coinvariance. New conditional proof bodies are checked against incoming admitted coordinate/coaction contracts. All incoming source routes, general root-stack scope, nonreduced fibres and geometric/sheaf boundaries remain; no implementation or stage is certified closed. Separate native evidence proves the existing rational-character/infinite unity-root coordinate block; three computation lemmas expose natural representatives and factorial levels. No geometric or stage closure is asserted. The ten arbitrary-section rational LEFT coaction contracts now have separate admission-free exact-Mathlib proof evidence, and the ten coefficient contracts of PR5978 are replayed without their former admitted inputs. The defining-degree boundary and three additional tests are specified. Two inherited tensor-power precedence errors are corrected only in the Lean prototypes, leaving all mathematical contracts unchanged. Next complete full exact-pin Tau typing, positive-index/higher-universe transport, convolution-point identification, coherent root-object reindexing, affine Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons. These algebraic certificates do not identify all coinvariants with A. Preserve all eight gaps, thirteen requests and both source routes. The actual finite coaction equalizer is identified with the coefficient algebra through diagonal/zero-row coordinates, uniformly in wild characteristic and with arbitrary nonreduced coefficients. The factorial arbitrary-section root algebra has the actual native coefficient invariant subalgebra A. Rational-character extraction and injective finite-stage inclusions supply a finite-level criterion, existence and uniqueness of the coefficient, and the native equalizer algebra equivalence, also for wild and nonreduced bases. This algebraic calculation does not discharge the geometric quotient, Spec-limit, root-groupoid or fpqc frame-descent contracts. Positive-divisibility coaction continuation:20 explicit declarations,15 consumed API items and14 typed examples; invariant algebra identified without a geometric quotient claim.",
+  "summary": "Partial roadmap with 388 declaration-sized nodes. Arbitrary-section rational-character LEFT coaction now has the explicit heterobasic coefficient square, identity/composition and unchanged-weight formulas, and one-way preservation of universal coinvariance. New conditional proof bodies are checked against incoming admitted coordinate/coaction contracts. All incoming source routes, general root-stack scope, nonreduced fibres and geometric/sheaf boundaries remain; no implementation or stage is certified closed. Separate native evidence proves the existing rational-character/infinite unity-root coordinate block; three computation lemmas expose natural representatives and factorial levels. No geometric or stage closure is asserted. The ten arbitrary-section rational LEFT coaction contracts now have separate admission-free exact-Mathlib proof evidence, and the ten coefficient contracts of PR5978 are replayed without their former admitted inputs. The defining-degree boundary and three additional tests are specified. Two inherited tensor-power precedence errors are corrected only in the Lean prototypes, leaving all mathematical contracts unchanged. Next complete full exact-pin Tau typing, positive-index/higher-universe transport, convolution-point identification, coherent root-object reindexing, affine Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons. These algebraic certificates do not identify all coinvariants with A. Preserve all eight gaps, thirteen requests and both source routes. The actual finite coaction equalizer is identified with the coefficient algebra through diagonal/zero-row coordinates, uniformly in wild characteristic and with arbitrary nonreduced coefficients. The factorial arbitrary-section root algebra has the actual native coefficient invariant subalgebra A. Rational-character extraction and injective finite-stage inclusions supply a finite-level criterion, existence and uniqueness of the coefficient, and the native equalizer algebra equivalence, also for wild and nonreduced bases. This algebraic calculation does not discharge the geometric quotient, Spec-limit, root-groupoid or fpqc frame-descent contracts. Positive-divisibility coaction continuation:20 explicit declarations,15 consumed API items and14 typed examples; invariant algebra identified without a geometric quotient claim. Positive-divisibility coefficient continuation:23 explicit declarations,18 API items and12 typed tests establish coefficient functoriality of the universal coaction and actual invariant algebra.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2093,6 +2093,18 @@
       "accessed": "2026-10-03",
       "readSections": [
         "Fresh complete browser-extracted printed pp.14–16, including cofinality Remark3.6, grading, full Lemma3.7, Definition3.8, Proposition3.10 and Lemma3.12 proofs, Corollary3.13. No rendered-page inspection, whole-paper audit or new version collation."
+      ]
+    },
+    {
+      "id": "DivisibilityCoefficients-rtOQ9t",
+      "title": "Positive-divisibility coefficient maps and invariant algebra naturality; authored deductions",
+      "authors": "Codex — codex-rtOQ9t; motivating paper by Mattia Talpo and Angelo Vistoli",
+      "edition": "arXiv1410.1164v2, 12 December 2017",
+      "url": "https://arxiv.org/pdf/1410.1164v2",
+      "sha256": "92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2",
+      "accessed": "2026-10-03",
+      "readSections": [
+        "Fresh complete extracted printed pp.14–16, including Proposition3.5 proof, cofinality Remark3.6, §3.1 grading, full Lemma3.7 proof, Definition3.8, Proposition3.10 and Lemma3.12 proofs and Corollary3.13. Selected passage only; no rendered-page, whole-paper or new-version audit."
       ]
     }
   ],
@@ -25181,6 +25193,1250 @@
           "sourceId": "DivisibilityCoaction-7e92bd",
           "locator": "Authored deductions below, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality remark, grading and Lemma3.7",
           "match": "The paper supplies the grading/cofinality motivation. These explicit positive-divisibility algebra homomorphisms and their Lean proofs are authored deductions from the existing native constructions, not literal named results of the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-map",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "construction",
+      "title": "Coefficient map over positive divisibilities",
+      "declarationName": "TauCeti.RootStack.divisibilityCoefficientMap",
+      "statement": "For φ:A→B construct F_D(φ):D_A(f)→D_B(φ(f)) as E_B⁻¹∘F_C(φ)∘E_A, using the existing native cofinality equivalences and factorial coefficient map.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made.",
+        "D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)).",
+        "G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-equivalence",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-map"
+      ],
+      "proofSteps": [
+        "Compose the actual ring homomorphisms of the native colimits."
+      ],
+      "acceptance": [
+        "For φ:A→B construct F_D(φ):D_A(f)→D_B(φ(f)) as E_B⁻¹∘F_C(φ)∘E_A, using the existing native cofinality equivalences and factorial coefficient map.",
+        "Use the actual native colimits, tensor maps and coaction equalizers. Preserve the ring parameter and positive root index; scalar-point fixedness and an assumed invariant predicate cannot replace them."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.divisibilityCoefficientMap.transport",
+          "role": "compatibility",
+          "statement": "For every x∈D_A(f), E_B(F_D(φ)(x))=F_C(φ)(E_A(x))."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityCoefficientMap.constant",
+          "role": "compatibility",
+          "statement": "F_D(φ)(algebraMap(a))=algebraMap(φ(a)) for every a∈A."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityCoefficientMap.root",
+          "role": "compatibility",
+          "statement": "For every positive n, F_D(φ)(v_n)=v′_n, the actual n-th root at parameter φ(f)."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityCoefficientMap.id",
+          "role": "functoriality",
+          "statement": "F_D(id_A)=id_D."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityCoefficientMap.comp",
+          "role": "functoriality",
+          "statement": "For ψ:B→C, F_D(ψ∘φ)=F_D(ψ)∘F_D(φ), at the actual successive parameters."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.divisibilityCoefficientMap.test_third_root",
+          "kind": "computation",
+          "statement": "For the nonflat quotient Z→Z/4 and f=2, the actual positive index-three root maps to the index-three root at the image parameter."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityCoefficientMap.test_identity",
+          "kind": "compatibility",
+          "statement": "The identity coefficient ring map fixes every actual colimit element."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityCoefficientMap.test_zero_ring",
+          "kind": "degenerate",
+          "statement": "The coefficient map Z/2→Z/1 at f=0 sends every colimit element to zero, retaining the zero-ring target."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityCoefficientMap.test_killed_constant",
+          "kind": "non-example",
+          "statement": "Under Z→Z/4 and f=2, the coefficient 4 is nonzero in the source colimit and maps to zero. Arbitrary coefficient maps need not be injective."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies coefficient functoriality for the affine grading/coaction and its actual invariant algebra. Geometric fpqc quotient/descent and root-object groupoid comparisons remain supplied by their recorded requests."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoefficients-rtOQ9t",
+          "locator": "Authored deductions, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality Remark3.6, grading, Lemma3.7 and Corollary3.13",
+          "match": "The source supplies cofinality, graded-action and base-change motivation. These explicit native coefficient maps and equalizer-coordinate laws are authored algebraic deductions from the existing packet constructions, not literal named results of the paper or a proof of its geometric quotient comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-transport",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Coefficient change commutes with cofinality",
+      "declarationName": "TauCeti.RootStack.divisibilityCoefficientMap.transport",
+      "statement": "For every x∈D_A(f), E_B(F_D(φ)(x))=F_C(φ)(E_A(x)).",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made.",
+        "D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)).",
+        "G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-map"
+      ],
+      "proofSteps": [
+        "Cancel the inverse of the actual target algebra equivalence."
+      ],
+      "acceptance": [
+        "For every x∈D_A(f), E_B(F_D(φ)(x))=F_C(φ)(E_A(x)).",
+        "Use the actual native colimits, tensor maps and coaction equalizers. Preserve the ring parameter and positive root index; scalar-point fixedness and an assumed invariant predicate cannot replace them."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies coefficient functoriality for the affine grading/coaction and its actual invariant algebra. Geometric fpqc quotient/descent and root-object groupoid comparisons remain supplied by their recorded requests."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoefficients-rtOQ9t",
+          "locator": "Authored deductions, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality Remark3.6, grading, Lemma3.7 and Corollary3.13",
+          "match": "The source supplies cofinality, graded-action and base-change motivation. These explicit native coefficient maps and equalizer-coordinate laws are authored algebraic deductions from the existing packet constructions, not literal named results of the paper or a proof of its geometric quotient comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-constant",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Coefficient map on constants",
+      "declarationName": "TauCeti.RootStack.divisibilityCoefficientMap.constant",
+      "statement": "F_D(φ)(algebraMap(a))=algebraMap(φ(a)) for every a∈A.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made.",
+        "D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)).",
+        "G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-transport",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-constant"
+      ],
+      "proofSteps": [
+        "Apply the injective E_B, use its algebra compatibility and the factorial constant formula."
+      ],
+      "acceptance": [
+        "F_D(φ)(algebraMap(a))=algebraMap(φ(a)) for every a∈A.",
+        "Use the actual native colimits, tensor maps and coaction equalizers. Preserve the ring parameter and positive root index; scalar-point fixedness and an assumed invariant predicate cannot replace them."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies coefficient functoriality for the affine grading/coaction and its actual invariant algebra. Geometric fpqc quotient/descent and root-object groupoid comparisons remain supplied by their recorded requests."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoefficients-rtOQ9t",
+          "locator": "Authored deductions, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality Remark3.6, grading, Lemma3.7 and Corollary3.13",
+          "match": "The source supplies cofinality, graded-action and base-change motivation. These explicit native coefficient maps and equalizer-coordinate laws are authored algebraic deductions from the existing packet constructions, not literal named results of the paper or a proof of its geometric quotient comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-root",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Coefficient map preserves every root index",
+      "declarationName": "TauCeti.RootStack.divisibilityCoefficientMap.root",
+      "statement": "For every positive n, F_D(φ)(v_n)=v′_n, the actual n-th root at parameter φ(f).",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made.",
+        "D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)).",
+        "G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-transport",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-root",
+        "FunctionFieldArithmeticPartII:RS.2/root-factorial-cofinal",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-root"
+      ],
+      "proofSteps": [
+        "Embed both roots into factorial level (n+1)! using cofinality. The factorial coefficient map preserves that root and its ((n+1)!/n)-th power. Reflect equality by E_B."
+      ],
+      "acceptance": [
+        "For every positive n, F_D(φ)(v_n)=v′_n, the actual n-th root at parameter φ(f).",
+        "Use the actual native colimits, tensor maps and coaction equalizers. Preserve the ring parameter and positive root index; scalar-point fixedness and an assumed invariant predicate cannot replace them."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies coefficient functoriality for the affine grading/coaction and its actual invariant algebra. Geometric fpqc quotient/descent and root-object groupoid comparisons remain supplied by their recorded requests."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoefficients-rtOQ9t",
+          "locator": "Authored deductions, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality Remark3.6, grading, Lemma3.7 and Corollary3.13",
+          "match": "The source supplies cofinality, graded-action and base-change motivation. These explicit native coefficient maps and equalizer-coordinate laws are authored algebraic deductions from the existing packet constructions, not literal named results of the paper or a proof of its geometric quotient comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-identity",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Identity coefficient map",
+      "declarationName": "TauCeti.RootStack.divisibilityCoefficientMap.id",
+      "statement": "F_D(id_A)=id_D.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made.",
+        "D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)).",
+        "G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-transport",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-identity"
+      ],
+      "proofSteps": [
+        "Apply E_A injectivity pointwise and the inherited factorial identity."
+      ],
+      "acceptance": [
+        "F_D(id_A)=id_D.",
+        "Use the actual native colimits, tensor maps and coaction equalizers. Preserve the ring parameter and positive root index; scalar-point fixedness and an assumed invariant predicate cannot replace them."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies coefficient functoriality for the affine grading/coaction and its actual invariant algebra. Geometric fpqc quotient/descent and root-object groupoid comparisons remain supplied by their recorded requests."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoefficients-rtOQ9t",
+          "locator": "Authored deductions, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality Remark3.6, grading, Lemma3.7 and Corollary3.13",
+          "match": "The source supplies cofinality, graded-action and base-change motivation. These explicit native coefficient maps and equalizer-coordinate laws are authored algebraic deductions from the existing packet constructions, not literal named results of the paper or a proof of its geometric quotient comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-composition",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Composition of coefficient maps",
+      "declarationName": "TauCeti.RootStack.divisibilityCoefficientMap.comp",
+      "statement": "For ψ:B→C, F_D(ψ∘φ)=F_D(ψ)∘F_D(φ), at the actual successive parameters.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made.",
+        "D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)).",
+        "G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-transport",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-composition"
+      ],
+      "proofSteps": [
+        "Apply E_C and transport each factor; factorial composition gives the same native ring map."
+      ],
+      "acceptance": [
+        "For ψ:B→C, F_D(ψ∘φ)=F_D(ψ)∘F_D(φ), at the actual successive parameters.",
+        "Use the actual native colimits, tensor maps and coaction equalizers. Preserve the ring parameter and positive root index; scalar-point fixedness and an assumed invariant predicate cannot replace them."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies coefficient functoriality for the affine grading/coaction and its actual invariant algebra. Geometric fpqc quotient/descent and root-object groupoid comparisons remain supplied by their recorded requests."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoefficients-rtOQ9t",
+          "locator": "Authored deductions, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality Remark3.6, grading, Lemma3.7 and Corollary3.13",
+          "match": "The source supplies cofinality, graded-action and base-change motivation. These explicit native coefficient maps and equalizer-coordinate laws are authored algebraic deductions from the existing packet constructions, not literal named results of the paper or a proof of its geometric quotient comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-coefficient-map",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "construction",
+      "title": "Rational-character tensor coefficient map",
+      "declarationName": "TauCeti.RootStack.divisibilityQZTensorCoefficientMap",
+      "statement": "Construct F_T(φ):G_A⊗_A D_A(f)→G_B⊗_B D_B(φ(f)) as T_B⁻¹∘F_TC(φ)∘T_A, where F_TC is the inherited native balanced tensor coefficient map and T=id⊗E.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made.",
+        "D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)).",
+        "G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-equivalence",
+        "FunctionFieldArithmeticPartII:RS.2/qz-coefficient-tensor-map"
+      ],
+      "proofSteps": [
+        "Compose actual native tensor ring maps and algebra equivalences. The inherited tensor map uses Algebra.TensorProduct.mapRingHom with explicit coefficient compatibility; no auxiliary A-algebra structure on B is assumed."
+      ],
+      "acceptance": [
+        "Construct F_T(φ):G_A⊗_A D_A(f)→G_B⊗_B D_B(φ(f)) as T_B⁻¹∘F_TC(φ)∘T_A, where F_TC is the inherited native balanced tensor coefficient map and T=id⊗E.",
+        "Use the actual native colimits, tensor maps and coaction equalizers. Preserve the ring parameter and positive root index; scalar-point fixedness and an assumed invariant predicate cannot replace them."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.divisibilityQZTensorCoefficientMap.transport",
+          "role": "compatibility",
+          "statement": "For every y∈G_A⊗_A D_A(f), T_B(F_T(φ)(y))=F_TC(φ)(T_A(y))."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityQZTensorCoefficientMap.tmul",
+          "role": "compatibility",
+          "statement": "F_T(φ)(g⊗x)=G(φ)(g)⊗F_D(φ)(x), where G(φ) applies φ to the coefficients of the native rational-character group algebra."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityQZTensorCoefficientMap.single",
+          "role": "compatibility",
+          "statement": "For q∈ℚ/ℤ, F_T(φ)(a e_q⊗x)=φ(a)e_q⊗F_D(φ)(x)."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityQZTensorCoefficientMap.constant",
+          "role": "compatibility",
+          "statement": "F_T(φ)(algebraMap(a))=algebraMap(φ(a))."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityQZTensorCoefficientMap.id",
+          "role": "functoriality",
+          "statement": "F_T(id_A)=id."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityQZTensorCoefficientMap.comp",
+          "role": "functoriality",
+          "statement": "F_T(ψ∘φ)=F_T(ψ)∘F_T(φ)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.divisibilityQZTensorCoefficientMap.test_character",
+          "kind": "computation",
+          "statement": "Under Z→Z/4, a pure tensor with character [1/3], coefficient 2 and the index-three root maps to the same character and image coefficient/root."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityQZTensorCoefficientMap.test_identity",
+          "kind": "compatibility",
+          "statement": "The identity coefficient ring map fixes every arbitrary tensor, including sums of pure tensors."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityQZTensorCoefficientMap.test_zero_ring",
+          "kind": "degenerate",
+          "statement": "For Z/2→Z/1 at f=0 every actual tensor maps to zero."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityQZTensorCoefficientMap.test_coaction",
+          "kind": "compatibility",
+          "statement": "For Z→Z/4 at f=2, the universal coaction square commutes at every actual source colimit element."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies coefficient functoriality for the affine grading/coaction and its actual invariant algebra. Geometric fpqc quotient/descent and root-object groupoid comparisons remain supplied by their recorded requests."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoefficients-rtOQ9t",
+          "locator": "Authored deductions, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality Remark3.6, grading, Lemma3.7 and Corollary3.13",
+          "match": "The source supplies cofinality, graded-action and base-change motivation. These explicit native coefficient maps and equalizer-coordinate laws are authored algebraic deductions from the existing packet constructions, not literal named results of the paper or a proof of its geometric quotient comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-coefficient-transport",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Tensor coefficient change commutes with cofinality",
+      "declarationName": "TauCeti.RootStack.divisibilityQZTensorCoefficientMap.transport",
+      "statement": "For every y∈G_A⊗_A D_A(f), T_B(F_T(φ)(y))=F_TC(φ)(T_A(y)).",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made.",
+        "D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)).",
+        "G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-coefficient-map"
+      ],
+      "proofSteps": [
+        "Cancel the inverse of the actual target tensor equivalence."
+      ],
+      "acceptance": [
+        "For every y∈G_A⊗_A D_A(f), T_B(F_T(φ)(y))=F_TC(φ)(T_A(y)).",
+        "Use the actual native colimits, tensor maps and coaction equalizers. Preserve the ring parameter and positive root index; scalar-point fixedness and an assumed invariant predicate cannot replace them."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies coefficient functoriality for the affine grading/coaction and its actual invariant algebra. Geometric fpqc quotient/descent and root-object groupoid comparisons remain supplied by their recorded requests."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoefficients-rtOQ9t",
+          "locator": "Authored deductions, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality Remark3.6, grading, Lemma3.7 and Corollary3.13",
+          "match": "The source supplies cofinality, graded-action and base-change motivation. These explicit native coefficient maps and equalizer-coordinate laws are authored algebraic deductions from the existing packet constructions, not literal named results of the paper or a proof of its geometric quotient comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-coefficient-pure",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Tensor coefficient map on pure tensors",
+      "declarationName": "TauCeti.RootStack.divisibilityQZTensorCoefficientMap.tmul",
+      "statement": "F_T(φ)(g⊗x)=G(φ)(g)⊗F_D(φ)(x), where G(φ) applies φ to the coefficients of the native rational-character group algebra.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made.",
+        "D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)).",
+        "G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-coefficient-transport",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-pure",
+        "FunctionFieldArithmeticPartII:RS.2/qz-coefficient-tensor-pure",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-transport"
+      ],
+      "proofSteps": [
+        "Apply T_B injectivity, evaluate both tensor comparisons and the inherited balanced tensor map, then use coefficient transport."
+      ],
+      "acceptance": [
+        "F_T(φ)(g⊗x)=G(φ)(g)⊗F_D(φ)(x), where G(φ) applies φ to the coefficients of the native rational-character group algebra.",
+        "Use the actual native colimits, tensor maps and coaction equalizers. Preserve the ring parameter and positive root index; scalar-point fixedness and an assumed invariant predicate cannot replace them."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies coefficient functoriality for the affine grading/coaction and its actual invariant algebra. Geometric fpqc quotient/descent and root-object groupoid comparisons remain supplied by their recorded requests."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoefficients-rtOQ9t",
+          "locator": "Authored deductions, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality Remark3.6, grading, Lemma3.7 and Corollary3.13",
+          "match": "The source supplies cofinality, graded-action and base-change motivation. These explicit native coefficient maps and equalizer-coordinate laws are authored algebraic deductions from the existing packet constructions, not literal named results of the paper or a proof of its geometric quotient comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-coefficient-character",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Character coefficients under ring change",
+      "declarationName": "TauCeti.RootStack.divisibilityQZTensorCoefficientMap.single",
+      "statement": "For q∈ℚ/ℤ, F_T(φ)(a e_q⊗x)=φ(a)e_q⊗F_D(φ)(x).",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made.",
+        "D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)).",
+        "G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-coefficient-pure",
+        "mathlib:MonoidAlgebra.mapRingHom_single"
+      ],
+      "proofSteps": [
+        "Evaluate the coefficient map on one native group-algebra basis character; the character q stays fixed."
+      ],
+      "acceptance": [
+        "For q∈ℚ/ℤ, F_T(φ)(a e_q⊗x)=φ(a)e_q⊗F_D(φ)(x).",
+        "Use the actual native colimits, tensor maps and coaction equalizers. Preserve the ring parameter and positive root index; scalar-point fixedness and an assumed invariant predicate cannot replace them."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies coefficient functoriality for the affine grading/coaction and its actual invariant algebra. Geometric fpqc quotient/descent and root-object groupoid comparisons remain supplied by their recorded requests."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoefficients-rtOQ9t",
+          "locator": "Authored deductions, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality Remark3.6, grading, Lemma3.7 and Corollary3.13",
+          "match": "The source supplies cofinality, graded-action and base-change motivation. These explicit native coefficient maps and equalizer-coordinate laws are authored algebraic deductions from the existing packet constructions, not literal named results of the paper or a proof of its geometric quotient comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-coefficient-constant",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Tensor coefficient map on constants",
+      "declarationName": "TauCeti.RootStack.divisibilityQZTensorCoefficientMap.constant",
+      "statement": "F_T(φ)(algebraMap(a))=algebraMap(φ(a)).",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made.",
+        "D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)).",
+        "G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-coefficient-transport",
+        "FunctionFieldArithmeticPartII:RS.2/qz-coefficient-tensor-constant"
+      ],
+      "proofSteps": [
+        "Apply T_B injectivity and use the algebra compatibility of T_A,T_B and the inherited constant formula."
+      ],
+      "acceptance": [
+        "F_T(φ)(algebraMap(a))=algebraMap(φ(a)).",
+        "Use the actual native colimits, tensor maps and coaction equalizers. Preserve the ring parameter and positive root index; scalar-point fixedness and an assumed invariant predicate cannot replace them."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies coefficient functoriality for the affine grading/coaction and its actual invariant algebra. Geometric fpqc quotient/descent and root-object groupoid comparisons remain supplied by their recorded requests."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoefficients-rtOQ9t",
+          "locator": "Authored deductions, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality Remark3.6, grading, Lemma3.7 and Corollary3.13",
+          "match": "The source supplies cofinality, graded-action and base-change motivation. These explicit native coefficient maps and equalizer-coordinate laws are authored algebraic deductions from the existing packet constructions, not literal named results of the paper or a proof of its geometric quotient comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-coefficient-identity",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Identity tensor coefficient map",
+      "declarationName": "TauCeti.RootStack.divisibilityQZTensorCoefficientMap.id",
+      "statement": "F_T(id_A)=id.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made.",
+        "D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)).",
+        "G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-coefficient-transport",
+        "FunctionFieldArithmeticPartII:RS.2/qz-coefficient-tensor-identity"
+      ],
+      "proofSteps": [
+        "Apply T_A injectivity pointwise and inherited tensor functoriality."
+      ],
+      "acceptance": [
+        "F_T(id_A)=id.",
+        "Use the actual native colimits, tensor maps and coaction equalizers. Preserve the ring parameter and positive root index; scalar-point fixedness and an assumed invariant predicate cannot replace them."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies coefficient functoriality for the affine grading/coaction and its actual invariant algebra. Geometric fpqc quotient/descent and root-object groupoid comparisons remain supplied by their recorded requests."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoefficients-rtOQ9t",
+          "locator": "Authored deductions, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality Remark3.6, grading, Lemma3.7 and Corollary3.13",
+          "match": "The source supplies cofinality, graded-action and base-change motivation. These explicit native coefficient maps and equalizer-coordinate laws are authored algebraic deductions from the existing packet constructions, not literal named results of the paper or a proof of its geometric quotient comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-coefficient-composition",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Composition of tensor coefficient maps",
+      "declarationName": "TauCeti.RootStack.divisibilityQZTensorCoefficientMap.comp",
+      "statement": "F_T(ψ∘φ)=F_T(ψ)∘F_T(φ).",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made.",
+        "D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)).",
+        "G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-coefficient-transport",
+        "FunctionFieldArithmeticPartII:RS.2/qz-coefficient-tensor-composition"
+      ],
+      "proofSteps": [
+        "Apply T_C and transport all factors; factorial tensor composition proves equality."
+      ],
+      "acceptance": [
+        "F_T(ψ∘φ)=F_T(ψ)∘F_T(φ).",
+        "Use the actual native colimits, tensor maps and coaction equalizers. Preserve the ring parameter and positive root index; scalar-point fixedness and an assumed invariant predicate cannot replace them."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies coefficient functoriality for the affine grading/coaction and its actual invariant algebra. Geometric fpqc quotient/descent and root-object groupoid comparisons remain supplied by their recorded requests."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoefficients-rtOQ9t",
+          "locator": "Authored deductions, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality Remark3.6, grading, Lemma3.7 and Corollary3.13",
+          "match": "The source supplies cofinality, graded-action and base-change motivation. These explicit native coefficient maps and equalizer-coordinate laws are authored algebraic deductions from the existing packet constructions, not literal named results of the paper or a proof of its geometric quotient comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-coefficient-naturality",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Positive-divisibility coaction naturality",
+      "declarationName": "TauCeti.RootStack.divisibilityQZCoaction.coefficient_naturality",
+      "statement": "F_T(φ)∘δ_A=δ_B∘F_D(φ) as native ring homomorphisms.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made.",
+        "D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)).",
+        "G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-coefficient-transport",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-coaction-transport",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-transport",
+        "FunctionFieldArithmeticPartII:RS.2/qz-coaction-coefficient-naturality"
+      ],
+      "proofSteps": [
+        "Apply T_B injectivity pointwise; transport both coactions and use the established factorial coaction naturality."
+      ],
+      "acceptance": [
+        "F_T(φ)∘δ_A=δ_B∘F_D(φ) as native ring homomorphisms.",
+        "Use the actual native colimits, tensor maps and coaction equalizers. Preserve the ring parameter and positive root index; scalar-point fixedness and an assumed invariant predicate cannot replace them."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies coefficient functoriality for the affine grading/coaction and its actual invariant algebra. Geometric fpqc quotient/descent and root-object groupoid comparisons remain supplied by their recorded requests."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoefficients-rtOQ9t",
+          "locator": "Authored deductions, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality Remark3.6, grading, Lemma3.7 and Corollary3.13",
+          "match": "The source supplies cofinality, graded-action and base-change motivation. These explicit native coefficient maps and equalizer-coordinate laws are authored algebraic deductions from the existing packet constructions, not literal named results of the paper or a proof of its geometric quotient comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-map-coinvariant",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Coefficient change preserves universal coinvariance",
+      "declarationName": "TauCeti.RootStack.divisibilityQZCoaction.map_coinvariant",
+      "statement": "If δ_A(x)=1⊗x, then δ_B(F_D(φ)(x))=1⊗F_D(φ)(x).",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made.",
+        "D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)).",
+        "G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-coefficient-naturality",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-coefficient-pure"
+      ],
+      "proofSteps": [
+        "Evaluate the naturality equation at x and use the pure-tensor formula and preservation of 1. Reflection of coinvariance under an arbitrary φ is not asserted."
+      ],
+      "acceptance": [
+        "If δ_A(x)=1⊗x, then δ_B(F_D(φ)(x))=1⊗F_D(φ)(x).",
+        "Use the actual native colimits, tensor maps and coaction equalizers. Preserve the ring parameter and positive root index; scalar-point fixedness and an assumed invariant predicate cannot replace them."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies coefficient functoriality for the affine grading/coaction and its actual invariant algebra. Geometric fpqc quotient/descent and root-object groupoid comparisons remain supplied by their recorded requests."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoefficients-rtOQ9t",
+          "locator": "Authored deductions, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality Remark3.6, grading, Lemma3.7 and Corollary3.13",
+          "match": "The source supplies cofinality, graded-action and base-change motivation. These explicit native coefficient maps and equalizer-coordinate laws are authored algebraic deductions from the existing packet constructions, not literal named results of the paper or a proof of its geometric quotient comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-coefficient-map",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "construction",
+      "title": "Coefficient map of actual invariant algebras",
+      "declarationName": "TauCeti.RootStack.divisibilityInvariantCoefficientMap",
+      "statement": "Construct F_I(φ):I_A(f)→I_B(φ(f)), where I_A is the native AlgHom.equalizer of δ_A and the right tensor inclusion. Its underlying element is F_D(φ)(x.val).",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made.",
+        "D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)).",
+        "G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-map",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-map-coinvariant",
+        "mathlib:AlgHom.equalizer"
+      ],
+      "proofSteps": [
+        "Define the native ring homomorphism on equalizer subtypes. Coaction naturality proves membership; the actual ambient ring map proves zero, one, addition and multiplication laws."
+      ],
+      "acceptance": [
+        "Construct F_I(φ):I_A(f)→I_B(φ(f)), where I_A is the native AlgHom.equalizer of δ_A and the right tensor inclusion. Its underlying element is F_D(φ)(x.val).",
+        "Use the actual native colimits, tensor maps and coaction equalizers. Preserve the ring parameter and positive root index; scalar-point fixedness and an assumed invariant predicate cannot replace them."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.divisibilityInvariantCoefficientMap.coe",
+          "role": "compatibility",
+          "statement": "For every actual equalizer element x, (F_I(φ)(x)).val=F_D(φ)(x.val)."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityInvariantCoefficientMap.forward",
+          "role": "compatibility",
+          "statement": "F_I(φ)(e_A(a))=e_B(φ(a)), where e_A:A≃I_A and e_B:B≃I_B are the existing native invariant algebra equivalences."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityInvariantCoefficientMap.coordinate",
+          "role": "compatibility",
+          "statement": "For every x∈I_A, e_B⁻¹(F_I(φ)(x))=φ(e_A⁻¹(x))."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityInvariantCoefficientMap.id",
+          "role": "functoriality",
+          "statement": "F_I(id_A)=id_I."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityInvariantCoefficientMap.comp",
+          "role": "functoriality",
+          "statement": "F_I(ψ∘φ)=F_I(ψ)∘F_I(φ)."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityInvariantCoefficientMap.injective_iff",
+          "role": "characterisation",
+          "statement": "F_I(φ) is injective if and only if φ is injective."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityInvariantCoefficientMap.surjective_iff",
+          "role": "characterisation",
+          "statement": "F_I(φ) is surjective if and only if φ is surjective."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.divisibilityInvariantCoefficientMap.test_coefficient",
+          "kind": "computation",
+          "statement": "Under Z→Z/4 at f=2, the invariant with coefficient 3 maps to the invariant with coefficient 3 modulo 4."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityInvariantCoefficientMap.test_coordinate",
+          "kind": "characterisation",
+          "statement": "For every actual invariant element and arbitrary ring homomorphism φ, its unique target coefficient is φ applied to its unique source coefficient."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityInvariantCoefficientMap.test_zero_ring",
+          "kind": "degenerate",
+          "statement": "For Z/2→Z/1 at f=0 the actual invariant algebra map is surjective onto the zero-ring equalizer."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityInvariantCoefficientMap.test_killed_coefficient",
+          "kind": "non-example",
+          "statement": "Under Z→Z/4 at f=2, the invariant coefficients 4 and 0 are distinct in the source but have the same image. The invariant map need not be injective."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies coefficient functoriality for the affine grading/coaction and its actual invariant algebra. Geometric fpqc quotient/descent and root-object groupoid comparisons remain supplied by their recorded requests."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoefficients-rtOQ9t",
+          "locator": "Authored deductions, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality Remark3.6, grading, Lemma3.7 and Corollary3.13",
+          "match": "The source supplies cofinality, graded-action and base-change motivation. These explicit native coefficient maps and equalizer-coordinate laws are authored algebraic deductions from the existing packet constructions, not literal named results of the paper or a proof of its geometric quotient comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-coefficient-underlying",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Underlying invariant coefficient map",
+      "declarationName": "TauCeti.RootStack.divisibilityInvariantCoefficientMap.coe",
+      "statement": "For every actual equalizer element x, (F_I(φ)(x)).val=F_D(φ)(x.val).",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made.",
+        "D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)).",
+        "G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-coefficient-map"
+      ],
+      "proofSteps": [
+        "Evaluate the explicit subtype map."
+      ],
+      "acceptance": [
+        "For every actual equalizer element x, (F_I(φ)(x)).val=F_D(φ)(x.val).",
+        "Use the actual native colimits, tensor maps and coaction equalizers. Preserve the ring parameter and positive root index; scalar-point fixedness and an assumed invariant predicate cannot replace them."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies coefficient functoriality for the affine grading/coaction and its actual invariant algebra. Geometric fpqc quotient/descent and root-object groupoid comparisons remain supplied by their recorded requests."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoefficients-rtOQ9t",
+          "locator": "Authored deductions, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality Remark3.6, grading, Lemma3.7 and Corollary3.13",
+          "match": "The source supplies cofinality, graded-action and base-change motivation. These explicit native coefficient maps and equalizer-coordinate laws are authored algebraic deductions from the existing packet constructions, not literal named results of the paper or a proof of its geometric quotient comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-coefficient-forward",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Invariant equivalence coefficient square",
+      "declarationName": "TauCeti.RootStack.divisibilityInvariantCoefficientMap.forward",
+      "statement": "F_I(φ)(e_A(a))=e_B(φ(a)), where e_A:A≃I_A and e_B:B≃I_B are the existing native invariant algebra equivalences.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made.",
+        "D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)).",
+        "G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-coefficient-underlying",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-forward",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-constant"
+      ],
+      "proofSteps": [
+        "Use subtype extensionality and the actual constant formula."
+      ],
+      "acceptance": [
+        "F_I(φ)(e_A(a))=e_B(φ(a)), where e_A:A≃I_A and e_B:B≃I_B are the existing native invariant algebra equivalences.",
+        "Use the actual native colimits, tensor maps and coaction equalizers. Preserve the ring parameter and positive root index; scalar-point fixedness and an assumed invariant predicate cannot replace them."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies coefficient functoriality for the affine grading/coaction and its actual invariant algebra. Geometric fpqc quotient/descent and root-object groupoid comparisons remain supplied by their recorded requests."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoefficients-rtOQ9t",
+          "locator": "Authored deductions, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality Remark3.6, grading, Lemma3.7 and Corollary3.13",
+          "match": "The source supplies cofinality, graded-action and base-change motivation. These explicit native coefficient maps and equalizer-coordinate laws are authored algebraic deductions from the existing packet constructions, not literal named results of the paper or a proof of its geometric quotient comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-coefficient-coordinate",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Naturality of invariant coordinates",
+      "declarationName": "TauCeti.RootStack.divisibilityInvariantCoefficientMap.coordinate",
+      "statement": "For every x∈I_A, e_B⁻¹(F_I(φ)(x))=φ(e_A⁻¹(x)).",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made.",
+        "D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)).",
+        "G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-coefficient-forward",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-equivalence"
+      ],
+      "proofSteps": [
+        "Use surjectivity of the actual source invariant equivalence to write x=e_A(a). The forward coefficient square and the two inverse laws reduce both coordinates to φ(a)."
+      ],
+      "acceptance": [
+        "For every x∈I_A, e_B⁻¹(F_I(φ)(x))=φ(e_A⁻¹(x)).",
+        "Use the actual native colimits, tensor maps and coaction equalizers. Preserve the ring parameter and positive root index; scalar-point fixedness and an assumed invariant predicate cannot replace them."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies coefficient functoriality for the affine grading/coaction and its actual invariant algebra. Geometric fpqc quotient/descent and root-object groupoid comparisons remain supplied by their recorded requests."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoefficients-rtOQ9t",
+          "locator": "Authored deductions, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality Remark3.6, grading, Lemma3.7 and Corollary3.13",
+          "match": "The source supplies cofinality, graded-action and base-change motivation. These explicit native coefficient maps and equalizer-coordinate laws are authored algebraic deductions from the existing packet constructions, not literal named results of the paper or a proof of its geometric quotient comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-coefficient-identity",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Identity invariant coefficient map",
+      "declarationName": "TauCeti.RootStack.divisibilityInvariantCoefficientMap.id",
+      "statement": "F_I(id_A)=id_I.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made.",
+        "D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)).",
+        "G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-coefficient-underlying",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-identity"
+      ],
+      "proofSteps": [
+        "Use ring-map and subtype extensionality, then the ambient identity."
+      ],
+      "acceptance": [
+        "F_I(id_A)=id_I.",
+        "Use the actual native colimits, tensor maps and coaction equalizers. Preserve the ring parameter and positive root index; scalar-point fixedness and an assumed invariant predicate cannot replace them."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies coefficient functoriality for the affine grading/coaction and its actual invariant algebra. Geometric fpqc quotient/descent and root-object groupoid comparisons remain supplied by their recorded requests."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoefficients-rtOQ9t",
+          "locator": "Authored deductions, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality Remark3.6, grading, Lemma3.7 and Corollary3.13",
+          "match": "The source supplies cofinality, graded-action and base-change motivation. These explicit native coefficient maps and equalizer-coordinate laws are authored algebraic deductions from the existing packet constructions, not literal named results of the paper or a proof of its geometric quotient comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-coefficient-composition",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Composition of invariant coefficient maps",
+      "declarationName": "TauCeti.RootStack.divisibilityInvariantCoefficientMap.comp",
+      "statement": "F_I(ψ∘φ)=F_I(ψ)∘F_I(φ).",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made.",
+        "D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)).",
+        "G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-coefficient-forward",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-equivalence"
+      ],
+      "proofSteps": [
+        "Use ring-map extensionality and represent every source invariant as e_A(a). The forward coefficient square reduces the composition identity to ψ(φ(a))."
+      ],
+      "acceptance": [
+        "F_I(ψ∘φ)=F_I(ψ)∘F_I(φ).",
+        "Use the actual native colimits, tensor maps and coaction equalizers. Preserve the ring parameter and positive root index; scalar-point fixedness and an assumed invariant predicate cannot replace them."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies coefficient functoriality for the affine grading/coaction and its actual invariant algebra. Geometric fpqc quotient/descent and root-object groupoid comparisons remain supplied by their recorded requests."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoefficients-rtOQ9t",
+          "locator": "Authored deductions, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality Remark3.6, grading, Lemma3.7 and Corollary3.13",
+          "match": "The source supplies cofinality, graded-action and base-change motivation. These explicit native coefficient maps and equalizer-coordinate laws are authored algebraic deductions from the existing packet constructions, not literal named results of the paper or a proof of its geometric quotient comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-coefficient-injectivity",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Invariant-map injectivity criterion",
+      "declarationName": "TauCeti.RootStack.divisibilityInvariantCoefficientMap.injective_iff",
+      "statement": "F_I(φ) is injective if and only if φ is injective.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made.",
+        "D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)).",
+        "G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-coefficient-forward",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-coefficient-coordinate",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-equivalence"
+      ],
+      "proofSteps": [
+        "Conjugation by the actual invariant equivalences identifies the map with φ. Use forward coefficients in one direction and inverse coordinates in the other. This concerns the invariant algebra, not the ambient colimit or tensor map."
+      ],
+      "acceptance": [
+        "F_I(φ) is injective if and only if φ is injective.",
+        "Use the actual native colimits, tensor maps and coaction equalizers. Preserve the ring parameter and positive root index; scalar-point fixedness and an assumed invariant predicate cannot replace them."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies coefficient functoriality for the affine grading/coaction and its actual invariant algebra. Geometric fpqc quotient/descent and root-object groupoid comparisons remain supplied by their recorded requests."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoefficients-rtOQ9t",
+          "locator": "Authored deductions, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality Remark3.6, grading, Lemma3.7 and Corollary3.13",
+          "match": "The source supplies cofinality, graded-action and base-change motivation. These explicit native coefficient maps and equalizer-coordinate laws are authored algebraic deductions from the existing packet constructions, not literal named results of the paper or a proof of its geometric quotient comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-coefficient-surjectivity",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Invariant-map surjectivity criterion",
+      "declarationName": "TauCeti.RootStack.divisibilityInvariantCoefficientMap.surjective_iff",
+      "statement": "F_I(φ) is surjective if and only if φ is surjective.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made.",
+        "D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)).",
+        "G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-coefficient-forward",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-coefficient-coordinate",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-equivalence"
+      ],
+      "proofSteps": [
+        "Lift each invariant element using its unique coefficient and surjectivity of φ. Conversely a preimage of e_B(b) gives a coefficient preimage of b."
+      ],
+      "acceptance": [
+        "F_I(φ) is surjective if and only if φ is surjective.",
+        "Use the actual native colimits, tensor maps and coaction equalizers. Preserve the ring parameter and positive root index; scalar-point fixedness and an assumed invariant predicate cannot replace them."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies coefficient functoriality for the affine grading/coaction and its actual invariant algebra. Geometric fpqc quotient/descent and root-object groupoid comparisons remain supplied by their recorded requests."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoefficients-rtOQ9t",
+          "locator": "Authored deductions, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality Remark3.6, grading, Lemma3.7 and Corollary3.13",
+          "match": "The source supplies cofinality, graded-action and base-change motivation. These explicit native coefficient maps and equalizer-coordinate laws are authored algebraic deductions from the existing packet constructions, not literal named results of the paper or a proof of its geometric quotient comparison."
         }
       ],
       "implementationStatus": "unchecked"

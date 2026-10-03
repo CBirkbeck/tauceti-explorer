@@ -1,3 +1,295 @@
+# Coefficient naturality for the positive-divisibility root tower
+
+Fix arbitrary commutative rings A, B and C in one arbitrary common universe, unital ring maps φ:A→B and ψ:B→C, and a parameter f∈A. Write D_A(f) for the native colimit of A[t_n]/(t_n^n−f) over positive integers ordered by divisibility, C_A(f) for the factorial colimit, E_A:D_A(f)≃C_A(f) for cofinality, and G_A=A[ℚ/ℤ] for the native rational-character algebra. Tensor products use their actual indicated coefficient rings. The existing left coaction is δ_A:D_A(f)→G_A⊗_A D_A(f), and I_A is its actual equalizer with x↦1⊗x.
+
+The coefficient map F_D(φ)=E_B⁻¹∘F_C(φ)∘E_A sends every positive root v_n to the root at the same n and image parameter. Its transport, constant, identity and composition formulas follow from the native cofinality equivalence and inherited factorial functor laws. The tensor coefficient map F_T(φ)=T_B⁻¹∘F_TC(φ)∘T_A uses the already balanced native factorial tensor map, with T_A=id⊗E_A. On pure tensors it applies φ to character coefficients and F_D(φ) to the root-tower factor. The character in ℚ/ℤ remains unchanged.
+
+The resulting square F_T(φ)∘δ_A=δ_B∘F_D(φ) is equality of actual ring homomorphisms on the entire colimit. It preserves universal coinvariance and defines F_I(φ):I_A→I_B by the actual underlying ambient map. For the existing native invariant algebra equivalences e_A:A≃I_A and e_B:B≃I_B, the square F_I(φ)(e_A(a))=e_B(φ(a)) and inverse-coordinate law e_B⁻¹(F_I(φ)(x))=φ(e_A⁻¹(x)) prove naturality. Consequently F_I(φ) is injective or surjective exactly when φ is.
+
+These results retain nonflat coefficient changes, nilpotents, wild characteristic and zero rings. The quotient Z→Z/4 at f=2 tests a nonfactorial index-three root and its character. The source coefficient 4 is nonzero in D_Z(2), but its image is zero. The same failure of injectivity occurs on the invariant algebra. Zero-ring target tests retain the degenerate case. No arbitrary-map reflection of ambient coinvariance or tensor base-change equivalence is inferred.
+
+The general finite and infinite root stacks remain geometric targets over schemes and stack bases. Talpo–Vistoli arXiv1410.1164v2 printed pp.14–16 were reread in full as extracted text; their cofinality, grading and strict base-change discussion motivate these authored algebraic deductions. The new formulas are not presented as literal named results of that paper. The source versions/issues, Yun–Zhang Appendix A route and Abdurrahman–Venkatesh route retain their incoming records. Every one of the 425 incoming node objects is preserved. The historical sections below retain the frontier stated by their authors; this opening gives the current algebraic frontier.
+
+Coefficient-ring maps between the actual positive-divisibility affine colimits and rational-character tensor products now satisfy root/constant formulas, identity and composition, commute with factorial cofinality and intertwine the universal coactions. The induced map of actual native coaction equalizers is natural in the unique invariant coefficient; its injectivity and surjectivity are exactly those of the coefficient-ring map. Arbitrary nonflat maps and zero rings are included, without reflecting ambient coinvariance. Still open: higher-universe target transport, coherent root-object groupoid reindexing, Spec-limit comparison, fpqc frame torsors and geometric quotient/descent, DVR and Kummer-limit routes. The general reserved root-stack key, all ten partial stages, eight gaps, thirteen supplier requests and prior paper routes remain as recorded.
+
+## Coefficient map over positive divisibilities
+
+**TauCeti.RootStack.divisibilityCoefficientMap** — For φ:A→B construct F_D(φ):D_A(f)→D_B(φ(f)) as E_B⁻¹∘F_C(φ)∘E_A, using the existing native cofinality equivalences and factorial coefficient map.
+
+Hypotheses: A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made. D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)). G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-equivalence, FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-map.
+
+Proof: Compose the actual ring homomorphisms of the native colimits.
+
+API:
+
+- **TauCeti.RootStack.divisibilityCoefficientMap.transport**: For every x∈D_A(f), E_B(F_D(φ)(x))=F_C(φ)(E_A(x)).
+- **TauCeti.RootStack.divisibilityCoefficientMap.constant**: F_D(φ)(algebraMap(a))=algebraMap(φ(a)) for every a∈A.
+- **TauCeti.RootStack.divisibilityCoefficientMap.root**: For every positive n, F_D(φ)(v_n)=v′_n, the actual n-th root at parameter φ(f).
+- **TauCeti.RootStack.divisibilityCoefficientMap.id**: F_D(id_A)=id_D.
+- **TauCeti.RootStack.divisibilityCoefficientMap.comp**: For ψ:B→C, F_D(ψ∘φ)=F_D(ψ)∘F_D(φ), at the actual successive parameters.
+
+TESTS:
+
+- **TauCeti.RootStack.divisibilityCoefficientMap.test_third_root**: For the nonflat quotient Z→Z/4 and f=2, the actual positive index-three root maps to the index-three root at the image parameter.
+- **TauCeti.RootStack.divisibilityCoefficientMap.test_identity**: The identity coefficient ring map fixes every actual colimit element.
+- **TauCeti.RootStack.divisibilityCoefficientMap.test_zero_ring**: The coefficient map Z/2→Z/1 at f=0 sends every colimit element to zero, retaining the zero-ring target.
+- **TauCeti.RootStack.divisibilityCoefficientMap.test_killed_constant**: Under Z→Z/4 and f=2, the coefficient 4 is nonzero in the source colimit and maps to zero. Arbitrary coefficient maps need not be injective.
+
+## Coefficient change commutes with cofinality
+
+**TauCeti.RootStack.divisibilityCoefficientMap.transport** — For every x∈D_A(f), E_B(F_D(φ)(x))=F_C(φ)(E_A(x)).
+
+Hypotheses: A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made. D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)). G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-map.
+
+Proof: Cancel the inverse of the actual target algebra equivalence.
+
+## Coefficient map on constants
+
+**TauCeti.RootStack.divisibilityCoefficientMap.constant** — F_D(φ)(algebraMap(a))=algebraMap(φ(a)) for every a∈A.
+
+Hypotheses: A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made. D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)). G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-transport, FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-constant.
+
+Proof: Apply the injective E_B, use its algebra compatibility and the factorial constant formula.
+
+## Coefficient map preserves every root index
+
+**TauCeti.RootStack.divisibilityCoefficientMap.root** — For every positive n, F_D(φ)(v_n)=v′_n, the actual n-th root at parameter φ(f).
+
+Hypotheses: A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made. D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)). G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-transport, FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-root, FunctionFieldArithmeticPartII:RS.2/root-factorial-cofinal, FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-root.
+
+Proof: Embed both roots into factorial level (n+1)! using cofinality. The factorial coefficient map preserves that root and its ((n+1)!/n)-th power. Reflect equality by E_B.
+
+## Identity coefficient map
+
+**TauCeti.RootStack.divisibilityCoefficientMap.id** — F_D(id_A)=id_D.
+
+Hypotheses: A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made. D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)). G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-transport, FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-identity.
+
+Proof: Apply E_A injectivity pointwise and the inherited factorial identity.
+
+## Composition of coefficient maps
+
+**TauCeti.RootStack.divisibilityCoefficientMap.comp** — For ψ:B→C, F_D(ψ∘φ)=F_D(ψ)∘F_D(φ), at the actual successive parameters.
+
+Hypotheses: A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made. D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)). G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-transport, FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-composition.
+
+Proof: Apply E_C and transport each factor; factorial composition gives the same native ring map.
+
+## Rational-character tensor coefficient map
+
+**TauCeti.RootStack.divisibilityQZTensorCoefficientMap** — Construct F_T(φ):G_A⊗_A D_A(f)→G_B⊗_B D_B(φ(f)) as T_B⁻¹∘F_TC(φ)∘T_A, where F_TC is the inherited native balanced tensor coefficient map and T=id⊗E.
+
+Hypotheses: A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made. D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)). G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-equivalence, FunctionFieldArithmeticPartII:RS.2/qz-coefficient-tensor-map.
+
+Proof: Compose actual native tensor ring maps and algebra equivalences. The inherited tensor map uses Algebra.TensorProduct.mapRingHom with explicit coefficient compatibility; no auxiliary A-algebra structure on B is assumed.
+
+API:
+
+- **TauCeti.RootStack.divisibilityQZTensorCoefficientMap.transport**: For every y∈G_A⊗_A D_A(f), T_B(F_T(φ)(y))=F_TC(φ)(T_A(y)).
+- **TauCeti.RootStack.divisibilityQZTensorCoefficientMap.tmul**: F_T(φ)(g⊗x)=G(φ)(g)⊗F_D(φ)(x), where G(φ) applies φ to the coefficients of the native rational-character group algebra.
+- **TauCeti.RootStack.divisibilityQZTensorCoefficientMap.single**: For q∈ℚ/ℤ, F_T(φ)(a e_q⊗x)=φ(a)e_q⊗F_D(φ)(x).
+- **TauCeti.RootStack.divisibilityQZTensorCoefficientMap.constant**: F_T(φ)(algebraMap(a))=algebraMap(φ(a)).
+- **TauCeti.RootStack.divisibilityQZTensorCoefficientMap.id**: F_T(id_A)=id.
+- **TauCeti.RootStack.divisibilityQZTensorCoefficientMap.comp**: F_T(ψ∘φ)=F_T(ψ)∘F_T(φ).
+
+TESTS:
+
+- **TauCeti.RootStack.divisibilityQZTensorCoefficientMap.test_character**: Under Z→Z/4, a pure tensor with character [1/3], coefficient 2 and the index-three root maps to the same character and image coefficient/root.
+- **TauCeti.RootStack.divisibilityQZTensorCoefficientMap.test_identity**: The identity coefficient ring map fixes every arbitrary tensor, including sums of pure tensors.
+- **TauCeti.RootStack.divisibilityQZTensorCoefficientMap.test_zero_ring**: For Z/2→Z/1 at f=0 every actual tensor maps to zero.
+- **TauCeti.RootStack.divisibilityQZTensorCoefficientMap.test_coaction**: For Z→Z/4 at f=2, the universal coaction square commutes at every actual source colimit element.
+
+## Tensor coefficient change commutes with cofinality
+
+**TauCeti.RootStack.divisibilityQZTensorCoefficientMap.transport** — For every y∈G_A⊗_A D_A(f), T_B(F_T(φ)(y))=F_TC(φ)(T_A(y)).
+
+Hypotheses: A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made. D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)). G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-coefficient-map.
+
+Proof: Cancel the inverse of the actual target tensor equivalence.
+
+## Tensor coefficient map on pure tensors
+
+**TauCeti.RootStack.divisibilityQZTensorCoefficientMap.tmul** — F_T(φ)(g⊗x)=G(φ)(g)⊗F_D(φ)(x), where G(φ) applies φ to the coefficients of the native rational-character group algebra.
+
+Hypotheses: A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made. D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)). G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-coefficient-transport, FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-pure, FunctionFieldArithmeticPartII:RS.2/qz-coefficient-tensor-pure, FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-transport.
+
+Proof: Apply T_B injectivity, evaluate both tensor comparisons and the inherited balanced tensor map, then use coefficient transport.
+
+## Character coefficients under ring change
+
+**TauCeti.RootStack.divisibilityQZTensorCoefficientMap.single** — For q∈ℚ/ℤ, F_T(φ)(a e_q⊗x)=φ(a)e_q⊗F_D(φ)(x).
+
+Hypotheses: A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made. D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)). G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-coefficient-pure, mathlib:MonoidAlgebra.mapRingHom_single.
+
+Proof: Evaluate the coefficient map on one native group-algebra basis character; the character q stays fixed.
+
+## Tensor coefficient map on constants
+
+**TauCeti.RootStack.divisibilityQZTensorCoefficientMap.constant** — F_T(φ)(algebraMap(a))=algebraMap(φ(a)).
+
+Hypotheses: A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made. D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)). G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-coefficient-transport, FunctionFieldArithmeticPartII:RS.2/qz-coefficient-tensor-constant.
+
+Proof: Apply T_B injectivity and use the algebra compatibility of T_A,T_B and the inherited constant formula.
+
+## Identity tensor coefficient map
+
+**TauCeti.RootStack.divisibilityQZTensorCoefficientMap.id** — F_T(id_A)=id.
+
+Hypotheses: A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made. D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)). G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-coefficient-transport, FunctionFieldArithmeticPartII:RS.2/qz-coefficient-tensor-identity.
+
+Proof: Apply T_A injectivity pointwise and inherited tensor functoriality.
+
+## Composition of tensor coefficient maps
+
+**TauCeti.RootStack.divisibilityQZTensorCoefficientMap.comp** — F_T(ψ∘φ)=F_T(ψ)∘F_T(φ).
+
+Hypotheses: A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made. D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)). G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-coefficient-transport, FunctionFieldArithmeticPartII:RS.2/qz-coefficient-tensor-composition.
+
+Proof: Apply T_C and transport all factors; factorial tensor composition proves equality.
+
+## Positive-divisibility coaction naturality
+
+**TauCeti.RootStack.divisibilityQZCoaction.coefficient_naturality** — F_T(φ)∘δ_A=δ_B∘F_D(φ) as native ring homomorphisms.
+
+Hypotheses: A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made. D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)). G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-coefficient-transport, FunctionFieldArithmeticPartII:RS.2/divisibility-qz-coaction-transport, FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-transport, FunctionFieldArithmeticPartII:RS.2/qz-coaction-coefficient-naturality.
+
+Proof: Apply T_B injectivity pointwise; transport both coactions and use the established factorial coaction naturality.
+
+## Coefficient change preserves universal coinvariance
+
+**TauCeti.RootStack.divisibilityQZCoaction.map_coinvariant** — If δ_A(x)=1⊗x, then δ_B(F_D(φ)(x))=1⊗F_D(φ)(x).
+
+Hypotheses: A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made. D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)). G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-qz-coefficient-naturality, FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-coefficient-pure.
+
+Proof: Evaluate the naturality equation at x and use the pure-tensor formula and preservation of 1. Reflection of coinvariance under an arbitrary φ is not asserted.
+
+## Coefficient map of actual invariant algebras
+
+**TauCeti.RootStack.divisibilityInvariantCoefficientMap** — Construct F_I(φ):I_A(f)→I_B(φ(f)), where I_A is the native AlgHom.equalizer of δ_A and the right tensor inclusion. Its underlying element is F_D(φ)(x.val).
+
+Hypotheses: A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made. D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)). G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-map, FunctionFieldArithmeticPartII:RS.2/divisibility-qz-map-coinvariant, mathlib:AlgHom.equalizer.
+
+Proof: Define the native ring homomorphism on equalizer subtypes. Coaction naturality proves membership; the actual ambient ring map proves zero, one, addition and multiplication laws.
+
+API:
+
+- **TauCeti.RootStack.divisibilityInvariantCoefficientMap.coe**: For every actual equalizer element x, (F_I(φ)(x)).val=F_D(φ)(x.val).
+- **TauCeti.RootStack.divisibilityInvariantCoefficientMap.forward**: F_I(φ)(e_A(a))=e_B(φ(a)), where e_A:A≃I_A and e_B:B≃I_B are the existing native invariant algebra equivalences.
+- **TauCeti.RootStack.divisibilityInvariantCoefficientMap.coordinate**: For every x∈I_A, e_B⁻¹(F_I(φ)(x))=φ(e_A⁻¹(x)).
+- **TauCeti.RootStack.divisibilityInvariantCoefficientMap.id**: F_I(id_A)=id_I.
+- **TauCeti.RootStack.divisibilityInvariantCoefficientMap.comp**: F_I(ψ∘φ)=F_I(ψ)∘F_I(φ).
+- **TauCeti.RootStack.divisibilityInvariantCoefficientMap.injective_iff**: F_I(φ) is injective if and only if φ is injective.
+- **TauCeti.RootStack.divisibilityInvariantCoefficientMap.surjective_iff**: F_I(φ) is surjective if and only if φ is surjective.
+
+TESTS:
+
+- **TauCeti.RootStack.divisibilityInvariantCoefficientMap.test_coefficient**: Under Z→Z/4 at f=2, the invariant with coefficient 3 maps to the invariant with coefficient 3 modulo 4.
+- **TauCeti.RootStack.divisibilityInvariantCoefficientMap.test_coordinate**: For every actual invariant element and arbitrary ring homomorphism φ, its unique target coefficient is φ applied to its unique source coefficient.
+- **TauCeti.RootStack.divisibilityInvariantCoefficientMap.test_zero_ring**: For Z/2→Z/1 at f=0 the actual invariant algebra map is surjective onto the zero-ring equalizer.
+- **TauCeti.RootStack.divisibilityInvariantCoefficientMap.test_killed_coefficient**: Under Z→Z/4 at f=2, the invariant coefficients 4 and 0 are distinct in the source but have the same image. The invariant map need not be injective.
+
+## Underlying invariant coefficient map
+
+**TauCeti.RootStack.divisibilityInvariantCoefficientMap.coe** — For every actual equalizer element x, (F_I(φ)(x)).val=F_D(φ)(x.val).
+
+Hypotheses: A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made. D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)). G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-coefficient-map.
+
+Proof: Evaluate the explicit subtype map.
+
+## Invariant equivalence coefficient square
+
+**TauCeti.RootStack.divisibilityInvariantCoefficientMap.forward** — F_I(φ)(e_A(a))=e_B(φ(a)), where e_A:A≃I_A and e_B:B≃I_B are the existing native invariant algebra equivalences.
+
+Hypotheses: A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made. D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)). G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-coefficient-underlying, FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-forward, FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-constant.
+
+Proof: Use subtype extensionality and the actual constant formula.
+
+## Naturality of invariant coordinates
+
+**TauCeti.RootStack.divisibilityInvariantCoefficientMap.coordinate** — For every x∈I_A, e_B⁻¹(F_I(φ)(x))=φ(e_A⁻¹(x)).
+
+Hypotheses: A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made. D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)). G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-coefficient-forward, FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-equivalence.
+
+Proof: Use surjectivity of the actual source invariant equivalence to write x=e_A(a). The forward coefficient square and the two inverse laws reduce both coordinates to φ(a).
+
+## Identity invariant coefficient map
+
+**TauCeti.RootStack.divisibilityInvariantCoefficientMap.id** — F_I(id_A)=id_I.
+
+Hypotheses: A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made. D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)). G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-coefficient-underlying, FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-identity.
+
+Proof: Use ring-map and subtype extensionality, then the ambient identity.
+
+## Composition of invariant coefficient maps
+
+**TauCeti.RootStack.divisibilityInvariantCoefficientMap.comp** — F_I(ψ∘φ)=F_I(ψ)∘F_I(φ).
+
+Hypotheses: A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made. D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)). G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-coefficient-forward, FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-equivalence.
+
+Proof: Use ring-map extensionality and represent every source invariant as e_A(a). The forward coefficient square reduces the composition identity to ψ(φ(a)).
+
+## Invariant-map injectivity criterion
+
+**TauCeti.RootStack.divisibilityInvariantCoefficientMap.injective_iff** — F_I(φ) is injective if and only if φ is injective.
+
+Hypotheses: A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made. D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)). G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-coefficient-forward, FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-coefficient-coordinate, FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-equivalence.
+
+Proof: Conjugation by the actual invariant equivalences identifies the map with φ. Use forward coefficients in one direction and inverse coordinates in the other. This concerns the invariant algebra, not the ambient colimit or tensor map.
+
+## Invariant-map surjectivity criterion
+
+**TauCeti.RootStack.divisibilityInvariantCoefficientMap.surjective_iff** — F_I(φ) is surjective if and only if φ is surjective.
+
+Hypotheses: A, B and C are arbitrary commutative rings in one fixed arbitrary universe; φ:A→B and ψ:B→C are unital ring homomorphisms, and f∈A is arbitrary. No flatness, injectivity, reducedness, nonzero-ring or exponent-invertibility assumption is made. D_A(f) is the existing native positive-divisibility direct limit of A[t_n]/(t_n^n−f), and C_A(f) is the existing factorial colimit. E_A:D_A(f)≃ₐ[A]C_A(f), T_A=id⊗E_A, the universal LEFT coactions δ_A and the native equalizer equivalences e_A are imported, with corresponding objects at φ(f) and ψ(φ(f)). G_A=A[ℚ/ℤ] is the existing native monoid algebra on Multiplicative(AddCircle(1:ℚ)). Every tensor product and equalizer is native. The arbitrary-universe parameter is common to all coefficient rings; higher-universe target transport, tensor base-change equivalences and geometric quotient/descent statements are not conclusions.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-coefficient-forward, FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-coefficient-coordinate, FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-equivalence.
+
+Proof: Lift each invariant element using its unique coefficient and surjectivity of φ. Conversely a preimage of e_B(b) gives a coefficient preimage of b.
+
 # Positive-divisibility coaction and invariant algebra
 
 For an arbitrary commutative ring A and f∈A, let D_f be the existing direct limit over all positive integers ordered by divisibility. Its root v_n comes from A[t_n]/(t_n^n−f). Let C_f be the factorial colimit, E:D_f≃ₐ[A]C_f its existing cofinality equivalence, and G=A[ℚ/ℤ] the native rational-character group algebra. This continuation constructs T=id_G⊗E and the actual left coaction δ_D=T⁻¹∘δ_C∘E. It imports the existing colimits and all generic tensor and equalizer operations.
