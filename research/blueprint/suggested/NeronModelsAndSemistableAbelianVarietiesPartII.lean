@@ -17,6 +17,7 @@ The two partial data structures below are not substitutes for their mathematical
 -/
 
 import Mathlib.AlgebraicGeometry.Normalization
+import TauCeti.AlgebraicGeometry.Modules.RationalFunctions
 import Mathlib.AlgebraicGeometry.FunctionField
 import Mathlib.RingTheory.LocalProperties.IntegrallyClosed
 import Mathlib.AlgebraicGeometry.Stalk
@@ -4397,3 +4398,203 @@ example (a b : k) : ¬ Nonempty (⊥ : (curve a b).Opens) := by
 end
 end TauCeti.GenusOne.QuadraticPinch.Global
 /- END AFFINE ABSOLUTE CLOSURE -/
+
+/- BEGIN NATIVE NORMALIZATION SECTION BRIDGE -/
+/-! Native absolute-normalization section bridge for the specified quadratic curve.
+General rational-function section equivalences are imported from pinned Tau Ceti. -/
+namespace TauCeti.GenusOne.QuadraticPinch.Global
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry TopologicalSpace
+noncomputable section
+set_option backward.isDefEq.respectTransparency false
+set_option linter.style.haveILetI false
+variable {k : Type u} [Field k]
+local instance (a b : k) : IsIntegral (curve a b) := curve_isIntegral a b
+local instance (a b : k) : IsIntegral (normalizationSource a b) := source_isIntegral a b
+local instance (a b : k) : IsAffineHom
+    ((curve a b).fromSpecStalk (genericPoint (curve a b))) := genericPointMorphism_isAffine a b
+local instance (a b : k) (U : (curve a b).Opens) :
+    Algebra Γ(curve a b, U)
+      Γ(Spec (curve a b).functionField,
+        (curve a b).fromSpecStalk (genericPoint (curve a b)) ⁻¹ᵁ U) :=
+  (((curve a b).fromSpecStalk (genericPoint (curve a b))).app U).hom.toAlgebra
+local instance (a b : k) (U : (curve a b).Opens) :
+    Algebra Γ(curve a b, U)
+      Γ(((curve a b).fromSpecStalk (genericPoint (curve a b))).normalization,
+        ((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization ⁻¹ᵁ U) :=
+  (((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization.app U).hom.toAlgebra
+local instance (a b : k) (U : (curve a b).Opens) :
+    Algebra Γ(curve a b, U) Γ(normalizationSource a b, normalization a b ⁻¹ᵁ U) :=
+  ((normalization a b).app U).hom.toAlgebra
+
+def normalizationGenericSectionsAlgEquiv (a b : k)
+    (U : (curve a b).Opens) [Nonempty U] :
+    Γ(Spec (curve a b).functionField,
+        (curve a b).fromSpecStalk (genericPoint (curve a b)) ⁻¹ᵁ U) ≃ₐ[Γ(curve a b, U)]
+      (curve a b).functionField := by
+  sorry
+
+lemma normalizationGenericSectionsAlgEquiv_coefficient (a b : k)
+    (U : (curve a b).Opens) [Nonempty U] (r : Γ(curve a b, U)) :
+    normalizationGenericSectionsAlgEquiv a b U
+      (((curve a b).fromSpecStalk (genericPoint (curve a b))).app U r) =
+      (curve a b).germToFunctionField U r := by
+  sorry
+
+lemma normalizationGenericSectionsAlgEquiv_restrict (a b : k)
+    (U V : (curve a b).Opens) [Nonempty U] [Nonempty V] (h : V ≤ U)
+    (s : Γ(Spec (curve a b).functionField,
+      (curve a b).fromSpecStalk (genericPoint (curve a b)) ⁻¹ᵁ U)) :
+    normalizationGenericSectionsAlgEquiv a b V
+      ((Spec (curve a b).functionField).presheaf.map
+        (homOfLE (((curve a b).fromSpecStalk
+          (genericPoint (curve a b))).preimage_mono h)).op s) =
+      normalizationGenericSectionsAlgEquiv a b U s := by
+  sorry
+
+lemma normalizationGenericSectionsAlgEquiv_inverse_coefficient (a b : k)
+    (U : (curve a b).Opens) [Nonempty U] (r : Γ(curve a b, U)) :
+    (normalizationGenericSectionsAlgEquiv a b U).symm
+      ((curve a b).germToFunctionField U r) =
+      ((curve a b).fromSpecStalk (genericPoint (curve a b))).app U r := by
+  sorry
+
+def absoluteNormalizationSectionsClosureEquiv (a b : k)
+    (U : (curve a b).Opens) (hU : IsAffineOpen U) [Nonempty U] :
+    Γ(((curve a b).fromSpecStalk (genericPoint (curve a b))).normalization,
+        ((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization ⁻¹ᵁ U)
+      ≃ₐ[Γ(curve a b, U)] integralClosure Γ(curve a b, U) (curve a b).functionField := by
+  sorry
+
+lemma absoluteNormalizationSectionsClosureEquiv_coefficient (a b : k)
+    (U : (curve a b).Opens) (hU : IsAffineOpen U) [Nonempty U] (r : Γ(curve a b, U)) :
+    absoluteNormalizationSectionsClosureEquiv a b U hU
+      (((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization.app U r) =
+      algebraMap Γ(curve a b, U)
+        (integralClosure Γ(curve a b, U) (curve a b).functionField) r := by
+  sorry
+
+lemma absoluteNormalizationSectionsClosureEquiv_val (a b : k)
+    (U : (curve a b).Opens) (hU : IsAffineOpen U) [Nonempty U]
+    (s : Γ(((curve a b).fromSpecStalk (genericPoint (curve a b))).normalization,
+      ((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization ⁻¹ᵁ U)) :
+    (absoluteNormalizationSectionsClosureEquiv a b U hU s).val =
+      normalizationGenericSectionsAlgEquiv a b U
+        (((((curve a b).fromSpecStalk (genericPoint (curve a b))).normalizationObjIso hU).hom s).val) := by
+  sorry
+
+lemma absoluteNormalizationSectionsClosureEquiv_inverse_val (a b : k)
+    (U : (curve a b).Opens) (hU : IsAffineOpen U) [Nonempty U]
+    (z : integralClosure Γ(curve a b, U) (curve a b).functionField) :
+    normalizationGenericSectionsAlgEquiv a b U
+      (((((curve a b).fromSpecStalk (genericPoint (curve a b))).normalizationObjIso hU).hom
+        ((absoluteNormalizationSectionsClosureEquiv a b U hU).symm z)).val) = z.val := by
+  sorry
+
+def absoluteNormalizationSourceSectionsEquiv (a b : k)
+    (U : (curve a b).Opens) (hU : IsAffineOpen U) [Nonempty U] :
+    Γ(((curve a b).fromSpecStalk (genericPoint (curve a b))).normalization,
+        ((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization ⁻¹ᵁ U)
+      ≃ₐ[Γ(curve a b, U)] Γ(normalizationSource a b, normalization a b ⁻¹ᵁ U) := by
+  sorry
+
+lemma absoluteNormalizationSourceSectionsEquiv_coefficient (a b : k)
+    (U : (curve a b).Opens) (hU : IsAffineOpen U) [Nonempty U] (r : Γ(curve a b, U)) :
+    absoluteNormalizationSourceSectionsEquiv a b U hU
+      (((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization.app U r) =
+      (normalization a b).app U r := by
+  sorry
+
+lemma absoluteNormalizationSourceSectionsEquiv_closure (a b : k)
+    (U : (curve a b).Opens) (hU : IsAffineOpen U) [Nonempty U]
+    (s : Γ(((curve a b).fromSpecStalk (genericPoint (curve a b))).normalization,
+      ((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization ⁻¹ᵁ U)) :
+    absoluteSectionsClosureEquiv a b U hU
+      (absoluteNormalizationSourceSectionsEquiv a b U hU s) =
+      absoluteNormalizationSectionsClosureEquiv a b U hU s := by
+  sorry
+
+lemma absoluteNormalizationSourceSectionsEquiv_inverse_closure (a b : k)
+    (U : (curve a b).Opens) (hU : IsAffineOpen U) [Nonempty U]
+    (s : Γ(normalizationSource a b, normalization a b ⁻¹ᵁ U)) :
+    absoluteNormalizationSectionsClosureEquiv a b U hU
+      ((absoluteNormalizationSourceSectionsEquiv a b U hU).symm s) =
+      absoluteSectionsClosureEquiv a b U hU s := by
+  sorry
+
+-- test: QuadraticPinch.Global.test_genericSections_cusp_coefficient
+example (U : (curve (0 : k) 0).Opens) [Nonempty U] (r : Γ(curve (0 : k) 0, U)) :
+    normalizationGenericSectionsAlgEquiv (0 : k) 0 U
+      (((curve (0 : k) 0).fromSpecStalk (genericPoint (curve (0 : k) 0))).app U r) =
+      (curve (0 : k) 0).germToFunctionField U r := by
+  sorry
+
+-- test: QuadraticPinch.Global.test_genericSections_char2_restriction
+example (U V : (curve (1 : ZMod 2) 1).Opens) [Nonempty U] [Nonempty V] (h : V ≤ U)
+    (s : Γ(Spec (curve (1 : ZMod 2) 1).functionField,
+      (curve (1 : ZMod 2) 1).fromSpecStalk (genericPoint (curve (1 : ZMod 2) 1)) ⁻¹ᵁ U)) :
+    normalizationGenericSectionsAlgEquiv (1 : ZMod 2) 1 V
+      ((Spec (curve (1 : ZMod 2) 1).functionField).presheaf.map
+        (homOfLE (((curve (1 : ZMod 2) 1).fromSpecStalk
+          (genericPoint (curve (1 : ZMod 2) 1))).preimage_mono h)).op s) =
+      normalizationGenericSectionsAlgEquiv (1 : ZMod 2) 1 U s := by
+  sorry
+
+-- test: QuadraticPinch.Global.test_genericSections_empty_excluded
+example (a b : k) : ¬ Nonempty (⊥ : (curve a b).Opens) := by
+  sorry
+
+-- test: QuadraticPinch.Global.test_nativeClosure_cusp_coefficient
+example (U : (curve (0 : k) 0).Opens) (hU : IsAffineOpen U) [Nonempty U]
+    (r : Γ(curve (0 : k) 0, U)) :
+    absoluteNormalizationSectionsClosureEquiv (0 : k) 0 U hU
+      (((curve (0 : k) 0).fromSpecStalk
+        (genericPoint (curve (0 : k) 0))).fromNormalization.app U r) =
+      algebraMap Γ(curve (0 : k) 0, U)
+        (integralClosure Γ(curve (0 : k) 0, U) (curve (0 : k) 0).functionField) r := by
+  sorry
+
+-- test: QuadraticPinch.Global.test_nativeClosure_char2_integral_element
+example (U : (curve (1 : ZMod 2) 1).Opens) (hU : IsAffineOpen U) [Nonempty U]
+    (z : integralClosure Γ(curve (1 : ZMod 2) 1, U) (curve (1 : ZMod 2) 1).functionField) :
+    normalizationGenericSectionsAlgEquiv (1 : ZMod 2) 1 U
+      (((((curve (1 : ZMod 2) 1).fromSpecStalk
+        (genericPoint (curve (1 : ZMod 2) 1))).normalizationObjIso hU).hom
+        ((absoluteNormalizationSectionsClosureEquiv (1 : ZMod 2) 1 U hU).symm z)).val) =
+      z.val := by
+  sorry
+
+-- test: QuadraticPinch.Global.test_nativeClosure_affine_inclusion_nonexample
+example (a b : k) (U : (curve a b).Opens) (hU : IsAffineOpen U) [Nonempty U] :
+    Function.Bijective (absoluteNormalizationSectionsClosureEquiv a b U hU) ∧
+      ¬ Function.Surjective ((algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X +
+        Polynomial.C b)).val) := by
+  sorry
+
+-- test: QuadraticPinch.Global.test_normalizationSource_cusp_coefficient
+example (U : (curve (0 : k) 0).Opens) (hU : IsAffineOpen U) [Nonempty U]
+    (r : Γ(curve (0 : k) 0, U)) :
+    absoluteNormalizationSourceSectionsEquiv (0 : k) 0 U hU
+      (((curve (0 : k) 0).fromSpecStalk
+        (genericPoint (curve (0 : k) 0))).fromNormalization.app U r) =
+      (normalization 0 0).app U r := by
+  sorry
+
+-- test: QuadraticPinch.Global.test_normalizationSource_char2_closure
+example (U : (curve (1 : ZMod 2) 1).Opens) (hU : IsAffineOpen U) [Nonempty U]
+    (s : Γ(normalizationSource (1 : ZMod 2) 1, normalization 1 1 ⁻¹ᵁ U)) :
+    absoluteNormalizationSectionsClosureEquiv (1 : ZMod 2) 1 U hU
+      ((absoluteNormalizationSourceSectionsEquiv (1 : ZMod 2) 1 U hU).symm s) =
+      absoluteSectionsClosureEquiv (1 : ZMod 2) 1 U hU s := by
+  sorry
+
+-- test: QuadraticPinch.Global.test_normalizationSource_affine_inclusion_nonexample
+example (a b : k) (U : (curve a b).Opens) (hU : IsAffineOpen U) [Nonempty U] :
+    Function.Bijective (absoluteNormalizationSourceSectionsEquiv a b U hU) ∧
+      ¬ Function.Surjective ((algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X +
+        Polynomial.C b)).val) := by
+  sorry
+
+end
+end TauCeti.GenusOne.QuadraticPinch.Global
+
+/- END NATIVE NORMALIZATION SECTION BRIDGE -/
