@@ -4638,3 +4638,245 @@ end Tests
 
 end BandedMorphism
 end TauCeti.AlgebraicGeometry
+
+namespace TauCeti.AlgebraicGeometry.GerbeMorphismPullback
+open CategoryTheory Opposite Bicategory
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type u} [Category.{v} C]
+variable {F G : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}}
+variable (η : Pseudofunctor.StrongTrans F G)
+variable {U V : C} (f : V ⟶ U) (x y : F.obj (.mk (op U)))
+
+/-- The actual component of the native strong-naturality isomorphism. -/
+def comparison :
+    (η.app (.mk (op V))).toFunctor.obj ((F.map f.op.toLoc).toFunctor.obj x) ≅
+      (G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj x) := by sorry
+
+lemma comparison_native : comparison η f x =
+    (Cat.Hom.toNatIso (η.naturality f.op.toLoc)).app x := by sorry
+
+lemma comparison_inv_hom_id :
+    (comparison η f x).inv ≫ (comparison η f x).hom = 𝟙 _ := by sorry
+
+/-- Use the existing Iso.isoCongr, retaining both comparison components. -/
+def mapIso (p : (F.map f.op.toLoc).toFunctor.obj x ≅
+    (F.map f.op.toLoc).toFunctor.obj y) :
+    (G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj x) ≅
+      (G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj y) := by sorry
+
+/-- Objectwise map on the actual native Hom-presheaf carriers. -/
+def homMap (p : (F.map f.op.toLoc).toFunctor.obj x ⟶
+    (F.map f.op.toLoc).toFunctor.obj y) :
+    (G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj x) ⟶
+      (G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj y) := by sorry
+
+lemma mapIso_hom (p : (F.map f.op.toLoc).toFunctor.obj x ≅
+    (F.map f.op.toLoc).toFunctor.obj y) :
+    (mapIso η f x y p).hom = homMap η f x y p.hom := by sorry
+
+lemma homMap_restrict (p : x ⟶ y) :
+    homMap η f x y ((F.map f.op.toLoc).toFunctor.map p) =
+      (G.map f.op.toLoc).toFunctor.map ((η.app (.mk (op U))).toFunctor.map p) := by sorry
+
+lemma mapIso_restrict (p : x ≅ y) :
+    mapIso η f x y ((F.map f.op.toLoc).toFunctor.mapIso p) =
+      (G.map f.op.toLoc).toFunctor.mapIso ((η.app (.mk (op U))).toFunctor.mapIso p) := by sorry
+
+variable {J : GrothendieckTopology C} [IsGerbe F J] [IsGerbe G J]
+variable {A : Sheaf J AddCommGrpCat.{v'}}
+variable (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+variable [BandPreserving bF bG η]
+
+lemma comparison_band (a : Multiplicative (A.obj.obj (op V))) :
+    Aut.autMulEquivOfIso (comparison η f x)
+      (bG.autEquiv V ((η.app (.mk (op V))).toFunctor.obj
+        ((F.map f.op.toLoc).toFunctor.obj x)) a) =
+      bG.autEquiv V ((G.map f.op.toLoc).toFunctor.obj
+        ((η.app (.mk (op U))).toFunctor.obj x)) a := by sorry
+
+include bF bG
+
+lemma mapIso_injective : Function.Injective (mapIso η f x y) := by sorry
+
+lemma homMap_injective : Function.Injective (homMap η f x y) := by sorry
+
+lemma mapIso_act (p : (F.map f.op.toLoc).toFunctor.obj x ≅
+    (F.map f.op.toLoc).toFunctor.obj y) (a : Multiplicative (A.obj.obj (op V))) :
+    mapIso η f x y (BandedIsom.act F J A bF p a) =
+      BandedIsom.act G J A bG (mapIso η f x y p) a := by sorry
+
+lemma mapIso_difference (p q : (F.map f.op.toLoc).toFunctor.obj x ≅
+    (F.map f.op.toLoc).toFunctor.obj y) :
+    BandedIsom.difference G J A bG (mapIso η f x y p) (mapIso η f x y q) =
+      BandedIsom.difference F J A bF p q := by sorry
+
+/-- An actual local source anchor is retained as explicit data. -/
+def preimageIso (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (p : (F.map f.op.toLoc).toFunctor.obj x ≅
+    (F.map f.op.toLoc).toFunctor.obj y)
+    (q : (G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj x) ≅
+      (G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj y)) :
+    (F.map f.op.toLoc).toFunctor.obj x ≅ (F.map f.op.toLoc).toFunctor.obj y := by sorry
+
+lemma map_preimageIso (p : (F.map f.op.toLoc).toFunctor.obj x ≅
+    (F.map f.op.toLoc).toFunctor.obj y)
+    (q : (G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj x) ≅
+      (G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj y)) :
+    mapIso η f x y (preimageIso η f x y bF bG p q) = q := by sorry
+
+lemma preimageIso_map (p q : (F.map f.op.toLoc).toFunctor.obj x ≅
+    (F.map f.op.toLoc).toFunctor.obj y) :
+    preimageIso η f x y bF bG p (mapIso η f x y q) = q := by sorry
+
+lemma preimageIso_anchor (p p' : (F.map f.op.toLoc).toFunctor.obj x ≅
+    (F.map f.op.toLoc).toFunctor.obj y)
+    (q : (G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj x) ≅
+      (G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj y)) :
+    preimageIso η f x y bF bG p q = preimageIso η f x y bF bG p' q := by sorry
+
+lemma preimageIso_act (p : (F.map f.op.toLoc).toFunctor.obj x ≅
+    (F.map f.op.toLoc).toFunctor.obj y)
+    (q : (G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj x) ≅
+      (G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj y))
+    (a : Multiplicative (A.obj.obj (op V))) :
+    preimageIso η f x y bF bG p (BandedIsom.act G J A bG q a) =
+      BandedIsom.act F J A bF (preimageIso η f x y bF bG p q) a := by sorry
+
+lemma preimageIso_restrict (p : x ≅ y)
+    (q : (η.app (.mk (op U))).toFunctor.obj x ≅ (η.app (.mk (op U))).toFunctor.obj y) :
+    preimageIso η f x y bF bG ((F.map f.op.toLoc).toFunctor.mapIso p)
+      ((G.map f.op.toLoc).toFunctor.mapIso q) =
+      (F.map f.op.toLoc).toFunctor.mapIso (BandedMorphism.preimageIso bF bG η p q) := by sorry
+
+def isomEquiv (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    [BandPreserving bF bG η] (p : (F.map f.op.toLoc).toFunctor.obj x ≅
+    (F.map f.op.toLoc).toFunctor.obj y) :
+    ((F.map f.op.toLoc).toFunctor.obj x ≅ (F.map f.op.toLoc).toFunctor.obj y) ≃
+      ((G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj x) ≅
+        (G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj y)) := by sorry
+
+lemma isomEquiv_apply (p q : (F.map f.op.toLoc).toFunctor.obj x ≅
+    (F.map f.op.toLoc).toFunctor.obj y) :
+    isomEquiv η f x y bF bG p q = mapIso η f x y q := by sorry
+
+lemma isomEquiv_symm_apply (p : (F.map f.op.toLoc).toFunctor.obj x ≅
+    (F.map f.op.toLoc).toFunctor.obj y)
+    (q : (G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj x) ≅
+      (G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj y)) :
+    (isomEquiv η f x y bF bG p).symm q = preimageIso η f x y bF bG p q := by sorry
+
+lemma isomEquiv_anchor (p p' : (F.map f.op.toLoc).toFunctor.obj x ≅
+    (F.map f.op.toLoc).toFunctor.obj y) :
+    isomEquiv η f x y bF bG p = isomEquiv η f x y bF bG p' := by sorry
+
+lemma homMap_surjective_of_anchor (p : (F.map f.op.toLoc).toFunctor.obj x ≅
+    (F.map f.op.toLoc).toFunctor.obj y) : Function.Surjective (homMap η f x y) := by sorry
+
+/-- The covering sieve comes from the gerbe, with no global anchor chosen. -/
+lemma locallyIsomEquiv : ∃ R : Sieve U, R ∈ J U ∧ ∀ ⦃V : C⦄ (f : V ⟶ U), R f →
+    Nonempty (((F.map f.op.toLoc).toFunctor.obj x ≅ (F.map f.op.toLoc).toFunctor.obj y) ≃
+      ((G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj x) ≅
+        (G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj y))) := by sorry
+
+end TauCeti.AlgebraicGeometry.GerbeMorphismPullback
+
+namespace TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests
+open CategoryTheory Opposite Bicategory
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type u} [Category.{v} C]
+variable {F G : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}}
+variable (η : Pseudofunctor.StrongTrans F G)
+variable {U V : C} (f : V ⟶ U) (x y : F.obj (.mk (op U)))
+
+-- TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.nativeComparison
+example : comparison η f x =
+    (Cat.Hom.toNatIso (η.naturality f.op.toLoc)).app x := by sorry
+
+-- TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.zeroComparison
+example :
+    (comparison η f x).inv ≫ (comparison η f x).hom = 𝟙 _ := by sorry
+
+-- TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.reflexiveImage
+example : mapIso η f x x (Iso.refl _) = Iso.refl _ := by sorry
+
+-- TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.actualHomImage
+example (p : (F.map f.op.toLoc).toFunctor.obj x ≅
+    (F.map f.op.toLoc).toFunctor.obj y) :
+    (mapIso η f x y p).hom = homMap η f x y p.hom := by sorry
+
+-- TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.globalIsoRestriction
+example (p : x ≅ y) :
+    mapIso η f x y ((F.map f.op.toLoc).toFunctor.mapIso p) =
+      (G.map f.op.toLoc).toFunctor.mapIso ((η.app (.mk (op U))).toFunctor.mapIso p) := by sorry
+
+-- TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.sliceHomCarrier
+example (T : (Over U)ᵒᵖ) (p : (F.presheafHom x y).obj T) :
+    homMap η T.unop.hom x y p =
+      (show (G.presheafHom ((η.app (.mk (op U))).toFunctor.obj x)
+        ((η.app (.mk (op U))).toFunctor.obj y)).obj T from
+        homMap η T.unop.hom x y p) := by sorry
+
+-- TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.identityHomImage
+example : homMap η f x x (𝟙 _) = 𝟙 _ := by sorry
+
+-- TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.globalHomRestriction
+example (p : x ⟶ y) :
+    homMap η f x y ((F.map f.op.toLoc).toFunctor.map p) =
+      (G.map f.op.toLoc).toFunctor.map ((η.app (.mk (op U))).toFunctor.map p) := by sorry
+
+variable {J : GrothendieckTopology C} [IsGerbe F J] [IsGerbe G J]
+variable {A : Sheaf J AddCommGrpCat.{v'}}
+variable (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+variable [BandPreserving bF bG η]
+
+-- TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.comparisonBand
+example (a : Multiplicative (A.obj.obj (op V))) :
+    Aut.autMulEquivOfIso (comparison η f x)
+      (bG.autEquiv V ((η.app (.mk (op V))).toFunctor.obj
+        ((F.map f.op.toLoc).toFunctor.obj x)) a) =
+      bG.autEquiv V ((G.map f.op.toLoc).toFunctor.obj
+        ((η.app (.mk (op U))).toFunctor.obj x)) a := by sorry
+
+-- TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.targetRoundTrip
+example (p : (F.map f.op.toLoc).toFunctor.obj x ≅
+    (F.map f.op.toLoc).toFunctor.obj y)
+    (q : (G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj x) ≅
+      (G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj y)) :
+    mapIso η f x y (preimageIso η f x y bF bG p q) = q := by sorry
+
+-- TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.anchorRecovered
+example (p : (F.map f.op.toLoc).toFunctor.obj x ≅
+    (F.map f.op.toLoc).toFunctor.obj y) :
+    preimageIso η f x y bF bG p (mapIso η f x y p) = p := by sorry
+
+-- TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.differentAnchors
+example (p p' : (F.map f.op.toLoc).toFunctor.obj x ≅
+    (F.map f.op.toLoc).toFunctor.obj y)
+    (q : (G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj x) ≅
+      (G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj y)) :
+    preimageIso η f x y bF bG p q = preimageIso η f x y bF bG p' q := by sorry
+
+-- TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.forwardOrientation
+example (p q : (F.map f.op.toLoc).toFunctor.obj x ≅
+    (F.map f.op.toLoc).toFunctor.obj y) :
+    isomEquiv η f x y bF bG p q = (comparison η f x).symm ≪≫
+      ((η.app (.mk (op V))).toFunctor.mapIso q ≪≫ comparison η f y) := by sorry
+
+-- TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.reverseOrientation
+example (p : (F.map f.op.toLoc).toFunctor.obj x ≅
+    (F.map f.op.toLoc).toFunctor.obj y)
+    (q : (G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj x) ≅
+      (G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj y)) :
+    (isomEquiv η f x y bF bG p).symm q =
+      BandedMorphism.preimageIso bF bG η p
+        (comparison η f x ≪≫ (q ≪≫ (comparison η f y).symm)) := by sorry
+
+-- TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.actedImage
+example (p q : (F.map f.op.toLoc).toFunctor.obj x ≅
+    (F.map f.op.toLoc).toFunctor.obj y) (a : Multiplicative (A.obj.obj (op V))) :
+    isomEquiv η f x y bF bG p (BandedIsom.act F J A bF q a) =
+      BandedIsom.act G J A bG (isomEquiv η f x y bF bG p q) a := by sorry
+
+end TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests
