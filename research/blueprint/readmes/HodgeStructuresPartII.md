@@ -3399,3 +3399,83 @@ The full suggested file remains the admitted signature plan required by PROTOCOL
 `TwistedHiggsBundle.affineTensorPowerBaseChange_symm_apply` (characterisation): For every n≥0 and x∈S⊗_R Q^⊗n, T_n⁻¹(T_n(x))=x. The inverse is the actual inverse of the recursively composed native equivalences, with no flatness or basis premise.
 
 The ordered-codomain distributor also exposes `TwistedHiggsBundle.affineOrderedIterate_baseChange_comparison` as its compatibility API, referring to the single promoted comparison node above. No duplicate theorem is introduced.
+
+
+## Affine charts and local ordered nilpotence (Codex — codex-5ebb6f)
+
+This partial continuation starts from the inherited checked arbitrary-coefficient tensor comparison. The field in a chart is the actual composite `(e ⊗ q) ∘ θ_S ∘ e⁻¹`. Both equivalences matter: negating only the coefficient chart negates the field. The coefficient factor is not absorbed into the source module.
+
+These statements work for arbitrary modules over commutative rings, hence include finite-projective affine charts without chosen bases. A fixed bound descends by joint zero detection on `D(r)` for elements spanning the unit ideal. A localization need not be faithful individually. The module-zero detector and finite-subcover extraction are existing pinned library theorems, reused here.
+
+### Twisted field in actual affine module charts
+
+`TwistedHiggsBundle.affineChartField` — Construct θ_(S,e,q)=(e⊗q)∘θ_S∘e⁻¹:F→F⊗_S P. The source-ring field is scalar-extended by its actual native map before both module charts are applied; neither chart comparison nor horizontality is assumed as an oracle.
+
+Compose the native scalar-extended field with e inverse on the source and the existing tensor map of e and q on the target. Apply e inverse to e(x) to obtain the actual horizontal square; zero and reflexive charts reduce by native composition laws.
+
+- `TwistedHiggsBundle.affineChartField_horizontal`: θ_(S,e,q)∘e=(e⊗q)∘θ_S as actual S-linear maps.
+- `TwistedHiggsBundle.affineChartField_zero`: The chart field of θ=0 is zero for every S and both actual chart equivalences.
+- `TwistedHiggsBundle.affineChartField_refl`: With reflexive e and q, the chart field is exactly θ_S, with no flatness assumption.
+- `TwistedHiggsBundle.affineOrderedIterate_chart_comparison`: For every n≥0, I_n(θ_(S,e,q))∘e=(e⊗q^⊗n)∘D_n∘baseChange(I_n(θ)).
+- `TwistedHiggsBundle.affineOrderedIterate_chart_zero_iff`: At every specified n≥0, I_n(θ_(S,e,q))=0 iff I_n(θ_S)=0. This is reflection between receiving-ring charts, not reflection to R along a single localization.
+- `TwistedHiggsBundle.affineOrderedIterate_chart_zero_of`: If I_n(θ)=0, then I_n(θ_(S,e,q))=0 for every algebra S and actual chart, at the identical n.
+
+- `TwistedHiggsBundle.affineChartField.test_refl` (compatibility): For every θ and S, chart transport through reflexive module equivalences is exactly affineBaseChange S θ.
+- `TwistedHiggsBundle.affineChartField.test_zero` (degenerate): For every S and arbitrary e,q, affineChartField S 0 e q=0.
+- `TwistedHiggsBundle.affineChartField.test_coeff_sign` (computation): With reflexive e and q equal to negation on Q_S, affineChartField S θ e q=(-1:S)•θ_S. This detects a definition that forgets the coefficient chart.
+- `TwistedHiggsBundle.affineChartField.test_projective_unbased` (compatibility): For projective E,Q with no chosen bases, I_n(θ)=0 implies I_n(affineChartField S θ refl refl)=0 for every n and S.
+- `TwistedHiggsBundle.affineChartField.test_noncover_erasure` (non-example): Over R=ℤ take E=ℤ/2, Q=ℤ and θ the inverse right tensor unit. Then θ≠0 but affineBaseChange (Localization.Away 2) θ=0. D(2) alone does not cover Spec ℤ. This is an arbitrary-module counterexample, not a finite-locally-free example.
+- `TwistedHiggsBundle.affineChartField.test_two_principal_opens` (characterisation): For R=ℤ, E=ℤ/4 and Q=ℤ/2, every θ and n≥0 satisfy: I_n(θ)=0 iff I_n(θ_(R[1/r]))=0 for every r∈{2,3}. These opens cover although neither localization is faithfully flat over ℤ.
+- `TwistedHiggsBundle.affineChartField.test_degree_zero_cover` (degenerate): For nontrivial R, E=R, arbitrary Q and every principal cover spanning 1, it is impossible that every localized I_0(θ) is zero. The empty ordered word remains the tensor unit.
+
+### Ordered iterates in actual affine charts
+
+`TwistedHiggsBundle.affineOrderedIterate_chart_comparison` — For every n≥0, I_n(θ_(S,e,q))∘e=(e⊗q^⊗n)∘D_n∘baseChange(I_n(θ)).
+
+Use the proved chart horizontal square in the inherited receiving-ring ordered naturality theorem. Insert the actual cross-ring iterate comparison D_n∘baseChange(I_n(θ))=I_n(θ_S), retaining n=0 and coefficient order.
+
+### Fixed bound is independent of affine coordinates
+
+`TwistedHiggsBundle.affineOrderedIterate_chart_zero_iff` — At every specified n≥0, I_n(θ_(S,e,q))=0 iff I_n(θ_S)=0. This is reflection between receiving-ring charts, not reflection to R along a single localization.
+
+Apply the inherited equivalence criterion to e and q and the proved horizontal square. Tensor powers of q are actual native linear equivalences. Use e surjectivity for the reverse direction and tensor-equivalence injectivity for the forward direction. This does not assume R→S faithful.
+
+### Fixed bound restricts to every affine chart
+
+`TwistedHiggsBundle.affineOrderedIterate_chart_zero_of` — If I_n(θ)=0, then I_n(θ_(S,e,q))=0 for every algebra S and actual chart, at the identical n.
+
+Preserve the source-ring zero at the same n under arbitrary scalar extension, then transfer it through the two actual chart equivalences. No coefficient basis or projectivity is used.
+
+### Detect an ordered bound on a principal cover
+
+`TwistedHiggsBundle.affineOrderedIterate_away_cover_zero_iff` — If Ideal.span s=R and A_r=R[1/r] (or any actual away localization), then for every fixed n≥0, I_n(θ)=0 iff I_n(θ_(A_r))=0 for every r∈s. E,Q are arbitrary; individual R→A_r maps need not be faithful.
+
+For each x∈E evaluate the actual cross-ring comparison on 1⊗x. Vanishing of each receiving iterate and D_n injectivity give 1⊗I_n(θ)(x)=0 in A_r⊗_R(E⊗_R Q^⊗n). The native unit-tensor map is a localized-module map. Apply the existing joint module-zero detector for the unit-ideal cover, then use linear-map extensionality. The converse is inherited arbitrary-algebra bound preservation; no new generic locality theorem is planned.
+
+### Detect a bound through arbitrary module charts
+
+`TwistedHiggsBundle.affineOrderedIterate_chart_cover_zero_iff` — For a principal cover s spanning 1, actual A_r-localized modules and arbitrary chart isomorphisms e_r:A_r⊗E≃F_r, q_r:A_r⊗Q≃P_r, I_n(θ)=0 iff I_n(θ_(A_r,e_r,q_r))=0 for every r, at the identical specified n≥0.
+
+Apply the chart zero equivalence on each receiving ring; replace each local chart zero by its actual scalar-extended field zero. Apply the preceding principal-cover zero criterion. This supplies finite-projective charts as a special case without choosing bases or asserting global freeness.
+
+### A positive bound from finitely many chart bounds
+
+`TwistedHiggsBundle.affineOrderedIterate_finite_chart_bound` — If s spans 1, its subtype is finite, and each chart has a specified bound N(r) with I_(N(r))(θ_(A_r,e_r,q_r))=0, then I_(1+sup_(r∈s)N(r))(θ)=0. The actual finite supremum makes the global exponent positive, even for the empty zero-ring cover; local bounds are not assumed equal.
+
+Each N(r) is at most the finite supremum and hence at most 1 plus that supremum. Use ordered-iterate monotonicity on every receiving chart, then jointly detect the common zero. This changes local exponents explicitly; it does not assert identical local bounds.
+
+### Ordered nilpotence is affine local
+
+`TwistedHiggsBundle.affineOrderedIterate_chart_local_nilpotent_iff` — For any principal cover s spanning 1, possibly infinitely indexed, every local chart has some positive vanishing ordered iterate iff θ has some positive globally vanishing ordered iterate. The positive global exponent is extracted from a finite principal subcover, and is not claimed equal to every local exponent.
+
+Choose the given positive local exponents, then use the native unit-ideal finite-subset theorem to extract a finite principal subcover. Restrict the actual rings, module charts and exponent function along the subtype inclusion. Reuse their away-localization instances and apply the finite bound theorem to obtain 1 plus the finite maximum. For the converse use the one positive global exponent on every chart by arbitrary-algebra preservation. Affine finite-subcover extraction is essential; this theorem makes no claim about a general non-quasi-compact ringed site.
+
+A prescribed common exponent stays unchanged on all charts. Varying local exponents on a finite cover give the explicit positive global bound `1 + max N(r)`. Even for an infinitely indexed affine principal cover, the unit-ideal hypothesis supplies a finite subcover before taking a maximum. This uses affineness; it does not give a uniform exponent on every general ringed site.
+
+The counterexample uses the inverse right unit on ℤ/2: it is nonzero over ℤ and vanishes after inverting 2. The proper cover by D(2),D(3) detects every specified bound for E=ℤ/4,Q=ℤ/2. Degree zero stays the tensor unit and cannot vanish on every chart when E=R and R is nontrivial.
+
+Fresh primary reading: [Stacks tag 00EN](https://stacks.math.columbia.edu/tag/00EN), complete Lemmas 10.23.1–10.23.2 and proofs. Its generic locality results motivate the authored ordered-field deductions; it does not state the new Higgs theorems. The earlier Heuer/Esnault–Groechenig/Liu–Zhu receipts remain historical.
+
+Current codex-5ebb6f affine-local checkpoint proves actual chart transport and ordered comparison, fixed-bound detection through a unit-ideal principal cover, and a positive finite-subcover bound for varying local exponents. Finite-projective modules are included without bases. This does not construct actual sheaf restriction identifications, sheaf tensor powers, equality detection or gluing: discharge the E1 request on the native module-sheaf carrier before upgrading the affine statement to a global ringed-site theorem. Non-quasi-compact sites need separate uniformity hypotheses. Exterior-integrability transport, rank bounds, period/Tate adapters, all source routes and H.1–H.8 remain open.
+
+All nodes remain unchecked plans. A separate archived native proof tests this affine slice; no generic module/sheaf carrier, E1 implementation, global integrability or paper correspondence is supplied here.
