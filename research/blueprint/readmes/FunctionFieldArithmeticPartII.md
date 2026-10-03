@@ -1,3 +1,181 @@
+# Coefficient naturality of coherent root-chart scaling
+
+This continuation specifies ring-valued scalar/scaling functoriality. All implementation statuses remain unchecked.
+
+A,B,C are arbitrary commutative rings and φ:A→+*B, ψ:B→+*C are unital ring homomorphisms; f∈A. No field, nontriviality, reducedness, Noetherian, flatness or injectivity hypothesis is imposed.
+
+Use d_i=(i+1)!, the actual factorial chart colimit C_A(f), its roots u_i and coefficient map A→C_A(f). S(A) is the inherited subgroup of unit families with σ_i^(d_i)=1 and σ_j^(d_j/d_i)=σ_i for every i≤j.
+
+The coefficient map F_φ:C_A(f)→+*C_B(φ(f)) is a ring map with φ-semilinear coefficient law, rather than an A-algebra map under the original target scalar structure. A local scalar restriction via RingHom.toAlgebra is used only to apply the existing root lift. Natural point-scaling maps do not establish a universal Hopf coaction, Spec-limit, geometric base-change isomorphism or fpqc torsor/quotient comparison.
+
+## Change of rings for coherent scalar points
+
+Declaration: `TauCeti.RootStack.factorialRootScalars.map` (`FunctionFieldArithmeticPartII:RS.2/factorial-scalar-coefficient-map`).
+
+Construct the native group homomorphism S(φ):S(A)→*S(B) by σ_i↦Units.map(φ)(σ_i). Both the finite-order and cross-level coherence equations are preserved.
+
+Proof plan: Apply the actual native Units.map at each index. Preservation of powers and1 carries each finite-order equation and each coherence equation. Pointwise preservation of1 and multiplication gives the actual group homomorphism.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-root-scalars`, `mathlib:Units.map`.
+
+API `TauCeti.RootStack.factorialRootScalars.map_value`: For every σ∈S(A) and i, the underlying ring value of S(φ)(σ)_i is φ(σ_i).
+
+API `TauCeti.RootStack.factorialRootScalars.map_id`: S(id_A)=id_(S(A)) as native group homomorphisms.
+
+API `TauCeti.RootStack.factorialRootScalars.map_comp`: S(ψ∘φ)=S(ψ)∘S(φ) as native group homomorphisms.
+
+Acceptance `factorialCoefficientTests.scalar_value` (compatibility): The underlying ring value of every mapped scalar equals its image under the specified ring homomorphism.
+
+Acceptance `factorialCoefficientTests.scalar_one` (degenerate): Every coefficient change sends the coherent identity family to the actual identity family.
+
+Acceptance `factorialCoefficientTests.scalar_inverse` (compatibility): The actual scalar map preserves the native inverse family.
+
+## Value of a mapped coherent scalar
+
+Declaration: `TauCeti.RootStack.factorialRootScalars.map_value` (`FunctionFieldArithmeticPartII:RS.2/factorial-scalar-coefficient-value`).
+
+For every σ∈S(A) and i, the underlying ring value of S(φ)(σ)_i is φ(σ_i).
+
+Proof plan: Evaluate the pointwise actual unit map; its underlying ring value is definitionally φ(σ_i).
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-scalar-coefficient-map`, `mathlib:Units.coe_map`.
+
+## Identity on coherent scalar points
+
+Declaration: `TauCeti.RootStack.factorialRootScalars.map_id` (`FunctionFieldArithmeticPartII:RS.2/factorial-scalar-coefficient-identity`).
+
+S(id_A)=id_(S(A)) as native group homomorphisms.
+
+Proof plan: Use group-homomorphism, subgroup, function and unit extensionality. The actual unit values agree definitionally.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-scalar-coefficient-map`.
+
+## Composition on coherent scalar points
+
+Declaration: `TauCeti.RootStack.factorialRootScalars.map_comp` (`FunctionFieldArithmeticPartII:RS.2/factorial-scalar-coefficient-composition`).
+
+S(ψ∘φ)=S(ψ)∘S(φ) as native group homomorphisms.
+
+Proof plan: At every scalar family and level both unit values are ψ(φ(σ_i)); apply native extensionality.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-scalar-coefficient-map`.
+
+## Root extensionality for semilinear colimit maps
+
+Declaration: `TauCeti.RootStack.factorialAffineColimit.ringHom_ext` (`FunctionFieldArithmeticPartII:RS.2/factorial-semilinear-ringhom-ext`).
+
+If g,h:C_A(f)→+*B have the same coefficient homomorphism φ:A→+*B and agree on every actual root u_i, then g=h. The coefficient law must be retained; root values alone do not specify arbitrary ring homomorphisms.
+
+Proof plan: Give B the local A-algebra structure from φ. The actual coefficient equations turn g and h into native A-algebra homomorphisms. Apply the inherited actual colimit root extensionality and take underlying ring homomorphisms.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext`, `mathlib:RingHom.toAlgebra`.
+
+## Change of coefficients in the root chart colimit
+
+Declaration: `TauCeti.RootStack.factorialCoefficientMap` (`FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-map`).
+
+Construct F_φ:C_A(f)→+*C_B(φ(f)) sending every actual root u_i to the target root u_i and every coefficient a to φ(a) through the target coefficient map.
+
+Proof plan: Restrict the target scalar structure locally through A→φ B→C_B(φ(f)). Its actual roots have d_i-th power equal to the restricted coefficient image of f and obey the same transition equations. Apply the existing actual compatible-root lift and take its underlying ring homomorphism.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-power`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-root`, `mathlib:RingHom.toAlgebra`.
+
+API `TauCeti.RootStack.factorialCoefficientMap.root`: For every i, F_φ(u_i in C_A(f))=u_i in C_B(φ(f)).
+
+API `TauCeti.RootStack.factorialCoefficientMap.constant`: For every a∈A, F_φ(algebraMap_A(a))=algebraMap_B(φ(a)).
+
+API `TauCeti.RootStack.factorialCoefficientMap.id`: F_(id_A)=id_(C_A(f)) as native ring homomorphisms.
+
+API `TauCeti.RootStack.factorialCoefficientMap.comp`: F_(ψ∘φ)=F_ψ∘F_φ as native ring homomorphisms, with F_ψ formed at the mapped parameter φ(f).
+
+Acceptance `factorialCoefficientTests.identity` (degenerate): The actual identity coefficient map fixes every root-colimit element.
+
+Acceptance `factorialCoefficientTests.root` (compatibility): At degree2 the actual coefficient change sends the chart root to the degree2 root of the mapped parameter.
+
+Acceptance `factorialCoefficientTests.composition` (compatibility): The composite coefficient map agrees with successive changes on every actual colimit element.
+
+Acceptance `factorialCoefficientTests.zero_ring` (degenerate): Every map from an integer root-colimit into the colimit over the zero ring sends every element to0; the zero-ring case is retained.
+
+Acceptance `factorialCoefficientTests.mod_two` (computation): For φ:Z→Z/2Z and f=0, the actual coefficient map sends the source coefficient2 to0. No injectivity hypothesis is silently introduced.
+
+Acceptance `factorialCoefficientTests.scaling_square` (compatibility): The actual coefficient map commutes with the actual coherent scaling equivalence on every colimit element.
+
+## Root value of coefficient change
+
+Declaration: `TauCeti.RootStack.factorialCoefficientMap.root` (`FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-root`).
+
+For every i, F_φ(u_i in C_A(f))=u_i in C_B(φ(f)).
+
+Proof plan: Evaluate the actual compatible-root lift. Use precisely the same local target scalar structure as in its construction.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-map`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift-root`.
+
+## Coefficient value of coefficient change
+
+Declaration: `TauCeti.RootStack.factorialCoefficientMap.constant` (`FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-constant`).
+
+For every a∈A, F_φ(algebraMap_A(a))=algebraMap_B(φ(a)).
+
+Proof plan: Apply the actual root lift’s native algebra-homomorphism coefficient law under the specified restricted target scalar structure.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-map`.
+
+## Identity change of root-chart coefficients
+
+Declaration: `TauCeti.RootStack.factorialCoefficientMap.id` (`FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-identity`).
+
+F_(id_A)=id_(C_A(f)) as native ring homomorphisms.
+
+Proof plan: Both maps have the identical coefficient law and actual root values. Apply semilinear ring-homomorphism extensionality.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-semilinear-ringhom-ext`, `FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-constant`.
+
+## Composition of root-chart coefficient changes
+
+Declaration: `TauCeti.RootStack.factorialCoefficientMap.comp` (`FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-composition`).
+
+F_(ψ∘φ)=F_ψ∘F_φ as native ring homomorphisms, with F_ψ formed at the mapped parameter φ(f).
+
+Proof plan: Both maps send a to ψ(φ(a)) and u_i to the root at parameter ψ(φ(f)). Identify the dependent target parameter definitionally; apply the actual semilinear extensionality lemma.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-semilinear-ringhom-ext`, `FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-constant`.
+
+## Naturality of coherent chart scaling
+
+Declaration: `TauCeti.RootStack.factorialScale.coefficient_naturality` (`FunctionFieldArithmeticPartII:RS.2/factorial-scaling-coefficient-naturality`).
+
+For every σ∈S(A), F_φ∘s_σ=s_(S(φ)(σ))∘F_φ as native ring homomorphisms.
+
+Proof plan: Both composites have the same coefficient law. At u_i both give algebraMap_B(φ(σ_i))·u_i by the actual root and coefficient formulas, map_mul and the underlying mapped-unit value. Apply semilinear colimit extensionality.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-semilinear-ringhom-ext`, `FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-constant`, `FunctionFieldArithmeticPartII:RS.2/factorial-scalar-coefficient-value`, `FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-constant`.
+
+## Naturality of the actual scaling automorphism
+
+Declaration: `TauCeti.RootStack.factorialScaleEquiv.coefficient_naturality` (`FunctionFieldArithmeticPartII:RS.2/factorial-scaling-equiv-coefficient-naturality`).
+
+For every x∈C_A(f), F_φ(s_σ(x))=s_(S(φ)(σ))(F_φ(x)), where s denotes the actual constructed algebra equivalence.
+
+Proof plan: Evaluate the proved ring-homomorphism square on x. The actual algebra equivalence has the constructed scaling map as forward map.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-scaling-coefficient-naturality`, `FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-equivalence`.
+
+## Naturality of inverse coherent scaling
+
+Declaration: `TauCeti.RootStack.factorialScaleEquiv.inverse_coefficient_naturality` (`FunctionFieldArithmeticPartII:RS.2/factorial-scaling-inverse-coefficient-naturality`).
+
+For every x∈C_A(f), F_φ(s_σ⁻¹(x))=s_(S(φ)(σ))⁻¹(F_φ(x)), using the actual inverse equivalences.
+
+Proof plan: The actual inverse is scaling by σ⁻¹. Native group-homomorphism preservation of inverses gives S(φ)(σ⁻¹)=S(φ)(σ)⁻¹. Evaluate the forward square for σ⁻¹.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-scaling-coefficient-naturality`, `FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-equivalence`, `FunctionFieldArithmeticPartII:RS.2/factorial-scalar-coefficient-map`.
+
+Source: [Talpo–Vistoli exact v2](https://arxiv.org/pdf/1410.1164v2), complete printed/PDF pp.14–16 freshly read2026-10-03. These are authored rank-one coefficient calculations, not literal source declaration names or a certification of its quotient proof.
+
+Required continuation: Actual coherent scalar maps and φ-semilinear chart maps now obey identity/composition and the forward/inverse scaling squares for arbitrary coefficient ring homomorphisms. The universal diagonalizable group scheme and Hopf coaction, transport through the positive-divisibility comparison, coherent root-object groupoid reindexing, Spec limits, fpqc frame torsors and the infinite quotient comparison remain required constructions. TOWER-AFF, KUMMER-FINITE, TOWER-TYPING, DVR/Kummer and the all-roots-of2 non-fppf distinctions and separate Yun–Zhang/symplectic source routes are unchanged.
+
+---
+
 # Actual coherent scalar points and colimit scaling — 2026-10-03
 
 This continuation supplies ring-valued coherent scalar points and their actual algebra automorphisms, as a point interface consumed by the existing infinite affine quotient route. The universal diagonalizable group-scheme/Hopf action and geometric/fpqc comparison remain explicit work.
