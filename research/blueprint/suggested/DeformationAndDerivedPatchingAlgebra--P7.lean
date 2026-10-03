@@ -2748,3 +2748,45 @@ example :
 
 end ShiftedOrderContinuation
 end TauCeti.HilbertSamuel
+
+/- Finite equation jets and all-cutoff length continuation, 2026-10-03.
+The combined proof is preserved by the handoff archive. Suggested bodies remain admitted.
+The preceding native-carrier length and cumulative-function signatures now have checked
+proof prototypes; graded functions, postulation and multiplicity remain open. -/
+namespace TauCeti.HilbertSamuel
+noncomputable section EquationJetFiniteContinuation
+variable {σ k : Type*} [Finite σ] [CommRing k]
+local notation "R" => MvPowerSeries σ k
+local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : σ → R))
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/equation-jet-finite
+lemma equationJet_finite (f : R) (N : ℕ) :
+    Module.Finite k (R ⧸ (Ideal.span {f} ⊔ v ^ (N + 1))) := by sorry
+end EquationJetFiniteContinuation
+noncomputable section EquationJetLengthContinuation
+variable {σ k : Type*} [Finite σ] [Field k]
+local notation "R" => MvPowerSeries σ k
+local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : σ → R))
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/equation-jet-length-finrank
+lemma equationJet_length_eq_finrank (f : R) (N : ℕ) :
+    Module.length R (R ⧸ (Ideal.span {f} ⊔ v ^ (N + 1))) =
+      Module.finrank k (R ⧸ (Ideal.span {f} ⊔ v ^ (N + 1))) := by sorry
+end EquationJetLengthContinuation
+
+-- test: HilbertSamuelEquationJetTest.nonreduced_rank
+example :
+    let R := MvPowerSeries (Fin 2) (ZMod 2)
+    let v : Ideal R := Ideal.span (Set.range MvPowerSeries.X)
+    Module.finrank (ZMod 2) (R ⧸ (Ideal.span {(MvPowerSeries.X 0 : R) ^ 4} ⊔ v ^ 5)) = 14 := by sorry
+
+-- test: HilbertSamuelEquationJetTest.nilpotent_coefficients_finite
+example :
+    let R := MvPowerSeries (Fin 3) (ZMod 4)
+    let v : Ideal R := Ideal.span (Set.range MvPowerSeries.X)
+    Module.Finite (ZMod 4) (R ⧸ (Ideal.span {MvPowerSeries.C 2} ⊔ v ^ 3)) := by sorry
+
+-- test: HilbertSamuelEquationJetTest.zero_coefficients_finite
+example :
+    let R := MvPowerSeries Empty (ZMod 1)
+    let v : Ideal R := Ideal.span (Set.range MvPowerSeries.X)
+    Module.Finite (ZMod 1) (R ⧸ (Ideal.span {0} ⊔ v ^ 1)) := by sorry
+end TauCeti.HilbertSamuel
