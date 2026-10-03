@@ -1,3 +1,59 @@
+# StableReductionPartII: native section Hom cochains
+
+Codex — codex-J6LwjP; 2026-10-03. Refs #3342. Winning claim5964320349 and bot confirmation5964321771 were read before work; the entire issue was reread after confirmation. Mathematical base f3a91b5086a592635ea3821b13ff36dc543fb313; publication base 84e885b95c0ad537079c0fe6fdbb122c8020ac33. Only the five authorized deliverables and owned scratch sources were edited.
+
+## Outcome and limits
+
+For the actual polynomial section model over every commutative A and every A-module M, both alternating R-linear Hom sequences into R⊗_A M now have native cochain-complex forms in ModuleCat R. The ideal phase starts with precomposition by Ψ, and the dual phase with Φ, following the actual signed P_J/P_D kernels. Successive differentials are exact and square to zero. The native positive cohomology objects are zero. Degree-zero cycles factor through the actual ideal or dual presentation, as native Hom left exactness requires.
+
+These are actual Hom maps and native module-category homology objects; the coordinate equivalence is used only to transport the existing universal transpose-tensor exactness. There is no coefficient-flatness assumption. Nine named tests check the two signed columns, two-periodicity, actual successor differential, nonflat ℤ/2 coefficients, a nonreduced ℤ/4 base, the zero ring and both degree-zero augmentation cycles. The successor comparison uses heterogeneous equality so the canonical admitted construction can state it independently of its opaque body; the native object formula identifies both source and target with the actual Hom module.
+
+The native augmented finite-free projective resolutions and their Hom/Ext comparison remain required. This checkpoint does not claim higher Ext vanishing, relative stable reflexivity, completed-local results or family descent. No geometric noetherian/unit-discriminant hypothesis is removed from inherited geometric contracts.
+
+Sixteen new nodes: two constructions and14 lemmas;12 new API items and nine tests. All258 incoming mathematical contracts remain;257 complete node objects are identical. Only the existing dual-section-ideal node appends three prerequisites and one proof step. All140 incoming baseline rows remain intact;12 fresh native references are appended. The entire incoming reader and handoff are retained, and the canonical sketch retains the entire incoming source behind three new pinned imports.
+
+Final packet:274 nodes ({'definition': 8, 'lemma': 147, 'theorem': 63, 'construction': 55, 'application': 1}), 236 API items overall (235 on definitions/constructions), 242 test entries overall (223 on definitions/constructions),35 planets,152 baseline declarations,14 gaps,135 requests, eight partial stages and no closed stages. The reserved general moduli-curves key, six key consumers and21 routed Yuan/DGH items are unchanged. All implementationStatus values remain unchecked.
+
+## Exact checks
+
+Native proof: 3453 lines,118 examples,216 axiom audits; zero errors, warnings or admissions. All reported axioms are ordinary propext/Classical.choice/Quot.sound. Source SHA256 690e22fed4c79b7b46fd8c3e72ae33da6c9f00ce0eeea7498eb0daf18971eeb6; normalized diagnostics SHA256 7e75a39249dbe07e43fb0bda31cf285171cda4052b784438bd1d679300564c0e. Time 26.71s; peak RSS 3517056KiB. Its entire3246-line incoming checked native source is retained byte-for-byte behind three new imports, with incoming SHA25603240fdfbc18f39e88621d22efed1d0a0433df5feb3beb7162f630090c77515d.
+
+Full canonical suggested file: 2928 lines,180 examples; zero errors,438 expected admission warnings and no other warnings. Source SHA256 75072a34103f2da87b6fabf65f58c708e3e54f3bdf06a03ab1e629913b6a5d4b; normalized diagnostics SHA256 50f17c9d59e8b71f814edae7f8e29599126e4ab21375a3cd0d9faa0ee265eb4d. Time 25.61s; peak RSS 3313884KiB. This is the entire admitted §13 sketch, not a library implementation claim.
+
+Both compiled serially against the existing pinned Mathlib artifacts at082e2d37e8b0463410cdb532e111cd43d5a66174. Recorded Tau Ceti source/index pin is f790474821cf4256814db967cb154e7af3d0c369; these files use only individual Mathlib imports. Available memory was at least36GiB before each accepted compile. No project setup, library build, cache download, installation or language server was used. No compiler process remains after submission.
+
+The actual immutable packet checker, intake/private-path checks, incoming preservation,16 public signature comparisons, nine named test comparisons and actual atlas assembler pass. Graph: 3050 stage vertices/8750 edges; 274 owned declarations/642 edges; 3289 combined vertices/9506 edges. Every graph is acyclic. No unresolved prerequisite; all81 required stage pairs are reachable. Own skipped/pending links are empty; stage edges and other roadmaps’ skipped/pending links match the incoming control.
+
+All21 selected owner, governing, library-audit, accepted audit-review, key, source-route, parent-stage and validator input blobs match between the mathematical and publication bases. Unrelated main changes are preserved. The handoff archive includes the exact verifier and its immutable reader, which use the actual assembly/checker code without copying a repository snapshot.
+
+## Reading and provenance
+
+Fresh primary reading: arXiv:1106.1588v2 introduction/Main Lemma, complete §3 Key Example including Proposition3.1/Corollary3.2 and §4 proof. Downloaded primary HTML SHA2562c89ce4072046d546ff9256a5c64cd488f41026c561f8858f4a78ce14c21d685. No fresh whole-paper/PDF, Appendix/Ile or Eisenbud proof audit is claimed. The arbitrary-ring native Hom cochain calculation is an authored deduction from the inherited actual polynomial model and universal transpose-tensor calculations.
+
+Fresh pinned statements: native CochainComplex.of and successor morphism, HomologicalComplex/ExactAt and native homology vanishing, short-complex R-module exactness, native linear-Hom left exactness, ModuleCat object/morphism wrappers and Hom coordinate ladders. No generic Hom or complex theory is replanned.
+
+The current whole issue, incoming handoff, eight stage contracts, reserved key/consumer contracts, all12 parent library-audit target/verdict rows and accepted REV-AUDIT-02 report were read. No link-map entry mentions StableReductionPartII. Governing protocol and upstream-document readings made earlier in this continuous worker session remain under their original scope. All inherited acquisition, printed-page, source-error, compiler and graph receipts remain historical; they are not silently recertified by this checkpoint.
+
+## Where to resume
+
+1. Construct the actual augmented finite-free R-chain resolutions of J and D, with the signed P_J/P_D augmentations and alternating differentials. Use native projectivity and identify native Hom applied to them with these cochain complexes. Establish the actual higher Ext comparison and vanishing; the positive cohomology theorem alone is not the native Ext identification.
+2. Read and apply the precise Knudsen Appendix/Ile relative stable-reflexivity theorem and two-base Proposition6 completion interface, including the Proposition7 exercise. Flat ambient extension alone does not supply coefficient-base completion or the geometric Main Lemma.
+3. Finish the pointed completed-local hull, chart comparisons, family/sheaf descent, arbitrary-base approximation and every inherited MC.0–MC.7 source/supplier obligation.
+
+No new supplier request or planet is introduced. Status remains partial.
+
+## Public recovery
+
+The final handoff names the immutable public source archive. Recover Native.lean, Canonical.lean, verify.py and immutable_view.py from its marked blocks. The incoming native source remains publicly recoverable from76fa936508b28cd0e592b0fd580ae460bda613cf, CHECKED COEFFICIENT MODULE HOM markers, with SHA25603240fdfbc18f39e88621d22efed1d0a0433df5feb3beb7162f630090c77515d.
+
+In a reader-supplied scratch directory, retain these four recovered sources and PriorNative.lean; overlay the final five deliverables in roadmaps/, packets/, readmes/, suggested/ and handoff/ subdirectories. After serial pinned compilations and a memory check, retain native.log and canonical.log, including the Elapsed/peak resource line. Run the recovered verifier with TAUCETI_REPO pointing to the shared read-only clone, TAUCETI_BASELINE to the pinned declarations.tsv file and P8_VALIDATE_BASE to 84e885b95c0ad537079c0fe6fdbb122c8020ac33. The ordinary CLI packet checker instead takes TAUCETI_BASELINE as the baseline directory. The immutable reader reads Git blobs and overlays only the five files; it never writes the repository or creates a snapshot.
+
+The exact guard paths are: research/blueprint/roadmaps/StableReductionPartII.json, research/blueprint/packets/StableReductionPartII.json, research/blueprint/readmes/StableReductionPartII.md, research/blueprint/suggested/StableReductionPartII.lean, research/blueprint/handoff/DESIGN-StableReductionPartII.md, research/blueprint/WORKERS.md, research/blueprint/PROTOCOL.md, research/blueprint/UPSTREAM_GUIDE.md, research/expansion/PROTOCOL.md, data/library-coverage.json, research/blueprint/reviews/REV-AUDIT-02.md, data/keydefs/KEYDEF-algebraicgeometry.json, research/blueprint/papers/PAPER-YUAN-26.result.json, research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.result.json, research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_StableReduction.json, research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_JacobianChallenge.json, scripts/check_blueprint.py, scripts/build.py, scripts/blueprints.py, research/blueprint/intake.py, research/blueprint/reserved-ids.json.
+
+---
+
+## Retained incoming handoff
+
 # StableReductionPartII: coefficient-module tensor–Hom checkpoint
 
 Codex — codex-a71f92; 2026-10-03. Refs #3342. Winning claim5963812041 and our bot confirmation5963813232 were read before work. Mathematical input base aeae47c9a675600efe5c88a0b7ab4cc82b9d13f3. The shared clone was used read-only; only the five authorized proposal files and owned scratch sources were edited.
@@ -86,3 +142,23 @@ sys.stdout.write(source)
 ```
 
 Only the five authorized files are in the final first-parent diff. After submission, owned scratch sources/logs are removed recoverably; public immutable artifacts retain everything needed to reproduce the checks.
+
+
+## Immutable source archive for this continuation
+
+Public archive [71211013c077a46744584d95b38434e23a55fc9d](https://github.com/CBirkbeck/tauceti-explorer/commit/71211013c077a46744584d95b38434e23a55fc9d), retained as a parent of the final canonical submission. Exact Native.lean and Canonical.lean sources are marked in [the suggested-file archive](https://github.com/CBirkbeck/tauceti-explorer/blob/71211013c077a46744584d95b38434e23a55fc9d/research/blueprint/suggested/StableReductionPartII.lean); the exact validator and immutable reader are marked in [the handoff archive](https://github.com/CBirkbeck/tauceti-explorer/blob/71211013c077a46744584d95b38434e23a55fc9d/research/blueprint/handoff/DESIGN-StableReductionPartII.md).
+
+The read-only emitter below recovers and verifies any of the five artifacts. The final canonical source is restored byte-for-byte; proof sources remain inert at the public archive. Public fetch/extraction checks and the final five-file validator are recorded before submission. Owned scratch artifacts are removed after the PR opens; the public sources supply the full replay.
+
+```python
+"""Read-only public source recovery: writes nothing; emits a verified artifact."""
+import sys,hashlib,urllib.request
+ARTIFACTS={'Native.lean': ('71211013c077a46744584d95b38434e23a55fc9d', 'research/blueprint/suggested/StableReductionPartII.lean', '/- BEGIN ARCHIVED CHECKED SECTION HOM COCHAINS\n', 'END ARCHIVED CHECKED SECTION HOM COCHAINS -/', '690e22fed4c79b7b46fd8c3e72ae33da6c9f00ce0eeea7498eb0daf18971eeb6'), 'Canonical.lean': ('71211013c077a46744584d95b38434e23a55fc9d', 'research/blueprint/suggested/StableReductionPartII.lean', '/- BEGIN ARCHIVED CANONICAL SECTION HOM COCHAINS\n', 'END ARCHIVED CANONICAL SECTION HOM COCHAINS -/', '75072a34103f2da87b6fabf65f58c708e3e54f3bdf06a03ab1e629913b6a5d4b'), 'verify.py': ('71211013c077a46744584d95b38434e23a55fc9d', 'research/blueprint/handoff/DESIGN-StableReductionPartII.md', '# BEGIN ARCHIVED SECTION HOM COCHAIN VALIDATOR\n', '# END ARCHIVED SECTION HOM COCHAIN VALIDATOR\n', '370c2aa47fdf16ceac5f8896dd2216ecda874f0d662582bb697a18ad9bd4ac49'), 'immutable_view.py': ('71211013c077a46744584d95b38434e23a55fc9d', 'research/blueprint/handoff/DESIGN-StableReductionPartII.md', '# BEGIN ARCHIVED SECTION HOM COCHAIN IMMUTABLE READER\n', '# END ARCHIVED SECTION HOM COCHAIN IMMUTABLE READER\n', '8894c75fe2998c5a466e9b83bd9e664d1e2f4b6ce5931af91f2c9ac8b793de73'), 'PriorNative.lean': ('76fa936508b28cd0e592b0fd580ae460bda613cf', 'research/blueprint/suggested/StableReductionPartII.lean', '/- BEGIN ARCHIVED CHECKED COEFFICIENT MODULE HOM\n', 'END ARCHIVED CHECKED COEFFICIENT MODULE HOM -/', '03240fdfbc18f39e88621d22efed1d0a0433df5feb3beb7162f630090c77515d')}
+ref,path,start,end,expected=ARTIFACTS[sys.argv[1]]
+url="https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/"+ref+"/"+path
+with urllib.request.urlopen(url,timeout=45) as response:raw=response.read().decode()
+assert raw.count(start)==raw.count(end)==1
+source=raw.split(start,1)[1].split(end,1)[0]
+assert hashlib.sha256(source.encode()).hexdigest()==expected
+sys.stdout.write(source)
+```

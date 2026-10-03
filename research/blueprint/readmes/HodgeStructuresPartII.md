@@ -3823,3 +3823,323 @@ Hypotheses: R is a commutative ring. Every displayed module, tensor product, ext
 Proof: Evaluate the supposed zero iterate at e=1. Apply the actual multilinear product of the n coefficient entries and the tensor right unitor. The value of the constant unit word is one, contradicting nontriviality.
 
 Prerequisites: HodgeStructuresPartII:H.0/affine-ordered-unit-field, mathlib:PiTensorProduct.lift, mathlib:MultilinearMap.mkPiAlgebraFin, mathlib:MultilinearMap.mkPiAlgebraFin_apply_const.
+
+## Finite coefficient directions and exterior integrability
+
+Work over any commutative ring R. The field module E is arbitrary, including torsion or nonflat modules. The coefficient module Q is arbitrary in the finite-direction formula and in integrability implying commutation of all dual contractions. Only the converse criteria take a specified finite basis of Q. Neither the construction nor any proof uses division by two.
+
+Put aθ(v)=rid∘(id_E⊗v)∘θ and κ(θ)=(id_E⊗π₂)∘I₂(θ), using the existing native tensor-power exterior projection and the inherited left-prepended iterate. For θ_A,q(e)=Σ_i A_i(e)⊗q_i, expanding twice gives κ(θ_A,q)(e)=Σ_jΣ_i A_i(A_j(e))⊗(q_i∧q_j). The rightmost operator acts first. Pair (i,j) with (j,i): commuting operators cancel using alternating swaps, and diagonal summands vanish by alternation. The native sum-involution lemma explicitly requires that a nonzero summand has no fixed point; diagonal vanishing discharges this requirement even in characteristic two. Antisymmetry alone would not suffice there.
+
+The canonical alternating dual functional on Λ²Q has value v(p)w(q)−w(p)v(q) on p∧q. Two tensor inductions identify its contraction of κ(θ) with [aθ(v),aθ(w)] in the actual endomorphism algebra. Thus integrability implies commutation for all dual contractions even when Q has no basis. Conversely, a finite coefficient basis reconstructs θ, and pairwise commutation of its coordinate operators makes the actual double-sum square vanish. The all-dual criterion and independence of the chosen basis follow from these actual equalities, not from an assumed separation predicate.
+
+The exact pinned imports are the existing tensor map/right-unitor/induction, basis coordinate/reconstruction and exterior-dual determinant APIs. Finset.sum_involution is the generated additive counterpart of the indexed Finset.prod_involution; Fintype.sum_prod_type' is generated from Fintype.prod_prod_type'. Native tensor/exterior/dual/basis carriers are reused, not replanned. The published Heuer Definition1.2(2), complete Definition4.1 and Remark4.2 motivate the field/contraction interface. These thirteen deductions are authored affine algebra, not named theorems or a correspondence proof from that paper.
+
+### Finite coefficient-direction Higgs field
+
+`HodgeStructuresPartII:H.0/affine-finite-direction-field`; `TwistedHiggsBundle.affineFiniteDirectionField` (construction).
+
+For a finite index type I, arbitrary A:I→End_R(E) and q:I→Q, construct the actual R-linear field θ_A,q(e)=Σ_i A_i(e)⊗q_i. The q_i need not be independent and the A_i need not commute.
+
+Hypotheses:
+
+- R is any commutative ring; E and Q are actual R-modules. There is no implicit characteristic-zero, reducedness, finiteness, basis, projectivity or flatness assumption on E. I is a finite index type only in the finite-direction and basis statements.
+- θ:E→ₗ[R]E⊗[R]Q, a_θ(v)=rid∘(id_E⊗v)∘θ and κ(θ)=(id_E⊗π₂)∘I₂(θ) are the inherited actual native maps. π₂ is the already-built Tau Ceti tensor-to-exterior projection expressed by its exact Mathlib lift. Products in End_R(E) are composition, with the rightmost factor applied first.
+- A chosen finite basis of Q is required exactly where the statement names b or c. The finite-direction construction and integrability⇒commuting-duals implication allow arbitrary Q. These are affine module statements: E1 sheaf restriction, tensor/exterior comparison, local equality detection and gluing remain explicit supplier work.
+
+Proof/construction:
+
+- For each i compose the native tensor constructor e↦e⊗q_i with A_i, and take the finite sum in the actual R-linear-map module.
+
+Prerequisites: `mathlib:TensorProduct.mk`.
+
+API:
+
+- `TwistedHiggsBundle.affineFiniteDirectionField_apply` (projection): For every e∈E, θ_A,q(e)=Σ_i A_i(e)⊗q_i in the native tensor product E⊗_R Q.
+- `TwistedHiggsBundle.affineFiniteDirectionField_reconstruct` (compatibility): For a chosen finite basis b:I→Q and every actual field θ:E→E⊗_R Q, θ equals the finite-direction field with operators A_i=a_θ(b.coord i) and directions b_i. This is an equality of native linear maps, with no basis assumption on E.
+- `TwistedHiggsBundle.affineExteriorSquare_finiteDirection` (compatibility): For every finite-direction field and e∈E, κ(θ_A,q)(e)=Σ_j Σ_i A_i(A_j(e))⊗(q_i∧q_j). The operator indexed by the inner sum acts last in the left-prepended coefficient convention; no commutation or independence hypothesis occurs.
+- `TwistedHiggsBundle.affineExteriorSquare_finiteDirection_zero_of_commute` (compatibility): If A_i A_j=A_j A_i for every i,j, then κ(θ_A,q)=0 for arbitrary directions q_i. This holds over every commutative ring, including characteristic two; no inverse of two or flatness assumption is used.
+- `TwistedHiggsBundle.affineExteriorSquare_contraction` (compatibility): For arbitrary Q and E and all v,w∈Q∨, contraction of κ(θ) by the actual exterior-dual functional ℓ(v,w)=alternatingMapToDual_R,Q,2(v,w) equals a_θ(v)a_θ(w)−a_θ(w)a_θ(v) in End_R(E). On p∧q the functional has value v(p)w(q)−w(p)v(q); rightmost endomorphisms act first.
+- `TwistedHiggsBundle.affineFiniteDirectionField_contraction` (compatibility): For all finite A,q and v∈Q∨, a_(θ_A,q)(v)=Σ_i v(q_i)•A_i as an equality in the actual native endomorphism module.
+- `TwistedHiggsBundle.affineFiniteDirectionField_coordinate` (compatibility): If b:I→Q is a finite basis, contraction of θ_A,b by b.coord i equals A_i, for every i. The coordinate evaluation is the native basis coordinate, not a stored comparison oracle.
+- `TwistedHiggsBundle.affineExteriorSquare_zero_commute` (compatibility): If κ(θ)=0 then a_θ(v)a_θ(w)=a_θ(w)a_θ(v) for all v,w∈Q∨. No finiteness, freeness or projectivity hypothesis on Q or E is needed in this forward implication.
+- `TwistedHiggsBundle.affineExteriorSquare_finiteBasis_zero_iff` (characterisation): For a finite basis b:I→Q, κ(θ_A,b)=0 if and only if A_i A_j=A_j A_i for every i,j. R is an arbitrary commutative ring and E an arbitrary R-module. A merely spanning or dependent list of directions is not substituted for the basis in the converse.
+- `TwistedHiggsBundle.affineExteriorSquare_coordinate_zero_iff` (characterisation): For every finite basis b:I→Q and actual θ:E→E⊗_R Q, κ(θ)=0 if and only if the coordinate contractions a_θ(b.coord i) commute pairwise. Only Q has a basis; E need not be free, finite, projective or flat.
+- `TwistedHiggsBundle.affineExteriorSquare_dual_zero_iff` (characterisation): If Q has a chosen finite basis, κ(θ)=0 if and only if a_θ(v)a_θ(w)=a_θ(w)a_θ(v) for every v,w∈Q∨. The backward implication explicitly uses finite-basis reconstruction; separation by the dual is not assumed for an arbitrary coefficient module.
+- `TwistedHiggsBundle.affineExteriorSquare_coordinates_basis_independent` (characterisation): For two finite bases b:I→Q and c:J→Q, with possibly different index types, pairwise commutation of the b-coordinate contractions is equivalent to pairwise commutation of the c-coordinate contractions for the same θ. Both criteria are identified with the same native κ(θ)=0.
+
+Uses:
+
+- HodgeStructuresPartII:H.0/higgs-commuting: Supply the actual finite-coordinate affine criterion, including characteristic two, before using E1 to restrict, compare exterior powers and glue local fields.
+- HodgeStructuresPartII:H.0/symmetric-action: Certify commutation of actual contraction operators from exterior integrability; the native symmetric-algebra action and its global endomorphism/sheaf comparison remain distinct existing obligations.
+- HodgeStructuresPartII:key/higgs-parameter-connections: Give coordinate-independent affine integrability tests without a basis for E and without identifying sheaf tensor sections with tensors of global sections.
+- Heuer Definition 4.1 and Remark 4.2: Relate the actual exterior obstruction to the signed commutator of contraction operators, retaining the finite coefficient-basis hypothesis only for the converse.
+
+Unit tests:
+
+- `TwistedHiggsBundle.affineFiniteDirectionField.test_apply` (computation): The finite-direction field evaluates at e to Σ_i A_i(e)⊗q_i.
+- `TwistedHiggsBundle.affineFiniteDirectionField.test_empty` (degenerate): For I=Fin 0 the finite-direction field is the zero linear map.
+- `TwistedHiggsBundle.affineFiniteDirectionField.test_zero` (degenerate): For any finite I and q, setting every A_i=0 gives the zero field.
+- `TwistedHiggsBundle.affineFiniteDirectionField.test_reconstruct` (characterisation): Any actual θ is recovered exactly from the contractions by the coordinates of a chosen finite basis of Q.
+- `TwistedHiggsBundle.affineFiniteDirectionField.test_coordinate` (computation): For finite-basis directions, contracting θ_A,b at b.coord i recovers the actual A_i.
+- `TwistedHiggsBundle.affineFiniteDirectionField.test_dependent` (non-example): For an arbitrary family of operators with all coefficient directions equal to q, the exterior square is zero even without operator commutation. Dependence cannot supply the converse criterion.
+- `TwistedHiggsBundle.affineFiniteDirectionField.test_one_direction` (degenerate): A field with one coefficient direction and an arbitrary endomorphism has zero exterior square.
+- `TwistedHiggsBundle.affineFiniteDirectionField.test_torsion_module` (example): Over R=ℤ with the torsion module E=ZMod 2, the one-direction identity field has zero exterior square. No freeness or flatness of E is required.
+- `TwistedHiggsBundle.affineFiniteDirectionField.test_char_two_three_coordinates` (non-example): Over ZMod 2, take E=(ZMod 2)², Q=Fin 3→ZMod 2 with its native standard basis, and operators E12,E21,0. The finite-direction field has nonzero exterior square, detected by the 0,1 coordinate commutator at (1,0).
+- `TwistedHiggsBundle.affineFiniteDirectionField.test_all_duals` (characterisation): With a finite coefficient basis, κ(θ)=0 exactly when all actual dual contractions commute, not only the selected coordinate contractions.
+- `TwistedHiggsBundle.affineFiniteDirectionField.test_basis_independent` (invariance): Coordinate commutation is equivalent for any two finite coefficient bases, even if their index types differ.
+
+Source: Ben Heuer, [published PDF](https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf), Definition1.2(2), printed p.262; complete Definition4.1/Remark4.2, printed pp.297–298. Short literal: “θ ∧ θ = 0”. The native deduction extends the baseline APIs described above. Implementation status remains unchecked.
+
+### Evaluation of a finite-direction field
+
+`HodgeStructuresPartII:H.0/affine-finite-direction-apply`; `TwistedHiggsBundle.affineFiniteDirectionField_apply` (lemma).
+
+For every e∈E, θ_A,q(e)=Σ_i A_i(e)⊗q_i in the native tensor product E⊗_R Q.
+
+Hypotheses:
+
+- R is any commutative ring; E and Q are actual R-modules. There is no implicit characteristic-zero, reducedness, finiteness, basis, projectivity or flatness assumption on E. I is a finite index type only in the finite-direction and basis statements.
+- θ:E→ₗ[R]E⊗[R]Q, a_θ(v)=rid∘(id_E⊗v)∘θ and κ(θ)=(id_E⊗π₂)∘I₂(θ) are the inherited actual native maps. π₂ is the already-built Tau Ceti tensor-to-exterior projection expressed by its exact Mathlib lift. Products in End_R(E) are composition, with the rightmost factor applied first.
+- A chosen finite basis of Q is required exactly where the statement names b or c. The finite-direction construction and integrability⇒commuting-duals implication allow arbitrary Q. These are affine module statements: E1 sheaf restriction, tensor/exterior comparison, local equality detection and gluing remain explicit supplier work.
+
+Proof/construction:
+
+- Evaluate the finite sum of the tensor-constructor composites using native linear-map sum evaluation.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-finite-direction-field`.
+
+Source: Ben Heuer, [published PDF](https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf), Definition1.2(2), printed p.262; complete Definition4.1/Remark4.2, printed pp.297–298. Short literal: “θ ∧ θ = 0”. The native deduction extends the baseline APIs described above. Implementation status remains unchecked.
+
+### Reconstruction as a finite-direction field
+
+`HodgeStructuresPartII:H.0/affine-finite-direction-reconstruct`; `TwistedHiggsBundle.affineFiniteDirectionField_reconstruct` (lemma).
+
+For a chosen finite basis b:I→Q and every actual field θ:E→E⊗_R Q, θ equals the finite-direction field with operators A_i=a_θ(b.coord i) and directions b_i. This is an equality of native linear maps, with no basis assumption on E.
+
+Hypotheses:
+
+- R is any commutative ring; E and Q are actual R-modules. There is no implicit characteristic-zero, reducedness, finiteness, basis, projectivity or flatness assumption on E. I is a finite index type only in the finite-direction and basis statements.
+- θ:E→ₗ[R]E⊗[R]Q, a_θ(v)=rid∘(id_E⊗v)∘θ and κ(θ)=(id_E⊗π₂)∘I₂(θ) are the inherited actual native maps. π₂ is the already-built Tau Ceti tensor-to-exterior projection expressed by its exact Mathlib lift. Products in End_R(E) are composition, with the rightmost factor applied first.
+- A chosen finite basis of Q is required exactly where the statement names b or c. The finite-direction construction and integrability⇒commuting-duals implication allow arbitrary Q. These are affine module statements: E1 sheaf restriction, tensor/exterior comparison, local equality detection and gluing remain explicit supplier work.
+
+Proof/construction:
+
+- Evaluate the finite-direction field at each e, apply the existing affineContractions_reconstruct to the chosen finite coefficient basis, and use native linear-map extensionality.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-finite-direction-apply`, `HodgeStructuresPartII:H.0/affine-contractions-reconstruction`.
+
+Source: Ben Heuer, [published PDF](https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf), Definition1.2(2), printed p.262; complete Definition4.1/Remark4.2, printed pp.297–298. Short literal: “θ ∧ θ = 0”. The native deduction extends the baseline APIs described above. Implementation status remains unchecked.
+
+### Finite double-sum exterior-square formula
+
+`HodgeStructuresPartII:H.0/affine-exterior-finite-direction`; `TwistedHiggsBundle.affineExteriorSquare_finiteDirection` (lemma).
+
+For every finite-direction field and e∈E, κ(θ_A,q)(e)=Σ_j Σ_i A_i(A_j(e))⊗(q_i∧q_j). The operator indexed by the inner sum acts last in the left-prepended coefficient convention; no commutation or independence hypothesis occurs.
+
+Hypotheses:
+
+- R is any commutative ring; E and Q are actual R-modules. There is no implicit characteristic-zero, reducedness, finiteness, basis, projectivity or flatness assumption on E. I is a finite index type only in the finite-direction and basis statements.
+- θ:E→ₗ[R]E⊗[R]Q, a_θ(v)=rid∘(id_E⊗v)∘θ and κ(θ)=(id_E⊗π₂)∘I₂(θ) are the inherited actual native maps. π₂ is the already-built Tau Ceti tensor-to-exterior projection expressed by its exact Mathlib lift. Products in End_R(E) are composition, with the rightmost factor applied first.
+- A chosen finite basis of Q is required exactly where the statement names b or c. The finite-direction construction and integrability⇒commuting-duals implication allow arbitrary Q. These are affine module statements: E1 sheaf restriction, tensor/exterior comparison, local equality detection and gluing remain explicit supplier work.
+
+Proof/construction:
+
+- Use the inherited affineOrderedIterate_two comparison with the associator-defined ordered square.
+- Expand θ_A,q twice with native tensor-map and linear-map finite-sum laws. The first q_j is on the right after prepending the second q_i.
+- Evaluate the existing tensor-power exterior projection on each pure word to obtain precisely q_i∧q_j.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-finite-direction-apply`, `HodgeStructuresPartII:H.0/affine-ordered-iterate-two`, `HodgeStructuresPartII:H.0/affine-ordered-square`, `HodgeStructuresPartII:H.0/affine-exterior-square`, `mathlib:PiTensorProduct.lift.tprod`.
+
+Source: Ben Heuer, [published PDF](https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf), Definition1.2(2), printed p.262; complete Definition4.1/Remark4.2, printed pp.297–298. Short literal: “θ ∧ θ = 0”. The native deduction extends the baseline APIs described above. Implementation status remains unchecked.
+
+### Commuting finite directions give integrability
+
+`HodgeStructuresPartII:H.0/affine-exterior-finite-direction-commute`; `TwistedHiggsBundle.affineExteriorSquare_finiteDirection_zero_of_commute` (lemma).
+
+If A_i A_j=A_j A_i for every i,j, then κ(θ_A,q)=0 for arbitrary directions q_i. This holds over every commutative ring, including characteristic two; no inverse of two or flatness assumption is used.
+
+Hypotheses:
+
+- R is any commutative ring; E and Q are actual R-modules. There is no implicit characteristic-zero, reducedness, finiteness, basis, projectivity or flatness assumption on E. I is a finite index type only in the finite-direction and basis statements.
+- θ:E→ₗ[R]E⊗[R]Q, a_θ(v)=rid∘(id_E⊗v)∘θ and κ(θ)=(id_E⊗π₂)∘I₂(θ) are the inherited actual native maps. π₂ is the already-built Tau Ceti tensor-to-exterior projection expressed by its exact Mathlib lift. Products in End_R(E) are composition, with the rightmost factor applied first.
+- A chosen finite basis of Q is required exactly where the statement names b or c. The finite-direction construction and integrability⇒commuting-duals implication allow arbitrary Q. These are affine module statements: E1 sheaf restriction, tensor/exterior comparison, local equality detection and gluing remain explicit supplier work.
+
+Proof/construction:
+
+- Rewrite the double sum as a sum on I×I using the generated additive form Fintype.sum_prod_type' of the indexed native product theorem.
+- Use the actual Finset.sum_involution generated from Finset.prod_involution with (i,j)↦(j,i). Pairwise operator commutation and AlternatingMap.map_swap make paired summands negatives.
+- A fixed point has i=j and its alternating generator is zero by AlternatingMap.map_eq_zero_of_eq. This explicit zero condition, not 2x=0, closes the involution hypothesis.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-exterior-finite-direction`, `mathlib:Finset.prod_involution`, `mathlib:Fintype.prod_prod_type'`, `mathlib:AlternatingMap.map_swap`, `mathlib:AlternatingMap.map_eq_zero_of_eq`.
+
+Source: Ben Heuer, [published PDF](https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf), Definition1.2(2), printed p.262; complete Definition4.1/Remark4.2, printed pp.297–298. Short literal: “θ ∧ θ = 0”. The native deduction extends the baseline APIs described above. Implementation status remains unchecked.
+
+### Exterior-dual contraction is the commutator
+
+`HodgeStructuresPartII:H.0/affine-exterior-contraction-commutator`; `TwistedHiggsBundle.affineExteriorSquare_contraction` (lemma).
+
+For arbitrary Q and E and all v,w∈Q∨, contraction of κ(θ) by the actual exterior-dual functional ℓ(v,w)=alternatingMapToDual_R,Q,2(v,w) equals a_θ(v)a_θ(w)−a_θ(w)a_θ(v) in End_R(E). On p∧q the functional has value v(p)w(q)−w(p)v(q); rightmost endomorphisms act first.
+
+Hypotheses:
+
+- R is any commutative ring; E and Q are actual R-modules. There is no implicit characteristic-zero, reducedness, finiteness, basis, projectivity or flatness assumption on E. I is a finite index type only in the finite-direction and basis statements.
+- θ:E→ₗ[R]E⊗[R]Q, a_θ(v)=rid∘(id_E⊗v)∘θ and κ(θ)=(id_E⊗π₂)∘I₂(θ) are the inherited actual native maps. π₂ is the already-built Tau Ceti tensor-to-exterior projection expressed by its exact Mathlib lift. Products in End_R(E) are composition, with the rightmost factor applied first.
+- A chosen finite basis of Q is required exactly where the statement names b or c. The finite-direction construction and integrability⇒commuting-duals implication allow arbitrary Q. These are affine module statements: E1 sheaf restriction, tensor/exterior comparison, local equality detection and gluing remain explicit supplier work.
+
+Proof/construction:
+
+- Evaluate the actual linear-map equality at e. Tensor induction on θ(e), followed by tensor induction on θ(x), reduces it to two pure coefficient vectors p,q; sums are preserved by the genuine linear maps.
+- The inherited left-prepended iterate yields the exterior generator p∧q. Read the native alternatingMapToDual_apply_ιMulti determinant, evaluate its 2×2 determinant and use tensor right-unit/balancing.
+- The value is (v(p)w(q)−w(p)v(q))•x; native commutative scalar multiplication and module subtraction give the signed commutator, without commutation of endomorphisms.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-contractions-apply`, `HodgeStructuresPartII:H.0/affine-ordered-iterate-two`, `HodgeStructuresPartII:H.0/affine-ordered-square`, `HodgeStructuresPartII:H.0/affine-exterior-square`, `mathlib:TensorProduct.induction_on`, `mathlib:exteriorPower.alternatingMapToDual`, `mathlib:exteriorPower.alternatingMapToDual_apply_ιMulti`.
+
+Source: Ben Heuer, [published PDF](https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf), Definition1.2(2), printed p.262; complete Definition4.1/Remark4.2, printed pp.297–298. Short literal: “θ ∧ θ = 0”. The native deduction extends the baseline APIs described above. Implementation status remains unchecked.
+
+### Contraction of a finite-direction field
+
+`HodgeStructuresPartII:H.0/affine-finite-direction-contraction`; `TwistedHiggsBundle.affineFiniteDirectionField_contraction` (lemma).
+
+For all finite A,q and v∈Q∨, a_(θ_A,q)(v)=Σ_i v(q_i)•A_i as an equality in the actual native endomorphism module.
+
+Hypotheses:
+
+- R is any commutative ring; E and Q are actual R-modules. There is no implicit characteristic-zero, reducedness, finiteness, basis, projectivity or flatness assumption on E. I is a finite index type only in the finite-direction and basis statements.
+- θ:E→ₗ[R]E⊗[R]Q, a_θ(v)=rid∘(id_E⊗v)∘θ and κ(θ)=(id_E⊗π₂)∘I₂(θ) are the inherited actual native maps. π₂ is the already-built Tau Ceti tensor-to-exterior projection expressed by its exact Mathlib lift. Products in End_R(E) are composition, with the rightmost factor applied first.
+- A chosen finite basis of Q is required exactly where the statement names b or c. The finite-direction construction and integrability⇒commuting-duals implication allow arbitrary Q. These are affine module statements: E1 sheaf restriction, tensor/exterior comparison, local equality detection and gluing remain explicit supplier work.
+
+Proof/construction:
+
+- Evaluate on e, distribute the actual tensor map and right unitor over the finite sum, and use rid(e⊗r)=r•e.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-finite-direction-apply`, `HodgeStructuresPartII:H.0/affine-contractions-apply`, `mathlib:TensorProduct.map_tmul`.
+
+Source: Ben Heuer, [published PDF](https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf), Definition1.2(2), printed p.262; complete Definition4.1/Remark4.2, printed pp.297–298. Short literal: “θ ∧ θ = 0”. The native deduction extends the baseline APIs described above. Implementation status remains unchecked.
+
+### Basis coordinates recover the specified operators
+
+`HodgeStructuresPartII:H.0/affine-finite-direction-coordinate`; `TwistedHiggsBundle.affineFiniteDirectionField_coordinate` (lemma).
+
+If b:I→Q is a finite basis, contraction of θ_A,b by b.coord i equals A_i, for every i. The coordinate evaluation is the native basis coordinate, not a stored comparison oracle.
+
+Hypotheses:
+
+- R is any commutative ring; E and Q are actual R-modules. There is no implicit characteristic-zero, reducedness, finiteness, basis, projectivity or flatness assumption on E. I is a finite index type only in the finite-direction and basis statements.
+- θ:E→ₗ[R]E⊗[R]Q, a_θ(v)=rid∘(id_E⊗v)∘θ and κ(θ)=(id_E⊗π₂)∘I₂(θ) are the inherited actual native maps. π₂ is the already-built Tau Ceti tensor-to-exterior projection expressed by its exact Mathlib lift. Products in End_R(E) are composition, with the rightmost factor applied first.
+- A chosen finite basis of Q is required exactly where the statement names b or c. The finite-direction construction and integrability⇒commuting-duals implication allow arbitrary Q. These are affine module statements: E1 sheaf restriction, tensor/exterior comparison, local equality detection and gluing remain explicit supplier work.
+
+Proof/construction:
+
+- Apply the preceding contraction formula and native basis coordinate evaluation b.coord i (b j)=δ_ij. The finite sum reduces to A_i.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-finite-direction-contraction`, `mathlib:Module.Basis.coord`.
+
+Source: Ben Heuer, [published PDF](https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf), Definition1.2(2), printed p.262; complete Definition4.1/Remark4.2, printed pp.297–298. Short literal: “θ ∧ θ = 0”. The native deduction extends the baseline APIs described above. Implementation status remains unchecked.
+
+### Integrability makes all contractions commute
+
+`HodgeStructuresPartII:H.0/affine-exterior-zero-contractions-commute`; `TwistedHiggsBundle.affineExteriorSquare_zero_commute` (lemma).
+
+If κ(θ)=0 then a_θ(v)a_θ(w)=a_θ(w)a_θ(v) for all v,w∈Q∨. No finiteness, freeness or projectivity hypothesis on Q or E is needed in this forward implication.
+
+Hypotheses:
+
+- R is any commutative ring; E and Q are actual R-modules. There is no implicit characteristic-zero, reducedness, finiteness, basis, projectivity or flatness assumption on E. I is a finite index type only in the finite-direction and basis statements.
+- θ:E→ₗ[R]E⊗[R]Q, a_θ(v)=rid∘(id_E⊗v)∘θ and κ(θ)=(id_E⊗π₂)∘I₂(θ) are the inherited actual native maps. π₂ is the already-built Tau Ceti tensor-to-exterior projection expressed by its exact Mathlib lift. Products in End_R(E) are composition, with the rightmost factor applied first.
+- A chosen finite basis of Q is required exactly where the statement names b or c. The finite-direction construction and integrability⇒commuting-duals implication allow arbitrary Q. These are affine module statements: E1 sheaf restriction, tensor/exterior comparison, local equality detection and gluing remain explicit supplier work.
+
+Proof/construction:
+
+- Apply the actual exterior-contraction commutator identity to v,w.
+- Replace κ(θ) by the zero linear map and use the existing affineContractions_zero. The commutator is zero, hence the two products are equal.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-exterior-contraction-commutator`, `HodgeStructuresPartII:H.0/affine-contractions-zero`.
+
+Source: Ben Heuer, [published PDF](https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf), Definition1.2(2), printed p.262; complete Definition4.1/Remark4.2, printed pp.297–298. Short literal: “θ ∧ θ = 0”. The native deduction extends the baseline APIs described above. Implementation status remains unchecked.
+
+### Integrability criterion for finite-basis fields
+
+`HodgeStructuresPartII:H.0/affine-exterior-finite-basis-criterion`; `TwistedHiggsBundle.affineExteriorSquare_finiteBasis_zero_iff` (lemma).
+
+For a finite basis b:I→Q, κ(θ_A,b)=0 if and only if A_i A_j=A_j A_i for every i,j. R is an arbitrary commutative ring and E an arbitrary R-module. A merely spanning or dependent list of directions is not substituted for the basis in the converse.
+
+Hypotheses:
+
+- R is any commutative ring; E and Q are actual R-modules. There is no implicit characteristic-zero, reducedness, finiteness, basis, projectivity or flatness assumption on E. I is a finite index type only in the finite-direction and basis statements.
+- θ:E→ₗ[R]E⊗[R]Q, a_θ(v)=rid∘(id_E⊗v)∘θ and κ(θ)=(id_E⊗π₂)∘I₂(θ) are the inherited actual native maps. π₂ is the already-built Tau Ceti tensor-to-exterior projection expressed by its exact Mathlib lift. Products in End_R(E) are composition, with the rightmost factor applied first.
+- A chosen finite basis of Q is required exactly where the statement names b or c. The finite-direction construction and integrability⇒commuting-duals implication allow arbitrary Q. These are affine module statements: E1 sheaf restriction, tensor/exterior comparison, local equality detection and gluing remain explicit supplier work.
+
+Proof/construction:
+
+- Necessity: apply the arbitrary-module forward contraction theorem to b.coord i and b.coord j, then recover the specified A_i and A_j by the proved coordinate formula.
+- Sufficiency: use the finite-direction swap-involution theorem with directions b_i. No exterior-basis or invertibility-of-two lemma is required.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-exterior-zero-contractions-commute`, `HodgeStructuresPartII:H.0/affine-finite-direction-coordinate`, `HodgeStructuresPartII:H.0/affine-exterior-finite-direction-commute`.
+
+Source: Ben Heuer, [published PDF](https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf), Definition1.2(2), printed p.262; complete Definition4.1/Remark4.2, printed pp.297–298. Short literal: “θ ∧ θ = 0”. The native deduction extends the baseline APIs described above. Implementation status remains unchecked.
+
+### Integrability criterion for coordinate contractions
+
+`HodgeStructuresPartII:H.0/affine-exterior-coordinate-criterion`; `TwistedHiggsBundle.affineExteriorSquare_coordinate_zero_iff` (lemma).
+
+For every finite basis b:I→Q and actual θ:E→E⊗_R Q, κ(θ)=0 if and only if the coordinate contractions a_θ(b.coord i) commute pairwise. Only Q has a basis; E need not be free, finite, projective or flat.
+
+Hypotheses:
+
+- R is any commutative ring; E and Q are actual R-modules. There is no implicit characteristic-zero, reducedness, finiteness, basis, projectivity or flatness assumption on E. I is a finite index type only in the finite-direction and basis statements.
+- θ:E→ₗ[R]E⊗[R]Q, a_θ(v)=rid∘(id_E⊗v)∘θ and κ(θ)=(id_E⊗π₂)∘I₂(θ) are the inherited actual native maps. π₂ is the already-built Tau Ceti tensor-to-exterior projection expressed by its exact Mathlib lift. Products in End_R(E) are composition, with the rightmost factor applied first.
+- A chosen finite basis of Q is required exactly where the statement names b or c. The finite-direction construction and integrability⇒commuting-duals implication allow arbitrary Q. These are affine module statements: E1 sheaf restriction, tensor/exterior comparison, local equality detection and gluing remain explicit supplier work.
+
+Proof/construction:
+
+- Reconstruct θ as the finite-direction field of its coordinate contractions using the existing native finite coefficient-basis reconstruction.
+- Substitute the equality in the finite-basis field criterion; no module coordinates for E are introduced.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-finite-direction-reconstruct`, `HodgeStructuresPartII:H.0/affine-exterior-finite-basis-criterion`.
+
+Source: Ben Heuer, [published PDF](https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf), Definition1.2(2), printed p.262; complete Definition4.1/Remark4.2, printed pp.297–298. Short literal: “θ ∧ θ = 0”. The native deduction extends the baseline APIs described above. Implementation status remains unchecked.
+
+### Integrability criterion for all dual contractions
+
+`HodgeStructuresPartII:H.0/affine-exterior-all-dual-criterion`; `TwistedHiggsBundle.affineExteriorSquare_dual_zero_iff` (lemma).
+
+If Q has a chosen finite basis, κ(θ)=0 if and only if a_θ(v)a_θ(w)=a_θ(w)a_θ(v) for every v,w∈Q∨. The backward implication explicitly uses finite-basis reconstruction; separation by the dual is not assumed for an arbitrary coefficient module.
+
+Hypotheses:
+
+- R is any commutative ring; E and Q are actual R-modules. There is no implicit characteristic-zero, reducedness, finiteness, basis, projectivity or flatness assumption on E. I is a finite index type only in the finite-direction and basis statements.
+- θ:E→ₗ[R]E⊗[R]Q, a_θ(v)=rid∘(id_E⊗v)∘θ and κ(θ)=(id_E⊗π₂)∘I₂(θ) are the inherited actual native maps. π₂ is the already-built Tau Ceti tensor-to-exterior projection expressed by its exact Mathlib lift. Products in End_R(E) are composition, with the rightmost factor applied first.
+- A chosen finite basis of Q is required exactly where the statement names b or c. The finite-direction construction and integrability⇒commuting-duals implication allow arbitrary Q. These are affine module statements: E1 sheaf restriction, tensor/exterior comparison, local equality detection and gluing remain explicit supplier work.
+
+Proof/construction:
+
+- Forward: invoke the arbitrary-module all-contractions necessity theorem.
+- Backward: specialize all-functional commutation to the finite basis coordinates and invoke the coordinate criterion. The given basis supplies the exact reconstruction needed for sufficiency.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-exterior-zero-contractions-commute`, `HodgeStructuresPartII:H.0/affine-exterior-coordinate-criterion`.
+
+Source: Ben Heuer, [published PDF](https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf), Definition1.2(2), printed p.262; complete Definition4.1/Remark4.2, printed pp.297–298. Short literal: “θ ∧ θ = 0”. The native deduction extends the baseline APIs described above. Implementation status remains unchecked.
+
+### Basis independence of coordinate commutation
+
+`HodgeStructuresPartII:H.0/affine-exterior-coordinate-basis-independence`; `TwistedHiggsBundle.affineExteriorSquare_coordinates_basis_independent` (lemma).
+
+For two finite bases b:I→Q and c:J→Q, with possibly different index types, pairwise commutation of the b-coordinate contractions is equivalent to pairwise commutation of the c-coordinate contractions for the same θ. Both criteria are identified with the same native κ(θ)=0.
+
+Hypotheses:
+
+- R is any commutative ring; E and Q are actual R-modules. There is no implicit characteristic-zero, reducedness, finiteness, basis, projectivity or flatness assumption on E. I is a finite index type only in the finite-direction and basis statements.
+- θ:E→ₗ[R]E⊗[R]Q, a_θ(v)=rid∘(id_E⊗v)∘θ and κ(θ)=(id_E⊗π₂)∘I₂(θ) are the inherited actual native maps. π₂ is the already-built Tau Ceti tensor-to-exterior projection expressed by its exact Mathlib lift. Products in End_R(E) are composition, with the rightmost factor applied first.
+- A chosen finite basis of Q is required exactly where the statement names b or c. The finite-direction construction and integrability⇒commuting-duals implication allow arbitrary Q. These are affine module statements: E1 sheaf restriction, tensor/exterior comparison, local equality detection and gluing remain explicit supplier work.
+
+Proof/construction:
+
+- Identify both coordinate-commutation statements with κ(θ)=0 by the coordinate criterion, and compose the equivalences.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-exterior-coordinate-criterion`.
+
+Source: Ben Heuer, [published PDF](https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf), Definition1.2(2), printed p.262; complete Definition4.1/Remark4.2, printed pp.297–298. Short literal: “θ ∧ θ = 0”. The native deduction extends the baseline APIs described above. Implementation status remains unchecked.
+
+### Global boundary
+
+The affine finite-coordinate result does not construct a sheaf tensor or identify its sections with tensors of global sections. The existing H.0/higgs-commuting global target still consumes E1 restriction, exterior/dual tensor comparison, local equality detection and gluing. Arbitrary-Q cross-ring exterior projection/base-change comparison, finite-projective dual localization, the global Ω²⊗T² identification and all λ-connection/Griffiths/Rees supplier obligations remain explicit work. No Hodge parent carrier is duplicated, no stage or reserved key is closed, and all149 source-route obligations retain their previous status. H.0 is partial and H.1–H.8 are not_read. The full suggested file uses admitted bodies under protocol13; its type check is separate from the admission-free native prototype archived in the handoff.

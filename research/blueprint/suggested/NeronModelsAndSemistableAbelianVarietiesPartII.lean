@@ -2661,3 +2661,339 @@ example (a b : R) (f : R[X]) :
       algebraMap R[X] (Chart a b) f := by sorry
 
 end TauCeti.GenusOne.QuadraticPinch.InfinityChart
+
+/- BEGIN QUADRATIC OVERLAP COMPARISON -/
+
+namespace TauCeti.GenusOne.QuadraticPinch.Overlap
+
+variable {R : Type u} [CommRing R]
+
+def quadratic (c a b : R) : R[X] := by sorry
+
+abbrev Ring (c a b : R) := Localization.Away (X * quadratic c a b)
+
+def coordinate (c a b : R) : Ring c a b := by sorry
+
+def inverseVariable (c a b : R) : Ring c a b := by sorry
+
+lemma coordinate_mul_inverse (c a b : R) :
+    coordinate c a b * inverseVariable c a b = 1 := by sorry
+
+lemma inverse_isUnit (c a b : R) : IsUnit (inverseVariable c a b) := by sorry
+
+lemma quadratic_isUnit (c a b : R) :
+    IsUnit (algebraMap R[X] (Ring c a b) (quadratic c a b)) := by sorry
+
+lemma reciprocal_quadratic (c a b : R) :
+    aeval (inverseVariable b a c) (quadratic c a b) =
+      inverseVariable b a c ^ 2 * algebraMap R[X] (Ring b a c) (quadratic b a c) := by sorry
+
+lemma reciprocal_denominator_isUnit (c a b : R) :
+    IsUnit (aeval (inverseVariable b a c) (X * quadratic c a b)) := by sorry
+
+def reciprocal (c a b : R) : Ring c a b →ₐ[R] Ring b a c := by sorry
+
+lemma reciprocal_algebraMap (c a b : R) (f : R[X]) :
+    reciprocal c a b (algebraMap R[X] (Ring c a b) f) =
+      aeval (inverseVariable b a c) f := by sorry
+
+lemma reciprocal_coordinate (c a b : R) :
+    reciprocal c a b (coordinate c a b) = inverseVariable b a c := by sorry
+
+lemma reciprocal_inverse (c a b : R) :
+    reciprocal c a b (inverseVariable c a b) = coordinate b a c := by sorry
+
+lemma reciprocal_comp (c a b : R) :
+    (reciprocal b a c).comp (reciprocal c a b) = AlgHom.id R (Ring c a b) := by sorry
+
+def equiv (c a b : R) : Ring c a b ≃ₐ[R] Ring b a c := by sorry
+
+end TauCeti.GenusOne.QuadraticPinch.Overlap
+namespace TauCeti.GenusOne.QuadraticPinch.Overlap
+variable {R : Type u} [CommRing R]
+
+lemma equiv_coordinate (c a b : R) :
+    equiv c a b (coordinate c a b) = inverseVariable b a c := by sorry
+
+lemma equiv_inverse (c a b : R) :
+    equiv c a b (inverseVariable c a b) = coordinate b a c := by sorry
+
+lemma equiv_algebraMap (c a b : R) (f : R[X]) :
+    equiv c a b (algebraMap R[X] (Ring c a b) f) =
+      aeval (inverseVariable b a c) f := by sorry
+
+lemma equiv_symm (c a b : R) : (equiv c a b).symm = equiv b a c := by sorry
+
+lemma quadratic_monic (a b : R) : quadratic 1 a b = X ^ 2 + C a * X + C b := by sorry
+
+lemma quadratic_reversed (a b : R) : quadratic b a 1 = InfinityChart.denominator a b := by sorry
+
+lemma coordinate_isUnit (c a b : R) : IsUnit (coordinate c a b) := by sorry
+
+lemma normalization_overlap (a b : R) :
+    InfinityChart.normalizationCoordinates
+      (algebraMap R (Ring 1 a b) a) (algebraMap R (Ring 1 a b) b)
+      1 (inverseVariable 1 a b) =
+    inverseVariable 1 a b ^ 3 • InfinityChart.normalizationCoordinates
+      (algebraMap R (Ring 1 a b) a) (algebraMap R (Ring 1 a b) b)
+      (coordinate 1 a b) 1 := by sorry
+
+open CategoryTheory
+
+def specIso (c a b : R) :
+    AlgebraicGeometry.Spec (.of (Ring b a c)) ≅
+      AlgebraicGeometry.Spec (.of (Ring c a b)) := by sorry
+
+lemma specIso_hom (c a b : R) : (specIso c a b).hom =
+    AlgebraicGeometry.Spec.map (CommRingCat.ofHom (equiv c a b).toRingHom) := by sorry
+
+lemma specIso_inv (c a b : R) : (specIso c a b).inv =
+    AlgebraicGeometry.Spec.map (CommRingCat.ofHom (equiv b a c).toRingHom) := by sorry
+
+lemma specIso_hom_inv (c a b : R) :
+    (specIso c a b).hom ≫ (specIso c a b).inv = 𝟙 _ := by sorry
+
+section FinitePinch
+variable {k : Type u} [Field k]
+
+abbrev finiteDenominator (c a b : k) : (algebra (quadratic c a b)).toSubring :=
+  ⟨X * quadratic c a b, by sorry⟩
+
+lemma finiteDenominator_val (c a b : k) :
+    (finiteDenominator c a b : k[X]) = X * quadratic c a b := by sorry
+
+lemma finiteDenominator_conductor (c a b : k) :
+    (finiteDenominator c a b : k[X]) ∈ (algebra (quadratic c a b)).toSubring.conductor := by sorry
+
+lemma finite_localization (c a b : k) :
+    IsLocalization.Away ((algebra (quadratic c a b)).toSubring.subtype
+      (finiteDenominator c a b)) (Ring c a b) := by sorry
+
+attribute [local instance] finite_localization
+
+lemma finite_away_bijective (c a b : k) :
+    Function.Bijective (IsLocalization.Away.map
+      (Localization.Away (finiteDenominator c a b)) (Ring c a b)
+      (algebra (quadratic c a b)).toSubring.subtype (finiteDenominator c a b)) := by sorry
+
+def finiteEquiv (c a b : k) :
+    Localization.Away (finiteDenominator c a b) ≃+* Ring c a b := by sorry
+
+lemma finiteEquiv_apply (c a b : k) (x : Localization.Away (finiteDenominator c a b)) :
+    finiteEquiv c a b x = IsLocalization.Away.map
+      (Localization.Away (finiteDenominator c a b)) (Ring c a b)
+      (algebra (quadratic c a b)).toSubring.subtype (finiteDenominator c a b) x := by sorry
+
+lemma finiteEquiv_algebraMap (c a b : k) (f : (algebra (quadratic c a b)).toSubring) :
+    finiteEquiv c a b (algebraMap _ _ f) = algebraMap k[X] (Ring c a b) (f : k[X]) := by sorry
+
+lemma finiteEquiv_symm_algebraMap (c a b : k) (f : (algebra (quadratic c a b)).toSubring) :
+    (finiteEquiv c a b).symm (algebraMap k[X] (Ring c a b) (f : k[X])) =
+      algebraMap _ _ f := by sorry
+
+end FinitePinch
+end TauCeti.GenusOne.QuadraticPinch.Overlap
+namespace TauCeti.GenusOne.QuadraticPinch.Overlap
+variable {R : Type u} [CommRing R]
+
+abbrev InfinityOpen (a b : R) := Localization.Away
+  (algebraMap R[X] (InfinityChart.Chart a b) X)
+
+lemma infinity_localization (a b : R) :
+    IsLocalization.Away (X * quadratic b a 1) (InfinityOpen a b) := by sorry
+
+attribute [local instance] infinity_localization
+
+def infinityEquiv (a b : R) : InfinityOpen a b ≃ₐ[R[X]] Ring b a 1 := by sorry
+
+lemma infinityEquiv_algebraMap (a b : R) (f : R[X]) :
+    infinityEquiv a b (algebraMap R[X] (InfinityOpen a b) f) =
+      algebraMap R[X] (Ring b a 1) f := by sorry
+
+lemma infinityEquiv_symm_algebraMap (a b : R) (f : R[X]) :
+    (infinityEquiv a b).symm (algebraMap R[X] (Ring b a 1) f) =
+      algebraMap R[X] (InfinityOpen a b) f := by sorry
+
+lemma infinityEquiv_roundtrip (a b : R) (x : InfinityOpen a b) :
+    (infinityEquiv a b).symm (infinityEquiv a b x) = x := by sorry
+
+lemma infinity_root_isUnit_iff (a b : R) {S : Type v} [CommRing S]
+    (f : InfinityChart.Chart a b →+* S) :
+    IsUnit (f (AdjoinRoot.root (InfinityChart.relation a b))) ↔
+      IsUnit (f (algebraMap R[X] (InfinityChart.Chart a b) X)) := by sorry
+
+lemma infinity_basicOpen_root (a b : R) :
+    PrimeSpectrum.basicOpen (AdjoinRoot.root (InfinityChart.relation a b)) =
+      PrimeSpectrum.basicOpen (algebraMap R[X] (InfinityChart.Chart a b) X) := by sorry
+
+section FinitePinch
+variable {k : Type u} [Field k]
+
+def chartEquiv (a b : k) : Localization.Away (finiteDenominator 1 a b) ≃+* InfinityOpen a b := by sorry
+
+lemma chartEquiv_algebraMap (a b : k) (f : (algebra (quadratic 1 a b)).toSubring) :
+    chartEquiv a b (algebraMap _ _ f) =
+      (infinityEquiv a b).symm (aeval (inverseVariable b a 1) (f : k[X])) := by sorry
+
+lemma chartEquiv_roundtrip (a b : k) (x : Localization.Away (finiteDenominator 1 a b)) :
+    (chartEquiv a b).symm (chartEquiv a b x) = x := by sorry
+
+lemma chartEquiv_inverse_roundtrip (a b : k) (x : InfinityOpen a b) :
+    chartEquiv a b ((chartEquiv a b).symm x) = x := by sorry
+
+end FinitePinch
+end TauCeti.GenusOne.QuadraticPinch.Overlap
+namespace TauCeti.GenusOne.QuadraticPinch.Overlap
+open CategoryTheory
+variable {R : Type u} [CommRing R]
+
+lemma quadratic_aeval (c a b x : R) : aeval x (quadratic c a b) = c * x ^ 2 + a * x + b := by sorry
+
+lemma coordinate_algebraMap (c a b : R) :
+    coordinate c a b = algebraMap R[X] (Ring c a b) X := by sorry
+
+lemma inverseVariable_formula (c a b : R) :
+    inverseVariable c a b = algebraMap R[X] (Ring c a b) (quadratic c a b) *
+      IsLocalization.Away.invSelf (X * quadratic c a b) := by sorry
+
+lemma infinityOpen_coordinate_isUnit (a b : R) :
+    IsUnit (algebraMap (InfinityChart.Chart a b) (InfinityOpen a b)
+      (algebraMap R[X] (InfinityChart.Chart a b) X)) := by sorry
+
+-- test: Overlap.quadratic.zero
+example : quadratic (0 : R) 0 0 = 0 := by sorry
+
+-- test: Overlap.quadratic.nonreduced
+example : aeval (2 : ZMod 4) (quadratic (2 : ZMod 4) 1 1) = 3 := by sorry
+
+-- test: Overlap.quadratic.reversal_not_equal
+example : quadratic (1 : ℤ) 0 2 ≠ quadratic 2 0 1 := by sorry
+
+-- test: Overlap.Ring.zero_polynomial
+example : (0 : Ring (0 : R) 0 0) = 1 := by sorry
+
+-- test: Overlap.Ring.coordinate_unit_nonreduced
+example : IsUnit (coordinate (2 : ZMod 4) 2 1) := by sorry
+
+-- test: Overlap.Ring.quadratic_unit_nonsplit
+example : IsUnit (algebraMap (ZMod 2)[X] (Ring (1 : ZMod 2) 1 1)
+    (X ^ 2 + X + 1)) := by sorry
+
+-- test: Overlap.coordinate.cusp
+example : coordinate (1 : ZMod 2) 0 0 * inverseVariable 1 0 0 = 1 := by sorry
+
+-- test: Overlap.coordinate.nonreduced
+example : coordinate (2 : ZMod 4) 2 1 * inverseVariable 2 2 1 = 1 := by sorry
+
+-- test: Overlap.coordinate.generator
+example (c a b : R) : aeval (coordinate c a b) (X : R[X]) =
+    algebraMap R[X] (Ring c a b) X := by sorry
+
+-- test: Overlap.inverseVariable.left_inverse
+example (c a b : R) : inverseVariable c a b * coordinate c a b = 1 := by sorry
+
+-- test: Overlap.inverseVariable.unit_split
+example : IsUnit (inverseVariable (1 : ℚ) 0 (-1)) := by sorry
+
+-- test: Overlap.inverseVariable.zero_ring
+example : inverseVariable (0 : ZMod 1) 0 0 = 1 := by sorry
+
+-- test: Overlap.reciprocal.coefficient
+example (c a b r : R) : reciprocal c a b (algebraMap R (Ring c a b) r) =
+    algebraMap R (Ring b a c) r := by sorry
+
+-- test: Overlap.reciprocal.general_quadratic
+example (c a b : R) : reciprocal c a b (algebraMap R[X] (Ring c a b) (quadratic c a b)) =
+    inverseVariable b a c ^ 2 * algebraMap R[X] (Ring b a c) (quadratic b a c) := by sorry
+
+-- test: Overlap.reciprocal.twice
+example (c a b : R) (x : Ring c a b) : reciprocal b a c (reciprocal c a b x) = x := by sorry
+
+-- test: Overlap.equiv.cusp
+example : equiv (1 : ZMod 2) 0 0 (coordinate 1 0 0) = inverseVariable 0 0 1 := by sorry
+
+-- test: Overlap.equiv.nonsplit
+example : equiv (1 : ZMod 2) 1 1 (inverseVariable 1 1 1) = coordinate 1 1 1 := by sorry
+
+-- test: Overlap.equiv.nonreduced_roundtrip
+example (x : Ring (2 : ZMod 4) 2 1) : equiv 1 2 2 (equiv 2 2 1 x) = x := by sorry
+
+-- test: Overlap.specIso.cusp
+example : (specIso (1 : ZMod 2) 0 0).hom ≫ (specIso 1 0 0).inv = 𝟙 _ := by sorry
+
+-- test: Overlap.specIso.nonreduced
+example : (specIso (2 : ZMod 4) 2 1).inv ≫ (specIso 2 2 1).hom = 𝟙 _ := by sorry
+
+-- test: Overlap.specIso.actual_map
+example (c a b : R) : (specIso c a b).hom =
+    AlgebraicGeometry.Spec.map (CommRingCat.ofHom (reciprocal c a b).toRingHom) := by sorry
+
+-- test: Overlap.finiteDenominator.cusp
+example : (finiteDenominator (1 : ZMod 2) 0 0 : (ZMod 2)[X]) = X ^ 3 := by sorry
+
+-- test: Overlap.finiteDenominator.split
+example : (finiteDenominator (1 : ℚ) 0 (-1) : ℚ[X]) = X ^ 3 - X := by sorry
+
+-- test: Overlap.finiteDenominator.zero
+example : (finiteDenominator (0 : ℚ) 0 0 : ℚ[X]) = 0 := by sorry
+
+-- test: Overlap.finiteEquiv.cusp
+example : finiteEquiv (1 : ZMod 2) 0 0 (algebraMap _ _ (finiteDenominator (1 : ZMod 2) 0 0)) =
+    algebraMap (ZMod 2)[X] (Ring (1 : ZMod 2) 0 0) (X ^ 3) := by sorry
+
+-- test: Overlap.finiteEquiv.nonsplit
+example (f : (algebra (quadratic (1 : ZMod 2) 1 1)).toSubring) :
+    (finiteEquiv (1 : ZMod 2) 1 1).symm (algebraMap (ZMod 2)[X] (Ring (1 : ZMod 2) 1 1) (f : (ZMod 2)[X])) =
+      algebraMap _ _ f := by sorry
+
+-- test: Overlap.finiteEquiv.zero_roundtrip
+example (x : Localization.Away (finiteDenominator (0 : ℚ) 0 0)) :
+    (finiteEquiv (0 : ℚ) 0 0).symm (finiteEquiv 0 0 0 x) = x := by sorry
+
+-- test: Overlap.InfinityOpen.root_cusp
+example : PrimeSpectrum.basicOpen (AdjoinRoot.root (InfinityChart.relation (0 : ZMod 2) 0)) =
+    PrimeSpectrum.basicOpen (algebraMap (ZMod 2)[X] (InfinityChart.Chart (0 : ZMod 2) 0) X) := by sorry
+
+-- test: Overlap.InfinityOpen.root_nonreduced
+example {S : Type v} [CommRing S] (f : InfinityChart.Chart (2 : ZMod 4) 1 →+* S) :
+    IsUnit (f (AdjoinRoot.root (InfinityChart.relation (2 : ZMod 4) 1))) ↔
+      IsUnit (f (algebraMap (ZMod 4)[X] (InfinityChart.Chart (2 : ZMod 4) 1) X)) := by sorry
+
+-- test: Overlap.InfinityOpen.coordinate_nonsplit
+example : IsUnit (algebraMap (InfinityChart.Chart (1 : ZMod 2) 1) (InfinityOpen (1 : ZMod 2) 1)
+    (algebraMap (ZMod 2)[X] (InfinityChart.Chart (1 : ZMod 2) 1) X)) := by sorry
+
+-- test: Overlap.infinityEquiv.polynomial
+example (a b : R) : infinityEquiv a b (algebraMap R[X] (InfinityOpen a b) (X ^ 2 + C a)) =
+    algebraMap R[X] (Ring b a 1) (X ^ 2 + C a) := by sorry
+
+-- test: Overlap.infinityEquiv.inverse_coordinate
+example (a b : R) : (infinityEquiv a b).symm (coordinate b a 1) =
+    algebraMap R[X] (InfinityOpen a b) X := by sorry
+
+-- test: Overlap.infinityEquiv.nonreduced
+example (x : InfinityOpen (2 : ZMod 4) 1) :
+    (infinityEquiv (2 : ZMod 4) 1).symm (infinityEquiv 2 1 x) = x := by sorry
+
+-- test: Overlap.chartEquiv.cusp
+example (x : Localization.Away (finiteDenominator (1 : ZMod 2) 0 0)) :
+    (chartEquiv (0 : ZMod 2) 0).symm (chartEquiv 0 0 x) = x := by sorry
+
+-- test: Overlap.chartEquiv.nonsplit
+example (x : InfinityOpen (1 : ZMod 2) 1) :
+    chartEquiv (1 : ZMod 2) 1 ((chartEquiv 1 1).symm x) = x := by sorry
+
+-- test: Overlap.chartEquiv.split_formula
+example (f : (algebra (quadratic (1 : ℚ) 0 (-1))).toSubring) :
+    chartEquiv (0 : ℚ) (-1) (algebraMap _ _ f) =
+      (infinityEquiv (0 : ℚ) (-1)).symm (aeval (inverseVariable (-1 : ℚ) 0 1) (f : ℚ[X])) := by sorry
+
+-- test: Overlap.normalization_overlap.nonreduced
+example : InfinityChart.normalizationCoordinates
+    (algebraMap (ZMod 4) (Ring (1 : ZMod 4) 2 2) 2) (algebraMap (ZMod 4) (Ring (1 : ZMod 4) 2 2) 2)
+    1 (inverseVariable (1 : ZMod 4) 2 2) = inverseVariable (1 : ZMod 4) 2 2 ^ 3 • InfinityChart.normalizationCoordinates
+    (algebraMap (ZMod 4) (Ring (1 : ZMod 4) 2 2) 2) (algebraMap (ZMod 4) (Ring (1 : ZMod 4) 2 2) 2)
+    (coordinate (1 : ZMod 4) 2 2) 1 := by sorry
+
+end TauCeti.GenusOne.QuadraticPinch.Overlap
+/- END QUADRATIC OVERLAP COMPARISON -/

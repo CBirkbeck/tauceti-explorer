@@ -5300,3 +5300,314 @@ Source: mathlib-a71f92-heterobasic-tensor, Pinned TensorProduct/Tower.lean lines
 The mathematical scope is the untruncated explicit polynomial quotient over arbitrary commutative coefficient rings. Knudsen’s printed geometric and relative stable-reflexivity statements retain their noetherian and nondegeneracy hypotheses. The tensor–Hom calculations here are explicit algebra deductions from the named native presentations and coefficient-universal exactness, not a weakening of those geometric statements.
 
 All eight stages retain partial coverage. The relative Ext/resolution comparison, the exact Knudsen Appendix/Ile stable-reflexivity input, Proposition6’s two-base completion comparison, Proposition7’s exercise, the pointed completed-local hull, family/sheaf descent and finite-presentation approximation remain requirements. The entire moduli groupoid/key-definition, all six paper consumers, all 21 routed Yuan/DGH items and the inherited geometric targets retain their contracts. No completion, clutching, stack, coarse-space or Torelli conclusion follows solely from these polynomial tensor–Hom isomorphisms.
+
+
+## MC.2: native section Hom cochains
+
+The following continuation uses the actual R-linear Hom space into R⊗_A M and Mathlib’s native nonnegative cochain complex in ModuleCat R. The signed ideal presentation has kernel im Ψ, so its Hom differential starts with precomposition by Ψ; the signed dual presentation has kernel im Φ and starts with precomposition by Φ. Each phase alternates with period two. Positive native cohomology vanishes for every A-module, including torsion modules. Degree zero still consists of maps from the actual ideal or dual. An identification with native Ext requires the augmented projective resolutions and the Hom/Ext comparison; neither that identification nor relative stable reflexivity, completion or geometric descent follows merely from the cochain calculation.
+
+### The polynomial section Hom differential
+
+Declaration NodeSectionFactorization.PolynomialModel.sectionHomDifferential; node StableReductionPartII:MC.2/section-hom-differential.
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε. For any A-module M put N=R⊗_A M with its native left R-action and H=Hom_R(R²,N). Write L_W(h)=h∘W for native R-linear precomposition and E:R²⊗_A M≃Hom_R(R²,N) for the previously specified finite-free tensor coordinates. Define d(e,n):H→H for e∈{false,true} and n≥0: choose L_Φ if (n mod 2=0) has the same truth value as e=true, and L_Ψ otherwise. The false phase is the section-ideal Hom sequence; the true phase is the dual Hom sequence.
+
+Hypotheses: A is any commutative ring and M is any A-module; no flatness of M, noetherianity, nontriviality or unit-discriminant hypothesis is imposed for this polynomial calculation.
+
+Dependencies: StableReductionPartII:MC.2/section-free-coefficient-hom-transpose, mathlib:LinearMap.lcomp.
+
+Proof: Use the actual native precomposition, parity or cochain constructor specified above; evaluate using its named prerequisites.
+
+Acceptance: Use actual R-linear Hom maps, the signed P_J/P_D presentations and native ModuleCat homology. Do not infer Ext vanishing, relative stable reflexivity, completed-local comparisons or family/sheaf descent from this cochain result alone.
+
+- Knudsen2012 §3 and StableReductionPartII:MC.2/dual-section-ideal: Retain the two actual alternating resolutions in Hom coordinates, as the next input to native projective-resolution and Ext comparison.
+
+- The native coefficient-module Hom comparison nodes in MC.2: Fix the actual degree-zero phase and the signed augmentation, keeping degree-zero Hom distinct from positive-degree vanishing.
+
+- NodeSectionFactorization.PolynomialModel.sectionHomDifferential_ideal_zero: The actual degree-zero differential d(false,0) equals L_Ψ, as required by ker(P_J)=im(Ψ).
+
+- NodeSectionFactorization.PolynomialModel.sectionHomDifferential_dual_zero: The actual degree-zero differential d(true,0) equals L_Φ, as required by ker(P_D)=im(Φ).
+
+- NodeSectionFactorization.PolynomialModel.sectionHomDifferential_periodic: For either phase e and every n≥0, d(e,n+2)=d(e,n) as an R-linear map.
+
+- NodeSectionFactorization.PolynomialModel.sectionHomDifferential_exact: For either phase e and every n≥0, d(e,n) then d(e,n+1) form an exact pair.
+
+- NodeSectionFactorization.PolynomialModel.sectionHomDifferential_sq: For either phase e and every n≥0, d(e,n+1)∘d(e,n)=0 as an actual R-linear map H→H.
+
+- NodeSectionFactorization.PolynomialModel.sectionHomDifferential.test_ideal_signed_column: With γ=δ=s=t=0, every A and every m∈M, d(false,0)(E((0,1)⊗m))(1,0)=u⊗m; this fixes the Ψ starting phase.
+
+- NodeSectionFactorization.PolynomialModel.sectionHomDifferential.test_dual_negative_column: With γ=δ=s=t=0, every A and every m∈M, d(true,0)(E((0,1)⊗m))(1,0)=−u⊗m; this fixes the Φ starting phase and its negative entry.
+
+- NodeSectionFactorization.PolynomialModel.sectionHomDifferential.test_two_period: For either phase and every coefficient module, d(e,n+2)=d(e,n) as native R-linear maps.
+
+Source: Knudsen2012 §3 Key Example and Proposition3.1, with §4’s separate completed-local comparison; the general-ring native cochain result is an authored deduction on the preceding local model. Native machinery is cited at the selected pinned statements, without replanning generic homological algebra.
+
+### Exactness of left then right Hom precomposition
+
+Declaration NodeSectionFactorization.PolynomialModel.sectionHomLeftRight_exact; node StableReductionPartII:MC.2/section-hom-left-right-exact.
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε. For any A-module M put N=R⊗_A M with its native left R-action and H=Hom_R(R²,N). Write L_W(h)=h∘W for native R-linear precomposition and E:R²⊗_A M≃Hom_R(R²,N) for the previously specified finite-free tensor coordinates. The native R-linear maps L_Φ then L_Ψ form an exact pair for every coefficient module M.
+
+Hypotheses: A is any commutative ring and M is any A-module; no flatness of M, noetherianity, nontriviality or unit-discriminant hypothesis is imposed for this polynomial calculation.
+
+Dependencies: StableReductionPartII:MC.2/section-free-coefficient-hom-transpose, StableReductionPartII:MC.2/section-complex-transpose-right-tensor-exact, mathlib:LinearMap.rTensor_exact_iff_lTensor_exact, mathlib:Function.Exact.of_ladder_linearEquiv_of_exact, mathlib:LinearMap.restrictScalars.
+
+Proof: Reuse coefficient-universal exactness of Φ-transpose then Ψ-transpose. Commute left and right tensor factors with the existing native tensor-exactness equivalence. Restrict the R-linear Hom maps to A only for the coordinate ladder. The actual E conjugates tensor-transpose maps to precomposition, so native exactness transports back to the R-linear Hom maps.
+
+Acceptance: Use actual R-linear Hom maps, the signed P_J/P_D presentations and native ModuleCat homology. Do not infer Ext vanishing, relative stable reflexivity, completed-local comparisons or family/sheaf descent from this cochain result alone.
+
+Source: Knudsen2012 §3 Key Example and Proposition3.1, with §4’s separate completed-local comparison; the general-ring native cochain result is an authored deduction on the preceding local model. Native machinery is cited at the selected pinned statements, without replanning generic homological algebra.
+
+### Exactness of right then left Hom precomposition
+
+Declaration NodeSectionFactorization.PolynomialModel.sectionHomRightLeft_exact; node StableReductionPartII:MC.2/section-hom-right-left-exact.
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε. For any A-module M put N=R⊗_A M with its native left R-action and H=Hom_R(R²,N). Write L_W(h)=h∘W for native R-linear precomposition and E:R²⊗_A M≃Hom_R(R²,N) for the previously specified finite-free tensor coordinates. The native R-linear maps L_Ψ then L_Φ form an exact pair for every coefficient module M.
+
+Hypotheses: A is any commutative ring and M is any A-module; no flatness of M, noetherianity, nontriviality or unit-discriminant hypothesis is imposed for this polynomial calculation.
+
+Dependencies: StableReductionPartII:MC.2/section-free-coefficient-hom-transpose, StableReductionPartII:MC.2/section-complex-transpose-left-tensor-exact, mathlib:LinearMap.rTensor_exact_iff_lTensor_exact, mathlib:Function.Exact.of_ladder_linearEquiv_of_exact, mathlib:LinearMap.restrictScalars.
+
+Proof: Reuse coefficient-universal exactness of Ψ-transpose then Φ-transpose. Use right-tensor exactness and the same actual E coordinate ladder in the reversed order.
+
+Acceptance: Use actual R-linear Hom maps, the signed P_J/P_D presentations and native ModuleCat homology. Do not infer Ext vanishing, relative stable reflexivity, completed-local comparisons or family/sheaf descent from this cochain result alone.
+
+Source: Knudsen2012 §3 Key Example and Proposition3.1, with §4’s separate completed-local comparison; the general-ring native cochain result is an authored deduction on the preceding local model. Native machinery is cited at the selected pinned statements, without replanning generic homological algebra.
+
+### Every adjacent section Hom pair is exact
+
+Declaration NodeSectionFactorization.PolynomialModel.sectionHomDifferential_exact; node StableReductionPartII:MC.2/section-hom-differential-exact.
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε. For any A-module M put N=R⊗_A M with its native left R-action and H=Hom_R(R²,N). Write L_W(h)=h∘W for native R-linear precomposition and E:R²⊗_A M≃Hom_R(R²,N) for the previously specified finite-free tensor coordinates. For either phase e and every n≥0, d(e,n) then d(e,n+1) form an exact pair.
+
+Hypotheses: A is any commutative ring and M is any A-module; no flatness of M, noetherianity, nontriviality or unit-discriminant hypothesis is imposed for this polynomial calculation.
+
+Dependencies: StableReductionPartII:MC.2/section-hom-differential, StableReductionPartII:MC.2/section-hom-left-right-exact, StableReductionPartII:MC.2/section-hom-right-left-exact.
+
+Proof: Split the two phases and the two possible parity residues; apply the matching native Hom exact pair.
+
+Acceptance: Use actual R-linear Hom maps, the signed P_J/P_D presentations and native ModuleCat homology. Do not infer Ext vanishing, relative stable reflexivity, completed-local comparisons or family/sheaf descent from this cochain result alone.
+
+Source: Knudsen2012 §3 Key Example and Proposition3.1, with §4’s separate completed-local comparison; the general-ring native cochain result is an authored deduction on the preceding local model. Native machinery is cited at the selected pinned statements, without replanning generic homological algebra.
+
+### The section Hom differential squares to zero
+
+Declaration NodeSectionFactorization.PolynomialModel.sectionHomDifferential_sq; node StableReductionPartII:MC.2/section-hom-differential-square.
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε. For any A-module M put N=R⊗_A M with its native left R-action and H=Hom_R(R²,N). Write L_W(h)=h∘W for native R-linear precomposition and E:R²⊗_A M≃Hom_R(R²,N) for the previously specified finite-free tensor coordinates. For either phase e and every n≥0, d(e,n+1)∘d(e,n)=0 as an actual R-linear map H→H.
+
+Hypotheses: A is any commutative ring and M is any A-module; no flatness of M, noetherianity, nontriviality or unit-discriminant hypothesis is imposed for this polynomial calculation.
+
+Dependencies: StableReductionPartII:MC.2/section-hom-differential-exact, mathlib:Function.Exact.linearMap_comp_eq_zero.
+
+Proof: Use the actual native precomposition, parity or cochain constructor specified above; evaluate using its named prerequisites.
+
+Acceptance: Use actual R-linear Hom maps, the signed P_J/P_D presentations and native ModuleCat homology. Do not infer Ext vanishing, relative stable reflexivity, completed-local comparisons or family/sheaf descent from this cochain result alone.
+
+Source: Knudsen2012 §3 Key Example and Proposition3.1, with §4’s separate completed-local comparison; the general-ring native cochain result is an authored deduction on the preceding local model. Native machinery is cited at the selected pinned statements, without replanning generic homological algebra.
+
+### The native polynomial section Hom cochain complex
+
+Declaration NodeSectionFactorization.PolynomialModel.sectionHomCochain; node StableReductionPartII:MC.2/section-hom-cochain.
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε. For any A-module M put N=R⊗_A M with its native left R-action and H=Hom_R(R²,N). Write L_W(h)=h∘W for native R-linear precomposition and E:R²⊗_A M≃Hom_R(R²,N) for the previously specified finite-free tensor coordinates. Construct C_e as a native nonnegative cochain complex in ModuleCat R, with object H in each degree and successive differential d(e,n). Use the existing CochainComplex.of constructor and the actual square-zero proof.
+
+Hypotheses: A is any commutative ring and M is any A-module; no flatness of M, noetherianity, nontriviality or unit-discriminant hypothesis is imposed for this polynomial calculation.
+
+Dependencies: StableReductionPartII:MC.2/section-hom-differential, StableReductionPartII:MC.2/section-hom-differential-square, mathlib:CochainComplex.of, mathlib:ModuleCat.of, mathlib:ModuleCat.ofHom, mathlib:ModuleCat.hom_ext.
+
+Proof: Use the actual native precomposition, parity or cochain constructor specified above; evaluate using its named prerequisites.
+
+Acceptance: Use actual R-linear Hom maps, the signed P_J/P_D presentations and native ModuleCat homology. Do not infer Ext vanishing, relative stable reflexivity, completed-local comparisons or family/sheaf descent from this cochain result alone.
+
+- Knudsen2012 §3 and StableReductionPartII:MC.2/dual-section-ideal: Retain the two actual alternating resolutions in Hom coordinates, as the next input to native projective-resolution and Ext comparison.
+
+- The native coefficient-module Hom comparison nodes in MC.2: Fix the actual degree-zero phase and the signed augmentation, keeping degree-zero Hom distinct from positive-degree vanishing.
+
+- NodeSectionFactorization.PolynomialModel.sectionHomCochain_X: For either phase e and every n≥0, C_e.X(n)=ModuleCat.of R H, with the actual native R-module structure on the Hom space.
+
+- NodeSectionFactorization.PolynomialModel.sectionHomCochain_d: For either phase e and every n≥0, the native morphism C_e.d(n,n+1) is ModuleCat.ofHom(d(e,n)). The morphism comparison is stated with the source and target object identifications; the admitted signature uses heterogeneous equality to avoid unfolding an opaque construction.
+
+- NodeSectionFactorization.PolynomialModel.sectionHomCochain_shape: For either phase e and i,j≥0 with i+1≠j, C_e.d(i,j)=0.
+
+- NodeSectionFactorization.PolynomialModel.sectionHomCochain_exactAt: For either phase e and every n≥0, the native C_e satisfies HomologicalComplex.ExactAt at n+1. This is categorical exactness of its actual R-module short complex.
+
+- NodeSectionFactorization.PolynomialModel.sectionHomCochain_isZero_homology: For either phase e and every n≥0, the native homology object C_e.homology(n+1) is a zero object in ModuleCat R. No assertion of higher Ext is made until these complexes are identified with native Hom applied to the augmented projective resolutions.
+
+- NodeSectionFactorization.PolynomialModel.sectionHomIdeal_augmentation_exact: Precomposition by the actual P_J: R²→J followed by d(false,0) is an exact pair. Thus the zero-degree cycles are exactly f∘P_J for R-linear f:J→N; precomposition is injective because P_J is surjective.
+
+- NodeSectionFactorization.PolynomialModel.sectionHomDual_augmentation_exact: Precomposition by the actual P_D: R²→D followed by d(true,0) is an exact pair. Thus the zero-degree cycles are exactly f∘P_D for R-linear f:D→N; precomposition is injective because P_D is surjective.
+
+- NodeSectionFactorization.PolynomialModel.sectionHomCochain.test_torsion_coefficient: For A=ℤ, γ=1,δ=0,s=1,t=0 and M=ℤ/2, the ideal-phase native cohomology object in degree three is zero; the coefficient module is not flat over ℤ.
+
+- NodeSectionFactorization.PolynomialModel.sectionHomCochain.test_nonreduced_base: For A=ℤ/4, γ=δ=0,s=1,t=0 and M=ℤ/4, the dual-phase native cohomology object in degree two is zero; neither reducedness nor a unit discriminant is required by this algebra calculation.
+
+- NodeSectionFactorization.PolynomialModel.sectionHomCochain.test_zero_ring: For A=M=ℤ/1 and all parameters zero, the ideal-phase native cohomology object in degree one is zero.
+
+- NodeSectionFactorization.PolynomialModel.sectionHomCochain.test_actual_differential: For every n, the ideal-phase successor differential is the actual ModuleCat morphism of d(false,n), not a chosen zero differential.
+
+- NodeSectionFactorization.PolynomialModel.sectionHomCochain.test_degree_zero_ideal: An element h∈H is killed by d(false,0) exactly when h=f∘P_J for an actual R-linear map f:J→N.
+
+- NodeSectionFactorization.PolynomialModel.sectionHomCochain.test_degree_zero_dual: An element h∈H is killed by d(true,0) exactly when h=f∘P_D for an actual R-linear map f:D→N.
+
+Source: Knudsen2012 §3 Key Example and Proposition3.1, with §4’s separate completed-local comparison; the general-ring native cochain result is an authored deduction on the preceding local model. Native machinery is cited at the selected pinned statements, without replanning generic homological algebra.
+
+### The native successor differential
+
+Declaration NodeSectionFactorization.PolynomialModel.sectionHomCochain_d; node StableReductionPartII:MC.2/section-hom-cochain-differential.
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε. For any A-module M put N=R⊗_A M with its native left R-action and H=Hom_R(R²,N). Write L_W(h)=h∘W for native R-linear precomposition and E:R²⊗_A M≃Hom_R(R²,N) for the previously specified finite-free tensor coordinates. For either phase e and every n≥0, the native morphism C_e.d(n,n+1) is ModuleCat.ofHom(d(e,n)). The comparison uses the native Hom object identifications, so it remains well-typed when the construction body is admitted. The morphism comparison is stated with the source and target object identifications; the admitted signature uses heterogeneous equality to avoid unfolding an opaque construction.
+
+Hypotheses: A is any commutative ring and M is any A-module; no flatness of M, noetherianity, nontriviality or unit-discriminant hypothesis is imposed for this polynomial calculation.
+
+Dependencies: StableReductionPartII:MC.2/section-hom-cochain, mathlib:CochainComplex.of_d.
+
+Proof: Use the actual native precomposition, parity or cochain constructor specified above; evaluate using its named prerequisites.
+
+Acceptance: Use actual R-linear Hom maps, the signed P_J/P_D presentations and native ModuleCat homology. Do not infer Ext vanishing, relative stable reflexivity, completed-local comparisons or family/sheaf descent from this cochain result alone.
+
+Source: Knudsen2012 §3 Key Example and Proposition3.1, with §4’s separate completed-local comparison; the general-ring native cochain result is an authored deduction on the preceding local model. Native machinery is cited at the selected pinned statements, without replanning generic homological algebra.
+
+### Positive-degree exactness of the native Hom complex
+
+Declaration NodeSectionFactorization.PolynomialModel.sectionHomCochain_exactAt; node StableReductionPartII:MC.2/section-hom-cochain-exact.
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε. For any A-module M put N=R⊗_A M with its native left R-action and H=Hom_R(R²,N). Write L_W(h)=h∘W for native R-linear precomposition and E:R²⊗_A M≃Hom_R(R²,N) for the previously specified finite-free tensor coordinates. For either phase e and every n≥0, the native C_e satisfies HomologicalComplex.ExactAt at n+1. This is categorical exactness of its actual R-module short complex.
+
+Hypotheses: A is any commutative ring and M is any A-module; no flatness of M, noetherianity, nontriviality or unit-discriminant hypothesis is imposed for this polynomial calculation.
+
+Dependencies: StableReductionPartII:MC.2/section-hom-cochain, StableReductionPartII:MC.2/section-hom-cochain-differential, StableReductionPartII:MC.2/section-hom-differential-exact, mathlib:HomologicalComplex.ExactAt, mathlib:HomologicalComplex.exactAt_iff', mathlib:CategoryTheory.ShortComplex.moduleCat_exact_iff.
+
+Proof: Use the native successor differential formula at n and n+1. Apply native exactAt_iff with the actual predecessor n and successor n+2. Use moduleCat_exact_iff to transport the actual kernel/image witnesses, without replacing the complex or its modules.
+
+Acceptance: Use actual R-linear Hom maps, the signed P_J/P_D presentations and native ModuleCat homology. Do not infer Ext vanishing, relative stable reflexivity, completed-local comparisons or family/sheaf descent from this cochain result alone.
+
+Source: Knudsen2012 §3 Key Example and Proposition3.1, with §4’s separate completed-local comparison; the general-ring native cochain result is an authored deduction on the preceding local model. Native machinery is cited at the selected pinned statements, without replanning generic homological algebra.
+
+### Vanishing positive cohomology of the native Hom complex
+
+Declaration NodeSectionFactorization.PolynomialModel.sectionHomCochain_isZero_homology; node StableReductionPartII:MC.2/section-hom-cochain-positive-homology.
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε. For any A-module M put N=R⊗_A M with its native left R-action and H=Hom_R(R²,N). Write L_W(h)=h∘W for native R-linear precomposition and E:R²⊗_A M≃Hom_R(R²,N) for the previously specified finite-free tensor coordinates. For either phase e and every n≥0, the native homology object C_e.homology(n+1) is a zero object in ModuleCat R. No assertion of higher Ext is made until these complexes are identified with native Hom applied to the augmented projective resolutions.
+
+Hypotheses: A is any commutative ring and M is any A-module; no flatness of M, noetherianity, nontriviality or unit-discriminant hypothesis is imposed for this polynomial calculation.
+
+Dependencies: StableReductionPartII:MC.2/section-hom-cochain-exact, mathlib:HomologicalComplex.ExactAt.isZero_homology.
+
+Proof: Apply native ExactAt.isZero_homology in the abelian category of R-modules.
+
+Acceptance: Use actual R-linear Hom maps, the signed P_J/P_D presentations and native ModuleCat homology. Do not infer Ext vanishing, relative stable reflexivity, completed-local comparisons or family/sheaf descent from this cochain result alone.
+
+Source: Knudsen2012 §3 Key Example and Proposition3.1, with §4’s separate completed-local comparison; the general-ring native cochain result is an authored deduction on the preceding local model. Native machinery is cited at the selected pinned statements, without replanning generic homological algebra.
+
+### The section ideal starts with right precomposition
+
+Declaration NodeSectionFactorization.PolynomialModel.sectionHomDifferential_ideal_zero; node StableReductionPartII:MC.2/section-hom-ideal-start.
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε. For any A-module M put N=R⊗_A M with its native left R-action and H=Hom_R(R²,N). Write L_W(h)=h∘W for native R-linear precomposition and E:R²⊗_A M≃Hom_R(R²,N) for the previously specified finite-free tensor coordinates. The actual degree-zero differential d(false,0) equals L_Ψ, as required by ker(P_J)=im(Ψ).
+
+Hypotheses: A is any commutative ring and M is any A-module; no flatness of M, noetherianity, nontriviality or unit-discriminant hypothesis is imposed for this polynomial calculation.
+
+Dependencies: StableReductionPartII:MC.2/section-hom-differential.
+
+Proof: Use the actual native precomposition, parity or cochain constructor specified above; evaluate using its named prerequisites.
+
+Acceptance: Use actual R-linear Hom maps, the signed P_J/P_D presentations and native ModuleCat homology. Do not infer Ext vanishing, relative stable reflexivity, completed-local comparisons or family/sheaf descent from this cochain result alone.
+
+Source: Knudsen2012 §3 Key Example and Proposition3.1, with §4’s separate completed-local comparison; the general-ring native cochain result is an authored deduction on the preceding local model. Native machinery is cited at the selected pinned statements, without replanning generic homological algebra.
+
+### The dual starts with left precomposition
+
+Declaration NodeSectionFactorization.PolynomialModel.sectionHomDifferential_dual_zero; node StableReductionPartII:MC.2/section-hom-dual-start.
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε. For any A-module M put N=R⊗_A M with its native left R-action and H=Hom_R(R²,N). Write L_W(h)=h∘W for native R-linear precomposition and E:R²⊗_A M≃Hom_R(R²,N) for the previously specified finite-free tensor coordinates. The actual degree-zero differential d(true,0) equals L_Φ, as required by ker(P_D)=im(Φ).
+
+Hypotheses: A is any commutative ring and M is any A-module; no flatness of M, noetherianity, nontriviality or unit-discriminant hypothesis is imposed for this polynomial calculation.
+
+Dependencies: StableReductionPartII:MC.2/section-hom-differential.
+
+Proof: Use the actual native precomposition, parity or cochain constructor specified above; evaluate using its named prerequisites.
+
+Acceptance: Use actual R-linear Hom maps, the signed P_J/P_D presentations and native ModuleCat homology. Do not infer Ext vanishing, relative stable reflexivity, completed-local comparisons or family/sheaf descent from this cochain result alone.
+
+Source: Knudsen2012 §3 Key Example and Proposition3.1, with §4’s separate completed-local comparison; the general-ring native cochain result is an authored deduction on the preceding local model. Native machinery is cited at the selected pinned statements, without replanning generic homological algebra.
+
+### Two-periodicity of section Hom differentials
+
+Declaration NodeSectionFactorization.PolynomialModel.sectionHomDifferential_periodic; node StableReductionPartII:MC.2/section-hom-differential-periodic.
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε. For any A-module M put N=R⊗_A M with its native left R-action and H=Hom_R(R²,N). Write L_W(h)=h∘W for native R-linear precomposition and E:R²⊗_A M≃Hom_R(R²,N) for the previously specified finite-free tensor coordinates. For either phase e and every n≥0, d(e,n+2)=d(e,n) as an R-linear map.
+
+Hypotheses: A is any commutative ring and M is any A-module; no flatness of M, noetherianity, nontriviality or unit-discriminant hypothesis is imposed for this polynomial calculation.
+
+Dependencies: StableReductionPartII:MC.2/section-hom-differential.
+
+Proof: Use the actual native precomposition, parity or cochain constructor specified above; evaluate using its named prerequisites.
+
+Acceptance: Use actual R-linear Hom maps, the signed P_J/P_D presentations and native ModuleCat homology. Do not infer Ext vanishing, relative stable reflexivity, completed-local comparisons or family/sheaf descent from this cochain result alone.
+
+Source: Knudsen2012 §3 Key Example and Proposition3.1, with §4’s separate completed-local comparison; the general-ring native cochain result is an authored deduction on the preceding local model. Native machinery is cited at the selected pinned statements, without replanning generic homological algebra.
+
+### Actual Hom modules in every degree
+
+Declaration NodeSectionFactorization.PolynomialModel.sectionHomCochain_X; node StableReductionPartII:MC.2/section-hom-cochain-objects.
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε. For any A-module M put N=R⊗_A M with its native left R-action and H=Hom_R(R²,N). Write L_W(h)=h∘W for native R-linear precomposition and E:R²⊗_A M≃Hom_R(R²,N) for the previously specified finite-free tensor coordinates. For either phase e and every n≥0, C_e.X(n)=ModuleCat.of R H, with the actual native R-module structure on the Hom space.
+
+Hypotheses: A is any commutative ring and M is any A-module; no flatness of M, noetherianity, nontriviality or unit-discriminant hypothesis is imposed for this polynomial calculation.
+
+Dependencies: StableReductionPartII:MC.2/section-hom-cochain, mathlib:ModuleCat.of.
+
+Proof: Use the actual native precomposition, parity or cochain constructor specified above; evaluate using its named prerequisites.
+
+Acceptance: Use actual R-linear Hom maps, the signed P_J/P_D presentations and native ModuleCat homology. Do not infer Ext vanishing, relative stable reflexivity, completed-local comparisons or family/sheaf descent from this cochain result alone.
+
+Source: Knudsen2012 §3 Key Example and Proposition3.1, with §4’s separate completed-local comparison; the general-ring native cochain result is an authored deduction on the preceding local model. Native machinery is cited at the selected pinned statements, without replanning generic homological algebra.
+
+### The section Hom cochain shape
+
+Declaration NodeSectionFactorization.PolynomialModel.sectionHomCochain_shape; node StableReductionPartII:MC.2/section-hom-cochain-shape.
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε. For any A-module M put N=R⊗_A M with its native left R-action and H=Hom_R(R²,N). Write L_W(h)=h∘W for native R-linear precomposition and E:R²⊗_A M≃Hom_R(R²,N) for the previously specified finite-free tensor coordinates. For either phase e and i,j≥0 with i+1≠j, C_e.d(i,j)=0.
+
+Hypotheses: A is any commutative ring and M is any A-module; no flatness of M, noetherianity, nontriviality or unit-discriminant hypothesis is imposed for this polynomial calculation.
+
+Dependencies: StableReductionPartII:MC.2/section-hom-cochain, mathlib:HomologicalComplex.
+
+Proof: Use the actual native precomposition, parity or cochain constructor specified above; evaluate using its named prerequisites.
+
+Acceptance: Use actual R-linear Hom maps, the signed P_J/P_D presentations and native ModuleCat homology. Do not infer Ext vanishing, relative stable reflexivity, completed-local comparisons or family/sheaf descent from this cochain result alone.
+
+Source: Knudsen2012 §3 Key Example and Proposition3.1, with §4’s separate completed-local comparison; the general-ring native cochain result is an authored deduction on the preceding local model. Native machinery is cited at the selected pinned statements, without replanning generic homological algebra.
+
+### Degree-zero cycles factor through the section ideal
+
+Declaration NodeSectionFactorization.PolynomialModel.sectionHomIdeal_augmentation_exact; node StableReductionPartII:MC.2/section-hom-ideal-augmentation-exact.
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε. For any A-module M put N=R⊗_A M with its native left R-action and H=Hom_R(R²,N). Write L_W(h)=h∘W for native R-linear precomposition and E:R²⊗_A M≃Hom_R(R²,N) for the previously specified finite-free tensor coordinates. Precomposition by the actual P_J: R²→J followed by d(false,0) is an exact pair. Thus the zero-degree cycles are exactly f∘P_J for R-linear f:J→N; precomposition is injective because P_J is surjective.
+
+Hypotheses: A is any commutative ring and M is any A-module; no flatness of M, noetherianity, nontriviality or unit-discriminant hypothesis is imposed for this polynomial calculation.
+
+Dependencies: StableReductionPartII:MC.2/section-hom-ideal-start, StableReductionPartII:MC.2/section-ideal-presentation-kernel, StableReductionPartII:MC.2/section-ideal-presentation-surjective, mathlib:LinearMap.exact_lcomp_of_exact_of_surjective, mathlib:LinearMap.exact_iff, mathlib:LinearMap.lcomp_injective_of_surjective.
+
+Proof: Reuse the existing exact presentation Ψ→R²→J and its actual surjectivity. Apply native left exactness of R-linear Hom into N; no coefficient flatness is needed.
+
+Acceptance: Use actual R-linear Hom maps, the signed P_J/P_D presentations and native ModuleCat homology. Do not infer Ext vanishing, relative stable reflexivity, completed-local comparisons or family/sheaf descent from this cochain result alone.
+
+Source: Knudsen2012 §3 Key Example and Proposition3.1, with §4’s separate completed-local comparison; the general-ring native cochain result is an authored deduction on the preceding local model. Native machinery is cited at the selected pinned statements, without replanning generic homological algebra.
+
+### Degree-zero cycles factor through the section dual
+
+Declaration NodeSectionFactorization.PolynomialModel.sectionHomDual_augmentation_exact; node StableReductionPartII:MC.2/section-hom-dual-augmentation-exact.
+
+For any commutative ring A and γ,δ,s,t∈A, use the actual polynomial ring R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), its coefficient map ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt and a=ιδ·v+ιδ·ιt+ιγ·u. Set J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), and the signed presentations P_J(z)=cz₀−dz₁, P_D(z)=z₀incl−z₁ε. For any A-module M put N=R⊗_A M with its native left R-action and H=Hom_R(R²,N). Write L_W(h)=h∘W for native R-linear precomposition and E:R²⊗_A M≃Hom_R(R²,N) for the previously specified finite-free tensor coordinates. Precomposition by the actual P_D: R²→D followed by d(true,0) is an exact pair. Thus the zero-degree cycles are exactly f∘P_D for R-linear f:D→N; precomposition is injective because P_D is surjective.
+
+Hypotheses: A is any commutative ring and M is any A-module; no flatness of M, noetherianity, nontriviality or unit-discriminant hypothesis is imposed for this polynomial calculation.
+
+Dependencies: StableReductionPartII:MC.2/section-hom-dual-start, StableReductionPartII:MC.2/section-dual-presentation-kernel, StableReductionPartII:MC.2/section-dual-presentation-surjective, mathlib:LinearMap.exact_lcomp_of_exact_of_surjective, mathlib:LinearMap.exact_iff, mathlib:LinearMap.lcomp_injective_of_surjective.
+
+Proof: Reuse the existing exact presentation Φ→R²→D and its actual surjectivity. Apply native left exactness of R-linear Hom into N; no coefficient flatness is needed.
+
+Acceptance: Use actual R-linear Hom maps, the signed P_J/P_D presentations and native ModuleCat homology. Do not infer Ext vanishing, relative stable reflexivity, completed-local comparisons or family/sheaf descent from this cochain result alone.
+
+Source: Knudsen2012 §3 Key Example and Proposition3.1, with §4’s separate completed-local comparison; the general-ring native cochain result is an authored deduction on the preceding local model. Native machinery is cited at the selected pinned statements, without replanning generic homological algebra.

@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-stage partial design with 273 declaration nodes. This continuation gives specified normalization module coefficients, their native reconstruction, the two-element spanning family, finite ring inclusion and actual affine Spec-map finiteness, a canonical shared fraction field for every nonzero q, and the native integral closure for monic quadratic q. The coefficient map has a nonzero relation, so no module freeness or flatness is asserted. Projective normalization charts, conductor ideal sheaves, finite pushforward cohomology and all later-stage/source closure obligations remain required. The specified native affine A_q-linear B/(A_q·1)≃E/(A_q·1), its actual k-linear B/A_q≃E/k, both representative equations, residue scalar actions, one-dimensional quadratic defect and actual conductor annihilators are now separately checked prototypes. Projective chart gluing, the global normalization comparison, conductor ideal sheaf, the actual structure-sheaf sequence and finite-pushforward H0/H1 remain open, as does the independent I₂ geometry. The full Tau Ceti-importing file is uncompiled; all implementation statuses and all seven coverage rows remain partial/unchecked. The reciprocal infinity quotient Chart(a,b)=R[u][Z]/(Q∞Z−u³), its explicit Bézout inverse, both specified R[u]-algebra maps and their inverse equivalence, native localization property and actual affine Spec open immersion now have separately checked prototypes over every commutative ring. The homogeneous normalization tuple, its cubic homogeneity and fieldwise absence of a common zero are checked against the actual native projective Weierstrass equation, with a nonsingular infinity point over every field. The two-chart overlap/gluing and actual Proj comparison, finite projective normalization, conductor ideal sheaf, structure-sheaf exact sequence, finite-pushforward H0/H1 and independent I₂ geometry remain required. Full Tau Ceti-importing file remains uncompiled; all seven stages are partial and all mathematical implementation statuses unchecked.",
+  "summary": "Seven-stage partial design with 325 declaration nodes. This continuation gives specified normalization module coefficients, their native reconstruction, the two-element spanning family, finite ring inclusion and actual affine Spec-map finiteness, a canonical shared fraction field for every nonzero q, and the native integral closure for monic quadratic q. The coefficient map has a nonzero relation, so no module freeness or flatness is asserted. Projective normalization charts, conductor ideal sheaves, finite pushforward cohomology and all later-stage/source closure obligations remain required. The specified native affine A_q-linear B/(A_q·1)≃E/(A_q·1), its actual k-linear B/A_q≃E/k, both representative equations, residue scalar actions, one-dimensional quadratic defect and actual conductor annihilators are now separately checked prototypes. Projective chart gluing, the global normalization comparison, conductor ideal sheaf, the actual structure-sheaf sequence and finite-pushforward H0/H1 remain open, as does the independent I₂ geometry. The full Tau Ceti-importing file is uncompiled; all implementation statuses and all seven coverage rows remain partial/unchecked. The reciprocal infinity quotient Chart(a,b)=R[u][Z]/(Q∞Z−u³), its explicit Bézout inverse, both specified R[u]-algebra maps and their inverse equivalence, native localization property and actual affine Spec open immersion now have separately checked prototypes over every commutative ring. The homogeneous normalization tuple, its cubic homogeneity and fieldwise absence of a common zero are checked against the actual native projective Weierstrass equation, with a nonsingular infinity point over every field. The two-chart overlap/gluing and actual Proj comparison, finite projective normalization, conductor ideal sheaf, structure-sheaf exact sequence, finite-pushforward H0/H1 and independent I₂ geometry remain required. Full Tau Ceti-importing file remains uncompiled; all seven stages are partial and all mathematical implementation statuses unchecked. The specified reciprocal polynomial localization equivalence is checked over arbitrary commutative rings, with its actual affine Spec isomorphism. The finite pinch localization at tq is identified with the normalized overlap; the infinity quotient localization at u is identified with the reversed polynomial overlap, and D(z)=D(u) is proved in its actual prime spectrum. Their composite gives the specified chart transition, and the homogeneous normalization tuples agree by the unit factor t⁻³. The global Proj identification, gluing of the normalization morphism, projective finiteness, conductor ideal sheaf, structure-sheaf exact sequence, finite-pushforward H0/H1 and separate I₂ geometry remain required. All stages remain partial and implementation statuses unchecked; the full Tau Ceti-importing file is uncompiled.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1979,6 +1979,102 @@
         "provides": "Native carrier or universal-property input for the specialized infinity chart; it remains a library import, not a planned replacement.",
         "checked": "Codex codex-5ebb6f read the pinned statement and ambient hypotheses on 2026-10-03; instantiated in the checked native chart prototype.",
         "sourceSha256": "685187debda5efdf31ff2071706125df1574d6d22a0192d161126b3bd6cf0b29"
+      },
+      {
+        "ref": "mathlib:IsLocalization.Away.isUnit_of_dvd",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Localization/Away/Basic.lean",
+        "provides": "Existing native IsLocalization.Away.isUnit_of_dvd used in the specified overlap comparison; generic localization, Spec and principal-open theory is imported.",
+        "checked": "Actual declaration statement and ambient hypotheses read at the pinned Mathlib tree on 2026-10-03.",
+        "sourceSha256": "546fba4376cf5014763e2f2702424ec80a11cefeca34423ea71d6bce9865f662"
+      },
+      {
+        "ref": "mathlib:IsLocalization.Away.lift_eq",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Localization/Away/Basic.lean",
+        "provides": "Existing native IsLocalization.Away.lift_eq used in the specified overlap comparison; generic localization, Spec and principal-open theory is imported.",
+        "checked": "Actual declaration statement and ambient hypotheses read at the pinned Mathlib tree on 2026-10-03.",
+        "sourceSha256": "546fba4376cf5014763e2f2702424ec80a11cefeca34423ea71d6bce9865f662"
+      },
+      {
+        "ref": "mathlib:IsLocalization.Away.mul",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Localization/Away/Basic.lean",
+        "provides": "Existing native IsLocalization.Away.mul used in the specified overlap comparison; generic localization, Spec and principal-open theory is imported.",
+        "checked": "Actual declaration statement and ambient hypotheses read at the pinned Mathlib tree on 2026-10-03.",
+        "sourceSha256": "546fba4376cf5014763e2f2702424ec80a11cefeca34423ea71d6bce9865f662"
+      },
+      {
+        "ref": "mathlib:IsLocalization.algEquiv",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Localization/Basic.lean",
+        "provides": "Existing native IsLocalization.algEquiv used in the specified overlap comparison; generic localization, Spec and principal-open theory is imported.",
+        "checked": "Actual declaration statement and ambient hypotheses read at the pinned Mathlib tree on 2026-10-03.",
+        "sourceSha256": "770408aa83260eb06bd451a4c00e3664ca14af0e0d00871dd481b01bfcb8afe4"
+      },
+      {
+        "ref": "mathlib:Polynomial.aeval_X",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/AlgebraMap.lean",
+        "provides": "Existing native Polynomial.aeval_X used in the specified overlap comparison; generic localization, Spec and principal-open theory is imported.",
+        "checked": "Actual declaration statement and ambient hypotheses read at the pinned Mathlib tree on 2026-10-03.",
+        "sourceSha256": "f99248e0da1e1cd1b6ffd8f90dc07291c0ee6cb27ab302776eab7dbc70012d9b"
+      },
+      {
+        "ref": "mathlib:Polynomial.aeval_C",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/AlgebraMap.lean",
+        "provides": "Existing native Polynomial.aeval_C used in the specified overlap comparison; generic localization, Spec and principal-open theory is imported.",
+        "checked": "Actual declaration statement and ambient hypotheses read at the pinned Mathlib tree on 2026-10-03.",
+        "sourceSha256": "f99248e0da1e1cd1b6ffd8f90dc07291c0ee6cb27ab302776eab7dbc70012d9b"
+      },
+      {
+        "ref": "mathlib:PrimeSpectrum.basicOpen_mul",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Spectrum/Prime/Topology.lean",
+        "provides": "Existing native PrimeSpectrum.basicOpen_mul used in the specified overlap comparison; generic localization, Spec and principal-open theory is imported.",
+        "checked": "Actual declaration statement and ambient hypotheses read at the pinned Mathlib tree on 2026-10-03.",
+        "sourceSha256": "249a138ab7aba821d0fcf1cb6d8c5144581fee922dd5647fbc358a6b31af553b"
+      },
+      {
+        "ref": "mathlib:PrimeSpectrum.basicOpen_pow",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Spectrum/Prime/Topology.lean",
+        "provides": "Existing native PrimeSpectrum.basicOpen_pow used in the specified overlap comparison; generic localization, Spec and principal-open theory is imported.",
+        "checked": "Actual declaration statement and ambient hypotheses read at the pinned Mathlib tree on 2026-10-03.",
+        "sourceSha256": "249a138ab7aba821d0fcf1cb6d8c5144581fee922dd5647fbc358a6b31af553b"
+      },
+      {
+        "ref": "mathlib:PrimeSpectrum.basicOpen_one",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Spectrum/Prime/Topology.lean",
+        "provides": "Existing native PrimeSpectrum.basicOpen_one used in the specified overlap comparison; generic localization, Spec and principal-open theory is imported.",
+        "checked": "Actual declaration statement and ambient hypotheses read at the pinned Mathlib tree on 2026-10-03.",
+        "sourceSha256": "249a138ab7aba821d0fcf1cb6d8c5144581fee922dd5647fbc358a6b31af553b"
+      },
+      {
+        "ref": "mathlib:isUnit_pow_iff",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Group/Commute/Units.lean",
+        "provides": "Existing native isUnit_pow_iff used in the specified overlap comparison; generic localization, Spec and principal-open theory is imported.",
+        "checked": "Actual declaration statement and ambient hypotheses read at the pinned Mathlib tree on 2026-10-03.",
+        "sourceSha256": "6ea9ebbc1b091c55585467d438815a33919a39d36ad53e739cfc7b0ee104a678"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Spec",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
+        "provides": "Existing native AlgebraicGeometry.Scheme.Spec used in the specified overlap comparison; generic localization, Spec and principal-open theory is imported.",
+        "checked": "Actual declaration statement and ambient hypotheses read at the pinned Mathlib tree on 2026-10-03.",
+        "sourceSha256": "7252c65ef22e7b5fd516392a4e062f0d12150924ea055b65f08bc707db9d814a"
+      },
+      {
+        "ref": "mathlib:LaurentPolynomial.invert",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/Laurent.lean",
+        "provides": "Existing Laurent-polynomial inversion; no new Laurent carrier or inversion theory is planned.",
+        "checked": "Actual declaration statement and ambient hypotheses read at the pinned Mathlib tree on 2026-10-03.",
+        "sourceSha256": "27888f4196364228069542c5de87a2f0774d10031a76ac88f5d65353e10a2046"
       }
     ]
   },
@@ -2385,6 +2481,19 @@
       ],
       "readingExtent": "Fresh scoped primary PDF reading. All new reciprocal-chart and homogeneous-coordinate signatures are authored deductions. No whole-paper reading, published-version erratum collation, projective gluing proof or inherited finite-field rerun is claimed.",
       "sha256": "ae6481f25627867473ba40db3b08e5f4b861de8aa103204eefc5ad1123a46d61"
+    },
+    {
+      "id": "schroer-7e92bd-overlap",
+      "title": "There is no Enriques surface over the integers",
+      "authors": "Stefan Schröer",
+      "edition": "arXiv2004.07025v3 HTML; distinct from the published Annals version.",
+      "url": "https://arxiv.org/html/2004.07025v3",
+      "accessed": "2026-10-03",
+      "readSections": [
+        "Complete §3: both conductor diagrams, Propositions3.1–3.2 and proofs/count table, Proposition3.3 statement/table."
+      ],
+      "readingExtent": "Scoped primary reading. Overlap formulas and proofs are authored. No whole-paper reading, erratum collation or inherited finite-field rerun.",
+      "sha256": "d14049912dcab6a438ed62363e246d0087c61342c51813ac482f5aba48d92456"
     }
   ],
   "nodes": [
@@ -9510,7 +9619,8 @@
         "Import H⁰(P¹,O)=k and H¹(P¹,O)=0; the long exact sequence gives the stated natural vector-space comparison, not a preferred basis of E/k.",
         "After a separable splitting extension the chart has one ordinary node and integral normalization, giving geometric integrality and the branch assertion.",
         "Use the specified native affine k-linear B/A_q≃E/k and its one-dimensional quadratic normalization defect. This identifies only the affine quotient: the original projective normalization, actual conductor ideal-sheaf, structure-sheaf exact sequence and finite-pushforward H0/H1 steps remain required.",
-        "Use the specified infinity quotient chart, its coefficient-compatible localization equivalence and homogeneous coordinates. Import generic relative Proj charts/gluing from SF.0 to identify the actual projective cubic with the two-chart pinch and construct the finite normalization morphism. Then identify its conductor ideal sheaf and the actual O_C→ν_*O_P¹→j_*(E/k) sequence before deriving H0/H1; none of these global comparisons follows from an equation on coordinate tuples alone."
+        "Use the specified infinity quotient chart, its coefficient-compatible localization equivalence and homogeneous coordinates. Import generic relative Proj charts/gluing from SF.0 to identify the actual projective cubic with the two-chart pinch and construct the finite normalization morphism. Then identify its conductor ideal sheaf and the actual O_C→ν_*O_P¹→j_*(E/k) sequence before deriving H0/H1; none of these global comparisons follows from an equation on coordinate tuples alone.",
+        "Use the specified finite/infinity overlap equivalence and homogeneous coordinate compatibility as inputs to the actual SF.0 projective-chart/gluing comparison; these affine facts do not themselves construct the global normalization morphism."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-point-proper-pushout",
@@ -9526,7 +9636,10 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-normalization-homogeneous",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-normalization-nonzero",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-normalization-equation",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-infinity-nonsingular"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-infinity-nonsingular",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-chart-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-normalization-overlap",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-spec-iso"
       ],
       "sources": [
         {
@@ -16179,6 +16292,2739 @@
           "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
         }
       ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Quadratic",
+      "kind": "construction",
+      "statement": "The coefficient polynomial Q(c,a,b)=cX²+aX+b over an arbitrary commutative ring.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The coefficient polynomial Q(c,a,b)=cX²+aX+b over an arbitrary commutative ring."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.quadratic",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.Overlap.quadratic_monic",
+          "role": "compatibility",
+          "statement": "Specializing c=1 gives the existing monic expression X²+aX+b, with no hypothesis on a or b."
+        },
+        {
+          "name": "QuadraticPinch.Overlap.quadratic_reversed",
+          "role": "compatibility",
+          "statement": "Specializing the reversed polynomial Q(b,a,1) gives exactly the existing infinity denominator 1+aX+bX²."
+        },
+        {
+          "name": "QuadraticPinch.Overlap.quadratic_aeval",
+          "role": "compatibility",
+          "statement": "Evaluation of the coefficient polynomial at x is exactly cx²+ax+b."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Overlap.quadratic.zero",
+          "kind": "degenerate",
+          "statement": "With all coefficients zero, the specified polynomial is zero."
+        },
+        {
+          "name": "Overlap.quadratic.nonreduced",
+          "kind": "degenerate",
+          "statement": "Over Z/4, evaluating Q(2,1,1) at 2 gives 3."
+        },
+        {
+          "name": "Overlap.quadratic.reversal_not_equal",
+          "kind": "non-example",
+          "statement": "Over the integers, Q(1,0,2) and Q(2,0,1) differ; the reversal is not a coefficientwise identity."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Ring",
+      "kind": "construction",
+      "statement": "The actual native localization R[X,1/(XQ(c,a,b))], with its specified polynomial algebra map.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The actual native localization R[X,1/(XQ(c,a,b))], with its specified polynomial algebra map."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.Ring",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.Overlap.coordinate_isUnit",
+          "role": "compatibility",
+          "statement": "The polynomial coordinate t is a unit in the overlap ring, with the specified inverse v."
+        },
+        {
+          "name": "QuadraticPinch.Overlap.inverse_isUnit",
+          "role": "compatibility",
+          "statement": "The specified inverse coordinate v is a unit, with inverse t."
+        },
+        {
+          "name": "QuadraticPinch.Overlap.quadratic_isUnit",
+          "role": "compatibility",
+          "statement": "The image of Q(c,a,b) is a unit in R[X,1/(XQ)]."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Overlap.Ring.zero_polynomial",
+          "kind": "degenerate",
+          "statement": "When Q=0, the actual overlap localization has zero equal to one."
+        },
+        {
+          "name": "Overlap.Ring.coordinate_unit_nonreduced",
+          "kind": "degenerate",
+          "statement": "The polynomial coordinate is a unit for coefficients (2,2,1) over Z/4."
+        },
+        {
+          "name": "Overlap.Ring.quadratic_unit_nonsplit",
+          "kind": "compatibility",
+          "statement": "The actual image of X²+X+1 is a unit in its F₂ overlap localization."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-coordinate",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Coordinate",
+      "kind": "construction",
+      "statement": "The image t of X under the specified polynomial algebra map into R[X,1/(XQ)].",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The image t of X under the specified polynomial algebra map into R[X,1/(XQ)]."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.coordinate",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.Overlap.coordinate_algebraMap",
+          "role": "compatibility",
+          "statement": "The overlap coordinate is exactly the native polynomial algebra-map image of X."
+        },
+        {
+          "name": "QuadraticPinch.Overlap.coordinate_mul_inverse",
+          "role": "compatibility",
+          "statement": "The product t·v equals one in the specified overlap ring, without cancellation or a domain hypothesis."
+        },
+        {
+          "name": "QuadraticPinch.Overlap.coordinate_isUnit",
+          "role": "compatibility",
+          "statement": "The polynomial coordinate t is a unit in the overlap ring, with the specified inverse v."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Overlap.coordinate.cusp",
+          "kind": "degenerate",
+          "statement": "For the characteristic-two cusp q=X², the specified coordinate and reciprocal multiply to one."
+        },
+        {
+          "name": "Overlap.coordinate.nonreduced",
+          "kind": "degenerate",
+          "statement": "For coefficients (2,2,1) over Z/4, the specified coordinate and reciprocal multiply to one."
+        },
+        {
+          "name": "Overlap.coordinate.generator",
+          "kind": "compatibility",
+          "statement": "Evaluation of X at the specified overlap coordinate agrees with the actual polynomial algebra map."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-inverse-variable",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Inverse variable",
+      "kind": "construction",
+      "statement": "The specified inverse v=Q/(XQ) of t in the actual overlap localization.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The specified inverse v=Q/(XQ) of t in the actual overlap localization."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.inverseVariable",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.Overlap.inverseVariable_formula",
+          "role": "compatibility",
+          "statement": "The inverse coordinate is exactly the polynomial image of Q multiplied by the native localization inverse of XQ."
+        },
+        {
+          "name": "QuadraticPinch.Overlap.coordinate_mul_inverse",
+          "role": "compatibility",
+          "statement": "The product t·v equals one in the specified overlap ring, without cancellation or a domain hypothesis."
+        },
+        {
+          "name": "QuadraticPinch.Overlap.inverse_isUnit",
+          "role": "compatibility",
+          "statement": "The specified inverse coordinate v is a unit, with inverse t."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Overlap.inverseVariable.left_inverse",
+          "kind": "compatibility",
+          "statement": "The specified reciprocal is also a left inverse of the coordinate over every commutative ring."
+        },
+        {
+          "name": "Overlap.inverseVariable.unit_split",
+          "kind": "compatibility",
+          "statement": "The inverse coordinate is a unit for the split polynomial X²−1 over the rationals."
+        },
+        {
+          "name": "Overlap.inverseVariable.zero_ring",
+          "kind": "degenerate",
+          "statement": "In the overlap localization over Z/1, the specified inverse coordinate equals one."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-coordinate-mul-inverse",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Coordinate mul inverse",
+      "kind": "lemma",
+      "statement": "The product t·v equals one in the specified overlap ring, without cancellation or a domain hypothesis.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-coordinate",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-inverse-variable",
+        "mathlib:IsLocalization.Away.mul_invSelf"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The product t·v equals one in the specified overlap ring, without cancellation or a domain hypothesis."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.coordinate_mul_inverse",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-inverse-is-unit",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Inverse is unit",
+      "kind": "lemma",
+      "statement": "The specified inverse coordinate v is a unit, with inverse t.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-coordinate",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-inverse-variable",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-coordinate-mul-inverse"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The specified inverse coordinate v is a unit, with inverse t."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.inverse_isUnit",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic-is-unit",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Quadratic is unit",
+      "kind": "lemma",
+      "statement": "The image of Q(c,a,b) is a unit in R[X,1/(XQ)].",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring",
+        "mathlib:IsLocalization.Away.isUnit_of_dvd"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The image of Q(c,a,b) is a unit in R[X,1/(XQ)]."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.quadratic_isUnit",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-reciprocal-quadratic",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Reciprocal quadratic",
+      "kind": "lemma",
+      "statement": "Evaluation of Q(c,a,b) at the inverse coordinate in the coefficient-reversed overlap equals v² times the polynomial image of Q(b,a,c).",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-coordinate",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-inverse-variable",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-coordinate-mul-inverse"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "Evaluation of Q(c,a,b) at the inverse coordinate in the coefficient-reversed overlap equals v² times the polynomial image of Q(b,a,c)."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.reciprocal_quadratic",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-reciprocal-denominator-is-unit",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Reciprocal denominator is unit",
+      "kind": "lemma",
+      "statement": "Evaluation of XQ(c,a,b) at the inverse coordinate in the coefficient-reversed overlap is a unit.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-inverse-variable",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-inverse-is-unit",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic-is-unit",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-reciprocal-quadratic"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "Evaluation of XQ(c,a,b) at the inverse coordinate in the coefficient-reversed overlap is a unit."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.reciprocal_denominator_isUnit",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-reciprocal",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Reciprocal",
+      "kind": "construction",
+      "statement": "The specified R-algebra map from R[X,1/(XQ(c,a,b))] to R[X,1/(XQ(b,a,c))] induced by polynomial evaluation at the inverse coordinate.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-inverse-variable",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-reciprocal-denominator-is-unit",
+        "mathlib:IsLocalization.Away.liftAlgHom"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The specified R-algebra map from R[X,1/(XQ(c,a,b))] to R[X,1/(XQ(b,a,c))] induced by polynomial evaluation at the inverse coordinate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.reciprocal",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.Overlap.reciprocal_algebraMap",
+          "role": "compatibility",
+          "statement": "The reciprocal map sends the image of every polynomial f to its evaluation at the target inverse coordinate."
+        },
+        {
+          "name": "QuadraticPinch.Overlap.reciprocal_coordinate",
+          "role": "compatibility",
+          "statement": "The reciprocal map sends the source polynomial coordinate to the target inverse coordinate."
+        },
+        {
+          "name": "QuadraticPinch.Overlap.reciprocal_inverse",
+          "role": "compatibility",
+          "statement": "The reciprocal map sends the source inverse coordinate to the target polynomial coordinate."
+        },
+        {
+          "name": "QuadraticPinch.Overlap.reciprocal_comp",
+          "role": "compatibility",
+          "statement": "Composing the reciprocal map with its coefficient-reversed reciprocal gives the identity R-algebra homomorphism."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Overlap.reciprocal.coefficient",
+          "kind": "compatibility",
+          "statement": "The specified reciprocal homomorphism fixes every actual coefficient-ring image."
+        },
+        {
+          "name": "Overlap.reciprocal.general_quadratic",
+          "kind": "compatibility",
+          "statement": "The image of Q under the reciprocal map is precisely v²Q with reversed coefficients."
+        },
+        {
+          "name": "Overlap.reciprocal.twice",
+          "kind": "compatibility",
+          "statement": "Applying the reciprocal map twice, with coefficients reversed for the second map, recovers every element."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-reciprocal-algebra-map",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Reciprocal algebra map",
+      "kind": "lemma",
+      "statement": "The reciprocal map sends the image of every polynomial f to its evaluation at the target inverse coordinate.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-inverse-variable",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-reciprocal-denominator-is-unit",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-reciprocal",
+        "mathlib:IsLocalization.Away.lift_eq"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The reciprocal map sends the image of every polynomial f to its evaluation at the target inverse coordinate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.reciprocal_algebraMap",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-reciprocal-coordinate",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Reciprocal coordinate",
+      "kind": "lemma",
+      "statement": "The reciprocal map sends the source polynomial coordinate to the target inverse coordinate.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-coordinate",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-inverse-variable",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-reciprocal",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-reciprocal-algebra-map"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The reciprocal map sends the source polynomial coordinate to the target inverse coordinate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.reciprocal_coordinate",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-reciprocal-inverse",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Reciprocal inverse",
+      "kind": "lemma",
+      "statement": "The reciprocal map sends the source inverse coordinate to the target polynomial coordinate.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-coordinate",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-inverse-variable",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-coordinate-mul-inverse",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-reciprocal",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-reciprocal-coordinate"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The reciprocal map sends the source inverse coordinate to the target polynomial coordinate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.reciprocal_inverse",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-reciprocal-comp",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Reciprocal comp",
+      "kind": "lemma",
+      "statement": "Composing the reciprocal map with its coefficient-reversed reciprocal gives the identity R-algebra homomorphism.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Use native localization algebra-hom extensionality, then polynomial generator extensionality and the two coordinate image formulas."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-coordinate",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-reciprocal",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-reciprocal-coordinate",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-reciprocal-inverse",
+        "mathlib:IsLocalization.algHom_ext"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "Composing the reciprocal map with its coefficient-reversed reciprocal gives the identity R-algebra homomorphism."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.reciprocal_comp",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-equiv",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Equiv",
+      "kind": "construction",
+      "statement": "The specified reciprocal maps give an R-algebra equivalence between the two coefficient-reversed polynomial overlap localizations.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-reciprocal",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-reciprocal-comp",
+        "mathlib:AlgEquiv.ofAlgHom"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The specified reciprocal maps give an R-algebra equivalence between the two coefficient-reversed polynomial overlap localizations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.equiv",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.Overlap.equiv_coordinate",
+          "role": "compatibility",
+          "statement": "The reciprocal equivalence sends the source polynomial coordinate to the target inverse coordinate."
+        },
+        {
+          "name": "QuadraticPinch.Overlap.equiv_inverse",
+          "role": "compatibility",
+          "statement": "The reciprocal equivalence sends the source inverse coordinate to the target polynomial coordinate."
+        },
+        {
+          "name": "QuadraticPinch.Overlap.equiv_algebraMap",
+          "role": "compatibility",
+          "statement": "The reciprocal equivalence sends every polynomial image to evaluation at the target inverse coordinate."
+        },
+        {
+          "name": "QuadraticPinch.Overlap.equiv_symm",
+          "role": "compatibility",
+          "statement": "The inverse of the reciprocal equivalence is exactly the same construction with leading and constant coefficients exchanged."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Overlap.equiv.cusp",
+          "kind": "degenerate",
+          "statement": "For the characteristic-two cusp, the reciprocal equivalence sends the coordinate to the specified inverse in the reversed overlap."
+        },
+        {
+          "name": "Overlap.equiv.nonsplit",
+          "kind": "compatibility",
+          "statement": "For X²+X+1 over F₂, the reciprocal equivalence sends the inverse coordinate to the coordinate."
+        },
+        {
+          "name": "Overlap.equiv.nonreduced_roundtrip",
+          "kind": "degenerate",
+          "statement": "The reciprocal equivalence and its coefficient-reversed map recover each element for (2,2,1) over Z/4."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-equiv-coordinate",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Equiv coordinate",
+      "kind": "lemma",
+      "statement": "The reciprocal equivalence sends the source polynomial coordinate to the target inverse coordinate.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-coordinate",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-inverse-variable",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-reciprocal-coordinate",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-equiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The reciprocal equivalence sends the source polynomial coordinate to the target inverse coordinate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.equiv_coordinate",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-equiv-inverse",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Equiv inverse",
+      "kind": "lemma",
+      "statement": "The reciprocal equivalence sends the source inverse coordinate to the target polynomial coordinate.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-coordinate",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-inverse-variable",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-reciprocal-inverse",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-equiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The reciprocal equivalence sends the source inverse coordinate to the target polynomial coordinate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.equiv_inverse",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-equiv-algebra-map",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Equiv algebra map",
+      "kind": "lemma",
+      "statement": "The reciprocal equivalence sends every polynomial image to evaluation at the target inverse coordinate.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-inverse-variable",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-reciprocal-algebra-map",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-equiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The reciprocal equivalence sends every polynomial image to evaluation at the target inverse coordinate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.equiv_algebraMap",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-equiv-symm",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Equiv symm",
+      "kind": "lemma",
+      "statement": "The inverse of the reciprocal equivalence is exactly the same construction with leading and constant coefficients exchanged.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-equiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The inverse of the reciprocal equivalence is exactly the same construction with leading and constant coefficients exchanged."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.equiv_symm",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic-monic",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Quadratic monic",
+      "kind": "lemma",
+      "statement": "Specializing c=1 gives the existing monic expression X²+aX+b, with no hypothesis on a or b.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "Specializing c=1 gives the existing monic expression X²+aX+b, with no hypothesis on a or b."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.quadratic_monic",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic-reversed",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Quadratic reversed",
+      "kind": "lemma",
+      "statement": "Specializing the reversed polynomial Q(b,a,1) gives exactly the existing infinity denominator 1+aX+bX².",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-denominator"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "Specializing the reversed polynomial Q(b,a,1) gives exactly the existing infinity denominator 1+aX+bX²."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.quadratic_reversed",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-coordinate-is-unit",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Coordinate is unit",
+      "kind": "lemma",
+      "statement": "The polynomial coordinate t is a unit in the overlap ring, with the specified inverse v.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-coordinate",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-inverse-variable",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-coordinate-mul-inverse"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The polynomial coordinate t is a unit in the overlap ring, with the specified inverse v."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.coordinate_isUnit",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-normalization-overlap",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Normalization overlap",
+      "kind": "lemma",
+      "statement": "In R[t,1/(t(t²+at+b))], the actual homogeneous normalization tuple at (1,v) equals v³ times its tuple at (t,1), with coefficients transported by the actual R-algebra map. All three coordinates agree after this unit scaling.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-coordinate",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-inverse-variable",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-coordinate-mul-inverse",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-normalization-coordinates",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-normalization-homogeneous"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "In R[t,1/(t(t²+at+b))], the actual homogeneous normalization tuple at (1,v) equals v³ times its tuple at (t,1), with coefficients transported by the actual R-algebra map. All three coordinates agree after this unit scaling."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.normalization_overlap",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Overlap.normalization_overlap.nonreduced",
+          "kind": "degenerate",
+          "statement": "For a=b=2 over Z/4, all three homogeneous normalization coordinates agree on the overlap after multiplication by the specified inverse coordinate cubed."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-spec-iso",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Spec iso",
+      "kind": "construction",
+      "statement": "Applying the native contravariant Spec functor to the reciprocal ring equivalence gives an actual scheme isomorphism between the two affine overlap spectra.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-equiv",
+        "mathlib:AlgebraicGeometry.Scheme.Spec",
+        "mathlib:RingEquiv.toCommRingCatIso"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "Applying the native contravariant Spec functor to the reciprocal ring equivalence gives an actual scheme isomorphism between the two affine overlap spectra."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.specIso",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.Overlap.specIso_hom",
+          "role": "compatibility",
+          "statement": "The forward morphism of the affine overlap scheme isomorphism is exactly Spec of the specified reciprocal ring homomorphism."
+        },
+        {
+          "name": "QuadraticPinch.Overlap.specIso_inv",
+          "role": "compatibility",
+          "statement": "The inverse morphism of the affine overlap scheme isomorphism is exactly Spec of the coefficient-reversed reciprocal ring homomorphism."
+        },
+        {
+          "name": "QuadraticPinch.Overlap.specIso_hom_inv",
+          "role": "compatibility",
+          "statement": "The composite of the specified forward and inverse affine scheme morphisms is the actual identity morphism."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Overlap.specIso.cusp",
+          "kind": "degenerate",
+          "statement": "The actual forward/inverse Spec morphisms compose to the identity for the characteristic-two cusp."
+        },
+        {
+          "name": "Overlap.specIso.nonreduced",
+          "kind": "degenerate",
+          "statement": "The actual inverse/forward Spec morphisms compose to the identity for coefficients (2,2,1) over Z/4."
+        },
+        {
+          "name": "Overlap.specIso.actual_map",
+          "kind": "compatibility",
+          "statement": "The forward scheme morphism is exactly native Spec.map of the specified reciprocal homomorphism."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-spec-iso-hom",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Spec iso hom",
+      "kind": "lemma",
+      "statement": "The forward morphism of the affine overlap scheme isomorphism is exactly Spec of the specified reciprocal ring homomorphism.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-spec-iso"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The forward morphism of the affine overlap scheme isomorphism is exactly Spec of the specified reciprocal ring homomorphism."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.specIso_hom",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-spec-iso-inv",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Spec iso inv",
+      "kind": "lemma",
+      "statement": "The inverse morphism of the affine overlap scheme isomorphism is exactly Spec of the coefficient-reversed reciprocal ring homomorphism.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-spec-iso"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The inverse morphism of the affine overlap scheme isomorphism is exactly Spec of the coefficient-reversed reciprocal ring homomorphism."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.specIso_inv",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-spec-iso-hom-inv",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Spec iso hom inv",
+      "kind": "lemma",
+      "statement": "The composite of the specified forward and inverse affine scheme morphisms is the actual identity morphism.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-spec-iso"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The composite of the specified forward and inverse affine scheme morphisms is the actual identity morphism."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.specIso_hom_inv",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-denominator",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Finite denominator",
+      "kind": "construction",
+      "statement": "The specified element XQ(c,a,b) of the existing pinch subring A_Q=k+Qk[X], with its actual membership witness.",
+      "hypotheses": [
+        "k is a field; c,a,b∈k. The chart transition specializes c=1. No separability, perfectness, distinct-root or characteristic restriction; the finite localization comparison allows the zero polynomial."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-membership"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The specified element XQ(c,a,b) of the existing pinch subring A_Q=k+Qk[X], with its actual membership witness."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.finiteDenominator",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.Overlap.finiteDenominator_val",
+          "role": "compatibility",
+          "statement": "The underlying polynomial of the finite overlap denominator is exactly XQ(c,a,b)."
+        },
+        {
+          "name": "QuadraticPinch.Overlap.finiteDenominator_conductor",
+          "role": "compatibility",
+          "statement": "The specified finite overlap denominator belongs to the existing arbitrary-subring conductor of A_Q in k[X]."
+        },
+        {
+          "name": "QuadraticPinch.Overlap.finite_localization",
+          "role": "compatibility",
+          "statement": "The actual normalized polynomial overlap ring has the native Away-localization property at the image of the specified finite denominator under the pinch inclusion."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Overlap.finiteDenominator.cusp",
+          "kind": "degenerate",
+          "statement": "For q=X² over F₂, the underlying finite overlap denominator is X³."
+        },
+        {
+          "name": "Overlap.finiteDenominator.split",
+          "kind": "computation",
+          "statement": "For q=X²−1 over the rationals, the underlying finite overlap denominator is X³−X."
+        },
+        {
+          "name": "Overlap.finiteDenominator.zero",
+          "kind": "degenerate",
+          "statement": "For q=0 over the rationals, the underlying finite overlap denominator is zero."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-denominator-val",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Finite denominator val",
+      "kind": "lemma",
+      "statement": "The underlying polynomial of the finite overlap denominator is exactly XQ(c,a,b).",
+      "hypotheses": [
+        "k is a field; c,a,b∈k. The chart transition specializes c=1. No separability, perfectness, distinct-root or characteristic restriction; the finite localization comparison allows the zero polynomial."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-denominator"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The underlying polynomial of the finite overlap denominator is exactly XQ(c,a,b)."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.finiteDenominator_val",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-denominator-conductor",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Finite denominator conductor",
+      "kind": "lemma",
+      "statement": "The specified finite overlap denominator belongs to the existing arbitrary-subring conductor of A_Q in k[X].",
+      "hypotheses": [
+        "k is a field; c,a,b∈k. The chart transition specializes c=1. No separability, perfectness, distinct-root or characteristic restriction; the finite localization comparison allows the zero polynomial."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-denominator",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-membership"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The specified finite overlap denominator belongs to the existing arbitrary-subring conductor of A_Q in k[X]."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.finiteDenominator_conductor",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-localization",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Finite localization",
+      "kind": "lemma",
+      "statement": "The actual normalized polynomial overlap ring has the native Away-localization property at the image of the specified finite denominator under the pinch inclusion.",
+      "hypotheses": [
+        "k is a field; c,a,b∈k. The chart transition specializes c=1. No separability, perfectness, distinct-root or characteristic restriction; the finite localization comparison allows the zero polynomial."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-denominator",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-denominator-val"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The actual normalized polynomial overlap ring has the native Away-localization property at the image of the specified finite denominator under the pinch inclusion."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.finite_localization",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-away-bijective",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Finite away bijective",
+      "kind": "lemma",
+      "statement": "The native localization map induced by A_Q⊂k[X], after inverting the specified XQ in both rings, is bijective. This uses the existing G.0 conductor-localization theorem.",
+      "hypotheses": [
+        "k is a field; c,a,b∈k. The chart transition specializes c=1. No separability, perfectness, distinct-root or characteristic restriction; the finite localization comparison allows the zero polynomial."
+      ],
+      "proofSteps": [
+        "Apply the existing G.0 conductor localization theorem to the actual pinch inclusion and the proved conductor membership of XQ. Do not assume original inclusion surjectivity."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-denominator",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-denominator-conductor",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-away-bijective",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-localization"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The native localization map induced by A_Q⊂k[X], after inverting the specified XQ in both rings, is bijective. This uses the existing G.0 conductor-localization theorem."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.finite_away_bijective",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-equiv",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Finite equiv",
+      "kind": "construction",
+      "statement": "The specified localized pinch inclusion gives a ring equivalence A_Q[1/(XQ)]≃k[X,1/(XQ)], for arbitrary coefficients, including Q=0.",
+      "hypotheses": [
+        "k is a field; c,a,b∈k. The chart transition specializes c=1. No separability, perfectness, distinct-root or characteristic restriction; the finite localization comparison allows the zero polynomial."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-denominator",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-away-bijective"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The specified localized pinch inclusion gives a ring equivalence A_Q[1/(XQ)]≃k[X,1/(XQ)], for arbitrary coefficients, including Q=0."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.finiteEquiv",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.Overlap.finiteEquiv_apply",
+          "role": "compatibility",
+          "statement": "The finite overlap equivalence has exactly the native Away.map induced by the existing pinch inclusion as its underlying map."
+        },
+        {
+          "name": "QuadraticPinch.Overlap.finiteEquiv_algebraMap",
+          "role": "compatibility",
+          "statement": "The finite overlap equivalence sends the canonical image of every actual pinch element f to the canonical image of its underlying polynomial."
+        },
+        {
+          "name": "QuadraticPinch.Overlap.finiteEquiv_symm_algebraMap",
+          "role": "compatibility",
+          "statement": "The inverse finite overlap equivalence recovers the canonical image of each pinch element from the corresponding polynomial image."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Overlap.finiteEquiv.cusp",
+          "kind": "degenerate",
+          "statement": "For the characteristic-two cusp, the finite overlap equivalence sends its denominator image to the polynomial image of X³."
+        },
+        {
+          "name": "Overlap.finiteEquiv.nonsplit",
+          "kind": "compatibility",
+          "statement": "For X²+X+1 over F₂, the inverse finite overlap equivalence recovers the actual image of every pinch element."
+        },
+        {
+          "name": "Overlap.finiteEquiv.zero_roundtrip",
+          "kind": "degenerate",
+          "statement": "The forward/inverse finite overlap maps recover every element even for the zero polynomial over the rationals."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-equiv-apply",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Finite equiv apply",
+      "kind": "lemma",
+      "statement": "The finite overlap equivalence has exactly the native Away.map induced by the existing pinch inclusion as its underlying map.",
+      "hypotheses": [
+        "k is a field; c,a,b∈k. The chart transition specializes c=1. No separability, perfectness, distinct-root or characteristic restriction; the finite localization comparison allows the zero polynomial."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-denominator",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-localization"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The finite overlap equivalence has exactly the native Away.map induced by the existing pinch inclusion as its underlying map."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.finiteEquiv_apply",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-equiv-algebra-map",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Finite equiv algebra map",
+      "kind": "lemma",
+      "statement": "The finite overlap equivalence sends the canonical image of every actual pinch element f to the canonical image of its underlying polynomial.",
+      "hypotheses": [
+        "k is a field; c,a,b∈k. The chart transition specializes c=1. No separability, perfectness, distinct-root or characteristic restriction; the finite localization comparison allows the zero polynomial."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-equiv-apply",
+        "mathlib:IsLocalization.map_eq"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The finite overlap equivalence sends the canonical image of every actual pinch element f to the canonical image of its underlying polynomial."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.finiteEquiv_algebraMap",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-equiv-symm-algebra-map",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Finite equiv symm algebra map",
+      "kind": "lemma",
+      "statement": "The inverse finite overlap equivalence recovers the canonical image of each pinch element from the corresponding polynomial image.",
+      "hypotheses": [
+        "k is a field; c,a,b∈k. The chart transition specializes c=1. No separability, perfectness, distinct-root or characteristic restriction; the finite localization comparison allows the zero polynomial."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-equiv-algebra-map"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The inverse finite overlap equivalence recovers the canonical image of each pinch element from the corresponding polynomial image."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.finiteEquiv_symm_algebraMap",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-open",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Infinity open",
+      "kind": "construction",
+      "statement": "The actual native localization of the existing infinity quotient chart at its polynomial coordinate u.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The actual native localization of the existing infinity quotient chart at its polynomial coordinate u."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.InfinityOpen",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.Overlap.infinity_localization",
+          "role": "compatibility",
+          "statement": "The iterated infinity-chart localization is a native R[u]-localization away from uQ(b,a,1), using the existing chart localization away from Q∞ and the pinned iterated-localization theorem."
+        },
+        {
+          "name": "QuadraticPinch.Overlap.infinity_basicOpen_root",
+          "role": "compatibility",
+          "statement": "The principal open D(z) equals D(u) in the actual prime spectrum of the existing infinity quotient chart, including nonreduced coefficient rings."
+        },
+        {
+          "name": "QuadraticPinch.Overlap.infinityOpen_coordinate_isUnit",
+          "role": "compatibility",
+          "statement": "The image of the infinity chart polynomial coordinate is a unit in its actual coordinate localization."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Overlap.InfinityOpen.root_cusp",
+          "kind": "degenerate",
+          "statement": "For the characteristic-two cusp infinity chart, D(z)=D(u) in its actual prime spectrum."
+        },
+        {
+          "name": "Overlap.InfinityOpen.root_nonreduced",
+          "kind": "degenerate",
+          "statement": "For the infinity chart with a=2,b=1 over Z/4 and every receiving commutative ring, z maps to a unit exactly when u does."
+        },
+        {
+          "name": "Overlap.InfinityOpen.coordinate_nonsplit",
+          "kind": "compatibility",
+          "statement": "For the infinity chart a=b=1 over F₂, the coordinate becomes a unit in the specified open ring."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-localization",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Infinity localization",
+      "kind": "lemma",
+      "statement": "The iterated infinity-chart localization is a native R[u]-localization away from uQ(b,a,1), using the existing chart localization away from Q∞ and the pinned iterated-localization theorem.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic-reversed",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-open",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-localization",
+        "mathlib:IsLocalization.Away.mul"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The iterated infinity-chart localization is a native R[u]-localization away from uQ(b,a,1), using the existing chart localization away from Q∞ and the pinned iterated-localization theorem."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.infinity_localization",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-equiv",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Infinity equiv",
+      "kind": "construction",
+      "statement": "The native uniqueness equivalence identifies the infinity-chart coordinate localization with R[u,1/(uQ∞)] as R[u]-algebras.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-open",
+        "mathlib:IsLocalization.algEquiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-localization"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The native uniqueness equivalence identifies the infinity-chart coordinate localization with R[u,1/(uQ∞)] as R[u]-algebras."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.infinityEquiv",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.Overlap.infinityEquiv_algebraMap",
+          "role": "compatibility",
+          "statement": "The infinity overlap equivalence preserves the canonical image of every coefficient polynomial in R[u]."
+        },
+        {
+          "name": "QuadraticPinch.Overlap.infinityEquiv_symm_algebraMap",
+          "role": "compatibility",
+          "statement": "The inverse infinity overlap equivalence preserves the canonical image of every coefficient polynomial in R[u]."
+        },
+        {
+          "name": "QuadraticPinch.Overlap.infinityEquiv_roundtrip",
+          "role": "compatibility",
+          "statement": "The inverse infinity overlap equivalence recovers every element after application of the forward equivalence."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Overlap.infinityEquiv.polynomial",
+          "kind": "compatibility",
+          "statement": "The infinity overlap equivalence preserves the actual polynomial image of X²+a."
+        },
+        {
+          "name": "Overlap.infinityEquiv.inverse_coordinate",
+          "kind": "compatibility",
+          "statement": "The inverse infinity overlap equivalence sends the normalized polynomial coordinate to its actual iterated-localization image."
+        },
+        {
+          "name": "Overlap.infinityEquiv.nonreduced",
+          "kind": "degenerate",
+          "statement": "The forward/inverse infinity overlap maps recover every element for a=2,b=1 over Z/4."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-equiv-algebra-map",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Infinity equiv algebra map",
+      "kind": "lemma",
+      "statement": "The infinity overlap equivalence preserves the canonical image of every coefficient polynomial in R[u].",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-open",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-equiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The infinity overlap equivalence preserves the canonical image of every coefficient polynomial in R[u]."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.infinityEquiv_algebraMap",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-equiv-symm-algebra-map",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Infinity equiv symm algebra map",
+      "kind": "lemma",
+      "statement": "The inverse infinity overlap equivalence preserves the canonical image of every coefficient polynomial in R[u].",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-open",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-equiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The inverse infinity overlap equivalence preserves the canonical image of every coefficient polynomial in R[u]."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.infinityEquiv_symm_algebraMap",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-equiv-roundtrip",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Infinity equiv roundtrip",
+      "kind": "lemma",
+      "statement": "The inverse infinity overlap equivalence recovers every element after application of the forward equivalence.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-open",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-equiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The inverse infinity overlap equivalence recovers every element after application of the forward equivalence."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.infinityEquiv_roundtrip",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-root-is-unit-iff",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Infinity root is unit iff",
+      "kind": "lemma",
+      "statement": "For every ring homomorphism from the actual infinity quotient chart into any commutative ring S, the image of its root z is a unit if and only if the image of its polynomial coordinate u is a unit.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-root-relation",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-denominator-is-unit",
+        "mathlib:isUnit_pow_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "For every ring homomorphism from the actual infinity quotient chart into any commutative ring S, the image of its root z is a unit if and only if the image of its polynomial coordinate u is a unit."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.infinity_root_isUnit_iff",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-basic-open-root",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Infinity basic open root",
+      "kind": "lemma",
+      "statement": "The principal open D(z) equals D(u) in the actual prime spectrum of the existing infinity quotient chart, including nonreduced coefficient rings.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "The explicit inverse of Q∞ gives D(Q∞)=top. Apply basicOpen to Q∞z=u³, then native basicOpen multiplication and positive-power identities."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-root-relation",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-mul-inverse",
+        "mathlib:PrimeSpectrum.basicOpen_mul",
+        "mathlib:PrimeSpectrum.basicOpen_pow",
+        "mathlib:PrimeSpectrum.basicOpen_one"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The principal open D(z) equals D(u) in the actual prime spectrum of the existing infinity quotient chart, including nonreduced coefficient rings."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.infinity_basicOpen_root",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-chart-equiv",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Chart equiv",
+      "kind": "construction",
+      "statement": "For q=t²+at+b over a field, the finite pinch localization A_q[1/(tq)] is identified by the specified composite ring equivalence with the actual infinity-chart localization at u. The latter principal open equals D(z).",
+      "hypotheses": [
+        "k is a field; c,a,b∈k. The chart transition specializes c=1. No separability, perfectness, distinct-root or characteristic restriction; the finite localization comparison allows the zero polynomial."
+      ],
+      "proofSteps": [
+        "Compose the specified finite localization equivalence, reciprocal coefficient-reversal equivalence and inverse infinity localization equivalence. Use D(z)=D(u) to identify the intended infinity open."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-denominator",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-open",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-basic-open-root"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "For q=t²+at+b over a field, the finite pinch localization A_q[1/(tq)] is identified by the specified composite ring equivalence with the actual infinity-chart localization at u. The latter principal open equals D(z)."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.chartEquiv",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.Overlap.chartEquiv_algebraMap",
+          "role": "compatibility",
+          "statement": "On any finite pinch element f, the actual chart transition is inverse infinity-localization comparison applied to f evaluated at the reciprocal coordinate."
+        },
+        {
+          "name": "QuadraticPinch.Overlap.chartEquiv_roundtrip",
+          "role": "compatibility",
+          "statement": "The inverse of the specified chart transition recovers every element of the finite pinch overlap."
+        },
+        {
+          "name": "QuadraticPinch.Overlap.chartEquiv_inverse_roundtrip",
+          "role": "compatibility",
+          "statement": "The specified chart transition recovers every element of the infinity overlap after its inverse."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Overlap.chartEquiv.cusp",
+          "kind": "degenerate",
+          "statement": "The chart transition and its inverse recover every finite overlap element for the characteristic-two cusp."
+        },
+        {
+          "name": "Overlap.chartEquiv.nonsplit",
+          "kind": "compatibility",
+          "statement": "The chart transition recovers every infinity overlap element after its inverse for q=X²+X+1 over F₂."
+        },
+        {
+          "name": "Overlap.chartEquiv.split_formula",
+          "kind": "compatibility",
+          "statement": "For q=X²−1 over the rationals, the actual chart transition on each pinch element agrees with reciprocal polynomial evaluation and the inverse infinity comparison."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-chart-equiv-algebra-map",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Chart equiv algebra map",
+      "kind": "lemma",
+      "statement": "On any finite pinch element f, the actual chart transition is inverse infinity-localization comparison applied to f evaluated at the reciprocal coordinate.",
+      "hypotheses": [
+        "k is a field; c,a,b∈k. The chart transition specializes c=1. No separability, perfectness, distinct-root or characteristic restriction; the finite localization comparison allows the zero polynomial."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-inverse-variable",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-equiv-algebra-map",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-equiv-algebra-map",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-chart-equiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "On any finite pinch element f, the actual chart transition is inverse infinity-localization comparison applied to f evaluated at the reciprocal coordinate."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.chartEquiv_algebraMap",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-chart-equiv-roundtrip",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Chart equiv roundtrip",
+      "kind": "lemma",
+      "statement": "The inverse of the specified chart transition recovers every element of the finite pinch overlap.",
+      "hypotheses": [
+        "k is a field; c,a,b∈k. The chart transition specializes c=1. No separability, perfectness, distinct-root or characteristic restriction; the finite localization comparison allows the zero polynomial."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-finite-denominator",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-chart-equiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The inverse of the specified chart transition recovers every element of the finite pinch overlap."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.chartEquiv_roundtrip",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-chart-equiv-inverse-roundtrip",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Chart equiv inverse roundtrip",
+      "kind": "lemma",
+      "statement": "The specified chart transition recovers every element of the infinity overlap after its inverse.",
+      "hypotheses": [
+        "k is a field; c,a,b∈k. The chart transition specializes c=1. No separability, perfectness, distinct-root or characteristic restriction; the finite localization comparison allows the zero polynomial."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-open",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-chart-equiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The specified chart transition recovers every element of the infinity overlap after its inverse."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.chartEquiv_inverse_roundtrip",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic-aeval",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Quadratic aeval",
+      "kind": "lemma",
+      "statement": "Evaluation of the coefficient polynomial at x is exactly cx²+ax+b.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic",
+        "mathlib:Polynomial.aeval_X",
+        "mathlib:Polynomial.aeval_C"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "Evaluation of the coefficient polynomial at x is exactly cx²+ax+b."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.quadratic_aeval",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-coordinate-algebra-map",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Coordinate algebra map",
+      "kind": "lemma",
+      "statement": "The overlap coordinate is exactly the native polynomial algebra-map image of X.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-coordinate"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The overlap coordinate is exactly the native polynomial algebra-map image of X."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.coordinate_algebraMap",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-inverse-variable-formula",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Inverse variable formula",
+      "kind": "lemma",
+      "statement": "The inverse coordinate is exactly the polynomial image of Q multiplied by the native localization inverse of XQ.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-quadratic",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-inverse-variable"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The inverse coordinate is exactly the polynomial image of Q multiplied by the native localization inverse of XQ."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.inverseVariable_formula",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-open-coordinate-is-unit",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Infinity open coordinate is unit",
+      "kind": "lemma",
+      "statement": "The image of the infinity chart polynomial coordinate is a unit in its actual coordinate localization.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring. All localizations, quotient charts and algebra maps are the specified native carriers. No domain, reducedness, nontriviality, monicity or characteristic hypothesis; the normalization tuple specializes c=1."
+      ],
+      "proofSteps": [
+        "Expand the specified native expressions and use the recorded prerequisite identities; the public checked prototype gives each algebraic step on these carriers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-infinity-open"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-7e92bd-overlap",
+          "locator": "arXiv2004.07025v3, §3, one-component conductor square and Proposition3.2; authored overlap deductions from the incoming quadratic presentation.",
+          "excerpt": "conductor",
+          "match": "The source motivates normalization and pinching. The specified reciprocal localization maps, their identities and chart transition are authored algebraic deductions, not source-printed global Proj or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The image of the infinity chart polynomial coordinate is a unit in its actual coordinate localization."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Overlap"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Overlap.infinityOpen_coordinate_isUnit",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the specified two-chart overlap algebra and coordinate compatibility before the actual Proj/gluing and global normalization comparison. Generic affine gluing remains with SF.0; conductor sheaves and H0/H1 remain required."
+        }
+      ]
     }
   ],
   "requests": [
@@ -16555,7 +19401,8 @@
         "The polynomial pinch localization and inverse coordinate are explicit. Prove finite generation of the normalization module, the fraction-field/normalization comparison, two projective charts and actual conductor-sheaf/cohomology sequence; retain the separate cusp, I₁ and I₂ distinctions.",
         "The native affine finite-module, shared-fraction-field and integral-closure frontiers now have separately checked carrier signatures, including the actual finite Spec map. Construct the projective two-chart normalization comparison and conductor ideal sheaf, then the actual E/k structure-sheaf sequence and finite-pushforward H0/H1. Keep the unrelated k[q]-freeness target and all nodal/inseparable/I2 distinctions.",
         "The specified native affine A_q-linear B/(A_q·1)≃E/(A_q·1), its actual k-linear B/A_q≃E/k, both representative equations, residue scalar actions, one-dimensional quadratic defect and actual conductor annihilators are now separately checked prototypes. Projective chart gluing, the global normalization comparison, conductor ideal sheaf, the actual structure-sheaf sequence and finite-pushforward H0/H1 remain open, as does the independent I₂ geometry. The full Tau Ceti-importing file is uncompiled; all implementation statuses and all seven coverage rows remain partial/unchecked.",
-        "The reciprocal infinity quotient Chart(a,b)=R[u][Z]/(Q∞Z−u³), its explicit Bézout inverse, both specified R[u]-algebra maps and their inverse equivalence, native localization property and actual affine Spec open immersion now have separately checked prototypes over every commutative ring. The homogeneous normalization tuple, its cubic homogeneity and fieldwise absence of a common zero are checked against the actual native projective Weierstrass equation, with a nonsingular infinity point over every field. The two-chart overlap/gluing and actual Proj comparison, finite projective normalization, conductor ideal sheaf, structure-sheaf exact sequence, finite-pushforward H0/H1 and independent I₂ geometry remain required. Full Tau Ceti-importing file remains uncompiled; all seven stages are partial and all mathematical implementation statuses unchecked."
+        "The reciprocal infinity quotient Chart(a,b)=R[u][Z]/(Q∞Z−u³), its explicit Bézout inverse, both specified R[u]-algebra maps and their inverse equivalence, native localization property and actual affine Spec open immersion now have separately checked prototypes over every commutative ring. The homogeneous normalization tuple, its cubic homogeneity and fieldwise absence of a common zero are checked against the actual native projective Weierstrass equation, with a nonsingular infinity point over every field. The two-chart overlap/gluing and actual Proj comparison, finite projective normalization, conductor ideal sheaf, structure-sheaf exact sequence, finite-pushforward H0/H1 and independent I₂ geometry remain required. Full Tau Ceti-importing file remains uncompiled; all seven stages are partial and all mathematical implementation statuses unchecked.",
+        "The specified reciprocal polynomial localization equivalence is checked over arbitrary commutative rings, with its actual affine Spec isomorphism. The finite pinch localization at tq is identified with the normalized overlap; the infinity quotient localization at u is identified with the reversed polynomial overlap, and D(z)=D(u) is proved in its actual prime spectrum. Their composite gives the specified chart transition, and the homogeneous normalization tuples agree by the unit factor t⁻³. The global Proj identification, gluing of the normalization morphism, projective finiteness, conductor ideal sheaf, structure-sheaf exact sequence, finite-pushforward H0/H1 and separate I₂ geometry remain required. All stages remain partial and implementation statuses unchecked; the full Tau Ceti-importing file is uncompiled."
       ]
     },
     {
@@ -16763,7 +19610,8 @@
     {
       "id": "quadratic-pinching-native-exports",
       "detail": "Native k-linear coordinates, Basis, finitely supported coefficient reconstruction and exact degree family are now stated and separately prototyped. The actual full bivariate range/kernel and canonical quotient algebra equivalence are now stated with a separate checked native prototype. Finite normalization, localization/fraction-field comparison, node/tangent/branch predicates, P¹/cohomology and every-extension count interfaces remain open. A k[q]-module instance/freeness interface is not constructed. The full Tau Ceti-importing file is uncompiled; the exact Mathlib-only extraction is checked. All implementation statuses remain unchecked. The native affine solution equivalence and native pointCount/frobeniusTrace balance are now explicit. They count distinct rational roots; they do not supply projective normalization, conductor schemes, the structure-sheaf exact sequence, H¹ comparison, arbitrary finite-extension packaging or the separate two-component I₂ construction. The inherited affine algebra/presentation and all global/fibration/classification/model obligations remain planned. Full Tau Ceti-importing suggested file remains uncompiled.",
-      "title": "Exact native quadratic-pinching owner interfaces"
+      "title": "Exact native quadratic-pinching owner interfaces",
+      "overlapContinuation": "The specified reciprocal polynomial localization equivalence is checked over arbitrary commutative rings, with its actual affine Spec isomorphism. The finite pinch localization at tq is identified with the normalized overlap; the infinity quotient localization at u is identified with the reversed polynomial overlap, and D(z)=D(u) is proved in its actual prime spectrum. Their composite gives the specified chart transition, and the homogeneous normalization tuples agree by the unit factor t⁻³. The global Proj identification, gluing of the normalization morphism, projective finiteness, conductor ideal sheaf, structure-sheaf exact sequence, finite-pushforward H0/H1 and separate I₂ geometry remain required. All stages remain partial and implementation statuses unchecked; the full Tau Ceti-importing file is uncompiled."
     }
   ],
   "sourceIssues": [
@@ -20153,5 +23001,112 @@
       }
     },
     "publicationMain": "14122f5410315c7254b29874b6b80bf3f7bdd159"
+  },
+  "overlapContinuation": {
+    "worker": "Codex — codex-7e92bd",
+    "date": "2026-10-03",
+    "issue": 3378,
+    "mathematicalBase": "53622870caaae54edc6a25556a8cf82007e454ce",
+    "publicationBase": "1cb7fbca1727576cfc5c3fa0de58b9f1092552ea",
+    "claim": 5964213769,
+    "claimConfirmation": 5964214952,
+    "proofArchive": "f7a1fffe0f68cf0e244fbf63f35a3274dce15e6e",
+    "proofArchivePath": "research/blueprint/suggested/NeronModelsAndSemistableAbelianVarietiesPartII.lean",
+    "proofReceipts": {
+      "Native": {
+        "sha256": "4dea38c44f292785e5f1963a8ca06eb5c12dbda08cbf0bab2ee66f2d18bbab3a",
+        "lines": 1717,
+        "examples": 95,
+        "axiomAudits": 132,
+        "logSha256": "89dc684dd1b2fe45e0373bffdcf242eb8c6bf7d984c303ffcf5ac24198939a0c",
+        "warnings": 0,
+        "time": "0:31.71",
+        "maxRSSKiB": 6845144,
+        "availableGiBBefore": 38
+      },
+      "Canonical": {
+        "sha256": "3f431253b8e81febedcef21ae532bb6f779cd15d7eb211c223d86961a9b25f23",
+        "lines": 1247,
+        "examples": 95,
+        "axiomAudits": 20,
+        "logSha256": "e64238c1a7b58f7d4446a3c349358cb86c15683fd405f9620a5b458c5c7d95d8",
+        "warnings": 175,
+        "time": "0:25.76",
+        "maxRSSKiB": 6775392,
+        "availableGiBBefore": 37
+      },
+      "FullCanonical": {
+        "sha256": "52f3b495707593b9207778b476521c52338eec3496bfd9fb0be5f0642662b780",
+        "lines": 2999,
+        "examples": 189,
+        "axiomAudits": 0
+      },
+      "New": {
+        "sha256": "3e8e25fca15d3a838e6215ed4bdd8b73e22059f81b71cfa43ffc3037d686ef24",
+        "lines": 418,
+        "examples": 37,
+        "axiomAudits": 0
+      },
+      "CommonHelpers": {
+        "sha256": "51aef66ceb501ddf3d3f74663d6e15493ffe6ee9d72e6e9d14d6e5350e41ea87",
+        "lines": 126,
+        "examples": 0,
+        "axiomAudits": 0
+      }
+    },
+    "checks": {
+      "graph": {
+        "stageDAG": {
+          "vertices": 3043,
+          "edges": 8727,
+          "acyclic": true
+        },
+        "ownDeclarationDAG": {
+          "vertices": 325,
+          "edges": 767,
+          "acyclic": true
+        },
+        "scopedDAG": {
+          "vertices": 3339,
+          "edges": 10007,
+          "acyclic": true
+        },
+        "reachableDeclarations": 325,
+        "externalDeclarations": [],
+        "baselineLeaves": 223,
+        "requiredPairs": 69,
+        "restructurePairs": 0,
+        "unresolved": [],
+        "ownSkippedLinks": [],
+        "ownPendingLinks": [],
+        "otherSkipsMatch": true,
+        "stageEdgesUnchanged": true
+      },
+      "headers": {
+        "declarations": 52,
+        "examples": 37
+      },
+      "indexedChecker": "0 errors; 0 warnings",
+      "intake": "0 file problems; 0 automatic refusals"
+    },
+    "preservation": "272 whole incoming node objects unchanged; all273 statement/hypothesis/API/test/acceptance contracts unchanged. Only the I1 genus consumer gains three dependencies and one proof step. Incoming1121-line proof prefix and788-line admitted prefix retained byte-for-byte;126 lines of inherited G0 conductor helpers recovered exactly from the common-ideal public archive.",
+    "sourceReading": {
+      "url": "https://arxiv.org/html/2004.07025v3",
+      "accessed": "2026-10-03",
+      "sha256": "d14049912dcab6a438ed62363e246d0087c61342c51813ac482f5aba48d92456",
+      "read": "Entire Section 3, definitions, both conductor diagrams, Propositions 3.1-3.2 and full proofs/count table, Proposition 3.3 statement/table. Reciprocal overlap deductions authored; no whole-paper reread."
+    },
+    "priorArt": {
+      "date": "2026-10-03",
+      "githubQuery": "Ferrand OR pinching OR \"quadratic normalization\" repo:leanprover-community/mathlib4 is:open is:pr",
+      "githubResults": [],
+      "zulipQueries": [
+        "site:leanprover.zulipchat.com \"pinching\" \"scheme\"",
+        "site:leanprover.zulipchat.com \"LaurentPolynomial\" \"invert\""
+      ],
+      "zulipResults": "No indexed hits. Bounded search, not an absence proof."
+    },
+    "compileBoundary": "Full2999-line Tau Ceti-importing file UNCOMPILED. Mathlib-only native and exact admitted extraction compiled sequentially at the Mathlib pin, using the existing build, with no build/setup/cache/update/LSP. Four required Tau Ceti artifacts absent and existing Tau Ceti checkout differs from pinned commit.",
+    "remaining": "The specified reciprocal polynomial localization equivalence is checked over arbitrary commutative rings, with its actual affine Spec isomorphism. The finite pinch localization at tq is identified with the normalized overlap; the infinity quotient localization at u is identified with the reversed polynomial overlap, and D(z)=D(u) is proved in its actual prime spectrum. Their composite gives the specified chart transition, and the homogeneous normalization tuples agree by the unit factor t⁻³. The global Proj identification, gluing of the normalization morphism, projective finiteness, conductor ideal sheaf, structure-sheaf exact sequence, finite-pushforward H0/H1 and separate I₂ geometry remain required. All stages remain partial and implementation statuses unchecked; the full Tau Ceti-importing file is uncompiled."
   }
 }
