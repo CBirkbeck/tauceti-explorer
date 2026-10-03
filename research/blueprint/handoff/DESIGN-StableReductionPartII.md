@@ -1,3 +1,467 @@
+# DESIGN-StableReductionPartII — completed action on finite tensor limits
+
+Refs #3342. Worker: Codex — codex-rtOQ9t. Date: 3 October 2026. Partial checkpoint; all eight stages, source obligations and the reserved moduli-curves key retain their existing status. Every implementation status remains unchecked.
+
+## Mathematical result
+
+Twenty new declarations: five constructions and fifteen promoted API lemmas, with fifteen API items and fifteen typed tests. All 406 incoming node objects are exactly preserved, including the reserved key, six consumer papers and twenty-one routed consumer rows. The 135 requests, fifteen gaps, eleven source issues, exact source-version records and thirty-five planets remain unchanged.
+
+The native completed diagram takes values in ModuleCat(Â). Its scalar restriction is the actual incoming completed-tensor diagram. Native restriction preserves this countable limit, so composition with the incoming finite comparison gives an A-linear equivalence E from the original tensor limit L to the restriction of the native completed limit. Transport the completed action as b⋆x=E⁻¹(b·E(x)); prove the actual A→Â→L scalar tower and agreement with the existing A-action. The same additive equivalence is Â-linear; its maps remain E and E⁻¹, both finite projection equations are explicit, and native projections commute with every completed scalar. No flatness, finite generation or quotient-annihilation assumption on N is added. Finite generation of p is required only for the finite comparison and constructions depending on it.
+
+These are limits of finite tensor products. Identifying an ordinary completed tensor product with either limit, faithful reflection, the full two-base relative stable-reflexivity theorem, Knudsen Proposition7, the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation remain required. Resume by proving a correctly scoped tensor/Hom/Ext comparison for the relevant finitely presented source modules; do not infer tensor/limit interchange for arbitrary N from these projection formulas.
+
+## Sources and ownership
+
+The whole issue was read before and after the bot confirmed this session's claim. The incoming latest archive was recovered and its ten artifacts, ten incoming/final deliverables and five helpers authenticated. All eight stage descriptions, the key contract and sample API, exact Yuan/DGH routes and their twenty-one items, the relevant reviewed parent audit rows, parent layers1–3 and9 and its explicit moduli boundary were read. WORKERS, the relevant blueprint/expansion protocol and upstream guide were reread; two upstream exemplars already read in this continuing session were byte-checked unchanged and their relevant introductions reread. Thirteen relevant source/control inputs and all five incoming deliverables are byte-identical at the mathematical and publication bases. Generic scalar restriction, limits and module transport are reused from the exact pinned library.
+
+Fresh visual reading of the exact published Knudsen II scan, SHA256 18e04bbf5c24a460ff10e965ebf665ea0229378c6a9521bd279909476012e230, physical34–35 (printed194–195), covers Propositions4–7 and the beginning of the nodal example. Proposition6 cites unread Bourbaki III5.4.4; Proposition7 is an exercise. No fresh whole-source, Bourbaki or Ile proof audit is claimed. These new finite-limit deductions are authored applications of native pinned APIs, separately from the full completion theorem. No new source finding is asserted.
+
+## Verification
+
+Exact new native/canonical declaration and example headers agree in all thirty-five cases. The canonical constructions retain computed carrier/map data so that API statements refer to the actual native tensors; their functor-law and remaining proof obligations are admitted as required by PROTOCOL §13. Earlier failed elaborations are superseded by the following full-file checks:
+
+- native: exit 0; 6512 lines, 216 examples, 372 axiom audits; 0 warnings, 0 admission warnings; 0:51.83 elapsed, peak RSS 4102396KiB; 49GiB available before compilation; SHA256 74c2a7443c0a1a56e9d15a2702daa22ff045d45a7e03d39793f7306cea6cbcdd.
+- canonical: exit 0; 4818 lines, 278 examples, 0 axiom audits; 687 warnings, 687 admission warnings; 0:39.72 elapsed, peak RSS 3689520KiB; 48GiB available before compilation; SHA256 decbcf4d68fd70f6ea4682ff50b7593acee2c279bb5be3bb68e3e385a9cde0c7.
+
+All 372 native axiom audits use only standard logical axioms, with no admissions or warnings. The whole canonical sketch has only its 687 declaration-admission warnings. Checks ran serially in the existing exact-pin build after independent free-g guards above 20GiB, with a twenty-minute timeout; no setup, cache download, library build or language server was started. The exact final suggested file, including its inert archive, separately passed with only the same 687 declaration-admission warnings: 40.52s, peak RSS 3697360KiB, 46GiB available, SHA256 448b7388675b2f5f1d48d3abdbb656379fb781a177978b205131358daccfd305.
+
+The exact indexed blueprint and erratum/source-version checks and the actual intake functions pass. The actual immutable repository assembler verifies all foreign roadmap/stage objects whole, unchanged stage edges, declaration/stage/scoped acyclicity and every inherited supplier path. It has no unresolved, skipped or pending own links. Its source and diagnostics, all incoming/new native/canonical files, the incoming deliverables and actual compiler receipts are authenticated in the current suggested-file archive. Recovery and verification never execute Lean.
+
+## Public recovery
+
+Save these first five Python fences as recover.py, verify.py, immutable.py, graph.py and run_lean.py, preserving one final newline. Run recover.py with a destination directory and this PR's actual head commit. It retrieves only this issue's five public deliverables and the five incoming deliverables at the recorded base, authenticates every artifact and helper, and recovers the actual proof bodies and receipts. In a checkout of that head, run verify.py with the recovery directory and the pinned declarations.tsv, then graph.py with the recovery directory. run_lean.py is an explicit replay tool taking the artifact filename, an existing exact-pin build and a log stem, enforcing the memory and timeout guards. The owned temporary scratch is removed after the public replay and PR opening; all handoff evidence is public.
+
+<!-- COMPLETED LIMIT ACTION METADATA
+{
+  "base": "8155f17cfe1b5ca6469df11f9e24a2249bc8d3d9",
+  "publicationBase": "bc09ee60ffaaf17ea3a32ae1dce51b92a58430ad",
+  "artifacts": {
+    "Native.lean": {
+      "bytes": 364384,
+      "sha256": "74c2a7443c0a1a56e9d15a2702daa22ff045d45a7e03d39793f7306cea6cbcdd"
+    },
+    "Canonical.lean": {
+      "bytes": 261004,
+      "sha256": "decbcf4d68fd70f6ea4682ff50b7593acee2c279bb5be3bb68e3e385a9cde0c7"
+    },
+    "NewNative.lean": {
+      "bytes": 26759,
+      "sha256": "df0629c3ba11c90d9043732e15164ac8444d79c8c72677aa5cb6cb994b18d844"
+    },
+    "NewAdmitted.lean": {
+      "bytes": 17921,
+      "sha256": "432ac8ad21fcd0c289dfcab10c8e9eabcfc0004cd8f5a768802f3f650b39f957"
+    },
+    "NewAudits.lean": {
+      "bytes": 2429,
+      "sha256": "57e550651cbe89e8bd1688a4dbe2f9c4bc06ff790265bfda3860ba8d844ded0f"
+    },
+    "IncomingNative.lean": {
+      "bytes": 335195,
+      "sha256": "737a7c2c1ce3eee8bccf83870375fe8b72ddde52711b9811747828ad7bc2552d"
+    },
+    "IncomingCanonical.lean": {
+      "bytes": 243082,
+      "sha256": "409bd4239b0ce14187b61d835a37474d4b0bb3daee7501f384f256c8225f3af0"
+    },
+    "Compilation.json": {
+      "bytes": 1481,
+      "sha256": "d4010c37fe2cb0f6ff522859cdec6637b8b4156eaf39bfa6c5192d6fc06974ac"
+    },
+    "native-final.log": {
+      "bytes": 58808,
+      "sha256": "59529e55a656d15aebd1a50c6815cf6e83ebadb972c2ca6d1976425b75e547b6"
+    },
+    "canonical-final.log": {
+      "bytes": 50983,
+      "sha256": "4c64c79b65a14225572e55cad10e6606b1e9a2c7f0201f5dd24ee6ecbbbf9ce7"
+    },
+    "graph.json": {
+      "bytes": 782,
+      "sha256": "13b6017638f3fb0f7085120d27cd678c957265c82bfc6fe8525f263f4938e7f2"
+    },
+    "source-guard.json": {
+      "bytes": 3836,
+      "sha256": "7cdb6b15e9063e661a01667b7420aa0a785a9260387c7eeb6159e3b08731a9b2"
+    },
+    "incoming-roadmaps.json": {
+      "bytes": 24291,
+      "sha256": "21bf18076504af2464113fd6d26a2bd96a793f5f88f61438cebbef9f0dffc9fa"
+    },
+    "incoming-packets.json": {
+      "bytes": 1957163,
+      "sha256": "26bdec48ef886fcbdcd54fec82d788b240e7b1a789e3cd02028a013b7d1503a6"
+    },
+    "incoming-readmes.md": {
+      "bytes": 721454,
+      "sha256": "8e597715c1b3e35d3717a0af84c4f2f39e1eb85357235477b77f3927d8ec2e49"
+    },
+    "incoming-suggested.lean": {
+      "bytes": 244998,
+      "sha256": "adfec9922026b22c09f6ce6c5790fb2e77ec11d5fcb18178dc365fcbbfb98523"
+    },
+    "incoming-handoff.md": {
+      "bytes": 195309,
+      "sha256": "1b20ae34678c3e21da0b5818aa1fa9894e0ea3687a15aaab45a5763a7a8e5fff"
+    }
+  },
+  "scripts": {
+    "recover.py": "4464ed597f36de3f7d06e78b57dd0205ca1f2fe1850c0efcb8b7367269af9f16",
+    "verify.py": "65a17942c351cac3bd67062fe018bf9c2d5366d0eb03cba8322a2fa4353f5c22",
+    "immutable.py": "79ff1152a1b32d706025614be12d500d6ef9361baa338fef3e5d40b7c71c43a1",
+    "graph.py": "0e5efbfb53b7741ed65dfad15c025da32b1bc7fe1dc23d5e7b212dfdfeb4438c",
+    "run_lean.py": "56ff051ade46bb9b4b5d43a994d0a5a74b0a0d48710524cd1cf88ba96d09886b"
+  },
+  "publishedCompilation": {
+    "time": "2026-10-03T12:19:41.705042+00:00",
+    "file": "Published.lean",
+    "sha256": "448b7388675b2f5f1d48d3abdbb656379fb781a177978b205131358daccfd305",
+    "availableGiB": 46,
+    "preflight": "               total        used        free      shared  buff/cache   available\nMem:             125          78           7          16          57          46\nSwap:             32           0          32\n",
+    "started": true,
+    "exit": 0,
+    "warnings": 687,
+    "admissionWarnings": 687,
+    "errors": 0,
+    "seconds": "0:40.52",
+    "peakRSSKiB": 3697360
+  }
+}
+END COMPLETED LIMIT ACTION METADATA -->
+
+### recover.py
+
+```python
+from pathlib import Path
+import ast,base64,hashlib,json,re,sys,urllib.request,zlib
+S=Path(sys.argv[1]);S.mkdir(parents=True,exist_ok=True);ref=sys.argv[2]
+ROOT='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
+RID='StableReductionPartII';parts=[('roadmaps','json'),('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]
+files=['research/blueprint/'+d+'/'+('DESIGN-' if d=='handoff' else '')+RID+'.'+e for d,e in parts]
+def get(commit,path):
+ with urllib.request.urlopen(ROOT+commit+'/'+path,timeout=60) as r:return r.read()
+final={path:get(ref,path) for path in files}
+handoff=final[files[-1]].decode();m=re.search(r'<!-- COMPLETED LIMIT ACTION METADATA\n(.*?)\nEND COMPLETED LIMIT ACTION METADATA -->',handoff,re.S);assert m
+meta=json.loads(m.group(1));suggested=final[files[3]].decode();m=re.search(r'/- COMPLETED LIMIT ACTION ARCHIVE\n([A-Za-z0-9+/=]+)\nEND COMPLETED LIMIT ACTION ARCHIVE -/',suggested);assert m
+assert hashlib.sha256(final[files[3]]).hexdigest()==meta['publishedCompilation']['sha256']
+(S/'PublishedCompilation.json').write_text(json.dumps(meta['publishedCompilation'],indent=2)+'\n')
+payload=json.loads(zlib.decompress(base64.b64decode(m.group(1))));assert set(payload)==set(meta['artifacts'])
+for name,value in payload.items():
+ assert re.fullmatch(r'[A-Za-z0-9_.-]+',name);data=base64.b64decode(value);expected=meta['artifacts'][name]
+ assert len(data)==expected['bytes'] and hashlib.sha256(data).hexdigest()==expected['sha256'],name
+ (S/name).write_bytes(data)
+(S/'artifact-metadata.json').write_text(json.dumps(meta['artifacts'],indent=2)+'\n')
+for (folder,ext),path in zip(parts,files):
+ data=get(meta['base'],path);assert data==(S/('incoming-'+folder+'.'+ext)).read_bytes(),path
+ (S/('final-'+folder+'.'+ext)).write_bytes(final[path])
+assert final[files[3]].decode().startswith((S/'Canonical.lean').read_text())
+(S/'math-base.txt').write_text(meta['base']+'\n');(S/'publication-base.txt').write_text(meta['publicationBase']+'\n')
+(S/'Candidate.json').write_bytes(final[files[1]]);(S/'Candidate-roadmap.json').write_bytes(final[files[0]])
+(S/'original-packet.json').write_bytes((S/'incoming-packets.json').read_bytes());(S/'original-roadmap.json').write_bytes((S/'incoming-roadmaps.json').read_bytes())
+fences=re.findall(r'```python\n(.*?)\n```',handoff,re.S);assert len(fences)>=5
+for name,body in zip(['recover.py','verify.py','immutable.py','graph.py','run_lean.py'],fences[:5]):
+ data=(body+'\n').encode();assert hashlib.sha256(data).hexdigest()==meta['scripts'][name],name
+ ast.parse(data);(S/name).write_bytes(data)
+print(json.dumps(dict(artifactsVerified=len(payload),incomingAndFinalDeliverablesRecovered=10,scriptsVerified=5,publicHead=ref,LeanExecutedByRecovery=False),indent=2))
+```
+
+### verify.py
+
+```python
+from pathlib import Path
+import ast,hashlib,json,re,subprocess,sys
+R=Path.cwd();S=Path(sys.argv[1]);RID='StableReductionPartII'
+files=['research/blueprint/'+d+'/'+('DESIGN-' if d=='handoff' else '')+RID+'.'+e for d,e in [('roadmaps','json'),('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]]
+p=json.loads((R/files[1]).read_text());old=json.loads((S/'incoming-packets.json').read_text());road=json.loads((R/files[0]).read_text());oldr=json.loads((S/'incoming-roadmaps.json').read_text())
+assert len(old['nodes'])==406 and len(p['nodes'])==426 and p['nodes'][:406]==old['nodes']
+assert p['status']=='partial' and all(n['implementationStatus']=='unchecked' for n in p['nodes'])
+for k,v in old.items():
+ if k not in ['summary','baseline','sources','sourceReadReceipts','nodes','coverage','prototypeCoverage']:assert p[k]==v,k
+assert p['summary'].startswith(old['summary'])
+assert p['baseline']['declarations'][:len(old['baseline']['declarations'])]==old['baseline']['declarations']
+assert {k:v for k,v in p['baseline'].items() if k!='declarations'}=={k:v for k,v in old['baseline'].items() if k!='declarations'}
+assert p['sources'][:-1]==old['sources'] and p['sourceReadReceipts'][:-2]==old['sourceReadReceipts']
+for a,b in zip(p['coverage'],old['coverage']):
+ if a!=b:assert a['stageId']==RID+':MC.2' and a['remaining'][:-1]==b['remaining'] and {k:v for k,v in a.items() if k!='remaining'}=={k:v for k,v in b.items() if k!='remaining'}
+for k,v in oldr.items():
+ if k!='stages':assert road[k]==v,k
+for a,b in zip(road['stages'],oldr['stages']):
+ if a!=b:assert a['key']=='MC.2' and a['description'].startswith(b['description']) and {k:v for k,v in a.items() if k!='description'}=={k:v for k,v in b.items() if k!='description'}
+proto=p['prototypeCoverage'];prev=old['prototypeCoverage']
+for k,v in prev.items():
+ if k in ['reason']:assert proto[k].startswith(v)
+ elif k in ['expressedNodes','expressedApi','expressedTests']:assert proto[k][:len(v)]==v
+ elif k not in ['compiled']:assert proto[k]==v,k
+assert (R/files[2]).read_text().endswith((S/'incoming-readmes.md').read_text())
+assert (R/files[4]).read_text().endswith((S/'incoming-handoff.md').read_text())
+native=(S/'Native.lean').read_text();nn=(S/'NewNative.lean').read_text();adm=(S/'NewAdmitted.lean').read_text();canonical=(S/'Canonical.lean').read_text()
+assert native==(S/'IncomingNative.lean').read_text()+'\n'+nn+(S/'NewAudits.lean').read_text()
+assert canonical==(S/'IncomingCanonical.lean').read_text()+'\n'+adm
+assert (R/files[3]).read_text().startswith(canonical)
+published=json.loads((S/'PublishedCompilation.json').read_text())
+assert published['exit']==0 and published['warnings']==published['admissionWarnings']==687
+assert hashlib.sha256((R/files[3]).read_bytes()).hexdigest()==published['sha256']
+assert not re.search(r'\bsorry\b|^axiom\b',native,re.M)
+def headers(t):
+ ans=[];current=None
+ for line in t.splitlines(keepends=True):
+  if re.match(r'^(?:def|lemma|example)\b',line):current=''
+  if current is not None:
+   m=re.search(r' :=(?= by\b| rfl\b|\s*$)',line)
+   if m:ans.append(current+line[:m.start()]);current=None
+   else:current+=line
+ return ans
+assert headers(nn)==headers(adm) and len(headers(nn))==35
+assert len(re.findall(r'^-- test: ',nn,re.M))==15
+reader=(R/files[2]).read_text()
+for n in p['nodes'][406:]:
+ assert n['declarationName'] in reader and n['statement'] in reader
+ for a in n.get('api',[])+n.get('tests',[]):assert a['name'] in reader and a['statement'] in reader
+meta=json.loads((S/'artifact-metadata.json').read_text())
+for name,m in meta.items():
+ data=(S/name).read_bytes();assert len(data)==m['bytes'] and hashlib.sha256(data).hexdigest()==m['sha256'],name
+receipt=json.loads((S/'Compilation.json').read_text())
+for kind in ['native','canonical']:
+ m=receipt[kind];log=(S/(kind+'-final.log')).read_text();assert m['exit']==0 and 'Exit status: 0' in log and not re.search(r': error\b',log)
+ assert log.count('warning:')==m['warnings']
+ if kind=='native':assert 'sorryAx' not in log and 'warning:' not in log and log.count('depends on axioms:')==372
+ else:assert log.count('warning:')==log.count('warning: declaration uses')
+# Execute the repository's actual checks without running its mutation entry points.
+tree=ast.parse((R/'research/blueprint/intake.py').read_text());wanted={'file_problems','auto_refusals','own_files','independent_of'}
+picked=[n for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id in {'ALLOWED','PRIVATE'} for t in n.targets) or isinstance(n,ast.FunctionDef) and n.name in wanted]
+env={'json':json,'re':re};exec(compile(ast.Module(body=picked,type_ignores=[]),'actual-intake','exec'),env)
+job=next(j for j in json.loads((R/'research/blueprint/queue.json').read_text())['jobs'] if j['id']=='DESIGN-'+RID)
+problems=[x for f in files for x in env['file_problems'](f,(R/f).read_text())];refusals=env['auto_refusals'](job,files,False,{'codex-rtOQ9t'},set());assert not problems and not refusals,(problems,refusals)
+sys.path.insert(0,str(R/'scripts'));import check_blueprint,check_errata
+assert not check_errata.versions_checked(p,p['sourceIssues']) and not check_errata.check_issues(p['sourceIssues'],RID)
+errors,warnings,summary=check_blueprint.check(R/files[1],check_blueprint.load_index(Path(sys.argv[2])),check_blueprint.world());assert not errors and not warnings,(errors,warnings)
+for f in files:
+ t=(R/f).read_text();assert not re.search(r'[ \t]+$',t,re.M) and not re.search(r'/(?:home|Users)/[^/\s]+/',t),f
+base=(S/'publication-base.txt').read_text().strip();assert set(subprocess.check_output(['git','diff','--name-only',base],text=True).splitlines())<=set(files)
+print(json.dumps(dict(preservedWholeNodes=406,newDeclarations=20,newApis=15,newTests=15,exactNewHeaders=35,checker=summary,rawApiItems=sum(len(n.get('api',[])) for n in p['nodes']),rawTests=sum(len(n.get('tests',[])) for n in p['nodes']),sourceIssuesPreserved=len(p['sourceIssues']),gapsPreserved=len(p['gaps']),requestsPreserved=len(p['requests']),intakeProblems=problems,intakeRefusals=refusals,LeanExecutedByVerifier=False,compiled=receipt),indent=2))
+```
+
+### immutable.py
+
+```python
+"""Read the immutable audit tree without creating a repository snapshot."""
+import fnmatch
+import importlib.abc
+import importlib.util
+import io
+from pathlib import Path
+import subprocess
+import sys
+
+import os
+REPO = Path(os.environ.get('TAUCETI_REPO', str(Path.cwd())))
+BASE = os.environ.get('STABLE_VALIDATE_BASE', '8c30afe02077e5b8923d4d71b823b6c574606a15')
+TRACKED = set(subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', BASE], cwd=REPO, text=True).splitlines())
+CACHE = {}
+READS = set()
+ORIGINAL = {name: getattr(Path, name) for name in ('read_text', 'read_bytes', 'exists', 'is_file', 'is_dir', 'glob', 'rglob', 'open', 'write_text', 'write_bytes')}
+
+def relative(path):
+    try:
+        return str(path.resolve().relative_to(REPO.resolve()))
+    except ValueError:
+        return None
+
+def blob(key):
+    if key not in TRACKED:
+        raise FileNotFoundError(key)
+    READS.add(key)
+    if key not in CACHE:
+        CACHE[key] = subprocess.check_output(['git', 'show', BASE + ':' + key], cwd=REPO)
+    return CACHE[key]
+
+def read_text(path, encoding=None, errors=None):
+    key = relative(path)
+    if key is None:
+        return ORIGINAL['read_text'](path, encoding=encoding, errors=errors)
+    return blob(key).decode('utf-8' if encoding in (None, 'locale') else encoding, errors or 'strict')
+
+def read_bytes(path):
+    key = relative(path)
+    return ORIGINAL['read_bytes'](path) if key is None else blob(key)
+
+def is_file(path):
+    key = relative(path)
+    return ORIGINAL['is_file'](path) if key is None else key in TRACKED
+
+def is_dir(path):
+    key = relative(path)
+    return ORIGINAL['is_dir'](path) if key is None else any(s.startswith(key.rstrip('/') + '/') for s in TRACKED) or key == '.'
+
+def exists(path):
+    key = relative(path)
+    return ORIGINAL['exists'](path) if key is None else is_file(path) or is_dir(path)
+
+def glob(path, pattern, recursive=False):
+    key = relative(path)
+    if key is None:
+        yield from ORIGINAL['rglob' if recursive else 'glob'](path, pattern)
+        return
+    prefix = '' if key == '.' else key.rstrip('/') + '/'
+    for candidate in sorted(TRACKED):
+        if not candidate.startswith(prefix):
+            continue
+        tail = candidate[len(prefix):]
+        if fnmatch.fnmatch(tail, pattern) and (recursive or '/' not in tail):
+            yield REPO / candidate
+
+def open_path(path, mode='r', buffering=-1, encoding=None, errors=None, newline=None):
+    key = relative(path)
+    if key is None:
+        return ORIGINAL['open'](path, mode, buffering, encoding, errors, newline)
+    if mode not in ('r', 'rb'):
+        raise PermissionError('audit tree is read-only')
+    return io.BytesIO(blob(key)) if mode == 'rb' else io.StringIO(blob(key).decode('utf-8' if encoding in (None, 'locale') else encoding, errors or 'strict'))
+
+def write_text(path, *args, **kwargs):
+    if relative(path) is not None:
+        raise PermissionError('audit tree is read-only')
+    return ORIGINAL['write_text'](path, *args, **kwargs)
+
+def write_bytes(path, *args, **kwargs):
+    if relative(path) is not None:
+        raise PermissionError('audit tree is read-only')
+    return ORIGINAL['write_bytes'](path, *args, **kwargs)
+
+class Loader(importlib.abc.Loader):
+    def __init__(self, key):
+        self.key = key
+    def create_module(self, spec):
+        return None
+    def exec_module(self, module):
+        module.__file__ = str(REPO / self.key)
+        exec(compile(blob(self.key), module.__file__, 'exec'), module.__dict__)
+
+class Finder(importlib.abc.MetaPathFinder):
+    def find_spec(self, fullname, path=None, target=None):
+        key = 'scripts/' + fullname + '.py'
+        if '.' not in fullname and key in TRACKED:
+            return importlib.util.spec_from_loader(fullname, Loader(key))
+
+def install():
+    for name, function in [('read_text', read_text), ('read_bytes', read_bytes), ('exists', exists), ('is_file', is_file), ('is_dir', is_dir), ('glob', glob), ('rglob', lambda path, pattern: glob(path, pattern, True)), ('open', open_path), ('write_text', write_text), ('write_bytes', write_bytes)]:
+        setattr(Path, name, function)
+    sys.meta_path.insert(0, Finder())
+```
+
+### graph.py
+
+```python
+from pathlib import Path
+import os,sys,json,collections,copy
+R=Path.cwd();S=Path(sys.argv[1]);RID='StableReductionPartII';STEM=RID
+os.environ['STABLE_VALIDATE_BASE']=(S/'publication-base.txt').read_text().strip()
+sys.path.insert(0,str(R/'scripts'))
+import check_blueprint
+p=json.loads((S/'Candidate.json').read_text())
+old=json.loads((S/'original-packet.json').read_text())
+nodes={n['id']:n for n in p['nodes']}
+import immutable
+immutable.install()
+import build,blueprints
+packets,documents,definitions=blueprints.load_promoted(R)
+keep=[x for x in packets if x[0]!=STEM];documents[STEM]='research/blueprint/readmes/'+STEM+'.md'
+own_definition=json.loads((S/'Candidate-roadmap.json').read_text())
+old_definition=json.loads((S/'original-roadmap.json').read_text())
+def assemble(candidate,definition):
+ build.load_promoted=lambda *args:(copy.deepcopy(keep+[(STEM,candidate)]),copy.deepcopy(documents),copy.deepcopy([d for d in definitions if d.get('id')!=RID]+[definition]))
+ return build.assemble(require_distances=False)[0]
+a=assemble(p,own_definition);b=assemble(old,old_definition)
+world={}
+for folder in ['data/decompositions','data/blueprints','research/blueprint/packets']:
+ for file in sorted((R/folder).glob('*.json')):
+  for n in json.loads(file.read_text()).get('nodes',[]):world.setdefault(n['id'],n)
+world.update(nodes)
+listedstageids={x['id'] for x in a['stages']}
+stageids=listedstageids|set(check_blueprint.world()[1])
+se={(e['source'],e['target']) for e in a['stageEdges']}
+assert se=={(e['source'],e['target']) for e in b['stageEdges']}
+def dag(vertices,edges):
+ vertices=set(vertices)|{v for e in edges for v in e}
+ following=collections.defaultdict(set);indeg={v:0 for v in vertices}
+ for s,t in edges:
+  if t not in following[s]:following[s].add(t);indeg[t]+=1
+ todo=[v for v,k in indeg.items() if k==0];count=0
+ while todo:
+  v=todo.pop();count+=1
+  for w in following[v]:
+   indeg[w]-=1
+   if indeg[w]==0:todo.append(w)
+ assert count==len(vertices),[v for v,k in indeg.items() if k][:10]
+ return {'vertices':len(vertices),'edges':len(edges),'acyclic':True}
+ownedges={(d,nid) for nid,n in nodes.items() for d in n['prerequisites'] if d in nodes}
+todo=list(nodes);seen=set();de=set();unresolved=set();baseref=set()
+while todo:
+ nid=todo.pop()
+ if nid in seen:continue
+ seen.add(nid)
+ for d in world[nid].get('prerequisites',[]):
+  if d.startswith(('mathlib:','tauceti:')) and d not in stageids:baseref.add(d);continue
+  de.add((d,nid))
+  if d in world:todo.append(d)
+  elif d not in stageids:unresolved.add(d)
+assert not unresolved,unresolved
+de|={(world[nid]['parentStageId'],nid) for nid in seen if world[nid].get('parentStageId')}
+de|={(q['supplier'],v) for q in p['requests'] for v in q.get('neededBy',[]) if v in nodes or v in stageids}
+out=collections.defaultdict(set)
+for s,t in se:out[s].add(t)
+def reachable(source,target):
+ todo=[source];seen=set()
+ while todo:
+  v=todo.pop()
+  if v==target:return True
+  if v not in seen:seen.add(v);todo.extend(out[v])
+ return False
+def stageof(v):
+ checked=set()
+ while v in world and v not in checked:checked.add(v);v=world[v].get('parentStageId')
+ return v
+roadmap=own_definition
+pairs={(d,RID+':'+s['key']) for s in roadmap['stages'] for d in s.get('requires',[])}
+pairs|={(d,stageof(nid)) for nid,n in nodes.items() for d in n['prerequisites'] if d in stageids and d not in world and d!=stageof(nid)}
+pairs|={(stageof(q['supplier']),stageof(v)) for q in p['requests'] for v in q['neededBy'] if stageof(q['supplier'])!=stageof(v)}
+rspairs=set()
+for file in (R/'research/blueprint/restructure').glob('*.result.json'):
+ q=json.loads(file.read_text())
+ if q.get('review',{}).get('status')!='accepted':continue
+ rspairs|={(x['source'],x['target']) for x in q.get('links',[]) if x.get('source','').startswith(RID+':') or x.get('target','').startswith(RID+':')}
+assert all(reachable(s,t) for s,t in pairs|rspairs),sorted((s,t) for s,t in pairs|rspairs if not reachable(s,t))
+ar={r['id']:r for r in a['roadmaps']};br={r['id']:r for r in b['roadmaps']}
+assert ar[RID]['blueprint']['declarations']==len(nodes)
+assert not ar[RID]['blueprint']['skippedLinks'] and not ar[RID].get('pendingLinks',[])
+def skips(r):return r.get('blueprint',{}).get('skippedLinks',[]),r.get('pendingLinks',[])
+assert all(ar[x]==br[x] for x in br if x!=RID)
+assert {x['id']:x for x in a['stages'] if x.get('owner')!=RID}=={x['id']:x for x in b['stages'] if x.get('owner')!=RID}
+summary={'stageDAG':dag(listedstageids,se),'ownDeclarationDAG':dag(nodes,ownedges),'scopedDAG':dag(listedstageids|seen,se|de),'reachableDeclarations':len(seen),'externalDeclarations':sorted(seen-set(nodes)),'baselineLeaves':len(baseref),'requiredPairs':len(pairs),'restructurePairs':len(rspairs),'unresolved':sorted(unresolved),'ownSkippedLinks':[],'ownPendingLinks':[],'otherSkipsMatch':True,'wholeForeignRoadmapsMatch':True,'wholeForeignStagesMatch':True,'stageEdgesUnchanged':True}
+summary['immutableBase']=immutable.BASE
+summary['immutableReadPaths']=len(immutable.READS)
+import hashlib
+summary['immutableReadPathSha256']=hashlib.sha256(json.dumps(sorted(immutable.READS)).encode()).hexdigest()
+print(json.dumps(summary,indent=2))
+```
+
+### run_lean.py
+
+```python
+from pathlib import Path
+import sys,subprocess,hashlib,json,datetime
+s=Path(__file__).parent;b=Path(sys.argv[2]);p=s/sys.argv[1];logname=sys.argv[3]
+assert subprocess.check_output(['git','rev-parse','HEAD'],cwd=b/'.lake/packages/mathlib',text=True).strip()=='082e2d37e8b0463410cdb532e111cd43d5a66174'
+free=subprocess.check_output(['free','-g'],text=True);available=int(free.splitlines()[1].split()[-1]);receipt=dict(time=datetime.datetime.now(datetime.timezone.utc).isoformat(),file=p.name,sha256=hashlib.sha256(p.read_bytes()).hexdigest(),availableGiB=available,preflight=free)
+if available<20:
+ receipt['started']=False;(s/(logname+'.receipt.json')).write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt));sys.exit(75)
+with (s/(logname+'.log')).open('w') as log:
+ log.write(free);log.flush();r=subprocess.run(['/usr/bin/time','-v','timeout','1200','lake','env','lean',str(p)],cwd=b,stdout=log,stderr=subprocess.STDOUT)
+receipt.update(started=True,exit=r.returncode);(s/(logname+'.receipt.json')).write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt));sys.exit(r.returncode)
+```
+
+## Previous checkpoint handoff
+
 # DESIGN-StableReductionPartII — finite tensor inverse limits
 
 Refs #3342. Worker: Codex — codex-5ebb6f. Date: 3 October 2026. Partial checkpoint; all eight MC stages and the reserved moduli-curves key remain partial, and every implementation status remains unchecked.
