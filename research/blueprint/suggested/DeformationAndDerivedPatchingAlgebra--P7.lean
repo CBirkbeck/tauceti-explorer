@@ -4758,3 +4758,145 @@ example :
 end TauCeti.HilbertSamuel
 
 end AdicCoefficientDecomposition
+
+namespace TauCeti.HilbertSamuel
+noncomputable section
+open scoped Polynomial
+variable {A : Type*} [CommRing A]
+
+def adicDegreeOne (q : Ideal A) : q →ₗ[A] adicGradedRing q :=
+  (adicMonomial q 1).comp
+    ({
+      toFun := fun x => ⟨x.val,by simpa only [pow_one] using x.property⟩
+      map_add' := by intros; rfl
+      map_smul' := by intros; rfl
+    } : q →ₗ[A] ↥(q ^ 1))
+
+lemma adicDegreeOne_apply (q : Ideal A) (x : q) :
+    adicDegreeOne q x = adicMonomial q 1
+      ⟨x.val,by simpa only [pow_one] using x.property⟩ := by
+  sorry
+
+lemma adicDegreeOne_add (q : Ideal A) (x y : q) :
+    adicDegreeOne q (x+y) = adicDegreeOne q x + adicDegreeOne q y := by
+  sorry
+
+lemma adicDegreeOne_smul (q : Ideal A) (a : A) (x : q) :
+    adicDegreeOne q (a • x) = a • adicDegreeOne q x := by
+  sorry
+
+lemma adicDegreeOne_eq_zero_iff (q : Ideal A) (x : q) :
+    adicDegreeOne q x = 0 ↔ (x : A) ∈ q ^ 2 := by
+  sorry
+
+lemma adicDegreeOne_adjoin_generators (q : Ideal A) {ι : Type*} (a : ι → q)
+    (ha : Ideal.span (Set.range fun i => (a i : A)) = q) :
+    Algebra.adjoin (A ⧸ q) (Set.range fun i => adicDegreeOne q (a i)) = ⊤ := by
+  sorry
+
+def adicGeneratorMap (q : Ideal A) {ι : Type*} (a : ι → q) :
+    MvPolynomial ι (A ⧸ q) →ₐ[A ⧸ q] adicGradedRing q :=
+  MvPolynomial.aeval (fun i => adicDegreeOne q (a i))
+
+lemma adicGeneratorMap_X (q : Ideal A) {ι : Type*} (a : ι → q) (i : ι) :
+    adicGeneratorMap q a (MvPolynomial.X i) = adicDegreeOne q (a i) := by
+  sorry
+
+lemma adicGeneratorMap_C (q : Ideal A) {ι : Type*} (a : ι → q) (c : A ⧸ q) :
+    adicGeneratorMap q a (MvPolynomial.C c) = algebraMap (A ⧸ q) (adicGradedRing q) c := by
+  sorry
+
+lemma adicGeneratorMap_surjective (q : Ideal A) {ι : Type*} (a : ι → q)
+    (ha : Ideal.span (Set.range fun i => (a i : A)) = q) :
+    Function.Surjective (adicGeneratorMap q a) := by
+  sorry
+
+lemma adicGeneratorMap_unique (q : Ideal A) {ι : Type*} (a : ι → q)
+    (g : MvPolynomial ι (A ⧸ q) →ₐ[A ⧸ q] adicGradedRing q)
+    (h : ∀ i, g (MvPolynomial.X i) = adicDegreeOne q (a i)) :
+    g = adicGeneratorMap q a := by
+  sorry
+
+lemma adicGradedRing_finiteType_of_generators (q : Ideal A) {ι : Type*} [Finite ι]
+    (a : ι → q) (ha : Ideal.span (Set.range fun i => (a i : A)) = q) :
+    Algebra.FiniteType (A ⧸ q) (adicGradedRing q) := by
+  sorry
+
+lemma adicGradedRing_finiteType_of_fg (q : Ideal A) (hq : q.FG) :
+    Algebra.FiniteType (A ⧸ q) (adicGradedRing q) := by
+  sorry
+
+lemma adicGradedRing_hom_ext (q : Ideal A) {B : Type*} [Semiring B] [Algebra (A ⧸ q) B]
+    (g h : adicGradedRing q →ₐ[A ⧸ q] B)
+    (he : ∀ x : q, g (adicDegreeOne q x) = h (adicDegreeOne q x)) : g = h := by
+  sorry
+
+lemma adicDegreeOne_coefficient_change {B : Type*} [CommRing B] (f : A →+* B)
+    (I : Ideal A) (J : Ideal B) (h : I ≤ J.comap f) (x : I) :
+    adicGradedMap f I J h (adicDegreeOne I x) =
+      adicDegreeOne J ⟨f x,h x.property⟩ := by
+  sorry
+
+end
+end TauCeti.HilbertSamuel
+
+
+namespace TauCeti.HilbertSamuel
+noncomputable section
+variable {A : Type*} [CommRing A]
+
+-- test: AdicDegreeOne.zero_ideal
+example (x : (⊥ : Ideal A)) : adicDegreeOne (⊥ : Ideal A) x = 0 := by
+  sorry
+
+-- test: AdicDegreeOne.integer_next_power
+example :
+    adicDegreeOne (Ideal.span ({2} : Set ℤ)) ⟨2,by simp⟩ ≠ 0 ∧
+    adicDegreeOne (Ideal.span ({2} : Set ℤ)) ⟨4,by norm_num [Ideal.mem_span_singleton]⟩ = 0 := by
+  sorry
+
+-- test: AdicDegreeOne.wild_nilpotent
+example :
+    let q : Ideal (ZMod 4) := Ideal.span {2}
+    let x : q := ⟨2,by simp [q]⟩
+    adicDegreeOne q x ≠ 0 ∧ (adicDegreeOne q x)^2 = 0 := by
+  sorry
+
+-- test: AdicDegreeOne.coefficient_change
+example {B : Type*} [CommRing B] (f : A →+* B) (I : Ideal A) (x : I) :
+    adicGradedMap f I (I.map f) Ideal.le_comap_map (adicDegreeOne I x) =
+      adicDegreeOne (I.map f) ⟨f x,Ideal.mem_map_of_mem f x.property⟩ := by
+  sorry
+
+-- test: AdicGeneratorMap.single_generator
+example :
+    let q : Ideal ℤ := Ideal.span {2}
+    let a : Fin 1 → q := fun _ => ⟨2,by simp [q]⟩
+    Function.Surjective (adicGeneratorMap q a) := by
+  sorry
+
+-- test: AdicGeneratorMap.empty_zero_ideal
+example : Function.Surjective (adicGeneratorMap (⊥ : Ideal A) (fun i : Empty => i.elim)) := by
+  sorry
+
+-- test: AdicGeneratorMap.unit_ideal
+example (p : MvPolynomial (Fin 1) (A ⧸ (⊤ : Ideal A))) :
+    adicGeneratorMap (⊤ : Ideal A) (fun _ : Fin 1 => (⟨1,by trivial⟩ : (⊤ : Ideal A))) p = 0 := by
+  sorry
+
+-- test: AdicGeneratorMap.nilpotent_relation
+example :
+    let q : Ideal (ZMod 4) := Ideal.span {2}
+    let a : Fin 1 → q := fun _ => ⟨2,by simp [q]⟩
+    adicGeneratorMap q a (MvPolynomial.X 0) ≠ 0 ∧
+      adicGeneratorMap q a ((MvPolynomial.X 0)^2) = 0 := by
+  sorry
+
+-- test: AdicGeneratorMap.unique
+example (q : Ideal A) {ι : Type*} (a : ι → q)
+    (g : MvPolynomial ι (A ⧸ q) →ₐ[A ⧸ q] adicGradedRing q)
+    (h : ∀ i, g (MvPolynomial.X i)=adicDegreeOne q (a i)) : g=adicGeneratorMap q a := by
+  sorry
+
+end
+end TauCeti.HilbertSamuel
