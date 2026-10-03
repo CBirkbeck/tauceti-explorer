@@ -1,3 +1,4 @@
+import Mathlib.AlgebraicGeometry.IdealSheaf.Functorial
 import Mathlib.LinearAlgebra.TensorProduct.Quotient
 import Mathlib.RingTheory.Ideal.Colon
 import Mathlib.RingTheory.Flat.Equalizer
@@ -649,3 +650,114 @@ example : Subsingleton ((ZMod 1 ⊗[ℤ] ℤ) ⧸
   sorry
 
 end TauCeti.SchemeFoundations.QuotientBaseChange
+
+
+noncomputable section
+
+namespace TauCeti.SchemeFoundations.IdealPullback
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry Opposite
+variable {X Y : Scheme.{u}}
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+
+lemma ideal_comap_top (I : Y.IdealSheafData) (f : X ⟶ Y)
+    [IsAffine X] [IsAffine Y] :
+    (I.comap f).ideal ⟨⊤, isAffineOpen_top X⟩ =
+      (I.ideal ⟨⊤, isAffineOpen_top Y⟩).map f.appTop.hom := by
+  sorry
+
+lemma comap_restrict (I : Y.IdealSheafData) (f : X ⟶ Y) (U : Y.Opens) :
+    (I.comap f).comap (f ⁻¹ᵁ U).ι = (I.comap U.ι).comap (f ∣_ U) := by
+  sorry
+
+lemma ideal_restrict_top (I : X.IdealSheafData) (U : X.affineOpens) :
+    (I.comap U.1.ι).ideal ⟨⊤, @isAffineOpen_top _ U.2⟩ =
+      (I.ideal U).comap U.1.topIso.hom.hom := by
+  sorry
+
+lemma ideal_comap_affineOpen (I : Y.IdealSheafData) (f : X ⟶ Y)
+    (U : Y.affineOpens) (H : IsAffineOpen (f ⁻¹ᵁ U)) :
+    (I.comap f).ideal ⟨f ⁻¹ᵁ U, H⟩ = (I.ideal U).map (f.app U).hom := by
+  sorry
+
+lemma ideal_comap_of_isAffineHom (I : Y.IdealSheafData) (f : X ⟶ Y)
+    [IsAffineHom f] (U : Y.affineOpens) :
+    (I.comap f).ideal ⟨f ⁻¹ᵁ U, U.2.preimage f⟩ = (I.ideal U).map (f.app U).hom := by
+  sorry
+
+def comapObjIso (I : Y.IdealSheafData) (f : X ⟶ Y)
+    (U : Y.affineOpens) (H : IsAffineOpen (f ⁻¹ᵁ U)) :
+    Γ((I.comap f).subscheme, (I.comap f).subschemeι ⁻¹ᵁ (f ⁻¹ᵁ U)) ≅
+      CommRingCat.of (Γ(X, f ⁻¹ᵁ U) ⧸ (I.ideal U).map (f.app U).hom) :=
+  (I.comap f).subschemeObjIso ⟨f ⁻¹ᵁ U, H⟩ ≪≫
+    (Ideal.quotEquivOfEq (ideal_comap_affineOpen I f U H)).toCommRingCatIso
+
+lemma comapObjIso_inclusion (I : Y.IdealSheafData) (f : X ⟶ Y)
+    (U : Y.affineOpens) (H : IsAffineOpen (f ⁻¹ᵁ U)) :
+    (I.comap f).subschemeι.app (f ⁻¹ᵁ U) ≫ (comapObjIso I f U H).hom =
+      CommRingCat.ofHom (Ideal.Quotient.mk ((I.ideal U).map (f.app U).hom)) := by
+  sorry
+
+lemma comapObjIso_mk (I : Y.IdealSheafData) (f : X ⟶ Y)
+    (U : Y.affineOpens) (H : IsAffineOpen (f ⁻¹ᵁ U)) (b : Γ(X, f ⁻¹ᵁ U)) :
+    (comapObjIso I f U H).hom ((I.comap f).subschemeι.app (f ⁻¹ᵁ U) b) =
+      Ideal.Quotient.mk ((I.ideal U).map (f.app U).hom) b := by
+  sorry
+
+lemma comapObjIso_inv_mk (I : Y.IdealSheafData) (f : X ⟶ Y)
+    (U : Y.affineOpens) (H : IsAffineOpen (f ⁻¹ᵁ U)) (b : Γ(X, f ⁻¹ᵁ U)) :
+    (comapObjIso I f U H).inv (Ideal.Quotient.mk ((I.ideal U).map (f.app U).hom) b) =
+      (I.comap f).subschemeι.app (f ⁻¹ᵁ U) b := by
+  sorry
+
+end TauCeti.SchemeFoundations.IdealPullback
+
+
+namespace TauCeti.SchemeFoundations.IdealPullback
+open CategoryTheory AlgebraicGeometry
+variable {X Y Z : Scheme.{u}}
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+
+-- test: IdealPullbackChecked.composition
+example [IsAffine X] [IsAffine Y] [IsAffine Z]
+    (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z) :
+    (I.comap (f ≫ g)).ideal ⟨⊤, isAffineOpen_top X⟩ =
+      ((I.ideal ⟨⊤, isAffineOpen_top Z⟩).map g.appTop.hom).map f.appTop.hom := by
+  sorry
+
+-- test: IdealPullbackChecked.empty_open
+example (I : Y.IdealSheafData) (f : X ⟶ Y) :
+    ∀ x : Γ((I.comap f).subscheme, (I.comap f).subschemeι ⁻¹ᵁ
+      (f ⁻¹ᵁ (⊥ : Y.Opens))),
+      (comapObjIso I f ⟨⊥, isAffineOpen_bot Y⟩ (by simpa using isAffineOpen_bot X)).hom x = 0 := by
+  sorry
+
+-- test: IdealPullbackChecked.inverse_representative
+example (I : Y.IdealSheafData) (f : X ⟶ Y) (U : Y.affineOpens)
+    (H : IsAffineOpen (f ⁻¹ᵁ U)) (b : Γ(X, f ⁻¹ᵁ U)) :
+    (comapObjIso I f U H).inv ((comapObjIso I f U H).hom
+      ((I.comap f).subschemeι.app (f ⁻¹ᵁ U) b)) =
+        (I.comap f).subschemeι.app (f ⁻¹ᵁ U) b := by
+  sorry
+
+-- test: IdealPullbackChecked.nonflat_quotient
+example :
+    let f := Spec.map (CommRingCat.ofHom (Int.castRingHom (ZMod 2)))
+    let I : (Spec (.of ℤ)).IdealSheafData :=
+      Scheme.IdealSheafData.ofIdealTop (Ideal.span {2})
+    I ≠ ⊥ ∧ I.comap f = ⊥ := by
+  sorry
+
+-- test: IdealPullbackChecked.nonreduced_quotient
+example :
+    let X := Spec (.of (ZMod 4))
+    let I : X.IdealSheafData := ⊥
+    let U : X.affineOpens := ⟨⊤, isAffineOpen_top _⟩
+    let b := (Scheme.ΓSpecIso (.of (ZMod 4))).inv 2
+    let y := (I.comap (𝟙 X)).subschemeι.app U b
+    (comapObjIso I (𝟙 X) U U.2).hom y ≠ 0 ∧
+      ((comapObjIso I (𝟙 X) U U.2).hom y) ^ 2 = 0 := by
+  sorry
+
+end TauCeti.SchemeFoundations.IdealPullback

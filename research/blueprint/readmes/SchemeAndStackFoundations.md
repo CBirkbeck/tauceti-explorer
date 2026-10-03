@@ -1,3 +1,115 @@
+# Scheme foundations: affine inverse-image ideals
+
+Codex — codex-7e92bd · 3 October2026 · Refs #642 · partial.
+
+The native ideal pullback now has an explicit affine-chart formula and a quotient comparison for the actual closed-subscheme sections. The proof uses Mathlib ideal data and its extension/contraction adjunction; it introduces no new ideal-sheaf or closed-subscheme carrier. Both opens must be affine, but the ambient morphism need not be affine. The affine-morphism corollary supplies its own inverse-image affineness.
+
+[Stacks01JU](https://stacks.math.columbia.edu/tag/01JU) identifies the inverse-image ideal as the image of the pulled-back inclusion. [Definition01JV](https://stacks.math.columbia.edu/tag/01JV) names the inverse-image closed subscheme as a fiber product; native comapIso already provides that identification. The source reduces the geometric statement to [01HQ](https://stacks.math.columbia.edu/tag/01HQ) and [01IN](https://stacks.math.columbia.edu/tag/01IN). Only these blocks were freshly read, including their displayed proofs. The affine-section adapters below are authored deductions from the pinned native API.
+
+The nonflat Spec(Z/2)→Spec(Z) test sends a nonzero ideal to zero. It asserts an image-ideal formula, with no injectivity claim about pullback of modules. The Spec(Z/4) test retains a nonzero square-zero quotient coordinate, distinguishing full ideals from their radicals. Further tests cover composition, inverse representatives and the empty open.
+
+Nine generic affine ideal-pullback adapters now identify the full extended ideal and the actual quotient section map, without flatness or finiteness. The conductor-specialized consumer comparison in PR6023 remains separately owned. General ideal pullback is the image ideal, not an assertion that pullback preserves injectivity of its module inclusion. The remaining global conductor/sheaf and flat-recomputation consumer obligations, henselization coherence and source leaves, reserved keys,62 routed sources and all other-stage obligations remain open.
+
+All50 incoming whole nodes,17 API items,27 raw tests,8 gaps,62 routes,12 findings and6 reserved-key boundaries remain intact. The previous proof-only evidence and all four public files were authenticated and its verifier replayed exactly. Historical prose below keeps its original attribution; newer frontier notes govern the scope of this continuation.
+
+## Affine pullback of the full ideal
+
+**TauCeti.SchemeFoundations.IdealPullback.ideal_comap_top** — For arbitrary affine schemes X,Y, a morphism f:X→Y and native ideal datum I on Y, the global ideal of I.comap f equals the extension of I(Y) along f.appTop. No flatness, finiteness, reducedness or Noetherian hypothesis is required.
+
+Hypotheses: X and Y are schemes in the same universe; I is Mathlib native IdealSheafData. Affineness is required exactly for the opens explicitly stated. All rings, including zero rings and nonreduced rings, are allowed.
+
+Prerequisites: mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ofIdealTop, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.le_of_isAffine, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.le_map_iff_comap_le, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.le_map_comap, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ideal_map_of_isAffineHom.
+
+Proof: Let K be the native ideal datum associated to the extension of I(Y). Affine determination and the ideal-sheaf adjunction reduce I.comap f≤K to the ring-ideal extension/contraction unit. For the reverse inclusion apply the ideal-sheaf unit I≤map(comap I), evaluate at the top open, use the native affine map formula and the ring-ideal adjunction. Every map between the two affine schemes is affine.
+
+## Restriction of the inverse-image ideal
+
+**TauCeti.SchemeFoundations.IdealPullback.comap_restrict** — For arbitrary schemes X,Y, f:X→Y, an ideal datum I on Y and any open U in Y, pulling I.comap f back to f⁻¹U equals pulling I restricted to U back along the actual restricted morphism f|U. This is equality of native ideal data.
+
+Hypotheses: X and Y are schemes in the same universe; I is Mathlib native IdealSheafData. Affineness is required exactly for the opens explicitly stated. All rings, including zero rings and nonreduced rings, are allowed.
+
+Prerequisites: mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_comp, mathlib:AlgebraicGeometry.morphismRestrict_ι.
+
+Proof: Rewrite both iterated comaps as comap along a composite, then use the actual restriction square. This is an adapter of built functoriality, not another pullback definition.
+
+## Affine open section transport
+
+**TauCeti.SchemeFoundations.IdealPullback.ideal_restrict_top** — For an ideal datum I on X and affine open U, the top-section ideal of I restricted to U is the contraction of I(U) along the canonical U.topIso from top sections of U to sections on U.
+
+Hypotheses: X and Y are schemes in the same universe; I is Mathlib native IdealSheafData. Affineness is required exactly for the opens explicitly stated. All rings, including zero rings and nonreduced rings, are allowed.
+
+Prerequisites: mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ideal_comap_of_isOpenImmersion, mathlib:AlgebraicGeometry.Scheme.Opens.ι_appIso.
+
+Proof: Apply the native open-immersion formula to the top open of U. Transport the ideal along the exact equality that the inclusion image of that top open is U. Equality induction identifies the restriction map with U.topIso; no arbitrary ring isomorphism is substituted.
+
+## Affine chart formula for inverse-image ideals
+
+**TauCeti.SchemeFoundations.IdealPullback.ideal_comap_affineOpen** — For f:X→Y and native ideal datum I, if U is affine and its inverse image f⁻¹U is affine, then (I.comap f)(f⁻¹U)=I(U).map(f.app U). The morphism f itself need not be affine and no flatness is needed.
+
+Hypotheses: X and Y are schemes in the same universe; I is Mathlib native IdealSheafData. Affineness is required exactly for the opens explicitly stated. All rings, including zero rings and nonreduced rings, are allowed.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/ideal-comap-top, SchemeAndStackFoundations:SF.0/ideal-comap-restrict, SchemeAndStackFoundations:SF.0/ideal-restrict-top, mathlib:AlgebraicGeometry.Scheme.Hom.resLE_app_top, mathlib:Ideal.map_comap_of_surjective, mathlib:Ideal.map_symm.
+
+Proof: Restrict to the two affine opens and apply the global affine formula. Use the two canonical topIso maps to identify the restricted morphism on top sections with f.app U. Cancel contraction along the source topIso using surjectivity. The remaining extension/contraction transport is the native ideal map calculation for ring isomorphisms.
+
+## Affine-morphism specialization
+
+**TauCeti.SchemeFoundations.IdealPullback.ideal_comap_of_isAffineHom** — For any affine morphism f:X→Y, ideal datum I on Y and affine open U, the ideal of I.comap f on f⁻¹U is I(U).map(f.app U). The preimage-affineness witness is the native IsAffineOpen.preimage instance.
+
+Hypotheses: X and Y are schemes in the same universe; I is Mathlib native IdealSheafData. Affineness is required exactly for the opens explicitly stated. All rings, including zero rings and nonreduced rings, are allowed.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/ideal-comap-affine-open.
+
+Proof: Specialize the local chart formula with the native affineness of the inverse image. This includes finite morphisms but does not impose finiteness.
+
+## Sections of the inverse-image closed subscheme
+
+**TauCeti.SchemeFoundations.IdealPullback.comapObjIso** — For an affine U with affine inverse image under f:X→Y, the actual sections of the native closed subscheme cut out by I.comap f over f⁻¹U are canonically isomorphic to Γ(X,f⁻¹U) modulo the extended ideal I(U).map(f.app U).
+
+Hypotheses: X and Y are schemes in the same universe; I is Mathlib native IdealSheafData. Affineness is required exactly for the opens explicitly stated. All rings, including zero rings and nonreduced rings, are allowed.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/ideal-comap-affine-open, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeObjIso.
+
+Proof: Compose the existing subschemeObjIso with the native quotient-ring equivalence induced by the proved equality of full ideals. Retain both concrete components in the suggested constructor. Native comapIso already identifies this closed subscheme with the fiber product; it is imported, not reconstructed.
+
+## The actual quotient projection square
+
+**TauCeti.SchemeFoundations.IdealPullback.comapObjIso_inclusion** — The section map of the actual closed immersion (I.comap f).subschemeι, followed by comapObjIso, is exactly the quotient projection modulo I(U).map(f.app U), as morphisms in CommRingCat.
+
+Hypotheses: X and Y are schemes in the same universe; I is Mathlib native IdealSheafData. Affineness is required exactly for the opens explicitly stated. All rings, including zero rings and nonreduced rings, are allowed.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/ideal-comap-quotient-comparison, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeι_app.
+
+Proof: Rewrite the native closed-immersion section map using subschemeι_app. Cancel the inverse/forward components of subschemeObjIso; on each section, quotEquivOfEq sends its quotient representative to the same representative.
+
+## Forward quotient representatives
+
+**TauCeti.SchemeFoundations.IdealPullback.comapObjIso_mk** — For every actual section b over f⁻¹U, comapObjIso sends its restriction to the inverse-image closed subscheme to its class modulo I(U).map(f.app U).
+
+Hypotheses: X and Y are schemes in the same universe; I is Mathlib native IdealSheafData. Affineness is required exactly for the opens explicitly stated. All rings, including zero rings and nonreduced rings, are allowed.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/ideal-comap-quotient-inclusion.
+
+Proof: Evaluate the equality of CommRingCat morphisms from the projection square at b.
+
+## Inverse quotient representatives
+
+**TauCeti.SchemeFoundations.IdealPullback.comapObjIso_inv_mk** — For every b over f⁻¹U, the inverse of comapObjIso sends the class of b modulo the extended ideal to the actual closed-immersion restriction of b.
+
+Hypotheses: X and Y are schemes in the same universe; I is Mathlib native IdealSheafData. Affineness is required exactly for the opens explicitly stated. All rings, including zero rings and nonreduced rings, are allowed.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/ideal-comap-quotient-representative.
+
+Proof: Rewrite the quotient representative using the forward formula, then apply the concrete inverse identity of the canonical isomorphism.
+
+## Typed boundary tests
+
+- **IdealPullbackChecked.composition**: For two arbitrary maps between affine schemes, the full ideal pulled back along their composite equals the two successive ideal extensions in the contravariant order.
+- **IdealPullbackChecked.empty_open**: For any morphism and ideal datum, every section over the empty preimage chart has zero coordinate under the actual quotient comparison; global affineness is unnecessary.
+- **IdealPullbackChecked.inverse_representative**: The forward and inverse quotient formulas recover the actual restriction of every affine-chart section.
+- **IdealPullbackChecked.nonflat_quotient**: For Spec(Z/2)→Spec(Z), the nonzero ideal datum generated by the section2 pulls back to the zero ideal datum. The chart formula allows this nonflat map; it does not assert injectivity of the pulled-back inclusion of modules.
+- **IdealPullbackChecked.nonreduced_quotient**: On Spec(Z/4) with the zero ideal and identity map, the actual quotient coordinate of the section2 is nonzero and has square zero. Replacing the ideal by its radical would fail this test.
+
 # Scheme and stack foundations: quotient and cokernel continuation
 
 Codex — codex-rtOQ9t · 3 October 2026 · Refs #642 · partial.
