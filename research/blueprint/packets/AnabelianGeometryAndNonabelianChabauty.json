@@ -12,7 +12,7 @@
     "AnabelianGeometryAndNonabelianChabauty:NC.6"
   ],
   "status": "partial",
-  "summary": "Partial continuation of the source-faithful anabelian plan. Twenty-three native declaration-sized inputs specify general continuous source restriction on actual cocycles, nonabelian H¹ and invariant subgroups, with functor laws, subgroup comparisons, coefficient compatibility and the precise surjective-source injection criterion. Thirteen tests include a nonneutral class killed by a nonsurjective source map. All seven stages remain partial; additive/geometric/local-condition and source obligations stay explicit.",
+  "summary": "Partial continuation of the source-faithful anabelian plan. Twenty-three native declaration-sized inputs specify general continuous source restriction on actual cocycles, nonabelian H¹ and invariant subgroups, with functor laws, subgroup comparisons, coefficient compatibility and the precise surjective-source injection criterion. Thirteen tests include a nonneutral class killed by a nonsurjective source map. All seven stages remain partial; additive/geometric/local-condition and source obligations stay explicit. Current inner-twisting continuation supplies actual continuous action/cocycle/gauge-orbit equivalences and the invariant criterion; all inherited geometric/local-condition and source boundaries remain.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -898,6 +898,20 @@
         "module": "Mathlib/Topology/Algebra/MulAction.lean",
         "provides": "Joint continuity of the pulled-back action from a continuous source homomorphism, line252.",
         "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-03."
+      },
+      {
+        "ref": "mathlib:MulEquiv.refl",
+        "kind": "definition",
+        "module": "Mathlib/Algebra/Group/Equiv/Defs.lean",
+        "provides": "The native multiplicative identity equivalence, specialized to the original group and its actual twist synonym; it does not identify the G-actions.",
+        "checked": "Complete statement/body and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact declaration name verified in its index."
+      },
+      {
+        "ref": "mathlib:Quotient.congr",
+        "kind": "definition",
+        "module": "Mathlib/Logic/Equiv/Defs.lean",
+        "provides": "An actual equivalence respecting the two setoid relations induces an equivalence of their quotient types.",
+        "checked": "Complete statement/body and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact declaration name verified in its index."
       }
     ]
   },
@@ -1075,6 +1089,19 @@
         "§1.3.5 Definition1.3.14 and full Proposition1.3.15 including proof, printedpp.11–12 (PDFpages25–26)"
       ],
       "sha256": "42e92ce4599420f6b72139e78cb9f5230e4bf81258c202e7cee4716887353579"
+    },
+    {
+      "id": "KimTwisting-codex-J6LwjP",
+      "title": "The motivic fundamental group of P¹ minus 0,1,infinity and the theorem of Siegel",
+      "authors": "Minhyong Kim",
+      "edition": "arXiv math/0409456v1, 23 September 2004; 19-page preprint of Inventiones Mathematicae 161 (2005)",
+      "url": "https://arxiv.org/pdf/math/0409456v1",
+      "sha256": "00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941",
+      "accessed": "2026-10-03",
+      "readSections": [
+        "§1 continuous cocycle/gauge definitions and complete Proposition 1 statement/proof, PDF pages 5–7"
+      ],
+      "readingExtent": "Selected passages freshly read; not a new whole-paper or representability proof reading. Inner twisting and cocycle/orbit equivalences below are authored deductions from the actual ordered cocycle/gauge formulas; geometric torsor classification is not certified."
     }
   ],
   "nodes": [
@@ -2054,6 +2081,16 @@
           "name": "TauCeti.NonabelianCohomology.Twist.self",
           "role": "compatibility",
           "statement": "Twisting by the trivial cocycle is the original action."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Twist.toOriginal",
+          "role": "compatibility",
+          "statement": "The actual underlying group identification j_c:Twist(c)≃*U is native MulEquiv.refl U. It preserves multiplication and the original topology, but need not preserve the original G-action."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Twist.mem_fixed_iff",
+          "role": "characterisation",
+          "statement": "For x∈Twist(c), x belongs to H⁰(G,Twist(c)) if and only if c(g)·g(j_c(x))=j_c(x)·c(g) for every g∈G."
         }
       ],
       "tests": [
@@ -2076,6 +2113,16 @@
           "name": "TauCeti.NonabelianCohomology.tests.twist_changes_invariants",
           "kind": "non-example",
           "statement": "A twist need not be isomorphic to U as a G-group: for G = ℤ/2 acting trivially on S₃ and c(σ) = τ a transposition, H⁰(G, ₍c₎S₃) = {1, τ} has order 2 while H⁰(G, S₃) = S₃ has order 6; and twistEquiv sends the base point to [c], not to the base point."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.twist_commutative_action",
+          "kind": "compatibility",
+          "statement": "If the original multiplication on U commutes, the actual twisted action g⋆x agrees with the original action g(x), for every c."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.twist_transposition_invariants",
+          "kind": "computation",
+          "statement": "For the same discrete S₂→S₃ transposition cocycle with trivial original action, x∈H⁰(G,Twist(c)) if and only if x=1 or x=τ. The twisted action has exactly these two invariants, whereas the original trivial action fixes all six elements."
         }
       ]
     },
@@ -8836,6 +8883,533 @@
           "how": "Supplies the exact source-variable map and its stated laws, including compatibility with the existing coefficient-variable maps."
         }
       ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-underlying-group",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "comparison",
+      "title": "Underlying group of a cocycle twist",
+      "declarationName": "TauCeti.NonabelianCohomology.Twist.toOriginal",
+      "statement": "The actual underlying group identification j_c:Twist(c)≃*U is native MulEquiv.refl U. It preserves multiplication and the original topology, but need not preserve the original G-action.",
+      "hypotheses": [
+        "G is a group with a topology. U is a topological group with a jointly continuous action of G by automorphisms and c is an actual continuous cocycle c(gh)=c(g)·g(c(h)). No compactness, discreteness, finite coefficients or unipotent realization is assumed. The inherited parent twisting contract retains its stated topological-group hypothesis on G; these abstract formulas need only a topology on G.",
+        "Twist(c) is the existing underlying-group/topology synonym, with action g⋆x=c(g)·g(x)·c(g)⁻¹. Its underlying group identification j_c is native MulEquiv.refl, with the original multiplication and topology; it is not asserted equivariant for the original action. Twisted cocycles and gauge orbits use the actual constructed action.",
+        "H¹ is the existing native gauge-orbit quotient with gauge x·d(g)=x d(g)(g(x))⁻¹. The resulting equivalence is of underlying sets and sends the source neutral element to [c]; call it pointed only after repointing the target at [c]. No local-condition, algebraic torsor, representability or geometric comparison is assumed."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisting",
+        "mathlib:MulEquiv.refl"
+      ],
+      "proofSteps": [
+        "Use the inherited underlying group and topology instances on the existing type synonym.",
+        "Specialize native MulEquiv.refl; its two inverse identities and multiplicativity are the native ones, not stored comparison oracles. The action remains twisted."
+      ],
+      "acceptance": [
+        "The actual underlying group identification j_c:Twist(c)≃*U is native MulEquiv.refl U. It preserves multiplication and the original topology, but need not preserve the original G-action."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Basic",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Twist.toOriginal"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwisting-codex-J6LwjP",
+          "locator": "§1 continuous cocycle/gauge definitions and Proposition 1 proof, PDF pp.5–7 (v1)",
+          "excerpt": "1-cocycle",
+          "match": "Authored abstract inner-twisting deduction from the source cocycle and gauge conventions. Kim twists a torsor action; this native group-action/cocycle/orbit adapter does not claim his geometric torsor classification or representability."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+          "how": "Express the actual twisted invariants and move a chosen nonneutral fibre to a neutral fibre without misidentifying base points."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+          "how": "Supply the algebraic cocycle/orbit leg for the inherited nonneutral-fibre route; subgroup/quotient/local-condition naturality remains explicit work."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-cocycle-equivalence",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "construction",
+      "title": "Continuous cocycles under inner twisting",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.twistEquiv",
+      "statement": "Construct τ_c:Z¹(G,Twist(c))≃Z¹(G,U) with τ_c(d)(g)=j_c(d(g))·c(g), and inverse e(g)·c(g)⁻¹ viewed in Twist(c). Both maps return actual continuous cocycles.",
+      "hypotheses": [
+        "G is a group with a topology. U is a topological group with a jointly continuous action of G by automorphisms and c is an actual continuous cocycle c(gh)=c(g)·g(c(h)). No compactness, discreteness, finite coefficients or unipotent realization is assumed. The inherited parent twisting contract retains its stated topological-group hypothesis on G; these abstract formulas need only a topology on G.",
+        "Twist(c) is the existing underlying-group/topology synonym, with action g⋆x=c(g)·g(x)·c(g)⁻¹. Its underlying group identification j_c is native MulEquiv.refl, with the original multiplication and topology; it is not asserted equivariant for the original action. Twisted cocycles and gauge orbits use the actual constructed action.",
+        "H¹ is the existing native gauge-orbit quotient with gauge x·d(g)=x d(g)(g(x))⁻¹. The resulting equivalence is of underlying sets and sends the source neutral element to [c]; call it pointed only after repointing the target at [c]. No local-condition, algebraic torsor, representability or geometric comparison is assumed."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisting",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-underlying-group",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles"
+      ],
+      "proofSteps": [
+        "The constructed twisted action obeys its unit/product/automorphism laws by the actual cocycle equation; joint continuity follows from c and the ambient action.",
+        "Multiply the twisted cocycle equation by c(gh) on the right; cancel the adjacent c(g) inverse to get the original cocycle equation in exactly the stated order.",
+        "The inverse divides on the right by c(g), with continuity from inversion and multiplication; cancellation gives both inverse identities."
+      ],
+      "acceptance": [
+        "Construct τ_c:Z¹(G,Twist(c))≃Z¹(G,U) with τ_c(d)(g)=j_c(d(g))·c(g), and inverse e(g)·c(g)⁻¹ viewed in Twist(c). Both maps return actual continuous cocycles."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Basic",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.twistEquiv"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwisting-codex-J6LwjP",
+          "locator": "§1 continuous cocycle/gauge definitions and Proposition 1 proof, PDF pp.5–7 (v1)",
+          "excerpt": "1-cocycle",
+          "match": "Authored abstract inner-twisting deduction from the source cocycle and gauge conventions. Kim twists a torsor action; this native group-action/cocycle/orbit adapter does not claim his geometric torsor classification or representability."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+          "how": "Express the actual twisted invariants and move a chosen nonneutral fibre to a neutral fibre without misidentifying base points."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+          "how": "Supply the algebraic cocycle/orbit leg for the inherited nonneutral-fibre route; subgroup/quotient/local-condition naturality remains explicit work."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.twistEquiv_apply",
+          "role": "compatibility",
+          "statement": "For every d∈Z¹(G,Twist(c)) and g∈G, τ_c(d)(g)=j_c(d(g))·c(g)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.twistEquiv_symm_apply",
+          "role": "compatibility",
+          "statement": "For every e∈Z¹(G,U) and g∈G, τ_c⁻¹(e)(g) is e(g)·c(g)⁻¹, viewed in Twist(c)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.twistEquiv_smul",
+          "role": "compatibility",
+          "statement": "For every x∈Twist(c) and d∈Z¹(G,Twist(c)), τ_c(x·d)=j_c(x)·τ_c(d). The same underlying gauge witness is used on both sides."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.twist_unit_value",
+          "kind": "degenerate",
+          "statement": "For every c and g, τ_c(1)(g)=c(g); the source neutral cocycle becomes the chosen cocycle."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.twist_untwist",
+          "kind": "compatibility",
+          "statement": "For every original continuous cocycle e, τ_c(τ_c⁻¹(e))=e as actual cocycles, with no new representative choice."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.twist_translation_order",
+          "kind": "compatibility",
+          "statement": "For every twisted continuous cocycle d and g, τ_c⁻¹(τ_c(d))(g)=d(g). Division on the right exactly cancels multiplication on the right."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-cocycle-value",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Value of the twisting equivalence",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.twistEquiv_apply",
+      "statement": "For every d∈Z¹(G,Twist(c)) and g∈G, τ_c(d)(g)=j_c(d(g))·c(g).",
+      "hypotheses": [
+        "G is a group with a topology. U is a topological group with a jointly continuous action of G by automorphisms and c is an actual continuous cocycle c(gh)=c(g)·g(c(h)). No compactness, discreteness, finite coefficients or unipotent realization is assumed. The inherited parent twisting contract retains its stated topological-group hypothesis on G; these abstract formulas need only a topology on G.",
+        "Twist(c) is the existing underlying-group/topology synonym, with action g⋆x=c(g)·g(x)·c(g)⁻¹. Its underlying group identification j_c is native MulEquiv.refl, with the original multiplication and topology; it is not asserted equivariant for the original action. Twisted cocycles and gauge orbits use the actual constructed action.",
+        "H¹ is the existing native gauge-orbit quotient with gauge x·d(g)=x d(g)(g(x))⁻¹. The resulting equivalence is of underlying sets and sends the source neutral element to [c]; call it pointed only after repointing the target at [c]. No local-condition, algebraic torsor, representability or geometric comparison is assumed."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-cocycle-equivalence"
+      ],
+      "proofSteps": [
+        "Evaluate the actual forward cocycle construction. This fixes the multiplication order in a noncommutative group."
+      ],
+      "acceptance": [
+        "For every d∈Z¹(G,Twist(c)) and g∈G, τ_c(d)(g)=j_c(d(g))·c(g)."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Basic",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.twistEquiv_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwisting-codex-J6LwjP",
+          "locator": "§1 continuous cocycle/gauge definitions and Proposition 1 proof, PDF pp.5–7 (v1)",
+          "excerpt": "1-cocycle",
+          "match": "Authored abstract inner-twisting deduction from the source cocycle and gauge conventions. Kim twists a torsor action; this native group-action/cocycle/orbit adapter does not claim his geometric torsor classification or representability."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+          "how": "Express the actual twisted invariants and move a chosen nonneutral fibre to a neutral fibre without misidentifying base points."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+          "how": "Supply the algebraic cocycle/orbit leg for the inherited nonneutral-fibre route; subgroup/quotient/local-condition naturality remains explicit work."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-cocycle-inverse-value",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Value of the inverse twisting equivalence",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.twistEquiv_symm_apply",
+      "statement": "For every e∈Z¹(G,U) and g∈G, τ_c⁻¹(e)(g) is e(g)·c(g)⁻¹, viewed in Twist(c).",
+      "hypotheses": [
+        "G is a group with a topology. U is a topological group with a jointly continuous action of G by automorphisms and c is an actual continuous cocycle c(gh)=c(g)·g(c(h)). No compactness, discreteness, finite coefficients or unipotent realization is assumed. The inherited parent twisting contract retains its stated topological-group hypothesis on G; these abstract formulas need only a topology on G.",
+        "Twist(c) is the existing underlying-group/topology synonym, with action g⋆x=c(g)·g(x)·c(g)⁻¹. Its underlying group identification j_c is native MulEquiv.refl, with the original multiplication and topology; it is not asserted equivariant for the original action. Twisted cocycles and gauge orbits use the actual constructed action.",
+        "H¹ is the existing native gauge-orbit quotient with gauge x·d(g)=x d(g)(g(x))⁻¹. The resulting equivalence is of underlying sets and sends the source neutral element to [c]; call it pointed only after repointing the target at [c]. No local-condition, algebraic torsor, representability or geometric comparison is assumed."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-cocycle-equivalence"
+      ],
+      "proofSteps": [
+        "Evaluate the actual inverse cocycle construction; its inverse is on the right."
+      ],
+      "acceptance": [
+        "For every e∈Z¹(G,U) and g∈G, τ_c⁻¹(e)(g) is e(g)·c(g)⁻¹, viewed in Twist(c)."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Basic",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.twistEquiv_symm_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwisting-codex-J6LwjP",
+          "locator": "§1 continuous cocycle/gauge definitions and Proposition 1 proof, PDF pp.5–7 (v1)",
+          "excerpt": "1-cocycle",
+          "match": "Authored abstract inner-twisting deduction from the source cocycle and gauge conventions. Kim twists a torsor action; this native group-action/cocycle/orbit adapter does not claim his geometric torsor classification or representability."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+          "how": "Express the actual twisted invariants and move a chosen nonneutral fibre to a neutral fibre without misidentifying base points."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+          "how": "Supply the algebraic cocycle/orbit leg for the inherited nonneutral-fibre route; subgroup/quotient/local-condition naturality remains explicit work."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-gauge-equivariance",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Gauge compatibility of inner twisting",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.twistEquiv_smul",
+      "statement": "For every x∈Twist(c) and d∈Z¹(G,Twist(c)), τ_c(x·d)=j_c(x)·τ_c(d). The same underlying gauge witness is used on both sides.",
+      "hypotheses": [
+        "G is a group with a topology. U is a topological group with a jointly continuous action of G by automorphisms and c is an actual continuous cocycle c(gh)=c(g)·g(c(h)). No compactness, discreteness, finite coefficients or unipotent realization is assumed. The inherited parent twisting contract retains its stated topological-group hypothesis on G; these abstract formulas need only a topology on G.",
+        "Twist(c) is the existing underlying-group/topology synonym, with action g⋆x=c(g)·g(x)·c(g)⁻¹. Its underlying group identification j_c is native MulEquiv.refl, with the original multiplication and topology; it is not asserted equivariant for the original action. Twisted cocycles and gauge orbits use the actual constructed action.",
+        "H¹ is the existing native gauge-orbit quotient with gauge x·d(g)=x d(g)(g(x))⁻¹. The resulting equivalence is of underlying sets and sends the source neutral element to [c]; call it pointed only after repointing the target at [c]. No local-condition, algebraic torsor, representability or geometric comparison is assumed."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-cocycle-equivalence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-cocycle-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1"
+      ],
+      "proofSteps": [
+        "Expand the actual twisted and original ordered gauge actions.",
+        "Use g⋆x=c(g) g(j_c(x)) c(g)⁻¹ and cancel in U. Both sides equal j_c(x) j_c(d(g)) c(g) g(j_c(x))⁻¹."
+      ],
+      "acceptance": [
+        "For every x∈Twist(c) and d∈Z¹(G,Twist(c)), τ_c(x·d)=j_c(x)·τ_c(d). The same underlying gauge witness is used on both sides."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Basic",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.twistEquiv_smul"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwisting-codex-J6LwjP",
+          "locator": "§1 continuous cocycle/gauge definitions and Proposition 1 proof, PDF pp.5–7 (v1)",
+          "excerpt": "1-cocycle",
+          "match": "Authored abstract inner-twisting deduction from the source cocycle and gauge conventions. Kim twists a torsor action; this native group-action/cocycle/orbit adapter does not claim his geometric torsor classification or representability."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+          "how": "Express the actual twisted invariants and move a chosen nonneutral fibre to a neutral fibre without misidentifying base points."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+          "how": "Supply the algebraic cocycle/orbit leg for the inherited nonneutral-fibre route; subgroup/quotient/local-condition naturality remains explicit work."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-equivalence",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "construction",
+      "title": "Gauge-orbit bijection under twisting",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistEquiv",
+      "statement": "Construct the actual quotient equivalence H¹(G,Twist(c))≃H¹(G,U) induced by τ_c. It is a bijection of underlying sets; it carries the source neutral point to [c].",
+      "hypotheses": [
+        "G is a group with a topology. U is a topological group with a jointly continuous action of G by automorphisms and c is an actual continuous cocycle c(gh)=c(g)·g(c(h)). No compactness, discreteness, finite coefficients or unipotent realization is assumed. The inherited parent twisting contract retains its stated topological-group hypothesis on G; these abstract formulas need only a topology on G.",
+        "Twist(c) is the existing underlying-group/topology synonym, with action g⋆x=c(g)·g(x)·c(g)⁻¹. Its underlying group identification j_c is native MulEquiv.refl, with the original multiplication and topology; it is not asserted equivariant for the original action. Twisted cocycles and gauge orbits use the actual constructed action.",
+        "H¹ is the existing native gauge-orbit quotient with gauge x·d(g)=x d(g)(g(x))⁻¹. The resulting equivalence is of underlying sets and sends the source neutral element to [c]; call it pointed only after repointing the target at [c]. No local-condition, algebraic torsor, representability or geometric comparison is assumed."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-cocycle-equivalence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-gauge-equivariance",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1",
+        "mathlib:Quotient.congr",
+        "mathlib:MulAction.orbitRel_apply"
+      ],
+      "proofSteps": [
+        "Prove equivalence of the two native orbit relations using exactly the same underlying gauge witness and the proved cocycle equivariance.",
+        "For the reverse implication apply τ_c injectivity to the witness equation. Use native Quotient.congr to construct the quotient equivalence with both inverse identities.",
+        "The trivial twisted cocycle maps pointwise to c, hence its gauge class maps to [c]."
+      ],
+      "acceptance": [
+        "Construct the actual quotient equivalence H¹(G,Twist(c))≃H¹(G,U) induced by τ_c. It is a bijection of underlying sets; it carries the source neutral point to [c]."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Basic",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistEquiv"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwisting-codex-J6LwjP",
+          "locator": "§1 continuous cocycle/gauge definitions and Proposition 1 proof, PDF pp.5–7 (v1)",
+          "excerpt": "1-cocycle",
+          "match": "Authored abstract inner-twisting deduction from the source cocycle and gauge conventions. Kim twists a torsor action; this native group-action/cocycle/orbit adapter does not claim his geometric torsor classification or representability."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+          "how": "Express the actual twisted invariants and move a chosen nonneutral fibre to a neutral fibre without misidentifying base points."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+          "how": "Supply the algebraic cocycle/orbit leg for the inherited nonneutral-fibre route; subgroup/quotient/local-condition naturality remains explicit work."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistEquiv_mk",
+          "role": "compatibility",
+          "statement": "For every d∈Z¹(G,Twist(c)), H¹.twistEquiv(c)([d])=[τ_c(d)]."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistEquiv_eq_class_iff",
+          "role": "characterisation",
+          "statement": "For every a∈H¹(G,Twist(c)), H¹.twistEquiv(c)(a)=[c] if and only if a=1."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistEquiv_one",
+          "role": "compatibility",
+          "statement": "The actual quotient equivalence sends the source neutral class to the class [c]."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.twist_neutral_fibre",
+          "kind": "characterisation",
+          "statement": "The inverse actual orbit equivalence sends [c] to the source neutral class."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.twist_class_representative",
+          "kind": "compatibility",
+          "statement": "For every actual twisted cocycle d, the quotient equivalence applied to [d] is the class of the actual cocycle τ_c(d)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.twist_not_neutral",
+          "kind": "non-example",
+          "statement": "Take discrete G=S₂ acting trivially on U=S₃ and c(g)=1 for g=1, otherwise the transposition τ=(01). Then H¹.twistEquiv(c)(1)≠1. A bijection claimed to preserve the original target neutral point fails this example."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-representative",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Twisting on an actual H¹ representative",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistEquiv_mk",
+      "statement": "For every d∈Z¹(G,Twist(c)), H¹.twistEquiv(c)([d])=[τ_c(d)].",
+      "hypotheses": [
+        "G is a group with a topology. U is a topological group with a jointly continuous action of G by automorphisms and c is an actual continuous cocycle c(gh)=c(g)·g(c(h)). No compactness, discreteness, finite coefficients or unipotent realization is assumed. The inherited parent twisting contract retains its stated topological-group hypothesis on G; these abstract formulas need only a topology on G.",
+        "Twist(c) is the existing underlying-group/topology synonym, with action g⋆x=c(g)·g(x)·c(g)⁻¹. Its underlying group identification j_c is native MulEquiv.refl, with the original multiplication and topology; it is not asserted equivariant for the original action. Twisted cocycles and gauge orbits use the actual constructed action.",
+        "H¹ is the existing native gauge-orbit quotient with gauge x·d(g)=x d(g)(g(x))⁻¹. The resulting equivalence is of underlying sets and sends the source neutral element to [c]; call it pointed only after repointing the target at [c]. No local-condition, algebraic torsor, representability or geometric comparison is assumed."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-equivalence"
+      ],
+      "proofSteps": [
+        "Evaluate the actual native quotient congruence on a representative."
+      ],
+      "acceptance": [
+        "For every d∈Z¹(G,Twist(c)), H¹.twistEquiv(c)([d])=[τ_c(d)]."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Basic",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistEquiv_mk"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwisting-codex-J6LwjP",
+          "locator": "§1 continuous cocycle/gauge definitions and Proposition 1 proof, PDF pp.5–7 (v1)",
+          "excerpt": "1-cocycle",
+          "match": "Authored abstract inner-twisting deduction from the source cocycle and gauge conventions. Kim twists a torsor action; this native group-action/cocycle/orbit adapter does not claim his geometric torsor classification or representability."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+          "how": "Express the actual twisted invariants and move a chosen nonneutral fibre to a neutral fibre without misidentifying base points."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+          "how": "Supply the algebraic cocycle/orbit leg for the inherited nonneutral-fibre route; subgroup/quotient/local-condition naturality remains explicit work."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-neutral-fibre",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Neutral source fibre under twisting",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistEquiv_eq_class_iff",
+      "statement": "For every a∈H¹(G,Twist(c)), H¹.twistEquiv(c)(a)=[c] if and only if a=1.",
+      "hypotheses": [
+        "G is a group with a topology. U is a topological group with a jointly continuous action of G by automorphisms and c is an actual continuous cocycle c(gh)=c(g)·g(c(h)). No compactness, discreteness, finite coefficients or unipotent realization is assumed. The inherited parent twisting contract retains its stated topological-group hypothesis on G; these abstract formulas need only a topology on G.",
+        "Twist(c) is the existing underlying-group/topology synonym, with action g⋆x=c(g)·g(x)·c(g)⁻¹. Its underlying group identification j_c is native MulEquiv.refl, with the original multiplication and topology; it is not asserted equivariant for the original action. Twisted cocycles and gauge orbits use the actual constructed action.",
+        "H¹ is the existing native gauge-orbit quotient with gauge x·d(g)=x d(g)(g(x))⁻¹. The resulting equivalence is of underlying sets and sends the source neutral element to [c]; call it pointed only after repointing the target at [c]. No local-condition, algebraic torsor, representability or geometric comparison is assumed."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-equivalence"
+      ],
+      "proofSteps": [
+        "The constructed orbit equivalence maps 1 to [c]. Apply its injectivity to compare a with 1. This does not say the equivalence preserves the original target neutral point."
+      ],
+      "acceptance": [
+        "For every a∈H¹(G,Twist(c)), H¹.twistEquiv(c)(a)=[c] if and only if a=1."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Basic",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistEquiv_eq_class_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwisting-codex-J6LwjP",
+          "locator": "§1 continuous cocycle/gauge definitions and Proposition 1 proof, PDF pp.5–7 (v1)",
+          "excerpt": "1-cocycle",
+          "match": "Authored abstract inner-twisting deduction from the source cocycle and gauge conventions. Kim twists a torsor action; this native group-action/cocycle/orbit adapter does not claim his geometric torsor classification or representability."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+          "how": "Express the actual twisted invariants and move a chosen nonneutral fibre to a neutral fibre without misidentifying base points."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+          "how": "Supply the algebraic cocycle/orbit leg for the inherited nonneutral-fibre route; subgroup/quotient/local-condition naturality remains explicit work."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-invariant-criterion",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Actual invariants of the twisted action",
+      "declarationName": "TauCeti.NonabelianCohomology.Twist.mem_fixed_iff",
+      "statement": "For x∈Twist(c), x belongs to H⁰(G,Twist(c)) if and only if c(g)·g(j_c(x))=j_c(x)·c(g) for every g∈G.",
+      "hypotheses": [
+        "G is a group with a topology. U is a topological group with a jointly continuous action of G by automorphisms and c is an actual continuous cocycle c(gh)=c(g)·g(c(h)). No compactness, discreteness, finite coefficients or unipotent realization is assumed. The inherited parent twisting contract retains its stated topological-group hypothesis on G; these abstract formulas need only a topology on G.",
+        "Twist(c) is the existing underlying-group/topology synonym, with action g⋆x=c(g)·g(x)·c(g)⁻¹. Its underlying group identification j_c is native MulEquiv.refl, with the original multiplication and topology; it is not asserted equivariant for the original action. Twisted cocycles and gauge orbits use the actual constructed action.",
+        "H¹ is the existing native gauge-orbit quotient with gauge x·d(g)=x d(g)(g(x))⁻¹. The resulting equivalence is of underlying sets and sends the source neutral element to [c]; call it pointed only after repointing the target at [c]. No local-condition, algebraic torsor, representability or geometric comparison is assumed."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisting",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-underlying-group",
+        "mathlib:FixedPoints.subgroup"
+      ],
+      "proofSteps": [
+        "Apply the native underlying group identification to the fixed-point equality g⋆x=x.",
+        "Multiply on the right by c(g) to obtain the stated commutation equation; conversely divide by c(g) and use the native equivalence injectivity."
+      ],
+      "acceptance": [
+        "For x∈Twist(c), x belongs to H⁰(G,Twist(c)) if and only if c(g)·g(j_c(x))=j_c(x)·c(g) for every g∈G."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Basic",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Twist.mem_fixed_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "KimTwisting-codex-J6LwjP",
+          "locator": "§1 continuous cocycle/gauge definitions and Proposition 1 proof, PDF pp.5–7 (v1)",
+          "excerpt": "1-cocycle",
+          "match": "Authored abstract inner-twisting deduction from the source cocycle and gauge conventions. Kim twists a torsor action; this native group-action/cocycle/orbit adapter does not claim his geometric torsor classification or representability."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+          "how": "Express the actual twisted invariants and move a chosen nonneutral fibre to a neutral fibre without misidentifying base points."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+          "how": "Supply the algebraic cocycle/orbit leg for the inherited nonneutral-fibre route; subgroup/quotient/local-condition naturality remains explicit work."
+        }
+      ]
     }
   ],
   "requests": [
@@ -9019,7 +9593,8 @@
         "The invariant-coset projection, actual connecting map and initial H⁰ exactness are now outlined with native carriers. Split continuous-cocycles, functoriality and central-extension and complete every inherited omitted API/test. Representability, local conditions, Selmer varieties and all recorded source-proof gaps remain open; no stage is closed.",
         "Actual subgroup restriction on continuous cocycles and native H¹ orbit sets, inverse-gauge normalization, image=neutral restriction fibre and unique same-N inflated class are supplied under explicit joint quotient-action continuity. General multiplicative quotient-action continuity discharge, reverse-inclusion transitions, compact-discrete filtered-colimit bijection and genuine additive cocycle conversion remain open. All representability, local-condition, source-proof, inherited API/granularity and geometric obligations remain open.",
         "Joint multiplicative quotient-action continuity and the neutral-fibre equivalence are supplied for separately continuous multiplication on G (in particular topological groups), topological group U and jointly continuous ambient automorphism action. Earlier results for arbitrary group topologies retain their explicit quotient-action continuity hypothesis. Reverse-inclusion transitions, compact-discrete filtered-colimit bijection, canonical additive cocycle conversion, representability, local conditions, inherited API/granularity and geometric source/supplier obligations remain open.",
-        "Reverse-inclusion cocycle and H¹ transitions, their native type-valued diagram, actual inflation cocone and compact/discrete finite-quotient equivalence are specified. The colimit requires discrete U and does not extend the unipotent p-adic topology by assumption. Genuine additive cocycle conversion, compatibility with the existing TauCeti additive transition/colimit, representability, local conditions, inherited API/granularity and all geometric source/supplier obligations remain open."
+        "Reverse-inclusion cocycle and H¹ transitions, their native type-valued diagram, actual inflation cocone and compact/discrete finite-quotient equivalence are specified. The colimit requires discrete U and does not extend the unipotent p-adic topology by assumption. Genuine additive cocycle conversion, compatibility with the existing TauCeti additive transition/colimit, representability, local conditions, inherited API/granularity and all geometric source/supplier obligations remain open.",
+        "Current codex-J6LwjP twisting checkpoint supplies the actual continuous inner action, right-multiplication cocycle equivalence, gauge-orbit quotient equivalence, representative/neutral-fibre formulas and twisted-invariant criterion, with checked native prototypes and the nonneutral S₃ example. Subgroup/quotient and source/coefficient naturality of twisting, genuine additive comparison, unipotent point topologies, representability, local conditions and all geometric/source/supplier obligations remain open. The orbit bijection is pointed only after repointing its target at [c]."
       ]
     },
     {
@@ -10815,6 +11390,41 @@
       "gaps": 9,
       "requests": 16,
       "scriptSha256": "7b9951f82e26dbe1aa723f4bcd1fddb4adbce7cddaaa497ad4d35b4f113122e1"
+    }
+  },
+  "twistingContinuation": {
+    "agent": "Codex — codex-J6LwjP",
+    "issue": 1020,
+    "claimComment": 5963821834,
+    "winningBotComment": 5963822933,
+    "readBase": "aeae47c9a675600efe5c88a0b7ab4cc82b9d13f3",
+    "status": "partial",
+    "newNodes": [
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-underlying-group",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-cocycle-equivalence",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-cocycle-value",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-cocycle-inverse-value",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-gauge-equivariance",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-equivalence",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-representative",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-neutral-fibre",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-invariant-criterion"
+    ],
+    "remaining": [
+      "Current codex-J6LwjP twisting checkpoint supplies the actual continuous inner action, right-multiplication cocycle equivalence, gauge-orbit quotient equivalence, representative/neutral-fibre formulas and twisted-invariant criterion, with checked native prototypes and the nonneutral S₃ example. Subgroup/quotient and source/coefficient naturality of twisting, genuine additive comparison, unipotent point topologies, representability, local conditions and all geometric/source/supplier obligations remain open. The orbit bijection is pointed only after repointing its target at [c]."
+    ],
+    "source": {
+      "id": "KimTwisting-codex-J6LwjP",
+      "title": "The motivic fundamental group of P¹ minus 0,1,infinity and the theorem of Siegel",
+      "authors": "Minhyong Kim",
+      "edition": "arXiv math/0409456v1, 23 September 2004; 19-page preprint of Inventiones Mathematicae 161 (2005)",
+      "url": "https://arxiv.org/pdf/math/0409456v1",
+      "sha256": "00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941",
+      "accessed": "2026-10-03",
+      "readSections": [
+        "§1 continuous cocycle/gauge definitions and complete Proposition 1 statement/proof, PDF pages 5–7"
+      ],
+      "readingExtent": "Selected passages freshly read; not a new whole-paper or representability proof reading. Inner twisting and cocycle/orbit equivalences below are authored deductions from the actual ordered cocycle/gauge formulas; geometric torsor classification is not certified."
     }
   }
 }

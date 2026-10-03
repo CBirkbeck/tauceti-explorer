@@ -1,3 +1,102 @@
+# Finite equation jets and cumulative curve lengths
+
+Continuation of the partial R03.3 blueprint, 3 October 2026. All eight stages
+remain partial and every implementation status remains unchecked. This section
+records the current finite-jet proof boundary; the preceding complete reader
+follows unchanged.
+
+Let σ be finite, k a commutative ring, R = MvPowerSeries σ k and
+v = (X_i : i ∈ σ), the algebraically generated ideal of native variables.
+For f ∈ R and N ∈ ℕ the existing quotient projection is
+
+    R/v^(N+1) → R/((f)+v^(N+1)).
+
+The new lemma `TauCeti.HilbertSamuel.equationJet_finite` proves that its
+target is a finite k-module. The source has the existing total-jet monomial
+basis, indexed by exponents of total degree less than N+1. Restrict the
+actual R-linear quotient projection to k and apply the pinned finite-image
+theorem. This includes empty variables, zero coefficients, nilpotent
+coefficients, and arbitrary equations. Exact finite order is unnecessary.
+This declaration belongs to R03.3/equation-jet-finite and consumes the
+existing total-jet-finite and shifted-jet-map nodes, together with
+`Submodule.factor_surjective` and `Module.Finite.of_surjective`.
+
+If k is a field, the new lemma
+`TauCeti.HilbertSamuel.equationJet_length_eq_finrank` identifies the actual
+R-module length of that target with its finite k-dimension, cast to extended
+naturals. It uses the preceding finiteness instance and the existing
+series-module-finite-length adapter. That adapter proves the residue degree
+is one before restricting scalars. This is
+R03.3/equation-jet-length-finrank. No arbitrary scalar change is silently
+identified with preservation of length.
+
+For σ = Fin 2 and any field k, the existing declarations now have a combined
+checked native proof route:
+
+- `totalJet_length_eq_finrank` and `planeTotalJet_length` give
+  length_R(R/v^r) = binom(r+1,2), including r=0.
+- `planeEquationJet_length_balance` uses the actual shifted multiplication
+  map and projection when d≤N and order(f)=d. Its equality is first the sum
+  of extended-natural lengths; exactness is the equality of the projection
+  kernel with the multiplication range.
+- `planeEquationJet_length` substitutes the three finite natural dimensions
+  in that equality, then cancels in ℕ. For N<d it instead uses the proved
+  equality (f)+v^(N+1)=v^(N+1); the second binomial vanishes.
+- `planeCurve_function` combines this calculation with the existing native
+  quotient-ring/scalar comparison. With A=R/(f) and q the image of v,
+
+      H_q,A(N) = binom(N+2,2) − binom(N+2−d,2).
+
+  Both subtractions in this display are natural subtraction. The difference
+  is cast to extended naturals only after it is formed. The equation may be
+  nonreduced and k may have positive characteristic. At d=0 a unit equation
+  gives the zero quotient and every function value is zero.
+- `planeZeroEquation_function` treats f=0 separately and gives
+  H_q,A(N)=binom(N+2,2). Its order is infinite, so this is not a d=0 case.
+
+The finite-dimensional quotient proof makes finiteness explicit before the
+sum is converted to naturals. It does not infer the missing curve dimension
+or identify equation order with the general multiplicity definition.
+
+The two new lemma nodes add these discriminating tests:
+
+| Test | Actual object and result |
+| --- | --- |
+| `HilbertSamuelEquationJetTest.nonreduced_rank` | Over F₂, the k-dimension of R/((X₀⁴)+v⁵) is 14, agreeing with its R-length. |
+| `HilbertSamuelEquationJetTest.nilpotent_coefficients_finite` | For three variables over Z/4 and f=2, R/((2)+v³) is a finite Z/4-module. |
+| `HilbertSamuelEquationJetTest.zero_coefficients_finite` | With no variables over Z/1, the actual quotient by (0)+v is finite over the zero ring. |
+
+The combined proof also checks the existing actual-curve tests: a unit at
+all N; the zero equation at N=2 with value 6; X₀ at every N with value N+1;
+X₀⁴ over F₂ at N=0,1,2,4 with values 1,3,6,14; and X₀¹⁰⁰ at N=2 with
+value 6. These evaluate native quotient lengths, rather than substituting
+numbers into a proposed function.
+
+Sources are the credited immutable DDPA-JET-HANDOFF §§3–4 and
+DDPA-CURVE-POSTULATION §§1–3, combined with the exact pinned native
+statements listed in HS-EQUATION-LENGTH-PIN. The coefficient finiteness
+argument above extends the source's field argument to commutative rings.
+All earlier proof bodies retain their authorship. Mathlib PR #9819 remains
+an open prior-art lead for the general graded Hilbert–Serre induction;
+this continuation imports no unmerged theorem from it.
+
+The reserved general Hilbert–Samuel multiplicity node and its intrinsic and
+ambient normalizations remain unchanged. The cumulative formula does not
+close the general existence or degree/dimension theorem. The graded-function
+proof, rational postulation defect, sharp agreement threshold, tangent-cone
+kernel, curve dimension, intrinsic/ambient multiplicity comparison,
+Artin–Rees, associativity, completion and all routed-paper obligations remain
+open. The two supplier requests, fifteen gaps and historical remaining lists
+are preserved. The inherited LocalFieldsRamification layer-0 → R03.4 stage
+path still needs owner reconciliation.
+
+Validation: the combined native file has 64 examples and 65 named axiom
+audits, with no errors, warnings or admissions. The complete suggested file
+has 180 examples and elaborates with 352 admitted-proof warnings only at the
+existing exact Mathlib pin. The handoff gives the immutable archive, source
+hashes and reproducible checks. This validates the prototype boundary, while
+the canonical suggested bodies remain admitted as required by the protocol.
+
 # Exact-order shifted jet multiplication — R03.3 continuation
 
 For finite σ, commutative k and R=k[[σ]], retain the algebraic variable ideal v.
