@@ -14,7 +14,7 @@
     "HodgeStructuresPartII:H.8"
   ],
   "status": "partial",
-  "summary": "General ringed-site Higgs/constant-parameter connection plan with 112 nodes. This partial checkpoint adds actual scalar-extension horizontal/coefficient coherence for arbitrary coefficient modules, receiving-ring ordered naturality, and faithful-flat field/degree-one reflection. All 107 inherited contracts, finite-basis all-degree transport, split and flat same-ring reflection, 149 routed obligations and global supplier boundaries remain. Arbitrary-Q cross-ring tensor-power comparison in all degrees and E1 sheaf restriction/gluing remain open. H.0 partial, H.1–H.8 not_read; all nodes unchecked and no source route or reserved key closed. This continuation supplies the native arbitrary-coefficient cross-ring tensor-power unit/prepend/iterate comparison and identical-exponent preservation/reflection plans, with a separately checked actual proof; global restriction and gluing remain open. Current affine-local continuation supplies actual two-module chart transport, fixed-bound detection on principal covers, finite varying-bound maxima and extraction of a positive bound from an arbitrary affine principal cover; global E1 tensor restriction/gluing remains open. Current affine chart-overlap checkpoint supplies unique horizontal chart fields and actual two-chart and all-degree ordered transitions; no global sheaf closure is asserted.",
+  "summary": "General ringed-site Higgs/constant-parameter connection plan with 112 nodes. This partial checkpoint adds actual scalar-extension horizontal/coefficient coherence for arbitrary coefficient modules, receiving-ring ordered naturality, and faithful-flat field/degree-one reflection. All 107 inherited contracts, finite-basis all-degree transport, split and flat same-ring reflection, 149 routed obligations and global supplier boundaries remain. Arbitrary-Q cross-ring tensor-power comparison in all degrees and E1 sheaf restriction/gluing remain open. H.0 partial, H.1–H.8 not_read; all nodes unchecked and no source route or reserved key closed. This continuation supplies the native arbitrary-coefficient cross-ring tensor-power unit/prepend/iterate comparison and identical-exponent preservation/reflection plans, with a separately checked actual proof; global restriction and gluing remain open. Current affine-local continuation supplies actual two-module chart transport, fixed-bound detection on principal covers, finite varying-bound maxima and extraction of a positive bound from an arbitrary affine principal cover; global E1 tensor restriction/gluing remains open. Current affine chart-overlap checkpoint supplies unique horizontal chart fields and actual two-chart and all-degree ordered transitions; no global sheaf closure is asserted. Actual affine exterior squares and commutator/chart integrability comparisons use native exterior powers without dividing by two; the scalar unit field is integrable and not tensor nilpotent.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1141,6 +1141,168 @@
         "module": "Mathlib/Algebra/Module/Equiv/Defs.lean",
         "provides": "Applying the inverse after an equivalence gives the original source element.",
         "checked": "Complete statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact name checked in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:PiTensorProduct.lift",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/PiTensorProduct/Basic.lean",
+        "sourceLine": 428,
+        "sourceSha256": "767309347dba8e6aa8fb49e0ecdb34111539e06401957b9bc5ceede706eb6e35",
+        "provides": "Native universal linear lift from multilinear maps on the full indexed tensor product.",
+        "checked": "Complete statement and relevant ambient hypotheses read at the exact recorded pin on 2026-10-03; exact name verified in the pinned declaration index. No Tau Ceti object file is required for the definition-expanded Mathlib prototype."
+      },
+      {
+        "ref": "mathlib:PiTensorProduct.lift.tprod",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/PiTensorProduct/Basic.lean",
+        "sourceLine": 447,
+        "sourceSha256": "767309347dba8e6aa8fb49e0ecdb34111539e06401957b9bc5ceede706eb6e35",
+        "provides": "Evaluation of that lift on a pure tensor word.",
+        "checked": "Complete statement and relevant ambient hypotheses read at the exact recorded pin on 2026-10-03; exact name verified in the pinned declaration index. No Tau Ceti object file is required for the definition-expanded Mathlib prototype."
+      },
+      {
+        "ref": "mathlib:exteriorPower.ιMulti",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
+        "sourceLine": 56,
+        "sourceSha256": "dca54210bf084ae3934b0d71e68bda5b981eb7e3010f4570e0f22191ff04738b",
+        "provides": "Native alternating generator into the actual exterior power.",
+        "checked": "Complete statement and relevant ambient hypotheses read at the exact recorded pin on 2026-10-03; exact name verified in the pinned declaration index. No Tau Ceti object file is required for the definition-expanded Mathlib prototype."
+      },
+      {
+        "ref": "mathlib:exteriorPower.map",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
+        "sourceLine": 260,
+        "sourceSha256": "dca54210bf084ae3934b0d71e68bda5b981eb7e3010f4570e0f22191ff04738b",
+        "provides": "Actual functorial linear map of exterior powers.",
+        "checked": "Complete statement and relevant ambient hypotheses read at the exact recorded pin on 2026-10-03; exact name verified in the pinned declaration index. No Tau Ceti object file is required for the definition-expanded Mathlib prototype."
+      },
+      {
+        "ref": "mathlib:exteriorPower.map_apply_ιMulti",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
+        "sourceLine": 273,
+        "sourceSha256": "dca54210bf084ae3934b0d71e68bda5b981eb7e3010f4570e0f22191ff04738b",
+        "provides": "Evaluation of the exterior map on an alternating generator.",
+        "checked": "Complete statement and relevant ambient hypotheses read at the exact recorded pin on 2026-10-03; exact name verified in the pinned declaration index. No Tau Ceti object file is required for the definition-expanded Mathlib prototype."
+      },
+      {
+        "ref": "mathlib:exteriorPower.map_comp",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
+        "sourceLine": 298,
+        "sourceSha256": "dca54210bf084ae3934b0d71e68bda5b981eb7e3010f4570e0f22191ff04738b",
+        "provides": "Exterior-power maps preserve actual linear-map composition.",
+        "checked": "Complete statement and relevant ambient hypotheses read at the exact recorded pin on 2026-10-03; exact name verified in the pinned declaration index. No Tau Ceti object file is required for the definition-expanded Mathlib prototype."
+      },
+      {
+        "ref": "mathlib:exteriorPower.map_id",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
+        "sourceLine": 293,
+        "sourceSha256": "dca54210bf084ae3934b0d71e68bda5b981eb7e3010f4570e0f22191ff04738b",
+        "provides": "Exterior-power map of identity is identity.",
+        "checked": "Complete statement and relevant ambient hypotheses read at the exact recorded pin on 2026-10-03; exact name verified in the pinned declaration index. No Tau Ceti object file is required for the definition-expanded Mathlib prototype."
+      },
+      {
+        "ref": "mathlib:exteriorPower.alternatingMapToDual",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/ExteriorPower/Pairing.lean",
+        "sourceLine": 44,
+        "sourceSha256": "f639b9edb575f2c0571cbf71fc9d621b364f626a52abff4cf166dbf0ce7805cb",
+        "provides": "Actual alternating dual functional on the exterior power.",
+        "checked": "Complete statement and relevant ambient hypotheses read at the exact recorded pin on 2026-10-03; exact name verified in the pinned declaration index. No Tau Ceti object file is required for the definition-expanded Mathlib prototype."
+      },
+      {
+        "ref": "mathlib:exteriorPower.alternatingMapToDual_apply_ιMulti",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/ExteriorPower/Pairing.lean",
+        "sourceLine": 57,
+        "sourceSha256": "f639b9edb575f2c0571cbf71fc9d621b364f626a52abff4cf166dbf0ce7805cb",
+        "provides": "Its value on exterior generators is the determinant pairing.",
+        "checked": "Complete statement and relevant ambient hypotheses read at the exact recorded pin on 2026-10-03; exact name verified in the pinned declaration index. No Tau Ceti object file is required for the definition-expanded Mathlib prototype."
+      },
+      {
+        "ref": "mathlib:AlternatingMap.map_eq_zero_of_eq",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Alternating/Basic.lean",
+        "sourceLine": 177,
+        "sourceSha256": "0124bbde0fda8ec15c145c5935b296dc6d363d14c90999b2870d4859ce669cea",
+        "provides": "An alternating map vanishes on two repeated arguments.",
+        "checked": "Complete statement and relevant ambient hypotheses read at the exact recorded pin on 2026-10-03; exact name verified in the pinned declaration index. No Tau Ceti object file is required for the definition-expanded Mathlib prototype."
+      },
+      {
+        "ref": "mathlib:AlternatingMap.map_swap",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Alternating/Basic.lean",
+        "sourceLine": 669,
+        "sourceSha256": "0124bbde0fda8ec15c145c5935b296dc6d363d14c90999b2870d4859ce669cea",
+        "provides": "Swapping two alternating arguments gives the negative, without division by two.",
+        "checked": "Complete statement and relevant ambient hypotheses read at the exact recorded pin on 2026-10-03; exact name verified in the pinned declaration index. No Tau Ceti object file is required for the definition-expanded Mathlib prototype."
+      },
+      {
+        "ref": "mathlib:LinearMap.injective_of_comp_eq_id",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
+        "sourceLine": 578,
+        "sourceSha256": "242ce4f144fbc775bc424e6b9e088f583fb485fa72f89135d157b5586a987ae7",
+        "provides": "An actual linear retraction proves injectivity.",
+        "checked": "Complete statement and relevant ambient hypotheses read at the exact recorded pin on 2026-10-03; exact name verified in the pinned declaration index. No Tau Ceti object file is required for the definition-expanded Mathlib prototype."
+      },
+      {
+        "ref": "mathlib:TensorProduct.mk",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Defs.lean",
+        "sourceLine": 366,
+        "sourceSha256": "e9ab5f95dc191e56ea1708a140e00efe2c7ee58eabffe7e76cd083d11e57dc65",
+        "provides": "Native bilinear tensor constructor.",
+        "checked": "Complete statement and relevant ambient hypotheses read at the exact recorded pin on 2026-10-03; exact name verified in the pinned declaration index. No Tau Ceti object file is required for the definition-expanded Mathlib prototype."
+      },
+      {
+        "ref": "mathlib:MultilinearMap.mkPiAlgebraFin",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Multilinear/Basic.lean",
+        "sourceLine": 1218,
+        "sourceSha256": "ccab09e82b0f0a79190d95169053a2bd355dba4aab21a15dd11743454e4f6e12",
+        "provides": "Actual multilinear product of a finite ordered family in an algebra.",
+        "checked": "Complete statement and relevant ambient hypotheses read at the exact recorded pin on 2026-10-03; exact name verified in the pinned declaration index. No Tau Ceti object file is required for the definition-expanded Mathlib prototype."
+      },
+      {
+        "ref": "mathlib:MultilinearMap.mkPiAlgebraFin_apply_const",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Multilinear/Basic.lean",
+        "sourceLine": 1233,
+        "sourceSha256": "ccab09e82b0f0a79190d95169053a2bd355dba4aab21a15dd11743454e4f6e12",
+        "provides": "The constant-family product equals the corresponding power, including degree zero.",
+        "checked": "Complete statement and relevant ambient hypotheses read at the exact recorded pin on 2026-10-03; exact name verified in the pinned declaration index. No Tau Ceti object file is required for the definition-expanded Mathlib prototype."
+      },
+      {
+        "ref": "tauceti:exteriorPower.fromTensorPower",
+        "kind": "def",
+        "module": "TauCeti/LinearAlgebra/ExteriorPower.lean",
+        "sourceLine": 155,
+        "sourceSha256": "f19b0a56e948f26c8d3573fd00f081f3f2022ad802985a4b5110afdc84e11478",
+        "provides": "Already-built canonical tensor-power projection onto the native exterior power; its exact definition is the Mathlib lift used in this prototype.",
+        "checked": "Complete statement and relevant ambient hypotheses read at the exact recorded pin on 2026-10-03; exact name verified in the pinned declaration index. No Tau Ceti object file is required for the definition-expanded Mathlib prototype."
+      },
+      {
+        "ref": "tauceti:exteriorPower.fromTensorPower_tprod",
+        "kind": "theorem",
+        "module": "TauCeti/LinearAlgebra/ExteriorPower.lean",
+        "sourceLine": 159,
+        "sourceSha256": "f19b0a56e948f26c8d3573fd00f081f3f2022ad802985a4b5110afdc84e11478",
+        "provides": "Already-built pure-word evaluation of that projection.",
+        "checked": "Complete statement and relevant ambient hypotheses read at the exact recorded pin on 2026-10-03; exact name verified in the pinned declaration index. No Tau Ceti object file is required for the definition-expanded Mathlib prototype."
+      },
+      {
+        "ref": "tauceti:exteriorPower.map_comp_fromTensorPower",
+        "kind": "theorem",
+        "module": "TauCeti/LinearAlgebra/ExteriorPower.lean",
+        "sourceLine": 219,
+        "sourceSha256": "f19b0a56e948f26c8d3573fd00f081f3f2022ad802985a4b5110afdc84e11478",
+        "provides": "Already-built naturality of that projection under every actual linear coefficient map.",
+        "checked": "Complete statement and relevant ambient hypotheses read at the exact recorded pin on 2026-10-03; exact name verified in the pinned declaration index. No Tau Ceti object file is required for the definition-expanded Mathlib prototype."
       }
     ]
   },
@@ -1395,6 +1557,20 @@
         "Complete Definition 4.1 and Remark 4.2, pp.297–298"
       ],
       "readingExtent": "Selected passages freshly read; not whole-paper reading. Affine chart uniqueness and overlap equations below are authored deductions from the actual tensor-valued field and native equivalences. This is not Heuer’s toric-chart Simpson equivalence or a proof of exterior integrability."
+    },
+    {
+      "id": "HeuerExterior-codex-rtOQ9t",
+      "title": "A p-adic Simpson correspondence for smooth proper rigid varieties",
+      "authors": "Ben Heuer",
+      "edition": "Inventiones mathematicae 240 (2025), 261–312; published PDF",
+      "url": "https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf",
+      "sha256": "7608fff18ccbc47b96bd54cfe01f31f8ccd9953889834cc9f6c39787563175cd",
+      "accessed": "2026-10-03",
+      "readSections": [
+        "Definition 1.2(2), p.262",
+        "Complete Definition 4.1 and Remark 4.2, pp.297–298"
+      ],
+      "readingExtent": "Selected passages freshly read. The exterior-square, commutator, chart-transition and unit-field lemmas are authored deductions. No whole-paper reading, rigid-analytic Simpson equivalence or source error is claimed."
     }
   ],
   "nodes": [
@@ -9396,6 +9572,872 @@
           "how": "Ensure the same affine field and every specified exponent are independent of two actual receiving-ring chart presentations; no gluing interface is presumed."
         }
       ]
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-exterior-square",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "construction",
+      "title": "Exterior square of an affine Higgs field",
+      "declaration": "TwistedHiggsBundle.affineExteriorSquare",
+      "statement": "For arbitrary R-modules E,Q and an R-linear field θ:E→E⊗Q, construct κ(θ)=(id_E⊗π₂)∘I₂(θ):E→E⊗Λ²_R Q. Here π₂ is the existing native tensor-power exterior projection, implemented by its exact Mathlib multilinear-lift expression; I₂ is the inherited left-prepended ordered iterate. No division by two or integrability premise occurs.",
+      "hypotheses": [
+        "R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit.",
+        "I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned."
+      ],
+      "proofSteps": [
+        "Apply the existing native exterior projection to the coefficient factor of the actual second ordered iterate. Its pure-word value is the native alternating exterior product, not an antisymmetrization divided by two.",
+        "Retain the full target E⊗Λ²_R Q, even when Q is torsion, not flat or not finitely generated."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate",
+        "mathlib:PiTensorProduct.lift",
+        "mathlib:exteriorPower.ιMulti",
+        "tauceti:exteriorPower.fromTensorPower"
+      ],
+      "acceptance": [
+        "For arbitrary R-modules E,Q and an R-linear field θ:E→E⊗Q, construct κ(θ)=(id_E⊗π₂)∘I₂(θ):E→E⊗Λ²_R Q. Here π₂ is the existing native tensor-power exterior projection, implemented by its exact Mathlib multilinear-lift expression; I₂ is the inherited left-prepended ordered iterate. No division by two or integrability premise occurs."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "HeuerExterior-codex-rtOQ9t",
+          "locator": "Definition 1.2(2), p.262; complete Definition 4.1 and Remark 4.2, pp.297–298",
+          "excerpt": "θ ∧ θ = 0",
+          "match": "The source supplies the actual tensor-valued Higgs field, exterior integrability and its contraction action. This arbitrary-module exterior/commutator/chart calculation is an authored native deduction, not a named theorem or Simpson-correspondence proof in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TwistedHiggsBundle.affineExteriorSquare_zero",
+          "role": "compatibility",
+          "statement": "For arbitrary E,Q, κ(0)=0."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineExteriorSquare_natural",
+          "role": "compatibility",
+          "statement": "If ψ∘f=(f⊗u)∘θ for actual R-linear maps f:E→F and u:Q→P, then κ(ψ)∘f=(f⊗Λ²u)∘κ(θ). No injectivity, surjectivity, basis, flatness or integrability assumption is required."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineExteriorSquare_equiv_zero_iff",
+          "role": "compatibility",
+          "statement": "For a horizontal pair of native linear equivalences f:E≃F and u:Q≃P, κ(ψ)=0 if and only if κ(θ)=0. Neither coefficient nor module flatness is needed."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineExteriorSquare_coefficientMap",
+          "role": "compatibility",
+          "statement": "For every actual coefficient map u:Q→P, κ(θ_u)=(id_E⊗Λ²u)∘κ(θ), where θ_u is the inherited actual coefficient postcomposition."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineExteriorSquare_coefficientMap_zero",
+          "role": "compatibility",
+          "statement": "If κ(θ)=0, then κ(θ_u)=0 for every R-linear coefficient map u, including zero and quotient maps."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineExteriorSquare_coefficientEquiv_zero_iff",
+          "role": "compatibility",
+          "statement": "For every native linear equivalence u:Q≃P, κ(θ_u)=0 if and only if κ(θ)=0."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineExteriorSquare_twoDirection",
+          "role": "compatibility",
+          "statement": "For the actual two-direction field, κ(θ)(e)=(A(B(e))−B(A(e)))⊗(q∧r) for every e. The sign follows the inherited left-prepended order. This holds over every commutative ring, including characteristic two."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineExteriorSquare_twoDirection_zero_of_commute",
+          "role": "compatibility",
+          "statement": "If A∘B=B∘A, then κ(θ)=0 for the actual two-direction field, for arbitrary q,r."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineExteriorSquare_twoDirection_zero_iff",
+          "role": "compatibility",
+          "statement": "Suppose an actual linear functional ℓ:Λ²_R Q→R satisfies ℓ(q∧r)=1. Then κ(θ)=0 if and only if A∘B=B∘A for the two-direction field. This unit-value hypothesis is essential; arbitrary dependent directions do not detect commutation."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineExteriorSquare_twoCoordinates_zero_iff",
+          "role": "compatibility",
+          "statement": "For Q=R×R, q=(1,0) and r=(0,1), the actual two-direction field has κ(θ)=0 if and only if A∘B=B∘A. E is an arbitrary R-module and R is an arbitrary commutative ring; no characteristic restriction or basis of E occurs."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineExteriorSquare_chart_transition",
+          "role": "compatibility",
+          "statement": "For two actual charts of the same receiving-ring scalar extensions, with θ_i the inherited chart field, a=e₂∘e₁⁻¹ and b=q₂∘q₁⁻¹, κ(θ₂)∘a=(a⊗Λ²b)∘κ(θ₁). Every exterior power is over the receiving ring S. This is a chart-transition equation, not a comparison with scalar extension of the source-ring exterior square."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineExteriorSquare_chart_zero_iff",
+          "role": "compatibility",
+          "statement": "For those two charts of the same S-modules, κ(θ₂)=0 if and only if κ(θ₁)=0. An individual nonfaithful R→S extension is not asserted to reflect the original source-ring exterior square."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HodgeStructuresPartII:H.0/higgs-commuting",
+          "how": "Supply actual affine exterior values and detection with their native coefficient hypotheses before invoking E1 sheaf comparison."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.0/local-descent",
+          "how": "Compare actual chart fields through their horizontal square; global restriction, tensor/exterior comparison and descent stay with the supplier."
+        },
+        {
+          "where": "HodgeStructuresPartII:key/higgs-parameter-connections",
+          "how": "Separate exterior integrability from ordered nilpotence and test the prescribed noncommuting two-direction example in every characteristic."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TwistedHiggsBundle.affineExteriorSquare.test_zero",
+          "kind": "degenerate",
+          "statement": "The actual zero field on arbitrary E,Q has zero exterior square."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineExteriorSquare.test_torsion_coefficients",
+          "kind": "compatibility",
+          "statement": "For E=ℤ, Q=ℤ/2, P=ℤ/3 and every actual θ:E→E⊗Q, postcomposition by the zero coefficient map has zero exterior square; no flat coefficient or basis exists here."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineExteriorSquare.test_scalar_line",
+          "kind": "non-example",
+          "statement": "For the actual unit field θ on E=Q=ℤ, κ(θ)=0 and the actual associator-defined ordered square is nonzero."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineExteriorSquare.test_noncommuting_integer",
+          "kind": "non-example",
+          "statement": "For E=Q=ℤ×ℤ, A=E12 and B=E21 as the actual inl/snd and inr/fst composites, the standard two-direction field has nonzero exterior square."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineExteriorSquare.test_noncommuting_char_two",
+          "kind": "non-example",
+          "statement": "The same actual E12/E21 field on E=Q=(ℤ/2)×(ℤ/2) has nonzero exterior square. No division by two or characteristic-zero premise is valid."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineExteriorSquare.test_coefficient_erasure",
+          "kind": "non-example",
+          "statement": "The actual noncommuting ℤ two-coordinate field has nonzero exterior square, but its postcomposition by the zero coefficient map to ℤ has zero exterior square. Arbitrary coefficient maps do not reflect integrability."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineExteriorSquare.test_coefficient_equiv",
+          "kind": "compatibility",
+          "statement": "For every actual coefficient equivalence u:Q≃P, exterior integrability of θ_u is equivalent to exterior integrability of θ."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineChartField.test_exterior_transition",
+          "kind": "degenerate",
+          "statement": "The actual two-direction field is zero when both operators are zero, for arbitrary coefficient directions."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineChartField.test_exterior_zero_iff",
+          "kind": "degenerate",
+          "statement": "The actual two-direction field is zero when both operators are zero, for arbitrary coefficient directions."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineExteriorSquare.test_degree_two_not_nilpotence",
+          "kind": "non-example",
+          "statement": "The actual unit field on ℤ has zero exterior square and a nonzero degree-two ordered tensor-power iterate."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineExteriorSquare.test_integrable_not_nilpotent",
+          "kind": "non-example",
+          "statement": "The actual unit field on ℤ has zero exterior square, while every actual ordered iterate at every n≥0 is nonzero. Exterior integrability cannot replace tensor nilpotence."
+        }
+      ]
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-exterior-square-zero",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Exterior square of the zero field",
+      "declaration": "TwistedHiggsBundle.affineExteriorSquare_zero",
+      "statement": "For arbitrary E,Q, κ(0)=0.",
+      "hypotheses": [
+        "R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit.",
+        "I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned."
+      ],
+      "proofSteps": [
+        "Unfold the two successors in the actual ordered iterate. The zero field makes the positive iterate zero, and exterior projection preserves zero."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-exterior-square",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate",
+        "HodgeStructuresPartII:H.0/affine-ordered-step"
+      ],
+      "acceptance": [
+        "For arbitrary E,Q, κ(0)=0."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "HeuerExterior-codex-rtOQ9t",
+          "locator": "Definition 1.2(2), p.262; complete Definition 4.1 and Remark 4.2, pp.297–298",
+          "excerpt": "θ ∧ θ = 0",
+          "match": "The source supplies the actual tensor-valued Higgs field, exterior integrability and its contraction action. This arbitrary-module exterior/commutator/chart calculation is an authored native deduction, not a named theorem or Simpson-correspondence proof in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-exterior-square-natural",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Exterior square under a horizontal morphism",
+      "declaration": "TwistedHiggsBundle.affineExteriorSquare_natural",
+      "statement": "If ψ∘f=(f⊗u)∘θ for actual R-linear maps f:E→F and u:Q→P, then κ(ψ)∘f=(f⊗Λ²u)∘κ(θ). No injectivity, surjectivity, basis, flatness or integrability assumption is required.",
+      "hypotheses": [
+        "R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit.",
+        "I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned."
+      ],
+      "proofSteps": [
+        "Apply the inherited ordered-iterate naturality at degree two.",
+        "Use the existing exterior-projection naturality; its exact pinned proof compares pure tensor words via the native exterior map on alternating generators. Compose the two actual linear-map squares."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-exterior-square",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-natural",
+        "tauceti:exteriorPower.map_comp_fromTensorPower",
+        "mathlib:exteriorPower.map_apply_ιMulti"
+      ],
+      "acceptance": [
+        "If ψ∘f=(f⊗u)∘θ for actual R-linear maps f:E→F and u:Q→P, then κ(ψ)∘f=(f⊗Λ²u)∘κ(θ). No injectivity, surjectivity, basis, flatness or integrability assumption is required."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "HeuerExterior-codex-rtOQ9t",
+          "locator": "Definition 1.2(2), p.262; complete Definition 4.1 and Remark 4.2, pp.297–298",
+          "excerpt": "θ ∧ θ = 0",
+          "match": "The source supplies the actual tensor-valued Higgs field, exterior integrability and its contraction action. This arbitrary-module exterior/commutator/chart calculation is an authored native deduction, not a named theorem or Simpson-correspondence proof in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-exterior-square-equiv",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Integrability under module and coefficient equivalences",
+      "declaration": "TwistedHiggsBundle.affineExteriorSquare_equiv_zero_iff",
+      "statement": "For a horizontal pair of native linear equivalences f:E≃F and u:Q≃P, κ(ψ)=0 if and only if κ(θ)=0. Neither coefficient nor module flatness is needed.",
+      "hypotheses": [
+        "R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit.",
+        "I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned."
+      ],
+      "proofSteps": [
+        "Construct the actual left inverse f⁻¹⊗Λ²(u⁻¹) using native tensor and exterior functor composition. It makes f⊗Λ²u injective.",
+        "Evaluate the horizontal exterior square to reflect zero through this injection. Preserve zero using surjectivity of f."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-exterior-square-natural",
+        "mathlib:exteriorPower.map_comp",
+        "mathlib:exteriorPower.map_id",
+        "mathlib:LinearMap.injective_of_comp_eq_id"
+      ],
+      "acceptance": [
+        "For a horizontal pair of native linear equivalences f:E≃F and u:Q≃P, κ(ψ)=0 if and only if κ(θ)=0. Neither coefficient nor module flatness is needed."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "HeuerExterior-codex-rtOQ9t",
+          "locator": "Definition 1.2(2), p.262; complete Definition 4.1 and Remark 4.2, pp.297–298",
+          "excerpt": "θ ∧ θ = 0",
+          "match": "The source supplies the actual tensor-valued Higgs field, exterior integrability and its contraction action. This arbitrary-module exterior/commutator/chart calculation is an authored native deduction, not a named theorem or Simpson-correspondence proof in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-exterior-square-coefficient-map",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Exterior square after changing coefficients",
+      "declaration": "TwistedHiggsBundle.affineExteriorSquare_coefficientMap",
+      "statement": "For every actual coefficient map u:Q→P, κ(θ_u)=(id_E⊗Λ²u)∘κ(θ), where θ_u is the inherited actual coefficient postcomposition.",
+      "hypotheses": [
+        "R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit.",
+        "I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned."
+      ],
+      "proofSteps": [
+        "Use horizontal naturality with f=id_E and the defining coefficient-map square."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-exterior-square-natural",
+        "HodgeStructuresPartII:H.0/affine-coefficient-map"
+      ],
+      "acceptance": [
+        "For every actual coefficient map u:Q→P, κ(θ_u)=(id_E⊗Λ²u)∘κ(θ), where θ_u is the inherited actual coefficient postcomposition."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "HeuerExterior-codex-rtOQ9t",
+          "locator": "Definition 1.2(2), p.262; complete Definition 4.1 and Remark 4.2, pp.297–298",
+          "excerpt": "θ ∧ θ = 0",
+          "match": "The source supplies the actual tensor-valued Higgs field, exterior integrability and its contraction action. This arbitrary-module exterior/commutator/chart calculation is an authored native deduction, not a named theorem or Simpson-correspondence proof in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-exterior-square-coefficient-zero",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Coefficient maps preserve integrability",
+      "declaration": "TwistedHiggsBundle.affineExteriorSquare_coefficientMap_zero",
+      "statement": "If κ(θ)=0, then κ(θ_u)=0 for every R-linear coefficient map u, including zero and quotient maps.",
+      "hypotheses": [
+        "R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit.",
+        "I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned."
+      ],
+      "proofSteps": [
+        "Substitute the zero exterior square in the proved coefficient-map equation."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-exterior-square-coefficient-map"
+      ],
+      "acceptance": [
+        "If κ(θ)=0, then κ(θ_u)=0 for every R-linear coefficient map u, including zero and quotient maps."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "HeuerExterior-codex-rtOQ9t",
+          "locator": "Definition 1.2(2), p.262; complete Definition 4.1 and Remark 4.2, pp.297–298",
+          "excerpt": "θ ∧ θ = 0",
+          "match": "The source supplies the actual tensor-valued Higgs field, exterior integrability and its contraction action. This arbitrary-module exterior/commutator/chart calculation is an authored native deduction, not a named theorem or Simpson-correspondence proof in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-exterior-square-coefficient-equiv",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Coefficient equivalences reflect integrability",
+      "declaration": "TwistedHiggsBundle.affineExteriorSquare_coefficientEquiv_zero_iff",
+      "statement": "For every native linear equivalence u:Q≃P, κ(θ_u)=0 if and only if κ(θ)=0.",
+      "hypotheses": [
+        "R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit.",
+        "I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned."
+      ],
+      "proofSteps": [
+        "Use the module identity equivalence and the specified coefficient equivalence in the horizontal zero-reflection theorem."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-exterior-square-equiv",
+        "HodgeStructuresPartII:H.0/affine-coefficient-map"
+      ],
+      "acceptance": [
+        "For every native linear equivalence u:Q≃P, κ(θ_u)=0 if and only if κ(θ)=0."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "HeuerExterior-codex-rtOQ9t",
+          "locator": "Definition 1.2(2), p.262; complete Definition 4.1 and Remark 4.2, pp.297–298",
+          "excerpt": "θ ∧ θ = 0",
+          "match": "The source supplies the actual tensor-valued Higgs field, exterior integrability and its contraction action. This arbitrary-module exterior/commutator/chart calculation is an authored native deduction, not a named theorem or Simpson-correspondence proof in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-two-direction-field",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "construction",
+      "title": "An affine field with two coefficient directions",
+      "declaration": "TwistedHiggsBundle.affineTwoDirectionField",
+      "statement": "For A,B∈End_R(E) and arbitrary q,r∈Q, construct the actual R-linear field θ(e)=A(e)⊗q+B(e)⊗r by the native bilinear tensor constructor. The directions need not be a basis or independent, and A,B need not commute.",
+      "hypotheses": [
+        "R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit.",
+        "I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned."
+      ],
+      "proofSteps": [
+        "Compose the native linear map e↦e⊗q with A, compose e↦e⊗r with B, and add the resulting actual linear maps."
+      ],
+      "prerequisites": [
+        "mathlib:TensorProduct.mk"
+      ],
+      "acceptance": [
+        "For A,B∈End_R(E) and arbitrary q,r∈Q, construct the actual R-linear field θ(e)=A(e)⊗q+B(e)⊗r by the native bilinear tensor constructor. The directions need not be a basis or independent, and A,B need not commute."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "HeuerExterior-codex-rtOQ9t",
+          "locator": "Definition 1.2(2), p.262; complete Definition 4.1 and Remark 4.2, pp.297–298",
+          "excerpt": "θ ∧ θ = 0",
+          "match": "The source supplies the actual tensor-valued Higgs field, exterior integrability and its contraction action. This arbitrary-module exterior/commutator/chart calculation is an authored native deduction, not a named theorem or Simpson-correspondence proof in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TwistedHiggsBundle.affineTwoDirectionField_apply",
+          "role": "projection",
+          "statement": "For every e, the constructed two-direction field evaluates to A(e)⊗q+B(e)⊗r."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineExteriorSquare_twoDirection",
+          "role": "compatibility",
+          "statement": "For the actual two-direction field, κ(θ)(e)=(A(B(e))−B(A(e)))⊗(q∧r) for every e. The sign follows the inherited left-prepended order. This holds over every commutative ring, including characteristic two."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineExteriorSquare_twoDirection_zero_of_commute",
+          "role": "compatibility",
+          "statement": "If A∘B=B∘A, then κ(θ)=0 for the actual two-direction field, for arbitrary q,r."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineExteriorSquare_twoDirection_zero_iff",
+          "role": "compatibility",
+          "statement": "Suppose an actual linear functional ℓ:Λ²_R Q→R satisfies ℓ(q∧r)=1. Then κ(θ)=0 if and only if A∘B=B∘A for the two-direction field. This unit-value hypothesis is essential; arbitrary dependent directions do not detect commutation."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineExteriorSquare_twoCoordinates_zero_iff",
+          "role": "compatibility",
+          "statement": "For Q=R×R, q=(1,0) and r=(0,1), the actual two-direction field has κ(θ)=0 if and only if A∘B=B∘A. E is an arbitrary R-module and R is an arbitrary commutative ring; no characteristic restriction or basis of E occurs."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HodgeStructuresPartII:H.0/higgs-commuting",
+          "how": "Supply actual affine exterior values and detection with their native coefficient hypotheses before invoking E1 sheaf comparison."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.0/local-descent",
+          "how": "Compare actual chart fields through their horizontal square; global restriction, tensor/exterior comparison and descent stay with the supplier."
+        },
+        {
+          "where": "HodgeStructuresPartII:key/higgs-parameter-connections",
+          "how": "Separate exterior integrability from ordered nilpotence and test the prescribed noncommuting two-direction example in every characteristic."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TwistedHiggsBundle.affineTwoDirectionField.test_apply",
+          "kind": "computation",
+          "statement": "The actual two-direction field evaluates at each e to A(e)⊗q+B(e)⊗r."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineTwoDirectionField.test_zero",
+          "kind": "degenerate",
+          "statement": "The actual two-direction field is zero when both operators are zero, for arbitrary q,r."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineTwoDirectionField.test_dependent_directions",
+          "kind": "non-example",
+          "statement": "With q=r, the actual two-direction field has zero exterior square for every pair A,B, even when the operators do not commute. Directions without a detection hypothesis cannot give the converse."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineTwoDirectionField.test_commutator_detection",
+          "kind": "characterisation",
+          "statement": "For Q=R×R and the actual standard coordinate vectors, the field has zero exterior square exactly when A∘B=B∘A, for arbitrary R and E."
+        }
+      ]
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-two-direction-apply",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Evaluation of the two-direction field",
+      "declaration": "TwistedHiggsBundle.affineTwoDirectionField_apply",
+      "statement": "For every e, the constructed two-direction field evaluates to A(e)⊗q+B(e)⊗r.",
+      "hypotheses": [
+        "R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit.",
+        "I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned."
+      ],
+      "proofSteps": [
+        "Read the value of the two tensor-constructor composites; this is definitional."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-two-direction-field"
+      ],
+      "acceptance": [
+        "For every e, the constructed two-direction field evaluates to A(e)⊗q+B(e)⊗r."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "HeuerExterior-codex-rtOQ9t",
+          "locator": "Definition 1.2(2), p.262; complete Definition 4.1 and Remark 4.2, pp.297–298",
+          "excerpt": "θ ∧ θ = 0",
+          "match": "The source supplies the actual tensor-valued Higgs field, exterior integrability and its contraction action. This arbitrary-module exterior/commutator/chart calculation is an authored native deduction, not a named theorem or Simpson-correspondence proof in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-exterior-two-direction",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Commutator formula for the exterior square",
+      "declaration": "TwistedHiggsBundle.affineExteriorSquare_twoDirection",
+      "statement": "For the actual two-direction field, κ(θ)(e)=(A(B(e))−B(A(e)))⊗(q∧r) for every e. The sign follows the inherited left-prepended order. This holds over every commutative ring, including characteristic two.",
+      "hypotheses": [
+        "R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit.",
+        "I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned."
+      ],
+      "proofSteps": [
+        "Use the proved comparison with the associator-defined ordered square. Expand all four actual pure tensor terms.",
+        "The diagonal terms vanish because repeated arguments of the native alternating map vanish. Swap r,q to obtain minus q,r, without dividing by two.",
+        "Collect the two off-diagonal terms in the module factor to obtain the stated commutator, with the rightmost endomorphism acting first."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-exterior-square",
+        "HodgeStructuresPartII:H.0/affine-two-direction-apply",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-two",
+        "HodgeStructuresPartII:H.0/affine-ordered-square",
+        "mathlib:PiTensorProduct.lift.tprod",
+        "mathlib:AlternatingMap.map_eq_zero_of_eq",
+        "mathlib:AlternatingMap.map_swap"
+      ],
+      "acceptance": [
+        "For the actual two-direction field, κ(θ)(e)=(A(B(e))−B(A(e)))⊗(q∧r) for every e. The sign follows the inherited left-prepended order. This holds over every commutative ring, including characteristic two."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "HeuerExterior-codex-rtOQ9t",
+          "locator": "Definition 1.2(2), p.262; complete Definition 4.1 and Remark 4.2, pp.297–298",
+          "excerpt": "θ ∧ θ = 0",
+          "match": "The source supplies the actual tensor-valued Higgs field, exterior integrability and its contraction action. This arbitrary-module exterior/commutator/chart calculation is an authored native deduction, not a named theorem or Simpson-correspondence proof in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-exterior-two-direction-commute",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Commuting operators give an integrable two-direction field",
+      "declaration": "TwistedHiggsBundle.affineExteriorSquare_twoDirection_zero_of_commute",
+      "statement": "If A∘B=B∘A, then κ(θ)=0 for the actual two-direction field, for arbitrary q,r.",
+      "hypotheses": [
+        "R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit.",
+        "I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned."
+      ],
+      "proofSteps": [
+        "Evaluate the commutator formula at every e and substitute the specified equality of the two composites."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-exterior-two-direction"
+      ],
+      "acceptance": [
+        "If A∘B=B∘A, then κ(θ)=0 for the actual two-direction field, for arbitrary q,r."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "HeuerExterior-codex-rtOQ9t",
+          "locator": "Definition 1.2(2), p.262; complete Definition 4.1 and Remark 4.2, pp.297–298",
+          "excerpt": "θ ∧ θ = 0",
+          "match": "The source supplies the actual tensor-valued Higgs field, exterior integrability and its contraction action. This arbitrary-module exterior/commutator/chart calculation is an authored native deduction, not a named theorem or Simpson-correspondence proof in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-exterior-two-direction-detection",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "A split exterior coefficient detects commutation",
+      "declaration": "TwistedHiggsBundle.affineExteriorSquare_twoDirection_zero_iff",
+      "statement": "Suppose an actual linear functional ℓ:Λ²_R Q→R satisfies ℓ(q∧r)=1. Then κ(θ)=0 if and only if A∘B=B∘A for the two-direction field. This unit-value hypothesis is essential; arbitrary dependent directions do not detect commutation.",
+      "hypotheses": [
+        "R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit.",
+        "I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned.",
+        "ℓ is an actual R-linear functional on the full native exterior square, and ℓ(q∧r)=1. It is neither a stored zero-reflection oracle nor an omitted independence condition."
+      ],
+      "proofSteps": [
+        "Apply id_E⊗ℓ and the tensor right unitor to each value of the commutator formula. The actual unit value makes the resulting map the identity on the commutator vector.",
+        "For the converse, apply the proved commuting-operator lemma."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-exterior-two-direction",
+        "HodgeStructuresPartII:H.0/affine-exterior-two-direction-commute"
+      ],
+      "acceptance": [
+        "Suppose an actual linear functional ℓ:Λ²_R Q→R satisfies ℓ(q∧r)=1. Then κ(θ)=0 if and only if A∘B=B∘A for the two-direction field. This unit-value hypothesis is essential; arbitrary dependent directions do not detect commutation."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "HeuerExterior-codex-rtOQ9t",
+          "locator": "Definition 1.2(2), p.262; complete Definition 4.1 and Remark 4.2, pp.297–298",
+          "excerpt": "θ ∧ θ = 0",
+          "match": "The source supplies the actual tensor-valued Higgs field, exterior integrability and its contraction action. This arbitrary-module exterior/commutator/chart calculation is an authored native deduction, not a named theorem or Simpson-correspondence proof in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-exterior-two-coordinates",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Integrability in the native two-coordinate chart",
+      "declaration": "TwistedHiggsBundle.affineExteriorSquare_twoCoordinates_zero_iff",
+      "statement": "For Q=R×R, q=(1,0) and r=(0,1), the actual two-direction field has κ(θ)=0 if and only if A∘B=B∘A. E is an arbitrary R-module and R is an arbitrary commutative ring; no characteristic restriction or basis of E occurs.",
+      "hypotheses": [
+        "R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit.",
+        "I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned."
+      ],
+      "proofSteps": [
+        "Use the actual native exterior-dual functional determined by the coordinate projections fst,snd.",
+        "Its value on q∧r is the determinant of the identity two-by-two matrix, hence one over every commutative ring. Apply the split-coefficient detection lemma."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-exterior-two-direction-detection",
+        "mathlib:exteriorPower.alternatingMapToDual",
+        "mathlib:exteriorPower.alternatingMapToDual_apply_ιMulti"
+      ],
+      "acceptance": [
+        "For Q=R×R, q=(1,0) and r=(0,1), the actual two-direction field has κ(θ)=0 if and only if A∘B=B∘A. E is an arbitrary R-module and R is an arbitrary commutative ring; no characteristic restriction or basis of E occurs."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "HeuerExterior-codex-rtOQ9t",
+          "locator": "Definition 1.2(2), p.262; complete Definition 4.1 and Remark 4.2, pp.297–298",
+          "excerpt": "θ ∧ θ = 0",
+          "match": "The source supplies the actual tensor-valued Higgs field, exterior integrability and its contraction action. This arbitrary-module exterior/commutator/chart calculation is an authored native deduction, not a named theorem or Simpson-correspondence proof in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-exterior-chart-transition",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Exterior square on affine chart overlaps",
+      "declaration": "TwistedHiggsBundle.affineExteriorSquare_chart_transition",
+      "statement": "For two actual charts of the same receiving-ring scalar extensions, with θ_i the inherited chart field, a=e₂∘e₁⁻¹ and b=q₂∘q₁⁻¹, κ(θ₂)∘a=(a⊗Λ²b)∘κ(θ₁). Every exterior power is over the receiving ring S. This is a chart-transition equation, not a comparison with scalar extension of the source-ring exterior square.",
+      "hypotheses": [
+        "R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit.",
+        "I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned.",
+        "S is a commutative R-algebra. For i=1,2 the actual e_i:S⊗_R E≃_S F_i and q_i:S⊗_R Q≃_S P_i identify the same receiving-ring scalar extensions. Sheaf restriction/exterior/twist comparisons and equality detection/gluing remain E1 supplier obligations."
+      ],
+      "proofSteps": [
+        "Apply exterior horizontal naturality over S to the proved actual chart-transition square."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-exterior-square-natural",
+        "HodgeStructuresPartII:H.0/affine-chart-field-transition"
+      ],
+      "acceptance": [
+        "For two actual charts of the same receiving-ring scalar extensions, with θ_i the inherited chart field, a=e₂∘e₁⁻¹ and b=q₂∘q₁⁻¹, κ(θ₂)∘a=(a⊗Λ²b)∘κ(θ₁). Every exterior power is over the receiving ring S. This is a chart-transition equation, not a comparison with scalar extension of the source-ring exterior square."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "HeuerExterior-codex-rtOQ9t",
+          "locator": "Definition 1.2(2), p.262; complete Definition 4.1 and Remark 4.2, pp.297–298",
+          "excerpt": "θ ∧ θ = 0",
+          "match": "The source supplies the actual tensor-valued Higgs field, exterior integrability and its contraction action. This arbitrary-module exterior/commutator/chart calculation is an authored native deduction, not a named theorem or Simpson-correspondence proof in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-exterior-chart-zero",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Integrability is independent of the receiving chart",
+      "declaration": "TwistedHiggsBundle.affineExteriorSquare_chart_zero_iff",
+      "statement": "For those two charts of the same S-modules, κ(θ₂)=0 if and only if κ(θ₁)=0. An individual nonfaithful R→S extension is not asserted to reflect the original source-ring exterior square.",
+      "hypotheses": [
+        "R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit.",
+        "I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned.",
+        "S is a commutative R-algebra. For i=1,2 the actual e_i:S⊗_R E≃_S F_i and q_i:S⊗_R Q≃_S P_i identify the same receiving-ring scalar extensions. Sheaf restriction/exterior/twist comparisons and equality detection/gluing remain E1 supplier obligations."
+      ],
+      "proofSteps": [
+        "Use the actual module and coefficient transition equivalences in the exterior zero-reflection theorem."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-exterior-square-equiv",
+        "HodgeStructuresPartII:H.0/affine-chart-field-transition"
+      ],
+      "acceptance": [
+        "For those two charts of the same S-modules, κ(θ₂)=0 if and only if κ(θ₁)=0. An individual nonfaithful R→S extension is not asserted to reflect the original source-ring exterior square."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "HeuerExterior-codex-rtOQ9t",
+          "locator": "Definition 1.2(2), p.262; complete Definition 4.1 and Remark 4.2, pp.297–298",
+          "excerpt": "θ ∧ θ = 0",
+          "match": "The source supplies the actual tensor-valued Higgs field, exterior integrability and its contraction action. This arbitrary-module exterior/commutator/chart calculation is an authored native deduction, not a named theorem or Simpson-correspondence proof in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-ordered-unit-field",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Every ordered iterate of the scalar unit field",
+      "declaration": "TwistedHiggsBundle.affineOrderedIterate_unitField",
+      "statement": "For θ(e)=e⊗1 on E=Q=R, every n≥0 satisfies I_n(θ)(e)=e⊗(1⊗⋯⊗1), with the empty word and tensor unit retained at n=0.",
+      "hypotheses": [
+        "R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit.",
+        "I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned."
+      ],
+      "proofSteps": [
+        "The degree-zero defining unit identifies the empty Fin 0 word.",
+        "Induct through the actual successor prepend. The tensor unitor gives θ(e)=e⊗1; native tensor-power multiplication and cast identify the constant unit word at n+1."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate",
+        "HodgeStructuresPartII:H.0/affine-ordered-step"
+      ],
+      "acceptance": [
+        "For θ(e)=e⊗1 on E=Q=R, every n≥0 satisfies I_n(θ)(e)=e⊗(1⊗⋯⊗1), with the empty word and tensor unit retained at n=0."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "HeuerExterior-codex-rtOQ9t",
+          "locator": "Definition 1.2(2), p.262; complete Definition 4.1 and Remark 4.2, pp.297–298",
+          "excerpt": "θ ∧ θ = 0",
+          "match": "The source supplies the actual tensor-valued Higgs field, exterior integrability and its contraction action. This arbitrary-module exterior/commutator/chart calculation is an authored native deduction, not a named theorem or Simpson-correspondence proof in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-ordered-unit-field-nonzero",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "The scalar unit field is never tensor nilpotent",
+      "declaration": "TwistedHiggsBundle.affineOrderedIterate_unitField_ne_zero",
+      "statement": "If R is a nontrivial commutative ring, then I_n(θ)≠0 for every n≥0 for the actual scalar unit field θ(e)=e⊗1. This does not require R to be reduced, a domain or a field.",
+      "hypotheses": [
+        "R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit.",
+        "I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned.",
+        "R is nontrivial. E=Q=R with θ the actual inverse tensor right unitor."
+      ],
+      "proofSteps": [
+        "Evaluate the supposed zero iterate at e=1.",
+        "Apply the actual multilinear product of the n coefficient entries and the tensor right unitor. The value of the constant unit word is one, contradicting nontriviality."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-ordered-unit-field",
+        "mathlib:PiTensorProduct.lift",
+        "mathlib:MultilinearMap.mkPiAlgebraFin",
+        "mathlib:MultilinearMap.mkPiAlgebraFin_apply_const"
+      ],
+      "acceptance": [
+        "If R is a nontrivial commutative ring, then I_n(θ)≠0 for every n≥0 for the actual scalar unit field θ(e)=e⊗1. This does not require R to be reduced, a domain or a field."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "HeuerExterior-codex-rtOQ9t",
+          "locator": "Definition 1.2(2), p.262; complete Definition 4.1 and Remark 4.2, pp.297–298",
+          "excerpt": "θ ∧ θ = 0",
+          "match": "The source supplies the actual tensor-valued Higgs field, exterior integrability and its contraction action. This arbitrary-module exterior/commutator/chart calculation is an authored native deduction, not a named theorem or Simpson-correspondence proof in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -9496,7 +10538,8 @@
         "One-step arbitrary-Q scalar-extension field/coefficient coherence and faithful-flat degree-one reflection now have native checked prototypes. Receiving-ring all-degree naturality does not compare an S-iterate with scalar extension of an R-iterate. Still prove the arbitrary-Q cross-ring tensor-power unit/prepend/comparison equations, all-degree bound preservation/reflection, finite-projective restriction and E1 sheaf gluing; do not replace these with a basis or stored oracle.",
         "Current codex-a71f92 checkpoint supplies actual native arbitrary-Q affine cross-ring unit/prepend/step/iterate equations and all-degree same-exponent preservation and faithfully-flat reflection, including n=0; earlier affine missing-work wording above is retained as checkpoint history. Finite-projective chart restriction, sheaf tensor-power comparison/equality detection/gluing, exterior-integrability transport, globally uniform versus locally varying exponents, rank bounds and all global/source/supplier obligations remain open. This does not identify sheaf tensor sections with tensors of global sections or assert kernel/image base-change compatibility.",
         "Current codex-5ebb6f affine-local checkpoint proves actual chart transport and ordered comparison, fixed-bound detection through a unit-ideal principal cover, and a positive finite-subcover bound for varying local exponents. Finite-projective modules are included without bases. This does not construct actual sheaf restriction identifications, sheaf tensor powers, equality detection or gluing: discharge the E1 request on the native module-sheaf carrier before upgrading the affine statement to a global ringed-site theorem. Non-quasi-compact sites need separate uniformity hypotheses. Exterior-integrability transport, rank bounds, period/Tate adapters, all source routes and H.1–H.8 remain open.",
-        "Current codex-J6LwjP chart-overlap checkpoint supplies unique affine chart fields, actual horizontal two-chart transition and all-degree ordered-iterate transition, including tensor-unit and triple-overlap checks. Before global restriction/descent, discharge E1’s actual sheaf tensor-power comparison, restriction identifications and equality detection/gluing. Exterior-integrability transport, global determinant/Tate adapters, rank bounds, all 149 source obligations and H.1–H.8 remain open."
+        "Current codex-J6LwjP chart-overlap checkpoint supplies unique affine chart fields, actual horizontal two-chart transition and all-degree ordered-iterate transition, including tensor-unit and triple-overlap checks. Before global restriction/descent, discharge E1’s actual sheaf tensor-power comparison, restriction identifications and equality detection/gluing. Exterior-integrability transport, global determinant/Tate adapters, rank bounds, all 149 source obligations and H.1–H.8 remain open.",
+        "The actual native affine exterior square, horizontal naturality, module/coefficient-equivalence reflection, receiving-chart transition, arbitrary-characteristic two-direction commutator formula and split-coefficient detection are now supplied as plans with separate checked native proofs. The full two-coordinate integrability criterion and scalar unit field at every ordered degree are checked, including characteristic two and integrability without nilpotence. Still supply the arbitrary-Q cross-ring exterior projection/base-change comparison, the global Ω²⊗T² identification, finite-projective sheaf restriction/exterior comparison, equality detection/gluing, the full arbitrary finite-basis coordinate criterion and every inherited rank, determinant/Tate, period, supplier and source obligation. These affine proofs do not compare a sheaf tensor with tensors of global sections or reflect source-ring curvature through a nonfaithful extension."
       ]
     },
     {
@@ -10088,6 +11131,12 @@
         "mathlib:Module.Flat.of_projective",
         "mathlib:TensorProduct.map_injective_of_flat_flat"
       ]
+    },
+    "nativeExteriorContinuation": {
+      "agent": "Codex — codex-rtOQ9t",
+      "date": "2026-10-03",
+      "read": "Fresh complete four parent Hodge audit rows plus complete E1/D3 reviewed rows; exact reserved survey/owner/key records and current CR.1/E1/DD.1/D3 supplier contracts. No dedicated PartII audit row exists. Source ownership remains unchanged.",
+      "boundedSearch": "Selected pinned Mathlib exterior, tensor, alternating, dual-pairing and finite-product declarations and exact Tau Ceti exterior projection/naturality were read. The latter are built and imported as baseline, never replanned. Scoped native Hodge/LinearAlgebra searches did not find these Higgs-specific exterior/ordered-unit adapters; this is not an exhaustive absence claim."
     }
   },
   "upstreamNotes": [],
