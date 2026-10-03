@@ -1,3 +1,158 @@
+# Scheme and stack foundations: quotient and cokernel continuation
+
+Codex — codex-rtOQ9t · 3 October 2026 · Refs #642 · partial.
+
+This strand supplies the canonical quotient-module comparison behind the incoming flat-annihilator supplier. It imports Mathlib’s S-linear tensorQuotientEquiv and native quotients. A quotient square and module-map naturality identify the actual maps, while the image adapter identifies range(f.baseChange) with the extension of range(f). The named cokernel comparison is a concrete composition of existing equivalences. There is no new quotient carrier.
+
+The [right-exact tensor theorem](https://stacks.math.columbia.edu/tag/00DF) needs no flatness or finite generation. Combining its native quotient comparison with the incoming [flat-annihilator theorem](https://stacks.math.columbia.edu/tag/07T8) yields full equality of annihilator ideals when S is flat and the quotient or cokernel is finite. The ambient modules and submodule need not be finite. Unconditional inclusion is kept as a separate result.
+
+The tests include identity and zero maps, an actual nonzero modular coordinate, inverse representatives over Z/4, the zero coefficient ring, and nonzero nilpotent annihilator scalars over Z/4 and its flat diagonal product extension. The [multiplication-by-two example](https://stacks.math.columbia.edu/tag/00DI) checks an injective Z-linear map whose extension to Z/2 is zero on a nonzero tensor. This illustrates failure of injectivity preservation, not a claimed counterexample to the finite-whole-module annihilator formula.
+
+The generic native quotient/cokernel comparison now has thirteen declaration-sized adapters and eight typed tests. Its actual quotient square and module-map naturality hold without flatness; full annihilator equality requires flatness and finiteness of the quotient/cokernel alone. The conductor consumer must still identify its particular algebra-image submodule, affine pullback ideals and section/sheaf maps. Existing henselization, reserved-key, all routed-source and other-stage obligations remain open.
+
+All37 incoming node objects,14 API items,19 raw tests,8 gaps,62 routes,12 confirmed findings and6 reserved-key boundaries are preserved. Historical text below remains under its original attribution. The suggested file remains a planning file; separate native proofs are validation evidence, with implementation statuses unchecked.
+
+## Canonical quotient square
+
+**TauCeti.SchemeFoundations.QuotientBaseChange.quotient_baseChange_square** — For a commutative R-algebra S and a submodule Q of an R-module M, the existing S-linear tensor quotient equivalence E_Q satisfies E_Q ∘ (Q.mkQ).baseChange S = (Q.baseChange S).mkQ. The equality compares the actual linear maps on all tensors.
+
+Hypotheses: R and S are commutative rings, including zero rings, in independent universes. M and N are arbitrary additive commutative groups with R-module structures. Flatness and finite generation are required only where explicitly stated; finite generation applies to the quotient or cokernel.
+
+Prerequisites: mathlib:TensorProduct.AlgebraTensorModule.tensorQuotientEquiv, mathlib:LinearMap.baseChange, mathlib:Submodule.baseChange.
+
+Proof: Apply tensor-linear-map extensionality. Both composites send s⊗m to the class of s⊗m in the quotient by Q.baseChange S. No choice of generators or flatness is involved.
+
+## Annihilator transport through the tensor quotient
+
+**TauCeti.SchemeFoundations.QuotientBaseChange.quotient_baseChange_annihilator** — For every commutative R-algebra S and Q≤M, Ann_S(S⊗_R(M/Q)) equals Ann_S((S⊗_R M)/(Q.baseChange S)). The quotient equivalence is the existing S-linear Mathlib tensorQuotientEquiv, with its image submodule definitionally Q.baseChange S.
+
+Hypotheses: R and S are commutative rings, including zero rings, in independent universes. M and N are arbitrary additive commutative groups with R-module structures. Flatness and finite generation are required only where explicitly stated; finite generation applies to the quotient or cokernel.
+
+Prerequisites: mathlib:TensorProduct.AlgebraTensorModule.tensorQuotientEquiv, mathlib:LinearEquiv.annihilator_eq, mathlib:Submodule.baseChange.
+
+Proof: Read the complete ambient scalar towers of the existing tensor quotient equivalence. Apply its native annihilator_eq theorem; both scalar rings are S. This imports the equivalence instead of defining a second quotient carrier.
+
+## Flat base change of quotient annihilators
+
+**TauCeti.SchemeFoundations.QuotientBaseChange.quotient_annihilator_flat_baseChange** — If S is a flat commutative R-algebra and M/Q is finitely generated over R, then (Ann_R(M/Q)).map(algebraMap R S)=Ann_S((S⊗_R M)/(Q.baseChange S)). Only the quotient M/Q must be finite; M and Q need not be finite, Noetherian or finitely presented.
+
+Hypotheses: R and S are commutative rings, including zero rings, in independent universes. M and N are arbitrary additive commutative groups with R-module structures. Flatness and finite generation are required only where explicitly stated; finite generation applies to the quotient or cokernel.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/flat-annihilator, SchemeAndStackFoundations:SF.0/quotient-basechange-annihilator.
+
+Proof: Apply the incoming finite-module flat-annihilator theorem to the actual quotient M/Q. Transport its S-annihilator through the native tensor quotient equivalence. No additional finiteness is introduced.
+
+## Unconditional quotient annihilator inclusion
+
+**TauCeti.SchemeFoundations.QuotientBaseChange.quotient_annihilator_map_le_baseChange** — For every commutative R-algebra S and Q≤M, (Ann_R(M/Q)).map(algebraMap R S)≤Ann_S((S⊗_R M)/(Q.baseChange S)). This inclusion requires neither flatness nor finiteness.
+
+Hypotheses: R and S are commutative rings, including zero rings, in independent universes. M and N are arbitrary additive commutative groups with R-module structures. Flatness and finite generation are required only where explicitly stated; finite generation applies to the quotient or cokernel.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/annihilator-basechange-inclusion, SchemeAndStackFoundations:SF.0/quotient-basechange-annihilator.
+
+Proof: Use the incoming unconditional annihilator inclusion for M/Q, then the S-linear quotient annihilator comparison. Equality is asserted only in the preceding flat finite-quotient theorem.
+
+## Image under extension of scalars
+
+**TauCeti.SchemeFoundations.QuotientBaseChange.baseChange_range** — For any R-linear f:M→N and commutative R-algebra S, range(f.baseChange S)=(range f).baseChange S. This is an equality of native S-submodules; f need not be injective and S need not be flat.
+
+Hypotheses: R and S are commutative rings, including zero rings, in independent universes. M and N are arbitrary additive commutative groups with R-module structures. Flatness and finite generation are required only where explicitly stated; finite generation applies to the quotient or cokernel.
+
+Prerequisites: mathlib:LinearMap.lTensor_range, mathlib:Submodule.baseChange, mathlib:LinearMap.baseChange.
+
+Proof: Compare the native S-submodules after restricting scalars to R, using injectivity of restriction of submodules. The resulting ranges are exactly the existing lTensor_range equality. This is a scalar-structure adapter for that built result.
+
+## Submodule image compatibility
+
+**TauCeti.SchemeFoundations.QuotientBaseChange.baseChange_map** — For Q≤M and f:M→N, extending Q.map f to S equals the image of Q.baseChange S under f.baseChange S. This holds for all commutative R-algebras S without flatness.
+
+Hypotheses: R and S are commutative rings, including zero rings, in independent universes. M and N are arbitrary additive commutative groups with R-module structures. Flatness and finite generation are required only where explicitly stated; finite generation applies to the quotient or cokernel.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/range-basechange, mathlib:LinearMap.range_comp, mathlib:Submodule.range_subtype, mathlib:LinearMap.baseChange_comp.
+
+Proof: Express Q.map f as the range of f composed with the actual subtype of Q. Apply range-basechange, baseChange_comp and range_comp. The remaining source range is definitionally Q.baseChange S.
+
+## Extended containment for quotient maps
+
+**TauCeti.SchemeFoundations.QuotientBaseChange.baseChange_le_comap** — If Q≤P.comap f for f:M→N, then Q.baseChange S≤(P.baseChange S).comap(f.baseChange S). This supplies the actual containment proof needed to induce the map on the extended quotients.
+
+Hypotheses: R and S are commutative rings, including zero rings, in independent universes. M and N are arbitrary additive commutative groups with R-module structures. Flatness and finite generation are required only where explicitly stated; finite generation applies to the quotient or cokernel.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/submodule-image-basechange, mathlib:Submodule.baseChange_mono, mathlib:Submodule.map_le_iff_le_comap.
+
+Proof: Translate containment to an image inequality. Rewrite the image using submodule-image-basechange and apply the existing monotonicity of extension of submodules.
+
+## Naturality of the quotient comparison
+
+**TauCeti.SchemeFoundations.QuotientBaseChange.quotient_baseChange_naturality** — For f:M→N and Q≤P.comap f, E_P ∘ (Q.mapQ P f).baseChange S equals the induced map (Q.baseChange S).mapQ (P.baseChange S) (f.baseChange S) composed with E_Q. All four maps are the native S-linear maps and equivalences with the preceding extended containment proof.
+
+Hypotheses: R and S are commutative rings, including zero rings, in independent universes. M and N are arbitrary additive commutative groups with R-module structures. Flatness and finite generation are required only where explicitly stated; finite generation applies to the quotient or cokernel.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-map-basechange-containment, mathlib:Submodule.mapQ, mathlib:TensorProduct.AlgebraTensorModule.tensorQuotientEquiv.
+
+Proof: Use tensor and quotient extensionality. On s⊗[m], the two composites give [s⊗f(m)]. Retain the actual native containment and mapQ arguments; no arbitrary isomorphism replaces either comparison map.
+
+## Flat base change of finite cokernel annihilators
+
+**TauCeti.SchemeFoundations.QuotientBaseChange.cokernel_annihilator_flat_baseChange** — For an R-linear f:M→N, a flat commutative R-algebra S and finite R-module N/range f, extending Ann_R(N/range f) to S gives Ann_S((S⊗_R N)/range(f.baseChange S)). Finiteness of the cokernel alone suffices, and f need not be injective.
+
+Hypotheses: R and S are commutative rings, including zero rings, in independent universes. M and N are arbitrary additive commutative groups with R-module structures. Flatness and finite generation are required only where explicitly stated; finite generation applies to the quotient or cokernel.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/flat-quotient-annihilator, SchemeAndStackFoundations:SF.0/range-basechange.
+
+Proof: Apply the quotient theorem with Q=range f, then rewrite its extended submodule using range-basechange. The result computes the full annihilator of the actual quotient by the actual extended map, including nilpotent scalars.
+
+## Canonical cokernel comparison
+
+**TauCeti.SchemeFoundations.QuotientBaseChange.cokernelBaseChangeEquiv** — For any R-linear f:M→N and commutative R-algebra S, construct the S-linear equivalence S⊗_R(N/range f)≃(S⊗_R N)/range(f.baseChange S) by composing the existing tensor quotient equivalence with the native quotient transport along range-basechange. This named adapter introduces no new module or quotient carrier.
+
+Hypotheses: R and S are commutative rings, including zero rings, in independent universes. M and N are arbitrary additive commutative groups with R-module structures. Flatness and finite generation are required only where explicitly stated; finite generation applies to the quotient or cokernel.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/range-basechange, mathlib:TensorProduct.AlgebraTensorModule.tensorQuotientEquiv, mathlib:Submodule.quotEquivOfEq.
+
+Proof: Compose tensorQuotientEquiv S R S (range f) with quotEquivOfEq using the symmetric range-basechange equality. The concrete Lean constructor is retained in every projection; no flatness, generator choice or finite presentation is needed.
+
+## Cokernel comparison on representatives
+
+**TauCeti.SchemeFoundations.QuotientBaseChange.cokernelBaseChangeEquiv_tmul** — The canonical cokernel comparison sends s⊗[n] to [s⊗n] for every s∈S and n∈N. Brackets denote the respective actual native quotient maps, so elements of range f are respected.
+
+Hypotheses: R and S are commutative rings, including zero rings, in independent universes. M and N are arbitrary additive commutative groups with R-module structures. Flatness and finite generation are required only where explicitly stated; finite generation applies to the quotient or cokernel.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/cokernel-basechange-comparison, mathlib:Submodule.quotEquivOfEq_mk.
+
+Proof: Unfold the concrete composite on the actual tensor and quotient representatives. Both the existing tensor equivalence and quotient transport have the required defining evaluation.
+
+## Inverse cokernel comparison on representatives
+
+**TauCeti.SchemeFoundations.QuotientBaseChange.cokernelBaseChangeEquiv_symm_mk_tmul** — The inverse canonical cokernel comparison sends [s⊗n] to s⊗[n]. This fixes the inverse map on actual pure-tensor quotient representatives without a flatness hypothesis.
+
+Hypotheses: R and S are commutative rings, including zero rings, in independent universes. M and N are arbitrary additive commutative groups with R-module structures. Flatness and finite generation are required only where explicitly stated; finite generation applies to the quotient or cokernel.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/cokernel-basechange-comparison, mathlib:Submodule.quotEquivOfEq.
+
+Proof: The inverse of the composite is the inverse native quotient transport followed by the inverse tensor quotient equivalence. Evaluate each on the same representative; both defining computations are exact.
+
+## Canonical cokernel square
+
+**TauCeti.SchemeFoundations.QuotientBaseChange.cokernel_baseChange_square** — As S-linear maps from S⊗_R N, cokernelBaseChangeEquiv S f composed with (range f).mkQ.baseChange S equals (range(f.baseChange S)).mkQ. The named comparison is therefore compatible with the actual quotient projection.
+
+Hypotheses: R and S are commutative rings, including zero rings, in independent universes. M and N are arbitrary additive commutative groups with R-module structures. Flatness and finite generation are required only where explicitly stated; finite generation applies to the quotient or cokernel.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/cokernel-basechange-comparison, SchemeAndStackFoundations:SF.0/cokernel-basechange-representative.
+
+Proof: Apply tensor-linear-map extensionality. The defining comparison sends the tensor of each quotient representative to the quotient of the same actual tensor.
+
+## Typed boundary tests
+
+- **QuotientBaseChangeChecked.identity_cokernel**: For the identity map of any R-module, the quotient by the image of its scalar extension is a singleton, for every S.
+- **QuotientBaseChangeChecked.zero_map_scalar**: For the zero map Z→Z and S=Z/5, the canonical comparison sends 3⊗[7] to a class whose actual quotient-zero and right-unit coordinates equal 1.
+- **QuotientBaseChangeChecked.inverse_representative**: For multiplication by 2 on Z and S=Z/4, the actual inverse comparison sends [3⊗7] to 3⊗[7], although this scalar extension is not flat.
+- **QuotientBaseChangeChecked.nonflat_injective_map_collapses**: Multiplication by 2 on Z is injective, but its extension to Z/2 is the zero linear map, and 1⊗1 is nonzero. Right-exact quotient comparison does not imply preservation of injectivity.
+- **QuotientBaseChangeChecked.nonreduced_quotient_annihilator**: For Q=(2) in Z/4 under identity extension, the nonzero scalar 2 annihilates the actual quotient of the tensor module by Q.baseChange.
+- **QuotientBaseChangeChecked.nonreduced_diagonal_quotient**: For Q=(2) in Z/4 under its actual flat diagonal extension to Z/4×Z/4, the nonzero scalar (2,2) annihilates the extended quotient.
+- **QuotientBaseChangeChecked.top_quotient_annihilator**: For Q=M and any commutative R-algebra S, the actual extended quotient has unit annihilator, without a flatness or finiteness hypothesis.
+- **QuotientBaseChangeChecked.zero_ring_cokernel**: For multiplication by 2 on Z and the zero coefficient ring Z/1, the actual extended cokernel quotient is a singleton.
+
 # Flat base change of annihilators
 
 For a finitely generated module M over a commutative ring R and a flat commutative R-algebra S, the full annihilator ideal extends to the annihilator of S⊗_R M. This is the generic SF.0 supplier requested by the conductor construction in Neron Models Part II. It uses native ideals and modules; it introduces no new carriers. The actual conductor quotient identification and sheaf comparisons remain the consumer’s work.
