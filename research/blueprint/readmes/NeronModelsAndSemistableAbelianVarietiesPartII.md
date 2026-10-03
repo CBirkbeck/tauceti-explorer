@@ -1,3 +1,251 @@
+# Quadratic pinching: integral schemes and the specified dense-open comparison
+
+For every field k and q=t²+at+b, the specified finite global map ν:N→C is surjective; both schemes are integral, every source stalk is integrally closed, and an actual dense-open Scheme.PartialIso agrees with ν over Spec k. The projective-line and Proj identifications, normalization universal property, projectivity/properness, conductor ideal sheaf, structure-sheaf exact sequence and finite-pushforward H0/H1 remain separate obligations. The I₂ construction and all other inherited gaps remain open; seven stages stay partial and all implementations unchecked.
+
+The new results use native `Scheme.PartialIso`, `Scheme.BirationalOver`, `IsIntegral` and ring `IsIntegrallyClosed`. General gluing, integral lying-over, reducedness locality, localization and stalk transport remain pinned library imports. The construction is valid for split, nonsplit and inseparable quadratics, including characteristic two.
+
+The actual map on the dense opens agrees with ν, and its inverse has the corresponding factorization. This ties birationality to the specified map. The source normality statement concerns every actual structure-sheaf stalk; it does not stand in for the remaining normalization universal property.
+
+Fresh source reading: [Schröer, arXiv2004.07025v3 §3](https://arxiv.org/html/2004.07025v3), with explicit authored deductions. [Mathlib PR40871](https://github.com/leanprover-community/mathlib4/pull/40871) and [PR42402](https://github.com/leanprover-community/mathlib4/pull/42402) concern generic birational maps/refactoring; this plan reuses the pinned partial-isomorphism carrier and copies no PR code.
+
+
+## Nonzero reciprocal denominator
+
+`QuadraticPinch.Global.infinity_denominator_ne_zero` — The actual polynomial Q∞=bu²+au+1 is nonzero for every a,b∈k, including b=0 and characteristic two.
+
+Hypotheses: k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed. Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports.
+
+Proof outline: Evaluate its constant coefficient: it is 1, contradicting zero. This keeps the localization nontrivial even when the reciprocal polynomial drops degree.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-denominator`
+
+
+## Integral infinity coordinate ring
+
+`QuadraticPinch.Global.infinity_isDomain` — The actual native infinity quotient I=k[u,z]/((bu²+au+1)z−u³) is an integral domain.
+
+Hypotheses: k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed. Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports.
+
+Proof outline: Use the existing coefficient-compatible localization I≃k[u,Q∞⁻¹] and the nonzero denominator. Apply the native domain localization theorem; no smoothness or root-splitting hypothesis is needed.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-localization`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-infinity-denominator-nonzero`, `mathlib:IsLocalization.isDomain_of_le_nonZeroDivisors`
+
+
+## Integral reciprocal overlap
+
+`QuadraticPinch.Global.overlap_isDomain` — The actual overlap L=k[t,(tq)⁻¹] is an integral domain and its affine spectrum is nonempty.
+
+Hypotheses: k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed. Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports.
+
+Proof outline: The quadratic q is monic of degree two; hence t·q is nonzero. Localize the polynomial domain at powers of this nonzero element.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/overlap-ring`, `mathlib:IsLocalization.isDomain_of_le_nonZeroDivisors`
+
+
+## Surjectivity of the finite chart map
+
+`QuadraticPinch.Global.normalizationChart_surjective` — The specified map n_F:Spec k[t]→Spec A_q induced by the actual inclusion A_q⊂k[t] is surjective on scheme points.
+
+Hypotheses: k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed. Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports.
+
+Proof outline: Use finite implies integral for the specified Spec map, then apply integral lying-over to its injective subalgebra inclusion. This is surjectivity on all prime ideals, not only on rational points.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-chart`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-chart-is-finite`, `mathlib:RingHom.IsIntegral.comap_surjective`, `mathlib:AlgebraicGeometry.IsIntegralHom.SpecMap_iff`
+
+
+## Surjectivity of the glued map
+
+`QuadraticPinch.Global.normalization_surjective` — The actual global morphism ν:N(a,b)→C(a,b) is surjective on scheme points.
+
+Hypotheses: k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed. Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports.
+
+Proof outline: Use the two target charts. Lift finite-chart points through n_F by lying-over and then through s_F; lift infinity-chart points through s_I, where ν is the identity chart map.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-chart-surjective`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-charts-cover`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-finite-chart`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-infinity-chart`
+
+- Test `Global.normalization.nonsplit_surjective` (compatibility): For q=t²+t+1 over F₂, the actual global map is surjective on scheme points, including nonrational primes.
+
+## Density of the finite overlap
+
+`QuadraticPinch.Global.finiteOpen_dense` — The specified open immersion finiteOpen:Spec L→Spec A_q has dense range.
+
+Hypotheses: k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed. Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports.
+
+Proof outline: The subalgebra A_q of the polynomial domain is a domain. Its affine spectrum is irreducible; the overlap spectrum is nonempty. Apply the native density theorem for a nonempty open image.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finite-open-is-open-immersion`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-overlap-domain`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra`, `mathlib:IsOpenMap.denseRange_of_isPreirreducibleSpace`
+
+
+## Density of the normalized overlap
+
+`QuadraticPinch.Global.normalizationOpen_dense` — The specified open immersion normalizationOpen:Spec L→Spec k[t] has dense range.
+
+Hypotheses: k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed. Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports.
+
+Proof outline: Use irreducibility of Spec k[t], nonemptiness of Spec L and the native density theorem for open immersions into an irreducible space.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-open`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-open-is-open-immersion`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-overlap-domain`, `mathlib:IsOpenMap.denseRange_of_isPreirreducibleSpace`
+
+
+## Density of the infinity chart in the curve
+
+`QuadraticPinch.Global.infinityι_dense` — The actual inclusion i_I:I→C of the infinity affine chart has dense range.
+
+Hypotheses: k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed. Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports.
+
+Proof outline: The overlap is dense in the finite chart. Continuity puts the whole finite-chart image in the closure of the image of the overlap. The gluing equation puts that image in i_I(I); the two-chart cover then gives density in all of C.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-finite-overlap-dense`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-charts-cover`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-chart-condition`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinityiota-is-open-immersion`, `mathlib:Continuous.range_subset_closure_image_dense`
+
+
+## Density of the infinity chart in the source
+
+`QuadraticPinch.Global.sourceInfinityι_dense` — The actual inclusion s_I:I→N of the source infinity chart has dense range.
+
+Hypotheses: k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed. Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports.
+
+Proof outline: Repeat the closure argument with the normalized finite chart Spec k[t] and its dense overlap. Use the actual source gluing equation and source chart cover.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-source-overlap-dense`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-charts-cover`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-chart-condition`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-infinityiota-is-open-immersion`, `mathlib:Continuous.range_subset_closure_image_dense`
+
+
+## Integrality of the glued curve
+
+`QuadraticPinch.Global.curve_isIntegral` — The specified two-chart native scheme C(a,b) satisfies AlgebraicGeometry.IsIntegral over every field k.
+
+Hypotheses: k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed. Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports.
+
+Proof outline: The closure of the continuous image of the irreducible infinity chart is all C, proving irreducibility. Both affine chart rings are domains, hence their schemes are reduced. Apply the existing open-cover reducedness theorem and the native reduced-plus-irreducible criterion.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-infinity-domain`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-infinity-dense`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-charts-cover`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-finiteiota-is-open-immersion`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinityiota-is-open-immersion`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra`, `mathlib:IrreducibleSpace.isIrreducible_univ`, `mathlib:IsIrreducible.image`, `mathlib:AlgebraicGeometry.IsReduced.of_openCover`, `mathlib:AlgebraicGeometry.IsIntegral`, `mathlib:AlgebraicGeometry.isIntegral_of_irreducibleSpace_of_isReduced`
+
+- Test `Global.normalization.cusp_integral` (degenerate): For the characteristic-two repeated-root cusp q=t², both actual glued schemes C and N are integral.
+
+## Integrality of the glued source
+
+`QuadraticPinch.Global.source_isIntegral` — The specified source N(a,b), obtained by gluing Spec k[t] and I along the actual overlap, satisfies AlgebraicGeometry.IsIntegral.
+
+Hypotheses: k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed. Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports.
+
+Proof outline: The dense irreducible infinity image proves irreducibility. The polynomial chart and infinity chart are reduced; glue reducedness using the literal two-chart open cover and invoke the native integral-scheme criterion.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-infinity-domain`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-source-infinity-dense`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-charts-cover`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-finiteiota-is-open-immersion`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-infinityiota-is-open-immersion`, `mathlib:IrreducibleSpace.isIrreducible_univ`, `mathlib:IsIrreducible.image`, `mathlib:AlgebraicGeometry.IsReduced.of_openCover`, `mathlib:AlgebraicGeometry.IsIntegral`, `mathlib:AlgebraicGeometry.isIntegral_of_irreducibleSpace_of_isReduced`
+
+
+## Dense-open comparison of the specified map
+
+`QuadraticPinch.Global.normalizationPartialIso` — Construct the actual Scheme.PartialIso from N(a,b) to C(a,b) with source im(s_I), target im(i_I), and isomorphism s_I.isoOpensRange.symm followed by i_I.isoOpensRange. The opens are proved dense and the maps are the specified infinity-chart embeddings.
+
+Hypotheses: k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed. Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports.
+
+Proof outline: Use the native open-immersion isomorphisms onto the two actual open ranges. Compose the inverse source comparison with the target comparison and supply the two proved density fields of Scheme.PartialIso.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-source-infinity-dense`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-infinity-dense`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-infinityiota-is-open-immersion`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-infinityiota-is-open-immersion`, `mathlib:AlgebraicGeometry.Scheme.PartialIso`, `mathlib:AlgebraicGeometry.Scheme.Hom.isoOpensRange`
+
+- API `QuadraticPinch.Global.normalizationPartialIso_source`: The source open of normalizationPartialIso(a,b) is exactly im(s_I), as an equality of native opens of N.
+- API `QuadraticPinch.Global.normalizationPartialIso_target`: The target open of normalizationPartialIso(a,b) is exactly im(i_I), as an equality of native opens of C.
+- API `QuadraticPinch.Global.normalizationPartialIso_map`: For P=normalizationPartialIso(a,b), the actual morphism equality P.iso.hom ≫ P.target.ι = P.source.ι ≫ ν holds. This identifies the dense-open isomorphism with the restriction of the specified global map.
+- API `QuadraticPinch.Global.normalizationPartialIso_inverse`: For P=normalizationPartialIso(a,b), P.iso.inv ≫ P.source.ι ≫ ν = P.target.ι. Thus the chosen inverse lands in the specified source open and is an inverse to the restricted global map.
+- API `QuadraticPinch.Global.normalizationPartialIso_over`: The specified partial isomorphism is over Spec k for structure maps ν≫structureMap(a,b) on N and structureMap(a,b) on C, using native PartialIso.IsOver.
+- API `QuadraticPinch.Global.normalization_birationalOver`: The native predicate Scheme.BirationalOver (ν≫structureMap(a,b)) (structureMap(a,b)) holds, witnessed by the specified normalizationPartialIso.
+- Test `Global.normalizationPartialIso.cusp_source` (degenerate): For q=t² over F₂ the specified partial isomorphism has source exactly im(s_I), retaining the repeated-root case.
+- Test `Global.normalizationPartialIso.split_target` (compatibility): For q=t²−1 over ℚ the specified partial isomorphism has target exactly im(i_I).
+- Test `Global.normalizationPartialIso.nonsplit_inverse` (characterisation): For q=t²+t+1 over F₂, P.iso.inv≫P.source.ι≫ν=P.target.ι on the actual target open; an unrelated partial isomorphism fails this map comparison.
+- Test `Global.normalizationPartialIso.over_coefficients` (compatibility): For every a,b over every field, the chosen partial isomorphism is over the actual maps N→C→Spec k and C→Spec k.
+
+## Specified source of the partial isomorphism
+
+`QuadraticPinch.Global.normalizationPartialIso_source` — The source open of normalizationPartialIso(a,b) is exactly im(s_I), as an equality of native opens of N.
+
+Hypotheses: k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed. Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports.
+
+Proof outline: Unfold only the specified construction and read its source projection.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso`
+
+
+## Specified target of the partial isomorphism
+
+`QuadraticPinch.Global.normalizationPartialIso_target` — The target open of normalizationPartialIso(a,b) is exactly im(i_I), as an equality of native opens of C.
+
+Hypotheses: k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed. Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports.
+
+Proof outline: Unfold only the specified construction and read its target projection.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso`
+
+
+## Agreement of the partial isomorphism with the global map
+
+`QuadraticPinch.Global.normalizationPartialIso_map` — For P=normalizationPartialIso(a,b), the actual morphism equality P.iso.hom ≫ P.target.ι = P.source.ι ≫ ν holds. This identifies the dense-open isomorphism with the restriction of the specified global map.
+
+Hypotheses: k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed. Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports.
+
+Proof outline: Use the two isoOpensRange factorization equations, then the source infinity restriction s_I≫ν=i_I. Reassociate to compare morphisms from the native source open into C.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-infinity-chart`, `mathlib:AlgebraicGeometry.Scheme.Hom.isoOpensRange_hom_ι`, `mathlib:AlgebraicGeometry.Scheme.Hom.isoOpensRange_inv_comp`
+
+
+## Coefficient compatibility of the partial isomorphism
+
+`QuadraticPinch.Global.normalizationPartialIso_over` — The specified partial isomorphism is over Spec k for structure maps ν≫structureMap(a,b) on N and structureMap(a,b) on C, using native PartialIso.IsOver.
+
+Hypotheses: k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed. Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports.
+
+Proof outline: Postcompose the proved agreement with ν by the actual coefficient structure morphism and reassociate. No arbitrary algebraic-closed-field choice or replacement base is made.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso-map`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-structure-map`, `mathlib:AlgebraicGeometry.Scheme.PartialIso.IsOver`
+
+
+## Birationality over the coefficient field
+
+`QuadraticPinch.Global.normalization_birationalOver` — The native predicate Scheme.BirationalOver (ν≫structureMap(a,b)) (structureMap(a,b)) holds, witnessed by the specified normalizationPartialIso.
+
+Hypotheses: k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed. Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports.
+
+Proof outline: Package the actual partial isomorphism and its coefficient compatibility into the pinned BirationalOver predicate; do not add a generic birational-map type.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso-over`, `mathlib:AlgebraicGeometry.Scheme.BirationalOver`
+
+
+## Integral closedness of the infinity ring
+
+`QuadraticPinch.Global.infinity_isIntegrallyClosed` — The actual infinity chart ring I(a,b) satisfies the native IsIntegrallyClosed predicate.
+
+Hypotheses: k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed. Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports.
+
+Proof outline: The polynomial ring k[u] is integrally closed. Its localization at powers of nonzero Q∞ is integrally closed by the pinned localization theorem; use the actual infinity chart localization instance.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-localization`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-infinity-denominator-nonzero`, `mathlib:isIntegrallyClosed_of_isLocalization`
+
+
+## Normal local rings of the glued source
+
+`QuadraticPinch.Global.source_stalk_isIntegrallyClosed` — For every point x of the actual scheme N(a,b), its native structure-sheaf stalk O_(N,x) satisfies IsIntegrallyClosed. Together with source_isIntegral this gives normal local domains without inventing a scheme-normality carrier.
+
+Hypotheses: k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed. Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports.
+
+Proof outline: Both chart rings are integrally closed domains. At each prime, apply localization preservation and the actual Spec.stalkIso. Cover the source point by one of the two charts and transport integral closedness through that open immersion’s stalk-map isomorphism.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-infinity-domain`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-infinity-integrally-closed`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-charts-cover`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-finiteiota-is-open-immersion`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-source-infinityiota-is-open-immersion`, `mathlib:isIntegrallyClosed_of_isLocalization`, `mathlib:IsIntegrallyClosed.of_equiv`, `mathlib:AlgebraicGeometry.Spec.stalkIso`
+
+- Test `Global.normalization.inseparable_stalks` (degenerate): For k=F₂(s) and q=t²−s, every actual source stalk is integrally closed; no separability hypothesis is used. The test instantiates this polynomial and does not assert a new proof of its irreducibility.
+
+## Inverse comparison on the dense target
+
+`QuadraticPinch.Global.normalizationPartialIso_inverse` — For P=normalizationPartialIso(a,b), P.iso.inv ≫ P.source.ι ≫ ν = P.target.ι. Thus the chosen inverse lands in the specified source open and is an inverse to the restricted global map.
+
+Hypotheses: k is any field and a,b∈k; q=t²+at+b. A_q=k+qk[t], I=k[u,z]/((bu²+au+1)z−u³), L=k[t,(tq)⁻¹], C and N are the incoming specified native charts and glued schemes. No separability, perfectness, nonzero discriminant or characteristic restriction is assumed. Composition ≫ is read from left to right. This is a specialization to the actual quadratic charts; general normalization and birational carriers remain imports.
+
+Proof outline: Rewrite the forward comparison and cancel the actual inverse/hom pair of the native open-scheme isomorphism.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-partial-iso-map`
+
+
+The full Tau Ceti-importing suggested file is uncompiled because four inherited artifacts remain absent. The separate Mathlib-only native proof and admitted projection, hashes and complete validation boundary are recorded in the current handoff. All prior source routes, key-definition contracts, supplier requests and reserved Ferrand node are retained.
+
+---
+
 # Localization off the pinching ideal
 
 For a unital map f:A→B of arbitrary commutative rings and an ideal I⊂A, require that f(I) is already an ideal and that ker(f)∩I=0. The map f can have a kernel. For t∈I, multiplying a kernel element by t kills it. Multiplying any element of B by f(t) puts it in the actual image of I. The existing localization criteria therefore make the specified map A[1/t]→B[1/f(t)] bijective. Its native ring equivalence has the canonical forward map and a computable representative rule: if f(a)=f(t)b, its inverse sends[b] to a/t. This argument allows zero divisors, nilpotent elements and zero localizations.
