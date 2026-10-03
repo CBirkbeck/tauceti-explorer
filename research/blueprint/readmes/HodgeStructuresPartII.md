@@ -1,3 +1,263 @@
+# Hodge Structures Part II: affine coordinate and curvature continuation
+
+Codex — codex-5ebb6f; Refs #3371. This is a partial plan at immutable input bc09ee60ffaaf17ea3a32ae1dce51b92a58430ad.
+
+Actual affine degree-one extension and curvature now commute with horizontal maps. Module-equivalence conjugation preserves the parameter, composes, has an inverse and transports flatness; curvatureLinear packages the constant-parameter curvature and its tensor formula as native R-linear maps. The ℤ[x] shear test retains the nonzero −2 frame derivative. Global sheaf descent/restriction/equality detection, ring-changing exterior transport, all five supplier requests,149 routed source items and H.1–H.8 remain open.
+
+The actual affine operator is additive with D(ae)=aD(e)+λe⊗d₀a. For u:E≃F, transport is Dᵘ=(u⊗id)D u⁻¹. The changing-frame derivative is inside D(u⁻¹f); it cannot be dropped. Extension and curvature horizontality hold for arbitrary λ. Only the new curvature linear map requires d₀λ=0. All new native and canonical statements use the same compatible scalar tower. No rank, basis or flatness is imposed on the module identities.
+
+Fresh source reading: [Esnault–Groechenig author manuscript](https://www.mi.fu-berlin.de/users/esnault/preprints/helene/126_esn_gro.pdf), §4.2 opening and complete printed Lemma4.9 proof, pp.23–24; [Stacks07J5](https://stacks.math.columbia.edu/tag/07J5), complete displayed mathematical section and Lemma60.15.1 proof. The identities here are authored affine deductions. The source comparisons and geometric stages remain open.
+
+## Right wedge commutes with module maps
+
+Declaration: TwoForms.wedgeRight_map.
+
+For u:E→ₗ[R]F, ω∈W and x∈E⊗W, wedgeRight_F(ω)((u⊗id_W)x)=(u⊗id_Z)(wedgeRight_E(ω)x).
+
+Prerequisites: HodgeStructuresPartII:H.0/wedge-right, mathlib:TensorProduct.map, mathlib:TensorProduct.induction_on.
+
+Proof: Induct on the actual tensor x. On e⊗α both sides are u(e)⊗(α∧ω); the zero and additive cases follow from the native linear maps.
+
+## Horizontal maps commute with exterior extension
+
+Declaration: Preconnection.extend_horizontal.
+
+If u:E→ₗ[R]F is horizontal from D to C, then C.extend((u⊗id_W)x)=(u⊗id_Z)(D.extend(x)) for every x∈E⊗W. No R-linearity of the extension is assumed.
+
+Prerequisites: HodgeStructuresPartII:H.0/wedge-right-map, HodgeStructuresPartII:H.0/exterior-extension, mathlib:TensorProduct.induction_on.
+
+Proof: Induct on x in the native tensor product. On e⊗ω replace C(u(e)) using horizontality, commute right wedge with u, and preserve the single correction λu(e)⊗d₁ω. Use additive maps in the induction step.
+
+## Horizontal maps commute with curvature
+
+Declaration: Preconnection.curvature_horizontal.
+
+If u:E→ₗ[R]F is horizontal from D to C, then κ_C(u(e))=(u⊗id_Z)(κ_D(e)) for every e∈E and arbitrary λ.
+
+Prerequisites: HodgeStructuresPartII:H.0/extension-horizontal, HodgeStructuresPartII:H.0/intrinsic-curvature.
+
+Proof: Expand κ_C as C.extend∘C. Substitute the horizontal equation for C(u(e)), then apply the extension-horizontal identity at D(e).
+
+## Transport of an affine parameter operator
+
+Declaration: Preconnection.transport.
+
+For an actual R-linear equivalence u:E≃F, define Dᵘ(f)=(u⊗id_W)(D(u⁻¹(f))). This is an actual additive λ-preconnection on F with the original parameter and differential calculus.
+
+Prerequisites: HodgeStructuresPartII:H.0/intrinsic-preconnection, mathlib:TensorProduct.map.
+
+Proof: Compose the native additive maps underlying u⁻¹, D and u⊗id_W. For a∈R expand D(a u⁻¹(f)) using its λ-Leibniz rule and use u(u⁻¹(f))=f. The resulting correction is λf⊗d₀a; the dependence of a frame on R is retained inside D(u⁻¹(f)).
+
+Uses: HodgeStructuresPartII:H.0/local-descent: Apply actual horizontal extension and curvature equations on restricted overlaps; E1 still supplies the sheaf descent, restriction and equality-detection interfaces. HodgeStructuresPartII:H.0/coordinate-comparison: Identify the induced operator and curvature under actual module coordinates; the native polynomial shear test retains the negative λ dG correction. The universal-forms/frame and global comparisons remain open.
+
+Api:
+
+- Preconnection.transport_apply: Dᵘ(f)=(u⊗id_W)(D(u⁻¹(f))) for every f∈F.
+
+- Preconnection.transport_horizontal: Dᵘ(u(e))=(u⊗id_W)(D(e)) for every e∈E.
+
+- Preconnection.transport_refl: Transport along the identity R-linear equivalence leaves the section map D(e) unchanged.
+
+- Preconnection.transport_trans: For u:E≃F and v:F≃G, (Dᵘ)ᵛ(g)=D^(u.trans v)(g) for every g∈G.
+
+- Preconnection.transport_symm: Transport D first along u:E≃F and then u⁻¹ gives the original section map D(e).
+
+- Preconnection.transport_extend: Dᵘ.extend((u⊗id_W)x)=(u⊗id_Z)(D.extend(x)) for every actual tensor x.
+
+- Preconnection.transport_curvature: κ_(Dᵘ)(u(e))=(u⊗id_Z)(κ_D(e)) for arbitrary λ.
+
+- Preconnection.transport_flat_iff: All κ_(Dᵘ)(f) vanish iff all κ_D(e) vanish. This uses an actual module equivalence and holds for arbitrary λ.
+
+Tests:
+
+- Preconnection.transport.test_identity: Transport through the identity equivalence leaves D(e) unchanged.
+
+- Preconnection.transport.test_inverse_change: An actual u:E≃F followed by u⁻¹ recovers the original additive operator, with the same λ.
+
+- Preconnection.transport.test_curvature_flatness: A flat actual affine preconnection remains flat after an actual module equivalence on every target element.
+
+- Preconnection.transport.test_variable_frame_derivative: Over A=ℤ[x] on A² with D=2d and actual shear u(a,b)=(a+xb,b), the right-unitor-normalized transported operator at (0,1) equals (−2,0) and is nonzero. Dropping the derivative of the changing frame would incorrectly give zero.
+
+## Evaluation of the transported operator
+
+Declaration: Preconnection.transport_apply.
+
+Dᵘ(f)=(u⊗id_W)(D(u⁻¹(f))) for every f∈F.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-coordinate-transport.
+
+Proof: Unfold the actual additive composition in transport.
+
+## Coordinate equivalence is horizontal
+
+Declaration: Preconnection.transport_horizontal.
+
+Dᵘ(u(e))=(u⊗id_W)(D(e)) for every e∈E.
+
+Prerequisites: HodgeStructuresPartII:H.0/coordinate-transport-apply.
+
+Proof: Evaluate the transport formula at u(e) and cancel u⁻¹u.
+
+## Identity coordinate transport
+
+Declaration: Preconnection.transport_refl.
+
+Transport along the identity R-linear equivalence leaves the section map D(e) unchanged.
+
+Prerequisites: HodgeStructuresPartII:H.0/coordinate-transport-apply, mathlib:TensorProduct.map_id.
+
+Proof: Reduce the native identity equivalence and native tensor map of two identities.
+
+## Composition of coordinate changes
+
+Declaration: Preconnection.transport_trans.
+
+For u:E≃F and v:F≃G, (Dᵘ)ᵛ(g)=D^(u.trans v)(g) for every g∈G.
+
+Prerequisites: HodgeStructuresPartII:H.0/coordinate-transport-apply, mathlib:TensorProduct.map_map.
+
+Proof: Expand both conjugations. Combine the native tensor maps with map_map and identify the inverse of the composite equivalence.
+
+## Inverse coordinate change recovers the operator
+
+Declaration: Preconnection.transport_symm.
+
+Transport D first along u:E≃F and then u⁻¹ gives the original section map D(e).
+
+Prerequisites: HodgeStructuresPartII:H.0/coordinate-transport-composition, HodgeStructuresPartII:H.0/coordinate-transport-identity.
+
+Proof: Apply composition to u and u⁻¹, then reduce their composite to the identity equivalence.
+
+## Exterior extension under a coordinate change
+
+Declaration: Preconnection.transport_extend.
+
+Dᵘ.extend((u⊗id_W)x)=(u⊗id_Z)(D.extend(x)) for every actual tensor x.
+
+Prerequisites: HodgeStructuresPartII:H.0/extension-horizontal, HodgeStructuresPartII:H.0/coordinate-transport-horizontal.
+
+Proof: Apply extension-horizontal to the actual equivalence u and the proved horizontal transport equation.
+
+## Curvature under a coordinate change
+
+Declaration: Preconnection.transport_curvature.
+
+κ_(Dᵘ)(u(e))=(u⊗id_Z)(κ_D(e)) for arbitrary λ.
+
+Prerequisites: HodgeStructuresPartII:H.0/curvature-horizontal, HodgeStructuresPartII:H.0/coordinate-transport-horizontal.
+
+Proof: Apply curvature-horizontal to u and the transport-horizontal identity.
+
+## Coordinate-independent affine flatness
+
+Declaration: Preconnection.transport_flat_iff.
+
+All κ_(Dᵘ)(f) vanish iff all κ_D(e) vanish. This uses an actual module equivalence and holds for arbitrary λ.
+
+Prerequisites: HodgeStructuresPartII:H.0/coordinate-curvature-transport, mathlib:TensorProduct.congr.
+
+Proof: For reflection apply κ_(Dᵘ) to u(e) and use injectivity of native TensorProduct.congr(u,id_Z). For preservation write f=u(e) by surjectivity and use the curvature transport equation. Tensoring a merely injective map is not invoked.
+
+## The affine curvature linear map
+
+Declaration: Preconnection.curvatureLinear.
+
+When d₀λ=0, package the actual additive curvature κ_D:E→E⊗Z as a native R-linear map curvatureLinear(D).
+
+Prerequisites: HodgeStructuresPartII:H.0/intrinsic-curvature, HodgeStructuresPartII:H.0/affine-curvature-scalar-defect.
+
+Proof: Use κ_D as the underlying function and its native additive equation. The already-proved scalar defect vanishes because d₀λ=0, yielding map_smul. This packages the affine object and leaves sheaf restriction and gluing open.
+
+Uses: HodgeStructuresPartII:H.0/local-descent: Apply actual horizontal extension and curvature equations on restricted overlaps; E1 still supplies the sheaf descent, restriction and equality-detection interfaces. HodgeStructuresPartII:H.0/coordinate-comparison: Identify the induced operator and curvature under actual module coordinates; the native polynomial shear test retains the negative λ dG correction. The universal-forms/frame and global comparisons remain open.
+
+Api:
+
+- Preconnection.curvatureLinear_apply: curvatureLinear(D)(e)=κ_D(e) when d₀λ=0.
+
+- Preconnection.curvatureLinear_horizontal: For a horizontal R-linear u:E→F and d₀λ=0, curvatureLinear(C)∘u=(u⊗id_Z)∘curvatureLinear(D) as actual R-linear maps.
+
+- Preconnection.curvatureLinear_transport: For u:E≃F and d₀λ=0, curvatureLinear(Dᵘ)∘u=(u⊗id_Z)∘curvatureLinear(D).
+
+- Preconnection.curvatureLinear_eq_zero_iff: When d₀λ=0, curvatureLinear(D)=0 iff κ_D(e)=0 for every e.
+
+- Preconnection.affineTensor_curvatureLinear: When d₀λ=0, curvatureLinear(D⊗C)=rightComm∘(curvatureLinear(D)⊗id_F)+assoc⁻¹∘(id_E⊗curvatureLinear(C)). The equality is on all of E⊗F.
+
+- Preconnection.unit_curvatureLinear_eq_zero: When d₀λ=0, curvatureLinear(unit(Ω,λ))=0.
+
+Tests:
+
+- Preconnection.curvatureLinear.test_zero_parameter: The zero native linear Higgs field gives the zero curvature linear map at λ=0.
+
+- Preconnection.curvatureLinear.test_ordinary_unit: The genuine ordinary unit preconnection λ=1 has zero curvature linear map.
+
+- Preconnection.curvatureLinear.test_tensor_flat: For constant λ, if both factor curvature linear maps vanish, the entire common-λ tensor curvature linear map vanishes.
+
+## Evaluation of the curvature linear map
+
+Declaration: Preconnection.curvatureLinear_apply.
+
+curvatureLinear(D)(e)=κ_D(e) when d₀λ=0.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-curvature-linear-map.
+
+Proof: Evaluate the native LinearMap construction.
+
+## Curvature linear maps respect horizontality
+
+Declaration: Preconnection.curvatureLinear_horizontal.
+
+For a horizontal R-linear u:E→F and d₀λ=0, curvatureLinear(C)∘u=(u⊗id_Z)∘curvatureLinear(D) as actual R-linear maps.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-curvature-linear-map, HodgeStructuresPartII:H.0/curvature-horizontal.
+
+Proof: Apply native linear-map extensionality and the arbitrary-parameter pointwise curvature-horizontal identity.
+
+## Conjugacy of curvature linear maps
+
+Declaration: Preconnection.curvatureLinear_transport.
+
+For u:E≃F and d₀λ=0, curvatureLinear(Dᵘ)∘u=(u⊗id_Z)∘curvatureLinear(D).
+
+Prerequisites: HodgeStructuresPartII:H.0/curvature-linear-map-horizontal, HodgeStructuresPartII:H.0/coordinate-transport-horizontal.
+
+Proof: Specialize curvature-linear-map-horizontal to the actual coordinate equivalence and its proved horizontality.
+
+## Zero curvature map detects affine integrability
+
+Declaration: Preconnection.curvatureLinear_eq_zero_iff.
+
+When d₀λ=0, curvatureLinear(D)=0 iff κ_D(e)=0 for every e.
+
+Prerequisites: HodgeStructuresPartII:H.0/curvature-linear-map-apply.
+
+Proof: Evaluate a zero-map equality on e for one implication. For the converse use native linear-map extensionality and pointwise vanishing.
+
+## Tensor curvature as a linear-map sum
+
+Declaration: Preconnection.affineTensor_curvatureLinear.
+
+When d₀λ=0, curvatureLinear(D⊗C)=rightComm∘(curvatureLinear(D)⊗id_F)+assoc⁻¹∘(id_E⊗curvatureLinear(C)). The equality is on all of E⊗F.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-curvature-linear-map, HodgeStructuresPartII:H.0/affine-parameter-tensor-curvature, mathlib:TensorProduct.ext'.
+
+Proof: Both sides are native R-linear maps. Apply tensor extensionality and the already-proved arbitrary-λ tensor-curvature identity on e⊗f, including its cancellation of both mixed wedge terms.
+
+## Constant-parameter unit has zero curvature map
+
+Declaration: Preconnection.unit_curvatureLinear_eq_zero.
+
+When d₀λ=0, curvatureLinear(unit(Ω,λ))=0.
+
+Prerequisites: HodgeStructuresPartII:H.0/curvature-linear-map-zero, HodgeStructuresPartII:H.0/affine-unit-curvature.
+
+Proof: Reduce zero-map equality to pointwise curvature. Substitute the genuine unit curvature formula λ(1⊗d₀λ∧d₀a) and use d₀λ=0.
+
+The263 unchanged incoming node objects remain whole. Only local-descent and coordinate-comparison gain five prerequisites and one proof step each; their statements/hypotheses are unchanged. The new package adds19 nodes (2constructions,17lemmas),14 APIs and7 typed tests. All149 route obligations,35 inherited typed omissions, six planets,11 gaps and five supplier requests are retained. All implementation statuses remain unchecked.
+
+---
+
+## Preserved incoming reader
+
 # Common-parameter affine exterior extension and tensor curvature
 
 Checkpoint by Codex — codex-a71f92, 2026-10-03. The packet is partial and every declaration remains unchecked. This is the actual affine component of the existing general Hodge plan, not a replacement of the ringed-site key by an affine surrogate.
