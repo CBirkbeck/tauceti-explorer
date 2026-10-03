@@ -1908,3 +1908,1370 @@ example {R Q : Type*} [CommRing R] [Nontrivial R] [AddCommGroup Q] [Module R Q]
 
 end
 end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+variable {R E Q : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E] [AddCommGroup Q] [Module R Q]
+variable (S : Type*) [CommRing S] [Algebra R S]
+variable {F₁ F₂ P₁ P₂ : Type*}
+variable [AddCommGroup F₁] [Module S F₁] [AddCommGroup F₂] [Module S F₂]
+variable [AddCommGroup P₁] [Module S P₁] [AddCommGroup P₂] [Module S P₂]
+
+
+lemma affineChartField_eq_iff_horizontal (θ : E →ₗ[R] E ⊗[R] Q)
+    (e : S ⊗[R] E ≃ₗ[S] F₁) (q : S ⊗[R] Q ≃ₗ[S] P₁)
+    (ψ : F₁ →ₗ[S] F₁ ⊗[S] P₁) :
+    ψ = affineChartField S θ e q ↔
+      ψ.comp e.toLinearMap =
+        (TensorProduct.map e.toLinearMap q.toLinearMap).comp (affineBaseChange S θ) := by sorry
+
+lemma affineChartField_transition (θ : E →ₗ[R] E ⊗[R] Q)
+    (e₁ : S ⊗[R] E ≃ₗ[S] F₁) (q₁ : S ⊗[R] Q ≃ₗ[S] P₁)
+    (e₂ : S ⊗[R] E ≃ₗ[S] F₂) (q₂ : S ⊗[R] Q ≃ₗ[S] P₂) :
+    (affineChartField S θ e₂ q₂).comp (e₁.symm.trans e₂).toLinearMap =
+      (TensorProduct.map (e₁.symm.trans e₂).toLinearMap
+        (q₁.symm.trans q₂).toLinearMap).comp (affineChartField S θ e₁ q₁) := by sorry
+
+lemma affineOrderedIterate_chart_transition (θ : E →ₗ[R] E ⊗[R] Q)
+    (e₁ : S ⊗[R] E ≃ₗ[S] F₁) (q₁ : S ⊗[R] Q ≃ₗ[S] P₁)
+    (e₂ : S ⊗[R] E ≃ₗ[S] F₂) (q₂ : S ⊗[R] Q ≃ₗ[S] P₂) (n : ℕ) :
+    (affineOrderedIterate (affineChartField S θ e₂ q₂) n).comp
+        (e₁.symm.trans e₂).toLinearMap =
+      (TensorProduct.map (e₁.symm.trans e₂).toLinearMap
+        (PiTensorProduct.map (fun _ : Fin n => (q₁.symm.trans q₂).toLinearMap))).comp
+          (affineOrderedIterate (affineChartField S θ e₁ q₁) n) := by sorry
+
+-- test: TwistedHiggsBundle.affineChartField.test_horizontal_unique
+example (θ : E →ₗ[R] E ⊗[R] Q)
+    (e : S ⊗[R] E ≃ₗ[S] F₁) (q : S ⊗[R] Q ≃ₗ[S] P₁)
+    (ψ χ : F₁ →ₗ[S] F₁ ⊗[S] P₁)
+    (hψ : ψ.comp e.toLinearMap =
+      (TensorProduct.map e.toLinearMap q.toLinearMap).comp (affineBaseChange S θ))
+    (hχ : χ.comp e.toLinearMap =
+      (TensorProduct.map e.toLinearMap q.toLinearMap).comp (affineBaseChange S θ)) :
+    ψ = χ := by sorry
+
+-- test: TwistedHiggsBundle.affineChartField.test_chart_roundtrip
+example (θ : E →ₗ[R] E ⊗[R] Q)
+    (e₁ : S ⊗[R] E ≃ₗ[S] F₁) (q₁ : S ⊗[R] Q ≃ₗ[S] P₁)
+    (e₂ : S ⊗[R] E ≃ₗ[S] F₂) (q₂ : S ⊗[R] Q ≃ₗ[S] P₂) (n : ℕ) :
+    (affineOrderedIterate (affineChartField S θ e₁ q₁) n).comp
+        (e₂.symm.trans e₁).toLinearMap =
+      (TensorProduct.map (e₂.symm.trans e₁).toLinearMap
+        (PiTensorProduct.map (fun _ : Fin n => (q₂.symm.trans q₁).toLinearMap))).comp
+          (affineOrderedIterate (affineChartField S θ e₂ q₂) n) := by sorry
+
+-- test: TwistedHiggsBundle.affineChartField.test_empty_word_transition
+example (θ : E →ₗ[R] E ⊗[R] Q)
+    (e₁ : S ⊗[R] E ≃ₗ[S] F₁) (_q₁ : S ⊗[R] Q ≃ₗ[S] P₁)
+    (e₂ : S ⊗[R] E ≃ₗ[S] F₂) (q₂ : S ⊗[R] Q ≃ₗ[S] P₂) (x : F₁) :
+    affineOrderedIterate (affineChartField S θ e₂ q₂) 0 ((e₁.symm.trans e₂) x) =
+      ((e₁.symm.trans e₂) x) ⊗ₜ[S]
+        (TensorPower.algebraMap₀ (R := S) (M := P₂) 1) := by sorry
+
+-- test: TwistedHiggsBundle.affineChartField.test_sign_overlap
+example (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+    affineOrderedIterate (affineChartField S θ (LinearEquiv.refl S _)
+      (LinearEquiv.neg S)) n =
+      (TensorProduct.map (LinearMap.id : S ⊗[R] E →ₗ[S] S ⊗[R] E)
+        (PiTensorProduct.map (fun _ : Fin n => (LinearEquiv.neg S).toLinearMap))).comp
+          (affineOrderedIterate (affineBaseChange S θ) n) := by sorry
+
+-- test: TwistedHiggsBundle.affineChartField.test_missing_coefficient_transition
+example :
+    (TensorProduct.map (LinearMap.id : ℤ →ₗ[ℤ] ℤ) (LinearEquiv.neg ℤ).toLinearMap)
+      ((1 : ℤ) ⊗ₜ[ℤ] (1 : ℤ)) ≠ (1 : ℤ) ⊗ₜ[ℤ] (1 : ℤ) := by sorry
+
+-- test: TwistedHiggsBundle.affineChartField.test_triple_overlap
+example {F₃ P₃ : Type*} [AddCommGroup F₃] [Module S F₃]
+    [AddCommGroup P₃] [Module S P₃]
+    (θ : E →ₗ[R] E ⊗[R] Q)
+    (e₁ : S ⊗[R] E ≃ₗ[S] F₁) (q₁ : S ⊗[R] Q ≃ₗ[S] P₁)
+    (e₂ : S ⊗[R] E ≃ₗ[S] F₂) (q₂ : S ⊗[R] Q ≃ₗ[S] P₂)
+    (e₃ : S ⊗[R] E ≃ₗ[S] F₃) (q₃ : S ⊗[R] Q ≃ₗ[S] P₃) (n : ℕ) :
+    (affineOrderedIterate (affineChartField S θ e₃ q₃) n).comp
+        (((e₁.symm.trans e₂).trans (e₂.symm.trans e₃)).toLinearMap) =
+      (TensorProduct.map ((e₁.symm.trans e₂).trans (e₂.symm.trans e₃)).toLinearMap
+        (PiTensorProduct.map (fun _ : Fin n =>
+          ((q₁.symm.trans q₂).trans (q₂.symm.trans q₃)).toLinearMap))).comp
+          (affineOrderedIterate (affineChartField S θ e₁ q₁) n) := by sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+
+/- BEGIN ARCHIVED CHECKED HIGGS CHART OVERLAPS
+import Mathlib.RingTheory.Localization.BaseChange
+import Mathlib.RingTheory.LocalProperties.Submodule
+import Mathlib.LinearAlgebra.TensorProduct.Tower
+import Mathlib.RingTheory.Flat.FaithfullyFlat.Basic
+import Mathlib.RingTheory.Flat.Basic
+import Mathlib.LinearAlgebra.TensorPower.Basic
+import Mathlib.LinearAlgebra.TensorProduct.Associator
+import Mathlib.Data.ZMod.Basic
+
+open scoped TensorProduct
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+variable {R E F Q P : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E] [AddCommGroup F] [Module R F]
+variable [AddCommGroup Q] [Module R Q] [AddCommGroup P] [Module R P]
+
+noncomputable def affineOrderedStep (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+    (E ⊗[R] (⨂[R]^n Q)) →ₗ[R] E ⊗[R] (⨂[R]^(n+1) Q) :=
+  let one : Q ≃ₗ[R] (⨂[R]^1 Q) :=
+    (PiTensorProduct.subsingletonEquiv (R := R) (s := fun _ : Fin 1 => Q) 0).symm
+  let prepend : Q ⊗[R] (⨂[R]^n Q) ≃ₗ[R] (⨂[R]^(n+1) Q) :=
+    ((TensorProduct.congr one (LinearEquiv.refl R _)).trans
+      (TensorPower.mulEquiv (n := 1) (m := n))).trans
+        (TensorPower.cast R Q (Nat.add_comm 1 n))
+  (TensorProduct.map (LinearMap.id : E →ₗ[R] E) prepend.toLinearMap).comp
+    ((TensorProduct.assoc R E Q (⨂[R]^n Q)).toLinearMap.comp
+      (TensorProduct.map θ (LinearMap.id : (⨂[R]^n Q) →ₗ[R] (⨂[R]^n Q))))
+
+noncomputable def affineOrderedIterate (θ : E →ₗ[R] E ⊗[R] Q) :
+    (n : ℕ) → E →ₗ[R] E ⊗[R] (⨂[R]^n Q)
+  | 0 => (TensorProduct.map (LinearMap.id : E →ₗ[R] E)
+      (TensorPower.algebraMap₀ (R := R) (M := Q)).toLinearMap).comp
+        (TensorProduct.rid R E).symm.toLinearMap
+  | n + 1 => (affineOrderedStep θ n).comp (affineOrderedIterate θ n)
+
+theorem affineOrderedIterate_zero (θ : E →ₗ[R] E ⊗[R] Q) (e : E) :
+    affineOrderedIterate θ 0 e = e ⊗ₜ[R]
+      (TensorPower.algebraMap₀ (R := R) (M := Q) 1) := by
+  simp [affineOrderedIterate]
+
+theorem affineOrderedIterate_succ (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+    affineOrderedIterate θ (n+1) = (affineOrderedStep θ n).comp
+      (affineOrderedIterate θ n) := rfl
+
+
+lemma affineOrderedStep_natural (θ : E →ₗ[R] E ⊗[R] Q)
+    (ψ : F →ₗ[R] F ⊗[R] P) (f : E →ₗ[R] F) (u : Q →ₗ[R] P)
+    (h : ψ.comp f = (TensorProduct.map f u).comp θ) (n : ℕ) :
+    (affineOrderedStep ψ n).comp (TensorProduct.map f (PiTensorProduct.map (fun _ : Fin n => u))) =
+      (TensorProduct.map f (PiTensorProduct.map (fun _ : Fin (n+1) => u))).comp
+        (affineOrderedStep θ n) := by
+  apply TensorProduct.ext
+  apply LinearMap.ext
+  intro e
+  apply LinearMap.ext
+  intro t
+  change affineOrderedStep ψ n
+    (TensorProduct.map f (PiTensorProduct.map (fun _ : Fin n => u)) (e ⊗ₜ[R] t)) =
+    TensorProduct.map f (PiTensorProduct.map (fun _ : Fin (n+1) => u))
+      (affineOrderedStep θ n (e ⊗ₜ[R] t))
+  induction t using PiTensorProduct.induction_on with
+  | add t s ht hs => simp only [TensorProduct.tmul_add, map_add]; rw [ht, hs]
+  | smul_tprod a qs =>
+    simp only [TensorProduct.tmul_smul, map_smul]
+    congr 1
+    have he := LinearMap.congr_fun h e
+    simp only [LinearMap.comp_apply] at he
+    simp only [TensorProduct.map_tmul, PiTensorProduct.map_tprod]
+    simp only [affineOrderedStep, LinearMap.comp_apply, TensorProduct.map_tmul, LinearMap.id_apply]
+    rw [he]
+    generalize θ e = z
+    induction z using TensorProduct.induction_on with
+    | zero => simp
+    | add z w hz hw => simp only [map_add, TensorProduct.add_tmul]; rw [hz, hw]
+    | tmul x q =>
+      simp only [TensorProduct.map_tmul, TensorProduct.assoc_tmul,
+        LinearMap.id_apply, LinearEquiv.coe_coe, LinearEquiv.trans_apply,
+        TensorProduct.congr_tmul, LinearEquiv.refl_apply,
+        PiTensorProduct.subsingletonEquiv_symm_apply']
+      rw [← TensorPower.gMul_def, TensorPower.tprod_mul_tprod, TensorPower.cast_tprod]
+      rw [← TensorPower.gMul_def, TensorPower.tprod_mul_tprod, TensorPower.cast_tprod]
+      simp only [PiTensorProduct.map_tprod,
+        Fin.append_left_eq_cons, Function.comp_def, Fin.cast_cast, Fin.cast_eq_self]
+      congr 1
+      congr 1
+      ext i
+      cases i using Fin.cases <;> rfl
+
+lemma affineOrderedIterate_natural (θ : E →ₗ[R] E ⊗[R] Q)
+    (ψ : F →ₗ[R] F ⊗[R] P) (f : E →ₗ[R] F) (u : Q →ₗ[R] P)
+    (h : ψ.comp f = (TensorProduct.map f u).comp θ) (n : ℕ) :
+    (affineOrderedIterate ψ n).comp f =
+      (TensorProduct.map f (PiTensorProduct.map (fun _ : Fin n => u))).comp
+        (affineOrderedIterate θ n) := by
+  induction n with
+  | zero =>
+    ext e
+    simp only [affineOrderedIterate, LinearMap.comp_apply, TensorProduct.map_tmul,
+      LinearMap.id_apply, TensorProduct.rid_symm_apply, LinearEquiv.coe_coe,
+      TensorPower.algebraMap₀_one, TensorPower.gOne_def, PiTensorProduct.map_tprod]
+    congr 2
+    ext i
+    exact Fin.elim0 i
+  | succ n ih =>
+    rw [affineOrderedIterate_succ, affineOrderedIterate_succ,
+      LinearMap.comp_assoc, ih, ← LinearMap.comp_assoc,
+      affineOrderedStep_natural θ ψ f u h n]
+    exact LinearMap.comp_assoc _ _ _
+
+lemma affineOrderedIterate_mono (θ : E →ₗ[R] E ⊗[R] Q) {n m : ℕ}
+    (hnm : n ≤ m) (hzero : affineOrderedIterate θ n = 0) :
+    affineOrderedIterate θ m = 0 := by
+  obtain ⟨d, rfl⟩ := Nat.exists_eq_add_of_le hnm
+  clear hnm
+  induction d with
+  | zero => simpa using hzero
+  | succ d ih =>
+    rw [Nat.add_succ, affineOrderedIterate_succ, ih, LinearMap.comp_zero]
+
+lemma affineOrderedIterate_zero_of_surjective (θ : E →ₗ[R] E ⊗[R] Q)
+    (ψ : F →ₗ[R] F ⊗[R] P) (f : E →ₗ[R] F) (u : Q →ₗ[R] P)
+    (h : ψ.comp f = (TensorProduct.map f u).comp θ) (hf : Function.Surjective f)
+    (n : ℕ) (hz : affineOrderedIterate θ n = 0) : affineOrderedIterate ψ n = 0 := by
+  have hn := affineOrderedIterate_natural θ ψ f u h n
+  rw [hz, LinearMap.comp_zero] at hn
+  ext x
+  obtain ⟨e, rfl⟩ := hf x
+  exact LinearMap.congr_fun hn e
+
+lemma affineOrderedIterate_equiv_zero_iff (θ : E →ₗ[R] E ⊗[R] Q)
+    (ψ : F →ₗ[R] F ⊗[R] P) (f : E ≃ₗ[R] F) (u : Q ≃ₗ[R] P)
+    (h : ψ.comp f.toLinearMap = (TensorProduct.map f.toLinearMap u.toLinearMap).comp θ)
+    (n : ℕ) : affineOrderedIterate ψ n = 0 ↔ affineOrderedIterate θ n = 0 := by
+  have hn := affineOrderedIterate_natural θ ψ f.toLinearMap u.toLinearMap h n
+  constructor
+  · intro hz
+    rw [hz, LinearMap.zero_comp] at hn
+    ext e
+    apply (TensorProduct.congr f (PiTensorProduct.congr (fun _ : Fin n => u))).injective
+    change TensorProduct.map f.toLinearMap (PiTensorProduct.map (fun _ : Fin n => u.toLinearMap))
+      (affineOrderedIterate θ n e) = _
+    simpa using (LinearMap.congr_fun hn e).symm
+  · intro hz
+    rw [hz, LinearMap.comp_zero] at hn
+    ext x
+    obtain ⟨e, rfl⟩ := f.surjective x
+    exact LinearMap.congr_fun hn e
+
+lemma affineOrderedIterate_one (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineOrderedIterate θ 1 =
+      (TensorProduct.map (LinearMap.id : E →ₗ[R] E)
+        (PiTensorProduct.subsingletonEquiv (R := R) (s := fun _ : Fin 1 => Q) 0).symm.toLinearMap).comp θ := by
+  ext e
+  simp only [affineOrderedIterate_succ, LinearMap.comp_apply, affineOrderedIterate_zero,
+    affineOrderedStep, TensorProduct.map_tmul, LinearMap.id_apply]
+  generalize θ e = z
+  induction z using TensorProduct.induction_on with
+  | zero => simp
+  | add z w hz hw => simp only [TensorProduct.add_tmul, map_add]; rw [hz, hw]
+  | tmul x q =>
+    simp only [TensorProduct.map_tmul, LinearMap.id_apply, LinearEquiv.coe_coe, TensorProduct.assoc_tmul,
+      LinearEquiv.trans_apply, TensorProduct.congr_tmul, LinearEquiv.refl_apply,
+      PiTensorProduct.subsingletonEquiv_symm_apply', TensorPower.algebraMap₀_one,
+      TensorPower.gOne_def]
+    rw [← TensorPower.gMul_def, TensorPower.tprod_mul_tprod, TensorPower.cast_tprod]
+    congr 1
+    congr 1
+    ext i
+    fin_cases i
+    rfl
+
+noncomputable def affineOrderedSquare (θ : E →ₗ[R] E ⊗[R] Q) :
+    E →ₗ[R] E ⊗[R] (Q ⊗[R] Q) :=
+  (TensorProduct.assoc R E Q Q).toLinearMap.comp
+    ((TensorProduct.map θ (LinearMap.id : Q →ₗ[R] Q)).comp θ)
+
+lemma affineOrderedIterate_two (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineOrderedIterate θ 2 =
+      (TensorProduct.map (LinearMap.id : E →ₗ[R] E)
+        ((TensorProduct.congr
+          (PiTensorProduct.subsingletonEquiv (R := R) (s := fun _ : Fin 1 => Q) 0).symm
+          (PiTensorProduct.subsingletonEquiv (R := R) (s := fun _ : Fin 1 => Q) 0).symm).trans
+            (TensorPower.mulEquiv (n := 1) (m := 1))).toLinearMap).comp
+              (affineOrderedSquare θ) := by
+  ext e
+  rw [affineOrderedIterate_succ, affineOrderedIterate_one]
+  simp only [affineOrderedSquare, LinearMap.comp_apply]
+  generalize θ e = z
+  induction z using TensorProduct.induction_on with
+  | zero => simp
+  | add z w hz hw => simp only [map_add]; rw [hz, hw]
+  | tmul x q =>
+    simp only [affineOrderedStep, LinearMap.comp_apply,
+      TensorProduct.map_tmul, LinearMap.id_apply]
+    generalize θ x = w
+    induction w using TensorProduct.induction_on with
+    | zero => simp
+    | add w v hw hv => simp only [TensorProduct.add_tmul, map_add]; rw [hw, hv]
+    | tmul y p =>
+      simp only [TensorProduct.map_tmul, LinearMap.id_apply, LinearEquiv.coe_coe, TensorProduct.assoc_tmul,
+        LinearEquiv.trans_apply, TensorProduct.congr_tmul, LinearEquiv.refl_apply,
+        PiTensorProduct.subsingletonEquiv_symm_apply']
+      rw [← TensorPower.gMul_def, TensorPower.tprod_mul_tprod, TensorPower.cast_tprod]
+      rfl
+
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+variable {R E Q P T : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E]
+variable [AddCommGroup Q] [Module R Q] [AddCommGroup P] [Module R P]
+variable [AddCommGroup T] [Module R T]
+
+def affineCoefficientMap (θ : E →ₗ[R] E ⊗[R] Q) (u : Q →ₗ[R] P) :
+    E →ₗ[R] E ⊗[R] P :=
+  (TensorProduct.map (LinearMap.id : E →ₗ[R] E) u).comp θ
+
+lemma affineCoefficientMap_apply (θ : E →ₗ[R] E ⊗[R] Q) (u : Q →ₗ[R] P) (e : E) :
+    affineCoefficientMap θ u e = TensorProduct.map (LinearMap.id : E →ₗ[R] E) u (θ e) := by
+  rfl
+
+lemma affineCoefficientMap_id (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineCoefficientMap θ (LinearMap.id : Q →ₗ[R] Q) = θ := by
+  simp [affineCoefficientMap]
+
+lemma affineCoefficientMap_zero (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineCoefficientMap θ (0 : Q →ₗ[R] P) = 0 := by
+  simp [affineCoefficientMap]
+
+lemma affineCoefficientMap_comp (θ : E →ₗ[R] E ⊗[R] Q)
+    (u : Q →ₗ[R] P) (v : P →ₗ[R] T) :
+    affineCoefficientMap (affineCoefficientMap θ u) v = affineCoefficientMap θ (v.comp u) := by
+  simp only [affineCoefficientMap, ← LinearMap.comp_assoc, ← TensorProduct.map_comp,
+    LinearMap.id_comp]
+
+lemma affineOrderedIterate_coefficientMap (θ : E →ₗ[R] E ⊗[R] Q)
+    (u : Q →ₗ[R] P) (n : ℕ) :
+    affineOrderedIterate (affineCoefficientMap θ u) n =
+      (TensorProduct.map (LinearMap.id : E →ₗ[R] E)
+        (PiTensorProduct.map (fun _ : Fin n => u))).comp (affineOrderedIterate θ n) := by
+  have h := affineOrderedIterate_natural θ (affineCoefficientMap θ u)
+    (LinearMap.id : E →ₗ[R] E) u (by simp [affineCoefficientMap]) n
+  simpa using h
+
+lemma affineOrderedIterate_coefficientMap_zero (θ : E →ₗ[R] E ⊗[R] Q)
+    (u : Q →ₗ[R] P) (n : ℕ) (hz : affineOrderedIterate θ n = 0) :
+    affineOrderedIterate (affineCoefficientMap θ u) n = 0 := by
+  rw [affineOrderedIterate_coefficientMap, hz, LinearMap.comp_zero]
+
+lemma affineOrderedIterate_coefficientMap_zero_iff (θ : E →ₗ[R] E ⊗[R] Q)
+    (u : Q →ₗ[R] P) (v : P →ₗ[R] Q) (hvu : v.comp u = LinearMap.id) (n : ℕ) :
+    affineOrderedIterate (affineCoefficientMap θ u) n = 0 ↔ affineOrderedIterate θ n = 0 := by
+  constructor
+  · intro hz
+    have h := affineOrderedIterate_coefficientMap_zero (affineCoefficientMap θ u) v n hz
+    rwa [affineCoefficientMap_comp, hvu, affineCoefficientMap_id] at h
+  · exact affineOrderedIterate_coefficientMap_zero θ u n
+
+-- test: TwistedHiggsBundle.affineCoefficientMap.test_identity
+example (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineCoefficientMap θ (LinearMap.id : Q →ₗ[R] Q) = θ := by
+  exact affineCoefficientMap_id θ
+
+-- test: TwistedHiggsBundle.affineCoefficientMap.test_split_all_orders
+example (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+    affineOrderedIterate (affineCoefficientMap θ (LinearMap.inl R Q P)) n = 0 ↔
+      affineOrderedIterate θ n = 0 := by
+  exact affineOrderedIterate_coefficientMap_zero_iff θ
+    (LinearMap.inl R Q P) (LinearMap.fst R Q P) (by ext x; rfl) n
+
+-- test: TwistedHiggsBundle.affineCoefficientMap.test_zero_erases
+example :
+    (TensorProduct.rid ℚ ℚ).symm.toLinearMap ≠ 0 ∧
+      affineCoefficientMap (TensorProduct.rid ℚ ℚ).symm.toLinearMap (0 : ℚ →ₗ[ℚ] ℚ) = 0 := by
+  constructor
+  · intro h
+    have h1 := LinearMap.congr_fun h 1
+    have h2 := congrArg (TensorProduct.rid ℚ ℚ) h1
+    norm_num at h2
+  · exact affineCoefficientMap_zero _
+
+-- test: TwistedHiggsBundle.affineCoefficientMap.test_injective_not_tensor_injective
+example :
+    Function.Injective ((2 : ℤ) • (LinearMap.id : ℤ →ₗ[ℤ] ℤ)) ∧
+    (TensorProduct.rid ℤ (ZMod 2)).symm.toLinearMap ≠ 0 ∧
+    affineCoefficientMap (TensorProduct.rid ℤ (ZMod 2)).symm.toLinearMap
+      ((2 : ℤ) • (LinearMap.id : ℤ →ₗ[ℤ] ℤ)) = 0 := by
+  constructor
+  · intro x y h
+    change 2 * x = 2 * y at h
+    omega
+  constructor
+  · intro h
+    have h1 := LinearMap.congr_fun h (1 : ZMod 2)
+    have h2 := congrArg (TensorProduct.rid ℤ (ZMod 2)) h1
+    norm_num at h2
+  · ext e
+    simp only [affineCoefficientMap, LinearMap.comp_apply, LinearEquiv.coe_coe,
+      TensorProduct.rid_symm_apply, TensorProduct.map_tmul, LinearMap.id_apply,
+      LinearMap.smul_apply, smul_eq_mul, mul_one]
+    change e ⊗ₜ[ℤ] ((2 : ℤ) • (1 : ℤ)) = 0
+    rw [TensorProduct.tmul_smul]
+    rw [two_smul]
+    have he : e + e = 0 := by
+      rw [← two_mul]
+      have hz : (2 : ZMod 2) = 0 := by decide
+      rw [hz, zero_mul]
+    rw [← TensorProduct.add_tmul, he, TensorProduct.zero_tmul]
+
+-- test: TwistedHiggsBundle.affineCoefficientMap.test_zero_degree
+example (θ : ℚ →ₗ[ℚ] ℚ ⊗[ℚ] ℚ) (u : ℚ →ₗ[ℚ] ℚ) :
+    affineOrderedIterate (affineCoefficientMap θ u) 0 ≠ 0 := by
+  intro h
+  have h1 := LinearMap.congr_fun h 1
+  have h2 := congrArg ((TensorProduct.rid ℚ ℚ).toLinearMap.comp
+    (TensorProduct.map (LinearMap.id : ℚ →ₗ[ℚ] ℚ)
+      (TensorPower.algebraMap₀ (R := ℚ) (M := ℚ)).symm.toLinearMap)) h1
+  simp [affineOrderedIterate] at h2
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineCoefficientMap
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineCoefficientMap_apply
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineCoefficientMap_id
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineCoefficientMap_zero
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineCoefficientMap_comp
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_coefficientMap
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_coefficientMap_zero
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_coefficientMap_zero_iff
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedStep
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedStep_natural
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_natural
+
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+variable {R E Q P : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E]
+variable [AddCommGroup Q] [Module R Q] [AddCommGroup P] [Module R P]
+
+private def prependEquiv (R Q : Type*) [CommRing R] [AddCommGroup Q] [Module R Q]
+    (n : ℕ) : Q ⊗[R] (⨂[R]^n Q) ≃ₗ[R] (⨂[R]^(n+1) Q) :=
+  ((TensorProduct.congr
+    (PiTensorProduct.subsingletonEquiv (R := R) (s := fun _ : Fin 1 => Q) 0).symm
+    (LinearEquiv.refl R _)).trans
+      (TensorPower.mulEquiv (n := 1) (m := n))).trans
+        (TensorPower.cast R Q (Nat.add_comm 1 n))
+
+private lemma flatTensorPower [Module.Flat R Q] (n : ℕ) :
+    Module.Flat R (⨂[R]^n Q) := by
+  induction n with
+  | zero => exact Module.Flat.of_linearEquiv (TensorPower.algebraMap₀ (R := R) (M := Q)).symm
+  | succ n ih =>
+    let := ih
+    exact Module.Flat.of_linearEquiv (prependEquiv R Q n).symm
+
+private lemma map_prepend (u : Q →ₗ[R] P) (n : ℕ) :
+    (PiTensorProduct.map (fun _ : Fin (n+1) => u)).comp
+      (prependEquiv R Q n).toLinearMap =
+    (prependEquiv R P n).toLinearMap.comp
+      (TensorProduct.map u (PiTensorProduct.map (fun _ : Fin n => u))) := by
+  apply TensorProduct.ext
+  apply LinearMap.ext
+  intro q
+  apply LinearMap.ext
+  intro t
+  change PiTensorProduct.map (fun _ : Fin (n+1) => u) (prependEquiv R Q n (q ⊗ₜ[R] t)) =
+    prependEquiv R P n (TensorProduct.map u (PiTensorProduct.map (fun _ : Fin n => u))
+      (q ⊗ₜ[R] t))
+  induction t using PiTensorProduct.induction_on with
+  | add x y hx hy => simp only [TensorProduct.tmul_add, map_add]; rw [hx, hy]
+  | smul_tprod a qs =>
+    simp only [TensorProduct.tmul_smul, map_smul]
+    congr 1
+    simp only [prependEquiv,
+      LinearEquiv.trans_apply, TensorProduct.congr_tmul, LinearEquiv.refl_apply,
+      PiTensorProduct.subsingletonEquiv_symm_apply', TensorProduct.map_tmul,
+      PiTensorProduct.map_tprod]
+    rw [← TensorPower.gMul_def, TensorPower.tprod_mul_tprod, TensorPower.cast_tprod]
+    rw [← TensorPower.gMul_def, TensorPower.tprod_mul_tprod, TensorPower.cast_tprod]
+    simp only [PiTensorProduct.map_tprod, Fin.append_left_eq_cons, Function.comp_def,
+      Fin.cast_cast, Fin.cast_eq_self]
+    congr 1
+    ext i
+    cases i using Fin.cases <;> rfl
+
+private lemma tensorPowerMap_injective [Module.Flat R Q] [Module.Flat R P]
+    (u : Q →ₗ[R] P) (hu : Function.Injective u) (n : ℕ) :
+    Function.Injective (PiTensorProduct.map (fun _ : Fin n => u)) := by
+  induction n with
+  | zero =>
+    have h : (PiTensorProduct.map (fun _ : Fin 0 => u)).comp
+        (TensorPower.algebraMap₀ (R := R) (M := Q)).toLinearMap =
+        (TensorPower.algebraMap₀ (R := R) (M := P)).toLinearMap := by
+      ext
+      simp only [LinearMap.comp_apply, LinearEquiv.coe_coe, TensorPower.algebraMap₀_one,
+        TensorPower.gOne_def, PiTensorProduct.map_tprod]
+      congr 1
+      ext i
+      exact Fin.elim0 i
+    intro x y hxy
+    obtain ⟨a, rfl⟩ := (TensorPower.algebraMap₀ (R := R) (M := Q)).surjective x
+    obtain ⟨b, rfl⟩ := (TensorPower.algebraMap₀ (R := R) (M := Q)).surjective y
+    apply congrArg (TensorPower.algebraMap₀ (R := R) (M := Q))
+    apply (TensorPower.algebraMap₀ (R := R) (M := P)).injective
+    have ha := LinearMap.congr_fun h a
+    have hb := LinearMap.congr_fun h b
+    simp only [LinearMap.comp_apply, LinearEquiv.coe_coe] at ha hb
+    rwa [ha, hb] at hxy
+  | succ n ih =>
+    let := flatTensorPower (R := R) (Q := Q) n
+    have hinj := TensorProduct.map_injective_of_flat_flat u
+      (PiTensorProduct.map (fun _ : Fin n => u)) hu ih
+    intro x y hxy
+    obtain ⟨a, rfl⟩ := (prependEquiv R Q n).surjective x
+    obtain ⟨b, rfl⟩ := (prependEquiv R Q n).surjective y
+    apply congrArg (prependEquiv R Q n)
+    apply hinj
+    apply (prependEquiv R P n).injective
+    have ha := LinearMap.congr_fun (map_prepend u n) a
+    have hb := LinearMap.congr_fun (map_prepend u n) b
+    simp only [LinearMap.comp_apply, LinearEquiv.coe_coe] at ha hb
+    rwa [ha, hb] at hxy
+
+lemma affineOrderedIterate_natural_zero_iff_of_flat
+    {F : Type*} [AddCommGroup F] [Module R F]
+    [Module.Flat R F] [Module.Flat R Q] [Module.Flat R P]
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] P)
+    (f : E →ₗ[R] F) (u : Q →ₗ[R] P)
+    (h : ψ.comp f = (TensorProduct.map f u).comp θ)
+    (hf : Function.Injective f) (hu : Function.Injective u) (n : ℕ) :
+    (affineOrderedIterate ψ n).comp f = 0 ↔ affineOrderedIterate θ n = 0 := by
+  let := flatTensorPower (R := R) (Q := Q) n
+  have hinj := TensorProduct.map_injective_of_flat_flat f
+    (PiTensorProduct.map (fun _ : Fin n => u)) hf (tensorPowerMap_injective u hu n)
+  rw [affineOrderedIterate_natural θ ψ f u h n]
+  constructor
+  · intro hz
+    ext e
+    apply hinj
+    simpa only [LinearMap.comp_apply, LinearMap.zero_apply, map_zero] using
+      LinearMap.congr_fun hz e
+  · intro hz
+    rw [hz, LinearMap.comp_zero]
+
+lemma affineOrderedIterate_coefficientMap_zero_iff_of_flat
+    [Module.Flat R E] [Module.Flat R Q] [Module.Flat R P]
+    (θ : E →ₗ[R] E ⊗[R] Q) (u : Q →ₗ[R] P) (hu : Function.Injective u) (n : ℕ) :
+    affineOrderedIterate (affineCoefficientMap θ u) n = 0 ↔ affineOrderedIterate θ n = 0 := by
+  simpa using affineOrderedIterate_natural_zero_iff_of_flat θ (affineCoefficientMap θ u)
+    (LinearMap.id : E →ₗ[R] E) u (by simp [affineCoefficientMap]) Function.injective_id hu n
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_coefficientMap_zero_iff_of_flat
+
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_natural_zero_iff_of_flat
+
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+open scoped TensorProduct
+
+-- test: TwistedHiggsBundle.affineCoefficientMap.test_flat_nonsplit
+example (θ : ℤ →ₗ[ℤ] ℤ ⊗[ℤ] ℤ) (n : ℕ) :
+    (affineOrderedIterate (affineCoefficientMap θ ((2 : ℤ) • LinearMap.id)) n = 0 ↔
+      affineOrderedIterate θ n = 0) ∧
+    ¬ ∃ v : ℤ →ₗ[ℤ] ℤ, v.comp ((2 : ℤ) • LinearMap.id) = LinearMap.id := by
+  constructor
+  · apply affineOrderedIterate_coefficientMap_zero_iff_of_flat
+    intro x y h
+    change 2 * x = 2 * y at h
+    omega
+  · rintro ⟨v, hv⟩
+    have h := LinearMap.congr_fun hv 1
+    have hv2 : v (2 : ℤ) = 2 * v 1 := by
+      simpa only [smul_eq_mul, mul_one] using v.map_smul (2 : ℤ) 1
+    change v (2 : ℤ) = 1 at h
+    rw [hv2] at h
+    omega
+
+-- test: TwistedHiggsBundle.affineCoefficientMap.test_projective_no_basis
+example {R E Q P : Type*} [CommRing R] [AddCommGroup E] [Module R E]
+    [AddCommGroup Q] [Module R Q] [AddCommGroup P] [Module R P]
+    [Module.Projective R E] [Module.Projective R Q] [Module.Projective R P]
+    (θ : E →ₗ[R] E ⊗[R] Q) (u : Q →ₗ[R] P) (hu : Function.Injective u) (n : ℕ) :
+    affineOrderedIterate (affineCoefficientMap θ u) n = 0 ↔ affineOrderedIterate θ n = 0 := by
+  exact affineOrderedIterate_coefficientMap_zero_iff_of_flat θ u hu n
+
+-- test: TwistedHiggsBundle.affineOrderedIterate.test_flat_subobject
+example {R E F Q P : Type*} [CommRing R]
+    [AddCommGroup E] [Module R E] [AddCommGroup F] [Module R F]
+    [AddCommGroup Q] [Module R Q] [AddCommGroup P] [Module R P]
+    [Module.Flat R F] [Module.Flat R Q] [Module.Flat R P]
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] P)
+    (f : E →ₗ[R] F) (u : Q →ₗ[R] P)
+    (h : ψ.comp f = (TensorProduct.map f u).comp θ)
+    (hf : Function.Injective f) (hu : Function.Injective u) (n : ℕ)
+    (hz : affineOrderedIterate ψ n = 0) : affineOrderedIterate θ n = 0 := by
+  apply (affineOrderedIterate_natural_zero_iff_of_flat θ ψ f u h hf hu n).mp
+  rw [hz, LinearMap.zero_comp]
+
+-- test: TwistedHiggsBundle.affineOrderedIterate.test_restriction_not_ambient
+example :
+    let f := LinearMap.inl ℤ ℤ ℤ
+    let B : (ℤ × ℤ) →ₗ[ℤ] (ℤ × ℤ) := (LinearMap.inr ℤ ℤ ℤ).comp (LinearMap.snd ℤ ℤ ℤ)
+    let ψ := (TensorProduct.rid ℤ (ℤ × ℤ)).symm.toLinearMap.comp B
+    ψ.comp f = 0 ∧ ψ ≠ 0 := by
+  dsimp only
+  constructor
+  · ext
+    change (0 : ℤ × ℤ) ⊗ₜ[ℤ] (1 : ℤ) = 0
+    exact TensorProduct.zero_tmul _ _
+  · intro h
+    have he := LinearMap.congr_fun h (0, 1)
+    have he' := congrArg (TensorProduct.rid ℤ (ℤ × ℤ)) he
+    norm_num at he'
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+variable {R E F Q P : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E] [AddCommGroup F] [Module R F]
+variable [AddCommGroup Q] [Module R Q] [AddCommGroup P] [Module R P]
+variable (S : Type*) [CommRing S] [Algebra R S]
+
+noncomputable def affineBaseChange (θ : E →ₗ[R] E ⊗[R] Q) :
+    S ⊗[R] E →ₗ[S] (S ⊗[R] E) ⊗[S] (S ⊗[R] Q) :=
+  (TensorProduct.AlgebraTensorModule.distribBaseChange R S E Q).toLinearMap.comp
+    (θ.baseChange S)
+
+lemma affineBaseChange_natural (θ : E →ₗ[R] E ⊗[R] Q)
+    (ψ : F →ₗ[R] F ⊗[R] P) (f : E →ₗ[R] F) (u : Q →ₗ[R] P)
+    (h : ψ.comp f = (TensorProduct.map f u).comp θ) :
+    (affineBaseChange S ψ).comp (f.baseChange S) =
+      (TensorProduct.map (f.baseChange S) (u.baseChange S)).comp (affineBaseChange S θ) := by
+  have hd : (TensorProduct.AlgebraTensorModule.distribBaseChange R S F P).toLinearMap.comp
+      ((TensorProduct.map f u).baseChange S) =
+      (TensorProduct.map (f.baseChange S) (u.baseChange S)).comp
+        (TensorProduct.AlgebraTensorModule.distribBaseChange R S E Q).toLinearMap := by
+    ext a e
+    simp
+  simp only [affineBaseChange, LinearMap.comp_assoc, ← LinearMap.baseChange_comp, h]
+  rw [LinearMap.baseChange_comp, ← LinearMap.comp_assoc, hd]
+  exact LinearMap.comp_assoc _ _ _
+
+lemma affineBaseChange_coefficientMap (θ : E →ₗ[R] E ⊗[R] Q) (u : Q →ₗ[R] P) :
+    affineBaseChange S (affineCoefficientMap θ u) =
+      affineCoefficientMap (affineBaseChange S θ) (u.baseChange S) := by
+  have h := affineBaseChange_natural S θ (affineCoefficientMap θ u)
+    (LinearMap.id : E →ₗ[R] E) u (by rfl)
+  simpa only [LinearMap.baseChange_id, LinearMap.comp_id, affineCoefficientMap] using h
+
+lemma affineOrderedIterate_baseChange_natural (θ : E →ₗ[R] E ⊗[R] Q)
+    (ψ : F →ₗ[R] F ⊗[R] P) (f : E →ₗ[R] F) (u : Q →ₗ[R] P)
+    (h : ψ.comp f = (TensorProduct.map f u).comp θ) (n : ℕ) :
+    (affineOrderedIterate (affineBaseChange S ψ) n).comp (f.baseChange S) =
+      (TensorProduct.map (f.baseChange S)
+        (PiTensorProduct.map (fun _ : Fin n => u.baseChange S))).comp
+          (affineOrderedIterate (affineBaseChange S θ) n) := by
+  exact affineOrderedIterate_natural _ _ _ _ (affineBaseChange_natural S θ ψ f u h) n
+
+lemma affineBaseChange_zero_iff [Module.FaithfullyFlat R S]
+    (θ : E →ₗ[R] E ⊗[R] Q) : affineBaseChange S θ = 0 ↔ θ = 0 := by
+  constructor
+  · intro hz
+    ext e
+    apply (Module.FaithfullyFlat.one_tmul_eq_zero_iff (R := R) (E ⊗[R] Q) (A := S) (θ e)).mp
+    apply (TensorProduct.AlgebraTensorModule.distribBaseChange R S E Q).injective
+    simpa only [affineBaseChange, LinearMap.comp_apply, LinearMap.baseChange_tmul,
+      LinearMap.zero_apply, map_zero, LinearEquiv.coe_coe] using LinearMap.congr_fun hz ((1 : S) ⊗ₜ[R] e)
+  · rintro rfl
+    simp only [affineBaseChange, LinearMap.baseChange_zero, LinearMap.comp_zero]
+
+lemma affineOrderedIterate_baseChange_one_zero_iff [Module.FaithfullyFlat R S]
+    (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineOrderedIterate (affineBaseChange S θ) 1 = 0 ↔ affineOrderedIterate θ 1 = 0 := by
+  have hR : affineOrderedIterate θ 1 = 0 ↔ θ = 0 := by
+    rw [affineOrderedIterate_one]
+    constructor
+    · intro hz
+      apply LinearMap.ext
+      intro e
+      apply (TensorProduct.congr (LinearEquiv.refl R E)
+        (PiTensorProduct.subsingletonEquiv (R := R) (s := fun _ : Fin 1 => Q) 0).symm).injective
+      simpa only [← LinearEquiv.coe_coe, TensorProduct.toLinearMap_congr, LinearEquiv.refl_toLinearMap,
+        LinearMap.comp_apply, LinearMap.zero_apply, map_zero] using LinearMap.congr_fun hz e
+    · rintro hzero
+      rw [hzero, LinearMap.comp_zero]
+  have hS : affineOrderedIterate (affineBaseChange S θ) 1 = 0 ↔ (affineBaseChange S θ) = 0 := by
+    rw [affineOrderedIterate_one]
+    constructor
+    · intro hz
+      apply LinearMap.ext
+      intro e
+      apply (TensorProduct.congr (LinearEquiv.refl S (S ⊗[R] E))
+        (PiTensorProduct.subsingletonEquiv (R := S) (s := fun _ : Fin 1 => (S ⊗[R] Q)) 0).symm).injective
+      simpa only [← LinearEquiv.coe_coe, TensorProduct.toLinearMap_congr, LinearEquiv.refl_toLinearMap,
+        LinearMap.comp_apply, LinearMap.zero_apply, map_zero] using LinearMap.congr_fun hz e
+    · rintro hzero
+      rw [hzero, LinearMap.comp_zero]
+  rw [hS, affineBaseChange_zero_iff, hR]
+
+-- test: TwistedHiggsBundle.affineBaseChange.test_coefficient_quotient
+example (θ : ℤ →ₗ[ℤ] ℤ ⊗[ℤ] ZMod 2) :
+    affineBaseChange (ZMod 2) (affineCoefficientMap θ (0 : ZMod 2 →ₗ[ℤ] ZMod 3)) =
+      affineCoefficientMap (affineBaseChange (ZMod 2) θ)
+        ((0 : ZMod 2 →ₗ[ℤ] ZMod 3).baseChange (ZMod 2)) := by
+  exact affineBaseChange_coefficientMap _ _ _
+
+-- test: TwistedHiggsBundle.affineBaseChange.test_torsion_coefficients
+example (θ : ℤ →ₗ[ℤ] ℤ ⊗[ℤ] ZMod 2) :
+    affineBaseChange ℤ θ = 0 ↔ θ = 0 := by
+  exact affineBaseChange_zero_iff _ _
+
+-- test: TwistedHiggsBundle.affineBaseChange.test_torsion_source
+example : affineBaseChange ℤ
+    (TensorProduct.rid ℤ (ZMod 2)).symm.toLinearMap ≠ 0 := by
+  intro h
+  have hz := (affineBaseChange_zero_iff ℤ _).mp h
+  have he := LinearMap.congr_fun hz (1 : ZMod 2)
+  have he' := congrArg (TensorProduct.rid ℤ (ZMod 2)) he
+  norm_num at he'
+
+-- test: TwistedHiggsBundle.affineBaseChange.test_degree_one_no_basis
+example (θ : ZMod 2 →ₗ[ℤ] ZMod 2 ⊗[ℤ] ZMod 2) :
+    affineOrderedIterate (affineBaseChange ℤ θ) 1 = 0 ↔
+      affineOrderedIterate θ 1 = 0 := by
+  exact affineOrderedIterate_baseChange_one_zero_iff _ _
+
+-- test: TwistedHiggsBundle.affineBaseChange.test_horizontal_restriction
+example (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] P)
+    (f : E →ₗ[R] F) (u : Q →ₗ[R] P)
+    (h : ψ.comp f = (TensorProduct.map f u).comp θ) (n : ℕ)
+    (hz : affineOrderedIterate (affineBaseChange S θ) n = 0) :
+    (affineOrderedIterate (affineBaseChange S ψ) n).comp (f.baseChange S) = 0 := by
+  rw [affineOrderedIterate_baseChange_natural S θ ψ f u h n, hz, LinearMap.comp_zero]
+
+-- test: TwistedHiggsBundle.affineBaseChange.test_receiving_unit
+example (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] P)
+    (f : E →ₗ[R] F) (u : Q →ₗ[R] P) :
+    (affineOrderedIterate (affineBaseChange S ψ) 0).comp (f.baseChange S) =
+      (TensorProduct.map (f.baseChange S)
+        (PiTensorProduct.map (fun _ : Fin 0 => u.baseChange S))).comp
+          (affineOrderedIterate (affineBaseChange S θ) 0) := by
+  apply LinearMap.ext
+  intro e
+  simp only [affineOrderedIterate, LinearMap.comp_apply, TensorProduct.map_tmul,
+    LinearMap.id_apply, TensorProduct.rid_symm_apply, LinearEquiv.coe_coe,
+    TensorPower.algebraMap₀_one, TensorPower.gOne_def, PiTensorProduct.map_tprod]
+  congr 2
+  ext i
+  exact Fin.elim0 i
+
+-- test: TwistedHiggsBundle.affineBaseChange.test_nonfaithful_erasure
+example :
+    let θ := ((TensorProduct.rid ℤ ℤ).symm.toLinearMap).comp
+      ((2 : ℤ) • (LinearMap.id : ℤ →ₗ[ℤ] ℤ))
+    θ ≠ 0 ∧ affineBaseChange (ZMod 2) θ = 0 := by
+  dsimp only
+  constructor
+  · intro h
+    have he := LinearMap.congr_fun h 1
+    have he' := congrArg (TensorProduct.rid ℤ ℤ) he
+    norm_num at he'
+  · apply LinearMap.ext
+    intro x
+    induction x using TensorProduct.induction_on with
+    | zero => simp
+    | tmul a e =>
+      simp only [affineBaseChange, LinearMap.comp_apply, LinearMap.baseChange_tmul,
+        LinearMap.smul_apply, LinearMap.id_apply, smul_eq_mul, LinearEquiv.coe_coe,
+        TensorProduct.rid_symm_apply, LinearMap.zero_apply]
+      change (a ⊗ₜ[ℤ] (2 * e)) ⊗ₜ[ZMod 2] ((1 : ZMod 2) ⊗ₜ[ℤ] (1 : ℤ)) = 0
+      rw [show 2 * e = (2 : ℤ) • e by rfl, TensorProduct.tmul_smul, TensorProduct.smul_tmul']
+      have ha : (2 : ℤ) • a = 0 := by
+        rw [two_smul, ← two_mul]
+        have hz : (2 : ZMod 2) = 0 := by decide
+        rw [hz, zero_mul]
+      rw [ha, TensorProduct.zero_tmul, TensorProduct.zero_tmul]
+    | add x y hx hy => simp only [map_add, LinearMap.zero_apply, hx, hy, add_zero]
+
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineBaseChange
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineBaseChange_natural
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineBaseChange_coefficientMap
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_baseChange_natural
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineBaseChange_zero_iff
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_baseChange_one_zero_iff
+
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+variable {R E Q : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E] [AddCommGroup Q] [Module R Q]
+variable (S : Type*) [CommRing S] [Algebra R S]
+
+/-- Native cross-ring distributor for the left-prepended ordered tensor convention. -/
+def affineTensorPowerBaseChange : (n : ℕ) →
+    S ⊗[R] TensorPower R n Q ≃ₗ[S] TensorPower S n (S ⊗[R] Q)
+  | 0 =>
+    (((TensorPower.algebraMap₀ (R := R) (M := Q)).symm.baseChange R S).trans
+      (TensorProduct.AlgebraTensorModule.rid R S S)).trans
+        (TensorPower.algebraMap₀ (R := S) (M := S ⊗[R] Q))
+  | n + 1 =>
+    ((((prependEquiv R Q n).symm.baseChange R S).trans
+      (TensorProduct.AlgebraTensorModule.distribBaseChange R S Q (TensorPower R n Q))).trans
+        (TensorProduct.congr (LinearEquiv.refl S _) (affineTensorPowerBaseChange n))).trans
+          (prependEquiv S (S ⊗[R] Q) n)
+
+lemma affineTensorPowerBaseChange_symm_apply (n : ℕ) (x : S ⊗[R] TensorPower R n Q) :
+    (affineTensorPowerBaseChange S n).symm (affineTensorPowerBaseChange S n x) = x := by
+  exact (affineTensorPowerBaseChange S n).symm_apply_apply x
+
+lemma affineTensorPowerBaseChange_unit (a : S) :
+    affineTensorPowerBaseChange (Q := Q) S 0
+      (a ⊗ₜ[R] TensorPower.algebraMap₀ (R := R) (M := Q) 1) =
+      TensorPower.algebraMap₀ (R := S) (M := S ⊗[R] Q) a := by
+  simp [affineTensorPowerBaseChange]
+
+lemma affineTensorPowerBaseChange_prepend (n : ℕ) (a : S) (q : Q)
+    (t : TensorPower R n Q) :
+    affineTensorPowerBaseChange S (n + 1) (a ⊗ₜ[R] prependEquiv R Q n (q ⊗ₜ[R] t)) =
+      prependEquiv S (S ⊗[R] Q) n
+        ((a ⊗ₜ[R] q) ⊗ₜ[S] affineTensorPowerBaseChange S n (1 ⊗ₜ[R] t)) := by
+  simp [affineTensorPowerBaseChange]
+
+def affineOrderedBaseChange (n : ℕ) :
+    S ⊗[R] (E ⊗[R] TensorPower R n Q) ≃ₗ[S]
+      (S ⊗[R] E) ⊗[S] TensorPower S n (S ⊗[R] Q) :=
+  (TensorProduct.AlgebraTensorModule.distribBaseChange R S E (TensorPower R n Q)).trans
+    (TensorProduct.congr (LinearEquiv.refl S _) (affineTensorPowerBaseChange S n))
+
+lemma affineOrderedBaseChange_tmul (n : ℕ) (a : S) (e : E) (t : TensorPower R n Q) :
+    affineOrderedBaseChange S n (a ⊗ₜ[R] (e ⊗ₜ[R] t)) =
+      (a ⊗ₜ[R] e) ⊗ₜ[S] affineTensorPowerBaseChange S n (1 ⊗ₜ[R] t) := by
+  simp [affineOrderedBaseChange]
+
+lemma affineOrderedBaseChange_step (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+    (affineOrderedBaseChange S (n + 1)).toLinearMap.comp
+      ((affineOrderedStep θ n).baseChange S) =
+    (affineOrderedStep (affineBaseChange S θ) n).comp
+      (affineOrderedBaseChange S n).toLinearMap := by
+  apply TensorProduct.AlgebraTensorModule.ext
+  intro a w
+  induction w using TensorProduct.induction_on with
+  | zero => simp
+  | add x y hx hy => simp only [TensorProduct.tmul_add, map_add, hx, hy]
+  | tmul e t =>
+    change affineOrderedBaseChange S (n + 1) (a ⊗ₜ[R] affineOrderedStep θ n (e ⊗ₜ[R] t)) =
+    affineOrderedStep (affineBaseChange S θ) n (affineOrderedBaseChange S n (a ⊗ₜ[R] (e ⊗ₜ[R] t)))
+    simp only [affineOrderedStep, LinearMap.comp_apply, TensorProduct.map_tmul]
+    change affineOrderedBaseChange S (n + 1)
+      (a ⊗ₜ[R] TensorProduct.map (LinearMap.id) (prependEquiv R Q n).toLinearMap
+        (TensorProduct.assoc R E Q _ (θ e ⊗ₜ[R] t))) =
+      TensorProduct.map LinearMap.id (prependEquiv S (S ⊗[R] Q) n).toLinearMap
+        (TensorProduct.assoc S (S ⊗[R] E) (S ⊗[R] Q) _
+          (TensorProduct.AlgebraTensorModule.distribBaseChange R S E Q
+            (a ⊗ₜ[R] θ e) ⊗ₜ[S] affineTensorPowerBaseChange S n (1 ⊗ₜ[R] t)))
+    induction θ e using TensorProduct.induction_on with
+    | zero => simp
+    | add x y hx hy =>
+      simp only [TensorProduct.add_tmul, TensorProduct.tmul_add, map_add, hx, hy]
+    | tmul x q =>
+      simp only [TensorProduct.assoc_tmul, TensorProduct.map_tmul, LinearMap.id_apply,
+        LinearEquiv.coe_coe, affineOrderedBaseChange, LinearEquiv.trans_apply,
+        TensorProduct.AlgebraTensorModule.distribBaseChange_tmul, TensorProduct.congr_tmul,
+        LinearEquiv.refl_apply, affineTensorPowerBaseChange_prepend]
+
+lemma affineOrderedIterate_baseChange_comparison (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+    (affineOrderedBaseChange S n).toLinearMap.comp ((affineOrderedIterate θ n).baseChange S) =
+      affineOrderedIterate (affineBaseChange S θ) n := by
+  induction n with
+  | zero =>
+    apply TensorProduct.AlgebraTensorModule.ext
+    intro a e
+    simp [affineOrderedIterate, affineOrderedBaseChange, affineTensorPowerBaseChange_unit]
+  | succ n ih =>
+    rw [affineOrderedIterate, LinearMap.baseChange_comp, ← LinearMap.comp_assoc,
+      affineOrderedBaseChange_step, LinearMap.comp_assoc, ih]
+    rfl
+
+lemma affineOrderedIterate_baseChange_zero_of_arbitrary_coefficients
+    (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) (h : affineOrderedIterate θ n = 0) :
+    affineOrderedIterate (affineBaseChange S θ) n = 0 := by
+  rw [← affineOrderedIterate_baseChange_comparison, h, LinearMap.baseChange_zero,
+    LinearMap.comp_zero]
+
+lemma affineOrderedIterate_baseChange_zero_iff_of_arbitrary_coefficients
+    [Module.FaithfullyFlat R S] (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+    affineOrderedIterate (affineBaseChange S θ) n = 0 ↔ affineOrderedIterate θ n = 0 := by
+  constructor
+  · intro h
+    apply LinearMap.ext
+    intro e
+    have he := LinearMap.congr_fun
+      (affineOrderedIterate_baseChange_comparison S θ n) (1 ⊗ₜ[R] e)
+    rw [h, LinearMap.zero_apply, LinearMap.comp_apply, LinearMap.baseChange_tmul] at he
+    have hz := (affineOrderedBaseChange S n).injective
+      (he.trans ((affineOrderedBaseChange S n).map_zero).symm)
+    exact (Module.FaithfullyFlat.one_tmul_eq_zero_iff (R := R)
+      (E ⊗[R] TensorPower R n Q) (A := S) _).mp hz
+  · exact affineOrderedIterate_baseChange_zero_of_arbitrary_coefficients S θ n
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+variable {R E Q : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E] [AddCommGroup Q] [Module R Q]
+variable (S : Type*) [CommRing S] [Algebra R S]
+
+-- test: TwistedHiggsBundle.affineTensorPowerBaseChange.test_torsion_unit
+example (a : ZMod 4) :
+    affineTensorPowerBaseChange (R := ℤ) (Q := ZMod 2) (ZMod 4) 0
+      (a ⊗ₜ[ℤ] TensorPower.algebraMap₀ (R := ℤ) (M := ZMod 2) 1) =
+      TensorPower.algebraMap₀ (R := ZMod 4) (M := (ZMod 4) ⊗[ℤ] (ZMod 2)) a := by
+  exact affineTensorPowerBaseChange_unit _ _
+
+-- test: TwistedHiggsBundle.affineTensorPowerBaseChange.test_torsion_prepend
+example (q : ZMod 2) (t : TensorPower ℤ 1 (ZMod 2)) :
+    affineTensorPowerBaseChange ℤ 2
+      ((1 : ℤ) ⊗ₜ[ℤ] prependEquiv ℤ (ZMod 2) 1 (q ⊗ₜ[ℤ] t)) =
+      prependEquiv ℤ (ℤ ⊗[ℤ] (ZMod 2)) 1
+        (((1 : ℤ) ⊗ₜ[ℤ] q) ⊗ₜ[ℤ] affineTensorPowerBaseChange ℤ 1 (1 ⊗ₜ[ℤ] t)) := by
+  exact affineTensorPowerBaseChange_prepend _ _ _ _ _
+
+-- test: TwistedHiggsBundle.affineTensorPowerBaseChange.test_nonflat_distributor
+example (n : ℕ) (x : (ZMod 2) ⊗[ℤ] TensorPower ℤ n (ZMod 2)) :
+    (affineTensorPowerBaseChange (ZMod 2) n).symm
+      (affineTensorPowerBaseChange (ZMod 2) n x) = x := by
+  exact (affineTensorPowerBaseChange (ZMod 2) n).symm_apply_apply x
+
+-- test: TwistedHiggsBundle.affineOrderedBaseChange.test_unit
+example (a : S) (e : E) :
+    affineOrderedBaseChange (Q := Q) S 0
+      (a ⊗ₜ[R] (e ⊗ₜ[R] TensorPower.algebraMap₀ (R := R) (M := Q) 1)) =
+      (a ⊗ₜ[R] e) ⊗ₜ[S] TensorPower.algebraMap₀ (R := S) (M := S ⊗[R] Q) 1 := by
+  simp [affineOrderedBaseChange, affineTensorPowerBaseChange_unit]
+
+-- test: TwistedHiggsBundle.affineOrderedBaseChange.test_torsion_degree_two
+example (θ : ZMod 2 →ₗ[ℤ] (ZMod 2) ⊗[ℤ] (ZMod 2)) :
+    (affineOrderedBaseChange ℤ 2).toLinearMap.comp
+      ((affineOrderedIterate θ 2).baseChange ℤ) =
+      affineOrderedIterate (affineBaseChange ℤ θ) 2 := by
+  exact affineOrderedIterate_baseChange_comparison _ _ _
+
+-- test: TwistedHiggsBundle.affineOrderedBaseChange.test_zero_module
+example (n : ℕ) (x : S ⊗[R] ((Fin 0 → R) ⊗[R] TensorPower R n Q)) :
+    affineOrderedBaseChange S n x = 0 := by
+  have hx : x = 0 := Subsingleton.elim _ _
+  rw [hx, map_zero]
+
+-- test: TwistedHiggsBundle.affineOrderedIterate.test_arbitrary_coefficient_preservation
+example (θ : ZMod 4 →ₗ[ℤ] (ZMod 4) ⊗[ℤ] (ZMod 2)) (n : ℕ)
+    (h : affineOrderedIterate θ n = 0) :
+    affineOrderedIterate (affineBaseChange (ZMod 2) θ) n = 0 := by
+  exact affineOrderedIterate_baseChange_zero_of_arbitrary_coefficients _ _ _ h
+
+-- test: TwistedHiggsBundle.affineOrderedIterate.test_arbitrary_coefficient_reflection
+example (θ : ZMod 4 →ₗ[ℤ] (ZMod 4) ⊗[ℤ] (ZMod 2)) (n : ℕ) :
+    affineOrderedIterate (affineBaseChange ℤ θ) n = 0 ↔ affineOrderedIterate θ n = 0 := by
+  exact affineOrderedIterate_baseChange_zero_iff_of_arbitrary_coefficients _ _ _
+
+-- test: TwistedHiggsBundle.affineOrderedIterate.test_arbitrary_coefficient_degree_zero
+example [Nontrivial R] [Module.FaithfullyFlat R S] (θ : R →ₗ[R] R ⊗[R] Q) :
+    affineOrderedIterate (affineBaseChange S θ) 0 ≠ 0 := by
+  intro h
+  have hR := (affineOrderedIterate_baseChange_zero_iff_of_arbitrary_coefficients S θ 0).mp h
+  have he := LinearMap.congr_fun hR 1
+  have hu := congrArg (TensorProduct.map (LinearMap.id : R →ₗ[R] R)
+    (TensorPower.algebraMap₀ (R := R) (M := Q)).symm.toLinearMap) he
+  have hr := congrArg (TensorProduct.rid R R) hu
+  simp [affineOrderedIterate] at hr
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineTensorPowerBaseChange
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineTensorPowerBaseChange_symm_apply
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineTensorPowerBaseChange_unit
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineTensorPowerBaseChange_prepend
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedBaseChange
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedBaseChange_tmul
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedBaseChange_step
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_baseChange_comparison
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_baseChange_zero_of_arbitrary_coefficients
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_baseChange_zero_iff_of_arbitrary_coefficients
+
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+open scoped TensorProduct
+variable {R E Q : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E] [AddCommGroup Q] [Module R Q]
+variable (S : Type*) [CommRing S] [Algebra R S]
+variable {F P : Type*} [AddCommGroup F] [Module S F]
+variable [AddCommGroup P] [Module S P]
+
+/-- The actual restricted field in specified module charts. -/
+def affineChartField (θ : E →ₗ[R] E ⊗[R] Q)
+    (e : S ⊗[R] E ≃ₗ[S] F) (q : S ⊗[R] Q ≃ₗ[S] P) : F →ₗ[S] F ⊗[S] P :=
+  (TensorProduct.map e.toLinearMap q.toLinearMap).comp
+    ((affineBaseChange S θ).comp e.symm.toLinearMap)
+
+lemma affineChartField_horizontal (θ : E →ₗ[R] E ⊗[R] Q)
+    (e : S ⊗[R] E ≃ₗ[S] F) (q : S ⊗[R] Q ≃ₗ[S] P) :
+    (affineChartField S θ e q).comp e.toLinearMap =
+      (TensorProduct.map e.toLinearMap q.toLinearMap).comp (affineBaseChange S θ) := by
+  ext x
+  simp [affineChartField]
+
+lemma affineChartField_zero (e : S ⊗[R] E ≃ₗ[S] F)
+    (q : S ⊗[R] Q ≃ₗ[S] P) : affineChartField S (0 : E →ₗ[R] E ⊗[R] Q) e q = 0 := by
+  simp [affineChartField, affineBaseChange]
+
+lemma affineChartField_refl (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineChartField S θ (LinearEquiv.refl S _) (LinearEquiv.refl S _) =
+      affineBaseChange S θ := by
+  simp [affineChartField]
+
+lemma affineOrderedIterate_chart_comparison (θ : E →ₗ[R] E ⊗[R] Q)
+    (e : S ⊗[R] E ≃ₗ[S] F) (q : S ⊗[R] Q ≃ₗ[S] P) (n : ℕ) :
+    (affineOrderedIterate (affineChartField S θ e q) n).comp e.toLinearMap =
+      (TensorProduct.map e.toLinearMap
+        (PiTensorProduct.map (fun _ : Fin n => q.toLinearMap))).comp
+          ((affineOrderedBaseChange S n).toLinearMap.comp
+            ((affineOrderedIterate θ n).baseChange S)) := by
+  rw [affineOrderedIterate_baseChange_comparison]
+  exact affineOrderedIterate_natural _ _ _ _ (affineChartField_horizontal S θ e q) n
+
+lemma affineOrderedIterate_chart_zero_iff (θ : E →ₗ[R] E ⊗[R] Q)
+    (e : S ⊗[R] E ≃ₗ[S] F) (q : S ⊗[R] Q ≃ₗ[S] P) (n : ℕ) :
+    affineOrderedIterate (affineChartField S θ e q) n = 0 ↔
+      affineOrderedIterate (affineBaseChange S θ) n = 0 := by
+  exact affineOrderedIterate_equiv_zero_iff _ _ e q
+    (affineChartField_horizontal S θ e q) n
+
+lemma affineOrderedIterate_chart_zero_of (θ : E →ₗ[R] E ⊗[R] Q)
+    (e : S ⊗[R] E ≃ₗ[S] F) (q : S ⊗[R] Q ≃ₗ[S] P) (n : ℕ)
+    (h : affineOrderedIterate θ n = 0) :
+    affineOrderedIterate (affineChartField S θ e q) n = 0 := by
+  apply (affineOrderedIterate_chart_zero_iff S θ e q n).mpr
+  exact affineOrderedIterate_baseChange_zero_of_arbitrary_coefficients S θ n h
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+open scoped TensorProduct
+variable {R E Q : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E] [AddCommGroup Q] [Module R Q]
+variable (s : Set R) (hs : Ideal.span s = ⊤)
+include hs
+variable (A : s → Type*) [∀ r, CommRing (A r)] [∀ r, Algebra R (A r)]
+variable [∀ r : s, IsLocalization.Away r.val (A r)]
+
+lemma affineOrderedIterate_away_cover_zero_iff (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+    (∀ r : s, affineOrderedIterate (affineBaseChange (A r) θ) n = 0) ↔
+      affineOrderedIterate θ n = 0 := by
+  constructor
+  · intro h
+    ext x
+    apply Module.eq_zero_of_isLocalized_span s hs
+      (fun r : s => (A r) ⊗[R] (E ⊗[R] TensorPower R n Q))
+      (fun r : s => TensorProduct.mk R (A r) (E ⊗[R] TensorPower R n Q) 1)
+    intro r
+    have hx := LinearMap.congr_fun
+      (affineOrderedIterate_baseChange_comparison (A r) θ n) (1 ⊗ₜ[R] x)
+    rw [h r, LinearMap.zero_apply, LinearMap.comp_apply, LinearMap.baseChange_tmul] at hx
+    exact (affineOrderedBaseChange (A r) n).injective
+      (hx.trans ((affineOrderedBaseChange (A r) n).map_zero).symm)
+  · intro h r
+    exact affineOrderedIterate_baseChange_zero_of_arbitrary_coefficients (A r) θ n h
+
+variable (F P : s → Type*) [∀ r, AddCommGroup (F r)] [∀ r, Module (A r) (F r)]
+variable [∀ r, AddCommGroup (P r)] [∀ r, Module (A r) (P r)]
+variable (e : ∀ r, (A r) ⊗[R] E ≃ₗ[A r] F r)
+variable (q : ∀ r, (A r) ⊗[R] Q ≃ₗ[A r] P r)
+
+lemma affineOrderedIterate_chart_cover_zero_iff (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+    (∀ r : s, affineOrderedIterate (affineChartField (A r) θ (e r) (q r)) n = 0) ↔
+      affineOrderedIterate θ n = 0 := by
+  rw [← affineOrderedIterate_away_cover_zero_iff s hs A θ n]
+  exact forall_congr' fun r => affineOrderedIterate_chart_zero_iff (A r) θ (e r) (q r) n
+
+lemma affineOrderedIterate_finite_chart_bound [Fintype s]
+    (θ : E →ₗ[R] E ⊗[R] Q) (N : s → ℕ)
+    (h : ∀ r : s, affineOrderedIterate (affineChartField (A r) θ (e r) (q r)) (N r) = 0) :
+    affineOrderedIterate θ (1 + Finset.univ.sup N) = 0 := by
+  apply (affineOrderedIterate_chart_cover_zero_iff s hs A F P e q θ _).mp
+  intro r
+  apply affineOrderedIterate_mono _ (n := N r) (m := 1 + Finset.univ.sup N) _ (h r)
+  exact (Finset.le_sup (f := N) (Finset.mem_univ r)).trans (by omega)
+
+lemma affineOrderedIterate_chart_local_nilpotent_iff (θ : E →ₗ[R] E ⊗[R] Q) :
+    (∀ r : s, ∃ n : ℕ, 0 < n ∧
+      affineOrderedIterate (affineChartField (A r) θ (e r) (q r)) n = 0) ↔
+      ∃ n : ℕ, 0 < n ∧ affineOrderedIterate θ n = 0 := by
+  classical
+  constructor
+  · intro h
+    choose N hpos hz using h
+    obtain ⟨t, hts, ht⟩ := (Ideal.span_eq_top_iff_finite s).mp hs
+    let j : ↑(t : Set R) → s := fun r => ⟨r.val, hts r.property⟩
+    let N' : ↑(t : Set R) → ℕ := fun r => N (j r)
+    have : ∀ r : ↑(t : Set R), IsLocalization.Away r.val (A (j r)) :=
+      fun r => (inferInstance : IsLocalization.Away (j r).val (A (j r)))
+    refine ⟨1 + Finset.univ.sup N', by omega, ?_⟩
+    exact affineOrderedIterate_finite_chart_bound (t : Set R) ht
+      (fun r => A (j r)) (fun r => F (j r)) (fun r => P (j r))
+      (fun r => e (j r)) (fun r => q (j r)) θ N' (fun r => hz (j r))
+  · rintro ⟨n, hn, hz⟩ r
+    exact ⟨n, hn, affineOrderedIterate_chart_zero_of (A r) θ (e r) (q r) n hz⟩
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+open scoped TensorProduct
+variable {R E Q : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E] [AddCommGroup Q] [Module R Q]
+variable (S : Type*) [CommRing S] [Algebra R S]
+
+-- test: TwistedHiggsBundle.affineChartField.test_refl
+example (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineChartField S θ (LinearEquiv.refl S _) (LinearEquiv.refl S _) =
+      affineBaseChange S θ := by
+  exact affineChartField_refl S θ
+
+-- test: TwistedHiggsBundle.affineChartField.test_zero
+example {F P : Type*} [AddCommGroup F] [Module S F] [AddCommGroup P] [Module S P]
+    (e : S ⊗[R] E ≃ₗ[S] F) (q : S ⊗[R] Q ≃ₗ[S] P) :
+    affineChartField S (0 : E →ₗ[R] E ⊗[R] Q) e q = 0 := by
+  exact affineChartField_zero S e q
+
+-- test: TwistedHiggsBundle.affineChartField.test_coeff_sign
+example (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineChartField S θ (LinearEquiv.refl S _)
+      (LinearEquiv.neg S : S ⊗[R] Q ≃ₗ[S] S ⊗[R] Q) =
+      (-1 : S) • affineBaseChange S θ := by
+  apply LinearMap.ext
+  intro x
+  simp only [affineChartField, LinearMap.comp_apply, LinearEquiv.refl_symm,
+    LinearEquiv.refl_toLinearMap, LinearMap.id_apply, LinearMap.smul_apply]
+  generalize affineBaseChange S θ x = w
+  induction w using TensorProduct.induction_on with
+  | zero => simp
+  | add x y hx hy => simp [hx, hy]
+  | tmul x q =>
+    simp only [TensorProduct.map_tmul, LinearMap.id_apply, LinearEquiv.coe_coe,
+      LinearEquiv.neg_apply]
+    rw [← neg_one_smul S q, TensorProduct.tmul_smul]
+
+-- test: TwistedHiggsBundle.affineChartField.test_projective_unbased
+example [Module.Projective R E] [Module.Projective R Q] (θ : E →ₗ[R] E ⊗[R] Q)
+    (n : ℕ) (h : affineOrderedIterate θ n = 0) :
+    affineOrderedIterate (affineChartField S θ
+      (LinearEquiv.refl S _) (LinearEquiv.refl S _)) n = 0 := by
+  exact affineOrderedIterate_chart_zero_of S θ _ _ n h
+
+-- test: TwistedHiggsBundle.affineChartField.test_noncover_erasure
+local instance : Module ℤ (Localization.Away (2 : ℤ)) := Algebra.toModule
+
+example :
+    let A := Localization.Away (2 : ℤ)
+    let θ := (TensorProduct.rid ℤ (ZMod 2)).symm.toLinearMap
+    θ ≠ 0 ∧ affineBaseChange A θ = 0 := by
+  dsimp only
+  constructor
+  · intro h
+    have he := congrArg (TensorProduct.rid ℤ (ZMod 2)) (LinearMap.congr_fun h 1)
+    norm_num at he
+  · have hz (e : ZMod 2) : (1 : Localization.Away (2 : ℤ)) ⊗ₜ[ℤ] e = 0 := by
+      apply (IsLocalizedModule.eq_zero_iff (Submonoid.powers (2 : ℤ))
+        (TensorProduct.mk ℤ (Localization.Away (2 : ℤ)) (ZMod 2) 1)).mpr
+      refine ⟨⟨2, 1, by simp⟩, ?_⟩
+      change (2 : ℤ) • e = 0
+      rw [two_smul, ← two_mul]
+      rw [show (2 : ZMod 2) = 0 by decide, zero_mul]
+    apply LinearMap.ext
+    intro z
+    induction z using TensorProduct.induction_on with
+    | zero => simp
+    | add x y hx hy => simp only [map_add, LinearMap.zero_apply, hx, hy, add_zero]
+    | tmul a e =>
+      have ha : a ⊗ₜ[ℤ] e = 0 := by
+        simpa only [TensorProduct.smul_tmul', smul_eq_mul, mul_one, smul_zero] using
+          congrArg (a • ·) (hz e)
+      simp only [affineBaseChange, LinearMap.comp_apply, LinearMap.baseChange_tmul,
+        LinearEquiv.coe_coe, TensorProduct.rid_symm_apply,
+        TensorProduct.AlgebraTensorModule.distribBaseChange_tmul, LinearMap.zero_apply]
+      rw [ha, TensorProduct.zero_tmul]
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+open scoped TensorProduct
+
+-- test: TwistedHiggsBundle.affineChartField.test_two_principal_opens
+example (θ : ZMod 4 →ₗ[ℤ] (ZMod 4) ⊗[ℤ] (ZMod 2)) (n : ℕ) :
+    (∀ r : ({2, 3} : Set ℤ), affineOrderedIterate
+      (affineBaseChange (Localization.Away r.val) θ) n = 0) ↔
+      affineOrderedIterate θ n = 0 := by
+  have h2 : (2 : ℤ) ∈ Ideal.span ({2, 3} : Set ℤ) := Ideal.subset_span (by simp)
+  have h3 : (3 : ℤ) ∈ Ideal.span ({2, 3} : Set ℤ) := Ideal.subset_span (by simp)
+  have hs : Ideal.span ({2, 3} : Set ℤ) = ⊤ := by
+    apply (Ideal.eq_top_iff_one _).mpr
+    convert (Ideal.span ({2, 3} : Set ℤ)).sub_mem h3 h2 using 1
+    norm_num
+  exact affineOrderedIterate_away_cover_zero_iff _ hs
+    (fun r => Localization.Away r.val) θ n
+
+-- test: TwistedHiggsBundle.affineChartField.test_degree_zero_cover
+example {R Q : Type*} [CommRing R] [Nontrivial R] [AddCommGroup Q] [Module R Q]
+    (s : Set R) (hs : Ideal.span s = ⊤) (A : s → Type*)
+    [∀ r, CommRing (A r)] [∀ r, Algebra R (A r)]
+    [∀ r : s, IsLocalization.Away r.val (A r)] (θ : R →ₗ[R] R ⊗[R] Q) :
+    ¬ ∀ r : s, affineOrderedIterate (affineBaseChange (A r) θ) 0 = 0 := by
+  intro h
+  have hz := (affineOrderedIterate_away_cover_zero_iff s hs A θ 0).mp h
+  have he := LinearMap.congr_fun hz 1
+  have hu := congrArg (TensorProduct.map (LinearMap.id : R →ₗ[R] R)
+    (TensorPower.algebraMap₀ (R := R) (M := Q)).symm.toLinearMap) he
+  have hr := congrArg (TensorProduct.rid R R) hu
+  simp [affineOrderedIterate] at hr
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineChartField
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineChartField_horizontal
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineChartField_zero
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineChartField_refl
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_chart_comparison
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_chart_zero_iff
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_chart_zero_of
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_away_cover_zero_iff
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_chart_cover_zero_iff
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_finite_chart_bound
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_chart_local_nilpotent_iff
+
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+variable {R E Q : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E] [AddCommGroup Q] [Module R Q]
+variable (S : Type*) [CommRing S] [Algebra R S]
+variable {F₁ F₂ P₁ P₂ : Type*}
+variable [AddCommGroup F₁] [Module S F₁] [AddCommGroup F₂] [Module S F₂]
+variable [AddCommGroup P₁] [Module S P₁] [AddCommGroup P₂] [Module S P₂]
+
+lemma affineChartField_eq_iff_horizontal (θ : E →ₗ[R] E ⊗[R] Q)
+    (e : S ⊗[R] E ≃ₗ[S] F₁) (q : S ⊗[R] Q ≃ₗ[S] P₁)
+    (ψ : F₁ →ₗ[S] F₁ ⊗[S] P₁) :
+    ψ = affineChartField S θ e q ↔
+      ψ.comp e.toLinearMap =
+        (TensorProduct.map e.toLinearMap q.toLinearMap).comp (affineBaseChange S θ) := by
+  constructor
+  · rintro rfl
+    exact affineChartField_horizontal S θ e q
+  · intro h
+    ext x
+    have hx := LinearMap.congr_fun h (e.symm x)
+    simpa [affineChartField] using hx
+
+lemma affineChartField_transition (θ : E →ₗ[R] E ⊗[R] Q)
+    (e₁ : S ⊗[R] E ≃ₗ[S] F₁) (q₁ : S ⊗[R] Q ≃ₗ[S] P₁)
+    (e₂ : S ⊗[R] E ≃ₗ[S] F₂) (q₂ : S ⊗[R] Q ≃ₗ[S] P₂) :
+    (affineChartField S θ e₂ q₂).comp (e₁.symm.trans e₂).toLinearMap =
+      (TensorProduct.map (e₁.symm.trans e₂).toLinearMap
+        (q₁.symm.trans q₂).toLinearMap).comp (affineChartField S θ e₁ q₁) := by
+  ext x
+  simp only [LinearMap.comp_apply, affineChartField, LinearEquiv.coe_coe,
+    LinearEquiv.trans_apply, LinearEquiv.symm_apply_apply]
+  rw [TensorProduct.map_map]
+  congr 1
+  ext y
+  simp
+
+lemma affineOrderedIterate_chart_transition (θ : E →ₗ[R] E ⊗[R] Q)
+    (e₁ : S ⊗[R] E ≃ₗ[S] F₁) (q₁ : S ⊗[R] Q ≃ₗ[S] P₁)
+    (e₂ : S ⊗[R] E ≃ₗ[S] F₂) (q₂ : S ⊗[R] Q ≃ₗ[S] P₂) (n : ℕ) :
+    (affineOrderedIterate (affineChartField S θ e₂ q₂) n).comp
+        (e₁.symm.trans e₂).toLinearMap =
+      (TensorProduct.map (e₁.symm.trans e₂).toLinearMap
+        (PiTensorProduct.map (fun _ : Fin n => (q₁.symm.trans q₂).toLinearMap))).comp
+          (affineOrderedIterate (affineChartField S θ e₁ q₁) n) := by
+  exact affineOrderedIterate_natural _ _ _ _
+    (affineChartField_transition S θ e₁ q₁ e₂ q₂) n
+
+-- test: TwistedHiggsBundle.affineChartField.test_horizontal_unique
+example (θ : E →ₗ[R] E ⊗[R] Q)
+    (e : S ⊗[R] E ≃ₗ[S] F₁) (q : S ⊗[R] Q ≃ₗ[S] P₁)
+    (ψ χ : F₁ →ₗ[S] F₁ ⊗[S] P₁)
+    (hψ : ψ.comp e.toLinearMap =
+      (TensorProduct.map e.toLinearMap q.toLinearMap).comp (affineBaseChange S θ))
+    (hχ : χ.comp e.toLinearMap =
+      (TensorProduct.map e.toLinearMap q.toLinearMap).comp (affineBaseChange S θ)) :
+    ψ = χ := by
+  rw [(affineChartField_eq_iff_horizontal S θ e q ψ).mpr hψ,
+    (affineChartField_eq_iff_horizontal S θ e q χ).mpr hχ]
+
+-- test: TwistedHiggsBundle.affineChartField.test_chart_roundtrip
+example (θ : E →ₗ[R] E ⊗[R] Q)
+    (e₁ : S ⊗[R] E ≃ₗ[S] F₁) (q₁ : S ⊗[R] Q ≃ₗ[S] P₁)
+    (e₂ : S ⊗[R] E ≃ₗ[S] F₂) (q₂ : S ⊗[R] Q ≃ₗ[S] P₂) (n : ℕ) :
+    (affineOrderedIterate (affineChartField S θ e₁ q₁) n).comp
+        (e₂.symm.trans e₁).toLinearMap =
+      (TensorProduct.map (e₂.symm.trans e₁).toLinearMap
+        (PiTensorProduct.map (fun _ : Fin n => (q₂.symm.trans q₁).toLinearMap))).comp
+          (affineOrderedIterate (affineChartField S θ e₂ q₂) n) := by
+  exact affineOrderedIterate_chart_transition S θ e₂ q₂ e₁ q₁ n
+
+-- test: TwistedHiggsBundle.affineChartField.test_empty_word_transition
+example (θ : E →ₗ[R] E ⊗[R] Q)
+    (e₁ : S ⊗[R] E ≃ₗ[S] F₁) (_q₁ : S ⊗[R] Q ≃ₗ[S] P₁)
+    (e₂ : S ⊗[R] E ≃ₗ[S] F₂) (q₂ : S ⊗[R] Q ≃ₗ[S] P₂) (x : F₁) :
+    affineOrderedIterate (affineChartField S θ e₂ q₂) 0 ((e₁.symm.trans e₂) x) =
+      ((e₁.symm.trans e₂) x) ⊗ₜ[S]
+        (TensorPower.algebraMap₀ (R := S) (M := P₂) 1) := by
+  exact affineOrderedIterate_zero _ _
+
+-- test: TwistedHiggsBundle.affineChartField.test_sign_overlap
+example (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+    affineOrderedIterate (affineChartField S θ (LinearEquiv.refl S _)
+      (LinearEquiv.neg S)) n =
+      (TensorProduct.map (LinearMap.id : S ⊗[R] E →ₗ[S] S ⊗[R] E)
+        (PiTensorProduct.map (fun _ : Fin n => (LinearEquiv.neg S).toLinearMap))).comp
+          (affineOrderedIterate (affineBaseChange S θ) n) := by
+  simpa [affineChartField_refl] using affineOrderedIterate_chart_transition S θ
+    (LinearEquiv.refl S _) (LinearEquiv.refl S _)
+    (LinearEquiv.refl S _) (LinearEquiv.neg S) n
+
+-- test: TwistedHiggsBundle.affineChartField.test_missing_coefficient_transition
+example :
+    (TensorProduct.map (LinearMap.id : ℤ →ₗ[ℤ] ℤ) (LinearEquiv.neg ℤ).toLinearMap)
+      ((1 : ℤ) ⊗ₜ[ℤ] (1 : ℤ)) ≠ (1 : ℤ) ⊗ₜ[ℤ] (1 : ℤ) := by
+  intro h
+  have hh := congrArg (TensorProduct.rid ℤ ℤ) h
+  norm_num at hh
+
+-- test: TwistedHiggsBundle.affineChartField.test_triple_overlap
+example {F₃ P₃ : Type*} [AddCommGroup F₃] [Module S F₃]
+    [AddCommGroup P₃] [Module S P₃]
+    (θ : E →ₗ[R] E ⊗[R] Q)
+    (e₁ : S ⊗[R] E ≃ₗ[S] F₁) (q₁ : S ⊗[R] Q ≃ₗ[S] P₁)
+    (e₂ : S ⊗[R] E ≃ₗ[S] F₂) (q₂ : S ⊗[R] Q ≃ₗ[S] P₂)
+    (e₃ : S ⊗[R] E ≃ₗ[S] F₃) (q₃ : S ⊗[R] Q ≃ₗ[S] P₃) (n : ℕ) :
+    (affineOrderedIterate (affineChartField S θ e₃ q₃) n).comp
+        (((e₁.symm.trans e₂).trans (e₂.symm.trans e₃)).toLinearMap) =
+      (TensorProduct.map ((e₁.symm.trans e₂).trans (e₂.symm.trans e₃)).toLinearMap
+        (PiTensorProduct.map (fun _ : Fin n =>
+          ((q₁.symm.trans q₂).trans (q₂.symm.trans q₃)).toLinearMap))).comp
+          (affineOrderedIterate (affineChartField S θ e₁ q₁) n) := by
+  have he : (e₁.symm.trans e₂).trans (e₂.symm.trans e₃) = e₁.symm.trans e₃ := by
+    ext x
+    simp
+  have hq : (q₁.symm.trans q₂).trans (q₂.symm.trans q₃) = q₁.symm.trans q₃ := by
+    ext x
+    simp
+  rw [he, hq]
+  exact affineOrderedIterate_chart_transition S θ e₁ q₁ e₃ q₃ n
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineChartField_eq_iff_horizontal
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineChartField_transition
+#print axioms TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineOrderedIterate_chart_transition
+END ARCHIVED CHECKED HIGGS CHART OVERLAPS -/
