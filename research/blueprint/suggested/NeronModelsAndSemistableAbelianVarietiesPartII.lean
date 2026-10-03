@@ -16,6 +16,7 @@ ledger names every API, example and layer theorem whose full signature needs sup
 The two partial data structures below are not substitutes for their mathematical definitions.
 -/
 
+import Mathlib.Algebra.Exact.Basic
 import Mathlib.AlgebraicGeometry.Normalization
 import TauCeti.AlgebraicGeometry.Modules.RationalFunctions
 import Mathlib.AlgebraicGeometry.FunctionField
@@ -4897,6 +4898,233 @@ example (U V : (curve (1 : ZMod 2) 1).Opens) (h : V ≤ U)
 example (a b : k) :
     Function.Bijective (absoluteNormalizationComparisonSectionsAlgEquiv a b ⊥) ∧
       ¬ Nonempty (⊥ : (curve a b).Opens) := by sorry
+
+end
+end TauCeti.GenusOne.QuadraticPinch.Global
+
+namespace TauCeti.GenusOne.AffinePinching
+variable {A B : Type u} [CommRing A] [CommRing B]
+
+lemma commonIdealComparison_bijective_iff (f : A →+* B) (I : Ideal A)
+    (himage : (I.map f : Set B) = f '' (I : Set A)) :
+    Function.Bijective (commonIdealComparison f I).hom ↔ RingHom.ker f ⊓ I = ⊥ := by sorry
+
+lemma conductorRing_map_comap (S : Subring B) :
+    (S.conductor.comap S.subtype).map S.subtype = S.conductor := by sorry
+
+lemma conductorRing_image_comap (S : Subring B) :
+    S.subtype '' (S.conductor.comap S.subtype : Set S) = (S.conductor : Set B) := by sorry
+
+end TauCeti.GenusOne.AffinePinching
+
+namespace TauCeti.GenusOne.AffinePinching
+variable {A B : Type u} [CommRing A] [CommRing B]
+
+def commonIdealEquiv (f : A →+* B) (I : Ideal A)
+    (himage : (I.map f : Set B) = f '' (I : Set A))
+    (hker : RingHom.ker f ⊓ I = ⊥) :
+    A ≃+* (CommRingCat.pullbackCone
+      (CommRingCat.ofHom (Ideal.Quotient.mk (I.map f)))
+      (CommRingCat.ofHom (Ideal.quotientMap (I.map f) f Ideal.le_comap_map))).pt := by sorry
+
+lemma commonIdealEquiv_apply (f : A →+* B) (I : Ideal A)
+    (himage : (I.map f : Set B) = f '' (I : Set A))
+    (hker : RingHom.ker f ⊓ I = ⊥) (a : A) :
+    commonIdealEquiv f I himage hker a = (commonIdealComparison f I).hom a := by sorry
+
+lemma commonIdealEquiv_inverse_fst (f : A →+* B) (I : Ideal A)
+    (himage : (I.map f : Set B) = f '' (I : Set A))
+    (hker : RingHom.ker f ⊓ I = ⊥)
+    (p : (CommRingCat.pullbackCone
+      (CommRingCat.ofHom (Ideal.Quotient.mk (I.map f)))
+      (CommRingCat.ofHom (Ideal.quotientMap (I.map f) f Ideal.le_comap_map))).pt) :
+    f ((commonIdealEquiv f I himage hker).symm p) =
+      (CommRingCat.pullbackCone
+        (CommRingCat.ofHom (Ideal.Quotient.mk (I.map f)))
+        (CommRingCat.ofHom (Ideal.quotientMap (I.map f) f Ideal.le_comap_map))).fst.hom p := by sorry
+
+lemma commonIdealEquiv_inverse_snd (f : A →+* B) (I : Ideal A)
+    (himage : (I.map f : Set B) = f '' (I : Set A))
+    (hker : RingHom.ker f ⊓ I = ⊥)
+    (p : (CommRingCat.pullbackCone
+      (CommRingCat.ofHom (Ideal.Quotient.mk (I.map f)))
+      (CommRingCat.ofHom (Ideal.quotientMap (I.map f) f Ideal.le_comap_map))).pt) :
+    Ideal.Quotient.mk I ((commonIdealEquiv f I himage hker).symm p) =
+      (CommRingCat.pullbackCone
+        (CommRingCat.ofHom (Ideal.Quotient.mk (I.map f)))
+        (CommRingCat.ofHom (Ideal.quotientMap (I.map f) f Ideal.le_comap_map))).snd.hom p := by sorry
+
+lemma commonIdealEquiv_inverse_unique (f : A →+* B) (I : Ideal A)
+    (himage : (I.map f : Set B) = f '' (I : Set A))
+    (hker : RingHom.ker f ⊓ I = ⊥) (a : A)
+    (p : (CommRingCat.pullbackCone
+      (CommRingCat.ofHom (Ideal.Quotient.mk (I.map f)))
+      (CommRingCat.ofHom (Ideal.quotientMap (I.map f) f Ideal.le_comap_map))).pt)
+    (hf : f a = (CommRingCat.pullbackCone
+      (CommRingCat.ofHom (Ideal.Quotient.mk (I.map f)))
+      (CommRingCat.ofHom (Ideal.quotientMap (I.map f) f Ideal.le_comap_map))).fst.hom p)
+    (hq : Ideal.Quotient.mk I a = (CommRingCat.pullbackCone
+      (CommRingCat.ofHom (Ideal.Quotient.mk (I.map f)))
+      (CommRingCat.ofHom (Ideal.quotientMap (I.map f) f Ideal.le_comap_map))).snd.hom p) :
+    (commonIdealEquiv f I himage hker).symm p = a := by sorry
+
+def commonIdealDifference (f : A →+* B) (I : Ideal A) : (B × (A ⧸ I)) →+ B ⧸ I.map f := by sorry
+
+lemma commonIdealDifference_apply (f : A →+* B) (I : Ideal A) (b : B) (c : A ⧸ I) :
+    commonIdealDifference f I (b, c) = Ideal.Quotient.mk (I.map f) b -
+      Ideal.quotientMap (I.map f) f Ideal.le_comap_map c := by sorry
+
+lemma commonIdealDifference_surjective (f : A →+* B) (I : Ideal A) :
+    Function.Surjective (commonIdealDifference f I) := by sorry
+
+lemma commonIdeal_exact (f : A →+* B) (I : Ideal A)
+    (himage : (I.map f : Set B) = f '' (I : Set A)) :
+    Function.Exact (f.prod (Ideal.Quotient.mk I)) (commonIdealDifference f I) := by sorry
+
+lemma commonIdealDiagonal_injective_iff (f : A →+* B) (I : Ideal A) :
+    Function.Injective (f.prod (Ideal.Quotient.mk I)) ↔ RingHom.ker f ⊓ I = ⊥ := by sorry
+
+end TauCeti.GenusOne.AffinePinching
+
+namespace TauCeti.GenusOne.AffinePinching
+variable {A B : Type u} [CommRing A] [CommRing B]
+
+lemma commonIdealComparison_surjective_iff (f : A →+* B) (I : Ideal A) :
+    Function.Surjective (commonIdealComparison f I).hom ↔
+      (I.map f : Set B) = f '' (I : Set A) := by sorry
+
+lemma commonIdeal_exact_iff (f : A →+* B) (I : Ideal A) :
+    Function.Exact (f.prod (Ideal.Quotient.mk I)) (commonIdealDifference f I) ↔
+      (I.map f : Set B) = f '' (I : Set A) := by sorry
+
+end TauCeti.GenusOne.AffinePinching
+
+namespace TauCeti.GenusOne.FerrandPushout
+lemma conductor_comap_algEquiv {A B C : Type u} [CommRing A] [CommRing B] [CommRing C]
+    [Algebra A B] [Algebra A C] (e : B ≃ₐ[A] C) :
+    ((algebraMap A B).range.conductor).comap (algebraMap A B) =
+      ((algebraMap A C).range.conductor).comap (algebraMap A C) := by sorry
+
+end TauCeti.GenusOne.FerrandPushout
+
+namespace TauCeti.GenusOne.AffinePinching
+variable {A B : Type u} [CommRing A] [CommRing B]
+
+-- test: AffinePinching.commonIdealEquiv.test_noninjective_zero_inverse
+example (a : ℤ) :
+    let f := Int.castRingHom (ZMod 2)
+    let hImage : ((⊥ : Ideal ℤ).map f : Set (ZMod 2)) = f '' ((⊥ : Ideal ℤ) : Set ℤ) := by ext b; simp
+    let hKernel : RingHom.ker f ⊓ (⊥ : Ideal ℤ) = ⊥ := by simp
+    (commonIdealEquiv f ⊥ hImage hKernel).symm ((commonIdealComparison f ⊥).hom a) = a := by sorry
+
+-- test: AffinePinching.commonIdealEquiv.test_identity_inverse
+example (I : Ideal A) (a : A) :
+    let hImage : (I.map (RingHom.id A) : Set A) = (RingHom.id A) '' (I : Set A) := by simp
+    let hKernel : RingHom.ker (RingHom.id A) ⊓ I = ⊥ := by
+      rw [(RingHom.injective_iff_ker_eq_bot _).mp Function.injective_id, bot_inf_eq]
+    (commonIdealEquiv (RingHom.id A) I hImage hKernel).symm
+      ((commonIdealComparison (RingHom.id A) I).hom a) = a := by sorry
+
+-- test: AffinePinching.commonIdealEquiv.test_distinct_representatives
+example :
+    let I : Ideal ℤ := Ideal.span {2}
+    let hImage : (I.map (RingHom.id ℤ) : Set ℤ) = (RingHom.id ℤ) '' (I : Set ℤ) := by simp
+    let hKernel : RingHom.ker (RingHom.id ℤ) ⊓ I = ⊥ := by
+      rw [(RingHom.injective_iff_ker_eq_bot _).mp Function.injective_id, bot_inf_eq]
+    let p : (Ideal.Quotient.mk (I.map (RingHom.id ℤ))).pullback
+        (Ideal.quotientMap (I.map (RingHom.id ℤ)) (RingHom.id ℤ) Ideal.le_comap_map) :=
+      ⟨(7, Ideal.Quotient.mk I 3), by
+        change Ideal.Quotient.mk (I.map (RingHom.id ℤ)) 7 = Ideal.Quotient.mk (I.map (RingHom.id ℤ)) 3
+        rw [Ideal.Quotient.eq, Ideal.map_id]
+        norm_num [I, Ideal.mem_span_singleton]⟩
+    (commonIdealEquiv (RingHom.id ℤ) I hImage hKernel).symm p = 7 ∧
+      (commonIdealEquiv (RingHom.id ℤ) I hImage hKernel).symm p ≠ 3 := by sorry
+
+-- test: AffinePinching.commonIdealDifference.test_identity_exact
+example (I : Ideal A) :
+    Function.Exact ((RingHom.id A).prod (Ideal.Quotient.mk I))
+      (commonIdealDifference (RingHom.id A) I) := by sorry
+
+-- test: AffinePinching.commonIdealDifference.test_noninjective_exact
+example :
+    let f := Int.castRingHom (ZMod 2)
+    Function.Exact (f.prod (Ideal.Quotient.mk (RingHom.ker f)))
+      (commonIdealDifference f (RingHom.ker f)) ∧
+      ¬ Function.Injective (f.prod (Ideal.Quotient.mk (RingHom.ker f))) := by sorry
+
+-- test: AffinePinching.commonIdealDifference.test_diagonal_failure
+example :
+    let f := (RingHom.id (ZMod 2)).prod (RingHom.id (ZMod 2))
+    Function.Surjective (commonIdealDifference f ⊤) ∧
+      ¬ Function.Exact (f.prod (Ideal.Quotient.mk ⊤)) (commonIdealDifference f ⊤) := by sorry
+
+-- test: AffinePinching.commonIdealDifference.test_minus_sign
+example :
+    commonIdealDifference (RingHom.id ℤ) ⊥ (0, Ideal.Quotient.mk ⊥ 1) =
+      -Ideal.Quotient.mk ((⊥ : Ideal ℤ).map (RingHom.id ℤ)) 1 := by sorry
+
+end TauCeti.GenusOne.AffinePinching
+
+namespace TauCeti.GenusOne.FerrandPushout
+-- test: FerrandPushout.conductor_eq_annihilator.test_noninjective_surjection
+example :
+    Module.annihilator ℤ ((ZMod 2) ⧸ Submodule.span ℤ ({1} : Set (ZMod 2))) = ⊤ ∧
+      RingHom.ker (algebraMap ℤ (ZMod 2)) ≠ ⊥ := by sorry
+
+-- test: FerrandPushout.conductor_eq_annihilator.test_identity_nonreduced
+example :
+    ((algebraMap (ZMod 4) (ZMod 4)).range.conductor).comap (algebraMap (ZMod 4) (ZMod 4)) = ⊤ ∧
+      (2 : ZMod 4) ^ 2 = 0 ∧ (2 : ZMod 4) ≠ 0 := by sorry
+
+end TauCeti.GenusOne.FerrandPushout
+
+open AlgebraicGeometry
+namespace TauCeti.GenusOne.QuadraticPinch.Global
+noncomputable section
+set_option backward.isDefEq.respectTransparency false
+variable {k : Type u} [Field k]
+local instance (a b : k) : IsIntegral (curve a b) := curve_isIntegral a b
+local instance (a b : k) : IsIntegral (normalizationSource a b) := source_isIntegral a b
+local instance (a b : k) : IsAffineHom
+    ((curve a b).fromSpecStalk (genericPoint (curve a b))) := genericPointMorphism_isAffine a b
+local instance (a b : k) (U : (curve a b).Opens) :
+    Algebra Γ(curve a b, U)
+      Γ(Spec (curve a b).functionField,
+        (curve a b).fromSpecStalk (genericPoint (curve a b)) ⁻¹ᵁ U) :=
+  (((curve a b).fromSpecStalk (genericPoint (curve a b))).app U).hom.toAlgebra
+local instance (a b : k) (U : (curve a b).Opens) :
+    Algebra Γ(curve a b, U)
+      Γ(((curve a b).fromSpecStalk (genericPoint (curve a b))).normalization,
+        ((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization ⁻¹ᵁ U) :=
+  (((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization.app U).hom.toAlgebra
+local instance (a b : k) (U : (curve a b).Opens) :
+    Algebra Γ(curve a b, U) Γ(normalizationSource a b, normalization a b ⁻¹ᵁ U) :=
+  ((normalization a b).app U).hom.toAlgebra
+
+
+lemma normalization_sections_conductor_annihilator (a b : k) (U : (curve a b).Opens) :
+    (((normalization a b).app U).hom.range.conductor).comap ((normalization a b).app U).hom =
+      Module.annihilator Γ(curve a b, U)
+        (Γ(normalizationSource a b, normalization a b ⁻¹ᵁ U) ⧸
+          Submodule.span Γ(curve a b, U) ({1} : Set Γ(normalizationSource a b, normalization a b ⁻¹ᵁ U))) := by sorry
+
+lemma absoluteNormalization_sections_conductor (a b : k) (U : (curve a b).Opens) :
+    (((normalization a b).app U).hom.range.conductor).comap ((normalization a b).app U).hom =
+      ((((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization.app U).hom.range.conductor).comap
+        (((curve a b).fromSpecStalk (genericPoint (curve a b))).fromNormalization.app U).hom := by sorry
+
+-- test: QuadraticPinch.Global.conductor.test_cusp_comparison
+example (U : (curve (0 : k) 0).Opens) :
+    (((normalization (0 : k) 0).app U).hom.range.conductor).comap ((normalization (0 : k) 0).app U).hom =
+      ((((curve (0 : k) 0).fromSpecStalk (genericPoint (curve (0 : k) 0))).fromNormalization.app U).hom.range.conductor).comap
+        (((curve (0 : k) 0).fromSpecStalk (genericPoint (curve (0 : k) 0))).fromNormalization.app U).hom := by sorry
+
+-- test: QuadraticPinch.Global.conductor.test_empty_comparison
+example :
+    (((normalization (1 : ZMod 2) 1).app ⊥).hom.range.conductor).comap
+      ((normalization (1 : ZMod 2) 1).app ⊥).hom =
+      ((((curve (1 : ZMod 2) 1).fromSpecStalk (genericPoint (curve (1 : ZMod 2) 1))).fromNormalization.app ⊥).hom.range.conductor).comap
+        (((curve (1 : ZMod 2) 1).fromSpecStalk (genericPoint (curve (1 : ZMod 2) 1))).fromNormalization.app ⊥).hom := by sorry
 
 end
 end TauCeti.GenusOne.QuadraticPinch.Global

@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-stage partial design with 440 incoming declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked. For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain. This continuation adds23 nodes (6constructions17lemmas),19 consumed API items and22 exact examples for the specified ν: all-open section injectivity, zero kernel after flat pullback and the existing relative normalization comparison/descent. The affine inclusion A_q→k[t] is not surjective. The resulting packet has463 nodes; all7stages remain partial. New native and admitted sources are uncompiled in this turn because available memory is below20GiB; all implementation statuses remain unchecked. The actual generic-point function-field continuation specifies the genuine transported ν stalk map and its native field isomorphism, then the canonical integral comparison from normalization in K_C to N with both triangles and uniqueness. It does not identify that comparison as an isomorphism. For every nonempty affine U⊂C, the actual B_U=Γ(N,ν⁻¹U) is integrally closed and is the integral closure of A_U=Γ(C,U) in K_N. The specified σ upgrades to an A_U-algebra equivalence and gives E_U:B_U≃integralClosure(A_U,K_C), with exact forward/inverse generic-germ, coefficient and restriction laws. This settles the affine generic-field comparison. It does not identify E_U with the sections of the existing δ: compare against native normalizationDiagram/normalizationObjIso, handle the empty-open branch and assemble the scheme isomorphism. Preserve P¹/Proj identification, properness/projectivity, conductor ideal sheaf and exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry. All seven stages remain partial and every implementation unchecked. Twelve native-normalization section nodes (three constructions and nine lemmas) give κ_U:S_U≃ₐ[A_U]K_C for nonempty U, θ_U:D_U≃ₐ[A_U]integralClosure(A_U,K_C) and Ψ_U:D_U≃ₐ[A_U]B_U for nonempty affine U, with exact coefficients, ambient values, inverse formulas and κ restriction compatibility. General rational-function and normalization APIs are imported. Identification with δ.app, θ/Ψ restriction compatibility, empty opens and global scheme assembly remain required. The resulting packet has 513 nodes; all stages remain partial and all implementations unchecked. The actual comparison δ:η.normalization→N is now identified with Ψ_U⁻¹ on nonempty affine sections, with native closure and source restriction formulas. Empty-open sections are handled separately, the finite-map affine cover proves δ is a scheme isomorphism, and its inverse respects both triangles. The actual comparison upgrades to Λ_U:B_U≃ₐ[A_U]D_U on every open, commuting with forward and inverse restriction and the actual coefficients; on nonempty affine opens it recovers Ψ_U⁻¹. The native projective-line/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1, independent I₂ geometry and every inherited family/model/classification obligation remain required. All seven stages are partial and every mathematical implementation status is unchecked. The full canonical Tau Ceti-importing file is uncompiled; the bounded Mathlib artifacts with the consumed exact pinned Tau Ceti source excerpt are checked.",
+  "summary": "Seven-stage partial design with 440 incoming declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked. For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain. This continuation adds23 nodes (6constructions17lemmas),19 consumed API items and22 exact examples for the specified ν: all-open section injectivity, zero kernel after flat pullback and the existing relative normalization comparison/descent. The affine inclusion A_q→k[t] is not surjective. The resulting packet has463 nodes; all7stages remain partial. New native and admitted sources are uncompiled in this turn because available memory is below20GiB; all implementation statuses remain unchecked. The actual generic-point function-field continuation specifies the genuine transported ν stalk map and its native field isomorphism, then the canonical integral comparison from normalization in K_C to N with both triangles and uniqueness. It does not identify that comparison as an isomorphism. For every nonempty affine U⊂C, the actual B_U=Γ(N,ν⁻¹U) is integrally closed and is the integral closure of A_U=Γ(C,U) in K_N. The specified σ upgrades to an A_U-algebra equivalence and gives E_U:B_U≃integralClosure(A_U,K_C), with exact forward/inverse generic-germ, coefficient and restriction laws. This settles the affine generic-field comparison. It does not identify E_U with the sections of the existing δ: compare against native normalizationDiagram/normalizationObjIso, handle the empty-open branch and assemble the scheme isomorphism. Preserve P¹/Proj identification, properness/projectivity, conductor ideal sheaf and exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry. All seven stages remain partial and every implementation unchecked. Twelve native-normalization section nodes (three constructions and nine lemmas) give κ_U:S_U≃ₐ[A_U]K_C for nonempty U, θ_U:D_U≃ₐ[A_U]integralClosure(A_U,K_C) and Ψ_U:D_U≃ₐ[A_U]B_U for nonempty affine U, with exact coefficients, ambient values, inverse formulas and κ restriction compatibility. General rational-function and normalization APIs are imported. Identification with δ.app, θ/Ψ restriction compatibility, empty opens and global scheme assembly remain required. The resulting packet has 513 nodes; all stages remain partial and all implementations unchecked. The actual comparison δ:η.normalization→N is now identified with Ψ_U⁻¹ on nonempty affine sections, with native closure and source restriction formulas. Empty-open sections are handled separately, the finite-map affine cover proves δ is a scheme isomorphism, and its inverse respects both triangles. The actual comparison upgrades to Λ_U:B_U≃ₐ[A_U]D_U on every open, commuting with forward and inverse restriction and the actual coefficients; on nonempty affine opens it recovers Ψ_U⁻¹. The native projective-line/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1, independent I₂ geometry and every inherited family/model/classification obligation remain required. All seven stages are partial and every mathematical implementation status is unchecked. The full canonical Tau Ceti-importing file is uncompiled; the bounded Mathlib artifacts with the consumed exact pinned Tau Ceti source excerpt are checked. The common-ideal reconstruction now has native comparison, kernel, compatible-pair lifting and categorical pullback proofs, an actual inverse-coordinate ring equivalence, and an additive sequence whose middle exactness is equivalent to the image being an ideal. The arbitrary-subring conductor square and native quotient-module annihilator identity are checked separately, and actual all-open conductor ideals agree across the absolute normalization isomorphism. The conductor ideal sheaf, structure-sheaf sequence, properness/projectivity and cohomology remain separate obligations.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2901,6 +2901,90 @@
         "module": "Mathlib/AlgebraicGeometry/Normalization.lean",
         "provides": "The inclusion of the actual affine normalization section closure is the actual toNormalization section map.",
         "checked": "Codex codex-5ebb6f read the complete relevant statement and ambient assumptions at the prescribed mathlib pin on 2026-10-03; source SHA256 0cdef8c30f638f287f5b16ae5d2fcc454e72fb90bad5ba56b2dc6e956f57dd48."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsPullback.of_iso'",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/IsPullback/Basic.lean",
+        "provides": "Transport the native limiting ring-pullback square along the specified reconstruction equivalence.",
+        "checked": "Codex codex-7e92bd read the full relevant statement and ambient assumptions at mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; line104; source SHA256 d0e1a15b3f673473d6bd9799aa80ac834e185fa497ef73fe1081dbcf6dd99ce6."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsPullback.map",
+        "kind": "alias",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/IsPullback/Basic.lean",
+        "provides": "Preserve the cartesian square under the native limit-preserving forgetful functor.",
+        "checked": "Codex codex-7e92bd read the full relevant statement and ambient assumptions at mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; line819; source SHA256 d0e1a15b3f673473d6bd9799aa80ac834e185fa497ef73fe1081dbcf6dd99ce6."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.PullbackCone.IsLimit.hom_ext",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/PullbackCone.lean",
+        "provides": "Equality of maps into the existing native ring pullback from equality of both projections.",
+        "checked": "Codex codex-7e92bd read the full relevant statement and ambient assumptions at mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; line211; source SHA256 62ef8980e7fa85464f493c45117eec417602ddc9d8393a2eb349de65d4b5ced1."
+      },
+      {
+        "ref": "mathlib:Function.MulExact",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Exact/Basic.lean",
+        "provides": "The indexed multiplicative definition generates Function.Exact by to_additive at this pinned line; the additive form is used for the actual difference sequence and checked by elaboration.",
+        "checked": "Codex codex-7e92bd read the full relevant statement and ambient assumptions at mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; line45; source SHA256 2ebd0bee6ad2339a505c18af908860a50acbe09adb13a940ba02725cf06daf4a."
+      },
+      {
+        "ref": "mathlib:AlgEquiv.commutes",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Algebra/Equiv.lean",
+        "provides": "An actual algebra equivalence preserves the coefficient map, needed for contracted-conductor transport.",
+        "checked": "Codex codex-7e92bd read the full relevant statement and ambient assumptions at mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; line207; source SHA256 685187debda5efdf31ff2071706125df1574d6d22a0192d161126b3bd6cf0b29."
+      },
+      {
+        "ref": "mathlib:Ideal.map_eq_bot_iff_le_ker",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "The generated ideal image of a kernel is zero, used to test middle exactness without initial injectivity.",
+        "checked": "Codex codex-7e92bd read the full relevant statement and ambient assumptions at mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; line1049; source SHA256 a6cde2f875c2c8b9ea1aa57cf3aa654d5fd80981349de49f28556c77b56d9c11."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.mk",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "The native ideal quotient homomorphism used in both diagonal and difference maps.",
+        "checked": "Codex codex-7e92bd read the full relevant statement and ambient assumptions at mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; line83; source SHA256 f906662e22c49025984808feb489892afe51914ccc7a10b95d5f162ef4fbfe1d."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.eq_zero_iff_mem",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "The class of an element is zero precisely when the element lies in the full ideal.",
+        "checked": "Codex codex-7e92bd read the full relevant statement and ambient assumptions at mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; line111; source SHA256 f906662e22c49025984808feb489892afe51914ccc7a10b95d5f162ef4fbfe1d."
+      },
+      {
+        "ref": "mathlib:MonoidHom.fst",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Prod.lean",
+        "provides": "The indexed product projection generates AddMonoidHom.fst by to_additive at this pinned line.",
+        "checked": "Codex codex-7e92bd read the full relevant statement and ambient assumptions at mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; line327; source SHA256 47844944dac6ab52e1f602bed4b0da16ab7d5d497c9be90e01eba313c12415ed."
+      },
+      {
+        "ref": "mathlib:MonoidHom.snd",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Prod.lean",
+        "provides": "The indexed product projection generates AddMonoidHom.snd by to_additive at this pinned line.",
+        "checked": "Codex codex-7e92bd read the full relevant statement and ambient assumptions at mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; line336; source SHA256 47844944dac6ab52e1f602bed4b0da16ab7d5d497c9be90e01eba313c12415ed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.Types.ext_of_isPullback",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Limits/Types/Pullbacks.lean",
+        "provides": "Joint injectivity of the actual cartesian square after applying the limit-preserving forgetful functor.",
+        "checked": "Codex codex-7e92bd read the full relevant statement and ambient assumptions at mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; line200; source SHA256 51f55e0d9777b06596e99bcd3bc1f95ae5d3217cfdf2263413a10d4d5ff6c3b6."
+      },
+      {
+        "ref": "mathlib:Ideal.map_top",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "The unit ideal generates the unit ideal even for the non-surjective diagonal ring map.",
+        "checked": "Codex codex-7e92bd read the full relevant statement and ambient assumptions at mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; line142; source SHA256 a6cde2f875c2c8b9ea1aa57cf3aa654d5fd80981349de49f28556c77b56d9c11."
       }
     ]
   },
@@ -3425,6 +3509,18 @@
         "Fresh §§2–3: Theorem2.1 proof; §3 terminology, both conductor squares, Proposition3.1 and its proof, Proposition3.2 count table. Proposition3.3 and the remaining paper were not freshly reread for this continuation."
       ],
       "note": "Browser reading only, with no new download hash or source erratum. The absolute comparison isomorphism and all-open section APIs are authored deductions from incoming actual constructions and the pinned native section and target-local APIs, motivated by the conductor square. No whole-paper or Ferrand reread is claimed."
+    },
+    {
+      "id": "ferrand-affine-native-20261003",
+      "title": "Conducteur, descente et pincement — bounded native affine continuation",
+      "authors": "Daniel Ferrand",
+      "edition": "Published Bulletin SMF131(4),2003,553–585",
+      "url": "https://www.numdam.org/item/BSMF_2003__131_4_553_0.pdf",
+      "accessed": "2026-10-03",
+      "readSections": [
+        "Fresh parsed reading of printed pp554–557: introduction, §1.1, Lemmas1.2–1.3 and their stated justification, examples1.3.1/1.3.2, Lemma1.4 and proof, beginning of Remark1.5. No fresh whole-paper or visual-reading claim."
+      ],
+      "sha256": "4f1f2438ad6d757d67d2ecf154b1bc920d210d8abd54c02e6acd020805629d91"
     }
   ],
   "nodes": [
@@ -9392,7 +9488,11 @@
         "mathlib:CommRingCat.pullbackConeIsLimit",
         "mathlib:RingHom.injective_iff_ker_eq_bot",
         "mathlib:RingEquiv.ofBijective",
-        "mathlib:RingEquiv.toCommRingCatIso"
+        "mathlib:RingEquiv.toCommRingCatIso",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-comparison-bijective",
+        "mathlib:CategoryTheory.Limits.Types.ext_of_isPullback",
+        "mathlib:CategoryTheory.IsPullback.map",
+        "mathlib:CategoryTheory.IsPullback.of_iso'"
       ],
       "sources": [
         {
@@ -9430,7 +9530,9 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-cartesian",
         "mathlib:Ideal.map_comap_le",
-        "mathlib:Ideal.quotientMap"
+        "mathlib:Ideal.quotientMap",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-map-comap",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-image-comap"
       ],
       "sources": [
         {
@@ -9487,7 +9589,19 @@
         "namespace": "TauCeti.GenusOne.FerrandPushout"
       },
       "implementationStatus": "unchecked",
-      "declarationName": "conductor_eq_annihilator"
+      "declarationName": "conductor_eq_annihilator",
+      "tests": [
+        {
+          "name": "FerrandPushout.conductor_eq_annihilator.test_noninjective_surjection",
+          "kind": "non-example",
+          "statement": "For ℤ→F₂ the quotient-module annihilator is the unit ideal even though the structure map has nonzero kernel. Injectivity is not a hidden hypothesis of the conductor-annihilator identity."
+        },
+        {
+          "name": "FerrandPushout.conductor_eq_annihilator.test_identity_nonreduced",
+          "kind": "non-example",
+          "statement": "For the identity algebra of ℤ/4 the contracted conductor is the unit ideal, while2 is a nonzero element with square0; the identity retains the nonreduced case."
+        }
+      ]
     },
     {
       "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-finite-flat-base-change",
@@ -10562,7 +10676,8 @@
         "Use the actual generic-point stalk isomorphism and its Spec triangle to form the integral comparison δ from normalization in K_C to N, with both universal-property triangles and uniqueness. Establish that δ is an isomorphism by genuine affine integral-closure comparisons before identifying N as absolute normalization; then still construct P¹/Proj, projectivity, conductor/sheaf and coherent-cohomology inputs. The current integral comparison alone supplies none of those remaining conclusions.",
         "Use the actual affine section equivalences in K_C and both restriction laws. Still compare this family with the native normalizationDiagram and normalizationObjIso, including the empty-open branch, and identify the resulting scheme comparison with δ before claiming absolute normalization or its cohomology sequence.",
         "Use the actual native-normalization section equivalence θ_U and its comparison Ψ_U with the existing chart source on every nonempty affine U. Identify these section maps with the existing δ map, prove their restriction compatibility and the empty-open branch, and assemble the global scheme identification before the conductor-sheaf and cohomology steps; none of those global conclusions is supplied by section-ring bijectivity alone.",
-        "Use the actual absolute normalization scheme isomorphism and its inverse over C, together with the actual all-open section algebra equivalences and their inverse restriction law. Continue with the native P¹ and Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, and finite-pushforward H0/H1; the separate I₂ construction and other inherited obligations are unchanged."
+        "Use the actual absolute normalization scheme isomorphism and its inverse over C, together with the actual all-open section algebra equivalences and their inverse restriction law. Continue with the native P¹ and Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, and finite-pushforward H0/H1; the separate I₂ construction and other inherited obligations are unchanged.",
+        "Use the actual affine common-ideal exact pair and its separate left-injectivity criterion, together with the all-open normalization section conductor/annihilator identities. These section-ring calculations do not identify a sheaf cokernel with sectionwise quotients. Still prove basic-open compatibility, construct the full conductor IdealSheafData and its quotient subschemes, then the sheaf exact sequence and finite-pushforward cohomology comparisons."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-point-proper-pushout",
@@ -10610,7 +10725,10 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/native-normalization-source-sections-equivalence",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-iso",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-iso-inv-from",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv-inverse-restrict"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv-inverse-restrict",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-exact",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-conductor-annihilator",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-conductor-transport"
       ],
       "sources": [
         {
@@ -31732,6 +31850,784 @@
       },
       "implementationStatus": "unchecked",
       "declarationName": "QuadraticPinch.Global.absoluteNormalizationComparisonSectionsAlgEquiv_eq_source_symm"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-comparison-bijective",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Bijectivity of the common-ideal comparison",
+      "kind": "lemma",
+      "statement": "For arbitrary commutative rings A,B, a unital f:A→B and I⊂A with map_f(I)=f(I) as sets, the actual comparison c:A→B×_(B/map_f(I))(A/I) is bijective exactly when ker(f)∩I=0. No finiteness, injectivity of f, reducedness or Noetherian hypothesis is imposed.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use common-ideal-pair-lifting for surjectivity.",
+        "Use the native ring-hom injectivity criterion and the already computed comparison kernel for both directions."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-kernel",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-pair-lifting",
+        "mathlib:RingHom.injective_iff_ker_eq_bot"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand-affine-native-20261003",
+          "locator": "Printed pp554–557, introduction and §§1.1–1.4",
+          "excerpt": "carré cartésien",
+          "match": "Authored native reconstruction and exactness deductions from the common-ideal criterion; the all-open normalization comparison additionally consumes this packet’s actual native normalization isomorphism."
+        }
+      ],
+      "acceptance": [
+        "The native counterpart and the corresponding typed acceptance examples are checked separately; the suggested declaration remains admitted and implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "TauCeti.GenusOne.AffinePinching"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "AffinePinching.commonIdealComparison_bijective_iff"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-map-comap",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Extension of the contracted conductor",
+      "kind": "lemma",
+      "statement": "For every subring S of a commutative ring B, the extension to B of the contraction of its ambient conductor is the original conductor: map_subtype(comap_subtype(c(S,B)))=c(S,B). This is equality of full ideals, with no radicals or reducedness assumption.",
+      "hypotheses": [],
+      "proofSteps": [
+        "The native map-comap bound gives one inclusion.",
+        "For b in the conductor, multiplication by1 places b in S; its subtype lies in the contraction and maps back to b."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor",
+        "mathlib:Ideal.map_comap_le",
+        "mathlib:Ideal.mem_map_of_mem"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand-affine-native-20261003",
+          "locator": "Printed pp554–557, introduction and §§1.1–1.4",
+          "excerpt": "carré cartésien",
+          "match": "Authored native reconstruction and exactness deductions from the common-ideal criterion; the all-open normalization comparison additionally consumes this packet’s actual native normalization isomorphism."
+        }
+      ],
+      "acceptance": [
+        "The native counterpart and the corresponding typed acceptance examples are checked separately; the suggested declaration remains admitted and implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "TauCeti.GenusOne.AffinePinching"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "AffinePinching.conductorRing_map_comap"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-image-comap",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Set image of the contracted conductor",
+      "kind": "lemma",
+      "statement": "For every subring S⊂B, subtype_S(comap_subtype(c(S,B))) equals c(S,B) as sets. Thus this image already is an ambient ideal; the assertion is stronger than merely generating that ideal.",
+      "hypotheses": [],
+      "proofSteps": [
+        "An element of the contracted ideal maps into the conductor by definition.",
+        "Lift every conductor element to its actual S-subtype using conductor_le."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand-affine-native-20261003",
+          "locator": "Printed pp554–557, introduction and §§1.1–1.4",
+          "excerpt": "carré cartésien",
+          "match": "Authored native reconstruction and exactness deductions from the common-ideal criterion; the all-open normalization comparison additionally consumes this packet’s actual native normalization isomorphism."
+        }
+      ],
+      "acceptance": [
+        "The native counterpart and the corresponding typed acceptance examples are checked separately; the suggested declaration remains admitted and implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "TauCeti.GenusOne.AffinePinching"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "AffinePinching.conductorRing_image_comap"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-equiv",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Reconstruction ring equivalence",
+      "kind": "construction",
+      "statement": "For arbitrary commutative rings A,B, f:A→B and I⊂A, assume map_f(I)=f(I) as sets and ker(f)∩I=0. Construct the native ring equivalence E:A≃B×_(B/map_f(I))(A/I) whose forward hom is the specified comparison c(a)=(f(a),[a]). Its inverse reconstructs an element from a compatible pair and preserves addition, multiplication and the unit.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Apply RingEquiv.ofBijective to the actual comparison using common-comparison-bijective.",
+        "Retain that ring map as the forward map, so the inverse has both actual coordinate identities and uniqueness. No second pullback carrier or chosen unrelated isomorphism is introduced."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-comparison-bijective",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-comparison",
+        "mathlib:RingEquiv.ofBijective"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand-affine-native-20261003",
+          "locator": "Printed pp554–557, introduction and §§1.1–1.4",
+          "excerpt": "carré cartésien",
+          "match": "Authored native reconstruction and exactness deductions from the common-ideal criterion; the all-open normalization comparison additionally consumes this packet’s actual native normalization isomorphism."
+        }
+      ],
+      "acceptance": [
+        "The native counterpart and the corresponding typed acceptance examples are checked separately; the suggested declaration remains admitted and implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "TauCeti.GenusOne.AffinePinching"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "AffinePinching.commonIdealEquiv",
+      "api": [
+        {
+          "name": "AffinePinching.commonIdealEquiv_apply",
+          "role": "compatibility",
+          "statement": "Under the reconstruction hypotheses, E(a)=c(a) for every a∈A; both coordinates are the actual maps f and A→A/I."
+        },
+        {
+          "name": "AffinePinching.commonIdealEquiv_inverse_fst",
+          "role": "projection",
+          "statement": "Under the reconstruction hypotheses, f(E⁻¹(p)) equals the native B-projection of every compatible pair p∈B×_(B/map_f(I))(A/I)."
+        },
+        {
+          "name": "AffinePinching.commonIdealEquiv_inverse_snd",
+          "role": "projection",
+          "statement": "Under the reconstruction hypotheses, the class of E⁻¹(p) in A/I is the actual second projection of the compatible pair p. Equality is in the quotient, and makes no assertion that an arbitrary representative is the reconstructed element."
+        },
+        {
+          "name": "AffinePinching.commonIdealEquiv_inverse_unique",
+          "role": "universal-property",
+          "statement": "Under the reconstruction hypotheses, if a∈A has f(a)=p₁ and [a]=p₂ for a compatible pair p, then E⁻¹(p)=a. The equality uses both coordinates; the second coordinate alone does not choose a representative."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Ferrand §1.3 and NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-affine-quotients",
+          "how": "Supply the actual compatible-pair reconstruction and maps needed by the conductor-square consumer."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the affine additive sequence before the separately required conductor sheaf and finite-pushforward cohomology comparisons."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AffinePinching.commonIdealEquiv.test_noninjective_zero_inverse",
+          "kind": "degenerate",
+          "statement": "For ℤ→F₂ and I=0, the reconstruction inverse takes c(a) back to a for every integer a, although the original ring map is not injective."
+        },
+        {
+          "name": "AffinePinching.commonIdealEquiv.test_identity_inverse",
+          "kind": "compatibility",
+          "statement": "For f=id_A and every ideal I, the actual reconstruction inverse of c(a) is a."
+        },
+        {
+          "name": "AffinePinching.commonIdealEquiv.test_distinct_representatives",
+          "kind": "computation",
+          "statement": "For f=id_ℤ and I=(2), the compatible pair (7,[3]) reconstructs7 and does not reconstruct3. This checks both coordinates rather than selecting an arbitrary residue representative."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-equiv-apply",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Forward reconstruction map",
+      "kind": "lemma",
+      "statement": "Under the reconstruction hypotheses, E(a)=c(a) for every a∈A; both coordinates are the actual maps f and A→A/I.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Unfold only the native RingEquiv.ofBijective forward map.",
+        "Identify it with the specified commonIdealComparison hom."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-comparison",
+        "mathlib:RingEquiv.ofBijective"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand-affine-native-20261003",
+          "locator": "Printed pp554–557, introduction and §§1.1–1.4",
+          "excerpt": "carré cartésien",
+          "match": "Authored native reconstruction and exactness deductions from the common-ideal criterion; the all-open normalization comparison additionally consumes this packet’s actual native normalization isomorphism."
+        }
+      ],
+      "acceptance": [
+        "The native counterpart and the corresponding typed acceptance examples are checked separately; the suggested declaration remains admitted and implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "TauCeti.GenusOne.AffinePinching"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "AffinePinching.commonIdealEquiv_apply"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-equiv-inverse-first",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "First coordinate of the reconstructed element",
+      "kind": "lemma",
+      "statement": "Under the reconstruction hypotheses, f(E⁻¹(p)) equals the native B-projection of every compatible pair p∈B×_(B/map_f(I))(A/I).",
+      "hypotheses": [],
+      "proofSteps": [
+        "Rewrite the B-projection with commonIdealComparison_fst and common-equiv-apply.",
+        "Apply the native equivalence inverse law E(E⁻¹(p))=p."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-equiv-apply",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-comparison",
+        "mathlib:RingEquiv.apply_symm_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand-affine-native-20261003",
+          "locator": "Printed pp554–557, introduction and §§1.1–1.4",
+          "excerpt": "carré cartésien",
+          "match": "Authored native reconstruction and exactness deductions from the common-ideal criterion; the all-open normalization comparison additionally consumes this packet’s actual native normalization isomorphism."
+        }
+      ],
+      "acceptance": [
+        "The native counterpart and the corresponding typed acceptance examples are checked separately; the suggested declaration remains admitted and implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "TauCeti.GenusOne.AffinePinching"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "AffinePinching.commonIdealEquiv_inverse_fst"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-equiv-inverse-second",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Residue class of the reconstructed element",
+      "kind": "lemma",
+      "statement": "Under the reconstruction hypotheses, the class of E⁻¹(p) in A/I is the actual second projection of the compatible pair p. Equality is in the quotient, and makes no assertion that an arbitrary representative is the reconstructed element.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Rewrite the quotient projection with commonIdealComparison_snd and common-equiv-apply.",
+        "Apply E(E⁻¹(p))=p and project to A/I."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-equiv-apply",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-comparison",
+        "mathlib:RingEquiv.apply_symm_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand-affine-native-20261003",
+          "locator": "Printed pp554–557, introduction and §§1.1–1.4",
+          "excerpt": "carré cartésien",
+          "match": "Authored native reconstruction and exactness deductions from the common-ideal criterion; the all-open normalization comparison additionally consumes this packet’s actual native normalization isomorphism."
+        }
+      ],
+      "acceptance": [
+        "The native counterpart and the corresponding typed acceptance examples are checked separately; the suggested declaration remains admitted and implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "TauCeti.GenusOne.AffinePinching"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "AffinePinching.commonIdealEquiv_inverse_snd"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-equiv-inverse-unique",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Unique compatible lift",
+      "kind": "lemma",
+      "statement": "Under the reconstruction hypotheses, if a∈A has f(a)=p₁ and [a]=p₂ for a compatible pair p, then E⁻¹(p)=a. The equality uses both coordinates; the second coordinate alone does not choose a representative.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Apply injectivity of E and its inverse law.",
+        "Use equality of both coordinates in the existing subtype of B×A/I."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-equiv-apply",
+        "mathlib:RingEquiv.apply_symm_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand-affine-native-20261003",
+          "locator": "Printed pp554–557, introduction and §§1.1–1.4",
+          "excerpt": "carré cartésien",
+          "match": "Authored native reconstruction and exactness deductions from the common-ideal criterion; the all-open normalization comparison additionally consumes this packet’s actual native normalization isomorphism."
+        }
+      ],
+      "acceptance": [
+        "The native counterpart and the corresponding typed acceptance examples are checked separately; the suggested declaration remains admitted and implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "TauCeti.GenusOne.AffinePinching"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "AffinePinching.commonIdealEquiv_inverse_unique"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-difference",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Difference map of the common-ideal square",
+      "kind": "construction",
+      "statement": "For arbitrary commutative rings A,B, f:A→B and I⊂A, put J=map_f(I) and q:A/I→B/J. Define the actual additive homomorphism d:B×A/I→B/J by d(b,α)=[b]−q(α). No image-ideal or kernel hypothesis is imposed. This is an additive map; subtraction is essential and no ring-hom claim is made.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Compose the native additive quotient maps with the two product projections.",
+        "Subtract the resulting AddMonoidHom maps. The target is the original quotient by the full ideal J."
+      ],
+      "prerequisites": [
+        "mathlib:Ideal.quotientMap",
+        "mathlib:Ideal.Quotient.mk",
+        "mathlib:MonoidHom.fst",
+        "mathlib:MonoidHom.snd"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand-affine-native-20261003",
+          "locator": "Printed pp554–557, introduction and §§1.1–1.4",
+          "excerpt": "carré cartésien",
+          "match": "Authored native reconstruction and exactness deductions from the common-ideal criterion; the all-open normalization comparison additionally consumes this packet’s actual native normalization isomorphism."
+        }
+      ],
+      "acceptance": [
+        "The native counterpart and the corresponding typed acceptance examples are checked separately; the suggested declaration remains admitted and implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "TauCeti.GenusOne.AffinePinching"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "AffinePinching.commonIdealDifference",
+      "api": [
+        {
+          "name": "AffinePinching.commonIdealDifference_apply",
+          "role": "simp",
+          "statement": "For every b∈B and α∈A/I, d(b,α)=[b]−q(α) in B/map_f(I), with the quotient map induced by f."
+        },
+        {
+          "name": "AffinePinching.commonIdealDifference_surjective",
+          "role": "structure",
+          "statement": "For every f and I, d:B×A/I→B/map_f(I) is surjective. It does not require map_f(I)=f(I), nor does surjectivity by itself imply exactness at B×A/I."
+        },
+        {
+          "name": "AffinePinching.commonIdeal_exact",
+          "role": "relation",
+          "statement": "For arbitrary commutative rings and f:A→B, I⊂A, assume map_f(I)=f(I) as sets. Then A→B×A/I→B/map_f(I), with maps a↦(f(a),[a]) and d(b,α)=[b]−q(α), is Function.Exact. It is exact at the middle term even when f has a nonzero kernel. It becomes short exact precisely when the diagonal map is injective."
+        },
+        {
+          "name": "AffinePinching.commonIdeal_exact_iff",
+          "role": "characterisation",
+          "statement": "For every f and I, the actual sequence a↦(f(a),[a]), d(b,α)=[b]−q(α) is Function.Exact if and only if map_f(I)=f(I) as sets. There is no kernel condition in this equivalence; that condition controls the separate initial injection."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Ferrand §1.3 and NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-affine-quotients",
+          "how": "Supply the actual compatible-pair reconstruction and maps needed by the conductor-square consumer."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the affine additive sequence before the separately required conductor sheaf and finite-pushforward cohomology comparisons."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AffinePinching.commonIdealDifference.test_identity_exact",
+          "kind": "compatibility",
+          "statement": "For f=id_A and every ideal I the specified diagonal and difference maps form an exact pair."
+        },
+        {
+          "name": "AffinePinching.commonIdealDifference.test_noninjective_exact",
+          "kind": "non-example",
+          "statement": "For ℤ→F₂ and I=ker(f), the specified sequence is exact at its middle term while its initial diagonal map is not injective."
+        },
+        {
+          "name": "AffinePinching.commonIdealDifference.test_diagonal_failure",
+          "kind": "non-example",
+          "statement": "For the injective diagonal F₂→F₂×F₂ with I=⊤, d is surjective but the specified sequence is not exact; (0,1) lies in the generated ideal and not in the diagonal image."
+        },
+        {
+          "name": "AffinePinching.commonIdealDifference.test_minus_sign",
+          "kind": "computation",
+          "statement": "For f=id_ℤ and I=0, d(0,[1])=−[1] in ℤ/map_id(0), fixing the sign of the exact sequence."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-difference-apply",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Difference on a pair",
+      "kind": "lemma",
+      "statement": "For every b∈B and α∈A/I, d(b,α)=[b]−q(α) in B/map_f(I), with the quotient map induced by f.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Evaluate the two product projections.",
+        "Evaluate subtraction in the additive-hom group; this gives the displayed minus sign."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-difference"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand-affine-native-20261003",
+          "locator": "Printed pp554–557, introduction and §§1.1–1.4",
+          "excerpt": "carré cartésien",
+          "match": "Authored native reconstruction and exactness deductions from the common-ideal criterion; the all-open normalization comparison additionally consumes this packet’s actual native normalization isomorphism."
+        }
+      ],
+      "acceptance": [
+        "The native counterpart and the corresponding typed acceptance examples are checked separately; the suggested declaration remains admitted and implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "TauCeti.GenusOne.AffinePinching"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "AffinePinching.commonIdealDifference_apply"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-difference-surjective",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Surjectivity of the difference map",
+      "kind": "lemma",
+      "statement": "For every f and I, d:B×A/I→B/map_f(I) is surjective. It does not require map_f(I)=f(I), nor does surjectivity by itself imply exactness at B×A/I.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Represent any quotient class by b∈B using the native quotient surjectivity.",
+        "The pair (b,0) maps to that class because q(0)=0."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-difference-apply",
+        "mathlib:Ideal.Quotient.mk_surjective"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand-affine-native-20261003",
+          "locator": "Printed pp554–557, introduction and §§1.1–1.4",
+          "excerpt": "carré cartésien",
+          "match": "Authored native reconstruction and exactness deductions from the common-ideal criterion; the all-open normalization comparison additionally consumes this packet’s actual native normalization isomorphism."
+        }
+      ],
+      "acceptance": [
+        "The native counterpart and the corresponding typed acceptance examples are checked separately; the suggested declaration remains admitted and implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "TauCeti.GenusOne.AffinePinching"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "AffinePinching.commonIdealDifference_surjective"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-exact",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Exactness of the common-ideal sequence",
+      "kind": "lemma",
+      "statement": "For arbitrary commutative rings and f:A→B, I⊂A, assume map_f(I)=f(I) as sets. Then A→B×A/I→B/map_f(I), with maps a↦(f(a),[a]) and d(b,α)=[b]−q(α), is Function.Exact. It is exact at the middle term even when f has a nonzero kernel. It becomes short exact precisely when the diagonal map is injective.",
+      "hypotheses": [],
+      "proofSteps": [
+        "The equation d(b,α)=0 says exactly that (b,α) is a compatible pair in the native ring pullback.",
+        "Lift that pair using common-ideal-pair-lifting. Conversely an actual diagonal pair has equal images in the final quotient."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-difference-apply",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-pair-lifting",
+        "mathlib:Function.MulExact"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand-affine-native-20261003",
+          "locator": "Printed pp554–557, introduction and §§1.1–1.4",
+          "excerpt": "carré cartésien",
+          "match": "Authored native reconstruction and exactness deductions from the common-ideal criterion; the all-open normalization comparison additionally consumes this packet’s actual native normalization isomorphism."
+        }
+      ],
+      "acceptance": [
+        "The native counterpart and the corresponding typed acceptance examples are checked separately; the suggested declaration remains admitted and implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "TauCeti.GenusOne.AffinePinching"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "AffinePinching.commonIdeal_exact"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-diagonal-injective",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Left exactness criterion",
+      "kind": "lemma",
+      "statement": "For every f:A→B and I⊂A, the native diagonal ring hom a↦(f(a),[a]) into B×A/I is injective exactly when ker(f)∩I=0. This equivalence requires no image-ideal hypothesis.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Compute the kernel of the product hom from its two coordinates.",
+        "Use the quotient-zero criterion and native ring-hom injectivity criterion. Combined with common-ideal-exact and common-difference-surjective this states exactly when the affine sequence is short exact."
+      ],
+      "prerequisites": [
+        "mathlib:RingHom.injective_iff_ker_eq_bot",
+        "mathlib:Ideal.Quotient.eq_zero_iff_mem"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand-affine-native-20261003",
+          "locator": "Printed pp554–557, introduction and §§1.1–1.4",
+          "excerpt": "carré cartésien",
+          "match": "Authored native reconstruction and exactness deductions from the common-ideal criterion; the all-open normalization comparison additionally consumes this packet’s actual native normalization isomorphism."
+        }
+      ],
+      "acceptance": [
+        "The native counterpart and the corresponding typed acceptance examples are checked separately; the suggested declaration remains admitted and implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "TauCeti.GenusOne.AffinePinching"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "AffinePinching.commonIdealDiagonal_injective_iff"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-comparison-surjective-iff",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Necessity of the image-ideal condition",
+      "kind": "lemma",
+      "statement": "For every f:A→B and I⊂A, the comparison c:A→B×_(B/map_f(I))(A/I) is surjective if and only if map_f(I)=f(I) as sets. In particular injectivity of f cannot replace the image-ideal condition.",
+      "hypotheses": [],
+      "proofSteps": [
+        "For b∈map_f(I), form the compatible pair (b,0). A lift a satisfies [a]=0, hence a∈I, and f(a)=b.",
+        "The reverse set containment is the native ideal-map inclusion. The converse implication is the existing compatible-pair lifting result."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-comparison",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-pair-lifting",
+        "mathlib:Ideal.Quotient.eq_zero_iff_mem",
+        "mathlib:Ideal.mem_map_of_mem"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand-affine-native-20261003",
+          "locator": "Printed pp554–557, introduction and §§1.1–1.4",
+          "excerpt": "carré cartésien",
+          "match": "Authored native reconstruction and exactness deductions from the common-ideal criterion; the all-open normalization comparison additionally consumes this packet’s actual native normalization isomorphism."
+        }
+      ],
+      "acceptance": [
+        "The native counterpart and the corresponding typed acceptance examples are checked separately; the suggested declaration remains admitted and implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "TauCeti.GenusOne.AffinePinching"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "AffinePinching.commonIdealComparison_surjective_iff"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-exact-iff",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Exactness detects an ideal image",
+      "kind": "lemma",
+      "statement": "For every f and I, the actual sequence a↦(f(a),[a]), d(b,α)=[b]−q(α) is Function.Exact if and only if map_f(I)=f(I) as sets. There is no kernel condition in this equivalence; that condition controls the separate initial injection.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Exactness lifts every compatible pair, since compatibility is the equation d(p)=0. Apply common-comparison-surjective-iff.",
+        "Conversely use common-ideal-exact. The diagonal F₂→F₂×F₂ with I=⊤ distinguishes surjectivity of d from this exactness."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-comparison-surjective-iff",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-difference-apply",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-exact",
+        "mathlib:Function.MulExact"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand-affine-native-20261003",
+          "locator": "Printed pp554–557, introduction and §§1.1–1.4",
+          "excerpt": "carré cartésien",
+          "match": "Authored native reconstruction and exactness deductions from the common-ideal criterion; the all-open normalization comparison additionally consumes this packet’s actual native normalization isomorphism."
+        }
+      ],
+      "acceptance": [
+        "The native counterpart and the corresponding typed acceptance examples are checked separately; the suggested declaration remains admitted and implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "TauCeti.GenusOne.AffinePinching"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "AffinePinching.commonIdeal_exact_iff"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-algebra-equiv",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Invariance of contracted conductors under an algebra equivalence",
+      "kind": "lemma",
+      "statement": "For arbitrary commutative rings A,B,C and an actual A-algebra equivalence e:B≃ₐ[A]C, the contractions to A of c(im(A→B),B) and c(im(A→C),C) are equal as full A-ideals. The structure maps need not be injective or finite.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Membership means every product of the scalar image with an ambient element lies in the scalar image. Lift an arbitrary C-element through e and transport that equation using multiplicativity and coefficient compatibility.",
+        "Apply the same argument to e⁻¹ for the reverse implication. No replacement by a radical, support or abstract ring equivalence is valid."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor",
+        "mathlib:AlgEquiv.commutes"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand-affine-native-20261003",
+          "locator": "Printed pp554–557, introduction and §§1.1–1.4",
+          "excerpt": "carré cartésien",
+          "match": "Authored native reconstruction and exactness deductions from the common-ideal criterion; the all-open normalization comparison additionally consumes this packet’s actual native normalization isomorphism."
+        }
+      ],
+      "acceptance": [
+        "The native counterpart and the corresponding typed acceptance examples are checked separately; the suggested declaration remains admitted and implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "FerrandPushout.conductor_comap_algEquiv"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-conductor-annihilator",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Annihilator of the normalization section defect",
+      "kind": "lemma",
+      "statement": "For every field k, a,b∈k and every open U of the actual glued curve C, put A=Γ(C,U), B=Γ(N,ν⁻¹U) with the actual ν section-algebra structure. The contraction to A of c(im ν_U,B) equals Ann_A(B/(A·1)), using the native module quotient. This is an identity for section rings on each open; it does not identify a sheaf cokernel with those section quotients.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the exact actual section map ν_U to supply the A-algebra structure on B.",
+        "Specialize conductor-annihilator, whose proof needs neither affine U nor a nonempty-open hypothesis."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-annihilator",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand-affine-native-20261003",
+          "locator": "Printed pp554–557, introduction and §§1.1–1.4",
+          "excerpt": "carré cartésien",
+          "match": "Authored native reconstruction and exactness deductions from the common-ideal criterion; the all-open normalization comparison additionally consumes this packet’s actual native normalization isomorphism."
+        }
+      ],
+      "acceptance": [
+        "The native counterpart and the corresponding typed acceptance examples are checked separately; the suggested declaration remains admitted and implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalization_sections_conductor_annihilator"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-conductor-transport",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Conductor comparison with the native absolute normalization",
+      "kind": "lemma",
+      "statement": "For every field k, a,b∈k and every open U⊂C, the ideals in Γ(C,U) obtained by contracting the conductor of the actual section map for ν:N→C and for η.fromNormalization:η.normalization→C are equal, where η is C’s generic-point morphism. This includes U=∅ and preserves nilpotents. It compares actual section maps, without yet constructing their conductor ideal sheaf.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the previously specified absoluteNormalizationComparisonSectionsAlgEquiv over the actual Γ(C,U)-algebra structures.",
+        "Apply conductor-algebra-equiv to that exact equivalence; no affine or nonempty hypothesis is added."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-algebra-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-comparison-absolute-normalization-comparison-sections-alg-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-curve-integral"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand-affine-native-20261003",
+          "locator": "Printed pp554–557, introduction and §§1.1–1.4",
+          "excerpt": "carré cartésien",
+          "match": "Authored native reconstruction and exactness deductions from the common-ideal criterion; the all-open normalization comparison additionally consumes this packet’s actual native normalization isomorphism."
+        }
+      ],
+      "acceptance": [
+        "The native counterpart and the corresponding typed acceptance examples are checked separately; the suggested declaration remains admitted and implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteNormalization_sections_conductor",
+      "tests": [
+        {
+          "name": "QuadraticPinch.Global.conductor.test_cusp_comparison",
+          "kind": "compatibility",
+          "statement": "For a=b=0, the actual cuspidal two-chart normalization and native absolute normalization have the same contracted section-ring conductor on every open U."
+        },
+        {
+          "name": "QuadraticPinch.Global.conductor.test_empty_comparison",
+          "kind": "degenerate",
+          "statement": "For a=b=1 over F₂ and U=∅, the two actual normalization section maps still have equal contracted conductors. No nonempty-open condition is smuggled into the comparison."
+        }
+      ]
     }
   ],
   "requests": [
@@ -32087,7 +32983,8 @@
         "Suggested signatures for unbuilt geometric conditions",
         "Replace unresolved supplier stage requests by exact verified exports.",
         "Global conductor signatures remain uncompiled; the generic finite-module annihilator and exact affine quotient/localization exports are requested at SF.0.",
-        "The ring localization comparison is explicit. The actual affine basic-open union, structure-sheaf and categorical scheme comparisons still require the named supplier exports; this does not close the scheme or algebraic-space stage."
+        "The ring localization comparison is explicit. The actual affine basic-open union, structure-sheaf and categorical scheme comparisons still require the named supplier exports; this does not close the scheme or algebraic-space stage.",
+        "The native affine reconstruction and annihilator identities are now separately checked. Still supply finite flat/localization compatibility, actual conductor IdealSheafData and quotient-scheme identifications, the all-open geometric pushout and scheme/algebraic-space supplier exports; no stage is closed."
       ]
     },
     {
@@ -32116,7 +33013,8 @@
         "The actual common infinity chart yields ν(η_N)=η_C and the specified native stalk-field isomorphism K_C≅K_N, with nonempty-open germ compatibility. Its inverse gives the actual generic-point lift and an integral comparison δ:(C.fromSpecStalk η_C).normalization→N satisfying both triangles and uniqueness. The existing Tau Ceti nonempty-preimage theorem is imported. Prove δ is an isomorphism using actual affine integral-closure comparisons before asserting absolute normalization; retain P¹/Proj identification, properness/projectivity, conductor ideal sheaf/exact sequence, finite-pushforward H0/H1, and the independent I₂ construction. Every stage remains partial and every implementation status unchecked.",
         "For every nonempty affine U⊂C, the actual B_U=Γ(N,ν⁻¹U) is integrally closed and is the integral closure of A_U=Γ(C,U) in K_N. The specified σ upgrades to an A_U-algebra equivalence and gives E_U:B_U≃integralClosure(A_U,K_C), with exact forward/inverse generic-germ, coefficient and restriction laws. This settles the affine generic-field comparison. It does not identify E_U with the sections of the existing δ: compare against native normalizationDiagram/normalizationObjIso, handle the empty-open branch and assemble the scheme isomorphism. Preserve P¹/Proj identification, properness/projectivity, conductor ideal sheaf and exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry. All seven stages remain partial and every implementation unchecked.",
         "The actual native normalization affine section rings now have θ_U:D_U≃integralClosure(A_U,K_C) and Ψ_U:D_U≃B_U over A_U, with coefficient and forward/inverse closure formulas; κ_U uses the existing public rational-function section equivalences. Prove θ/Ψ restriction compatibility, identify Ψ_U with the existing δ on actual affine sections, handle empty opens and assemble δ as a scheme isomorphism. P¹/Proj identification, properness/projectivity, conductor sheaves/exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry remain required. All stages remain partial and every implementation unchecked; the full canonical Tau Ceti-importing file is uncompiled.",
-        "The actual comparison δ:η.normalization→N is now identified with Ψ_U⁻¹ on nonempty affine sections, with native closure and source restriction formulas. Empty-open sections are handled separately, the finite-map affine cover proves δ is a scheme isomorphism, and its inverse respects both triangles. The actual comparison upgrades to Λ_U:B_U≃ₐ[A_U]D_U on every open, commuting with forward and inverse restriction and the actual coefficients; on nonempty affine opens it recovers Ψ_U⁻¹. The native projective-line/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1, independent I₂ geometry and every inherited family/model/classification obligation remain required. All seven stages are partial and every mathematical implementation status is unchecked. The full canonical Tau Ceti-importing file is uncompiled; the bounded Mathlib artifacts with the consumed exact pinned Tau Ceti source excerpt are checked."
+        "The actual comparison δ:η.normalization→N is now identified with Ψ_U⁻¹ on nonempty affine sections, with native closure and source restriction formulas. Empty-open sections are handled separately, the finite-map affine cover proves δ is a scheme isomorphism, and its inverse respects both triangles. The actual comparison upgrades to Λ_U:B_U≃ₐ[A_U]D_U on every open, commuting with forward and inverse restriction and the actual coefficients; on nonempty affine opens it recovers Ψ_U⁻¹. The native projective-line/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1, independent I₂ geometry and every inherited family/model/classification obligation remain required. All seven stages are partial and every mathematical implementation status is unchecked. The full canonical Tau Ceti-importing file is uncompiled; the bounded Mathlib artifacts with the consumed exact pinned Tau Ceti source excerpt are checked.",
+        "The contracted section-ring conductors of N and the native absolute normalization now agree on every open, including the empty open. Construct the actual conductor ideal sheaf and structure-sheaf sequence; a sectionwise module quotient is not yet the sections of a sheaf cokernel. P¹/Proj, properness/projectivity, finite-pushforward H0/H1 and separate I₂ geometry remain open."
       ]
     },
     {
@@ -36374,5 +37272,87 @@
     "pinnedRationalFunctionImport": "TauCeti.AlgebraicGeometry.Modules.RationalFunctions",
     "harnessBoundary": "Canonical imports the actual Tau Ceti module. The checked Mathlib-only native and admitted artifacts preserve the authenticated incoming harness with the consumed exact pinned RationalFunctions source body through rationalFunctionsEquiv; only the module/import/public envelope and redundant universe declaration were adapted. They do not certify the full Tau Ceti import graph. Diagnostics replace only the artifact-directory prefix by REPLAY/.",
     "remaining": "The actual comparison δ:η.normalization→N is now identified with Ψ_U⁻¹ on nonempty affine sections, with native closure and source restriction formulas. Empty-open sections are handled separately, the finite-map affine cover proves δ is a scheme isomorphism, and its inverse respects both triangles. The actual comparison upgrades to Λ_U:B_U≃ₐ[A_U]D_U on every open, commuting with forward and inverse restriction and the actual coefficients; on nonempty affine opens it recovers Ψ_U⁻¹. The native projective-line/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1, independent I₂ geometry and every inherited family/model/classification obligation remain required. All seven stages are partial and every mathematical implementation status is unchecked. The full canonical Tau Ceti-importing file is uncompiled; the bounded Mathlib artifacts with the consumed exact pinned Tau Ceti source excerpt are checked."
+  },
+  "commonIdealNativeContinuation": {
+    "agent": "Codex codex-7e92bd",
+    "date": "2026-10-03",
+    "base": "4c47f9957d8a4e9776f4890d87e2e802fdc13ee3",
+    "scope": "18 new declarations and native proof closure for6 existing nodes (9 existing named declarations and4 existing typed tests).",
+    "limitations": "All7 stages remain partial and all implementation statuses unchecked. Full Tau Ceti canonical file is uncompiled; bounded Mathlib evidence is separate. No global conductor sheaf or cohomology sequence is claimed.",
+    "newNodeIds": [
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-comparison-bijective",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-map-comap",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-image-comap",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-equiv",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-equiv-apply",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-equiv-inverse-first",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-equiv-inverse-second",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-equiv-inverse-unique",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-difference",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-difference-apply",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-difference-surjective",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-exact",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-diagonal-injective",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-comparison-surjective-iff",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-exact-iff",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-algebra-equiv",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-conductor-annihilator",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-conductor-transport"
+    ],
+    "newTestNames": [
+      "AffinePinching.commonIdealEquiv.test_noninjective_zero_inverse",
+      "AffinePinching.commonIdealEquiv.test_identity_inverse",
+      "AffinePinching.commonIdealEquiv.test_distinct_representatives",
+      "AffinePinching.commonIdealDifference.test_identity_exact",
+      "AffinePinching.commonIdealDifference.test_noninjective_exact",
+      "AffinePinching.commonIdealDifference.test_diagonal_failure",
+      "AffinePinching.commonIdealDifference.test_minus_sign",
+      "FerrandPushout.conductor_eq_annihilator.test_noninjective_surjection",
+      "FerrandPushout.conductor_eq_annihilator.test_identity_nonreduced",
+      "QuadraticPinch.Global.conductor.test_cusp_comparison",
+      "QuadraticPinch.Global.conductor.test_empty_comparison"
+    ],
+    "compilation": {
+      "native": {
+        "source": "Native.lean",
+        "sha256": "6523362bfd9030ba7737c1ce489f3354794d2f6420409d22855a0ce2ac0b0988",
+        "lines": 5730,
+        "examples": 230,
+        "exit": 0,
+        "availableGiB": 43,
+        "timeoutSeconds": 1200,
+        "time": "2026-10-03T12:56:12.726484+00:00",
+        "warnings": 0,
+        "admissions": 0,
+        "axiomAudits": 424,
+        "log": "native.diag",
+        "diagnosticsSha256": "faace8963a1781cf50b2ee09fe17a233c5e5330e50ec5d00d6decf95a82117d8",
+        "elapsed": "1:03.03"
+      },
+      "sketch": {
+        "source": "Sketch.lean",
+        "sha256": "978965206ce1cd5f8b0214dceb6b886c49c2ebf02f669db7e14a64581c3d72ec",
+        "lines": 3808,
+        "examples": 249,
+        "exit": 0,
+        "availableGiB": 41,
+        "timeoutSeconds": 1200,
+        "time": "2026-10-03T13:00:03.420136+00:00",
+        "warnings": 599,
+        "admissions": 599,
+        "axiomAudits": 20,
+        "log": "sketch.diag",
+        "diagnosticsSha256": "9da9364378a9a2144dbc55ca846ffb013fc6db29117bcf1333bb3426fdb97ded",
+        "elapsed": "1:05.33"
+      },
+      "fullCanonical": {
+        "source": "Canonical.lean",
+        "sha256": "2f8bd6c35ce6c6deed9bf5ab248e72abd6327f109e2cb1355453c579a649e605",
+        "lines": 5130,
+        "examples": 326,
+        "compiled": false,
+        "reason": "The available Tau Ceti root build is cf386627e9176a3827c1a5fe804989fd94a4d216 rather than the prescribed f790474821cf4256814db967cb154e7af3d0c369, and its RationalFunctions compiled artifact is absent. The bounded checks extend the incoming Mathlib-only harness with the exact consumed pinned source excerpt, adapted only for its module/import/public envelope and redundant universe declaration. They do not certify the full Tau Ceti import graph."
+      }
+    }
   }
 }
