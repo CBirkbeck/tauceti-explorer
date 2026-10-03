@@ -1,3 +1,1487 @@
+# Actual curve degree quotient checkpoint
+
+Codex — codex-rtOQ9t; Refs #551. Claim 5965904056 was confirmed by bot comment 5965904896. The whole issue was read before claiming and again after confirmation. This is a substantive partial checkpoint; no stage or implementation is certified closed.
+
+The 18 new declarations identify the actual equation-jet image with the native quotient of q^n by q • top in A=R/(f), where q is the image of the formal-series variable ideal. They include the actual jet algebra equivalence, image membership/map/bijectivity/equivalence, native successive-power quotient comparison, homogeneous comparison, representative/inverse/vanishing formulas, and principal-kernel and strict-below-order adapters. Generic ideal and quotient equivalences already in the pinned Mathlib are consumed rather than replanned. The generic ideal-image comparisons allow arbitrary variable types and commutative coefficients; homogeneous comparisons use finite variables. Only the principal exact-order kernel adds no zero divisors.
+
+All 192 incoming node objects remain identical. The full general Noetherian-local finite-module multiplicity key, intrinsic support dimension versus ambient ring dimension, all 15 gaps, both requests, all eight stage statuses and historical source attributions are retained. The reader appends the complete incoming reader, and this handoff appends the complete incoming handoff. Historical prototype omissions are superseded only for the mathematical comparison described here. Full graded multiplication and generator-compatible assembly, the full graded principal ideal kernel, curve/support dimension, comparison with the general cumulative polynomial, intrinsic/ambient multiplicity, Hilbert–Serre, Artin–Rees, completion, localization, associativity and all source/stage obligations remain required.
+
+Fifteen named new tests use actual maps or quotient carriers: zero/unit equations, inverse and representative formulas, no-variable degree-zero constant, surviving nilpotent coefficient 2X over Z/4Z, and the nonreduced characteristic-two equation X², for which X survives in degree one and X² vanishes in degree two. Every new construction has at least three planned tests and an API tied to its consumers. There are 210 nodes (8 definitions, 36 constructions, 150 lemmas, 16 theorems), 187 API items, 223 raw test entries (169 required definition/construction test entries), 323 baseline declarations and 13 planets. All implementation statuses are unchecked.
+
+Fresh reading comprises the credited immutable DDPA jet argument §§2–5 and complete Stacks 00K4 mathematical section, the actual generic quotient equivalence and ambient source hypotheses at the Mathlib pin, all nine reviewed roadmap audit rows and accepted review, whole campaign reader, all eight exact stage objects, reserved key/catalog brief, two current requests and applicable accepted RS-08 ownership/link and ModularCurves overlap records. Historical peer readings and executions remain credited, not claimed as our fresh reads. Two upstream style documents were inspected earlier in this continuous worker loop. A bounded current open-PR search found PR27307 (homogeneous relation), OPEN at 0127706ca379b684697f3c95c8cc772537a21774; its metadata/body/file list informed the remaining full-graded boundary and its implementation is not imported. Bounded indexed Zulip searches furnished no pertinent quotient adapter. No whole-library absence is inferred.
+
+The mathematical read base and publication base are below. All four issue inputs and twelve governing inputs were byte-identical across those bases. Only the four allowed deliverables change. The pinned sources are Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. The existing build's Mathlib pin and Lean 4.34.0-rc2 were used; no Tau Ceti module is imported by either complete Lean file. Tau Ceti citations retain their source-pin audit, and this receipt does not claim compilation of a different Tau Ceti checkout.
+
+Both full files were elaborated afresh, one process at a time, after an atomic free -g guard showed at least 20 GiB available. Final Native.lean: 3,075 lines, zero errors, warnings, admissions or sorryAx; 218 declaration/test axiom audits report only the standard propext/Classical.choice/Quot.sound axioms. Final Canonical.lean: 3,696 lines, zero errors and exactly 500 expected placeholder warnings, with no other warnings. The admission-free inherited native prefix is retained byte for byte. The newly admitted prototypes preserve the complete binder/type headers of all 18 new declarations and 15 tests, including type-level lets. Intermediate failed elaborations and unused-variable warnings were corrected before these final successful checks. No Lake project, library build, update, cache fetch or language server was started; no compiler remains running.
+
+The actual indexed checker and intake functions pass with zero errors/warnings/refusals. The actual assembler retains the separately promoted R03.6 part: the whole roadmap has 263 declarations. Stage, own and combined dependency graphs are acyclic, with no unresolved declaration input. All 65 accepted restructure pairs touching this roadmap are reachable. Twelve of thirteen required stage pairs are reachable; the existing LocalFieldsRamification layer-0 → R03.4 missing path is unchanged in the incoming control and remains explicitly recorded as a gap/request. Other roadmaps' skipped/pending entries equal the control, and the owned roadmap has none. This is not a claim that every stage supplier is reachable.
+
+The following metadata and four self-contained scripts recover the public source artifacts and replay the source/header/indexed-checker/intake/actual-assembler validation. Invoke recover.py with the immutable PR head and an owned on-disk scratch directory, then run verify.py from the existing Atlas clone with that scratch directory and the pinned declaration index. Neither recovery nor source verification silently runs Lean. A source-only replay without successful local logs reports that absence, rather than claiming our execution as a new run. The original normalized full logs and hashes are preserved below; scratch may be deleted after public recovery and submission. The proof archive is an ancestor commit of this PR, storing the full checked native proof inside the permitted suggested-file comment, and the final suggested file contains only canonical admitted prototypes.
+
+```json
+{
+  "worker": "Codex — codex-rtOQ9t",
+  "issue": 551,
+  "claim": 5965904056,
+  "confirmation": 5965904896,
+  "mathematicalBase": "e8900fee9630d5937acb359fc7db190573c379f5",
+  "nodes": [
+    "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-ideal-power",
+    "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-equivalence",
+    "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-representative",
+    "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-membership",
+    "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-map",
+    "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-value",
+    "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-bijective",
+    "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-equivalence",
+    "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-representative",
+    "DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-equivalence",
+    "DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-representative",
+    "DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-inverse",
+    "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-native-curve-degree-equivalence",
+    "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-native-curve-degree-representative",
+    "DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-class-vanishing",
+    "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-native-curve-degree-vanishing",
+    "DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-principal-kernel",
+    "DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-below-order"
+  ],
+  "declarations": [
+    "curveAdicIdeal_pow",
+    "curveJetEquiv",
+    "curveJetEquiv_mk",
+    "curveJetEquiv_image_mem",
+    "curveJetImageMap",
+    "curveJetImageMap_apply",
+    "curveJetImageMap_bijective",
+    "curveJetImageEquiv",
+    "curveJetImageEquiv_mk",
+    "nativeCurveDegreeEquiv",
+    "nativeCurveDegreeEquiv_mk",
+    "nativeCurveDegreeEquiv_symm",
+    "homogeneousNativeCurveDegreeEquiv",
+    "homogeneousNativeCurveDegreeEquiv_mk",
+    "nativeCurveDegreeEquiv_mk_eq_zero",
+    "homogeneousNativeCurveDegreeEquiv_eq_zero",
+    "nativeCurveDegree_principal_kernel",
+    "nativeCurveDegree_below_order"
+  ],
+  "tests": [
+    "jet_inverse",
+    "image_zero",
+    "image_representative",
+    "jet_zero",
+    "jet_unit",
+    "image_inverse",
+    "native_zero",
+    "native_roundtrip",
+    "homogeneous_roundtrip",
+    "zero_equation",
+    "unit_equation",
+    "no_variables_constant",
+    "nilpotent_coeff_survives",
+    "characteristic_two_repeated_killed",
+    "characteristic_two_repeated_survives"
+  ],
+  "newApiItems": 16,
+  "baselineAdded": [
+    "mathlib:LinearMap.codRestrict",
+    "mathlib:LinearMap.mem_ker",
+    "mathlib:Ideal.quotEquivOfEq",
+    "mathlib:Ideal.quotEquivOfEq_mk",
+    "mathlib:AlgEquiv.ofRingEquiv",
+    "mathlib:Ideal.mem_map_iff_of_surjective",
+    "mathlib:Ideal.mem_map_of_mem",
+    "mathlib:Ideal.powQuotPowSuccLinearEquivMapMkPowSuccPow",
+    "mathlib:LinearEquiv.restrictScalars",
+    "mathlib:LinearEquiv.map_eq_zero_iff"
+  ],
+  "inheritedProofArchive": "a9ae87a27904da425bf9d997e038bfa23fe3a466",
+  "inheritedNativeSha256": "031d541cf87c7836c4ca9ec528f1f7f9b0ba25fa63ef14e1b63b548dd4ee885e",
+  "proofHashes": {
+    "Native": "40bfb9d5be77ef425971e5c9e633ebc4b0e5f75e3c0e3eb61c387db2a0ccd8cf",
+    "Canonical": "02c4e71eb60c7d244ecd4e8821193f77062715baead76f791556c110a36f9e2a",
+    "New": "ccf57bb45bfacb495b62ee342a48c91e86b80a1597d9e612431201168e717df6",
+    "Tests": "3a592f066d4d3b9f142a43b2eaa35250e48acd1c4c3fb6374f2f860fb2b313a9",
+    "NewAdmitted": "b00719653d2f29566ca67a17b14f51230dc6cd44cefce3f25894ada9b112354e",
+    "Audits": "6fbf7d3625b62a708e6d237a099756e872d49f2ebeb0e81959b05f9de60d3d3a"
+  },
+  "publicationBase": "21b2f2946940fe7557c08f1b578854c0b015aa80",
+  "validation": {
+    "checker": {
+      "packet": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--P7.json",
+      "roadmap": "DeformationAndDerivedPatchingAlgebra",
+      "status": "partial",
+      "nodes": 210,
+      "kinds": {
+        "lemma": 150,
+        "theorem": 16,
+        "definition": 8,
+        "construction": 36
+      },
+      "apiItems": 187,
+      "unitTests": 169,
+      "planets": 13,
+      "baselineDeclarations": 323,
+      "prerequisites": {
+        "baseline": 440,
+        "node (this packet)": 335,
+        "node (integrated)": 1
+      },
+      "gaps": 15,
+      "requests": 2,
+      "stagesInScope": 8,
+      "stagesClosed": 0
+    },
+    "graph": {
+      "stageDAG": {
+        "vertices": 3003,
+        "edges": 8623,
+        "acyclic": true
+      },
+      "ownDAG": {
+        "vertices": 210,
+        "edges": 335,
+        "acyclic": true
+      },
+      "combinedDAG": {
+        "vertices": 3201,
+        "edges": 9169,
+        "acyclic": true
+      },
+      "reachableDeclarations": 211,
+      "externalDeclarations": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/depth-auslander-buchsbaum-and-dimension-bounds"
+      ],
+      "reachableBaselineReferences": 293,
+      "unresolved": [],
+      "otherPartsRetained": [
+        "DeformationAndDerivedPatchingAlgebra--R03.6"
+      ],
+      "partDeclarations": 210,
+      "partPlanets": 13,
+      "roadmapDeclarations": 263,
+      "requiredStagePairs": 13,
+      "requiredStagePairsReachable": 12,
+      "inheritedMissingStagePairs": [
+        [
+          "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+          "DeformationAndDerivedPatchingAlgebra:R03.4"
+        ]
+      ],
+      "acceptedRestructurePairs": 65,
+      "acceptedRestructurePairsReachable": 65,
+      "stageEdgesUnchanged": true,
+      "otherSkippedPendingUnchanged": true,
+      "ownSkippedPendingEmpty": true
+    },
+    "preservedWholeNodeObjects": 192,
+    "newDeclarations": 18,
+    "newTests": 15,
+    "newApiItems": 16,
+    "totalRawTests": 223,
+    "guardsUnchanged": 12,
+    "intakeProblems": [],
+    "intakeRefusals": [],
+    "proofHashes": {
+      "Native": "40bfb9d5be77ef425971e5c9e633ebc4b0e5f75e3c0e3eb61c387db2a0ccd8cf",
+      "Canonical": "02c4e71eb60c7d244ecd4e8821193f77062715baead76f791556c110a36f9e2a",
+      "New": "ccf57bb45bfacb495b62ee342a48c91e86b80a1597d9e612431201168e717df6",
+      "Tests": "3a592f066d4d3b9f142a43b2eaa35250e48acd1c4c3fb6374f2f860fb2b313a9",
+      "NewAdmitted": "b00719653d2f29566ca67a17b14f51230dc6cd44cefce3f25894ada9b112354e",
+      "Audits": "6fbf7d3625b62a708e6d237a099756e872d49f2ebeb0e81959b05f9de60d3d3a"
+    },
+    "execution": {
+      "Native": {
+        "audits": 218,
+        "warnings": 0,
+        "logSha256": "d8c0f23b3e169d9ee439c937a19660c9c73b733bb2712b317821c6191eaa0544",
+        "resourceFooter": "ELAPSED 19.91 RSS 3706408 EXIT 0",
+        "execution": "Successful local log verified"
+      },
+      "Canonical": {
+        "audits": 0,
+        "warnings": 500,
+        "logSha256": "3aa7bfc132fae7fc1d5671cac975298283ddd9e6ad766fe1bc29232fcb74c24e",
+        "resourceFooter": "ELAPSED 32.81 RSS 3684004 EXIT 0",
+        "execution": "Successful local log verified"
+      }
+    },
+    "immutableReadPaths": 845,
+    "immutableReadPathListSha256": "058eeeb5e5c0bdfc5035fb51bc7ec615b0620060b78255e78566ae7f62f43681",
+    "verifierSha256": "2c0b00c7116c18e25d56b943ab7dff03a4979901f6f3a502811b0488df9ac64a"
+  },
+  "execution": {
+    "Native": {
+      "audits": 218,
+      "warnings": 0,
+      "logSha256": "d8c0f23b3e169d9ee439c937a19660c9c73b733bb2712b317821c6191eaa0544",
+      "resourceFooter": "ELAPSED 19.91 RSS 3706408 EXIT 0",
+      "execution": "Successful local log verified"
+    },
+    "Canonical": {
+      "audits": 0,
+      "warnings": 500,
+      "logSha256": "3aa7bfc132fae7fc1d5671cac975298283ddd9e6ad766fe1bc29232fcb74c24e",
+      "resourceFooter": "ELAPSED 32.81 RSS 3684004 EXIT 0",
+      "execution": "Successful local log verified"
+    }
+  },
+  "proofArchive": "e7e248a990b6db47bcf6e10438a6e29c02d9d565"
+}
+```
+
+## recover.py
+
+```python
+from pathlib import Path
+import hashlib,json,re,sys,urllib.request
+head=sys.argv[1];s=Path(sys.argv[2]).resolve();s.mkdir(parents=True,exist_ok=True)
+stem='DeformationAndDerivedPatchingAlgebra--P7';path='research/blueprint/suggested/'+stem+'.lean';root='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
+def fetch(commit,p):
+ return urllib.request.urlopen(root+commit+'/'+p).read()
+def section(b,start,end):
+ assert b.count(start)==1 and b.count(end)==1
+ return b.split(start,1)[1].split(end,1)[0]
+def sha(b):return hashlib.sha256(b).hexdigest()
+files=[('packets','.json'),('readmes','.md'),('suggested','.lean'),('handoff','.md')]
+public={}
+for folder,ext in files:
+ p='research/blueprint/'+folder+'/'+('BP-' if folder=='handoff' else '')+stem+ext
+ public[folder]=fetch(head,p);(s/('public-'+folder+ext)).write_bytes(public[folder])
+hand=public['handoff'].decode();meta=json.loads(re.search(r'```json\n(.*?)\n```',hand,re.S)[1]);base=meta['mathematicalBase']
+(s/'metadata.json').write_text(json.dumps(meta,ensure_ascii=False,indent=2)+'\n')
+for folder,ext in files:
+ p='research/blueprint/'+folder+'/'+('BP-' if folder=='handoff' else '')+stem+ext
+ (s/('incoming-'+folder+ext)).write_bytes(fetch(base,p))
+native=section(fetch(meta['proofArchive'],path),b'/- BEGIN ARCHIVED ACTUAL CURVE DEGREE COMPARISON\n',b'END ARCHIVED ACTUAL CURVE DEGREE COMPARISON -/')
+incoming=section(fetch(meta['inheritedProofArchive'],path),b'/- BEGIN ARCHIVED CHECKED DEGREE QUOTIENT COMPARISON\n',b'END ARCHIVED CHECKED DEGREE QUOTIENT COMPARISON -/')
+assert sha(incoming)==meta['inheritedNativeSha256'];(s/'recovered').mkdir(exist_ok=True);(s/'recovered/Native.lean').write_bytes(incoming)
+new=section(native,b'\n/- BEGIN NATIVE CURVE DEGREE COMPARISON -/\n',b'\n/- BEGIN NATIVE CURVE DEGREE TESTS -/\n')
+tests=section(native,b'\n/- BEGIN NATIVE CURVE DEGREE TESTS -/\n',b'\n/- BEGIN NATIVE CURVE DEGREE AUDITS -/\n')
+audits=section(native,b'\n/- BEGIN NATIVE CURVE DEGREE AUDITS -/\n',b'/- END NATIVE CURVE DEGREE COMPARISON -/\n')
+admitted=section(public['suggested'],b'/- BEGIN ACTUAL CURVE DEGREE COMPARISON -/\n',b'/- END ACTUAL CURVE DEGREE COMPARISON -/')
+for n,b in {'Native':native,'Canonical':public['suggested'],'New':new,'Tests':tests,'NewAdmitted':admitted,'Audits':audits}.items():
+ assert sha(b)==meta['proofHashes'][n],(n,sha(b),meta['proofHashes'][n]);(s/(n+'.lean')).write_bytes(b)
+blocks=re.findall(r'```python\n(.*?)\n```',hand,re.S)
+assert len(blocks)>=4
+for name,code in zip(['recover.py','verify.py','immutable_view.py','graph.py'],blocks[:4]):(s/name).write_text(code+'\n')
+print(json.dumps({'publicHead':head,'proofArchive':meta['proofArchive'],'hashesVerified':True,'originalReceipts':meta.get('execution',{}),'execution':'Public source recovery only; this command does not run Lean.'},indent=2))
+```
+
+## verify.py
+
+```python
+from pathlib import Path
+import ast,contextlib,hashlib,io,json,os,re,runpy,subprocess,sys
+R=Path.cwd();S=Path(sys.argv[1]).resolve();RID='DeformationAndDerivedPatchingAlgebra';STEM=RID+'--P7';NS='TauCeti.HilbertSamuel.'
+FILES=['research/blueprint/'+d+'/'+('BP-' if d=='handoff' else '')+STEM+e for d,e in [('packets','.json'),('readmes','.md'),('suggested','.lean'),('handoff','.md')]]
+def sha(x):return hashlib.sha256(x).hexdigest()
+current={f:(R/f).read_bytes() for f in FILES}
+p=json.loads(current[FILES[0]]);old=json.loads((S/'incoming-packets.json').read_text());meta=json.loads((S/'metadata.json').read_text())
+assert len(old['nodes'])==192 and len(p['nodes'])==210 and p['nodes'][:192]==old['nodes']
+assert p['sources'][:-1]==old['sources'] and p['baseline']['declarations'][:313]==old['baseline']['declarations']
+assert len(p['baseline']['declarations'])==323
+assert {k:v for k,v in p['baseline'].items() if k!='declarations'}=={k:v for k,v in old['baseline'].items() if k!='declarations'}
+for k,v in old.items():
+ if k not in {'summary','sources','baseline','nodes','gaps','coverage'}:assert p[k]==v,k
+assert p['gaps'][:-1]==old['gaps'][:-1]
+assert {k:v for k,v in p['gaps'][-1].items() if k!='nativeCurveDegreeContinuation'}==old['gaps'][-1]
+header=json.loads(re.search(r'```json\n(.*?)\n```',current[FILES[3]].decode(),re.S)[1])
+for k in ['worker','issue','claim','confirmation','mathematicalBase','publicationBase','proofArchive','proofHashes']:assert header[k]==meta[k],k
+assert p['status']=='partial' and all(n['implementationStatus']=='unchecked' for n in p['nodes'])
+full=current[FILES[2]].decode();reader=current[FILES[1]].decode();native=(S/'Native.lean').read_text();new=(S/'New.lean').read_text();tests=(S/'Tests.lean').read_text();admitted=(S/'NewAdmitted.lean').read_text();audits=(S/'Audits.lean').read_text();incoming=(S/'recovered/Native.lean').read_text()
+assert native==incoming+'\n/- BEGIN NATIVE CURVE DEGREE COMPARISON -/\n'+new+'\n/- BEGIN NATIVE CURVE DEGREE TESTS -/\n'+tests+'\n/- BEGIN NATIVE CURVE DEGREE AUDITS -/\n'+audits+'/- END NATIVE CURVE DEGREE COMPARISON -/\n'
+assert not re.search(r'\bsorry\b|^axiom\b',native,re.M)
+assert full.startswith((S/'incoming-suggested.lean').read_text())
+assert reader.endswith((S/'incoming-readmes.md').read_text())
+assert current[FILES[3]].decode().endswith((S/'incoming-handoff.md').read_text())
+assert (S/'Canonical.lean').read_text()==full
+assert full.split('/- BEGIN ACTUAL CURVE DEGREE COMPARISON -/\n')[1].split('/- END ACTUAL CURVE DEGREE COMPARISON -/')[0]==admitted
+# Main body delimiters exclude type-level lets. Keep their entire actual binder text.
+def headers(text):
+ out={};matches=list(re.finditer(r'^(def|lemma) (\w+)\b',text,re.M))
+ for i,m in enumerate(matches):
+  block=text[m.start():matches[i+1].start() if i+1<len(matches) else len(text)]
+  marker=re.search(r' where\n| := by\b| := rfl\b| := map_zero\b| := LinearEquiv\.| :=\n(?=  [A-Za-z_(])',block)
+  if marker is None:marker=re.search(r' := \(',block)
+  assert marker,m[2]
+  out[m[2]]=' '.join(block[:marker.start()].split())
+ return out
+assert headers(new+'\n'+tests)==headers(admitted)
+assert set(headers(new))==set(meta['declarations']) and len(meta['tests'])==15
+for n in p['nodes'][192:]:
+ assert n['declaration'] in reader and n['statement'] in reader
+ for a in n.get('api',[]):assert a['name'] in reader and a['statement'] in reader
+ for t in n.get('tests',[]):
+  assert t['statement'] in reader and '-- test: '+t['name'] in admitted
+# Execution is certified only from successful local logs, never from source recovery alone.
+execution={}
+for name,count,warnings in [('Native',218,0),('Canonical',0,500)]:
+ path=S/(name.lower()+'.log')
+ if not path.exists():execution[name]='No local execution log supplied; source/header validation only.';continue
+ log=path.read_text();assert not re.search(r'error(?:\(|:)|sorryAx|Command exited with non-zero',log)
+ assert log.count('warning:')==log.count('warning: declaration uses')==warnings
+ assert log.count('depends on axioms:')+log.count('does not depend on any axioms')==count
+ assert re.search(r'ELAPSED [0-9.]+ RSS [0-9]+ EXIT 0\s*$',log)
+ for found in re.findall(r'depends on axioms: \[(.*?)\]',log,re.S):
+  assert set(re.findall(r'\b(?:\w+\.)*\w+\b',found))<={'propext','Classical.choice','Quot.sound'}
+ execution[name]={'audits':count,'warnings':warnings,'logSha256':sha(path.read_bytes()),'resourceFooter':log.splitlines()[-1],'execution':'Successful local log verified'}
+base=os.environ.get('P7_VALIDATE_BASE',meta['publicationBase'])
+mathbase='e8900fee9630d5937acb359fc7db190573c379f5'
+guards=['research/blueprint/WORKERS.md','research/blueprint/PROTOCOL.md','research/expansion/PROTOCOL.md','research/blueprint/UPSTREAM_GUIDE.md','data/library-coverage.json','research/blueprint/reviews/REV-AUDIT-17.md','research/blueprint/reserved-ids.json','data/keydefs/KEYDEF-algebraicgeometry.json','content/campaign/'+RID+'/README.md','research/blueprint/restructure/RS-08.result.json','research/blueprint/restructure/RS-08.md','research/blueprint/links/tauceti_TauCetiRoadmap_ModularCurves.json']
+def blob(ref,path):return subprocess.check_output(['git','show',ref+':'+path],cwd=R)
+for f in guards:assert blob(mathbase,f)==blob(base,f),f
+for f in FILES:assert blob(mathbase,f)==blob(base,f),f
+changed=set(subprocess.check_output(['git','diff','--name-only',base],text=True).splitlines());assert changed<=set(FILES),changed
+assert p['coverage'][:5]==old['coverage'][:5] and p['coverage'][6:]==old['coverage'][6:]
+assert p['coverage'][5]['remaining'][:-1]==old['coverage'][5]['remaining'][:-1]
+assert [r['status'] for r in p['coverage']]==[r['status'] for r in old['coverage']]
+sys.path.insert(0,str(S));import immutable_view as view
+assert view.BASE==base;view.install()
+import check_blueprint
+# Overlay exactly our candidate packet, leaving every other promoted packet immutable.
+view.CACHE[FILES[0]]=current[FILES[0]]
+errors,warnings,summary=check_blueprint.check(R/FILES[0],check_blueprint.load_index(Path(sys.argv[2])),check_blueprint.world());assert not errors and not warnings,(errors,warnings)
+intake=ast.parse(view.blob('research/blueprint/intake.py').decode());selected=[]
+for node in intake.body:
+ if isinstance(node,ast.Assign) and any(isinstance(x,ast.Name) and x.id in {'ALLOWED','PRIVATE'} for x in node.targets):selected.append(node)
+ if isinstance(node,ast.FunctionDef) and node.name in {'file_problems','auto_refusals','own_files','independent_of'}:selected.append(node)
+env={'json':json,'re':re};exec(compile(ast.Module(body=selected,type_ignores=[]),'actual-intake','exec'),env)
+job=next(j for j in json.loads(view.blob('research/blueprint/queue.json'))['jobs'] if j['id']=='BP-'+STEM)
+problems=[q for f,b in current.items() for q in env['file_problems'](f,b.decode())];refusals=env['auto_refusals'](job,FILES,False,{'codex-rtOQ9t'},set());assert not problems and not refusals,(problems,refusals)
+for f,b in current.items():
+ assert not re.search(r'[ \t]+$',b.decode(),re.M),f
+ assert not re.search(r'/(?:home|Users)/[^/\s]+/',b.decode()),f
+output=io.StringIO();argv=sys.argv;sys.argv=[str(S/'graph.py'),str(S/'incoming-packets.json')]
+with contextlib.redirect_stdout(output):runpy.run_path(str(S/'graph.py'),run_name='__main__')
+sys.argv=argv;graph=json.loads(output.getvalue())
+summary['packet']=FILES[0]
+report={'checker':summary,'graph':graph,'preservedWholeNodeObjects':192,'newDeclarations':18,'newTests':15,'newApiItems':16,'totalRawTests':sum(len(n.get('tests',[])) for n in p['nodes']),'guardsUnchanged':len(guards),'intakeProblems':problems,'intakeRefusals':refusals,'proofHashes':{n:sha((S/(n+'.lean')).read_bytes()) for n in ['Native','Canonical','New','Tests','NewAdmitted','Audits']},'execution':execution,'immutableReadPaths':len(view.READS),'immutableReadPathListSha256':sha(json.dumps(sorted(view.READS)).encode()),'verifierSha256':sha(Path(__file__).read_bytes())}
+print(json.dumps(report,ensure_ascii=False,indent=2))
+```
+
+## immutable_view.py
+
+```python
+"""Read the immutable audit tree without creating a repository snapshot."""
+import fnmatch
+import importlib.abc
+import importlib.util
+import io
+from pathlib import Path
+import subprocess
+import sys
+
+import os
+REPO = Path(os.environ.get('TAUCETI_REPO', str(Path.cwd())))
+BASE = os.environ.get('P7_VALIDATE_BASE', '21b2f2946940fe7557c08f1b578854c0b015aa80')
+TRACKED = set(subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', BASE], cwd=REPO, text=True).splitlines())
+CACHE = {}
+READS = set()
+ORIGINAL = {name: getattr(Path, name) for name in ('read_text', 'read_bytes', 'exists', 'is_file', 'is_dir', 'glob', 'rglob', 'open', 'write_text', 'write_bytes')}
+
+def relative(path):
+    try:
+        return str(path.resolve().relative_to(REPO.resolve()))
+    except ValueError:
+        return None
+
+def blob(key):
+    if key not in TRACKED:
+        raise FileNotFoundError(key)
+    READS.add(key)
+    if key not in CACHE:
+        CACHE[key] = subprocess.check_output(['git', 'show', BASE + ':' + key], cwd=REPO)
+    return CACHE[key]
+
+def read_text(path, encoding=None, errors=None):
+    key = relative(path)
+    if key is None:
+        return ORIGINAL['read_text'](path, encoding=encoding, errors=errors)
+    return blob(key).decode(encoding or 'utf-8', errors or 'strict')
+
+def read_bytes(path):
+    key = relative(path)
+    return ORIGINAL['read_bytes'](path) if key is None else blob(key)
+
+def is_file(path):
+    key = relative(path)
+    return ORIGINAL['is_file'](path) if key is None else key in TRACKED
+
+def is_dir(path):
+    key = relative(path)
+    return ORIGINAL['is_dir'](path) if key is None else any(s.startswith(key.rstrip('/') + '/') for s in TRACKED) or key == '.'
+
+def exists(path):
+    key = relative(path)
+    return ORIGINAL['exists'](path) if key is None else is_file(path) or is_dir(path)
+
+def glob(path, pattern, recursive=False):
+    key = relative(path)
+    if key is None:
+        yield from ORIGINAL['rglob' if recursive else 'glob'](path, pattern)
+        return
+    prefix = '' if key == '.' else key.rstrip('/') + '/'
+    for candidate in sorted(TRACKED):
+        if not candidate.startswith(prefix):
+            continue
+        tail = candidate[len(prefix):]
+        if fnmatch.fnmatch(tail, pattern) and (recursive or '/' not in tail):
+            yield REPO / candidate
+
+def open_path(path, mode='r', buffering=-1, encoding=None, errors=None, newline=None):
+    key = relative(path)
+    if key is None:
+        return ORIGINAL['open'](path, mode, buffering, encoding, errors, newline)
+    if mode not in ('r', 'rb'):
+        raise PermissionError('audit tree is read-only')
+    return io.BytesIO(blob(key)) if mode == 'rb' else io.StringIO(blob(key).decode(encoding or 'utf-8', errors or 'strict'))
+
+def write_text(path, *args, **kwargs):
+    if relative(path) is not None:
+        raise PermissionError('audit tree is read-only')
+    return ORIGINAL['write_text'](path, *args, **kwargs)
+
+def write_bytes(path, *args, **kwargs):
+    if relative(path) is not None:
+        raise PermissionError('audit tree is read-only')
+    return ORIGINAL['write_bytes'](path, *args, **kwargs)
+
+class Loader(importlib.abc.Loader):
+    def __init__(self, key):
+        self.key = key
+    def create_module(self, spec):
+        return None
+    def exec_module(self, module):
+        module.__file__ = str(REPO / self.key)
+        exec(compile(blob(self.key), module.__file__, 'exec'), module.__dict__)
+
+class Finder(importlib.abc.MetaPathFinder):
+    def find_spec(self, fullname, path=None, target=None):
+        key = 'scripts/' + fullname + '.py'
+        if '.' not in fullname and key in TRACKED:
+            return importlib.util.spec_from_loader(fullname, Loader(key))
+
+def install():
+    for name, function in [('read_text', read_text), ('read_bytes', read_bytes), ('exists', exists), ('is_file', is_file), ('is_dir', is_dir), ('glob', glob), ('rglob', lambda path, pattern: glob(path, pattern, True)), ('open', open_path), ('write_text', write_text), ('write_bytes', write_bytes)]:
+        setattr(Path, name, function)
+    sys.meta_path.insert(0, Finder())
+```
+
+## graph.py
+
+```python
+from pathlib import Path
+import sys,json,copy,collections
+sys.path.insert(0,str(Path.cwd()/'scripts'))
+import build,blueprints,check_blueprint
+RID='DeformationAndDerivedPatchingAlgebra';STEM=RID+'--P7'
+p=json.loads((Path.cwd()/'research/blueprint/packets'/f'{STEM}.json').read_text())
+original=json.loads(Path(sys.argv[1]).read_text())
+new={n['id']:n for n in p['nodes']}
+root=Path.cwd()
+a0=json.loads((root/"data/atlas.json").read_text())
+packets,documents,definitions=blueprints.load_promoted(root)
+otherparts=[(stem,q) for stem,q in packets if q.get("roadmapId")==RID and stem!=STEM]
+assert otherparts, "must preserve other promoted roadmap parts"
+keep=[x for x in packets if x[0]!=STEM]
+documents[STEM]="research/blueprint/readmes/"+STEM+".md"
+def assemble(candidate):
+ build.load_promoted=lambda *args:(copy.deepcopy(keep+[(STEM,candidate)]),copy.deepcopy(documents),copy.deepcopy(definitions))
+ return build.assemble(require_distances=False)[0]
+a=assemble(p);b=assemble(original)
+world={}
+for folder in ["data/decompositions","data/blueprints","research/blueprint/packets"]:
+ for path in sorted((root/folder).glob("*.json")):
+  q=json.loads(path.read_text())
+  for n in q.get("nodes",[]):world.setdefault(n["id"],n)
+world.update(new)
+stages={x["id"]:x for x in a["stages"]}
+stageids=set(stages)|set(check_blueprint.world()[1])
+stageedges={(e["source"],e["target"]) for e in a["stageEdges"]}
+def dag(vertices,edges):
+ vertices=set(vertices)|{v for edge in edges for v in edge}
+ out=collections.defaultdict(set);indeg={v:0 for v in vertices}
+ for source,target in edges:
+  if target not in out[source]:out[source].add(target);indeg[target]+=1
+ stack=[v for v,count in indeg.items() if count==0];count=0
+ while stack:
+  v=stack.pop();count+=1
+  for w in out[v]:
+   indeg[w]-=1
+   if indeg[w]==0:stack.append(w)
+ assert count==len(vertices),[v for v,count in indeg.items() if count][:15]
+ return {"vertices":len(vertices),"edges":len(edges),"acyclic":True}
+ownedges={(q,nid) for nid,node in new.items() for q in node.get("prerequisites",[]) if q in new}
+stack=list(new);seen=set();dep=set();unresolved=set();baseref=set()
+while stack:
+ nid=stack.pop()
+ if nid in seen:continue
+ seen.add(nid)
+ for q in world[nid].get("prerequisites",[]):
+  if q.startswith(("mathlib:","tauceti:")) and q not in stageids:baseref.add(q);continue
+  dep.add((q,nid))
+  if q in world:stack.append(q)
+  elif q not in stageids:unresolved.add(q)
+assert not unresolved,sorted(unresolved)
+dep|={(world[nid]["parentStageId"],nid) for nid in seen if world[nid].get("parentStageId") in stageids or world[nid].get("parentStageId") in world}
+dep|={(request["supplier"],consumer) for request in p.get("requests",[]) for consumer in request.get("neededBy",[]) if consumer in new or consumer in stageids}
+roadmap=next(r for r in a["roadmaps"] if r["id"]==RID)
+expected_decl=len(new)+sum(len(q["nodes"]) for _,q in otherparts)
+assert roadmap["blueprint"]["declarations"]==expected_decl,(roadmap["blueprint"],expected_decl)
+assert not roadmap["blueprint"]["skippedLinks"] and not roadmap.get("pendingLinks",[])
+assert stageedges=={(e["source"],e["target"]) for e in b["stageEdges"]}
+def skips(atlas):
+ return {r["id"]:(r.get("blueprint",{}).get("skippedLinks",[]),r.get("pendingLinks",[])) for r in atlas["roadmaps"] if r["id"]!=RID}
+assert skips(a)==skips(b)
+out=collections.defaultdict(set)
+for source,target in stageedges:out[source].add(target)
+def reachable(source,target):
+ stack=[source];seen=set()
+ while stack:
+  v=stack.pop()
+  if v==target:return True
+  if v in seen:continue
+  seen.add(v);stack.extend(out[v]-seen)
+ return False
+pairs={(e["source"],e["target"]) for e in a0["stageEdges"] if e["target"].startswith(RID+":")}
+for node in p["nodes"]:
+ for q in node.get("prerequisites",[]):
+  if q in stageids and q not in world and q!=node["parentStageId"]:pairs.add((q,node["parentStageId"]))
+for req in p.get("requests",[]):
+ for consumer in req.get("neededBy",[]):
+  if consumer in new:pairs.add((req["supplier"],new[consumer]["parentStageId"]))
+  elif consumer in stageids:pairs.add((req["supplier"],consumer))
+missingpairs={(s,t) for s,t in pairs if not reachable(s,t)}
+oldout=collections.defaultdict(set)
+for edge in b['stageEdges']:oldout[edge['source']].add(edge['target'])
+def reachable0(source,target):
+ stack=[source];seen=set()
+ while stack:
+  v=stack.pop()
+  if v==target:return True
+  if v in seen:continue
+  seen.add(v);stack.extend(oldout[v]-seen)
+ return False
+assert missingpairs=={(s,t) for s,t in pairs if not reachable0(s,t)}
+assert missingpairs=={('tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions',RID+':R03.4')}
+assert any('LocalFieldsRamification layer 0 to R03.4' in gap['detail'] for gap in p['gaps'])
+# Independently retain all accepted restructure links touching the whole roadmap.
+acceptedpairs=set()
+for path in (root/"research/blueprint/restructure").glob("*.result.json"):
+ q=json.loads(path.read_text())
+ if q.get("review",{}).get("status")!="accepted":continue
+ for row in q.get("links",[]):
+  if any(row.get(k,"").startswith(RID+":") for k in ["source","target"]):
+   acceptedpairs.add((row["source"],row["target"]))
+assert all(reachable(s,t) for s,t in acceptedpairs),[(s,t) for s,t in acceptedpairs if not reachable(s,t)]
+report={"stageDAG":dag(stages,stageedges),"ownDAG":dag(new,ownedges),
+ "combinedDAG":dag(set(stages)|seen,stageedges|dep),"reachableDeclarations":len(seen),
+ "externalDeclarations":sorted(seen-set(new)),"reachableBaselineReferences":len(baseref),
+ "unresolved":sorted(unresolved),"otherPartsRetained":[stem for stem,_ in otherparts],
+ "partDeclarations":len(new),"partPlanets":sum("planet" in n for n in p["nodes"]),
+ "roadmapDeclarations":roadmap["blueprint"]["declarations"],
+ "requiredStagePairs":len(pairs),"requiredStagePairsReachable":len(pairs)-len(missingpairs),
+ "inheritedMissingStagePairs":sorted(missingpairs),
+ "acceptedRestructurePairs":len(acceptedpairs),"acceptedRestructurePairsReachable":len(acceptedpairs),
+ "stageEdgesUnchanged":True,"otherSkippedPendingUnchanged":True,"ownSkippedPendingEmpty":True}
+print(json.dumps(report,ensure_ascii=False,indent=2),flush=True)
+```
+
+## Successful normalized native.log
+
+```text
+'TauCeti.HilbertSamuel.monomial_mem_variableIdeal_pow_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.order_lower_bound_of_mem_variableIdeal_pow' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.exists_degree_monomial_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.mem_variableIdeal_pow_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.jet_mk_eq_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.truncTotalAlgHom_ker' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.truncTotalAlgHom_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.totalJetEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.totalJetEquiv_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.totalJetEquiv_symm_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.totalJetEquiv_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.totalJetCoefficients' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.totalJetCoefficients_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.totalJetCoefficients_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.totalJetCoordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.totalJetCoordinates_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.totalJetCoordinates_symm_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.totalJetBasis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.totalJetBasis_repr_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.totalJetBasis_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.totalJetBasis_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeJetIndex_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeTotalJet_finrank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.totalJetCoefficients_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.totalJetCoefficients_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.totalJetCoordinates_symm_coeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.pow_mul_denominator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.quotientMulMap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.quotientMulMap_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.principalQuotientProjection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.principalQuotientProjection_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.quotientMulMap_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.quotientMulMap_injective_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.principalQuotientProjection_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.mul_mem_variableIdeal_pow_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.shiftedJet_denominator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.shiftedJetMap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.shiftedJetMap_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.jetProjection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.jetProjection_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.shiftedJetMap_eq_quotientMulMap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.jetProjection_eq_principalQuotientProjection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.shiftedJetMap_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.shiftedJetMap_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.jetProjection_below_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.seriesResidueEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.seriesResidueEquiv_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.seriesResidueEquiv_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.seriesResidueEquiv_algebraMap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.seriesResidue_coeff_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.seriesModule_length_eq_coeff_length' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.seriesModule_length_eq_finrank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.function_ringQuotient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.function_ringQuotient_of_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.function_ringQuotient_antitone' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.function' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeCurve_jet_length' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.equationJet_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.equationJet_length_eq_finrank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.totalJet_length_eq_finrank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeTotalJet_length' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeEquationJet_length_balance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeEquationJet_length' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeCurve_function' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeZeroEquation_function' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.quotient_length_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeJetCount_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeJetCount_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeCurve_gradedFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeCurve_postulation_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeCurve_postulation_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeCurve_graded_stable_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeCurve_postulation_predecessor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeZeroEquation_gradedFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.CurvePostulationTests.char_two_thresholds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.CurvePostulationTests.negative_polynomial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.CurvePostulationTests.sharp_predecessor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.CurvePostulationTests.graded_threshold' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.CurvePostulationTests.cumulative_threshold' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.CurvePostulationTests.unit_graded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.CurvePostulationTests.smooth_graded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.CurvePostulationTests.zero_equation_growth' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.CurvePostulationTests.unit_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.CurvePostulationTests.small_cutoff_defect' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.planeCurvePolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeCurvePolynomial_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeCurvePolynomial_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeCurvePolynomial_natDegree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeCurvePolynomial_leadingCoeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeCurvePolynomial_factorial_leadingCoeff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.planeSurfacePolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeSurfacePolynomial_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeSurfacePolynomial_natDegree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeSurfacePolynomial_leadingCoeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeSurfacePolynomial_factorial_leadingCoeff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.planeCurvePolynomial_eval_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeCurvePolynomial_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeCurvePolynomial_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeCurve_existsUnique_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeZeroEquation_polynomial_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeZeroEquation_polynomial_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.planeZeroEquation_existsUnique_polynomial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.CurvePolynomialTests.quartic_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.CurvePolynomialTests.unit_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.CurvePolynomialTests.smooth_polynomial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.CurvePolynomialTests.characteristic_two_unique' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.CurvePolynomialTests.sharp_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.CurvePolynomialTests.cumulative_not_graded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.CurvePolynomialTests.surface_shape' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.CurvePolynomialTests.surface_all_lengths' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.CurvePolynomialTests.zero_and_unit_quotients' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.CurvePolynomialTests.surface_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.CurvePolynomialTests.coefficient_characteristic_is_not_length' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.homogeneous_mem_variableIdeal_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.homogeneousComponent_eq_zero_iff_mem_next' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.mem_principal_add_next_iff_initial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.mem_principal_add_next_below_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.curveDegreeProjection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.curveDegreeProjection_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.curveDegreeProjection_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.curveDegreeProjection_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.curveDegreeProjection_below_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.curveDegreeProjection_zero_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.InitialRelationTests.equation_order_boundary' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.InitialRelationTests.zero_input' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.InitialRelationTests.unit_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.InitialRelationTests.zero_equation_survives' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.InitialRelationTests.nonreduced_survives' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.InitialRelationTests.nonreduced_square_vanishes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.homogeneousPolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.homogeneousPolynomial_coeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.coe_homogeneousPolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.homogeneousPolynomial_isHomogeneous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.homogeneousPolynomial_coe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.coe_isHomogeneous_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.homogeneousPolynomial_coe_of_homogeneous' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.homogeneous_existsUnique_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.homogeneousPolynomial_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.homogeneousPolynomial_eq_truncTotal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.homogeneousPolynomial_ne_zero_of_order' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.homogeneousPolynomial_mul_of_le_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.homogeneousPolynomial_component' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.curveDegreeProjection_polynomial_kernel' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.curveDegreeProjection_polynomial_below_order' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.curveDegreeProjection_polynomial_zero_equation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.HomogeneousPolynomialTests.zero_input' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.HomogeneousPolynomialTests.native_polynomial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.HomogeneousPolynomialTests.no_variables' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.HomogeneousPolynomialTests.exact_degree_not_truncation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.HomogeneousPolynomialTests.not_multiplicative_in_fixed_degree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.HomogeneousPolynomialTests.nilpotent_coefficients' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.homogeneousLift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.homogeneousLift_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.degreePolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.degreePolynomial_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.degreePolynomial_lift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.degreePolynomial_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.degreePolynomial_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.degreePolynomial_ker' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.ambientDegreeEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.ambientDegreeEquiv_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.ambientDegreeEquiv_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.homogeneousCurveProjection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.homogeneousCurveProjection_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.curveDegreeProjection_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.homogeneousCurveProjection_range' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.homogeneousCurveProjection_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.homogeneousCurveProjection_below_order' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.homogeneousCurveQuotientEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.homogeneousCurveQuotientEquiv_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.DegreeQuotientTests.lift_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.DegreeQuotientTests.lift_variable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.DegreeQuotientTests.lift_torsion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.DegreeQuotientTests.degree_lift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.DegreeQuotientTests.degree_constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.DegreeQuotientTests.degree_next' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.DegreeQuotientTests.ambient_roundtrip' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.DegreeQuotientTests.ambient_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.DegreeQuotientTests.ambient_torsion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.DegreeQuotientTests.curve_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.DegreeQuotientTests.curve_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.DegreeQuotientTests.characteristic_two_killed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.DegreeQuotientTests.quotient_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.DegreeQuotientTests.quotient_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.DegreeQuotientTests.quotient_zero_equation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.curveAdicIdeal_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.curveJetEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.curveJetEquiv_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.curveJetEquiv_image_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.curveJetImageMap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.curveJetImageMap_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.curveJetImageMap_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.curveJetImageEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.curveJetImageEquiv_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.nativeCurveDegreeEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.nativeCurveDegreeEquiv_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.nativeCurveDegreeEquiv_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.homogeneousNativeCurveDegreeEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.homogeneousNativeCurveDegreeEquiv_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.nativeCurveDegreeEquiv_mk_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.homogeneousNativeCurveDegreeEquiv_eq_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.nativeCurveDegree_principal_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.nativeCurveDegree_below_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.NativeCurveDegreeTests.jet_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.NativeCurveDegreeTests.jet_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.NativeCurveDegreeTests.jet_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.NativeCurveDegreeTests.image_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.NativeCurveDegreeTests.image_representative' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.NativeCurveDegreeTests.image_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.NativeCurveDegreeTests.native_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.NativeCurveDegreeTests.native_roundtrip' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.NativeCurveDegreeTests.homogeneous_roundtrip' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.NativeCurveDegreeTests.zero_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.NativeCurveDegreeTests.unit_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.NativeCurveDegreeTests.no_variables_constant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.NativeCurveDegreeTests.nilpotent_coeff_survives' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.NativeCurveDegreeTests.characteristic_two_repeated_killed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.HilbertSamuel.NativeCurveDegreeTests.characteristic_two_repeated_survives' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ELAPSED 19.91 RSS 3706408 EXIT 0
+```
+
+## Successful normalized canonical.log
+
+```text
+Submodule.IsQuotientEquivQuotientPrime.{u, v} {A : Type u} [CommRing A] {M : Type v} [AddCommGroup M] [Module A M]
+  (N₁ N₂ : Submodule A M) : Prop
+Submodule.isQuotientEquivQuotientPrime_iff.{u, v} {A : Type u} [CommRing A] {M : Type v} [AddCommGroup M] [Module A M]
+  {N₁ N₂ : Submodule A M} : N₁.IsQuotientEquivQuotientPrime N₂ ↔ ∃ x, (⊥.colon {N₁.mkQ x}).IsPrime ∧ N₂ = N₁ ⊔ A ∙ x
+IsNoetherianRing.exists_relSeries_isQuotientEquivQuotientPrime.{u, v} (A : Type u) [CommRing A] (M : Type v)
+  [AddCommGroup M] [Module A M] [IsNoetherianRing A] [Module.Finite A M] : ∃ s, s.head = ⊥ ∧ s.last = ⊤
+IsNoetherianRing.induction_on_isQuotientEquivQuotientPrime.{u, v} (A : Type u) [CommRing A] [IsNoetherianRing A]
+  ⦃M : Type v⦄ [AddCommGroup M] [Module A M] (x✝ : Module.Finite A M)
+  {motive : (N : Type v) → [inst : AddCommGroup N] → [inst_1 : Module A N] → [Module.Finite A N] → Prop}
+  (subsingleton :
+    ∀ (N : Type v) [inst : AddCommGroup N] [inst_1 : Module A N] [inst_2 : Module.Finite A N] [Subsingleton N],
+      motive N)
+  (quotient :
+    ∀ (N : Type v) [inst : AddCommGroup N] [inst_1 : Module A N] [inst_2 : Module.Finite A N] (p : PrimeSpectrum A)
+      (a : N ≃ₗ[A] A ⧸ p.asIdeal), motive N)
+  (exact :
+    ∀ (N₁ : Type v) [inst : AddCommGroup N₁] [inst_1 : Module A N₁] [inst_2 : Module.Finite A N₁] (N₂ : Type v)
+      [inst_3 : AddCommGroup N₂] [inst_4 : Module A N₂] [inst_5 : Module.Finite A N₂] (N₃ : Type v)
+      [inst_6 : AddCommGroup N₃] [inst_7 : Module A N₃] [inst_8 : Module.Finite A N₃] (f : N₁ →ₗ[A] N₂)
+      (g : N₂ →ₗ[A] N₃),
+      Function.Injective ⇑f → Function.Surjective ⇑g → Function.Exact ⇑f ⇑g → motive N₁ → motive N₃ → motive N₂) :
+  motive M
+associatedPrimes.finite.{u, v} (A : Type u) [CommRing A] (M : Type v) [AddCommGroup M] [Module A M] [IsNoetherianRing A]
+  [Module.Finite A M] : (associatedPrimes A M).Finite
+IsDiscreteValuationRing.irreducible_iff_uniformizer.{u} {R : Type u} [CommRing R] [IsDomain R]
+  [IsDiscreteValuationRing R] (ϖ : R) : Irreducible ϖ ↔ IsLocalRing.maximalIdeal R = Ideal.span {ϖ}
+IsDiscreteValuationRing.iff_pid_with_one_nonzero_prime.{u} (R : Type u) [CommRing R] [IsDomain R] :
+  IsDiscreteValuationRing R ↔ IsPrincipalIdealRing R ∧ ∃! P, P ≠ ⊥ ∧ P.IsPrime
+IsDiscreteValuationRing.exists_irreducible.{u} (R : Type u) [CommRing R] [IsDomain R] [IsDiscreteValuationRing R] :
+  ∃ ϖ, Irreducible ϖ
+IsDiscreteValuationRing.length_quotient_pow_maximalIdeal.{u_1} (R : Type u_1) [CommRing R] [IsDomain R]
+  [IsDiscreteValuationRing R] (n : ℕ) : Module.length R (R ⧸ IsLocalRing.maximalIdeal R ^ n) = ↑n
+Module.length_ne_top_iff.{u_1, u_2} {R : Type u_1} {M : Type u_2} [Ring R] [AddCommGroup M] [Module R M] :
+  Module.length R M ≠ ⊤ ↔ IsFiniteLength R M
+isFiniteLength_iff_isNoetherian_isArtinian.{u_1, u_2} {R : Type u_1} [Ring R] {M : Type u_2} [AddCommGroup M]
+  [Module R M] : IsFiniteLength R M ↔ IsNoetherian R M ∧ IsArtinian R M
+isArtinian_of_tower.{u_1, u_2, u_3} (R : Type u_1) {S : Type u_2} {M : Type u_3} [Semiring R] [Semiring S]
+  [AddCommMonoid M] [SMul R S] [Module S M] [Module R M] [IsScalarTower R S M] (h : IsArtinian R M) : IsArtinian S M
+IsArtinianRing.of_finite.{u_1, u_2} (R : Type u_1) (S : Type u_2) [Ring R] [Ring S] [Module R S] [IsScalarTower R S S]
+  [IsArtinianRing R] [Module.Finite R S] : IsArtinianRing S
+IsArtinianRing.isMaximal_of_isPrime.{u_2} {R : Type u_2} [CommRing R] (p : Ideal R) [p.IsPrime] [IsArtinianRing R] :
+  p.IsMaximal
+Ring.krullDimLE_zero_iff.{u_1} {R : Type u_1} [CommSemiring R] :
+  Ring.KrullDimLE 0 R ↔ ∀ (I : Ideal R), I.IsPrime → I.IsMaximal
+Ring.krullDimLE_iff.{u_1} {R : Type u_1} [CommSemiring R] {n : ℕ} : Ring.KrullDimLE n R ↔ ringKrullDim R ≤ ↑n
+nilpotent_iff_mem_prime.{u_1} {R : Type u_1} [CommSemiring R] {x : R} :
+  IsNilpotent x ↔ ∀ (J : Ideal R), J.IsPrime → x ∈ J
+Algebra.finite_iff_isIntegral_and_finiteType.{u_1, u_2} {R : Type u_1} {A : Type u_2} [CommRing R] [CommRing A]
+  [Algebra R A] : Module.Finite R A ↔ Algebra.IsIntegral R A ∧ Algebra.FiniteType R A
+IsAlgClosed.lift.{u, v, w} {M : Type w} [Field M] [IsAlgClosed M] {R : Type u} [CommRing R] [IsDomain R] {S : Type v}
+  [CommRing S] [IsDomain S] [Algebra R S] [Algebra R M] [Module.IsTorsionFree R S] [Module.IsTorsionFree R M]
+  [Algebra.IsAlgebraic R S] : S →ₐ[R] M
+Module.Finite.exists_fin'.{u_1, u_2} (R : Type u_1) (M : Type u_2) [Semiring R] [AddCommMonoid M] [Module R M]
+  [Module.Finite R M] : ∃ n f, Function.Surjective ⇑f
+Algebra.IsIntegral.inv_mem.{u_1, u_2} {R : Type u_1} {S : Type u_2} [Field R] [DivisionRing S] [Algebra R S] {x : S}
+  {A : Subalgebra R S} [Algebra.IsIntegral R ↥A] (hx : x ∈ A) : x⁻¹ ∈ A
+IsIntegralClosure.finite.{u_1, u_2, u_3, u_4} (A : Type u_1) (K : Type u_2) [CommRing A] [Field K] [Algebra A K]
+  [IsFractionRing A K] (L : Type u_3) [Field L] (C : Type u_4) [CommRing C] [Algebra K L] [Algebra A L]
+  [IsScalarTower A K L] [Algebra C L] [IsIntegralClosure C A L] [Algebra A C] [IsScalarTower A C L]
+  [FiniteDimensional K L] [IsDomain A] [Algebra.IsSeparable K L] [IsIntegrallyClosed A] [IsNoetherianRing A] :
+  Module.Finite A C
+integralClosure.isIntegral.{u_1, u_2} {R : Type u_1} {A : Type u_2} [CommRing R] [CommRing A] [Algebra R A]
+  (x : ↥(integralClosure R A)) : IsIntegral R x
+Algebra.IsIntegral.tower_top.{u_1, u_4, u_5} (R : Type u_1) {S : Type u_4} {T : Type u_5} [CommRing R] [CommRing S]
+  [CommRing T] [Algebra R S] [Algebra R T] [Algebra S T] [IsScalarTower R S T] [h : Algebra.IsIntegral R T] :
+  Algebra.IsIntegral S T
+RingHom.IsIntegral.isLocalHom.{u_1, u_4} {R : Type u_1} {S : Type u_4} [CommRing R] [CommRing S] {f : R →+* S}
+  (hf : f.IsIntegral) (inj : Function.Injective ⇑f) : IsLocalHom f
+IsLocalHom.of_surjective.{u_1, u_2} {R : Type u_1} {S : Type u_2} [CommRing R] [CommRing S] [Nontrivial S]
+  [IsLocalRing R] (f : R →+* S) (hf : Function.Surjective ⇑f) : IsLocalHom f
+RingHom.isLocalHom_comp.{u_1, u_2, u_3} {R : Type u_1} {S : Type u_2} {T : Type u_3} [Semiring R] [Semiring S]
+  [Semiring T] (g : S →+* T) (f : R →+* S) [IsLocalHom g] [IsLocalHom f] : IsLocalHom (g.comp f)
+Canonical.lean:188:0: warning: declaration uses `sorry`
+Canonical.lean:194:0: warning: declaration uses `sorry`
+Canonical.lean:202:0: warning: declaration uses `sorry`
+Canonical.lean:228:8: warning: declaration uses `sorry`
+Canonical.lean:236:8: warning: declaration uses `sorry`
+Canonical.lean:246:8: warning: declaration uses `sorry`
+Canonical.lean:257:8: warning: declaration uses `sorry`
+Canonical.lean:271:8: warning: declaration uses `sorry`
+Canonical.lean:287:0: warning: declaration uses `sorry`
+Canonical.lean:292:0: warning: declaration uses `sorry`
+Canonical.lean:297:0: warning: declaration uses `sorry`
+Canonical.lean:301:0: warning: declaration uses `sorry`
+Canonical.lean:328:8: warning: declaration uses `sorry`
+Canonical.lean:332:8: warning: declaration uses `sorry`
+Canonical.lean:336:8: warning: declaration uses `sorry`
+Canonical.lean:341:8: warning: declaration uses `sorry`
+Canonical.lean:348:8: warning: declaration uses `sorry`
+Canonical.lean:358:8: warning: declaration uses `sorry`
+Canonical.lean:368:0: warning: declaration uses `sorry`
+Canonical.lean:371:0: warning: declaration uses `sorry`
+Canonical.lean:375:0: warning: declaration uses `sorry`
+Canonical.lean:379:0: warning: declaration uses `sorry`
+Canonical.lean:385:0: warning: declaration uses `sorry`
+Canonical.lean:424:8: warning: declaration uses `sorry`
+Canonical.lean:427:8: warning: declaration uses `sorry`
+Canonical.lean:431:8: warning: declaration uses `sorry`
+Canonical.lean:439:8: warning: declaration uses `sorry`
+Canonical.lean:444:8: warning: declaration uses `sorry`
+Canonical.lean:452:8: warning: declaration uses `sorry`
+Canonical.lean:462:8: warning: declaration uses `sorry`
+Canonical.lean:468:8: warning: declaration uses `sorry`
+Canonical.lean:474:8: warning: declaration uses `sorry`
+Canonical.lean:478:8: warning: declaration uses `sorry`
+Canonical.lean:484:8: warning: declaration uses `sorry`
+Canonical.lean:503:8: warning: declaration uses `sorry`
+Canonical.lean:513:8: warning: declaration uses `sorry`
+Canonical.lean:519:8: warning: declaration uses `sorry`
+Canonical.lean:525:8: warning: declaration uses `sorry`
+Canonical.lean:535:8: warning: declaration uses `sorry`
+Canonical.lean:541:8: warning: declaration uses `sorry`
+Canonical.lean:547:8: warning: declaration uses `sorry`
+Canonical.lean:552:8: warning: declaration uses `sorry`
+Canonical.lean:561:8: warning: declaration uses `sorry`
+Canonical.lean:581:8: warning: declaration uses `sorry`
+Canonical.lean:599:8: warning: declaration uses `sorry`
+Canonical.lean:612:0: warning: declaration uses `sorry`
+Canonical.lean:616:0: warning: declaration uses `sorry`
+Canonical.lean:621:0: warning: declaration uses `sorry`
+Canonical.lean:624:0: warning: declaration uses `sorry`
+Canonical.lean:628:0: warning: declaration uses `sorry`
+Canonical.lean:633:0: warning: declaration uses `sorry`
+Canonical.lean:646:0: warning: declaration uses `sorry`
+Canonical.lean:655:0: warning: declaration uses `sorry`
+Canonical.lean:661:0: warning: declaration uses `sorry`
+Canonical.lean:666:0: warning: declaration uses `sorry`
+Canonical.lean:672:0: warning: declaration uses `sorry`
+Canonical.lean:678:0: warning: declaration uses `sorry`
+Canonical.lean:686:0: warning: declaration uses `sorry`
+Canonical.lean:693:0: warning: declaration uses `sorry`
+Canonical.lean:705:0: warning: declaration uses `sorry`
+Canonical.lean:710:0: warning: declaration uses `sorry`
+Canonical.lean:759:8: warning: declaration uses `sorry`
+Canonical.lean:764:8: warning: declaration uses `sorry`
+Canonical.lean:767:8: warning: declaration uses `sorry`
+Canonical.lean:774:8: warning: declaration uses `sorry`
+Canonical.lean:776:8: warning: declaration uses `sorry`
+Canonical.lean:779:8: warning: declaration uses `sorry`
+Canonical.lean:783:8: warning: declaration uses `sorry`
+Canonical.lean:786:8: warning: declaration uses `sorry`
+Canonical.lean:792:8: warning: declaration uses `sorry`
+Canonical.lean:795:8: warning: declaration uses `sorry`
+Canonical.lean:799:8: warning: declaration uses `sorry`
+Canonical.lean:803:0: warning: declaration uses `sorry`
+Canonical.lean:805:0: warning: declaration uses `sorry`
+Canonical.lean:810:0: warning: declaration uses `sorry`
+Canonical.lean:813:0: warning: declaration uses `sorry`
+Canonical.lean:815:0: warning: declaration uses `sorry`
+Canonical.lean:819:0: warning: declaration uses `sorry`
+Canonical.lean:828:0: warning: declaration uses `sorry`
+Canonical.lean:832:0: warning: declaration uses `sorry`
+Canonical.lean:846:15: warning: declaration uses `sorry`
+Canonical.lean:854:8: warning: declaration uses `sorry`
+Canonical.lean:858:8: warning: declaration uses `sorry`
+Canonical.lean:861:8: warning: declaration uses `sorry`
+Canonical.lean:863:8: warning: declaration uses `sorry`
+Canonical.lean:866:8: warning: declaration uses `sorry`
+Canonical.lean:873:0: warning: declaration uses `sorry`
+Canonical.lean:875:0: warning: declaration uses `sorry`
+Canonical.lean:878:0: warning: declaration uses `sorry`
+Canonical.lean:880:0: warning: declaration uses `sorry`
+Canonical.lean:885:8: warning: declaration uses `sorry`
+Canonical.lean:892:8: warning: declaration uses `sorry`
+Canonical.lean:900:8: warning: declaration uses `sorry`
+Canonical.lean:907:8: warning: declaration uses `sorry`
+Canonical.lean:917:8: warning: declaration uses `sorry`
+Canonical.lean:923:8: warning: declaration uses `sorry`
+Canonical.lean:926:8: warning: declaration uses `sorry`
+Canonical.lean:934:0: warning: declaration uses `sorry`
+Canonical.lean:941:0: warning: declaration uses `sorry`
+Canonical.lean:949:0: warning: declaration uses `sorry`
+Canonical.lean:954:8: warning: declaration uses `sorry`
+Canonical.lean:959:8: warning: declaration uses `sorry`
+Canonical.lean:969:8: warning: declaration uses `sorry`
+Canonical.lean:976:8: warning: declaration uses `sorry`
+Canonical.lean:993:8: warning: declaration uses `sorry`
+Canonical.lean:1008:8: warning: declaration uses `sorry`
+Canonical.lean:1033:18: warning: declaration uses `sorry`
+Canonical.lean:1037:8: warning: declaration uses `sorry`
+Canonical.lean:1059:8: warning: declaration uses `sorry`
+Canonical.lean:1071:8: warning: declaration uses `sorry`
+Canonical.lean:1076:8: warning: declaration uses `sorry`
+Canonical.lean:1084:0: warning: declaration uses `sorry`
+Canonical.lean:1105:8: warning: declaration uses `sorry`
+Canonical.lean:1113:8: warning: declaration uses `sorry`
+Canonical.lean:1118:8: warning: declaration uses `sorry`
+Canonical.lean:1123:8: warning: declaration uses `sorry`
+Canonical.lean:1128:0: warning: declaration uses `sorry`
+Canonical.lean:1132:0: warning: declaration uses `sorry`
+Canonical.lean:1138:0: warning: declaration uses `sorry`
+Canonical.lean:1141:0: warning: declaration uses `sorry`
+Canonical.lean:1173:8: warning: declaration uses `sorry`
+Canonical.lean:1176:8: warning: declaration uses `sorry`
+Canonical.lean:1179:8: warning: declaration uses `sorry`
+Canonical.lean:1183:8: warning: declaration uses `sorry`
+Canonical.lean:1187:8: warning: declaration uses `sorry`
+Canonical.lean:1193:8: warning: declaration uses `sorry`
+Canonical.lean:1198:8: warning: declaration uses `sorry`
+Canonical.lean:1203:8: warning: declaration uses `sorry`
+Canonical.lean:1220:8: warning: declaration uses `sorry`
+Canonical.lean:1222:8: warning: declaration uses `sorry`
+Canonical.lean:1225:8: warning: declaration uses `sorry`
+Canonical.lean:1228:8: warning: declaration uses `sorry`
+Canonical.lean:1231:8: warning: declaration uses `sorry`
+Canonical.lean:1234:8: warning: declaration uses `sorry`
+Canonical.lean:1238:8: warning: declaration uses `sorry`
+Canonical.lean:1244:8: warning: declaration uses `sorry`
+Canonical.lean:1249:8: warning: declaration uses `sorry`
+Canonical.lean:1267:0: warning: declaration uses `sorry`
+Canonical.lean:1272:0: warning: declaration uses `sorry`
+Canonical.lean:1277:0: warning: declaration uses `sorry`
+Canonical.lean:1281:0: warning: declaration uses `sorry`
+Canonical.lean:1287:0: warning: declaration uses `sorry`
+Canonical.lean:1301:0: warning: declaration uses `sorry`
+Canonical.lean:1306:0: warning: declaration uses `sorry`
+Canonical.lean:1311:0: warning: declaration uses `sorry`
+Canonical.lean:1316:0: warning: declaration uses `sorry`
+Canonical.lean:1323:0: warning: declaration uses `sorry`
+Canonical.lean:1328:0: warning: declaration uses `sorry`
+Canonical.lean:1331:0: warning: declaration uses `sorry`
+Canonical.lean:1334:0: warning: declaration uses `sorry`
+Canonical.lean:1356:6: warning: declaration uses `sorry`
+Canonical.lean:1357:6: warning: declaration uses `sorry`
+Canonical.lean:1362:6: warning: declaration uses `sorry`
+Canonical.lean:1366:18: warning: declaration uses `sorry`
+Canonical.lean:1385:6: warning: declaration uses `sorry`
+Canonical.lean:1398:6: warning: declaration uses `sorry`
+Canonical.lean:1405:6: warning: declaration uses `sorry`
+Canonical.lean:1415:6: warning: declaration uses `sorry`
+Canonical.lean:1422:6: warning: declaration uses `sorry`
+Canonical.lean:1428:6: warning: declaration uses `sorry`
+Canonical.lean:1433:6: warning: declaration uses `sorry`
+Canonical.lean:1438:0: warning: declaration uses `sorry`
+Canonical.lean:1440:0: warning: declaration uses `sorry`
+Canonical.lean:1442:0: warning: declaration uses `sorry`
+Canonical.lean:1446:0: warning: declaration uses `sorry`
+Canonical.lean:1450:0: warning: declaration uses `sorry`
+Canonical.lean:1453:0: warning: declaration uses `sorry`
+Canonical.lean:1456:0: warning: declaration uses `sorry`
+Canonical.lean:1458:0: warning: declaration uses `sorry`
+Canonical.lean:1462:0: warning: declaration uses `sorry`
+Canonical.lean:1465:0: warning: declaration uses `sorry`
+Canonical.lean:1468:0: warning: declaration uses `sorry`
+Canonical.lean:1472:0: warning: declaration uses `sorry`
+Canonical.lean:1511:9: warning: declaration uses `sorry`
+Canonical.lean:1514:9: warning: declaration uses `sorry`
+Canonical.lean:1521:6: warning: declaration uses `sorry`
+Canonical.lean:1523:6: warning: declaration uses `sorry`
+Canonical.lean:1526:6: warning: declaration uses `sorry`
+Canonical.lean:1532:18: warning: declaration uses `sorry`
+Canonical.lean:1538:6: warning: declaration uses `sorry`
+Canonical.lean:1542:6: warning: declaration uses `sorry`
+Canonical.lean:1545:6: warning: declaration uses `sorry`
+Canonical.lean:1549:6: warning: declaration uses `sorry`
+Canonical.lean:1565:6: warning: declaration uses `sorry`
+Canonical.lean:1567:6: warning: declaration uses `sorry`
+Canonical.lean:1573:6: warning: declaration uses `sorry`
+Canonical.lean:1583:6: warning: declaration uses `sorry`
+Canonical.lean:1589:6: warning: declaration uses `sorry`
+Canonical.lean:1594:6: warning: declaration uses `sorry`
+Canonical.lean:1599:6: warning: declaration uses `sorry`
+Canonical.lean:1603:6: warning: declaration uses `sorry`
+Canonical.lean:1607:6: warning: declaration uses `sorry`
+Canonical.lean:1624:0: warning: declaration uses `sorry`
+Canonical.lean:1626:0: warning: declaration uses `sorry`
+Canonical.lean:1628:0: warning: declaration uses `sorry`
+Canonical.lean:1633:0: warning: declaration uses `sorry`
+Canonical.lean:1635:0: warning: declaration uses `sorry`
+Canonical.lean:1639:0: warning: declaration uses `sorry`
+Canonical.lean:1647:0: warning: declaration uses `sorry`
+Canonical.lean:1652:0: warning: declaration uses `sorry`
+Canonical.lean:1656:0: warning: declaration uses `sorry`
+Canonical.lean:1661:0: warning: declaration uses `sorry`
+Canonical.lean:1666:0: warning: declaration uses `sorry`
+Canonical.lean:1699:6: warning: declaration uses `sorry`
+Canonical.lean:1704:9: warning: declaration uses `sorry`
+Canonical.lean:1717:6: warning: declaration uses `sorry`
+Canonical.lean:1721:6: warning: declaration uses `sorry`
+Canonical.lean:1747:6: warning: declaration uses `sorry`
+Canonical.lean:1752:9: warning: declaration uses `sorry`
+Canonical.lean:1757:9: warning: declaration uses `sorry`
+Canonical.lean:1770:6: warning: declaration uses `sorry`
+Canonical.lean:1779:6: warning: declaration uses `sorry`
+Canonical.lean:1783:6: warning: declaration uses `sorry`
+Canonical.lean:1789:0: warning: declaration uses `sorry`
+Canonical.lean:1793:0: warning: declaration uses `sorry`
+Canonical.lean:1796:0: warning: declaration uses `sorry`
+Canonical.lean:1798:0: warning: declaration uses `sorry`
+Canonical.lean:1800:0: warning: declaration uses `sorry`
+Canonical.lean:1803:0: warning: declaration uses `sorry`
+Canonical.lean:1807:0: warning: declaration uses `sorry`
+Canonical.lean:1811:0: warning: declaration uses `sorry`
+Canonical.lean:1814:0: warning: declaration uses `sorry`
+Canonical.lean:1817:0: warning: declaration uses `sorry`
+Canonical.lean:1820:0: warning: declaration uses `sorry`
+Canonical.lean:1824:0: warning: declaration uses `sorry`
+Canonical.lean:1843:6: warning: declaration uses `sorry`
+Canonical.lean:1848:6: warning: declaration uses `sorry`
+Canonical.lean:1852:6: warning: declaration uses `sorry`
+Canonical.lean:1859:6: warning: declaration uses `sorry`
+Canonical.lean:1863:6: warning: declaration uses `sorry`
+Canonical.lean:1892:6: warning: declaration uses `sorry`
+Canonical.lean:1897:6: warning: declaration uses `sorry`
+Canonical.lean:1904:6: warning: declaration uses `sorry`
+Canonical.lean:1910:0: warning: declaration uses `sorry`
+Canonical.lean:1930:0: warning: declaration uses `sorry`
+Canonical.lean:1948:0: warning: declaration uses `sorry`
+Canonical.lean:1957:0: warning: declaration uses `sorry`
+Canonical.lean:1976:6: warning: declaration uses `sorry`
+Canonical.lean:1980:4: warning: declaration uses `sorry`
+Canonical.lean:1984:6: warning: declaration uses `sorry`
+Canonical.lean:1988:6: warning: declaration uses `sorry`
+Canonical.lean:1993:6: warning: declaration uses `sorry`
+Canonical.lean:1999:4: warning: declaration uses `sorry`
+Canonical.lean:2002:6: warning: declaration uses `sorry`
+Canonical.lean:2006:6: warning: declaration uses `sorry`
+Canonical.lean:2011:6: warning: declaration uses `sorry`
+Canonical.lean:2014:6: warning: declaration uses `sorry`
+Canonical.lean:2019:0: warning: declaration uses `sorry`
+Canonical.lean:2025:0: warning: declaration uses `sorry`
+Canonical.lean:2032:0: warning: declaration uses `sorry`
+Canonical.lean:2040:0: warning: declaration uses `sorry`
+Canonical.lean:2046:0: warning: declaration uses `sorry`
+Canonical.lean:2052:0: warning: declaration uses `sorry`
+Canonical.lean:2060:0: warning: declaration uses `sorry`
+Canonical.lean:2067:0: warning: declaration uses `sorry`
+Canonical.lean:2072:0: warning: declaration uses `sorry`
+Canonical.lean:2090:15: warning: declaration uses `sorry`
+Canonical.lean:2093:4: warning: declaration uses `sorry`
+Canonical.lean:2095:6: warning: declaration uses `sorry`
+Canonical.lean:2099:6: warning: declaration uses `sorry`
+Canonical.lean:2103:6: warning: declaration uses `sorry`
+Canonical.lean:2107:6: warning: declaration uses `sorry`
+Canonical.lean:2110:6: warning: declaration uses `sorry`
+Canonical.lean:2114:6: warning: declaration uses `sorry`
+Canonical.lean:2120:0: warning: declaration uses `sorry`
+Canonical.lean:2127:0: warning: declaration uses `sorry`
+Canonical.lean:2133:0: warning: declaration uses `sorry`
+Canonical.lean:2139:0: warning: declaration uses `sorry`
+Canonical.lean:2143:0: warning: declaration uses `sorry`
+Canonical.lean:2147:0: warning: declaration uses `sorry`
+Canonical.lean:2163:6: warning: declaration uses `sorry`
+Canonical.lean:2167:6: warning: declaration uses `sorry`
+Canonical.lean:2173:0: warning: declaration uses `sorry`
+Canonical.lean:2188:6: warning: declaration uses `sorry`
+Canonical.lean:2196:6: warning: declaration uses `sorry`
+Canonical.lean:2201:6: warning: declaration uses `sorry`
+Canonical.lean:2207:6: warning: declaration uses `sorry`
+Canonical.lean:2213:6: warning: declaration uses `sorry`
+Canonical.lean:2218:6: warning: declaration uses `sorry`
+Canonical.lean:2225:6: warning: declaration uses `sorry`
+Canonical.lean:2232:6: warning: declaration uses `sorry`
+Canonical.lean:2241:6: warning: declaration uses `sorry`
+Canonical.lean:2251:0: warning: declaration uses `sorry`
+Canonical.lean:2260:0: warning: declaration uses `sorry`
+Canonical.lean:2269:0: warning: declaration uses `sorry`
+Canonical.lean:2278:0: warning: declaration uses `sorry`
+Canonical.lean:2292:0: warning: declaration uses `sorry`
+Canonical.lean:2302:0: warning: declaration uses `sorry`
+Canonical.lean:2318:8: warning: declaration uses `sorry`
+Canonical.lean:2324:8: warning: declaration uses `sorry`
+Canonical.lean:2331:8: warning: declaration uses `sorry`
+Canonical.lean:2337:0: warning: declaration uses `sorry`
+Canonical.lean:2342:0: warning: declaration uses `sorry`
+Canonical.lean:2347:0: warning: declaration uses `sorry`
+Canonical.lean:2352:0: warning: declaration uses `sorry`
+Canonical.lean:2359:0: warning: declaration uses `sorry`
+Canonical.lean:2367:0: warning: declaration uses `sorry`
+Canonical.lean:2379:6: warning: declaration uses `sorry`
+Canonical.lean:2385:4: warning: declaration uses `sorry`
+Canonical.lean:2390:6: warning: declaration uses `sorry`
+Canonical.lean:2395:4: warning: declaration uses `sorry`
+Canonical.lean:2399:6: warning: declaration uses `sorry`
+Canonical.lean:2404:6: warning: declaration uses `sorry`
+Canonical.lean:2411:6: warning: declaration uses `sorry`
+Canonical.lean:2417:6: warning: declaration uses `sorry`
+Canonical.lean:2421:0: warning: declaration uses `sorry`
+Canonical.lean:2425:0: warning: declaration uses `sorry`
+Canonical.lean:2429:0: warning: declaration uses `sorry`
+Canonical.lean:2435:0: warning: declaration uses `sorry`
+Canonical.lean:2441:0: warning: declaration uses `sorry`
+Canonical.lean:2450:0: warning: declaration uses `sorry`
+Canonical.lean:2456:0: warning: declaration uses `sorry`
+Canonical.lean:2584:6: warning: declaration uses `sorry`
+Canonical.lean:2588:6: warning: declaration uses `sorry`
+Canonical.lean:2591:4: warning: declaration uses `sorry`
+Canonical.lean:2594:6: warning: declaration uses `sorry`
+Canonical.lean:2597:6: warning: declaration uses `sorry`
+Canonical.lean:2600:4: warning: declaration uses `sorry`
+Canonical.lean:2603:6: warning: declaration uses `sorry`
+Canonical.lean:2606:6: warning: declaration uses `sorry`
+Canonical.lean:2612:6: warning: declaration uses `sorry`
+Canonical.lean:2616:6: warning: declaration uses `sorry`
+Canonical.lean:2621:6: warning: declaration uses `sorry`
+Canonical.lean:2624:6: warning: declaration uses `sorry`
+Canonical.lean:2629:0: warning: declaration uses `sorry`
+Canonical.lean:2632:0: warning: declaration uses `sorry`
+Canonical.lean:2637:0: warning: declaration uses `sorry`
+Canonical.lean:2642:0: warning: declaration uses `sorry`
+Canonical.lean:2647:0: warning: declaration uses `sorry`
+Canonical.lean:2651:0: warning: declaration uses `sorry`
+Canonical.lean:2657:0: warning: declaration uses `sorry`
+Canonical.lean:2661:0: warning: declaration uses `sorry`
+Canonical.lean:2664:0: warning: declaration uses `sorry`
+Canonical.lean:2671:0: warning: declaration uses `sorry`
+Canonical.lean:2677:0: warning: declaration uses `sorry`
+Canonical.lean:2680:0: warning: declaration uses `sorry`
+Canonical.lean:2683:0: warning: declaration uses `sorry`
+Canonical.lean:2686:0: warning: declaration uses `sorry`
+Canonical.lean:2701:6: warning: declaration uses `sorry`
+Canonical.lean:2705:6: warning: declaration uses `sorry`
+Canonical.lean:2711:6: warning: declaration uses `sorry`
+Canonical.lean:2715:0: warning: declaration uses `sorry`
+Canonical.lean:2719:0: warning: declaration uses `sorry`
+Canonical.lean:2723:0: warning: declaration uses `sorry`
+Canonical.lean:2727:0: warning: declaration uses `sorry`
+Canonical.lean:2739:0: warning: declaration uses `sorry`
+Canonical.lean:2748:0: warning: declaration uses `sorry`
+Canonical.lean:2767:6: warning: declaration uses `sorry`
+Canonical.lean:2775:6: warning: declaration uses `sorry`
+Canonical.lean:2781:0: warning: declaration uses `sorry`
+Canonical.lean:2787:0: warning: declaration uses `sorry`
+Canonical.lean:2793:0: warning: declaration uses `sorry`
+Canonical.lean:2802:6: warning: declaration uses `sorry`
+Canonical.lean:2807:6: warning: declaration uses `sorry`
+Canonical.lean:2812:6: warning: declaration uses `sorry`
+Canonical.lean:2815:6: warning: declaration uses `sorry`
+Canonical.lean:2819:6: warning: declaration uses `sorry`
+Canonical.lean:2837:0: warning: declaration uses `sorry`
+Canonical.lean:2842:0: warning: declaration uses `sorry`
+Canonical.lean:2846:0: warning: declaration uses `sorry`
+Canonical.lean:2850:0: warning: declaration uses `sorry`
+Canonical.lean:2854:0: warning: declaration uses `sorry`
+Canonical.lean:2858:0: warning: declaration uses `sorry`
+Canonical.lean:2864:0: warning: declaration uses `sorry`
+Canonical.lean:2870:0: warning: declaration uses `sorry`
+Canonical.lean:2876:0: warning: declaration uses `sorry`
+Canonical.lean:2880:0: warning: declaration uses `sorry`
+Canonical.lean:2892:4: warning: declaration uses `sorry`
+Canonical.lean:2895:6: warning: declaration uses `sorry`
+Canonical.lean:2899:6: warning: declaration uses `sorry`
+Canonical.lean:2902:6: warning: declaration uses `sorry`
+Canonical.lean:2906:6: warning: declaration uses `sorry`
+Canonical.lean:2910:6: warning: declaration uses `sorry`
+Canonical.lean:2914:4: warning: declaration uses `sorry`
+Canonical.lean:2917:6: warning: declaration uses `sorry`
+Canonical.lean:2921:6: warning: declaration uses `sorry`
+Canonical.lean:2924:6: warning: declaration uses `sorry`
+Canonical.lean:2926:6: warning: declaration uses `sorry`
+Canonical.lean:2932:6: warning: declaration uses `sorry`
+Canonical.lean:2936:6: warning: declaration uses `sorry`
+Canonical.lean:2940:6: warning: declaration uses `sorry`
+Canonical.lean:2945:6: warning: declaration uses `sorry`
+Canonical.lean:2949:6: warning: declaration uses `sorry`
+Canonical.lean:2953:6: warning: declaration uses `sorry`
+Canonical.lean:2958:6: warning: declaration uses `sorry`
+Canonical.lean:2974:0: warning: declaration uses `sorry`
+Canonical.lean:2979:0: warning: declaration uses `sorry`
+Canonical.lean:2984:0: warning: declaration uses `sorry`
+Canonical.lean:2987:0: warning: declaration uses `sorry`
+Canonical.lean:2992:0: warning: declaration uses `sorry`
+Canonical.lean:2997:0: warning: declaration uses `sorry`
+Canonical.lean:3001:0: warning: declaration uses `sorry`
+Canonical.lean:3006:0: warning: declaration uses `sorry`
+Canonical.lean:3011:0: warning: declaration uses `sorry`
+Canonical.lean:3018:0: warning: declaration uses `sorry`
+Canonical.lean:3027:0: warning: declaration uses `sorry`
+Canonical.lean:3046:6: warning: declaration uses `sorry`
+Canonical.lean:3049:6: warning: declaration uses `sorry`
+Canonical.lean:3052:6: warning: declaration uses `sorry`
+Canonical.lean:3059:6: warning: declaration uses `sorry`
+Canonical.lean:3072:6: warning: declaration uses `sorry`
+Canonical.lean:3078:6: warning: declaration uses `sorry`
+Canonical.lean:3081:6: warning: declaration uses `sorry`
+Canonical.lean:3088:6: warning: declaration uses `sorry`
+Canonical.lean:3093:6: warning: declaration uses `sorry`
+Canonical.lean:3106:0: warning: declaration uses `sorry`
+Canonical.lean:3109:0: warning: declaration uses `sorry`
+Canonical.lean:3112:0: warning: declaration uses `sorry`
+Canonical.lean:3117:0: warning: declaration uses `sorry`
+Canonical.lean:3122:0: warning: declaration uses `sorry`
+Canonical.lean:3127:0: warning: declaration uses `sorry`
+Canonical.lean:3147:4: warning: declaration uses `sorry`
+Canonical.lean:3151:6: warning: declaration uses `sorry`
+Canonical.lean:3157:6: warning: declaration uses `sorry`
+Canonical.lean:3162:6: warning: declaration uses `sorry`
+Canonical.lean:3167:6: warning: declaration uses `sorry`
+Canonical.lean:3172:6: warning: declaration uses `sorry`
+Canonical.lean:3177:6: warning: declaration uses `sorry`
+Canonical.lean:3182:6: warning: declaration uses `sorry`
+Canonical.lean:3187:6: warning: declaration uses `sorry`
+Canonical.lean:3192:6: warning: declaration uses `sorry`
+Canonical.lean:3197:6: warning: declaration uses `sorry`
+Canonical.lean:3202:6: warning: declaration uses `sorry`
+Canonical.lean:3209:6: warning: declaration uses `sorry`
+Canonical.lean:3215:6: warning: declaration uses `sorry`
+Canonical.lean:3223:6: warning: declaration uses `sorry`
+Canonical.lean:3229:6: warning: declaration uses `sorry`
+Canonical.lean:3239:0: warning: declaration uses `sorry`
+Canonical.lean:3244:0: warning: declaration uses `sorry`
+Canonical.lean:3250:0: warning: declaration uses `sorry`
+Canonical.lean:3256:0: warning: declaration uses `sorry`
+Canonical.lean:3262:0: warning: declaration uses `sorry`
+Canonical.lean:3268:0: warning: declaration uses `sorry`
+Canonical.lean:3288:4: warning: declaration uses `sorry`
+Canonical.lean:3291:6: warning: declaration uses `sorry`
+Canonical.lean:3295:4: warning: declaration uses `sorry`
+Canonical.lean:3298:6: warning: declaration uses `sorry`
+Canonical.lean:3302:6: warning: declaration uses `sorry`
+Canonical.lean:3306:6: warning: declaration uses `sorry`
+Canonical.lean:3309:6: warning: declaration uses `sorry`
+Canonical.lean:3313:6: warning: declaration uses `sorry`
+Canonical.lean:3318:4: warning: declaration uses `sorry`
+Canonical.lean:3322:6: warning: declaration uses `sorry`
+Canonical.lean:3326:6: warning: declaration uses `sorry`
+Canonical.lean:3330:4: warning: declaration uses `sorry`
+Canonical.lean:3334:6: warning: declaration uses `sorry`
+Canonical.lean:3339:6: warning: declaration uses `sorry`
+Canonical.lean:3343:6: warning: declaration uses `sorry`
+Canonical.lean:3347:6: warning: declaration uses `sorry`
+Canonical.lean:3353:6: warning: declaration uses `sorry`
+Canonical.lean:3358:4: warning: declaration uses `sorry`
+Canonical.lean:3363:6: warning: declaration uses `sorry`
+Canonical.lean:3380:6: warning: declaration uses `sorry`
+Canonical.lean:3384:6: warning: declaration uses `sorry`
+Canonical.lean:3389:6: warning: declaration uses `sorry`
+Canonical.lean:3397:6: warning: declaration uses `sorry`
+Canonical.lean:3401:6: warning: declaration uses `sorry`
+Canonical.lean:3408:6: warning: declaration uses `sorry`
+Canonical.lean:3413:6: warning: declaration uses `sorry`
+Canonical.lean:3418:6: warning: declaration uses `sorry`
+Canonical.lean:3423:6: warning: declaration uses `sorry`
+Canonical.lean:3430:6: warning: declaration uses `sorry`
+Canonical.lean:3434:6: warning: declaration uses `sorry`
+Canonical.lean:3439:6: warning: declaration uses `sorry`
+Canonical.lean:3447:6: warning: declaration uses `sorry`
+Canonical.lean:3453:6: warning: declaration uses `sorry`
+Canonical.lean:3459:6: warning: declaration uses `sorry`
+Canonical.lean:3476:6: warning: declaration uses `sorry`
+Canonical.lean:3479:4: warning: declaration uses `sorry`
+Canonical.lean:3482:6: warning: declaration uses `sorry`
+Canonical.lean:3487:6: warning: declaration uses `sorry`
+Canonical.lean:3492:4: warning: declaration uses `sorry`
+Canonical.lean:3497:6: warning: declaration uses `sorry`
+Canonical.lean:3502:6: warning: declaration uses `sorry`
+Canonical.lean:3505:4: warning: declaration uses `sorry`
+Canonical.lean:3510:6: warning: declaration uses `sorry`
+Canonical.lean:3517:4: warning: declaration uses `sorry`
+Canonical.lean:3522:6: warning: declaration uses `sorry`
+Canonical.lean:3528:6: warning: declaration uses `sorry`
+Canonical.lean:3536:4: warning: declaration uses `sorry`
+Canonical.lean:3542:6: warning: declaration uses `sorry`
+Canonical.lean:3550:6: warning: declaration uses `sorry`
+Canonical.lean:3557:6: warning: declaration uses `sorry`
+Canonical.lean:3563:6: warning: declaration uses `sorry`
+Canonical.lean:3571:6: warning: declaration uses `sorry`
+Canonical.lean:3589:6: warning: declaration uses `sorry`
+Canonical.lean:3593:6: warning: declaration uses `sorry`
+Canonical.lean:3600:6: warning: declaration uses `sorry`
+Canonical.lean:3607:6: warning: declaration uses `sorry`
+Canonical.lean:3611:6: warning: declaration uses `sorry`
+Canonical.lean:3621:6: warning: declaration uses `sorry`
+Canonical.lean:3629:6: warning: declaration uses `sorry`
+Canonical.lean:3633:6: warning: declaration uses `sorry`
+Canonical.lean:3644:6: warning: declaration uses `sorry`
+Canonical.lean:3652:6: warning: declaration uses `sorry`
+Canonical.lean:3657:6: warning: declaration uses `sorry`
+Canonical.lean:3662:6: warning: declaration uses `sorry`
+Canonical.lean:3670:6: warning: declaration uses `sorry`
+Canonical.lean:3679:6: warning: declaration uses `sorry`
+Canonical.lean:3687:6: warning: declaration uses `sorry`
+ELAPSED 32.81 RSS 3684004 EXIT 0
+```
+
+---
+
+The complete incoming handoff follows unchanged, attributed to its workers. Its historical receipts are not new executions by codex-rtOQ9t.
+
 # Native degree quotients — current #551 checkpoint
 
 Codex — codex-J6LwjP, 2026-10-03. Claim 5965502494 won by bot confirmation 5965503592. The complete 55,002-character issue was read before the claim and reread unchanged after confirmation. Continue merged #5938. This remains a partial planning checkpoint; every node is unchecked.
