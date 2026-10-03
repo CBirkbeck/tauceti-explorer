@@ -5996,3 +5996,487 @@ The native actual-proof extraction has 793 lines, 34 examples and 52 axiom audit
 The full Tau Ceti-importing suggested file is uncompiled: required pinned point-count, variable-change, divisor-scheme and stable-model artifacts are unavailable. No library setup, cache acquisition or build was attempted.
 
 The one-component genus contract now explicitly depends on the k-linear affine comparison and the quadratic defect dimension. Its original statement, hypotheses and acceptance are unchanged. Construct and compare the two actual projective charts and the global finite normalization first; identify the conductor ideal sheaf; then derive the actual structure-sheaf exact sequence and finite-pushforward H0/H1 comparisons. Preserve the distinct ordinary-node, inseparable-cusp and independent I₂ hypotheses. No source-wide closure follows from this affine calculation.
+
+
+## Reciprocal infinity chart of a quadratic pinch
+
+The reciprocal infinity quotient Chart(a,b)=R[u][Z]/(Q∞Z−u³), its explicit Bézout inverse, both specified R[u]-algebra maps and their inverse equivalence, native localization property and actual affine Spec open immersion now have separately checked prototypes over every commutative ring. The homogeneous normalization tuple, its cubic homogeneity and fieldwise absence of a common zero are checked against the actual native projective Weierstrass equation, with a nonsingular infinity point over every field. The two-chart overlap/gluing and actual Proj comparison, finite projective normalization, conductor ideal sheaf, structure-sheaf exact sequence, finite-pushforward H0/H1 and independent I₂ geometry remain required. Full Tau Ceti-importing file remains uncompiled; all seven stages are partial and all mathematical implementation statuses unchecked.
+
+The following are authored coordinate calculations motivated by the conductor square in [Schröer §3, printed pp9–11](https://arxiv.org/pdf/2004.07025v3). Generic projective scheme construction is imported from SchemeAndStackFoundations:SF.0. The earlier affine normalization/cokernel work, all seven stage boundaries, source routes and separate two-component geometry remain part of the roadmap.
+
+### Quadratic pinching cubic
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-curve` — `QuadraticPinch.InfinityChart.curve`
+
+The native WeierstrassCurve W_(a,b) has coefficients (a,−b,0,0,0), hence homogeneous equation Y²Z+aXYZ+bX²Z−X³=0. It is the homogeneous cubic attached to the existing affine quadratic pinching presentation.
+
+R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed.
+
+Use the existing native WeierstrassCurve carrier and its projective Equation; no new projective scheme or smoothness predicate is defined.
+
+Prerequisites: `mathlib:WeierstrassCurve`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-relation`.
+
+API:
+
+- `QuadraticPinch.InfinityChart.equation_chart` (characterisation): For every u,z∈R, the actual native projective Equation of W_(a,b) at [u:1:z] holds if and only if z(1+au+bu²)=u³.
+- `QuadraticPinch.InfinityChart.normalization_equation` (compatibility): For all T,U∈R, the actual native Weierstrass projective Equation of W_(a,b) holds at n_(a,b)(T,U).
+- `QuadraticPinch.InfinityChart.infinity_nonsingular` (compatibility): For every field k and a,b∈k, the native Weierstrass projective Nonsingular condition holds at [0:1:0], because the Z partial derivative equals one. This includes characteristic two and the singular finite cusp.
+
+Tests:
+
+- `InfinityChart.curve.origin` (computation): For all a,b over R, the actual projective equation holds at [0:0:1].
+- `InfinityChart.curve.finite_normalization` (compatibility): For all a,b,t over R, the actual projective equation holds at [t²+at+b:t(t²+at+b):1].
+- `InfinityChart.curve.infinity_smooth` (compatibility): Over Z/2, the native projective Nonsingular condition holds at [0:1:0] for every a,b.
+
+Acceptance: The native WeierstrassCurve W_(a,b) has coefficients (a,−b,0,0,0), hence homogeneous equation Y²Z+aXYZ+bX²Z−X³=0. It is the homogeneous cubic attached to the existing affine quadratic pinching presentation.
+
+### Reciprocal quadratic denominator
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-denominator` — `QuadraticPinch.InfinityChart.denominator`
+
+Q∞(u)=1+au+bu² is an actual polynomial over R, the reciprocal u²q(1/u) of the existing monic q(t)=t²+at+b.
+
+R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed.
+
+Give the polynomial with its constant coefficient equal to one, without choosing roots or dividing by two.
+
+Prerequisites: .
+
+API:
+
+- `QuadraticPinch.InfinityChart.bezout` (relation): Q∞(u)(1−au+(a²−b)u²)=1+u³((a³−2ab)+b(a²−b)u).
+- `QuadraticPinch.InfinityChart.denominator_isUnit` (structure): The actual R[u]-coefficient image of Q∞ in Chart(a,b) is a unit; no further localization of the chart is required.
+- `QuadraticPinch.InfinityChart.localization` (instance): For its actual coefficient R[u]-algebra structure, Chart(a,b) satisfies the native IsLocalization.Away(Q∞) property.
+
+Tests:
+
+- `InfinityChart.denominator.constant` (computation): For all a,b over R, the coefficient of u⁰ in Q∞ is one.
+- `InfinityChart.denominator.cusp` (degenerate): Over every R, Q∞ for a=b=0 is the constant polynomial one.
+- `InfinityChart.denominator.base_change` (compatibility): For every ring homomorphism f:R→S, map(f,Q∞(a,b))=Q∞(f(a),f(b)).
+
+Acceptance: Q∞(u)=1+au+bu² is an actual polynomial over R, the reciprocal u²q(1/u) of the existing monic q(t)=t²+at+b.
+
+### Infinity affine coordinate ring
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation` — `QuadraticPinch.InfinityChart.relation`
+
+The coordinate relation L_(a,b)(Z)=Q∞(u)Z−u³ lies in R[u][Z]. Chart(a,b) is the native AdjoinRoot of this polynomial, an actual quotient of R[u][Z] by (L_(a,b)). Its R[u]-algebra structure is the native quotient coefficient map.
+
+R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed.
+
+Reuse native AdjoinRoot; the type abbreviation Chart is an API alias, not an arbitrary ring with an assumed relation.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-denominator`, `mathlib:AdjoinRoot`.
+
+API:
+
+- `QuadraticPinch.InfinityChart.Chart` (coercion): Chart(a,b) abbreviates the actual native AdjoinRoot of the specified polynomial relation with its native R[u]-algebra structure.
+- `QuadraticPinch.InfinityChart.root_relation` (relation): In Chart(a,b), the coefficient image of Q∞ times the native quotient root Z equals the coefficient image of u³.
+- `QuadraticPinch.InfinityChart.equation_chart` (compatibility): For every u,z∈R, the actual native projective Equation of W_(a,b) at [u:1:z] holds if and only if z(1+au+bu²)=u³.
+
+Tests:
+
+- `InfinityChart.relation.leading` (computation): For all a,b over R, the coefficient of Z¹ in L_(a,b) is Q∞.
+- `InfinityChart.relation.constant` (computation): For all a,b over R, the coefficient of Z⁰ in L_(a,b) is −u³.
+- `InfinityChart.relation.cusp` (degenerate): For a=b=0 over every R, the actual relation is Z−u³.
+
+Acceptance: The coordinate relation L_(a,b)(Z)=Q∞(u)Z−u³ lies in R[u][Z]. Chart(a,b) is the native AdjoinRoot of this polynomial, an actual quotient of R[u][Z] by (L_(a,b)). Its R[u]-algebra structure is the native quotient coefficient map.
+
+### Weierstrass infinity-chart equation
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equation-chart` — `QuadraticPinch.InfinityChart.equation_chart`
+
+For every u,z∈R, the actual native projective Equation of W_(a,b) at [u:1:z] holds if and only if z(1+au+bu²)=u³.
+
+R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed.
+
+Expand the native projective equation and normalize the commutative-ring identity. This identifies the equation on the Y≠0 chart; comparison with the actual scheme Proj remains required.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-curve`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation`, `mathlib:WeierstrassCurve.Projective.equation_iff`.
+
+Acceptance: For every u,z∈R, the actual native projective Equation of W_(a,b) at [u:1:z] holds if and only if z(1+au+bu²)=u³.
+
+### Reciprocal quadratic Bézout identity
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-bezout` — `QuadraticPinch.InfinityChart.bezout`
+
+Q∞(u)(1−au+(a²−b)u²)=1+u³((a³−2ab)+b(a²−b)u).
+
+R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed.
+
+Expand the two polynomials over an arbitrary commutative ring. The integer 2 is a ring numeral, never an invertible element.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-denominator`.
+
+Acceptance: Q∞(u)(1−au+(a²−b)u²)=1+u³((a³−2ab)+b(a²−b)u).
+
+### Actual quotient-root relation
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-root-relation` — `QuadraticPinch.InfinityChart.root_relation`
+
+In Chart(a,b), the coefficient image of Q∞ times the native quotient root Z equals the coefficient image of u³.
+
+R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed.
+
+Specialize AdjoinRoot.eval₂_root to the displayed linear polynomial, then use sub_eq_zero.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation`, `mathlib:AdjoinRoot.eval₂_root`.
+
+Acceptance: In Chart(a,b), the coefficient image of Q∞ times the native quotient root Z equals the coefficient image of u³.
+
+### Explicit inverse on the infinity chart
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-denominator-inverse` — `QuadraticPinch.InfinityChart.denominatorInverse`
+
+In Chart(a,b), define D∞ as the coefficient image of 1−au+(a²−b)u² minus Z times the coefficient image of (a³−2ab)+b(a²−b)u.
+
+R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed.
+
+Specify the actual quotient element using native algebra maps and the native root.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-bezout`.
+
+API:
+
+- `QuadraticPinch.InfinityChart.mul_inverse` (relation): In the actual quotient Chart(a,b), Q∞·D∞=1.
+- `QuadraticPinch.InfinityChart.fromLocalization_inv` (compatibility): The specified inverse algebra homomorphism sends the native localization element Q∞⁻¹ to D∞.
+- `QuadraticPinch.InfinityChart.equiv_inverse_inv` (compatibility): The inverse of the specified chart equivalence sends the native localization inverse of Q∞ to D∞.
+
+Tests:
+
+- `InfinityChart.denominatorInverse.cusp` (degenerate): For a=b=0 over every R, D∞ in the actual quotient is one.
+- `InfinityChart.denominatorInverse.nonreduced` (computation): Over Z/4 with a=2,b=0, the actual chart identity (1+2u)D∞=1 holds.
+- `InfinityChart.denominatorInverse.repeated_char2` (computation): Over Z/2 with a=0,b=1, the actual chart identity (1+u²)D∞=1 holds.
+
+Acceptance: In Chart(a,b), define D∞ as the coefficient image of 1−au+(a²−b)u² minus Z times the coefficient image of (a³−2ab)+b(a²−b)u.
+
+### Infinity denominator inverse identity
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-mul-inverse` — `QuadraticPinch.InfinityChart.mul_inverse`
+
+In the actual quotient Chart(a,b), Q∞·D∞=1.
+
+R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed.
+
+Substitute Q∞Z=u³ and transport the Bézout identity through the coefficient map.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-denominator-inverse`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-root-relation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-bezout`.
+
+Acceptance: In the actual quotient Chart(a,b), Q∞·D∞=1.
+
+### The denominator is a unit on the whole chart
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-denominator-is-unit` — `QuadraticPinch.InfinityChart.denominator_isUnit`
+
+The actual R[u]-coefficient image of Q∞ in Chart(a,b) is a unit; no further localization of the chart is required.
+
+R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed.
+
+Supply the explicit inverse D∞ to the native unit constructor.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-mul-inverse`.
+
+Acceptance: The actual R[u]-coefficient image of Q∞ in Chart(a,b) is a unit; no further localization of the chart is required.
+
+### Forward infinity-chart localization map
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-to-localization` — `QuadraticPinch.InfinityChart.toLocalization`
+
+Construct the specified R[u]-algebra map Chart(a,b)→Localization.Away(Q∞), sending Z to u³/Q∞ and every coefficient polynomial f to f/1.
+
+R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed.
+
+Use native AdjoinRoot.liftAlgHom. Verify the actual linear quotient relation with the native localization inverse identity.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-denominator`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation`, `mathlib:AdjoinRoot.liftAlgHom`, `mathlib:IsLocalization.Away.mul_invSelf`.
+
+API:
+
+- `QuadraticPinch.InfinityChart.toLocalization_root` (simp): The specified forward map sends the actual native quotient root Z to the coefficient image of u³ times the native localization inverse of Q∞.
+- `QuadraticPinch.InfinityChart.to_from` (compatibility): The specified forward map composed with the specified inverse map is the identity R[u]-algebra homomorphism on Localization.Away(Q∞).
+- `QuadraticPinch.InfinityChart.equiv_base` (compatibility): For every f∈R[u], the specified chart equivalence sends its actual quotient coefficient image to f/1 in Localization.Away(Q∞).
+
+Tests:
+
+- `InfinityChart.toLocalization.base` (compatibility): For every f∈R[u], the actual forward homomorphism sends its quotient coefficient image to f/1.
+- `InfinityChart.toLocalization.root` (compatibility): For every a,b over R, the actual forward homomorphism sends the native root to u³/Q∞.
+- `InfinityChart.toLocalization.cusp` (degenerate): For a=b=0 over every R, the actual forward homomorphism sends the native root to the coefficient image of u³.
+
+Acceptance: Construct the specified R[u]-algebra map Chart(a,b)→Localization.Away(Q∞), sending Z to u³/Q∞ and every coefficient polynomial f to f/1.
+
+### Inverse infinity-chart localization map
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-from-localization` — `QuadraticPinch.InfinityChart.fromLocalization`
+
+Construct the specified R[u]-algebra map Localization.Away(Q∞)→Chart(a,b) using the native coefficient map and the proved unit Q∞.
+
+R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed.
+
+Apply the native localization algebra universal property to the actual quotient coefficient homomorphism.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-denominator-is-unit`, `mathlib:IsLocalization.Away.liftAlgHom`.
+
+API:
+
+- `QuadraticPinch.InfinityChart.fromLocalization_inv` (simp): The specified inverse algebra homomorphism sends the native localization element Q∞⁻¹ to D∞.
+- `QuadraticPinch.InfinityChart.from_to` (compatibility): The specified inverse map composed with the specified forward map is the identity R[u]-algebra homomorphism on Chart(a,b).
+- `QuadraticPinch.InfinityChart.equiv_inverse_base` (compatibility): For every f∈R[u], the inverse of the specified chart equivalence sends f/1 to the actual quotient coefficient image of f.
+
+Tests:
+
+- `InfinityChart.fromLocalization.base` (compatibility): For every f∈R[u], the actual inverse homomorphism sends f/1 to its quotient coefficient image.
+- `InfinityChart.fromLocalization.inverse` (compatibility): For every a,b over R, the actual inverse homomorphism sends the native Q∞⁻¹ to D∞.
+- `InfinityChart.fromLocalization.cusp` (degenerate): For a=b=0 over every R, the actual inverse homomorphism sends the native Q∞⁻¹ to one.
+
+Acceptance: Construct the specified R[u]-algebra map Localization.Away(Q∞)→Chart(a,b) using the native coefficient map and the proved unit Q∞.
+
+### Forward image of the chart root
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-to-localization-root` — `QuadraticPinch.InfinityChart.toLocalization_root`
+
+The specified forward map sends the actual native quotient root Z to the coefficient image of u³ times the native localization inverse of Q∞.
+
+R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed.
+
+Apply the native root computation for AdjoinRoot.liftAlgHom.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-to-localization`.
+
+Acceptance: The specified forward map sends the actual native quotient root Z to the coefficient image of u³ times the native localization inverse of Q∞.
+
+### The localization composite is the identity
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-to-from` — `QuadraticPinch.InfinityChart.to_from`
+
+The specified forward map composed with the specified inverse map is the identity R[u]-algebra homomorphism on Localization.Away(Q∞).
+
+R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed.
+
+Use native localization algebra homomorphism extensionality on the coefficient map.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-to-localization`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-from-localization`, `mathlib:IsLocalization.algHom_ext`.
+
+Acceptance: The specified forward map composed with the specified inverse map is the identity R[u]-algebra homomorphism on Localization.Away(Q∞).
+
+### The quotient composite is the identity
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-from-to` — `QuadraticPinch.InfinityChart.from_to`
+
+The specified inverse map composed with the specified forward map is the identity R[u]-algebra homomorphism on Chart(a,b).
+
+R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed.
+
+Use native AdjoinRoot algebra extensionality. The image of Q∞⁻¹ multiplies Q∞ to one; combine this with Q∞Z=u³ to recover Z.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-to-localization-root`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-from-localization`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-root-relation`, `mathlib:AdjoinRoot.algHom_ext`.
+
+Acceptance: The specified inverse map composed with the specified forward map is the identity R[u]-algebra homomorphism on Chart(a,b).
+
+### Infinity-chart localization equivalence
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equiv` — `QuadraticPinch.InfinityChart.equiv`
+
+The specified inverse homomorphisms give the actual R[u]-algebra equivalence Chart(a,b)≃Localization.Away(Q∞). This equivalence is over the coefficient algebra R[u], not merely an abstract ring equivalence.
+
+R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed.
+
+Package the two actual maps and both composite identities using native AlgEquiv.ofAlgHom.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-to-from`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-from-to`, `mathlib:AlgEquiv.ofAlgHom`.
+
+API:
+
+- `QuadraticPinch.InfinityChart.equiv_base` (simp): For every f∈R[u], the specified chart equivalence sends its actual quotient coefficient image to f/1 in Localization.Away(Q∞).
+- `QuadraticPinch.InfinityChart.equiv_root` (simp): The specified chart equivalence sends the actual root Z to u³/Q∞.
+- `QuadraticPinch.InfinityChart.equiv_inverse_base` (simp): For every f∈R[u], the inverse of the specified chart equivalence sends f/1 to the actual quotient coefficient image of f.
+- `QuadraticPinch.InfinityChart.equiv_inverse_inv` (simp): The inverse of the specified chart equivalence sends the native localization inverse of Q∞ to D∞.
+- `QuadraticPinch.InfinityChart.localization` (instance): For its actual coefficient R[u]-algebra structure, Chart(a,b) satisfies the native IsLocalization.Away(Q∞) property.
+- `QuadraticPinch.InfinityChart.spec_openImmersion` (compatibility): The actual Spec morphism induced by R[u]→Chart(a,b) is an open immersion into Spec R[u]. It identifies this quotient chart with the principal open D(Q∞) through its specified localization equivalence.
+
+Tests:
+
+- `InfinityChart.equiv.actual_forward` (compatibility): The native forward algebra homomorphism of the specified equivalence equals the specified toLocalization map.
+- `InfinityChart.equiv.actual_inverse` (compatibility): The native inverse algebra homomorphism of the specified equivalence equals the specified fromLocalization map.
+- `InfinityChart.equiv.coefficient` (compatibility): Applying the specified equivalence and its inverse to an actual coefficient image recovers that same coefficient image.
+
+Acceptance: The specified inverse homomorphisms give the actual R[u]-algebra equivalence Chart(a,b)≃Localization.Away(Q∞). This equivalence is over the coefficient algebra R[u], not merely an abstract ring equivalence.
+
+### Coefficient compatibility of the chart equivalence
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equiv-base` — `QuadraticPinch.InfinityChart.equiv_base`
+
+For every f∈R[u], the specified chart equivalence sends its actual quotient coefficient image to f/1 in Localization.Away(Q∞).
+
+R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed.
+
+Use the coefficient commutation law of the native algebra equivalence.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equiv`.
+
+Acceptance: For every f∈R[u], the specified chart equivalence sends its actual quotient coefficient image to f/1 in Localization.Away(Q∞).
+
+### Root compatibility of the chart equivalence
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equiv-root` — `QuadraticPinch.InfinityChart.equiv_root`
+
+The specified chart equivalence sends the actual root Z to u³/Q∞.
+
+R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed.
+
+The forward algebra homomorphism is definitionally the previously specified quotient lift.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equiv`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-to-localization-root`.
+
+Acceptance: The specified chart equivalence sends the actual root Z to u³/Q∞.
+
+### The inverse map has the explicit Bézout value
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-from-localization-inv` — `QuadraticPinch.InfinityChart.fromLocalization_inv`
+
+The specified inverse algebra homomorphism sends the native localization element Q∞⁻¹ to D∞.
+
+R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed.
+
+Transport Q∞·Q∞⁻¹=1 through the inverse map. Multiply the two inverse identities in the commutative quotient ring to identify their inverse elements, without a domain assumption.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-from-localization`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-mul-inverse`.
+
+Acceptance: The specified inverse algebra homomorphism sends the native localization element Q∞⁻¹ to D∞.
+
+### Inverse coefficient compatibility
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equiv-inverse-base` — `QuadraticPinch.InfinityChart.equiv_inverse_base`
+
+For every f∈R[u], the inverse of the specified chart equivalence sends f/1 to the actual quotient coefficient image of f.
+
+R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed.
+
+Use the native inverse algebra equivalence coefficient commutation law.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equiv`.
+
+Acceptance: For every f∈R[u], the inverse of the specified chart equivalence sends f/1 to the actual quotient coefficient image of f.
+
+### Inverse denominator compatibility
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equiv-inverse-inv` — `QuadraticPinch.InfinityChart.equiv_inverse_inv`
+
+The inverse of the specified chart equivalence sends the native localization inverse of Q∞ to D∞.
+
+R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed.
+
+Its underlying inverse homomorphism is the previously specified native localization lift.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equiv`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-from-localization-inv`.
+
+Acceptance: The inverse of the specified chart equivalence sends the native localization inverse of Q∞ to D∞.
+
+### The actual quotient is a localization
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-localization` — `QuadraticPinch.InfinityChart.localization`
+
+For its actual coefficient R[u]-algebra structure, Chart(a,b) satisfies the native IsLocalization.Away(Q∞) property.
+
+R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed.
+
+Transport the existing native localization instance along the specified coefficient-algebra equivalence.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equiv`, `mathlib:IsLocalization.isLocalization_of_algEquiv`.
+
+Acceptance: For its actual coefficient R[u]-algebra structure, Chart(a,b) satisfies the native IsLocalization.Away(Q∞) property.
+
+### The infinity chart is an open of the affine line
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-spec-open-immersion` — `QuadraticPinch.InfinityChart.spec_openImmersion`
+
+The actual Spec morphism induced by R[u]→Chart(a,b) is an open immersion into Spec R[u]. It identifies this quotient chart with the principal open D(Q∞) through its specified localization equivalence.
+
+R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed.
+
+Apply the existing native open-immersion theorem for any algebra which is a localization away from the specified element. This is a statement about the affine chart and does not glue the projective curve.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-localization`, `mathlib:AlgebraicGeometry.IsOpenImmersion.of_isLocalization`.
+
+Acceptance: The actual Spec morphism induced by R[u]→Chart(a,b) is an open immersion into Spec R[u]. It identifies this quotient chart with the principal open D(Q∞) through its specified localization equivalence.
+
+### Homogeneous quadratic normalization coordinates
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-normalization-coordinates` — `QuadraticPinch.InfinityChart.normalizationCoordinates`
+
+For q_h(T,U)=T²+aTU+bU², construct the actual coordinate triple n_(a,b)(T,U)=[Uq_h:Tq_h:U³]. It is a homogeneous cubic triple, with finite-chart coordinates [q(t):tq(t):1] and infinity [0:1:0].
+
+R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed.
+
+Give the actual Fin 3→R tuple. Scheme-morphism construction is a separate consumer comparison.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-curve`.
+
+API:
+
+- `QuadraticPinch.InfinityChart.normalization_homogeneous` (structure): For every r∈R, n_(a,b)(rT,rU)=r³·n_(a,b)(T,U), using the native scalar action on the coordinate tuple.
+- `QuadraticPinch.InfinityChart.normalization_nonzero` (characterisation): Over any field k, if T≠0 or U≠0 then n_(a,b)(T,U) is not the zero tuple. No separability, perfectness or characteristic restriction is used.
+- `QuadraticPinch.InfinityChart.normalization_equation` (compatibility): For all T,U∈R, the actual native Weierstrass projective Equation of W_(a,b) holds at n_(a,b)(T,U).
+
+Tests:
+
+- `InfinityChart.normalizationCoordinates.finite` (compatibility): n_(a,b)(t,1)=[t²+at+b:t(t²+at+b):1].
+- `InfinityChart.normalizationCoordinates.infinity` (degenerate): n_(a,b)(1,0)=[0:1:0].
+- `InfinityChart.normalizationCoordinates.nonzero_char2` (degenerate): Over Z/2, n_(0,1)(1,0) is not the zero tuple.
+
+Acceptance: For q_h(T,U)=T²+aTU+bU², construct the actual coordinate triple n_(a,b)(T,U)=[Uq_h:Tq_h:U³]. It is a homogeneous cubic triple, with finite-chart coordinates [q(t):tq(t):1] and infinity [0:1:0].
+
+### Cubic homogeneity of the normalization coordinates
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-normalization-homogeneous` — `QuadraticPinch.InfinityChart.normalization_homogeneous`
+
+For every r∈R, n_(a,b)(rT,rU)=r³·n_(a,b)(T,U), using the native scalar action on the coordinate tuple.
+
+R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed.
+
+Compare all three coordinates and normalize the commutative-ring identities.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-normalization-coordinates`.
+
+Acceptance: For every r∈R, n_(a,b)(rT,rU)=r³·n_(a,b)(T,U), using the native scalar action on the coordinate tuple.
+
+### No common zero of the normalization coordinates
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-normalization-nonzero` — `QuadraticPinch.InfinityChart.normalization_nonzero`
+
+Over any field k, if T≠0 or U≠0 then n_(a,b)(T,U) is not the zero tuple. No separability, perfectness or characteristic restriction is used.
+
+k is an arbitrary field and a,b∈k; no separability, perfectness or characteristic assumption. The nonzero-coordinate theorem additionally assumes T≠0 or U≠0. Native Nonsingular is only used over a field, where its derivative criterion has its intended geometric interpretation.
+
+If the tuple vanished, its last coordinate U³ would give U=0. The middle coordinate then gives T³=0, hence T=0, contradicting the input.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-normalization-coordinates`.
+
+Acceptance: Over any field k, if T≠0 or U≠0 then n_(a,b)(T,U) is not the zero tuple. No separability, perfectness or characteristic restriction is used.
+
+### The homogeneous normalization lands on the cubic
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-normalization-equation` — `QuadraticPinch.InfinityChart.normalization_equation`
+
+For all T,U∈R, the actual native Weierstrass projective Equation of W_(a,b) holds at n_(a,b)(T,U).
+
+R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed.
+
+Expand the native equation at the specified homogeneous coordinate tuple and normalize the polynomial identity.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-normalization-coordinates`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-curve`, `mathlib:WeierstrassCurve.Projective.equation_iff`.
+
+Acceptance: For all T,U∈R, the actual native Weierstrass projective Equation of W_(a,b) holds at n_(a,b)(T,U).
+
+### The infinity point is nonsingular
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-infinity-nonsingular` — `QuadraticPinch.InfinityChart.infinity_nonsingular`
+
+For every field k and a,b∈k, the native Weierstrass projective Nonsingular condition holds at [0:1:0], because the Z partial derivative equals one. This includes characteristic two and the singular finite cusp.
+
+k is an arbitrary field and a,b∈k; no separability, perfectness or characteristic assumption. The nonzero-coordinate theorem additionally assumes T≠0 or U≠0. Native Nonsingular is only used over a field, where its derivative criterion has its intended geometric interpretation.
+
+Use the actual native projective Equation and partial-derivative criterion. Its geometric smoothness comparison belongs to the existing scheme suppliers.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-curve`, `mathlib:WeierstrassCurve.Projective.nonsingular_iff`.
+
+Acceptance: For every field k and a,b∈k, the native Weierstrass projective Nonsingular condition holds at [0:1:0], because the Z partial derivative equals one. This includes characteristic two and the singular finite cusp.

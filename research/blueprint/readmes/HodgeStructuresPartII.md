@@ -3542,3 +3542,284 @@ Source: [Heuer, published paper](https://link.springer.com/content/pdf/10.1007/s
 Current codex-J6LwjP chart-overlap checkpoint supplies unique affine chart fields, actual horizontal two-chart transition and all-degree ordered-iterate transition, including tensor-unit and triple-overlap checks. Before global restriction/descent, discharge E1’s actual sheaf tensor-power comparison, restriction identifications and equality detection/gluing. Exterior-integrability transport, global determinant/Tate adapters, rank bounds, all 149 source obligations and H.1–H.8 remain open.
 
 The three new declarations are API entries of the existing affineChartField construction. Its previous contracts, six API items, seven tests and all inherited source routes are retained. The test labels above correspond to six new planning examples.
+
+
+## Affine exterior integrability and chart comparison
+
+The actual native affine exterior square, horizontal naturality, module/coefficient-equivalence reflection, receiving-chart transition, arbitrary-characteristic two-direction commutator formula and split-coefficient detection are now supplied as plans with separate checked native proofs. The full two-coordinate integrability criterion and scalar unit field at every ordered degree are checked, including characteristic two and integrability without nilpotence. Still supply the arbitrary-Q cross-ring exterior projection/base-change comparison, the global Ω²⊗T² identification, finite-projective sheaf restriction/exterior comparison, equality detection/gluing, the full arbitrary finite-basis coordinate criterion and every inherited rank, determinant/Tate, period, supplier and source obligation. These affine proofs do not compare a sheaf tensor with tensors of global sections or reflect source-ring curvature through a nonfaithful extension.
+
+Define κ(θ) by projecting the actual second ordered coefficient tensor to the actual native exterior square. The projection is the existing Tau Ceti fromTensorPower definition, transparently expanded to its Mathlib multilinear lift here; it is not a new generic exterior construction. The target is E⊗Λ²Q. The global twisted identification Λ²(Ω¹⊗T)≃Ω²⊗T² and the sheaf calculus remain supplier work.
+
+A horizontal square for f,u induces the exterior square for f,Λ²u. Actual inverses reflect zero without flatness. Two receiving charts identify the same S-modules before this comparison applies; no source-ring reflection or cross-ring exterior comparison follows merely from chart agreement.
+
+For θ(e)=A(e)⊗q+B(e)⊗r, the inherited prepend convention gives κ(θ)(e)=[A,B](e)⊗(q∧r). Repeated arguments vanish and swapping gives a minus sign; neither step divides by two. Commutativity suffices for integrability with arbitrary directions. The converse requires the actual unit-value exterior functional. For the standard two-coordinate chart the native exterior-dual pairing supplies that functional over any commutative ring. Dependent directions give an essential counterexample to an unconditional converse.
+
+The scalar unit field is integrable, but its actual n-th iterate evaluates to the constant unit tensor word and is nonzero at every n, including zero. The native multilinear product and tensor unitor detect the value one. This separates integrability from ordered tensor nilpotence even in a reduced rank-one chart. The E12/E21 examples detect exterior curvature over ℤ and ℤ/2. These are actual module-chart tests, not a construction of a geometric affine-space differential calculus.
+
+### Exterior square of an affine Higgs field
+
+Declaration: TwistedHiggsBundle.affineExteriorSquare.
+
+For arbitrary R-modules E,Q and an R-linear field θ:E→E⊗Q, construct κ(θ)=(id_E⊗π₂)∘I₂(θ):E→E⊗Λ²_R Q. Here π₂ is the existing native tensor-power exterior projection, implemented by its exact Mathlib multilinear-lift expression; I₂ is the inherited left-prepended ordered iterate. No division by two or integrability premise occurs.
+
+Hypotheses: R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit. I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned.
+
+Proof: Apply the existing native exterior projection to the coefficient factor of the actual second ordered iterate. Its pure-word value is the native alternating exterior product, not an antisymmetrization divided by two. Retain the full target E⊗Λ²_R Q, even when Q is torsion, not flat or not finitely generated.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-ordered-iterate, mathlib:PiTensorProduct.lift, mathlib:exteriorPower.ιMulti, tauceti:exteriorPower.fromTensorPower.
+
+API TwistedHiggsBundle.affineExteriorSquare_zero (compatibility): For arbitrary E,Q, κ(0)=0.
+
+API TwistedHiggsBundle.affineExteriorSquare_natural (compatibility): If ψ∘f=(f⊗u)∘θ for actual R-linear maps f:E→F and u:Q→P, then κ(ψ)∘f=(f⊗Λ²u)∘κ(θ). No injectivity, surjectivity, basis, flatness or integrability assumption is required.
+
+API TwistedHiggsBundle.affineExteriorSquare_equiv_zero_iff (compatibility): For a horizontal pair of native linear equivalences f:E≃F and u:Q≃P, κ(ψ)=0 if and only if κ(θ)=0. Neither coefficient nor module flatness is needed.
+
+API TwistedHiggsBundle.affineExteriorSquare_coefficientMap (compatibility): For every actual coefficient map u:Q→P, κ(θ_u)=(id_E⊗Λ²u)∘κ(θ), where θ_u is the inherited actual coefficient postcomposition.
+
+API TwistedHiggsBundle.affineExteriorSquare_coefficientMap_zero (compatibility): If κ(θ)=0, then κ(θ_u)=0 for every R-linear coefficient map u, including zero and quotient maps.
+
+API TwistedHiggsBundle.affineExteriorSquare_coefficientEquiv_zero_iff (compatibility): For every native linear equivalence u:Q≃P, κ(θ_u)=0 if and only if κ(θ)=0.
+
+API TwistedHiggsBundle.affineExteriorSquare_twoDirection (compatibility): For the actual two-direction field, κ(θ)(e)=(A(B(e))−B(A(e)))⊗(q∧r) for every e. The sign follows the inherited left-prepended order. This holds over every commutative ring, including characteristic two.
+
+API TwistedHiggsBundle.affineExteriorSquare_twoDirection_zero_of_commute (compatibility): If A∘B=B∘A, then κ(θ)=0 for the actual two-direction field, for arbitrary q,r.
+
+API TwistedHiggsBundle.affineExteriorSquare_twoDirection_zero_iff (compatibility): Suppose an actual linear functional ℓ:Λ²_R Q→R satisfies ℓ(q∧r)=1. Then κ(θ)=0 if and only if A∘B=B∘A for the two-direction field. This unit-value hypothesis is essential; arbitrary dependent directions do not detect commutation.
+
+API TwistedHiggsBundle.affineExteriorSquare_twoCoordinates_zero_iff (compatibility): For Q=R×R, q=(1,0) and r=(0,1), the actual two-direction field has κ(θ)=0 if and only if A∘B=B∘A. E is an arbitrary R-module and R is an arbitrary commutative ring; no characteristic restriction or basis of E occurs.
+
+API TwistedHiggsBundle.affineExteriorSquare_chart_transition (compatibility): For two actual charts of the same receiving-ring scalar extensions, with θ_i the inherited chart field, a=e₂∘e₁⁻¹ and b=q₂∘q₁⁻¹, κ(θ₂)∘a=(a⊗Λ²b)∘κ(θ₁). Every exterior power is over the receiving ring S. This is a chart-transition equation, not a comparison with scalar extension of the source-ring exterior square.
+
+API TwistedHiggsBundle.affineExteriorSquare_chart_zero_iff (compatibility): For those two charts of the same S-modules, κ(θ₂)=0 if and only if κ(θ₁)=0. An individual nonfaithful R→S extension is not asserted to reflect the original source-ring exterior square.
+
+Test TwistedHiggsBundle.affineExteriorSquare.test_zero (degenerate): The actual zero field on arbitrary E,Q has zero exterior square.
+
+Test TwistedHiggsBundle.affineExteriorSquare.test_torsion_coefficients (compatibility): For E=ℤ, Q=ℤ/2, P=ℤ/3 and every actual θ:E→E⊗Q, postcomposition by the zero coefficient map has zero exterior square; no flat coefficient or basis exists here.
+
+Test TwistedHiggsBundle.affineExteriorSquare.test_scalar_line (non-example): For the actual unit field θ on E=Q=ℤ, κ(θ)=0 and the actual associator-defined ordered square is nonzero.
+
+Test TwistedHiggsBundle.affineExteriorSquare.test_noncommuting_integer (non-example): For E=Q=ℤ×ℤ, A=E12 and B=E21 as the actual inl/snd and inr/fst composites, the standard two-direction field has nonzero exterior square.
+
+Test TwistedHiggsBundle.affineExteriorSquare.test_noncommuting_char_two (non-example): The same actual E12/E21 field on E=Q=(ℤ/2)×(ℤ/2) has nonzero exterior square. No division by two or characteristic-zero premise is valid.
+
+Test TwistedHiggsBundle.affineExteriorSquare.test_coefficient_erasure (non-example): The actual noncommuting ℤ two-coordinate field has nonzero exterior square, but its postcomposition by the zero coefficient map to ℤ has zero exterior square. Arbitrary coefficient maps do not reflect integrability.
+
+Test TwistedHiggsBundle.affineExteriorSquare.test_coefficient_equiv (compatibility): For every actual coefficient equivalence u:Q≃P, exterior integrability of θ_u is equivalent to exterior integrability of θ.
+
+Test TwistedHiggsBundle.affineChartField.test_exterior_transition (degenerate): The actual two-direction field is zero when both operators are zero, for arbitrary coefficient directions.
+
+Test TwistedHiggsBundle.affineChartField.test_exterior_zero_iff (degenerate): The actual two-direction field is zero when both operators are zero, for arbitrary coefficient directions.
+
+Test TwistedHiggsBundle.affineExteriorSquare.test_degree_two_not_nilpotence (non-example): The actual unit field on ℤ has zero exterior square and a nonzero degree-two ordered tensor-power iterate.
+
+Test TwistedHiggsBundle.affineExteriorSquare.test_integrable_not_nilpotent (non-example): The actual unit field on ℤ has zero exterior square, while every actual ordered iterate at every n≥0 is nonzero. Exterior integrability cannot replace tensor nilpotence.
+
+### Exterior square of the zero field
+
+Declaration: TwistedHiggsBundle.affineExteriorSquare_zero.
+
+For arbitrary E,Q, κ(0)=0.
+
+Hypotheses: R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit. I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned.
+
+Proof: Unfold the two successors in the actual ordered iterate. The zero field makes the positive iterate zero, and exterior projection preserves zero.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-exterior-square, HodgeStructuresPartII:H.0/affine-ordered-iterate, HodgeStructuresPartII:H.0/affine-ordered-step.
+
+### Exterior square under a horizontal morphism
+
+Declaration: TwistedHiggsBundle.affineExteriorSquare_natural.
+
+If ψ∘f=(f⊗u)∘θ for actual R-linear maps f:E→F and u:Q→P, then κ(ψ)∘f=(f⊗Λ²u)∘κ(θ). No injectivity, surjectivity, basis, flatness or integrability assumption is required.
+
+Hypotheses: R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit. I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned.
+
+Proof: Apply the inherited ordered-iterate naturality at degree two. Use the existing exterior-projection naturality; its exact pinned proof compares pure tensor words via the native exterior map on alternating generators. Compose the two actual linear-map squares.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-exterior-square, HodgeStructuresPartII:H.0/affine-ordered-iterate-natural, tauceti:exteriorPower.map_comp_fromTensorPower, mathlib:exteriorPower.map_apply_ιMulti.
+
+### Integrability under module and coefficient equivalences
+
+Declaration: TwistedHiggsBundle.affineExteriorSquare_equiv_zero_iff.
+
+For a horizontal pair of native linear equivalences f:E≃F and u:Q≃P, κ(ψ)=0 if and only if κ(θ)=0. Neither coefficient nor module flatness is needed.
+
+Hypotheses: R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit. I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned.
+
+Proof: Construct the actual left inverse f⁻¹⊗Λ²(u⁻¹) using native tensor and exterior functor composition. It makes f⊗Λ²u injective. Evaluate the horizontal exterior square to reflect zero through this injection. Preserve zero using surjectivity of f.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-exterior-square-natural, mathlib:exteriorPower.map_comp, mathlib:exteriorPower.map_id, mathlib:LinearMap.injective_of_comp_eq_id.
+
+### Exterior square after changing coefficients
+
+Declaration: TwistedHiggsBundle.affineExteriorSquare_coefficientMap.
+
+For every actual coefficient map u:Q→P, κ(θ_u)=(id_E⊗Λ²u)∘κ(θ), where θ_u is the inherited actual coefficient postcomposition.
+
+Hypotheses: R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit. I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned.
+
+Proof: Use horizontal naturality with f=id_E and the defining coefficient-map square.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-exterior-square-natural, HodgeStructuresPartII:H.0/affine-coefficient-map.
+
+### Coefficient maps preserve integrability
+
+Declaration: TwistedHiggsBundle.affineExteriorSquare_coefficientMap_zero.
+
+If κ(θ)=0, then κ(θ_u)=0 for every R-linear coefficient map u, including zero and quotient maps.
+
+Hypotheses: R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit. I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned.
+
+Proof: Substitute the zero exterior square in the proved coefficient-map equation.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-exterior-square-coefficient-map.
+
+### Coefficient equivalences reflect integrability
+
+Declaration: TwistedHiggsBundle.affineExteriorSquare_coefficientEquiv_zero_iff.
+
+For every native linear equivalence u:Q≃P, κ(θ_u)=0 if and only if κ(θ)=0.
+
+Hypotheses: R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit. I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned.
+
+Proof: Use the module identity equivalence and the specified coefficient equivalence in the horizontal zero-reflection theorem.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-exterior-square-equiv, HodgeStructuresPartII:H.0/affine-coefficient-map.
+
+### An affine field with two coefficient directions
+
+Declaration: TwistedHiggsBundle.affineTwoDirectionField.
+
+For A,B∈End_R(E) and arbitrary q,r∈Q, construct the actual R-linear field θ(e)=A(e)⊗q+B(e)⊗r by the native bilinear tensor constructor. The directions need not be a basis or independent, and A,B need not commute.
+
+Hypotheses: R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit. I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned.
+
+Proof: Compose the native linear map e↦e⊗q with A, compose e↦e⊗r with B, and add the resulting actual linear maps.
+
+Prerequisites: mathlib:TensorProduct.mk.
+
+API TwistedHiggsBundle.affineTwoDirectionField_apply (projection): For every e, the constructed two-direction field evaluates to A(e)⊗q+B(e)⊗r.
+
+API TwistedHiggsBundle.affineExteriorSquare_twoDirection (compatibility): For the actual two-direction field, κ(θ)(e)=(A(B(e))−B(A(e)))⊗(q∧r) for every e. The sign follows the inherited left-prepended order. This holds over every commutative ring, including characteristic two.
+
+API TwistedHiggsBundle.affineExteriorSquare_twoDirection_zero_of_commute (compatibility): If A∘B=B∘A, then κ(θ)=0 for the actual two-direction field, for arbitrary q,r.
+
+API TwistedHiggsBundle.affineExteriorSquare_twoDirection_zero_iff (compatibility): Suppose an actual linear functional ℓ:Λ²_R Q→R satisfies ℓ(q∧r)=1. Then κ(θ)=0 if and only if A∘B=B∘A for the two-direction field. This unit-value hypothesis is essential; arbitrary dependent directions do not detect commutation.
+
+API TwistedHiggsBundle.affineExteriorSquare_twoCoordinates_zero_iff (compatibility): For Q=R×R, q=(1,0) and r=(0,1), the actual two-direction field has κ(θ)=0 if and only if A∘B=B∘A. E is an arbitrary R-module and R is an arbitrary commutative ring; no characteristic restriction or basis of E occurs.
+
+Test TwistedHiggsBundle.affineTwoDirectionField.test_apply (computation): The actual two-direction field evaluates at each e to A(e)⊗q+B(e)⊗r.
+
+Test TwistedHiggsBundle.affineTwoDirectionField.test_zero (degenerate): The actual two-direction field is zero when both operators are zero, for arbitrary q,r.
+
+Test TwistedHiggsBundle.affineTwoDirectionField.test_dependent_directions (non-example): With q=r, the actual two-direction field has zero exterior square for every pair A,B, even when the operators do not commute. Directions without a detection hypothesis cannot give the converse.
+
+Test TwistedHiggsBundle.affineTwoDirectionField.test_commutator_detection (characterisation): For Q=R×R and the actual standard coordinate vectors, the field has zero exterior square exactly when A∘B=B∘A, for arbitrary R and E.
+
+### Evaluation of the two-direction field
+
+Declaration: TwistedHiggsBundle.affineTwoDirectionField_apply.
+
+For every e, the constructed two-direction field evaluates to A(e)⊗q+B(e)⊗r.
+
+Hypotheses: R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit. I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned.
+
+Proof: Read the value of the two tensor-constructor composites; this is definitional.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-two-direction-field.
+
+### Commutator formula for the exterior square
+
+Declaration: TwistedHiggsBundle.affineExteriorSquare_twoDirection.
+
+For the actual two-direction field, κ(θ)(e)=(A(B(e))−B(A(e)))⊗(q∧r) for every e. The sign follows the inherited left-prepended order. This holds over every commutative ring, including characteristic two.
+
+Hypotheses: R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit. I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned.
+
+Proof: Use the proved comparison with the associator-defined ordered square. Expand all four actual pure tensor terms. The diagonal terms vanish because repeated arguments of the native alternating map vanish. Swap r,q to obtain minus q,r, without dividing by two. Collect the two off-diagonal terms in the module factor to obtain the stated commutator, with the rightmost endomorphism acting first.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-exterior-square, HodgeStructuresPartII:H.0/affine-two-direction-apply, HodgeStructuresPartII:H.0/affine-ordered-iterate-two, HodgeStructuresPartII:H.0/affine-ordered-square, mathlib:PiTensorProduct.lift.tprod, mathlib:AlternatingMap.map_eq_zero_of_eq, mathlib:AlternatingMap.map_swap.
+
+### Commuting operators give an integrable two-direction field
+
+Declaration: TwistedHiggsBundle.affineExteriorSquare_twoDirection_zero_of_commute.
+
+If A∘B=B∘A, then κ(θ)=0 for the actual two-direction field, for arbitrary q,r.
+
+Hypotheses: R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit. I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned.
+
+Proof: Evaluate the commutator formula at every e and substitute the specified equality of the two composites.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-exterior-two-direction.
+
+### A split exterior coefficient detects commutation
+
+Declaration: TwistedHiggsBundle.affineExteriorSquare_twoDirection_zero_iff.
+
+Suppose an actual linear functional ℓ:Λ²_R Q→R satisfies ℓ(q∧r)=1. Then κ(θ)=0 if and only if A∘B=B∘A for the two-direction field. This unit-value hypothesis is essential; arbitrary dependent directions do not detect commutation.
+
+Hypotheses: R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit. I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned. ℓ is an actual R-linear functional on the full native exterior square, and ℓ(q∧r)=1. It is neither a stored zero-reflection oracle nor an omitted independence condition.
+
+Proof: Apply id_E⊗ℓ and the tensor right unitor to each value of the commutator formula. The actual unit value makes the resulting map the identity on the commutator vector. For the converse, apply the proved commuting-operator lemma.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-exterior-two-direction, HodgeStructuresPartII:H.0/affine-exterior-two-direction-commute.
+
+### Integrability in the native two-coordinate chart
+
+Declaration: TwistedHiggsBundle.affineExteriorSquare_twoCoordinates_zero_iff.
+
+For Q=R×R, q=(1,0) and r=(0,1), the actual two-direction field has κ(θ)=0 if and only if A∘B=B∘A. E is an arbitrary R-module and R is an arbitrary commutative ring; no characteristic restriction or basis of E occurs.
+
+Hypotheses: R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit. I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned.
+
+Proof: Use the actual native exterior-dual functional determined by the coordinate projections fst,snd. Its value on q∧r is the determinant of the identity two-by-two matrix, hence one over every commutative ring. Apply the split-coefficient detection lemma.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-exterior-two-direction-detection, mathlib:exteriorPower.alternatingMapToDual, mathlib:exteriorPower.alternatingMapToDual_apply_ιMulti.
+
+### Exterior square on affine chart overlaps
+
+Declaration: TwistedHiggsBundle.affineExteriorSquare_chart_transition.
+
+For two actual charts of the same receiving-ring scalar extensions, with θ_i the inherited chart field, a=e₂∘e₁⁻¹ and b=q₂∘q₁⁻¹, κ(θ₂)∘a=(a⊗Λ²b)∘κ(θ₁). Every exterior power is over the receiving ring S. This is a chart-transition equation, not a comparison with scalar extension of the source-ring exterior square.
+
+Hypotheses: R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit. I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned. S is a commutative R-algebra. For i=1,2 the actual e_i:S⊗_R E≃_S F_i and q_i:S⊗_R Q≃_S P_i identify the same receiving-ring scalar extensions. Sheaf restriction/exterior/twist comparisons and equality detection/gluing remain E1 supplier obligations.
+
+Proof: Apply exterior horizontal naturality over S to the proved actual chart-transition square.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-exterior-square-natural, HodgeStructuresPartII:H.0/affine-chart-field-transition.
+
+### Integrability is independent of the receiving chart
+
+Declaration: TwistedHiggsBundle.affineExteriorSquare_chart_zero_iff.
+
+For those two charts of the same S-modules, κ(θ₂)=0 if and only if κ(θ₁)=0. An individual nonfaithful R→S extension is not asserted to reflect the original source-ring exterior square.
+
+Hypotheses: R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit. I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned. S is a commutative R-algebra. For i=1,2 the actual e_i:S⊗_R E≃_S F_i and q_i:S⊗_R Q≃_S P_i identify the same receiving-ring scalar extensions. Sheaf restriction/exterior/twist comparisons and equality detection/gluing remain E1 supplier obligations.
+
+Proof: Use the actual module and coefficient transition equivalences in the exterior zero-reflection theorem.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-exterior-square-equiv, HodgeStructuresPartII:H.0/affine-chart-field-transition.
+
+### Every ordered iterate of the scalar unit field
+
+Declaration: TwistedHiggsBundle.affineOrderedIterate_unitField.
+
+For θ(e)=e⊗1 on E=Q=R, every n≥0 satisfies I_n(θ)(e)=e⊗(1⊗⋯⊗1), with the empty word and tensor unit retained at n=0.
+
+Hypotheses: R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit. I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned.
+
+Proof: The degree-zero defining unit identifies the empty Fin 0 word. Induct through the actual successor prepend. The tensor unitor gives θ(e)=e⊗1; native tensor-power multiplication and cast identify the constant unit word at n+1.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-ordered-iterate, HodgeStructuresPartII:H.0/affine-ordered-step.
+
+### The scalar unit field is never tensor nilpotent
+
+Declaration: TwistedHiggsBundle.affineOrderedIterate_unitField_ne_zero.
+
+If R is a nontrivial commutative ring, then I_n(θ)≠0 for every n≥0 for the actual scalar unit field θ(e)=e⊗1. This does not require R to be reduced, a domain or a field.
+
+Hypotheses: R is a commutative ring. Every displayed module, tensor product, exterior power, linear map and linear equivalence uses its actual native carrier. E,F,Q,P are arbitrary R-modules; no finiteness, freeness, projectivity, flatness or integrability hypothesis is implicit. I_n uses the inherited left-prepended ordered coefficient convention. Write q∧r for the native alternating generator of Λ²_R Q. The exterior projection is exactly the existing Tau Ceti fromTensorPower definition expressed by its Mathlib lift; no second exterior algebra or tensor carrier is planned. R is nontrivial. E=Q=R with θ the actual inverse tensor right unitor.
+
+Proof: Evaluate the supposed zero iterate at e=1. Apply the actual multilinear product of the n coefficient entries and the tensor right unitor. The value of the constant unit word is one, contradicting nontriviality.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-ordered-unit-field, mathlib:PiTensorProduct.lift, mathlib:MultilinearMap.mkPiAlgebraFin, mathlib:MultilinearMap.mkPiAlgebraFin_apply_const.

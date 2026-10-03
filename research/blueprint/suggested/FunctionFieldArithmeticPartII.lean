@@ -2655,3 +2655,104 @@ example (f : A) (x : DivisibilityAffineColimit f) :
     (divisibilityFactorialEquiv f).symm (divisibilityFactorialEquiv f x) = x := by
   sorry
 end TauCeti.RootStack
+
+namespace TauCeti.RootStack
+section FactorialScalingContinuation
+variable {A : Type u} [CommRing A]
+local instance (i : ℕ) : NeZero (Nat.factorial (i+1)) := ⟨Nat.factorial_ne_zero _⟩
+
+
+def factorialRootScalars (A : Type u) [CommRing A] : Subgroup (ℕ → Aˣ) := by sorry
+
+lemma factorialRootScalars.pow (s : factorialRootScalars A) (i : ℕ) :
+    ((s.val i : Aˣ) : A) ^ Nat.factorial (i+1) = 1 := by sorry
+
+lemma factorialRootScalars.transition (s : factorialRootScalars A) {i j : ℕ} (h : i ≤ j) :
+    ((s.val j : Aˣ) : A) ^ (Nat.factorial (j+1) / Nat.factorial (i+1)) = (s.val i : A) := by sorry
+
+def factorialScale (f : A) (s : factorialRootScalars A) :
+    FactorialAffineColimit f →ₐ[A] FactorialAffineColimit f := by sorry
+
+lemma factorialScale.root (f : A) (s : factorialRootScalars A) (i : ℕ) :
+    factorialScale f s (factorialAffineInclusion f i (AdjoinRoot.root _)) =
+      algebraMap A _ (s.val i : A) * factorialAffineInclusion f i (AdjoinRoot.root _) := by sorry
+
+lemma factorialScale.constant (f a : A) (s : factorialRootScalars A) :
+    factorialScale f s (algebraMap A _ a) = algebraMap A _ a := by sorry
+
+lemma factorialScale.one (f : A) : factorialScale f 1 = AlgHom.id A _ := by sorry
+
+lemma factorialScale.mul (f : A) (s t : factorialRootScalars A) :
+    factorialScale f (s*t) = (factorialScale f s).comp (factorialScale f t) := by sorry
+
+def factorialScaleEquiv (f : A) (s : factorialRootScalars A) :
+    FactorialAffineColimit f ≃ₐ[A] FactorialAffineColimit f := by sorry
+
+lemma factorialScaleEquiv.root (f : A) (s : factorialRootScalars A) (i : ℕ) :
+    factorialScaleEquiv f s (factorialAffineInclusion f i (AdjoinRoot.root _)) =
+      algebraMap A _ (s.val i : A) * factorialAffineInclusion f i (AdjoinRoot.root _) := by sorry
+
+lemma factorialScaleEquiv.inverse_root (f : A) (s : factorialRootScalars A) (i : ℕ) :
+    (factorialScaleEquiv f s).symm (factorialAffineInclusion f i (AdjoinRoot.root _)) =
+      algebraMap A _ ((s⁻¹).val i : A) * factorialAffineInclusion f i (AdjoinRoot.root _) := by sorry
+
+def factorialUniversalScalars (A : Type u) [CommRing A] :
+    factorialRootScalars (FactorialAffineColimit (1 : A)) := by sorry
+
+lemma factorialUniversalScalars.value (i : ℕ) :
+    (((factorialUniversalScalars A).val i : (FactorialAffineColimit (1 : A))ˣ) :
+      FactorialAffineColimit (1 : A)) = factorialAffineInclusion (1 : A) i (AdjoinRoot.root _) := by sorry
+
+-- test: factorialRootScalars.test_one
+example (i : ℕ) : ((1 : factorialRootScalars A).val i : Aˣ) = 1 := by sorry
+
+-- test: factorialRootScalars.test_inverse
+example (s : factorialRootScalars A) (i : ℕ) :
+    ((s⁻¹).val i : Aˣ) * (s.val i : Aˣ) = 1 := by sorry
+
+-- test: factorialRootScalars.test_individual_roots
+example (i : ℕ) :
+    (if i = 1 then (-1 : ℤˣ) else 1) ^ Nat.factorial (i+1) = 1 := by sorry
+
+-- test: factorialRootScalars.test_incoherent
+example :
+    (fun i : ℕ => if i = 1 then (-1 : ℤˣ) else 1) ∉ factorialRootScalars ℤ := by sorry
+
+-- test: factorialScale.test_one
+example (f : A) (x : FactorialAffineColimit f) : factorialScale f 1 x = x := by sorry
+
+-- test: factorialScale.test_constant
+example (s : factorialRootScalars (ZMod 4)) :
+    factorialScale (2 : ZMod 4) s (algebraMap (ZMod 4) _ (3 : ZMod 4)) =
+      algebraMap (ZMod 4) _ (3 : ZMod 4) := by sorry
+
+-- test: factorialScale.test_composition
+example (f : A) (s t : factorialRootScalars A) (x : FactorialAffineColimit f) :
+    factorialScale f (s*t) x = factorialScale f s (factorialScale f t x) := by sorry
+
+-- test: factorialScaleEquiv.test_roundtrip
+example (f : A) (s : factorialRootScalars A) (x : FactorialAffineColimit f) :
+    (factorialScaleEquiv f s).symm (factorialScaleEquiv f s x) = x := by sorry
+
+-- test: factorialScaleEquiv.test_root
+example (f : A) (s : factorialRootScalars A) :
+    factorialScaleEquiv f s (factorialAffineInclusion f 1 (AdjoinRoot.root _)) =
+      algebraMap A _ (s.val 1 : A) * factorialAffineInclusion f 1 (AdjoinRoot.root _) := by sorry
+
+-- test: factorialScaleEquiv.test_wild_zero
+example (s : factorialRootScalars (ZMod 2)) :
+    factorialScaleEquiv (0 : ZMod 2) s (factorialAffineInclusion (0 : ZMod 2) 1
+      (AdjoinRoot.root _)) ≠ 0 := by sorry
+
+-- test: factorialUniversalScalars.test_root
+example : (((factorialUniversalScalars (ZMod 4)).val 1 :
+    (FactorialAffineColimit (1 : ZMod 4))ˣ) : FactorialAffineColimit (1 : ZMod 4)) ^ 2 = 1 := by sorry
+
+-- test: factorialUniversalScalars.test_nontrivial
+example : (factorialUniversalScalars (ZMod 3)).val 1 ≠ 1 := by sorry
+
+-- test: factorialUniversalScalars.test_zero_ring
+example : factorialUniversalScalars (ZMod 1) = 1 := by sorry
+
+end FactorialScalingContinuation
+end TauCeti.RootStack

@@ -1,3 +1,163 @@
+# Coefficient naturality of inner twisting
+
+This continuation specifies actual continuous equivariant coefficient homomorphisms between inner twists and their cocycle/H¹ squares. All implementation statuses remain unchecked.
+
+G is a group with a topology. U,V,W are topological groups with jointly continuous G-actions by automorphisms. c∈Z¹(G,U) is an actual continuous cocycle. G need not be a topological group for these formulas.
+
+f:U→*V is continuous and G-equivariant; where used f′:V→*W has the same hypotheses. Neither map is assumed injective, surjective, closed or split.
+
+Twist(c) has the original underlying group/topology and inner action g⋆x=c(g)g(x)c(g)⁻¹. Write j_c for its native underlying group identification, τ_c(d)(g)=j_c(d(g))c(g), and T_c for the induced actual H¹ gauge-orbit equivalence. The target is repointed at [c]; no preservation of its original neutral point is asserted.
+
+## Coefficient homomorphism between inner twists
+
+Declaration: `TauCeti.NonabelianCohomology.Twist.map` (`AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-map`).
+
+Construct the continuous equivariant group homomorphism f_c:Twist(c)→*Twist(f∘c) with j_(f∘c)(f_c(x))=f(j_c(x)). Its underlying homomorphism is exactly f.
+
+Proof plan: Use the existing underlying group/topology synonyms and the actual mapped cocycle f∘c. Reuse f as the group homomorphism. Continuity is hf; equivariance expands to f(c(g)g(x)c(g)⁻¹)=f(c(g))g(f(x))f(c(g))⁻¹ by multiplicativity, preservation of inverse and the given original equivariance.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/twisting`, `AnabelianGeometryAndNonabelianChabauty:NC.3/twist-underlying-group`, `AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-map`.
+
+API `TauCeti.NonabelianCohomology.Twist.map_apply`: For every x∈Twist(c), j_(f∘c)(f_c(x))=f(j_c(x)).
+
+API `TauCeti.NonabelianCohomology.Twist.map_continuous`: The actual coefficient homomorphism f_c:Twist(c)→Twist(f∘c) is continuous.
+
+API `TauCeti.NonabelianCohomology.Twist.map_smul`: For every g∈G and x∈Twist(c), f_c(g⋆x)=g⋆f_c(x), with the target action twisted by f∘c.
+
+API `TauCeti.NonabelianCohomology.Twist.map_id`: For every c, the twisted coefficient map induced by id_U equals id_(Twist(c)) as a native group homomorphism.
+
+API `TauCeti.NonabelianCohomology.Twist.map_comp`: For every c, (f′∘f)_c=(f′)_(f∘c)∘f_c as native group homomorphisms, with the actual composite continuity and equivariance proofs.
+
+API `TauCeti.NonabelianCohomology.Z1.twistEquiv_map`: For every d∈Z¹(G,Twist(c)), τ_(f∘c)((f_c)_*d)=f_*(τ_c(d)) as actual continuous cocycles.
+
+API `TauCeti.NonabelianCohomology.H1.twistEquiv_map`: For every a∈H¹(G,Twist(c)), T_(f∘c)((f_c)_*a)=f_*(T_c(a)).
+
+## Value of a twisted coefficient map
+
+Declaration: `TauCeti.NonabelianCohomology.Twist.map_apply` (`AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-value`).
+
+For every x∈Twist(c), j_(f∘c)(f_c(x))=f(j_c(x)).
+
+Proof plan: Evaluate the actual homomorphism on the underlying synonym; the equality is definitional.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-map`.
+
+## Continuity of a twisted coefficient map
+
+Declaration: `TauCeti.NonabelianCohomology.Twist.map_continuous` (`AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-continuity`).
+
+The actual coefficient homomorphism f_c:Twist(c)→Twist(f∘c) is continuous.
+
+Proof plan: Both topologies are the inherited coefficient topologies. The actual continuity proof is hf.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-map`.
+
+## Equivariance between the two twisted actions
+
+Declaration: `TauCeti.NonabelianCohomology.Twist.map_smul` (`AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-equivariance`).
+
+For every g∈G and x∈Twist(c), f_c(g⋆x)=g⋆f_c(x), with the target action twisted by f∘c.
+
+Proof plan: Apply injectivity of j_(f∘c) to compare values in V. Expand both actual inner actions, apply map_mul twice, map_inv, and original G-equivariance. Do not commute any factors.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-map`, `AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-value`.
+
+## Identity coefficient map under twisting
+
+Declaration: `TauCeti.NonabelianCohomology.Twist.map_id` (`AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-identity`).
+
+For every c, the twisted coefficient map induced by id_U equals id_(Twist(c)) as a native group homomorphism.
+
+Proof plan: The mapped cocycle under the identity and both underlying homomorphisms agree definitionally.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-map`.
+
+## Composition of twisted coefficient maps
+
+Declaration: `TauCeti.NonabelianCohomology.Twist.map_comp` (`AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-composition`).
+
+For every c, (f′∘f)_c=(f′)_(f∘c)∘f_c as native group homomorphisms, with the actual composite continuity and equivariance proofs.
+
+Proof plan: Use the definitional equality of mapped cocycles under composition and the original native homomorphism composition. The topology/action proof arguments do not change the underlying homomorphism.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-map`.
+
+## Coefficient naturality of the cocycle twisting equivalence
+
+Declaration: `TauCeti.NonabelianCohomology.Z1.twistEquiv_map` (`AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-cocycle-square`).
+
+For every d∈Z¹(G,Twist(c)), τ_(f∘c)((f_c)_*d)=f_*(τ_c(d)) as actual continuous cocycles.
+
+Proof plan: Apply actual cocycle extensionality. At g the left side is f(j_c(d(g)))f(c(g)), while the right side is f(j_c(d(g))c(g)); map_mul identifies them in exactly this order.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-continuity`, `AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-equivariance`, `AnabelianGeometryAndNonabelianChabauty:NC.3/twist-cocycle-equivalence`, `AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-map`.
+
+## Coefficient naturality of inverse cocycle twisting
+
+Declaration: `TauCeti.NonabelianCohomology.Z1.twistEquiv_symm_map` (`AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-inverse-cocycle-square`).
+
+For every e∈Z¹(G,U), τ_(f∘c)⁻¹(f_*e)=(f_c)_*(τ_c⁻¹(e)) as actual continuous cocycles.
+
+Proof plan: Apply injectivity of the actual equivalence τ_(f∘c), then use the forward square and both actual inverse identities. No injectivity of f is used.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-cocycle-square`.
+
+## Coefficient naturality on the actual H¹ orbit quotient
+
+Declaration: `TauCeti.NonabelianCohomology.H1.twistEquiv_map` (`AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-h1-square`).
+
+For every a∈H¹(G,Twist(c)), T_(f∘c)((f_c)_*a)=f_*(T_c(a)).
+
+Proof plan: Choose an actual cocycle representative via H1.mk_surjective. Evaluate both native quotient maps on that representative using map_mk and twistEquiv_mk; the actual cocycle square identifies their images.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-cocycle-square`, `AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map`, `AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-equivalence`.
+
+## Coefficient naturality of inverse H¹ twisting
+
+Declaration: `TauCeti.NonabelianCohomology.H1.twistEquiv_symm_map` (`AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-inverse-h1-square`).
+
+For every a∈H¹(G,U), T_(f∘c)⁻¹(f_*a)=(f_c)_*(T_c⁻¹(a)).
+
+Proof plan: Apply injectivity of the actual orbit equivalence T_(f∘c), use the forward H¹ square and its actual inverse identities.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-h1-square`.
+
+## Mapped base point of the twisted H¹ equivalence
+
+Declaration: `TauCeti.NonabelianCohomology.H1.twistEquiv_map_one` (`AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-repointed-neutral`).
+
+For every c and f, f_*(T_c(1))=[f∘c]. The image is the mapped chosen class, not necessarily the original target neutral point.
+
+Proof plan: Use T_c(1)=[c] and the coefficient quotient map on the actual representative c.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-h1-square`, `AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-equivalence`, `AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map`.
+
+## Neutral fibre after coefficient twisting and repointing
+
+Declaration: `TauCeti.NonabelianCohomology.H1.twistEquiv_map_fibre` (`AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-repointed-fibre`).
+
+For every a∈H¹(G,Twist(c)), f_*(T_c(a))=[f∘c] if and only if (f_c)_*(a)=1. This identifies the actual fibre over the mapped chosen class without asserting injectivity of the coefficient map.
+
+Proof plan: Rewrite f_*T_c(a) using the proved coefficient/H¹ square. The actual equivalence T_(f∘c) sends exactly the source neutral class to [f∘c], so its neutral-fibre criterion gives the equivalence.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-h1-square`, `AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-neutral-fibre`.
+
+Acceptance `twistCoefficientTests.value` (compatibility): For every x, the actual twisted coefficient value is f(j_c(x)) under the target underlying-group identification.
+
+Acceptance `twistCoefficientTests.identity` (degenerate): The actual twisted identity coefficient map fixes every x.
+
+Acceptance `twistCoefficientTests.constant` (non-example): The constant-one coefficient homomorphism maps every twisted x to 1; no coefficient injectivity can be inferred from the twisting square.
+
+Acceptance `twistCoefficientTests.cocycle_square` (compatibility): The actual continuous cocycle coefficient square commutes, with multiplication by c(g) on the right.
+
+Acceptance `twistCoefficientTests.repointed_neutral` (characterisation): The image of T_c(1) under the actual coefficient H¹ map is the gauge class [f∘c].
+
+Source: [Kim, exact v1 PDF](https://arxiv.org/pdf/math/0409456v1), §1, complete PDF pp.5–7 read 2026-10-03; these are authored deductions from its ordered cocycle/gauge conventions and coefficient functor. Geometric/local-condition comparisons are not certified.
+
+Required continuation: Coefficient naturality of the actual inner twist, both cocycle/H¹ equivalences, identity/composition and the fibre over [f∘c] are specified by this checkpoint. Twisted subgroup and normal-quotient realization, source-group naturality, genuine additive comparison, unipotent point topologies, geometric torsors, representability and local conditions remain required constructions. The reserved all-coefficient/all-degree étale K(pi,1), its qualified raw-homotopy comparison, Chen /57–58, complete BDMTV NC.2/NC.5 routes and E9/E10 obligations are unchanged.
+
+---
+
 # Actual inner twisting — 2026-10-03 checkpoint
 
 This continuation specifies the continuous action, cocycle bijection and actual quotient bijection underlying the existing twisting target. The underlying group comparison is a native identity-equivalence specialization; the original and twisted G-actions can differ. Multiplication and division occur on the right. All implementations remain unchecked.

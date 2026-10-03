@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-stage partial design with 224 declaration nodes. This continuation gives specified normalization module coefficients, their native reconstruction, the two-element spanning family, finite ring inclusion and actual affine Spec-map finiteness, a canonical shared fraction field for every nonzero q, and the native integral closure for monic quadratic q. The coefficient map has a nonzero relation, so no module freeness or flatness is asserted. Projective normalization charts, conductor ideal sheaves, finite pushforward cohomology and all later-stage/source closure obligations remain required. The specified native affine A_q-linear B/(A_q·1)≃E/(A_q·1), its actual k-linear B/A_q≃E/k, both representative equations, residue scalar actions, one-dimensional quadratic defect and actual conductor annihilators are now separately checked prototypes. Projective chart gluing, the global normalization comparison, conductor ideal sheaf, the actual structure-sheaf sequence and finite-pushforward H0/H1 remain open, as does the independent I₂ geometry. The full Tau Ceti-importing file is uncompiled; all implementation statuses and all seven coverage rows remain partial/unchecked.",
+  "summary": "Seven-stage partial design with 273 declaration nodes. This continuation gives specified normalization module coefficients, their native reconstruction, the two-element spanning family, finite ring inclusion and actual affine Spec-map finiteness, a canonical shared fraction field for every nonzero q, and the native integral closure for monic quadratic q. The coefficient map has a nonzero relation, so no module freeness or flatness is asserted. Projective normalization charts, conductor ideal sheaves, finite pushforward cohomology and all later-stage/source closure obligations remain required. The specified native affine A_q-linear B/(A_q·1)≃E/(A_q·1), its actual k-linear B/A_q≃E/k, both representative equations, residue scalar actions, one-dimensional quadratic defect and actual conductor annihilators are now separately checked prototypes. Projective chart gluing, the global normalization comparison, conductor ideal sheaf, the actual structure-sheaf sequence and finite-pushforward H0/H1 remain open, as does the independent I₂ geometry. The full Tau Ceti-importing file is uncompiled; all implementation statuses and all seven coverage rows remain partial/unchecked. The reciprocal infinity quotient Chart(a,b)=R[u][Z]/(Q∞Z−u³), its explicit Bézout inverse, both specified R[u]-algebra maps and their inverse equivalence, native localization property and actual affine Spec open immersion now have separately checked prototypes over every commutative ring. The homogeneous normalization tuple, its cubic homogeneity and fieldwise absence of a common zero are checked against the actual native projective Weierstrass equation, with a nonsingular infinity point over every field. The two-chart overlap/gluing and actual Proj comparison, finite projective normalization, conductor ideal sheaf, structure-sheaf exact sequence, finite-pushforward H0/H1 and independent I₂ geometry remain required. Full Tau Ceti-importing file remains uncompiled; all seven stages are partial and all mathematical implementation statuses unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1862,6 +1862,123 @@
         "provides": "The coefficient algebra map to the polynomial quotient is the native coefficient ring homomorphism.",
         "checked": "Codex codex-a71f92 read the pinned declaration and ambient hypotheses on 2026-10-03; actual quotient action checked in the native prototype.",
         "sourceSha256": "2017f684513d82c3442b1db83fdb398f41efab045892816f93ef41a8eef503ef"
+      },
+      {
+        "ref": "mathlib:AdjoinRoot",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "line": 62,
+        "provides": "Native carrier or universal-property input for the specialized infinity chart; it remains a library import, not a planned replacement.",
+        "checked": "Codex codex-5ebb6f read the pinned statement and ambient hypotheses on 2026-10-03; instantiated in the checked native chart prototype.",
+        "sourceSha256": "2017f684513d82c3442b1db83fdb398f41efab045892816f93ef41a8eef503ef"
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.eval₂_root",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "line": 261,
+        "provides": "Native carrier or universal-property input for the specialized infinity chart; it remains a library import, not a planned replacement.",
+        "checked": "Codex codex-5ebb6f read the pinned statement and ambient hypotheses on 2026-10-03; instantiated in the checked native chart prototype.",
+        "sourceSha256": "2017f684513d82c3442b1db83fdb398f41efab045892816f93ef41a8eef503ef"
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.Projective.Equation",
+        "kind": "definition",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Projective/Basic.lean",
+        "line": 254,
+        "provides": "Native carrier or universal-property input for the specialized infinity chart; it remains a library import, not a planned replacement.",
+        "checked": "Codex codex-5ebb6f read the pinned statement and ambient hypotheses on 2026-10-03; instantiated in the checked native chart prototype.",
+        "sourceSha256": "978d5982205dbab758704dc4a7589609cc6014888c3610cfb6cdb9032c0a2585"
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.Projective.equation_iff",
+        "kind": "theorem",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Projective/Basic.lean",
+        "line": 257,
+        "provides": "Native carrier or universal-property input for the specialized infinity chart; it remains a library import, not a planned replacement.",
+        "checked": "Codex codex-5ebb6f read the pinned statement and ambient hypotheses on 2026-10-03; instantiated in the checked native chart prototype.",
+        "sourceSha256": "978d5982205dbab758704dc4a7589609cc6014888c3610cfb6cdb9032c0a2585"
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.Projective.Nonsingular",
+        "kind": "definition",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Projective/Basic.lean",
+        "line": 371,
+        "provides": "Native carrier or universal-property input for the specialized infinity chart; it remains a library import, not a planned replacement.",
+        "checked": "Codex codex-5ebb6f read the pinned statement and ambient hypotheses on 2026-10-03; instantiated in the checked native chart prototype.",
+        "sourceSha256": "978d5982205dbab758704dc4a7589609cc6014888c3610cfb6cdb9032c0a2585"
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.Projective.nonsingular_iff",
+        "kind": "theorem",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Projective/Basic.lean",
+        "line": 375,
+        "provides": "Native carrier or universal-property input for the specialized infinity chart; it remains a library import, not a planned replacement.",
+        "checked": "Codex codex-5ebb6f read the pinned statement and ambient hypotheses on 2026-10-03; instantiated in the checked native chart prototype.",
+        "sourceSha256": "978d5982205dbab758704dc4a7589609cc6014888c3610cfb6cdb9032c0a2585"
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.algHom_ext",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "line": 209,
+        "provides": "Native carrier or universal-property input for the specialized infinity chart; it remains a library import, not a planned replacement.",
+        "checked": "Codex codex-5ebb6f read the pinned statement and ambient hypotheses on 2026-10-03; instantiated in the checked native chart prototype.",
+        "sourceSha256": "2017f684513d82c3442b1db83fdb398f41efab045892816f93ef41a8eef503ef"
+      },
+      {
+        "ref": "mathlib:IsLocalization.Away.liftAlgHom",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/Localization/Away/Basic.lean",
+        "line": 169,
+        "provides": "Native carrier or universal-property input for the specialized infinity chart; it remains a library import, not a planned replacement.",
+        "checked": "Codex codex-5ebb6f read the pinned statement and ambient hypotheses on 2026-10-03; instantiated in the checked native chart prototype.",
+        "sourceSha256": "546fba4376cf5014763e2f2702424ec80a11cefeca34423ea71d6bce9865f662"
+      },
+      {
+        "ref": "mathlib:IsLocalization.Away.mul_invSelf",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Localization/Away/Basic.lean",
+        "line": 62,
+        "provides": "Native carrier or universal-property input for the specialized infinity chart; it remains a library import, not a planned replacement.",
+        "checked": "Codex codex-5ebb6f read the pinned statement and ambient hypotheses on 2026-10-03; instantiated in the checked native chart prototype.",
+        "sourceSha256": "546fba4376cf5014763e2f2702424ec80a11cefeca34423ea71d6bce9865f662"
+      },
+      {
+        "ref": "mathlib:IsLocalization.algHom_ext",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Localization/Basic.lean",
+        "line": 672,
+        "provides": "Native carrier or universal-property input for the specialized infinity chart; it remains a library import, not a planned replacement.",
+        "checked": "Codex codex-5ebb6f read the pinned statement and ambient hypotheses on 2026-10-03; instantiated in the checked native chart prototype.",
+        "sourceSha256": "770408aa83260eb06bd451a4c00e3664ca14af0e0d00871dd481b01bfcb8afe4"
+      },
+      {
+        "ref": "mathlib:IsLocalization.isLocalization_of_algEquiv",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Localization/Basic.lean",
+        "line": 329,
+        "provides": "Native carrier or universal-property input for the specialized infinity chart; it remains a library import, not a planned replacement.",
+        "checked": "Codex codex-5ebb6f read the pinned statement and ambient hypotheses on 2026-10-03; instantiated in the checked native chart prototype.",
+        "sourceSha256": "770408aa83260eb06bd451a4c00e3664ca14af0e0d00871dd481b01bfcb8afe4"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsOpenImmersion.of_isLocalization",
+        "kind": "theorem",
+        "module": "Mathlib/AlgebraicGeometry/OpenImmersion.lean",
+        "line": 341,
+        "provides": "Native carrier or universal-property input for the specialized infinity chart; it remains a library import, not a planned replacement.",
+        "checked": "Codex codex-5ebb6f read the pinned statement and ambient hypotheses on 2026-10-03; instantiated in the checked native chart prototype.",
+        "sourceSha256": "5eb8bdd34cc255723e392f6147a3563bf3b2c52c360d20efca61de8016ffdb32"
+      },
+      {
+        "ref": "mathlib:AlgEquiv.ofAlgHom",
+        "kind": "definition",
+        "module": "Mathlib/Algebra/Algebra/Equiv.lean",
+        "line": 473,
+        "provides": "Native carrier or universal-property input for the specialized infinity chart; it remains a library import, not a planned replacement.",
+        "checked": "Codex codex-5ebb6f read the pinned statement and ambient hypotheses on 2026-10-03; instantiated in the checked native chart prototype.",
+        "sourceSha256": "685187debda5efdf31ff2071706125df1574d6d22a0192d161126b3bd6cf0b29"
       }
     ]
   },
@@ -2255,6 +2372,19 @@
       ],
       "readingExtent": "Scoped fresh primary-source reading. All new native cokernel statements are authored affine deductions, not printed geometric/sheaf/cohomology theorems. No full-paper/Annals erratum collation or inherited finite-field regression rerun is claimed.",
       "sha256": "d14049912dcab6a438ed62363e246d0087c61342c51813ac482f5aba48d92456"
+    },
+    {
+      "id": "schroer-5ebb6f-infinity-chart",
+      "title": "There is no Enriques surface over the integers",
+      "authors": "Stefan Schröer",
+      "edition": "arXiv2004.07025v3; Third revised version, July19 2022; PDF arXiv stamp August9 2022. Distinct from the published Annals version.",
+      "url": "https://arxiv.org/pdf/2004.07025v3",
+      "accessed": "2026-10-03",
+      "readSections": [
+        "Complete §3 scoped to printed pp9–11: conductor diagrams, terminology, Proposition3.1 and Proposition3.2 with proofs and count table, and Proposition3.3 statement/table at the end of p11."
+      ],
+      "readingExtent": "Fresh scoped primary PDF reading. All new reciprocal-chart and homogeneous-coordinate signatures are authored deductions. No whole-paper reading, published-version erratum collation, projective gluing proof or inherited finite-field rerun is claimed.",
+      "sha256": "ae6481f25627867473ba40db3b08e5f4b861de8aa103204eefc5ad1123a46d61"
     }
   ],
   "nodes": [
@@ -9379,7 +9509,8 @@
         "The normalization exact sequence is 0→O_C→ν_*O_P¹→j_*(E/k)→0. On global constants the quotient map is zero.",
         "Import H⁰(P¹,O)=k and H¹(P¹,O)=0; the long exact sequence gives the stated natural vector-space comparison, not a preferred basis of E/k.",
         "After a separable splitting extension the chart has one ordinary node and integral normalization, giving geometric integrality and the branch assertion.",
-        "Use the specified native affine k-linear B/A_q≃E/k and its one-dimensional quadratic normalization defect. This identifies only the affine quotient: the original projective normalization, actual conductor ideal-sheaf, structure-sheaf exact sequence and finite-pushforward H0/H1 steps remain required."
+        "Use the specified native affine k-linear B/A_q≃E/k and its one-dimensional quadratic normalization defect. This identifies only the affine quotient: the original projective normalization, actual conductor ideal-sheaf, structure-sheaf exact sequence and finite-pushforward H0/H1 steps remain required.",
+        "Use the specified infinity quotient chart, its coefficient-compatible localization equivalence and homogeneous coordinates. Import generic relative Proj charts/gluing from SF.0 to identify the actual projective cubic with the two-chart pinch and construct the finite normalization morphism. Then identify its conductor ideal sheaf and the actual O_C→ν_*O_P¹→j_*(E/k) sequence before deriving H0/H1; none of these global comparisons follows from an equation on coordinate tuples alone."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-point-proper-pushout",
@@ -9389,7 +9520,13 @@
         "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
         "SchemeAndStackFoundations:SF.3",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-equiv-over-k",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-dimension"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-cokernel-dimension",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-spec-open-immersion",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-normalization-homogeneous",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-normalization-nonzero",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-normalization-equation",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-infinity-nonsingular"
       ],
       "sources": [
         {
@@ -14596,12 +14733,1458 @@
           "how": "Identify the normalization defect module and its actual conductor annihilator at the finite affine chart; not a replacement for global scheme normalization."
         }
       ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-curve",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Quadratic pinching cubic",
+      "kind": "definition",
+      "statement": "The native WeierstrassCurve W_(a,b) has coefficients (a,−b,0,0,0), hence homogeneous equation Y²Z+aXYZ+bX²Z−X³=0. It is the homogeneous cubic attached to the existing affine quadratic pinching presentation.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Use the existing native WeierstrassCurve carrier and its projective Equation; no new projective scheme or smoothness predicate is defined."
+      ],
+      "prerequisites": [
+        "mathlib:WeierstrassCurve",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-relation"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-infinity-chart",
+          "locator": "§3, printed pp9–11, especially the one-component conductor diagram p10; authored homogeneous and reciprocal-chart deductions from the existing q=t²+at+b pinching equation.",
+          "excerpt": "conductor",
+          "match": "Schröer motivates the projective normalization/conductor comparison. These polynomial chart formulas, quotient algebra maps and their identities are authored deductions, not source-printed global scheme, sheaf or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The native WeierstrassCurve W_(a,b) has coefficients (a,−b,0,0,0), hence homogeneous equation Y²Z+aXYZ+bX²Z−X³=0. It is the homogeneous cubic attached to the existing affine quadratic pinching presentation."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.InfinityChart"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.InfinityChart.curve",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.InfinityChart.equation_chart",
+          "role": "characterisation",
+          "statement": "For every u,z∈R, the actual native projective Equation of W_(a,b) at [u:1:z] holds if and only if z(1+au+bu²)=u³."
+        },
+        {
+          "name": "QuadraticPinch.InfinityChart.normalization_equation",
+          "role": "compatibility",
+          "statement": "For all T,U∈R, the actual native Weierstrass projective Equation of W_(a,b) holds at n_(a,b)(T,U)."
+        },
+        {
+          "name": "QuadraticPinch.InfinityChart.infinity_nonsingular",
+          "role": "compatibility",
+          "statement": "For every field k and a,b∈k, the native Weierstrass projective Nonsingular condition holds at [0:1:0], because the Z partial derivative equals one. This includes characteristic two and the singular finite cusp."
+        }
+      ],
+      "tests": [
+        {
+          "name": "InfinityChart.curve.origin",
+          "kind": "computation",
+          "statement": "For all a,b over R, the actual projective equation holds at [0:0:1]."
+        },
+        {
+          "name": "InfinityChart.curve.finite_normalization",
+          "kind": "compatibility",
+          "statement": "For all a,b,t over R, the actual projective equation holds at [t²+at+b:t(t²+at+b):1]."
+        },
+        {
+          "name": "InfinityChart.curve.infinity_smooth",
+          "kind": "compatibility",
+          "statement": "Over Z/2, the native projective Nonsingular condition holds at [0:1:0] for every a,b."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-denominator",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Reciprocal quadratic denominator",
+      "kind": "definition",
+      "statement": "Q∞(u)=1+au+bu² is an actual polynomial over R, the reciprocal u²q(1/u) of the existing monic q(t)=t²+at+b.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Give the polynomial with its constant coefficient equal to one, without choosing roots or dividing by two."
+      ],
+      "prerequisites": [],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-infinity-chart",
+          "locator": "§3, printed pp9–11, especially the one-component conductor diagram p10; authored homogeneous and reciprocal-chart deductions from the existing q=t²+at+b pinching equation.",
+          "excerpt": "conductor",
+          "match": "Schröer motivates the projective normalization/conductor comparison. These polynomial chart formulas, quotient algebra maps and their identities are authored deductions, not source-printed global scheme, sheaf or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "Q∞(u)=1+au+bu² is an actual polynomial over R, the reciprocal u²q(1/u) of the existing monic q(t)=t²+at+b."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.InfinityChart"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.InfinityChart.denominator",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.InfinityChart.bezout",
+          "role": "relation",
+          "statement": "Q∞(u)(1−au+(a²−b)u²)=1+u³((a³−2ab)+b(a²−b)u)."
+        },
+        {
+          "name": "QuadraticPinch.InfinityChart.denominator_isUnit",
+          "role": "structure",
+          "statement": "The actual R[u]-coefficient image of Q∞ in Chart(a,b) is a unit; no further localization of the chart is required."
+        },
+        {
+          "name": "QuadraticPinch.InfinityChart.localization",
+          "role": "instance",
+          "statement": "For its actual coefficient R[u]-algebra structure, Chart(a,b) satisfies the native IsLocalization.Away(Q∞) property."
+        }
+      ],
+      "tests": [
+        {
+          "name": "InfinityChart.denominator.constant",
+          "kind": "computation",
+          "statement": "For all a,b over R, the coefficient of u⁰ in Q∞ is one."
+        },
+        {
+          "name": "InfinityChart.denominator.cusp",
+          "kind": "degenerate",
+          "statement": "Over every R, Q∞ for a=b=0 is the constant polynomial one."
+        },
+        {
+          "name": "InfinityChart.denominator.base_change",
+          "kind": "compatibility",
+          "statement": "For every ring homomorphism f:R→S, map(f,Q∞(a,b))=Q∞(f(a),f(b))."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Infinity affine coordinate ring",
+      "kind": "definition",
+      "statement": "The coordinate relation L_(a,b)(Z)=Q∞(u)Z−u³ lies in R[u][Z]. Chart(a,b) is the native AdjoinRoot of this polynomial, an actual quotient of R[u][Z] by (L_(a,b)). Its R[u]-algebra structure is the native quotient coefficient map.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Reuse native AdjoinRoot; the type abbreviation Chart is an API alias, not an arbitrary ring with an assumed relation."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-denominator",
+        "mathlib:AdjoinRoot"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-infinity-chart",
+          "locator": "§3, printed pp9–11, especially the one-component conductor diagram p10; authored homogeneous and reciprocal-chart deductions from the existing q=t²+at+b pinching equation.",
+          "excerpt": "conductor",
+          "match": "Schröer motivates the projective normalization/conductor comparison. These polynomial chart formulas, quotient algebra maps and their identities are authored deductions, not source-printed global scheme, sheaf or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The coordinate relation L_(a,b)(Z)=Q∞(u)Z−u³ lies in R[u][Z]. Chart(a,b) is the native AdjoinRoot of this polynomial, an actual quotient of R[u][Z] by (L_(a,b)). Its R[u]-algebra structure is the native quotient coefficient map."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.InfinityChart"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.InfinityChart.relation",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.InfinityChart.Chart",
+          "role": "coercion",
+          "statement": "Chart(a,b) abbreviates the actual native AdjoinRoot of the specified polynomial relation with its native R[u]-algebra structure."
+        },
+        {
+          "name": "QuadraticPinch.InfinityChart.root_relation",
+          "role": "relation",
+          "statement": "In Chart(a,b), the coefficient image of Q∞ times the native quotient root Z equals the coefficient image of u³."
+        },
+        {
+          "name": "QuadraticPinch.InfinityChart.equation_chart",
+          "role": "compatibility",
+          "statement": "For every u,z∈R, the actual native projective Equation of W_(a,b) at [u:1:z] holds if and only if z(1+au+bu²)=u³."
+        }
+      ],
+      "tests": [
+        {
+          "name": "InfinityChart.relation.leading",
+          "kind": "computation",
+          "statement": "For all a,b over R, the coefficient of Z¹ in L_(a,b) is Q∞."
+        },
+        {
+          "name": "InfinityChart.relation.constant",
+          "kind": "computation",
+          "statement": "For all a,b over R, the coefficient of Z⁰ in L_(a,b) is −u³."
+        },
+        {
+          "name": "InfinityChart.relation.cusp",
+          "kind": "degenerate",
+          "statement": "For a=b=0 over every R, the actual relation is Z−u³."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equation-chart",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Weierstrass infinity-chart equation",
+      "kind": "lemma",
+      "statement": "For every u,z∈R, the actual native projective Equation of W_(a,b) at [u:1:z] holds if and only if z(1+au+bu²)=u³.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Expand the native projective equation and normalize the commutative-ring identity. This identifies the equation on the Y≠0 chart; comparison with the actual scheme Proj remains required."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-curve",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation",
+        "mathlib:WeierstrassCurve.Projective.equation_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-infinity-chart",
+          "locator": "§3, printed pp9–11, especially the one-component conductor diagram p10; authored homogeneous and reciprocal-chart deductions from the existing q=t²+at+b pinching equation.",
+          "excerpt": "conductor",
+          "match": "Schröer motivates the projective normalization/conductor comparison. These polynomial chart formulas, quotient algebra maps and their identities are authored deductions, not source-printed global scheme, sheaf or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "For every u,z∈R, the actual native projective Equation of W_(a,b) at [u:1:z] holds if and only if z(1+au+bu²)=u³."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.InfinityChart"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.InfinityChart.equation_chart",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-bezout",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Reciprocal quadratic Bézout identity",
+      "kind": "lemma",
+      "statement": "Q∞(u)(1−au+(a²−b)u²)=1+u³((a³−2ab)+b(a²−b)u).",
+      "hypotheses": [
+        "R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Expand the two polynomials over an arbitrary commutative ring. The integer 2 is a ring numeral, never an invertible element."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-denominator"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-infinity-chart",
+          "locator": "§3, printed pp9–11, especially the one-component conductor diagram p10; authored homogeneous and reciprocal-chart deductions from the existing q=t²+at+b pinching equation.",
+          "excerpt": "conductor",
+          "match": "Schröer motivates the projective normalization/conductor comparison. These polynomial chart formulas, quotient algebra maps and their identities are authored deductions, not source-printed global scheme, sheaf or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "Q∞(u)(1−au+(a²−b)u²)=1+u³((a³−2ab)+b(a²−b)u)."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.InfinityChart"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.InfinityChart.bezout",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-root-relation",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Actual quotient-root relation",
+      "kind": "lemma",
+      "statement": "In Chart(a,b), the coefficient image of Q∞ times the native quotient root Z equals the coefficient image of u³.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Specialize AdjoinRoot.eval₂_root to the displayed linear polynomial, then use sub_eq_zero."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation",
+        "mathlib:AdjoinRoot.eval₂_root"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-infinity-chart",
+          "locator": "§3, printed pp9–11, especially the one-component conductor diagram p10; authored homogeneous and reciprocal-chart deductions from the existing q=t²+at+b pinching equation.",
+          "excerpt": "conductor",
+          "match": "Schröer motivates the projective normalization/conductor comparison. These polynomial chart formulas, quotient algebra maps and their identities are authored deductions, not source-printed global scheme, sheaf or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "In Chart(a,b), the coefficient image of Q∞ times the native quotient root Z equals the coefficient image of u³."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.InfinityChart"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.InfinityChart.root_relation",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-denominator-inverse",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Explicit inverse on the infinity chart",
+      "kind": "construction",
+      "statement": "In Chart(a,b), define D∞ as the coefficient image of 1−au+(a²−b)u² minus Z times the coefficient image of (a³−2ab)+b(a²−b)u.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Specify the actual quotient element using native algebra maps and the native root."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-bezout"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-infinity-chart",
+          "locator": "§3, printed pp9–11, especially the one-component conductor diagram p10; authored homogeneous and reciprocal-chart deductions from the existing q=t²+at+b pinching equation.",
+          "excerpt": "conductor",
+          "match": "Schröer motivates the projective normalization/conductor comparison. These polynomial chart formulas, quotient algebra maps and their identities are authored deductions, not source-printed global scheme, sheaf or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "In Chart(a,b), define D∞ as the coefficient image of 1−au+(a²−b)u² minus Z times the coefficient image of (a³−2ab)+b(a²−b)u."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.InfinityChart"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.InfinityChart.denominatorInverse",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.InfinityChart.mul_inverse",
+          "role": "relation",
+          "statement": "In the actual quotient Chart(a,b), Q∞·D∞=1."
+        },
+        {
+          "name": "QuadraticPinch.InfinityChart.fromLocalization_inv",
+          "role": "compatibility",
+          "statement": "The specified inverse algebra homomorphism sends the native localization element Q∞⁻¹ to D∞."
+        },
+        {
+          "name": "QuadraticPinch.InfinityChart.equiv_inverse_inv",
+          "role": "compatibility",
+          "statement": "The inverse of the specified chart equivalence sends the native localization inverse of Q∞ to D∞."
+        }
+      ],
+      "tests": [
+        {
+          "name": "InfinityChart.denominatorInverse.cusp",
+          "kind": "degenerate",
+          "statement": "For a=b=0 over every R, D∞ in the actual quotient is one."
+        },
+        {
+          "name": "InfinityChart.denominatorInverse.nonreduced",
+          "kind": "computation",
+          "statement": "Over Z/4 with a=2,b=0, the actual chart identity (1+2u)D∞=1 holds."
+        },
+        {
+          "name": "InfinityChart.denominatorInverse.repeated_char2",
+          "kind": "computation",
+          "statement": "Over Z/2 with a=0,b=1, the actual chart identity (1+u²)D∞=1 holds."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-mul-inverse",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Infinity denominator inverse identity",
+      "kind": "lemma",
+      "statement": "In the actual quotient Chart(a,b), Q∞·D∞=1.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Substitute Q∞Z=u³ and transport the Bézout identity through the coefficient map."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-denominator-inverse",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-root-relation",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-bezout"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-infinity-chart",
+          "locator": "§3, printed pp9–11, especially the one-component conductor diagram p10; authored homogeneous and reciprocal-chart deductions from the existing q=t²+at+b pinching equation.",
+          "excerpt": "conductor",
+          "match": "Schröer motivates the projective normalization/conductor comparison. These polynomial chart formulas, quotient algebra maps and their identities are authored deductions, not source-printed global scheme, sheaf or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "In the actual quotient Chart(a,b), Q∞·D∞=1."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.InfinityChart"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.InfinityChart.mul_inverse",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-denominator-is-unit",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The denominator is a unit on the whole chart",
+      "kind": "lemma",
+      "statement": "The actual R[u]-coefficient image of Q∞ in Chart(a,b) is a unit; no further localization of the chart is required.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Supply the explicit inverse D∞ to the native unit constructor."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-mul-inverse"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-infinity-chart",
+          "locator": "§3, printed pp9–11, especially the one-component conductor diagram p10; authored homogeneous and reciprocal-chart deductions from the existing q=t²+at+b pinching equation.",
+          "excerpt": "conductor",
+          "match": "Schröer motivates the projective normalization/conductor comparison. These polynomial chart formulas, quotient algebra maps and their identities are authored deductions, not source-printed global scheme, sheaf or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The actual R[u]-coefficient image of Q∞ in Chart(a,b) is a unit; no further localization of the chart is required."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.InfinityChart"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.InfinityChart.denominator_isUnit",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-to-localization",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Forward infinity-chart localization map",
+      "kind": "construction",
+      "statement": "Construct the specified R[u]-algebra map Chart(a,b)→Localization.Away(Q∞), sending Z to u³/Q∞ and every coefficient polynomial f to f/1.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Use native AdjoinRoot.liftAlgHom. Verify the actual linear quotient relation with the native localization inverse identity."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-denominator",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation",
+        "mathlib:AdjoinRoot.liftAlgHom",
+        "mathlib:IsLocalization.Away.mul_invSelf"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-infinity-chart",
+          "locator": "§3, printed pp9–11, especially the one-component conductor diagram p10; authored homogeneous and reciprocal-chart deductions from the existing q=t²+at+b pinching equation.",
+          "excerpt": "conductor",
+          "match": "Schröer motivates the projective normalization/conductor comparison. These polynomial chart formulas, quotient algebra maps and their identities are authored deductions, not source-printed global scheme, sheaf or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "Construct the specified R[u]-algebra map Chart(a,b)→Localization.Away(Q∞), sending Z to u³/Q∞ and every coefficient polynomial f to f/1."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.InfinityChart"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.InfinityChart.toLocalization",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.InfinityChart.toLocalization_root",
+          "role": "simp",
+          "statement": "The specified forward map sends the actual native quotient root Z to the coefficient image of u³ times the native localization inverse of Q∞."
+        },
+        {
+          "name": "QuadraticPinch.InfinityChart.to_from",
+          "role": "compatibility",
+          "statement": "The specified forward map composed with the specified inverse map is the identity R[u]-algebra homomorphism on Localization.Away(Q∞)."
+        },
+        {
+          "name": "QuadraticPinch.InfinityChart.equiv_base",
+          "role": "compatibility",
+          "statement": "For every f∈R[u], the specified chart equivalence sends its actual quotient coefficient image to f/1 in Localization.Away(Q∞)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "InfinityChart.toLocalization.base",
+          "kind": "compatibility",
+          "statement": "For every f∈R[u], the actual forward homomorphism sends its quotient coefficient image to f/1."
+        },
+        {
+          "name": "InfinityChart.toLocalization.root",
+          "kind": "compatibility",
+          "statement": "For every a,b over R, the actual forward homomorphism sends the native root to u³/Q∞."
+        },
+        {
+          "name": "InfinityChart.toLocalization.cusp",
+          "kind": "degenerate",
+          "statement": "For a=b=0 over every R, the actual forward homomorphism sends the native root to the coefficient image of u³."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-from-localization",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Inverse infinity-chart localization map",
+      "kind": "construction",
+      "statement": "Construct the specified R[u]-algebra map Localization.Away(Q∞)→Chart(a,b) using the native coefficient map and the proved unit Q∞.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Apply the native localization algebra universal property to the actual quotient coefficient homomorphism."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-denominator-is-unit",
+        "mathlib:IsLocalization.Away.liftAlgHom"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-infinity-chart",
+          "locator": "§3, printed pp9–11, especially the one-component conductor diagram p10; authored homogeneous and reciprocal-chart deductions from the existing q=t²+at+b pinching equation.",
+          "excerpt": "conductor",
+          "match": "Schröer motivates the projective normalization/conductor comparison. These polynomial chart formulas, quotient algebra maps and their identities are authored deductions, not source-printed global scheme, sheaf or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "Construct the specified R[u]-algebra map Localization.Away(Q∞)→Chart(a,b) using the native coefficient map and the proved unit Q∞."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.InfinityChart"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.InfinityChart.fromLocalization",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.InfinityChart.fromLocalization_inv",
+          "role": "simp",
+          "statement": "The specified inverse algebra homomorphism sends the native localization element Q∞⁻¹ to D∞."
+        },
+        {
+          "name": "QuadraticPinch.InfinityChart.from_to",
+          "role": "compatibility",
+          "statement": "The specified inverse map composed with the specified forward map is the identity R[u]-algebra homomorphism on Chart(a,b)."
+        },
+        {
+          "name": "QuadraticPinch.InfinityChart.equiv_inverse_base",
+          "role": "compatibility",
+          "statement": "For every f∈R[u], the inverse of the specified chart equivalence sends f/1 to the actual quotient coefficient image of f."
+        }
+      ],
+      "tests": [
+        {
+          "name": "InfinityChart.fromLocalization.base",
+          "kind": "compatibility",
+          "statement": "For every f∈R[u], the actual inverse homomorphism sends f/1 to its quotient coefficient image."
+        },
+        {
+          "name": "InfinityChart.fromLocalization.inverse",
+          "kind": "compatibility",
+          "statement": "For every a,b over R, the actual inverse homomorphism sends the native Q∞⁻¹ to D∞."
+        },
+        {
+          "name": "InfinityChart.fromLocalization.cusp",
+          "kind": "degenerate",
+          "statement": "For a=b=0 over every R, the actual inverse homomorphism sends the native Q∞⁻¹ to one."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-to-localization-root",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Forward image of the chart root",
+      "kind": "lemma",
+      "statement": "The specified forward map sends the actual native quotient root Z to the coefficient image of u³ times the native localization inverse of Q∞.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Apply the native root computation for AdjoinRoot.liftAlgHom."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-to-localization"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-infinity-chart",
+          "locator": "§3, printed pp9–11, especially the one-component conductor diagram p10; authored homogeneous and reciprocal-chart deductions from the existing q=t²+at+b pinching equation.",
+          "excerpt": "conductor",
+          "match": "Schröer motivates the projective normalization/conductor comparison. These polynomial chart formulas, quotient algebra maps and their identities are authored deductions, not source-printed global scheme, sheaf or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The specified forward map sends the actual native quotient root Z to the coefficient image of u³ times the native localization inverse of Q∞."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.InfinityChart"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.InfinityChart.toLocalization_root",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-to-from",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The localization composite is the identity",
+      "kind": "lemma",
+      "statement": "The specified forward map composed with the specified inverse map is the identity R[u]-algebra homomorphism on Localization.Away(Q∞).",
+      "hypotheses": [
+        "R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Use native localization algebra homomorphism extensionality on the coefficient map."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-to-localization",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-from-localization",
+        "mathlib:IsLocalization.algHom_ext"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-infinity-chart",
+          "locator": "§3, printed pp9–11, especially the one-component conductor diagram p10; authored homogeneous and reciprocal-chart deductions from the existing q=t²+at+b pinching equation.",
+          "excerpt": "conductor",
+          "match": "Schröer motivates the projective normalization/conductor comparison. These polynomial chart formulas, quotient algebra maps and their identities are authored deductions, not source-printed global scheme, sheaf or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The specified forward map composed with the specified inverse map is the identity R[u]-algebra homomorphism on Localization.Away(Q∞)."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.InfinityChart"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.InfinityChart.to_from",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-from-to",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The quotient composite is the identity",
+      "kind": "lemma",
+      "statement": "The specified inverse map composed with the specified forward map is the identity R[u]-algebra homomorphism on Chart(a,b).",
+      "hypotheses": [
+        "R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Use native AdjoinRoot algebra extensionality. The image of Q∞⁻¹ multiplies Q∞ to one; combine this with Q∞Z=u³ to recover Z."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-to-localization-root",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-from-localization",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-root-relation",
+        "mathlib:AdjoinRoot.algHom_ext"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-infinity-chart",
+          "locator": "§3, printed pp9–11, especially the one-component conductor diagram p10; authored homogeneous and reciprocal-chart deductions from the existing q=t²+at+b pinching equation.",
+          "excerpt": "conductor",
+          "match": "Schröer motivates the projective normalization/conductor comparison. These polynomial chart formulas, quotient algebra maps and their identities are authored deductions, not source-printed global scheme, sheaf or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The specified inverse map composed with the specified forward map is the identity R[u]-algebra homomorphism on Chart(a,b)."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.InfinityChart"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.InfinityChart.from_to",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equiv",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Infinity-chart localization equivalence",
+      "kind": "construction",
+      "statement": "The specified inverse homomorphisms give the actual R[u]-algebra equivalence Chart(a,b)≃Localization.Away(Q∞). This equivalence is over the coefficient algebra R[u], not merely an abstract ring equivalence.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Package the two actual maps and both composite identities using native AlgEquiv.ofAlgHom."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-to-from",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-from-to",
+        "mathlib:AlgEquiv.ofAlgHom"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-infinity-chart",
+          "locator": "§3, printed pp9–11, especially the one-component conductor diagram p10; authored homogeneous and reciprocal-chart deductions from the existing q=t²+at+b pinching equation.",
+          "excerpt": "conductor",
+          "match": "Schröer motivates the projective normalization/conductor comparison. These polynomial chart formulas, quotient algebra maps and their identities are authored deductions, not source-printed global scheme, sheaf or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The specified inverse homomorphisms give the actual R[u]-algebra equivalence Chart(a,b)≃Localization.Away(Q∞). This equivalence is over the coefficient algebra R[u], not merely an abstract ring equivalence."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.InfinityChart"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.InfinityChart.equiv",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.InfinityChart.equiv_base",
+          "role": "simp",
+          "statement": "For every f∈R[u], the specified chart equivalence sends its actual quotient coefficient image to f/1 in Localization.Away(Q∞)."
+        },
+        {
+          "name": "QuadraticPinch.InfinityChart.equiv_root",
+          "role": "simp",
+          "statement": "The specified chart equivalence sends the actual root Z to u³/Q∞."
+        },
+        {
+          "name": "QuadraticPinch.InfinityChart.equiv_inverse_base",
+          "role": "simp",
+          "statement": "For every f∈R[u], the inverse of the specified chart equivalence sends f/1 to the actual quotient coefficient image of f."
+        },
+        {
+          "name": "QuadraticPinch.InfinityChart.equiv_inverse_inv",
+          "role": "simp",
+          "statement": "The inverse of the specified chart equivalence sends the native localization inverse of Q∞ to D∞."
+        },
+        {
+          "name": "QuadraticPinch.InfinityChart.localization",
+          "role": "instance",
+          "statement": "For its actual coefficient R[u]-algebra structure, Chart(a,b) satisfies the native IsLocalization.Away(Q∞) property."
+        },
+        {
+          "name": "QuadraticPinch.InfinityChart.spec_openImmersion",
+          "role": "compatibility",
+          "statement": "The actual Spec morphism induced by R[u]→Chart(a,b) is an open immersion into Spec R[u]. It identifies this quotient chart with the principal open D(Q∞) through its specified localization equivalence."
+        }
+      ],
+      "tests": [
+        {
+          "name": "InfinityChart.equiv.actual_forward",
+          "kind": "compatibility",
+          "statement": "The native forward algebra homomorphism of the specified equivalence equals the specified toLocalization map."
+        },
+        {
+          "name": "InfinityChart.equiv.actual_inverse",
+          "kind": "compatibility",
+          "statement": "The native inverse algebra homomorphism of the specified equivalence equals the specified fromLocalization map."
+        },
+        {
+          "name": "InfinityChart.equiv.coefficient",
+          "kind": "compatibility",
+          "statement": "Applying the specified equivalence and its inverse to an actual coefficient image recovers that same coefficient image."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equiv-base",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Coefficient compatibility of the chart equivalence",
+      "kind": "lemma",
+      "statement": "For every f∈R[u], the specified chart equivalence sends its actual quotient coefficient image to f/1 in Localization.Away(Q∞).",
+      "hypotheses": [
+        "R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Use the coefficient commutation law of the native algebra equivalence."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-infinity-chart",
+          "locator": "§3, printed pp9–11, especially the one-component conductor diagram p10; authored homogeneous and reciprocal-chart deductions from the existing q=t²+at+b pinching equation.",
+          "excerpt": "conductor",
+          "match": "Schröer motivates the projective normalization/conductor comparison. These polynomial chart formulas, quotient algebra maps and their identities are authored deductions, not source-printed global scheme, sheaf or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "For every f∈R[u], the specified chart equivalence sends its actual quotient coefficient image to f/1 in Localization.Away(Q∞)."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.InfinityChart"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.InfinityChart.equiv_base",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equiv-root",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Root compatibility of the chart equivalence",
+      "kind": "lemma",
+      "statement": "The specified chart equivalence sends the actual root Z to u³/Q∞.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "The forward algebra homomorphism is definitionally the previously specified quotient lift."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-to-localization-root"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-infinity-chart",
+          "locator": "§3, printed pp9–11, especially the one-component conductor diagram p10; authored homogeneous and reciprocal-chart deductions from the existing q=t²+at+b pinching equation.",
+          "excerpt": "conductor",
+          "match": "Schröer motivates the projective normalization/conductor comparison. These polynomial chart formulas, quotient algebra maps and their identities are authored deductions, not source-printed global scheme, sheaf or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The specified chart equivalence sends the actual root Z to u³/Q∞."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.InfinityChart"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.InfinityChart.equiv_root",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-from-localization-inv",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The inverse map has the explicit Bézout value",
+      "kind": "lemma",
+      "statement": "The specified inverse algebra homomorphism sends the native localization element Q∞⁻¹ to D∞.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Transport Q∞·Q∞⁻¹=1 through the inverse map. Multiply the two inverse identities in the commutative quotient ring to identify their inverse elements, without a domain assumption."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-from-localization",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-mul-inverse"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-infinity-chart",
+          "locator": "§3, printed pp9–11, especially the one-component conductor diagram p10; authored homogeneous and reciprocal-chart deductions from the existing q=t²+at+b pinching equation.",
+          "excerpt": "conductor",
+          "match": "Schröer motivates the projective normalization/conductor comparison. These polynomial chart formulas, quotient algebra maps and their identities are authored deductions, not source-printed global scheme, sheaf or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The specified inverse algebra homomorphism sends the native localization element Q∞⁻¹ to D∞."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.InfinityChart"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.InfinityChart.fromLocalization_inv",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equiv-inverse-base",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Inverse coefficient compatibility",
+      "kind": "lemma",
+      "statement": "For every f∈R[u], the inverse of the specified chart equivalence sends f/1 to the actual quotient coefficient image of f.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Use the native inverse algebra equivalence coefficient commutation law."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-infinity-chart",
+          "locator": "§3, printed pp9–11, especially the one-component conductor diagram p10; authored homogeneous and reciprocal-chart deductions from the existing q=t²+at+b pinching equation.",
+          "excerpt": "conductor",
+          "match": "Schröer motivates the projective normalization/conductor comparison. These polynomial chart formulas, quotient algebra maps and their identities are authored deductions, not source-printed global scheme, sheaf or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "For every f∈R[u], the inverse of the specified chart equivalence sends f/1 to the actual quotient coefficient image of f."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.InfinityChart"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.InfinityChart.equiv_inverse_base",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equiv-inverse-inv",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Inverse denominator compatibility",
+      "kind": "lemma",
+      "statement": "The inverse of the specified chart equivalence sends the native localization inverse of Q∞ to D∞.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Its underlying inverse homomorphism is the previously specified native localization lift."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equiv",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-from-localization-inv"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-infinity-chart",
+          "locator": "§3, printed pp9–11, especially the one-component conductor diagram p10; authored homogeneous and reciprocal-chart deductions from the existing q=t²+at+b pinching equation.",
+          "excerpt": "conductor",
+          "match": "Schröer motivates the projective normalization/conductor comparison. These polynomial chart formulas, quotient algebra maps and their identities are authored deductions, not source-printed global scheme, sheaf or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The inverse of the specified chart equivalence sends the native localization inverse of Q∞ to D∞."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.InfinityChart"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.InfinityChart.equiv_inverse_inv",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-localization",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The actual quotient is a localization",
+      "kind": "lemma",
+      "statement": "For its actual coefficient R[u]-algebra structure, Chart(a,b) satisfies the native IsLocalization.Away(Q∞) property.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Transport the existing native localization instance along the specified coefficient-algebra equivalence."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equiv",
+        "mathlib:IsLocalization.isLocalization_of_algEquiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-infinity-chart",
+          "locator": "§3, printed pp9–11, especially the one-component conductor diagram p10; authored homogeneous and reciprocal-chart deductions from the existing q=t²+at+b pinching equation.",
+          "excerpt": "conductor",
+          "match": "Schröer motivates the projective normalization/conductor comparison. These polynomial chart formulas, quotient algebra maps and their identities are authored deductions, not source-printed global scheme, sheaf or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "For its actual coefficient R[u]-algebra structure, Chart(a,b) satisfies the native IsLocalization.Away(Q∞) property."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.InfinityChart"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.InfinityChart.localization",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-spec-open-immersion",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The infinity chart is an open of the affine line",
+      "kind": "lemma",
+      "statement": "The actual Spec morphism induced by R[u]→Chart(a,b) is an open immersion into Spec R[u]. It identifies this quotient chart with the principal open D(Q∞) through its specified localization equivalence.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Apply the existing native open-immersion theorem for any algebra which is a localization away from the specified element. This is a statement about the affine chart and does not glue the projective curve."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-localization",
+        "mathlib:AlgebraicGeometry.IsOpenImmersion.of_isLocalization"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-infinity-chart",
+          "locator": "§3, printed pp9–11, especially the one-component conductor diagram p10; authored homogeneous and reciprocal-chart deductions from the existing q=t²+at+b pinching equation.",
+          "excerpt": "conductor",
+          "match": "Schröer motivates the projective normalization/conductor comparison. These polynomial chart formulas, quotient algebra maps and their identities are authored deductions, not source-printed global scheme, sheaf or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "The actual Spec morphism induced by R[u]→Chart(a,b) is an open immersion into Spec R[u]. It identifies this quotient chart with the principal open D(Q∞) through its specified localization equivalence."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.InfinityChart"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.InfinityChart.spec_openImmersion",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-normalization-coordinates",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Homogeneous quadratic normalization coordinates",
+      "kind": "construction",
+      "statement": "For q_h(T,U)=T²+aTU+bU², construct the actual coordinate triple n_(a,b)(T,U)=[Uq_h:Tq_h:U³]. It is a homogeneous cubic triple, with finite-chart coordinates [q(t):tq(t):1] and infinity [0:1:0].",
+      "hypotheses": [
+        "R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Give the actual Fin 3→R tuple. Scheme-morphism construction is a separate consumer comparison."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-curve"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-infinity-chart",
+          "locator": "§3, printed pp9–11, especially the one-component conductor diagram p10; authored homogeneous and reciprocal-chart deductions from the existing q=t²+at+b pinching equation.",
+          "excerpt": "conductor",
+          "match": "Schröer motivates the projective normalization/conductor comparison. These polynomial chart formulas, quotient algebra maps and their identities are authored deductions, not source-printed global scheme, sheaf or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "For q_h(T,U)=T²+aTU+bU², construct the actual coordinate triple n_(a,b)(T,U)=[Uq_h:Tq_h:U³]. It is a homogeneous cubic triple, with finite-chart coordinates [q(t):tq(t):1] and infinity [0:1:0]."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.InfinityChart"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.InfinityChart.normalizationCoordinates",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.InfinityChart.normalization_homogeneous",
+          "role": "structure",
+          "statement": "For every r∈R, n_(a,b)(rT,rU)=r³·n_(a,b)(T,U), using the native scalar action on the coordinate tuple."
+        },
+        {
+          "name": "QuadraticPinch.InfinityChart.normalization_nonzero",
+          "role": "characterisation",
+          "statement": "Over any field k, if T≠0 or U≠0 then n_(a,b)(T,U) is not the zero tuple. No separability, perfectness or characteristic restriction is used."
+        },
+        {
+          "name": "QuadraticPinch.InfinityChart.normalization_equation",
+          "role": "compatibility",
+          "statement": "For all T,U∈R, the actual native Weierstrass projective Equation of W_(a,b) holds at n_(a,b)(T,U)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "InfinityChart.normalizationCoordinates.finite",
+          "kind": "compatibility",
+          "statement": "n_(a,b)(t,1)=[t²+at+b:t(t²+at+b):1]."
+        },
+        {
+          "name": "InfinityChart.normalizationCoordinates.infinity",
+          "kind": "degenerate",
+          "statement": "n_(a,b)(1,0)=[0:1:0]."
+        },
+        {
+          "name": "InfinityChart.normalizationCoordinates.nonzero_char2",
+          "kind": "degenerate",
+          "statement": "Over Z/2, n_(0,1)(1,0) is not the zero tuple."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-normalization-homogeneous",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Cubic homogeneity of the normalization coordinates",
+      "kind": "lemma",
+      "statement": "For every r∈R, n_(a,b)(rT,rU)=r³·n_(a,b)(T,U), using the native scalar action on the coordinate tuple.",
+      "hypotheses": [
+        "R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Compare all three coordinates and normalize the commutative-ring identities."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-normalization-coordinates"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-infinity-chart",
+          "locator": "§3, printed pp9–11, especially the one-component conductor diagram p10; authored homogeneous and reciprocal-chart deductions from the existing q=t²+at+b pinching equation.",
+          "excerpt": "conductor",
+          "match": "Schröer motivates the projective normalization/conductor comparison. These polynomial chart formulas, quotient algebra maps and their identities are authored deductions, not source-printed global scheme, sheaf or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "For every r∈R, n_(a,b)(rT,rU)=r³·n_(a,b)(T,U), using the native scalar action on the coordinate tuple."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.InfinityChart"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.InfinityChart.normalization_homogeneous",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-normalization-nonzero",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "No common zero of the normalization coordinates",
+      "kind": "lemma",
+      "statement": "Over any field k, if T≠0 or U≠0 then n_(a,b)(T,U) is not the zero tuple. No separability, perfectness or characteristic restriction is used.",
+      "hypotheses": [
+        "k is an arbitrary field and a,b∈k; no separability, perfectness or characteristic assumption. The nonzero-coordinate theorem additionally assumes T≠0 or U≠0. Native Nonsingular is only used over a field, where its derivative criterion has its intended geometric interpretation."
+      ],
+      "proofSteps": [
+        "If the tuple vanished, its last coordinate U³ would give U=0. The middle coordinate then gives T³=0, hence T=0, contradicting the input."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-normalization-coordinates"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-infinity-chart",
+          "locator": "§3, printed pp9–11, especially the one-component conductor diagram p10; authored homogeneous and reciprocal-chart deductions from the existing q=t²+at+b pinching equation.",
+          "excerpt": "conductor",
+          "match": "Schröer motivates the projective normalization/conductor comparison. These polynomial chart formulas, quotient algebra maps and their identities are authored deductions, not source-printed global scheme, sheaf or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "Over any field k, if T≠0 or U≠0 then n_(a,b)(T,U) is not the zero tuple. No separability, perfectness or characteristic restriction is used."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.InfinityChart"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.InfinityChart.normalization_nonzero",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-normalization-equation",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The homogeneous normalization lands on the cubic",
+      "kind": "lemma",
+      "statement": "For all T,U∈R, the actual native Weierstrass projective Equation of W_(a,b) holds at n_(a,b)(T,U).",
+      "hypotheses": [
+        "R is an arbitrary commutative ring, with its actual polynomial, quotient and localization algebra structures; a,b∈R. No domain, reducedness, nontriviality, separability, perfectness or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Expand the native equation at the specified homogeneous coordinate tuple and normalize the polynomial identity."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-normalization-coordinates",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-curve",
+        "mathlib:WeierstrassCurve.Projective.equation_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-infinity-chart",
+          "locator": "§3, printed pp9–11, especially the one-component conductor diagram p10; authored homogeneous and reciprocal-chart deductions from the existing q=t²+at+b pinching equation.",
+          "excerpt": "conductor",
+          "match": "Schröer motivates the projective normalization/conductor comparison. These polynomial chart formulas, quotient algebra maps and their identities are authored deductions, not source-printed global scheme, sheaf or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "For all T,U∈R, the actual native Weierstrass projective Equation of W_(a,b) holds at n_(a,b)(T,U)."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.InfinityChart"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.InfinityChart.normalization_equation",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-infinity-nonsingular",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The infinity point is nonsingular",
+      "kind": "lemma",
+      "statement": "For every field k and a,b∈k, the native Weierstrass projective Nonsingular condition holds at [0:1:0], because the Z partial derivative equals one. This includes characteristic two and the singular finite cusp.",
+      "hypotheses": [
+        "k is an arbitrary field and a,b∈k; no separability, perfectness or characteristic assumption. The nonzero-coordinate theorem additionally assumes T≠0 or U≠0. Native Nonsingular is only used over a field, where its derivative criterion has its intended geometric interpretation."
+      ],
+      "proofSteps": [
+        "Use the actual native projective Equation and partial-derivative criterion. Its geometric smoothness comparison belongs to the existing scheme suppliers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-curve",
+        "mathlib:WeierstrassCurve.Projective.nonsingular_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-5ebb6f-infinity-chart",
+          "locator": "§3, printed pp9–11, especially the one-component conductor diagram p10; authored homogeneous and reciprocal-chart deductions from the existing q=t²+at+b pinching equation.",
+          "excerpt": "conductor",
+          "match": "Schröer motivates the projective normalization/conductor comparison. These polynomial chart formulas, quotient algebra maps and their identities are authored deductions, not source-printed global scheme, sheaf or cohomology theorems."
+        }
+      ],
+      "acceptance": [
+        "For every field k and a,b∈k, the native Weierstrass projective Nonsingular condition holds at [0:1:0], because the Z partial derivative equals one. This includes characteristic two and the singular finite cusp."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.InfinityChart"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.InfinityChart.infinity_nonsingular",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the explicit infinity affine chart and homogeneous normalization coordinates for the existing projective pinching consumer. Actual chart gluing, scheme comparison, conductor ideal sheaf and H0/H1 sequence remain required."
+        }
+      ]
     }
   ],
   "requests": [
     {
       "supplier": "SchemeAndStackFoundations:SF.0",
-      "need": "Ring quotient/tensor quotient and localization APIs for arbitrary commutative rings; the finite-algebra principal-open separation and finite closed-map arguments in Ferrand7.1B. Monogenic conductor is only a compatibility input. EGAIV4 18.5.11(c) henselian local-component theorem and the regular-local horizontal parameter argument. Its finite-component theorem does not itself construct a Cartier divisor or identify the length-m schematic fiber. Henselization of an excellent DVR remains excellent with unchanged residue field; base change preserves the regular-model and special-fiber hypotheses needed for the multiple-fiber proof. Flat tensor exactness for the affine fiber-product sequence and classification of commutative length-two algebras over a field. For the native global-conductor continuation, export the generic finite-module flat-annihilator equality Ann_A(M)·F=Ann_F(M⊗_A F) for finite M and flat F (Stacks07T8, with finite-intersection compatibility0BBY), together with native quotient/tensor and affine section/localization comparison maps. This generic theorem belongs to SF.0; Part II supplies only its conductor-specific specialization.",
+      "need": "Ring quotient/tensor quotient and localization APIs for arbitrary commutative rings; the finite-algebra principal-open separation and finite closed-map arguments in Ferrand7.1B. Monogenic conductor is only a compatibility input. EGAIV4 18.5.11(c) henselian local-component theorem and the regular-local horizontal parameter argument. Its finite-component theorem does not itself construct a Cartier divisor or identify the length-m schematic fiber. Henselization of an excellent DVR remains excellent with unchanged residue field; base change preserves the regular-model and special-fiber hypotheses needed for the multiple-fiber proof. Flat tensor exactness for the affine fiber-product sequence and classification of commutative length-two algebras over a field. For the native global-conductor continuation, export the generic finite-module flat-annihilator equality Ann_A(M)·F=Ann_F(M⊗_A F) for finite M and flat F (Stacks07T8, with finite-intersection compatibility0BBY), together with native quotient/tensor and affine section/localization comparison maps. This generic theorem belongs to SF.0; Part II supplies only its conductor-specific specialization. For the quadratic infinity-chart consumer, export the existing SF.0 generic Proj hypersurface affine-chart comparison, actual overlap algebra maps and affine gluing. Part II owns only the specialized cubic chart and its normalization-coordinate adapters; an equation on tuples is not a replacement for the scheme comparison.",
       "neededBy": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/cartesian-affine",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/compatible-affine-neighbourhoods",
@@ -14617,7 +16200,8 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-affine-quotients",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-geometric",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-flat-comparison"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-flat-comparison",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus"
       ]
     },
     {
@@ -14970,7 +16554,8 @@
         "Current finite-extension checkpoint supersedes the earlier native odd/even-criterion frontier: the irreducible quadratic root existence, distinct-root count, pointCount, cardinal-power and numerical trace-defect formulas have checked prototypes. Their geometric identification with the projective pinching/conductor schemes, nilpotent reduction and separate fixed-component I₂ calculation remain open; no other source obligations are discharged.",
         "The polynomial pinch localization and inverse coordinate are explicit. Prove finite generation of the normalization module, the fraction-field/normalization comparison, two projective charts and actual conductor-sheaf/cohomology sequence; retain the separate cusp, I₁ and I₂ distinctions.",
         "The native affine finite-module, shared-fraction-field and integral-closure frontiers now have separately checked carrier signatures, including the actual finite Spec map. Construct the projective two-chart normalization comparison and conductor ideal sheaf, then the actual E/k structure-sheaf sequence and finite-pushforward H0/H1. Keep the unrelated k[q]-freeness target and all nodal/inseparable/I2 distinctions.",
-        "The specified native affine A_q-linear B/(A_q·1)≃E/(A_q·1), its actual k-linear B/A_q≃E/k, both representative equations, residue scalar actions, one-dimensional quadratic defect and actual conductor annihilators are now separately checked prototypes. Projective chart gluing, the global normalization comparison, conductor ideal sheaf, the actual structure-sheaf sequence and finite-pushforward H0/H1 remain open, as does the independent I₂ geometry. The full Tau Ceti-importing file is uncompiled; all implementation statuses and all seven coverage rows remain partial/unchecked."
+        "The specified native affine A_q-linear B/(A_q·1)≃E/(A_q·1), its actual k-linear B/A_q≃E/k, both representative equations, residue scalar actions, one-dimensional quadratic defect and actual conductor annihilators are now separately checked prototypes. Projective chart gluing, the global normalization comparison, conductor ideal sheaf, the actual structure-sheaf sequence and finite-pushforward H0/H1 remain open, as does the independent I₂ geometry. The full Tau Ceti-importing file is uncompiled; all implementation statuses and all seven coverage rows remain partial/unchecked.",
+        "The reciprocal infinity quotient Chart(a,b)=R[u][Z]/(Q∞Z−u³), its explicit Bézout inverse, both specified R[u]-algebra maps and their inverse equivalence, native localization property and actual affine Spec open immersion now have separately checked prototypes over every commutative ring. The homogeneous normalization tuple, its cubic homogeneity and fieldwise absence of a common zero are checked against the actual native projective Weierstrass equation, with a nonsingular infinity point over every field. The two-chart overlap/gluing and actual Proj comparison, finite projective normalization, conductor ideal sheaf, structure-sheaf exact sequence, finite-pushforward H0/H1 and independent I₂ geometry remain required. Full Tau Ceti-importing file remains uncompiled; all seven stages are partial and all mathematical implementation statuses unchecked."
       ]
     },
     {
@@ -18445,5 +20030,128 @@
         "ownSkippedPendingEmpty": true
       }
     }
+  },
+  "infinityChartContinuation": {
+    "date": "2026-10-03",
+    "agent": "Codex — codex-5ebb6f",
+    "readBase": "83fa0ef3fbe575ab72692cb37f5c5a06cc330f2e",
+    "incomingDeclarations": 246,
+    "addedDeclarations": 27,
+    "newDeclarationNames": [
+      "QuadraticPinch.InfinityChart.curve",
+      "QuadraticPinch.InfinityChart.denominator",
+      "QuadraticPinch.InfinityChart.relation",
+      "QuadraticPinch.InfinityChart.equation_chart",
+      "QuadraticPinch.InfinityChart.bezout",
+      "QuadraticPinch.InfinityChart.root_relation",
+      "QuadraticPinch.InfinityChart.denominatorInverse",
+      "QuadraticPinch.InfinityChart.mul_inverse",
+      "QuadraticPinch.InfinityChart.denominator_isUnit",
+      "QuadraticPinch.InfinityChart.toLocalization",
+      "QuadraticPinch.InfinityChart.fromLocalization",
+      "QuadraticPinch.InfinityChart.toLocalization_root",
+      "QuadraticPinch.InfinityChart.to_from",
+      "QuadraticPinch.InfinityChart.from_to",
+      "QuadraticPinch.InfinityChart.equiv",
+      "QuadraticPinch.InfinityChart.equiv_base",
+      "QuadraticPinch.InfinityChart.equiv_root",
+      "QuadraticPinch.InfinityChart.fromLocalization_inv",
+      "QuadraticPinch.InfinityChart.equiv_inverse_base",
+      "QuadraticPinch.InfinityChart.equiv_inverse_inv",
+      "QuadraticPinch.InfinityChart.localization",
+      "QuadraticPinch.InfinityChart.spec_openImmersion",
+      "QuadraticPinch.InfinityChart.normalizationCoordinates",
+      "QuadraticPinch.InfinityChart.normalization_homogeneous",
+      "QuadraticPinch.InfinityChart.normalization_nonzero",
+      "QuadraticPinch.InfinityChart.normalization_equation",
+      "QuadraticPinch.InfinityChart.infinity_nonsingular"
+    ],
+    "frontier": "The reciprocal infinity quotient Chart(a,b)=R[u][Z]/(Q∞Z−u³), its explicit Bézout inverse, both specified R[u]-algebra maps and their inverse equivalence, native localization property and actual affine Spec open immersion now have separately checked prototypes over every commutative ring. The homogeneous normalization tuple, its cubic homogeneity and fieldwise absence of a common zero are checked against the actual native projective Weierstrass equation, with a nonsingular infinity point over every field. The two-chart overlap/gluing and actual Proj comparison, finite projective normalization, conductor ideal sheaf, structure-sheaf exact sequence, finite-pushforward H0/H1 and independent I₂ geometry remain required. Full Tau Ceti-importing file remains uncompiled; all seven stages are partial and all mathematical implementation statuses unchecked.",
+    "ownership": "Generic Proj, gluing and affine/scheme comparisons are imported from SF.0; generic curve cohomology remains with SF.3 and its upstream suppliers. Only specialized quadratic-cubic chart deductions are added in G.1. Ferrand key and G.0–G.6 scope are preserved.",
+    "librarySearch": {
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+      "openPullRequestSearches": [
+        "repo:leanprover-community/mathlib4 is:pr is:open pinching",
+        "repo:leanprover-community/mathlib4 is:pr is:open Ferrand"
+      ],
+      "openPullRequestHits": 0,
+      "zulipSearch": "Public archive search for Ferrand pinching returned no relevant hit; negative search is a lead, not proof of absence. Native quotient/localization/Weierstrass APIs are reused."
+    },
+    "checks": {
+      "native": {
+        "compiled": true,
+        "lines": 1121,
+        "examples": 58,
+        "axiomAudits": 80,
+        "errors": 0,
+        "warnings": 0,
+        "sorryAx": false,
+        "sha256": "d80ef1ec69b215b8e20ca606fdc56855552fec6026a65da21cc345add78dd651",
+        "elapsedSeconds": 27.38,
+        "maxResidentKiB": 6830856,
+        "availableGiBBeforeCompile": 43
+      },
+      "admittedExtraction": {
+        "compiled": true,
+        "lines": 788,
+        "examples": 58,
+        "errors": 0,
+        "admissionWarnings": 88,
+        "otherWarnings": 0,
+        "sha256": "1222e696fc01949de932b5a935a018e5788f29d3ed21e3357f7f763238fc5ef4",
+        "elapsedSeconds": 23.47,
+        "maxResidentKiB": 6764456,
+        "availableGiBBeforeCompile": 43
+      },
+      "canonical": {
+        "compiled": false,
+        "lines": 2663,
+        "examples": 152,
+        "sha256": "1079cbd0ad00d817f0df571eb5f37d8aeefc8bf6098b302cece04a5509289d44",
+        "reason": "Four required Tau Ceti compiled artifacts are unavailable; no build or cache setup was run."
+      },
+      "blueprint": {
+        "errors": 0,
+        "warnings": 0,
+        "nodes": 273,
+        "apiItems": 136,
+        "requiredUnitTests": 133,
+        "allTests": 163,
+        "planets": 29,
+        "baselineDeclarations": 232
+      },
+      "graphs": {
+        "stageVertices": 3043,
+        "stageEdges": 8727,
+        "ownVertices": 273,
+        "ownEdges": 604,
+        "combinedVertices": 3287,
+        "combinedEdges": 9519,
+        "allAcyclic": true,
+        "supplierStagePairs": 69,
+        "reachableSupplierStagePairs": 69,
+        "unresolved": 0,
+        "ownSkipped": 0,
+        "ownPending": 0,
+        "stageEdgesUnchanged": true,
+        "unrelatedSkippedPendingUnchanged": true
+      },
+      "preservation": {
+        "incomingNodeContracts": 246,
+        "unchangedWholeNodeObjects": 245,
+        "addedConsumerPrerequisites": 6,
+        "addedConsumerProofSteps": 1,
+        "nativePrefixLines": 793,
+        "admittedPrefixLines": 606
+      },
+      "archive": "5e68ad29cdbd5dcbaba5e45d303f7f91bdd5001d",
+      "publicRecoveryRoundtrips": {
+        "modes": 5,
+        "allBytesEqual": true,
+        "archiveIsPublic": true
+      }
+    },
+    "publicationMain": "14122f5410315c7254b29874b6b80bf3f7bdd159"
   }
 }
