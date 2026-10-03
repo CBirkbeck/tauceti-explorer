@@ -1,3 +1,285 @@
+# Current checkpoint — gauge representative transport, Codex codex-7e92bd
+
+Refs #1020. Claim comment 5964952414 was confirmed by bot comment 5964953429. The whole issue was read, including the RT8 and reserved-key sections, and reread unchanged after confirmation. This is a partial checkpoint; all implementation statuses remain unchecked.
+
+## Result and boundary
+
+Nineteen declaration-sized nodes and six tests give actual continuous G-equivariant conjugation e_c,b:Twist(c)≃*Twist(b•c), its inverse, identity and ordered composition formulas, the cocycle and H¹ translation squares, and the canonical comparison C_c,d=T_d⁻¹∘T_c when [c]=[d]. This last comparison preserves the neutral class; its identity, inverse, composition, gauge realization and uniqueness from the translation square are explicit.
+
+The coefficient-group isomorphism depends on the supplied gauge element b. C_c,d is defined on the actual native H¹ orbit sets without choosing such an element. The noncommutative S₃ test rejects conjugation in the reverse direction. The other boundary tests reject the constant neutral comparison and show that the raw composite for unequal original classes need not preserve the neutral class. No arbitrary group topology on G is silently strengthened to a topological-group hypothesis; U is a topological group and its G-action is jointly continuous.
+
+All 156 incoming contracts remain; 155 whole node objects are unchanged. The existing inclusion-kernel theorem retains its statement, hypotheses, acceptance, sources and uses, and gains three prerequisites plus one proof step for its inherited nonneutral-fibre route. Totals: 175 nodes (3 definitions, 28 constructions, 110 lemmas, 27 theorems, 7 comparisons), 177 raw API records (165 required), 139 raw tests (128 required), 11 planets, 130 baseline declarations, 9 gaps and 16 requests. All seven stages remain partial. The all-coefficient/all-degree K(π,1) owner, restricted raw-homotopy comparison, RT8 NS/ρ import from A2, Chen /57–58, full BDMTV routes and E9/E10 remain unchanged. NC.6 remains a process endpoint.
+
+## Reading and ownership
+
+Fresh readings: the whole campaign reader and seven stage contracts, all 17 touching stage-edge identities, all seven reviewed audit rows and complete REV-AUDIT-08 report, the reserved packet/catalog entry including its tests, all 16 existing requests and all 29 matching link-screen records. The latter assert no new edge or overlap and are not whole foreign-proof audits. The current predecessor result, source/prior-art, native receipt, recovery and resume portions and actual cocycle, coefficient-map and twist interfaces were read; no fresh full historical 156-node proof audit is claimed. Upstream style readers were read earlier in this continuous worker loop.
+
+Primary source: [Kim, exact arXiv:math/0409456v1](https://arxiv.org/pdf/math/0409456v1), complete continuous cochain/cocycle/gauge definitions and Proposition 1 statement/proof on printed pp.5–7, plus coefficient-functor paragraph and opening Proposition 2. The PDF is 246884 bytes, SHA-256 `00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941`. The new inner-group and orbit-set identities are authored deductions from those conventions, not a geometric torsor classification or representability proof.
+
+The pinned MulAut.conj definition and forward/inverse formulas, and Equiv inverse, composition, injectivity and cancellation statements were freshly read. Native conjugation and all existing cocycle/coefficient/twisting carriers are reused; only the two Equiv constructor citations are added to the baseline inventory. No general conjugation or cohomology carrier is duplicated. The fresh R02.6 contract specifies patching adjoint inequalities; these new abstract results import no additional Galois or Selmer theorem from it, and broader geometric arithmetic supplier interfaces remain open.
+
+Mathlib [PR31613](https://github.com/leanprover-community/mathlib4/pull/31613) was rechecked on 2026-10-03: OPEN at `9dc1e337689fa7ba4fefa52b4874660bdd3a3619`. Its body describes algebraic nonabelian H⁰/H¹ and exactness; source-level prior-art reading is inherited, and no code is copied. A fresh bounded web-indexed Zulip search for nonabelian cocycle twisting/gauge returned unrelated Mathlib-hole and Lie-algebra PDFs, with no relevant API decision. No whole-library or whole-Zulip absence claim is made.
+
+## Lean and graph checks
+
+Mathlib source/build pin `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti source pin `f790474821cf4256814db967cb154e7af3d0c369`. The existing build uses Lean 4.34.0-rc2; its Tau Ceti checkout is `cf386627e9176a3827c1a5fe804989fd94a4d216`. A fresh check of all 11 actual Lean search roots found no TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.olean. The full 2640-line canonical file is UNCOMPILED. The checked Mathlib projection removes exactly TauCeti import lines and the named Abelian section, retaining every new declaration and complete test type.
+
+Serial runs, no language server or project setup/update/cache/build, 1200-second timeouts. Native: 2517 lines, 91 inherited anonymous examples, six named new test theorems, 152 axiom audits; zero errors, warnings, admissions or sorryAx; 14.30 seconds, 3597848 KiB peak RSS, 39 GiB available before compiling. Only propext, Classical.choice and Quot.sound occur. Projection: 2623 lines, 139 examples, 345 expected admission warnings, zero other warnings/errors; 15.11 seconds, 3594292 KiB peak RSS, 38 GiB available. Both exited zero. All 2311 incoming proof lines are an exact prefix; every new declaration and complete example header matches after converting the named tests to planning examples.
+
+Source SHA-256: native `29e43bcdf9cde556c3e000c7a961e2d25eae80a6ff7ff6484943c18f98b90c2a`; projection `f1bb1548e7282cbc7ce6f10138074ea092495b394162bddddf3e8f87accc6ba6`; full canonical `cfb99a696318dac942e36bb83e081ea10812c50ce217de719f2670d0471b4e26`. Log hashes after replacing the evidence-directory prefix with EVIDENCE: native `a6cb252c26e29a9670d23598929f06fbaeefc1a44991436000b6257f5d6e342b`; projection `b7e644df7ce065bb993408761d7e517c6c2201bbaeb41d14e630572e2d7af2dc`.
+
+The indexed packet checker has zero errors/warnings. Actual intake file/ownership checks and preservation/header checks pass. The actual atlas assembler retains every other promoted packet and compares with the incoming control. Stage graph: 3018 vertices/8655 edges; own declarations: 175/379; combined scoped graph: 3182/9245. All are acyclic, with all reached declaration parent stages and request edges included. There are zero unresolved references or skipped/pending own links. All 20 required stage paths exist; other promotions’ skipped/pending links and the stage-edge set are unchanged. These graph checks do not close mathematical supplier gaps.
+
+Read base `63e075ba56ab990cc3a79c51c45fe6d6881e99ac`; publication base `9c8a340faae54f977214d1a159764c3ca25a1e0e`. Own incoming files, WORKERS/protocols/guide, reviewed audit/key, touching-link and campaign/stage inputs were unchanged between these bases; other Moduli/FunctionField/Hodge deliverables and queue state advanced. Only the four authorized issue files change.
+
+## Resume
+
+Construct actual twisted subgroup and normal-quotient realizations and source-group naturality, using the ordered formulas and coefficient squares already available. Establish compatibility of these adapters with representative comparison; do not infer subgroup or geometric local-condition compatibility from an abstract orbit equivalence. Build the genuine additive comparison against pinned Tau Ceti cochain differentials and transition/colimit machinery. Geometric unipotent point topologies, torsor comparison, representability/local conditions, NC.0/NC.1 source-sensitive work and complete Chen/BDMTV decomposition remain required. The class equality is essential to pointedness, and no canonical coefficient-group isomorphism without a gauge witness is asserted.
+
+## Public proof and validation recovery
+
+The preceding own commit [`4ae31d7288569a7a5e5d16a4b60cccaf2067426f`](https://github.com/CBirkbeck/tauceti-explorer/commit/4ae31d7288569a7a5e5d16a4b60cccaf2067426f) archives the actual native proof as an inert block in the suggested file, between BEGIN/END ARCHIVED CHECKED GAUGE REPRESENTATIVE TRANSPORT. The final file restores admitted planning bodies. Its incoming proof comes from `eb99a3fa5a9855109ddb9efd332dbbfb22a0ba5f`, with SHA-256 `da8459d77beb60e611bd3c7e20a2c94a6cc9c9c66bc8864feaed7f60edb65f56`.
+
+Save these three Python blocks as recover.py, verify.py and graph.py in disk-backed evidence storage. In a checkout of the submitted commit, run `python3 EVIDENCE/recover.py SUBMITTED_COMMIT EVIDENCE`, `python3 EVIDENCE/verify.py EVIDENCE PINNED_DECLARATIONS_TSV`, then `python3 EVIDENCE/graph.py EVIDENCE/original-packet.json`. Recovery checks immutable public source hashes. Without local Lean logs, verification reports source/header checks only. To reproduce compilation, check available memory, then run recovered Native.lean and Sketch.lean serially using `/usr/bin/time -v timeout 1200 lake env lean` in an existing exact-Mathlib-pin build, redirecting to native.log and sketch.log beside the artifacts; rerun verify.py afterward. Do not compile the full canonical file unless its exact Tau Ceti imports are already available, and do not set up or build libraries.
+
+### recover.py (SHA-256 48af20b29f1df11785cb4117ff55a987582060e1ece62770b5d056584a3ef41a)
+
+```python
+from pathlib import Path
+from urllib.request import urlopen
+import hashlib,sys
+PATH='research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty.lean'
+ARCHIVE='4ae31d7288569a7a5e5d16a4b60cccaf2067426f'
+INCOMING='eb99a3fa5a9855109ddb9efd332dbbfb22a0ba5f'
+BASE='63e075ba56ab990cc3a79c51c45fe6d6881e99ac'
+PUBLICATION='9c8a340faae54f977214d1a159764c3ca25a1e0e'
+def read(ref,path=PATH):
+ return urlopen('https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'+ref+'/'+path).read().decode()
+def section(text,start,end):return text.split(start+'\n',1)[1].split(end,1)[0]
+def sha(text):return hashlib.sha256(text.encode()).hexdigest()
+def reconstruct(submitted_ref):
+ native=section(read(ARCHIVE),'/- BEGIN ARCHIVED CHECKED GAUGE REPRESENTATIVE TRANSPORT','END ARCHIVED CHECKED GAUGE REPRESENTATIVE TRANSPORT -/')
+ assert sha(native)=='29e43bcdf9cde556c3e000c7a961e2d25eae80a6ff7ff6484943c18f98b90c2a'
+ incoming=section(read(INCOMING),'/- BEGIN ARCHIVED CHECKED COEFFICIENT TWISTING','END ARCHIVED CHECKED COEFFICIENT TWISTING -/')
+ assert sha(incoming)=='da8459d77beb60e611bd3c7e20a2c94a6cc9c9c66bc8864feaed7f60edb65f56'
+ assert native.startswith(incoming)
+ tail=native[len(incoming):];i=tail.index('#print axioms TauCeti.NonabelianCohomology.Twist.gaugeEquiv\n');new,audits=tail[:i],tail[i:]
+ full=read(submitted_ref);assert sha(full)=='cfb99a696318dac942e36bb83e081ea10812c50ce217de719f2670d0471b4e26'
+ admitted=section(full,'/- BEGIN GAUGE REPRESENTATIVE TRANSPORT -/','/- END GAUGE REPRESENTATIVE TRANSPORT -/')
+ assert full.startswith(read(BASE))
+ projection='\n'.join(l for l in full.splitlines() if not l.startswith('import TauCeti.'))+'\n'
+ a=projection.index('section Abelian');z=projection.index('end Abelian',a)+len('end Abelian');projection=projection[:a]+projection[z:]
+ assert sha(projection)=='f1bb1548e7282cbc7ce6f10138074ea092495b394162bddddf3e8f87accc6ba6'
+ return {'Native.lean':native,'IncomingNative.lean':incoming,'New.lean':new,'Audits.lean':audits,
+  'Canonical.lean':full,'Sketch.lean':projection,'NewAdmitted.lean':admitted,
+  'base.txt':BASE+'\n','publication-base.txt':PUBLICATION+'\n',
+  'original-packet.json':read(BASE,'research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty.json')}
+if __name__=='__main__':
+ out=Path(sys.argv[2]);out.mkdir(parents=True,exist_ok=True)
+ for name,text in reconstruct(sys.argv[1]).items():(out/name).write_text(text)
+```
+
+### verify.py (SHA-256 7bd83c06625d5a17059c64b975e1169ffc4870c0cdaf8336dbcba246d5a52e3b)
+
+```python
+from pathlib import Path
+import ast,hashlib,json,re,subprocess,sys
+R=Path.cwd();S=Path(sys.argv[1]);RID='AnabelianGeometryAndNonabelianChabauty';NS='TauCeti.NonabelianCohomology.'
+files=['research/blueprint/'+f+'/'+('BP-' if f=='handoff' else '')+RID+'.'+ext for f,ext in [('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]]
+p=json.loads((R/files[0]).read_text());old=json.loads((S/'original-packet.json').read_text());nodes={n['id']:n for n in p['nodes']}
+assert len(old['nodes'])==156 and len(nodes)==175
+consumer=RID+':NC.3/exact-sequence'
+for n in old['nodes']:
+ v=nodes[n['id']]
+ if n['id']!=consumer:assert v==n,n['id']
+ else:
+  assert {k:x for k,x in v.items() if k not in ['prerequisites','proofSteps']}=={k:x for k,x in n.items() if k not in ['prerequisites','proofSteps']}
+  assert v['prerequisites'][:-3]==n['prerequisites'] and v['proofSteps'][:-1]==n['proofSteps']
+for k in old:
+ if k not in ['summary','nodes','sources','baseline','coverage','gaps']:assert p[k]==old[k],k
+assert p['sources'][:-1]==old['sources'] and p['baseline']['declarations'][:128]==old['baseline']['declarations']
+assert {k:v for k,v in p['baseline'].items() if k!='declarations'}=={k:v for k,v in old['baseline'].items() if k!='declarations'}
+assert p['gaps'][:-1]==old['gaps'][:-1]
+assert {k:v for k,v in p['gaps'][-1].items() if k!='gaugeRepresentativeContinuation'}==old['gaps'][-1]
+for a,b in zip(p['coverage'],old['coverage']):
+ if a['stageId']==RID+':NC.3':
+  assert a['remaining'][:-1]==b['remaining'] and {k:v for k,v in a.items() if k!='remaining'}=={k:v for k,v in b.items() if k!='remaining'}
+ else:assert a==b
+assert all(n['implementationStatus']=='unchecked' for n in p['nodes']) and p['status']=='partial'
+base=(S/'base.txt').read_text().strip()
+def blob(path):return subprocess.check_output(['git','show',base+':'+path],text=True)
+full=(R/files[2]).read_text();reader=(R/files[1]).read_text()
+incoming=(S/'IncomingNative.lean').read_text();new=(S/'New.lean').read_text();native=(S/'Native.lean').read_text();audits=(S/'Audits.lean').read_text()
+assert hashlib.sha256(incoming.encode()).hexdigest()=='da8459d77beb60e611bd3c7e20a2c94a6cc9c9c66bc8864feaed7f60edb65f56'
+assert native==incoming+new+audits and not re.search(r'\bsorry\b|\baxiom\b',native)
+assert full.startswith(blob(files[2])) and reader.endswith(blob(files[1]))
+admitted=full.split('/- BEGIN GAUGE REPRESENTATIVE TRANSPORT -/\n')[1].split('/- END GAUGE REPRESENTATIVE TRANSPORT -/')[0]
+def headers(text):
+ lines=text.splitlines(keepends=True);out={};i=0
+ while i<len(lines):
+  m=re.match(r'^(def|lemma|theorem|example)\b(?: ([\w.]+))?',lines[i])
+  if not m:i+=1;continue
+  j=i+1
+  while j<len(lines) and (not lines[j].strip() or lines[j][0].isspace()):j+=1
+  raw=''.join(lines[i:j]);sep=re.search(r' :=(?= by(?:\n| )| rfl|\n)',raw).start();header=raw[:sep]
+  test=m[1] in ['example','theorem'];name=lines[i-1].removeprefix('-- test: ').strip() if test else m[2]
+  if m[1]=='theorem':header=header.replace('theorem '+m[2],'example',1)
+  out[('test' if test else m[1],name)]=' '.join(header.split());i=j
+ return out
+hh=headers(new);assert hh==headers(admitted)
+decls={name for (kind,name) in hh if kind!='test'};tests={name for (kind,name) in hh if kind=='test'}
+assert len(decls)==19 and len(tests)==6
+for n in p['nodes'][156:]:
+ assert n['declarationName'].removeprefix(NS) in decls and n['declarationName'] in reader and n['statement'] in reader
+ for a in n.get('api',[]):assert a['name'] in reader and a['statement'] in reader and a['name'].removeprefix(NS) in decls
+ for t in n.get('tests',[]):assert t['name'] in tests and t['statement'] in reader
+assert {t['name'] for n in p['nodes'][156:] for t in n.get('tests',[])}==tests
+assert (S/'Canonical.lean').read_text()==full and (S/'NewAdmitted.lean').read_text()==admitted
+projection='\n'.join(l for l in full.splitlines() if not l.startswith('import TauCeti.'))+'\n'
+a=projection.index('section Abelian');z=projection.index('end Abelian',a)+len('end Abelian');projection=projection[:a]+projection[z:]
+assert (S/'Sketch.lean').read_text()==projection
+lean={}
+for name,count,warnings in [('Native',152,0),('Sketch',0,345)]:
+ path=S/(name.lower()+'.log')
+ if not path.exists():lean[name]='No local execution log supplied; source/header validation only.';continue
+ log=path.read_text();assert 'Exit status: 0' in log and not re.search(r'error(?:\(|:)|sorryAx',log)
+ assert log.count('warning:')==log.count('warning: declaration uses')==warnings
+ assert log.count('depends on axioms:')+log.count('does not depend on any axioms')==count
+ found=re.findall(r'depends on axioms: \[(.*?)\]',log,re.S)
+ assert all(set(re.findall(r'\b(?:\w+\.)*\w+\b',v))<={'propext','Classical.choice','Quot.sound'} for v in found)
+ lean[name]={'warnings':warnings,'audits':count,'exit':0}
+tree=ast.parse((R/'research/blueprint/intake.py').read_text());names={'file_problems','auto_refusals','own_files','independent_of'}
+picked=[n for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id in {'ALLOWED','PRIVATE'} for t in n.targets) or isinstance(n,ast.FunctionDef) and n.name in names]
+env={'json':json,'re':re};exec(compile(ast.Module(body=picked,type_ignores=[]),'actual-intake','exec'),env)
+job=next(j for j in json.loads((R/'research/blueprint/queue.json').read_text())['jobs'] if j['id']=='BP-'+RID)
+problems=[x for path in files for x in env['file_problems'](path,(R/path).read_text())]
+refusals=env['auto_refusals'](job,files,False,{'codex-7e92bd'},set());assert not problems and not refusals,(problems,refusals)
+for path in files:
+ text=(R/path).read_text();assert not re.search(r'[ \t]+$',text,re.M),path
+ assert not re.search(r'/(?:home|Users)/[^/\s]+/',text),path
+pub=(S/'publication-base.txt').read_text().strip() if (S/'publication-base.txt').exists() else base
+changed=set(subprocess.check_output(['git','diff','--name-only',pub],text=True).splitlines());assert changed<=set(files),changed
+sys.path.insert(0,str(R/'scripts'));import check_blueprint
+errors,warnings,summary=check_blueprint.check(R/files[0],check_blueprint.load_index(Path(sys.argv[2])),check_blueprint.world());assert not errors and not warnings,(errors,warnings)
+summary['packet']=files[0]
+report={'oldNodeObjectsPreserved':155,'oldContractsPreserved':156,'newHeadersMatched':19,'newTestsMatched':6,'incomingProofPreserved':True,'canonicalPrefixPreserved':True,'readerSuffixPreserved':True,'intakeFileProblems':problems,'intakeAutoRefusals':refusals,'checker':summary,'rawApiItems':177,'rawTests':139,'lean':lean,'fullCanonicalCompiled':False,'scriptSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+print(json.dumps(report,indent=2))
+```
+
+### graph.py (SHA-256 ab71ac9c55e48cbf329dcfce0cdddcd2697454396259d39ed67d0948462762a0)
+
+```python
+"""Read-only actual atlas assembly with the candidate injected as promotion inputs."""
+from pathlib import Path
+import sys,json,copy,collections
+root=Path.cwd();sys.path.insert(0,str(root/'scripts'))
+import build,blueprints,check_blueprint
+rid='AnabelianGeometryAndNonabelianChabauty'
+p=json.loads((root/'research/blueprint/packets'/f'{rid}.json').read_text())
+r=next(x for x in json.loads((root/'data/atlas.json').read_text())['roadmaps'] if x['id']==rid)
+a0=json.loads((root/'data/atlas.json').read_text())
+packets,documents,definitions=blueprints.load_promoted(root)
+packets=[x for x in packets if x[1].get('roadmapId')!=rid]+[(rid,p)]
+documents[rid]=f'research/blueprint/readmes/{rid}.md'
+definitions=[x for x in definitions if x['id']!=rid]
+if not any(x['id']==rid for x in a0['roadmaps']):definitions.append(r)
+build.load_promoted=lambda *args:(copy.deepcopy(packets),copy.deepcopy(documents),copy.deepcopy(definitions))
+a,*rest=build.assemble(require_distances=False)
+ctx=check_blueprint.world()
+world={}
+for folder in ['data/decompositions','data/blueprints','research/blueprint/packets']:
+ for path in sorted((root/folder).glob('*.json')):
+  q=json.loads(path.read_text())
+  for n in q.get('nodes',[]):world.setdefault(n['id'],n)
+world.update({n['id']:n for n in p['nodes']})
+stages={s['id']:s for s in a['stages']}
+stageids=set(stages)|set(ctx[1])
+stageedges={(e['source'],e['target']) for e in a['stageEdges']}
+virtual={v for e in stageedges for v in e}-set(stages)
+
+def dag(vertices,edges):
+ vertices=set(vertices)|{v for e in edges for v in e}
+ out=collections.defaultdict(set);indeg={v:0 for v in vertices}
+ for s,t in edges:
+  if t not in out[s]:out[s].add(t);indeg[t]+=1
+ stack=[v for v,k in indeg.items() if k==0];count=0
+ while stack:
+  x=stack.pop();count+=1
+  for y in out[x]:
+   indeg[y]-=1
+   if indeg[y]==0:stack.append(y)
+ assert count==len(vertices),f'cycle: {[v for v,k in indeg.items() if k][:15]}'
+ return {'vertices':len(vertices),'edges':len(edges),'acyclic':True}
+
+own={n['id']:n for n in p['nodes']}
+ownedges={(q,n['id']) for n in p['nodes'] for q in n.get('prerequisites',[]) if q in own}
+stack=list(own);seen=set();dep=set();unresolved=set()
+while stack:
+ nid=stack.pop()
+ if nid in seen:continue
+ seen.add(nid)
+ n=world[nid]
+ for q in n.get('prerequisites',[]):
+  if q.startswith(('mathlib:','tauceti:')) and q not in stageids and not q.startswith('tauceti:TauCetiRoadmap/'):continue
+  dep.add((q,nid))
+  if q in world:stack.append(q)
+  elif q not in stageids:unresolved.add(q)
+assert not unresolved,sorted(unresolved)
+# Include actual recorded parent metadata and request edges, not synthetic realises attachments.
+parents={(world[v]['parentStageId'],v) for v in seen
+         if world[v].get('parentStageId') in stageids or world[v].get('parentStageId') in seen}
+requests={(request['supplier'],consumer) for request in p.get('requests',[])
+          for consumer in request.get('neededBy',[]) if consumer in own or consumer in stageids}
+dep |= parents | requests
+report={'stage':dag(stages,stageedges),'own':dag(own,ownedges),'combinedPrerequisites':dag(set(stages)|seen,stageedges|dep),'virtualSupplierEndpoints':len(virtual),'reachableDeclarations':len(seen),'unresolvedReferences':len(unresolved)}
+roadmap=next(x for x in a['roadmaps'] if x['id']==rid)
+assert roadmap['blueprint']['declarations']==len(own)
+assert roadmap['blueprint']['planets']==11
+assert not roadmap['blueprint']['skippedLinks'],roadmap['blueprint']['skippedLinks']
+assert not roadmap.get('pendingLinks',[]),roadmap.get('pendingLinks',[])
+report['actualBlueprint']={k:roadmap['blueprint'][k] for k in ['declarations','planets','kinds','skippedLinks']}
+# The original packet is used as a second promotion input to check projection preservation.
+p0=json.loads(sys.argv[1] and Path(sys.argv[1]).read_text()) if len(sys.argv)>1 else p
+r0=copy.deepcopy(r)
+basepackets=[x for x in packets if x[1].get('roadmapId')!=rid]+[(rid,p0)]
+build.load_promoted=lambda *args:(copy.deepcopy(basepackets),copy.deepcopy(documents),copy.deepcopy(definitions))
+b,*_=build.assemble(require_distances=False)
+bedges={(e['source'],e['target']) for e in b['stageEdges']}
+assert stageedges==bedges
+report['stageEdgesUnchanged']=True
+control={x['id']:(x.get('blueprint',{}).get('skippedLinks',[]),x.get('pendingLinks',[])) for x in a['roadmaps'] if x['id']!=rid}
+control0={x['id']:(x.get('blueprint',{}).get('skippedLinks',[]),x.get('pendingLinks',[])) for x in b['roadmaps'] if x['id']!=rid}
+assert control==control0
+report['otherRoadmapSkippedPendingLinksUnchanged']=True
+# Check all original in-roadmap dependencies and explicit request supplier paths.
+stageout=collections.defaultdict(set)
+for source,target in stageedges:stageout[source].add(target)
+def reachable(source,target):
+ todo=[source];done=set()
+ while todo:
+  x=todo.pop()
+  if x==target:return True
+  if x in done:continue
+  done.add(x);todo.extend(stageout[x]-done)
+ return False
+pairs={(e['source'],e['target']) for e in a0['stageEdges'] if e['target'].startswith(rid+':')}
+for node in p['nodes']:
+ for q in node.get('prerequisites',[]):
+  if q in stageids and q not in world and q != node['parentStageId']:pairs.add((q,node['parentStageId']))
+for request in p.get('requests',[]):
+ for consumer in request.get('neededBy',[]):
+  if consumer in own:pairs.add((request['supplier'],own[consumer]['parentStageId']))
+  elif consumer in stageids:pairs.add((request['supplier'],consumer))
+assert all(reachable(source,target) for source,target in pairs),[(s,t) for s,t in pairs if not reachable(s,t)]
+report['requiredStagePairs']=len(pairs)
+report['requiredStagePairsReachable']=len(pairs)
+
+report['scriptSha256']=__import__('hashlib').sha256(Path(__file__).read_bytes()).hexdigest()
+print(json.dumps(report,ensure_ascii=False,indent=2))
+```
+
+## Preserved incoming handoff
+
 # Coefficient naturality of continuous inner twisting — Codex codex-5ebb6f
 
 Refs #1020. Claim5964184656 won, confirmed by bot5964185654. The whole issue
