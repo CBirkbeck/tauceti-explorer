@@ -1,3 +1,227 @@
+# Balanced affine pullback of parameter connections
+
+For f:R→S and a supplied compatible map of differential calculi (β₁,β₂), this continuation constructs the target connection on the actual native tensor module S⊗_R E. With η(e)=1⊗e, the formula is
+
+    D_S(s⊗e) = s·(η⊗β₁)D(e) + f(λ)·(η(e)⊗dΓ,₀s).
+
+Both inputs are additive. Expanding the derivation and source Leibniz rules proves R-balancing, so the native additive tensor lift defines D_S. The product rule proves its S-Leibniz identity with one copy of f(λ). Its unit η is horizontal, and those two conditions characterize it uniquely. Native extension of a horizontal R-linear map stays horizontal. The source and target modules need no basis, projectivity or flatness.
+
+Curvature on η(e) follows from the previous semilinear extension theorem. To reach all target elements, dΩ,₀λ=0 is transported to dΓ,₀f(λ)=0, making target curvature S-linear. Every elementary tensor is sη(e), and tensor induction reaches arbitrary sums. Thus source flatness implies target flatness even when η is not surjective. Reflection retains injectivity of the actual degree-two map η⊗β₂; the coefficient ring map alone does not justify it.
+
+The worked example extends ℤ to ℤ[x]. The source calculus has zero derivation, the target has formal derivative, and the one-form comparison is zero. The source unit(2) connection vanishes, yet its pullback sends x⊗1 to the nonzero tensor 2((1⊗1)⊗1), while remaining flat. Native right unitors detect that value. A separate coefficient calculation proves η is not surjective. The zero-parameter test removes precisely the derivative correction. These checks exercise the newly added coefficient directions as well as the abstract balancing and uniqueness equations.
+
+Sources are the freshly reread parameter convention in Esnault–Groechenig's author pp.23–24 and the complete Stacks §60.15 connection/extension section, at the recorded byte hashes. These arbitrary-ring results are authored deductions from the stated axioms and tensor universal property. The published-version receipt and EG20/E10 source finding are retained unchanged; the cited Simpson arguments are not newly checked here.
+
+The balanced affine pullback on the actual S⊗_R E now exists, with its single f(λ) Leibniz term, horizontal unit, uniqueness and native horizontal map extension. Constant source parameter and source flatness imply flatness on the whole target by tensor generation, without surjectivity of η or flatness of S. Reflection still needs injectivity of η⊗β₂. Still prove monoidal/exterior-power and iterated-base-change coherence, and genuine E1 sheaf tensor/restriction, equality detection and effective gluing. The reserved finite locally free ringed-site key, all five supplier requests, all149 routed obligations, determinant/Tate/period adapters, arbitrary-Q tensor-valued shuffle and H.1–H.8 remain open.
+
+Earlier frontier paragraphs below record their own checkpoint boundaries. Their full contracts and reader text remain available unchanged.
+
+## Semilinear scalar-extension unit
+
+**scalarUnit** — The native f-semilinear map η:E→S⊗_R E is η(e)=1⊗e, for f=algebraMap R S. No surjectivity or injectivity is asserted.
+
+Hypotheses: k,R,S are arbitrary commutative rings; R,S are k-algebras and S is an R-algebra with f=algebraMap R S. E,F are arbitrary R-modules with additive commutative groups, in independent universes. No finite generation, basis, projectivity, flatness, smoothness, field or characteristic assumption is added. Ω=(d₀,d₁,∧) and Γ are the existing supplied affine TwoForms calculi on independent degree-one/two modules. The native m:TwoForms.Morphism f Ω Γ supplies semilinear β₁,β₂ and both differential and wedge compatibility equations. Compatible k-module scalar towers are used where inherited curvature theorems require them. No universal differential forms or sheaf carrier is redefined. D is the actual additive λ-preconnection over Ω; pullback constructs the target f(λ)-preconnection. The definition, balancing, unit curvature, uniqueness and horizontal map theorem do not require d₀λ=0. Curvature on all generating tensors, all-target flatness and the flatness equivalence explicitly require dΩ,₀λ=0. Reflection additionally requires injectivity of the actual degree-two tensor comparison.
+
+Prerequisites: mathlib:TensorProduct.mk.
+
+Proof: Use the actual tensor 1⊗e. Additivity is tensor additivity; balancing identifies 1⊗ae with f(a)⊗e=f(a)η(e).
+
+API:
+
+- **scalarUnit_apply**: For every e, η(e)=1⊗e.
+- **scalarUnit_baseChange**: For every native R-linear h:E→F, h.baseChange(S)(η_E(e))=η_F(h(e)).
+- **scalarUnit_tensor_natural**: For R-linear h:E→F and x∈E⊗_R W, (h_S⊗id_V)((η_E⊗β₁)x)=(η_F⊗β₁)((h⊗id_W)x).
+
+Tests:
+
+- **scalarUnit.test_semilinear**: η(ae)=f(a)η(e) with the actual native semilinear map.
+- **scalarUnit.test_baseChange**: For arbitrary modules and R-linear h, h.baseChange(S)(η(e))=η(h(e)).
+- **scalarUnit.test_not_surjective**: For ℤ→ℤ[x] and E=ℤ, η is not surjective: x⊗1 cannot equal 1⊗n, as coefficient one detects after the native right unitor.
+
+## Scalar-extension unit evaluation
+
+**scalarUnit_apply** — For every e, η(e)=1⊗e.
+
+Hypotheses: k,R,S are arbitrary commutative rings; R,S are k-algebras and S is an R-algebra with f=algebraMap R S. E,F are arbitrary R-modules with additive commutative groups, in independent universes. No finite generation, basis, projectivity, flatness, smoothness, field or characteristic assumption is added. Ω=(d₀,d₁,∧) and Γ are the existing supplied affine TwoForms calculi on independent degree-one/two modules. The native m:TwoForms.Morphism f Ω Γ supplies semilinear β₁,β₂ and both differential and wedge compatibility equations. Compatible k-module scalar towers are used where inherited curvature theorems require them. No universal differential forms or sheaf carrier is redefined. D is the actual additive λ-preconnection over Ω; pullback constructs the target f(λ)-preconnection. The definition, balancing, unit curvature, uniqueness and horizontal map theorem do not require d₀λ=0. Curvature on all generating tensors, all-target flatness and the flatness equivalence explicitly require dΩ,₀λ=0. Reflection additionally requires injectivity of the actual degree-two tensor comparison.
+
+Prerequisites: HodgeStructuresPartII:H.0/scalar-extension-unit.
+
+Proof: Unfold the concrete semilinear map.
+
+## Biadditive affine pullback formula
+
+**Preconnection.pullbackPair** — For supplied m=(β₁,β₂), define B(s,e)=s·(η⊗β₁)D(e)+f(λ)·(η(e)⊗dΓ,₀s) as an actual biadditive map S→+(E→+((S⊗_R E)⊗_S V)).
+
+Hypotheses: k,R,S are arbitrary commutative rings; R,S are k-algebras and S is an R-algebra with f=algebraMap R S. E,F are arbitrary R-modules with additive commutative groups, in independent universes. No finite generation, basis, projectivity, flatness, smoothness, field or characteristic assumption is added. Ω=(d₀,d₁,∧) and Γ are the existing supplied affine TwoForms calculi on independent degree-one/two modules. The native m:TwoForms.Morphism f Ω Γ supplies semilinear β₁,β₂ and both differential and wedge compatibility equations. Compatible k-module scalar towers are used where inherited curvature theorems require them. No universal differential forms or sheaf carrier is redefined. D is the actual additive λ-preconnection over Ω; pullback constructs the target f(λ)-preconnection. The definition, balancing, unit curvature, uniqueness and horizontal map theorem do not require d₀λ=0. Curvature on all generating tensors, all-target flatness and the flatness equivalence explicitly require dΩ,₀λ=0. Reflection additionally requires injectivity of the actual degree-two tensor comparison.
+
+Prerequisites: HodgeStructuresPartII:H.0/scalar-extension-unit, HodgeStructuresPartII:H.0/calculus-ring-morphism, HodgeStructuresPartII:H.0/intrinsic-preconnection, mathlib:TensorProduct.map.
+
+Proof: Build both additive-homomorphism structures from additivity of D,d₀,η,β₁ and each tensor factor; reorder the four summands.
+
+API:
+
+- **Preconnection.pullbackPair_apply**: B(s,e)=s·(η⊗β₁)D(e)+f(λ)·(η(e)⊗dΓ,₀s).
+- **Preconnection.pullback_balanced**: For a∈R,s∈S,e∈E, B(a·s,e)=B(s,a·e). No flatness or projectivity is required.
+- **Preconnection.affinePullback**: Construct D_S on the native S-module S⊗_R E by descending B through TensorProduct.liftAddHom. It is a preconnection for Γ with parameter f(λ): D_S(sx)=sD_S(x)+f(λ)x⊗dΓ,₀s for every x.
+
+Tests:
+
+- **Preconnection.pullbackPair.test_balance**: The actual biadditive formula satisfies B(a·s,e)=B(s,a·e).
+- **Preconnection.pullbackPair.test_add_left**: B(s+t,e)=B(s,e)+B(t,e).
+- **Preconnection.pullbackPair.test_add_right**: B(s,e+f)=B(s,e)+B(s,f).
+
+## Pullback-pair evaluation
+
+**Preconnection.pullbackPair_apply** — B(s,e)=s·(η⊗β₁)D(e)+f(λ)·(η(e)⊗dΓ,₀s).
+
+Hypotheses: k,R,S are arbitrary commutative rings; R,S are k-algebras and S is an R-algebra with f=algebraMap R S. E,F are arbitrary R-modules with additive commutative groups, in independent universes. No finite generation, basis, projectivity, flatness, smoothness, field or characteristic assumption is added. Ω=(d₀,d₁,∧) and Γ are the existing supplied affine TwoForms calculi on independent degree-one/two modules. The native m:TwoForms.Morphism f Ω Γ supplies semilinear β₁,β₂ and both differential and wedge compatibility equations. Compatible k-module scalar towers are used where inherited curvature theorems require them. No universal differential forms or sheaf carrier is redefined. D is the actual additive λ-preconnection over Ω; pullback constructs the target f(λ)-preconnection. The definition, balancing, unit curvature, uniqueness and horizontal map theorem do not require d₀λ=0. Curvature on all generating tensors, all-target flatness and the flatness equivalence explicitly require dΩ,₀λ=0. Reflection additionally requires injectivity of the actual degree-two tensor comparison.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-pair.
+
+Proof: Evaluate the actual biadditive map.
+
+## Balancing the parameter pullback
+
+**Preconnection.pullback_balanced** — For a∈R,s∈S,e∈E, B(a·s,e)=B(s,a·e). No flatness or projectivity is required.
+
+Hypotheses: k,R,S are arbitrary commutative rings; R,S are k-algebras and S is an R-algebra with f=algebraMap R S. E,F are arbitrary R-modules with additive commutative groups, in independent universes. No finite generation, basis, projectivity, flatness, smoothness, field or characteristic assumption is added. Ω=(d₀,d₁,∧) and Γ are the existing supplied affine TwoForms calculi on independent degree-one/two modules. The native m:TwoForms.Morphism f Ω Γ supplies semilinear β₁,β₂ and both differential and wedge compatibility equations. Compatible k-module scalar towers are used where inherited curvature theorems require them. No universal differential forms or sheaf carrier is redefined. D is the actual additive λ-preconnection over Ω; pullback constructs the target f(λ)-preconnection. The definition, balancing, unit curvature, uniqueness and horizontal map theorem do not require d₀λ=0. Curvature on all generating tensors, all-target flatness and the flatness equivalence explicitly require dΩ,₀λ=0. Reflection additionally requires injectivity of the actual degree-two tensor comparison.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-pair-apply.
+
+Proof: Expand dΓ,₀(f(a)s) and D(ae). The differential compatibility dΓ,₀(f(a))=β₁(dΩ,₀a), semilinearity and tensor balancing match all three terms, including the single coefficient f(λ).
+
+## Actual affine parameter pullback
+
+**Preconnection.affinePullback** — Construct D_S on the native S-module S⊗_R E by descending B through TensorProduct.liftAddHom. It is a preconnection for Γ with parameter f(λ): D_S(sx)=sD_S(x)+f(λ)x⊗dΓ,₀s for every x.
+
+Hypotheses: k,R,S are arbitrary commutative rings; R,S are k-algebras and S is an R-algebra with f=algebraMap R S. E,F are arbitrary R-modules with additive commutative groups, in independent universes. No finite generation, basis, projectivity, flatness, smoothness, field or characteristic assumption is added. Ω=(d₀,d₁,∧) and Γ are the existing supplied affine TwoForms calculi on independent degree-one/two modules. The native m:TwoForms.Morphism f Ω Γ supplies semilinear β₁,β₂ and both differential and wedge compatibility equations. Compatible k-module scalar towers are used where inherited curvature theorems require them. No universal differential forms or sheaf carrier is redefined. D is the actual additive λ-preconnection over Ω; pullback constructs the target f(λ)-preconnection. The definition, balancing, unit curvature, uniqueness and horizontal map theorem do not require d₀λ=0. Curvature on all generating tensors, all-target flatness and the flatness equivalence explicitly require dΩ,₀λ=0. Reflection additionally requires injectivity of the actual degree-two tensor comparison.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-balanced, mathlib:TensorProduct.liftAddHom, mathlib:TensorProduct.induction_on.
+
+Proof: Descend the balanced biadditive map. Prove S-Leibniz by tensor induction: the pure-tensor case is the derivation product rule for dΓ,₀(as); addition and zero follow from the additive lift.
+
+API:
+
+- **Preconnection.affinePullback_tmul**: D_S(s⊗e)=s·(η⊗β₁)D(e)+f(λ)·(η(e)⊗dΓ,₀s).
+- **Preconnection.affinePullback_unit**: The actual η is semilinearly horizontal: D_S(η(e))=(η⊗β₁)D(e) for every e.
+- **Preconnection.affinePullback_curvature_unit**: For arbitrary λ, κ_DS(η(e))=(η⊗β₂)κ_D(e).
+- **Preconnection.affinePullback_curvature_tmul**: If dΩ,₀λ=0, then κ_DS(s⊗e)=s·(η⊗β₂)κ_D(e) for every s,e.
+- **Preconnection.affinePullback_flat**: If dΩ,₀λ=0 and κ_D(e)=0 for every e, then κ_DS(x)=0 for every x∈S⊗_R E. η need not be surjective.
+- **Preconnection.affinePullback_unique**: Every preconnection C for Γ,f(λ) on S⊗_R E whose scalar-extension unit is horizontal equals D_S.
+- **Preconnection.affinePullback_flat_iff**: If dΩ,₀λ=0 and η⊗β₂:E⊗_R Z→(S⊗_R E)⊗_S Y is injective, then κ_DS=0 if and only if κ_D=0.
+- **Preconnection.affinePullback_horizontal**: If C(h(e))=(h⊗id_W)D(e) for every e, then C_S(h.baseChange(S)(x))=(h.baseChange(S)⊗id_V)D_S(x) for every x∈S⊗_R E.
+
+Tests:
+
+- **Preconnection.affinePullback.test_leibniz**: For every x∈S⊗_R E, D_S(sx)=sD_S(x)+f(λ)x⊗dΓ,₀s.
+- **Preconnection.affinePullback.test_zero_higgs**: At λ=0 the derivative correction vanishes: D_S(s⊗e)=s(η⊗β₁)D(e).
+- **Preconnection.affinePullback.test_unit_horizontal**: The constructed scalar-extension unit is semilinearly horizontal.
+- **Preconnection.affinePullback.test_flat_arbitrary_sum**: With d₀λ=0 and flat D, curvature vanishes on (s⊗e)+(t⊗f) for arbitrary scalars and sections.
+- **Preconnection.affinePullback.test_uniqueness**: Any target preconnection with horizontal η equals the constructed affine pullback.
+- **Preconnection.affinePullback.test_reflection**: With constant parameter and injective η⊗β₂, source and pullback flatness are equivalent.
+- **Preconnection.affinePullback.test_horizontal_map**: Every horizontal R-linear h induces a horizontal native h.baseChange(S).
+- **Preconnection.affinePullback.test_new_polynomial_direction**: Construct Ω on ℤ with d₀=0 and Γ on ℤ[x] with formal derivative, genuine zero degree-two modules, m with β₁=β₂=0, and D=unit(2). Then D=0, D_S is flat everywhere, but D_S(x⊗1)=2((1⊗1)⊗1)≠0. The added coefficient direction must be differentiated.
+
+## Pullback on elementary tensors
+
+**Preconnection.affinePullback_tmul** — D_S(s⊗e)=s·(η⊗β₁)D(e)+f(λ)·(η(e)⊗dΓ,₀s).
+
+Hypotheses: k,R,S are arbitrary commutative rings; R,S are k-algebras and S is an R-algebra with f=algebraMap R S. E,F are arbitrary R-modules with additive commutative groups, in independent universes. No finite generation, basis, projectivity, flatness, smoothness, field or characteristic assumption is added. Ω=(d₀,d₁,∧) and Γ are the existing supplied affine TwoForms calculi on independent degree-one/two modules. The native m:TwoForms.Morphism f Ω Γ supplies semilinear β₁,β₂ and both differential and wedge compatibility equations. Compatible k-module scalar towers are used where inherited curvature theorems require them. No universal differential forms or sheaf carrier is redefined. D is the actual additive λ-preconnection over Ω; pullback constructs the target f(λ)-preconnection. The definition, balancing, unit curvature, uniqueness and horizontal map theorem do not require d₀λ=0. Curvature on all generating tensors, all-target flatness and the flatness equivalence explicitly require dΩ,₀λ=0. Reflection additionally requires injectivity of the actual degree-two tensor comparison.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback, mathlib:TensorProduct.liftAddHom_tmul.
+
+Proof: Use the defining evaluation equation of the additive tensor lift.
+
+## Horizontal scalar-extension unit
+
+**Preconnection.affinePullback_unit** — The actual η is semilinearly horizontal: D_S(η(e))=(η⊗β₁)D(e) for every e.
+
+Hypotheses: k,R,S are arbitrary commutative rings; R,S are k-algebras and S is an R-algebra with f=algebraMap R S. E,F are arbitrary R-modules with additive commutative groups, in independent universes. No finite generation, basis, projectivity, flatness, smoothness, field or characteristic assumption is added. Ω=(d₀,d₁,∧) and Γ are the existing supplied affine TwoForms calculi on independent degree-one/two modules. The native m:TwoForms.Morphism f Ω Γ supplies semilinear β₁,β₂ and both differential and wedge compatibility equations. Compatible k-module scalar towers are used where inherited curvature theorems require them. No universal differential forms or sheaf carrier is redefined. D is the actual additive λ-preconnection over Ω; pullback constructs the target f(λ)-preconnection. The definition, balancing, unit curvature, uniqueness and horizontal map theorem do not require d₀λ=0. Curvature on all generating tensors, all-target flatness and the flatness equivalence explicitly require dΩ,₀λ=0. Reflection additionally requires injectivity of the actual degree-two tensor comparison.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-tmul, HodgeStructuresPartII:H.0/semilinear-horizontal.
+
+Proof: Evaluate the pullback formula at s=1 and use dΓ,₀1=0.
+
+## Curvature on the extension unit
+
+**Preconnection.affinePullback_curvature_unit** — For arbitrary λ, κ_DS(η(e))=(η⊗β₂)κ_D(e).
+
+Hypotheses: k,R,S are arbitrary commutative rings; R,S are k-algebras and S is an R-algebra with f=algebraMap R S. E,F are arbitrary R-modules with additive commutative groups, in independent universes. No finite generation, basis, projectivity, flatness, smoothness, field or characteristic assumption is added. Ω=(d₀,d₁,∧) and Γ are the existing supplied affine TwoForms calculi on independent degree-one/two modules. The native m:TwoForms.Morphism f Ω Γ supplies semilinear β₁,β₂ and both differential and wedge compatibility equations. Compatible k-module scalar towers are used where inherited curvature theorems require them. No universal differential forms or sheaf carrier is redefined. D is the actual additive λ-preconnection over Ω; pullback constructs the target f(λ)-preconnection. The definition, balancing, unit curvature, uniqueness and horizontal map theorem do not require d₀λ=0. Curvature on all generating tensors, all-target flatness and the flatness equivalence explicitly require dΩ,₀λ=0. Reflection additionally requires injectivity of the actual degree-two tensor comparison.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-unit-horizontal, HodgeStructuresPartII:H.0/semilinear-curvature.
+
+Proof: Apply the already constructed semilinear curvature naturality to the proved unit horizontality.
+
+## Curvature on generating tensors
+
+**Preconnection.affinePullback_curvature_tmul** — If dΩ,₀λ=0, then κ_DS(s⊗e)=s·(η⊗β₂)κ_D(e) for every s,e.
+
+Hypotheses: k,R,S are arbitrary commutative rings; R,S are k-algebras and S is an R-algebra with f=algebraMap R S. E,F are arbitrary R-modules with additive commutative groups, in independent universes. No finite generation, basis, projectivity, flatness, smoothness, field or characteristic assumption is added. Ω=(d₀,d₁,∧) and Γ are the existing supplied affine TwoForms calculi on independent degree-one/two modules. The native m:TwoForms.Morphism f Ω Γ supplies semilinear β₁,β₂ and both differential and wedge compatibility equations. Compatible k-module scalar towers are used where inherited curvature theorems require them. No universal differential forms or sheaf carrier is redefined. D is the actual additive λ-preconnection over Ω; pullback constructs the target f(λ)-preconnection. The definition, balancing, unit curvature, uniqueness and horizontal map theorem do not require d₀λ=0. Curvature on all generating tensors, all-target flatness and the flatness equivalence explicitly require dΩ,₀λ=0. Reflection additionally requires injectivity of the actual degree-two tensor comparison.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-curvature-unit, HodgeStructuresPartII:H.0/calculus-ring-constant-parameter, HodgeStructuresPartII:H.0/curvature-linearity.
+
+Proof: Write s⊗e=sη(e). The calculus comparison sends dΩ,₀λ=0 to dΓ,₀f(λ)=0; target curvature is S-linear, so pull out s and apply the unit equation.
+
+## Flat pullback on the whole extended module
+
+**Preconnection.affinePullback_flat** — If dΩ,₀λ=0 and κ_D(e)=0 for every e, then κ_DS(x)=0 for every x∈S⊗_R E. η need not be surjective.
+
+Hypotheses: k,R,S are arbitrary commutative rings; R,S are k-algebras and S is an R-algebra with f=algebraMap R S. E,F are arbitrary R-modules with additive commutative groups, in independent universes. No finite generation, basis, projectivity, flatness, smoothness, field or characteristic assumption is added. Ω=(d₀,d₁,∧) and Γ are the existing supplied affine TwoForms calculi on independent degree-one/two modules. The native m:TwoForms.Morphism f Ω Γ supplies semilinear β₁,β₂ and both differential and wedge compatibility equations. Compatible k-module scalar towers are used where inherited curvature theorems require them. No universal differential forms or sheaf carrier is redefined. D is the actual additive λ-preconnection over Ω; pullback constructs the target f(λ)-preconnection. The definition, balancing, unit curvature, uniqueness and horizontal map theorem do not require d₀λ=0. Curvature on all generating tensors, all-target flatness and the flatness equivalence explicitly require dΩ,₀λ=0. Reflection additionally requires injectivity of the actual degree-two tensor comparison.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-curvature-tmul, mathlib:TensorProduct.induction_on.
+
+Proof: Induct on x. The generating-tensor equation gives zero on every s⊗e, and additive curvature gives zero on sums and zero. This uses S-generation by η(E), not function-surjectivity of η.
+
+## Uniqueness of the pullback connection
+
+**Preconnection.affinePullback_unique** — Every preconnection C for Γ,f(λ) on S⊗_R E whose scalar-extension unit is horizontal equals D_S.
+
+Hypotheses: k,R,S are arbitrary commutative rings; R,S are k-algebras and S is an R-algebra with f=algebraMap R S. E,F are arbitrary R-modules with additive commutative groups, in independent universes. No finite generation, basis, projectivity, flatness, smoothness, field or characteristic assumption is added. Ω=(d₀,d₁,∧) and Γ are the existing supplied affine TwoForms calculi on independent degree-one/two modules. The native m:TwoForms.Morphism f Ω Γ supplies semilinear β₁,β₂ and both differential and wedge compatibility equations. Compatible k-module scalar towers are used where inherited curvature theorems require them. No universal differential forms or sheaf carrier is redefined. D is the actual additive λ-preconnection over Ω; pullback constructs the target f(λ)-preconnection. The definition, balancing, unit curvature, uniqueness and horizontal map theorem do not require d₀λ=0. Curvature on all generating tensors, all-target flatness and the flatness equivalence explicitly require dΩ,₀λ=0. Reflection additionally requires injectivity of the actual degree-two tensor comparison.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-tmul, HodgeStructuresPartII:H.0/affine-pullback-unit-horizontal, mathlib:TensorProduct.induction_on.
+
+Proof: On sη(e), the S-Leibniz rule of C and horizontality force the displayed formula. Tensor induction proves equality of additive maps, and proof irrelevance identifies the preconnection structures.
+
+## Flatness equivalence with degree-two detection
+
+**Preconnection.affinePullback_flat_iff** — If dΩ,₀λ=0 and η⊗β₂:E⊗_R Z→(S⊗_R E)⊗_S Y is injective, then κ_DS=0 if and only if κ_D=0.
+
+Hypotheses: k,R,S are arbitrary commutative rings; R,S are k-algebras and S is an R-algebra with f=algebraMap R S. E,F are arbitrary R-modules with additive commutative groups, in independent universes. No finite generation, basis, projectivity, flatness, smoothness, field or characteristic assumption is added. Ω=(d₀,d₁,∧) and Γ are the existing supplied affine TwoForms calculi on independent degree-one/two modules. The native m:TwoForms.Morphism f Ω Γ supplies semilinear β₁,β₂ and both differential and wedge compatibility equations. Compatible k-module scalar towers are used where inherited curvature theorems require them. No universal differential forms or sheaf carrier is redefined. D is the actual additive λ-preconnection over Ω; pullback constructs the target f(λ)-preconnection. The definition, balancing, unit curvature, uniqueness and horizontal map theorem do not require d₀λ=0. Curvature on all generating tensors, all-target flatness and the flatness equivalence explicitly require dΩ,₀λ=0. Reflection additionally requires injectivity of the actual degree-two tensor comparison.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-flat, HodgeStructuresPartII:H.0/affine-pullback-unit-horizontal, HodgeStructuresPartII:H.0/semilinear-flat-reflection.
+
+Proof: Use injectivity of the actual degree-two comparison for reflection; combine with the all-target flatness theorem. Injectivity of f or η alone does not supply the stated tensor injectivity.
+
+## Scalar-extension unit and native map extension
+
+**scalarUnit_baseChange** — For every native R-linear h:E→F, h.baseChange(S)(η_E(e))=η_F(h(e)).
+
+Hypotheses: k,R,S are arbitrary commutative rings; R,S are k-algebras and S is an R-algebra with f=algebraMap R S. E,F are arbitrary R-modules with additive commutative groups, in independent universes. No finite generation, basis, projectivity, flatness, smoothness, field or characteristic assumption is added. Ω=(d₀,d₁,∧) and Γ are the existing supplied affine TwoForms calculi on independent degree-one/two modules. The native m:TwoForms.Morphism f Ω Γ supplies semilinear β₁,β₂ and both differential and wedge compatibility equations. Compatible k-module scalar towers are used where inherited curvature theorems require them. No universal differential forms or sheaf carrier is redefined. D is the actual additive λ-preconnection over Ω; pullback constructs the target f(λ)-preconnection. The definition, balancing, unit curvature, uniqueness and horizontal map theorem do not require d₀λ=0. Curvature on all generating tensors, all-target flatness and the flatness equivalence explicitly require dΩ,₀λ=0. Reflection additionally requires injectivity of the actual degree-two tensor comparison.
+
+Prerequisites: HodgeStructuresPartII:H.0/scalar-extension-unit, mathlib:LinearMap.baseChange, mathlib:LinearMap.baseChange_tmul.
+
+Proof: Evaluate both native maps on 1⊗e.
+
+## One-form comparison and extended maps
+
+**scalarUnit_tensor_natural** — For R-linear h:E→F and x∈E⊗_R W, (h_S⊗id_V)((η_E⊗β₁)x)=(η_F⊗β₁)((h⊗id_W)x).
+
+Hypotheses: k,R,S are arbitrary commutative rings; R,S are k-algebras and S is an R-algebra with f=algebraMap R S. E,F are arbitrary R-modules with additive commutative groups, in independent universes. No finite generation, basis, projectivity, flatness, smoothness, field or characteristic assumption is added. Ω=(d₀,d₁,∧) and Γ are the existing supplied affine TwoForms calculi on independent degree-one/two modules. The native m:TwoForms.Morphism f Ω Γ supplies semilinear β₁,β₂ and both differential and wedge compatibility equations. Compatible k-module scalar towers are used where inherited curvature theorems require them. No universal differential forms or sheaf carrier is redefined. D is the actual additive λ-preconnection over Ω; pullback constructs the target f(λ)-preconnection. The definition, balancing, unit curvature, uniqueness and horizontal map theorem do not require d₀λ=0. Curvature on all generating tensors, all-target flatness and the flatness equivalence explicitly require dΩ,₀λ=0. Reflection additionally requires injectivity of the actual degree-two tensor comparison.
+
+Prerequisites: HodgeStructuresPartII:H.0/scalar-unit-base-change, HodgeStructuresPartII:H.0/calculus-ring-morphism, mathlib:TensorProduct.induction_on.
+
+Proof: Induct on tensors. Both sides send e⊗ω to (1⊗h(e))⊗β₁(ω); additivity handles zero and sums.
+
+## Pullback preserves horizontal linear maps
+
+**Preconnection.affinePullback_horizontal** — If C(h(e))=(h⊗id_W)D(e) for every e, then C_S(h.baseChange(S)(x))=(h.baseChange(S)⊗id_V)D_S(x) for every x∈S⊗_R E.
+
+Hypotheses: k,R,S are arbitrary commutative rings; R,S are k-algebras and S is an R-algebra with f=algebraMap R S. E,F are arbitrary R-modules with additive commutative groups, in independent universes. No finite generation, basis, projectivity, flatness, smoothness, field or characteristic assumption is added. Ω=(d₀,d₁,∧) and Γ are the existing supplied affine TwoForms calculi on independent degree-one/two modules. The native m:TwoForms.Morphism f Ω Γ supplies semilinear β₁,β₂ and both differential and wedge compatibility equations. Compatible k-module scalar towers are used where inherited curvature theorems require them. No universal differential forms or sheaf carrier is redefined. D is the actual additive λ-preconnection over Ω; pullback constructs the target f(λ)-preconnection. The definition, balancing, unit curvature, uniqueness and horizontal map theorem do not require d₀λ=0. Curvature on all generating tensors, all-target flatness and the flatness equivalence explicitly require dΩ,₀λ=0. Reflection additionally requires injectivity of the actual degree-two tensor comparison.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-tmul, HodgeStructuresPartII:H.0/scalar-unit-tensor-natural, mathlib:LinearMap.baseChange_tmul.
+
+Proof: Induct on the native tensor. Substitute the two pullback formulas, use source horizontality and tensor naturality for the first term, and the scalar-unit equation for the derivative term.
+
 # Coefficient-ring transport for parameter connections
 
 This continuation develops actual maps of the supplied affine differential calculi over a coefficient-ring homomorphism. The map on one-forms and the map on two-forms are native semilinear maps, with explicit equations for both differentials and wedge. They are not independent naturality flags. The generic global differential calculus remains the CR.1 supplier's work. These adapters isolate the affine equations needed by the existing pullback and restriction contracts.
