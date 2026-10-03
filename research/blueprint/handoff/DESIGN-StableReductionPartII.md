@@ -46,6 +46,23 @@ The final receipt below names the immutable source archive retained as an ancest
 
 In a reader-supplied scratch directory, retain these five recovered source artifacts. Overlay the final five deliverables in roadmaps/, packets/, readmes/, suggested/ and handoff/ subdirectories. With a memory check before each serial invocation, run the existing pinned build on Native.lean and Canonical.lean; retain native.log and canonical.log, including the Elapsed/peak resource line. Run verify.py with TAUCETI_REPO pointing to an existing read-only clone and TAUCETI_BASELINE to the pinned declarations.tsv FILE. P8_VALIDATE_BASE may override the default publication base 9c8a340faae54f977214d1a159764c3ca25a1e0e. The immutable reader uses Git blobs plus exactly five overlays, and never creates a repository snapshot or writes the repository. Validator SHA256 6c110740865c06f52c8a54b43a09ba1e8e0149b8f5b5fe886316addb20271272; immutable-reader SHA256 a5804a09aa6ca41675d2b63453fadd6c412f64fe07f8001549e5a452cf722e81.
 
+Immutable public source archive: [45fa3d24a2a351b100b409d8c0b444e82c3e58b9](https://github.com/CBirkbeck/tauceti-explorer/commit/45fa3d24a2a351b100b409d8c0b444e82c3e58b9), retained as an ancestor of the final proposal. [Native/canonical source blocks](https://github.com/CBirkbeck/tauceti-explorer/blob/45fa3d24a2a351b100b409d8c0b444e82c3e58b9/research/blueprint/suggested/StableReductionPartII.lean) and [validator/reader blocks](https://github.com/CBirkbeck/tauceti-explorer/blob/45fa3d24a2a351b100b409d8c0b444e82c3e58b9/research/blueprint/handoff/DESIGN-StableReductionPartII.md) are inert archived sources; the final suggested file remains entirely admitted. The following emitter is the current recovery script; the historical emitters in the retained handoff stay under their original scopes.
+
+```python
+"""Read-only public recovery; emits one verified source and never writes."""
+import sys,hashlib,urllib.request
+ARTIFACTS={'Native.lean': ('45fa3d24a2a351b100b409d8c0b444e82c3e58b9', 'research/blueprint/suggested/StableReductionPartII.lean', '/- BEGIN ARCHIVED CHECKED SECTION PROJECTIVE RESOLUTIONS\n', 'END ARCHIVED CHECKED SECTION PROJECTIVE RESOLUTIONS -/', '30bc02cb3d84884b6727f34c127a01c366c8cbde987da6363d89a9962f7f5860'), 'Canonical.lean': ('45fa3d24a2a351b100b409d8c0b444e82c3e58b9', 'research/blueprint/suggested/StableReductionPartII.lean', '/- BEGIN ARCHIVED CANONICAL SECTION PROJECTIVE RESOLUTIONS\n', 'END ARCHIVED CANONICAL SECTION PROJECTIVE RESOLUTIONS -/', 'db2a1e277d48d096dfe5cb4914cd718d0ea5bf1a2db7905601272ff3d1bb48f2'), 'verify.py': ('45fa3d24a2a351b100b409d8c0b444e82c3e58b9', 'research/blueprint/handoff/DESIGN-StableReductionPartII.md', '# BEGIN ARCHIVED SECTION PROJECTIVE RESOLUTIONS VALIDATOR\n', '# END ARCHIVED SECTION PROJECTIVE RESOLUTIONS VALIDATOR\n', '6c110740865c06f52c8a54b43a09ba1e8e0149b8f5b5fe886316addb20271272'), 'immutable_view.py': ('45fa3d24a2a351b100b409d8c0b444e82c3e58b9', 'research/blueprint/handoff/DESIGN-StableReductionPartII.md', '# BEGIN ARCHIVED SECTION PROJECTIVE RESOLUTIONS IMMUTABLE READER\n', '# END ARCHIVED SECTION PROJECTIVE RESOLUTIONS IMMUTABLE READER\n', 'a5804a09aa6ca41675d2b63453fadd6c412f64fe07f8001549e5a452cf722e81'), 'IncomingNative.lean': ('71211013c077a46744584d95b38434e23a55fc9d', 'research/blueprint/suggested/StableReductionPartII.lean', '/- BEGIN ARCHIVED CHECKED SECTION HOM COCHAINS\n', 'END ARCHIVED CHECKED SECTION HOM COCHAINS -/', '690e22fed4c79b7b46fd8c3e72ae33da6c9f00ce0eeea7498eb0daf18971eeb6')}
+ref,path,start,end,expected=ARTIFACTS[sys.argv[1]]
+url="https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/"+ref+"/"+path
+with urllib.request.urlopen(url,timeout=45) as response:raw=response.read().decode()
+assert raw.count(start)==raw.count(end)==1
+source=raw.split(start,1)[1].split(end,1)[0]
+assert hashlib.sha256(source.encode()).hexdigest()==expected
+sys.stdout.write(source)
+```
+
+Public HTTP extraction is exercised byte-for-byte for all five sources, and the recovered validator is run on the final overlays before the PR opens. The recovered Native.lean/Canonical.lean are identical to the sources of the compiler receipts above. Scratch is deleted after submission; the immutable public sources preserve the checks.
+
 ---
 
 ## Retained incoming handoff
