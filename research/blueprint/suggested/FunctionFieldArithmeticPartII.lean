@@ -1,3 +1,5 @@
+import Mathlib.RingTheory.Bialgebra.Convolution
+import TauCeti.Algebra.AlgebraicGroup.FunctorOfPoints
 import Mathlib.Algebra.Colimit.DirectLimit
 import Mathlib.RingTheory.Flat.FaithfullyFlat.Algebra
 import Mathlib.Algebra.Category.CommAlgCat.Basic
@@ -3324,4 +3326,139 @@ example : factorialTensorCoefficientMap (Int.castRingHom (ZMod 2)) (0 : ℤ)
     (factorialCoaction (0 : ℤ)
       (factorialAffineInclusion (0 : ℤ) 1 (AdjoinRoot.root _))) ≠ 0 := by sorry
 end CoefficientNaturalityTests
+end TauCeti.RootStack
+
+/-! Convolution points of the factorial unity-root Hopf algebra. -/
+namespace TauCeti.RootStack
+section FactorialConvolutionPoints
+variable {A B C : Type u} [CommRing A] [CommRing B] [CommRing C]
+variable [Algebra A B] [Algebra A C]
+open WithConv
+local instance : Bialgebra A (FactorialAffineColimit (1 : A)) := factorialBialgebra A
+
+lemma factorialConvPoints.root
+    (p q : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) (i : ℕ) :
+    (p * q).ofConv (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) =
+      p.ofConv (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) *
+      q.ofConv (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) := by sorry
+
+lemma factorialConvPoints.one_root (i : ℕ) :
+    (1 : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)).ofConv
+      (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) = 1 := by sorry
+
+lemma factorialScalarPoints.conv_mul
+    (p q : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) :
+    factorialScalarPoints (p * q).ofConv =
+      factorialScalarPoints p.ofConv * factorialScalarPoints q.ofConv := by sorry
+
+lemma factorialScalarPoints.conv_one :
+    factorialScalarPoints
+      (1 : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)).ofConv = 1 := by sorry
+
+lemma factorialScalarEvaluation.conv_mul (s t : factorialRootScalars B) :
+    toConv (factorialScalarEvaluation (A := A) (s*t)) =
+      toConv (factorialScalarEvaluation (A := A) s) *
+        toConv (factorialScalarEvaluation (A := A) t) := by sorry
+
+lemma factorialScalarEvaluation.conv_one :
+    toConv (factorialScalarEvaluation (A := A) (1 : factorialRootScalars B)) =
+      (1 : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) := by sorry
+
+lemma factorialScalarPoints.antipode
+    (p : FactorialAffineColimit (1 : A) →ₐ[A] B) :
+    factorialScalarPoints (p.comp (factorialAntipode A)) = (factorialScalarPoints p)⁻¹ := by sorry
+
+lemma factorialScalarEvaluation.antipode (s : factorialRootScalars B) :
+    factorialScalarEvaluation (A := A) s⁻¹ =
+      (factorialScalarEvaluation (A := A) s).comp (factorialAntipode A) := by sorry
+
+lemma factorialConvPoints.left_inverse
+    (p : FactorialAffineColimit (1 : A) →ₐ[A] B) :
+    toConv (p.comp (factorialAntipode A)) * toConv p =
+      (1 : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) := by sorry
+
+lemma factorialConvPoints.right_inverse
+    (p : FactorialAffineColimit (1 : A) →ₐ[A] B) :
+    toConv p * toConv (p.comp (factorialAntipode A)) =
+      (1 : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) := by sorry
+
+def factorialScalarPointsMulEquiv (A B : Type u) [CommRing A] [CommRing B] [Algebra A B] :
+    WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B) ≃* factorialRootScalars B := by sorry
+
+lemma factorialScalarPointsMulEquiv.apply
+    (p : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) :
+    factorialScalarPointsMulEquiv A B p = factorialScalarPoints p.ofConv := by sorry
+
+lemma factorialScalarPointsMulEquiv.symm_apply (s : factorialRootScalars B) :
+    (factorialScalarPointsMulEquiv A B).symm s =
+      toConv (factorialScalarEvaluation (A := A) s) := by sorry
+
+lemma factorialScalarPointsMulEquiv.naturality
+    (p : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) (k : B →ₐ[A] C) :
+    factorialScalarPointsMulEquiv A C (toConv (k.comp p.ofConv)) =
+      factorialRootScalars.map k.toRingHom (factorialScalarPointsMulEquiv A B p) := by sorry
+
+lemma factorialScalarEvaluation.naturality (s : factorialRootScalars B) (k : B →ₐ[A] C) :
+    k.comp (factorialScalarEvaluation (A := A) s) =
+      factorialScalarEvaluation (A := A) (factorialRootScalars.map k.toRingHom s) := by sorry
+
+lemma factorialScalarPointsMulEquiv.pow
+    (p : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) (n : ℕ) :
+    factorialScalarPointsMulEquiv A B (p^n) =
+      (factorialScalarPointsMulEquiv A B p)^n := by sorry
+
+lemma factorialScalarPointsMulEquiv.mul
+    (p q : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) :
+    factorialScalarPointsMulEquiv A B (p*q) =
+      factorialScalarPointsMulEquiv A B p * factorialScalarPointsMulEquiv A B q := by sorry
+
+lemma factorialScalarPointsMulEquiv.one : factorialScalarPointsMulEquiv A B 1 = 1 := by sorry
+
+lemma factorialScalarPointsMulEquiv.root
+    (p : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) (i : ℕ) :
+    ((factorialScalarPointsMulEquiv A B p).val i : B) =
+      p.ofConv (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) := by sorry
+
+lemma factorialConvPoints.comm
+    (p q : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) : p*q = q*p := by sorry
+
+-- test: convolutionPointsTests.degree_two
+example (s t : factorialRootScalars (ZMod 4)) :
+    (toConv (factorialScalarEvaluation (A := ZMod 4) s) *
+      toConv (factorialScalarEvaluation (A := ZMod 4) t)).ofConv
+      (factorialAffineInclusion (1 : ZMod 4) 1 (AdjoinRoot.root _)) =
+      (s.val 1 : ZMod 4) * (t.val 1 : ZMod 4) := by sorry
+
+-- test: convolutionPointsTests.identity
+example : factorialScalarPointsMulEquiv A B 1 = 1 := by sorry
+
+-- test: convolutionPointsTests.roundtrip
+example (p : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) :
+    (factorialScalarPointsMulEquiv A B).symm (factorialScalarPointsMulEquiv A B p) = p := by sorry
+
+-- test: convolutionPointsTests.inverse
+example (p : FactorialAffineColimit (1 : A) →ₐ[A] B) :
+    toConv (p.comp (factorialAntipode A)) * toConv p =
+      (1 : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) := by sorry
+
+-- test: convolutionPointsTests.zero_ring
+example : factorialScalarPointsMulEquiv (ZMod 1) (ZMod 1) 1 = 1 := by sorry
+
+-- test: convolutionPointsTests.counit_not_identity
+example : (factorialScalarPointsMulEquiv (ZMod 3)
+    (FactorialAffineColimit (1 : ZMod 3))
+    (toConv (AlgHom.id (ZMod 3) (FactorialAffineColimit (1 : ZMod 3))))).val 1 ≠ 1 := by sorry
+
+-- test: convolutionPointsTests.naturality
+example (s : factorialRootScalars B) (k : B →ₐ[A] C) :
+    factorialScalarPointsMulEquiv A C
+      (toConv (k.comp (factorialScalarEvaluation (A := A) s))) =
+      factorialRootScalars.map k.toRingHom s := by sorry
+
+-- test: convolutionPointsTests.root_order
+example (p : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) (i : ℕ) :
+    p.ofConv (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) ^
+      Nat.factorial (i+1) = 1 := by sorry
+
+end FactorialConvolutionPoints
 end TauCeti.RootStack
