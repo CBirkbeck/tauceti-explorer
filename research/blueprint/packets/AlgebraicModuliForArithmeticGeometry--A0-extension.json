@@ -13,7 +13,7 @@
     "AlgebraicModuliForArithmeticGeometry:R09.7"
   ],
   "status": "partial",
-  "summary": "Partial 179-node chosen-band inverse checkpoint: six consumed native leaves construct local coefficient families, prove their exact recovery and matching, glue through the prescribed coefficient sheaf even with an empty global fibre, and construct the actual coefficient group equivalence with inverse restriction laws. All 173 inherited statement/hypothesis/source/acceptance contracts and all source routes, reserved keys, nine gaps and 21 requests survive. All eight stages remain partial or not_read with unchecked implementations. The actual SF1 descended-slice comparison, specified geometric fixtures and all broader source/supplier obligations remain open. Full TauCeti file uncompiled; the admission-free native proof and admitted Mathlib extraction are checked separately. Codex codex-a71f92 adds the actual fixed-band presheaf and sheaf isomorphisms and their all-arrow evaluation uniqueness, retaining the central-section carrier, reserved gerbe contract and all open geometric supplier obligations. Constant point-site centre fixtures add actual component-profile equivalences, a native point-stack proof, the connected gerbe instance and the disconnected gerbe obstruction; the wider source and supplier frontiers remain partial. Connected-fibre continuation: 29 new declaration-sized leaves identify evaluation with the group centre and check the connected two-object C3 and one-object nonabelian S3 gerbes on native carriers; all remaining scope stays partial. Nonconstant continuation: the actual band sections of any varying commutative-group presheaf are equivalent to its coefficients; native bottom-topology descent and sheaf comparisons instantiate C4 to C2 to C2 and the terminal-free two-chain site. No stage or reserved key closes. The current continuation specifies actual band actions on native Isom/Hom sections, their unique difference coefficients, coherent slice restrictions, a principal presheaf and sheaf isomorphism, and local sections over covering sieves; native global section torsors require explicit nonemptiness. Current continuation specifies actual fixed-band component faithfulness, anchored Isom inverses and local comparisons; the general sheaf gluing and gerbe-equivalence obligations remain open.",
+  "summary": "Partial checkpoint with 366 declaration nodes. Adds 25 actual StrongTrans pullback adapters: five constructions and twenty lemmas, sixteen API items and fifteen native carrier/orientation tests. The actual local equivalences now compare the correct target pullbacks; arbitrary deeper-slice coherence and inverse Hom-sheaf gluing remain open. All incoming general gerbe/key-definition statements, source issues, requests, planets and ownership contracts are preserved; only the general full-faithfulness node receives two supplier edges and one proof step. No stage or reserved key is closed.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1181,6 +1181,42 @@
         "sourceSha256": "b47eab342f3e7d08f4ff8d4a16d4580b0273d63f1a790b25560236c92d4cace7",
         "provides": "An actual functor preserves composition of actual isomorphisms.",
         "checked": "Exact indexed declaration, statement and ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Iso.isoCongr",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/HomCongr.lean",
+        "sourceLine": 73,
+        "sourceSha256": "186f233df03b9990f5f1a5a0b0328bed56c669a3fa821bfa825660d726482a20",
+        "provides": "The existing equivalence between actual Isom types obtained by conjugating both endpoints.",
+        "checked": "Exact statement and ambient hypotheses freshly read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; existing generic transport is reused."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Iso.homCongr",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/HomCongr.lean",
+        "sourceLine": 42,
+        "sourceSha256": "186f233df03b9990f5f1a5a0b0328bed56c669a3fa821bfa825660d726482a20",
+        "provides": "The existing equivalence between actual Hom types obtained by conjugating both endpoints.",
+        "checked": "Exact statement and ambient hypotheses freshly read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; existing generic transport is reused."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.NatIso.naturality_1",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/NatIso.lean",
+        "sourceLine": 146,
+        "sourceSha256": "c2e8b0662cae553808f1973dfc6027272b8ec2697a105a487ce1b1044330d103",
+        "provides": "A native natural-isomorphism comparison conjugates the source functor map to the target functor map.",
+        "checked": "Exact statement and ambient hypotheses freshly read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; existing generic transport is reused."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.map_injective",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Functor/FullyFaithful.lean",
+        "sourceLine": 62,
+        "sourceSha256": "94c995fd165ad4c7a422bca4b64d422deb2207bc490967487bb20b16b2d3315e",
+        "provides": "A native Faithful functor has injective actual Hom maps.",
+        "checked": "Exact statement and ambient hypotheses freshly read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex codex-rtOQ9t; existing generic transport is reused."
       }
     ]
   },
@@ -1857,6 +1893,29 @@
         "Stacks06NZ definition and complete printed proof of0CJY, including its omitted varying-base verification."
       ],
       "scope": "Exact actual-functor equations, anchored inverses, faithful components and covering-sieve comparison are authored deductions from band preservation and inherited Isom action laws. The printed self-reference in Lemma31.3 is not a proof supplier. No general sheaf inverse or global gerbe equivalence is certified here."
+    },
+    {
+      "id": "OG-strong-pullback-rtOQ9t",
+      "title": "Olsson Spring 2007 notes: banded gerbe morphisms; actual StrongTrans pullback deductions",
+      "authors": "Martin Olsson (lectures), course-note contributors; pullback deductions by Codex codex-rtOQ9t",
+      "edition": "Exact author-hosted PDF accessed 2026-10-03",
+      "url": "https://stacky.net/files/written/Stacks/Stacks.pdf",
+      "sha256": "716bf95c7a200194d5fd1f2af48372253fde5ea65487b5d362bcccb5e0b7426a",
+      "readSections": [
+        "Complete PDF pages 122–123: Definition 31.1, Remark 31.2, Lemmas 31.3–31.4 and Remark 31.5. Only the visible beginning and incompleteness warning of Lemma 31.6.",
+        "Stacks 06NZ whole mathematical definition and 0CJY complete printed statement/proof, including its expressly omitted varying-base verification."
+      ],
+      "relatedSources": [
+        {
+          "url": "https://stacks.math.columbia.edu/tag/06NZ",
+          "sha256": "b60742528d35ea2612a54bc8d95096fb2e97a39e4cba59034918834e5f414535"
+        },
+        {
+          "url": "https://stacks.math.columbia.edu/tag/0CJY",
+          "sha256": "41dd0c0a1e20dfe2fd60212274a30f259ae0875225b1540b069adf3f89f27a9e"
+        }
+      ],
+      "scope": "These exact native StrongTrans transport formulas, local inverses and tests are authored deductions, not formulas claimed to be printed in the notes. No whole-paper re-audit, repair of the Lemma 31.3 self-reference, completion of Lemma 31.6, general Hom-sheaf isomorphism or global gerbe equivalence is claimed."
     }
   ],
   "nodes": [
@@ -2658,13 +2717,16 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism",
         "AlgebraicModuliForArithmeticGeometry:R09.4/isom-torsor",
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-faithful",
-        "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-isom-equiv-cover"
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-isom-equiv-cover",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/cover-equiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/preimage-restrict"
       ],
       "proofSteps": [
         "The induced map on Isom sheaves is A-equivariant.",
         "Locally trivialize the source torsor; the map is translation on A and is invertible.",
         "An isomorphism of sheaves is bijective on sections over U, giving fibrewise full faithfulness.",
-        "The current native subproof establishes fibrewise faithfulness and actual anchored Isom equivalences on a covering sieve. Complete the map of native Hom sheaves using StrongTrans naturality, glue the anchor-independent inverses, and identify its inverse on U-sections; anchored local surjectivity alone is not global fullness."
+        "The current native subproof establishes fibrewise faithfulness and actual anchored Isom equivalences on a covering sieve. Complete the map of native Hom sheaves using StrongTrans naturality, glue the anchor-independent inverses, and identify its inverse on U-sections; anchored local surjectivity alone is not global fullness.",
+        "Use the actual StrongTrans transport to compare the correct G(f)(ηUx),G(f)(ηUy) target pullbacks. The covering-sieve equivalence and supplied-global-anchor restriction law are available; arbitrary deeper-slice coherence and sheaf inverse gluing remain explicitly open."
       ],
       "acceptance": [
         "The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses."
@@ -21082,6 +21144,1267 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/comparison",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Strong-naturality comparison on the actual pullback object",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.comparison",
+      "statement": "For f:V→U and x∈F(U), c_f(x) is the component of the native strong-naturality isomorphism η(f):F(f)⋙ηV≅ηU⋙G(f). Its source is ηV(F(f)x) and its target is G(f)(ηUx). No band-preservation hypothesis is required for this construction.",
+      "hypotheses": [
+        "An arbitrary specified site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe and one actual abelian sheaf A, with the supplied bandings bF,bG.",
+        "η is the native StrongTrans. The comparison, forward Isom map and forward Hom map are defined without band preservation; the inverse laws, injectivity, equivariance and equivalences assume BandPreserving(bF,bG,η).",
+        "f:V→U and actual x,y∈F(U). The native prototype interface uses the same explicit universe for coefficients and fibre hom types, retaining arbitrary base and object universes.",
+        "An actual source anchor is assumed only where explicitly stated; local nonemptiness is not a global anchor. No finite, neutral, terminal-object, finite-presentation or bottom-topology assumption is imposed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism",
+        "mathlib:CategoryTheory.Cat.Hom.toNatIso"
+      ],
+      "proofSteps": [
+        "Read the actual η.naturality field and apply the existing Cat.Hom.toNatIso conversion, then take its component at x."
+      ],
+      "acceptance": [
+        "Keep both actual strong-naturality components and the precise source/target objects.",
+        "Arbitrary deeper-slice coherence, inverse-sheaf gluing, essential surjectivity and an inverse strong transformation remain separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-strong-pullback-rtOQ9t",
+          "locator": "Olsson notes §31, Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored strong-naturality deductions",
+          "excerpt": "Full faithfulness",
+          "match": "The local equivariant Isom-torsor comparison motivates these actual native pullback adapters. The printed self-reference is not used as a proof supplier."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.nativeComparison",
+          "kind": "compatibility",
+          "statement": "The component agrees exactly with Cat.Hom.toNatIso(η.naturality(f)).app(x)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.zeroComparison",
+          "kind": "degenerate",
+          "statement": "The inverse comparison followed by its forward comparison is the identity arrow."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.comparisonBand",
+          "kind": "compatibility",
+          "statement": "Conjugation by c_f(x) preserves the specified target-band coefficient."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Olsson notes §31, Lemma 31.3, full-faithfulness argument",
+          "how": "Supplies the correct local comparison between actual pullbacks before coherent Hom-sheaf inverse gluing."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-full-faithful",
+          "how": "Retains the native StrongTrans comparison data required by the general fixed-band morphism theorem."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.comparison_native",
+          "role": "compatibility",
+          "statement": "The component agrees exactly with Cat.Hom.toNatIso(η.naturality(f)).app(x)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.comparison_inv_hom_id",
+          "role": "simp",
+          "statement": "The inverse comparison followed by its forward comparison is the identity arrow."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.comparison_band",
+          "role": "compatibility",
+          "statement": "Conjugation by c_f(x) preserves the specified target-band coefficient."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/map-isom",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Transport the local Isom map to target pullbacks",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.mapIso",
+      "statement": "For actual p:F(f)x≅F(f)y define M_f(p)=c_f(x)⁻¹ ∘ ηV(p) ∘ c_f(y), an actual isomorphism G(f)(ηUx)≅G(f)(ηUy). Use Mathlib Iso.isoCongr with c_f(x),c_f(y); no replacement generic conjugation equivalence is planned, and band preservation is not needed to define M_f.",
+      "hypotheses": [
+        "An arbitrary specified site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe and one actual abelian sheaf A, with the supplied bandings bF,bG.",
+        "η is the native StrongTrans. The comparison, forward Isom map and forward Hom map are defined without band preservation; the inverse laws, injectivity, equivariance and equivalences assume BandPreserving(bF,bG,η).",
+        "f:V→U and actual x,y∈F(U). The native prototype interface uses the same explicit universe for coefficients and fibre hom types, retaining arbitrary base and object universes.",
+        "An actual source anchor is assumed only where explicitly stated; local nonemptiness is not a global anchor. No finite, neutral, terminal-object, finite-presentation or bottom-topology assumption is imposed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/comparison",
+        "mathlib:CategoryTheory.Iso.isoCongr"
+      ],
+      "proofSteps": [
+        "Apply the component functor ηV.mapIso, followed by the existing Iso.isoCongr equivalence with both comparison components."
+      ],
+      "acceptance": [
+        "Keep both actual strong-naturality components and the precise source/target objects.",
+        "Arbitrary deeper-slice coherence, inverse-sheaf gluing, essential surjectivity and an inverse strong transformation remain separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-strong-pullback-rtOQ9t",
+          "locator": "Olsson notes §31, Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored strong-naturality deductions",
+          "excerpt": "Full faithfulness",
+          "match": "The local equivariant Isom-torsor comparison motivates these actual native pullback adapters. The printed self-reference is not used as a proof supplier."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.reflexiveImage",
+          "kind": "degenerate",
+          "statement": "The image of the actual identity isomorphism is the identity at G(f)(ηUx)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.actualHomImage",
+          "kind": "compatibility",
+          "statement": "The hom arrow of the transported Isom image equals the transported Hom image."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.globalIsoRestriction",
+          "kind": "compatibility",
+          "statement": "For global actual p:x≅y, M_f(F(f)p)=G(f)(ηU(p))."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Olsson notes §31, Lemma 31.3, full-faithfulness argument",
+          "how": "Supplies the correct local comparison between actual pullbacks before coherent Hom-sheaf inverse gluing."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-full-faithful",
+          "how": "Retains the native StrongTrans comparison data required by the general fixed-band morphism theorem."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.mapIso_hom",
+          "role": "projection",
+          "statement": "For actual local p:F(f)x≅F(f)y, the hom arrow of M_f(p) is exactly h_f(p.hom), including both strong-naturality comparison components."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.mapIso_restrict",
+          "role": "functoriality",
+          "statement": "For every actual global p:x≅y, M_f(F(f).mapIso(p))=G(f).mapIso(ηU.mapIso(p)). The equality is between actual isomorphisms, not classes."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.mapIso_act",
+          "role": "compatibility",
+          "statement": "For fixed-band η, actual local p:F(f)x≅F(f)y and a∈A(V), M_f(actF(p,a))=actG(M_f(p),a). The coefficient is unchanged in A(V), even when c_f(y) is not an identity."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/hom-map",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Objectwise map on the native slice Hom carriers",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homMap",
+      "statement": "For p:F(f)x→F(f)y, h_f(p)=c_f(x).inv ≫ ηV.map(p) ≫ c_f(y).hom lands in G(f)(ηUx)→G(f)(ηUy). At T∈(C/U)ᵒᵖ and f=T.hom this is precisely a function from the native F.presheafHom(x,y).obj(T) to G.presheafHom(ηUx,ηUy).obj(T). This statement alone is not a natural transformation on the entire slice.",
+      "hypotheses": [
+        "An arbitrary specified site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe and one actual abelian sheaf A, with the supplied bandings bF,bG.",
+        "η is the native StrongTrans. The comparison, forward Isom map and forward Hom map are defined without band preservation; the inverse laws, injectivity, equivariance and equivalences assume BandPreserving(bF,bG,η).",
+        "f:V→U and actual x,y∈F(U). The native prototype interface uses the same explicit universe for coefficients and fibre hom types, retaining arbitrary base and object universes.",
+        "An actual source anchor is assumed only where explicitly stated; local nonemptiness is not a global anchor. No finite, neutral, terminal-object, finite-presentation or bottom-topology assumption is imposed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/comparison",
+        "mathlib:CategoryTheory.Iso.homCongr",
+        "mathlib:CategoryTheory.Pseudofunctor.presheafHom"
+      ],
+      "proofSteps": [
+        "Apply the component Hom map and the existing Iso.homCongr equivalence. Identify its objects with the actual native slice Hom-presheaf carriers by unfolding their object definitions only."
+      ],
+      "acceptance": [
+        "Keep both actual strong-naturality components and the precise source/target objects.",
+        "Arbitrary deeper-slice coherence, inverse-sheaf gluing, essential surjectivity and an inverse strong transformation remain separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-strong-pullback-rtOQ9t",
+          "locator": "Olsson notes §31, Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored strong-naturality deductions",
+          "excerpt": "Full faithfulness",
+          "match": "The local equivariant Isom-torsor comparison motivates these actual native pullback adapters. The printed self-reference is not used as a proof supplier."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.sliceHomCarrier",
+          "kind": "compatibility",
+          "statement": "The objectwise Hom map has exactly the native target Hom-presheaf carrier at each slice object."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.identityHomImage",
+          "kind": "degenerate",
+          "statement": "The actual identity arrow maps to the actual target identity arrow."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.globalHomRestriction",
+          "kind": "compatibility",
+          "statement": "For a global actual arrow p:x→y, h_f(F(f)p)=G(f)(ηU(p))."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Olsson notes §31, Lemma 31.3, full-faithfulness argument",
+          "how": "Supplies the correct local comparison between actual pullbacks before coherent Hom-sheaf inverse gluing."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-full-faithful",
+          "how": "Retains the native StrongTrans comparison data required by the general fixed-band morphism theorem."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homMap_restrict",
+          "role": "functoriality",
+          "statement": "For any global actual arrow p:x→y, h_f(F(f).map(p))=G(f).map(ηU.map(p)). This is naturality of the native strong-naturality isomorphism at p; it does not prove compatibility along arbitrary deeper slice arrows."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homMap_injective",
+          "role": "characterisation",
+          "statement": "For fixed-band η, h_f is injective on the actual native Hom carrier for every f,x,y, without an anchor."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homMap_surjective_of_anchor",
+          "role": "characterisation",
+          "statement": "For fixed-band η and actual local p:F(f)x≅F(f)y, h_f is surjective on the actual Hom carrier. The target arrows are invertible by IsGerbe(G,J), so the transported Isom inverse provides their actual preimage hom arrows."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-hom",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The transported Isom map has the specified Hom arrow",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.mapIso_hom",
+      "statement": "For actual local p:F(f)x≅F(f)y, the hom arrow of M_f(p) is exactly h_f(p.hom), including both strong-naturality comparison components.",
+      "hypotheses": [
+        "An arbitrary specified site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe and one actual abelian sheaf A, with the supplied bandings bF,bG.",
+        "η is the native StrongTrans. The comparison, forward Isom map and forward Hom map are defined without band preservation; the inverse laws, injectivity, equivariance and equivalences assume BandPreserving(bF,bG,η).",
+        "f:V→U and actual x,y∈F(U). The native prototype interface uses the same explicit universe for coefficients and fibre hom types, retaining arbitrary base and object universes.",
+        "An actual source anchor is assumed only where explicitly stated; local nonemptiness is not a global anchor. No finite, neutral, terminal-object, finite-presentation or bottom-topology assumption is imposed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/map-isom",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/hom-map"
+      ],
+      "proofSteps": [
+        "Unfold only the existing conjugation constructions; both hom arrows are definitionally equal."
+      ],
+      "acceptance": [
+        "Keep both actual strong-naturality components and the precise source/target objects.",
+        "Arbitrary deeper-slice coherence, inverse-sheaf gluing, essential surjectivity and an inverse strong transformation remain separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-strong-pullback-rtOQ9t",
+          "locator": "Olsson notes §31, Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored strong-naturality deductions",
+          "excerpt": "Full faithfulness",
+          "match": "The local equivariant Isom-torsor comparison motivates these actual native pullback adapters. The printed self-reference is not used as a proof supplier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/hom-restrict",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Transport commutes with restriction of a supplied global arrow",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homMap_restrict",
+      "statement": "For any global actual arrow p:x→y, h_f(F(f).map(p))=G(f).map(ηU.map(p)). This is naturality of the native strong-naturality isomorphism at p; it does not prove compatibility along arbitrary deeper slice arrows.",
+      "hypotheses": [
+        "An arbitrary specified site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe and one actual abelian sheaf A, with the supplied bandings bF,bG.",
+        "η is the native StrongTrans. The comparison, forward Isom map and forward Hom map are defined without band preservation; the inverse laws, injectivity, equivariance and equivalences assume BandPreserving(bF,bG,η).",
+        "f:V→U and actual x,y∈F(U). The native prototype interface uses the same explicit universe for coefficients and fibre hom types, retaining arbitrary base and object universes.",
+        "An actual source anchor is assumed only where explicitly stated; local nonemptiness is not a global anchor. No finite, neutral, terminal-object, finite-presentation or bottom-topology assumption is imposed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/hom-map",
+        "mathlib:CategoryTheory.NatIso.naturality_1"
+      ],
+      "proofSteps": [
+        "Apply NatIso.naturality_1 to Cat.Hom.toNatIso(η.naturality(f)) and the actual global arrow p."
+      ],
+      "acceptance": [
+        "Keep both actual strong-naturality components and the precise source/target objects.",
+        "Arbitrary deeper-slice coherence, inverse-sheaf gluing, essential surjectivity and an inverse strong transformation remain separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-strong-pullback-rtOQ9t",
+          "locator": "Olsson notes §31, Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored strong-naturality deductions",
+          "excerpt": "Full faithfulness",
+          "match": "The local equivariant Isom-torsor comparison motivates these actual native pullback adapters. The printed self-reference is not used as a proof supplier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-restrict",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Transport commutes with restriction of a supplied global isomorphism",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.mapIso_restrict",
+      "statement": "For every actual global p:x≅y, M_f(F(f).mapIso(p))=G(f).mapIso(ηU.mapIso(p)). The equality is between actual isomorphisms, not classes.",
+      "hypotheses": [
+        "An arbitrary specified site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe and one actual abelian sheaf A, with the supplied bandings bF,bG.",
+        "η is the native StrongTrans. The comparison, forward Isom map and forward Hom map are defined without band preservation; the inverse laws, injectivity, equivariance and equivalences assume BandPreserving(bF,bG,η).",
+        "f:V→U and actual x,y∈F(U). The native prototype interface uses the same explicit universe for coefficients and fibre hom types, retaining arbitrary base and object universes.",
+        "An actual source anchor is assumed only where explicitly stated; local nonemptiness is not a global anchor. No finite, neutral, terminal-object, finite-presentation or bottom-topology assumption is imposed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-hom",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/hom-restrict"
+      ],
+      "proofSteps": [
+        "Use Iso extensionality and the transported Hom restriction equality on p.hom."
+      ],
+      "acceptance": [
+        "Keep both actual strong-naturality components and the precise source/target objects.",
+        "Arbitrary deeper-slice coherence, inverse-sheaf gluing, essential surjectivity and an inverse strong transformation remain separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-strong-pullback-rtOQ9t",
+          "locator": "Olsson notes §31, Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored strong-naturality deductions",
+          "excerpt": "Full faithfulness",
+          "match": "The local equivariant Isom-torsor comparison motivates these actual native pullback adapters. The printed self-reference is not used as a proof supplier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-injective",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The transported local Isom map is injective",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.mapIso_injective",
+      "statement": "If η preserves the fixed band, M_f is injective for every f,x,y, even when F(f)x≅F(f)y is empty. No source anchor is assumed.",
+      "hypotheses": [
+        "An arbitrary specified site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe and one actual abelian sheaf A, with the supplied bandings bF,bG.",
+        "η is the native StrongTrans. The comparison, forward Isom map and forward Hom map are defined without band preservation; the inverse laws, injectivity, equivariance and equivalences assume BandPreserving(bF,bG,η).",
+        "f:V→U and actual x,y∈F(U). The native prototype interface uses the same explicit universe for coefficients and fibre hom types, retaining arbitrary base and object universes.",
+        "An actual source anchor is assumed only where explicitly stated; local nonemptiness is not a global anchor. No finite, neutral, terminal-object, finite-presentation or bottom-topology assumption is imposed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/map-isom",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-isom-injective",
+        "mathlib:CategoryTheory.Iso.isoCongr"
+      ],
+      "proofSteps": [
+        "Compose native component mapIso injectivity with the injectivity of the existing Iso.isoCongr equivalence."
+      ],
+      "acceptance": [
+        "Keep both actual strong-naturality components and the precise source/target objects.",
+        "Arbitrary deeper-slice coherence, inverse-sheaf gluing, essential surjectivity and an inverse strong transformation remain separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-strong-pullback-rtOQ9t",
+          "locator": "Olsson notes §31, Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored strong-naturality deductions",
+          "excerpt": "Full faithfulness",
+          "match": "The local equivariant Isom-torsor comparison motivates these actual native pullback adapters. The printed self-reference is not used as a proof supplier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/hom-injective",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The transported local Hom map is injective",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homMap_injective",
+      "statement": "For fixed-band η, h_f is injective on the actual native Hom carrier for every f,x,y, without an anchor.",
+      "hypotheses": [
+        "An arbitrary specified site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe and one actual abelian sheaf A, with the supplied bandings bF,bG.",
+        "η is the native StrongTrans. The comparison, forward Isom map and forward Hom map are defined without band preservation; the inverse laws, injectivity, equivariance and equivalences assume BandPreserving(bF,bG,η).",
+        "f:V→U and actual x,y∈F(U). The native prototype interface uses the same explicit universe for coefficients and fibre hom types, retaining arbitrary base and object universes.",
+        "An actual source anchor is assumed only where explicitly stated; local nonemptiness is not a global anchor. No finite, neutral, terminal-object, finite-presentation or bottom-topology assumption is imposed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/hom-map",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-faithful",
+        "mathlib:CategoryTheory.Functor.map_injective"
+      ],
+      "proofSteps": [
+        "Install the already established Faithful component ηV, then compose its map injectivity with Iso.homCongr injectivity."
+      ],
+      "acceptance": [
+        "Keep both actual strong-naturality components and the precise source/target objects.",
+        "Arbitrary deeper-slice coherence, inverse-sheaf gluing, essential surjectivity and an inverse strong transformation remain separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-strong-pullback-rtOQ9t",
+          "locator": "Olsson notes §31, Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored strong-naturality deductions",
+          "excerpt": "Full faithfulness",
+          "match": "The local equivariant Isom-torsor comparison motivates these actual native pullback adapters. The printed self-reference is not used as a proof supplier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-act",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Strong-naturality transport preserves band actions",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.mapIso_act",
+      "statement": "For fixed-band η, actual local p:F(f)x≅F(f)y and a∈A(V), M_f(actF(p,a))=actG(M_f(p),a). The coefficient is unchanged in A(V), even when c_f(y) is not an identity.",
+      "hypotheses": [
+        "An arbitrary specified site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe and one actual abelian sheaf A, with the supplied bandings bF,bG.",
+        "η is the native StrongTrans. The comparison, forward Isom map and forward Hom map are defined without band preservation; the inverse laws, injectivity, equivariance and equivalences assume BandPreserving(bF,bG,η).",
+        "f:V→U and actual x,y∈F(U). The native prototype interface uses the same explicit universe for coefficients and fibre hom types, retaining arbitrary base and object universes.",
+        "An actual source anchor is assumed only where explicitly stated; local nonemptiness is not a global anchor. No finite, neutral, terminal-object, finite-presentation or bottom-topology assumption is imposed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/map-isom",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-map-act",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act"
+      ],
+      "proofSteps": [
+        "Use component map_act, then the target band conjugation equation for c_f(y). Cancel its inverse to move the band automorphism across c_f(y), retaining the actual arrow orientation."
+      ],
+      "acceptance": [
+        "Keep both actual strong-naturality components and the precise source/target objects.",
+        "Arbitrary deeper-slice coherence, inverse-sheaf gluing, essential surjectivity and an inverse strong transformation remain separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-strong-pullback-rtOQ9t",
+          "locator": "Olsson notes §31, Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored strong-naturality deductions",
+          "excerpt": "Full faithfulness",
+          "match": "The local equivariant Isom-torsor comparison motivates these actual native pullback adapters. The printed self-reference is not used as a proof supplier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-difference",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Strong-naturality transport preserves differences",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.mapIso_difference",
+      "statement": "For fixed-band η and actual local p,q:F(f)x≅F(f)y, differenceG(M_f(p),M_f(q))=differenceF(p,q) as actual coefficients in A(V).",
+      "hypotheses": [
+        "An arbitrary specified site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe and one actual abelian sheaf A, with the supplied bandings bF,bG.",
+        "η is the native StrongTrans. The comparison, forward Isom map and forward Hom map are defined without band preservation; the inverse laws, injectivity, equivariance and equivalences assume BandPreserving(bF,bG,η).",
+        "f:V→U and actual x,y∈F(U). The native prototype interface uses the same explicit universe for coefficients and fibre hom types, retaining arbitrary base and object universes.",
+        "An actual source anchor is assumed only where explicitly stated; local nonemptiness is not a global anchor. No finite, neutral, terminal-object, finite-presentation or bottom-topology assumption is imposed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-act",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act-difference",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-difference-act"
+      ],
+      "proofSteps": [
+        "Express q as actF(p,differenceF(p,q)), apply action compatibility, then use target difference cancellation."
+      ],
+      "acceptance": [
+        "Keep both actual strong-naturality components and the precise source/target objects.",
+        "Arbitrary deeper-slice coherence, inverse-sheaf gluing, essential surjectivity and an inverse strong transformation remain separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-strong-pullback-rtOQ9t",
+          "locator": "Olsson notes §31, Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored strong-naturality deductions",
+          "excerpt": "Full faithfulness",
+          "match": "The local equivariant Isom-torsor comparison motivates these actual native pullback adapters. The printed self-reference is not used as a proof supplier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/preimage-isom",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Inverse into the actual source pullback Isom type",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.preimageIso",
+      "statement": "Given an actual local anchor p:F(f)x≅F(f)y and q:G(f)(ηUx)≅G(f)(ηUy), define P_f(p,q)=BandedMorphism.preimageIso(p,c_f(x) ∘ q ∘ c_f(y)⁻¹). Both comparison components are reversed before applying the inherited actual component inverse. The local anchor remains explicit data.",
+      "hypotheses": [
+        "An arbitrary specified site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe and one actual abelian sheaf A, with the supplied bandings bF,bG.",
+        "η is the native StrongTrans. The comparison, forward Isom map and forward Hom map are defined without band preservation; the inverse laws, injectivity, equivariance and equivalences assume BandPreserving(bF,bG,η).",
+        "f:V→U and actual x,y∈F(U). The native prototype interface uses the same explicit universe for coefficients and fibre hom types, retaining arbitrary base and object universes.",
+        "An actual source anchor is assumed only where explicitly stated; local nonemptiness is not a global anchor. No finite, neutral, terminal-object, finite-presentation or bottom-topology assumption is imposed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/comparison",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-preimage-isom",
+        "mathlib:CategoryTheory.Iso.isoCongr"
+      ],
+      "proofSteps": [
+        "Apply the inverse of the existing Iso.isoCongr equivalence to q, then the inherited anchored component preimage. Band preservation is needed for its inverse laws, not to write this formula."
+      ],
+      "acceptance": [
+        "Keep both actual strong-naturality components and the precise source/target objects.",
+        "Arbitrary deeper-slice coherence, inverse-sheaf gluing, essential surjectivity and an inverse strong transformation remain separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-strong-pullback-rtOQ9t",
+          "locator": "Olsson notes §31, Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored strong-naturality deductions",
+          "excerpt": "Full faithfulness",
+          "match": "The local equivariant Isom-torsor comparison motivates these actual native pullback adapters. The printed self-reference is not used as a proof supplier."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.targetRoundTrip",
+          "kind": "characterisation",
+          "statement": "Mapping P_f(p,q) returns the supplied actual target q."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.anchorRecovered",
+          "kind": "degenerate",
+          "statement": "P_f(p,M_f(p)) returns exactly the supplied anchor p."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.differentAnchors",
+          "kind": "characterisation",
+          "statement": "Any two actual local anchors yield the same inverse on every target q."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Olsson notes §31, Lemma 31.3, full-faithfulness argument",
+          "how": "Supplies the correct local comparison between actual pullbacks before coherent Hom-sheaf inverse gluing."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-full-faithful",
+          "how": "Retains the native StrongTrans comparison data required by the general fixed-band morphism theorem."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.map_preimageIso",
+          "role": "characterisation",
+          "statement": "For fixed-band η and an actual local anchor p, M_f(P_f(p,q))=q for every actual target q."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.preimageIso_map",
+          "role": "characterisation",
+          "statement": "For fixed-band η and actual local p,q, P_f(p,M_f(q))=q."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.preimageIso_anchor",
+          "role": "extensionality",
+          "statement": "For actual local anchors p,p′ and any actual target q, P_f(p,q)=P_f(p′,q) when η preserves the fixed band. This compares supplied anchors and never chooses a global one."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.preimageIso_restrict",
+          "role": "functoriality",
+          "statement": "For actual global p:x≅y and actual target q:ηUx≅ηUy, P_f(F(f)p,G(f)q)=F(f)(BandedMorphism.preimageIso(p,q)). No global p is inferred from the gerbe axioms."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/map-preimage",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The transported inverse returns the target",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.map_preimageIso",
+      "statement": "For fixed-band η and an actual local anchor p, M_f(P_f(p,q))=q for every actual target q.",
+      "hypotheses": [
+        "An arbitrary specified site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe and one actual abelian sheaf A, with the supplied bandings bF,bG.",
+        "η is the native StrongTrans. The comparison, forward Isom map and forward Hom map are defined without band preservation; the inverse laws, injectivity, equivariance and equivalences assume BandPreserving(bF,bG,η).",
+        "f:V→U and actual x,y∈F(U). The native prototype interface uses the same explicit universe for coefficients and fibre hom types, retaining arbitrary base and object universes.",
+        "An actual source anchor is assumed only where explicitly stated; local nonemptiness is not a global anchor. No finite, neutral, terminal-object, finite-presentation or bottom-topology assumption is imposed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/preimage-isom",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/map-isom",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-map-preimage"
+      ],
+      "proofSteps": [
+        "Apply the component forward-after-inverse law, then Iso.isoCongr.apply_symm_apply."
+      ],
+      "acceptance": [
+        "Keep both actual strong-naturality components and the precise source/target objects.",
+        "Arbitrary deeper-slice coherence, inverse-sheaf gluing, essential surjectivity and an inverse strong transformation remain separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-strong-pullback-rtOQ9t",
+          "locator": "Olsson notes §31, Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored strong-naturality deductions",
+          "excerpt": "Full faithfulness",
+          "match": "The local equivariant Isom-torsor comparison motivates these actual native pullback adapters. The printed self-reference is not used as a proof supplier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/preimage-map",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The transported inverse returns the source",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.preimageIso_map",
+      "statement": "For fixed-band η and actual local p,q, P_f(p,M_f(q))=q.",
+      "hypotheses": [
+        "An arbitrary specified site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe and one actual abelian sheaf A, with the supplied bandings bF,bG.",
+        "η is the native StrongTrans. The comparison, forward Isom map and forward Hom map are defined without band preservation; the inverse laws, injectivity, equivariance and equivalences assume BandPreserving(bF,bG,η).",
+        "f:V→U and actual x,y∈F(U). The native prototype interface uses the same explicit universe for coefficients and fibre hom types, retaining arbitrary base and object universes.",
+        "An actual source anchor is assumed only where explicitly stated; local nonemptiness is not a global anchor. No finite, neutral, terminal-object, finite-presentation or bottom-topology assumption is imposed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/preimage-isom",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/map-isom",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-preimage-map"
+      ],
+      "proofSteps": [
+        "Cancel Iso.isoCongr.symm_apply_apply, then use the component inverse-after-forward law."
+      ],
+      "acceptance": [
+        "Keep both actual strong-naturality components and the precise source/target objects.",
+        "Arbitrary deeper-slice coherence, inverse-sheaf gluing, essential surjectivity and an inverse strong transformation remain separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-strong-pullback-rtOQ9t",
+          "locator": "Olsson notes §31, Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored strong-naturality deductions",
+          "excerpt": "Full faithfulness",
+          "match": "The local equivariant Isom-torsor comparison motivates these actual native pullback adapters. The printed self-reference is not used as a proof supplier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/preimage-anchor",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The transported inverse is independent of the local anchor",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.preimageIso_anchor",
+      "statement": "For actual local anchors p,p′ and any actual target q, P_f(p,q)=P_f(p′,q) when η preserves the fixed band. This compares supplied anchors and never chooses a global one.",
+      "hypotheses": [
+        "An arbitrary specified site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe and one actual abelian sheaf A, with the supplied bandings bF,bG.",
+        "η is the native StrongTrans. The comparison, forward Isom map and forward Hom map are defined without band preservation; the inverse laws, injectivity, equivariance and equivalences assume BandPreserving(bF,bG,η).",
+        "f:V→U and actual x,y∈F(U). The native prototype interface uses the same explicit universe for coefficients and fibre hom types, retaining arbitrary base and object universes.",
+        "An actual source anchor is assumed only where explicitly stated; local nonemptiness is not a global anchor. No finite, neutral, terminal-object, finite-presentation or bottom-topology assumption is imposed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/preimage-isom",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-preimage-anchor"
+      ],
+      "proofSteps": [
+        "Apply inherited component anchor independence to the same reverse-transported target."
+      ],
+      "acceptance": [
+        "Keep both actual strong-naturality components and the precise source/target objects.",
+        "Arbitrary deeper-slice coherence, inverse-sheaf gluing, essential surjectivity and an inverse strong transformation remain separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-strong-pullback-rtOQ9t",
+          "locator": "Olsson notes §31, Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored strong-naturality deductions",
+          "excerpt": "Full faithfulness",
+          "match": "The local equivariant Isom-torsor comparison motivates these actual native pullback adapters. The printed self-reference is not used as a proof supplier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/preimage-act",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The transported inverse respects band actions",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.preimageIso_act",
+      "statement": "For fixed-band η, an actual local anchor p, target q and a∈A(V), P_f(p,actG(q,a))=actF(P_f(p,q),a).",
+      "hypotheses": [
+        "An arbitrary specified site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe and one actual abelian sheaf A, with the supplied bandings bF,bG.",
+        "η is the native StrongTrans. The comparison, forward Isom map and forward Hom map are defined without band preservation; the inverse laws, injectivity, equivariance and equivalences assume BandPreserving(bF,bG,η).",
+        "f:V→U and actual x,y∈F(U). The native prototype interface uses the same explicit universe for coefficients and fibre hom types, retaining arbitrary base and object universes.",
+        "An actual source anchor is assumed only where explicitly stated; local nonemptiness is not a global anchor. No finite, neutral, terminal-object, finite-presentation or bottom-topology assumption is imposed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-injective",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/map-preimage",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-act"
+      ],
+      "proofSteps": [
+        "Apply transported map injectivity; compare images using the target round trip and transported action compatibility."
+      ],
+      "acceptance": [
+        "Keep both actual strong-naturality components and the precise source/target objects.",
+        "Arbitrary deeper-slice coherence, inverse-sheaf gluing, essential surjectivity and an inverse strong transformation remain separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-strong-pullback-rtOQ9t",
+          "locator": "Olsson notes §31, Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored strong-naturality deductions",
+          "excerpt": "Full faithfulness",
+          "match": "The local equivariant Isom-torsor comparison motivates these actual native pullback adapters. The printed self-reference is not used as a proof supplier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/preimage-restrict",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The inverse commutes with restriction of a supplied global anchor",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.preimageIso_restrict",
+      "statement": "For actual global p:x≅y and actual target q:ηUx≅ηUy, P_f(F(f)p,G(f)q)=F(f)(BandedMorphism.preimageIso(p,q)). No global p is inferred from the gerbe axioms.",
+      "hypotheses": [
+        "An arbitrary specified site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe and one actual abelian sheaf A, with the supplied bandings bF,bG.",
+        "η is the native StrongTrans. The comparison, forward Isom map and forward Hom map are defined without band preservation; the inverse laws, injectivity, equivariance and equivalences assume BandPreserving(bF,bG,η).",
+        "f:V→U and actual x,y∈F(U). The native prototype interface uses the same explicit universe for coefficients and fibre hom types, retaining arbitrary base and object universes.",
+        "An actual source anchor is assumed only where explicitly stated; local nonemptiness is not a global anchor. No finite, neutral, terminal-object, finite-presentation or bottom-topology assumption is imposed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-injective",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/map-preimage",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-restrict",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-map-preimage"
+      ],
+      "proofSteps": [
+        "Apply transported map injectivity. The first image is G(f)q by the transported round trip; the second is the same by strong naturality on the actual component inverse and its component round trip."
+      ],
+      "acceptance": [
+        "Keep both actual strong-naturality components and the precise source/target objects.",
+        "Arbitrary deeper-slice coherence, inverse-sheaf gluing, essential surjectivity and an inverse strong transformation remain separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-strong-pullback-rtOQ9t",
+          "locator": "Olsson notes §31, Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored strong-naturality deductions",
+          "excerpt": "Full faithfulness",
+          "match": "The local equivariant Isom-torsor comparison motivates these actual native pullback adapters. The printed self-reference is not used as a proof supplier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-equiv",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Actual local equivalence with the correct target pullbacks",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.isomEquiv",
+      "statement": "For fixed-band η and an actual local anchor p, E_f(p) is an actual Equiv from F(f)x≅F(f)y to G(f)(ηUx)≅G(f)(ηUy). It is the inherited anchored component Equiv followed by Mathlib Iso.isoCongr; its forward map is M_f and inverse P_f(p).",
+      "hypotheses": [
+        "An arbitrary specified site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe and one actual abelian sheaf A, with the supplied bandings bF,bG.",
+        "η is the native StrongTrans. The comparison, forward Isom map and forward Hom map are defined without band preservation; the inverse laws, injectivity, equivariance and equivalences assume BandPreserving(bF,bG,η).",
+        "f:V→U and actual x,y∈F(U). The native prototype interface uses the same explicit universe for coefficients and fibre hom types, retaining arbitrary base and object universes.",
+        "An actual source anchor is assumed only where explicitly stated; local nonemptiness is not a global anchor. No finite, neutral, terminal-object, finite-presentation or bottom-topology assumption is imposed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-isom-equiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/comparison",
+        "mathlib:CategoryTheory.Iso.isoCongr"
+      ],
+      "proofSteps": [
+        "Compose the inherited actual component equivalence with the existing conjugation equivalence. Keep its inverse data and correct target objects."
+      ],
+      "acceptance": [
+        "Keep both actual strong-naturality components and the precise source/target objects.",
+        "Arbitrary deeper-slice coherence, inverse-sheaf gluing, essential surjectivity and an inverse strong transformation remain separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-strong-pullback-rtOQ9t",
+          "locator": "Olsson notes §31, Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored strong-naturality deductions",
+          "excerpt": "Full faithfulness",
+          "match": "The local equivariant Isom-torsor comparison motivates these actual native pullback adapters. The printed self-reference is not used as a proof supplier."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.forwardOrientation",
+          "kind": "compatibility",
+          "statement": "The forward map uses c_f(x) inverse, the actual component mapIso, and c_f(y) forward."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.reverseOrientation",
+          "kind": "compatibility",
+          "statement": "The inverse transports q using c_f(x) forward and c_f(y) inverse before the component preimage."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.Tests.actedImage",
+          "kind": "characterisation",
+          "statement": "The equivalence retains every coefficient of the actual A(V) action."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Olsson notes §31, Lemma 31.3, full-faithfulness argument",
+          "how": "Supplies the correct local comparison between actual pullbacks before coherent Hom-sheaf inverse gluing."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-full-faithful",
+          "how": "Retains the native StrongTrans comparison data required by the general fixed-band morphism theorem."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.isomEquiv_apply",
+          "role": "projection",
+          "statement": "E_f(p)(q)=M_f(q) for every actual local anchor p and local isomorphism q."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.isomEquiv_symm_apply",
+          "role": "projection",
+          "statement": "E_f(p)⁻¹(q)=P_f(p,q) for every actual target isomorphism q."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.isomEquiv_anchor",
+          "role": "extensionality",
+          "statement": "For any actual local anchors p,p′, E_f(p)=E_f(p′) as Equiv values, since both forward maps are exactly M_f."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-equiv-apply",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Forward formula for the actual pullback equivalence",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.isomEquiv_apply",
+      "statement": "E_f(p)(q)=M_f(q) for every actual local anchor p and local isomorphism q.",
+      "hypotheses": [
+        "An arbitrary specified site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe and one actual abelian sheaf A, with the supplied bandings bF,bG.",
+        "η is the native StrongTrans. The comparison, forward Isom map and forward Hom map are defined without band preservation; the inverse laws, injectivity, equivariance and equivalences assume BandPreserving(bF,bG,η).",
+        "f:V→U and actual x,y∈F(U). The native prototype interface uses the same explicit universe for coefficients and fibre hom types, retaining arbitrary base and object universes.",
+        "An actual source anchor is assumed only where explicitly stated; local nonemptiness is not a global anchor. No finite, neutral, terminal-object, finite-presentation or bottom-topology assumption is imposed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-equiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/map-isom"
+      ],
+      "proofSteps": [
+        "Unfold the composite equivalence once; its forward map is definitionally M_f."
+      ],
+      "acceptance": [
+        "Keep both actual strong-naturality components and the precise source/target objects.",
+        "Arbitrary deeper-slice coherence, inverse-sheaf gluing, essential surjectivity and an inverse strong transformation remain separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-strong-pullback-rtOQ9t",
+          "locator": "Olsson notes §31, Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored strong-naturality deductions",
+          "excerpt": "Full faithfulness",
+          "match": "The local equivariant Isom-torsor comparison motivates these actual native pullback adapters. The printed self-reference is not used as a proof supplier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-equiv-symm",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Inverse formula for the actual pullback equivalence",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.isomEquiv_symm_apply",
+      "statement": "E_f(p)⁻¹(q)=P_f(p,q) for every actual target isomorphism q.",
+      "hypotheses": [
+        "An arbitrary specified site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe and one actual abelian sheaf A, with the supplied bandings bF,bG.",
+        "η is the native StrongTrans. The comparison, forward Isom map and forward Hom map are defined without band preservation; the inverse laws, injectivity, equivariance and equivalences assume BandPreserving(bF,bG,η).",
+        "f:V→U and actual x,y∈F(U). The native prototype interface uses the same explicit universe for coefficients and fibre hom types, retaining arbitrary base and object universes.",
+        "An actual source anchor is assumed only where explicitly stated; local nonemptiness is not a global anchor. No finite, neutral, terminal-object, finite-presentation or bottom-topology assumption is imposed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-equiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/preimage-isom"
+      ],
+      "proofSteps": [
+        "Unfold the composite inverse once, retaining the reverse Iso.isoCongr transport."
+      ],
+      "acceptance": [
+        "Keep both actual strong-naturality components and the precise source/target objects.",
+        "Arbitrary deeper-slice coherence, inverse-sheaf gluing, essential surjectivity and an inverse strong transformation remain separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-strong-pullback-rtOQ9t",
+          "locator": "Olsson notes §31, Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored strong-naturality deductions",
+          "excerpt": "Full faithfulness",
+          "match": "The local equivariant Isom-torsor comparison motivates these actual native pullback adapters. The printed self-reference is not used as a proof supplier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-equiv-anchor",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The actual pullback equivalence is independent of the local anchor",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.isomEquiv_anchor",
+      "statement": "For any actual local anchors p,p′, E_f(p)=E_f(p′) as Equiv values, since both forward maps are exactly M_f.",
+      "hypotheses": [
+        "An arbitrary specified site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe and one actual abelian sheaf A, with the supplied bandings bF,bG.",
+        "η is the native StrongTrans. The comparison, forward Isom map and forward Hom map are defined without band preservation; the inverse laws, injectivity, equivariance and equivalences assume BandPreserving(bF,bG,η).",
+        "f:V→U and actual x,y∈F(U). The native prototype interface uses the same explicit universe for coefficients and fibre hom types, retaining arbitrary base and object universes.",
+        "An actual source anchor is assumed only where explicitly stated; local nonemptiness is not a global anchor. No finite, neutral, terminal-object, finite-presentation or bottom-topology assumption is imposed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-equiv-apply"
+      ],
+      "proofSteps": [
+        "Use Equiv extensionality on the forward maps. No comparison of chosen representatives is omitted."
+      ],
+      "acceptance": [
+        "Keep both actual strong-naturality components and the precise source/target objects.",
+        "Arbitrary deeper-slice coherence, inverse-sheaf gluing, essential surjectivity and an inverse strong transformation remain separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-strong-pullback-rtOQ9t",
+          "locator": "Olsson notes §31, Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored strong-naturality deductions",
+          "excerpt": "Full faithfulness",
+          "match": "The local equivariant Isom-torsor comparison motivates these actual native pullback adapters. The printed self-reference is not used as a proof supplier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/hom-surjective-anchor",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The transported Hom map is surjective with an actual local anchor",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homMap_surjective_of_anchor",
+      "statement": "For fixed-band η and actual local p:F(f)x≅F(f)y, h_f is surjective on the actual Hom carrier. The target arrows are invertible by IsGerbe(G,J), so the transported Isom inverse provides their actual preimage hom arrows.",
+      "hypotheses": [
+        "An arbitrary specified site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe and one actual abelian sheaf A, with the supplied bandings bF,bG.",
+        "η is the native StrongTrans. The comparison, forward Isom map and forward Hom map are defined without band preservation; the inverse laws, injectivity, equivariance and equivalences assume BandPreserving(bF,bG,η).",
+        "f:V→U and actual x,y∈F(U). The native prototype interface uses the same explicit universe for coefficients and fibre hom types, retaining arbitrary base and object universes.",
+        "An actual source anchor is assumed only where explicitly stated; local nonemptiness is not a global anchor. No finite, neutral, terminal-object, finite-presentation or bottom-topology assumption is imposed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/map-preimage",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-hom",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/relative-gerbe"
+      ],
+      "proofSteps": [
+        "Turn each target arrow into its actual asIso using the target gerbe groupoid field, take P_f(p,asIso(q)).hom, and use the target round trip on hom arrows."
+      ],
+      "acceptance": [
+        "Keep both actual strong-naturality components and the precise source/target objects.",
+        "Arbitrary deeper-slice coherence, inverse-sheaf gluing, essential surjectivity and an inverse strong transformation remain separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-strong-pullback-rtOQ9t",
+          "locator": "Olsson notes §31, Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored strong-naturality deductions",
+          "excerpt": "Full faithfulness",
+          "match": "The local equivariant Isom-torsor comparison motivates these actual native pullback adapters. The printed self-reference is not used as a proof supplier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/cover-equiv",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Correct target equivalences on a gerbe covering sieve",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.locallyIsomEquiv",
+      "statement": "For any U and actual x,y∈F(U), there is a J-covering sieve R such that for every f:V→U in R the actual Isom types F(f)x≅F(f)y and G(f)(ηUx)≅G(f)(ηUy) are equivalent. The source local anchor is obtained only on each covering arrow. No global anchor, finite cover or terminal object is chosen.",
+      "hypotheses": [
+        "An arbitrary specified site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe and one actual abelian sheaf A, with the supplied bandings bF,bG.",
+        "η is the native StrongTrans. The comparison, forward Isom map and forward Hom map are defined without band preservation; the inverse laws, injectivity, equivariance and equivalences assume BandPreserving(bF,bG,η).",
+        "f:V→U and actual x,y∈F(U). The native prototype interface uses the same explicit universe for coefficients and fibre hom types, retaining arbitrary base and object universes.",
+        "An actual source anchor is assumed only where explicitly stated; local nonemptiness is not a global anchor. No finite, neutral, terminal-object, finite-presentation or bottom-topology assumption is imposed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/relative-gerbe",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/isom-equiv"
+      ],
+      "proofSteps": [
+        "Use IsGerbe.locallyIsomorphic to obtain the actual covering sieve and a local anchor at each member, then take E_f of that anchor. This supplies objectwise local equivalences, not a sheaf isomorphism."
+      ],
+      "acceptance": [
+        "Keep both actual strong-naturality components and the precise source/target objects.",
+        "Arbitrary deeper-slice coherence, inverse-sheaf gluing, essential surjectivity and an inverse strong transformation remain separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-strong-pullback-rtOQ9t",
+          "locator": "Olsson notes §31, Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored strong-naturality deductions",
+          "excerpt": "Full faithfulness",
+          "match": "The local equivariant Isom-torsor comparison motivates these actual native pullback adapters. The printed self-reference is not used as a proof supplier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/comparison-native",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The pullback comparison is the native strong-naturality component",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.comparison_native",
+      "statement": "c_f(x) equals Cat.Hom.toNatIso(η.naturality(f)).app(x), with the exact native comparison orientation.",
+      "hypotheses": [
+        "An arbitrary specified site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe and one actual abelian sheaf A, with the supplied bandings bF,bG.",
+        "η is the native StrongTrans. The comparison, forward Isom map and forward Hom map are defined without band preservation; the inverse laws, injectivity, equivariance and equivalences assume BandPreserving(bF,bG,η).",
+        "f:V→U and actual x,y∈F(U). The native prototype interface uses the same explicit universe for coefficients and fibre hom types, retaining arbitrary base and object universes.",
+        "An actual source anchor is assumed only where explicitly stated; local nonemptiness is not a global anchor. No finite, neutral, terminal-object, finite-presentation or bottom-topology assumption is imposed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/comparison"
+      ],
+      "proofSteps": [
+        "Unfold the component definition; the equality is reflexive."
+      ],
+      "acceptance": [
+        "Keep both actual strong-naturality components and the precise source/target objects.",
+        "Arbitrary deeper-slice coherence, inverse-sheaf gluing, essential surjectivity and an inverse strong transformation remain separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-strong-pullback-rtOQ9t",
+          "locator": "Olsson notes §31, Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored strong-naturality deductions",
+          "excerpt": "Full faithfulness",
+          "match": "The local equivariant Isom-torsor comparison motivates these actual native pullback adapters. The printed self-reference is not used as a proof supplier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/comparison-inverse",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The pullback comparison inverse cancels its forward arrow",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.comparison_inv_hom_id",
+      "statement": "c_f(x).inv ≫ c_f(x).hom is the identity on G(f)(ηUx), using the native isomorphism inverse law.",
+      "hypotheses": [
+        "An arbitrary specified site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe and one actual abelian sheaf A, with the supplied bandings bF,bG.",
+        "η is the native StrongTrans. The comparison, forward Isom map and forward Hom map are defined without band preservation; the inverse laws, injectivity, equivariance and equivalences assume BandPreserving(bF,bG,η).",
+        "f:V→U and actual x,y∈F(U). The native prototype interface uses the same explicit universe for coefficients and fibre hom types, retaining arbitrary base and object universes.",
+        "An actual source anchor is assumed only where explicitly stated; local nonemptiness is not a global anchor. No finite, neutral, terminal-object, finite-presentation or bottom-topology assumption is imposed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/comparison"
+      ],
+      "proofSteps": [
+        "Apply the existing inv_hom_id law to the actual comparison isomorphism."
+      ],
+      "acceptance": [
+        "Keep both actual strong-naturality components and the precise source/target objects.",
+        "Arbitrary deeper-slice coherence, inverse-sheaf gluing, essential surjectivity and an inverse strong transformation remain separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-strong-pullback-rtOQ9t",
+          "locator": "Olsson notes §31, Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored strong-naturality deductions",
+          "excerpt": "Full faithfulness",
+          "match": "The local equivariant Isom-torsor comparison motivates these actual native pullback adapters. The printed self-reference is not used as a proof supplier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/comparison-band",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The pullback comparison preserves the target band coordinate",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback.comparison_band",
+      "statement": "Conjugation by c_f(x) sends bG(ηV(F(f)x),a) to bG(G(f)(ηUx),a) for every a∈A(V). This uses target band conjugation alone; band preservation by η is not required.",
+      "hypotheses": [
+        "An arbitrary specified site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe and one actual abelian sheaf A, with the supplied bandings bF,bG.",
+        "η is the native StrongTrans. The comparison, forward Isom map and forward Hom map are defined without band preservation; the inverse laws, injectivity, equivariance and equivalences assume BandPreserving(bF,bG,η).",
+        "f:V→U and actual x,y∈F(U). The native prototype interface uses the same explicit universe for coefficients and fibre hom types, retaining arbitrary base and object universes.",
+        "An actual source anchor is assumed only where explicitly stated; local nonemptiness is not a global anchor. No finite, neutral, terminal-object, finite-presentation or bottom-topology assumption is imposed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/comparison",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding"
+      ],
+      "proofSteps": [
+        "Apply the target AbelianBanding.conjugation law to the actual comparison component."
+      ],
+      "acceptance": [
+        "Keep both actual strong-naturality components and the precise source/target objects.",
+        "Arbitrary deeper-slice coherence, inverse-sheaf gluing, essential surjectivity and an inverse strong transformation remain separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-strong-pullback-rtOQ9t",
+          "locator": "Olsson notes §31, Definition 31.1 and Lemma 31.3, PDF pp.122–123; authored strong-naturality deductions",
+          "excerpt": "Full faithfulness",
+          "match": "The local equivariant Isom-torsor comparison motivates these actual native pullback adapters. The printed self-reference is not used as a proof supplier."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -21289,7 +22612,8 @@
         "The incoming constant point fixtures remain. The connected two-object C3 gerbe now has exactly three actual compatible sections, with bijective evaluation at both objects. Its distinct objects are joined by actual arrows. The one-object S3 diagram is an actual gerbe but has only one compatible central section; evaluation is injective and is not surjective, and the transposition (0 1) is explicitly not attained. For arbitrary G the connected-fibre evaluation image is exactly its native centre subgroup. Still establish the actual SF1 descended-slice comparison, the D0 torsor/classifying-stack comparison, the prescribed nonconstant restriction-chain and terminal-free two-chain fixtures, and the nonneutral O(1) root-gerbe instance. The constant-diagram generality does not instantiate the nonconstant tests. No stage, other gap, request or reserved key is closed.",
         "Current continuation resolves the prescribed nonconstant C4 to C2 to C2 and terminal-free two-chain intrinsic-band fixtures, with actual native bottom-topology IsStack/IsGerbe proofs and coefficient-to-band presheaf/sheaf isomorphisms on explicitly small bases. The preceding remaining-work entry is retained verbatim as historical context; its two fixture obligations are now checked only in this stated bottom-topology scope. SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, the nonneutral O(1) root-gerbe instance, derived H2 and general classification remain open.",
         "Actual Isom/Hom principal comparison is now specified and independently checked on the native slice-presheaf and sheaf carriers, with covering-sieve local sections for arbitrary J. Complete the D0 torsor/classifying-stack adapter, the SF1 descended intrinsic-band comparison and the nonneutral O(1) root example; do not infer a chosen global isomorphism from local sections.",
-        "The actual fixed-band component maps now have faithful fibres, an anchored Isom inverse with action/identity/composition laws and local covering-sieve equivalences. Build the coherent StrongTrans map on native slice Hom sheaves and glue those inverses before claiming fibrewise fullness. Essential surjectivity, inverse strong transformation and the full equivalence target remain open, alongside all inherited frontiers."
+        "The actual fixed-band component maps now have faithful fibres, an anchored Isom inverse with action/identity/composition laws and local covering-sieve equivalences. Build the coherent StrongTrans map on native slice Hom sheaves and glue those inverses before claiming fibrewise fullness. Essential surjectivity, inverse strong transformation and the full equivalence target remain open, alongside all inherited frontiers.",
+        "Actual strong-naturality transport now lands in G(f)(ηUx) and G(f)(ηUy), with inverse round trips, anchor independence, coefficients, injectivity and covering-sieve equivalences. Compatibility along arbitrary g:W→V in the slice still requires the native η.naturality_comp and both pseudofunctor comparison maps; the supplied-global-anchor restriction law is only a special case. Build that coherent Hom-presheaf map, then glue local inverses using the native Hom sheaf before claiming fibrewise fullness. All inherited frontiers and supplier requests remain open."
       ]
     },
     {
@@ -21395,6 +22719,15 @@
         "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-coordinates",
         "AlgebraicModuliForArithmeticGeometry:R09.3/native-module-canonical-comparison",
         "AlgebraicModuliForArithmeticGeometry:R09.3/descent-equalizer-module-coordinates"
+      ]
+    },
+    {
+      "title": "Strong-transformation slice compatibility and inverse gluing",
+      "detail": "Actual strong-naturality transport now lands in G(f)(ηUx) and G(f)(ηUy), with inverse round trips, anchor independence, coefficients, injectivity and covering-sieve equivalences. Compatibility along arbitrary g:W→V in the slice still requires the native η.naturality_comp and both pseudofunctor comparison maps; the supplied-global-anchor restriction law is only a special case. Build that coherent Hom-presheaf map, then glue local inverses using the native Hom sheaf before claiming fibrewise fullness. All inherited frontiers and supplier requests remain open.",
+      "neededBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-full-faithful",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/hom-map",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/cover-equiv"
       ]
     }
   ],
