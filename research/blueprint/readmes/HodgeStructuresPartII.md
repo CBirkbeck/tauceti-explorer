@@ -1,3 +1,406 @@
+# Current checkpoint: mixed ordered tensor contractions
+
+Codex — codex-a71f92, 3 October 2026. Refs #3371. This is a partial affine λ=0 continuation, not the whole HodgeStructuresPartII design or a formalisation. The reserved general ringed-site Higgs/parameter-connection contract is unchanged.
+
+The nine new lemmas expand an arbitrary mixed contraction word integrally, preserving the order within each factor. Genuine ordered bounds on the factors kill every sufficiently long mixed dual word for arbitrary Q. A chosen finite coefficient basis then detects the actual tensor-valued iterate and gives the exact N+M−1 bound for arbitrary E,F, without integrability, reducedness, characteristic restrictions or division. Larger specified exponents and preservation after any scalar extension are consumers of the existing native monotonicity and monoidal base-change interfaces.
+
+This does **not** claim the whole tensor-valued shuffle for arbitrary Q, a finite-projective restriction/gluing theorem, the native sheaf identification or nonzero-λ balancing. The general ringed-site tensor-nilpotence statement is retained at its original generality and remains unchecked. All149 source obligations,8 source routes,35 global typed omissions,5 supplier requests,11 gaps and6 planets remain. H.0 is partial and H.1–H.8 remain not_read.
+
+## Mathematical convention and proof boundary
+
+Products are native endomorphism composition, with the right factor applied first. A word records increasing position order. Binary masks choose E or F independently at every position, so repeated directions count repeatedly and carry full multiplicity. Only separate-factor actions commute. The additive sum is commutative; the products in End(E) and End(F) need not be.
+
+Do not apply commutative Finset.prod_add or List.prod_map_ite to these endomorphism rings. The proof expands an ordered list by induction, reindexes its additive binary-mask sum by Fin.consEquiv, and groups each selected word with TensorProduct.map_mul/map_one. The generated additive versions of the read Fintype.prod_equiv, prod_prod_type and prod_bool statements supply sum reindexing, nested sums and the Bool sum; they are already-built generic library tools, not new Hodge nodes.
+
+For a mask with r E positions and s F positions, r+s=n. If n≥N+M−1 and N,M>0, then r≥N or s≥M. Monotonicity of the actual factor iterate, followed by the all-dual ordered contraction formula, kills the selected factor word. The empty word gives the identity, never a false zero-nilpotence premise. A genuine I_0=0 premise is retained only where explicitly permitted.
+
+## Source, library and ownership screen
+
+Fresh primary reading covered the complete Liu–Zhu §2.1, printed/PDF pp.6–9 of [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), including Theorem2.1 and equations(2.4)–(2.5), tensor/dual explanations, twisted Higgs complex and remarks. The640639-byte PDF SHA256 is `8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79`. These arbitrary-ring mixed-word deductions are authored affine algebra, not the p-adic correspondence, its source nilpotence proof, an edition collation or a new source erratum.
+
+The whole issue was read before the claim and after bot5966437276 confirmed comment5966436402. Fresh immutable WORKERS, all9 stage descriptions, the reserved survey/owner, all5 requests, reviewed Hodge L0–L3/E1/D3 rows and REV-AUDIT-02/10/22 were read. The governing protocols and two complete upstream exemplars read earlier in this continuous session remain applicable. Not all retained historical handoffs or149 source proofs were freshly reread. A bounded Mathlib PR/Zulip search produced no exact mixed-word adapter lead; it is not a blanket absence proof. Pinned native tensor maps, ordered list operations, finite tuple equivalence and filter-length identity were read with their ambient hypotheses and source hashes. Generic tensor/list/finite-sum machinery is imported, not replanned.
+
+The key is still finite locally free native O-module sheaves on the specified differential ringed site, central dλ=0 and an actual additive λ-Leibniz map with defined exterior curvature. There is no global-frame replacement or assumption of completed sheaf operations. E1 owns actual sheaf tensor/exterior restriction, equality detection and gluing; CR.1 owns ordinary connection/exterior calculus; DD.1 owns the filtered/Rees carrier; D3 owns the common VHS; the generic Jacobi input remains the existing Coleman supplier. The pure Hodge/linear and native tensor baseline is not duplicated.
+
+## Execution and inherited test repair
+
+The final full suggested file is **UNCOMPILED**: available memory was10–14GiB, below the WORKERS20GiB threshold. No Lean process, library build, setup/cache/update or language server was started. All implementationStatus fields remain unchecked.
+
+Three inherited examples had been truncated at local let bindings: integer sharpness, characteristic-two cancellation and self-powers-versus-ordered detection. Their complete assertion headers have been restored from the authenticated3090-line incoming native archive at9a34a674dc624e21c9ad7ae573abda4baeeb1808 (SHA256e2e288fd7bc2f897c023ce4766d15e19c4215a20c095c5f4f96e9eed71ebc773); their bodies remain sorry. The incoming full native archive was itself UNCOMPILED, so recovery authenticates the statements, not a kernel receipt. Every other incoming canonical byte is retained, apart from three added individual Mathlib imports and the appended typed continuation.
+
+The independent exact Python regression executes3940 assertions,155 binary word expansions and2729 selected-word summands over ℤ,ZMod2,ZMod4,ZMod6,ZMod7. It checks noncommuting factor order, repeated-position counts, the empty identity, integer sharpness, and distinct characteristic-two mixed directions with I₂≠0/I₃=0 although all self-contraction squares vanish. These are finite mathematical regression tests, not Lean execution or a proof of the general theorem.
+
+## New declaration-sized proof plan
+
+### Cross-direction separate-factor contractions
+
+`TwistedHiggsBundle.affineTensorField_contractions_cross_commute` — `HodgeStructuresPartII:H.0/affine-tensor-cross-commute`.
+
+For all v,w∈Q∨, Lθ(v)=aθ(v)⊗id_F commutes with Rψ(w)=id_E⊗aψ(w). There is no requirement that v=w or that contractions within either factor commute.
+
+R is an arbitrary commutative ring; E,F,Q are arbitrary R-modules with actual R-linear fields θ:E→E⊗_R Q and ψ:F→F⊗_R Q. No integrability or finite basis of E/F is assumed. The final ordered detection/bound lemmas explicitly require a chosen finite basis b:I→Q, [Fintype I]; earlier contraction-word lemmas do not.
+
+aθ(v)=rid∘(id_E⊗v)∘θ; T is the inherited actual affine tensor field, and I_n is its inherited ordered iterate, with I_0 the native tensor-unit map. Multiplication is composition with the right factor acting first. Mask products retain increasing position order; c=true chooses E and c=false chooses F.
+
+N,M are positive only where explicitly stated. The selected-factor zero lemma also permits N=0 under the genuine I_0=0 hypothesis. No self-power-to-ordered converse, general-Q dual separation, global frame, sheaf/gluing comparison or nonzero-λ algebra is assumed.
+
+1. Regard the products as compositions of native linear maps. Both Lθ(v)Rψ(w) and Rψ(w)Lθ(v) equal TensorProduct.map(aθ(v),aψ(w)) by the two existing tensor-composition identities.
+2. This equality is the separate-factor interchange used in regrouping a mixed word; it neither permutes dual directions within an E/F subsequence nor asserts integrability.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-contractions`, `mathlib:LinearMap.rTensor_comp_lTensor`, `mathlib:LinearMap.lTensor_comp_rTensor`.
+
+### Ordered factorization of a selected tensor word
+
+`TwistedHiggsBundle.affineTensorField_contractions_selected_word` — `HodgeStructuresPartII:H.0/affine-tensor-selected-word`.
+
+For n≥0, vs:Fin n→Q∨ and c:Fin n→Bool, the ordered product choosing Lθ(vs(i)) when c(i)=true and Rψ(vs(i)) otherwise is TensorProduct.map of the ordered E and F products, inserting the identity at every unchosen position. The within-factor order is unchanged.
+
+R is an arbitrary commutative ring; E,F,Q are arbitrary R-modules with actual R-linear fields θ:E→E⊗_R Q and ψ:F→F⊗_R Q. No integrability or finite basis of E/F is assumed. The final ordered detection/bound lemmas explicitly require a chosen finite basis b:I→Q, [Fintype I]; earlier contraction-word lemmas do not.
+
+aθ(v)=rid∘(id_E⊗v)∘θ; T is the inherited actual affine tensor field, and I_n is its inherited ordered iterate, with I_0 the native tensor-unit map. Multiplication is composition with the right factor acting first. Mask products retain increasing position order; c=true chooses E and c=false chooses F.
+
+N,M are positive only where explicitly stated. The selected-factor zero lemma also permits N=0 under the genuine I_0=0 hypothesis. No self-power-to-ordered converse, general-Q dual separation, global frame, sheaf/gluing comparison or nonzero-λ algebra is assumed.
+
+1. Induct on the ordered list of positions, not a commutative finite product. For the empty list both products are identities and TensorProduct.map_one identifies their tensor map with the identity.
+2. At a true head, write Lθ(v)=map(aθ(v),1); at a false head write Rψ(v)=map(1,aψ(v)). Apply TensorProduct.map_mul to the head and inductive tail. Only the E or F head product is extended; identities erase the other head.
+3. This proves the grouping directly in possibly noncommutative endomorphism rings and realizes separate-factor interchange without moving two contractions on the same factor.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-tensor-cross-commute`, `mathlib:TensorProduct.map_mul`, `mathlib:TensorProduct.map_one`, `mathlib:List.ofFn_cons`.
+
+### Integral binary expansion of tensor contraction words
+
+`TwistedHiggsBundle.affineTensorField_contractions_word_expansion` — `HodgeStructuresPartII:H.0/affine-tensor-word-expansion`.
+
+For n≥0 and arbitrary vs:Fin n→Q∨, the ordered product of aT(vs(i)) equals the sum over all binary masks c:Fin n→Bool of TensorProduct.map(Pθ(c),Pψ(not c)), where Pθ/Pψ are the ordered contraction products with identities at unchosen positions. The sum has 2^n terms with their full multiplicity; no division or within-factor commutation is used.
+
+R is an arbitrary commutative ring; E,F,Q are arbitrary R-modules with actual R-linear fields θ:E→E⊗_R Q and ψ:F→F⊗_R Q. No integrability or finite basis of E/F is assumed. The final ordered detection/bound lemmas explicitly require a chosen finite basis b:I→Q, [Fintype I]; earlier contraction-word lemmas do not.
+
+aθ(v)=rid∘(id_E⊗v)∘θ; T is the inherited actual affine tensor field, and I_n is its inherited ordered iterate, with I_0 the native tensor-unit map. Multiplication is composition with the right factor acting first. Mask products retain increasing position order; c=true chooses E and c=false chooses F.
+
+N,M are positive only where explicitly stated. The selected-factor zero lemma also permits N=0 under the genuine I_0=0 hypothesis. No self-power-to-ordered converse, general-Q dual separation, global frame, sheaf/gluing comparison or nonzero-λ algebra is assumed.
+
+1. Expand each actual tensor contraction as Lθ(v)+Rψ(v) by the inherited native tensor-contraction formula. Induct on n using ordered List products and multiplication distributing over the additive sum; no Finset.prod_add or commutative List.prod_map_ite may be applied to End(E).
+2. At the head, identify masks on Fin(n+1) with Bool×(Fin n→Bool) using Fin.consEquiv. Reindex the additive sum by the generated additive versions of Fintype.prod_equiv/prod_prod_type and split its Bool sum by sum_bool. These require only commutativity of addition, which End(E⊗F) has.
+3. Apply the selected-word factorization term by term. For n=0 the mask type is a singleton, so the sole summand is map(1,1)=1. Repeated directions do not collapse masks or multiplicities.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-tensor-contractions`, `HodgeStructuresPartII:H.0/affine-tensor-selected-word`, `mathlib:Fin.consEquiv`, `mathlib:List.ofFn_cons`.
+
+### Vanishing of selected ordered contraction words
+
+`TwistedHiggsBundle.affineOrderedIterate_selected_word_zero` — `HodgeStructuresPartII:H.0/affine-ordered-selected-word-zero`.
+
+If I_N(θ)=0 and a binary mask selects r≥N positions in a word of length n, the ordered θ product with identities at unselected positions is zero. Count selected occurrences, not distinct dual directions. Q may be arbitrary, and N=0 is retained under its genuine I_0=0 premise.
+
+R is an arbitrary commutative ring; E,F,Q are arbitrary R-modules with actual R-linear fields θ:E→E⊗_R Q and ψ:F→F⊗_R Q. No integrability or finite basis of E/F is assumed. The final ordered detection/bound lemmas explicitly require a chosen finite basis b:I→Q, [Fintype I]; earlier contraction-word lemmas do not.
+
+aθ(v)=rid∘(id_E⊗v)∘θ; T is the inherited actual affine tensor field, and I_n is its inherited ordered iterate, with I_0 the native tensor-unit map. Multiplication is composition with the right factor acting first. Mask products retain increasing position order; c=true chooses E and c=false chooses F.
+
+N,M are positive only where explicitly stated. The selected-factor zero lemma also permits N=0 under the genuine I_0=0 hypothesis. No self-power-to-ordered converse, general-Q dual separation, global frame, sheaf/gluing comparison or nonzero-λ algebra is assumed.
+
+1. Let l be the ascending list of selected indices, of length r. Erasing the inserted identities by ordered list induction identifies the masked product with the list product of aθ(vs(l_j)); no commuting step or sorting of dual values occurs.
+2. By the existing affineOrderedIterate_mono, I_r(θ)=0. Instantiate the existing all-dual ordered-contraction formula with the r directions indexed by the list get map; List.ofFn_get recovers the original ordered selected list. Contracting the zero map gives zero.
+3. At N=0 the premise already implies id_E=0; the proof does not infer nilpotence from an empty product in a nonzero module. No basis or dual-separation hypothesis is used because only the forward contraction of an actual zero iterate is required.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-ordered-iterate-mono`, `HodgeStructuresPartII:H.0/affine-ordered-iterate-contraction`, `mathlib:List.ofFn_get`.
+
+### Pigeonhole vanishing of each ordered tensor summand
+
+`TwistedHiggsBundle.affineTensorField_contractions_word_summand_zero` — `HodgeStructuresPartII:H.0/affine-tensor-word-summand-zero`.
+
+For positive N,M, n with N+M≤n+1, and actual bounds I_N(θ)=I_M(ψ)=0, each binary-mask summand TensorProduct.map(Pθ(c),Pψ(not c)) is zero for every mixed dual word of length n.
+
+R is an arbitrary commutative ring; E,F,Q are arbitrary R-modules with actual R-linear fields θ:E→E⊗_R Q and ψ:F→F⊗_R Q. No integrability or finite basis of E/F is assumed. The final ordered detection/bound lemmas explicitly require a chosen finite basis b:I→Q, [Fintype I]; earlier contraction-word lemmas do not.
+
+aθ(v)=rid∘(id_E⊗v)∘θ; T is the inherited actual affine tensor field, and I_n is its inherited ordered iterate, with I_0 the native tensor-unit map. Multiplication is composition with the right factor acting first. Mask products retain increasing position order; c=true chooses E and c=false chooses F.
+
+N,M are positive only where explicitly stated. The selected-factor zero lemma also permits N=0 under the genuine I_0=0 hypothesis. No self-power-to-ordered converse, general-Q dual separation, global frame, sheaf/gluing comparison or nonzero-λ algebra is assumed.
+
+1. The list of n positions partitions into true and false selections, of lengths r,s with r+s=n by List.length_eq_length_filter_add. If r<N and s<M then n≤N+M−2, contradicting N+M≤n+1. Hence r≥N or s≥M.
+2. Apply selected-word zero to θ with c in the first case or ψ with the complementary mask in the second. In the ψ case Bool.not swaps precisely the chosen and identity factors while preserving their order.
+3. Use the native tensor-map zero identity in the vanishing factor. There is no binomial coefficient to invert and no characteristic, integrability or basis premise.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-ordered-selected-word-zero`, `mathlib:List.length_eq_length_filter_add`, `mathlib:TensorProduct.map_zero_left`, `mathlib:TensorProduct.map_zero_right`.
+
+### Mixed tensor contraction vanishing from ordered factor bounds
+
+`TwistedHiggsBundle.affineTensorField_contractions_word_zero` — `HodgeStructuresPartII:H.0/affine-tensor-word-zero`.
+
+For positive N,M and n with N+M≤n+1, I_N(θ)=I_M(ψ)=0 implies every ordered mixed dual contraction word of T(θ,ψ) of length n is zero. This holds for arbitrary Q; it does not assert that Q's dual detects the tensor-valued iterate.
+
+R is an arbitrary commutative ring; E,F,Q are arbitrary R-modules with actual R-linear fields θ:E→E⊗_R Q and ψ:F→F⊗_R Q. No integrability or finite basis of E/F is assumed. The final ordered detection/bound lemmas explicitly require a chosen finite basis b:I→Q, [Fintype I]; earlier contraction-word lemmas do not.
+
+aθ(v)=rid∘(id_E⊗v)∘θ; T is the inherited actual affine tensor field, and I_n is its inherited ordered iterate, with I_0 the native tensor-unit map. Multiplication is composition with the right factor acting first. Mask products retain increasing position order; c=true chooses E and c=false chooses F.
+
+N,M are positive only where explicitly stated. The selected-factor zero lemma also permits N=0 under the genuine I_0=0 hypothesis. No self-power-to-ordered converse, general-Q dual separation, global frame, sheaf/gluing comparison or nonzero-λ algebra is assumed.
+
+1. Rewrite the actual contraction word by the integral binary expansion.
+2. Each summand vanishes by the selected-count pigeonhole lemma. Sum the zero native linear maps.
+3. Unlike uniform self-powers, this conclusion ranges over arbitrary sequences of dual directions, including distinct directions in characteristic two. Recovering I_n(T)=0 still requires an actual coefficient-separation theorem, supplied next only for a chosen finite basis.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-tensor-word-expansion`, `HodgeStructuresPartII:H.0/affine-tensor-word-summand-zero`.
+
+### Actual ordered tensor bound with a finite coefficient basis
+
+`TwistedHiggsBundle.affineTensorField_ordered_bound_of_basis` — `HodgeStructuresPartII:H.0/affine-tensor-ordered-basis-bound`.
+
+For a chosen finite basis b:I→Q and positive N,M, I_N(θ)=I_M(ψ)=0 implies I_(N+M−1)(T(θ,ψ))=0 as an equality of actual native tensor-valued linear maps. E,F need no basis, finiteness or flatness, and the fields need not be integrable.
+
+R is an arbitrary commutative ring; E,F,Q are arbitrary R-modules with actual R-linear fields θ:E→E⊗_R Q and ψ:F→F⊗_R Q. No integrability or finite basis of E/F is assumed. The final ordered detection/bound lemmas explicitly require a chosen finite basis b:I→Q, [Fintype I]; earlier contraction-word lemmas do not.
+
+aθ(v)=rid∘(id_E⊗v)∘θ; T is the inherited actual affine tensor field, and I_n is its inherited ordered iterate, with I_0 the native tensor-unit map. Multiplication is composition with the right factor acting first. Mask products retain increasing position order; c=true chooses E and c=false chooses F.
+
+N,M are positive only where explicitly stated. The selected-factor zero lemma also permits N=0 under the genuine I_0=0 hypothesis. No self-power-to-ordered converse, general-Q dual separation, global frame, sheaf/gluing comparison or nonzero-λ algebra is assumed.
+
+1. Apply the inherited finite coefficient-basis zero criterion to T at n=N+M−1; no basis of E⊗F is involved.
+2. For each p:Fin n→I, feed the arbitrary mixed-word vanishing theorem the directions b.coord(p(i)). Positivity makes n+1=N+M, so its length hypothesis holds.
+3. The criterion detects the whole native coefficient tensor, not merely its repeated self-contractions or a symmetric quotient. This finite-basis adapter does not weaken or close the existing arbitrary-Q/sheaf tensor-nilpotence theorem.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-tensor-word-zero`, `HodgeStructuresPartII:H.0/affine-ordered-iterate-vanishing`.
+
+### Larger specified ordered tensor exponents
+
+`TwistedHiggsBundle.affineTensorField_ordered_bound_of_basis_of_le` — `HodgeStructuresPartII:H.0/affine-tensor-ordered-basis-larger`.
+
+Under the same finite coefficient basis and positive factor bounds, every k with N+M≤k+1 satisfies I_k(T(θ,ψ))=0. The specified exponent is preserved rather than replaced by an unspecified existence assertion.
+
+R is an arbitrary commutative ring; E,F,Q are arbitrary R-modules with actual R-linear fields θ:E→E⊗_R Q and ψ:F→F⊗_R Q. No integrability or finite basis of E/F is assumed. The final ordered detection/bound lemmas explicitly require a chosen finite basis b:I→Q, [Fintype I]; earlier contraction-word lemmas do not.
+
+aθ(v)=rid∘(id_E⊗v)∘θ; T is the inherited actual affine tensor field, and I_n is its inherited ordered iterate, with I_0 the native tensor-unit map. Multiplication is composition with the right factor acting first. Mask products retain increasing position order; c=true chooses E and c=false chooses F.
+
+N,M are positive only where explicitly stated. The selected-factor zero lemma also permits N=0 under the genuine I_0=0 hypothesis. No self-power-to-ordered converse, general-Q dual separation, global frame, sheaf/gluing comparison or nonzero-λ algebra is assumed.
+
+1. Obtain the actual native bound at n=N+M−1 from the finite-basis theorem.
+2. The natural-number inequality gives n≤k. Apply the existing all-degree monotonicity to the actual tensor field.
+3. No new tensor-power carrier, larger-exponent oracle or sheaf comparison is introduced.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-tensor-ordered-basis-bound`, `HodgeStructuresPartII:H.0/affine-ordered-iterate-mono`.
+
+### Finite-basis ordered tensor bound after arbitrary scalar extension
+
+`TwistedHiggsBundle.affineTensorField_ordered_bound_of_basis_baseChange` — `HodgeStructuresPartII:H.0/affine-tensor-ordered-basis-basechange`.
+
+For every R-algebra S, a finite coefficient basis over R and positive ordered factor bounds N,M imply I_(N+M−1)(T(S⊗θ,S⊗ψ))=0 over S. No flatness, faithful-flatness or characteristic condition on S is required for this preservation direction.
+
+R is an arbitrary commutative ring; E,F,Q are arbitrary R-modules with actual R-linear fields θ:E→E⊗_R Q and ψ:F→F⊗_R Q. No integrability or finite basis of E/F is assumed. The final ordered detection/bound lemmas explicitly require a chosen finite basis b:I→Q, [Fintype I]; earlier contraction-word lemmas do not.
+
+aθ(v)=rid∘(id_E⊗v)∘θ; T is the inherited actual affine tensor field, and I_n is its inherited ordered iterate, with I_0 the native tensor-unit map. Multiplication is composition with the right factor acting first. Mask products retain increasing position order; c=true chooses E and c=false chooses F.
+
+N,M are positive only where explicitly stated. The selected-factor zero lemma also permits N=0 under the genuine I_0=0 hypothesis. No self-power-to-ordered converse, general-Q dual separation, global frame, sheaf/gluing comparison or nonzero-λ algebra is assumed.
+
+1. First prove the actual R-linear ordered tensor bound with the finite coefficient-basis adapter.
+2. Import the existing arbitrary-module affineTensorField_baseChange_nilpotence theorem at this exact exponent. Its native monoidal comparison identifies the two scalar-extended fields; it is not a tensor-of-global-sections identification.
+3. Keep reflection, actual cross-ring exterior/curvature comparison, finite-projective sheaf restriction and gluing at their inherited interfaces. This consumer is preservation only and does not close any supplier.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-tensor-ordered-basis-bound`, `HodgeStructuresPartII:H.0/affine-tensor-base-change-nilpotence`.
+
+## Consumed API additions
+
+`TwistedHiggsBundle.affineOrderedIterate_selected_word_zero` (compatibility): If I_N(θ)=0 and a binary mask selects r≥N positions in a word of length n, the ordered θ product with identities at unselected positions is zero. Count selected occurrences, not distinct dual directions. Q may be arbitrary, and N=0 is retained under its genuine I_0=0 premise.
+
+`TwistedHiggsBundle.affineOrderedIterate.test_selected_repeated_direction` (degenerate): If I_2(θ)=0, the length-two word with both positions equal to v has zero product. Two selected occurrences count as two even though only one distinct dual direction occurs.
+
+`TwistedHiggsBundle.affineTensorField_contractions_cross_commute` (compatibility): For all v,w∈Q∨, Lθ(v)=aθ(v)⊗id_F commutes with Rψ(w)=id_E⊗aψ(w). There is no requirement that v=w or that contractions within either factor commute.
+
+`TwistedHiggsBundle.affineTensorField_contractions_selected_word` (compatibility): For n≥0, vs:Fin n→Q∨ and c:Fin n→Bool, the ordered product choosing Lθ(vs(i)) when c(i)=true and Rψ(vs(i)) otherwise is TensorProduct.map of the ordered E and F products, inserting the identity at every unchosen position. The within-factor order is unchanged.
+
+`TwistedHiggsBundle.affineTensorField_contractions_word_expansion` (compatibility): For n≥0 and arbitrary vs:Fin n→Q∨, the ordered product of aT(vs(i)) equals the sum over all binary masks c:Fin n→Bool of TensorProduct.map(Pθ(c),Pψ(not c)), where Pθ/Pψ are the ordered contraction products with identities at unchosen positions. The sum has 2^n terms with their full multiplicity; no division or within-factor commutation is used.
+
+`TwistedHiggsBundle.affineTensorField_contractions_word_summand_zero` (compatibility): For positive N,M, n with N+M≤n+1, and actual bounds I_N(θ)=I_M(ψ)=0, each binary-mask summand TensorProduct.map(Pθ(c),Pψ(not c)) is zero for every mixed dual word of length n.
+
+`TwistedHiggsBundle.affineTensorField_contractions_word_zero` (compatibility): For positive N,M and n with N+M≤n+1, I_N(θ)=I_M(ψ)=0 implies every ordered mixed dual contraction word of T(θ,ψ) of length n is zero. This holds for arbitrary Q; it does not assert that Q's dual detects the tensor-valued iterate.
+
+`TwistedHiggsBundle.affineTensorField_ordered_bound_of_basis` (compatibility): For a chosen finite basis b:I→Q and positive N,M, I_N(θ)=I_M(ψ)=0 implies I_(N+M−1)(T(θ,ψ))=0 as an equality of actual native tensor-valued linear maps. E,F need no basis, finiteness or flatness, and the fields need not be integrable.
+
+`TwistedHiggsBundle.affineTensorField_ordered_bound_of_basis_of_le` (compatibility): Under the same finite coefficient basis and positive factor bounds, every k with N+M≤k+1 satisfies I_k(T(θ,ψ))=0. The specified exponent is preserved rather than replaced by an unspecified existence assertion.
+
+`TwistedHiggsBundle.affineTensorField_ordered_bound_of_basis_baseChange` (compatibility): For every R-algebra S, a finite coefficient basis over R and positive ordered factor bounds N,M imply I_(N+M−1)(T(S⊗θ,S⊗ψ))=0 over S. No flatness, faithful-flatness or characteristic condition on S is required for this preservation direction.
+
+`TwistedHiggsBundle.affineTensorField.test_mixed_word_empty` (degenerate): The n=0 tensor contraction word is the identity on E⊗F, not zero; the binary-mask sum has one identity summand.
+
+`TwistedHiggsBundle.affineTensorField.test_mixed_word_two` (computation): For arbitrary v,w the length-two word is map(aθ(v)aθ(w),1)+map(aθ(v),aψ(w))+map(aθ(w),aψ(v))+map(1,aψ(v)aψ(w)). The E/F subsequences retain their order even for noncommuting directions.
+
+`TwistedHiggsBundle.affineTensorField.test_mixed_bound_zero_factor` (compatibility): For a finite coefficient basis, M>0 and I_M(ψ)=0, I_M(T(0,ψ))=0. The bound with N=1 preserves exactly M rather than adding an unnecessary exponent.
+
+`TwistedHiggsBundle.affineTensorField.test_mixed_empty_coefficients` (degenerate): If Q is the zero module, every θ,ψ has I_1(T(θ,ψ))=0. Degree zero still gives the tensor-unit map.
+
+`TwistedHiggsBundle.affineTensorField.test_mixed_char_two_bound` (non-example): Over K=ZMod 2, V=K×K and J(x,y)=(y,0), let θ=J⊗(1,0) and ψ=J⊗(0,1). Each has ordered bound 2, while their actual tensor field has I_3=0 and I_2≠0. Distinct mixed directions remain nonzero although all self-contraction squares vanish.
+
+`TwistedHiggsBundle.affineTensorField.test_mixed_integer_bound` (non-example): Over ℤ with V=ℤ×ℤ and J(x,y)=(y,0), θ=J⊗1 has I_2=0; the actual tensor field T(θ,θ) has I_3=0 and I_2≠0. The integer mixed coefficient is 2(J⊗J), so max(2,2) is not the tensor bound.
+
+`TwistedHiggsBundle.affineTensorField.test_mixed_nonflat_baseChange` (compatibility): Over ℤ with a finite coefficient basis and I_2(θ)=I_2(ψ)=0, the tensor of the two scalar-extended fields over ZMod 2 has actual ordered bound 3. This preservation uses no flatness.
+
+## Typed continuation (proposed, not compiled)
+
+```lean
+/- BEGIN AFFINE MIXED TENSOR WORDS -/
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+open scoped TensorProduct BigOperators
+variable {R E F Q : Type*} [CommRing R]
+  [AddCommGroup E] [Module R E] [AddCommGroup F] [Module R F]
+  [AddCommGroup Q] [Module R Q]
+
+lemma affineTensorField_contractions_cross_commute
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (v w : Module.Dual R Q) :
+    Commute ((affineContractions θ v).rTensor F)
+      ((affineContractions ψ w).lTensor E) := by
+  sorry
+
+lemma affineTensorField_contractions_selected_word
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (n : ℕ) (vs : Fin n → Module.Dual R Q) (c : Fin n → Bool) :
+    (List.ofFn (fun i =>
+      if c i then (affineContractions θ (vs i)).rTensor F
+      else (affineContractions ψ (vs i)).lTensor E)).prod =
+    TensorProduct.map
+      ((List.ofFn (fun i => if c i then affineContractions θ (vs i) else 1)).prod)
+      ((List.ofFn (fun i => if c i then 1 else affineContractions ψ (vs i))).prod) := by
+  sorry
+
+lemma affineTensorField_contractions_word_expansion
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (n : ℕ) (vs : Fin n → Module.Dual R Q) :
+    (List.ofFn (fun i => affineContractions (affineTensorField θ ψ) (vs i))).prod =
+    ∑ c : Fin n → Bool, TensorProduct.map
+      ((List.ofFn (fun i => if c i then affineContractions θ (vs i) else 1)).prod)
+      ((List.ofFn (fun i => if c i then 1 else affineContractions ψ (vs i))).prod) := by
+  sorry
+
+lemma affineOrderedIterate_selected_word_zero
+    (θ : E →ₗ[R] E ⊗[R] Q) (N n : ℕ)
+    (hθ : affineOrderedIterate θ N = 0)
+    (vs : Fin n → Module.Dual R Q) (c : Fin n → Bool)
+    (hcount : N ≤ ((List.finRange n).filter (fun i => c i)).length) :
+    (List.ofFn (fun i => if c i then affineContractions θ (vs i) else 1)).prod = 0 := by
+  sorry
+
+lemma affineTensorField_contractions_word_summand_zero
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (N M n : ℕ) (hN : 0 < N) (hM : 0 < M) (hn : N + M ≤ n + 1)
+    (hθ : affineOrderedIterate θ N = 0) (hψ : affineOrderedIterate ψ M = 0)
+    (vs : Fin n → Module.Dual R Q) (c : Fin n → Bool) :
+    TensorProduct.map
+      ((List.ofFn (fun i => if c i then affineContractions θ (vs i) else 1)).prod)
+      ((List.ofFn (fun i => if c i then 1 else affineContractions ψ (vs i))).prod) = 0 := by
+  sorry
+
+lemma affineTensorField_contractions_word_zero
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (N M n : ℕ) (hN : 0 < N) (hM : 0 < M) (hn : N + M ≤ n + 1)
+    (hθ : affineOrderedIterate θ N = 0) (hψ : affineOrderedIterate ψ M = 0)
+    (vs : Fin n → Module.Dual R Q) :
+    (List.ofFn (fun i => affineContractions (affineTensorField θ ψ) (vs i))).prod = 0 := by
+  sorry
+
+lemma affineTensorField_ordered_bound_of_basis {I : Type*} [Fintype I]
+    (b : Module.Basis I R Q)
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (N M : ℕ) (hN : 0 < N) (hM : 0 < M)
+    (hθ : affineOrderedIterate θ N = 0) (hψ : affineOrderedIterate ψ M = 0) :
+    affineOrderedIterate (affineTensorField θ ψ) (N + M - 1) = 0 := by
+  sorry
+
+lemma affineTensorField_ordered_bound_of_basis_of_le {I : Type*} [Fintype I]
+    (b : Module.Basis I R Q)
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (N M k : ℕ) (hN : 0 < N) (hM : 0 < M) (hk : N + M ≤ k + 1)
+    (hθ : affineOrderedIterate θ N = 0) (hψ : affineOrderedIterate ψ M = 0) :
+    affineOrderedIterate (affineTensorField θ ψ) k = 0 := by
+  sorry
+
+variable (S : Type*) [CommRing S] [Algebra R S]
+
+lemma affineTensorField_ordered_bound_of_basis_baseChange {I : Type*} [Fintype I]
+    (b : Module.Basis I R Q)
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (N M : ℕ) (hN : 0 < N) (hM : 0 < M)
+    (hθ : affineOrderedIterate θ N = 0) (hψ : affineOrderedIterate ψ M = 0) :
+    affineOrderedIterate
+      (affineTensorField (affineBaseChange S θ) (affineBaseChange S ψ)) (N + M - 1) = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_mixed_word_empty
+example (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) :
+    (List.ofFn (fun i : Fin 0 =>
+      affineContractions (affineTensorField θ ψ) (Fin.elim0 i))).prod =
+      (1 : Module.End R (E ⊗[R] F)) := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_mixed_word_two
+example (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (v w : Module.Dual R Q) :
+    affineContractions (affineTensorField θ ψ) v *
+      affineContractions (affineTensorField θ ψ) w =
+    TensorProduct.map (affineContractions θ v * affineContractions θ w) (1 : Module.End R F) +
+      TensorProduct.map (affineContractions θ v) (affineContractions ψ w) +
+      TensorProduct.map (affineContractions θ w) (affineContractions ψ v) +
+      TensorProduct.map (1 : Module.End R E)
+        (affineContractions ψ v * affineContractions ψ w) := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineOrderedIterate.test_selected_repeated_direction
+example (θ : E →ₗ[R] E ⊗[R] Q) (hθ : affineOrderedIterate θ 2 = 0)
+    (v : Module.Dual R Q) :
+    (List.ofFn (fun _ : Fin 2 => affineContractions θ v)).prod = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_mixed_bound_zero_factor
+example {I : Type*} [Fintype I] (b : Module.Basis I R Q)
+    (ψ : F →ₗ[R] F ⊗[R] Q) (M : ℕ) (hM : 0 < M)
+    (hψ : affineOrderedIterate ψ M = 0) :
+    affineOrderedIterate (affineTensorField (0 : E →ₗ[R] E ⊗[R] Q) ψ) M = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_mixed_empty_coefficients
+example [Subsingleton Q]
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) :
+    affineOrderedIterate (affineTensorField θ ψ) 1 = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_mixed_char_two_bound
+example :
+    let K := ZMod 2
+    let V := K × K
+    let J : Module.End K V := (LinearMap.snd K K K).prod 0
+    let θ := affineTwoDirectionField J 0 ((1,0) : K × K) 0
+    let ψ := affineTwoDirectionField J 0 ((0,1) : K × K) 0
+    affineOrderedIterate θ 2 = 0 ∧ affineOrderedIterate ψ 2 = 0 ∧
+      affineOrderedIterate (affineTensorField θ ψ) 3 = 0 ∧
+      affineOrderedIterate (affineTensorField θ ψ) 2 ≠ 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_mixed_integer_bound
+example :
+    let J : Module.End ℤ (ℤ × ℤ) := (LinearMap.snd ℤ ℤ ℤ).prod 0
+    let θ := affineTwoDirectionField J 0 (1 : ℤ) 0
+    affineOrderedIterate θ 2 = 0 ∧
+      affineOrderedIterate (affineTensorField θ θ) 3 = 0 ∧
+      affineOrderedIterate (affineTensorField θ θ) 2 ≠ 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_mixed_nonflat_baseChange
+example {I : Type*} [Fintype I]
+    [Module ℤ E] [Module ℤ F] [Module ℤ Q] (b : Module.Basis I ℤ Q)
+    (θ : E →ₗ[ℤ] E ⊗[ℤ] Q) (ψ : F →ₗ[ℤ] F ⊗[ℤ] Q)
+    (hθ : affineOrderedIterate θ 2 = 0) (hψ : affineOrderedIterate ψ 2 = 0) :
+    affineOrderedIterate (affineTensorField (affineBaseChange (ZMod 2) θ)
+      (affineBaseChange (ZMod 2) ψ)) 3 = 0 := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+/- END AFFINE MIXED TENSOR WORDS -/
+```
+
+## Next boundary
+
+The codex-a71f92 mixed-word continuation gives the integral binary-mask expansion and arbitrary-Q vanishing of every mixed dual contraction word, then actual ordered bound N+M−1 with a chosen finite coefficient basis and arbitrary E,F, including larger exponents and arbitrary scalar-extension preservation. This is an affine plan with UNCOMPILED typed sketches, not a kernel certificate. The actual tensor-valued shuffle for arbitrary Q, finite-projective local dual/tensor restriction and E1 sheaf tensor identification/equality detection/gluing remain open. The existing general theorem is not weakened to a basis case. Nonzero-λ balancing, cross-ring exterior/curvature transport, determinant/Tate/period adapters, all 149 source obligations and H.1–H.8 remain open; preceding narrower frontier prose is checkpoint history.
+
+## Retained earlier roadmap text
+
+Earlier narrower status prose is checkpoint history; the current scope and execution limits above govern this continuation.
+
 # Hodge structures (pure, mixed, and polarized), Part II
 
 ## Continuation scope and conventions
