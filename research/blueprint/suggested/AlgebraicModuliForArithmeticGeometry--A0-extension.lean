@@ -1,3 +1,8 @@
+import Mathlib.Algebra.Category.Grp.Basic
+import Mathlib.CategoryTheory.ComposableArrows.Basic
+import Mathlib.CategoryTheory.Sums.Basic
+import Mathlib.CategoryTheory.Limits.Shapes.Terminal
+import Mathlib.Algebra.Category.Grp.EquivalenceGroupAddGroup
 import Mathlib.CategoryTheory.CodiscreteCategory
 import Mathlib.GroupTheory.Subgroup.Center
 import Mathlib.GroupTheory.Perm.Fin
@@ -3744,3 +3749,352 @@ lemma connectedIso_hom_inv_id (x y : ConnectedFibre I G) :
     (connectedIso I G x y).hom ≫ (connectedIso I G x y).inv = 𝟙 x := by sorry
 
 end TauCeti.AlgebraicGeometry.ConnectedBandFixtures
+
+/-! Nonconstant restriction-band continuation. The actual diagram and bottom-topology sheaf wrappers use built primitives; all other new mathematical declarations remain planning admissions. The checked proof archive is recorded in the handoff. No stage or general gerbe key closes. -/
+
+namespace TauCeti.AlgebraicGeometry.RestrictionBandFixtures
+open CategoryTheory Opposite Bicategory
+open IntrinsicBandSections
+universe chain_u chain_v chain_w
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type chain_u} [Category.{chain_v} C]
+
+abbrev groupDiagram (P : Cᵒᵖ ⥤ CommGrpCat.{chain_w}) :
+    LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{chain_w, 0} :=
+  (P ⋙ forget₂ CommGrpCat GrpCat ⋙ forget₂ GrpCat MonCat ⋙ MonCat.toCat).toPseudofunctor'
+
+lemma groupMapId_hom (P : Cᵒᵖ ⥤ CommGrpCat.{chain_w}) (U : C)
+    (x : SingleObj (P.obj (op U))) :
+    ((groupDiagram P).mapId (.mk (op U))).hom.toNatTrans.app x =
+      (1 : P.obj (op U)) := by sorry
+
+lemma groupMapComp_hom (P : Cᵒᵖ ⥤ CommGrpCat.{chain_w})
+    {U V W : C} (f : V ⟶ U) (g : W ⟶ V) (x : SingleObj (P.obj (op U))) :
+    ((groupDiagram P).mapComp f.op.toLoc g.op.toLoc).hom.toNatTrans.app x =
+      (1 : P.obj (op W)) := by sorry
+
+lemma groupMapComp'_hom (P : Cᵒᵖ ⥤ CommGrpCat.{chain_w})
+    {U V W : C} (f : V ⟶ U) (g : W ⟶ V) (fg : W ⟶ U) (h : g ≫ f = fg)
+    (x : SingleObj (P.obj (op U))) :
+    ((groupDiagram P).mapComp' f.op.toLoc g.op.toLoc fg.op.toLoc (by rw [← h]; rfl)).hom.toNatTrans.app x =
+      (1 : P.obj (op W)) := by sorry
+
+lemma groupMapComp'_inv (P : Cᵒᵖ ⥤ CommGrpCat.{chain_w})
+    {U V W : C} (f : V ⟶ U) (g : W ⟶ V) (fg : W ⟶ U) (h : g ≫ f = fg)
+    (x : SingleObj (P.obj (op U))) :
+    ((groupDiagram P).mapComp' f.op.toLoc g.op.toLoc fg.op.toLoc (by rw [← h]; rfl)).inv.toNatTrans.app x =
+      (1 : P.obj (op W)) := by sorry
+
+lemma groupOfObj_hom (P : Cᵒᵖ ⥤ CommGrpCat.{chain_w})
+    {ι : Type*} {U : C} {X : ι → C} (f : ∀ i, X i ⟶ U)
+    (x : (groupDiagram P).obj (.mk (op U))) {Y : C} (q : Y ⟶ U) {i j : ι}
+    (f₁ : Y ⟶ X i) (f₂ : Y ⟶ X j) (h₁ : f₁ ≫ f i = q) (h₂ : f₂ ≫ f j = q) :
+    (Pseudofunctor.DescentData.ofObj (F := groupDiagram P) (f := f) x).hom q f₁ f₂ h₁ h₂ =
+      (1 : P.obj (op Y)) := by sorry
+
+lemma groupPullHom (P : Cᵒᵖ ⥤ CommGrpCat.{chain_w})
+    {U V W Y : C} {x : (groupDiagram P).obj (.mk (op U))}
+    {y : (groupDiagram P).obj (.mk (op V))}
+    (f : Y ⟶ U) (g : Y ⟶ V)
+    (a : ((groupDiagram P).map f.op.toLoc).toFunctor.obj x ⟶
+      ((groupDiagram P).map g.op.toLoc).toFunctor.obj y)
+    (h : W ⟶ Y) (hf : W ⟶ U) (hg : W ⟶ V)
+    (whf : h ≫ f = hf) (whg : h ≫ g = hg) :
+    Pseudofunctor.LocallyDiscreteOpToCat.pullHom a h hf hg = (P.map h.op) a := by sorry
+
+def groupIso (P : Cᵒᵖ ⥤ CommGrpCat.{chain_w}) (U : C)
+    (x y : (groupDiagram P).obj (.mk (op U))) (g : P.obj (op U)) : x ≅ y := by sorry
+
+lemma groupDiagram_stack (P : Cᵒᵖ ⥤ CommGrpCat.{chain_w}) :
+    (groupDiagram P).IsStack (⊥ : GrothendieckTopology C) := by sorry
+
+lemma groupDiagram_gerbe (P : Cᵒᵖ ⥤ CommGrpCat.{chain_w}) :
+    IsGerbe (groupDiagram P) (⊥ : GrothendieckTopology C) := by sorry
+
+variable {G : Type chain_w} [CommGroup G]
+
+def singleCenter (g : G) : CatCenter (SingleObj G) := by sorry
+
+def singleCenterUnit (g : G) : (CatCenter (SingleObj G))ˣ := by sorry
+
+lemma singleCenterUnit_app (g : G) (x : SingleObj G) :
+    (singleCenterUnit g).val.app x = g := by sorry
+
+noncomputable def groupSection (P : Cᵒᵖ ⥤ CommGrpCat.{chain_w})
+    (U : C) (g : P.obj (op U)) : IntrinsicBandSection (groupDiagram P) U := by sorry
+
+lemma groupSection_eval (P : Cᵒᵖ ⥤ CommGrpCat.{chain_w})
+    {U V : C} (f : V ⟶ U) (g : P.obj (op U)) :
+    (eval (groupDiagram P) f (SingleObj.star (P.obj (op V)))
+      (groupSection P U g)).hom = (P.map f.op) g := by sorry
+
+noncomputable def groupSectionsEquiv (P : Cᵒᵖ ⥤ CommGrpCat.{chain_w}) (U : C) :
+    P.obj (op U) ≃* IntrinsicBandSection (groupDiagram P) U := by sorry
+
+lemma groupSectionsEquiv_restrict (P : Cᵒᵖ ⥤ CommGrpCat.{chain_w})
+    {U V : C} (f : V ⟶ U) (g : P.obj (op U)) :
+    restrict (groupDiagram P) f (groupSectionsEquiv P U g) =
+      groupSectionsEquiv P V ((P.map f.op) g) := by sorry
+
+variable {B : Type} [SmallCategory B]
+
+noncomputable def groupSectionsPresheafIso (P : Bᵒᵖ ⥤ CommGrpCat.{chain_w}) :
+    P ⋙ CommGrpCat.toAddCommGrp ≅ IntrinsicBandSections.presheaf (groupDiagram P) := by sorry
+
+noncomputable def groupBandSheaf (P : Bᵒᵖ ⥤ CommGrpCat.{chain_w}) :
+    Sheaf (⊥ : GrothendieckTopology B) AddCommGrpCat.{chain_w} :=
+  ⟨IntrinsicBandSections.presheaf (groupDiagram P), Presheaf.isSheaf_bot _⟩
+
+lemma groupBandSheaf_obj (P : Bᵒᵖ ⥤ CommGrpCat.{chain_w}) :
+    (groupBandSheaf P).obj = IntrinsicBandSections.presheaf (groupDiagram P) := by sorry
+
+noncomputable def groupBandSheafIso (P : Bᵒᵖ ⥤ CommGrpCat.{chain_w}) :
+    (⟨P ⋙ CommGrpCat.toAddCommGrp, Presheaf.isSheaf_bot _⟩ :
+      Sheaf (⊥ : GrothendieckTopology B) AddCommGrpCat.{chain_w}) ≅ groupBandSheaf P := by sorry
+
+abbrev reduction : Multiplicative (ZMod 4) →* Multiplicative (ZMod 2) :=
+  (ZMod.castHom (show 2 ∣ 4 by decide) (ZMod 2)).toAddMonoidHom.toMultiplicative
+
+abbrev chainGroups : Fin 3 ⥤ CommGrpCat :=
+  ComposableArrows.mk₂ (CommGrpCat.ofHom reduction)
+    (𝟙 (CommGrpCat.of (Multiplicative (ZMod 2))))
+
+abbrev ChainSite := (Fin 3)ᵒᵖ
+abbrev chainPresheaf : ChainSiteᵒᵖ ⥤ CommGrpCat := unopUnop (Fin 3) ⋙ chainGroups
+abbrev chainF := groupDiagram chainPresheaf
+abbrev U₀ : ChainSite := op (0 : Fin 3)
+abbrev U₁ : ChainSite := op (1 : Fin 3)
+abbrev U₂ : ChainSite := op (2 : Fin 3)
+abbrev f₀₁ : U₁ ⟶ U₀ := (homOfLE (show (0 : Fin 3) ≤ 1 by decide)).op
+abbrev f₁₂ : U₂ ⟶ U₁ := (homOfLE (show (1 : Fin 3) ≤ 2 by decide)).op
+abbrev f₀₂ : U₂ ⟶ U₀ := (homOfLE (show (0 : Fin 3) ≤ 2 by decide)).op
+
+lemma chain_generator_restrict :
+    restrict chainF f₀₁ (groupSectionsEquiv chainPresheaf U₀
+      (Multiplicative.ofAdd (1 : ZMod 4))) =
+      groupSectionsEquiv chainPresheaf U₁ (Multiplicative.ofAdd (1 : ZMod 2)) := by sorry
+
+lemma chain_generator_comp :
+    restrict chainF f₁₂ (restrict chainF f₀₁
+      (groupSectionsEquiv chainPresheaf U₀ (Multiplicative.ofAdd (1 : ZMod 4)))) =
+      restrict chainF f₀₂
+        (groupSectionsEquiv chainPresheaf U₀ (Multiplicative.ofAdd (1 : ZMod 4))) := by sorry
+
+lemma chain_two_killed :
+    restrict chainF f₀₁ (groupSectionsEquiv chainPresheaf U₀
+      (Multiplicative.ofAdd (2 : ZMod 4))) = 1 := by sorry
+
+lemma chain_restrict_not_injective : ¬ Function.Injective (restrict chainF f₀₁) := by sorry
+
+abbrev TwoChainSite := (Fin 3 ⊕ Fin 3)ᵒᵖ
+abbrev twoChainPresheaf : TwoChainSiteᵒᵖ ⥤ CommGrpCat :=
+  unopUnop (Fin 3 ⊕ Fin 3) ⋙ chainGroups.sum' chainGroups
+abbrev twoChainF := groupDiagram twoChainPresheaf
+
+lemma twoChains_no_terminal (U : TwoChainSite) : ¬ Nonempty (Limits.IsTerminal U) := by sorry
+
+lemma twoChains_sections_equiv (U : TwoChainSite) :
+    Nonempty (twoChainPresheaf.obj (op U) ≃* IntrinsicBandSection twoChainF U) := by sorry
+
+lemma groupIso_hom (P : Cᵒᵖ ⥤ CommGrpCat.{chain_w}) (U : C)
+    (x y : (groupDiagram P).obj (.mk (op U))) (g : P.obj (op U)) :
+    (groupIso P U x y g).hom = g := by sorry
+
+lemma groupIso_inv (P : Cᵒᵖ ⥤ CommGrpCat.{chain_w}) (U : C)
+    (x y : (groupDiagram P).obj (.mk (op U))) (g : P.obj (op U)) :
+    (groupIso P U x y g).inv = g⁻¹ := by sorry
+
+lemma singleCenter_app (g : G) (x : SingleObj G) : (singleCenter g).app x = g := by sorry
+
+lemma singleCenter_mul (g h : G) : singleCenter (g * h) = singleCenter g * singleCenter h := by sorry
+
+lemma singleCenterUnit_mul (g h : G) :
+    singleCenterUnit (g * h) = singleCenterUnit g * singleCenterUnit h := by sorry
+
+lemma groupSection_one (P : Cᵒᵖ ⥤ CommGrpCat.{chain_w}) (U : C) :
+    groupSection P U 1 = 1 := by sorry
+
+lemma groupSection_mul (P : Cᵒᵖ ⥤ CommGrpCat.{chain_w}) (U : C)
+    (g h : P.obj (op U)) : groupSection P U (g * h) = groupSection P U g * groupSection P U h := by sorry
+
+lemma groupSectionsEquiv_symm_apply (P : Cᵒᵖ ⥤ CommGrpCat.{chain_w}) (U : C)
+    (s : IntrinsicBandSection (groupDiagram P) U) :
+    (groupSectionsEquiv P U).symm s =
+      (val (groupDiagram P) s U (𝟙 U)).val.app (SingleObj.star (P.obj (op U))) := by sorry
+
+lemma groupSectionsPresheafIso_hom_app (P : Bᵒᵖ ⥤ CommGrpCat.{chain_w}) (U : Bᵒᵖ)
+    (g : Additive (P.obj U)) :
+    (groupSectionsPresheafIso P).hom.app U g = Additive.ofMul
+      (groupSectionsEquiv P U.unop g.toMul) := by sorry
+
+lemma groupBandSheafIso_hom (P : Bᵒᵖ ⥤ CommGrpCat.{chain_w}) :
+    (groupBandSheafIso P).hom.hom = (groupSectionsPresheafIso P).hom := by sorry
+
+lemma chain_stack : chainF.IsStack (⊥ : GrothendieckTopology ChainSite) := by sorry
+
+lemma chain_gerbe : IsGerbe chainF (⊥ : GrothendieckTopology ChainSite) := by sorry
+
+lemma twoChains_stack : twoChainF.IsStack (⊥ : GrothendieckTopology TwoChainSite) := by sorry
+
+lemma twoChains_gerbe : IsGerbe twoChainF (⊥ : GrothendieckTopology TwoChainSite) := by sorry
+
+lemma chain_source_card : Nat.card (IntrinsicBandSection chainF U₀) = 4 := by sorry
+
+lemma chain_target_card : Nat.card (IntrinsicBandSection chainF U₁) = 2 := by sorry
+
+end TauCeti.AlgebraicGeometry.RestrictionBandFixtures
+
+namespace TauCeti.AlgebraicGeometry.RestrictionBandFixtures.RestrictionBandTests
+open CategoryTheory Opposite Bicategory IntrinsicBandSections
+universe chain_u chain_v chain_w
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type chain_u} [Category.{chain_v} C]
+variable (P : Cᵒᵖ ⥤ CommGrpCat.{chain_w}) (U : C)
+
+-- RestrictionBandTests.isoUnit
+example (x y : (groupDiagram P).obj (.mk (op U))) :
+    (groupIso P U x y 1).hom ≫ (groupIso P U x y 1).inv = 𝟙 x := by sorry
+
+-- RestrictionBandTests.isoInverseQuarter
+example :
+    (groupIso chainPresheaf U₀ (SingleObj.star (Multiplicative (ZMod 4))) (SingleObj.star (Multiplicative (ZMod 4)))
+      (Multiplicative.ofAdd (1 : ZMod 4))).inv = Multiplicative.ofAdd (3 : ZMod 4) := by sorry
+
+-- RestrictionBandTests.isoQuarterRoundTrip
+example :
+    (groupIso chainPresheaf U₀ (SingleObj.star (Multiplicative (ZMod 4))) (SingleObj.star (Multiplicative (ZMod 4)))
+      (Multiplicative.ofAdd (1 : ZMod 4))).hom ≫
+      (groupIso chainPresheaf U₀ (SingleObj.star (Multiplicative (ZMod 4))) (SingleObj.star (Multiplicative (ZMod 4)))
+        (Multiplicative.ofAdd (1 : ZMod 4))).inv = 𝟙 (SingleObj.star (Multiplicative (ZMod 4))) := by sorry
+
+-- RestrictionBandTests.centerNaturality
+example (a : Multiplicative (ZMod 4)) :
+    (singleCenter (Multiplicative.ofAdd (1 : ZMod 4))).app (SingleObj.star (Multiplicative (ZMod 4))) ≫
+        (a : SingleObj.star (Multiplicative (ZMod 4)) ⟶ SingleObj.star (Multiplicative (ZMod 4))) =
+      (a : SingleObj.star (Multiplicative (ZMod 4)) ⟶ SingleObj.star (Multiplicative (ZMod 4))) ≫
+        (singleCenter (Multiplicative.ofAdd (1 : ZMod 4))).app (SingleObj.star (Multiplicative (ZMod 4))) := by sorry
+
+-- RestrictionBandTests.centerDoubleGenerator
+example :
+    singleCenter (Multiplicative.ofAdd (2 : ZMod 4)) =
+      singleCenter (Multiplicative.ofAdd (1 : ZMod 4)) *
+        singleCenter (Multiplicative.ofAdd (1 : ZMod 4)) := by sorry
+
+-- RestrictionBandTests.centerUnitOrderFour
+example :
+    (singleCenterUnit (Multiplicative.ofAdd (1 : ZMod 4))) ^ 4 = 1 := by sorry
+
+-- RestrictionBandTests.unitInverseCoefficient
+example :
+    (singleCenterUnit (Multiplicative.ofAdd (1 : ZMod 4))).inv.app (SingleObj.star (Multiplicative (ZMod 4))) =
+      Multiplicative.ofAdd (3 : ZMod 4) := by sorry
+
+-- RestrictionBandTests.unitDoubleGenerator
+example :
+    singleCenterUnit (Multiplicative.ofAdd (2 : ZMod 4)) =
+      singleCenterUnit (Multiplicative.ofAdd (1 : ZMod 4)) *
+        singleCenterUnit (Multiplicative.ofAdd (1 : ZMod 4)) := by sorry
+
+-- RestrictionBandTests.sectionEvaluation
+example :
+    (eval chainF f₀₁ (SingleObj.star (Multiplicative (ZMod 2))) (groupSection chainPresheaf U₀
+      (Multiplicative.ofAdd (1 : ZMod 4)))).hom = Multiplicative.ofAdd (1 : ZMod 2) := by sorry
+
+-- RestrictionBandTests.sectionKilled
+example : restrict chainF f₀₁ (groupSection chainPresheaf U₀
+    (Multiplicative.ofAdd (2 : ZMod 4))) = 1 := by sorry
+
+-- RestrictionBandTests.sectionComposition
+example :
+    restrict chainF f₁₂ (restrict chainF f₀₁
+      (groupSection chainPresheaf U₀ (Multiplicative.ofAdd (1 : ZMod 4)))) =
+      restrict chainF f₀₂
+        (groupSection chainPresheaf U₀ (Multiplicative.ofAdd (1 : ZMod 4))) := by sorry
+
+-- RestrictionBandTests.equivalenceLeftRoundTrip
+example (g : P.obj (op U)) :
+    (groupSectionsEquiv P U).symm (groupSectionsEquiv P U g) = g := by sorry
+
+-- RestrictionBandTests.equivalenceRightRoundTrip
+example (s : IntrinsicBandSection (groupDiagram P) U) :
+    groupSectionsEquiv P U ((groupSectionsEquiv P U).symm s) = s := by sorry
+
+-- RestrictionBandTests.equivalenceDifferentCardinalities
+example :
+    Nat.card (IntrinsicBandSection chainF U₀) = 4 ∧
+      Nat.card (IntrinsicBandSection chainF U₁) = 2 := by sorry
+
+variable {B : Type} [SmallCategory B] (Q : Bᵒᵖ ⥤ CommGrpCat.{chain_w})
+
+-- RestrictionBandTests.presheafForward
+example (V : Bᵒᵖ) (g : Additive (Q.obj V)) :
+    (groupSectionsPresheafIso Q).hom.app V g =
+      Additive.ofMul (groupSectionsEquiv Q V.unop g.toMul) := by sorry
+
+-- RestrictionBandTests.presheafInverse
+example (V : Bᵒᵖ) :
+    (groupSectionsPresheafIso Q).hom.app V ≫ (groupSectionsPresheafIso Q).inv.app V = 𝟙 _ := by sorry
+
+-- RestrictionBandTests.presheafNaturality
+example {V W : Bᵒᵖ} (f : V ⟶ W) :
+    (Q ⋙ CommGrpCat.toAddCommGrp).map f ≫ (groupSectionsPresheafIso Q).hom.app W =
+      (groupSectionsPresheafIso Q).hom.app V ≫
+        (IntrinsicBandSections.presheaf (groupDiagram Q)).map f := by sorry
+
+-- RestrictionBandTests.sheafNative
+example : Presheaf.IsSheaf (⊥ : GrothendieckTopology B)
+    (groupBandSheaf Q).obj := by sorry
+
+-- RestrictionBandTests.sheafObject
+example : (groupBandSheaf Q).obj =
+    IntrinsicBandSections.presheaf (groupDiagram Q) := by sorry
+
+-- RestrictionBandTests.sheafRestrictionGenerator
+example :
+    (groupBandSheaf chainPresheaf).obj.map f₀₁.op
+      (Additive.ofMul (groupSectionsEquiv chainPresheaf U₀ (Multiplicative.ofAdd (1 : ZMod 4)))) =
+      Additive.ofMul (groupSectionsEquiv chainPresheaf U₁ (Multiplicative.ofAdd (1 : ZMod 2))) := by sorry
+
+-- RestrictionBandTests.sheafIsoForwardInverse
+example :
+    (groupBandSheafIso Q).hom ≫ (groupBandSheafIso Q).inv = 𝟙 _ := by sorry
+
+-- RestrictionBandTests.sheafIsoInverseForward
+example :
+    (groupBandSheafIso Q).inv ≫ (groupBandSheafIso Q).hom = 𝟙 _ := by sorry
+
+-- RestrictionBandTests.sheafIsoGenerator
+example :
+    (groupBandSheafIso chainPresheaf).hom.hom.app (op U₀)
+      (Additive.ofMul (Multiplicative.ofAdd (1 : ZMod 4))) =
+      Additive.ofMul (groupSection chainPresheaf U₀ (Multiplicative.ofAdd (1 : ZMod 4))) := by sorry
+
+-- RestrictionBandTests.chainGerbe
+example : IsGerbe chainF (⊥ : GrothendieckTopology ChainSite) := by sorry
+
+-- RestrictionBandTests.restrictionNotInjective
+example : ¬ Function.Injective (restrict chainF f₀₁) := by sorry
+
+-- RestrictionBandTests.noTerminal
+example (V : TwoChainSite) : ¬ Nonempty (Limits.IsTerminal V) := by sorry
+
+-- RestrictionBandTests.terminalFreeGerbe
+example : IsGerbe twoChainF (⊥ : GrothendieckTopology TwoChainSite) := by sorry
+
+-- RestrictionBandTests.leftChainSourceCard
+example :
+    Nat.card (IntrinsicBandSection twoChainF (op (Sum.inl (0 : Fin 3)))) = 4 := by sorry
+
+-- RestrictionBandTests.rightChainTargetCard
+example :
+    Nat.card (IntrinsicBandSection twoChainF (op (Sum.inr (1 : Fin 3)))) = 2 := by sorry
+
+-- RestrictionBandTests.terminalFreeSheafIso
+example :
+    Nonempty ((⟨twoChainPresheaf ⋙ CommGrpCat.toAddCommGrp, Presheaf.isSheaf_bot _⟩ :
+      Sheaf (⊥ : GrothendieckTopology TwoChainSite) AddCommGrpCat) ≅
+      groupBandSheaf twoChainPresheaf) := by sorry
+
+end TauCeti.AlgebraicGeometry.RestrictionBandFixtures.RestrictionBandTests

@@ -8273,3 +8273,457 @@ The second hom component of connectedIso(x,y) is the native equality isomorphism
 Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
 
 Proof: Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law.
+
+## Nonconstant intrinsic-band fixtures — codex-rtOQ9t
+
+This partial continuation treats actual commutative-group presheaves P on arbitrary categories. The native diagram has SingleObj(P(U)) fibres and the actual P restriction homomorphisms. Its compatible intrinsic-band sections are multiplicatively equivalent to P(U); the inverse reads the identity slice arrow and compatibility recovers every other arrow. Native effective descent is proved for the bottom topology. On an explicitly small base, this packages a natural coefficient-to-band presheaf isomorphism and an isomorphism of native bottom-topology sheaves.
+
+The actual C4 → C2 → C2 fixture has four sections at its source and two at its target. Restriction preserves the generator, kills source coefficient two, and respects composition. Two disjoint copies give an actual gerbe on a site with no terminal object. These are authored deductions in the context of [Stacks 06NZ](https://stacks.math.columbia.edu/tag/06NZ) and [0CJY](https://stacks.math.columbia.edu/tag/0CJY); they are not additional printed Stacks results.
+
+This resolves only these explicit bottom-topology fixtures. The general reserved gerbe key, SF1 descended-slice comparison, D0 torsor/classifying-stack comparison, nonneutral O(1) root gerbe, derived H2, profinite limits and the other source frontiers remain open. All 240 incoming node objects, requests, routed-source rows, gaps and planets are retained verbatim. The checked proof archive and exact compilation boundary are in the current handoff. The full suggested file requires unavailable Tau Ceti cohomology artifacts and remains uncompiled; only its exact complete Mathlib-only extraction is checked.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupMapId_hom
+
+The actual identity coherence component of the group diagram is the unit coefficient.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupMapComp_hom
+
+The actual composition coherence component of the group diagram is the unit coefficient.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupMapComp'_hom
+
+The hom component of composition coherence with a specified composite is the unit coefficient.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupMapComp'_inv
+
+The inverse component of composition coherence with a specified composite is the unit coefficient.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupOfObj_hom
+
+Every transition of the native descent datum induced from an object is the unit coefficient.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupPullHom
+
+Native pullHom on this diagram is exactly the coefficient homomorphism P.map(h.op).
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupIso
+
+An element of P(U) gives an actual isomorphism between any two objects of the one-object group fibre, with inverse coefficient g inverse.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+- API `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupIso_hom`: The actual hom of the coefficient isomorphism is g.
+
+- API `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupIso_inv`: The actual inverse of the coefficient isomorphism has coefficient g inverse.
+
+- API `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupDiagram_gerbe`: The SingleObj diagram of every commutative-group-valued presheaf is a gerbe for the bottom topology, without a terminal-object hypothesis.
+
+- Test `RestrictionBandTests.isoUnit`: The unit coefficient gives an isomorphism with the actual hom-inverse identity.
+
+- Test `RestrictionBandTests.isoInverseQuarter`: The inverse of the C4 generator isomorphism has coefficient three.
+
+- Test `RestrictionBandTests.isoQuarterRoundTrip`: The actual C4 generator hom followed by its inverse is the native identity.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupDiagram_stack
+
+For every commutative-group-valued presheaf P on any category C, its native SingleObj diagram has effective descent for the bottom Grothendieck topology.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. A bottom-topology covering sieve is the top sieve. Use its identity arrow to construct the preimage on descent morphisms; the native commutation law recovers every other component. For each native descent object, take its identity-arrow object and use its actual transition arrows to construct the comparison isomorphism. Native pullHom_hom and hom_comp prove the compatibility. This specializes native IsStack to this diagram; it does not re-plan D0 stackification.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupDiagram_gerbe
+
+The SingleObj diagram of every commutative-group-valued presheaf is a gerbe for the bottom topology, without a terminal-object hypothesis.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.singleCenter
+
+A coefficient g of a commutative group gives a natural endomorphism of the identity on its native SingleObj category.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+- API `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.singleCenter_app`: The actual component of the central endomorphism corresponding to g is g.
+
+- API `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.singleCenter_mul`: The coefficient-to-centre construction preserves multiplication.
+
+- API `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.singleCenterUnit`: A coefficient g of a commutative group gives a unit of the actual categorical centre, with inverse coefficient g inverse.
+
+- Test `RestrictionBandTests.centerNaturality`: The C4 generator central transformation commutes with every actual fibre arrow.
+
+- Test `RestrictionBandTests.centerDoubleGenerator`: Multiplying the two generator central transformations gives coefficient two.
+
+- Test `RestrictionBandTests.centerUnitOrderFour`: The actual central unit of the C4 generator has fourth power one.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.singleCenterUnit
+
+A coefficient g of a commutative group gives a unit of the actual categorical centre, with inverse coefficient g inverse.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+- API `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.singleCenterUnit_app`: Evaluation of the central unit corresponding to g has actual component g.
+
+- API `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.singleCenterUnit_mul`: The coefficient-to-centre-unit construction preserves multiplication.
+
+- API `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSection`: A coefficient g in P(U) gives the actual compatible intrinsic-band section whose centre coefficient at every f:V to U is P(f.op)(g).
+
+- Test `RestrictionBandTests.centerUnitOrderFour`: The actual central unit of the C4 generator has fourth power one.
+
+- Test `RestrictionBandTests.unitInverseCoefficient`: The inverse central unit of the C4 generator has actual component three.
+
+- Test `RestrictionBandTests.unitDoubleGenerator`: Multiplying two generator central units gives the central unit of coefficient two.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.singleCenterUnit_app
+
+Evaluation of the central unit corresponding to g has actual component g.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSection
+
+A coefficient g in P(U) gives the actual compatible intrinsic-band section whose centre coefficient at every f:V to U is P(f.op)(g).
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+- API `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSection_eval`: Native evaluation of that compatible section at f:V to U has coefficient P(f.op)(g).
+
+- API `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSection_one`: The coefficient unit gives the unit compatible section.
+
+- API `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSection_mul`: The coefficient-to-compatible-section construction preserves multiplication.
+
+- Test `RestrictionBandTests.sectionEvaluation`: The source generator evaluates after restriction as the nonidentity C2 generator.
+
+- Test `RestrictionBandTests.sectionKilled`: Restriction kills the compatible section of source coefficient two.
+
+- Test `RestrictionBandTests.sectionComposition`: The two successive chain restrictions equal restriction along the actual composite.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSection_eval
+
+Native evaluation of that compatible section at f:V to U has coefficient P(f.op)(g).
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsEquiv
+
+For every object U, P(U) is multiplicatively equivalent to the actual compatible intrinsic-band sections over U of the varying SingleObj diagram; the inverse evaluates the identity slice arrow.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Read the identity-arrow centre component for the inverse. The stored compatible-family law along each f:V to U proves the section round trip, and the coefficient functor identity law proves the coefficient round trip.
+
+- API `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsEquiv_symm_apply`: The inverse coefficient is the actual centre-unit component at the identity slice arrow and native SingleObj object.
+
+- API `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSection_eval`: Native evaluation of that compatible section at f:V to U has coefficient P(f.op)(g).
+
+- API `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsEquiv_restrict`: Restriction along f:V to U sends the compatible section of g to the compatible section of P(f.op)(g).
+
+- Test `RestrictionBandTests.equivalenceLeftRoundTrip`: Inverse after forward recovers every coefficient in an arbitrary varying group presheaf.
+
+- Test `RestrictionBandTests.equivalenceRightRoundTrip`: Forward after inverse recovers every compatible section on every slice arrow.
+
+- Test `RestrictionBandTests.equivalenceDifferentCardinalities`: The actual source and target compatible-section types have four and two elements respectively.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsEquiv_restrict
+
+Restriction along f:V to U sends the compatible section of g to the compatible section of P(f.op)(g).
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsPresheafIso
+
+For a small base category B, the existing additive coefficient presheaf is naturally isomorphic to the actual intrinsic-band presheaf of the varying group diagram.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Use the native additive-group equivalence and NatIso.ofComponents. Actual restriction compatibility supplies naturality; lift through the native sheaf full subcategory only on the explicitly small bottom-topology site.
+
+- API `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsPresheafIso_hom_app`: The presheaf isomorphism sends an additive coefficient to the additive tag of its actual compatible section.
+
+- API `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsEquiv_symm_apply`: The inverse coefficient is the actual centre-unit component at the identity slice arrow and native SingleObj object.
+
+- API `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsEquiv_restrict`: Restriction along f:V to U sends the compatible section of g to the compatible section of P(f.op)(g).
+
+- Test `RestrictionBandTests.presheafForward`: The native presheaf isomorphism has the specified coefficient-to-section map at every object.
+
+- Test `RestrictionBandTests.presheafInverse`: The forward and inverse components compose to the actual identity at every object.
+
+- Test `RestrictionBandTests.presheafNaturality`: The presheaf isomorphism commutes with every actual restriction arrow.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupBandSheaf
+
+For a small base category B, the actual intrinsic-band presheaf of the varying group diagram is a native sheaf for the bottom topology.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+- API `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupBandSheaf_obj`: The underlying presheaf of the bottom-topology band sheaf is the actual intrinsic-band presheaf.
+
+- API `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsEquiv_restrict`: Restriction along f:V to U sends the compatible section of g to the compatible section of P(f.op)(g).
+
+- API `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupBandSheafIso`: For a small base category B, the native bottom-topology coefficient sheaf is isomorphic to the native intrinsic-band sheaf, with both inverse laws.
+
+- Test `RestrictionBandTests.sheafNative`: The actual band presheaf satisfies the native bottom-topology sheaf predicate.
+
+- Test `RestrictionBandTests.sheafObject`: The sheaf wrapper retains the actual compatible-section presheaf as its object.
+
+- Test `RestrictionBandTests.sheafRestrictionGenerator`: The native additive band-sheaf restriction sends the C4 generator section to the C2 generator section.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupBandSheaf_obj
+
+The underlying presheaf of the bottom-topology band sheaf is the actual intrinsic-band presheaf.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupBandSheafIso
+
+For a small base category B, the native bottom-topology coefficient sheaf is isomorphic to the native intrinsic-band sheaf, with both inverse laws.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Use the native additive-group equivalence and NatIso.ofComponents. Actual restriction compatibility supplies naturality; lift through the native sheaf full subcategory only on the explicitly small bottom-topology site.
+
+- API `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupBandSheafIso_hom`: The underlying natural transformation of the native sheaf isomorphism is the coefficient-to-band presheaf isomorphism.
+
+- API `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsPresheafIso_hom_app`: The presheaf isomorphism sends an additive coefficient to the additive tag of its actual compatible section.
+
+- API `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsEquiv_symm_apply`: The inverse coefficient is the actual centre-unit component at the identity slice arrow and native SingleObj object.
+
+- Test `RestrictionBandTests.sheafIsoForwardInverse`: The forward and inverse native sheaf morphisms compose to the coefficient-sheaf identity.
+
+- Test `RestrictionBandTests.sheafIsoInverseForward`: The inverse and forward native sheaf morphisms compose to the band-sheaf identity.
+
+- Test `RestrictionBandTests.sheafIsoGenerator`: The native sheaf isomorphism sends the actual source generator to its compatible section.
+
+- Test `RestrictionBandTests.terminalFreeSheafIso`: The actual coefficient-to-band sheaf isomorphism exists on the terminal-free site.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.chain_generator_restrict
+
+In the actual C4 to C2 to C2 coefficient chain, restriction sends the source generator to the target generator.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.chain_generator_comp
+
+Successive restrictions along the actual two chain arrows equal restriction along their composite.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.chain_two_killed
+
+Restriction in that chain kills the source coefficient two in C4.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.chain_restrict_not_injective
+
+The actual compatible-section restriction C4 to C2 is not injective.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+- Test `RestrictionBandTests.restrictionNotInjective`: The actual compatible-section restriction is not injective.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.twoChains_no_terminal
+
+The site formed by two disjoint opposite Fin3 chains has no terminal object.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. A hypothetical terminal object would receive an arrow from the other disjoint chain. Opposing that arrow contradicts the native empty cross-component Hom type.
+
+- Test `RestrictionBandTests.noTerminal`: No object of the actual two-chain site is terminal.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.twoChains_sections_equiv
+
+At every object of the two-chain site, the actual coefficient group is multiplicatively equivalent to the actual compatible-section group.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+- Test `RestrictionBandTests.leftChainSourceCard`: The actual section type at the left C4 source has four elements.
+
+- Test `RestrictionBandTests.rightChainTargetCard`: The actual section type at the right C2 target has two elements.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupIso_hom
+
+The actual hom of the coefficient isomorphism is g.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupIso_inv
+
+The actual inverse of the coefficient isomorphism has coefficient g inverse.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.singleCenter_app
+
+The actual component of the central endomorphism corresponding to g is g.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.singleCenter_mul
+
+The coefficient-to-centre construction preserves multiplication.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.singleCenterUnit_mul
+
+The coefficient-to-centre-unit construction preserves multiplication.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSection_one
+
+The coefficient unit gives the unit compatible section.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSection_mul
+
+The coefficient-to-compatible-section construction preserves multiplication.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsEquiv_symm_apply
+
+The inverse coefficient is the actual centre-unit component at the identity slice arrow and native SingleObj object.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsPresheafIso_hom_app
+
+The presheaf isomorphism sends an additive coefficient to the additive tag of its actual compatible section.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupBandSheafIso_hom
+
+The underlying natural transformation of the native sheaf isomorphism is the coefficient-to-band presheaf isomorphism.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.chain_stack
+
+The concrete nonconstant C4 to C2 to C2 diagram is a native stack for the bottom topology.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.chain_gerbe
+
+The concrete nonconstant C4 to C2 to C2 diagram is an actual gerbe for the bottom topology.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+- Test `RestrictionBandTests.chainGerbe`: The actual nonconstant chain diagram satisfies the gerbe contract.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.twoChains_stack
+
+The concrete varying diagram on two disjoint chains is a native stack for the bottom topology.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.twoChains_gerbe
+
+The concrete varying diagram on two disjoint chains is an actual gerbe for the bottom topology, although its site has no terminal object.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Unfold the named construction or use its actual inverse, functoriality, multiplication or restriction law. For finite coefficients compute in native ZMod, and retain the nonidentity coefficient killed by reduction.
+
+- Test `RestrictionBandTests.terminalFreeGerbe`: The actual two-chain varying diagram is a gerbe despite the absence of a terminal site object.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.chain_source_card
+
+The actual compatible-section type at the C4 source of the chain has exactly four elements.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Transport cardinality through the actual section equivalence and compute the native finite coefficient type.
+
+### TauCeti.AlgebraicGeometry.RestrictionBandFixtures.chain_target_card
+
+The actual compatible-section type at the C2 target of the chain has exactly two elements.
+
+C is an arbitrary category and P:C opposite to CommGrpCat is an actual presheaf; it need not be constant. Fibres are the existing SingleObj categories, with actual coefficient homomorphisms and native coherence. The generic section equivalence uses no topology or terminal object. Stack and gerbe assertions use exactly the bottom topology. Native presheaf/sheaf isomorphisms explicitly require a small base B:Type; coefficient groups retain their own universe. The finite fixtures use opposite Fin3 and opposite (Fin3 plus Fin3), with native C4 to C2 reduction followed by the C2 identity; no higher-topology, nonneutral or derived-H2 assertion follows.
+
+Work in the actual SingleObj diagram of P, using the existing MonCat-to-Cat functor and its pseudofunctor promotion; do not replace compatible sections by prescribed coefficients. Transport cardinality through the actual section equivalence and compute the native finite coefficient type.
