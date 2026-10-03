@@ -1,3 +1,6 @@
+import Mathlib.CategoryTheory.Abelian.Ext
+import Mathlib.CategoryTheory.Abelian.Projective.Ext
+import Mathlib.Algebra.Category.ModuleCat.Ext.HasExt
 import Mathlib.Algebra.Category.ModuleCat.Projective
 import Mathlib.CategoryTheory.Abelian.Projective.Resolution
 import Mathlib.Algebra.Homology.ShortComplex.ModuleCat
@@ -3166,6 +3169,161 @@ lemma sectionIdealResolution_quasiIso :
 lemma sectionDualResolution_quasiIso :
     QuasiIso (sectionDualResolution A γ δ s t).π := by
   sorry
+
+end
+end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+
+namespace TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+noncomputable section
+universe u_ext
+open CategoryTheory TensorProduct
+variable (A : Type u_ext) [CommRing A] (γ δ s t : A)
+local notation "R₀" => Ring A γ δ s t
+local notation "J₀" => sectionIdeal A γ δ s t
+local notation "D₀" => Module.Dual R₀ J₀
+variable (M : Type u_ext) [AddCommGroup M] [Module A M]
+local notation "N₀" => R₀ ⊗[A] M
+local notation "F₀" => Fin 2 → R₀
+
+def sectionResolutionHomIso (dual : Bool) :
+    (sectionChain A γ δ s t dual).linearYonedaObj R₀ (ModuleCat.of R₀ N₀) ≅
+      sectionHomCochain A γ δ s t M dual := by sorry
+
+lemma sectionResolutionHomIso_apply (dual : Bool) (n : ℕ)
+    (h : (sectionChain A γ δ s t dual).X n ⟶ ModuleCat.of R₀ N₀) :
+    HEq ((sectionResolutionHomIso A γ δ s t M dual).hom.f n h) h.hom := by sorry
+
+lemma sectionResolutionHomIso_inv_apply (dual : Bool) (n : ℕ)
+    :
+    HEq ((sectionResolutionHomIso A γ δ s t M dual).inv.f n)
+      (ModuleCat.ofHom (ModuleCat.homLinearEquiv (S := R₀)
+        (M := ModuleCat.of R₀ F₀) (N := ModuleCat.of R₀ N₀)).symm.toLinearMap) := by sorry
+
+lemma sectionResolutionHom_exact (dual : Bool) (n : ℕ) :
+    Function.Exact
+      (fun h : (sectionChain A γ δ s t dual).X n ⟶ ModuleCat.of R₀ N₀ =>
+        (sectionChain A γ δ s t dual).d (n+1) n ≫ h)
+      (fun h : (sectionChain A γ δ s t dual).X (n+1) ⟶ ModuleCat.of R₀ N₀ =>
+        (sectionChain A γ δ s t dual).d (n+2) (n+1) ≫ h) := by sorry
+
+def sectionIdealDerivedExtIso (n : ℕ) :
+    ((_root_.Ext R₀ (ModuleCat.{u_ext} R₀) n).obj
+      (Opposite.op (ModuleCat.of R₀ J₀))).obj (ModuleCat.of R₀ N₀) ≅
+      (sectionHomCochain A γ δ s t M false).homology n := by sorry
+
+def sectionDualDerivedExtIso (n : ℕ) :
+    ((_root_.Ext R₀ (ModuleCat.{u_ext} R₀) n).obj
+      (Opposite.op (ModuleCat.of R₀ D₀))).obj (ModuleCat.of R₀ N₀) ≅
+      (sectionHomCochain A γ δ s t M true).homology n := by sorry
+
+lemma sectionIdealDerivedExtIso_inverse (n : ℕ) :
+    (sectionIdealDerivedExtIso A γ δ s t M n).hom ≫
+      (sectionIdealDerivedExtIso A γ δ s t M n).inv = 𝟙 _ := by sorry
+
+lemma sectionDualDerivedExtIso_inverse (n : ℕ) :
+    (sectionDualDerivedExtIso A γ δ s t M n).hom ≫
+      (sectionDualDerivedExtIso A γ δ s t M n).inv = 𝟙 _ := by sorry
+
+lemma sectionIdealDerivedExtIso_zero (n : ℕ) :
+    (sectionIdealDerivedExtIso A γ δ s t M n).hom 0 = 0 := by sorry
+
+lemma sectionDualDerivedExtIso_zero (n : ℕ) :
+    (sectionDualDerivedExtIso A γ δ s t M n).hom 0 = 0 := by sorry
+
+lemma sectionIdealDerivedExt_isZero (n : ℕ) :
+    Limits.IsZero (((_root_.Ext R₀ (ModuleCat.{u_ext} R₀) (n+1)).obj
+      (Opposite.op (ModuleCat.of R₀ J₀))).obj (ModuleCat.of R₀ N₀)) := by sorry
+
+lemma sectionDualDerivedExt_isZero (n : ℕ) :
+    Limits.IsZero (((_root_.Ext R₀ (ModuleCat.{u_ext} R₀) (n+1)).obj
+      (Opposite.op (ModuleCat.of R₀ D₀))).obj (ModuleCat.of R₀ N₀)) := by sorry
+
+lemma sectionIdealExt_eq_zero (n : ℕ)
+    (α : CategoryTheory.Abelian.Ext (ModuleCat.of R₀ J₀) (ModuleCat.of R₀ N₀) (n+1)) :
+    α = 0 := by sorry
+
+lemma sectionDualExt_eq_zero (n : ℕ)
+    (α : CategoryTheory.Abelian.Ext (ModuleCat.of R₀ D₀) (ModuleCat.of R₀ N₀) (n+1)) :
+    α = 0 := by sorry
+
+lemma sectionResolutionHomIso_natural {M' : Type u_ext} [AddCommGroup M'] [Module A M']
+    (f : M →ₗ[A] M') (dual : Bool) (n : ℕ)
+    (h : (sectionChain A γ δ s t dual).X n ⟶ ModuleCat.of R₀ N₀) :
+    HEq ((sectionResolutionHomIso A γ δ s t M' dual).hom.f n
+      (h ≫ ModuleCat.ofHom (AlgebraTensorModule.map (LinearMap.id : R₀ →ₗ[R₀] R₀) f)))
+      ((AlgebraTensorModule.map (LinearMap.id : R₀ →ₗ[R₀] R₀) f).comp h.hom) := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso.test_actual_components
+example (dual : Bool) (n : ℕ)
+    (h : (sectionChain A γ δ s t dual).X n ⟶ ModuleCat.of R₀ N₀) :
+    HEq ((sectionResolutionHomIso A γ δ s t M dual).hom.f n h) h.hom := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso.test_inverse
+example (dual : Bool) (n : ℕ) :
+    ((sectionResolutionHomIso A γ δ s t M dual).inv ≫
+      (sectionResolutionHomIso A γ δ s t M dual).hom).f n =
+        𝟙 ((sectionHomCochain A γ δ s t M dual).X n) := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso.test_naturality
+example {M' : Type u_ext} [AddCommGroup M'] [Module A M'] (f : M →ₗ[A] M')
+    (dual : Bool) (n : ℕ)
+    (h : (sectionChain A γ δ s t dual).X n ⟶ ModuleCat.of R₀ N₀) :
+    HEq ((sectionResolutionHomIso A γ δ s t M' dual).hom.f n
+      (h ≫ ModuleCat.ofHom (AlgebraTensorModule.map (LinearMap.id : R₀ →ₗ[R₀] R₀) f)))
+      ((AlgebraTensorModule.map (LinearMap.id : R₀ →ₗ[R₀] R₀) f).comp h.hom) := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExtIso.test_degree_zero
+example (x : (( _root_.Ext R₀ (ModuleCat.{u_ext} R₀) 0).obj
+    (Opposite.op (ModuleCat.of R₀ J₀))).obj (ModuleCat.of R₀ N₀)) :
+    (sectionIdealDerivedExtIso A γ δ s t M 0).inv
+      ((sectionIdealDerivedExtIso A γ δ s t M 0).hom x) = x := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExtIso.test_nonflat
+example : Limits.IsZero (((_root_.Ext (Ring ℤ 1 0 1 0)
+    (ModuleCat.{0} (Ring ℤ 1 0 1 0)) 3).obj
+      (Opposite.op (ModuleCat.of _ (sectionIdeal ℤ 1 0 1 0)))).obj
+        (ModuleCat.of _ (Ring ℤ 1 0 1 0 ⊗[ℤ] ZMod 2))) := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExtIso.test_zero_ring
+example : Limits.IsZero (((_root_.Ext (Ring (ZMod 1) 0 0 0 0)
+    (ModuleCat.{0} (Ring (ZMod 1) 0 0 0 0)) 1).obj
+      (Opposite.op (ModuleCat.of _ (sectionIdeal (ZMod 1) 0 0 0 0)))).obj
+        (ModuleCat.of _ (Ring (ZMod 1) 0 0 0 0 ⊗[ZMod 1] ZMod 1))) := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionDualDerivedExtIso.test_degree_zero
+example (x : (( _root_.Ext R₀ (ModuleCat.{u_ext} R₀) 0).obj
+    (Opposite.op (ModuleCat.of R₀ D₀))).obj (ModuleCat.of R₀ N₀)) :
+    (sectionDualDerivedExtIso A γ δ s t M 0).inv
+      ((sectionDualDerivedExtIso A γ δ s t M 0).hom x) = x := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionDualDerivedExtIso.test_nonreduced
+example : Limits.IsZero (((_root_.Ext (Ring (ZMod 4) 0 0 1 0)
+    (ModuleCat.{0} (Ring (ZMod 4) 0 0 1 0)) 2).obj
+      (Opposite.op (ModuleCat.of _ (Module.Dual (Ring (ZMod 4) 0 0 1 0)
+        (sectionIdeal (ZMod 4) 0 0 1 0))))).obj
+        (ModuleCat.of _ (Ring (ZMod 4) 0 0 1 0 ⊗[ZMod 4] ZMod 4))) := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionDualDerivedExtIso.test_nonflat
+example : Limits.IsZero (((_root_.Ext (Ring ℤ 1 0 1 0)
+    (ModuleCat.{0} (Ring ℤ 1 0 1 0)) 1).obj
+      (Opposite.op (ModuleCat.of _ (Module.Dual (Ring ℤ 1 0 1 0) (sectionIdeal ℤ 1 0 1 0))))).obj
+        (ModuleCat.of _ (Ring ℤ 1 0 1 0 ⊗[ℤ] ZMod 2))) := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionIdealExt.test_nonflat
+example (α : CategoryTheory.Abelian.Ext
+    (ModuleCat.of (Ring ℤ 1 0 1 0) (sectionIdeal ℤ 1 0 1 0))
+    (ModuleCat.of _ (Ring ℤ 1 0 1 0 ⊗[ℤ] ZMod 2)) 4) : α = 0 := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionDualExt.test_nonreduced
+example (α : CategoryTheory.Abelian.Ext
+    (ModuleCat.of (Ring (ZMod 4) 0 0 1 0)
+      (Module.Dual (Ring (ZMod 4) 0 0 1 0) (sectionIdeal (ZMod 4) 0 0 1 0)))
+    (ModuleCat.of _ (Ring (ZMod 4) 0 0 1 0 ⊗[ZMod 4] ZMod 4)) 2) : α = 0 := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionIdealExt.test_zero_ring
+example (α : CategoryTheory.Abelian.Ext
+    (ModuleCat.of (Ring (ZMod 1) 0 0 0 0) (sectionIdeal (ZMod 1) 0 0 0 0))
+    (ModuleCat.of _ (Ring (ZMod 1) 0 0 0 0 ⊗[ZMod 1] ZMod 1)) 1) : α = 0 := by sorry
 
 end
 end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel

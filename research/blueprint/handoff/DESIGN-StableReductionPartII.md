@@ -1,3 +1,117 @@
+# StableReductionPartII: actual categorical Hom and higher Ext checkpoint
+
+Codex — codex-a71f92; 2026-10-03. Refs #3342.
+Winning claim5965209863 and our bot confirmation5965211452 were read before work.
+Mathematical input base cbc70097561abd69d9e3b1d6caff7bee676c019a. Publication base fb636d0b727444d0078a661b7591b0d79409af63.
+Only the five issue-authorized deliverables are changed; the shared checkout was read-only.
+
+## Outcome and limits
+
+For the actual polynomial R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), section ideal J=(u−ιs,v−ιt), D=Hom_R(J,R) and every A-module M, the actual projective-resolution categorical Hom complex is isomorphic to the inherited signed R-linear Hom cochain. Its comparison is coefficient-natural in every degree, including degree zero.
+
+Both native Mathlib positive Ext interfaces now have checked vanishing for J and D with target R⊗_A M. The left-derived linear Yoneda _root_.Ext has explicit native R-module isomorphisms to the actual cochain homology. The localization-defined CategoryTheory.Abelian.Ext is treated separately with native extMk_surjective and extMk_eq_zero_iff, using actual categorical boundaries of the actual resolutions. No comparison between the two general Mathlib Ext definitions is assumed or claimed.
+
+These are authored polynomial deductions for arbitrary commutative A, including the zero and nonreduced rings, and arbitrary coefficient M without flatness. The named tests include M=Z/2 over Z and A=Z/4, retain the ideal/dual signed phases and round-trip degree-zero Ext elements. No degree-zero vanishing is asserted.
+
+This does not prove the exact Appendix/Ile relative stable-reflexivity theorem, the two-base completion comparison, pointed completed-local hull identification, family/sheaf descent or arbitrary-base approximation. All eight MC stages remain partial and all implementationStatus fields remain unchecked. The broad key/moduli-curves owner is unchanged, not narrowed to an affine algebra experiment.
+
+## Preservation and new contracts
+
+Of304 incoming mathematical nodes,303 are whole-object identical. The dual-section-ideal theorem preserves every statement, hypothesis, API/test, source, acceptance and ownership contract and appends exactly three prerequisites and one proof step consuming the new native Ext/naturality inputs. The complete incoming3813-line checked native file is retained byte-for-byte following three imports; its SHA-256 is30bc02cb3d84884b6727f34c127a01c366c8cbde987da6363d89a9962f7f5860.
+
+The checkpoint adds15 declaration-sized nodes: three constructions and twelve lemmas; nine API entries and twelve named tests. Baseline168-prefix entries are unchanged and13 exact freshly read native references are appended. All14 gaps,135 requests,35 planets, six key-definition consumers and21 Yuan/DGH routes remain. Older remaining lists and receipts are historical; the appended current frontier clarifies that the polynomial higher Ext obligation is now discharged, not its geometric consequences.
+
+Current totals:319 nodes (eight definitions,64 constructions,183 lemmas,63 theorems, one application);269 APIs overall /268 definition-construction API entries;272 tests overall /250 required definition-construction tests;181 baseline declarations. Zero closed stages.
+
+## Fresh source and pinned-library reading
+
+WORKERS was read in full and its hash is unchanged. The governing protocols were fully read earlier in this continuous worker session and verified unchanged at the current base. The reviewed StableReduction parent audit's twelve layer target lists and accepted REV-AUDIT-02 were read; there is no StableReductionPartII-specific reviewed audit entry. That is not an absence-search verdict. The reserved moduli-curves key, its six consumer contracts and all21 routed Yuan/DGH records were read and preserved. Bounded immutable research/blueprint/links and linkmaps searches find no Part II entries. The fully read upstream StableReduction and JacobianChallenge style documents have unchanged blobs53c50f6e5c2ebbde46cac7720978afbf03212859 and aedda48979b6c3544a1dce041d00221204d64655.
+
+Fresh Knudsen reading covers the introduction/Main Lemma and complete §§3–4 of arXiv:1106.1588v2 primary HTML, SHA-2562c89ce4072046d546ff9256a5c64cd488f41026c561f8858f4a78ce14c21d685. No fresh whole-paper, PDF, Appendix/Ile or Eisenbud proof audit is claimed. The source's noetherian/unit-discriminant and geometric qualification boundaries remain.
+
+Pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 were verified. The exact native statements and surrounding hypotheses of both Ext interfaces, linearYonedaObj, projective-resolution comparisons, categorical/linear Hom equivalence, homologyFunctor and zero transport were read before citation. The general theories are reused, not replanned.
+
+## Compilation evidence
+
+Both entire files were compiled sequentially using only the existing pinned Lean4.34.0-rc2 build; no Lake setup/update/cache/library build or language server.
+
+- Native: 4050 lines,148 examples,261 named axiom audits; zero errors, warnings, admissions or sorryAx dependencies. Wall time 1:25.39, peak RSS3008028 KiB;21 GiB available before starting. Source SHA-2568c54f664cadcb7e0dacd4a5411cf908c8dced56bff8071e79141e88ee0d04083; normalized diagnosticsf5d932b990e2eb9c91037ed4dc51bd318340722ed3fd1c4f4a6935c6b9605dfa.
+- Canonical suggested sketch: 3329 lines,210 examples; zero errors and exactly513 declaration-admission warnings, no other warnings. Wall time 1:08.21, peak RSS3182984 KiB;20 GiB available before starting. Source SHA-2569206666ec4b0689d48185677c582bf9ff36c4a467839e24b8c7743bbf42fe245; normalized diagnosticscb98514c157c7b135649a892500c36a2895a2170441ba258dd69a4565ace8cac.
+
+Compilation was explicitly deferred while available memory was below20 GiB and resumed only when the conditional check met the threshold. Each invocation had timeout1200; no owned Lean process remains. The full admitted sketch is a signature plan, not a claimed library implementation. Separate native proof bodies are checked experiments for the actual carriers, not toy quotients or assumed Ext fields.
+
+## Actual validation and assembly
+
+The immutable validator uses the actual pinned repository checker, actual intake file checks and actual atlas assembler, with five supplied overlays and an original-packet/control assembly. It checks exact new public and example headers (15 declarations /12 tests), native incoming-prefix preservation, all incoming contracts and all metadata/source/API/test boundaries.
+
+The actual checker has zero errors/warnings. The stage DAG is3050 vertices/8750 edges; own declaration DAG319/718; combined reachable graph3334/9582. All are acyclic. All319 declarations are reachable,170 baseline references are reachable, with no external or unresolved declarations. All81 required supplier-stage pairs are reachable. The own skipped/pending arrays are empty; stage edges and all unrelated skipped/pending arrays match the control. No accepted restructuring pair touches this roadmap.
+
+All21 scoped owner/governing/audit/key/source-route/parent-stage/validator blobs match the mathematical and publication bases, and the two upstream style blobs match. This is a scoped preservation check, not a fresh mathematical verification of every atlas owner.
+
+Validator SHA-256ee9cbff34d761a790b407fc54ead418f8c3f85dde9b8650aabbfc5a682b97c5c; immutable reader2c6d623c48ed7a83ca6f7c9a86942b90d081e87b5ef0a00150fcbc38c197c991.
+
+## Public reproducibility
+
+The immutable evidence archive is 311f2910752642220c24f33d90c66d76f1174f36, linked as the submitted commit's second parent, using only the authorized suggested and handoff paths. It contains the exact checked native file, exact canonical sketch, validator, immutable reader and normalized compiler diagnostics. The archive is a separate proof experiment tree; the PR's five final files are the actual proposal overlay.
+
+The recovery program below checks all SHA-256 digests and recreates evidence only with apply_patch. It also recovers the incoming native file from the predecessor public archive45fa3d24a2a351b100b409d8c0b444e82c3e58b9, and, when N12_DELIVERY_HEAD is set to this submitted commit, the five final deliverables. Public replay checked byte-for-byte sources and both runtime-independent signature/metadata checks and the actual current-base checker/intake/atlas assembly. Archived diagnostics are explicitly identified as archived; replay is not reported as a second Lean compilation.
+
+Use an existing clone, fetch the publication base, archive and submitted head, create an empty owned recovery directory, and set TAUCETI_REPO to that clone and TAUCETI_BASELINE to its pinned declarations.tsv file. Run the recovery program with the owned recovery directory as its argument and N12_DELIVERY_HEAD set to the submitted head. In that directory run verify.py with N12_VALIDATE_BASE=fb636d0b727444d0078a661b7591b0d79409af63 and PYTHONDONTWRITEBYTECODE=1. To recompile, use only an already-built exact pinned Lean environment, check available memory≥20 GiB before each sequential invocation, timeout1200, and save actual native.log/canonical.log; verify.py then reports runtime diagnostics rather than archived evidence.
+
+```python
+"""Recover public proof evidence and five deliverables; write only via apply_patch."""
+from pathlib import Path
+import hashlib,json,os,subprocess
+import sys
+repo=Path(os.environ['TAUCETI_REPO']).resolve()
+out=Path(sys.argv[1]).resolve()
+base=os.environ.get('N12_VALIDATE_BASE','fb636d0b727444d0078a661b7591b0d79409af63')
+archive='311f2910752642220c24f33d90c66d76f1174f36'
+incoming='45fa3d24a2a351b100b409d8c0b444e82c3e58b9'
+files={'Native.lean':('research/blueprint/suggested/StableReductionPartII.lean','/- BEGIN ARCHIVED CHECKED SECTION EXT\n','END ARCHIVED CHECKED SECTION EXT -/','8c54f664cadcb7e0dacd4a5411cf908c8dced56bff8071e79141e88ee0d04083'),
+'Canonical.lean':('research/blueprint/suggested/StableReductionPartII.lean','/- BEGIN ARCHIVED CANONICAL SECTION EXT\n','END ARCHIVED CANONICAL SECTION EXT -/','9206666ec4b0689d48185677c582bf9ff36c4a467839e24b8c7743bbf42fe245'),
+'verify.py':('research/blueprint/handoff/DESIGN-StableReductionPartII.md','# BEGIN ARCHIVED SECTION EXT VALIDATOR\n','# END ARCHIVED SECTION EXT VALIDATOR','ee9cbff34d761a790b407fc54ead418f8c3f85dde9b8650aabbfc5a682b97c5c'),
+'immutable_view.py':('research/blueprint/handoff/DESIGN-StableReductionPartII.md','# BEGIN ARCHIVED SECTION EXT IMMUTABLE READER\n','# END ARCHIVED SECTION EXT IMMUTABLE READER','2c6d623c48ed7a83ca6f7c9a86942b90d081e87b5ef0a00150fcbc38c197c991'),
+'NativeDiagnostics.txt':('research/blueprint/handoff/DESIGN-StableReductionPartII.md','# BEGIN ARCHIVED SECTION EXT NATIVE DIAGNOSTICS\n','# END ARCHIVED SECTION EXT NATIVE DIAGNOSTICS','f5d932b990e2eb9c91037ed4dc51bd318340722ed3fd1c4f4a6935c6b9605dfa'),
+'CanonicalDiagnostics.txt':('research/blueprint/handoff/DESIGN-StableReductionPartII.md','# BEGIN ARCHIVED SECTION EXT CANONICAL DIAGNOSTICS\n','# END ARCHIVED SECTION EXT CANONICAL DIAGNOSTICS','cb98514c157c7b135649a892500c36a2895a2170441ba258dd69a4565ace8cac')}
+def blob(ref,path):
+ return subprocess.check_output(['git','show',ref+':'+path],cwd=repo).decode()
+def emit(name,data):
+ target=out/name
+ assert target.parent==out and not target.exists(),target
+ patch='*** Begin Patch\n*** Add File: '+str(target)+'\n'+''.join('+'+line+'\n' for line in data.rstrip('\n').split('\n'))+'*** End Patch\n'
+ subprocess.run(['apply_patch'],input=patch,text=True,check=True,capture_output=True)
+ assert target.read_text()==data,name
+for name,(path,start,end,expected) in files.items():
+ data=blob(archive,path).split(start,1)[1].split(end,1)[0]
+ if not data.endswith('\n'):data+='\n'
+ assert hashlib.sha256(data.encode()).hexdigest()==expected,name
+ emit(name,data)
+data=blob(incoming,'research/blueprint/suggested/StableReductionPartII.lean').split('/- BEGIN ARCHIVED CHECKED SECTION PROJECTIVE RESOLUTIONS\n',1)[1].split('END ARCHIVED CHECKED SECTION PROJECTIVE RESOLUTIONS -/',1)[0]
+if not data.endswith('\n'):data+='\n'
+assert hashlib.sha256(data.encode()).hexdigest()=='30bc02cb3d84884b6727f34c127a01c366c8cbde987da6363d89a9962f7f5860'
+emit('IncomingNative.lean',data)
+commit=os.environ.get('N12_DELIVERY_HEAD')
+if commit:
+ for remote,local in [('research/blueprint/roadmaps/StableReductionPartII.json','roadmap.json'),('research/blueprint/packets/StableReductionPartII.json','packet.json'),('research/blueprint/readmes/StableReductionPartII.md','reader.md'),('research/blueprint/handoff/DESIGN-StableReductionPartII.md','handoff.md')]:
+  emit(local,blob(commit,remote))
+ canonical=blob(commit,'research/blueprint/suggested/StableReductionPartII.lean')
+ assert canonical==(out/'Canonical.lean').read_text()
+print(json.dumps({'recovered':sorted(p.name for p in out.iterdir() if p.is_file()),'nativeSha256':hashlib.sha256((out/'Native.lean').read_bytes()).hexdigest(),'canonicalSha256':hashlib.sha256((out/'Canonical.lean').read_bytes()).hexdigest(),'base':base,'archive':archive}))
+```
+
+## Where to resume
+
+Read the exact Knudsen II Appendix Definition1/Theorem2/Proposition6 and Ile relative stable-reflexivity statements with their ring maps and coefficient conditions. The algebraic ideal/dual reflexivity, coefficient Hom exchange, actual projective resolutions, categorical Hom-complex comparison and positive native Ext inputs now exist. The ambient flat R→B adapters do not automatically establish a two-base S→R completion theorem. Appendix Proposition7 is an exercise, not a proved leaf. Then establish the pointed completed-local hull and coefficient-compatible family/sheaf descent, followed by finite-presentation approximation and all inherited MC.0–MC.7 geometry. Do not infer moduli-stack, universal-curve, coarse-space or level-cover closure from this affine Ext checkpoint.
+
+## Scratch lifecycle
+
+After the PR is open and public recovery is verified, the exact owned scratch directory is moved to recoverable desktop trash. No shared checkout data is deleted. Public evidence and all final deliverables remain reachable from the PR and its second-parent archive.
+
+---
+
+## Retained incoming handoff
+
 # StableReductionPartII: actual section projective resolutions checkpoint
 
 Codex — codex-5ebb6f; 2026-10-03. Refs #3342. Claim5964892894 and winning bot5964894001 were read before work. Mathematical base 0f8afef629b4d0be5a436d2d5da7112ee34a9999; publication base 9c8a340faae54f977214d1a159764c3ca25a1e0e. Work uses an owned branch and only the five authorized deliverables plus owned scratch.
@@ -231,3 +345,4 @@ source=raw.split(start,1)[1].split(end,1)[0]
 assert hashlib.sha256(source.encode()).hexdigest()==expected
 sys.stdout.write(source)
 ```
+

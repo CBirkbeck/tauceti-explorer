@@ -13,7 +13,7 @@
     "StableReductionPartII:MC.7"
   ],
   "status": "partial",
-  "summary": "Partial pointed-moduli roadmap. Adds twelve consumed declaration-sized inputs for ordinary R-bidual reflexivity of the actual polynomial section ideal, with explicit inverse F↦F(incl), native evaluation equivalence and dual reflexivity through the existing Mathlib instance. All inherited contracts remain, all eight stages stay partial, and arbitrary coefficient-module Hom exchange, higher Ext, completion and family geometry remain required. The actual polynomial coefficient-module Hom comparisons D⊗_A M≃Hom_R(J,R⊗_A M) and J⊗_A M≃Hom_R(D,R⊗_A M) are R-linear, canonical on pure tensors, natural for arbitrary A-linear coefficient maps and compatible with native bidual evaluation when M=A. Signed coordinate lemmas and universal transpose exactness give bijectivity for every M without a flatness assumption; no higher Ext, relative stable-reflexivity or geometric closure is inferred. The actual R-module Hom cochains for the polynomial section ideal and dual are specified with correct alternating phases, signed augmentation cycles and zero native positive cohomology for every coefficient module. The augmented projective-resolution/Ext identification remains required. This checkpoint supplies the actual native projective resolutions of the polynomial section ideal and its dual; the higher Ext and geometric comparisons remain open.",
+  "summary": "Partial pointed-moduli roadmap. Adds twelve consumed declaration-sized inputs for ordinary R-bidual reflexivity of the actual polynomial section ideal, with explicit inverse F↦F(incl), native evaluation equivalence and dual reflexivity through the existing Mathlib instance. All inherited contracts remain, all eight stages stay partial, and arbitrary coefficient-module Hom exchange, higher Ext, completion and family geometry remain required. The actual polynomial coefficient-module Hom comparisons D⊗_A M≃Hom_R(J,R⊗_A M) and J⊗_A M≃Hom_R(D,R⊗_A M) are R-linear, canonical on pure tensors, natural for arbitrary A-linear coefficient maps and compatible with native bidual evaluation when M=A. Signed coordinate lemmas and universal transpose exactness give bijectivity for every M without a flatness assumption; no higher Ext, relative stable-reflexivity or geometric closure is inferred. The actual R-module Hom cochains for the polynomial section ideal and dual are specified with correct alternating phases, signed augmentation cycles and zero native positive cohomology for every coefficient module. The augmented projective-resolution/Ext identification remains required. This checkpoint supplies the actual native projective resolutions of the polynomial section ideal and its dual; the higher Ext and geometric comparisons remain open. The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1272,6 +1272,110 @@
         "line": 84,
         "provides": "quasiIsoAt_iff_exactAt' at its native pinned category/module hypotheses; specialized here to the actual polynomial section chain.",
         "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-5ebb6f; index locator verified."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.toModuleIso",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Category/ModuleCat/Basic.lean",
+        "line": 269,
+        "provides": "LinearEquiv.toModuleIso with the exact native category, module, projectivity and universe hypotheses; used only for the actual polynomial section Hom/Ext comparison.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; declarations.tsv locator verified."
+      },
+      {
+        "ref": "mathlib:ModuleCat.homLinearEquiv",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Category/ModuleCat/Basic.lean",
+        "line": 402,
+        "provides": "ModuleCat.homLinearEquiv with the exact native category, module, projectivity and universe hypotheses; used only for the actual polynomial section Hom/Ext comparison.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; declarations.tsv locator verified."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Abelian.Ext",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/DerivedCategory/Ext/Basic.lean",
+        "line": 118,
+        "provides": "CategoryTheory.Abelian.Ext with the exact native category, module, projectivity and universe hypotheses; used only for the actual polynomial section Hom/Ext comparison.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; declarations.tsv locator verified."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.hasExt_of_enoughProjectives",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Homology/DerivedCategory/Ext/EnoughProjectives.lean",
+        "line": 138,
+        "provides": "CategoryTheory.hasExt_of_enoughProjectives with the exact native category, module, projectivity and universe hypotheses; used only for the actual polynomial section Hom/Ext comparison.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; declarations.tsv locator verified."
+      },
+      {
+        "ref": "mathlib:HomologicalComplex.d_comp_d",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Homology/HomologicalComplex.lean",
+        "line": 72,
+        "provides": "HomologicalComplex.d_comp_d with the exact native category, module, projectivity and universe hypotheses; used only for the actual polynomial section Hom/Ext comparison.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; declarations.tsv locator verified."
+      },
+      {
+        "ref": "mathlib:HomologicalComplex.Hom.isoOfComponents",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/HomologicalComplex.lean",
+        "line": 513,
+        "provides": "HomologicalComplex.Hom.isoOfComponents with the exact native category, module, projectivity and universe hypotheses; used only for the actual polynomial section Hom/Ext comparison.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; declarations.tsv locator verified."
+      },
+      {
+        "ref": "mathlib:HomologicalComplex.homologyFunctor",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/ShortComplex/HomologicalComplex.lean",
+        "line": 490,
+        "provides": "HomologicalComplex.homologyFunctor with the exact native category, module, projectivity and universe hypotheses; used only for the actual polynomial section Hom/Ext comparison.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; declarations.tsv locator verified."
+      },
+      {
+        "ref": "mathlib:Ext",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Abelian/Ext.lean",
+        "line": 43,
+        "provides": "Ext with the exact native category, module, projectivity and universe hypotheses; used only for the actual polynomial section Hom/Ext comparison.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; declarations.tsv locator verified."
+      },
+      {
+        "ref": "mathlib:ChainComplex.linearYonedaObj",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Abelian/Ext.lean",
+        "line": 58,
+        "provides": "ChainComplex.linearYonedaObj with the exact native category, module, projectivity and universe hypotheses; used only for the actual polynomial section Hom/Ext comparison.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; declarations.tsv locator verified."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ProjectiveResolution.isoExt",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Abelian/Ext.lean",
+        "line": 70,
+        "provides": "CategoryTheory.ProjectiveResolution.isoExt with the exact native category, module, projectivity and universe hypotheses; used only for the actual polynomial section Hom/Ext comparison.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; declarations.tsv locator verified."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ProjectiveResolution.extMk_eq_zero_iff",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Abelian/Projective/Ext.lean",
+        "line": 199,
+        "provides": "CategoryTheory.ProjectiveResolution.extMk_eq_zero_iff with the exact native category, module, projectivity and universe hypotheses; used only for the actual polynomial section Hom/Ext comparison.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; declarations.tsv locator verified."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ProjectiveResolution.extMk_surjective",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Abelian/Projective/Ext.lean",
+        "line": 214,
+        "provides": "CategoryTheory.ProjectiveResolution.extMk_surjective with the exact native category, module, projectivity and universe hypotheses; used only for the actual polynomial section Hom/Ext comparison.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; declarations.tsv locator verified."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.IsZero.of_iso",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/ZeroObjects.lean",
+        "line": 118,
+        "provides": "CategoryTheory.Limits.IsZero.of_iso with the exact native category, module, projectivity and universe hypotheses; used only for the actual polynomial section Hom/Ext comparison.",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; declarations.tsv locator verified."
       }
     ]
   },
@@ -1503,6 +1607,18 @@
         "Preadditive/Projective/Resolution.lean lines25–99; Abelian/Projective/Resolution.lean including native constructor lines290–341. Its native quasi-isomorphism proof pattern is adapted to the actual signed augmentations; generic resolution theory is reused, not replanned.",
         "HomologicalComplex.lean lines635–671; Single.lean lines216–244; QuasiIso.lean lines70–99,124–142; SingleHomology.lean lines195–209; ShortComplex/Exact.lean lines112–135,916–932; ShortComplex/Basic.lean lines210–225.",
         "ModuleCat/Projective.lean full file; Module/Projective.lean lines149–162; ModuleCat/EpiMono.lean lines19–53; StdBasis.lean lines199–221; Finiteness/Basic.lean lines263–287. Selected statements only; no new whole-library or missing-generic-theory claim."
+      ]
+    },
+    {
+      "id": "mathlib-codex-a71f92-section-ext",
+      "title": "Native categorical Hom and the two Mathlib projective-resolution Ext interfaces",
+      "authors": "Kim Morrison; Adam Topaz; Joël Riou; Mathlib contributors",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Apache-2.0",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Abelian/Projective/Ext.lean",
+      "sha256": "4eeb6088f22d9f923cd034e37a4cf8231718de83d6d5f23f91a4112e28fa8a6c",
+      "readSections": [
+        "Abelian/Projective/Ext.lean full file, including extMk, extMk_surjective and extMk_eq_zero_iff; Abelian/Ext.lean full file, including root Ext, ChainComplex.linearYonedaObj and ProjectiveResolution.isoExt.",
+        "ModuleCat/Ext/HasExt.lean full file; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines473–504; Ext/Basic.lean lines102–139; ZeroObjects.lean lines105–125; EnoughProjectives.lean lines131–146. Selected native statements only; not a whole-library or transitive-proof audit."
       ]
     }
   ],
@@ -4203,7 +4319,10 @@
         "StableReductionPartII:MC.2/section-hom-dual-augmentation-exact",
         "StableReductionPartII:MC.2/section-ideal-projective-resolution",
         "StableReductionPartII:MC.2/section-dual-projective-resolution",
-        "StableReductionPartII:MC.2/section-resolution-hom-differential"
+        "StableReductionPartII:MC.2/section-resolution-hom-differential",
+        "StableReductionPartII:MC.2/section-ideal-localization-ext-vanishing",
+        "StableReductionPartII:MC.2/section-dual-localization-ext-vanishing",
+        "StableReductionPartII:MC.2/section-resolution-hom-isomorphism-naturality"
       ],
       "proofSteps": [
         "Apply the separately named polynomial dual, residue, coefficient-flatness, ring-linear tensor and actual quotient-base-change calculations; these are inputs to the completed-local comparison, not the global conclusion.",
@@ -4213,7 +4332,8 @@
         "The ordinary polynomial R-bidual step now has its own explicit calculation: ψ(F)=F(incl) lies in J by the dual syzygy, cancels against η on both sides, and identifies native Module.evalEquiv and its inverse. The dual D is reflexive by the native dual-of-reflexive instance. The preceding broader Hom/Ext and relative stable-reflexivity obligations still require arbitrary coefficient modules and the completion/sheaf comparison; ordinary reflexivity alone does not discharge them.",
         "Use the two separately constructed actual R-linear coefficient-module Hom equivalences Θ_D,M and Θ_J,M for every A-module M, their A-linear coefficient naturality and the M=A native-bidual comparison. They are proved through the signed presentation coordinates and coefficient-universal transpose exactness. This discharges the explicit polynomial Hom-exchange calculation without M-flatness; higher Ext/cochain interpretation, the exact relative stable-reflexivity input, two-base completion, pointed hull and family/sheaf descent remain separate.",
         "The native R-module Hom cochains now have zero positive cohomology for every coefficient module and correctly identified degree-zero cycles. Establish the actual augmented finite-free/projective resolutions and their native Ext comparison before invoking relative stable reflexivity.",
-        "Use the actual finite-free native projective resolutions with signed P_J/P_D augmentations and the checked precomposition differential comparison. The remaining categorical Hom-complex/native Ext, exact relative stable-reflexivity, two-base completion and geometric descent comparisons are separate obligations."
+        "Use the actual finite-free native projective resolutions with signed P_J/P_D augmentations and the checked precomposition differential comparison. The remaining categorical Hom-complex/native Ext, exact relative stable-reflexivity, two-base completion and geometric descent comparisons are separate obligations.",
+        "The actual categorical Hom-complex isomorphisms and both native Mathlib higher Ext vanishing statements are now separate checked polynomial inputs for every coefficient module. Apply the exact Appendix/Ile relative stable-reflexivity and two-base completion comparisons only after their own proofs, then the pointed hull identification, family/sheaf descent and arbitrary-base approximation; this Ext calculation alone is not that geometric argument."
       ],
       "acceptance": [
         "Do not strengthen this to J·J∨=J throughout a smoothing family: that equality holds only on the nodal-section locus."
@@ -18291,6 +18411,859 @@
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
         "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
       }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-resolution-hom-isomorphism",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Categorical Hom cochains of the section resolutions",
+      "kind": "construction",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). Construct the actual native ModuleCat R isomorphism C(e).linearYonedaObj R (R⊗_A M) ≅ H(e,M). In every degree it sends a categorical morphism h:F→R⊗_A M to its underlying R-linear map h.hom; its inverse is ModuleCat.ofHom. The differential squares commute with precomposition by B(e,n), including degree zero.",
+      "hypotheses": [
+        "A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe.",
+        "Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-chain",
+        "StableReductionPartII:MC.2/section-hom-cochain",
+        "StableReductionPartII:MC.2/section-hom-cochain-differential",
+        "StableReductionPartII:MC.2/section-resolution-hom-differential",
+        "mathlib:ChainComplex.linearYonedaObj",
+        "mathlib:HomologicalComplex.Hom.isoOfComponents",
+        "mathlib:ModuleCat.homLinearEquiv",
+        "mathlib:LinearEquiv.toModuleIso"
+      ],
+      "proofSteps": [
+        "Use exactly the stated native comparison maps and native functor composition.",
+        "Use the separately named actual differential comparison for the Hom squares; for Ext apply native isoExt and homologyFunctor.mapIso, not a new theory of Ext."
+      ],
+      "acceptance": [
+        "The two native Mathlib Ext definitions are distinguished, with both positive vanishing statements proved separately.",
+        "Degree zero is included in the isomorphisms, not asserted to vanish. Signed ideal/dual phases and actual R-actions are retained.",
+        "This checkpoint is not closure of any MC stage or certification of relative stable reflexivity."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "resolution",
+          "match": "The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred."
+        },
+        {
+          "sourceId": "mathlib-codex-a71f92-section-ext",
+          "locator": "Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.",
+          "excerpt": "Computing",
+          "match": "Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso_apply",
+          "role": "simp",
+          "statement": "In every degree n, the forward component of sectionResolutionHomIso sends h:C(e)_n→R⊗_A M to the actual linear map h.hom. Its public HEq statement protects the inherited opaque constructors in the admitted sketch; in the native model this is an equality."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso_inv_apply",
+          "role": "simp",
+          "statement": "In every degree n the inverse component is exactly ModuleCat.ofHom composed with ModuleCat.homLinearEquiv.symm, as a native categorical map from the R-linear Hom module. The public HEq signature retains the same actual map while not unfolding admitted complex data."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso_natural",
+          "role": "functoriality",
+          "statement": "For every A-linear coefficient map f:M→M′, every e,n and actual categorical h:C(e)_n→R⊗_A M, the forward Hom-comparison component applied to h followed by id_R⊗f is exactly the underlying map (id_R⊗f)∘h.hom. These are all degreewise naturality squares of the actual Hom-complex comparison. No naturality assertion for an unconstructed geometric or completed-family Ext comparison is inferred."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal; Knudsen2012 §3",
+          "how": "Supply the actual polynomial Hom and higher Ext inputs before the still-missing relative stable-reflexivity and completed-local comparison."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso.test_actual_components",
+          "kind": "compatibility",
+          "statement": "The forward comparison in every degree sends an actual categorical morphism to its R-linear map, by HEq, including degree zero."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso.test_inverse",
+          "kind": "compatibility",
+          "statement": "The inverse followed by the forward comparison has the identity component in every degree of the actual Hom cochain."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso.test_naturality",
+          "kind": "compatibility",
+          "statement": "Every A-linear coefficient map gives the stated Hom-comparison naturality square in every degree."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-resolution-hom-isomorphism-apply",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Components of the categorical Hom comparison",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). In every degree n, the forward component of sectionResolutionHomIso sends h:C(e)_n→R⊗_A M to the actual linear map h.hom. Its public HEq statement protects the inherited opaque constructors in the admitted sketch; in the native model this is an equality.",
+      "hypotheses": [
+        "A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe.",
+        "Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-resolution-hom-isomorphism"
+      ],
+      "proofSteps": [
+        "Evaluate the stated actual native comparison or transport through its named native isomorphism; use only the listed earlier facts and routine categorical/linear-map laws."
+      ],
+      "acceptance": [
+        "The two native Mathlib Ext definitions are distinguished, with both positive vanishing statements proved separately.",
+        "Degree zero is included in the isomorphisms, not asserted to vanish. Signed ideal/dual phases and actual R-actions are retained.",
+        "This checkpoint is not closure of any MC stage or certification of relative stable reflexivity."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "resolution",
+          "match": "The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred."
+        },
+        {
+          "sourceId": "mathlib-codex-a71f92-section-ext",
+          "locator": "Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.",
+          "excerpt": "Computing",
+          "match": "Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso_apply",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-resolution-hom-isomorphism-inverse",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Inverse components of the categorical Hom comparison",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). In every degree n the inverse component is exactly ModuleCat.ofHom composed with ModuleCat.homLinearEquiv.symm, as a native categorical map from the R-linear Hom module. The public HEq signature retains the same actual map while not unfolding admitted complex data.",
+      "hypotheses": [
+        "A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe.",
+        "Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-resolution-hom-isomorphism"
+      ],
+      "proofSteps": [
+        "Evaluate the stated actual native comparison or transport through its named native isomorphism; use only the listed earlier facts and routine categorical/linear-map laws."
+      ],
+      "acceptance": [
+        "The two native Mathlib Ext definitions are distinguished, with both positive vanishing statements proved separately.",
+        "Degree zero is included in the isomorphisms, not asserted to vanish. Signed ideal/dual phases and actual R-actions are retained.",
+        "This checkpoint is not closure of any MC stage or certification of relative stable reflexivity."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "resolution",
+          "match": "The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred."
+        },
+        {
+          "sourceId": "mathlib-codex-a71f92-section-ext",
+          "locator": "Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.",
+          "excerpt": "Computing",
+          "match": "Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso_inv_apply",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-resolution-categorical-hom-exact",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Positive exactness of actual categorical Hom precomposition",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). For e=false and e=true and every n≥0, the actual maps Hom_R(C(e)_n,N)→Hom_R(C(e)_(n+1),N)→Hom_R(C(e)_(n+2),N), by precomposition with the resolution differentials, are Function.Exact. A cocycle is the precomposition of an actual predecessor morphism; no coefficient flatness is assumed.",
+      "hypotheses": [
+        "A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe.",
+        "Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-hom-differential-exact",
+        "StableReductionPartII:MC.2/section-resolution-hom-differential",
+        "mathlib:HomologicalComplex.d_comp_d"
+      ],
+      "proofSteps": [
+        "Evaluate the stated actual native comparison or transport through its named native isomorphism; use only the listed earlier facts and routine categorical/linear-map laws."
+      ],
+      "acceptance": [
+        "The two native Mathlib Ext definitions are distinguished, with both positive vanishing statements proved separately.",
+        "Degree zero is included in the isomorphisms, not asserted to vanish. Signed ideal/dual phases and actual R-actions are retained.",
+        "This checkpoint is not closure of any MC stage or certification of relative stable reflexivity."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "resolution",
+          "match": "The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred."
+        },
+        {
+          "sourceId": "mathlib-codex-a71f92-section-ext",
+          "locator": "Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.",
+          "excerpt": "Computing",
+          "match": "Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionResolutionHom_exact",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-derived-ext-isomorphism",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Derived-functor Ext of the actual section ideal",
+      "kind": "construction",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). For every n≥0 construct a native R-module isomorphism ((_root_.Ext R (ModuleCat R) n).obj (op J)).obj N ≅ H(false,M).homology n, by the native sectionIdealResolution.isoExt followed by homology of sectionResolutionHomIso. Here _root_.Ext is Mathlib's left-derived linear Yoneda bifunctor, not a new carrier or the localization-defined Abelian.Ext.",
+      "hypotheses": [
+        "A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe.",
+        "Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-projective-resolution",
+        "StableReductionPartII:MC.2/section-resolution-hom-isomorphism",
+        "mathlib:CategoryTheory.ProjectiveResolution.isoExt",
+        "mathlib:HomologicalComplex.homologyFunctor",
+        "mathlib:Ext"
+      ],
+      "proofSteps": [
+        "Use exactly the stated native comparison maps and native functor composition.",
+        "Use the separately named actual differential comparison for the Hom squares; for Ext apply native isoExt and homologyFunctor.mapIso, not a new theory of Ext."
+      ],
+      "acceptance": [
+        "The two native Mathlib Ext definitions are distinguished, with both positive vanishing statements proved separately.",
+        "Degree zero is included in the isomorphisms, not asserted to vanish. Signed ideal/dual phases and actual R-actions are retained.",
+        "This checkpoint is not closure of any MC stage or certification of relative stable reflexivity."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "resolution",
+          "match": "The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred."
+        },
+        {
+          "sourceId": "mathlib-codex-a71f92-section-ext",
+          "locator": "Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.",
+          "excerpt": "Computing",
+          "match": "Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExtIso",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExtIso_inverse",
+          "role": "equivalence",
+          "statement": "The forward and inverse maps of sectionIdealDerivedExtIso compose to the identity of the actual derived-functor Ext module, in every degree including degree zero."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExt_isZero",
+          "role": "characterisation",
+          "statement": "For every n≥0 the actual R-module ((_root_.Ext R (ModuleCat R) (n+1)).obj (op J)).obj (R⊗_A M) is native Limits.IsZero. Transport the already checked zero positive cohomology through the actual section-ideal Ext isomorphism."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExtIso_zero",
+          "role": "simp",
+          "statement": "The forward comparison sends the zero native Ext element to zero cohomology in every degree."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal; Knudsen2012 §3",
+          "how": "Supply the actual polynomial Hom and higher Ext inputs before the still-missing relative stable-reflexivity and completed-local comparison."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExtIso.test_degree_zero",
+          "kind": "compatibility",
+          "statement": "The ideal Ext comparison round-trips an arbitrary actual degree-zero Ext element; positive vanishing is not falsely extended to degree zero."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExtIso.test_nonflat",
+          "kind": "non-example",
+          "statement": "For A=Z, γ=1,δ=0,s=1,t=0 and the non-flat coefficient module M=Z/2, the actual derived-functor Ext^3(J,R⊗_Z M) module is zero."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExtIso.test_zero_ring",
+          "kind": "computation",
+          "statement": "For the zero coefficient ring A=Z/1 and M=A, the actual ideal derived-functor Ext^1 module is zero; no Nontrivial hypothesis is introduced."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-derived-ext-isomorphism",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Derived-functor Ext of the actual section dual",
+      "kind": "construction",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). For every n≥0 construct a native R-module isomorphism ((_root_.Ext R (ModuleCat R) n).obj (op D)).obj N ≅ H(true,M).homology n, by the native sectionDualResolution.isoExt followed by homology of sectionResolutionHomIso. Its alternating phase is the actual dual resolution, not the ideal phase.",
+      "hypotheses": [
+        "A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe.",
+        "Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-projective-resolution",
+        "StableReductionPartII:MC.2/section-resolution-hom-isomorphism",
+        "mathlib:CategoryTheory.ProjectiveResolution.isoExt",
+        "mathlib:HomologicalComplex.homologyFunctor",
+        "mathlib:Ext"
+      ],
+      "proofSteps": [
+        "Use exactly the stated native comparison maps and native functor composition.",
+        "Use the separately named actual differential comparison for the Hom squares; for Ext apply native isoExt and homologyFunctor.mapIso, not a new theory of Ext."
+      ],
+      "acceptance": [
+        "The two native Mathlib Ext definitions are distinguished, with both positive vanishing statements proved separately.",
+        "Degree zero is included in the isomorphisms, not asserted to vanish. Signed ideal/dual phases and actual R-actions are retained.",
+        "This checkpoint is not closure of any MC stage or certification of relative stable reflexivity."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "resolution",
+          "match": "The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred."
+        },
+        {
+          "sourceId": "mathlib-codex-a71f92-section-ext",
+          "locator": "Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.",
+          "excerpt": "Computing",
+          "match": "Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualDerivedExtIso",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualDerivedExtIso_inverse",
+          "role": "equivalence",
+          "statement": "The forward and inverse maps of sectionDualDerivedExtIso compose to the identity of the actual derived-functor Ext module, in every degree including degree zero."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualDerivedExt_isZero",
+          "role": "characterisation",
+          "statement": "For every n≥0 the actual R-module ((_root_.Ext R (ModuleCat R) (n+1)).obj (op D)).obj (R⊗_A M) is native Limits.IsZero. Use the dual resolution and the corresponding actual Hom phase."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualDerivedExtIso_zero",
+          "role": "simp",
+          "statement": "The forward comparison sends the zero native Ext element to zero cohomology in every degree."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal; Knudsen2012 §3",
+          "how": "Supply the actual polynomial Hom and higher Ext inputs before the still-missing relative stable-reflexivity and completed-local comparison."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualDerivedExtIso.test_degree_zero",
+          "kind": "compatibility",
+          "statement": "The dual Ext comparison round-trips every actual degree-zero Ext element."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualDerivedExtIso.test_nonreduced",
+          "kind": "non-example",
+          "statement": "For the nonreduced base A=Z/4, γ=δ=t=0,s=1 and M=A, the actual dual derived-functor Ext^2 module is zero."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualDerivedExtIso.test_nonflat",
+          "kind": "non-example",
+          "statement": "For A=Z, γ=1,δ=0,s=1,t=0 and M=Z/2 without flatness, the actual dual derived-functor Ext^1 module is zero."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-derived-ext-isomorphism-inverse",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Inverse law for the ideal Ext comparison",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). The forward and inverse maps of sectionIdealDerivedExtIso compose to the identity of the actual derived-functor Ext module, in every degree including degree zero.",
+      "hypotheses": [
+        "A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe.",
+        "Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-derived-ext-isomorphism"
+      ],
+      "proofSteps": [
+        "Evaluate the stated actual native comparison or transport through its named native isomorphism; use only the listed earlier facts and routine categorical/linear-map laws."
+      ],
+      "acceptance": [
+        "The two native Mathlib Ext definitions are distinguished, with both positive vanishing statements proved separately.",
+        "Degree zero is included in the isomorphisms, not asserted to vanish. Signed ideal/dual phases and actual R-actions are retained.",
+        "This checkpoint is not closure of any MC stage or certification of relative stable reflexivity."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "resolution",
+          "match": "The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred."
+        },
+        {
+          "sourceId": "mathlib-codex-a71f92-section-ext",
+          "locator": "Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.",
+          "excerpt": "Computing",
+          "match": "Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExtIso_inverse",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-derived-ext-isomorphism-inverse",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Inverse law for the dual Ext comparison",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). The forward and inverse maps of sectionDualDerivedExtIso compose to the identity of the actual derived-functor Ext module, in every degree including degree zero.",
+      "hypotheses": [
+        "A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe.",
+        "Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-derived-ext-isomorphism"
+      ],
+      "proofSteps": [
+        "Evaluate the stated actual native comparison or transport through its named native isomorphism; use only the listed earlier facts and routine categorical/linear-map laws."
+      ],
+      "acceptance": [
+        "The two native Mathlib Ext definitions are distinguished, with both positive vanishing statements proved separately.",
+        "Degree zero is included in the isomorphisms, not asserted to vanish. Signed ideal/dual phases and actual R-actions are retained.",
+        "This checkpoint is not closure of any MC stage or certification of relative stable reflexivity."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "resolution",
+          "match": "The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred."
+        },
+        {
+          "sourceId": "mathlib-codex-a71f92-section-ext",
+          "locator": "Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.",
+          "excerpt": "Computing",
+          "match": "Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualDerivedExtIso_inverse",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-derived-ext-vanishing",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Positive derived-functor Ext vanishing for the section ideal",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). For every n≥0 the actual R-module ((_root_.Ext R (ModuleCat R) (n+1)).obj (op J)).obj (R⊗_A M) is native Limits.IsZero. Transport the already checked zero positive cohomology through the actual section-ideal Ext isomorphism.",
+      "hypotheses": [
+        "A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe.",
+        "Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-derived-ext-isomorphism",
+        "StableReductionPartII:MC.2/section-hom-cochain-positive-homology",
+        "mathlib:CategoryTheory.Limits.IsZero.of_iso"
+      ],
+      "proofSteps": [
+        "Evaluate the stated actual native comparison or transport through its named native isomorphism; use only the listed earlier facts and routine categorical/linear-map laws."
+      ],
+      "acceptance": [
+        "The two native Mathlib Ext definitions are distinguished, with both positive vanishing statements proved separately.",
+        "Degree zero is included in the isomorphisms, not asserted to vanish. Signed ideal/dual phases and actual R-actions are retained.",
+        "This checkpoint is not closure of any MC stage or certification of relative stable reflexivity."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "resolution",
+          "match": "The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred."
+        },
+        {
+          "sourceId": "mathlib-codex-a71f92-section-ext",
+          "locator": "Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.",
+          "excerpt": "Computing",
+          "match": "Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExt_isZero",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-derived-ext-vanishing",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Positive derived-functor Ext vanishing for the section dual",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). For every n≥0 the actual R-module ((_root_.Ext R (ModuleCat R) (n+1)).obj (op D)).obj (R⊗_A M) is native Limits.IsZero. Use the dual resolution and the corresponding actual Hom phase.",
+      "hypotheses": [
+        "A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe.",
+        "Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-derived-ext-isomorphism",
+        "StableReductionPartII:MC.2/section-hom-cochain-positive-homology",
+        "mathlib:CategoryTheory.Limits.IsZero.of_iso"
+      ],
+      "proofSteps": [
+        "Evaluate the stated actual native comparison or transport through its named native isomorphism; use only the listed earlier facts and routine categorical/linear-map laws."
+      ],
+      "acceptance": [
+        "The two native Mathlib Ext definitions are distinguished, with both positive vanishing statements proved separately.",
+        "Degree zero is included in the isomorphisms, not asserted to vanish. Signed ideal/dual phases and actual R-actions are retained.",
+        "This checkpoint is not closure of any MC stage or certification of relative stable reflexivity."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "resolution",
+          "match": "The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred."
+        },
+        {
+          "sourceId": "mathlib-codex-a71f92-section-ext",
+          "locator": "Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.",
+          "excerpt": "Computing",
+          "match": "Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualDerivedExt_isZero",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-localization-ext-vanishing",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Positive native localization Ext vanishing for the section ideal",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). For every n≥0 and α:CategoryTheory.Abelian.Ext J (R⊗_A M) (n+1), α=0. Use the actual sectionIdealResolution and Mathlib extMk_surjective to represent α by a categorical cocycle; exact precomposition supplies a predecessor, and extMk_eq_zero_iff kills the class. This separately proves the localization-defined native Ext statement without assuming an isomorphism between the two Mathlib Ext definitions.",
+      "hypotheses": [
+        "A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe.",
+        "Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-projective-resolution",
+        "StableReductionPartII:MC.2/section-resolution-categorical-hom-exact",
+        "mathlib:CategoryTheory.Abelian.Ext",
+        "mathlib:CategoryTheory.ProjectiveResolution.extMk_surjective",
+        "mathlib:CategoryTheory.ProjectiveResolution.extMk_eq_zero_iff",
+        "mathlib:CategoryTheory.hasExt_of_enoughProjectives"
+      ],
+      "proofSteps": [
+        "Apply the native extMk_surjective to the specified actual projective resolution.",
+        "Use sectionResolutionHom_exact for the cocycle and obtain an actual categorical boundary.",
+        "Apply native extMk_eq_zero_iff; no identification of the two Ext carriers is assumed."
+      ],
+      "acceptance": [
+        "The two native Mathlib Ext definitions are distinguished, with both positive vanishing statements proved separately.",
+        "Degree zero is included in the isomorphisms, not asserted to vanish. Signed ideal/dual phases and actual R-actions are retained.",
+        "This checkpoint is not closure of any MC stage or certification of relative stable reflexivity."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "resolution",
+          "match": "The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred."
+        },
+        {
+          "sourceId": "mathlib-codex-a71f92-section-ext",
+          "locator": "Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.",
+          "excerpt": "Computing",
+          "match": "Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealExt_eq_zero",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealExt.test_nonflat",
+          "kind": "non-example",
+          "statement": "For A=Z, γ=1,δ=0,s=1,t=0 and M=Z/2, every element of native localization Abelian.Ext^4(J,R⊗M) is zero."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealExt.test_zero_ring",
+          "kind": "computation",
+          "statement": "For A=Z/1 and M=A, every native localization Abelian.Ext^1(J,R⊗M) class is zero."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-localization-ext-vanishing",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Positive native localization Ext vanishing for the section dual",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). For every n≥0 and α:CategoryTheory.Abelian.Ext D (R⊗_A M) (n+1), α=0. Use the actual sectionDualResolution, extMk_surjective, the true alternating dual precomposition and extMk_eq_zero_iff. No dual coefficient flatness or identification with a made-up Ext carrier is assumed.",
+      "hypotheses": [
+        "A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe.",
+        "Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-projective-resolution",
+        "StableReductionPartII:MC.2/section-resolution-categorical-hom-exact",
+        "mathlib:CategoryTheory.Abelian.Ext",
+        "mathlib:CategoryTheory.ProjectiveResolution.extMk_surjective",
+        "mathlib:CategoryTheory.ProjectiveResolution.extMk_eq_zero_iff",
+        "mathlib:CategoryTheory.hasExt_of_enoughProjectives"
+      ],
+      "proofSteps": [
+        "Apply the native extMk_surjective to the specified actual projective resolution.",
+        "Use sectionResolutionHom_exact for the cocycle and obtain an actual categorical boundary.",
+        "Apply native extMk_eq_zero_iff; no identification of the two Ext carriers is assumed."
+      ],
+      "acceptance": [
+        "The two native Mathlib Ext definitions are distinguished, with both positive vanishing statements proved separately.",
+        "Degree zero is included in the isomorphisms, not asserted to vanish. Signed ideal/dual phases and actual R-actions are retained.",
+        "This checkpoint is not closure of any MC stage or certification of relative stable reflexivity."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "resolution",
+          "match": "The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred."
+        },
+        {
+          "sourceId": "mathlib-codex-a71f92-section-ext",
+          "locator": "Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.",
+          "excerpt": "Computing",
+          "match": "Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualExt_eq_zero",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualExt.test_nonreduced",
+          "kind": "non-example",
+          "statement": "For A=Z/4, γ=δ=t=0,s=1 and M=A, every native localization Abelian.Ext^2(D,R⊗M) class is zero."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-resolution-hom-isomorphism-naturality",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Coefficient naturality of the categorical Hom comparison",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). For every A-linear coefficient map f:M→M′, every e,n and actual categorical h:C(e)_n→R⊗_A M, the forward Hom-comparison component applied to h followed by id_R⊗f is exactly the underlying map (id_R⊗f)∘h.hom. These are all degreewise naturality squares of the actual Hom-complex comparison. No naturality assertion for an unconstructed geometric or completed-family Ext comparison is inferred.",
+      "hypotheses": [
+        "A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe.",
+        "Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-resolution-hom-isomorphism",
+        "mathlib:TensorProduct.AlgebraTensorModule.map"
+      ],
+      "proofSteps": [
+        "Evaluate the stated actual native comparison or transport through its named native isomorphism; use only the listed earlier facts and routine categorical/linear-map laws."
+      ],
+      "acceptance": [
+        "The two native Mathlib Ext definitions are distinguished, with both positive vanishing statements proved separately.",
+        "Degree zero is included in the isomorphisms, not asserted to vanish. Signed ideal/dual phases and actual R-actions are retained.",
+        "This checkpoint is not closure of any MC stage or certification of relative stable reflexivity."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "resolution",
+          "match": "The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred."
+        },
+        {
+          "sourceId": "mathlib-codex-a71f92-section-ext",
+          "locator": "Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.",
+          "excerpt": "Computing",
+          "match": "Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso_natural",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-derived-ext-isomorphism-zero",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Zero preservation for the ideal Ext comparison",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). The forward native R-linear map of sectionIdealDerivedExtIso sends zero to zero in every degree.",
+      "hypotheses": [
+        "A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe.",
+        "Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-derived-ext-isomorphism"
+      ],
+      "proofSteps": [
+        "Use map_zero for the actual R-linear hom map of the native module isomorphism."
+      ],
+      "acceptance": [
+        "The two native Mathlib Ext definitions are distinguished, with both positive vanishing statements proved separately.",
+        "Degree zero is included in the isomorphisms, not asserted to vanish. Signed ideal/dual phases and actual R-actions are retained.",
+        "This checkpoint is not closure of any MC stage or certification of relative stable reflexivity."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "resolution",
+          "match": "The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred."
+        },
+        {
+          "sourceId": "mathlib-codex-a71f92-section-ext",
+          "locator": "Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.",
+          "excerpt": "Computing",
+          "match": "Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExtIso_zero",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-derived-ext-isomorphism-zero",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Zero preservation for the dual Ext comparison",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, use the actual R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), u=[X], v=[Y], coefficient map ι, J=(u−ιs,v−ιt), D=Hom_R(J,R) and N=R⊗_A M for an arbitrary A-module M. Write c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδ·v+ιδ·ιt+ιγ·u; Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)). The actual finite-free resolutions C(false), C(true) have R² in every degree and differential B(e,n)=Φ if (n mod2=0)⇔e=true, otherwise Ψ, with signed augmentations P_J(z)=cz₀−dz₁ and P_D(z)=z₀incl−z₁ε. H(e,M) denotes the inherited actual R-linear Hom cochain with differential h↦h∘B(e,n). The forward native R-linear map of sectionDualDerivedExtIso sends zero to zero in every degree.",
+      "hypotheses": [
+        "A is any commutative ring and M any A-module. No noetherianity, coefficient flatness, nontriviality or unit-discriminant hypothesis is imposed on this polynomial calculation. Native ModuleCat objects are in a common universe.",
+        "Relative stable reflexivity, two-base completion, pointed hulls and scheme/sheaf descent are separate geometric obligations."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-derived-ext-isomorphism"
+      ],
+      "proofSteps": [
+        "Use map_zero for the actual R-linear hom map of the native module isomorphism."
+      ],
+      "acceptance": [
+        "The two native Mathlib Ext definitions are distinguished, with both positive vanishing statements proved separately.",
+        "Degree zero is included in the isomorphisms, not asserted to vanish. Signed ideal/dual phases and actual R-actions are retained.",
+        "This checkpoint is not closure of any MC stage or certification of relative stable reflexivity."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "arXiv:1106.1588v2 §3 Key Example, Proposition3.1 and Corollary3.2; §4 separates completed-local descent.",
+          "excerpt": "resolution",
+          "match": "The printed matrix sequence motivates this specialized polynomial Ext calculation. The arbitrary-ring/coefficient statement and its native categorical proof are authored deductions from the inherited checked resolutions; no printed relative stable-reflexivity or completion theorem is inferred."
+        },
+        {
+          "sourceId": "mathlib-codex-a71f92-section-ext",
+          "locator": "Pinned Abelian/Ext.lean lines43–74; Abelian/Projective/Ext.lean lines137–225; ModuleCat/Basic.lean lines269–277,389–406; HomologicalComplex.lean lines505–537; ShortComplex/HomologicalComplex.lean lines486–493.",
+          "excerpt": "Computing",
+          "match": "Reuse the native Hom and two Ext interfaces, not re-plan their generic theories. Exact statements and surrounding hypotheses were read at the pinned commit."
+        }
+      ],
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualDerivedExtIso_zero",
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      }
     }
   ],
   "requests": [
@@ -19271,7 +20244,8 @@
         "Ordinary R-linear bidual evaluation of the actual polynomial ideal is now checked with inverse F↦F(incl), and the native instance supplies ordinary reflexivity of its dual. In the earlier remaining entries, the open bidual work is the relative/module-valued Hom comparison and its base-change/completion naturality, followed by higher Ext and family descent.",
         "Both actual coefficient-module Hom comparisons and their naturality are now supplied for every A-module M, with inherited R-actions, prescribed negative generators and the M=A native bidual specialization. The earlier open polynomial Hom exchange is discharged by these new nodes. What remains is the native finite-free-resolution/Hom-cochain and higher Ext interpretation, then the exact Appendix/Ile relative stable-reflexivity and two-base completion comparison, pointed completed-local hull, family/sheaf descent and arbitrary-base approximation.",
         "Current next frontier after native Hom cochains: instantiate the augmented finite-free R-resolutions of J and D with the actual P_J/P_D maps, prove native projectivity and identify their Hom cochains with native Ext. Positive cohomology vanishing by itself is not this comparison. All completion, relative stable-reflexivity, hull and family descent requirements remain.",
-        "The actual augmented finite-free R-projective resolutions of J and D are now specified and separately checked with native QuasiIso. Their Hom precomposition differentials equal the existing arbitrary-coefficient cochain maps. Next identify the categorical Hom complex and native higher Ext; then apply the exact Appendix/Ile relative stable-reflexivity and two-base completion theorems, pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. The differential equality alone is not an Ext comparison."
+        "The actual augmented finite-free R-projective resolutions of J and D are now specified and separately checked with native QuasiIso. Their Hom precomposition differentials equal the existing arbitrary-coefficient cochain maps. Next identify the categorical Hom complex and native higher Ext; then apply the exact Appendix/Ile relative stable-reflexivity and two-base completion theorems, pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. The differential equality alone is not an Ext comparison.",
+        "The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain."
       ]
     },
     {
@@ -20183,7 +21157,7 @@
   "prototypeCoverage": {
     "status": "partial",
     "compiled": true,
-    "reason": "The entire current Mathlib-only admitted sketch elaborates. A separately checked admission-free native archive preserves all prior polynomial/tensor/bidual bodies and supplies the actual arbitrary-coefficient-module Hom maps, signed coordinate proofs, R-linear isomorphisms, coefficient naturality and M=A unit/bidual comparisons. Higher Ext, relative stable reflexivity, two-base completion and all geometry remain open. The specialized actual Hom cochain signatures, positive native cohomology and signed augmentation cycles are now expressible; native resolution/Ext comparison remains outside this checkpoint. The actual native projective-resolution signatures and differential comparisons are now expressible; categorical Hom-complex/Ext comparisons remain open.",
+    "reason": "The entire current Mathlib-only admitted sketch elaborates. A separately checked admission-free native archive preserves all prior polynomial/tensor/bidual bodies and supplies the actual arbitrary-coefficient-module Hom maps, signed coordinate proofs, R-linear isomorphisms, coefficient naturality and M=A unit/bidual comparisons. Higher Ext, relative stable reflexivity, two-base completion and all geometry remain open. The specialized actual Hom cochain signatures, positive native cohomology and signed augmentation cycles are now expressible; native resolution/Ext comparison remains outside this checkpoint. The actual native projective-resolution signatures and differential comparisons are now expressible; categorical Hom-complex/Ext comparisons remain open. The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain.",
     "expressedNodes": [
       "StableReductionPartII:MC.2/binary-node-form",
       "StableReductionPartII:MC.2/node-factorization-products",
@@ -20380,7 +21354,22 @@
       "StableReductionPartII:MC.2/section-dual-resolution-complex",
       "StableReductionPartII:MC.2/section-dual-resolution-augmentation",
       "StableReductionPartII:MC.2/section-ideal-resolution-quasi-isomorphism",
-      "StableReductionPartII:MC.2/section-dual-resolution-quasi-isomorphism"
+      "StableReductionPartII:MC.2/section-dual-resolution-quasi-isomorphism",
+      "StableReductionPartII:MC.2/section-resolution-hom-isomorphism",
+      "StableReductionPartII:MC.2/section-resolution-hom-isomorphism-apply",
+      "StableReductionPartII:MC.2/section-resolution-hom-isomorphism-inverse",
+      "StableReductionPartII:MC.2/section-resolution-categorical-hom-exact",
+      "StableReductionPartII:MC.2/section-ideal-derived-ext-isomorphism",
+      "StableReductionPartII:MC.2/section-dual-derived-ext-isomorphism",
+      "StableReductionPartII:MC.2/section-ideal-derived-ext-isomorphism-inverse",
+      "StableReductionPartII:MC.2/section-dual-derived-ext-isomorphism-inverse",
+      "StableReductionPartII:MC.2/section-ideal-derived-ext-vanishing",
+      "StableReductionPartII:MC.2/section-dual-derived-ext-vanishing",
+      "StableReductionPartII:MC.2/section-ideal-localization-ext-vanishing",
+      "StableReductionPartII:MC.2/section-dual-localization-ext-vanishing",
+      "StableReductionPartII:MC.2/section-resolution-hom-isomorphism-naturality",
+      "StableReductionPartII:MC.2/section-ideal-derived-ext-isomorphism-zero",
+      "StableReductionPartII:MC.2/section-dual-derived-ext-isomorphism-zero"
     ],
     "expressedApi": [
       "NodeForm.eval",
@@ -20560,7 +21549,16 @@
       "NodeSectionFactorization.PolynomialModel.sectionIdealResolution_quasiIso",
       "NodeSectionFactorization.PolynomialModel.sectionDualResolution_complex",
       "NodeSectionFactorization.PolynomialModel.sectionDualResolution_augmentation",
-      "NodeSectionFactorization.PolynomialModel.sectionDualResolution_quasiIso"
+      "NodeSectionFactorization.PolynomialModel.sectionDualResolution_quasiIso",
+      "NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso_apply",
+      "NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso_inv_apply",
+      "NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso_natural",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExtIso_inverse",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExt_isZero",
+      "NodeSectionFactorization.PolynomialModel.sectionDualDerivedExtIso_inverse",
+      "NodeSectionFactorization.PolynomialModel.sectionDualDerivedExt_isZero",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExtIso_zero",
+      "NodeSectionFactorization.PolynomialModel.sectionDualDerivedExtIso_zero"
     ],
     "expressedTests": [
       "NodeForm.characteristicTwo",
@@ -20734,7 +21732,19 @@
       "NodeSectionFactorization.PolynomialModel.sectionIdealResolution.test_zero_ring_quasiIso",
       "NodeSectionFactorization.PolynomialModel.sectionDualResolution.test_starting_phi",
       "NodeSectionFactorization.PolynomialModel.sectionDualResolution.test_next_psi",
-      "NodeSectionFactorization.PolynomialModel.sectionDualResolution.test_nonreduced_quasiIso"
+      "NodeSectionFactorization.PolynomialModel.sectionDualResolution.test_nonreduced_quasiIso",
+      "NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso.test_actual_components",
+      "NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso.test_inverse",
+      "NodeSectionFactorization.PolynomialModel.sectionResolutionHomIso.test_naturality",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExtIso.test_degree_zero",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExtIso.test_nonflat",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealDerivedExtIso.test_zero_ring",
+      "NodeSectionFactorization.PolynomialModel.sectionDualDerivedExtIso.test_degree_zero",
+      "NodeSectionFactorization.PolynomialModel.sectionDualDerivedExtIso.test_nonreduced",
+      "NodeSectionFactorization.PolynomialModel.sectionDualDerivedExtIso.test_nonflat",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealExt.test_nonflat",
+      "NodeSectionFactorization.PolynomialModel.sectionDualExt.test_nonreduced",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealExt.test_zero_ring"
     ],
     "omissions": [
       {
@@ -22786,7 +23796,8 @@
       "availableGiB": 36,
       "exit": 0
     },
-    "sectionResolutionPreviousReason": "The entire current Mathlib-only admitted sketch elaborates. A separately checked admission-free native archive preserves all prior polynomial/tensor/bidual bodies and supplies the actual arbitrary-coefficient-module Hom maps, signed coordinate proofs, R-linear isomorphisms, coefficient naturality and M=A unit/bidual comparisons. Higher Ext, relative stable reflexivity, two-base completion and all geometry remain open. The specialized actual Hom cochain signatures, positive native cohomology and signed augmentation cycles are now expressible; native resolution/Ext comparison remains outside this checkpoint."
+    "sectionResolutionPreviousReason": "The entire current Mathlib-only admitted sketch elaborates. A separately checked admission-free native archive preserves all prior polynomial/tensor/bidual bodies and supplies the actual arbitrary-coefficient-module Hom maps, signed coordinate proofs, R-linear isomorphisms, coefficient naturality and M=A unit/bidual comparisons. Higher Ext, relative stable reflexivity, two-base completion and all geometry remain open. The specialized actual Hom cochain signatures, positive native cohomology and signed augmentation cycles are now expressible; native resolution/Ext comparison remains outside this checkpoint.",
+    "sectionExtPreviousReason": "The entire current Mathlib-only admitted sketch elaborates. A separately checked admission-free native archive preserves all prior polynomial/tensor/bidual bodies and supplies the actual arbitrary-coefficient-module Hom maps, signed coordinate proofs, R-linear isomorphisms, coefficient naturality and M=A unit/bidual comparisons. Higher Ext, relative stable reflexivity, two-base completion and all geometry remain open. The specialized actual Hom cochain signatures, positive native cohomology and signed augmentation cycles are now expressible; native resolution/Ext comparison remains outside this checkpoint. The actual native projective-resolution signatures and differential comparisons are now expressible; categorical Hom-complex/Ext comparisons remain open."
   },
   "upstreamImportEncoding": {
     "status": "canonical",
@@ -22988,6 +23999,15 @@
       "sha256": "2c89ce4072046d546ff9256a5c64cd488f41026c561f8858f4a78ce14c21d685",
       "scope": "Fresh complete §3 Key Example/Proposition3.1/Corollary3.2 and §4 proof. No fresh whole-paper, PDF, Appendix/Ile or Eisenbud proof audit.",
       "use": "Actual alternating matrices and signed presentations motivate the particular finite-free native resolutions. Their arbitrary-ring native packaging is an authored deduction. Native Ext and geometric comparisons remain open."
+    },
+    {
+      "sourceId": "knudsen2012",
+      "reader": "Codex — codex-a71f92",
+      "date": "2026-10-03",
+      "url": "https://arxiv.org/html/1106.1588v2",
+      "version": "arXiv:1106.1588v2 primary HTML",
+      "sha256": "2c89ce4072046d546ff9256a5c64cd488f41026c561f8858f4a78ce14c21d685",
+      "scope": "Fresh introduction/Main Lemma and complete §3 Key Example/Proposition3.1/Corollary3.2 and §4 proof. No new whole-paper, PDF, Appendix/Ile or Eisenbud proof audit. Higher polynomial Ext is an authored deduction from the inherited actual resolutions and pinned native Mathlib APIs."
     }
   ],
   "coefficientChangeContinuation": {
@@ -24065,6 +25085,119 @@
       "verify.py": "6c110740865c06f52c8a54b43a09ba1e8e0149b8f5b5fe886316addb20271272",
       "immutable_view.py": "a5804a09aa6ca41675d2b63453fadd6c412f64fe07f8001549e5a452cf722e81",
       "IncomingNative.lean": "690e22fed4c79b7b46fd8c3e72ae33da6c9f00ce0eeea7498eb0daf18971eeb6"
+    }
+  },
+  "sectionExtContinuation": {
+    "agent": "Codex",
+    "session": "codex-a71f92",
+    "issue": 3342,
+    "claimComment": 5965209863,
+    "claimBot": 5965211452,
+    "mathematicalBase": "cbc70097561abd69d9e3b1d6caff7bee676c019a",
+    "addedNodes": [
+      "StableReductionPartII:MC.2/section-resolution-hom-isomorphism",
+      "StableReductionPartII:MC.2/section-resolution-hom-isomorphism-apply",
+      "StableReductionPartII:MC.2/section-resolution-hom-isomorphism-inverse",
+      "StableReductionPartII:MC.2/section-resolution-categorical-hom-exact",
+      "StableReductionPartII:MC.2/section-ideal-derived-ext-isomorphism",
+      "StableReductionPartII:MC.2/section-dual-derived-ext-isomorphism",
+      "StableReductionPartII:MC.2/section-ideal-derived-ext-isomorphism-inverse",
+      "StableReductionPartII:MC.2/section-dual-derived-ext-isomorphism-inverse",
+      "StableReductionPartII:MC.2/section-ideal-derived-ext-vanishing",
+      "StableReductionPartII:MC.2/section-dual-derived-ext-vanishing",
+      "StableReductionPartII:MC.2/section-ideal-localization-ext-vanishing",
+      "StableReductionPartII:MC.2/section-dual-localization-ext-vanishing",
+      "StableReductionPartII:MC.2/section-resolution-hom-isomorphism-naturality",
+      "StableReductionPartII:MC.2/section-ideal-derived-ext-isomorphism-zero",
+      "StableReductionPartII:MC.2/section-dual-derived-ext-isomorphism-zero"
+    ],
+    "remaining": [
+      "The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain."
+    ],
+    "nativeProof": {
+      "lines": 4050,
+      "sha256": "8c54f664cadcb7e0dacd4a5411cf908c8dced56bff8071e79141e88ee0d04083",
+      "diagnosticsSha256": "f5d932b990e2eb9c91037ed4dc51bd318340722ed3fd1c4f4a6935c6b9605dfa",
+      "examples": 148,
+      "errors": 0,
+      "warnings": 0,
+      "admissions": 0,
+      "audits": 261,
+      "seconds": "1:25.39",
+      "peakRSSKiB": 3008028,
+      "availableGiB": 21,
+      "exit": 0
+    },
+    "canonicalSketch": {
+      "lines": 3329,
+      "sha256": "9206666ec4b0689d48185677c582bf9ff36c4a467839e24b8c7743bbf42fe245",
+      "diagnosticsSha256": "cb98514c157c7b135649a892500c36a2895a2170441ba258dd69a4565ace8cac",
+      "examples": 210,
+      "errors": 0,
+      "warnings": 513,
+      "admissions": 513,
+      "audits": 0,
+      "seconds": "1:08.21",
+      "peakRSSKiB": 3182984,
+      "availableGiB": 20,
+      "exit": 0
+    },
+    "graph": {
+      "stageDAG": {
+        "vertices": 3050,
+        "edges": 8750,
+        "acyclic": true
+      },
+      "ownDAG": {
+        "vertices": 319,
+        "edges": 718,
+        "acyclic": true
+      },
+      "combinedDAG": {
+        "vertices": 3334,
+        "edges": 9582,
+        "acyclic": true
+      },
+      "reachableDeclarations": 319,
+      "externalDeclarations": [],
+      "reachableBaselineReferences": 170,
+      "unresolved": [],
+      "otherPartsRetained": [],
+      "partDeclarations": 319,
+      "partPlanets": 35,
+      "roadmapDeclarations": 319,
+      "requiredStagePairs": 81,
+      "requiredStagePairsReachable": 81,
+      "inheritedMissingStagePairs": [],
+      "acceptedRestructurePairs": 0,
+      "acceptedRestructurePairsReachable": 0,
+      "stageEdgesUnchanged": true,
+      "otherSkippedPendingUnchanged": true,
+      "ownSkippedPendingEmpty": true
+    },
+    "publicationBase": "fb636d0b727444d0078a661b7591b0d79409af63",
+    "publicationChecks": "All21 scoped owner/governing/audit/key/source-route/parent-stage/validator input blobs match the mathematical base; the two fully read upstream style documents also match. Actual immutable checker, file intake, complete native/canonical signature and test parity, atlas assembly and scoped DAG/control checks pass.",
+    "preservation": {
+      "incomingContracts": 304,
+      "preservedWholeNodeObjects": 303,
+      "newNodes": 15,
+      "newApi": 9,
+      "newTests": 12,
+      "baselinePrefix": 168,
+      "newBaselineDeclarations": 13,
+      "keyConsumerContracts": 6,
+      "routedItems": 21,
+      "partialStages": 8,
+      "closedStages": 0
+    },
+    "archiveCommit": "311f2910752642220c24f33d90c66d76f1174f36",
+    "publicArtifacts": {
+      "Native.lean": "8c54f664cadcb7e0dacd4a5411cf908c8dced56bff8071e79141e88ee0d04083",
+      "Canonical.lean": "9206666ec4b0689d48185677c582bf9ff36c4a467839e24b8c7743bbf42fe245",
+      "verify.py": "ee9cbff34d761a790b407fc54ead418f8c3f85dde9b8650aabbfc5a682b97c5c",
+      "immutable_view.py": "2c6d623c48ed7a83ca6f7c9a86942b90d081e87b5ef0a00150fcbc38c197c991",
+      "NativeDiagnostics.txt": "f5d932b990e2eb9c91037ed4dc51bd318340722ed3fd1c4f4a6935c6b9605dfa",
+      "CanonicalDiagnostics.txt": "cb98514c157c7b135649a892500c36a2895a2170441ba258dd69a4565ace8cac"
     }
   }
 }
