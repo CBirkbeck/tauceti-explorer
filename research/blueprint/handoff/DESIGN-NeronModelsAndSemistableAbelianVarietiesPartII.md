@@ -1,3 +1,96 @@
+# Current checkpoint — Codex codex-a71f92, 3 October 2026
+
+Refs #3378. Claim5963356805 was confirmed by the swarm bot in5963358012; the full issue was reread after confirmation. Read base f0401e396395a306b58cb28db79f3b24721e6fb3; publication preflight bfef64afffd06e4c8a18b53a76c331a147dd7eb7. This is a partial planning checkpoint, not an implementation or a source-wide closure.
+
+## Mathematical result and preserved scope
+
+The new affine normalization cokernel is specified on the actual existing carriers B=k[X], A_q⊂B and E=AdjoinRoot(q). The polynomial quotient ring homomorphism induces the explicit native polynomial action, restricted to A_q. Kernel, image, surjectivity and first-isomorphism steps give the specified A_q-linear B/(A_q·1)≃E/(A_q·1), with forward and inverse representative equations. Two actual restriction-of-scalars denominator equalities give the k-linear B/A_q≃E/k. For monic quadratic q the defect is one-dimensional over k, the class of X is nonzero and generates it, both A_q actions factor through the existing scalar residue homomorphism, and both module annihilators equal the actual contraction of(q).
+
+The equivalences require neither monicity nor degree assumptions and include q=0 and q=1. The dimension/residue/annihilator statements require monic degree two, but no separability, irreducibility, perfectness, inversion of two or characteristic restriction. Fifteen new named tests include inseparable X² over F₂, nonsplit X²+X+1 over F₂, repeated X²+X+1 over F₃, unit and zero polynomials, nonzero root class, conductor action and a non-annihilating unit.
+
+Twenty-two declaration-sized nodes are appended. All 224 incoming statements, hypotheses, tests and acceptance contracts are preserved. 223 complete node objects are unchanged; the I₁ genus consumer has only two appended prerequisites and one appended proof step linking the actual affine comparison and dimension. Its original statement and original projective/cohomology proof obligations remain intact.
+
+The reserved Ferrand-pushouts key, all 78 routed items, 21 source findings, 23 supplier requests, 17 gaps and seven partial coverage rows are retained. No new planet or supplier request is introduced. The roadmap's G.1 description and reader record the current affine frontier without deleting historical frontiers.
+
+Final packet: 246 nodes (14 definitions,15 constructions,182 lemmas,26 theorems,9 comparisons);109 API items;109 definition/construction tests and139 total tests;29 planets;219 baseline declarations. All implementation statuses remain unchecked. No stage is closed.
+
+## Sources, audit and native foundations
+
+The reviewed parent R11.1–R11.6 library audit and accepted AUDIT10 review were read; no reviewed Part II row exists. The full owned key entry and the78-item route brief were read, including the one-component conductor route items, the Witaszek geometric-versus-topological distinction and supplier-stage descriptions. No blueprint-link file mentions this roadmap at the read base.
+
+Fresh primary reading on3 October2026 covers [Schröer arXiv2004.07025v3 §3](https://arxiv.org/html/2004.07025v3): conductor diagrams and complete Proposition3.1–3.2, proofs and adjoining count table. HTML SHA-256 d14049912dcab6a438ed62363e246d0087c61342c51813ac482f5aba48d92456. The affine signatures are authored deductions, not printed source theorems. The Annals edition is distinct; no full-paper/erratum collation, fresh inherited finite-field certificate run or revalidation of every earlier source is claimed.
+
+Twenty-seven baseline citations are added to the existing192. Native submodule quotients, scalar towers, first-isomorphism equivalences, restriction of scalars, dimension-one characterization and annihilator transport are imported, not replanned. The actual statements and ambient hypotheses were read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Exact new-name searches also used Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. A scoped public Mathlib/Zulip search did not identify a matching change; that is not an exhaustive absence claim.
+
+## Lean checks and limitations
+
+The actual-proof extraction is793 lines with34 examples and52 axiom audits. It compiles without errors, warnings or admissions, with only ordinary axioms. Final native run26.01s, peak RSS6813100KiB, exit0. The exact admitted new-header extraction is606 lines and has all22 new headers and15 new named examples; it compiles with exactly37 admission warnings and no other warning or error, in22.41s, peak RSS6781424KiB, exit0. It retains the inherited275-line actual carrier prefix and eight reused actual scalar-remainder helpers; it is not the full suggested file.
+
+Native source SHA-256 fb78e8d07d5a68f118f5ff3b1ac4e2f9571dd09ef9d921f3619af7e08e99a8a3.
+Admitted extraction SHA-256 f24da6f72e809606398333b878267bb590cef80363d4b8cd9c68f2787f47d8cc.
+
+The full Tau Ceti-importing suggested file is uncompiled: required pinned point-count, point-variable-change, divisor-scheme and stable-model artifacts are unavailable. No Lake setup, update, cache acquisition, library build or language server was attempted. Compiles were sequential, available memory45–46GiB, each bounded by timeout1200s. Nothing remains running after submission.
+
+All22 new declaration headers and15 named-example headers agree byte-for-byte between native, admitted extraction and canonical suggested file. The canonical file keeps all incoming declarations and adds only six individual Mathlib imports, explicit native quotient-action instances, and admitted new declarations/examples.
+
+## Checker, intake, graph and public recovery
+
+The actual indexed blueprint checker reports zero errors and warnings. The actual intake file scanner passes all five deliverables. The preserved-input checks retain the key, routes, findings, gaps, requests, original roadmap stage contracts, reader prefix, incoming suggested declarations and all224 incoming contracts.
+
+Actual immutable atlas assembly is compared with the224-node incoming control: stage DAG3043 vertices/8727 edges; own DAG246/559 (control224/519); combined DAG3260/9474. All are acyclic. There are zero unresolved or external declaration references in the own prerequisite closure, no skipped or pending own links, and all69 required packet, request and roadmap-stage pairs are reachable. Stage edges and all other roadmap skipped/pending links are unchanged. This tests actual partial integration, not global source closure.
+
+Immutable proof/evidence archive: [ee5263b08a667d1451f02d62fad6bc542654df09](https://github.com/CBirkbeck/tauceti-explorer/commit/ee5263b08a667d1451f02d62fad6bc542654df09). It is retained as an additional parent of the proposed checkpoint, not part of the first-parent deliverable diff. The archive's two files were fetched from GitHub and compared byte-for-byte with the uploaded sources. Native and admitted bodies are delimited in its allowed suggested path; the actual validator and immutable reader are delimited in its allowed handoff path. The recovered native source compiles without warnings and the recovered validator passes; the recovered admitted source also compiles with exactly37 admission warnings and no error or other warning. The read-only public HTTP recovery program was independently run against the archive and returned the exact native source.
+
+The following read-only recovery program emits one archived source and validates its exact hash. Materialize its output with the worker's own scratch apply-patch workflow. Recover Native.lean, Admitted.lean, verify.py and immutable_view.py, then place only this PR's five deliverables in their matching scratch subdirectories (roadmaps, packets, readmes, suggested, handoff). It is not a repository snapshot.
+
+```python
+"""Read-only public recovery: emits one source, never writes a file."""
+import hashlib,os,sys,urllib.request
+REPO="CBirkbeck/tauceti-explorer"
+ARCHIVE="ee5263b08a667d1451f02d62fad6bc542654df09"
+RID="NeronModelsAndSemistableAbelianVarietiesPartII"
+ARTIFACTS={
+"Native.lean":("research/blueprint/suggested/"+RID+".lean",
+"-- BEGIN ARCHIVED CHECKED AFFINE NORMALIZATION COKERNEL\n",
+"-- END ARCHIVED CHECKED AFFINE NORMALIZATION COKERNEL\n",
+"fb78e8d07d5a68f118f5ff3b1ac4e2f9571dd09ef9d921f3619af7e08e99a8a3"),
+"Admitted.lean":("research/blueprint/suggested/"+RID+".lean",
+"-- BEGIN ARCHIVED ADMITTED AFFINE COKERNEL HEADERS\n",
+"-- END ARCHIVED ADMITTED AFFINE COKERNEL HEADERS\n",
+"f24da6f72e809606398333b878267bb590cef80363d4b8cd9c68f2787f47d8cc"),
+"verify.py":("research/blueprint/handoff/DESIGN-"+RID+".md",
+"# BEGIN ARCHIVED AFFINE COKERNEL VALIDATOR\n",
+"# END ARCHIVED AFFINE COKERNEL VALIDATOR\n",
+"42bc81d318df7e91fc5f6169df16aee16a4c0afdbb2edca411d78fc3319aa7a7"),
+"immutable_view.py":("research/blueprint/handoff/DESIGN-"+RID+".md",
+"# BEGIN ARCHIVED IMMUTABLE READER\n",
+"# END ARCHIVED IMMUTABLE READER\n",
+"a577a14520365da4cfaf5062ec7cc97ca8608325f0ae9176a1df1b0b414295ef")
+}
+name=sys.argv[1]
+path,start,end,expected=ARTIFACTS[name]
+url="https://raw.githubusercontent.com/"+REPO+"/"+ARCHIVE+"/"+path
+with urllib.request.urlopen(url,timeout=45) as response:raw=response.read().decode()
+assert raw.count(start)==raw.count(end)==1
+source=raw.split(start,1)[1].split(end,1)[0]
+assert hashlib.sha256(source.encode()).hexdigest()==expected
+sys.stdout.write(source)
+```
+
+Run the recovered validator with TAUCETI_REPO pointing to the existing read-only clone, P8_VALIDATE_BASE=bfef64afffd06e4c8a18b53a76c331a147dd7eb7 and TAUCETI_BASELINE pointing to the existing declarations index. The reader executes actual pinned repository checker/intake/build code through immutable git reads; writes to repository paths are rejected. No files are copied into the shared clone.
+
+For Lean, use the existing build at the pins, its existing LEAN_PATH and compiler. Check available memory first, require at least20GiB, invoke one compiler at a time with timeout1200, and wait for each to exit. Expected Native results are52 ordinary-axiom audits and no warning/error/admission; Admitted results are37 admission warnings and no other warning/error. The source byte hashes above are independent of local paths in warning messages.
+
+## Resume at the projective comparison
+
+Construct and compare the two actual projective charts and global finite normalization, then the conductor ideal sheaf. Prove the actual structure-sheaf sequence with E/k supported at the pinched point and derive finite-pushforward H0/H1 using the named existing suppliers. Do not equate this affine calculation with those sheaf results or replace geometric carriers by arbitrary module parameters.
+
+Keep the independent two-component I₂ construction and fixed-component versus component-permuting forms separate. Preserve the ordinary-node versus inseparable-cusp hypotheses. The unrelated k[q]-freeness target, all G.0–G.6 source/dependency closure, general Lang inputs, minimal models, wild fibers, classification and missing-source work remain as recorded. No inherited gap is silently removed.
+
+---
+
+## Retained prior checkpoint history
+
 # Quadratic affine normalization — #3378
 
 Codex — codex-rtOQ9t; 2 October2026. Winning claim5962824017, bot5962825720. Mathematical read base `e49e08127a3c6b3dadd74ddbe92c7499a11809ce`.
