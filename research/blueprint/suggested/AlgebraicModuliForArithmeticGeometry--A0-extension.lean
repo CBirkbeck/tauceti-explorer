@@ -1,3 +1,4 @@
+import Mathlib.CategoryTheory.Bicategory.NaturalTransformation.Pseudo
 import Mathlib.Algebra.Torsor.Defs
 import Mathlib.CategoryTheory.Sites.CartesianMonoidal
 import Mathlib.CategoryTheory.Monoidal.Types.Basic
@@ -4423,3 +4424,217 @@ example :
   sorry
 
 end TauCeti.AlgebraicGeometry.BandedIsom.Tests
+
+namespace TauCeti.AlgebraicGeometry
+open CategoryTheory Opposite Bicategory
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type u} [Category.{v} C]
+variable {F G H : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}}
+variable {J : GrothendieckTopology C} [IsGerbe F J] [IsGerbe G J] [IsGerbe H J]
+variable {A : Sheaf J AddCommGrpCat.{v'}}
+namespace BandedMorphism
+variable (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+variable (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η]
+variable {U : C} {x y : F.obj (.mk (op U))}
+include bF bG
+
+lemma map_act (p : x ≅ y) (a : Multiplicative (A.obj.obj (op U))) :
+    (η.app (.mk (op U))).toFunctor.mapIso (BandedIsom.act F J A bF p a) =
+      BandedIsom.act G J A bG ((η.app (.mk (op U))).toFunctor.mapIso p) a := by
+  sorry
+
+lemma map_difference (p q : x ≅ y) :
+    BandedIsom.difference G J A bG ((η.app (.mk (op U))).toFunctor.mapIso p)
+      ((η.app (.mk (op U))).toFunctor.mapIso q) = BandedIsom.difference F J A bF p q := by
+  sorry
+
+lemma mapIso_injective : Function.Injective
+    ((η.app (.mk (op U))).toFunctor.mapIso : (x ≅ y) → _) := by
+  sorry
+
+lemma faithful (U : C) : (η.app (.mk (op U))).toFunctor.Faithful := by
+  sorry
+
+/-- An actual source anchor supplies a preimage; no global anchor is inferred. -/
+def preimageIso (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) (p : x ≅ y)
+    (q : (η.app (.mk (op U))).toFunctor.obj x ≅ (η.app (.mk (op U))).toFunctor.obj y) : x ≅ y := by
+  sorry
+
+lemma map_preimageIso (p : x ≅ y)
+    (q : (η.app (.mk (op U))).toFunctor.obj x ≅ (η.app (.mk (op U))).toFunctor.obj y) :
+    (η.app (.mk (op U))).toFunctor.mapIso (preimageIso bF bG η p q) = q := by
+  sorry
+
+lemma preimageIso_map (p q : x ≅ y) :
+    preimageIso bF bG η p ((η.app (.mk (op U))).toFunctor.mapIso q) = q := by
+  sorry
+
+lemma preimageIso_anchor (p p' : x ≅ y)
+    (q : (η.app (.mk (op U))).toFunctor.obj x ≅ (η.app (.mk (op U))).toFunctor.obj y) :
+    preimageIso bF bG η p q = preimageIso bF bG η p' q := by
+  sorry
+
+def isomEquiv (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) [BandPreserving bF bG η] (p : x ≅ y) : (x ≅ y) ≃
+    ((η.app (.mk (op U))).toFunctor.obj x ≅ (η.app (.mk (op U))).toFunctor.obj y) := by
+  sorry
+
+lemma isomEquiv_apply (p q : x ≅ y) :
+    isomEquiv bF bG η p q = (η.app (.mk (op U))).toFunctor.mapIso q := by
+  sorry
+
+lemma isomEquiv_symm_apply (p : x ≅ y)
+    (q : (η.app (.mk (op U))).toFunctor.obj x ≅ (η.app (.mk (op U))).toFunctor.obj y) :
+    (isomEquiv bF bG η p).symm q = preimageIso bF bG η p q := by
+  sorry
+
+lemma isomEquiv_anchor (p p' : x ≅ y) : isomEquiv bF bG η p = isomEquiv bF bG η p' := by
+  sorry
+
+lemma preimageIso_act (p : x ≅ y)
+    (q : (η.app (.mk (op U))).toFunctor.obj x ≅ (η.app (.mk (op U))).toFunctor.obj y)
+    (a : Multiplicative (A.obj.obj (op U))) :
+    preimageIso bF bG η p (BandedIsom.act G J A bG q a) =
+      BandedIsom.act F J A bF (preimageIso bF bG η p q) a := by
+  sorry
+
+lemma hom_surjective_of_anchor (p : x ≅ y) : Function.Surjective
+    ((η.app (.mk (op U))).toFunctor.map : (x ⟶ y) → _) := by
+  sorry
+
+/-- The actual automorphism map, expressed through the fixed band's equivalences. -/
+def autEquiv (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+    (η : Pseudofunctor.StrongTrans F G) (x : F.obj (.mk (op U))) : Aut x ≃*
+    Aut ((η.app (.mk (op U))).toFunctor.obj x) := by
+  sorry
+
+lemma autEquiv_apply (x : F.obj (.mk (op U))) (a : Aut x) :
+    autEquiv bF bG η x a = (η.app (.mk (op U))).toFunctor.mapAut x a := by
+  sorry
+
+omit [BandPreserving bF bG η] in
+lemma autEquiv_band (x : F.obj (.mk (op U))) (a : Multiplicative (A.obj.obj (op U))) :
+    autEquiv bF bG η x (bF.autEquiv U x a) = bG.autEquiv U _ a := by
+  sorry
+
+omit [BandPreserving bF bG η] in
+lemma autEquiv_symm_band (x : F.obj (.mk (op U))) (a : Multiplicative (A.obj.obj (op U))) :
+    (autEquiv bF bG η x).symm (bG.autEquiv U _ a) = bF.autEquiv U x a := by
+  sorry
+
+omit bG [IsGerbe G J] [BandPreserving bF bG η] in
+lemma preimageIso_id (p q : x ≅ y) :
+    preimageIso bF bF (Pseudofunctor.StrongTrans.id F) p q = q := by
+  sorry
+
+lemma preimageIso_comp (bH : AbelianBanding H J A)
+    (θ : Pseudofunctor.StrongTrans G H) [BandPreserving bG bH θ] (p : x ≅ y)
+    (q : (θ.app (.mk (op U))).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj x) ≅
+      (θ.app (.mk (op U))).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj y)) :
+    preimageIso bF bH (Pseudofunctor.StrongTrans.vcomp η θ) p q =
+      preimageIso bF bG η p
+        (preimageIso bG bH θ ((η.app (.mk (op U))).toFunctor.mapIso p) q) := by
+  sorry
+
+lemma locallyIsomEquiv (x y : F.obj (.mk (op U))) :
+    ∃ R : Sieve U, R ∈ J U ∧ ∀ ⦃V : C⦄ (f : V ⟶ U), R f → Nonempty
+      (((F.map f.op.toLoc).toFunctor.obj x ≅ (F.map f.op.toLoc).toFunctor.obj y) ≃
+       ((η.app (.mk (op V))).toFunctor.obj ((F.map f.op.toLoc).toFunctor.obj x) ≅
+        (η.app (.mk (op V))).toFunctor.obj ((F.map f.op.toLoc).toFunctor.obj y))) := by
+  sorry
+
+namespace Tests
+-- BandedMorphism.Tests.inverseLeft
+example (p q : x ≅ y) : preimageIso bF bG η p
+    ((η.app (.mk (op U))).toFunctor.mapIso q) = q := by
+  sorry
+
+-- BandedMorphism.Tests.inverseRight
+example (p : x ≅ y)
+    (q : (η.app (.mk (op U))).toFunctor.obj x ≅ (η.app (.mk (op U))).toFunctor.obj y) :
+    (η.app (.mk (op U))).toFunctor.mapIso (preimageIso bF bG η p q) = q := by
+  sorry
+
+-- BandedMorphism.Tests.independentAnchor
+example (p p' : x ≅ y)
+    (q : (η.app (.mk (op U))).toFunctor.obj x ≅ (η.app (.mk (op U))).toFunctor.obj y) :
+    preimageIso bF bG η p q = preimageIso bF bG η p' q := by
+  sorry
+
+-- BandedMorphism.Tests.equivLeft
+example (p q : x ≅ y) :
+    (isomEquiv bF bG η p).symm (isomEquiv bF bG η p q) = q := by
+  sorry
+
+-- BandedMorphism.Tests.equivRight
+example (p : x ≅ y)
+    (q : (η.app (.mk (op U))).toFunctor.obj x ≅ (η.app (.mk (op U))).toFunctor.obj y) :
+    isomEquiv bF bG η p ((isomEquiv bF bG η p).symm q) = q := by
+  sorry
+
+-- BandedMorphism.Tests.equivUsesMap
+example (p q : x ≅ y) : isomEquiv bF bG η p q =
+    (η.app (.mk (op U))).toFunctor.mapIso q := by
+  sorry
+
+omit [BandPreserving bF bG η] in
+-- BandedMorphism.Tests.autLeft
+example (x : F.obj (.mk (op U))) (a : Aut x) :
+    (autEquiv bF bG η x).symm (autEquiv bF bG η x a) = a := by
+  sorry
+
+omit [BandPreserving bF bG η] in
+-- BandedMorphism.Tests.autRight
+example (x : F.obj (.mk (op U))) (a : Aut ((η.app (.mk (op U))).toFunctor.obj x)) :
+    autEquiv bF bG η x ((autEquiv bF bG η x).symm a) = a := by
+  sorry
+
+-- BandedMorphism.Tests.autUsesMap
+example (x : F.obj (.mk (op U))) (a : Aut x) : autEquiv bF bG η x a =
+    (η.app (.mk (op U))).toFunctor.mapAut x a := by
+  sorry
+
+-- BandedMorphism.Tests.nonzeroRetained
+example (x : F.obj (.mk (op U))) (a : Multiplicative (A.obj.obj (op U))) (ha : a ≠ 1) :
+    (η.app (.mk (op U))).toFunctor.mapAut x (bF.autEquiv U x a) ≠ 1 := by
+  sorry
+
+-- BandedMorphism.Tests.preservesAction
+example (p : x ≅ y) (a : Multiplicative (A.obj.obj (op U))) :
+    (η.app (.mk (op U))).toFunctor.mapIso (BandedIsom.act F J A bF p a) =
+      BandedIsom.act G J A bG ((η.app (.mk (op U))).toFunctor.mapIso p) a := by
+  sorry
+
+-- BandedMorphism.Tests.preservesDifference
+example (p q : x ≅ y) :
+    BandedIsom.difference G J A bG ((η.app (.mk (op U))).toFunctor.mapIso p)
+      ((η.app (.mk (op U))).toFunctor.mapIso q) =
+      BandedIsom.difference F J A bF p q := by
+  sorry
+
+-- BandedMorphism.Tests.separatesArrows
+example (p q : x ⟶ y) (h : (η.app (.mk (op U))).toFunctor.map p =
+    (η.app (.mk (op U))).toFunctor.map q) : p = q := by
+  sorry
+
+omit bF bG [IsGerbe F J] [IsGerbe G J] [BandPreserving bF bG η] in
+-- BandedMorphism.Tests.emptySourceNotFilled
+example (h : IsEmpty (x ≅ y)) :
+    ¬ ∃ _p : x ≅ y, Function.Surjective
+      ((η.app (.mk (op U))).toFunctor.mapIso : (x ≅ y) → _) := by
+  sorry
+
+omit [BandPreserving bF bG η] in
+-- BandedMorphism.Tests.changedCoefficientRejected
+example (x : F.obj (.mk (op U)))
+    (a a' : Multiplicative (A.obj.obj (op U))) (h : a ≠ a')
+    (bad : (η.app (.mk (op U))).toFunctor.mapAut x (bF.autEquiv U x a) = bG.autEquiv U _ a') :
+    ¬ BandPreserving bF bG η := by
+  sorry
+
+end Tests
+
+end BandedMorphism
+end TauCeti.AlgebraicGeometry
