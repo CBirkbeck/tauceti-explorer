@@ -1,3 +1,5 @@
+import Mathlib.LinearAlgebra.ExteriorPower.Pairing
+import Mathlib.LinearAlgebra.Matrix.Notation
 import Mathlib.RingTheory.Localization.BaseChange
 import Mathlib.RingTheory.LocalProperties.Submodule
 /-
@@ -1996,6 +1998,181 @@ example {F₃ P₃ : Type*} [AddCommGroup F₃] [Module S F₃]
         (PiTensorProduct.map (fun _ : Fin n =>
           ((q₁.symm.trans q₂).trans (q₂.symm.trans q₃)).toLinearMap))).comp
           (affineOrderedIterate (affineChartField S θ e₁ q₁) n) := by sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+
+/-! Affine exterior-square and commutator continuation. Global sheaf and cross-ring exterior comparison remain explicit supplier obligations. -/
+
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+open scoped TensorProduct
+variable {R E F Q P : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E] [AddCommGroup F] [Module R F]
+variable [AddCommGroup Q] [Module R Q] [AddCommGroup P] [Module R P]
+
+/-- The actual degree-two exterior projection of the ordered Higgs iterate. -/
+def affineExteriorSquare (θ : E →ₗ[R] E ⊗[R] Q) : E →ₗ[R] E ⊗[R] (⋀[R]^2 Q) := by sorry
+
+lemma affineExteriorSquare_zero :
+    affineExteriorSquare (0 : E →ₗ[R] E ⊗[R] Q) = 0 := by sorry
+
+lemma affineExteriorSquare_natural (θ : E →ₗ[R] E ⊗[R] Q)
+    (ψ : F →ₗ[R] F ⊗[R] P) (f : E →ₗ[R] F) (u : Q →ₗ[R] P)
+    (h : ψ.comp f = (TensorProduct.map f u).comp θ) :
+    (affineExteriorSquare ψ).comp f =
+      (TensorProduct.map f (exteriorPower.map 2 u)).comp (affineExteriorSquare θ) := by sorry
+
+lemma affineExteriorSquare_equiv_zero_iff (θ : E →ₗ[R] E ⊗[R] Q)
+    (ψ : F →ₗ[R] F ⊗[R] P) (f : E ≃ₗ[R] F) (u : Q ≃ₗ[R] P)
+    (h : ψ.comp f.toLinearMap = (TensorProduct.map f.toLinearMap u.toLinearMap).comp θ) :
+    affineExteriorSquare ψ = 0 ↔ affineExteriorSquare θ = 0 := by sorry
+
+lemma affineExteriorSquare_coefficientMap (θ : E →ₗ[R] E ⊗[R] Q) (u : Q →ₗ[R] P) :
+    affineExteriorSquare (affineCoefficientMap θ u) =
+      (TensorProduct.map (LinearMap.id : E →ₗ[R] E) (exteriorPower.map 2 u)).comp
+        (affineExteriorSquare θ) := by sorry
+
+lemma affineExteriorSquare_coefficientMap_zero (θ : E →ₗ[R] E ⊗[R] Q)
+    (u : Q →ₗ[R] P) (h : affineExteriorSquare θ = 0) :
+    affineExteriorSquare (affineCoefficientMap θ u) = 0 := by sorry
+
+lemma affineExteriorSquare_coefficientEquiv_zero_iff (θ : E →ₗ[R] E ⊗[R] Q)
+    (u : Q ≃ₗ[R] P) :
+    affineExteriorSquare (affineCoefficientMap θ u.toLinearMap) = 0 ↔
+      affineExteriorSquare θ = 0 := by sorry
+
+/-- A field with two specified coefficient directions, with no basis assumption. -/
+def affineTwoDirectionField (A B : E →ₗ[R] E) (q r : Q) : E →ₗ[R] E ⊗[R] Q := by sorry
+
+lemma affineTwoDirectionField_apply (A B : E →ₗ[R] E) (q r : Q) (e : E) :
+    affineTwoDirectionField A B q r e = A e ⊗ₜ[R] q + B e ⊗ₜ[R] r := by sorry
+
+lemma affineExteriorSquare_twoDirection (A B : E →ₗ[R] E) (q r : Q) (e : E) :
+    affineExteriorSquare (affineTwoDirectionField A B q r) e =
+      (A (B e) - B (A e)) ⊗ₜ[R] exteriorPower.ιMulti R 2 ![q,r] := by sorry
+
+lemma affineExteriorSquare_twoDirection_zero_of_commute (A B : E →ₗ[R] E)
+    (q r : Q) (h : A.comp B = B.comp A) :
+    affineExteriorSquare (affineTwoDirectionField A B q r) = 0 := by sorry
+
+lemma affineExteriorSquare_twoDirection_zero_iff (A B : E →ₗ[R] E) (q r : Q)
+    (l : Module.Dual R (⋀[R]^2 Q)) (hl : l (exteriorPower.ιMulti R 2 ![q,r]) = 1) :
+    affineExteriorSquare (affineTwoDirectionField A B q r) = 0 ↔ A.comp B = B.comp A := by sorry
+
+lemma affineExteriorSquare_twoCoordinates_zero_iff (A B : E →ₗ[R] E) :
+    affineExteriorSquare (affineTwoDirectionField A B ((1,0) : R × R) (0,1)) = 0 ↔
+      A.comp B = B.comp A := by sorry
+
+variable (S : Type*) [CommRing S] [Algebra R S]
+variable {F₁ F₂ P₁ P₂ : Type*}
+variable [AddCommGroup F₁] [Module S F₁] [AddCommGroup F₂] [Module S F₂]
+variable [AddCommGroup P₁] [Module S P₁] [AddCommGroup P₂] [Module S P₂]
+
+lemma affineExteriorSquare_chart_transition (θ : E →ₗ[R] E ⊗[R] Q)
+    (e₁ : S ⊗[R] E ≃ₗ[S] F₁) (q₁ : S ⊗[R] Q ≃ₗ[S] P₁)
+    (e₂ : S ⊗[R] E ≃ₗ[S] F₂) (q₂ : S ⊗[R] Q ≃ₗ[S] P₂) :
+    (affineExteriorSquare (affineChartField S θ e₂ q₂)).comp (e₁.symm.trans e₂).toLinearMap =
+      (TensorProduct.map (e₁.symm.trans e₂).toLinearMap
+        (exteriorPower.map 2 (q₁.symm.trans q₂).toLinearMap)).comp
+          (affineExteriorSquare (affineChartField S θ e₁ q₁)) := by sorry
+
+lemma affineExteriorSquare_chart_zero_iff (θ : E →ₗ[R] E ⊗[R] Q)
+    (e₁ : S ⊗[R] E ≃ₗ[S] F₁) (q₁ : S ⊗[R] Q ≃ₗ[S] P₁)
+    (e₂ : S ⊗[R] E ≃ₗ[S] F₂) (q₂ : S ⊗[R] Q ≃ₗ[S] P₂) :
+    affineExteriorSquare (affineChartField S θ e₂ q₂) = 0 ↔
+      affineExteriorSquare (affineChartField S θ e₁ q₁) = 0 := by sorry
+
+lemma affineOrderedIterate_unitField (n : ℕ) (e : R) :
+    affineOrderedIterate (TensorProduct.rid R R).symm.toLinearMap n e =
+      e ⊗ₜ[R] PiTensorProduct.tprod R (fun _ : Fin n => (1 : R)) := by sorry
+
+lemma affineOrderedIterate_unitField_ne_zero [Nontrivial R] (n : ℕ) :
+    affineOrderedIterate (TensorProduct.rid R R).symm.toLinearMap n ≠ 0 := by sorry
+
+set_option backward.isDefEq.respectTransparency.types false
+
+-- test: TwistedHiggsBundle.affineExteriorSquare.test_zero
+example :
+    affineExteriorSquare (0 : E →ₗ[R] E ⊗[R] Q) = 0 := by sorry
+
+-- test: TwistedHiggsBundle.affineExteriorSquare.test_torsion_coefficients
+example
+    (θ : ℤ →ₗ[ℤ] ℤ ⊗[ℤ] (ZMod 2)) :
+    affineExteriorSquare (affineCoefficientMap θ (0 : ZMod 2 →ₗ[ℤ] ZMod 3)) = 0 := by sorry
+
+-- test: TwistedHiggsBundle.affineExteriorSquare.test_scalar_line
+example :
+    let θ := (TensorProduct.rid ℤ ℤ).symm.toLinearMap
+    affineExteriorSquare θ = 0 ∧ affineOrderedSquare θ ≠ 0 := by sorry
+
+-- test: TwistedHiggsBundle.affineTwoDirectionField.test_apply
+example (A B : E →ₗ[R] E) (q r : Q) (e : E) :
+    affineTwoDirectionField A B q r e = A e ⊗ₜ[R] q + B e ⊗ₜ[R] r := by sorry
+
+-- test: TwistedHiggsBundle.affineTwoDirectionField.test_zero
+example (q r : Q) :
+    affineTwoDirectionField (0 : E →ₗ[R] E) 0 q r = 0 := by sorry
+
+-- test: TwistedHiggsBundle.affineTwoDirectionField.test_dependent_directions
+example (A B : E →ₗ[R] E) (q : Q) :
+    affineExteriorSquare (affineTwoDirectionField A B q q) = 0 := by sorry
+
+-- test: TwistedHiggsBundle.affineTwoDirectionField.test_commutator_detection
+example (A B : E →ₗ[R] E) :
+    affineExteriorSquare (affineTwoDirectionField A B ((1,0) : R × R) (0,1)) = 0 ↔
+      A.comp B = B.comp A := by sorry
+
+-- test: TwistedHiggsBundle.affineExteriorSquare.test_noncommuting_integer
+example :
+    let A := (LinearMap.inl ℤ ℤ ℤ).comp (LinearMap.snd ℤ ℤ ℤ)
+    let B := (LinearMap.inr ℤ ℤ ℤ).comp (LinearMap.fst ℤ ℤ ℤ)
+    affineExteriorSquare (affineTwoDirectionField A B ((1,0) : ℤ × ℤ) (0,1)) ≠ 0 := by sorry
+
+-- test: TwistedHiggsBundle.affineExteriorSquare.test_noncommuting_char_two
+example :
+    let A := (LinearMap.inl (ZMod 2) (ZMod 2) (ZMod 2)).comp (LinearMap.snd (ZMod 2) (ZMod 2) (ZMod 2))
+    let B := (LinearMap.inr (ZMod 2) (ZMod 2) (ZMod 2)).comp (LinearMap.fst (ZMod 2) (ZMod 2) (ZMod 2))
+    affineExteriorSquare (affineTwoDirectionField A B ((1,0) : ZMod 2 × ZMod 2) (0,1)) ≠ 0 := by sorry
+
+-- test: TwistedHiggsBundle.affineExteriorSquare.test_coefficient_erasure
+example :
+    let A := (LinearMap.inl ℤ ℤ ℤ).comp (LinearMap.snd ℤ ℤ ℤ)
+    let B := (LinearMap.inr ℤ ℤ ℤ).comp (LinearMap.fst ℤ ℤ ℤ)
+    let θ := affineTwoDirectionField A B ((1,0) : ℤ × ℤ) (0,1)
+    affineExteriorSquare θ ≠ 0 ∧
+      affineExteriorSquare (affineCoefficientMap θ (0 : (ℤ × ℤ) →ₗ[ℤ] ℤ)) = 0 := by sorry
+
+-- test: TwistedHiggsBundle.affineExteriorSquare.test_coefficient_equiv
+example (θ : E →ₗ[R] E ⊗[R] Q) (u : Q ≃ₗ[R] P) :
+    affineExteriorSquare (affineCoefficientMap θ u.toLinearMap) = 0 ↔
+      affineExteriorSquare θ = 0 := by sorry
+
+-- test: TwistedHiggsBundle.affineChartField.test_exterior_transition
+example (θ : E →ₗ[R] E ⊗[R] Q)
+    (e₁ : S ⊗[R] E ≃ₗ[S] F₁) (q₁ : S ⊗[R] Q ≃ₗ[S] P₁)
+    (e₂ : S ⊗[R] E ≃ₗ[S] F₂) (q₂ : S ⊗[R] Q ≃ₗ[S] P₂) :
+    (affineExteriorSquare (affineChartField S θ e₂ q₂)).comp (e₁.symm.trans e₂).toLinearMap =
+      (TensorProduct.map (e₁.symm.trans e₂).toLinearMap
+        (exteriorPower.map 2 (q₁.symm.trans q₂).toLinearMap)).comp
+          (affineExteriorSquare (affineChartField S θ e₁ q₁)) := by sorry
+
+-- test: TwistedHiggsBundle.affineChartField.test_exterior_zero_iff
+example (θ : E →ₗ[R] E ⊗[R] Q)
+    (e₁ : S ⊗[R] E ≃ₗ[S] F₁) (q₁ : S ⊗[R] Q ≃ₗ[S] P₁)
+    (e₂ : S ⊗[R] E ≃ₗ[S] F₂) (q₂ : S ⊗[R] Q ≃ₗ[S] P₂) :
+    affineExteriorSquare (affineChartField S θ e₂ q₂) = 0 ↔
+      affineExteriorSquare (affineChartField S θ e₁ q₁) = 0 := by sorry
+
+-- test: TwistedHiggsBundle.affineExteriorSquare.test_degree_two_not_nilpotence
+example :
+    let θ := (TensorProduct.rid ℤ ℤ).symm.toLinearMap
+    affineExteriorSquare θ = 0 ∧ affineOrderedIterate θ 2 ≠ 0 := by sorry
+
+-- test: TwistedHiggsBundle.affineExteriorSquare.test_integrable_not_nilpotent
+example :
+    let θ := (TensorProduct.rid ℤ ℤ).symm.toLinearMap
+    affineExteriorSquare θ = 0 ∧ ∀ n : ℕ, affineOrderedIterate θ n ≠ 0 := by sorry
 
 end
 end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle

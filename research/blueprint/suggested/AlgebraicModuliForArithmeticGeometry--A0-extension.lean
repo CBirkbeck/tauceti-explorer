@@ -1,3 +1,7 @@
+import Mathlib.CategoryTheory.CodiscreteCategory
+import Mathlib.GroupTheory.Subgroup.Center
+import Mathlib.GroupTheory.Perm.Fin
+import Mathlib.Data.Fintype.Perm
 /-
 This file is not the roadmap and is not exhaustive. The roadmap reader is
 definitive. These statements suggest Lean forms so contributors and reviewers
@@ -3497,3 +3501,246 @@ example : Nat.card (IntrinsicBandSection
       (Discrete.mk PUnit.unit)) = 1 := by sorry
 
 end TauCeti.AlgebraicGeometry.BandFixtures
+
+/-! Connected groupoid and nonabelian inertia acceptance fixtures. -/
+
+namespace TauCeti.AlgebraicGeometry.ConnectedBandFixtures
+
+open CategoryTheory Opposite Bicategory BandFixtures IntrinsicBandSections
+
+set_option backward.isDefEq.respectTransparency false
+
+universe conn_u conn_v
+variable (C : Type u) [Category.{v} C]
+variable (I : Type conn_u) (G : Type conn_v) [Group G]
+
+abbrev ConnectedFibre := Codiscrete I × SingleObj G
+
+def connectedCenter (a : Subgroup.center G) : CatCenter (ConnectedFibre I G) := by sorry
+
+def connectedCenterUnit (a : Subgroup.center G) : (CatCenter (ConnectedFibre I G))ˣ := by sorry
+
+def connectedCenterEquiv (i : I) :
+    Subgroup.center G ≃* (CatCenter (ConnectedFibre I G))ˣ := by sorry
+
+noncomputable def connectedSectionsEquiv (i : I) (U : C) :
+    Subgroup.center G ≃* IntrinsicBandSection
+      (constantDiagram C (ConnectedFibre I G)) U := by sorry
+
+lemma connectedSectionsEquiv_eval (i : I) {U V : C} (f : V ⟶ U)
+    (a : Subgroup.center G) (x : ConnectedFibre I G) :
+    (eval (constantDiagram C (ConnectedFibre I G)) f x
+      (connectedSectionsEquiv C I G i U a)).hom.2 = a.val := by sorry
+
+lemma connectedSectionsEquiv_restrict (i : I) {U V : C} (f : V ⟶ U)
+    (a : Subgroup.center G) :
+    restrict (constantDiagram C (ConnectedFibre I G)) f
+      (connectedSectionsEquiv C I G i U a) =
+      connectedSectionsEquiv C I G i V a := by sorry
+
+lemma connected_eval_injective (i : I) (U : C) (x : ConnectedFibre I G) :
+    Function.Injective (eval (constantDiagram C (ConnectedFibre I G)) (𝟙 U) x) := by sorry
+
+lemma connected_eval_image (i : I) (U : C) (x : ConnectedFibre I G) (e : Aut x) :
+    (∃ s, eval (constantDiagram C (ConnectedFibre I G)) (𝟙 U) x s = e) ↔
+      e.hom.2 ∈ Subgroup.center G := by sorry
+
+def connectedAut (x : ConnectedFibre I G) (g : G) : Aut x := by sorry
+
+lemma connected_eval_surjective_iff (i : I) (U : C) (x : ConnectedFibre I G) :
+    Function.Surjective (eval (constantDiagram C (ConnectedFibre I G)) (𝟙 U) x) ↔
+      Subgroup.center G = ⊤ := by sorry
+
+def connectedIso (x y : ConnectedFibre I G) : x ≅ y := by sorry
+
+set_option backward.isDefEq.respectTransparency false in
+lemma point_stack (D : Type*) [Category D] :
+    (constantDiagram (Discrete PUnit) D).IsStack ⊥ := by sorry
+
+lemma connected_point_gerbe (i : I) :
+    IsGerbe (constantDiagram (Discrete PUnit) (ConnectedFibre I G)) ⊥ := by sorry
+
+-- ConnectedBandTests.twoObjectGerbe
+example : IsGerbe (constantDiagram (Discrete PUnit)
+    (ConnectedFibre Bool (Multiplicative (ZMod 3)))) ⊥ := by sorry
+
+-- ConnectedBandTests.distinctIsomorphic
+example : let x : ConnectedFibre Bool (Multiplicative (ZMod 3)) :=
+      (Codiscrete.mk false, SingleObj.star _)
+    let y : ConnectedFibre Bool (Multiplicative (ZMod 3)) :=
+      (Codiscrete.mk true, SingleObj.star _)
+    x ≠ y ∧ Nonempty (x ≅ y) := by sorry
+
+-- ConnectedBandTests.cardinality
+example : Nat.card (IntrinsicBandSection
+    (constantDiagram (Discrete PUnit) (ConnectedFibre Bool (Multiplicative (ZMod 3))))
+      (Discrete.mk PUnit.unit)) = 3 := by sorry
+
+-- ConnectedBandTests.bijectiveEvaluation
+example (x : ConnectedFibre Bool (Multiplicative (ZMod 3))) :
+    Function.Bijective (eval
+      (constantDiagram (Discrete PUnit) (ConnectedFibre Bool (Multiplicative (ZMod 3))))
+        (𝟙 (Discrete.mk PUnit.unit)) x) := by sorry
+
+-- NonabelianBandTests.gerbe
+example : IsGerbe (constantDiagram (Discrete PUnit)
+    (ConnectedFibre PUnit (Equiv.Perm (Fin 3)))) ⊥ := by sorry
+
+-- NonabelianBandTests.oneSection
+example : Nat.card (IntrinsicBandSection
+    (constantDiagram (Discrete PUnit) (ConnectedFibre PUnit (Equiv.Perm (Fin 3))))
+      (Discrete.mk PUnit.unit)) = 1 := by sorry
+
+-- NonabelianBandTests.notSurjective
+example : ¬ Function.Surjective (eval
+    (constantDiagram (Discrete PUnit) (ConnectedFibre PUnit (Equiv.Perm (Fin 3))))
+      (𝟙 (Discrete.mk PUnit.unit)) (Codiscrete.mk PUnit.unit, SingleObj.star _)) := by sorry
+
+lemma connectedCenter_app (a : Subgroup.center G) (x : ConnectedFibre I G) :
+    (connectedCenter I G a).app x = (𝟙 x.1, a.val) := by sorry
+
+lemma connectedCenter_naturality (a : Subgroup.center G)
+    {x y : ConnectedFibre I G} (f : x ⟶ y) :
+    f ≫ (connectedCenter I G a).app y = (connectedCenter I G a).app x ≫ f := by sorry
+
+lemma connectedCenterUnit_val (a : Subgroup.center G) :
+    (connectedCenterUnit I G a).val = connectedCenter I G a := by sorry
+
+lemma connectedCenterUnit_inv (a : Subgroup.center G) :
+    (connectedCenterUnit I G a).inv = connectedCenter I G a⁻¹ := by sorry
+
+lemma connectedCenterEquiv_apply (i : I) (a : Subgroup.center G) :
+    connectedCenterEquiv I G i a = connectedCenterUnit I G a := by sorry
+
+lemma connectedCenterEquiv_symm_apply (i : I) (z : (CatCenter (ConnectedFibre I G))ˣ) :
+    ((connectedCenterEquiv I G i).symm z).val =
+      (z.val.app (Codiscrete.mk i, SingleObj.star G)).2 := by sorry
+
+lemma connectedSectionsEquiv_symm_apply (i : I) (U : C)
+    (s : IntrinsicBandSection (constantDiagram C (ConnectedFibre I G)) U) :
+    ((connectedSectionsEquiv C I G i U).symm s).val =
+      ((val (constantDiagram C (ConnectedFibre I G)) s U (𝟙 U)).val.app
+        (Codiscrete.mk i, SingleObj.star G)).2 := by sorry
+
+lemma connectedAut_hom (x : ConnectedFibre I G) (g : G) :
+    (connectedAut I G x g).hom = (𝟙 x.1, g) := by sorry
+
+lemma connectedAut_inv (x : ConnectedFibre I G) (g : G) :
+    (connectedAut I G x g).inv = (𝟙 x.1, g⁻¹) := by sorry
+
+lemma connectedIso_fst (x y : ConnectedFibre I G) :
+    (connectedIso I G x y).hom.1 = (Codiscrete.iso x.1 y.1).hom := by sorry
+
+lemma connectedIso_snd (x y : ConnectedFibre I G) :
+    (connectedIso I G x y).hom.2 = (eqToIso (Subsingleton.elim x.2 y.2)).hom := by sorry
+
+-- ConnectedCenterTests.value
+example (a : Subgroup.center G) (x : ConnectedFibre I G) :
+    ((connectedCenter I G a).app x).2 = a.val := by sorry
+
+-- ConnectedCenterTests.naturality
+example (a : Subgroup.center G) {x y : ConnectedFibre I G} (f : x ⟶ y) :
+    f ≫ (connectedCenter I G a).app y = (connectedCenter I G a).app x ≫ f := by sorry
+
+-- ConnectedCenterTests.identity
+example (x : ConnectedFibre I G) : (connectedCenter I G 1).app x = 𝟙 x := by sorry
+
+-- ConnectedUnitTests.value
+example (a : Subgroup.center G) :
+    (connectedCenterUnit I G a).val = connectedCenter I G a := by sorry
+
+-- ConnectedUnitTests.inverse
+example (a : Subgroup.center G) :
+    (connectedCenterUnit I G a).inv = connectedCenter I G a⁻¹ := by sorry
+
+-- ConnectedUnitTests.roundTrip
+example (a : Subgroup.center G) :
+    (connectedCenterUnit I G a).val * (connectedCenterUnit I G a).inv = 1 := by sorry
+
+-- ConnectedEquivTests.coefficientRoundTrip
+example (i : I) (a : Subgroup.center G) :
+    (connectedCenterEquiv I G i).symm (connectedCenterEquiv I G i a) = a := by sorry
+
+-- ConnectedEquivTests.centreRoundTrip
+example (i : I) (z : (CatCenter (ConnectedFibre I G))ˣ) :
+    connectedCenterEquiv I G i ((connectedCenterEquiv I G i).symm z) = z := by sorry
+
+-- ConnectedEquivTests.everyObject
+example (i : I) (a : Subgroup.center G) (x : ConnectedFibre I G) :
+    ((connectedCenterEquiv I G i a).val.app x).2 = a.val := by sorry
+
+-- ConnectedSectionTests.roundTrip
+example (i : I) (U : C)
+    (s : IntrinsicBandSection (constantDiagram C (ConnectedFibre I G)) U) :
+    connectedSectionsEquiv C I G i U ((connectedSectionsEquiv C I G i U).symm s) = s := by sorry
+
+-- ConnectedSectionTests.restriction
+example (i : I) {U V : C} (f : V ⟶ U) (a : Subgroup.center G) :
+    restrict (constantDiagram C (ConnectedFibre I G)) f
+      (connectedSectionsEquiv C I G i U a) =
+        connectedSectionsEquiv C I G i V a := by sorry
+
+-- ConnectedSectionTests.generatorBothObjects
+example : let a : Subgroup.center (Multiplicative (ZMod 3)) :=
+      ⟨Multiplicative.ofAdd 1, by rw [CommGroup.center_eq_top]; trivial⟩
+    let s := connectedSectionsEquiv (Discrete PUnit) Bool (Multiplicative (ZMod 3))
+      false (Discrete.mk PUnit.unit) a
+    (eval (constantDiagram (Discrete PUnit) (ConnectedFibre Bool (Multiplicative (ZMod 3))))
+      (𝟙 (Discrete.mk PUnit.unit)) (Codiscrete.mk false, SingleObj.star _) s).hom.2 =
+        Multiplicative.ofAdd (1 : ZMod 3) ∧
+    (eval (constantDiagram (Discrete PUnit) (ConnectedFibre Bool (Multiplicative (ZMod 3))))
+      (𝟙 (Discrete.mk PUnit.unit)) (Codiscrete.mk true, SingleObj.star _) s).hom.2 =
+        Multiplicative.ofAdd (1 : ZMod 3) := by sorry
+
+-- ConnectedAutTests.hom
+example (x : ConnectedFibre I G) (g : G) : (connectedAut I G x g).hom.2 = g := by sorry
+
+-- ConnectedAutTests.inverse
+example (x : ConnectedFibre I G) (g : G) : (connectedAut I G x g).inv.2 = g⁻¹ := by sorry
+
+-- ConnectedAutTests.multiplication
+example (x : ConnectedFibre I G) (g h : G) :
+    connectedAut I G x (g * h) = connectedAut I G x g * connectedAut I G x h := by sorry
+
+-- ConnectedIsoTests.projections
+example (x y : ConnectedFibre I G) :
+    (connectedIso I G x y).hom.1 = (Codiscrete.iso x.1 y.1).hom ∧
+    (connectedIso I G x y).hom.2 = (eqToIso (Subsingleton.elim x.2 y.2)).hom := by sorry
+
+-- ConnectedIsoTests.roundTrip
+example (x y : ConnectedFibre I G) :
+    (connectedIso I G x y).hom ≫ (connectedIso I G x y).inv = 𝟙 x := by sorry
+
+-- NonabelianBandTests.injective
+example : Function.Injective (eval
+    (constantDiagram (Discrete PUnit) (ConnectedFibre PUnit (Equiv.Perm (Fin 3))))
+      (𝟙 (Discrete.mk PUnit.unit)) (Codiscrete.mk PUnit.unit, SingleObj.star _)) := by sorry
+
+-- NonabelianBandTests.transpositionNotAttained
+example : ¬ ∃ s, eval
+    (constantDiagram (Discrete PUnit) (ConnectedFibre PUnit (Equiv.Perm (Fin 3))))
+      (𝟙 (Discrete.mk PUnit.unit)) (Codiscrete.mk PUnit.unit, SingleObj.star _) s =
+        connectedAut PUnit (Equiv.Perm (Fin 3))
+          (Codiscrete.mk PUnit.unit, SingleObj.star _) (Equiv.swap 0 1) := by sorry
+
+-- NonabelianBandTests.oneObject
+example : Subsingleton (ConnectedFibre PUnit (Equiv.Perm (Fin 3))) := by sorry
+
+-- ConnectedBandTests.emptyFibreStack
+example : (constantDiagram (Discrete PUnit) (Discrete Empty)).IsStack ⊥ := by sorry
+
+lemma connectedCenter_one : connectedCenter I G 1 = 1 := by sorry
+
+lemma connectedCenterUnit_val_inv (a : Subgroup.center G) :
+    (connectedCenterUnit I G a).val * (connectedCenterUnit I G a).inv = 1 := by sorry
+
+lemma connectedCenterEquiv_apply_symm_apply (i : I) (z : (CatCenter (ConnectedFibre I G))ˣ) :
+    connectedCenterEquiv I G i ((connectedCenterEquiv I G i).symm z) = z := by sorry
+
+lemma connectedAut_mul (x : ConnectedFibre I G) (g h : G) :
+    connectedAut I G x (g * h) = connectedAut I G x g * connectedAut I G x h := by sorry
+
+lemma connectedIso_hom_inv_id (x y : ConnectedFibre I G) :
+    (connectedIso I G x y).hom ≫ (connectedIso I G x y).inv = 𝟙 x := by sorry
+
+end TauCeti.AlgebraicGeometry.ConnectedBandFixtures

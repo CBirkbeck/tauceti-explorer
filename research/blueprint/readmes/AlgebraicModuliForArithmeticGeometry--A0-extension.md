@@ -7849,3 +7849,427 @@ For any compatible section s over U and label i, its inverse profile coefficient
 Hypotheses: C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences. D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat. Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity.
 
 Proof: Unfold the inverse of the composed native multiplicative equivalence and its two specified inverses.
+
+
+## Connected and nonabelian point-gerbe acceptance cases
+
+The incoming constant point fixtures remain. The connected two-object C3 gerbe now has exactly three actual compatible sections, with bijective evaluation at both objects. Its distinct objects are joined by actual arrows. The one-object S3 diagram is an actual gerbe but has only one compatible central section; evaluation is injective and is not surjective, and the transposition (0 1) is explicitly not attained. For arbitrary G the connected-fibre evaluation image is exactly its native centre subgroup. Still establish the actual SF1 descended-slice comparison, the D0 torsor/classifying-stack comparison, the prescribed nonconstant restriction-chain and terminal-free two-chain fixtures, and the nonneutral O(1) root-gerbe instance. The constant-diagram generality does not instantiate the nonconstant tests. No stage, other gap, request or reserved key is closed.
+
+These constructions use Codiscrete(I), so different labels remain different objects but have comparison arrows. The group G is arbitrary. A chosen i witnesses nonemptiness; the central-section equivalence and its evaluation image do not assume G abelian. SingleObj composition is reversed multiplication, so multiplication of categorical endomorphisms agrees with group multiplication. The S3 example tests commutativity independently of local connectedness.
+
+The source definition and abelian-inertia lemma were read at [Stacks 06NZ](https://stacks.math.columbia.edu/tag/06NZ) and [Stacks 0CJY](https://stacks.math.columbia.edu/tag/0CJY). The finite examples and native centre comparisons below are authored deductions. The point-stack argument is the existing fixture proof generalized in its fibre parameter; D0 remains the owner of ordinary stacks.
+
+### Central elements as natural fibre endomorphisms
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenter
+
+For any group G and any type I, a central element a defines a natural endomorphism of the identity of Codiscrete(I) times SingleObj(G), with component (identity,a) at every object.
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: Use the existing categorical centre and product category. Naturality is precisely commutation of a with the group component of every arrow, including arrows between distinct objects.
+
+API:
+
+- TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenter_one: The identity central coefficient defines the identity natural endomorphism.
+- TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenter_app: At every object x, connectedCenter(a) has component (identity,a).
+- TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenter_naturality: Every actual arrow f:x→y commutes with the indicated components in the naturality square.
+
+Acceptance tests:
+
+- ConnectedCenterTests.value: For every central coefficient a and object x, the group component of its natural endomorphism is a.
+- ConnectedCenterTests.naturality: The constructed centre element satisfies naturality for arbitrary arrows, including arrows between distinct labels.
+- ConnectedCenterTests.identity: The identity central coefficient acts by the identity arrow at every object.
+
+
+### Invertible central fibre endomorphisms
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterUnit
+
+Every a in the centre subgroup of G gives a unit in the full categorical centre of Codiscrete(I) times SingleObj(G); its inverse is the endomorphism defined by a inverse.
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: Construct both natural endomorphisms using a and its inverse in the native subgroup. Prove both unit equations objectwise, using the group inverse laws and product morphism extensionality.
+
+API:
+
+- TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterUnit_val_inv: The value of the constructed unit times its inverse value is the identity natural endomorphism.
+- TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterUnit_val: The value of the centre unit for a is connectedCenter(a).
+- TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterUnit_inv: The inverse value of the centre unit for a is connectedCenter(a inverse).
+
+Acceptance tests:
+
+- ConnectedUnitTests.value: The centre unit retains the constructed centre element as its value.
+- ConnectedUnitTests.inverse: Its inverse value is obtained from the inverse central coefficient.
+- ConnectedUnitTests.roundTrip: The value times its inverse is the identity natural endomorphism.
+
+
+### Recover the group centre from the connected fibre
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterEquiv
+
+Given i in I, the centre subgroup of G is multiplicatively equivalent to all units of the categorical centre of Codiscrete(I) times SingleObj(G). The inverse reads the group component at (i,star).
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: Naturality against every loop at (i,star) proves that the recovered group element is central. Naturality against the actual arrow (identity,1) from each object to (i,star) forces every component to have that same value. Prove both inverse equations by subtype, unit and natural-transformation extensionality, and multiplication by evaluation.
+
+API:
+
+- TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterEquiv_apply_symm_apply: Applying the centre equivalence after its inverse recovers every actual centre unit.
+- TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterEquiv_apply: The forward equivalence map at a is connectedCenterUnit(a).
+- TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterEquiv_symm_apply: The underlying group element of the inverse at z is the group component of z at (i,star).
+
+Acceptance tests:
+
+- ConnectedEquivTests.coefficientRoundTrip: Forward then inverse of the centre equivalence recovers every central coefficient.
+- ConnectedEquivTests.centreRoundTrip: Inverse then forward recovers every actual centre unit, not just those specified beforehand.
+- ConnectedEquivTests.everyObject: The centre equivalence has the same specified coefficient at every actual object.
+
+
+### Compatible sections of a connected constant diagram
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedSectionsEquiv
+
+For any base category C, object U and i in I, the centre subgroup of G is multiplicatively equivalent to the actual compatible intrinsic-band sections over U of the constant diagram with fibre Codiscrete(I) times SingleObj(G).
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: Compose the connected-fibre centre equivalence with the inherited constant-diagram centre-to-section equivalence. The inherited inverse reads the identity slice arrow; no slice arrows are discarded and no topology, stack hypothesis or terminal base object is assumed.
+
+API:
+
+- TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedSectionsEquiv_symm_apply: The inverse central coefficient of s is the group component of its identity-arrow centre value at (i,star).
+- TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedSectionsEquiv_eval: For every f:V→U and every actual fibre object x, evaluation of the section corresponding to a has group component a.
+- TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedSectionsEquiv_restrict: Restriction along any f:V→U carries the section corresponding to a over U to the section corresponding to the same a over V.
+
+Acceptance tests:
+
+- ConnectedSectionTests.roundTrip: Inverse then forward recovers every actual compatible section on every slice arrow.
+- ConnectedSectionTests.restriction: Restriction along an arbitrary base arrow preserves the specified central coefficient.
+- ConnectedSectionTests.generatorBothObjects: The generator of C3 gives the same nonidentity evaluated group component at both distinct objects labelled false and true.
+- ConnectedBandTests.cardinality: The actual compatible-section type for that two-object C3 gerbe has exactly three elements.
+- NonabelianBandTests.oneSection: That S3 gerbe has exactly one actual compatible intrinsic-band section.
+
+
+### Evaluation reads the central element
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedSectionsEquiv_eval
+
+For every f:V→U and every actual fibre object x, evaluation of the section corresponding to a has group component a.
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: Unfold the two specified equivalences and native evaluation.
+
+
+### Restriction preserves the central element
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedSectionsEquiv_restrict
+
+Restriction along any f:V→U carries the section corresponding to a over U to the section corresponding to the same a over V.
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: Use the inherited constant-section restriction formula.
+
+
+### Evaluation is injective in the connected fibre
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connected_eval_injective
+
+For i in I, any U and any fibre object x, evaluation at the identity arrow of U and x is injective on compatible intrinsic-band sections, for an arbitrary group G.
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: Write both sections using the surjective multiplicative equivalence. Equality of their evaluated automorphisms gives equality of the group components, hence of the central elements and sections.
+
+Acceptance tests:
+
+- NonabelianBandTests.injective: Evaluation for the S3 gerbe is nevertheless injective.
+
+
+### The evaluation image is exactly the centre
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connected_eval_image
+
+For i in I, any U, fibre object x and actual automorphism e of x, there exists a compatible intrinsic-band section evaluating to e at the identity arrow exactly when the group component of e lies in the centre of G.
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: For a section use the inverse equivalence to recover its central coefficient. For a central automorphism component construct the corresponding section; product morphism extensionality identifies its full evaluated automorphism with e.
+
+Acceptance tests:
+
+- NonabelianBandTests.transpositionNotAttained: The actual automorphism defined by the transposition (0 1) is not the evaluation of any compatible section of the S3 gerbe.
+
+
+### Group elements as actual fibre automorphisms
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedAut
+
+For any actual object x of Codiscrete(I) times SingleObj(G) and any g in G, construct its automorphism with hom (identity,g) and inverse (identity,g inverse).
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: Construct a native categorical isomorphism. Use the reversed SingleObj composition convention for both inverse laws.
+
+API:
+
+- TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedAut_mul: The automorphism attached to gh is the product of those attached to g and h.
+- TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedAut_hom: The hom of connectedAut(x,g) is the actual product morphism (identity,g).
+- TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedAut_inv: The inverse of connectedAut(x,g) is the actual product morphism (identity,g inverse).
+
+Acceptance tests:
+
+- ConnectedAutTests.hom: The actual automorphism associated to g has group hom component g.
+- ConnectedAutTests.inverse: Its actual inverse arrow has group component g inverse.
+- ConnectedAutTests.multiplication: The actual automorphism for gh equals the product of the automorphisms for g and h, with the native composition convention.
+
+
+### Surjective evaluation detects an abelian inertia group
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connected_eval_surjective_iff
+
+Given i in I, an object U and an actual fibre object x, evaluation at the identity arrow is surjective onto Aut(x) exactly when the centre subgroup of G equals the whole group.
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: If evaluation is onto, apply the image criterion to the actual automorphism defined by each group element. Conversely every automorphism component is central when the centre is top; use the image criterion.
+
+Acceptance tests:
+
+- ConnectedBandTests.bijectiveEvaluation: Evaluation at every object of that two-object C3 fibre is bijective.
+- NonabelianBandTests.notSurjective: Evaluation of compatible sections into the actual automorphism group of the S3 object is not surjective.
+
+
+### Comparison isomorphisms between every pair of objects
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedIso
+
+Every pair x,y of actual objects of Codiscrete(I) times SingleObj(G) has a specified isomorphism: the native codiscrete isomorphism on the first factor and the equality isomorphism between the unique SingleObj objects on the second.
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: Take the native product of the two existing isomorphisms. Retain both components, so distinct labels become isomorphic without identifying their objects.
+
+API:
+
+- TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedIso_hom_inv_id: The comparison hom followed by its inverse is the identity of its source.
+- TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedIso_fst: The first hom component of connectedIso(x,y) is the native codiscrete comparison isomorphism hom.
+- TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedIso_snd: The second hom component of connectedIso(x,y) is the native equality isomorphism hom between the SingleObj objects.
+
+Acceptance tests:
+
+- ConnectedIsoTests.projections: Both comparison hom components equal those of the imported codiscrete and equality isomorphisms.
+- ConnectedIsoTests.roundTrip: The comparison hom followed by its actual inverse equals the identity of its source.
+- ConnectedBandTests.distinctIsomorphic: The objects labelled false and true in that fibre are unequal but are isomorphic.
+
+
+### The constant diagram is a stack on the point site
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.point_stack
+
+For every category D, its native constant diagram on Discrete(PUnit) is a stack for the bottom Grothendieck topology, including when D has no objects.
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: A covering sieve is top. Its actual arrow category has a single object and singleton hom types. For the native canonical descent functor, construct full faithfulness by reading a morphism at the identity arrow. Read a descent object at the identity arrow and use native DescentData.isoMk and its self-coherence equation to construct the essential-surjectivity isomorphism. Apply the existing IsStack constructor. This generalizes the incoming point-fixture proof in its fibre parameter; it does not build a second general stack carrier.
+
+Acceptance tests:
+
+- ConnectedBandTests.emptyFibreStack: The constant empty category is still a stack on the point site; the stack proof does not assume local nonemptiness.
+
+
+### Every nonempty connected group fibre gives a point gerbe
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connected_point_gerbe
+
+For any group G and an actual i in I, the native constant diagram on Discrete(PUnit) with fibre Codiscrete(I) times SingleObj(G) is a gerbe for the bottom topology.
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: Import the point-stack proof. Every fibre arrow is invertible by the native codiscrete isomorphism and SingleObj groupoid. Use (i,star) for local nonemptiness on the top covering sieve. Use the specified connected comparison isomorphism for local isomorphism on that same sieve. No commutativity is used.
+
+Acceptance tests:
+
+- ConnectedBandTests.twoObjectGerbe: The constant diagram with fibre Codiscrete(Bool) times SingleObj(C3) is an actual native gerbe on the point site.
+- NonabelianBandTests.gerbe: The constant diagram with fibre Codiscrete(PUnit) times SingleObj(Perm(Fin 3)) is an actual native gerbe on the point site.
+- NonabelianBandTests.oneObject: The S3 fixture has a subsingleton actual object type, so its obstruction does not arise from disconnected objects.
+
+
+### The identity central coefficient defines the identity natural endomorphism.
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenter_one
+
+The identity central coefficient defines the identity natural endomorphism.
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law.
+
+
+### The value of the constructed unit times its inverse value is the identity natural endomorphism.
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterUnit_val_inv
+
+The value of the constructed unit times its inverse value is the identity natural endomorphism.
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law.
+
+
+### Applying the centre equivalence after its inverse recovers every actual centre unit.
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterEquiv_apply_symm_apply
+
+Applying the centre equivalence after its inverse recovers every actual centre unit.
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law.
+
+
+### The automorphism attached to gh is the product of those attached to g and h.
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedAut_mul
+
+The automorphism attached to gh is the product of those attached to g and h.
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law.
+
+
+### The comparison hom followed by its inverse is the identity of its source.
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedIso_hom_inv_id
+
+The comparison hom followed by its inverse is the identity of its source.
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law.
+
+
+### At every object x, connectedCenter(a) has component (identity,a).
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenter_app
+
+At every object x, connectedCenter(a) has component (identity,a).
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law.
+
+
+### Every actual arrow f:x→y commutes with the indicated components in the naturality square.
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenter_naturality
+
+Every actual arrow f:x→y commutes with the indicated components in the naturality square.
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law.
+
+
+### The value of the centre unit for a is connectedCenter(a).
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterUnit_val
+
+The value of the centre unit for a is connectedCenter(a).
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law.
+
+
+### The inverse value of the centre unit for a is connectedCenter(a inverse).
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterUnit_inv
+
+The inverse value of the centre unit for a is connectedCenter(a inverse).
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law.
+
+
+### The forward equivalence map at a is connectedCenterUnit(a).
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterEquiv_apply
+
+The forward equivalence map at a is connectedCenterUnit(a).
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law.
+
+
+### The underlying group element of the inverse at z is the group component of z at (i,star).
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterEquiv_symm_apply
+
+The underlying group element of the inverse at z is the group component of z at (i,star).
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law.
+
+
+### The inverse central coefficient of s is the group component of its identity-arrow centre value at (i,star).
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedSectionsEquiv_symm_apply
+
+The inverse central coefficient of s is the group component of its identity-arrow centre value at (i,star).
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law.
+
+
+### The hom of connectedAut(x,g) is the actual product morphism (identity,g).
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedAut_hom
+
+The hom of connectedAut(x,g) is the actual product morphism (identity,g).
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law.
+
+
+### The inverse of connectedAut(x,g) is the actual product morphism (identity,g inverse).
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedAut_inv
+
+The inverse of connectedAut(x,g) is the actual product morphism (identity,g inverse).
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law.
+
+
+### The first hom component of connectedIso(x,y) is the native codiscrete comparison isomorphism hom.
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedIso_fst
+
+The first hom component of connectedIso(x,y) is the native codiscrete comparison isomorphism hom.
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law.
+
+
+### The second hom component of connectedIso(x,y) is the native equality isomorphism hom between the SingleObj objects.
+
+TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedIso_snd
+
+The second hom component of connectedIso(x,y) is the native equality isomorphism hom between the SingleObj objects.
+
+Hypotheses: C is an arbitrary category; U,V and f:V→U are actual objects and morphisms where specified. G is any group, with no commutativity assumption. I is any type; every equivalence and gerbe result explicitly takes i in I. The fibre abbreviates the existing product Codiscrete(I) times SingleObj(G). Cross-object arrows are retained. Compatible sections, restrictions and evaluation are exactly the inherited intrinsic-band constructions for the existing constant Cat-valued pseudofunctor. Only point_stack and connected_point_gerbe specialize the base to Discrete(PUnit) with bottom topology. The general centre and section comparisons require neither topology nor a terminal base object.
+
+Proof: Unfold the indicated field of the actual construction; for naturality use the stored natural-transformation law.
