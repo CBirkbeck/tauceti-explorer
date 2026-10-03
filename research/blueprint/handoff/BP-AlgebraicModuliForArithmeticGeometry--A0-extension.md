@@ -45,7 +45,7 @@ To rerun Lean, use the existing exact Mathlib build and absolute Native.lean/Can
   "issue": 672,
   "claim": 5965757683,
   "claimConfirmation": 5965758705,
-  "archive": "ARCHIVE_PENDING",
+  "archive": "9bd0f9a812db8ccc7065e57fb10de884e7b2ec42",
   "mathematicalBase": "0198ff9a4d9108cae688e9fd5bf434c41479566a",
   "publicationBase": "18f322ad4eefb4ef36e39cef812c403829f23e2c",
   "artifactHashes": {
