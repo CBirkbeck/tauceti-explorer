@@ -1,3 +1,107 @@
+# Annihilator enlargement of the actual adic filtration
+
+Codex — codex-a71f92, 3 October 2026. This section is the current partial checkpoint; the complete incoming reader below remains attributed historical context. All 247 incoming node objects, the reserved general Hilbert–Samuel key, 13 existing planets, 15 gaps, two supplier requests and eight unclosed scoped stages are retained. Six declarations (one construction and five lemmas), three promoted API items and four named tests extend the R03.3 strand. This is not a new carrier for an existing quotient or a claim that the whole key definition is closed.
+
+## Conventions and source boundary
+
+Let A be a commutative ring and M an A-module, with its given additive commutative group. Write J=Ann_A(M), and let q be any ideal of A. The ideal sum q+J is the lattice supremum. We use native ideal actions on submodules and native module quotients. The cumulative function is H(q;M,n)=length_A(M/q^(n+1)M) with values in the extended natural numbers, including infinity.
+
+The motivation is [Stacks Remark 43.15.6](https://stacks.math.columbia.edu/tag/0AZU): module-relative ideals of definition permit adjoining the module annihilator. Before using any local or polynomial theorem, the actual filtration must be shown unchanged. The proofs below work for every commutative A and every module M, including nonfaithful modules, the zero module, non-finitely generated modules and infinite lengths. No flatness, locality, Noetherian condition or residue-field dimension is silently imposed. This does not establish the module-relative Hilbert–Samuel polynomial, support-degree theorem, associativity or multiplicity integrality.
+
+The complete mathematical Stacks 00K4 and 0AZU sections were freshly read; their nested general Hilbert–Serre, dimension and Koszul inputs remain open. Pinned Mathlib annihilator/action, quotient and length statements were read with their hypotheses. Bounded source/index and current ownership searches found no competing planned adapter for this exact equality. Generic annihilator, ideal action and quotient equivalence APIs are reused rather than replanned. Broad historical paper readings are preserved, not represented as fresh complete audits.
+
+## Declarations and proof plans
+
+### Annihilator enlargement preserves ideal action
+
+TauCeti.HilbertSamuel.idealSupAnnihilator_smul — For every submodule N of M, (q+Ann_A(M))N=qN.
+
+Hypotheses: A is a commutative ring, M is an additive commutative group with its given A-module structure, and q is an ideal of A. Ideal sum means lattice supremum. All actions, quotients and lengths are the pinned native ones. No Noetherian, local, finite-module, faithful-module, flatness or finite-length hypothesis is imposed.
+
+Proof: N is contained in the whole module, so annihilator reverse inclusion shows that Ann_A(M) annihilates N. Distribute the ideal sum acting on N and discard the zero summand.
+
+Dependencies: mathlib:Module.annihilator; mathlib:Submodule.annihilator_top; mathlib:Submodule.annihilator_mono; mathlib:Submodule.le_annihilator_iff; mathlib:Submodule.sup_smul.
+
+### Annihilator enlargement preserves all adic powers
+
+TauCeti.HilbertSamuel.idealSupAnnihilator_pow_smul — For every r≥0 and submodule N of M, (q+Ann_A(M))^r N=q^r N.
+
+Hypotheses: A is a commutative ring, M is an additive commutative group with its given A-module structure, and q is an ideal of A. Ideal sum means lattice supremum. All actions, quotients and lengths are the pinned native ones. No Noetherian, local, finite-module, faithful-module, flatness or finite-length hypothesis is imposed.
+
+Proof: At r=0 both actions are the identity. At the successor use associative ideal action, the induction hypothesis and the preceding action equality.
+
+Dependencies: DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-enlargement-action; mathlib:Submodule.mul_smul.
+
+### Canonical annihilator-enlargement quotient equivalence
+
+TauCeti.HilbertSamuel.adicQuotientAnnihilatorEquiv — For every r≥0, the identity on representatives induces an A-linear equivalence M/((q+Ann_A(M))^r M) ≃ M/(q^r M).
+
+Hypotheses: A is a commutative ring, M is an additive commutative group with its given A-module structure, and q is an ideal of A. Ideal sum means lattice supremum. All actions, quotients and lengths are the pinned native ones. No Noetherian, local, finite-module, faithful-module, flatness or finite-length hypothesis is imposed.
+
+Proof: Apply the power equality to the whole module to identify the actual denominator submodules. Use the native linear equivalence of quotients by equal submodules. No replacement carrier or finite-length assumption is introduced.
+
+Dependencies: DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-enlargement-powers; mathlib:Submodule.quotEquivOfEq.
+
+### Forward annihilator comparison on representatives
+
+TauCeti.HilbertSamuel.adicQuotientAnnihilatorEquiv_mk — The annihilator-enlargement quotient equivalence sends the class of each m∈M to the class of m.
+
+Hypotheses: A is a commutative ring, M is an additive commutative group with its given A-module structure, and q is an ideal of A. Ideal sum means lattice supremum. All actions, quotients and lengths are the pinned native ones. No Noetherian, local, finite-module, faithful-module, flatness or finite-length hypothesis is imposed.
+
+Proof: Apply the pinned representative formula for the quotient equivalence of equal submodules.
+
+Dependencies: DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-adic-quotient; mathlib:Submodule.quotEquivOfEq_mk.
+
+### Inverse annihilator comparison on representatives
+
+TauCeti.HilbertSamuel.adicQuotientAnnihilatorEquiv_symm_mk — The inverse annihilator-enlargement quotient equivalence sends the class of each m∈M to the class of m.
+
+Hypotheses: A is a commutative ring, M is an additive commutative group with its given A-module structure, and q is an ideal of A. Ideal sum means lattice supremum. All actions, quotients and lengths are the pinned native ones. No Noetherian, local, finite-module, faithful-module, flatness or finite-length hypothesis is imposed.
+
+Proof: Apply injectivity of the forward equivalence, the inverse law, and its forward representative formula.
+
+Dependencies: DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-adic-quotient; DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-adic-quotient-mk.
+
+### Annihilator enlargement preserves cumulative lengths
+
+TauCeti.HilbertSamuel.function_sup_annihilator — For every n≥0, H(q+Ann_A(M);M,n)=H(q;M,n) as extended natural numbers, with H(q;M,n)=length_A(M/q^(n+1)M).
+
+Hypotheses: A is a commutative ring, M is an additive commutative group with its given A-module structure, and q is an ideal of A. Ideal sum means lattice supremum. All actions, quotients and lengths are the pinned native ones. No Noetherian, local, finite-module, faithful-module, flatness or finite-length hypothesis is imposed.
+
+Proof: Take r=n+1 in the actual A-linear quotient equivalence. Apply invariance of length under linear equivalence. Infinite lengths are retained; no polynomiality or multiplicity normalization is inferred.
+
+Dependencies: DeformationAndDerivedPatchingAlgebra:R03.3/annihilator-adic-quotient; mathlib:LinearEquiv.length_eq; DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function.
+
+## Construction API and unit tests
+
+The canonical equivalence is the native equal-denominator quotient equivalence. Its intended uses are the module-relative ideal-of-definition reduction and the general key's coefficient-comparison interface; the latter remains distinct from changing the coefficient ring. Its planning API is:
+
+TauCeti.HilbertSamuel.adicQuotientAnnihilatorEquiv_mk (simp): The annihilator-enlargement quotient equivalence sends the class of each m∈M to the class of m.
+
+TauCeti.HilbertSamuel.adicQuotientAnnihilatorEquiv_symm_mk (simp): The inverse annihilator-enlargement quotient equivalence sends the class of each m∈M to the class of m.
+
+TauCeti.HilbertSamuel.function_sup_annihilator (compatibility): For every n≥0, H(q+Ann_A(M);M,n)=H(q;M,n) as extended natural numbers, with H(q;M,n)=length_A(M/q^(n+1)M).
+
+The four tests exercise actual native quotients and actions, not a surrogate quotient or assumed equivalence:
+
+AnnihilatorAdicTests.identity_representative (computation): For A=M=ℚ, q=0 and r=1, the canonical comparison sends the class of 7 to the class of 7.
+
+AnnihilatorAdicTests.zeroth_power (degenerate): For A=M=ℚ, q=0 and r=0, the image of the class of 7 is zero because the zeroth power acts as the whole module.
+
+AnnihilatorAdicTests.nonfaithful_integer_module (non-example): For A=ℤ, M=ℤ/4ℤ and q=0, the class of 1 is preserved for every r≥0, without assuming the module is faithful.
+
+AnnihilatorAdicTests.nonannihilating_ideal_fails (non-example): For A=M=ℚ, replacing q=0 by q+ℚ at r=1 changes the denominator from zero to the whole module; adding an arbitrary ideal instead of the annihilator is false.
+
+The native six-proof/four-test prototype has passed at the pinned Mathlib build; six axiom audits contain no admission axiom. The independent prototype supplies only the existing cumulative-function definition, whose quotient and index expression matches the incoming definition. No inherited polynomial, curve, Rees or general dimension theorem is imported into these proofs. Canonical roadmap forms remain admitted, and every node retains unchecked implementation status.
+
+## Existing carrier elaboration and remaining work
+
+The inherited suggested file contained a dependent local notation whose expansion lost the supplied equation, plus singleton quotation and quotient-map inference problems. The suggested continuation makes the existing full curve carrier explicitly depend on the equation, qualifies quotient-map notation and specifies the native graded multiplication carrier. These are repairs to the existing intended contracts, not new curve theorems or new ownership. The handoff records the exact reversible transformation and compiler outcome.
+
+Keep the general Hilbert–Serre induction, support/degree theorem, Artin–Rees, localization lengths, regular-local domain comparison, completion, associativity and all routed-paper obligations open. The preserved coverage has P7, R03.3 and R03.4 partial; P8, P9, R03.1, R03.2 and R03.5 remain not-read in that record. The other promoted R03.6 part is retained. The inherited LocalFieldsRamification layer-0 → R03.4 missing supplier path stays recorded; no artificial edge is inserted. No planet is added for this technical adapter: the existing 13 landmark choices remain intact.
+
+## Incoming reader and attribution
+
 # Scalar restriction and actual curve multiplicity
 
 This continuation keeps the intrinsic normalization of the reserved Hilbert–Samuel key. With a surjective coefficient map A→B, an actual B-module M has the same adic quotient carriers and cumulative lengths over A and B. The carrier equivalence itself is valid without surjectivity or flatness: restrict the mapped-power denominator to A, identify it with q^r M, and compose the two native quotient equivalences. Surjectivity enters only when identifying the two scalar-ring lengths. Infinite values remain in extended natural numbers until a finite local polynomial witness is used.
