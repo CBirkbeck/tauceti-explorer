@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Finite-length local modules, actual adic quotient finiteness and cumulative/graded stabilization are refined with eight declaration-sized lemmas. Graded annihilator checkpoint: ten new declarations, three promoted API statements and six typed boundary tests. Actual graded quotient transport, extended graded lengths, the nonzero primary boundary and the zero-module unit-ideal boundary have independent native proofs. Polynomial and both multiplicity invariances explicitly depend on the existing admitted general polynomial specification. Annihilator-enlargement checkpoint: preserve all 247 incoming declaration objects and add six actual-carrier declarations, three promoted API items and four boundary tests. The action, power, quotient and extended-length equalities require no finiteness or faithful-module assumption. The six-proof/four-test native prototype is checked; canonical forms remain admitted and all implementation statuses unchecked. General Hilbert–Serre, dimension and all stage/source obligations remain open. Full actual curve graded assembly checkpoint: 20 new declarations (3 constructions), 16 API items and 13 boundary/compatibility tests. The polynomial map lands in the inherited Rees quotient, with exact full principal-kernel and component-compatible quotient-equivalence plans. All 210 incoming node objects and all ownership, source and general multiplicity boundaries remain intact. New proof bodies remain admitted. This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open. This continuation compares actual adic quotient carriers under scalar restriction, transfers cumulative lengths under surjective coefficient maps, and links the general intrinsic multiplicity API to the explicit finite-order plane-curve polynomial. It keeps a fixed degree-two extraction distinct from intrinsic multiplicity and from a dimension-two ambient interpretation.",
+  "summary": "Native coefficient-change maps, exact graded injectivity and ring-equivalence transport, with a proved old coefficient-ideal/monomial/piece core. Finite-length local modules, actual adic quotient finiteness and cumulative/graded stabilization are refined with eight declaration-sized lemmas. Graded annihilator checkpoint: ten new declarations, three promoted API statements and six typed boundary tests. Actual graded quotient transport, extended graded lengths, the nonzero primary boundary and the zero-module unit-ideal boundary have independent native proofs. Polynomial and both multiplicity invariances explicitly depend on the existing admitted general polynomial specification. Annihilator-enlargement checkpoint: preserve all 247 incoming declaration objects and add six actual-carrier declarations, three promoted API items and four boundary tests. The action, power, quotient and extended-length equalities require no finiteness or faithful-module assumption. The six-proof/four-test native prototype is checked; canonical forms remain admitted and all implementation statuses unchecked. General Hilbert–Serre, dimension and all stage/source obligations remain open. Full actual curve graded assembly checkpoint: 20 new declarations (3 constructions), 16 API items and 13 boundary/compatibility tests. The polynomial map lands in the inherited Rees quotient, with exact full principal-kernel and component-compatible quotient-equivalence plans. All 210 incoming node objects and all ownership, source and general multiplicity boundaries remain intact. New proof bodies remain admitted. This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open. This continuation compares actual adic quotient carriers under scalar restriction, transfers cumulative lengths under surjective coefficient maps, and links the general intrinsic multiplicity API to the explicit finite-order plane-curve polynomial. It keeps a fixed degree-two extraction distinct from intrinsic multiplicity and from a dimension-two ambient interpretation.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2626,6 +2626,90 @@
         "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
         "provides": "The actual quotient by the zero submodule is linearly equivalent to the module.",
         "checked": "Actual statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; native use elaborates in the exact-pin build."
+      },
+      {
+        "ref": "mathlib:Ideal.comap_map_of_bijective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "theorem comap_map_of_bijective : (I.map f).comap f = I :=",
+        "checked": "Selected declaration statement and surrounding hypotheses read at the exact Mathlib pin; the native coefficient-change prototype elaborates against that pin."
+      },
+      {
+        "ref": "mathlib:Ideal.le_comap_pow",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "theorem le_comap_pow (n : ℕ) : K.comap f ^ n ≤ (K ^ n).comap f := by",
+        "checked": "Selected declaration statement and surrounding hypotheses read at the exact Mathlib pin; the native coefficient-change prototype elaborates against that pin."
+      },
+      {
+        "ref": "mathlib:Ideal.map_le_iff_le_comap",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "theorem map_le_iff_le_comap [RingHomClass F R S] : map f I ≤ K ↔ I ≤ comap f K :=",
+        "checked": "Selected declaration statement and surrounding hypotheses read at the exact Mathlib pin; the native coefficient-change prototype elaborates against that pin."
+      },
+      {
+        "ref": "mathlib:Ideal.quotientMap",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+        "provides": "def quotientMap {I : Ideal R} (J : Ideal S) [I.IsTwoSided] [J.IsTwoSided] (f : R →+* S)",
+        "checked": "Selected declaration statement and surrounding hypotheses read at the exact Mathlib pin; the native coefficient-change prototype elaborates against that pin."
+      },
+      {
+        "ref": "mathlib:Ideal.quotientMap_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+        "provides": "theorem quotientMap_surjective {J : Ideal R} {I : Ideal S} [I.IsTwoSided] [J.IsTwoSided]",
+        "checked": "Selected declaration statement and surrounding hypotheses read at the exact Mathlib pin; the native coefficient-change prototype elaborates against that pin."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeff_map",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Eval/Coeff.lean",
+        "provides": "theorem coeff_map (n : ℕ) : coeff (p.map f) n = f (coeff p n) := by",
+        "checked": "Selected declaration statement and surrounding hypotheses read at the exact Mathlib pin; the native coefficient-change prototype elaborates against that pin."
+      },
+      {
+        "ref": "mathlib:Polynomial.map_C",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
+        "provides": "theorem map_C : (C a).map f = C (f a) :=",
+        "checked": "Selected declaration statement and surrounding hypotheses read at the exact Mathlib pin; the native coefficient-change prototype elaborates against that pin."
+      },
+      {
+        "ref": "mathlib:Polynomial.map_id",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Eval/Coeff.lean",
+        "provides": "theorem map_id : p.map (RingHom.id _) = p := by simp [Polynomial.ext_iff, coeff_map]",
+        "checked": "Selected declaration statement and surrounding hypotheses read at the exact Mathlib pin; the native coefficient-change prototype elaborates against that pin."
+      },
+      {
+        "ref": "mathlib:Polynomial.map_injective",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Eval/Coeff.lean",
+        "provides": "theorem map_injective (hf : Function.Injective f) : Function.Injective (map f) := fun p q h =>",
+        "checked": "Selected declaration statement and surrounding hypotheses read at the exact Mathlib pin; the native coefficient-change prototype elaborates against that pin."
+      },
+      {
+        "ref": "mathlib:Polynomial.map_map",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Eval/Coeff.lean",
+        "provides": "theorem map_map [Semiring T] (g : S →+* T) (p : R[X]) : (p.map f).map g = p.map (g.comp f) :=",
+        "checked": "Selected declaration statement and surrounding hypotheses read at the exact Mathlib pin; the native coefficient-change prototype elaborates against that pin."
+      },
+      {
+        "ref": "mathlib:Polynomial.map_monomial",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
+        "provides": "theorem map_monomial {n a} : (monomial n a).map f = monomial n (f a) := by",
+        "checked": "Selected declaration statement and surrounding hypotheses read at the exact Mathlib pin; the native coefficient-change prototype elaborates against that pin."
+      },
+      {
+        "ref": "mathlib:RingEquiv.ofBijective",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Ring/Equiv.lean",
+        "provides": "noncomputable def ofBijective [NonUnitalRingHomClass F R S] (f : F) (hf : Function.Bijective f) :",
+        "checked": "Selected declaration statement and surrounding hypotheses read at the exact Mathlib pin; the native coefficient-change prototype elaborates against that pin."
       }
     ]
   },
@@ -3700,6 +3784,19 @@
         "Selected declaration statements and surrounding hypotheses in Mathlib/LinearAlgebra/Quotient/Basic.lean",
         "Selected declaration statements and surrounding hypotheses in Mathlib/RingTheory/Ideal/Quotient/PowTransition.lean"
       ]
+    },
+    {
+      "id": "ADIC-COEFFICIENT-20261003",
+      "title": "Ordinary Rees and associated graded carriers; coefficient-change derivations",
+      "authors": "The Stacks Project authors; native adapter derivations by Codex codex-7e92bd",
+      "edition": "Online source read 3 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/00K4",
+      "sha256": "e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932",
+      "readSections": [
+        "10.59.1–10.59.10 including proofs",
+        "10.70.1(1), separate fetch receipt for tag 052P; only definition and early context read"
+      ],
+      "derivation": "Coefficient-change maps and their kernel theorem are proved here from the native pinned carriers."
     }
   ],
   "nodes": [
@@ -7093,6 +7190,11 @@
           "name": "HilbertSamuelAdicTest.monomial_top_zero",
           "kind": "degenerate",
           "statement": "For q=A and every n, μ_n(a)=0 for all a∈q^n."
+        },
+        {
+          "name": "AdicCoefficientChange.nonreduced_degree_one_survives",
+          "kind": "non-example",
+          "statement": "For I=(2) in ℤ/4, μ₁(2) is nonzero and has square zero."
         }
       ],
       "uses": [
@@ -18882,6 +18984,1241 @@
       },
       "implementationStatus": "unchecked",
       "declaration": "TauCeti.HilbertSamuel.gradedFunction_eventually_zero"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/coefficient-change-powers",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Coefficient change on ideal powers",
+      "kind": "lemma",
+      "statement": "If f(I)⊆J, then f(I^n)⊆J^n for every n≥0.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings with identity; I, J, K are ideals and degrees are natural numbers.",
+        "Use precisely the ideal-containment, surjectivity or bijectivity premises stated above; no local, Noetherian, finite-generation, domain or reducedness assumption."
+      ],
+      "proofSteps": [
+        "Raise I⊆f⁻¹J to the nth power.",
+        "Apply the pinned containment (f⁻¹J)^n⊆f⁻¹(J^n)."
+      ],
+      "acceptance": [
+        "Retain the native Rees and quotient carriers and the same degree n.",
+        "Injectivity of f alone is insufficient after passing to different adic filtrations; the (4)⊆(2) integer example detects this."
+      ],
+      "prerequisites": [
+        "mathlib:Ideal.le_comap_pow"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-COEFFICIENT-20261003",
+          "locator": "Stacks 10.59.5 displayed ordinary associated graded ring; 10.70.1(1) Rees algebra",
+          "match": "The source supplies the ordinary carriers. This coefficient-change adapter, its exact kernel criterion and the displayed proofs are derived here from pinned polynomial and quotient APIs; they are not attributed as named theorems of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.reesMap_mem_pow"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-change",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Coefficient change on the native Rees algebra",
+      "kind": "construction",
+      "statement": "For f:A→B with f(I)⊆J, restrict Polynomial.map f to a ring map Rees(I)→Rees(J); its coefficient in degree n is f(p_n).",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings with identity; I, J, K are ideals and degrees are natural numbers.",
+        "Use precisely the ideal-containment, surjectivity or bijectivity premises stated above; no local, Noetherian, finite-generation, domain or reducedness assumption."
+      ],
+      "proofSteps": [
+        "Map the ambient polynomial coefficientwise.",
+        "Use preservation of powers to establish membership and inherit polynomial ring-map laws."
+      ],
+      "acceptance": [
+        "Retain the native Rees and quotient carriers and the same degree n.",
+        "Injectivity of f alone is insufficient after passing to different adic filtrations; the (4)⊆(2) integer example detects this."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/coefficient-change-powers",
+        "mathlib:reesAlgebra"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-COEFFICIENT-20261003",
+          "locator": "Stacks 10.59.5 displayed ordinary associated graded ring; 10.70.1(1) Rees algebra",
+          "match": "The source supplies the ordinary carriers. This coefficient-change adapter, its exact kernel criterion and the displayed proofs are derived here from pinned polynomial and quotient APIs; they are not attributed as named theorems of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.reesMap",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.reesMap_coe",
+          "role": "compatibility",
+          "statement": "The underlying polynomial of reesMap(f,I,J,h)(p) is Polynomial.map f p."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.reesMap_coefficient",
+          "role": "compatibility",
+          "statement": "The Rees coefficient-change map sends the constant a to the constant f(a)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.reesMap_id",
+          "role": "functoriality",
+          "statement": "Rees coefficient change for id_A and I=J is the identity ring homomorphism."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.reesMap_comp",
+          "role": "functoriality",
+          "statement": "For f(I)⊆J and g(J)⊆K, reesMap(g)∘reesMap(f)=reesMap(g∘f)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.reesMap_injective",
+          "role": "compatibility",
+          "statement": "If f is injective, its Rees coefficient-change map is injective for any f(I)⊆J."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.reesMap_surjective",
+          "role": "compatibility",
+          "statement": "If f is surjective and J=I.map f, then Rees(I)→Rees(J) is surjective."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdicCoefficientChange.rees_inclusion_preserves_nonzero",
+          "kind": "non-example",
+          "statement": "For id:ℤ→ℤ and (4)⊆(2), the Rees map is injective but the induced graded map is not injective."
+        },
+        {
+          "name": "ReesCoefficientChange.degree_three",
+          "kind": "computation",
+          "statement": "For I=ℤ and J=ℤ/4, coefficient reduction sends 7T³ to 3T³, preserving degree placement."
+        },
+        {
+          "name": "ReesCoefficientChange.zero_ideal_constant",
+          "kind": "degenerate",
+          "statement": "For zero ideals under ℤ→ℤ/4, every Rees constant a maps to the constant a mod 4."
+        }
+      ],
+      "uses": [
+        {
+          "where": "R03.3 ordinary adic grading and Stacks 10.59.5",
+          "how": "Transport the actual homogeneous coefficients and residue action under changes of coefficient ring before comparing Hilbert–Samuel data."
+        },
+        {
+          "where": "R03.3 native tangent-cone comparisons",
+          "how": "Require explicit ideal compatibility and the exact filtration kernel; do not transfer injectivity from the coefficient ring without it."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-change-coe",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Underlying polynomial of Rees coefficient change",
+      "kind": "lemma",
+      "statement": "The underlying polynomial of reesMap(f,I,J,h)(p) is Polynomial.map f p.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings with identity; I, J, K are ideals and degrees are natural numbers.",
+        "Use precisely the ideal-containment, surjectivity or bijectivity premises stated above; no local, Noetherian, finite-generation, domain or reducedness assumption."
+      ],
+      "proofSteps": [
+        "Unfold only the native restriction.",
+        "Project the Rees subtype."
+      ],
+      "acceptance": [
+        "Retain the native Rees and quotient carriers and the same degree n.",
+        "Injectivity of f alone is insufficient after passing to different adic filtrations; the (4)⊆(2) integer example detects this."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-change"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-COEFFICIENT-20261003",
+          "locator": "Stacks 10.59.5 displayed ordinary associated graded ring; 10.70.1(1) Rees algebra",
+          "match": "The source supplies the ordinary carriers. This coefficient-change adapter, its exact kernel criterion and the displayed proofs are derived here from pinned polynomial and quotient APIs; they are not attributed as named theorems of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.reesMap_coe"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-change-constants",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Constants under Rees coefficient change",
+      "kind": "lemma",
+      "statement": "The Rees coefficient-change map sends the constant a to the constant f(a).",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings with identity; I, J, K are ideals and degrees are natural numbers.",
+        "Use precisely the ideal-containment, surjectivity or bijectivity premises stated above; no local, Noetherian, finite-generation, domain or reducedness assumption."
+      ],
+      "proofSteps": [
+        "Use subtype extensionality.",
+        "Apply Polynomial.map_C."
+      ],
+      "acceptance": [
+        "Retain the native Rees and quotient carriers and the same degree n.",
+        "Injectivity of f alone is insufficient after passing to different adic filtrations; the (4)⊆(2) integer example detects this."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-change",
+        "mathlib:Polynomial.map_C"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-COEFFICIENT-20261003",
+          "locator": "Stacks 10.59.5 displayed ordinary associated graded ring; 10.70.1(1) Rees algebra",
+          "match": "The source supplies the ordinary carriers. This coefficient-change adapter, its exact kernel criterion and the displayed proofs are derived here from pinned polynomial and quotient APIs; they are not attributed as named theorems of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.reesMap_coefficient"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-change-identity",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Identity of Rees coefficient change",
+      "kind": "lemma",
+      "statement": "Rees coefficient change for id_A and I=J is the identity ring homomorphism.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings with identity; I, J, K are ideals and degrees are natural numbers.",
+        "Use precisely the ideal-containment, surjectivity or bijectivity premises stated above; no local, Noetherian, finite-generation, domain or reducedness assumption."
+      ],
+      "proofSteps": [
+        "Use ring-hom and subtype extensionality.",
+        "Apply the polynomial identity-map law."
+      ],
+      "acceptance": [
+        "Retain the native Rees and quotient carriers and the same degree n.",
+        "Injectivity of f alone is insufficient after passing to different adic filtrations; the (4)⊆(2) integer example detects this."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-change",
+        "mathlib:Polynomial.map_id"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-COEFFICIENT-20261003",
+          "locator": "Stacks 10.59.5 displayed ordinary associated graded ring; 10.70.1(1) Rees algebra",
+          "match": "The source supplies the ordinary carriers. This coefficient-change adapter, its exact kernel criterion and the displayed proofs are derived here from pinned polynomial and quotient APIs; they are not attributed as named theorems of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.reesMap_id"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-change-composition",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Composition of Rees coefficient change",
+      "kind": "lemma",
+      "statement": "For f(I)⊆J and g(J)⊆K, reesMap(g)∘reesMap(f)=reesMap(g∘f).",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings with identity; I, J, K are ideals and degrees are natural numbers.",
+        "Use precisely the ideal-containment, surjectivity or bijectivity premises stated above; no local, Noetherian, finite-generation, domain or reducedness assumption."
+      ],
+      "proofSteps": [
+        "Compose the ideal-containment proofs.",
+        "Check the polynomial component by Polynomial.map_map."
+      ],
+      "acceptance": [
+        "Retain the native Rees and quotient carriers and the same degree n.",
+        "Injectivity of f alone is insufficient after passing to different adic filtrations; the (4)⊆(2) integer example detects this."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-change",
+        "mathlib:Polynomial.map_map"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-COEFFICIENT-20261003",
+          "locator": "Stacks 10.59.5 displayed ordinary associated graded ring; 10.70.1(1) Rees algebra",
+          "match": "The source supplies the ordinary carriers. This coefficient-change adapter, its exact kernel criterion and the displayed proofs are derived here from pinned polynomial and quotient APIs; they are not attributed as named theorems of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.reesMap_comp"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-ideal-naturality",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Coefficient-ideal preservation",
+      "kind": "lemma",
+      "statement": "Rees coefficient change carries I·Rees(I) into J·Rees(J).",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings with identity; I, J, K are ideals and degrees are natural numbers.",
+        "Use precisely the ideal-containment, surjectivity or bijectivity premises stated above; no local, Noetherian, finite-generation, domain or reducedness assumption."
+      ],
+      "proofSteps": [
+        "Reduce containment of the mapped ideal to its generating constants.",
+        "Use the constant evaluation formula and f(I)⊆J."
+      ],
+      "acceptance": [
+        "Retain the native Rees and quotient carriers and the same degree n.",
+        "Injectivity of f alone is insufficient after passing to different adic filtrations; the (4)⊆(2) integer example detects this."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-change-constants",
+        "mathlib:Ideal.map_le_iff_le_comap",
+        "mathlib:Ideal.mem_map_of_mem"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-COEFFICIENT-20261003",
+          "locator": "Stacks 10.59.5 displayed ordinary associated graded ring; 10.70.1(1) Rees algebra",
+          "match": "The source supplies the ordinary carriers. This coefficient-change adapter, its exact kernel criterion and the displayed proofs are derived here from pinned polynomial and quotient APIs; they are not attributed as named theorems of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.reesMap_coefficientIdeal"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Coefficient change on the ordinary adic graded ring",
+      "kind": "construction",
+      "statement": "For f:A→B with f(I)⊆J, descend Rees coefficient change to Gr_I(A)→+*Gr_J(B), where Gr is the existing Rees quotient.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings with identity; I, J, K are ideals and degrees are natural numbers.",
+        "Use precisely the ideal-containment, surjectivity or bijectivity premises stated above; no local, Noetherian, finite-generation, domain or reducedness assumption."
+      ],
+      "proofSteps": [
+        "Use the actual coefficient ideal and its preservation.",
+        "Apply the pinned Ideal.quotientMap; do not introduce a second graded carrier."
+      ],
+      "acceptance": [
+        "Retain the native Rees and quotient carriers and the same degree n.",
+        "Injectivity of f alone is insufficient after passing to different adic filtrations; the (4)⊆(2) integer example detects this."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-ideal-naturality",
+        "mathlib:Ideal.quotientMap"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-COEFFICIENT-20261003",
+          "locator": "Stacks 10.59.5 displayed ordinary associated graded ring; 10.70.1(1) Rees algebra",
+          "match": "The source supplies the ordinary carriers. This coefficient-change adapter, its exact kernel criterion and the displayed proofs are derived here from pinned polynomial and quotient APIs; they are not attributed as named theorems of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicGradedMap",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.adicGradedMap_mk",
+          "role": "compatibility",
+          "statement": "The image of [p] is [reesMap(f)(p)] for every p∈Rees(I)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicGradedMap_id",
+          "role": "functoriality",
+          "statement": "The graded map induced by id_A with I=J is the identity."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicGradedMap_comp",
+          "role": "functoriality",
+          "statement": "For f(I)⊆J and g(J)⊆K, graded change by g after f equals graded change by g∘f."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicGradedMap_monomial",
+          "role": "compatibility",
+          "statement": "For a∈I^n, graded coefficient change sends μ_n(a) to μ_n(f(a)) in the same degree n."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicGradedMap_coefficients",
+          "role": "compatibility",
+          "statement": "The map sends algebraMap_A(a) to algebraMap_B(f(a))."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicGradedMap_surjective",
+          "role": "compatibility",
+          "statement": "If f is surjective and J=I.map f, then Gr_I(A)→Gr_J(B) is surjective."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicGradedMap_residue",
+          "role": "compatibility",
+          "statement": "The square from A/I to Gr_I(A) and B/J to Gr_J(B) commutes with Ideal.quotientMap J f h."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicGradedMap_injective_iff",
+          "role": "compatibility",
+          "statement": "The graded map is injective iff, for every n and a∈I^n, f(a)∈J^(n+1) implies a∈I^(n+1)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdicCoefficientChange.integer_degree_one_kernel",
+          "kind": "non-example",
+          "statement": "For id:ℤ→ℤ, I=(4) and J=(2), the degree-one class of 4 is nonzero in Gr_I but maps to zero in Gr_J."
+        },
+        {
+          "name": "AdicCoefficientChange.residue_surjection",
+          "kind": "compatibility",
+          "statement": "The ring map ℤ→ℤ/4 induces a surjection on associated graded rings for I=(2) and its image ideal."
+        },
+        {
+          "name": "AdicCoefficientChange.residue_value",
+          "kind": "computation",
+          "statement": "Under ℤ→ℤ/4 with I=(2), the coefficient class 7 maps to the coefficient class 3."
+        }
+      ],
+      "uses": [
+        {
+          "where": "R03.3 ordinary adic grading and Stacks 10.59.5",
+          "how": "Transport the actual homogeneous coefficients and residue action under changes of coefficient ring before comparing Hilbert–Samuel data."
+        },
+        {
+          "where": "R03.3 native tangent-cone comparisons",
+          "how": "Require explicit ideal compatibility and the exact filtration kernel; do not transfer injectivity from the coefficient ring without it."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change-representatives",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Graded coefficient change on representatives",
+      "kind": "lemma",
+      "statement": "The image of [p] is [reesMap(f)(p)] for every p∈Rees(I).",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings with identity; I, J, K are ideals and degrees are natural numbers.",
+        "Use precisely the ideal-containment, surjectivity or bijectivity premises stated above; no local, Noetherian, finite-generation, domain or reducedness assumption."
+      ],
+      "proofSteps": [
+        "Apply the defining quotient map to a quotient representative.",
+        "The resulting equality is definitional."
+      ],
+      "acceptance": [
+        "Retain the native Rees and quotient carriers and the same degree n.",
+        "Injectivity of f alone is insufficient after passing to different adic filtrations; the (4)⊆(2) integer example detects this."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-change"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-COEFFICIENT-20261003",
+          "locator": "Stacks 10.59.5 displayed ordinary associated graded ring; 10.70.1(1) Rees algebra",
+          "match": "The source supplies the ordinary carriers. This coefficient-change adapter, its exact kernel criterion and the displayed proofs are derived here from pinned polynomial and quotient APIs; they are not attributed as named theorems of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicGradedMap_mk"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change-identity",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Identity of adic coefficient change",
+      "kind": "lemma",
+      "statement": "The graded map induced by id_A with I=J is the identity.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings with identity; I, J, K are ideals and degrees are natural numbers.",
+        "Use precisely the ideal-containment, surjectivity or bijectivity premises stated above; no local, Noetherian, finite-generation, domain or reducedness assumption."
+      ],
+      "proofSteps": [
+        "Choose a Rees representative of every quotient element.",
+        "Use the Rees identity law."
+      ],
+      "acceptance": [
+        "Retain the native Rees and quotient carriers and the same degree n.",
+        "Injectivity of f alone is insufficient after passing to different adic filtrations; the (4)⊆(2) integer example detects this."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change-representatives",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-change-identity"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-COEFFICIENT-20261003",
+          "locator": "Stacks 10.59.5 displayed ordinary associated graded ring; 10.70.1(1) Rees algebra",
+          "match": "The source supplies the ordinary carriers. This coefficient-change adapter, its exact kernel criterion and the displayed proofs are derived here from pinned polynomial and quotient APIs; they are not attributed as named theorems of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicGradedMap_id"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change-composition",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Composition of adic coefficient change",
+      "kind": "lemma",
+      "statement": "For f(I)⊆J and g(J)⊆K, graded change by g after f equals graded change by g∘f.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings with identity; I, J, K are ideals and degrees are natural numbers.",
+        "Use precisely the ideal-containment, surjectivity or bijectivity premises stated above; no local, Noetherian, finite-generation, domain or reducedness assumption."
+      ],
+      "proofSteps": [
+        "Reduce to a quotient representative.",
+        "Apply the quotient projection to the Rees composition equality."
+      ],
+      "acceptance": [
+        "Retain the native Rees and quotient carriers and the same degree n.",
+        "Injectivity of f alone is insufficient after passing to different adic filtrations; the (4)⊆(2) integer example detects this."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change-representatives",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-change-composition"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-COEFFICIENT-20261003",
+          "locator": "Stacks 10.59.5 displayed ordinary associated graded ring; 10.70.1(1) Rees algebra",
+          "match": "The source supplies the ordinary carriers. This coefficient-change adapter, its exact kernel criterion and the displayed proofs are derived here from pinned polynomial and quotient APIs; they are not attributed as named theorems of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicGradedMap_comp"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-change-injective",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Injectivity before the graded quotient",
+      "kind": "lemma",
+      "statement": "If f is injective, its Rees coefficient-change map is injective for any f(I)⊆J.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings with identity; I, J, K are ideals and degrees are natural numbers.",
+        "Use precisely the ideal-containment, surjectivity or bijectivity premises stated above; no local, Noetherian, finite-generation, domain or reducedness assumption."
+      ],
+      "proofSteps": [
+        "Project an equality to the ambient polynomial ring.",
+        "Use polynomial-map injectivity and then subtype extensionality."
+      ],
+      "acceptance": [
+        "Retain the native Rees and quotient carriers and the same degree n.",
+        "Injectivity of f alone is insufficient after passing to different adic filtrations; the (4)⊆(2) integer example detects this."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-change",
+        "mathlib:Polynomial.map_injective"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-COEFFICIENT-20261003",
+          "locator": "Stacks 10.59.5 displayed ordinary associated graded ring; 10.70.1(1) Rees algebra",
+          "match": "The source supplies the ordinary carriers. This coefficient-change adapter, its exact kernel criterion and the displayed proofs are derived here from pinned polynomial and quotient APIs; they are not attributed as named theorems of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.reesMap_injective"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-change-surjective",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Surjectivity onto the image-ideal Rees algebra",
+      "kind": "lemma",
+      "statement": "If f is surjective and J=I.map f, then Rees(I)→Rees(J) is surjective.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings with identity; I, J, K are ideals and degrees are natural numbers.",
+        "Use precisely the ideal-containment, surjectivity or bijectivity premises stated above; no local, Noetherian, finite-generation, domain or reducedness assumption."
+      ],
+      "proofSteps": [
+        "For each coefficient p_n∈(I.map f)^n choose a lift a_n∈I^n, using ideal-map powers and surjectivity.",
+        "Sum a_n T^n over the finite support of p and compare every mapped monomial. No finite generation of I is needed."
+      ],
+      "acceptance": [
+        "Retain the native Rees and quotient carriers and the same degree n.",
+        "Injectivity of f alone is insufficient after passing to different adic filtrations; the (4)⊆(2) integer example detects this."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-change",
+        "mathlib:Ideal.map_pow",
+        "mathlib:Ideal.mem_map_iff_of_surjective",
+        "mathlib:Polynomial.as_sum_support"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-COEFFICIENT-20261003",
+          "locator": "Stacks 10.59.5 displayed ordinary associated graded ring; 10.70.1(1) Rees algebra",
+          "match": "The source supplies the ordinary carriers. This coefficient-change adapter, its exact kernel criterion and the displayed proofs are derived here from pinned polynomial and quotient APIs; they are not attributed as named theorems of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.reesMap_surjective"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change-surjective",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Surjectivity on the graded quotient",
+      "kind": "lemma",
+      "statement": "If f is surjective and J=I.map f, then Gr_I(A)→Gr_J(B) is surjective.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings with identity; I, J, K are ideals and degrees are natural numbers.",
+        "Use precisely the ideal-containment, surjectivity or bijectivity premises stated above; no local, Noetherian, finite-generation, domain or reducedness assumption."
+      ],
+      "proofSteps": [
+        "Lift a quotient element to Rees(J).",
+        "Lift that polynomial through the surjective Rees map and project its preimage."
+      ],
+      "acceptance": [
+        "Retain the native Rees and quotient carriers and the same degree n.",
+        "Injectivity of f alone is insufficient after passing to different adic filtrations; the (4)⊆(2) integer example detects this."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-change-surjective",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change",
+        "mathlib:Ideal.quotientMap_surjective"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-COEFFICIENT-20261003",
+          "locator": "Stacks 10.59.5 displayed ordinary associated graded ring; 10.70.1(1) Rees algebra",
+          "match": "The source supplies the ordinary carriers. This coefficient-change adapter, its exact kernel criterion and the displayed proofs are derived here from pinned polynomial and quotient APIs; they are not attributed as named theorems of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicGradedMap_surjective"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change-monomials",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Preservation of homogeneous representatives",
+      "kind": "lemma",
+      "statement": "For a∈I^n, graded coefficient change sends μ_n(a) to μ_n(f(a)) in the same degree n.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings with identity; I, J, K are ideals and degrees are natural numbers.",
+        "Use precisely the ideal-containment, surjectivity or bijectivity premises stated above; no local, Noetherian, finite-generation, domain or reducedness assumption."
+      ],
+      "proofSteps": [
+        "Use preservation of I^n to type the target monomial.",
+        "Apply Polynomial.map_monomial beneath the quotient projection."
+      ],
+      "acceptance": [
+        "Retain the native Rees and quotient carriers and the same degree n.",
+        "Injectivity of f alone is insufficient after passing to different adic filtrations; the (4)⊆(2) integer example detects this."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change-representatives",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/coefficient-change-powers",
+        "mathlib:Polynomial.map_monomial",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-monomial-map"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-COEFFICIENT-20261003",
+          "locator": "Stacks 10.59.5 displayed ordinary associated graded ring; 10.70.1(1) Rees algebra",
+          "match": "The source supplies the ordinary carriers. This coefficient-change adapter, its exact kernel criterion and the displayed proofs are derived here from pinned polynomial and quotient APIs; they are not attributed as named theorems of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicGradedMap_monomial"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change-scalars",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Coefficients under adic coefficient change",
+      "kind": "lemma",
+      "statement": "The map sends algebraMap_A(a) to algebraMap_B(f(a)).",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings with identity; I, J, K are ideals and degrees are natural numbers.",
+        "Use precisely the ideal-containment, surjectivity or bijectivity premises stated above; no local, Noetherian, finite-generation, domain or reducedness assumption."
+      ],
+      "proofSteps": [
+        "Express the two coefficient embeddings as Rees constants followed by quotient projections.",
+        "Apply the Rees constant formula."
+      ],
+      "acceptance": [
+        "Retain the native Rees and quotient carriers and the same degree n.",
+        "Injectivity of f alone is insufficient after passing to different adic filtrations; the (4)⊆(2) integer example detects this."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-change-constants"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-COEFFICIENT-20261003",
+          "locator": "Stacks 10.59.5 displayed ordinary associated graded ring; 10.70.1(1) Rees algebra",
+          "match": "The source supplies the ordinary carriers. This coefficient-change adapter, its exact kernel criterion and the displayed proofs are derived here from pinned polynomial and quotient APIs; they are not attributed as named theorems of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicGradedMap_coefficients"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-ideal-forward",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Coefficient bound in the mapped Rees ideal",
+      "kind": "lemma",
+      "statement": "If p∈I·Rees(I), then p_n∈I^(n+1) for every n≥0.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings with identity; I, J, K are ideals and degrees are natural numbers.",
+        "Use precisely the ideal-containment, surjectivity or bijectivity premises stated above; no local, Noetherian, finite-generation, domain or reducedness assumption."
+      ],
+      "proofSteps": [
+        "Induct on the ideal span of constants from I, simultaneously in n.",
+        "In the multiplication case, every convolution summand lies in I^i I^(j+1)=I^(n+1)."
+      ],
+      "acceptance": [
+        "Retain the native Rees and quotient carriers and the same degree n.",
+        "Injectivity of f alone is insufficient after passing to different adic filtrations; the (4)⊆(2) integer example detects this."
+      ],
+      "prerequisites": [
+        "mathlib:Ideal.map",
+        "mathlib:Ideal.mul_mem_mul",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-ring"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-COEFFICIENT-20261003",
+          "locator": "Stacks 10.59.5 displayed ordinary associated graded ring; 10.70.1(1) Rees algebra",
+          "match": "The source supplies the ordinary carriers. This coefficient-change adapter, its exact kernel criterion and the displayed proofs are derived here from pinned polynomial and quotient APIs; they are not attributed as named theorems of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.reesCoefficientIdeal_coeff"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-ideal-monomial",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Monomial inclusion in the coefficient ideal",
+      "kind": "lemma",
+      "statement": "If a∈I^n and a∈I^(n+1), then aT^n∈I·Rees(I).",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings with identity; I, J, K are ideals and degrees are natural numbers.",
+        "Use precisely the ideal-containment, surjectivity or bijectivity premises stated above; no local, Noetherian, finite-generation, domain or reducedness assumption."
+      ],
+      "proofSteps": [
+        "Write I^(n+1)=I·I^n and induct on sums of products.",
+        "For a=x y, x∈I and y∈I^n, use C(x)·(yT^n), then add these expressions."
+      ],
+      "acceptance": [
+        "Retain the native Rees and quotient carriers and the same degree n.",
+        "Injectivity of f alone is insufficient after passing to different adic filtrations; the (4)⊆(2) integer example detects this."
+      ],
+      "prerequisites": [
+        "mathlib:Submodule.smul_induction_on",
+        "mathlib:reesAlgebra.monomial_mem",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-ring"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-COEFFICIENT-20261003",
+          "locator": "Stacks 10.59.5 displayed ordinary associated graded ring; 10.70.1(1) Rees algebra",
+          "match": "The source supplies the ordinary carriers. This coefficient-change adapter, its exact kernel criterion and the displayed proofs are derived here from pinned polynomial and quotient APIs; they are not attributed as named theorems of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.reesMonomial_mem_coefficientIdeal"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-monomial-zero-criterion",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Exact vanishing of a homogeneous adic class",
+      "kind": "lemma",
+      "statement": "For a∈I^n, μ_n(a)=0 if and only if a∈I^(n+1).",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings with identity; I, J, K are ideals and degrees are natural numbers.",
+        "Use precisely the ideal-containment, surjectivity or bijectivity premises stated above; no local, Noetherian, finite-generation, domain or reducedness assumption."
+      ],
+      "proofSteps": [
+        "Use the existing coefficient-ideal equivalence.",
+        "Only coefficient n of aT^n can be nonzero; all other coefficients are zero."
+      ],
+      "acceptance": [
+        "Retain the native Rees and quotient carriers and the same degree n.",
+        "Injectivity of f alone is insufficient after passing to different adic filtrations; the (4)⊆(2) integer example detects this."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-ideal",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-monomial-map",
+        "mathlib:Ideal.Quotient.eq_zero_iff_mem"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-COEFFICIENT-20261003",
+          "locator": "Stacks 10.59.5 displayed ordinary associated graded ring; 10.70.1(1) Rees algebra",
+          "match": "The source supplies the ordinary carriers. This coefficient-change adapter, its exact kernel criterion and the displayed proofs are derived here from pinned polynomial and quotient APIs; they are not attributed as named theorems of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicMonomial_eq_zero_iff"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change-zero-criterion",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Coefficientwise kernel of the graded map",
+      "kind": "lemma",
+      "statement": "The image of [p] under graded coefficient change is zero iff f(p_n)∈J^(n+1) for every n.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings with identity; I, J, K are ideals and degrees are natural numbers.",
+        "Use precisely the ideal-containment, surjectivity or bijectivity premises stated above; no local, Noetherian, finite-generation, domain or reducedness assumption."
+      ],
+      "proofSteps": [
+        "Evaluate the map on a Rees representative.",
+        "Apply the coefficient-ideal equivalence and the coefficient formula for Polynomial.map."
+      ],
+      "acceptance": [
+        "Retain the native Rees and quotient carriers and the same degree n.",
+        "Injectivity of f alone is insufficient after passing to different adic filtrations; the (4)⊆(2) integer example detects this."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change-representatives",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-ideal",
+        "mathlib:Polynomial.coeff_map"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-COEFFICIENT-20261003",
+          "locator": "Stacks 10.59.5 displayed ordinary associated graded ring; 10.70.1(1) Rees algebra",
+          "match": "The source supplies the ordinary carriers. This coefficient-change adapter, its exact kernel criterion and the displayed proofs are derived here from pinned polynomial and quotient APIs; they are not attributed as named theorems of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicGradedMap_mk_eq_zero_iff"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change-injective-criterion",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Exact injectivity criterion for coefficient change",
+      "kind": "lemma",
+      "statement": "The graded map is injective iff, for every n and a∈I^n, f(a)∈J^(n+1) implies a∈I^(n+1).",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings with identity; I, J, K are ideals and degrees are natural numbers.",
+        "Use precisely the ideal-containment, surjectivity or bijectivity premises stated above; no local, Noetherian, finite-generation, domain or reducedness assumption."
+      ],
+      "proofSteps": [
+        "For necessity, apply injectivity to the homogeneous class of a.",
+        "For sufficiency, choose a Rees representative of a class in the kernel and apply the filtration condition coefficientwise."
+      ],
+      "acceptance": [
+        "Retain the native Rees and quotient carriers and the same degree n.",
+        "Injectivity of f alone is insufficient after passing to different adic filtrations; the (4)⊆(2) integer example detects this."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change-zero-criterion",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-monomial-zero-criterion",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change-monomials"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-COEFFICIENT-20261003",
+          "locator": "Stacks 10.59.5 displayed ordinary associated graded ring; 10.70.1(1) Rees algebra",
+          "match": "The source supplies the ordinary carriers. This coefficient-change adapter, its exact kernel criterion and the displayed proofs are derived here from pinned polynomial and quotient APIs; they are not attributed as named theorems of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicGradedMap_injective_iff"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change-bijective",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Bijective coefficient change for an image ideal",
+      "kind": "lemma",
+      "statement": "If f is bijective, graded coefficient change to J=I.map f is bijective.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings with identity; I, J, K are ideals and degrees are natural numbers.",
+        "Use precisely the ideal-containment, surjectivity or bijectivity premises stated above; no local, Noetherian, finite-generation, domain or reducedness assumption."
+      ],
+      "proofSteps": [
+        "Use ideal-map powers and comap_map_of_bijective for the exact injectivity condition.",
+        "Combine with graded surjectivity."
+      ],
+      "acceptance": [
+        "Retain the native Rees and quotient carriers and the same degree n.",
+        "Injectivity of f alone is insufficient after passing to different adic filtrations; the (4)⊆(2) integer example detects this."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change-injective-criterion",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change-surjective",
+        "mathlib:Ideal.comap_map_of_bijective",
+        "mathlib:Ideal.map_pow"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-COEFFICIENT-20261003",
+          "locator": "Stacks 10.59.5 displayed ordinary associated graded ring; 10.70.1(1) Rees algebra",
+          "match": "The source supplies the ordinary carriers. This coefficient-change adapter, its exact kernel criterion and the displayed proofs are derived here from pinned polynomial and quotient APIs; they are not attributed as named theorems of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicGradedMap_bijective"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-equivalence",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Adic graded equivalence under a ring equivalence",
+      "kind": "construction",
+      "statement": "A ring equivalence e:A≃+*B induces Gr_I(A)≃+*Gr_(I.map e)(B), with forward map the actual coefficient-change map.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings with identity; I, J, K are ideals and degrees are natural numbers.",
+        "Use precisely the ideal-containment, surjectivity or bijectivity premises stated above; no local, Noetherian, finite-generation, domain or reducedness assumption."
+      ],
+      "proofSteps": [
+        "Bundle the proved bijectivity of the graded map.",
+        "Keep the image ideal explicit; no equality of unrelated filtrations is assumed."
+      ],
+      "acceptance": [
+        "Retain the native Rees and quotient carriers and the same degree n.",
+        "Injectivity of f alone is insufficient after passing to different adic filtrations; the (4)⊆(2) integer example detects this."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change-bijective",
+        "mathlib:RingEquiv.ofBijective"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-COEFFICIENT-20261003",
+          "locator": "Stacks 10.59.5 displayed ordinary associated graded ring; 10.70.1(1) Rees algebra",
+          "match": "The source supplies the ordinary carriers. This coefficient-change adapter, its exact kernel criterion and the displayed proofs are derived here from pinned polynomial and quotient APIs; they are not attributed as named theorems of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicGradedEquiv",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.adicGradedEquiv_apply",
+          "role": "compatibility",
+          "statement": "The forward function of adicGradedEquiv e I is adicGradedMap e I (I.map e)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicGradedEquiv_inverse_monomial",
+          "role": "compatibility",
+          "statement": "The inverse graded equivalence takes μ_n(e(a)) back to μ_n(a) for a∈I^n."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicGradedEquiv_monomial",
+          "role": "compatibility",
+          "statement": "The graded equivalence induced by e sends μ_n(a) to μ_n(e(a)) in the same degree."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdicCoefficientEquiv.swap_factors",
+          "kind": "computation",
+          "statement": "For the zero ideal of ℤ×ℤ, the factor-swap equivalence sends μ₀(5,7) to μ₀(7,5)."
+        },
+        {
+          "name": "AdicCoefficientEquiv.nonreduced_inverse",
+          "kind": "non-example",
+          "statement": "For I=(2) in ℤ/4 and e=id, the inverse graded equivalence recovers μ₁(2), whose forward image is nonzero."
+        },
+        {
+          "name": "AdicCoefficientEquiv.unit_ideal",
+          "kind": "degenerate",
+          "statement": "For I=A, every graded class is zero and every coefficient equivalence sends it to zero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "R03.3 ordinary adic grading and Stacks 10.59.5",
+          "how": "Transport the actual homogeneous coefficients and residue action under changes of coefficient ring before comparing Hilbert–Samuel data."
+        },
+        {
+          "where": "R03.3 native tangent-cone comparisons",
+          "how": "Require explicit ideal compatibility and the exact filtration kernel; do not transfer injectivity from the coefficient ring without it."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-equivalence-apply",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Forward map of the graded equivalence",
+      "kind": "lemma",
+      "statement": "The forward function of adicGradedEquiv e I is adicGradedMap e I (I.map e).",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings with identity; I, J, K are ideals and degrees are natural numbers.",
+        "Use precisely the ideal-containment, surjectivity or bijectivity premises stated above; no local, Noetherian, finite-generation, domain or reducedness assumption."
+      ],
+      "proofSteps": [
+        "Unfold RingEquiv.ofBijective.",
+        "Its forward ring hom is unchanged."
+      ],
+      "acceptance": [
+        "Retain the native Rees and quotient carriers and the same degree n.",
+        "Injectivity of f alone is insufficient after passing to different adic filtrations; the (4)⊆(2) integer example detects this."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-equivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-COEFFICIENT-20261003",
+          "locator": "Stacks 10.59.5 displayed ordinary associated graded ring; 10.70.1(1) Rees algebra",
+          "match": "The source supplies the ordinary carriers. This coefficient-change adapter, its exact kernel criterion and the displayed proofs are derived here from pinned polynomial and quotient APIs; they are not attributed as named theorems of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicGradedEquiv_apply"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-equivalence-inverse",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Inverse on homogeneous representatives",
+      "kind": "lemma",
+      "statement": "The inverse graded equivalence takes μ_n(e(a)) back to μ_n(a) for a∈I^n.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings with identity; I, J, K are ideals and degrees are natural numbers.",
+        "Use precisely the ideal-containment, surjectivity or bijectivity premises stated above; no local, Noetherian, finite-generation, domain or reducedness assumption."
+      ],
+      "proofSteps": [
+        "Rewrite the mapped homogeneous class as the forward graded equivalence.",
+        "Apply its inverse identity."
+      ],
+      "acceptance": [
+        "Retain the native Rees and quotient carriers and the same degree n.",
+        "Injectivity of f alone is insufficient after passing to different adic filtrations; the (4)⊆(2) integer example detects this."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-equivalence-apply",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change-monomials"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-COEFFICIENT-20261003",
+          "locator": "Stacks 10.59.5 displayed ordinary associated graded ring; 10.70.1(1) Rees algebra",
+          "match": "The source supplies the ordinary carriers. This coefficient-change adapter, its exact kernel criterion and the displayed proofs are derived here from pinned polynomial and quotient APIs; they are not attributed as named theorems of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicGradedEquiv_inverse_monomial"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-equivalence-monomial",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Forward homogeneous formula of the graded equivalence",
+      "kind": "lemma",
+      "statement": "The graded equivalence induced by e sends μ_n(a) to μ_n(e(a)) in the same degree.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings with identity; I, J, K are ideals and degrees are natural numbers.",
+        "Use precisely the ideal-containment, surjectivity or bijectivity premises stated above; no local, Noetherian, finite-generation, domain or reducedness assumption."
+      ],
+      "proofSteps": [
+        "Use the forward map identification.",
+        "Apply the coefficient-change monomial formula."
+      ],
+      "acceptance": [
+        "Retain the native Rees and quotient carriers and the same degree n.",
+        "Injectivity of f alone is insufficient after passing to different adic filtrations; the (4)⊆(2) integer example detects this."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-equivalence-apply",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change-monomials"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-COEFFICIENT-20261003",
+          "locator": "Stacks 10.59.5 displayed ordinary associated graded ring; 10.70.1(1) Rees algebra",
+          "match": "The source supplies the ordinary carriers. This coefficient-change adapter, its exact kernel criterion and the displayed proofs are derived here from pinned polynomial and quotient APIs; they are not attributed as named theorems of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicGradedEquiv_monomial"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change-residue",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Naturality of residue-ring coefficients",
+      "kind": "lemma",
+      "statement": "The square from A/I to Gr_I(A) and B/J to Gr_J(B) commutes with Ideal.quotientMap J f h.",
+      "hypotheses": [
+        "A, B and C are arbitrary commutative rings with identity; I, J, K are ideals and degrees are natural numbers.",
+        "Use precisely the ideal-containment, surjectivity or bijectivity premises stated above; no local, Noetherian, finite-generation, domain or reducedness assumption."
+      ],
+      "proofSteps": [
+        "Choose an A-representative of the residue class.",
+        "Reduce to the proved coefficient formula in the Rees quotient."
+      ],
+      "acceptance": [
+        "Retain the native Rees and quotient carriers and the same degree n.",
+        "Injectivity of f alone is insufficient after passing to different adic filtrations; the (4)⊆(2) integer example detects this."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change-scalars",
+        "mathlib:Ideal.quotientMap"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-COEFFICIENT-20261003",
+          "locator": "Stacks 10.59.5 displayed ordinary associated graded ring; 10.70.1(1) Rees algebra",
+          "match": "The source supplies the ordinary carriers. This coefficient-change adapter, its exact kernel criterion and the displayed proofs are derived here from pinned polynomial and quotient APIs; they are not attributed as named theorems of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicGradedMap_residue"
     }
   ],
   "baselineCoverage": [
@@ -19019,7 +20356,8 @@
         "The codex-a71f92 continuation proves the actual degree-wise series/ideal kernel adapters and coefficient-linear equation-jet projection, including both principal relation directions, small-index, zero/unit and characteristic-two nonreduced tests. It preserves the complete incoming proof prefix. Still construct the polynomial-valued homogeneous comparison, identify the map's image with the existing q^n/q^(n+1) carrier, and assemble the multiplicatively compatible full tangent-cone graded isomorphism. Curve/support dimension, comparison with the general Hilbert–Samuel constructor, intrinsic/ambient multiplicities, general Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed source obligation remain required; canonical bodies remain admitted and every node/stage retains unchecked/partial status.",
         "The actual equation-jet image is now compared with the native q^n/(q·q^n) carrier in A=R/(f), using the pinned general quotient theorem, with homogeneous representative and principal degreewise kernel adapters. Assemble the generator-compatible multiplication and full graded tangent-cone isomorphism. Curve/support dimension, comparison with the general cumulative polynomial and intrinsic/ambient multiplicity remain open. General Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed-paper obligation remain required; canonical bodies remain admitted and all nodes unchecked.",
         "The full multiplicative map, surjectivity, homogeneous projection compatibility, finite-sum full principal kernel and generator/component-compatible tangent-cone equivalence now have explicit mathematical proof plans and admitted native Lean prototypes. Their new proof bodies have NOT been certified; historical Rees/ring-grading bodies remain required. This supersedes the missing assembly plan, not its implementation. Curve/support dimension, comparison with the general cumulative polynomial, intrinsic and ambient multiplicities, general Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and all routed-paper obligations remain open. Arbitrary commutative coefficients are allowed for the map; the principal kernel keeps NoZeroDivisors and exact finite order, with separate zero/unit and order-zero-nonunit branches.",
-        "Graded annihilator transport and the nonzero primary boundary now have independent native prototypes. General polynomial invariance is conditional on the existing admitted eventual specification, not a new proof of Hilbert–Serre. The M=0 exception in Stacks Remark 43.15.6 is recorded; formulate the remaining module-relative ideal-of-definition extension with this branch separate. All existing graded finiteness, general polynomial existence, support-degree, completion, associativity and routed-source obligations remain required."
+        "Graded annihilator transport and the nonzero primary boundary now have independent native prototypes. General polynomial invariance is conditional on the existing admitted eventual specification, not a new proof of Hilbert–Serre. The M=0 exception in Stacks Remark 43.15.6 is recorded; formulate the remaining module-relative ideal-of-definition extension with this branch separate. All existing graded finiteness, general polynomial existence, support-degree, completion, associativity and routed-source obligations remain required.",
+        "This continuation supplies native proofs for coefficient change, its exact kernel criterion, and the old coefficient-ideal/monomial/piece core. Full graded decomposition, module grading, finite generation, general Hilbert–Serre and support-degree comparison remain unproved here. Preserve every previous coverage obligation and the full reserved Hilbert–Samuel multiplicity target."
       ]
     },
     {
@@ -21246,5 +22584,28 @@
     ],
     "nativeBoundary": "Thirteen independently checked native proofs, including three existing declarations and two routine baseline reductions; no general polynomial specification is imported. Canonical signatures remain admitted, implementation statuses unchecked.",
     "remaining": "General Hilbert–Serre, support degree/dimension, completion, Artin–Rees, localization, associativity and all eight source/stage targets remain required. Preserve every existing routed-paper obligation, key convention, planet, request, gap and sibling part."
+  },
+  "coefficientChangeContinuation": {
+    "worker": "Codex codex-7e92bd",
+    "mathematicalBase": "f657d46ef5fc38701e8d557af899fe173038a6d7",
+    "newDeclarations": 27,
+    "newApiItems": 17,
+    "newTests": 10,
+    "nativeExistingDeclarations": [
+      "adicMonomial",
+      "mem_reesCoefficientIdeal_iff",
+      "adicMonomial_ker",
+      "adicPieceInclusion",
+      "adicPieceInclusion_mk",
+      "adicPieceInclusion_injective",
+      "adicMonomial_mul",
+      "adicMonomial_eq",
+      "adicMonomial_add",
+      "adicMonomial_smul",
+      "adicPieceInclusion_zero"
+    ],
+    "oldContractsPreserved": 271,
+    "remaining": "This continuation supplies native proofs for coefficient change, its exact kernel criterion, and the old coefficient-ideal/monomial/piece core. Full graded decomposition, module grading, finite generation, general Hilbert–Serre and support-degree comparison remain unproved here. Preserve every previous coverage obligation and the full reserved Hilbert–Samuel multiplicity target.",
+    "priorArt": "Current Mathlib commit 302343bb9a029d4edab4f736703f0736896c1b64 has mem_map_algebraMap_reesAlgebra_iff beyond the required pin. Reuse it after a pin update; the existing blueprint theorem is not a new mathematical claim. PR 9819 is an open graded-finiteness/Hilbert–Serre lead, not adopted code. Bounded Zulip search produced no pertinent thread; this is not an absence certificate."
   }
 }
