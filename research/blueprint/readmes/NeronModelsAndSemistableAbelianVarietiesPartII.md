@@ -1,3 +1,103 @@
+# Recomputed conductor under actual localization
+
+Codex codex-a71f92 continuation, 3 October2026. This is a partial planning checkpoint, not an implementation claim. The six declarations below supply the actual ring-localization comparison left open in the incoming565-node checkpoint. All incoming contracts, routes, requests, source findings and seven partial coverage rows are retained. Only the existing conductor-finite-localization node gains appended supporting dependencies, proof steps and tests.
+
+For f:A→B let I=f⁻¹(conductor(im f,B)). For actual localizations L=S⁻¹A and M=f(S)⁻¹B, the map f_S is the native extension of f, not a freely selected map or a comparison assumed as data. Finite A-module generation of B gives I·L=f_S⁻¹(conductor(im f_S,M)). No injectivity, reducedness, nonzero ring or regular-denominator hypothesis is needed.
+
+## Localized image test for conductor products
+
+Declaration: FerrandPushout.conductor_localized_image_criterion. Stable node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-localized-image-criterion.
+
+Let A and B be commutative rings, f:A→B their actual coefficient algebra map, S⊂A a submonoid, L an actual S-localization of A, and M an actual f(S)-localization of B. Let f_S:L→M be the native localized map, determined by f_S(a/t)=f(a)/f(t). No injectivity, reducedness, regularity of denominators or nonzero-localization hypothesis is imposed. For b∈B, its actual image in M lies in im f_S if and only if some s∈S satisfies f(s)b∈im f.
+
+For a localized preimage z of b, write z=a/t using native fraction surjectivity. Its image equality becomes equality of the images of f(a) and b f(t) in M.
+
+Use native localization equality to obtain a multiplier c∈f(S). Choose s∈S with f(s)=c. The relation is f(s)f(a)=f(s)b f(t), so denominator st and coefficient sa witness membership in im f. No element of B is cancelled.
+
+Conversely, a witness f(a)=f(s)b gives the localized preimage a/s, by the native fraction multiplication equation.
+
+## Image membership is insensitive to a localized denominator
+
+Declaration: FerrandPushout.conductor_localized_fraction_image. Stable node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-localized-fraction-image.
+
+Let A and B be commutative rings, f:A→B their actual coefficient algebra map, S⊂A a submonoid, L an actual S-localization of A, and M an actual f(S)-localization of B. Let f_S:L→M be the native localized map, determined by f_S(a/t)=f(a)/f(t). No injectivity, reducedness, regularity of denominators or nonzero-localization hypothesis is imposed. For b∈B and t∈S, the fraction b/f(t) belongs to im f_S if and only if the actual image of b in M belongs to im f_S.
+
+Multiply a fraction in the image by f_S(t/1). Closure of the image subring and the native fraction specification recover the image of b.
+
+If f_S(z) is the image of b, then f_S(z·(1/t)) is b/f(t). The denominator inverse is itself an actual image; do not infer inverse closure for an arbitrary subring.
+
+## Localized conductor products have original-ring witnesses
+
+Declaration: FerrandPushout.conductor_localized_product_criterion. Stable node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-localized-product-criterion.
+
+Let A and B be commutative rings, f:A→B their actual coefficient algebra map, S⊂A a submonoid, L an actual S-localization of A, and M an actual f(S)-localization of B. Let f_S:L→M be the native localized map, determined by f_S(a/t)=f(a)/f(t). No injectivity, reducedness, regularity of denominators or nonzero-localization hypothesis is imposed. For a∈A, t∈S and b∈B, f_S(a/t)·b belongs to im f_S if and only if some s∈S satisfies f(sa)b∈im f, where b on the left is its actual image in M.
+
+The native map and multiplication laws identify this product with the fraction f(a)b/f(t).
+
+Remove the denominator by conductor-localized-fraction-image, then use conductor-localized-image-criterion on the actual numerator f(a)b. Reassociate f(s)f(a)b as f(sa)b.
+
+## Recomputed conductor tests every original element
+
+Declaration: FerrandPushout.conductor_localized_mem_iff_images. Stable node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-localized-test-original-elements.
+
+Let A and B be commutative rings, f:A→B their actual coefficient algebra map, S⊂A a submonoid, L an actual S-localization of A, and M an actual f(S)-localization of B. Let f_S:L→M be the native localized map, determined by f_S(a/t)=f(a)/f(t). No injectivity, reducedness, regularity of denominators or nonzero-localization hypothesis is imposed. For r∈L, r belongs to f_S⁻¹(conductor(im f_S,M)) if and only if f_S(r)·b lies in im f_S for every original b∈B.
+
+Conductor membership immediately gives the stated tests on the actual images of original elements.
+
+For an arbitrary element of M, choose a fraction b/u. Choose s∈S representing u∈f(S). Write b/u as b·f_S(1/s). Multiply the test for b by this actual image inverse. This handles every element of M without injectivity.
+
+## Recomputed conductor for a finite spanning family
+
+Declaration: FerrandPushout.conductor_localization_finite_generators. Stable node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-localization-finite-generators.
+
+Let A and B be commutative rings, f:A→B their actual coefficient algebra map, S⊂A a submonoid, L an actual S-localization of A, and M an actual f(S)-localization of B. Let f_S:L→M be the native localized map, determined by f_S(a/t)=f(a)/f(t). No injectivity, reducedness, regularity of denominators or nonzero-localization hypothesis is imposed. Suppose g:Fin n→B spans B as an A-module, including n=0. Then the ideal obtained by extending f⁻¹(conductor(im f,B)) to L equals f_S⁻¹(conductor(im f_S,M)).
+
+For r=a/t, native extended-ideal membership is equivalent to existence of s∈S with sa in the original contracted conductor.
+
+Use conductor-localized-test-original-elements and conductor-localized-product-criterion. An original conductor multiplier supplies every original-element test.
+
+Conversely, apply the product criterion to each of the finitely many g_i. The incoming conductor-common-denominator lemma combines their witnesses, using the complementary products and the spanning-family criterion, to one s with sa in the conductor.
+
+Thus both native ideals have the same members. No generic tensor/flat-annihilator comparison, domain cancellation, or injectivity adapter is assumed.
+
+## Finite-algebra conductor agrees with its recomputation
+
+Declaration: FerrandPushout.conductor_localization_recomputed. Stable node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-localization-recomputed.
+
+Let A and B be commutative rings, f:A→B their actual coefficient algebra map, S⊂A a submonoid, L an actual S-localization of A, and M an actual f(S)-localization of B. Let f_S:L→M be the native localized map, determined by f_S(a/t)=f(a)/f(t). No injectivity, reducedness, regularity of denominators or nonzero-localization hypothesis is imposed. If B is finite as an A-module, the extension to L of the original contracted conductor equals the conductor contracted along the actual f_S. This generalizes the existing injective-map conductor-localization target without changing its contract.
+
+Obtain an actual finite spanning family using the pinned Module.Finite.exists_fin declaration.
+
+Apply conductor-localization-finite-generators. The existing conductor_localization signature is recovered as its injective-map special case; no use of injectivity is needed for equality.
+
+Keep the conductor-specific localization conclusion distinct from the requested generic flat-annihilator theorem and from the geometric affine restriction and IdealSheafData assembly.
+
+## Regression tests and native carriers
+
+ConductorLocalization.representative_product (compatibility): For arbitrary actual localization carriers, the product f_S(a/t)·b lies in the localized coefficient image exactly when some s∈S satisfies f(sa)b∈im f. This checks the actual numerator and denominator transport.
+
+ConductorLocalization.empty_zero_algebra (degenerate): For the actual noninjective coefficient map ℤ→Z/1, localizing at powers of2 gives equality of the extended and recomputed contracted conductors using the empty spanning family.
+
+ConductorLocalization.nilpotent_recomputed (non-example): For the diagonal Z/4-algebra Z/4×Z/4, coefficient2 is not in the original conductor; after localizing at powers of2 the extended and recomputed conductors agree and the recomputed ideal is the unit ideal of the actual zero localization.
+
+ConductorLocalization.cusp_recomputed (compatibility): For every field k and the actual cusp subalgebra A=k+X²k[X], invert its actual element X². The extended conductor agrees with the conductor recomputed along the actual localized inclusion, and the recomputed conductor is the unit ideal. The fixture consumes the incoming normalization spanning family{1,X}.
+
+The cusp is a test fixture built from the incoming native quadratic subalgebra and its proven spanning family; it is not an additional generic conductor hypothesis. The fixture is checked after the G.1 construction and creates no reversed stage dependency. The nilpotent example deliberately includes coefficient2 outside the original conductor, so localization is not misrepresented as an injective operation. The empty-family example tests an actually noninjective coefficient map rather than a formal zero-vector quantifier.
+
+## Source and library boundary
+
+The full displayed statement and proof of [Stacks tag07T8](https://stacks.math.columbia.edu/tag/07T8) were freshly read. [Ferrand, printed p554 and Lemma1.3 p557](https://www.numdam.org/item/BSMF_2003__131_4_553_0.pdf) supply the conductor/annihilator context, including the conductor of a possibly noninjective map. The actual representative equations and conductor-specific proofs here are explicit deductions using the pinned localization declarations; no new complete source extraction or erratum audit is claimed. The generic flat-annihilator theorem and its tensor adapters remain requested from SF.0.
+
+Each new baseline declaration was checked in its actual source at Mathlib082e2d3. The direct proof needs no generic flat module or tensor/localization comparison. The inherited alternative flat-base-change proof route stays recorded and does not silently become a new local proof assumption. All existing source contracts, including the78 Schröer route items and21 inherited source findings, retain their previous attribution and execution state.
+
+## Exact checked scope and remaining work
+
+The native proof artifact retains the entire authenticated incoming Mathlib prototype and its exact consumed Tau Ceti source excerpt. It appends the six proofs, four typed tests and the inherited localization signature as a proved specialization. The new/admitted headers match mechanically. In the inherited specialization, the target image submonoid is now explicit and the unused injectivity binder is named _hf; neither adjustment changes the proposition. The separate Mathlib-only admitted-signature projection is checked with admission warnings only. Full canonical Tau Ceti-importing file remains UNCOMPILED because no existing complete exact Tau Ceti f790474 build is available. This does not claim all inherited canonical signatures elaborate.
+
+Identify the native localized maps with actual affine basic-open restriction maps, prove restriction coherence, and establish the planned conductor IdealSheafData chart formula. A ring-localization equality is not that sheaf theorem. Quotient conductor subschemes, geometric/categorical squares, structure-sheaf exactness, finite-pushforward H0/H1, native P¹/Proj identifications, properness/projectivity, independent I₂ geometry and all genus-one family/model/classification work remain required. No original gap or request is erased; every implementationStatus is unchecked and all seven stages are partial.
+
+---
+
 # Finite conductor generators and a common denominator
 
 The finite spanning-family conductor criterion, product common-denominator equivalence and native fraction membership in its extended ideal retain arbitrary commutative bases, noninjective coefficient maps, empty families and nilpotent denominators. The recomputed localized-B conductor and global IdealSheafData restriction comparisons remain separate required identifications; no stage closes.
