@@ -1,3 +1,107 @@
+# Flat base change of annihilators
+
+For a finitely generated module M over a commutative ring R and a flat commutative R-algebra S, the full annihilator ideal extends to the annihilator of S⊗_R M. This is the generic SF.0 supplier requested by the conductor construction in Neron Models Part II. It uses native ideals and modules; it introduces no new carriers. The actual conductor quotient identification and sheaf comparisons remain the consumer’s work.
+
+The proof follows the kernel argument in [Stacks Lemma10.40.4](https://stacks.math.columbia.edu/tag/07T8). First identify ideal extension with the image of S⊗I under the native right-unit equivalence. The pinned flat-kernel theorem then translates membership in an extended kernel into vanishing of a pure tensor. For a finite generating family, the product action map has kernel Ann_R(M); tensor commutes with this finite product, and the base-changed generators span the base-changed module. Choosing a finite generating family gives the desired result. No Noetherian or faithful-flatness assumption appears.
+
+For a single element, the action map has source R and target the arbitrary module M, so no finiteness of M is needed. Without flatness, the forward ideal inclusion still follows from tensor induction. The finite ideal-intersection comparison uses the product of the actual quotient maps R→R/I_i. This is the finite ideal-extension form of the kernel argument in [Stacks Lemma10.39.2](https://stacks.math.columbia.edu/tag/0BBY); the more general arbitrary-flat-module IM formulation is not claimed here.
+
+The seven tests include the empty family, identity extension, zero module and zero element, and nonzero nilpotent annihilators over Z/4 and its flat diagonal product extension. For the quotient Z/4→Z/2, the annihilator of the element2 extends to zero, while its tensor image is zero and hence has unit annihilator. This is an explicit counterexample to dropping flatness in the element formula. It does not assert a counterexample for the whole finite-module formula.
+
+All29 incoming node objects and all14 existing API items are unchanged. The full suggested file is compiled, but its55 admitted signatures are planning evidence only. The separately retained native proof file proves the eight new statements and seven tests with no admissions; five inherited native results are re-audited. The packet remains partial. Historical checkpoint text follows the new strand and keeps its original attribution and boundaries.
+
+The generic flat-annihilator supplier now has eight declaration-sized nodes and seven typed boundary tests. Native proofs establish the finite-module identity, arbitrary-element identity, unconditional inclusion and finite ideal-intersection comparison using the pinned kernel and tensor APIs. The Neron Part II consumer must still identify the actual base-changed quotient algebra/module and conductor/sheaf maps; its multi-part SF.0 request remains open. All existing henselization, reserved-key, source-route and other-stage obligations remain unchanged.
+
+## Ideal extension as a tensor image
+
+**TauCeti.SchemeFoundations.FlatAnnihilator.ideal_map_eq_tensor_range** — For every ideal I of a commutative ring R and every commutative R-algebra S, I.map(algebraMap R S) is the image of S⊗I → S⊗R → S, using the actual subtype base-change map and heterobasic right-unit equivalence. No flatness is assumed.
+
+Hypotheses: R and S are commutative rings, including zero rings, in independent universes. M is an additive commutative group with its R-module structure. Additional assumptions are exactly those in the statement; the finite-index Lean forms use Fintype and DecidableEq.
+
+Prerequisites: mathlib:Ideal.map, mathlib:LinearMap.baseChange, mathlib:TensorProduct.AlgebraTensorModule.rid_tmul.
+
+Proof: Use Ideal.map_le_iff_le_comap. A generator r∈I is the image of 1⊗r. Conversely, tensor induction reduces membership of the image to closure of the mapped ideal under S-multiplication and addition.
+
+## Membership in an extended kernel
+
+**TauCeti.SchemeFoundations.FlatAnnihilator.mem_map_kernel_iff** — For flat commutative R-algebra S, any R-linear f:R→M and s∈S, s belongs to the extension of ker(f) if and only if s⊗f(1)=0 in S⊗_R M. M is any R-module.
+
+Hypotheses: R and S are commutative rings, including zero rings, in independent universes. M is an additive commutative group with its R-module structure. Additional assumptions are exactly those in the statement; the finite-index Lean forms use Fintype and DecidableEq.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/ideal-map-tensor-range, mathlib:Module.Flat.ker_lTensor_eq.
+
+Proof: The pinned flat-kernel theorem identifies ker(1⊗f) with the image of S⊗ker(f). The right-unit equivalence identifies s⊗1 with s; apply its injectivity to transport actual preimages.
+
+## Annihilator from a generating family
+
+**TauCeti.SchemeFoundations.FlatAnnihilator.annihilator_eq_generator_kernel** — For any R-module M and any family g:ι→M with span(range g)=top, Ann_R(M) is the kernel of R→Π_i M given by r↦(r•g_i)_i. The index type may be infinite.
+
+Hypotheses: R and S are commutative rings, including zero rings, in independent universes. M is an additive commutative group with its R-module structure. Additional assumptions are exactly those in the statement; the finite-index Lean forms use Fintype and DecidableEq.
+
+Prerequisites: mathlib:Module.annihilator, mathlib:Submodule.annihilator_top, mathlib:Submodule.mem_annihilator_span.
+
+Proof: Rewrite the annihilator of the whole module as the annihilator of the spanning submodule. Native span membership characterizes it by killing each generator, exactly membership in the kernel of the product action map.
+
+## Flat annihilator comparison on finite generators
+
+**TauCeti.SchemeFoundations.FlatAnnihilator.annihilator_flat_baseChange_generators** — For flat commutative R-algebra S and a finite family g:ι→M spanning M, the extension of Ann_R(M) is exactly Ann_S(S⊗_R M). The full ideals, including their nilpotent elements, are compared.
+
+Hypotheses: R and S are commutative rings, including zero rings, in independent universes. M is an additive commutative group with its R-module structure. Additional assumptions are exactly those in the statement; the finite-index Lean forms use Fintype and DecidableEq.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/flat-kernel-membership, SchemeAndStackFoundations:SF.0/annihilator-generator-kernel, mathlib:TensorProduct.piRight, mathlib:Submodule.baseChange_span, mathlib:Submodule.baseChange_top.
+
+Proof: The native baseChange_span and baseChange_top laws show that 1⊗g_i span S⊗M. Express both annihilators as kernels. The finite-product tensor equivalence sends s⊗(g_i)_i to (s⊗g_i)_i, so the flat-kernel criterion gives equality. This finite-product step is precisely where finiteness of the generating family is used.
+
+## Flat base change of annihilators
+
+**TauCeti.SchemeFoundations.FlatAnnihilator.annihilator_flat_baseChange** — For commutative rings R,S with an R-algebra structure on S, an R-module M that is finitely generated, and S flat over R, (Ann_R M).map(algebraMap R S)=Ann_S(S⊗_R M). No Noetherian, injectivity, faithful-flatness, reducedness or finite-presentation assumption on S is made.
+
+Hypotheses: R and S are commutative rings, including zero rings, in independent universes. M is an additive commutative group with its R-module structure. Additional assumptions are exactly those in the statement; the finite-index Lean forms use Fintype and DecidableEq.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/flat-annihilator-generators, mathlib:Module.Finite.exists_fin.
+
+Proof: Choose the finite generating family provided by the pinned Module.Finite.exists_fin theorem and apply the finite-generator comparison. The result is independent of that choice because both sides are the native annihilator ideals.
+
+## Flat base change of an element annihilator
+
+**TauCeti.SchemeFoundations.FlatAnnihilator.element_annihilator_flat_baseChange** — For any R-module M, m∈M and flat commutative R-algebra S, the extension of the annihilator of span_R{m} equals the annihilator of span_S{1⊗m} in S⊗_R M. M need not be finitely generated.
+
+Hypotheses: R and S are commutative rings, including zero rings, in independent universes. M is an additive commutative group with its R-module structure. Additional assumptions are exactly those in the statement; the finite-index Lean forms use Fintype and DecidableEq.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/flat-kernel-membership, mathlib:Submodule.annihilator_span_singleton.
+
+Proof: The annihilator of span{m} is the kernel of r↦r•m. Apply the flat-kernel membership criterion, then the native singleton-span criterion and scalar multiplication of pure tensors.
+
+## Unconditional annihilator inclusion
+
+**TauCeti.SchemeFoundations.FlatAnnihilator.annihilator_map_le_baseChange** — For every commutative R-algebra S and every R-module M, (Ann_R M).map(algebraMap R S) ≤ Ann_S(S⊗_R M). Neither flatness nor finite generation is needed for this inclusion.
+
+Hypotheses: R and S are commutative rings, including zero rings, in independent universes. M is an additive commutative group with its R-module structure. Additional assumptions are exactly those in the statement; the finite-index Lean forms use Fintype and DecidableEq.
+
+Prerequisites: mathlib:Ideal.map_le_iff_le_comap, mathlib:Module.annihilator.
+
+Proof: Reduce ideal extension to its R-generators. Tensor induction reduces annihilation to pure tensors. The balanced tensor relation transfers the scalar from S to M, where it acts as zero.
+
+## Flat extension of finite ideal intersections
+
+**TauCeti.SchemeFoundations.FlatAnnihilator.ideal_map_iInf_finite** — For flat commutative R-algebra S and any finite family of ideals I_i of R, extending their intersection to S equals the intersection of their extended ideals. The empty family is included, and the ideals need not be finitely generated.
+
+Hypotheses: R and S are commutative rings, including zero rings, in independent universes. M is an additive commutative group with its R-module structure. Additional assumptions are exactly those in the statement; the finite-index Lean forms use Fintype and DecidableEq.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/flat-kernel-membership, mathlib:TensorProduct.piRight, mathlib:Submodule.ker_mkQ, mathlib:Ideal.Quotient.eq_zero_iff_mem.
+
+Proof: Realize the intersection as the kernel of R→Π_i R/I_i using the actual quotient linear maps. Flat-kernel membership and the native tensor finite-product equivalence identify its vanishing with the coordinate conditions. Apply the same kernel criterion to each quotient map. This finite ideal-extension form is an authored generalization of the binary kernel argument in Stacks 0BBY, not a claim to prove its arbitrary flat-module IM formulation.
+
+## Typed boundary tests
+
+- **FlatAnnihilatorChecked.empty_family**: The intersection over Fin 0 maps to the unit ideal, including zero rings.
+- **FlatAnnihilatorChecked.identity_extension**: For every finitely generated R-module M, tensoring with R preserves its annihilator under the actual scalar extension.
+- **FlatAnnihilatorChecked.zero_module**: For flat R→S, the annihilator of S⊗_R the zero submodule of R is the unit ideal.
+- **FlatAnnihilatorChecked.zero_element**: The annihilator of the span of 1⊗0 is the unit ideal after flat extension.
+- **FlatAnnihilatorChecked.nonreduced_element**: Over Z/4, the nonzero element 2 belongs to the annihilator of the span of 1⊗2 under the identity extension.
+- **FlatAnnihilatorChecked.nonreduced_diagonal**: Under the actual flat diagonal Z/4→Z/4×Z/4, the nonzero element (2,2) kills the span of 1⊗2. The flat instance is synthesized from the native product module.
+- **FlatAnnihilatorChecked.nonflat_element_failure**: For the actual quotient algebra Z/4→Z/2 and the element 2 in the module Z/4, the extended element annihilator is zero, whereas the annihilator of span{1⊗2} is the unit ideal, and these ideals differ. This tests the element formula, not a failure of the finite-whole-module formula.
+
 # Scheme, stack, cohomology and intersection foundations
 
 Partial continuation by Codex — `codex-J6LwjP`, 2 October 2026. Refs #642. Inherits the `codex-a71f92` finite-data checkpoint.
