@@ -7501,3 +7501,351 @@ Source: [Stacks, Lemma 8.11.8](https://stacks.math.columbia.edu/tag/0CJY); the c
 The prescribed-band coefficient comparison now has an actual native natural isomorphism and a full sheaf isomorphism into any existing packaging of the precise compatible-centre presheaf. Its transported forward map is exactly c_b and its inverse is the established compatible sectionwise inverse. All base-arrow/fibre-object evaluation equations determine the sheaf isomorphism uniquely. No global gerbe object, terminal object or neutrality is assumed. This discharges the fixed-band full-sheaf-comparison sub-obligation only. Establish the comparison with the actual SF1 descended slice sheaf and instantiate the connected/disconnected point sites, restriction-chain site and nonneutral O(1) root gerbe before intrinsic-band closure. The stronger general prestack-sheaf receipt is historical and is not rerun here; no stage or reserved-key closure is claimed.
 
 All implementation statuses remain unchecked. The final signatures and tests are admitted under PROTOCOL §13. An independent checked native prototype supplies the actual maps and proofs. The full suggested file remains uncompiled because the existing pinned build lacks its inherited TauCeti cohomology artifact; no library build or stub is introduced. All historical full-source and wider module/cohomology receipts remain attributed to their original agents.
+
+
+## Constant point-site tests for the intrinsic band
+
+Let C be any category and D an existing category. Write K(C,D) for the existing constant Cat-valued functor, promoted to a pseudofunctor on the locally discrete opposite category. All its pullback functors are identity functors. The suggested aliases constantDiagram and Fibre only abbreviate these imported native carriers; they introduce no stack, descent or groupoid carrier.
+
+For a type I and commutative group G, let D be the existing product of the discrete category on I and the one-object groupoid of G. Its objects are (i,star). A morphism preserves i and carries a group element, with composition in the exact SingleObj convention. Thus a profile a:I to G gives a categorical centre whose component is (identity,a(i)); its inverse uses the pointwise inverse profile. These are actual invertible natural transformations of the identity functor.
+
+The profile group identifies with the actual centre-unit group of D and hence with every group of compatible central sections of K(C,D). The inverse first takes the centre value at the identity slice arrow, then reads its group component at every (i,star). Compatibility with that identity slice arrow proves that every section has exactly these constant values on all smaller slice arrows. This argument does not select a terminal base object or assume a topology.
+
+On the point site Discrete(PUnit) with bottom topology, every covering sieve is maximal. The existing canonical descent functor is fully faithful by evaluation at the identity index and essentially surjective by the actual native descent isomorphism with that index. This proves the native stack property of these point diagrams. A single component gives a gerbe. Two components fail local isomorphism, even when every inertia group is trivial.
+
+For G equal to the multiplicative form of Z/3Z, the single-component diagram has exactly three compatible central sections and evaluation is bijective. The two-component diagram has nine and evaluation at false forgets the true coordinate. The profile with coefficients zero at false and one at true is a nonidentity actual central section whose false evaluation is the identity automorphism. For the single-component trivial group the section type has one element. The groupoid and all slice coordinates are retained in these tests.
+
+These native fixture deductions follow the gerbe conditions of [Stacks Definition 8.11.1](https://stacks.math.columbia.edu/tag/06NZ) and the abelian-centre argument of [Lemma 8.11.8](https://stacks.math.columbia.edu/tag/0CJY). They do not supply the general D0 torsor-stack comparison, SF1 descended-slice comparison, nonabelian S3 example, nonconstant restriction-chain fixtures or nonneutral root-gerbe example.
+
+### Declarations, API and tests
+
+Constant centre sections on every slice — TauCeti.AlgebraicGeometry.BandFixtures.constantSection
+
+For the native constant Cat-valued pseudofunctor with fibre D, send z in the units of the categorical centre of D to the compatible central section with value z at every arrow V to U. This is actual centre-unit data, including its inverse.
+
+Hypotheses: C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences. D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat. Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity.
+
+Proof: Use the existing constant functor and its promotion to a pseudofunctor; every restriction functor is the identity of D. The family with constant value z satisfies the inherited all-arrow compatibility equation by the identity functor. Subgroup operations remain the native ones.
+
+API TauCeti.AlgebraicGeometry.BandFixtures.constantSection: For the native constant Cat-valued pseudofunctor with fibre D, send z in the units of the categorical centre of D to the compatible central section with value z at every arrow V to U. This is actual centre-unit data, including its inverse.
+
+API TauCeti.AlgebraicGeometry.BandFixtures.constantSection_val: At every f:V to U, the value of constantSection(U,z) is exactly z.
+
+API TauCeti.AlgebraicGeometry.BandFixtures.constantSection_restrict: Restriction of constantSection(U,z) along f:V to U is exactly constantSection(V,z).
+
+Test ConstantCentreTests.one: The identity centre unit gives the identity compatible section.
+
+Test ConstantCentreTests.multiply: Multiplying the input centre units multiplies the actual compatible sections in the same order.
+
+Test ConstantCentreTests.allArrows: Every slice arrow component is exactly the given full centre unit.
+
+
+Every slice component retains the given centre unit — TauCeti.AlgebraicGeometry.BandFixtures.constantSection_val
+
+At every f:V to U, the value of constantSection(U,z) is exactly z.
+
+Hypotheses: C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences. D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat. Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity.
+
+Proof: Unfold the constant family and the inherited value projection.
+
+
+All constant-diagram sections come from one centre unit — TauCeti.AlgebraicGeometry.BandFixtures.constantSectionsEquiv
+
+For every U, the units of the categorical centre of D are multiplicatively equivalent to the compatible central sections of the native constant diagram over U. The inverse evaluates the whole centre unit at the identity arrow of U.
+
+Hypotheses: C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences. D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat. Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity.
+
+Proof: Define the inverse by the centre-unit value at the identity arrow. The centre-unit round trip is definitional. For the section round trip, use compatibility from the identity arrow of U to each f:V to U. Constant pullback acts identically on all fibre objects. Apply inherited central-section extensionality at every V,f,x; multiplication is pointwise. No topology, stack property or terminal base object is used.
+
+API TauCeti.AlgebraicGeometry.BandFixtures.constantSectionsEquiv: For every U, the units of the categorical centre of D are multiplicatively equivalent to the compatible central sections of the native constant diagram over U. The inverse evaluates the whole centre unit at the identity arrow of U.
+
+API TauCeti.AlgebraicGeometry.BandFixtures.constantSectionsEquiv_apply: The forward map of constantSectionsEquiv(U) is exactly constantSection(U).
+
+API TauCeti.AlgebraicGeometry.BandFixtures.constantSectionsEquiv_symm_apply: The inverse of constantSectionsEquiv(U) sends s to its actual centre-unit value at the identity arrow of U.
+
+API TauCeti.AlgebraicGeometry.BandFixtures.constantSectionsEquiv_restrict: For every f:V to U, restricting the section corresponding to z over U gives the section corresponding to that same z over V.
+
+Test ConstantEquivTests.centreRoundTrip: The forward map followed by the actual inverse recovers every centre unit.
+
+Test ConstantEquivTests.sectionRoundTrip: The actual inverse followed by the forward map recovers every compatible section.
+
+Test ConstantEquivTests.restriction: Every base-arrow restriction retains the same centre unit.
+
+
+Constant centre equivalence commutes with restriction — TauCeti.AlgebraicGeometry.BandFixtures.constantSectionsEquiv_restrict
+
+For every f:V to U, restricting the section corresponding to z over U gives the section corresponding to that same z over V.
+
+Hypotheses: C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences. D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat. Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity.
+
+Proof: Unfold the constant family and native restriction reindexing.
+
+
+One central coefficient for each fibre component — TauCeti.AlgebraicGeometry.BandFixtures.componentCenter
+
+For a commutative group G and type I, use the existing product category of the discrete category on I and the native one-object category of G. A profile a:I to G determines a natural endomorphism of its identity functor with component (identity,a(i)) at (i,star).
+
+Hypotheses: C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences. D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat. Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity.
+
+Proof: Use the native discrete and product category carriers; no groupoid or centre is redefined. A morphism in the discrete factor implies equality of component labels. After substituting this equality, naturality is exactly commutativity of G, with the native reversed-composition convention of SingleObj.
+
+API TauCeti.AlgebraicGeometry.BandFixtures.componentCenter: For a commutative group G and type I, use the existing product category of the discrete category on I and the native one-object category of G. A profile a:I to G determines a natural endomorphism of its identity functor with component (identity,a(i)) at (i,star).
+
+API TauCeti.AlgebraicGeometry.BandFixtures.componentCenter_app: At an arbitrary object x, componentCenter(a) is the pair of the identity discrete morphism and a at the actual component label of x.
+
+API TauCeti.AlgebraicGeometry.BandFixtures.componentCenter_naturality: For every fibre morphism f:x to y, f followed by the centre component at y equals the centre component at x followed by f.
+
+Test ComponentCentreTests.component: At canonical object i the centre endomorphism is the actual pair (identity,a(i)).
+
+Test ComponentCentreTests.unit: The constant identity profile has identity component at every canonical object.
+
+Test ComponentCentreTests.naturality: Every actual fibre morphism commutes with the constructed centre components.
+
+
+Componentwise inverse gives an actual centre unit — TauCeti.AlgebraicGeometry.BandFixtures.componentCenterUnit
+
+The profile centre has a unit whose value is componentCenter(a) and whose inverse is componentCenter(i maps to a(i) inverse). Both multiplication identities hold in the actual categorical centre.
+
+Hypotheses: C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences. D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat. Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity.
+
+Proof: Use pointwise group inversion for the inverse natural transformation. Compare components of the two composites by categorical-centre extensionality. Discrete morphisms are unique; the group components are the two group inverse identities.
+
+API TauCeti.AlgebraicGeometry.BandFixtures.componentCenterUnit: The profile centre has a unit whose value is componentCenter(a) and whose inverse is componentCenter(i maps to a(i) inverse). Both multiplication identities hold in the actual categorical centre.
+
+API TauCeti.AlgebraicGeometry.BandFixtures.componentCenterUnit_val: The value of componentCenterUnit(a) is exactly componentCenter(a).
+
+API TauCeti.AlgebraicGeometry.BandFixtures.componentCenterUnit_inv: The inverse value of componentCenterUnit(a) is exactly componentCenter of the pointwise inverse profile.
+
+Test ComponentUnitTests.value: The unit value is the actual profile centre.
+
+Test ComponentUnitTests.inverse: The unit inverse value uses pointwise group inverses.
+
+Test ComponentUnitTests.roundTrip: Multiplying the actual value and inverse gives the identity categorical centre.
+
+
+The centre units are exactly component profiles — TauCeti.AlgebraicGeometry.BandFixtures.componentCenterEquiv
+
+The pointwise profile group I to G is multiplicatively equivalent to the units of the categorical centre of the discrete-component product groupoid. Its inverse reads the group component at each canonical object (i,star).
+
+Hypotheses: C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences. D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat. Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity.
+
+Proof: Read a centre unit at every canonical object to recover the profile. The profile round trip is definitional. For the centre-unit round trip, compare natural-transformation components; the discrete component is unique and every SingleObj object equals star. Centre multiplication composes morphisms in the native order; the profile construction has exactly the resulting pointwise multiplication.
+
+API TauCeti.AlgebraicGeometry.BandFixtures.componentCenterEquiv: The pointwise profile group I to G is multiplicatively equivalent to the units of the categorical centre of the discrete-component product groupoid. Its inverse reads the group component at each canonical object (i,star).
+
+API TauCeti.AlgebraicGeometry.BandFixtures.componentCenterEquiv_apply: The forward map of componentCenterEquiv is exactly componentCenterUnit.
+
+API TauCeti.AlgebraicGeometry.BandFixtures.componentCenterEquiv_symm_apply: For any centre unit z and label i, the inverse profile at i is the group component of z at the actual canonical object (i,star).
+
+Test ComponentEquivTests.coefficientRoundTrip: The actual inverse recovers every profile from its constructed centre unit.
+
+Test ComponentEquivTests.centreRoundTrip: Reconstructing the profile of any actual centre unit recovers that unit.
+
+Test ComponentEquivTests.inertiaCoordinates: At every canonical fibre object the actual centre-unit hom has group component a(i).
+
+
+Compatible sections of a constant component groupoid — TauCeti.AlgebraicGeometry.BandFixtures.componentSectionsEquiv
+
+For every base category C and U in C, the profile group I to G is multiplicatively equivalent to the actual compatible central sections of the constant diagram with fibre Discrete(I) times SingleObj(G). This retains every slice arrow, fibre object and inverse.
+
+Hypotheses: C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences. D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat. Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity.
+
+Proof: Compose the proved profile-to-centre-unit equivalence with the proved constant-diagram central-section equivalence. Use the native multiplicative equivalence composition; both inverse round trips and multiplication follow from these two genuine equivalences.
+
+API TauCeti.AlgebraicGeometry.BandFixtures.componentSectionsEquiv: For every base category C and U in C, the profile group I to G is multiplicatively equivalent to the actual compatible central sections of the constant diagram with fibre Discrete(I) times SingleObj(G). This retains every slice arrow, fibre object and inverse.
+
+API TauCeti.AlgebraicGeometry.BandFixtures.componentSectionsEquiv_eval: For every f:V to U and component i, the group component of actual evaluation of the section associated to a at (i,star) is a(i).
+
+API TauCeti.AlgebraicGeometry.BandFixtures.componentSectionsEquiv_restrict: For every f:V to U, restriction of the section associated to a over U equals the section associated to the same profile over V.
+
+API TauCeti.AlgebraicGeometry.BandFixtures.componentSectionsEquiv_symm_apply: For any compatible section s over U and label i, its inverse profile coefficient is the group component of its centre-unit value at the identity arrow of U, evaluated at the canonical fibre object (i,star).
+
+Test ComponentSectionTests.evaluation: At every base arrow and canonical fibre object, actual band evaluation has group component a(i).
+
+Test ComponentSectionTests.restriction: Every actual base-arrow restriction of a profile section retains the same profile.
+
+Test ComponentSectionTests.roundTrip: The actual inverse recovers the entire profile from its compatible section.
+
+Test BandPointTests.stack: The two-component C3 point diagram satisfies the native stack predicate for the bottom topology.
+
+Test BandPointTests.gerbe: The connected C3 point diagram satisfies the native gerbe predicate for the bottom topology.
+
+Test BandPointTests.generator: In the connected C3 point gerbe, evaluation of the profile with additive coefficient 1 has actual group hom component 1 in Z/3Z.
+
+Test BandPointTests.trivialDiscreteTwoObjects: The two-component diagram with trivial inertia is a native stack on the point site and fails the native gerbe predicate.
+
+Test BandPointTests.disconnectedWitness: In the two-component C3 point diagram there exists a nonidentity compatible section whose actual evaluation at the false component is the identity automorphism.
+
+Test BandPointTests.connected: In the connected C3 point fixture, evaluation at the canonical object is bijective onto its actual automorphisms.
+
+Test BandPointTests.disconnected: In the two-component C3 point fixture, evaluation at the false component is not injective.
+
+Test BandPointTests.notGerbe: The two-component C3 point diagram fails the native gerbe predicate.
+
+Test BandPointTests.connectedCardinality: The actual compatible-section type of the connected C3 point diagram has cardinality three.
+
+Test BandPointTests.disconnectedCardinality: The actual compatible-section type of the two-component C3 point diagram has cardinality nine.
+
+Test BandPointTests.terminalFibre: The actual compatible-section type of the one-component trivial-inertia point diagram has cardinality one.
+
+
+Actual band evaluation reads the selected component — TauCeti.AlgebraicGeometry.BandFixtures.componentSectionsEquiv_eval
+
+For every f:V to U and component i, the group component of actual evaluation of the section associated to a at (i,star) is a(i).
+
+Hypotheses: C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences. D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat. Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity.
+
+Proof: Unfold the two actual equivalences and the inherited centre-unit-to-object-automorphism evaluation.
+
+
+Component profiles are unchanged by constant restriction — TauCeti.AlgebraicGeometry.BandFixtures.componentSectionsEquiv_restrict
+
+For every f:V to U, restriction of the section associated to a over U equals the section associated to the same profile over V.
+
+Hypotheses: C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences. D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat. Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity.
+
+Proof: Unfold the composed equivalence and constant restriction; all slice values are unchanged.
+
+
+One component gives bijective band evaluation — TauCeti.AlgebraicGeometry.BandFixtures.component_eval_bijective
+
+If I is subsingleton and i is an actual member of I, evaluation at (i,star) and the identity arrow of U is a bijection from compatible central sections to the actual automorphism group of that object.
+
+Hypotheses: C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences. D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat. Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity.
+
+Proof: For injectivity write both sections as actual profiles via the proved equivalence. Equality of evaluated automorphisms implies equality of the profile values at i; subsingleton labels imply equality at every label. For surjectivity take the constant profile equal to the group component of the given actual automorphism. Its evaluation has the same hom: the discrete component is unique and the group component is preserved. An isomorphism is determined by its hom.
+
+
+Two components prevent detection by one evaluation — TauCeti.AlgebraicGeometry.BandFixtures.component_eval_not_injective
+
+For the two-component groupoid and g in G unequal to the identity, evaluation at the false component is not injective. Profiles (identity,g) and (identity,identity) give distinct actual compatible sections with equal evaluation there.
+
+Hypotheses: C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences. D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat. Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity.
+
+Proof: Construct the two actual sections using the profile equivalence. Their false-component evaluation is the same automorphism. If injectivity identified the sections, the profile equivalence would identify their true components, contradicting g unequal to identity.
+
+
+Different discrete components cannot be isomorphic — TauCeti.AlgebraicGeometry.BandFixtures.fibre_no_cross_iso
+
+There is no isomorphism from the false-component canonical object to the true-component canonical object of the native product groupoid.
+
+Hypotheses: C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences. D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat. Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity.
+
+Proof: The first component of any proposed isomorphism hom would be a discrete morphism from false to true, and therefore an impossible equality of those two labels.
+
+
+The constant disconnected diagram is not a gerbe — TauCeti.AlgebraicGeometry.BandFixtures.constant_two_components_not_gerbe
+
+For every actual U of any base category, the native constant diagram with two discrete components is not a gerbe for the bottom topology, whose only covering sieve is the maximal sieve.
+
+Hypotheses: C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences. D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat. Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity.
+
+Proof: Assume the native gerbe condition and apply its local-isomorphism field to the two canonical objects over U. The covering sieve is maximal. Its identity arrow belongs to it, so the local-isomorphism field supplies an isomorphism between these objects. Constant restriction leaves both unchanged; apply the cross-component obstruction. No unproved stack assertion is used.
+
+
+The component diagram is a native stack on the point site — TauCeti.AlgebraicGeometry.BandFixtures.point_isStack
+
+For the one-object discrete point category with bottom topology, the native constant component diagram satisfies the existing pseudofunctor stack predicate. This is an instance proof for these fixtures, not a new stack or descent carrier.
+
+Hypotheses: C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences. D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat. Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity.
+
+Proof: Every covering sieve is maximal. Its native arrow-index category has just one object: all point objects and point morphisms are equal, and the sieve-membership proof is irrelevant. Retain the identity-arrow index. The actual canonical descent functor is fully faithful: recover each descent morphism at the identity index, and use equality of indices for its map-preimage and preimage-map laws. For an actual native descent object choose its value at that index. Native DescentData.isoMk compares the canonical object with it by equality transport at every index. Its compatibility reduces to the native self-transition identity. These are actual full, faithful and essentially-surjective instances of the canonical functor. Invoke the pinned stack constructor.
+
+
+The connected constant point fixture is a gerbe — TauCeti.AlgebraicGeometry.BandFixtures.point_connected_gerbe
+
+On the one-object discrete point site, the native diagram with the single component PUnit and group G is a gerbe: it is a stack in groupoids, has an object, and all objects are isomorphic.
+
+Hypotheses: C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences. D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat. Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity.
+
+Proof: Use the checked native point stack instance. Every morphism in each factor is invertible, so use the native product isomorphism criterion. Use the maximal covering sieve for local nonemptiness and local isomorphism. The canonical object exists and the object type is subsingleton, so equality transport supplies the required isomorphisms.
+
+
+The constant-section constructor respects reindexing — TauCeti.AlgebraicGeometry.BandFixtures.constantSection_restrict
+
+Restriction of constantSection(U,z) along f:V to U is exactly constantSection(V,z).
+
+Hypotheses: C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences. D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat. Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity.
+
+Proof: Unfold the actual constant family and reindexing.
+
+
+The constant equivalence has its specified forward map — TauCeti.AlgebraicGeometry.BandFixtures.constantSectionsEquiv_apply
+
+The forward map of constantSectionsEquiv(U) is exactly constantSection(U).
+
+Hypotheses: C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences. D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat. Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity.
+
+Proof: Unfold the native multiplicative equivalence.
+
+
+The constant inverse reads the whole identity value — TauCeti.AlgebraicGeometry.BandFixtures.constantSectionsEquiv_symm_apply
+
+The inverse of constantSectionsEquiv(U) sends s to its actual centre-unit value at the identity arrow of U.
+
+Hypotheses: C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences. D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat. Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity.
+
+Proof: Unfold the specified inverse; no chosen fibre object is involved.
+
+
+The component centre has its exact endomorphism — TauCeti.AlgebraicGeometry.BandFixtures.componentCenter_app
+
+At an arbitrary object x, componentCenter(a) is the pair of the identity discrete morphism and a at the actual component label of x.
+
+Hypotheses: C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences. D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat. Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity.
+
+Proof: Unfold the native natural-transformation component.
+
+
+The component centre commutes with every fibre morphism — TauCeti.AlgebraicGeometry.BandFixtures.componentCenter_naturality
+
+For every fibre morphism f:x to y, f followed by the centre component at y equals the centre component at x followed by f.
+
+Hypotheses: C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences. D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat. Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity.
+
+Proof: Use the actual naturality field of the constructed categorical centre, with the native categorical order.
+
+
+The component unit retains its centre — TauCeti.AlgebraicGeometry.BandFixtures.componentCenterUnit_val
+
+The value of componentCenterUnit(a) is exactly componentCenter(a).
+
+Hypotheses: C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences. D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat. Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity.
+
+Proof: Unfold the actual Units value field.
+
+
+The component unit retains its coordinate inverse — TauCeti.AlgebraicGeometry.BandFixtures.componentCenterUnit_inv
+
+The inverse value of componentCenterUnit(a) is exactly componentCenter of the pointwise inverse profile.
+
+Hypotheses: C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences. D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat. Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity.
+
+Proof: Unfold the actual Units inverse field.
+
+
+The component equivalence retains its unit constructor — TauCeti.AlgebraicGeometry.BandFixtures.componentCenterEquiv_apply
+
+The forward map of componentCenterEquiv is exactly componentCenterUnit.
+
+Hypotheses: C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences. D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat. Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity.
+
+Proof: Unfold the specified forward map.
+
+
+The component inverse evaluates canonical objects — TauCeti.AlgebraicGeometry.BandFixtures.componentCenterEquiv_symm_apply
+
+For any centre unit z and label i, the inverse profile at i is the group component of z at the actual canonical object (i,star).
+
+Hypotheses: C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences. D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat. Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity.
+
+Proof: Unfold the inverse map; retain the complete centre-unit carrier.
+
+
+The section inverse reads all component coefficients — TauCeti.AlgebraicGeometry.BandFixtures.componentSectionsEquiv_symm_apply
+
+For any compatible section s over U and label i, its inverse profile coefficient is the group component of its centre-unit value at the identity arrow of U, evaluated at the canonical fibre object (i,star).
+
+Hypotheses: C is an actual category in object universe u and morphism universe v; U is an actual object when a section over U is mentioned. No topology or terminal object is required for constant-section equivalences. D is an actual category. For component fixtures I is any type and G is a commutative group. The fibre is the native product Discrete(I) times SingleObj(G); the constant pseudofunctor is the pinned constant functor promoted to Cat. Point-site stack and positive gerbe statements specialize C to Discrete(PUnit) with bottom Grothendieck topology. The positive gerbe uses I=PUnit. Disconnected obstructions use I=Bool; noninjectivity also assumes an actual g unequal to identity.
+
+Proof: Unfold the inverse of the composed native multiplicative equivalence and its two specified inverses.
