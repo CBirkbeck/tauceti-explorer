@@ -1,3 +1,439 @@
+# Source restriction on continuous nonabelian cohomology
+
+
+Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the actual gauge-orbit pointed set, not a group.
+
+For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required.
+
+Precomposition along a continuous source homomorphism defines the cocycle map. The pulled-back action makes its cocycle identity well-typed, and gauge transformation commutes with it using the same coefficient element. Hence it descends to the existing native orbit quotient. Restriction is contravariant in the source and commutes with coefficient maps; invariant restriction is the actual inclusion of fixed subgroups.
+
+Surjectivity of the source homomorphism lets one recover both cocycles and gauge witnesses by choosing a preimage of each element. Without surjectivity, restriction may kill a nonneutral class: the discrete S₂→S₃ transposition cocycle becomes trivial after precomposition with the constant-one source map. No commutative coefficient group or finite/discrete hypothesis is used in the general maps.
+
+Mathlib already supplies the pulled-back automorphism action and its joint continuity: use MulDistribMulAction.compHom and MulAction.continuousSMul_compHom. The compatibility test constructs that action directly. No private action class is added.
+
+[Kim2009](https://arxiv.org/pdf/math/0510441v4), §4 Comments II, printed p.25 motivates restriction and local-condition inverse images. The inherited citation said §3; the current packet corrects that locator. [Kim2005](https://arxiv.org/pdf/math/0409456v1), §1 pp.5–7 supplies the cocycle/gauge convention. General source laws and coefficient squares are authored deductions from those definitions, with no geometric representability claim.
+
+The existing [Mathlib PR31613](https://github.com/leanprover-community/mathlib4/pull/31613) has algebraic H0/Z1/H1 and coefficient maps in additive notation. The continuous multiplicative interface extends the inherited carriers; no external code is copied. The [bundled restriction discussion](https://leanprover-community.github.io/archive/stream/113489-new-members/topic/Restriction.20of.20a.20bundled.20function.20to.20a.20subset.html) supports composing native homomorphisms.
+
+## Declaration contracts
+
+
+### Restriction along a continuous source homomorphism
+
+
+`AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-restriction` — `TauCeti.NonabelianCohomology.Z1.res`.
+
+Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. Construct res_φ:Z¹(G,U)→Z¹(H,U) by c↦c∘φ.
+
+Hypotheses: No compactness, discreteness, finite coefficient group, commutativity or geometric realization is assumed. H¹ and gauge assertions require jointly continuous actions on topological coefficient groups.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles`, `mathlib:Continuous.comp`, `mathlib:map_mul`.
+
+Proof: Compose the actual continuous function with φ. The homomorphism identity and action compatibility turn the G-cocycle identity into the H-cocycle identity.
+
+Acceptance: Use the actual continuous-cocycle subtype, native fixed subgroup and existing gauge-orbit quotient. Preserve multiplication order. No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
+
+API `TauCeti.NonabelianCohomology.Z1.res_apply` (projection): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. For h∈H, res_φ(c)(h)=c(φ(h)).
+
+API `TauCeti.NonabelianCohomology.Z1.res_one` (functoriality): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. res_φ(1)=1.
+
+API `TauCeti.NonabelianCohomology.Z1.res_id` (functoriality): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. res_id is the identity on Z¹(G,U).
+
+API `TauCeti.NonabelianCohomology.Z1.res_comp` (functoriality): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. For continuous ψ:K→H with k·u=ψ(k)·u, res_(φ∘ψ)=res_ψ∘res_φ, using the composite action compatibility.
+
+API `TauCeti.NonabelianCohomology.Z1.res_injective` (characterisation): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. If φ is surjective, res_φ is injective on actual cocycles.
+
+API `TauCeti.NonabelianCohomology.Z1.res_subgroup` (compatibility): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. For every subgroup N≤G with induced topology and action, res along N.subtype equals the existing Z1.restrict N. No closedness is needed for this cocycle equality.
+
+API `TauCeti.NonabelianCohomology.Z1.res_smul` (functoriality): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. With jointly continuous actions on topological U, res_φ(x·c)=x·res_φ(c) for x∈U.
+
+API `TauCeti.NonabelianCohomology.Z1.res_map` (compatibility): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. For a continuous G-equivariant f:U→V and pulled-back H-actions on U,V, res_φ∘map_f=map_f∘res_φ on cocycles. The H-equivariance of f follows from G-equivariance and the two action equalities.
+
+Test `sourceCocyclesTests.value` (computation): For every compatible φ,c,h, res_φ(c)(h)=c(φ(h)).
+
+Test `sourceCocyclesTests.identity` (compatibility): For every actual cocycle c, restriction along id_G sends c to c.
+
+Test `sourceCocyclesTests.constantSource` (degenerate): If H acts through the constant-one source homomorphism H→G, then res_1(c) is the neutral cocycle for every c.
+
+Test `sourceCocyclesTests.subgroup` (compatibility): For every N≤G, general restriction along N.subtype agrees with the existing subgroup cocycle restriction on every c.
+
+### Values of source restriction
+
+
+`AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-value` — `TauCeti.NonabelianCohomology.Z1.res_apply`.
+
+Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. For h∈H, res_φ(c)(h)=c(φ(h)).
+
+Hypotheses: No compactness, discreteness, finite coefficient group, commutativity or geometric realization is assumed. H¹ and gauge assertions require jointly continuous actions on topological coefficient groups.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-restriction`.
+
+Proof: Evaluate the defining precomposition.
+
+Acceptance: Use the actual continuous-cocycle subtype, native fixed subgroup and existing gauge-orbit quotient. Preserve multiplication order. No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
+
+### The neutral restricted cocycle
+
+
+`AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-neutral` — `TauCeti.NonabelianCohomology.Z1.res_one`.
+
+Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. res_φ(1)=1.
+
+Hypotheses: No compactness, discreteness, finite coefficient group, commutativity or geometric realization is assumed. H¹ and gauge assertions require jointly continuous actions on topological coefficient groups.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-restriction`.
+
+Proof: Precomposing the constant-one function leaves it constant one.
+
+Acceptance: Use the actual continuous-cocycle subtype, native fixed subgroup and existing gauge-orbit quotient. Preserve multiplication order. No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
+
+### Identity source restriction on cocycles
+
+
+`AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-identity` — `TauCeti.NonabelianCohomology.Z1.res_id`.
+
+Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. res_id is the identity on Z¹(G,U).
+
+Hypotheses: No compactness, discreteness, finite coefficient group, commutativity or geometric realization is assumed. H¹ and gauge assertions require jointly continuous actions on topological coefficient groups.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-restriction`, `mathlib:MonoidHom.id`.
+
+Proof: Function and subtype extensionality reduce to c(id(g))=c(g).
+
+Acceptance: Use the actual continuous-cocycle subtype, native fixed subgroup and existing gauge-orbit quotient. Preserve multiplication order. No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
+
+### Contravariant composition on cocycles
+
+
+`AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-composition` — `TauCeti.NonabelianCohomology.Z1.res_comp`.
+
+Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. For continuous ψ:K→H with k·u=ψ(k)·u, res_(φ∘ψ)=res_ψ∘res_φ, using the composite action compatibility.
+
+Hypotheses: No compactness, discreteness, finite coefficient group, commutativity or geometric realization is assumed. H¹ and gauge assertions require jointly continuous actions on topological coefficient groups.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-restriction`, `mathlib:MonoidHom.comp`, `mathlib:Continuous.comp`.
+
+Proof: Evaluate both functions at k∈K: each has value c(φ(ψ(k))).
+
+Acceptance: Use the actual continuous-cocycle subtype, native fixed subgroup and existing gauge-orbit quotient. Preserve multiplication order. No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
+
+### Surjective sources detect cocycles
+
+
+`AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-surjective-injection` — `TauCeti.NonabelianCohomology.Z1.res_injective`.
+
+Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. If φ is surjective, res_φ is injective on actual cocycles.
+
+Hypotheses: No compactness, discreteness, finite coefficient group, commutativity or geometric realization is assumed. H¹ and gauge assertions require jointly continuous actions on topological coefficient groups.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-value`.
+
+Proof: Choose an H-preimage of each g∈G and evaluate equality of restricted cocycles there.
+
+Acceptance: Use the actual continuous-cocycle subtype, native fixed subgroup and existing gauge-orbit quotient. Preserve multiplication order. No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
+
+### Agreement with subgroup cocycle restriction
+
+
+`AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-subgroup` — `TauCeti.NonabelianCohomology.Z1.res_subgroup`.
+
+Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. For every subgroup N≤G with induced topology and action, res along N.subtype equals the existing Z1.restrict N. No closedness is needed for this cocycle equality.
+
+Hypotheses: No compactness, discreteness, finite coefficient group, commutativity or geometric realization is assumed. H¹ and gauge assertions require jointly continuous actions on topological coefficient groups.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-restriction`, `AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-restriction`, `mathlib:Subgroup.subtype`.
+
+Proof: Both maps evaluate c on the underlying element of N.
+
+Acceptance: Use the actual continuous-cocycle subtype, native fixed subgroup and existing gauge-orbit quotient. Preserve multiplication order. No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
+
+### Gauge compatibility of source restriction
+
+
+`AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-gauge` — `TauCeti.NonabelianCohomology.Z1.res_smul`.
+
+Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. With jointly continuous actions on topological U, res_φ(x·c)=x·res_φ(c) for x∈U.
+
+Hypotheses: No compactness, discreteness, finite coefficient group, commutativity or geometric realization is assumed. H¹ and gauge assertions require jointly continuous actions on topological coefficient groups.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-value`, `AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1`.
+
+Proof: Expand x c(φ(h)) (φ(h)·x)⁻¹ and replace φ(h)·x by h·x.
+
+Acceptance: Use the actual continuous-cocycle subtype, native fixed subgroup and existing gauge-orbit quotient. Preserve multiplication order. No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
+
+### Restriction on nonabelian cohomology
+
+
+`AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-restriction` — `TauCeti.NonabelianCohomology.H1.res`.
+
+Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the actual gauge-orbit pointed set, not a group. Construct the pointed-set map res_φ:H¹(G,U)→H¹(H,U) from actual cocycle precomposition.
+
+Hypotheses: No compactness, discreteness, finite coefficient group, commutativity or geometric realization is assumed. H¹ and gauge assertions require jointly continuous actions on topological coefficient groups.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-gauge`, `AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1`, `AnabelianGeometryAndNonabelianChabauty:NC.3/h1-gauge-class`, `mathlib:MulDistribMulAction.compHom`, `mathlib:MulAction.continuousSMul_compHom`.
+
+Proof: Use native Quotient.lift on gauge orbits. The same coefficient element x witnesses equivalence after precomposition.
+
+Acceptance: Use the actual continuous-cocycle subtype, native fixed subgroup and existing gauge-orbit quotient. Preserve multiplication order. No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
+
+API `TauCeti.NonabelianCohomology.H1.res_mk` (projection): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the actual gauge-orbit pointed set, not a group. res_φ([c])=[c∘φ].
+
+API `TauCeti.NonabelianCohomology.H1.res_one` (functoriality): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the actual gauge-orbit pointed set, not a group. res_φ(1)=1 in H¹(H,U).
+
+API `TauCeti.NonabelianCohomology.H1.res_id` (functoriality): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the actual gauge-orbit pointed set, not a group. res_id is the identity on H¹(G,U).
+
+API `TauCeti.NonabelianCohomology.H1.res_comp` (functoriality): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the actual gauge-orbit pointed set, not a group. For continuous ψ:K→H with compatible jointly continuous action, res_(φ∘ψ)=res_ψ∘res_φ.
+
+API `TauCeti.NonabelianCohomology.H1.res_injective` (characterisation): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the actual gauge-orbit pointed set, not a group. If φ is surjective, res_φ is injective on H¹(G,U).
+
+API `TauCeti.NonabelianCohomology.H1.res_subgroup` (compatibility): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the actual gauge-orbit pointed set, not a group. For every subgroup N≤G, res along N.subtype equals the existing H1.restrict N, with induced topology and action.
+
+API `TauCeti.NonabelianCohomology.H1.res_map` (compatibility): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the actual gauge-orbit pointed set, not a group. For a continuous G-equivariant f:U→V between topological groups with jointly continuous compatible actions, res_φ∘map_f=map_f∘res_φ on H¹.
+
+Test `sourceClassesTests.one` (degenerate): For every compatible continuous φ, H1.res φ sends the neutral class to the neutral class.
+
+Test `sourceClassesTests.gauge` (characterisation): For every x∈U and c∈Z¹(G,U), res_φ([x·c])=[res_φ(c)].
+
+Test `sourceClassesTests.subgroup` (compatibility): For every N≤G and a∈H¹(G,U), general restriction along N.subtype equals the existing H1.restrict N a.
+
+Test `sourceClassesTests.surjectiveReflection` (characterisation): If φ:H→G is surjective, then res_φ(a)=1 iff a=1.
+
+Test `sourceClassesTests.noninjective` (non-example): Let G=S₂ and U=S₃ be discrete with trivial action, and c send the nonidentity permutation to (01). Its class is nonneutral, but restriction along the constant-one homomorphism G→G sends it to the neutral class. General source restriction is not asserted injective.
+
+Test `sourceClassesTests.nativePullbackAction` (compatibility): For every continuous φ:H→G, using native MulDistribMulAction.compHom and MulAction.continuousSMul_compHom to pull back a jointly continuous G-action, H1.res φ sends the neutral class to neutral.
+
+### Restriction on a cocycle class
+
+
+`AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-representative` — `TauCeti.NonabelianCohomology.H1.res_mk`.
+
+Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the actual gauge-orbit pointed set, not a group. res_φ([c])=[c∘φ].
+
+Hypotheses: No compactness, discreteness, finite coefficient group, commutativity or geometric realization is assumed. H¹ and gauge assertions require jointly continuous actions on topological coefficient groups.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-restriction`, `AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-restriction`.
+
+Proof: Evaluate the native quotient lift on a representative.
+
+Acceptance: Use the actual continuous-cocycle subtype, native fixed subgroup and existing gauge-orbit quotient. Preserve multiplication order. No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
+
+### The neutral restricted class
+
+
+`AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-neutral` — `TauCeti.NonabelianCohomology.H1.res_one`.
+
+Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the actual gauge-orbit pointed set, not a group. res_φ(1)=1 in H¹(H,U).
+
+Hypotheses: No compactness, discreteness, finite coefficient group, commutativity or geometric realization is assumed. H¹ and gauge assertions require jointly continuous actions on topological coefficient groups.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-representative`, `AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-neutral`.
+
+Proof: Use the representative of the neutral class and the constant-one cocycle formula.
+
+Acceptance: Use the actual continuous-cocycle subtype, native fixed subgroup and existing gauge-orbit quotient. Preserve multiplication order. No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
+
+### Identity restriction on cohomology
+
+
+`AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-identity` — `TauCeti.NonabelianCohomology.H1.res_id`.
+
+Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the actual gauge-orbit pointed set, not a group. res_id is the identity on H¹(G,U).
+
+Hypotheses: No compactness, discreteness, finite coefficient group, commutativity or geometric realization is assumed. H¹ and gauge assertions require jointly continuous actions on topological coefficient groups.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-representative`, `AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-identity`, `AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1`.
+
+Proof: Use class-map surjectivity and the cocycle identity restriction.
+
+Acceptance: Use the actual continuous-cocycle subtype, native fixed subgroup and existing gauge-orbit quotient. Preserve multiplication order. No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
+
+### Contravariant composition on cohomology
+
+
+`AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-composition` — `TauCeti.NonabelianCohomology.H1.res_comp`.
+
+Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the actual gauge-orbit pointed set, not a group. For continuous ψ:K→H with compatible jointly continuous action, res_(φ∘ψ)=res_ψ∘res_φ.
+
+Hypotheses: No compactness, discreteness, finite coefficient group, commutativity or geometric realization is assumed. H¹ and gauge assertions require jointly continuous actions on topological coefficient groups.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-representative`, `AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-composition`, `AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1`.
+
+Proof: Choose a cocycle representative and apply the cocycle composition law.
+
+Acceptance: Use the actual continuous-cocycle subtype, native fixed subgroup and existing gauge-orbit quotient. Preserve multiplication order. No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
+
+### Surjective sources detect cohomology classes
+
+
+`AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-surjective-injection` — `TauCeti.NonabelianCohomology.H1.res_injective`.
+
+Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the actual gauge-orbit pointed set, not a group. If φ is surjective, res_φ is injective on H¹(G,U).
+
+Hypotheses: No compactness, discreteness, finite coefficient group, commutativity or geometric realization is assumed. H¹ and gauge assertions require jointly continuous actions on topological coefficient groups.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-representative`, `AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-gauge`, `AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-surjective-injection`, `AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1`.
+
+Proof: Choose representative cocycles. Equality after restriction gives a gauge witness x∈U. Gauge compatibility and surjective-source injectivity on cocycles give x·c=d before restriction.
+
+Acceptance: Use the actual continuous-cocycle subtype, native fixed subgroup and existing gauge-orbit quotient. Preserve multiplication order. No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
+
+### Agreement with subgroup cohomology restriction
+
+
+`AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-subgroup` — `TauCeti.NonabelianCohomology.H1.res_subgroup`.
+
+Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the actual gauge-orbit pointed set, not a group. For every subgroup N≤G, res along N.subtype equals the existing H1.restrict N, with induced topology and action.
+
+Hypotheses: No compactness, discreteness, finite coefficient group, commutativity or geometric realization is assumed. H¹ and gauge assertions require jointly continuous actions on topological coefficient groups.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-representative`, `AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-subgroup`, `AnabelianGeometryAndNonabelianChabauty:NC.3/h1-restriction`.
+
+Proof: Reduce to a cocycle representative; both quotient maps use the same actual restricted cocycle.
+
+Acceptance: Use the actual continuous-cocycle subtype, native fixed subgroup and existing gauge-orbit quotient. Preserve multiplication order. No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
+
+### Coefficient change commutes with source restriction
+
+
+`AnabelianGeometryAndNonabelianChabauty:NC.3/source-coefficient-cocycle-square` — `TauCeti.NonabelianCohomology.Z1.res_map`.
+
+Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. For a continuous G-equivariant f:U→V and pulled-back H-actions on U,V, res_φ∘map_f=map_f∘res_φ on cocycles. The H-equivariance of f follows from G-equivariance and the two action equalities.
+
+Hypotheses: No compactness, discreteness, finite coefficient group, commutativity or geometric realization is assumed. H¹ and gauge assertions require jointly continuous actions on topological coefficient groups.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-restriction`, `AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-map`.
+
+Proof: Both maps have value f(c(φ(h))) at h; rewrite the action equalities to provide the induced H-equivariance proof.
+
+Acceptance: Use the actual continuous-cocycle subtype, native fixed subgroup and existing gauge-orbit quotient. Preserve multiplication order. No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
+
+### The source and coefficient square on cohomology
+
+
+`AnabelianGeometryAndNonabelianChabauty:NC.3/source-coefficient-h1-square` — `TauCeti.NonabelianCohomology.H1.res_map`.
+
+Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the actual gauge-orbit pointed set, not a group. For a continuous G-equivariant f:U→V between topological groups with jointly continuous compatible actions, res_φ∘map_f=map_f∘res_φ on H¹.
+
+Hypotheses: No compactness, discreteness, finite coefficient group, commutativity or geometric realization is assumed. H¹ and gauge assertions require jointly continuous actions on topological coefficient groups.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-representative`, `AnabelianGeometryAndNonabelianChabauty:NC.3/source-coefficient-cocycle-square`, `AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map`, `AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1`.
+
+Proof: Choose a cocycle representative and use the commuting cocycle square; quotient lifting preserves equality.
+
+Acceptance: Use the actual continuous-cocycle subtype, native fixed subgroup and existing gauge-orbit quotient. Preserve multiplication order. No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
+
+### Restriction of invariant subgroups
+
+
+`AnabelianGeometryAndNonabelianChabauty:NC.3/source-invariant-restriction` — `TauCeti.NonabelianCohomology.H0.res`.
+
+For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required. Construct the homomorphism res_φ:U^G→U^H sending an invariant element to the same element of U.
+
+Hypotheses: For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles`, `mathlib:FixedPoints.subgroup`.
+
+Proof: The G-fixed element is fixed by φ(h), hence by h. Multiplication and identity are inherited from the common ambient group.
+
+Acceptance: Use the actual continuous-cocycle subtype, native fixed subgroup and existing gauge-orbit quotient. Preserve multiplication order. No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
+
+API `TauCeti.NonabelianCohomology.H0.res_apply` (projection): For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required. The underlying U-element of res_φ(x) is x.
+
+API `TauCeti.NonabelianCohomology.H0.res_id` (functoriality): For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required. Restriction along id_G is the identity homomorphism of U^G.
+
+API `TauCeti.NonabelianCohomology.H0.res_comp` (functoriality): For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required. For ψ:K→H with compatible action, res_(φ∘ψ)=res_ψ∘res_φ as group homomorphisms.
+
+API `TauCeti.NonabelianCohomology.H0.res_injective` (characterisation): For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required. The map res_φ:U^G→U^H is injective for every φ, without a surjectivity hypothesis.
+
+API `TauCeti.NonabelianCohomology.H0.res_map` (compatibility): For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required. For G-equivariant f:U→V and compatible H-actions, res_φ∘map_f=map_f∘res_φ as group homomorphisms between native fixed subgroups.
+
+Test `sourceInvariantsTests.one` (degenerate): For every compatible φ, invariant restriction sends 1 to 1.
+
+Test `sourceInvariantsTests.identity` (compatibility): For every x∈U^G, restriction along id_G returns x.
+
+Test `sourceInvariantsTests.value` (computation): For every compatible φ and x∈U^G, the underlying U-element of res_φ(x) is exactly x.
+
+### Underlying invariant restriction
+
+
+`AnabelianGeometryAndNonabelianChabauty:NC.3/source-invariant-value` — `TauCeti.NonabelianCohomology.H0.res_apply`.
+
+For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required. The underlying U-element of res_φ(x) is x.
+
+Hypotheses: For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/source-invariant-restriction`.
+
+Proof: Unfold the inclusion between actual fixed subgroups.
+
+Acceptance: Use the actual continuous-cocycle subtype, native fixed subgroup and existing gauge-orbit quotient. Preserve multiplication order. No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
+
+### Identity restriction of invariants
+
+
+`AnabelianGeometryAndNonabelianChabauty:NC.3/source-invariant-identity` — `TauCeti.NonabelianCohomology.H0.res_id`.
+
+For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required. Restriction along id_G is the identity homomorphism of U^G.
+
+Hypotheses: For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/source-invariant-restriction`, `mathlib:MonoidHom.id`.
+
+Proof: The underlying function is identity, and proof fields agree by proof irrelevance.
+
+Acceptance: Use the actual continuous-cocycle subtype, native fixed subgroup and existing gauge-orbit quotient. Preserve multiplication order. No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
+
+### Composition of invariant restrictions
+
+
+`AnabelianGeometryAndNonabelianChabauty:NC.3/source-invariant-composition` — `TauCeti.NonabelianCohomology.H0.res_comp`.
+
+For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required. For ψ:K→H with compatible action, res_(φ∘ψ)=res_ψ∘res_φ as group homomorphisms.
+
+Hypotheses: For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/source-invariant-restriction`, `mathlib:MonoidHom.comp`.
+
+Proof: Both homomorphisms preserve the underlying element of U.
+
+Acceptance: Use the actual continuous-cocycle subtype, native fixed subgroup and existing gauge-orbit quotient. Preserve multiplication order. No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
+
+### Invariant restriction is injective
+
+
+`AnabelianGeometryAndNonabelianChabauty:NC.3/source-invariant-injection` — `TauCeti.NonabelianCohomology.H0.res_injective`.
+
+For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required. The map res_φ:U^G→U^H is injective for every φ, without a surjectivity hypothesis.
+
+Hypotheses: For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/source-invariant-value`.
+
+Proof: Take underlying U-values of an equality and apply subtype extensionality.
+
+Acceptance: Use the actual continuous-cocycle subtype, native fixed subgroup and existing gauge-orbit quotient. Preserve multiplication order. No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
+
+### The source and coefficient square on invariants
+
+
+`AnabelianGeometryAndNonabelianChabauty:NC.3/source-coefficient-invariant-square` — `TauCeti.NonabelianCohomology.H0.res_map`.
+
+For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required. For G-equivariant f:U→V and compatible H-actions, res_φ∘map_f=map_f∘res_φ as group homomorphisms between native fixed subgroups.
+
+Hypotheses: For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required.
+
+Prerequisites: `AnabelianGeometryAndNonabelianChabauty:NC.3/source-invariant-restriction`, `AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-invariant-map`, `mathlib:MonoidHom.comp`.
+
+Proof: Both homomorphisms send x to f(x); H-equivariance follows by rewriting the compatible actions.
+
+Acceptance: Use the actual continuous-cocycle subtype, native fixed subgroup and existing gauge-orbit quotient. Preserve multiplication order. No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
+
+---
+
+
+The preceding reader follows unchanged. The source-restriction statements above supersede only its claim that the abstract source-variable functoriality is still missing; its additive, geometric, local-condition and supplier boundaries remain.
+
 ## Current NC.3 checkpoint: equivariant coefficient maps
 
 Codex — codex-J6LwjP, 2026-10-02, issue #1020. The current packet contains 112 unchecked nodes: 3 definitions, 20 constructions, 56 lemmas, 27 theorems and 6 comparisons. It has 125 raw APIs (113 required definition/construction APIs), 107 tests (96 required definition/construction tests), 123 baseline entries and 11 planets. All seven stages stay partial, with the same nine gaps and sixteen supplier requests.
