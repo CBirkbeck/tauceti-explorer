@@ -15,7 +15,7 @@
     "FunctionFieldArithmeticPartII:GC.5",
     "FunctionFieldArithmeticPartII:GC.6"
   ],
-  "summary": "Partial roadmap with 388 declaration-sized nodes. Arbitrary-section rational-character LEFT coaction now has the explicit heterobasic coefficient square, identity/composition and unchanged-weight formulas, and one-way preservation of universal coinvariance. New conditional proof bodies are checked against incoming admitted coordinate/coaction contracts. All incoming source routes, general root-stack scope, nonreduced fibres and geometric/sheaf boundaries remain; no implementation or stage is certified closed. Separate native evidence proves the existing rational-character/infinite unity-root coordinate block; three computation lemmas expose natural representatives and factorial levels. No geometric or stage closure is asserted. The ten arbitrary-section rational LEFT coaction contracts now have separate admission-free exact-Mathlib proof evidence, and the ten coefficient contracts of PR5978 are replayed without their former admitted inputs. The defining-degree boundary and three additional tests are specified. Two inherited tensor-power precedence errors are corrected only in the Lean prototypes, leaving all mathematical contracts unchanged. Next complete full exact-pin Tau typing, positive-index/higher-universe transport, convolution-point identification, coherent root-object reindexing, affine Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons. These algebraic certificates do not identify all coinvariants with A. Preserve all eight gaps, thirteen requests and both source routes.",
+  "summary": "Partial roadmap with 388 declaration-sized nodes. Arbitrary-section rational-character LEFT coaction now has the explicit heterobasic coefficient square, identity/composition and unchanged-weight formulas, and one-way preservation of universal coinvariance. New conditional proof bodies are checked against incoming admitted coordinate/coaction contracts. All incoming source routes, general root-stack scope, nonreduced fibres and geometric/sheaf boundaries remain; no implementation or stage is certified closed. Separate native evidence proves the existing rational-character/infinite unity-root coordinate block; three computation lemmas expose natural representatives and factorial levels. No geometric or stage closure is asserted. The ten arbitrary-section rational LEFT coaction contracts now have separate admission-free exact-Mathlib proof evidence, and the ten coefficient contracts of PR5978 are replayed without their former admitted inputs. The defining-degree boundary and three additional tests are specified. Two inherited tensor-power precedence errors are corrected only in the Lean prototypes, leaving all mathematical contracts unchanged. Next complete full exact-pin Tau typing, positive-index/higher-universe transport, convolution-point identification, coherent root-object reindexing, affine Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons. These algebraic certificates do not identify all coinvariants with A. Preserve all eight gaps, thirteen requests and both source routes. The actual finite coaction equalizer is identified with the coefficient algebra through diagonal/zero-row coordinates, uniformly in wild characteristic and with arbitrary nonreduced coefficients.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1725,6 +1725,69 @@
         "module": "Mathlib/Topology/Instances/AddCircle/Defs.lean",
         "provides": "The additive-circle quotient map preserves natural scalar multiples, allowing character-power normalization.",
         "checked": "Actual complete declaration and ambient hypotheses personally read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex — codex-a71f92. Generic coefficient and tensor infrastructure is imported, not replanned."
+      },
+      {
+        "ref": "mathlib:TensorProduct.tmul_smul",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Defs.lean",
+        "provides": "Move a compatible scalar in the second factor to the actual tensor product.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; generic baseline fact imported, not replanned."
+      },
+      {
+        "ref": "mathlib:TensorProduct.tmul_sum",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Defs.lean",
+        "provides": "The actual tensor map preserves finite sums in the second factor.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; generic baseline fact imported, not replanned."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.one_def",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
+        "provides": "The group-algebra unit is the character basis element at the identity with coefficient one.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; generic baseline fact imported, not replanned."
+      },
+      {
+        "ref": "mathlib:AlgHom.equalizer",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Algebra/Subalgebra/Basic.lean",
+        "provides": "The native subalgebra equalizer of two algebra maps, with carrier given by their equality.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; generic baseline fact imported, not replanned."
+      },
+      {
+        "ref": "mathlib:AlgHom.mem_equalizer",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Algebra/Subalgebra/Basic.lean",
+        "provides": "Membership is exactly equality of the two algebra-map values.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; generic baseline fact imported, not replanned."
+      },
+      {
+        "ref": "mathlib:AlgHom.codRestrict",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Algebra/Subalgebra/Basic.lean",
+        "provides": "Restrict an algebra map to a native subalgebra after proving membership.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; generic baseline fact imported, not replanned."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.of.injective_of_monic_of_degree_pos",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "The native coefficient ring map of a positive-degree monic quotient is injective.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; generic baseline fact imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Polynomial.degree_X_pow_sub_C",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Degree/Operations.lean",
+        "provides": "Over a nontrivial commutative ring and positive n, X^n−C(f) has degree n.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; generic baseline fact imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Algebra.ofId",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Algebra/Hom.lean",
+        "provides": "The native scalar algebra homomorphism from the coefficient algebra.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; generic baseline fact imported, not replanned."
       }
     ]
   },
@@ -1964,6 +2027,18 @@
         "Fresh browser-extracted full printed pp.14–16 of Talpo–Vistoli v2 §3.1: grading action, Lemmas3.7/3.12 and Proposition3.10 proofs, Definition3.8 and Corollary3.13. No whole-paper or geometric quotient certification."
       ],
       "edition": "Codex checkpoint2026-10-03; motivating Talpo–Vistoli arXiv1410.1164v2, complete printed14–16 only"
+    },
+    {
+      "id": "AFFINE-INVARIANTS-J6LwjP",
+      "title": "Talpo–Vistoli finite character grading and native invariant algebra",
+      "authors": "Mattia Talpo and Angelo Vistoli; root-specific algebraic derivation here",
+      "edition": "arXiv:1410.1164v2, selected printed pp. 14–16 inspected 3 October 2026",
+      "url": "https://arxiv.org/pdf/1410.1164v2",
+      "sha256": "92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2",
+      "accessDate": "2026-10-03",
+      "readSections": [
+        "Printed pp. 14–16, selected finite character grading, Lemma 3.7 proof and Corollary 3.13 finite chart; no fresh whole-paper read"
+      ]
     }
   ],
   "nodes": [
@@ -2600,12 +2675,14 @@
         "FunctionFieldArithmeticPartII:RS.1/base-change",
         "SchemeAndStackFoundations:SF.1",
         "FunctionFieldArithmeticPartII:RS.1/affine-invariants",
-        "AlgebraicModuliForArithmeticGeometry:R09.5"
+        "AlgebraicModuliForArithmeticGeometry:R09.5",
+        "FunctionFieldArithmeticPartII:RS.1/affine-invariant-algebra-equivalence"
       ],
       "proofSteps": [
         "Apply the affine-invariants theorem to the actual Hopf coaction, in arbitrary characteristic. The native monic basis also gives faithful coefficient inclusion in the nontrivial case.",
         "Apply the supplier’s diagonalizable quotient coarse-space theorem, with its universal property; glue across trivializations.",
-        "Use base change to interpret the stack-base statement relatively."
+        "Use base change to interpret the stack-base statement relatively.",
+        "Identify the affine universal coaction equalizer with A by the native coefficient equivalence before consuming the separate ROOT-COARSE geometric universal-property input; this algebra computation does not establish that supplier theorem."
       ],
       "acceptance": [
         "At n=1 over BG the projection is identity BG; the absolute coarse space remains the coarse space of BG."
@@ -6374,6 +6451,26 @@
           "name": "TauCeti.RootStack.affineCoaction.unique",
           "role": "universal-property",
           "statement": "An A-algebra map ψ:B→H⊗_A B with ψ(t)=e_1⊗t equals δ."
+        },
+        {
+          "name": "TauCeti.RootStack.affineCoaction.coordinates_diagonal",
+          "role": "characterisation",
+          "statement": "Let b=Σ_{i∈Fin n} c_i t^i and use the existing native target-coordinate equivalence C on A[Z/n]⊗_A A[t]/(t^n−f). For q=(r,s), C(δ(b))_q equals c_s if r=s and zero otherwise."
+        },
+        {
+          "name": "TauCeti.RootStack.affineCoaction.coordinates_constant_row",
+          "role": "characterisation",
+          "statement": "With b and C as above, C(1⊗b)_(r,s) equals c_s if r=0 and zero otherwise."
+        },
+        {
+          "name": "TauCeti.RootStack.affineCoaction.invariants_sum_iff",
+          "role": "characterisation",
+          "statement": "For b=Σ_{i∈Fin n} c_i t^i, δ(b)=1⊗b if and only if c_i=0 for every i≠0."
+        },
+        {
+          "name": "TauCeti.RootStack.affineCoaction.invariants_unique",
+          "role": "characterisation",
+          "statement": "Every universally coinvariant b∈A[t]/(t^n−f) has a unique coefficient a∈A with b=algebraMap(a), over every commutative base and positive exponent."
         }
       ],
       "tests": [
@@ -6391,6 +6488,31 @@
           "name": "TauCeti.RootStack.affineCoaction.test_characteristic_p",
           "kind": "non-example",
           "statement": "For a field k of prime characteristic p, n=p and f=0, t≠0 and δ(t)≠1⊗t, while every ζ∈rootsOfUnity(p,k) fixes t. Field-valued point invariance is therefore not scheme invariance."
+        },
+        {
+          "name": "AffineInvariantTests.wild_root",
+          "kind": "non-example",
+          "statement": "Over A=F₂, f=0 and n=2, the actual nilpotent root is not universally coinvariant; the nonzero character coordinate survives although n=0 in A."
+        },
+        {
+          "name": "AffineInvariantTests.nilpotent_weight",
+          "kind": "non-example",
+          "statement": "Over A=Z/4, f=0 and n=2, the nonzero coefficient 2 times the actual root is not coinvariant. Coefficient torsion and nilpotence do not erase the universal character weight."
+        },
+        {
+          "name": "AffineInvariantTests.unique_nilpotent_constant",
+          "kind": "compatibility",
+          "statement": "Over A=Z/4, f=0 and n=2, the coefficient image of 2 has exactly one coefficient representative in A."
+        },
+        {
+          "name": "AffineInvariantTests.zero_ring",
+          "kind": "degenerate",
+          "statement": "For a subsingleton coefficient ring A and any positive n, every root-chart element is coinvariant and has exactly one coefficient representative."
+        },
+        {
+          "name": "AffineInvariantTests.exponent_one",
+          "kind": "degenerate",
+          "statement": "For every A and f, each element of A[t]/(t−f) has exactly one coefficient representative."
         }
       ],
       "uses": [
@@ -6405,6 +6527,10 @@
         {
           "where": "FunctionFieldArithmeticPartII:RS.0/native-point-action",
           "how": "Compares specialization with the native Hopf point equivalence and affineAction."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.1/affine-invariant-algebra-equivalence",
+          "how": "The universal tensor coefficient criterion gives the surjective coefficient map to the native equalizer; uniqueness uses existing monic coefficient injectivity."
         }
       ],
       "planet": {
@@ -6657,13 +6783,15 @@
         "mathlib:Polynomial.natDegree_X_pow_sub_C",
         "mathlib:AdjoinRoot.powerBasis'",
         "mathlib:MonoidAlgebra.basis",
-        "mathlib:Module.Basis.tensorProduct"
+        "mathlib:Module.Basis.tensorProduct",
+        "FunctionFieldArithmeticPartII:RS.1/affine-invariant-coefficient-criterion"
       ],
       "proofSteps": [
         "Separate the subsingleton coefficient-ring case: its unital algebra B and tensor algebra are subsingleton, so both assertions hold with a=0. This avoids invoking the polynomial degree theorem without its nontriviality hypothesis.",
         "For nontrivial A, Xⁿ−f is monic and has nat-degree n. Import the native monic AdjoinRoot power basis and reindex along that equality to write b uniquely as ∑_{0≤i<n} a_i t^i. The generic quotient basis is already library mathematics.",
         "Use the weight lemma and the tensor-product basis of the native group-algebra basis and root power basis. In δ(b), a_i occurs at (i mod n,i); in 1⊗b it occurs at (0,i). For 0<i<n these index pairs differ, forcing a_i=0. This remains valid with torsion or nilpotents; it never divides by n or averages over field-valued points.",
-        "Only a_0 remains, giving b=algebraMap(a_0). Conversely the A-algebra-map law and tensor scalar relation give δ(algebraMap(a))=1⊗algebraMap(a)."
+        "Only a_0 remains, giving b=algebraMap(a_0). Conversely the A-algebra-map law and tensor scalar relation give δ(algebraMap(a))=1⊗algebraMap(a).",
+        "Apply the separate native diagonal/zero-row coefficient criterion to the existing monic power-basis expansion, and use the coefficient algebra map for the reverse direction. The exact-pin native proof retains the separate zero-ring branch."
       ],
       "acceptance": [
         "At n=1 every element is a coefficient. At f=0 the nilpotent root powers remain independent. In characteristic p, field-point invariance is strictly weaker than δ-invariance."
@@ -23613,6 +23741,219 @@
       ],
       "implementationStatus": "unchecked",
       "declarationName": "TauCeti.RootStack.factorialQZCoaction.root_degree"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-coaction-diagonal-coordinates",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "Diagonal character coordinates of the coaction",
+      "declarationName": "TauCeti.RootStack.affineCoaction.coordinates_diagonal",
+      "statement": "Let b=Σ_{i∈Fin n} c_i t^i and use the existing native target-coordinate equivalence C on A[Z/n]⊗_A A[t]/(t^n−f). For q=(r,s), C(δ(b))_q equals c_s if r=s and zero otherwise.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A and n≥1. No reducedness, nonzerodivisor, finiteness, Noetherianity or invertibility-of-n assumption is imposed."
+      ],
+      "proofSteps": [
+        "Use the existing weight formula δ(t^i)=e_i⊗t^i and linearity over A.",
+        "The existing target-coordinate monomial formula places each c_i at (i,i). Evaluate the finite sum at (r,s); only i=s can survive, and it survives exactly when r=s."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-coaction-weight",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinate-equivalence",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-basis-coordinate",
+        "mathlib:TensorProduct.tmul_smul"
+      ],
+      "acceptance": [
+        "Retain the zero ring and wild characteristic; character weights are detected universally, not through field-valued points."
+      ],
+      "sources": [
+        {
+          "sourceId": "AFFINE-INVARIANTS-J6LwjP",
+          "locator": "Printed pp. 14–16: character grading before Lemma 3.7, its degree-zero proof and Corollary 3.13 finite chart, P=N",
+          "excerpt": "the part of degree 0",
+          "match": "The finite arbitrary-section calculation is derived here from the same character grading, using the existing native monic quotient and tensor bases; it is not attributed as a verbatim general theorem of the paper."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-coaction-constant-row-coordinates",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "Zero character row of the invariant comparison",
+      "declarationName": "TauCeti.RootStack.affineCoaction.coordinates_constant_row",
+      "statement": "With b and C as above, C(1⊗b)_(r,s) equals c_s if r=0 and zero otherwise.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A and n≥1. No reducedness, nonzerodivisor, finiteness, Noetherianity or invertibility-of-n assumption is imposed."
+      ],
+      "proofSteps": [
+        "Write 1=e_0 in the native character algebra. Move each scalar through the actual tensor product and apply the existing coordinate monomial formula at (0,i).",
+        "Evaluate the finite sum; only i=s contributes, and its character index must be zero."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinate-equivalence",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-basis-coordinate",
+        "mathlib:TensorProduct.tmul_smul",
+        "mathlib:TensorProduct.tmul_sum",
+        "mathlib:MonoidAlgebra.one_def"
+      ],
+      "acceptance": [
+        "Retain the zero ring and wild characteristic; character weights are detected universally, not through field-valued points."
+      ],
+      "sources": [
+        {
+          "sourceId": "AFFINE-INVARIANTS-J6LwjP",
+          "locator": "Printed pp. 14–16: character grading before Lemma 3.7, its degree-zero proof and Corollary 3.13 finite chart, P=N",
+          "excerpt": "the part of degree 0",
+          "match": "The finite arbitrary-section calculation is derived here from the same character grading, using the existing native monic quotient and tensor bases; it is not attributed as a verbatim general theorem of the paper."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.1/affine-invariant-coefficient-criterion",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.1",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.1"
+      ],
+      "kind": "lemma",
+      "title": "Vanishing of the positive-degree invariant coefficients",
+      "declarationName": "TauCeti.RootStack.affineCoaction.invariants_sum_iff",
+      "statement": "For b=Σ_{i∈Fin n} c_i t^i, δ(b)=1⊗b if and only if c_i=0 for every i≠0.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A and n≥1. No reducedness, nonzerodivisor, finiteness, Noetherianity or invertibility-of-n assumption is imposed."
+      ],
+      "proofSteps": [
+        "If the tensors agree, compare their native coordinates at (i,i) for every nonzero i: the diagonal coefficient is c_i while the zero character row is zero.",
+        "Conversely all positive coefficients vanish; the diagonal and zero-row formulas agree at every coordinate, and injectivity of the existing coordinate equivalence identifies the tensors."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-coaction-diagonal-coordinates",
+        "FunctionFieldArithmeticPartII:RS.0/affine-coaction-constant-row-coordinates",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinate-equivalence"
+      ],
+      "acceptance": [
+        "Retain the zero ring and wild characteristic; character weights are detected universally, not through field-valued points."
+      ],
+      "sources": [
+        {
+          "sourceId": "AFFINE-INVARIANTS-J6LwjP",
+          "locator": "Printed pp. 14–16: character grading before Lemma 3.7, its degree-zero proof and Corollary 3.13 finite chart, P=N",
+          "excerpt": "the part of degree 0",
+          "match": "The finite arbitrary-section calculation is derived here from the same character grading, using the existing native monic quotient and tensor bases; it is not attributed as a verbatim general theorem of the paper."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS1",
+        "namespace": "TauCeti.RootStack"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.1/affine-invariant-algebra-equivalence",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.1",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.1"
+      ],
+      "kind": "construction",
+      "title": "Coefficient equivalence with the affine invariant algebra",
+      "declarationName": "TauCeti.RootStack.affineInvariantEquiv",
+      "statement": "Let I be the native AlgHom.equalizer of δ:A[t]/(t^n−f)→A[Z/n]⊗_A A[t]/(t^n−f) and the right inclusion b↦1⊗b. Construct the A-algebra equivalence A≃I induced by the actual coefficient map.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A and n≥1. No reducedness, nonzerodivisor, finiteness, Noetherianity or invertibility-of-n assumption is imposed."
+      ],
+      "proofSteps": [
+        "Use the native algebra-map equalizer and codomain restriction; coefficient coinvariance proves membership. This imports generic equalizer theory rather than constructing a second invariant predicate.",
+        "The existing affine-invariants theorem supplies surjectivity. The existing positive-degree monic AdjoinRoot coefficient-injectivity theorem supplies injectivity, with the zero-ring branch handled directly.",
+        "Apply the native bijective algebra-hom equivalence constructor. Its forward value is the coefficient inclusion and its inverse is the unique coefficient of the same invariant element."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.1/affine-invariants",
+        "mathlib:AlgHom.equalizer",
+        "mathlib:AlgHom.mem_equalizer",
+        "mathlib:AlgHom.codRestrict",
+        "mathlib:AlgEquiv.ofBijective",
+        "mathlib:AdjoinRoot.of.injective_of_monic_of_degree_pos",
+        "mathlib:Polynomial.degree_X_pow_sub_C",
+        "mathlib:Algebra.ofId"
+      ],
+      "acceptance": [
+        "Retain the zero ring and wild characteristic; character weights are detected universally, not through field-valued points."
+      ],
+      "sources": [
+        {
+          "sourceId": "AFFINE-INVARIANTS-J6LwjP",
+          "locator": "Printed pp. 14–16: character grading before Lemma 3.7, its degree-zero proof and Corollary 3.13 finite chart, P=N",
+          "excerpt": "the part of degree 0",
+          "match": "The finite arbitrary-section calculation is derived here from the same character grading, using the existing native monic quotient and tensor bases; it is not attributed as a verbatim general theorem of the paper."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS1",
+        "namespace": "TauCeti.RootStack"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.RootStack.affineInvariantEquiv.apply_coe",
+          "role": "simp",
+          "statement": "For a∈A, the underlying root-chart element of affineInvariantEquiv(a) is the actual coefficient image of a."
+        },
+        {
+          "name": "TauCeti.RootStack.affineInvariantEquiv.inverse_coe",
+          "role": "compatibility",
+          "statement": "For x in the native invariant subalgebra I, including its inverse coefficient back into the root chart gives the underlying element x."
+        },
+        {
+          "name": "TauCeti.RootStack.affineInvariantEquiv.eq_iff",
+          "role": "characterisation",
+          "statement": "For x∈I and a∈A, the inverse coefficient of x equals a if and only if the underlying root-chart element of x equals the coefficient image of a."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.1/coarse-space",
+          "how": "Identify the actual affine invariant algebra with the coefficient base before applying the separately owned geometric coarse-space universal property."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.1/affine-chart and the reserved root-stack key",
+          "how": "Give the finite quotient chart its coefficient invariant-algebra identification, including wild exponents and nonreduced sections."
+        },
+        {
+          "where": "Talpo–Vistoli Lemma 3.7 degree-zero calculation and Corollary 3.13 finite chart",
+          "how": "Express the finite P=N degree-zero calculation as an actual native algebra equivalence rather than an assertion about invariance under field points."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AffineInvariantTests.equivalence_linear_root",
+          "kind": "computation",
+          "statement": "For A=Z/11, n=1 and f=7, the inverse invariant-algebra equivalence sends the actual root to 7."
+        },
+        {
+          "name": "AffineInvariantTests.equivalence_nilpotent",
+          "kind": "computation",
+          "statement": "For A=Z/4, n=2 and f=0, the inverse equivalence recovers coefficient 2, and its image remains square-zero in the root chart."
+        },
+        {
+          "name": "AffineInvariantTests.equivalence_zero_ring",
+          "kind": "degenerate",
+          "statement": "For a subsingleton coefficient ring, the inverse invariant-algebra equivalence sends every invariant element to 0 for every positive exponent."
+        }
+      ]
     }
   ],
   "requests": [
@@ -26920,5 +27261,17 @@
       "coefficientAuthor": "Codex — codex-rtOQ9t",
       "scope": "Native arbitrary-section algebra only; all implementations unchecked, all stages partial, full Tau canonical UNCOMPILED."
     }
-  ]
+  ],
+  "finiteInvariantContinuation": {
+    "worker": "Codex — codex-J6LwjP",
+    "mathematicalBase": "3ee387e53dc2c65264ff1f175fa688080aa8c7a5",
+    "incomingPublicHead": "9626cbbfeead34bb0b426c5520d9514b4e9856cb",
+    "newNodes": [
+      "FunctionFieldArithmeticPartII:RS.0/affine-coaction-diagonal-coordinates",
+      "FunctionFieldArithmeticPartII:RS.0/affine-coaction-constant-row-coordinates",
+      "FunctionFieldArithmeticPartII:RS.1/affine-invariant-coefficient-criterion",
+      "FunctionFieldArithmeticPartII:RS.1/affine-invariant-algebra-equivalence"
+    ],
+    "boundary": "Finite affine universal coinvariance and its native invariant-algebra equivalence have separate exact-Mathlib proof evidence. Infinite coinvariants, stack coarse geometry, full exact-pin Tau typing and both routed-paper source contracts remain required; no stage or implementation closes."
+  }
 }

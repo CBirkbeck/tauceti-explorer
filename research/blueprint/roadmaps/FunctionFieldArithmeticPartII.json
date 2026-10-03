@@ -25,7 +25,7 @@
     {
       "key": "RS.1",
       "title": "Finite root stacks",
-      "description": "The canonical root stack of a line bundle with section, including stack bases, Cartier divisors, affine quotient charts, base change, full fibres and relative coarse space; the invariant-ring calculation via the universal Hopf coaction, valid in arbitrary characteristic; the regular tame DM case. Exact declarations, hypotheses, API and acceptance tests are in the companion packet and reader. Finite root data satisfy effective fpqc descent by the imported QCoh equivalence; algebraicity and coarse properties use their separate owners.",
+      "description": "The canonical root stack of a line bundle with section, including stack bases, Cartier divisors, affine quotient charts, base change, full fibres and relative coarse space; the invariant-ring calculation via the universal Hopf coaction, valid in arbitrary characteristic; the regular tame DM case. Exact declarations, hypotheses, API and acceptance tests are in the companion packet and reader. Finite root data satisfy effective fpqc descent by the imported QCoh equivalence; algebraicity and coarse properties use their separate owners. On the finite affine chart, compare the actual diagonal character coordinates with the zero-character row. Universally invariant elements have only a constant coefficient; the native algebra-map equalizer is A through the coefficient map for every positive exponent, including wild and nonreduced bases.",
       "requires": [
         "FunctionFieldArithmeticPartII:RS.0",
         "SchemeAndStackFoundations:SF.1",
