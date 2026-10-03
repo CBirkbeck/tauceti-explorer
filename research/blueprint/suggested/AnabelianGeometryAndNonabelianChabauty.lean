@@ -2509,3 +2509,132 @@ example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
 
 end CoefficientTwisting
 end TauCeti.NonabelianCohomology
+
+/- BEGIN GAUGE REPRESENTATIVE TRANSPORT -/
+namespace TauCeti.NonabelianCohomology
+section GaugeTransport
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [IsTopologicalGroup U]
+  [MulDistribMulAction G U] [ContinuousSMul G U]
+
+def Twist.gaugeEquiv (c : Z1 G U) (b : U) : Twist c ≃* Twist (b • c) := by sorry
+
+lemma Twist.gaugeEquiv_apply (c : Z1 G U) (b : U) (x : Twist c) :
+    Twist.toOriginal (b • c) (Twist.gaugeEquiv c b x) =
+      b * Twist.toOriginal c x * b⁻¹ := by sorry
+
+lemma Twist.gaugeEquiv_symm_apply (c : Z1 G U) (b : U) (y : Twist (b • c)) :
+    Twist.toOriginal c ((Twist.gaugeEquiv c b).symm y) =
+      b⁻¹ * Twist.toOriginal (b • c) y * b := by sorry
+
+lemma Twist.gaugeEquiv_continuous (c : Z1 G U) (b : U) :
+    Continuous (Twist.gaugeEquiv c b).toMonoidHom := by sorry
+
+lemma Twist.gaugeEquiv_symm_continuous (c : Z1 G U) (b : U) :
+    Continuous (Twist.gaugeEquiv c b).symm := by sorry
+
+lemma Twist.gaugeEquiv_smul (c : Z1 G U) (b : U) (g : G) (x : Twist c) :
+    Twist.gaugeEquiv c b (g • x) = g • Twist.gaugeEquiv c b x := by sorry
+
+lemma Twist.gaugeEquiv_one (c : Z1 G U) (x : Twist c) :
+    Twist.toOriginal (1 • c) (Twist.gaugeEquiv c 1 x) = Twist.toOriginal c x := by sorry
+
+lemma Twist.gaugeEquiv_comp (c : Z1 G U) (b a : U) (x : Twist c) :
+    Twist.toOriginal (a • (b • c))
+      (Twist.gaugeEquiv (b • c) a (Twist.gaugeEquiv c b x)) =
+        Twist.toOriginal ((a * b) • c) (Twist.gaugeEquiv c (a * b) x) := by sorry
+
+lemma Z1.twistEquiv_gaugeMap (c : Z1 G U) (b : U) (d : Z1 G (Twist c)) :
+    Z1.twistEquiv (b • c)
+      (Z1.map (Twist.gaugeEquiv c b).toMonoidHom (Twist.gaugeEquiv_continuous c b)
+        (Twist.gaugeEquiv_smul c b) d) = b • Z1.twistEquiv c d := by sorry
+
+lemma H1.twistEquiv_gaugeMap (c : Z1 G U) (b : U) (a : H1 G (Twist c)) :
+    H1.twistEquiv (b • c)
+      (H1.map (Twist.gaugeEquiv c b).toMonoidHom (Twist.gaugeEquiv_continuous c b)
+        (Twist.gaugeEquiv_smul c b) a) = H1.twistEquiv c a := by sorry
+
+def H1.changeRepresentative (c d : Z1 G U) (_h : H1.mk c = H1.mk d) :
+    H1 G (Twist c) ≃ H1 G (Twist d) := by sorry
+
+lemma H1.changeRepresentative_apply (c d : Z1 G U) (h : H1.mk c = H1.mk d)
+    (a : H1 G (Twist c)) :
+    H1.changeRepresentative c d h a =
+      (H1.twistEquiv d).symm (H1.twistEquiv c a) := by sorry
+
+lemma H1.changeRepresentative_one (c d : Z1 G U) (h : H1.mk c = H1.mk d) :
+    H1.changeRepresentative c d h 1 = 1 := by sorry
+
+lemma H1.changeRepresentative_gauge (c : Z1 G U) (b : U) :
+    H1.changeRepresentative c (b • c) (H1.mk_smul b c).symm =
+      H1.map (Twist.gaugeEquiv c b).toMonoidHom (Twist.gaugeEquiv_continuous c b)
+        (Twist.gaugeEquiv_smul c b) := by sorry
+
+lemma H1.changeRepresentative_id (c : Z1 G U) :
+    H1.changeRepresentative c c rfl = Equiv.refl (H1 G (Twist c)) := by sorry
+
+lemma H1.changeRepresentative_comp (c d e : Z1 G U)
+    (hcd : H1.mk c = H1.mk d) (hde : H1.mk d = H1.mk e) :
+    (H1.changeRepresentative c d hcd).trans (H1.changeRepresentative d e hde) =
+      H1.changeRepresentative c e (hcd.trans hde) := by sorry
+
+lemma H1.changeRepresentative_symm (c d : Z1 G U) (h : H1.mk c = H1.mk d) :
+    (H1.changeRepresentative c d h).symm = H1.changeRepresentative d c h.symm := by sorry
+
+lemma H1.changeRepresentative_twistEquiv (c d : Z1 G U) (h : H1.mk c = H1.mk d)
+    (a : H1 G (Twist c)) :
+    H1.twistEquiv d (H1.changeRepresentative c d h a) = H1.twistEquiv c a := by sorry
+
+lemma H1.changeRepresentative_eq_map (c d : Z1 G U) (h : H1.mk c = H1.mk d)
+    (f : Twist c →* Twist d) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : Twist c), f (g • x) = g • f x)
+    (he : ∀ a, H1.twistEquiv d (H1.map f hf hG a) = H1.twistEquiv c a) :
+    H1.changeRepresentative c d h = H1.map f hf hG := by sorry
+
+-- test: Twist.gaugeEquiv.test_inverse
+example (c : Z1 G U) (b : U) (x : Twist c) :
+    (Twist.gaugeEquiv c b).symm (Twist.gaugeEquiv c b x) = x := by sorry
+
+-- test: Twist.gaugeEquiv.test_identity
+example (c : Z1 G U) (x : Twist c) :
+    Twist.toOriginal (1 • c) (Twist.gaugeEquiv c 1 x) = Twist.toOriginal c x := by sorry
+
+-- test: Twist.gaugeEquiv.test_noncommutative_direction
+example :
+    let G := Equiv.Perm (Fin 2)
+    let U := Equiv.Perm (Fin 3)
+    letI : TopologicalSpace G := ⊥
+    letI : TopologicalSpace U := ⊥
+    letI : DiscreteTopology G := ⟨rfl⟩
+    letI : DiscreteTopology U := ⟨rfl⟩
+    letI : IsTopologicalGroup U := inferInstance
+    letI : MulDistribMulAction G U := {
+      smul := fun _ x => x
+      one_smul := fun _ => rfl
+      mul_smul := fun _ _ _ => rfl
+      smul_one := fun _ => rfl
+      smul_mul := fun _ _ _ => rfl }
+    letI : ContinuousSMul G U := ⟨continuous_snd⟩
+    let c : Z1 G U := ⟨fun g => if g = 1 then 1 else Equiv.swap 0 1,
+      continuous_of_discreteTopology, by decide⟩
+    let b : U := Equiv.swap 0 1 * Equiv.swap 1 2
+    Twist.toOriginal (b • c) (Twist.gaugeEquiv c b (Equiv.swap 0 1)) = Equiv.swap 1 2 ∧
+      b⁻¹ * Equiv.swap 0 1 * b ≠ Equiv.swap 1 2 := by sorry
+
+-- test: H1.changeRepresentative.test_neutral
+example (c d : Z1 G U) (h : H1.mk c = H1.mk d) :
+    H1.changeRepresentative c d h 1 = 1 := by sorry
+
+-- test: H1.changeRepresentative.test_nonneutral
+example (c d : Z1 G U) (h : H1.mk c = H1.mk d)
+    (hc : H1.mk c ≠ 1) :
+    H1.changeRepresentative c d h ((H1.twistEquiv c).symm 1) ≠ 1 ∧
+      H1.twistEquiv d (H1.changeRepresentative c d h ((H1.twistEquiv c).symm 1)) = 1 := by sorry
+
+-- test: H1.changeRepresentative.test_class_hypothesis
+example (c : Z1 G U) (hc : H1.mk c ≠ 1) :
+    (H1.twistEquiv (1 : Z1 G U)).symm (H1.twistEquiv c 1) ≠ 1 := by sorry
+
+end GaugeTransport
+end TauCeti.NonabelianCohomology
+/- END GAUGE REPRESENTATIVE TRANSPORT -/
