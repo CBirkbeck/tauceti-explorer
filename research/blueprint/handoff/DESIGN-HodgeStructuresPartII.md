@@ -372,6 +372,8 @@ for folder,ext in [('roadmaps','json'),('packets','json'),('readmes','md'),('sug
 print('Recovered three sources, two normalized diagnostics, two exact validators, incoming controls and five final overlays; all source/script/diagnostic hashes and byte parity verified. Lean was not invoked.')
 ```
 
+Public raw recovery and actual immutable replay were tested on submitted ancestor `b98a57e2a2f351e9991623463668bc8033460891`: all five final overlays, three sources, two scripts and two diagnostic streams had exact byte/hash parity. The replay passed all indexed checker, intake, preservation, signature/test and graph/control assertions, explicitly using archived diagnostics without a new Lean invocation. Recovery preserves every trailing newline and emits owned files through apply_patch. The final handoff-only receipt update was replayed again before opening the pull request.
+
 ---
 
 The complete incoming handoff follows unchanged as historical evidence.
