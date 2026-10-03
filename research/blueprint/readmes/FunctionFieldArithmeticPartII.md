@@ -1,3 +1,307 @@
+# Infinite unity-root coordinates in the rational character algebra
+
+This continuation specifies the canonical diagonalizable coordinate input to RS.2. It starts from the inherited finite equivalence between the actual unity-root chart and the actual finite cyclic group algebra, and the already constructed factorial root colimit. It gives the normalized characters into the native rational circle, compatible finite algebra maps, the unity-root colimit equivalence with the native group algebra, and separate comultiplication, counit, antipode and coefficient comparisons. This is a mathematical plan with admitted signatures. Its new signatures have not been elaborated. Every implementation status remains unchecked and all ten stages remain partial.
+
+The incoming 340 declaration contracts, the complete root-stack key definition, the Yun–Zhang ramified geometric class-field route, and the independent symplectic route remain in force. Only the infinite affine-quotient consumer acquires five dependencies and one explicit proof step. The original eight gaps and thirteen supplier requests are retained. The preceding reader follows this new section without alteration.
+
+## Objects and conventions
+
+Let A be any commutative ring. Put E_n=A[T]/(Tⁿ−1) for n>0, with actual quotient root t_n; this is the inherited unity-parameter AffineRing, not the arbitrary-section chart. Its inherited finite cyclic equivalence carries t_n to e_[1] in A[Z/n]. If n divides N, the inherited chart transition sends t_n to t_N^(N/n); on finite cyclic coordinates it sends e_[k] to e_[(N/n)val(k)]. In particular the 2-to-6 transition sends e_[1] to e_[3]. The transition is determined by root powers; it is never replaced by an unscaled residue map.
+
+The character group Q/Z means exactly Mathlib's additive circle of period 1 over the rationals. Its carrier is the quotient of the additive group of Q by the integer multiples of 1. No fresh rational quotient, finite cyclic group or group-algebra carrier is introduced. The target A[Q/Z] is the native monoid algebra on the multiplicative form of this additive group. Write a e_u for its single basis element with label u and coefficient a. Its native Hopf structure has Δ(e_u)=e_u⊗e_u, ε(a e_u)=a and S(a e_u)=a e_(−u). Arbitrary coefficients are allowed, including zero rings and characteristic dividing n.
+
+The source U_A is the existing factorial affine colimit at parameter 1. At index i its finite exponent is d_i=(i+1)!, and its included root is u_i. The inherited positive-divisibility extension ι_n into U_A is specified by passing from n to its recorded factorial multiple; its at-level and transition lemmas make it independent of a different eligible multiple. All declarations here use one fixed coefficient universe. The higher-universe and geometric transports remain explicit obligations.
+
+## Normalize the finite character
+
+The additive map c_n:Z/n→Q/Z is fixed by c_n([k])=[k/n] for integer k. Its construction uses the pinned ZMod integer-lift equivalence: the integer homomorphism k↦[k/n] kills n because [1]=0. The integer representative computation is an API lemma, and includes negative k. Specializing k=1 fixes orientation. Choosing an unspecified finite cyclic isomorphism would leave a generator ambiguity and is insufficient for the inherited root coordinates.
+
+Injectivity is separate from construction. The class [k/n] vanishes precisely when k/n is an integer, hence when n divides k in Z. The pinned lift-injectivity and integer-cast divisibility statements give the result. No coefficient ring is involved in this group-theoretic argument. Compatibility with divisibility is another separate statement: the exact quotient N/n gives ((N/n)val(k))/N=val(k)/n, so c_N([(N/n)val(k)])=c_n(k). Positive exponents and divisibility are necessary for this identity.
+
+Exhaustion imports the existing Tau Ceti rational-circle torsion theory. Its positive-period theorem puts every u in n-torsion for some positive n. Its normalized generator theorem writes that u as an integer multiple of [1/n]. The character's integer API then exhibits u=c_n(k). This adapter is the statement the finite root coordinate maps consume; the general finite subgroup classification, cardinality and cyclicity of Q/Z are not replanned. A direct rational numerator/denominator computation provides the concrete inverse formula described below.
+
+The character tests are c_1(1)=0, c_3(1) different from [2/3], and c_6(3)=[1/2]. The second rejects reversed generator orientation; the third rejects an incorrect unscaled transition. These tests concern actual quotient classes, rather than chosen representatives in Q.
+
+## Finite group-algebra and chart maps
+
+Use the native domain-map algebra homomorphism to form j_n:A[Z/n]→A[Q/Z]. Its single API is j_n(a e_k)=a e_(c_n(k)); coefficients are unchanged. The native domain-map injectivity theorem applies to the injective label map without assuming that A is nontrivial. Its transition API is the equality of basis images at labels k and (N/n)val(k). These three API facts are individual nodes, and are used by the chart map and the infinite comparison.
+
+Define F_n:E_n→A[Q/Z] by composing j_n with the inherited finite cyclic equivalence. Its root is e_[1/n]. Its injectivity is the composition of the inherited equivalence with j_n's injectivity. The transition statement is an equality of actual algebra homomorphisms: F_N after the inherited n-to-N chart map equals F_n. To prove it, pass through the inherited finite equivalence, apply its divisibility formula on each basis element, and use j_n's transition API. Linearity extends the equality to all elements. This proof preserves the actual chart map, rather than inferring it from equality on field-valued points.
+
+The group-algebra tests evaluate the n=1 constant, the n=3 negative label and the wild n=2 basis difference over Z/2. In the last test v=j_2(e_[1]−1) is nonzero with v²=0. Distinct Q/Z labels and native coefficient equality show nonzero, while characteristic two and the order-two label give the square-zero identity. A definition that uses the reduced fibre or only geometric points fails this test. The finite chart tests evaluate t_1 and t_3 and retain injectivity over the zero ring Z/1. None of these assertions assumes that n is invertible in A.
+
+## Construct and identify the actual unity-root colimit map
+
+Before applying the inherited universal root lift, record two lemmas: e_[1/d_i] has d_i-th power 1, and for i≤j the d_j/d_i power of e_[1/d_j] is e_[1/d_i]. They follow by applying the finite chart map to the inherited root relation and finite transition square. Thus the native target has a coherent factorial root family, and the inherited universal property defines F:U_A→A[Q/Z]. Its root API is F(u_i)=e_[1/d_i].
+
+The finite-leg API strengthens this to every positive exponent n: F(ι_n(x))=F_n(x). First compare the two maps on a factorial chart by their values on its root; constants agree because they are algebra homomorphisms. For a general n, the specified factorial extension and finite transition square yield the formula. The inherited at-level independence removes the choice of factorial multiple. This statement is needed both for injectivity and surjectivity; those proofs are not folded into the construction.
+
+For injectivity, suppose F(x)=F(y). Represent x−y at a single finite factorial level using the inherited colimit exists-level theorem. The leg API says that this representative has zero image under the corresponding F_n. Finite injectivity makes the representative zero and therefore x−y=0. This proof avoids introducing an unlisted common-stage lemma for two separate representatives and uses no faithful-flatness hypothesis beyond the incoming tower machinery already providing its source algebra.
+
+For surjectivity, first take a single a e_u. Choose n,k with c_n(k)=u using the normalized exhaustion API. Pull a e_k back through the inherited finite cyclic equivalence and include it using ι_n. The finite-leg and single APIs give a e_u as the image. Native group-algebra linear induction now covers zero and arbitrary finite sums. Each summand can use its own finite level, because their preimages can be added directly in U_A. Infinite support never arises and no geometric-point criterion is used.
+
+Promote the bijective F to the actual native algebra equivalence E:U_A≃A[Q/Z]. Its forward root API is inherited from F. Its inverse single API takes q∈Q with positive natural denominator den(q): the preimage of a e_[q] is the n=den(q) extension of the inverse finite cyclic image of a e_[num(q) mod n]. Map this expression forward and use q=num(q)/den(q); bijectivity proves that it is the inverse. Negative numerators are cast as integers into ZMod n. If two rational representatives give the same circle class, injectivity ensures that their displayed inverse expressions agree.
+
+The infinite-map tests evaluate index zero to 1, index two to e_[1/6], and coefficient 2 on the order-two root over Z/4. The equivalence tests compute the inverse of e_[−1/3] as the extension of t_3², preserve a wild nonzero square-zero element together with its comultiplication, and check the coefficient square for Z→Z/2. These distinguish the algebraic coordinates from a reduced or field-point construction, and do not add flatness assumptions.
+
+## Infinite Hopf and coefficient squares
+
+Comultiplication is a separate equality: (E⊗E)(Δ_U(x))=Δ(E(x)). Use the inherited factorial coaction at parameter 1, not an inferred local instance with unspecified structure. On u_i it gives u_i⊗u_i; applying E⊗E gives the tensor square of e_[1/d_i], which is exactly native group-algebra comultiplication. The maps are A-algebra homomorphisms to the native tensor product. The inherited root-extensionality theorem proves their equality on every x.
+
+The counit square is ε(E(x))=ε_U(x). On every root both sides are 1; constants agree, so the same extensionality theorem applies. The native counit on a e_u is a, as supplied by its pinned single formula. This keeps coefficient and label augmentation separate and specifies the actual counit in the source.
+
+The antipode square is S(E(x))=E(S_U(x)). The inherited factorial antipode sends the universal root unit to its inverse. The algebra equivalence preserves those unit inverses. Native group-algebra antipode sends e_[1/d_i] to e_[−1/d_i]. For extensionality, use the algebra map induced by inversion on the abelian label group; native single induction identifies that algebra map with the native linear antipode. The source antipode is the inherited explicit factorialAntipode. This proof route requires both the pinned domain-map and single-antipode declarations; no assumption that an arbitrary Hopf antipode is an algebra map is made.
+
+For a ring homomorphism φ:A→B, the native group-algebra coefficient map after E_A equals E_B after the inherited unity-specific factorialUnitCoefficientMap. Restrict scalars in the target through φ. Constants agree by the inherited constant API and native single-coefficient formula. Every factorial root is sent to e_[1/d_i] with coefficient φ(1)=1, so root extensionality gives the square. The inherited unity-specific map has codomain U_B directly, so this statement does not silently identify a chart at φ(1) with a chart at 1. Its root and constant APIs are precisely the imported dependencies; the inherited ring-homomorphism extensionality lemma packages the scalar restriction. This applies to noninjective and nonflat φ. It remains a fixed-universe statement; it is not the higher-universe or tensor-base-change comparison.
+
+## Declaration catalogue and acceptance
+
+Each entry below is one planned declaration. The dependencies in the packet specify the exact source of the facts used above. Every consumed API is promoted to its own lemma node. The five construction records have at least three API statements, three concrete tests and three recorded uses. The central equivalence is the sixth and final RS.2 planet, named “Infinite unity-root coordinates”.
+
+### Normalized finite root character in Q/Z
+
+`TauCeti.RootStack.affineQZCharacter` — For n>0 define the additive homomorphism c_n:Z/n→Q/Z by c_n([k])=[k/n] for every integer k. This is the unique lift of the integer map k↦[k/n].
+
+The integer map preserves addition. At n its value is [1]=0; descend it through ZMod.lift. This specifies its orientation, rather than merely choosing an isomorphism with an abstract cyclic subgroup.
+
+API:
+
+- `TauCeti.RootStack.affineQZCharacter.intCast`: For k∈Z, c_n([k])=[k/n], including negative k.
+- `TauCeti.RootStack.affineQZCharacter.one`: The chosen character sends [1] to [1/n].
+- `TauCeti.RootStack.affineQZCharacter.injective`: The homomorphism c_n is injective for every n>0.
+- `TauCeti.RootStack.affineQZCharacter.divisibility`: If n divides N, then c_N([(N/n) val(k)])=c_n(k) for k∈Z/n. Thus c_N([N/n])=[1/n].
+- `TauCeti.RootStack.affineQZCharacter.exhaustive`: For every u∈Q/Z there are n>0 and k∈Z/n with c_n(k)=u.
+
+Unit tests:
+
+- `TauCeti.RootStack.affineQZCharacter.test_one`: At n=1 the character of [1] is zero.
+- `TauCeti.RootStack.affineQZCharacter.test_orientation`: At n=3, c_3(1) differs from [2/3]; reversing the chosen generator fails.
+- `TauCeti.RootStack.affineQZCharacter.test_two_six`: The 2-to-6 transition sends [1] to [3], whose image is [1/2].
+
+### Finite character on integer representatives
+
+`TauCeti.RootStack.affineQZCharacter.intCast` — For k∈Z, c_n([k])=[k/n], including negative k.
+
+Apply the integer-lift computation. Negative representatives are integers before reduction; do not replace them by unreduced natural values.
+
+### Finite root character orientation
+
+`TauCeti.RootStack.affineQZCharacter.one` — The chosen character sends [1] to [1/n].
+
+Specialize the integer representative to one.
+
+### Finite root characters embed
+
+`TauCeti.RootStack.affineQZCharacter.injective` — The homomorphism c_n is injective for every n>0.
+
+The kernel consists of k with k/n integral, exactly the integers divisible by n. Use ZMod.lift_injective and the integer divisibility criterion. This proof concerns the character group and has no coefficient-ring assumption.
+
+### Divisibility preserves the normalized character
+
+`TauCeti.RootStack.affineQZCharacter.divisibility` — If n divides N, then c_N([(N/n) val(k)])=c_n(k) for k∈Z/n. Thus c_N([N/n])=[1/n].
+
+Choose the natural representative val(k). The rational identity ((N/n)val(k))/N=val(k)/n uses n>0,N>0 and exact divisibility. Integer-lift computations give equality in Q/Z. This is the scaled transition, not the map [k]↦[k].
+
+### Every rational character occurs at a finite level
+
+`TauCeti.RootStack.affineQZCharacter.exhaustive` — For every u∈Q/Z there are n>0 and k∈Z/n with c_n(k)=u.
+
+Import Tau Ceti rational torsion exhaustion to choose n. Import its normalized torsion generator lemma to write u as an integer multiple of [1/n]. The integer-lift formula supplies k. No new generic finite-subgroup or torsion theorem is planned.
+
+### Finite group-algebra character map
+
+`TauCeti.RootStack.finiteQZAlgMap` — Define j_n:A[Z/n]→A[Q/Z] as the actual mapDomainAlgHom induced by the multiplicative form of c_n.
+
+Pass the additive character to Multiplicative and use the existing group-algebra domain map. Import the generic functor rather than defining a new group-algebra carrier.
+
+API:
+
+- `TauCeti.RootStack.finiteQZAlgMap.single`: For a∈A,k∈Z/n, j_n(a e_k)=a e_{c_n(k)}.
+- `TauCeti.RootStack.finiteQZAlgMap.injective`: j_n is injective over every commutative ring, including the zero ring.
+- `TauCeti.RootStack.finiteQZAlgMap.transition`: For n dividing N and a∈A, j_N(a e_{[(N/n)val(k)]})=j_n(a e_k).
+
+Unit tests:
+
+- `TauCeti.RootStack.finiteQZAlgMap.test_constant`: The n=1 basis element [0] with coefficient a maps to the constant a.
+- `TauCeti.RootStack.finiteQZAlgMap.test_negative`: At n=3, the basis label −1 maps to [−1/3], retaining integer orientation.
+- `TauCeti.RootStack.finiteQZAlgMap.test_wild`: Over Z/2, the image of e_[1]−1 at n=2 is nonzero with square zero; the character algebra is not replaced by its reduced fibre.
+
+### Character map on a group-algebra basis
+
+`TauCeti.RootStack.finiteQZAlgMap.single` — For a∈A,k∈Z/n, j_n(a e_k)=a e_{c_n(k)}.
+
+Use the native domain-map single formula. Coefficients are unchanged.
+
+### Finite group-algebra character maps are injective
+
+`TauCeti.RootStack.finiteQZAlgMap.injective` — j_n is injective over every commutative ring, including the zero ring.
+
+Apply the native domain-map injectivity theorem to c_n. Its coefficient-level proof has no nontriviality hypothesis.
+
+### Finite basis transitions commute with the character map
+
+`TauCeti.RootStack.finiteQZAlgMap.transition` — For n dividing N and a∈A, j_N(a e_{[(N/n)val(k)]})=j_n(a e_k).
+
+Rewrite the two images on singles and apply character divisibility. This is precisely the inherited finite root-transition formula.
+
+### Finite unity-root chart character map
+
+`TauCeti.RootStack.finiteRootQZMap` — Define F_n:E_n(1)→A[Q/Z] as j_n composed with the inherited equivalence E_n(1)≃A[Z/n].
+
+Compose actual A-algebra maps. This is restricted to the unity-parameter chart; arbitrary-f charts still have their inherited coaction.
+
+API:
+
+- `TauCeti.RootStack.finiteRootQZMap.root`: F_n(t_n)=e_[1/n].
+- `TauCeti.RootStack.finiteRootQZMap.injective`: F_n is injective for every n>0 and every A.
+- `TauCeti.RootStack.finiteRootQZMap.transition`: For n dividing N, F_N composed with the actual affineDivisibility(1,n,N) equals F_n as A-algebra homomorphisms.
+
+Unit tests:
+
+- `TauCeti.RootStack.finiteRootQZMap.test_one`: The unity root at n=1 maps to 1.
+- `TauCeti.RootStack.finiteRootQZMap.test_three`: At n=3 the root maps to the basis label [1/3].
+- `TauCeti.RootStack.finiteRootQZMap.test_zero_ring`: The finite root map remains injective over Z/1.
+
+### Finite unity root maps to the normalized rational character
+
+`TauCeti.RootStack.finiteRootQZMap.root` — F_n(t_n)=e_[1/n].
+
+Use the inherited root formula, then the group-algebra single formula and character orientation.
+
+### Finite unity-root charts embed in the rational character algebra
+
+`TauCeti.RootStack.finiteRootQZMap.injective` — F_n is injective for every n>0 and every A.
+
+Compose finite character-map injectivity with the inherited actual algebra equivalence. No argument by geometric field points is used.
+
+### Root chart transitions commute with rational characters
+
+`TauCeti.RootStack.finiteRootQZMap.transition` — For n dividing N, F_N composed with the actual affineDivisibility(1,n,N) equals F_n as A-algebra homomorphisms.
+
+Transport to finite group-algebra coordinates. The inherited divisibility theorem sends e_k to e_{[(N/n)val(k)]}; apply the character-transition lemma on each basis element and linearity. Both inverse laws belong to the inherited finite equivalence.
+
+### Factorial rational characters satisfy the root relation
+
+`TauCeti.RootStack.factorialQZRoot_power` — For d_i=(i+1)!, the basis element e_[1/d_i] in A[Q/Z] has d_i-th power 1.
+
+Map the finite unity-root relation through F_{d_i}. Equivalently use d_i[1/d_i]=[1]=0 and native basis multiplication.
+
+### Factorial rational character roots form a coherent family
+
+`TauCeti.RootStack.factorialQZRoot_transition` — If i≤j, then e_[1/d_j] raised to d_j/d_i equals e_[1/d_i].
+
+Evaluate the finite root-transition square on t_{d_i}, using exact factorial divisibility and the inherited root transition.
+
+### Infinite unity-root character map
+
+`TauCeti.RootStack.factorialUnitQZMap` — Define F:U_A→A[Q/Z] by the inherited factorialAffineRootLift with roots e_[1/d_i], using the preceding power and transition lemmas.
+
+Use the existing universal root lift. The target is a native commutative A-algebra in the same coefficient universe; no new abstract colimit or conclusion-valued certificate is introduced.
+
+API:
+
+- `TauCeti.RootStack.factorialUnitQZMap.root`: F(u_i)=e_[1/d_i], where u_i is the actual root included at factorial level i.
+- `TauCeti.RootStack.factorialUnitQZMap.leg`: For a positive divisibility index n and x∈E_n(1), F(ι_n(x))=F_n(x), where ι_n is the inherited factorialAffineExtension.
+- `TauCeti.RootStack.factorialUnitQZMap.injective`: F:U_A→A[Q/Z] is injective for arbitrary A.
+- `TauCeti.RootStack.factorialUnitQZMap.surjective`: F:U_A→A[Q/Z] is surjective for arbitrary A.
+
+Unit tests:
+
+- `TauCeti.RootStack.factorialUnitQZMap.test_level_zero`: At i=0,d_i=1, the included root maps to 1.
+- `TauCeti.RootStack.factorialUnitQZMap.test_level_two`: At i=2,d_i=6, the included root maps to e_[1/6].
+- `TauCeti.RootStack.factorialUnitQZMap.test_torsion_coefficients`: Over Z/4 the coefficient 2 times the level-one root maps to 2 e_[1/2].
+
+### Infinite character map on a factorial root
+
+`TauCeti.RootStack.factorialUnitQZMap.root` — F(u_i)=e_[1/d_i], where u_i is the actual root included at factorial level i.
+
+Apply the inherited lift-root computation.
+
+### Every positive finite chart has its specified character leg
+
+`TauCeti.RootStack.factorialUnitQZMap.leg` — For a positive divisibility index n and x∈E_n(1), F(ι_n(x))=F_n(x), where ι_n is the inherited factorialAffineExtension.
+
+First compare the two A-algebra maps at a factorial level by root extensionality. Extend an arbitrary positive n to its specified factorial multiple and apply the finite transition square. The existing at-level independence removes the choice of multiple.
+
+### Infinite unity-root character map is injective
+
+`TauCeti.RootStack.factorialUnitQZMap.injective` — F:U_A→A[Q/Z] is injective for arbitrary A.
+
+For F(x)=F(y), represent x−y at one factorial level using the inherited exists-level result. Its finite image is zero by the leg theorem. Finite injectivity makes the representative zero, hence x−y=0. This avoids an unproved common-stage assertion for two representatives.
+
+### Every group-algebra element is a unity-root colimit image
+
+`TauCeti.RootStack.factorialUnitQZMap.surjective` — F:U_A→A[Q/Z] is surjective for arbitrary A.
+
+For a basis element a e_u, choose n,k with c_n(k)=u using imported torsion exhaustion through the normalized character adapter. Pull a e_k back through the finite cyclic equivalence and include that chart by ι_n. The leg and single formulas give the desired preimage. Native group-algebra linear induction extends this to zero and sums; each summand may use its own finite level. No infinite support or geometric-point assertion occurs.
+
+### Infinite unity-root coordinates
+
+`TauCeti.RootStack.factorialUnitQZEquiv` — Define the actual A-algebra equivalence E:U_A≃A[Q/Z] by promoting F with its injectivity and surjectivity proofs. Its forward function is F.
+
+Apply the native promotion of a bijective A-algebra homomorphism; do not package inverse laws as assumptions of a new comparison record.
+
+API:
+
+- `TauCeti.RootStack.factorialUnitQZEquiv.root`: E(u_i)=e_[1/d_i].
+- `TauCeti.RootStack.factorialUnitQZEquiv.inverse_single_den`: For q∈Q and a∈A, E⁻¹(a e_[q]) is ι_{den(q)} applied to the inverse finite cyclic image of a e_[num(q) mod den(q)]. This includes negative q and q=0.
+- `TauCeti.RootStack.factorialUnitQZEquiv.comul`: For x∈U_A, (E⊗E)(Δ_U(x))=Δ_{A[Q/Z]}(E(x)), using the inherited chosen factorial coaction at parameter 1 and the native group-algebra comultiplication.
+- `TauCeti.RootStack.factorialUnitQZEquiv.counit`: For x∈U_A, ε_{A[Q/Z]}(E(x))=ε_U(x), with the inherited factorialCounit and the native group-algebra counit.
+- `TauCeti.RootStack.factorialUnitQZEquiv.antipode`: For x∈U_A, S_{A[Q/Z]}(E(x))=E(S_U(x)), with inherited factorialAntipode and native group-algebra antipode e_u↦e_{−u}.
+- `TauCeti.RootStack.factorialUnitQZEquiv.coefficient_natural`: For any ring hom φ:A→B, native coefficient mapping A[Q/Z]→B[Q/Z] after E_A equals E_B after the inherited φ-semilinear factorialUnitCoefficientMap(φ). Flatness and injectivity of φ are unnecessary.
+
+Unit tests:
+
+- `TauCeti.RootStack.factorialUnitQZEquiv.test_inverse_negative`: The inverse of e_[−1/3] is the positive-index n=3 extension of t_3 squared.
+- `TauCeti.RootStack.factorialUnitQZEquiv.test_wild_hopf`: For v=u_1−1 over Z/2, E(v) is nonzero with square zero and Δ(E(v))=E(v)⊗E(v)+E(v)⊗1+1⊗E(v).
+- `TauCeti.RootStack.factorialUnitQZEquiv.test_nonflat_coefficients`: For the nonflat coefficient map Z→Z/2, the native coordinate square commutes on every element.
+
+### Infinite coordinate equivalence on roots
+
+`TauCeti.RootStack.factorialUnitQZEquiv.root` — E(u_i)=e_[1/d_i].
+
+The promoted equivalence has forward function F. Apply its root formula.
+
+### Inverse coordinate map on rational representatives
+
+`TauCeti.RootStack.factorialUnitQZEquiv.inverse_single_den` — For q∈Q and a∈A, E⁻¹(a e_[q]) is ι_{den(q)} applied to the inverse finite cyclic image of a e_[num(q) mod den(q)]. This includes negative q and q=0.
+
+Map the displayed preimage forward. The finite leg and single formulas yield [num(q)/den(q)]=[q]. Use the equivalence inverse law to identify the preimage. Different rational representatives of the same circle class give the same inverse because their forward images coincide and F is injective.
+
+### Infinite coordinate equivalence preserves comultiplication
+
+`TauCeti.RootStack.factorialUnitQZEquiv.comul` — For x∈U_A, (E⊗E)(Δ_U(x))=Δ_{A[Q/Z]}(E(x)), using the inherited chosen factorial coaction at parameter 1 and the native group-algebra comultiplication.
+
+View both sides as A-algebra homomorphisms into the native tensor product. On u_i the inherited coaction is u_i⊗u_i; the mapped tensor is e_[1/d_i]⊗e_[1/d_i], precisely native comultiplication of that basis element. Apply the inherited root-extensionality theorem. This is a coordinate Hopf comparison, not an affine scheme-limit theorem.
+
+### Infinite coordinate equivalence preserves the counit
+
+`TauCeti.RootStack.factorialUnitQZEquiv.counit` — For x∈U_A, ε_{A[Q/Z]}(E(x))=ε_U(x), with the inherited factorialCounit and the native group-algebra counit.
+
+Both A-algebra homomorphisms send every included root to 1. Apply inherited root extensionality. On a general single a e_u the native counit is a; no coefficient augmentation is guessed.
+
+### Infinite coordinate equivalence preserves the antipode
+
+`TauCeti.RootStack.factorialUnitQZEquiv.antipode` — For x∈U_A, S_{A[Q/Z]}(E(x))=E(S_U(x)), with inherited factorialAntipode and native group-algebra antipode e_u↦e_{−u}.
+
+The inherited root inverse formula identifies S_U(u_i) with the inverse of the universal factorial unit. An algebra equivalence preserves inverses of these units, and the native antipode sends e_[1/d_i] to e_[−1/d_i]. Package the antipode on a commutative group algebra as the algebra hom induced by group inversion using the existing mapDomainAlgHom, then use root extensionality. Native single induction identifies that map with the native linear antipode.
+
+### Infinite root coordinates commute with coefficient homomorphisms
+
+`TauCeti.RootStack.factorialUnitQZEquiv.coefficient_natural` — For any ring hom φ:A→B, native coefficient mapping A[Q/Z]→B[Q/Z] after E_A equals E_B after the inherited φ-semilinear factorialUnitCoefficientMap(φ). Flatness and injectivity of φ are unnecessary.
+
+Regard the target as an A-algebra via φ; the two ring maps become A-algebra maps with equal constant images. On every factorial root both give e_[1/d_i] with coefficient φ(1)=1. Apply inherited root extensionality with this restriction of scalars; this is a fixed-universe coefficient square, not a general universe/base-change equivalence.
+
+## Exact remaining work and validation boundary
+
+The 28 new declarations are a source- and dependency-grounded coordinate plan. Their suggested signatures use the inherited actual algebra objects and are admitted. No new Lean process was started: observed available memory was below the WORKERS requirement of 20 GB. The existing Mathlib build has the exact Mathlib pin, while the available full Tau Ceti build has a different source revision. Neither the new suggested file nor the new mathematical proof routes have a fresh Lean execution certificate. Historical native checks in the incoming handoff belong only to their archived source hashes.
+
+The coordinate equivalence must be elaborated when the required resources and exact source build are available. Transport its Hopf structure through the full positive-divisibility and higher-universe interfaces, and transport the arbitrary-section coaction to the canonical coordinate Hopf algebra. Construct coherent root-object groupoid reindexing, affine Spec limits, fpqc frame torsors and the geometric infinite quotient equivalence. All TOWER-AFF, KUMMER-FINITE, TOWER-TYPING, DVR and roots-of2 distinctions remain. A coordinate algebra or its represented fixed-universe point group does not establish these geometric steps. The key definition continues to include arbitrary schemes and stacks, nonreduced fibres, tame/wild cases, relative Weil restriction, base change and the infinite DVR gerbe; finite reduced pictures cannot replace it.
+
+Talpo–Vistoli arXiv1410.1164v2 pp.14–16 were read freshly for this continuation, including the Cartier-dual chart construction, its invariant statement, the fpqc quotient definition and Proposition 3.10. The new rational-circle and group-algebra coordinate statements are authored deductions from pinned declarations and the inherited root tower. The complete paper and other source routes were not newly reread here; their original coverage contracts remain unchanged. This is a continuation of RS.2, not a fresh completion claim for the arithmetic and automorphic layers.
+
+---
+
 ## Finite unit-root cyclic coordinates — 2026-10-03
 
 This checkpoint identifies the actual finite unity-root algebra

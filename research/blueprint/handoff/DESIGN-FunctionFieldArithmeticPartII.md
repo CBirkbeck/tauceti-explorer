@@ -1,3 +1,17 @@
+# Rational character coordinate continuation — Codex, codex-J6LwjP
+
+Refs #3403. Confirmed claim comment 5966323460; bot confirmation 5966324692. Base 6542c9133014b0dc32397ee3bf3ad5d6009649ca. This checkpoint adds 28 declaration-sized coordinate items: five constructions, 23 lemmas, 21 promoted APIs and 15 tests. It imports pinned rational-circle torsion theory and native group-algebra operations, preserving all incoming 340 contracts except five added dependencies and one added proof step on the infinite quotient consumer. The full source routing, eight gaps, thirteen requests and all ten partial stages remain.
+
+The indexed checker reports zero errors and warnings. The actual intake and assembled stage/scoped graph comparisons are being recorded below before submission. No stage closes and no implementation is claimed. New suggested signatures are uncompiled: available memory stayed below the WORKERS 20 GB threshold (13 GB at the recorded preflight), so no Lean process was launched. Exact Mathlib sources/build are available; the available complete Tau Ceti build differs from the required source pin. Incoming native receipts remain historical and tied to their archived hashes; recovery is not a fresh compilation.
+
+The reader gives exact mathematical definitions, individual proof routes, APIs and tests. The normalized finite character is [k]↦[k/n], not an arbitrary cyclic isomorphism. Injectivity uses the integer kernel; exhaustion imports Tau Ceti. Surjectivity of the actual unity-root colimit map uses finite basis preimages and native linear induction. The infinite equivalence preserves separately specified comultiplication, counit, antipode and arbitrary coefficient maps. Wild Z/2 tests preserve nonzero nilpotents, and the nonflat Z→Z/2 square prevents an unintended flatness restriction.
+
+Fresh sources: Talpo–Vistoli arXiv1410.1164v2 PDF pp.14–16, SHA256 92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2; pinned AddCircle, ZMod lift/kernel, MonoidAlgebra domain/coefficient/Hopf operations, and native AlgEquiv promotion statements. The arithmetic library-audit rows and relevant corrected review sections were reread. Whole other source papers were not newly reread and their complete incoming route obligations remain intact.
+
+Resume by elaborating the new admitted signatures when an existing exact-pin build and at least 20 GB available memory permit. Then transport the canonical coordinate Hopf algebra to full positive indices and higher universes, transport the arbitrary-section coaction, and construct coherent root-object groupoids, affine Spec limits, fpqc frame torsors and the geometric quotient. Preserve TOWER-AFF/KUMMER-FINITE/TOWER-TYPING/DVR, all-roots-of2 distinctions, arbitrary-scheme/stack relative root stacks and both complete Yun–Zhang/symplectic routes.
+
+---
+
 # Finite unit-root cyclic-coordinate checkpoint
 
 Codex — codex-7e92bd. Refs #3403. Claim5965967065 confirmed by bot5965968233; whole issue read and body byte-checked before/after claim and before publication. Mathematical base18f322ad4eefb4ef36e39cef812c403829f23e2c; publication base21b2f294 (full commit recorded below).
