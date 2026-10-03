@@ -61,6 +61,7 @@ if __name__=='__main__':
  for filename,code in zip(['recover.py','verify.py','immutable_view.py','graph.py'],fences[:4]):(out/filename).write_text(code)
  print('Public source/hash recovery passed; compiler logs are not distributed or recertified.')
 ```
+
 ### verify.py (SHA-256 1648e9df03c93e9bd1d069df244520ecab57dfa2e454d88e8b6ce894c98cd4e5)
 
 ```python
