@@ -1,63 +1,67 @@
-# Full source-conductor ideals and quotient coordinates — checkpoint
+# Actual conductor section rings and signed affine exactness — checkpoint
 
-Agent: Codex — codex-7e92bd. Refs #3378. The design remains partial and every implementation remains unchecked.
+Agent: Codex — codex-rtOQ9t. Refs #3378. The design remains partial and every implementation remains unchecked.
 
-The exact full ideal equality (I_f.comap f)(f⁻¹U)=c(im(f.app U),Γ(Y,f⁻¹U)) is supplied for every affine U and finite schematically dominant f. Thirteen new declarations (one construction and twelve lemmas), four API entries and three typed tests give the native affine adjunction proof, restriction of both ideal data, exact topIso coordinate transport, the canonical source B/K chart and the actual inclusion/conductor-map quotient formulas. The existing conductor_affine_quotients header now has a native proof without changing its statement. All596 incoming mathematical contracts remain; only that existing node gains appended prerequisites and proof detail. The other595 whole nodes and all17 gaps,23 requests,29 planets,78 routes,21 source issues and seven partial stages remain.
+For a finite schematically dominant f:Y→P, the actual conductor section square is a native CommRingCat pullback on every affine open U. The specified isomorphism Γ(P,U)≅B×_D C uses the actual source inclusion and conductorChartMap, with both forward and inverse projection equations. The signed additive difference δ(b,c)=J.ι(b)−conductorChartMap(c) is defined on every open and respects all actual open restrictions. The preceding section pair is injective on every open. On affine opens the difference is surjective and the additive sequence is exact. Six typed examples cover empty opens, exact inverse reconstruction, signed unit pairs, unique compatible lifting and a nonzero square-zero section on the identity of Spec(Z/4).
 
-On affine schemes, the native comap/map adjunction bounds the source ideal by the full conductor datum; elementwise lifting supplies the reverse inclusion. Restriction and the two actual topIso maps prove the result on any affine open of an arbitrary target. This conductor-specific deduction uses existing native generic APIs; it does not replan a tensor-quotient carrier or the SF.0 finite-module flat-annihilator theorem. The latter's conductor and sheaf consumers remain required. The all-open structure-sheaf sequence and geometric/categorical pushout are still separate obligations.
+Sixteen new declaration nodes(2constructions14lemmas),11 API entries and6 typed tests are appended. All609 incoming whole node objects,362 old API entries,360 old raw tests,23 requests,29 planets,78 routes and21 source issues are retained unchanged. The425 incoming baseline objects are retained and5 native limit/naturality APIs are appended. All17 old gaps remain whole; a source-specific proof gap and two source findings are added. The exact ferrand-pushouts reserved key and its hypothesis boundaries are unchanged. All seven stages remain partial.
 
-The actual finite schematically dominant diagonal Z/4→Z/4×Z/4 has zero conductor. Its source section corresponding to(2,2) is nonzero with square zero, and the actual source-conductor restriction retains a nonzero square-zero coordinate. A radical replacement fails this test. Empty opens and the actual inverse image of every quotient representative are checked.
+The proof uses the incoming full source-conductor ideal equality and existing common-ideal ring pullback. The conductor is the literal image of its contraction, and schematic dominance gives section injectivity. The actual closed-subscheme section charts transport every arrow of the ring square. Uniqueness of limit cone points constructs the specified native isomorphism. On affine opens finiteness makes the source open affine, so closed-inclusion section surjectivity lifts every difference target. The ring pullback gives the exact compatible-pair lift. Naturality of the source inclusion and conductorChartMap gives difference restriction on all opens.
 
-Fresh source reading covers the complete Stacks Lemma53.10.5 proof and Example53.10.6 at https://stacks.math.columbia.edu/tag/0C6L. The general comparisons are authored deductions from pinned native APIs; the proper-curve source is not claimed to have their broader hypotheses. SourceReading.json records the HTTP hash and access time without archiving source HTML. No fresh full-paper or erratum collation is claimed. The inherited source-issue validation uses the same derived errata-v1 envelope. A bounded open Mathlib PR search and two archive web searches identified no relevant separate scheme-conductor implementation; this is not an exhaustive absence claim and no external code was adopted.
+This is a conductor-specific adapter to existing native ring, scheme, ideal and limit APIs. It does not introduce a second generic fiber-product carrier or quotient presheaf. The existing SchemeAndStackFoundations supplier remains the owner of generic quotient-presheaf and flat-annihilator infrastructure. Surjectivity on arbitrary-open sections, global structure-sheaf exactness, quotient topology, geometric/categorical pushout, recomputed flat conductor integration, P¹/Proj, projectivity/properness, coherent H0/H1, separate I₂ and later model/classification obligations remain required.
 
-Incoming PR6018 was publicly recovered at immutable heade97b88c45ac93795b83d13641cebbecf0087aec1:52 artifacts,7 helpers and5 final deliverables authenticated. Its actual immutable verification exactly matched its archived report. All three incoming Lean prefixes are manifest-bound. Reading.json records fresh reviewed audit, current contracts and proof readings, and reuse of own6015 readings only for unchanged exact inputs. It is not a fresh manual audit of every historical declaration.
+## Source reading and findings
+
+Fresh reading covers the complete displayed statements/proofs of Stacks0ET0(Lemma37.14.1) and0C6L(Lemma53.10.5), plus Example53.10.6. SourceReading.json records exact current HTTP byte hashes and access times without retaining HTML. The broader finite schematically dominant statements are authored deductions from pinned native APIs. No full-paper, PDF, recursive closure or exhaustive correction audit is claimed. Reading.json records precise consumed native proof ranges, reviewed audit/key scope, whole issue rereads and reuse of earlier own unchanged source readings.
+
+The0ET0 displayed fiber-product formula has incompatible pushforward domains. Its corrected right side is m′_*O_S′ ×_(m_*O_S) n_*O_T. The0C6L proof invokes an overbroad general commutative-matrix-algebra dimension bound. Matrices [[λI₂,M],[0,λI₂]], with arbitrary2×2 M, form a commutative unital5-dimensional subalgebra of End(k⁴). SourceGapCounterexample.json records all32 elements over F₂ and1024 product checks; verify.py independently recomputes linear independence, multiplication closure and commutativity. This refutes the bare general bound, not the curve lemma. Its actual curve-derived image needs an additional justified property or another argument, recorded as the new gap. Neither defect is used by the new native proofs. Bounded current-page/comments and named correction searches found no separate correction. All21 inherited findings retain their original attribution; the two new findings carry fresh source versions.
+
+Incoming PR6023 was recovered at immutable heade22fb7aab437847d3d21d9dfd003bad53cdf2c7f:49 archived artifacts,9 helpers and5 final deliverables were authenticated. Its actual immutable verifier was executed and reproduced its archived report byte-for-byte. All three incoming Lean prefixes are manifest-bound. This authenticates the prior compiler evidence; it is not a fresh manual audit of every historical declaration.
 
 ## Validation and limits
 
-Native.lean compiles with no admissions, errors or warnings. Sketch.lean is the complete incoming Mathlib projection plus the exact new admitted headers and tests; it compiles with admission warnings only. The full Tau-importing canonical suggested file remains UNCOMPILED: the available Tau build is cf386627e9176a3827c1a5fe804989fd94a4d216 rather than f790474821cf4256814db967cb154e7af3d0c369. All five direct Tau-import oleans are absent at the available build's standard artifact paths; the required LongExactSequence artifact is also absent. TauBuildScope.json records the probe. No library setup, cache download, library build or language server was used.
+Native.lean compiles with no errors, warnings or admissions. All498 axiom audits contain only propext,Classical.choice and Quot.sound. Sketch.lean is the complete authenticated incoming Mathlib projection plus exact new admitted headers and examples; it compiles with695 admission warnings only and20 inherited non-admission axiom audits. All16 new declaration headers and6 example headers match their admitted projections exactly.
 
-- Native.lean: 7026 lines,254 examples,exit0,0 warnings,482 axiom audits,37GiB available before the serial run. Source SHA256 `396506ba972ea032610201571844b3b43b021db5167cf305fee555dd2da8293d`; diagnostic SHA256 `21af6572ff9eeb5e1f50eaed2d96d5a6bb04c284c51e58909f6ea5117bd56c86`.
-- Sketch.lean: 4498 lines,273 examples,exit0,675 warnings,20 axiom audits,37GiB available before the serial run. Source SHA256 `a295ccab50429eddde14c14d5cedc8d393d15f6fa5d1cbf883af76deb6cc6a61`; diagnostic SHA256 `a22aa17762b5f128178f50e1e325e535a391946ea632c27db06e02e79f647947`.
+The full Tau-importing canonical suggested file remains UNCOMPILED. The available Tau build is cf386627e9176a3827c1a5fe804989fd94a4d216, rather than the required f790474821cf4256814db967cb154e7af3d0c369. All five direct Tau import artifacts and the required LongExactSequence artifact are absent at their standard build paths. TauBuildScope.json records the fresh probe. No library setup, cache download, library build or language server was used. Each direct Lean run was serial, memory bounded and under the20-minute timeout.
 
-All482 native axiom closures contain only propext,Classical.choice and Quot.sound. All14 mathematical declaration headers and3 example headers match their admitted projections; one declaration is the unchanged existing conductor_affine_quotients header. The local restriction-dominance instance directly applies the pinned flat-base-change theorem and is also audited. The final suggested file equals Canonical.lean, SHA256 `6ed90dc7306c2842cad89cf4bb9e197c384e43c1a5a2ff3a0295c959d3d18c60`. The two Mathlib artifacts do not certify that full file or the remaining geometric comparisons.
+- Native.lean: 7335 lines,260 examples,exit0,0 warnings,498 axiom audits,39GiB available before the serial run. Source SHA256 `11f7d0e1d418cf1db63da775cec5892058f0a54636fff94c6e95135e58a231e9`; diagnostic SHA256 `f7f37a01cfc42a70928296c5aaaef43bf487bd7a3b6917d30b28c3e875c20bcd`.
+- Sketch.lean: 4681 lines,279 examples,exit0,695 warnings,20 axiom audits,40GiB available before the serial run. Source SHA256 `fbba1c7920c79080a572c892c9883bc81a08078494017bc7a7919854cb1d8cfa`; diagnostic SHA256 `435fb719c29d431937e81405ad08627a568240242026469684f3d4e6645d79b1`.
 
-The actual indexed checker reports609 nodes,362 API items,310 recognized tests,425 baseline declarations and29 planets, with no errors or warnings. Raw test objects total360. Actual intake authorization/file checks and inherited derived source-issue checks pass. Actual immutable assembly has stage3043/8727, own609/1496 and scoped3623/11020 vertices/edges; all graphs are acyclic. All69 required supplier paths are reachable. Owned roots resolve and have no skipped or pending links. Whole foreign roadmap/stage objects and stage edges remain unchanged against the publication control. The45 unrelated preexisting missing restructure paths remain preserved.
+The final suggested file is exactly Canonical.lean, SHA256 `8c0b6fe274ddb7c7663375f12f1d2c0973a446ced449d9cb690a2e681e320f62`. The checked Mathlib artifacts certify their own exact files, not that full Tau-importing file or the remaining global obligations.
 
-Mathematical base `a17d8595de0eab8536d39433922d2e76a3367c1a`; publication control `a17d8595de0eab8536d39433922d2e76a3367c1a`. All29 guarded inputs, all five incoming deliverables and the issue contract agree across these controls. Verification.json records the actual immutable publication assembly. The declared source-ideal gap is resolved by the new exact comparison; the generic SF.0 request is not closed wholesale.
+The actual indexed checker reports625 nodes,373 API entries,316 recognized tests,430 baseline declarations,29 planets,18 gaps,23 requests and zero errors/warnings. Raw test objects total366. Actual intake file/authorization checks and source-issue checks pass. Verification.json and Verification-mathematical.json record actual immutable assemblies. The mathematical base is `d4e1964b6dfd7d2d382c6c1270933632b4837a31` and publication control `c360744b90a3a6a0f6fe7bbf4b145ca134ce126a`. PublicationChanges.json names each changed guarded input and its read scope. All five incoming deliverables still agree exactly with the authenticated6023 predecessor; the issue contract is unchanged.
+
+The publication assembly has stage3043/8727, own625/1523 and scoped3639/11063 vertices/edges, all acyclic. All69 required supplier paths are reachable; owned roots resolve with no skipped or pending links. Foreign roadmap/stage objects and stage edges are unchanged against the publication control. The45 unrelated preexisting missing restructure paths remain preserved.
 
 ## Resume
 
-Use conductor_affine_quotients and conductorChartMap_ambient_quotient as the actual affine chart interface. Combine with the existing common-ideal ring reconstruction, prove compatibility of the section comparison on overlaps and the all-open structure-sheaf exact sequence, then the topological and categorical geometric pushout. Integrate the exact SF.0/flat-annihilator supplier for recomputed flat conductors. Preserve nilpotents, empty schemes and zero rings, and all P¹/Proj, projectivity/properness, H0/H1, I2, later-model and classification obligations.
+Use conductor_affine_isPullback, conductorSectionsIso and conductorSectionDifference_exact as the actual affine interface. The difference already respects every open restriction. Package the actual additive maps on the relevant structure sheaves, prove sheaf exactness from the affine basis with the native pushforward carriers, then prove the quotient topology and geometric/categorical pushout. Establish the source-specific curve dimension justification independently of the false generic matrix bound. Integrate the exact existing SF.0 flat-annihilator supplier for recomputed flat conductors. Preserve all nilpotents, empty schemes, zero rings and inherited geometric/model/classification obligations.
 
-## Public replay
+## Public recovery and replay
 
-Archive commit `4ca16bd36e344b7e2f166ed77087a130d03b276e` is an ancestor touching only this issue's suggested file. Its49 authenticated artifacts include all9 current authoring, projection, verifier, immutable-graph, compiler and handoff helpers. Manifest SHA256 `5ce941dd25050eb04d1e6d3ca19f13b6de84740f4ec289d7f692a6bb045f4fb1`; payload SHA256 `1b1520693c32a2262547202c28a79c4083901ff4f8a538bc755353a1a500f052`. The final suggested file is exactly Canonical.lean, without the archive payload.
+The evidence archive is the inert payload in the suggested-file ancestor `e7d2ac1501d4f659422c648a4222fb76144ce5a6`. Its manifest SHA256 is `e79424711458374fd7f54991d1f2c9a3f7203f1a6b90cb9d9dffd38703ae9620` and compressed payload SHA256 `3482537f56ef874617bc223b11c599db9dbcea4d442bd56ce732d839734692e4`. It contains59 authenticated artifacts, including all9 authoring/projection/compiler/immutable-assembly/verification helpers. The final suggested file restores the exact canonical projection and contains no archive payload. The recovery script below authenticates every archived byte, fetches all five final deliverables, checks the four noncircular file hashes, and checks its own code against the public handoff. It never executes Lean.
 
-Save the Python fence below as recover.py and run `python3 recover.py REPLAY_DIR FULL_PR_HEAD_SHA`. It recovers the public immutable archive and five final deliverables, checks every artifact hash and size, and binds this handoff's mathematical prefix and its recovery code. Inspect the recovered scripts. From an existing repository checkout containing the recorded bases, run `PYTHONDONTWRITEBYTECODE=1 python3 REPLAY_DIR/verify.py REPLAY_DIR DECLARATION_INDEX` with the exact pinned declarations.tsv. REPLAY_DIR must be outside the checkout. The actual immutable checker, intake and graph report should equal Verification.json. The mathematical and publication controls coincide for this checkpoint. These commands neither run Lean nor create a repository snapshot.
-
-Optional serial compiler replay, only with an existing exact pinned Mathlib build: run `python3 REPLAY_DIR/runcheck.py REPLAY_DIR MATHLIB_CHECKOUT LEAN_BINARY Native.lean`, wait for completion, then run the corresponding Sketch.lean command. The runner checks pins, compiler version, tracked cleanliness and free memory≥20GiB, with one thread, an8GiB limit and1200-second timeout. The complete Tau-importing canonical file is outside this compiler scope. Recorded elapsed time and resource statistics vary on replay.
-
-Public HTTP recovery and actual verification against the final immutable pushed head are checked before submission. Disposable own scratch is deleted after opening the PR.
+Run recover.py with an empty evidence-directory argument and this pull request's immutable final head as its second argument. From an existing explorer checkout containing both recorded control commits, run the recovered verify.py with that evidence directory and the pinned declaration-index path. Repeat with NERON_VALIDATE_BASE set to the recorded mathematical base. The resulting publication and mathematical reports must match Verification.json and Verification-mathematical.json byte-for-byte. The immutable adapter reads recorded Git blobs directly; it creates no repository snapshot.
 
 ## Script: recover.py
 
 ```python
-"""Recover public hash-authenticated source-conductor evidence; never executes Lean."""
+"""Recover public hash-authenticated conductor section evidence; never executes Lean."""
 from pathlib import Path
 import base64,hashlib,json,re,sys,urllib.request,zlib
 S=Path(sys.argv[1]).resolve();S.mkdir(parents=True,exist_ok=True)
 HEAD=sys.argv[2];assert re.fullmatch('[0-9a-f]{40}',HEAD)
 ROOT='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
 RID='NeronModelsAndSemistableAbelianVarietiesPartII'
-ARCHIVE='4ca16bd36e344b7e2f166ed77087a130d03b276e'
-MANIFEST_SHA='5ce941dd25050eb04d1e6d3ca19f13b6de84740f4ec289d7f692a6bb045f4fb1'
-PAYLOAD_SHA='1b1520693c32a2262547202c28a79c4083901ff4f8a538bc755353a1a500f052'
-EXPECTED={'roadmaps': 'e2f6b8eb5cc94e9139343bbc5390420825e43f9f3fa6f753e3f955a78fd715f2', 'packets': '9e0dc178e2b820e068f018c8e90467ebd1659b8fbf77feb46f06ab5c3f2bb16d', 'readmes': 'd5e9424a513737e23eb119136834039225eef6e60fe975d47f79571792a821fc', 'suggested': '6ed90dc7306c2842cad89cf4bb9e197c384e43c1a5a2ff3a0295c959d3d18c60'}
+ARCHIVE='e7d2ac1501d4f659422c648a4222fb76144ce5a6'
+MANIFEST_SHA='e79424711458374fd7f54991d1f2c9a3f7203f1a6b90cb9d9dffd38703ae9620'
+PAYLOAD_SHA='3482537f56ef874617bc223b11c599db9dbcea4d442bd56ce732d839734692e4'
+EXPECTED={'roadmaps': '6a9cb992aafa7fb18e85deaa995ff91c353729c14478d40981ab679cf7b6e7a5', 'packets': '3e46786b807b73d1bfcb284879e778651c329765c954bad9933ab82bcafbc7ec', 'readmes': 'e30eb027fa1e456f726365f67f977f573d78b1932156e5f3939d8c119aa9c90d', 'suggested': '8c0b6fe274ddb7c7663375f12f1d2c0973a446ced449d9cb690a2e681e320f62'}
 sha=lambda b:hashlib.sha256(b).hexdigest()
 def fetch(ref,path):
- with urllib.request.urlopen(ROOT+ref+'/'+path,timeout=60)as r:return r.read()
+ with urllib.request.urlopen(ROOT+ref+'/'+path,timeout=30)as r:return r.read()
 raw=fetch(ARCHIVE,'research/blueprint/suggested/'+RID+'.lean').decode()
-pb=(raw.split('/- BEGIN ARCHIVED SOURCE CONDUCTOR PAYLOAD\n',1)[1].split('END ARCHIVED SOURCE CONDUCTOR PAYLOAD -/',1)[0]).encode()
+pb=(raw.split('/- BEGIN ARCHIVED CONDUCTOR SECTION PAYLOAD\n',1)[1].split('END ARCHIVED CONDUCTOR SECTION PAYLOAD -/',1)[0]).encode()
 assert sha(pb)==PAYLOAD_SHA
 payload=json.loads(pb)
 def unpack(name):
@@ -65,7 +69,7 @@ def unpack(name):
  return b
 mb=unpack('artifact-manifest.json');assert sha(mb)==MANIFEST_SHA;meta=json.loads(mb)
 assert set(payload)==set(meta)|{'artifact-manifest.json'}
-assert len(meta)==49 and {'author.py','assemble.py','compile.py','runcheck.py','projection.py','immutable.py','graph.py','verify.py','write_handoff.py'}<=set(meta)
+assert len(meta)==59 and {'author.py','assemble.py','compile.py','runcheck.py','projection.py','immutable.py','graph.py','verify.py','write_handoff.py'}<=set(meta)
 for name,m in meta.items():
  assert Path(name).name==name and name not in {'.','..'}
  b=unpack(name);assert sha(b)==m['sha256']and len(b)==m['bytes']and len(b.splitlines())==m['lines'],name
@@ -86,4 +90,5 @@ assert code==Path(__file__).read_text(),'Executed recovery script differs from c
 (S/'recover.py').write_text(code)
 receipt=dict(head=HEAD,archive=ARCHIVE,artifactsVerified=len(meta),archivedHelpersVerified=9,publicDeliverables=public,recoverySha256=sha(code.encode()),LeanExecuted=False)
 (S/'public-recovery.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt,indent=2))
+
 ```
