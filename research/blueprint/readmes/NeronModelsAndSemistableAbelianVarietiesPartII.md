@@ -1,3 +1,267 @@
+# Polynomial multiplication and the coefficient-compatible universal map
+
+For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain.
+
+## Conventions and calculation
+
+Let k be any field, a,b∈k and q=t²+at+b. Keep the existing subalgebra A_q=k+qk[t], its specified S=k[T]-algebra map θ(P)=P(q), and the native S-linear coordinates e(P,Q)=P(q)+tqQ(q). The symbol T is the coefficient variable, while t is the normalization coordinate. They are not interchangeable. Write v=tq, R=T³−bT² and L=aT. The actual ordered basis is (1,v).
+
+Multiplying the ambient polynomials gives v²=t²q²=(q−at−b)q²=q³−bq²−aqv. Thus v²=θ(R)−θ(L)v. Distributing products of P+Qv gives the displayed coefficient product. This calculation works in every characteristic. In the cusp, a=b=0, it gives v²=θ(T³); over F₂ with a=b=1 it retains both T² and T terms. Componentwise multiplication of the coefficient pair does not represent the ring operation.
+
+For any commutative S-algebra B with coefficient map ι, evaluate a coordinate pair by (P,Q)↦ι(P)+ι(Q)y. This is S-linear for arbitrary y. It is multiplicative when y²=ι(R)−ι(L)y: the difference between the two product expressions is the product of the two second coefficients times that exact relation. The resulting map fixes the coefficient algebra and sends v to y. Conversely, every S-algebra map carries the proved relation of v to the target relation. Unique reconstruction in the basis (1,v) proves that this value determines the entire map. The specified inverse pair of functions is consequently a native equivalence of the algebra-homomorphism type with the actual root subtype.
+
+No nontriviality, reducedness, perfectness or separability is imposed on B. It can have nilpotents, can be the zero ring, and can live in a universe independent of k. The mapping property concerns the actual parameter action S→A_q. A k-algebra map allowing the image of q to vary has a different domain of choices. The equation here does not construct a projective curve, establish a normalization universal property, or prove a structure-sheaf exact sequence.
+
+## Declaration contracts
+
+### Multiplication in polynomial coordinates
+
+`QuadraticPinch.polynomialProduct` — Define the coefficient product z⋆w=(z₀w₀+(T³−bT²)z₁w₁, z₀w₁+z₁w₀−aTz₁w₁) on S×S. This is an explicit function furnishing the coordinates of multiplication in the existing ring A_q, not componentwise pair multiplication or a second ring carrier.
+
+Hypotheses: k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed.
+
+Proof: Use the existing two-term reconstruction and the relation q=t²+at+b. The displayed function specifies the coefficient pair; its multiplicative comparison is a separate lemma.
+
+Inputs: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-coordinates`.
+
+API:
+
+- `QuadraticPinch.polynomialCoordinates_mul` (compatibility): For all z,w∈S×S, e(z⋆w)=e(z)e(w) in the actual pinched algebra A_q.
+- `QuadraticPinch.polynomialCoordinates_inverse_mul` (characterisation): For all f,g∈A_q, e⁻¹(fg)=e⁻¹(f)⋆e⁻¹(g).
+- `QuadraticPinch.polynomialProduct_unit` (compatibility): For every a,b and z∈S×S, (1,0)⋆z=z.
+
+Unit tests:
+
+- `QuadraticPinch.test_product_cusp` (computation): For a=b=0 over any field, the actual coefficient product (0,1)⋆(0,1) is (T³,0); componentwise pair multiplication would instead give (0,1).
+- `QuadraticPinch.test_product_char2` (computation): For a=b=1 over F₂, the actual coefficient product (0,1)⋆(0,1) is (T³−T²,−T). Both quadratic coefficients survive in characteristic two.
+- `QuadraticPinch.test_product_unit` (degenerate): For every a,b and z∈S×S, (1,0)⋆z=z.
+
+### Multiplicative coordinate comparison
+
+`QuadraticPinch.polynomialCoordinates_mul` — For all z,w∈S×S, e(z⋆w)=e(z)e(w) in the actual pinched algebra A_q.
+
+Hypotheses: k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed.
+
+Proof: Compare both sides after the actual subalgebra inclusion. Composition respects polynomial addition, subtraction and multiplication; expansion of q=t²+at+b gives the equality.
+
+Inputs: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-product`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-coordinates-coe`.
+
+### Coordinates of a product
+
+`QuadraticPinch.polynomialCoordinates_inverse_mul` — For all f,g∈A_q, e⁻¹(fg)=e⁻¹(f)⋆e⁻¹(g).
+
+Hypotheses: k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed.
+
+Proof: Apply injectivity of e to the established multiplicative comparison and its two inverse laws.
+
+Inputs: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-coordinates-mul`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-coordinates`.
+
+### First basis vector is the ring unit
+
+`QuadraticPinch.polynomialBasis_zero_eq_one` — The actual first polynomial-module basis vector b0 equals 1 in A_q, not only after ambient coercion.
+
+Hypotheses: k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed.
+
+Proof: Use subtype extensionality and the incoming ambient equation for b0.
+
+Inputs: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-basis-zero`.
+
+### Quadratic relation of the second basis vector
+
+`QuadraticPinch.polynomialBasis_square` — In the actual S-algebra A_q, v²=θ(T³−bT²)−θ(aT)v, with v=b1=tq. Equivalently v²+aT·v+bT²−T³=0. The coefficients are evaluated at q, not at t.
+
+Hypotheses: k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed.
+
+Proof: Compare ambient coercions, use θ(P)=P(q) and v=tq, and expand q=t²+at+b.
+
+Inputs: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-basis-one`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-parameter-coe`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-parameter-algebra`.
+
+### Linear evaluation of a pinched element
+
+`QuadraticPinch.polynomialEvaluation` — For an arbitrary y∈B, construct the actual S-linear map E_y:A_q→B given by E_y(f)=ι(e⁻¹(f)₀)+ι(e⁻¹(f)₁)y. No root equation on y is required to construct this linear map, and multiplicativity is not assumed.
+
+Hypotheses: k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed. B is an arbitrary commutative S-algebra, in an independent universe; B need not be a field, reduced or nonzero. Write ι:S→B for its actual algebra map, R=T³−bT² and L=aT. Write v=b1=tq in A_q.
+
+Proof: The inverse coordinate equivalence is S-linear. Addition and the specified S-action, together with the actual coefficient algebra map into B, prove the native linear-map laws.
+
+Inputs: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-coordinates`.
+
+API:
+
+- `QuadraticPinch.polynomialEvaluation_apply` (characterisation): For every y∈B and z∈S×S, E_y(e(z))=ι(z₀)+ι(z₁)y.
+- `QuadraticPinch.polynomialEvaluation_mul` (compatibility): If y∈B satisfies y²=ι(T³−bT²)−ι(aT)y, then E_y(fg)=E_y(f)E_y(g) for all f,g∈A_q.
+- `QuadraticPinch.polynomialEvaluation_parameter` (compatibility): For every y∈B and P∈S, E_y(θ(P))=ι(P), without assuming that y satisfies the quadratic relation.
+
+Unit tests:
+
+- `QuadraticPinch.test_evaluation_parameter` (compatibility): For every y∈B and P∈S, the actual E_y(θ(P)) equals ι(P); no root equation is required.
+- `QuadraticPinch.test_evaluation_zero` (degenerate): For every a,b and y∈B, E_y(0)=0 in the actual target ring.
+- `QuadraticPinch.test_evaluation_second` (characterisation): For every a,b and y∈B, E_y(e(0,1))=y, not the first coefficient or its scalar evaluation.
+
+### Evaluation in coefficient coordinates
+
+`QuadraticPinch.polynomialEvaluation_apply` — For every y∈B and z∈S×S, E_y(e(z))=ι(z₀)+ι(z₁)y.
+
+Hypotheses: k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed. B is an arbitrary commutative S-algebra, in an independent universe; B need not be a field, reduced or nonzero. Write ι:S→B for its actual algebra map, R=T³−bT² and L=aT. Write v=b1=tq in A_q.
+
+Proof: Use the inverse law of the existing coordinate equivalence.
+
+Inputs: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-evaluation`.
+
+### Multiplicativity at a relation root
+
+`QuadraticPinch.polynomialEvaluation_mul` — If y∈B satisfies y²=ι(T³−bT²)−ι(aT)y, then E_y(fg)=E_y(f)E_y(g) for all f,g∈A_q.
+
+Hypotheses: k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed. B is an arbitrary commutative S-algebra, in an independent universe; B need not be a field, reduced or nonzero. Write ι:S→B for its actual algebra map, R=T³−bT² and L=aT. Write v=b1=tq in A_q.
+
+Proof: Apply the inverse multiplication formula; the coefficient algebra map preserves ring operations. Subtract the product of the two evaluations and use the displayed root equation multiplied by the two second coefficients.
+
+Inputs: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-evaluation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-inverse-mul`.
+
+### Algebra map determined by the second basis vector
+
+`QuadraticPinch.polynomialLift` — For every y∈B satisfying y²=ι(T³−bT²)−ι(aT)y, construct the actual S-algebra homomorphism F_y:A_q→B whose underlying function is E_y. Its unit and coefficient images are the actual ring unit and the specified map ι.
+
+Hypotheses: k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed. B is an arbitrary commutative S-algebra, in an independent universe; B need not be a field, reduced or nonzero. Write ι:S→B for its actual algebra map, R=T³−bT² and L=aT. Write v=b1=tq in A_q.
+
+Proof: Reuse the native linear map and the established multiplicative law. Identify the ring unit and θ(P) with e(1,0) and e(P,0); the evaluation formula proves the unit and coefficient-map conditions.
+
+Inputs: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-evaluation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-evaluation-mul`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-evaluation-apply`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-parameter-coordinates`.
+
+API:
+
+- `QuadraticPinch.polynomialLift_apply` (simp): For every relation root y and z∈S×S, F_y(e(z))=ι(z₀)+ι(z₁)y.
+- `QuadraticPinch.polynomialLift_basis` (simp): For every relation root y, F_y(v)=y for the actual v=b1=tq.
+- `QuadraticPinch.polynomialLift_unique` (universal-property): For every relation root y and actual S-algebra homomorphism F:A_q→B with F(v)=y, F=F_y.
+
+Unit tests:
+
+- `QuadraticPinch.test_lift_self` (compatibility): For B=A_q with its specified S-algebra structure and y=v with its proved quadratic relation, the actual F_v is the identity S-algebra homomorphism of A_q.
+- `QuadraticPinch.test_lift_root` (characterisation): For every relation root y in every commutative S-algebra B, the actual lift sends the actual second basis vector v to y.
+- `QuadraticPinch.test_lift_unique` (characterisation): Every actual S-algebra homomorphism sending v to a specified relation root y is equal to the constructed F_y.
+
+### Algebra map on a coefficient pair
+
+`QuadraticPinch.polynomialLift_apply` — For every relation root y and z∈S×S, F_y(e(z))=ι(z₀)+ι(z₁)y.
+
+Hypotheses: k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed. B is an arbitrary commutative S-algebra, in an independent universe; B need not be a field, reduced or nonzero. Write ι:S→B for its actual algebra map, R=T³−bT² and L=aT. Write v=b1=tq in A_q.
+
+Proof: The underlying function of F_y is E_y, so use the established evaluation formula.
+
+Inputs: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-lift`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-evaluation-apply`.
+
+### Image of the second basis vector
+
+`QuadraticPinch.polynomialLift_basis` — For every relation root y, F_y(v)=y for the actual v=b1=tq.
+
+Hypotheses: k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed. B is an arbitrary commutative S-algebra, in an independent universe; B need not be a field, reduced or nonzero. Write ι:S→B for its actual algebra map, R=T³−bT² and L=aT. Write v=b1=tq in A_q.
+
+Proof: The second basis vector is the coordinate image of (0,1); evaluate that pair.
+
+Inputs: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-lift-apply`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-basis`.
+
+### Uniqueness of the algebra lift
+
+`QuadraticPinch.polynomialLift_unique` — For every relation root y and actual S-algebra homomorphism F:A_q→B with F(v)=y, F=F_y.
+
+Hypotheses: k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed. B is an arbitrary commutative S-algebra, in an independent universe; B need not be a field, reduced or nonzero. Write ι:S→B for its actual algebra map, R=T³−bT² and L=aT. Write v=b1=tq in A_q.
+
+Proof: Reconstruct each f as P·b0+Q·v. Both homomorphisms preserve the specified S-coefficients, addition and multiplication, and have identical values on 1 and v.
+
+Inputs: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-lift-basis`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-basis-unit`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-reconstruction`, `mathlib:AlgHom.commutes`.
+
+### Every algebra map produces a relation root
+
+`QuadraticPinch.polynomialHom_relation` — For every actual S-algebra homomorphism F:A_q→B, its value F(v) satisfies F(v)²=ι(T³−bT²)−ι(aT)F(v).
+
+Hypotheses: k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed. B is an arbitrary commutative S-algebra, in an independent universe; B need not be a field, reduced or nonzero. Write ι:S→B for its actual algebra map, R=T³−bT² and L=aT. Write v=b1=tq in A_q.
+
+Proof: Apply F to the proved native relation and use preservation of ring operations and the coefficient map.
+
+Inputs: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-basis-square`, `mathlib:AlgHom.commutes`.
+
+### Algebra homomorphisms as quadratic roots
+
+`QuadraticPinch.polynomialHomEquivRoots` — Construct the actual equivalence between S-algebra homomorphisms A_q→B and the subtype of y∈B satisfying y²=ι(T³−bT²)−ι(aT)y. The forward map is F↦F(v), and the inverse is y↦F_y. It describes maps of the specified parameter algebra, not a geometric normalization universal property.
+
+Hypotheses: k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed. B is an arbitrary commutative S-algebra, in an independent universe; B need not be a field, reduced or nonzero. Write ι:S→B for its actual algebra map, R=T³−bT² and L=aT. Write v=b1=tq in A_q.
+
+Proof: The relation lemma makes the forward map land in the actual root subtype. Lift uniqueness gives the homomorphism-side inverse law, and the second-basis-vector formula gives the root-side inverse law.
+
+Inputs: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-hom-relation`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-lift`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-lift-basis`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-lift-unique`.
+
+API:
+
+- `QuadraticPinch.polynomialHomEquivRoots_apply` (projection): For every actual S-algebra homomorphism F, the underlying element of its image under the homomorphism/root equivalence is F(v).
+- `QuadraticPinch.polynomialHomEquivRoots_symm_apply` (compatibility): For every element y of the actual root subtype, the inverse homomorphism/root equivalence is exactly F_y, constructed with y’s displayed relation proof.
+- `QuadraticPinch.polynomialHomEquivRoots_parameter` (compatibility): For every actual root-subtype element y and every P∈S, the inverse homomorphism/root correspondence sends θ(P) to ι(P).
+
+Unit tests:
+
+- `QuadraticPinch.test_hom_roots_forward_inverse` (characterisation): For every actual root-subtype element y, mapping y to its inverse homomorphism and then taking its forward root recovers y, including its relation subtype.
+- `QuadraticPinch.test_hom_roots_inverse_forward` (compatibility): For every actual S-algebra homomorphism F, constructing the lift of its forward root recovers exactly F.
+- `QuadraticPinch.test_hom_roots_parameter` (compatibility): For every root-subtype element y and P∈S, the actual inverse correspondence sends θ(P) to ι(P), with no change of the parameter action.
+
+### Forward quadratic root comparison
+
+`QuadraticPinch.polynomialHomEquivRoots_apply` — For every actual S-algebra homomorphism F, the underlying element of its image under the homomorphism/root equivalence is F(v).
+
+Hypotheses: k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed. B is an arbitrary commutative S-algebra, in an independent universe; B need not be a field, reduced or nonzero. Write ι:S→B for its actual algebra map, R=T³−bT² and L=aT. Write v=b1=tq in A_q.
+
+Proof: Read the specified forward function of the constructed equivalence.
+
+Inputs: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-hom-roots`.
+
+### Inverse quadratic root comparison
+
+`QuadraticPinch.polynomialHomEquivRoots_symm_apply` — For every element y of the actual root subtype, the inverse homomorphism/root equivalence is exactly F_y, constructed with y’s displayed relation proof.
+
+Hypotheses: k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed. B is an arbitrary commutative S-algebra, in an independent universe; B need not be a field, reduced or nonzero. Write ι:S→B for its actual algebra map, R=T³−bT² and L=aT. Write v=b1=tq in A_q.
+
+Proof: Read the specified inverse function; no alternative choice of coefficient action is introduced.
+
+Inputs: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-hom-roots`.
+
+### Unit for coefficient multiplication
+
+`QuadraticPinch.polynomialProduct_unit` — For every a,b and z∈S×S, (1,0)⋆z=z.
+
+Hypotheses: k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed.
+
+Proof: Substitute (1,0) in the explicit coefficient formula and simplify polynomial ring operations.
+
+Inputs: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-product`.
+
+### Linear evaluation fixes the parameter
+
+`QuadraticPinch.polynomialEvaluation_parameter` — For every y∈B and P∈S, E_y(θ(P))=ι(P), without assuming that y satisfies the quadratic relation.
+
+Hypotheses: k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed. B is an arbitrary commutative S-algebra, in an independent universe; B need not be a field, reduced or nonzero. Write ι:S→B for its actual algebra map, R=T³−bT² and L=aT. Write v=b1=tq in A_q.
+
+Proof: Write θ(P)=e(P,0) by the incoming parameter comparison and use the coordinate evaluation equation.
+
+Inputs: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-evaluation-apply`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-parameter-coordinates`.
+
+### Root correspondence fixes every coefficient
+
+`QuadraticPinch.polynomialHomEquivRoots_parameter` — For every actual root-subtype element y and every P∈S, the inverse homomorphism/root correspondence sends θ(P) to ι(P).
+
+Hypotheses: k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the actual incoming subalgebra k+qk[t]. S=k[T] acts through the existing parameter homomorphism θ(P)=P(q), and e:S×S≃ₗ[S]A_q is the existing polynomialCoordinates equivalence. No characteristic, separability or discriminant restriction is imposed. B is an arbitrary commutative S-algebra, in an independent universe; B need not be a field, reduced or nonzero. Write ι:S→B for its actual algebra map, R=T³−bT² and L=aT. Write v=b1=tq in A_q.
+
+Proof: The inverse correspondence is an actual S-algebra homomorphism; apply its native coefficient-map compatibility.
+
+Inputs: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/polynomial-hom-roots`, `mathlib:AlgHom.commutes`.
+
+## Dependencies and remaining targets
+
+These declarations extend the existing affine presentation and its parameter-module basis. Generic native polynomial, subalgebra, linear-equivalence and algebra-homomorphism carriers remain imports. The same general Ferrand predicate is retained at `NeronModelsAndSemistableAbelianVarietiesPartII:key/ferrand-pushouts`, with its arbitrary-ring scheme/algebraic-space distinction, finite pinching, flat-target-base-change and conductor obligations. No general pushout or supplier theory is replaced by the quadratic sample.
+
+Identify the already glued source with the native projective line and the already glued target with the specified Proj cubic. Prove the geometric normalization universal property and projectivity/properness. Construct the conductor ideal sheaf, actual structure-sheaf sequence and finite-pushforward H0/H1 comparison. The independent I₂ geometry, nonsplit/inseparable distinctions, all other source adapters and the fourteen-model completeness certificate remain required. All seven stages are partial and every implementation remains unchecked.
+
+The source motivation is Schröer §3, arXiv2004.07025v3; the new formulas and mapping property are authored algebraic deductions, not attributed printed theorems. The suggested signatures and their precise compile boundary are recorded in the handoff. The definitive inherited document follows unchanged.
+
+---
+
 # Polynomial module basis of a quadratic pinch
 
 For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked.

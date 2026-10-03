@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Partial continuation: preserve all 61 inherited nodes and add eleven R03.3 declarations comparing the native stable-adic Rees module quotient with the actual associated graded module. Reuse native Rees carriers and quotient scalar descent; specify the coefficient denominator, piece inclusions, homogeneous action by the same graded ring, finite expansion, degree-zero generation, finite generation for finite M and the explicit regular-module specialization. All eight stages remain open. Graded Hilbert–Serre, dimension and every original source-route obligation remain gaps. The full Mathlib-only suggested file elaborates; all mathematical implementations remain unchecked. This continuation registers the native natural-indexed grading of the existing adic Rees ring and module through seven precise adapters, without changing the underlying carriers; polynomial induction remains open. Codex — codex-a71f92 integrates six finite-variable jet adapters from the plane-curve handoff: variable-ideal powers/order, denominator containment, native shifted map with projection, exact-order injectivity, right-exactness and the separate small-index branch. All 79 inherited nodes are unchanged; the general Hilbert–Serre and multiplicity comparisons remain open. This continuation adds the native total-jet kernel, polynomial equivalence, monomial basis and two-variable field-dimension computation; built double quotients and surjective scalar length restriction are cited without duplicate nodes. Codex — codex-5ebb6f adds the native series residue-field equivalence, coefficient surjectivity, extended-natural length comparison and finite-dimensional specialization, promotes the existing jet-finiteness API, and states total-jet R-module lengths. Seven declaration nodes and three APIs are added; all 89 inherited node objects remain unchanged. The residue and length foundation has an admission-free checked prototype; the submitted signatures and all implementation statuses remain unchecked. Integrates the credited finite plane-curve jet proof into nine unchecked native declarations, with all-index length and sharp cumulative postulation; scope remains partial. Codex — codex-rtOQ9t adds three reusable quotient-ring Hilbert–Samuel API lemmas and six actual boundary examples, refines the plane-curve adapter to their specialization, and retains all source/closure boundaries. This finite-variable continuation separates algebraic monomial-power membership, the order lower bound and a finite degree-r factorization; their admission-free native prototypes assemble the existing ideal-power/order equivalence without a domain assumption. The canonical plan remains partial and unchecked. Codex — codex-7e92bd refines the total-jet kernel/equivalence/basis/count proof chains through six declaration-sized coefficient and cardinality adapters, with an admission-free native prototype covering the actual polynomial equivalence, coefficient coordinates, monomial basis and all-cutoff two-variable count. All inherited general multiplicity and patching obligations remain open. The exact-order variable-ideal preimage now has a separate lemma, and admission-free native prototypes connect the actual shifted multiplication/projection to the preceding principal-quotient proofs. The canonical suggested bodies and all stage coverage remain unchecked/partial. Native finite-plane-curve graded lengths and exact rational postulation now distinguish the two sharp thresholds, including characteristic-two and zero/unit boundaries. Native continuation supplies explicit rational curve and surface polynomials, their evaluation, degree and leading-coefficient API, actual sharp curve tails and unique eventual polynomial existence for both finite-order and zero equations. Polynomial factorial normalization is checked separately from the still-open general multiplicity and curve-dimension comparison. Native degree-wise initial relations now have ten additional exact declarations (one actual projection construction and nine lemmas), six distinguishing typed tests and an admission-free combined prototype; full tangent-cone assembly and dimension remain open. Polynomial representatives now reuse native truncation and homogeneous components, with coefficient, inclusion, unique-representative, order and product comparisons and the actual equation-jet kernel in polynomial form; no full graded or dimension comparison is claimed. Native degreewise continuation adds the actual ambient quotient-to-homogeneous equivalence and the homogeneous quotient-to-equation-jet-image equivalence, retaining all existing scope and remaining algebraic obligations.",
+  "summary": "This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2234,6 +2234,76 @@
         "module": "Mathlib/Algebra/Module/Submodule/Equiv.lean",
         "provides": "Equal-submodule transport preserves the underlying element.",
         "checked": "Exact statement, ambient assumptions and construction read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:LinearMap.codRestrict",
+        "kind": "construction",
+        "module": "Mathlib/Algebra/Module/Submodule/LinearMap.lean",
+        "provides": "Corestrict a linear map whose image is contained in the specified native submodule.",
+        "checked": "Statement and ambient hypotheses personally read at the exact Mathlib pin."
+      },
+      {
+        "ref": "mathlib:LinearMap.mem_ker",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Module/Submodule/Ker.lean",
+        "provides": "Membership in a linear-map kernel is equivalent to mapping to zero.",
+        "checked": "Statement and ambient hypotheses personally read at the exact Mathlib pin."
+      },
+      {
+        "ref": "mathlib:Ideal.quotEquivOfEq",
+        "kind": "construction",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "Equal ideals induce the actual ring quotient equivalence.",
+        "checked": "Statement and ambient hypotheses personally read at the exact Mathlib pin."
+      },
+      {
+        "ref": "mathlib:Ideal.quotEquivOfEq_mk",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "Equal-ideal quotient transport preserves representatives.",
+        "checked": "Statement and ambient hypotheses personally read at the exact Mathlib pin."
+      },
+      {
+        "ref": "mathlib:AlgEquiv.ofRingEquiv",
+        "kind": "construction",
+        "module": "Mathlib/Algebra/Algebra/Equiv.lean",
+        "provides": "Promote a ring equivalence commuting with the scalar algebra maps to an algebra equivalence.",
+        "checked": "Statement and ambient hypotheses personally read at the exact Mathlib pin."
+      },
+      {
+        "ref": "mathlib:Ideal.mem_map_iff_of_surjective",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "Under a surjective ring map, ideal-image membership has an actual ideal-member preimage.",
+        "checked": "Statement and ambient hypotheses personally read at the exact Mathlib pin."
+      },
+      {
+        "ref": "mathlib:Ideal.mem_map_of_mem",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "An ideal member maps into the mapped ideal.",
+        "checked": "Statement and ambient hypotheses personally read at the exact Mathlib pin."
+      },
+      {
+        "ref": "mathlib:Ideal.powQuotPowSuccLinearEquivMapMkPowSuccPow",
+        "kind": "construction",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+        "provides": "The native successive-power quotient is R-linearly equivalent to its ideal image in R/I^(n+1).",
+        "checked": "Statement and ambient hypotheses personally read at the exact Mathlib pin."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.restrictScalars",
+        "kind": "construction",
+        "module": "Mathlib/Algebra/Module/Equiv/Basic.lean",
+        "provides": "Restrict an S-linear equivalence to R with compatible scalar actions.",
+        "checked": "Statement and ambient hypotheses personally read at the exact Mathlib pin."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.map_eq_zero_iff",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Module/Equiv/Defs.lean",
+        "provides": "A linear equivalence carries an element to zero precisely when the element is zero.",
+        "checked": "Statement and ambient hypotheses personally read at the exact Mathlib pin."
       }
     ]
   },
@@ -3140,6 +3210,35 @@
           "sha256": "cc14ab54a1e88b37d838b98f7371540b9df545bdf071d8cb92740ddbea654335"
         }
       ]
+    },
+    {
+      "id": "HS-NATIVE-CURVE-DEGREE-rtOQ9t",
+      "title": "The actual curve ideal-power quotient and homogeneous polynomial comparison",
+      "authors": "Mathlib contributors; source-proof checkpoint ChatGPT — gpt6astra-20261002-7d2f90; native deductions Codex — codex-rtOQ9t",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; authored comparison 2026-10-03",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+      "accessDate": "2026-10-03",
+      "readSections": [
+        "Complete mathematical DDPA-JET-HANDOFF §§2–5 freshly reread from its immutable merged source, including the actual quotient, degreewise kernel, zero/unit, finite-variable and nonprincipal boundaries. This does not claim a fresh read of its whole historical handoff.",
+        "Stacks 00K4 complete mathematical section freshly read for the graded ring and graded/cumulative length conventions; recursive general Hilbert–Serre and dimension references remain open.",
+        "Pinned successive-power quotient equivalence Operations.lean 1148–1195, third algebra isomorphism 992–1073, quotient algebra and mk interfaces 350–416, ideal-map power and surjective-member interfaces, scalar restriction and linear equivalence vanishing statements read with ambient assumptions. Existing generic objects are consumed rather than replanned.",
+        "Reviewed AUDIT-17 nine scoped rows and accepted review, current campaign reader and all eight stage objects, current two requests, reserved general key, applicable accepted RS-08 ownership and incoming/outgoing links, and matching ModularCurves overlap were personally read. Historical peer proof logs are attributed, not replayed as our executions.",
+        "Bounded open Mathlib PR search found PR27307: OPEN, head 0127706ca379b684697f3c95c8cc772537a21774, body and changed-file list read for the homogeneous-relation grading interface. That unpinned implementation is not consumed. Two bounded indexed Zulip searches furnished no pertinent quotient adapter. No whole-library absence claim is made."
+      ],
+      "sourceHashes": {
+        "Mathlib/Algebra/Algebra/Equiv.lean": "685187debda5efdf31ff2071706125df1574d6d22a0192d161126b3bd6cf0b29",
+        "Mathlib/Algebra/Module/Equiv/Basic.lean": "615dd4b292377107d8e1354f237a50d07401a999983cf8bda806a28d9a236404",
+        "Mathlib/Algebra/Module/Equiv/Defs.lean": "bb44728b44de0595c5fefc7af3bf587da4a9aff7d756d83e800a10767e889610",
+        "Mathlib/Algebra/Module/Submodule/Ker.lean": "6cc0c2a52cc00e0cfa86072a20703538d94475847249493a81617f8e5e9f956d",
+        "Mathlib/Algebra/Module/Submodule/LinearMap.lean": "51b927c0a53b41f443cb053f81d6c065e0e462f1a016ea813111a0ecfa81f145",
+        "Mathlib/RingTheory/Ideal/Maps.lean": "a6cde2f875c2c8b9ea1aa57cf3aa654d5fd80981349de49f28556c77b56d9c11",
+        "Mathlib/RingTheory/Ideal/Quotient/Defs.lean": "f906662e22c49025984808feb489892afe51914ccc7a10b95d5f162ef4fbfe1d",
+        "Mathlib/RingTheory/Ideal/Quotient/Operations.lean": "25359917b64f9434dbff99f3033ecba35badb45d0a4e3468aead0ba87743d109"
+      },
+      "motivatingSourceHashes": {
+        "https://stacks.math.columbia.edu/tag/00K4": "e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/eb645dc85df65608c56fafc4d9ed0e71ab0ca3ce/research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md": "d6bb818403e28967bc241c039a37fc503492d926159c6fcf89c8317ac7119f3c"
+      }
     }
   ],
   "nodes": [
@@ -14580,6 +14679,1061 @@
       "acceptance": [
         "After coercion into the actual equation-jet quotient, the quotient-image equivalence sends the class of p to ψ_f,n(p)."
       ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-ideal-power",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Powers of the curve variable ideal",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.curveAdicIdeal_pow",
+      "statement": "For R=k[[σ]], F=(f), A=R/F, π:R→A and q=π(v), q^n=π(v^n) for every n.",
+      "hypotheses": [
+        "k is an arbitrary commutative ring; R is the native power-series ring, v its variable ideal, F the principal equation ideal, A=R/F, π the actual quotient map and q=Ideal.map π v. The scalar action of k comes from these canonical quotient algebra structures.",
+        "The homogeneous-polynomial comparisons require finite σ; the ideal-image and ideal-power comparisons themselves work for arbitrary σ. Principal-kernel comparison additionally assumes no zero divisors and exact finite equation order; the strict-below-order branch only assumes the stated lower bound."
+      ],
+      "proofSteps": [
+        "Apply the existing ideal-map power theorem to the actual quotient map and reverse the equality."
+      ],
+      "acceptance": [
+        "For R=k[[σ]], F=(f), A=R/F, π:R→A and q=π(v), q^n=π(v^n) for every n."
+      ],
+      "prerequisites": [
+        "mathlib:Ideal.map_pow"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§§3–5: actual quotient conventions, equation (9) and degreewise surjectivity",
+          "excerpt": "Keeping only its degree-j terms",
+          "match": "Authored native quotient comparison extending the credited degreewise proof. Arbitrary commutative coefficients are supported by the pinned ideal quotient APIs; no full graded algebra or curve dimension result is inferred."
+        },
+        {
+          "sourceId": "HS-NATIVE-CURVE-DEGREE-rtOQ9t",
+          "locator": "Pinned ideal map powers, third algebra isomorphism and successive-power quotient equivalence; curveAdicIdeal_pow",
+          "excerpt": "quotient module",
+          "match": "The generic carrier equivalences already exist in Mathlib. This node specifies their application to the actual formal-series equation quotient."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-equivalence",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The actual curve adic jet",
+      "kind": "construction",
+      "declaration": "TauCeti.HilbertSamuel.curveJetEquiv",
+      "statement": "Define the canonical k-algebra equivalence A/q^(n+1) ≃ R/(F+v^(n+1)), for every equation f and every n.",
+      "hypotheses": [
+        "k is an arbitrary commutative ring; R is the native power-series ring, v its variable ideal, F the principal equation ideal, A=R/F, π the actual quotient map and q=Ideal.map π v. The scalar action of k comes from these canonical quotient algebra structures.",
+        "The homogeneous-polynomial comparisons require finite σ; the ideal-image and ideal-power comparisons themselves work for arbitrary σ. Principal-kernel comparison additionally assumes no zero divisors and exact finite equation order; the strict-below-order branch only assumes the stated lower bound."
+      ],
+      "proofSteps": [
+        "Transport the denominator along q^(n+1)=π(v^(n+1)).",
+        "Apply the pinned third isomorphism theorem for algebras to F and v^(n+1); no order or domain hypothesis enters."
+      ],
+      "acceptance": [
+        "Define the canonical k-algebra equivalence A/q^(n+1) ≃ R/(F+v^(n+1)), for every equation f and every n."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-ideal-power",
+        "mathlib:Ideal.quotEquivOfEq",
+        "mathlib:AlgEquiv.ofRingEquiv",
+        "mathlib:DoubleQuot.quotQuotEquivQuotSupₐ"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§§3–5: actual quotient conventions, equation (9) and degreewise surjectivity",
+          "excerpt": "Keeping only its degree-j terms",
+          "match": "Authored native quotient comparison extending the credited degreewise proof. Arbitrary commutative coefficients are supported by the pinned ideal quotient APIs; no full graded algebra or curve dimension result is inferred."
+        },
+        {
+          "sourceId": "HS-NATIVE-CURVE-DEGREE-rtOQ9t",
+          "locator": "Pinned ideal map powers, third algebra isomorphism and successive-power quotient equivalence; curveJetEquiv",
+          "excerpt": "quotient module",
+          "match": "The generic carrier equivalences already exist in Mathlib. This node specifies their application to the actual formal-series equation quotient."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.curveJetEquiv_mk",
+          "role": "simp",
+          "statement": "The jet equivalence sends the iterated class of π(g) to the actual class of g modulo F+v^(n+1)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.curveAdicIdeal_pow",
+          "role": "compatibility",
+          "statement": "For R=k[[σ]], F=(f), A=R/F, π:R→A and q=π(v), q^n=π(v^n) for every n."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.curveJetEquiv_image_mem",
+          "role": "compatibility",
+          "statement": "The curve jet equivalence sends π_n(q^n), an ideal in A/q^(n+1), into the k-linear image of the existing degree projection φ_f,n:v^n→R/(F+v^(n+1))."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DDPA-JET-HANDOFF §5, equation (9)",
+          "how": "Identify degreewise polynomial representatives with actual adic ideal quotients before the multiplicative graded assembly."
+        },
+        {
+          "where": "Stacks 10.59.5 and the reserved general Hilbert–Samuel module construction",
+          "how": "Use actual successive ideal-power quotients for the graded length function; preserve the distinction from the cumulative function and intrinsic/ambient multiplicities."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NativeCurveDegreeTests.jet_zero",
+          "kind": "computation",
+          "statement": "For every f and n, the actual curve jet equivalence preserves zero."
+        },
+        {
+          "name": "NativeCurveDegreeTests.jet_unit",
+          "kind": "edge-case",
+          "statement": "For f=1, every iterated representative maps to zero in the actual equation-jet quotient."
+        },
+        {
+          "name": "NativeCurveDegreeTests.jet_inverse",
+          "kind": "characterisation",
+          "statement": "The inverse actual jet equivalence returns the iterated quotient representative for every g."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-representative",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The curve jet on representatives",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.curveJetEquiv_mk",
+      "statement": "The jet equivalence sends the iterated class of π(g) to the actual class of g modulo F+v^(n+1).",
+      "hypotheses": [
+        "k is an arbitrary commutative ring; R is the native power-series ring, v its variable ideal, F the principal equation ideal, A=R/F, π the actual quotient map and q=Ideal.map π v. The scalar action of k comes from these canonical quotient algebra structures.",
+        "The homogeneous-polynomial comparisons require finite σ; the ideal-image and ideal-power comparisons themselves work for arbitrary σ. Principal-kernel comparison additionally assumes no zero divisors and exact finite equation order; the strict-below-order branch only assumes the stated lower bound."
+      ],
+      "proofSteps": [
+        "Evaluate equal-ideal transport and the native third isomorphism equivalence on the actual quotient representative."
+      ],
+      "acceptance": [
+        "The jet equivalence sends the iterated class of π(g) to the actual class of g modulo F+v^(n+1)."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-equivalence",
+        "mathlib:Ideal.quotEquivOfEq_mk"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§§3–5: actual quotient conventions, equation (9) and degreewise surjectivity",
+          "excerpt": "Keeping only its degree-j terms",
+          "match": "Authored native quotient comparison extending the credited degreewise proof. Arbitrary commutative coefficients are supported by the pinned ideal quotient APIs; no full graded algebra or curve dimension result is inferred."
+        },
+        {
+          "sourceId": "HS-NATIVE-CURVE-DEGREE-rtOQ9t",
+          "locator": "Pinned ideal map powers, third algebra isomorphism and successive-power quotient equivalence; curveJetEquiv_mk",
+          "excerpt": "quotient module",
+          "match": "The generic carrier equivalences already exist in Mathlib. This node specifies their application to the actual formal-series equation quotient."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-membership",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The curve jet image lies in the equation-jet image",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.curveJetEquiv_image_mem",
+      "statement": "The curve jet equivalence sends π_n(q^n), an ideal in A/q^(n+1), into the k-linear image of the existing degree projection φ_f,n:v^n→R/(F+v^(n+1)).",
+      "hypotheses": [
+        "k is an arbitrary commutative ring; R is the native power-series ring, v its variable ideal, F the principal equation ideal, A=R/F, π the actual quotient map and q=Ideal.map π v. The scalar action of k comes from these canonical quotient algebra structures.",
+        "The homogeneous-polynomial comparisons require finite σ; the ideal-image and ideal-power comparisons themselves work for arbitrary σ. Principal-kernel comparison additionally assumes no zero divisors and exact finite equation order; the strict-below-order branch only assumes the stated lower bound."
+      ],
+      "proofSteps": [
+        "Use surjectivity of A→A/q^(n+1) to lift an ideal-image element to a∈q^n.",
+        "Use q^n=π(v^n) and surjectivity of π to lift a to g∈v^n. Evaluate the jet comparison on g to obtain the required image witness."
+      ],
+      "acceptance": [
+        "The curve jet equivalence sends π_n(q^n), an ideal in A/q^(n+1), into the k-linear image of the existing degree projection φ_f,n:v^n→R/(F+v^(n+1))."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-ideal-power",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-representative",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection",
+        "mathlib:Ideal.mem_map_iff_of_surjective"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§§3–5: actual quotient conventions, equation (9) and degreewise surjectivity",
+          "excerpt": "Keeping only its degree-j terms",
+          "match": "Authored native quotient comparison extending the credited degreewise proof. Arbitrary commutative coefficients are supported by the pinned ideal quotient APIs; no full graded algebra or curve dimension result is inferred."
+        },
+        {
+          "sourceId": "HS-NATIVE-CURVE-DEGREE-rtOQ9t",
+          "locator": "Pinned ideal map powers, third algebra isomorphism and successive-power quotient equivalence; curveJetEquiv_image_mem",
+          "excerpt": "quotient module",
+          "match": "The generic carrier equivalences already exist in Mathlib. This node specifies their application to the actual formal-series equation quotient."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-map",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The actual curve degree image map",
+      "kind": "construction",
+      "declaration": "TauCeti.HilbertSamuel.curveJetImageMap",
+      "statement": "Restrict the curve jet k-linear map to π_n(q^n) and corestrict its target to image(φ_f,n).",
+      "hypotheses": [
+        "k is an arbitrary commutative ring; R is the native power-series ring, v its variable ideal, F the principal equation ideal, A=R/F, π the actual quotient map and q=Ideal.map π v. The scalar action of k comes from these canonical quotient algebra structures.",
+        "The homogeneous-polynomial comparisons require finite σ; the ideal-image and ideal-power comparisons themselves work for arbitrary σ. Principal-kernel comparison additionally assumes no zero divisors and exact finite equation order; the strict-below-order branch only assumes the stated lower bound."
+      ],
+      "proofSteps": [
+        "Compose the native ideal subtype inclusion with the algebra equivalence viewed as a k-linear map. Corestrict using the proved membership lemma."
+      ],
+      "acceptance": [
+        "Restrict the curve jet k-linear map to π_n(q^n) and corestrict its target to image(φ_f,n)."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-membership",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-equivalence",
+        "mathlib:LinearMap.codRestrict",
+        "mathlib:LinearMap.restrictScalars"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§§3–5: actual quotient conventions, equation (9) and degreewise surjectivity",
+          "excerpt": "Keeping only its degree-j terms",
+          "match": "Authored native quotient comparison extending the credited degreewise proof. Arbitrary commutative coefficients are supported by the pinned ideal quotient APIs; no full graded algebra or curve dimension result is inferred."
+        },
+        {
+          "sourceId": "HS-NATIVE-CURVE-DEGREE-rtOQ9t",
+          "locator": "Pinned ideal map powers, third algebra isomorphism and successive-power quotient equivalence; curveJetImageMap",
+          "excerpt": "quotient module",
+          "match": "The generic carrier equivalences already exist in Mathlib. This node specifies their application to the actual formal-series equation quotient."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.curveJetImageMap_apply",
+          "role": "simp",
+          "statement": "After coercion, the actual image map agrees with the curve jet equivalence on each element of π_n(q^n)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.curveJetImageMap_bijective",
+          "role": "characterisation",
+          "statement": "The k-linear map π_n(q^n)→image(φ_f,n) is bijective."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.curveJetEquiv_image_mem",
+          "role": "compatibility",
+          "statement": "The curve jet equivalence sends π_n(q^n), an ideal in A/q^(n+1), into the k-linear image of the existing degree projection φ_f,n:v^n→R/(F+v^(n+1))."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DDPA-JET-HANDOFF §5, equation (9)",
+          "how": "Identify degreewise polynomial representatives with actual adic ideal quotients before the multiplicative graded assembly."
+        },
+        {
+          "where": "Stacks 10.59.5 and the reserved general Hilbert–Samuel module construction",
+          "how": "Use actual successive ideal-power quotients for the graded length function; preserve the distinction from the cumulative function and intrinsic/ambient multiplicities."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NativeCurveDegreeTests.image_zero",
+          "kind": "computation",
+          "statement": "The actual image map sends zero in π_n(q^n) to zero in the equation-jet range."
+        },
+        {
+          "name": "NativeCurveDegreeTests.image_representative",
+          "kind": "characterisation",
+          "statement": "The actual image map sends the quotient representative of π(g), with its proved membership, to φ_f,n(g)."
+        },
+        {
+          "name": "NativeCurveDegreeTests.image_inverse",
+          "kind": "characterisation",
+          "statement": "The inverse actual image equivalence returns each original element of π_n(q^n) after the image map."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-value",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The curve image map value",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.curveJetImageMap_apply",
+      "statement": "After coercion, the actual image map agrees with the curve jet equivalence on each element of π_n(q^n).",
+      "hypotheses": [
+        "k is an arbitrary commutative ring; R is the native power-series ring, v its variable ideal, F the principal equation ideal, A=R/F, π the actual quotient map and q=Ideal.map π v. The scalar action of k comes from these canonical quotient algebra structures.",
+        "The homogeneous-polynomial comparisons require finite σ; the ideal-image and ideal-power comparisons themselves work for arbitrary σ. Principal-kernel comparison additionally assumes no zero divisors and exact finite equation order; the strict-below-order branch only assumes the stated lower bound."
+      ],
+      "proofSteps": [
+        "Evaluate subtype composition and corestriction."
+      ],
+      "acceptance": [
+        "After coercion, the actual image map agrees with the curve jet equivalence on each element of π_n(q^n)."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-map"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§§3–5: actual quotient conventions, equation (9) and degreewise surjectivity",
+          "excerpt": "Keeping only its degree-j terms",
+          "match": "Authored native quotient comparison extending the credited degreewise proof. Arbitrary commutative coefficients are supported by the pinned ideal quotient APIs; no full graded algebra or curve dimension result is inferred."
+        },
+        {
+          "sourceId": "HS-NATIVE-CURVE-DEGREE-rtOQ9t",
+          "locator": "Pinned ideal map powers, third algebra isomorphism and successive-power quotient equivalence; curveJetImageMap_apply",
+          "excerpt": "quotient module",
+          "match": "The generic carrier equivalences already exist in Mathlib. This node specifies their application to the actual formal-series equation quotient."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-bijective",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The curve image map is bijective",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.curveJetImageMap_bijective",
+      "statement": "The k-linear map π_n(q^n)→image(φ_f,n) is bijective.",
+      "hypotheses": [
+        "k is an arbitrary commutative ring; R is the native power-series ring, v its variable ideal, F the principal equation ideal, A=R/F, π the actual quotient map and q=Ideal.map π v. The scalar action of k comes from these canonical quotient algebra structures.",
+        "The homogeneous-polynomial comparisons require finite σ; the ideal-image and ideal-power comparisons themselves work for arbitrary σ. Principal-kernel comparison additionally assumes no zero divisors and exact finite equation order; the strict-below-order branch only assumes the stated lower bound."
+      ],
+      "proofSteps": [
+        "Injectivity follows by coercing an equality and using injectivity of the jet equivalence.",
+        "For an image witness g∈v^n, use π(g)∈q^n and the class of π(g) as a preimage. The representative formula gives equality."
+      ],
+      "acceptance": [
+        "The k-linear map π_n(q^n)→image(φ_f,n) is bijective."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-map",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-representative",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-ideal-power",
+        "mathlib:Ideal.mem_map_of_mem"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§§3–5: actual quotient conventions, equation (9) and degreewise surjectivity",
+          "excerpt": "Keeping only its degree-j terms",
+          "match": "Authored native quotient comparison extending the credited degreewise proof. Arbitrary commutative coefficients are supported by the pinned ideal quotient APIs; no full graded algebra or curve dimension result is inferred."
+        },
+        {
+          "sourceId": "HS-NATIVE-CURVE-DEGREE-rtOQ9t",
+          "locator": "Pinned ideal map powers, third algebra isomorphism and successive-power quotient equivalence; curveJetImageMap_bijective",
+          "excerpt": "quotient module",
+          "match": "The generic carrier equivalences already exist in Mathlib. This node specifies their application to the actual formal-series equation quotient."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-equivalence",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The curve image comparison",
+      "kind": "construction",
+      "declaration": "TauCeti.HilbertSamuel.curveJetImageEquiv",
+      "statement": "Upgrade the proved curve image map to a k-linear equivalence π_n(q^n) ≃ image(φ_f,n).",
+      "hypotheses": [
+        "k is an arbitrary commutative ring; R is the native power-series ring, v its variable ideal, F the principal equation ideal, A=R/F, π the actual quotient map and q=Ideal.map π v. The scalar action of k comes from these canonical quotient algebra structures.",
+        "The homogeneous-polynomial comparisons require finite σ; the ideal-image and ideal-power comparisons themselves work for arbitrary σ. Principal-kernel comparison additionally assumes no zero divisors and exact finite equation order; the strict-below-order branch only assumes the stated lower bound."
+      ],
+      "proofSteps": [
+        "Apply the native equivalence constructor to the actual map and its proved bijectivity."
+      ],
+      "acceptance": [
+        "Upgrade the proved curve image map to a k-linear equivalence π_n(q^n) ≃ image(φ_f,n)."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-bijective",
+        "mathlib:LinearEquiv.ofBijective"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§§3–5: actual quotient conventions, equation (9) and degreewise surjectivity",
+          "excerpt": "Keeping only its degree-j terms",
+          "match": "Authored native quotient comparison extending the credited degreewise proof. Arbitrary commutative coefficients are supported by the pinned ideal quotient APIs; no full graded algebra or curve dimension result is inferred."
+        },
+        {
+          "sourceId": "HS-NATIVE-CURVE-DEGREE-rtOQ9t",
+          "locator": "Pinned ideal map powers, third algebra isomorphism and successive-power quotient equivalence; curveJetImageEquiv",
+          "excerpt": "quotient module",
+          "match": "The generic carrier equivalences already exist in Mathlib. This node specifies their application to the actual formal-series equation quotient."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.curveJetImageEquiv_mk",
+          "role": "simp",
+          "statement": "For g∈v^n and its proved membership π(g)∈q^n, the image equivalence sends the actual class of π(g) to φ_f,n(g)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.curveJetImageMap_bijective",
+          "role": "characterisation",
+          "statement": "The k-linear map π_n(q^n)→image(φ_f,n) is bijective."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.curveJetImageMap_apply",
+          "role": "coercion",
+          "statement": "After coercion, the actual image map agrees with the curve jet equivalence on each element of π_n(q^n)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DDPA-JET-HANDOFF §5, equation (9)",
+          "how": "Identify degreewise polynomial representatives with actual adic ideal quotients before the multiplicative graded assembly."
+        },
+        {
+          "where": "Stacks 10.59.5 and the reserved general Hilbert–Samuel module construction",
+          "how": "Use actual successive ideal-power quotients for the graded length function; preserve the distinction from the cumulative function and intrinsic/ambient multiplicities."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NativeCurveDegreeTests.image_zero",
+          "kind": "computation",
+          "statement": "The actual image map sends zero in π_n(q^n) to zero in the equation-jet range."
+        },
+        {
+          "name": "NativeCurveDegreeTests.image_representative",
+          "kind": "characterisation",
+          "statement": "The actual image map sends the quotient representative of π(g), with its proved membership, to φ_f,n(g)."
+        },
+        {
+          "name": "NativeCurveDegreeTests.image_inverse",
+          "kind": "characterisation",
+          "statement": "The inverse actual image equivalence returns each original element of π_n(q^n) after the image map."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-representative",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The curve image equivalence on representatives",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.curveJetImageEquiv_mk",
+      "statement": "For g∈v^n and its proved membership π(g)∈q^n, the image equivalence sends the actual class of π(g) to φ_f,n(g).",
+      "hypotheses": [
+        "k is an arbitrary commutative ring; R is the native power-series ring, v its variable ideal, F the principal equation ideal, A=R/F, π the actual quotient map and q=Ideal.map π v. The scalar action of k comes from these canonical quotient algebra structures.",
+        "The homogeneous-polynomial comparisons require finite σ; the ideal-image and ideal-power comparisons themselves work for arbitrary σ. Principal-kernel comparison additionally assumes no zero divisors and exact finite equation order; the strict-below-order branch only assumes the stated lower bound."
+      ],
+      "proofSteps": [
+        "Evaluate the equivalence constructor on the image representative and use the jet representative formula."
+      ],
+      "acceptance": [
+        "For g∈v^n and its proved membership π(g)∈q^n, the image equivalence sends the actual class of π(g) to φ_f,n(g)."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-equivalence",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-representative"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§§3–5: actual quotient conventions, equation (9) and degreewise surjectivity",
+          "excerpt": "Keeping only its degree-j terms",
+          "match": "Authored native quotient comparison extending the credited degreewise proof. Arbitrary commutative coefficients are supported by the pinned ideal quotient APIs; no full graded algebra or curve dimension result is inferred."
+        },
+        {
+          "sourceId": "HS-NATIVE-CURVE-DEGREE-rtOQ9t",
+          "locator": "Pinned ideal map powers, third algebra isomorphism and successive-power quotient equivalence; curveJetImageEquiv_mk",
+          "excerpt": "quotient module",
+          "match": "The generic carrier equivalences already exist in Mathlib. This node specifies their application to the actual formal-series equation quotient."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-equivalence",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The actual curve graded piece",
+      "kind": "construction",
+      "declaration": "TauCeti.HilbertSamuel.nativeCurveDegreeEquiv",
+      "statement": "Define the k-linear equivalence (q^n/(q·q^n)) ≃ image(φ_f,n), using the native quotient of the q^n subtype by q • top, with its actual A-module structure restricted to k.",
+      "hypotheses": [
+        "k is an arbitrary commutative ring; R is the native power-series ring, v its variable ideal, F the principal equation ideal, A=R/F, π the actual quotient map and q=Ideal.map π v. The scalar action of k comes from these canonical quotient algebra structures.",
+        "The homogeneous-polynomial comparisons require finite σ; the ideal-image and ideal-power comparisons themselves work for arbitrary σ. Principal-kernel comparison additionally assumes no zero divisors and exact finite equation order; the strict-below-order branch only assumes the stated lower bound."
+      ],
+      "proofSteps": [
+        "Reuse the pinned general equivalence from the successive ideal-power quotient to π_n(q^n); it is already in Mathlib and is not re-planned.",
+        "Restrict this A-linear equivalence to k using the actual scalar tower, then compose with the proved image equivalence."
+      ],
+      "acceptance": [
+        "Define the k-linear equivalence (q^n/(q·q^n)) ≃ image(φ_f,n), using the native quotient of the q^n subtype by q • top, with its actual A-module structure restricted to k."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-equivalence",
+        "mathlib:Ideal.powQuotPowSuccLinearEquivMapMkPowSuccPow",
+        "mathlib:LinearEquiv.restrictScalars"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§§3–5: actual quotient conventions, equation (9) and degreewise surjectivity",
+          "excerpt": "Keeping only its degree-j terms",
+          "match": "Authored native quotient comparison extending the credited degreewise proof. Arbitrary commutative coefficients are supported by the pinned ideal quotient APIs; no full graded algebra or curve dimension result is inferred."
+        },
+        {
+          "sourceId": "HS-NATIVE-CURVE-DEGREE-rtOQ9t",
+          "locator": "Pinned ideal map powers, third algebra isomorphism and successive-power quotient equivalence; nativeCurveDegreeEquiv",
+          "excerpt": "quotient module",
+          "match": "The generic carrier equivalences already exist in Mathlib. This node specifies their application to the actual formal-series equation quotient."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.nativeCurveDegreeEquiv_mk",
+          "role": "simp",
+          "statement": "For g∈v^n and π(g)∈q^n, the curve degree equivalence sends the native class of π(g) in q^n/(q·q^n) to φ_f,n(g)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.nativeCurveDegreeEquiv_symm",
+          "role": "equivalence",
+          "statement": "The inverse curve degree equivalence sends the image element φ_f,n(g) to the native class of π(g), for every g∈v^n and its membership proof."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.nativeCurveDegreeEquiv_mk_eq_zero",
+          "role": "characterisation",
+          "statement": "For g∈v^n, its native class of π(g) in q^n/(q·q^n) is zero if and only if g∈F+v^(n+1)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DDPA-JET-HANDOFF §5, equation (9)",
+          "how": "Identify degreewise polynomial representatives with actual adic ideal quotients before the multiplicative graded assembly."
+        },
+        {
+          "where": "Stacks 10.59.5 and the reserved general Hilbert–Samuel module construction",
+          "how": "Use actual successive ideal-power quotients for the graded length function; preserve the distinction from the cumulative function and intrinsic/ambient multiplicities."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NativeCurveDegreeTests.native_zero",
+          "kind": "computation",
+          "statement": "The actual successive-power quotient equivalence preserves zero for every f and n."
+        },
+        {
+          "name": "NativeCurveDegreeTests.native_roundtrip",
+          "kind": "characterisation",
+          "statement": "Every element of the actual q^n/(q·q^n) carrier survives the forward and inverse comparison unchanged."
+        },
+        {
+          "name": "NativeCurveDegreeTests.zero_equation",
+          "kind": "edge-case",
+          "statement": "For f=0, the actual degree class of p vanishes exactly when the homogeneous polynomial p is zero, including non-domain coefficients."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-representative",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The curve graded piece on representatives",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.nativeCurveDegreeEquiv_mk",
+      "statement": "For g∈v^n and π(g)∈q^n, the curve degree equivalence sends the native class of π(g) in q^n/(q·q^n) to φ_f,n(g).",
+      "hypotheses": [
+        "k is an arbitrary commutative ring; R is the native power-series ring, v its variable ideal, F the principal equation ideal, A=R/F, π the actual quotient map and q=Ideal.map π v. The scalar action of k comes from these canonical quotient algebra structures.",
+        "The homogeneous-polynomial comparisons require finite σ; the ideal-image and ideal-power comparisons themselves work for arbitrary σ. Principal-kernel comparison additionally assumes no zero divisors and exact finite equation order; the strict-below-order branch only assumes the stated lower bound."
+      ],
+      "proofSteps": [
+        "Evaluate the pinned ideal-power quotient equivalence on a subtype representative, then apply the curve jet representative formula."
+      ],
+      "acceptance": [
+        "For g∈v^n and π(g)∈q^n, the curve degree equivalence sends the native class of π(g) in q^n/(q·q^n) to φ_f,n(g)."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-equivalence",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-representative"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§§3–5: actual quotient conventions, equation (9) and degreewise surjectivity",
+          "excerpt": "Keeping only its degree-j terms",
+          "match": "Authored native quotient comparison extending the credited degreewise proof. Arbitrary commutative coefficients are supported by the pinned ideal quotient APIs; no full graded algebra or curve dimension result is inferred."
+        },
+        {
+          "sourceId": "HS-NATIVE-CURVE-DEGREE-rtOQ9t",
+          "locator": "Pinned ideal map powers, third algebra isomorphism and successive-power quotient equivalence; nativeCurveDegreeEquiv_mk",
+          "excerpt": "quotient module",
+          "match": "The generic carrier equivalences already exist in Mathlib. This node specifies their application to the actual formal-series equation quotient."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-inverse",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The inverse curve degree comparison",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.nativeCurveDegreeEquiv_symm",
+      "statement": "The inverse curve degree equivalence sends the image element φ_f,n(g) to the native class of π(g), for every g∈v^n and its membership proof.",
+      "hypotheses": [
+        "k is an arbitrary commutative ring; R is the native power-series ring, v its variable ideal, F the principal equation ideal, A=R/F, π the actual quotient map and q=Ideal.map π v. The scalar action of k comes from these canonical quotient algebra structures.",
+        "The homogeneous-polynomial comparisons require finite σ; the ideal-image and ideal-power comparisons themselves work for arbitrary σ. Principal-kernel comparison additionally assumes no zero divisors and exact finite equation order; the strict-below-order branch only assumes the stated lower bound."
+      ],
+      "proofSteps": [
+        "Apply injectivity of the forward equivalence, its right inverse law and the proved representative formula."
+      ],
+      "acceptance": [
+        "The inverse curve degree equivalence sends the image element φ_f,n(g) to the native class of π(g), for every g∈v^n and its membership proof."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-equivalence",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-representative"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§§3–5: actual quotient conventions, equation (9) and degreewise surjectivity",
+          "excerpt": "Keeping only its degree-j terms",
+          "match": "Authored native quotient comparison extending the credited degreewise proof. Arbitrary commutative coefficients are supported by the pinned ideal quotient APIs; no full graded algebra or curve dimension result is inferred."
+        },
+        {
+          "sourceId": "HS-NATIVE-CURVE-DEGREE-rtOQ9t",
+          "locator": "Pinned ideal map powers, third algebra isomorphism and successive-power quotient equivalence; nativeCurveDegreeEquiv_symm",
+          "excerpt": "quotient module",
+          "match": "The generic carrier equivalences already exist in Mathlib. This node specifies their application to the actual formal-series equation quotient."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-native-curve-degree-equivalence",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Homogeneous polynomials and the actual curve graded piece",
+      "kind": "construction",
+      "declaration": "TauCeti.HilbertSamuel.homogeneousNativeCurveDegreeEquiv",
+      "statement": "For finite σ, compose the existing homogeneous quotient-image equivalence with the inverse curve degree equivalence to obtain P_n/ker(ψ_f,n) ≃ q^n/(q·q^n), k-linearly.",
+      "hypotheses": [
+        "k is an arbitrary commutative ring; R is the native power-series ring, v its variable ideal, F the principal equation ideal, A=R/F, π the actual quotient map and q=Ideal.map π v. The scalar action of k comes from these canonical quotient algebra structures.",
+        "The homogeneous-polynomial comparisons require finite σ; the ideal-image and ideal-power comparisons themselves work for arbitrary σ. Principal-kernel comparison additionally assumes no zero divisors and exact finite equation order; the strict-below-order branch only assumes the stated lower bound."
+      ],
+      "proofSteps": [
+        "Compose the existing equivalence with the inverse of the new actual ideal-power quotient equivalence. Keep both native quotient carriers and their scalar structures."
+      ],
+      "acceptance": [
+        "For finite σ, compose the existing homogeneous quotient-image equivalence with the inverse curve degree equivalence to obtain P_n/ker(ψ_f,n) ≃ q^n/(q·q^n), k-linearly."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-quotient-image-equivalence",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-equivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§§3–5: actual quotient conventions, equation (9) and degreewise surjectivity",
+          "excerpt": "Keeping only its degree-j terms",
+          "match": "Authored native quotient comparison extending the credited degreewise proof. Arbitrary commutative coefficients are supported by the pinned ideal quotient APIs; no full graded algebra or curve dimension result is inferred."
+        },
+        {
+          "sourceId": "HS-NATIVE-CURVE-DEGREE-rtOQ9t",
+          "locator": "Pinned ideal map powers, third algebra isomorphism and successive-power quotient equivalence; homogeneousNativeCurveDegreeEquiv",
+          "excerpt": "quotient module",
+          "match": "The generic carrier equivalences already exist in Mathlib. This node specifies their application to the actual formal-series equation quotient."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.homogeneousNativeCurveDegreeEquiv_mk",
+          "role": "simp",
+          "statement": "The homogeneous comparison sends the class of p∈P_n to the native class of π(p) in q^n/(q·q^n), using polynomial inclusion into R."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.homogeneousNativeCurveDegreeEquiv_eq_zero",
+          "role": "characterisation",
+          "statement": "The image of the class of p∈P_n in the actual curve graded piece is zero if and only if ψ_f,n(p)=0."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.nativeCurveDegree_principal_kernel",
+          "role": "relation",
+          "statement": "If k has no zero divisors, order(f)=d is finite and d≤n, the image of p∈P_n in q^n/(q·q^n) is zero if and only if p=H_d(f)w for a native homogeneous polynomial w of degree n−d."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.nativeCurveDegree_below_order",
+          "role": "characterisation",
+          "statement": "If d≤order(f) and n<d, the image of p∈P_n in q^n/(q·q^n) is zero if and only if p=0; no no-zero-divisors assumption is needed."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DDPA-JET-HANDOFF §5, equation (9)",
+          "how": "Identify degreewise polynomial representatives with actual adic ideal quotients before the multiplicative graded assembly."
+        },
+        {
+          "where": "Stacks 10.59.5 and the reserved general Hilbert–Samuel module construction",
+          "how": "Use actual successive ideal-power quotients for the graded length function; preserve the distinction from the cumulative function and intrinsic/ambient multiplicities."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NativeCurveDegreeTests.homogeneous_roundtrip",
+          "kind": "characterisation",
+          "statement": "A homogeneous polynomial quotient class survives the actual curve comparison and its inverse unchanged."
+        },
+        {
+          "name": "NativeCurveDegreeTests.zero_equation",
+          "kind": "edge-case",
+          "statement": "For f=0, the actual degree class of p vanishes exactly when the homogeneous polynomial p is zero, including non-domain coefficients."
+        },
+        {
+          "name": "NativeCurveDegreeTests.unit_equation",
+          "kind": "edge-case",
+          "statement": "For f=1, every homogeneous polynomial maps to zero in the actual curve degree quotient."
+        },
+        {
+          "name": "NativeCurveDegreeTests.no_variables_constant",
+          "kind": "edge-case",
+          "statement": "Over F₂ with no variables, the degree-zero constant 1 survives in the actual quotient for f=0."
+        },
+        {
+          "name": "NativeCurveDegreeTests.nilpotent_coeff_survives",
+          "kind": "non-example",
+          "statement": "Over Z/4Z and f=0, the homogeneous polynomial 2X has nonzero actual degree-one class, without assuming the coefficient ring is a domain."
+        },
+        {
+          "name": "NativeCurveDegreeTests.characteristic_two_repeated_killed",
+          "kind": "computation",
+          "statement": "Over F₂ with f=X², the homogeneous polynomial X² maps to zero in the actual curve degree-two quotient."
+        },
+        {
+          "name": "NativeCurveDegreeTests.characteristic_two_repeated_survives",
+          "kind": "non-example",
+          "statement": "Over F₂ with the nonreduced equation f=X², the homogeneous polynomial X has nonzero actual degree-one class."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-native-curve-degree-representative",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The homogeneous comparison on representatives",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.homogeneousNativeCurveDegreeEquiv_mk",
+      "statement": "The homogeneous comparison sends the class of p∈P_n to the native class of π(p) in q^n/(q·q^n), using polynomial inclusion into R.",
+      "hypotheses": [
+        "k is an arbitrary commutative ring; R is the native power-series ring, v its variable ideal, F the principal equation ideal, A=R/F, π the actual quotient map and q=Ideal.map π v. The scalar action of k comes from these canonical quotient algebra structures.",
+        "The homogeneous-polynomial comparisons require finite σ; the ideal-image and ideal-power comparisons themselves work for arbitrary σ. Principal-kernel comparison additionally assumes no zero divisors and exact finite equation order; the strict-below-order branch only assumes the stated lower bound."
+      ],
+      "proofSteps": [
+        "Apply injectivity of the curve degree equivalence and compare both sides in the actual equation-jet quotient using the two representative formulas."
+      ],
+      "acceptance": [
+        "The homogeneous comparison sends the class of p∈P_n to the native class of π(p) in q^n/(q·q^n), using polynomial inclusion into R."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-native-curve-degree-equivalence",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-quotient-representative",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-representative",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-polynomial-lift"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§§3–5: actual quotient conventions, equation (9) and degreewise surjectivity",
+          "excerpt": "Keeping only its degree-j terms",
+          "match": "Authored native quotient comparison extending the credited degreewise proof. Arbitrary commutative coefficients are supported by the pinned ideal quotient APIs; no full graded algebra or curve dimension result is inferred."
+        },
+        {
+          "sourceId": "HS-NATIVE-CURVE-DEGREE-rtOQ9t",
+          "locator": "Pinned ideal map powers, third algebra isomorphism and successive-power quotient equivalence; homogeneousNativeCurveDegreeEquiv_mk",
+          "excerpt": "quotient module",
+          "match": "The generic carrier equivalences already exist in Mathlib. This node specifies their application to the actual formal-series equation quotient."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-class-vanishing",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Vanishing in the actual curve graded piece",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.nativeCurveDegreeEquiv_mk_eq_zero",
+      "statement": "For g∈v^n, its native class of π(g) in q^n/(q·q^n) is zero if and only if g∈F+v^(n+1).",
+      "hypotheses": [
+        "k is an arbitrary commutative ring; R is the native power-series ring, v its variable ideal, F the principal equation ideal, A=R/F, π the actual quotient map and q=Ideal.map π v. The scalar action of k comes from these canonical quotient algebra structures.",
+        "The homogeneous-polynomial comparisons require finite σ; the ideal-image and ideal-power comparisons themselves work for arbitrary σ. Principal-kernel comparison additionally assumes no zero divisors and exact finite equation order; the strict-below-order branch only assumes the stated lower bound."
+      ],
+      "proofSteps": [
+        "Use injectivity and preservation of zero for the equivalence to compare vanishing with φ_f,n(g)=0.",
+        "Apply the existing equation-jet vanishing criterion. This is an actual quotient statement, with no reducedness or equation-order assumption."
+      ],
+      "acceptance": [
+        "For g∈v^n, its native class of π(g) in q^n/(q·q^n) is zero if and only if g∈F+v^(n+1)."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-equivalence",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-representative",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-vanishing"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§§3–5: actual quotient conventions, equation (9) and degreewise surjectivity",
+          "excerpt": "Keeping only its degree-j terms",
+          "match": "Authored native quotient comparison extending the credited degreewise proof. Arbitrary commutative coefficients are supported by the pinned ideal quotient APIs; no full graded algebra or curve dimension result is inferred."
+        },
+        {
+          "sourceId": "HS-NATIVE-CURVE-DEGREE-rtOQ9t",
+          "locator": "Pinned ideal map powers, third algebra isomorphism and successive-power quotient equivalence; nativeCurveDegreeEquiv_mk_eq_zero",
+          "excerpt": "quotient module",
+          "match": "The generic carrier equivalences already exist in Mathlib. This node specifies their application to the actual formal-series equation quotient."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-native-curve-degree-vanishing",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The homogeneous comparison vanishing criterion",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.homogeneousNativeCurveDegreeEquiv_eq_zero",
+      "statement": "The image of the class of p∈P_n in the actual curve graded piece is zero if and only if ψ_f,n(p)=0.",
+      "hypotheses": [
+        "k is an arbitrary commutative ring; R is the native power-series ring, v its variable ideal, F the principal equation ideal, A=R/F, π the actual quotient map and q=Ideal.map π v. The scalar action of k comes from these canonical quotient algebra structures.",
+        "The homogeneous-polynomial comparisons require finite σ; the ideal-image and ideal-power comparisons themselves work for arbitrary σ. Principal-kernel comparison additionally assumes no zero divisors and exact finite equation order; the strict-below-order branch only assumes the stated lower bound."
+      ],
+      "proofSteps": [
+        "Injectivity and zero preservation reduce to vanishing of the source quotient class.",
+        "The native quotient criterion identifies that vanishing with membership in the actual kernel of ψ."
+      ],
+      "acceptance": [
+        "The image of the class of p∈P_n in the actual curve graded piece is zero if and only if ψ_f,n(p)=0."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-native-curve-degree-equivalence",
+        "mathlib:LinearEquiv.map_eq_zero_iff",
+        "mathlib:Submodule.Quotient.mk_eq_zero",
+        "mathlib:LinearMap.mem_ker"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§§3–5: actual quotient conventions, equation (9) and degreewise surjectivity",
+          "excerpt": "Keeping only its degree-j terms",
+          "match": "Authored native quotient comparison extending the credited degreewise proof. Arbitrary commutative coefficients are supported by the pinned ideal quotient APIs; no full graded algebra or curve dimension result is inferred."
+        },
+        {
+          "sourceId": "HS-NATIVE-CURVE-DEGREE-rtOQ9t",
+          "locator": "Pinned ideal map powers, third algebra isomorphism and successive-power quotient equivalence; homogeneousNativeCurveDegreeEquiv_eq_zero",
+          "excerpt": "quotient module",
+          "match": "The generic carrier equivalences already exist in Mathlib. This node specifies their application to the actual formal-series equation quotient."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-principal-kernel",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The principal relation in the actual graded piece",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.nativeCurveDegree_principal_kernel",
+      "statement": "If k has no zero divisors, order(f)=d is finite and d≤n, the image of p∈P_n in q^n/(q·q^n) is zero if and only if p=H_d(f)w for a native homogeneous polynomial w of degree n−d.",
+      "hypotheses": [
+        "k is an arbitrary commutative ring; R is the native power-series ring, v its variable ideal, F the principal equation ideal, A=R/F, π the actual quotient map and q=Ideal.map π v. The scalar action of k comes from these canonical quotient algebra structures.",
+        "The homogeneous-polynomial comparisons require finite σ; the ideal-image and ideal-power comparisons themselves work for arbitrary σ. Principal-kernel comparison additionally assumes no zero divisors and exact finite equation order; the strict-below-order branch only assumes the stated lower bound."
+      ],
+      "proofSteps": [
+        "Apply the proved homogeneous vanishing criterion and the existing principal equation-jet kernel theorem. Both directions retain the exact finite-order and no-zero-divisors hypotheses."
+      ],
+      "acceptance": [
+        "If k has no zero divisors, order(f)=d is finite and d≤n, the image of p∈P_n in q^n/(q·q^n) is zero if and only if p=H_d(f)w for a native homogeneous polynomial w of degree n−d."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-native-curve-degree-vanishing",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-principal-kernel"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§§3–5: actual quotient conventions, equation (9) and degreewise surjectivity",
+          "excerpt": "Keeping only its degree-j terms",
+          "match": "Authored native quotient comparison extending the credited degreewise proof. Arbitrary commutative coefficients are supported by the pinned ideal quotient APIs; no full graded algebra or curve dimension result is inferred."
+        },
+        {
+          "sourceId": "HS-NATIVE-CURVE-DEGREE-rtOQ9t",
+          "locator": "Pinned ideal map powers, third algebra isomorphism and successive-power quotient equivalence; nativeCurveDegree_principal_kernel",
+          "excerpt": "quotient module",
+          "match": "The generic carrier equivalences already exist in Mathlib. This node specifies their application to the actual formal-series equation quotient."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-below-order",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Curve graded pieces below the equation order",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.nativeCurveDegree_below_order",
+      "statement": "If d≤order(f) and n<d, the image of p∈P_n in q^n/(q·q^n) is zero if and only if p=0; no no-zero-divisors assumption is needed.",
+      "hypotheses": [
+        "k is an arbitrary commutative ring; R is the native power-series ring, v its variable ideal, F the principal equation ideal, A=R/F, π the actual quotient map and q=Ideal.map π v. The scalar action of k comes from these canonical quotient algebra structures.",
+        "The homogeneous-polynomial comparisons require finite σ; the ideal-image and ideal-power comparisons themselves work for arbitrary σ. Principal-kernel comparison additionally assumes no zero divisors and exact finite equation order; the strict-below-order branch only assumes the stated lower bound."
+      ],
+      "proofSteps": [
+        "Apply the homogeneous vanishing criterion and the existing strict-below-order equation-jet theorem. The infinite order of the zero equation is not replaced by a finite exact order."
+      ],
+      "acceptance": [
+        "If d≤order(f) and n<d, the image of p∈P_n in q^n/(q·q^n) is zero if and only if p=0; no no-zero-divisors assumption is needed."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-native-curve-degree-vanishing",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-low-degree-injectivity"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§§3–5: actual quotient conventions, equation (9) and degreewise surjectivity",
+          "excerpt": "Keeping only its degree-j terms",
+          "match": "Authored native quotient comparison extending the credited degreewise proof. Arbitrary commutative coefficients are supported by the pinned ideal quotient APIs; no full graded algebra or curve dimension result is inferred."
+        },
+        {
+          "sourceId": "HS-NATIVE-CURVE-DEGREE-rtOQ9t",
+          "locator": "Pinned ideal map powers, third algebra isomorphism and successive-power quotient equivalence; nativeCurveDegree_below_order",
+          "excerpt": "quotient module",
+          "match": "The generic carrier equivalences already exist in Mathlib. This node specifies their application to the actual formal-series equation quotient."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
     }
   ],
   "baselineCoverage": [
@@ -14715,7 +15869,7 @@
         "The actual native graded function, general quotient-transition length proof, exact rational postulation defect, sharp cumulative threshold, sharp graded threshold, unit defect just before agreement, and separate zero-equation graded branch now have admission-free proof prototypes. All ten new named tests use actual characteristic-two quotient modules or the exact native integer/rational count expressions. Canonical bodies remain admitted and all nodes unchecked. Still prove the full tangent-cone kernel and dimension of the actual curve ring, compare with the existing cumulative polynomial/intrinsic and ambient multiplicities without assuming generic existence, and discharge general Hilbert–Serre induction, support/degree, Artin–Rees, localization lengths, completion, associativity, all eight stage targets and every inherited routed-paper obligation. The graded and cumulative sharp thresholds are distinct; the zero equation has no finite order.",
         "The actual plane-curve and zero-equation functions now have independently proved unique eventual rational polynomials, explicit degree/leading-coefficient API and factorial coefficient arithmetic. Compare these with the existing general polynomial constructor through its proved specification, identify intrinsic/ambient multiplicities under proved support and dimension hypotheses, and prove the native tangent-cone kernel and curve dimension. General Hilbert–Serre induction, support/degree, Artin–Rees, completion, localization lengths, associativity, every routed source obligation and all eight stage targets remain required.",
         "The codex-a71f92 continuation proves the actual degree-wise series/ideal kernel adapters and coefficient-linear equation-jet projection, including both principal relation directions, small-index, zero/unit and characteristic-two nonreduced tests. It preserves the complete incoming proof prefix. Still construct the polynomial-valued homogeneous comparison, identify the map's image with the existing q^n/q^(n+1) carrier, and assemble the multiplicatively compatible full tangent-cone graded isomorphism. Curve/support dimension, comparison with the general Hilbert–Samuel constructor, intrinsic/ambient multiplicities, general Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed source obligation remain required; canonical bodies remain admitted and every node/stage retains unchecked/partial status.",
-        "The polynomial/series homogeneous comparison and actual polynomial equation-jet kernel now have checked native prototypes. Construct the actual image identification with q^n/q^(n+1), then assemble the generator-compatible and multiplicative full graded tangent-cone isomorphism. Curve/support dimension and comparison with the general cumulative polynomial and intrinsic/ambient multiplicity remain required. General Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed-paper obligation remain open; canonical bodies and implementation statuses remain admitted/unchecked."
+        "The actual equation-jet image is now compared with the native q^n/(q·q^n) carrier in A=R/(f), using the pinned general quotient theorem, with homogeneous representative and principal degreewise kernel adapters. Assemble the generator-compatible multiplication and full graded tangent-cone isomorphism. Curve/support dimension, comparison with the general cumulative polynomial and intrinsic/ambient multiplicity remain open. General Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed-paper obligation remain required; canonical bodies remain admitted and all nodes unchecked."
       ]
     },
     {
@@ -14907,7 +16061,8 @@
       ],
       "detail": "The native series residue-field equivalence, coefficient surjectivity and length_R=length_k comparison now have separate nodes and an admission-free proof prototype using the built local-ring restriction formula, including infinite lengths. The existing jet-finiteness API is promoted and total-jet R-length/numerical adapters are planned. The inherited variable-ideal, shifted-map, jet kernel/equivalence/basis and two-variable count bodies are still unchecked; therefore the numerical jet-length adapters remain conditional on them. Integrate the already-built quotient/scalar maps with the shifted sequence to prove all-index curve lengths, the full tangent-cone kernel, eventual-polynomial/dimension and general intrinsic/ambient multiplicity comparisons. General Hilbert–Serre, completion and all routed-paper obligations remain open. Retain f=0 and unit boundaries, positive characteristic and nonreduced equations. An arbitrary finite R-module is not thereby finite over k. The actual curve-jet comparison, shifted length balance, all-index cumulative/graded formulas, rational defect, sharp agreement and explicit cumulative-polynomial specialization now have separate native signatures and mathematical proof plans. Their submitted bodies and inherited ideal-power/order, shifted-sequence and jet basis/count bodies remain unchecked. Prove those native bodies, the tangent-cone kernel, curve dimension and intrinsic/ambient multiplicity comparisons. General Hilbert–Serre induction, degree/dimension, completion, Artin–Rees, associativity suppliers and all routed-paper obligations remain open. Current codex-rtOQ9t continuation: The general quotient-ring comparison, equation-containment adapter, quotient antitonicity and exact existing plane-curve scalar comparison now have admission-free native proof prototypes and six checked boundary examples. Canonical signatures remain admitted and all nodes unchecked. The numerical jet counts, ideal-power/order theorem, shifted multiplication/exactness, tangent-cone kernel, curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre, completion, Artin–Rees, associativity and every inherited routed-paper obligation remain open. The current finite-variable continuation provides an admission-free native prototype for the algebraic ideal-power/order equivalence via three new proof lemmas, over arbitrary commutative coefficients. This resolves the predecessor's prototype omission for that one adapter, not canonical library implementation or any shifted-sequence/jet-basis/curve-multiplicity obligation; all node statuses and stage coverage remain unchecked/partial. The codex-7e92bd coefficient-coordinate continuation now supplies admission-free native prototypes for total truncation kernel/surjectivity, the actual polynomial equivalence, low-coefficient linear equivalence, monomial basis, finite generation and all-cutoff two-variable rank/cardinality. This supersedes the preceding prototype omissions for those adapters only. Canonical bodies and all implementation statuses stay unchecked. Shifted series exact-order injectivity/exactness, all-index curve lengths, tangent cone and curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre, Artin–Rees, degree/dimension, completion, associativity, all eight stage targets and all routed-paper obligations remain open. The combined native proof now establishes finite equation jets over arbitrary commutative coefficients, the field length/dimension adapter, ambient R-length, shifted length balance, all-index equation and actual cumulative curve lengths, and the separate zero equation. It includes the complete preceding jet/shifted, residue and quotient-comparison proof bodies. This supersedes their historical prototype omissions only; canonical bodies and all implementation statuses remain admitted/unchecked. The graded-function proof, postulation defect and sharp threshold, tangent-cone kernel, curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre induction, degree/dimension, Artin–Rees, associativity, completion and all eight stage/routed-paper obligations remain open.",
       "polynomialComponentContinuation": "The polynomial/series homogeneous comparison and actual polynomial equation-jet kernel now have checked native prototypes. Construct the actual image identification with q^n/q^(n+1), then assemble the generator-compatible and multiplicative full graded tangent-cone isomorphism. Curve/support dimension and comparison with the general cumulative polynomial and intrinsic/ambient multiplicity remain required. General Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed-paper obligation remain open; canonical bodies and implementation statuses remain admitted/unchecked.",
-      "degreeQuotientContinuation": "The actual ambient degree quotient is compared with the native homogeneous polynomial submodule, and homogeneous polynomials modulo the principal degreewise kernel are compared with the existing equation-jet image. The actual image-to-q^n/q^(n+1) map for q in R/(f), multiplication on these quotient identifications, generator-compatible graded assembly and full principal ideal kernel still require separate declarations. Curve/support dimension and intrinsic/ambient multiplicity comparison remain open."
+      "degreeQuotientContinuation": "The actual ambient degree quotient is compared with the native homogeneous polynomial submodule, and homogeneous polynomials modulo the principal degreewise kernel are compared with the existing equation-jet image. The actual image-to-q^n/q^(n+1) map for q in R/(f), multiplication on these quotient identifications, generator-compatible graded assembly and full principal ideal kernel still require separate declarations. Curve/support dimension and intrinsic/ambient multiplicity comparison remain open.",
+      "nativeCurveDegreeContinuation": "The actual equation-jet image is now compared with the native q^n/(q·q^n) carrier in A=R/(f), using the pinned general quotient theorem, with homogeneous representative and principal degreewise kernel adapters. Assemble the generator-compatible multiplication and full graded tangent-cone isomorphism. Curve/support dimension, comparison with the general cumulative polynomial and intrinsic/ambient multiplicity remain open. General Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed-paper obligation remain required; canonical bodies remain admitted and all nodes unchecked."
     }
   ],
   "sourceIssues": [],

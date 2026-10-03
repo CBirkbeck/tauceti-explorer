@@ -3637,3 +3637,157 @@ example (a b : k) :
 
 end TauCeti.GenusOne.QuadraticPinch
 /- END QUADRATIC POLYNOMIAL MODULE -/
+
+/- BEGIN POLYNOMIAL MULTIPLICATION AND UNIVERSAL MAP -/
+namespace TauCeti.GenusOne.QuadraticPinch
+variable {k : Type u} [Field k]
+
+def polynomialProduct (a b : k) (z w : k[X] × k[X]) : k[X] × k[X] := by sorry
+
+lemma polynomialProduct_unit (a b : k) (z : k[X] × k[X]) :
+    polynomialProduct a b (1, 0) z = z := by sorry
+
+lemma polynomialCoordinates_mul (a b : k) (z w : k[X] × k[X]) :
+    polynomialCoordinates a b (polynomialProduct a b z w) =
+      polynomialCoordinates a b z * polynomialCoordinates a b w := by sorry
+
+lemma polynomialCoordinates_inverse_mul (a b : k)
+    (f g : algebra (X ^ 2 + C a * X + C b)) :
+    (polynomialCoordinates a b).symm (f * g) = polynomialProduct a b
+      ((polynomialCoordinates a b).symm f) ((polynomialCoordinates a b).symm g) := by sorry
+
+lemma polynomialBasis_zero_eq_one (a b : k) :
+    polynomialBasis a b 0 = (1 : algebra (X ^ 2 + C a * X + C b)) := by sorry
+
+lemma polynomialBasis_square (a b : k) :
+    polynomialBasis a b 1 ^ 2 =
+      algebraMap k[X] (algebra (X ^ 2 + C a * X + C b)) (X ^ 3 - C b * X ^ 2) -
+        algebraMap k[X] (algebra (X ^ 2 + C a * X + C b)) (C a * X) *
+          polynomialBasis a b 1 := by sorry
+
+variable {B : Type v} [CommRing B] [Algebra k[X] B]
+
+def polynomialEvaluation (a b : k) (y : B) :
+    algebra (X ^ 2 + C a * X + C b) →ₗ[k[X]] B := by sorry
+
+lemma polynomialEvaluation_apply (a b : k) (y : B) (z : k[X] × k[X]) :
+    polynomialEvaluation a b y (polynomialCoordinates a b z) =
+      algebraMap k[X] B z.1 + algebraMap k[X] B z.2 * y := by sorry
+
+lemma polynomialEvaluation_parameter (a b : k) (y : B) (P : k[X]) :
+    polynomialEvaluation a b y (parameterHom a b P) = algebraMap k[X] B P := by sorry
+
+lemma polynomialEvaluation_mul (a b : k) (y : B)
+    (hy : y ^ 2 = algebraMap k[X] B (X ^ 3 - C b * X ^ 2) -
+      algebraMap k[X] B (C a * X) * y)
+    (f g : algebra (X ^ 2 + C a * X + C b)) :
+    polynomialEvaluation a b y (f * g) =
+      polynomialEvaluation a b y f * polynomialEvaluation a b y g := by sorry
+
+def polynomialLift (a b : k) (y : B)
+    (hy : y ^ 2 = algebraMap k[X] B (X ^ 3 - C b * X ^ 2) -
+      algebraMap k[X] B (C a * X) * y) :
+    algebra (X ^ 2 + C a * X + C b) →ₐ[k[X]] B := by sorry
+
+lemma polynomialLift_apply (a b : k) (y : B)
+    (hy : y ^ 2 = algebraMap k[X] B (X ^ 3 - C b * X ^ 2) -
+      algebraMap k[X] B (C a * X) * y) (z : k[X] × k[X]) :
+    polynomialLift a b y hy (polynomialCoordinates a b z) =
+      algebraMap k[X] B z.1 + algebraMap k[X] B z.2 * y := by sorry
+
+lemma polynomialLift_basis (a b : k) (y : B)
+    (hy : y ^ 2 = algebraMap k[X] B (X ^ 3 - C b * X ^ 2) -
+      algebraMap k[X] B (C a * X) * y) :
+    polynomialLift a b y hy (polynomialBasis a b 1) = y := by sorry
+
+lemma polynomialLift_unique (a b : k) (y : B)
+    (hy : y ^ 2 = algebraMap k[X] B (X ^ 3 - C b * X ^ 2) -
+      algebraMap k[X] B (C a * X) * y)
+    (F : algebra (X ^ 2 + C a * X + C b) →ₐ[k[X]] B)
+    (hF : F (polynomialBasis a b 1) = y) : F = polynomialLift a b y hy := by sorry
+
+lemma polynomialHom_relation (a b : k)
+    (F : algebra (X ^ 2 + C a * X + C b) →ₐ[k[X]] B) :
+    F (polynomialBasis a b 1) ^ 2 =
+      algebraMap k[X] B (X ^ 3 - C b * X ^ 2) -
+        algebraMap k[X] B (C a * X) * F (polynomialBasis a b 1) := by sorry
+
+def polynomialHomEquivRoots (a b : k) :
+    (algebra (X ^ 2 + C a * X + C b) →ₐ[k[X]] B) ≃
+      {y : B // y ^ 2 = algebraMap k[X] B (X ^ 3 - C b * X ^ 2) -
+        algebraMap k[X] B (C a * X) * y} := by sorry
+
+lemma polynomialHomEquivRoots_apply (a b : k)
+    (F : algebra (X ^ 2 + C a * X + C b) →ₐ[k[X]] B) :
+    (polynomialHomEquivRoots a b F).1 = F (polynomialBasis a b 1) := by sorry
+
+lemma polynomialHomEquivRoots_symm_apply (a b : k)
+    (y : {y : B // y ^ 2 = algebraMap k[X] B (X ^ 3 - C b * X ^ 2) -
+      algebraMap k[X] B (C a * X) * y}) :
+    (polynomialHomEquivRoots a b).symm y = polynomialLift a b y.1 y.2 := by sorry
+
+lemma polynomialHomEquivRoots_parameter (a b : k)
+    (y : {y : B // y ^ 2 = algebraMap k[X] B (X ^ 3 - C b * X ^ 2) -
+      algebraMap k[X] B (C a * X) * y}) (P : k[X]) :
+    (polynomialHomEquivRoots a b).symm y (parameterHom a b P) =
+      algebraMap k[X] B P := by sorry
+
+-- test: QuadraticPinch.test_product_cusp
+example : polynomialProduct (0 : k) 0 (0, 1) (0, 1) = (X ^ 3, 0) := by sorry
+
+-- test: QuadraticPinch.test_product_char2
+example : polynomialProduct (1 : ZMod 2) 1 (0, 1) (0, 1) =
+    (X ^ 3 - X ^ 2, -X) := by sorry
+
+-- test: QuadraticPinch.test_product_unit
+example (a b : k) (z : k[X] × k[X]) : polynomialProduct a b (1, 0) z = z := by sorry
+
+-- test: QuadraticPinch.test_evaluation_parameter
+example (a b : k) (y : B) (P : k[X]) :
+    polynomialEvaluation a b y (parameterHom a b P) = algebraMap k[X] B P := by sorry
+
+-- test: QuadraticPinch.test_evaluation_zero
+example (a b : k) (y : B) : polynomialEvaluation a b y 0 = 0 := by sorry
+
+-- test: QuadraticPinch.test_evaluation_second
+example (a b : k) (y : B) : polynomialEvaluation a b y
+    (polynomialCoordinates a b (0, 1)) = y := by sorry
+
+-- test: QuadraticPinch.test_lift_self
+example (a b : k) :
+    polynomialLift (B := algebra (X ^ 2 + C a * X + C b))
+      a b (polynomialBasis a b 1) (polynomialBasis_square a b) =
+      AlgHom.id k[X] (algebra (X ^ 2 + C a * X + C b)) := by sorry
+
+-- test: QuadraticPinch.test_lift_root
+example (a b : k) (y : B)
+    (hy : y ^ 2 = algebraMap k[X] B (X ^ 3 - C b * X ^ 2) -
+      algebraMap k[X] B (C a * X) * y) :
+    polynomialLift a b y hy (polynomialBasis a b 1) = y := by sorry
+
+-- test: QuadraticPinch.test_lift_unique
+example (a b : k) (y : B)
+    (hy : y ^ 2 = algebraMap k[X] B (X ^ 3 - C b * X ^ 2) -
+      algebraMap k[X] B (C a * X) * y)
+    (F : algebra (X ^ 2 + C a * X + C b) →ₐ[k[X]] B)
+    (hF : F (polynomialBasis a b 1) = y) : F = polynomialLift a b y hy := by sorry
+
+-- test: QuadraticPinch.test_hom_roots_forward_inverse
+example (a b : k)
+    (y : {y : B // y ^ 2 = algebraMap k[X] B (X ^ 3 - C b * X ^ 2) -
+      algebraMap k[X] B (C a * X) * y}) :
+    polynomialHomEquivRoots a b ((polynomialHomEquivRoots a b).symm y) = y := by sorry
+
+-- test: QuadraticPinch.test_hom_roots_inverse_forward
+example (a b : k) (F : algebra (X ^ 2 + C a * X + C b) →ₐ[k[X]] B) :
+    (polynomialHomEquivRoots a b).symm (polynomialHomEquivRoots a b F) = F := by sorry
+
+-- test: QuadraticPinch.test_hom_roots_parameter
+example (a b : k)
+    (y : {y : B // y ^ 2 = algebraMap k[X] B (X ^ 3 - C b * X ^ 2) -
+      algebraMap k[X] B (C a * X) * y}) (P : k[X]) :
+    (polynomialHomEquivRoots a b).symm y (parameterHom a b P) =
+      algebraMap k[X] B P := by sorry
+
+end TauCeti.GenusOne.QuadraticPinch
+/- END POLYNOMIAL MULTIPLICATION AND UNIVERSAL MAP -/
