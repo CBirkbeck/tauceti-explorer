@@ -11881,8 +11881,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3378"
+   "state": "pending",
+   "note": "released on GitHub issue #3378"
   },
   {
    "id": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
@@ -20908,9 +20908,9 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--P7.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #551"
+   "note": "claimed on GitHub issue #551"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra--P7",
@@ -41754,8 +41754,8 @@
     "REV-PAPER-DING-25"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-DING-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4287"
+   "state": "pending",
+   "note": "released on GitHub issue #4287"
   },
   {
    "id": "REV-RT-PAPER-DING-25",
