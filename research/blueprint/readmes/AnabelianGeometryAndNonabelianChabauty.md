@@ -1,3 +1,306 @@
+# Gauge stabilizers and unique kernel H¹ classes
+
+This partial NC.3 continuation uses the existing continuous cocycle, inner-twist and coefficient-map carriers. It constructs the actual stabilizer comparison and gauge-witness subspaces, then proves sufficient hypotheses for injectivity of a kernel H¹ inclusion. The final unique-fibre criterion is about a gauge class, not a unique cocycle or group element. Every incoming node object, source route, reserved key contract, request, gap and planet is preserved. No stage or implementation is completed.
+
+For c:G→U, the gauge action is (x•c)(g)=x c(g)(g•x)⁻¹. The stabilizer is Mathlib’s native MulAction.stabilizer U c. The fixed-point equation in the actual inner twist is c(g)(g•x)=x c(g), exactly the equation for x•c=c. Thus the actual subgroup H⁰(G,Twist(c)) is multiplicatively and topologically equivalent to Stab_U(c). Given x•c=d, the witness set is x Stab_U(c), with parametrization s↦x s and inverse y↦x⁻¹y. Both are continuous maps between native subspaces of U; no topology is asserted on the cocycle space or H¹.
+
+For continuous equivariant i:A→U and f:U→V with i injective and image ker(f), an ambient gauge between two A-valued cocycles projects to an element of H⁰(G,V). If every such fixed element lifts into the stabilizer of every mapped cocycle, correcting the gauge on the right by the inverse of its stabilizer lift gives an actual A-valued gauge. This proves injectivity on H¹. Trivial H⁰(G,V) supplies the lift by the identity. Neither criterion is claimed necessary, and neither assumes f surjective or a continuous section.
+
+For the existing inner-twisted kernel the relevant condition is H⁰(G,Twist(f∘c))=1. It must not be replaced by invariants for the unrelated original V-action. The native and abstract embedded-kernel inclusions are then injective. With f surjective, their previously proved image equality now gives exactly one kernel H¹ class for every original fibre over [f∘c]. The target is repointed at that class; it need not be neutral.
+
+The discrete C₃→S₃ test sends a generator to p=(01)(12). Identity and inversion are distinct C₃-valued classes, but their S₃ pushforwards are conjugate by (01). Thus even a genuine injective coefficient map need not induce an injective map on nonabelian H¹. A second concrete test gives distinct gauge elements 1 and p fixing the same three-cycle cocycle. These tests distinguish class uniqueness, cocycle uniqueness and gauge uniqueness.
+
+## Sources and ownership
+
+[Kim’s exact arXiv v1](https://arxiv.org/pdf/math/0409456v1), §1 pp.5–9, supplies the continuous ordered cocycle/gauge conventions and the invariant argument in Proposition 2’s freeness claim. The entire printed Proposition 2 proof was freshly read in web-parsed form. Its representation, central-extension and algebraic splitting hypotheses remain separate mathematical work; the present abstract group deductions do not prove that geometric theorem. The exact downloaded PDF SHA256 is 00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941. No whole-paper, visual or published-version collation is claimed.
+
+Mathlib at 082e2d37e8b0463410cdb532e111cd43d5a66174 already owns the stabilizer subgroup, generic conjugation comparisons and group-action cancellation. These are imported, not redefined. The fresh bounded search finds [Mathlib PR #31613](https://github.com/leanprover-community/mathlib4/pull/31613) open at 9dc1e337689fa7ba4fefa52b4874660bdd3a3619; its title/body describe nonabelian group cohomology. Its source proofs were not adopted or newly audited. Selected [Zulip discussion](https://leanprover-community.github.io/archive/stream/116395-maths/topic/breaking.20equality.20with.20sheaves.html) distinguishes nonabelian Čech and group cohomology; it is context, not a completed library interface.
+
+The complete reviewed NC audit, seven stage targets, reserved coefficient-class/all-degree étale K(pi,1) specification, seventeen requests, nine gaps and all routed Chen/BDMTV/RT-A2/A6 contracts have been checked for preservation. Additive continuous cohomology comes from the pinned libraries and its existing Tau Ceti owner; no parallel cohomology is introduced. R02.6 currently concerns patching inequalities, so its label cannot discharge generic cohomology. The shared NS/Picard and generic height suppliers retain their recorded direction.
+
+## Declaration and API contracts
+
+### Gauge stabilizers are twisted invariants
+
+Declaration: TauCeti.NonabelianCohomology.Z1.stabilizer_iff_twisted_fixed. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-stabilizer-fixed.
+
+For an actual continuous cocycle c and x∈U, x belongs to the native gauge stabilizer Stab_U(c) exactly when its underlying element in Twist(c) is G-fixed. No topology on the space of cocycles is required.
+
+Hypotheses: G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets. Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles, AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1, AnabelianGeometryAndNonabelianChabauty:NC.3/twist-invariant-criterion, mathlib:MulAction.stabilizer, mathlib:MulAction.mem_stabilizer_iff.
+
+Proof: Expand the ordered gauge equation x c(g)(g•x)⁻¹=c(g). Multiply on the right by g•x and compare with the already specified twisted-invariant equation c(g)(g•x)=x c(g).
+
+### Twisted invariants and the actual gauge stabilizer
+
+Declaration: TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-stabilizer-equivalence.
+
+Construct the multiplicative equivalence H⁰(G,Twist(c))≃*Stab_U(c), taking a fixed element to its unchanged underlying U-value. Both groups carry their native subgroup topologies.
+
+Hypotheses: G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets. Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-stabilizer-fixed, AnabelianGeometryAndNonabelianChabauty:NC.3/twist-underlying-group, mathlib:MulAction.stabilizer.
+
+Proof: Restrict the existing underlying multiplicative equivalence of the inner twist to the actual fixed-point and stabilizer subgroups. The preceding iff supplies membership in both directions; the inverse identities and multiplication formula are inherited.
+
+API and uses:
+
+- TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_apply: The U-value of the image of s∈H⁰(G,Twist(c)) is toOriginal(c)(s). Use: Evaluate the native subtype construction.
+- TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_symm_apply: The underlying twisted value of the inverse image of s∈Stab_U(c) is toOriginal(c)⁻¹(s). Use: Evaluate the inverse restriction.
+- TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_continuous: The fixed-point-to-stabilizer map is continuous for the two native subgroup topologies. Use: Its underlying map is the continuous subtype inclusion on the unchanged topological group; restrict the codomain to the native stabilizer subtype.
+- TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_symm_continuous: The stabilizer-to-fixed-point inverse is continuous for the same native topologies. Use: Use the continuous underlying subtype map and its fixed-point membership. No topology on H¹ or Z¹ is introduced.
+
+
+Tests:
+
+- invariant_stabilizer_inverse (characterisation): For every actual fixed s, the inverse comparison of its forward image equals s.
+- invariant_stabilizer_multiplication (compatibility): The stabilizer value of the image of s t equals the product of the two stabilizer values, in that order.
+- neutral_stabilizer_fixed_points (degenerate): For the identity cocycle the actual gauge stabilizer consists exactly of elements fixed by the original G-action on U.
+- concrete_gauge_nonunique_noncommutative (computation): For discrete C₃ acting trivially on S₃, the continuous cocycle sending the generator to the three-cycle p=(01)(12) is fixed by both distinct gauge elements 1 and p. A canonical H¹ comparison does not imply unique gauge elements.
+
+
+### Fixed-element stabilizer value
+
+Declaration: TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_apply. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-stabilizer-value.
+
+The U-value of the image of s∈H⁰(G,Twist(c)) is toOriginal(c)(s).
+
+Hypotheses: G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets. Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-stabilizer-equivalence.
+
+Proof: Evaluate the native subtype construction.
+
+### Stabilizer inverse value
+
+Declaration: TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_symm_apply. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-stabilizer-inverse-value.
+
+The underlying twisted value of the inverse image of s∈Stab_U(c) is toOriginal(c)⁻¹(s).
+
+Hypotheses: G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets. Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-stabilizer-equivalence.
+
+Proof: Evaluate the inverse restriction.
+
+### Continuous invariant-stabilizer comparison
+
+Declaration: TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_continuous. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-stabilizer-continuity.
+
+The fixed-point-to-stabilizer map is continuous for the two native subgroup topologies.
+
+Hypotheses: G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets. Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-stabilizer-equivalence.
+
+Proof: Its underlying map is the continuous subtype inclusion on the unchanged topological group; restrict the codomain to the native stabilizer subtype.
+
+### Continuous stabilizer inverse
+
+Declaration: TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_symm_continuous. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-stabilizer-inverse-continuity.
+
+The stabilizer-to-fixed-point inverse is continuous for the same native topologies.
+
+Hypotheses: G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets. Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-stabilizer-equivalence.
+
+Proof: Use the continuous underlying subtype map and its fixed-point membership. No topology on H¹ or Z¹ is introduced.
+
+### Gauge witnesses differ by a right stabilizer
+
+Declaration: TauCeti.NonabelianCohomology.Z1.gauge_transporter_iff. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-characterisation.
+
+Given x•c=d, another y satisfies y•c=d exactly when x⁻¹y∈Stab_U(c). The witnesses form the left translate x Stab_U(c); the correction is on the right of x.
+
+Hypotheses: G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets. Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1, mathlib:MulAction.stabilizer.
+
+Proof: Act on the gauge equality by x⁻¹ for the forward direction. For the reverse direction multiply the stabilizing action by x and cancel x x⁻¹.
+
+### The actual space of gauge witnesses
+
+Declaration: TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-equivalence.
+
+Given a specified witness x•c=d, construct Stab_U(c)≃{y∈U | y•c=d} by s↦x s, with inverse y↦x⁻¹y. The target is an actual subtype of U with its inherited topology, not a chosen witness field or a cocycle quotient.
+
+Hypotheses: G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets. Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-characterisation, mathlib:MulAction.stabilizer.
+
+Proof: Use the native stabilizer action to construct the forward witness and the transporter iff for the inverse membership. Both inverse identities are actual multiplication cancellation.
+
+API and uses:
+
+- TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_apply: The underlying U-value of the transporter image of s is x s. Use: Evaluate the forward subtype map.
+- TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_symm_apply: The underlying U-value of the transporter inverse at y is x⁻¹y. Use: Evaluate the inverse subtype map.
+- TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_continuous: The stabilizer-to-transporter equivalence is continuous. Use: Multiply the continuous subtype inclusion by the constant x on the left and restrict its codomain.
+- TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_symm_continuous: The transporter-to-stabilizer inverse is continuous. Use: Multiply the continuous subtype inclusion by the constant x⁻¹ and restrict its codomain.
+- TauCeti.NonabelianCohomology.Z1.gauge_witness_unique_iff: If x•c=d, all witnesses y•c=d equal x exactly when Stab_U(c) is the trivial subgroup. This is uniqueness of a group element, distinct from uniqueness of a class in kernel H¹. Use: If witnesses are unique, apply uniqueness to x s for each stabilizer element s and cancel x. Conversely the transporter iff puts x⁻¹y in the trivial subgroup, forcing y=x.
+
+
+Tests:
+
+- gauge_transporter_inverse (characterisation): Every actual transporter element is recovered after applying the transporter inverse and forward maps.
+- gauge_transporter_right_order (non-example): If x s≠s x for an actual stabilizer element s, the transporter image is not s x. Swapping the side of the stabilizer correction fails.
+- gauge_transporter_continuous_roundtrip (compatibility): The inverse composed with the forward transporter map is continuous for the native subspace topologies.
+- gauge_witness_nonunique (non-example): A nonidentity stabilizer element s supplies a second actual witness x s≠x for the same cocycle gauge equality.
+- gauge_witness_unique (characterisation): If the native stabilizer is trivial, every second gauge witness y equals the specified witness x.
+
+
+### Gauge transporter forward formula
+
+Declaration: TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_apply. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-value.
+
+The underlying U-value of the transporter image of s is x s.
+
+Hypotheses: G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets. Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-equivalence.
+
+Proof: Evaluate the forward subtype map.
+
+### Gauge transporter inverse formula
+
+Declaration: TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_symm_apply. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-inverse-value.
+
+The underlying U-value of the transporter inverse at y is x⁻¹y.
+
+Hypotheses: G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets. Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-equivalence.
+
+Proof: Evaluate the inverse subtype map.
+
+### Continuous gauge transporter
+
+Declaration: TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_continuous. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-continuity.
+
+The stabilizer-to-transporter equivalence is continuous.
+
+Hypotheses: G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets. Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-equivalence.
+
+Proof: Multiply the continuous subtype inclusion by the constant x on the left and restrict its codomain.
+
+### Continuous inverse transporter
+
+Declaration: TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_symm_continuous. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-inverse-continuity.
+
+The transporter-to-stabilizer inverse is continuous.
+
+Hypotheses: G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets. Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-equivalence.
+
+Proof: Multiply the continuous subtype inclusion by the constant x⁻¹ and restrict its codomain.
+
+### Uniqueness of an actual gauge witness
+
+Declaration: TauCeti.NonabelianCohomology.Z1.gauge_witness_unique_iff. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-witness-uniqueness.
+
+If x•c=d, all witnesses y•c=d equal x exactly when Stab_U(c) is the trivial subgroup. This is uniqueness of a group element, distinct from uniqueness of a class in kernel H¹.
+
+Hypotheses: G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets. Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-characterisation, AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-equivalence, mathlib:MulAction.stabilizer.
+
+Proof: If witnesses are unique, apply uniqueness to x s for each stabilizer element s and cancel x. Conversely the transporter iff puts x⁻¹y in the trivial subgroup, forcing y=x.
+
+### Kernel gauge witnesses project to invariants
+
+Declaration: TauCeti.NonabelianCohomology.Z1.kernel_gauge_projects_fixed. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-gauge-fixed-projection.
+
+Let i:A→U be continuous and equivariant, f:U→V continuous and equivariant, and f∘i=1 pointwise. For c,d∈Z¹(G,A), an ambient gauge x carrying i∘c to i∘d has f(x)∈H⁰(G,V). No injectivity or surjectivity is needed for this lemma.
+
+Hypotheses: G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets. Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-map, AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1.
+
+Proof: Apply f pointwise to the actual gauge equality. Both cocycle values map to 1, so f(x)(g•f(x))⁻¹=1 for every g. Cancel to obtain invariance.
+
+### Kernel H¹ injectivity from stabilizer lifts
+
+Declaration: TauCeti.NonabelianCohomology.H1.kernelMap_injective_of_stabilizer_lifts. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-injectivity-stabilizer-lifts.
+
+Let i:A→U be continuous, equivariant and injective, with range(i)=ker(f) for a continuous equivariant f:U→V. Suppose for every c∈Z¹(G,A) and every v∈H⁰(G,V), there is t∈Stab_U(i∘c) with f(t)=v. Then the actual inclusion map H¹(G,A)→H¹(G,U) is injective. Neither f-surjectivity nor a continuous section is assumed.
+
+Hypotheses: G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets. Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-gauge-fixed-projection, AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map, mathlib:MulAction.stabilizer.
+
+Proof: Represent two equal ambient classes by c,d and a gauge x. Its projection is fixed. Lift f(x) to t stabilizing i∘c. The corrected gauge x t⁻¹ lies in ker(f), still carries i∘c to i∘d, and therefore comes from y∈A. Injectivity of i reflects the pointwise gauge equality, proving equality of the two original classes.
+
+Tests:
+
+- injective_coefficients_noninjective_h1 (non-example): With discrete trivial actions, the injective homomorphism C₃→S₃ sending a generator to p=(01)(12) maps the distinct H¹ classes of identity and inversion C₃→C₃ to the same S₃-valued H¹ class: conjugation by (01) interchanges p and p⁻¹. Injectivity of a coefficient embedding alone is insufficient.
+
+
+### Kernel H¹ injectivity for trivial quotient invariants
+
+Declaration: TauCeti.NonabelianCohomology.H1.kernelMap_injective_of_fixed_trivial. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-injectivity-fixed-trivial.
+
+Under the same continuous equivariant injection and exact-image hypotheses, H⁰(G,V)=1 implies injectivity of H¹(G,A)→H¹(G,U). This is a sufficient hypothesis, not a necessary characterization of injectivity.
+
+Hypotheses: G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets. Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-injectivity-stabilizer-lifts.
+
+Proof: Every fixed v equals 1; choose the identity element of the actual stabilizer as its lift and apply the stabilizer-lift criterion.
+
+Tests:
+
+- kernel_neutral_reflection (degenerate): Under the exact-image, coefficient-injectivity and trivial-quotient-invariants hypotheses, the actual inclusion sends a class to the neutral class exactly when the original class is neutral.
+- trivial_action_fixed_obstruction (non-example): For a trivial G-action on V and a specified v≠1, H⁰(G,V) is not the trivial subgroup. The injectivity hypothesis cannot be silently discharged by naming an exact sequence.
+
+
+### Injective inclusion of the actual twisted kernel
+
+Declaration: TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_injective. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-inclusion-injectivity.
+
+For c∈Z¹(G,U) and continuous equivariant f:U→V, if H⁰(G,Twist(f∘c))=1 then the already constructed native twisted-kernel H¹ inclusion into H¹(G,Twist(c)) is injective. The invariant condition belongs to the target inner twist, not automatically to the original V-action.
+
+Hypotheses: G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets. Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-injectivity-fixed-trivial, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-inclusion, AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-map, AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-continuity, AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-equivariance, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-action, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-action-continuity.
+
+Proof: Apply the general kernel criterion to the actual subtype inclusion of ker(F_c), the continuous equivariant twisted map F_c and its exact native kernel. The inherited action is the actual restricted inner action.
+
+### Injective H¹ of an abstract embedded kernel
+
+Declaration: TauCeti.NonabelianCohomology.H1.embeddedKernelInclusion_injective. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/embedded-kernel-inclusion-injectivity.
+
+For a supplied topological embedding i:A→U exactly onto ker(f), with its existing transported inner action, H⁰(G,Twist(f∘c))=1 makes the actual embedded-kernel inclusion on H¹ injective. The topology and multiplication on A are retained.
+
+Hypotheses: G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets. Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-inclusion-injectivity, AnabelianGeometryAndNonabelianChabauty:NC.3/embedded-kernel-h1-equivalence, AnabelianGeometryAndNonabelianChabauty:NC.3/embedded-kernel-h1-inclusion-comparison.
+
+Proof: Compare the two actual inclusions using the already specified pointed H¹ equivalence E. Apply native-kernel injectivity and then injectivity of E.
+
+### Unique embedded-kernel class in a repointed fibre
+
+Declaration: TauCeti.NonabelianCohomology.H1.embeddedKernel_fibre_existsUnique. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/embedded-kernel-fibre-unique.
+
+If additionally f is surjective, then for a∈H¹(G,U) there exists exactly one b∈H¹(G,A_c) with twistEquiv(c)(j(b))=a exactly when f*(a)=[f∘c], provided H⁰(G,Twist(f∘c))=1. Uniqueness concerns a gauge class; it does not select or uniquely determine a cocycle or gauge element.
+
+Hypotheses: G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets. Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/embedded-kernel-inclusion-injectivity, AnabelianGeometryAndNonabelianChabauty:NC.3/embedded-kernel-repointed-range, AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-equivalence.
+
+Proof: Use the existing surjective-map image criterion to obtain an actual kernel class in the original repointed fibre. The twist equivalence and the new inclusion injectivity give uniqueness. Conversely any preimage lies in the recorded fibre.
+
+## Remaining work and execution boundary
+
+Gauge stabilizers are identified with actual twisted invariants, and the space of witnesses is the right stabilizer translate x Stab(c), with both continuity directions. Kernel H¹ injectivity is supplied under the explicit all-cocycle stabilizer-lift condition, in particular under trivial quotient invariants. The twisted and abstract embedded-kernel inclusions are injective when H⁰(G,Twist(f∘c))=1; surjective f then gives a unique class in each actual original fibre over [f∘c]. These are sufficient conditions, not unconditional injectivity or unique cocycle/gauge representatives. Classification of general kernel fibres by an invariant action, arbitrary stable/non-normal subgroup adapters, central H²/cochain independence, genuine additive comparison, unipotent-point topologies, geometric torsors, representability/local conditions and every reserved-key/Chen/BDMTV/RT-A2/A6 obligation remain required.
+
+The native proof program and whole bounded Mathlib-only canonical projection have source-bound receipts in the handoff. The full canonical Tau Ceti file remains uncompiled because the existing build has a different Tau Ceti revision; removing exact Tau Ceti import lines and the entire Abelian section is a bounded planning check, not a certificate for the removed comparison. All statuses remain unchecked.
+
+---
+
 # Abstract embedded kernels and continuous nonabelian H¹
 
 This partial NC.3 continuation extends the native subgroup result to an independent group A with a specified topological embedding i:A→U and exact image ker(f). It adds nineteen declarations: four constructions and fifteen lemmas, with fifteen API leaves and fourteen typed tests. All 276 incoming mathematical contracts, seven stage statuses, eleven planets, nine gaps, seventeen requests, reserved key definitions, supplier boundaries and routed source obligations survive unchanged. No stage is completed.
