@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-stage partial design with 440 incoming declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked. For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain. This continuation adds23 nodes (6constructions17lemmas),19 consumed API items and22 exact examples for the specified ν: all-open section injectivity, zero kernel after flat pullback and the existing relative normalization comparison/descent. The affine inclusion A_q→k[t] is not surjective. The resulting packet has463 nodes; all7stages remain partial. New native and admitted sources are uncompiled in this turn because available memory is below20GiB; all implementation statuses remain unchecked. The actual generic-point function-field continuation specifies the genuine transported ν stalk map and its native field isomorphism, then the canonical integral comparison from normalization in K_C to N with both triangles and uniqueness. It does not identify that comparison as an isomorphism.",
+  "summary": "Seven-stage partial design with 440 incoming declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked. For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain. This continuation adds23 nodes (6constructions17lemmas),19 consumed API items and22 exact examples for the specified ν: all-open section injectivity, zero kernel after flat pullback and the existing relative normalization comparison/descent. The affine inclusion A_q→k[t] is not surjective. The resulting packet has463 nodes; all7stages remain partial. New native and admitted sources are uncompiled in this turn because available memory is below20GiB; all implementation statuses remain unchecked. The actual generic-point function-field continuation specifies the genuine transported ν stalk map and its native field isomorphism, then the canonical integral comparison from normalization in K_C to N with both triangles and uniqueness. It does not identify that comparison as an isomorphism. For every nonempty affine U⊂C, the actual B_U=Γ(N,ν⁻¹U) is integrally closed and is the integral closure of A_U=Γ(C,U) in K_N. The specified σ upgrades to an A_U-algebra equivalence and gives E_U:B_U≃integralClosure(A_U,K_C), with exact forward/inverse generic-germ, coefficient and restriction laws. This settles the affine generic-field comparison. It does not identify E_U with the sections of the existing δ: compare against native normalizationDiagram/normalizationObjIso, handle the empty-open branch and assemble the scheme isomorphism. Preserve P¹/Proj identification, properness/projectivity, conductor ideal sheaf and exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry. All seven stages remain partial and every implementation unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2691,6 +2691,90 @@
         "line": 112,
         "provides": "The existing generic-point spectrum has exactly one point; used with its native Field/Spec realization.",
         "checked": "Complete statement and proof read at TauCetif790474821cf4256814db967cb154e7af3d0c369 on2026-10-03. The Mathlib-only prototype rederives the same singleton/preimage step inside the affinity proof; the packet imports this existing theory."
+      },
+      {
+        "ref": "mathlib:IsIntegrallyClosed.of_localization_maximal",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/LocalProperties/IntegrallyClosed.lean",
+        "provides": "An integral domain is integrally closed if its nonzero maximal localizations are integrally closed.",
+        "checked": "Full relevant statement and ambient assumptions read in exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; source SHA256 a6e2a1f88624243b23625e87e3c398d971db16b1bc17afd887319e262260cffd"
+      },
+      {
+        "ref": "mathlib:IsIntegralClosure.equiv",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/IntegralClosure/IsIntegralClosure/Basic.lean",
+        "provides": "The base-algebra equivalence between two actual integral closures in the same ambient ring, with scalar towers.",
+        "checked": "Full relevant statement and ambient assumptions read in exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; source SHA256 93c72646554b01f2e8ae6657a656b07e0b6aa6b9c792e7d0d3cef0de5dbc653e"
+      },
+      {
+        "ref": "mathlib:IsIntegralClosure.algebraMap_equiv",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/IntegralClosure/IsIntegralClosure/Basic.lean",
+        "provides": "The integral-closure equivalence has the specified ambient algebra-map value.",
+        "checked": "Full relevant statement and ambient assumptions read in exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; source SHA256 93c72646554b01f2e8ae6657a656b07e0b6aa6b9c792e7d0d3cef0de5dbc653e"
+      },
+      {
+        "ref": "mathlib:AlgEquiv.mapIntegralClosure",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/IntegralClosure/IsIntegralClosure/Basic.lean",
+        "provides": "An actual base-algebra equivalence transports the two integral closures.",
+        "checked": "Full relevant statement and ambient assumptions read in exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; source SHA256 93c72646554b01f2e8ae6657a656b07e0b6aa6b9c792e7d0d3cef0de5dbc653e"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.functionField_isFractionRing_of_isAffineOpen",
+        "kind": "theorem",
+        "module": "Mathlib/AlgebraicGeometry/FunctionField.lean",
+        "provides": "For an integral scheme and a nonempty affine open, its actual generic stalk is a fraction field of the section ring with the germ algebra.",
+        "checked": "Full relevant statement and ambient assumptions read in exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; source SHA256 4a55491eb92341e09bd5ff7e11c70488f35f9618e5414656ff3610a130bfc436"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.germToFunctionField_injective",
+        "kind": "theorem",
+        "module": "Mathlib/AlgebraicGeometry/FunctionField.lean",
+        "provides": "The generic germ is injective on every nonempty open of an integral scheme.",
+        "checked": "Full relevant statement and ambient assumptions read in exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; source SHA256 4a55491eb92341e09bd5ff7e11c70488f35f9618e5414656ff3610a130bfc436"
+      },
+      {
+        "ref": "mathlib:TopCat.Presheaf.germ_res",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Sheaves/Stalks.lean",
+        "provides": "Restriction followed by the germ is the original germ, at a point of the smaller open.",
+        "checked": "Full relevant statement and ambient assumptions read in exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; source SHA256 83700ffdae1fefc720d03ff0da6877837de2fc3f9cb85d87b2b09d928bcd423b"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsAffineOpen.fromSpec",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/AffineScheme.lean",
+        "provides": "The specified open immersion from the spectrum of an affine-open section ring to its ambient scheme.",
+        "checked": "Full relevant statement and ambient assumptions read in exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; source SHA256 254525e3386b3548b09f297a7a815c21dd38b05d831e6c20edc65e76f2fe2d2a"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsAffineOpen.preimage",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/Affine.lean",
+        "provides": "An affine morphism pulls an affine open back to an affine open.",
+        "checked": "Full relevant statement and ambient assumptions read in exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; source SHA256 5ee72a2f65e8964125275391b146668f0499a7285e543869a5f5b36e5ed8edd8"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.isIntegral_app",
+        "kind": "alias",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/Integral.lean",
+        "provides": "An integral morphism induces an integral ring homomorphism on every affine target open.",
+        "checked": "Full relevant statement and ambient assumptions read in exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; source SHA256 29dc7468a6438072d1fcb25430263e207828b5bdd064a207c63569dc80045798"
+      },
+      {
+        "ref": "mathlib:algebraMap_isIntegral_iff",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/IntegralClosure/Algebra/Defs.lean",
+        "provides": "Integrality of the algebra map is equivalent to integrality of the algebra.",
+        "checked": "Full relevant statement and ambient assumptions read in exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; source SHA256 66ffb5bd899605770e1fbe7d2bd1250d1c95038be97da1f5b71386094d99a90e"
+      },
+      {
+        "ref": "mathlib:IsScalarTower.of_algebraMap_eq'",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Algebra/Tower.lean",
+        "provides": "The equality of the specified composite algebra maps gives the scalar tower.",
+        "checked": "Full relevant statement and ambient assumptions read in exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; source SHA256 80c681c1674d180828b520f3533b549f302153ee5042c2e65ea7733c8c8c9e38"
       }
     ]
   },
@@ -3182,6 +3266,16 @@
       "accessed": "2026-10-03",
       "readSections": [
         "Fresh §3 terminology, both conductor diagrams, Propositions3.1–3.3 with their proofs and count tables. These generic-point and normalization-comparison statements are authored deductions from the existing common infinity chart and pinned stalk/relative-normalization APIs; they are not printed theorem statements of the paper. No new whole-paper, source-error or supplier-proof audit is asserted."
+      ]
+    },
+    {
+      "id": "schroer-affine-absolute-closure-7e92bd",
+      "title": "There is no Enriques surface over the integers",
+      "authors": "Stefan Schröer",
+      "edition": "arXiv:2004.07025v3, 9 August 2022; fresh section3 reading 3 October 2026",
+      "url": "https://arxiv.org/html/2004.07025v3",
+      "readSections": [
+        "Section3 terminology, both conductor squares preceding Proposition3.1, Propositions3.1–3.2 and proofs/count table, Proposition3.3 statement/table. The affine generic-field comparisons are authored deductions from the specified incoming charts and pinned declarations, not source-printed claims."
       ]
     }
   ],
@@ -10157,7 +10251,8 @@
         "Use the specified native glued scheme C, glued source N and actual finite morphism ν with its two cartesian chart restrictions. The native reciprocal infinity map has u=1/t and z=1/(tq), and the curve structure map preserves coefficients. The identifications C with the specified Proj cubic and N with P¹, the normalization universal property, projectivity, conductor ideal sheaf and finite-pushforward H0/H1 remain required; this global chart morphism is not a substitute for those comparisons.",
         "For every field k and q=t²+at+b, the specified finite global map ν:N→C is surjective; both schemes are integral, every source stalk is integrally closed, and an actual dense-open Scheme.PartialIso agrees with ν over Spec k. The projective-line and Proj identifications, normalization universal property, projectivity/properness, conductor ideal sheaf, structure-sheaf exact sequence and finite-pushforward H0/H1 remain separate obligations. The I₂ construction and all other inherited gaps remain open; seven stages stay partial and all implementations unchecked.",
         "Use the specified all-open section injection and native relative integral factorization of ν. Its section comparison and the affine nonsurjectivity regression keep the source and pinched curve distinct. These facts do not discharge the absolute generic-point normalization, projective-line/Proj, conductor ideal-sheaf exact sequence, finite-pushforward cohomology or independent I₂ obligations.",
-        "Use the actual generic-point stalk isomorphism and its Spec triangle to form the integral comparison δ from normalization in K_C to N, with both universal-property triangles and uniqueness. Establish that δ is an isomorphism by genuine affine integral-closure comparisons before identifying N as absolute normalization; then still construct P¹/Proj, projectivity, conductor/sheaf and coherent-cohomology inputs. The current integral comparison alone supplies none of those remaining conclusions."
+        "Use the actual generic-point stalk isomorphism and its Spec triangle to form the integral comparison δ from normalization in K_C to N, with both universal-property triangles and uniqueness. Establish that δ is an isomorphism by genuine affine integral-closure comparisons before identifying N as absolute normalization; then still construct P¹/Proj, projectivity, conductor/sheaf and coherent-cohomology inputs. The current integral comparison alone supplies none of those remaining conclusions.",
+        "Use the actual affine section equivalences in K_C and both restriction laws. Still compare this family with the native normalizationDiagram and normalizationObjIso, including the empty-open branch, and identify the resulting scheme comparison with δ before claiming absolute normalization or its cohomology sequence."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-point-proper-pushout",
@@ -10196,7 +10291,10 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-spec-triangle",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison-from",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison-integral",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison-unique"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison-unique",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-sections-closure-equivalence",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-sections-closure-restrict",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-sections-closure-inverse-restrict"
       ],
       "sources": [
         {
@@ -27190,6 +27288,1240 @@
       },
       "implementationStatus": "unchecked",
       "declarationName": "QuadraticPinch.Global.absoluteNormalizationComparison_unique"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/source-affine-sections-normal",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Normal sections on source affine opens",
+      "kind": "lemma",
+      "statement": "For every nonempty affine open V of the actual source N(a,b), its section ring Γ(N,V) is integrally closed.",
+      "hypotheses": [
+        "k is any field, a,b∈k and q=t²+at+b. C(a,b), N(a,b) and ν are the actual incoming two-chart schemes and finite surjective morphism. No characteristic, perfectness, separability or nonzero-discriminant restriction is imposed.",
+        "K_C and K_N are the native generic-point stalk fields. Every open carrying a generic-germ algebra is nonempty; affineness is additionally required for the integral-closure equivalences. A_U and B_U use their actual section rings and ν.app(U) coefficient map."
+      ],
+      "proofSteps": [
+        "Use integrality of N to make Γ(N,V) a domain. For each maximal ideal P take its actual point of Spec Γ(N,V). The fromSpec open immersion identifies its stalk with the corresponding normal source stalk. Spec.stalkIso identifies that stalk with the localization at P. Apply the native maximal-localization criterion."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-source-stalks",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-source-integral",
+        "mathlib:IsIntegrallyClosed.of_localization_maximal",
+        "mathlib:AlgebraicGeometry.IsAffineOpen.fromSpec",
+        "mathlib:AlgebraicGeometry.Spec.stalkIso",
+        "mathlib:IsIntegrallyClosed.of_equiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-affine-absolute-closure-7e92bd",
+          "locator": "§3, one-component conductor square immediately before Proposition3.1; authored affine deductions from the listed pinned statements.",
+          "match": "The paper motivates the normalization and conductor comparison. The exact affine section-ring and generic-stalk equivalences are authored deductions. No global normalization isomorphism, projectivity or cohomology theorem is attributed to this passage."
+        }
+      ],
+      "acceptance": [
+        "For every nonempty affine open V of the actual source N(a,b), its section ring Γ(N,V) is integrally closed."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison",
+          "how": "Supply the exact affine ring comparisons and restriction equations needed to identify the integral comparison δ with an isomorphism; the global scheme identification is not yet asserted."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify source affine sections inside the curve function field before constructing conductor sheaves and the normalization cohomology sequence."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Provide the normalization comparison for the actual quadratic pinching charts, retaining cuspidal and inseparable cases as well as the separable nonsplit node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.source_affine_sections_integrallyClosed"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/preimage-affine-sections-normal",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Normal sections over an affine target open",
+      "kind": "lemma",
+      "statement": "For every nonempty affine U⊂C, the actual section ring B_U=Γ(N,ν⁻¹U) is integrally closed.",
+      "hypotheses": [
+        "k is any field, a,b∈k and q=t²+at+b. C(a,b), N(a,b) and ν are the actual incoming two-chart schemes and finite surjective morphism. No characteristic, perfectness, separability or nonzero-discriminant restriction is imposed.",
+        "K_C and K_N are the native generic-point stalk fields. Every open carrying a generic-germ algebra is nonempty; affineness is additionally required for the integral-closure equivalences. A_U and B_U use their actual section rings and ν.app(U) coefficient map."
+      ],
+      "proofSteps": [
+        "Surjectivity supplies nonempty ν⁻¹U. Finiteness supplies its affineness. Apply normality of source affine sections."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/source-affine-sections-normal",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-preimage-nonempty",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-is-finite",
+        "mathlib:AlgebraicGeometry.IsAffineOpen.preimage"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-affine-absolute-closure-7e92bd",
+          "locator": "§3, one-component conductor square immediately before Proposition3.1; authored affine deductions from the listed pinned statements.",
+          "match": "The paper motivates the normalization and conductor comparison. The exact affine section-ring and generic-stalk equivalences are authored deductions. No global normalization isomorphism, projectivity or cohomology theorem is attributed to this passage."
+        }
+      ],
+      "acceptance": [
+        "For every nonempty affine U⊂C, the actual section ring B_U=Γ(N,ν⁻¹U) is integrally closed."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison",
+          "how": "Supply the exact affine ring comparisons and restriction equations needed to identify the integral comparison δ with an isomorphism; the global scheme identification is not yet asserted."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify source affine sections inside the curve function field before constructing conductor sheaves and the normalization cohomology sequence."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Provide the normalization comparison for the actual quadratic pinching charts, retaining cuspidal and inseparable cases as well as the separable nonsplit node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalization_preimage_sections_integrallyClosed"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/sections-generic-coefficient-map",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Coefficient map into the source function field",
+      "kind": "construction",
+      "statement": "For any nonempty open U⊂C, define c_U:A_U=Γ(C,U)→K_N by the actual map ν.app(U) followed by the generic germ on ν⁻¹U. The preimage is nonempty by the existing surjectivity theorem.",
+      "hypotheses": [
+        "k is any field, a,b∈k and q=t²+at+b. C(a,b), N(a,b) and ν are the actual incoming two-chart schemes and finite surjective morphism. No characteristic, perfectness, separability or nonzero-discriminant restriction is imposed.",
+        "K_C and K_N are the native generic-point stalk fields. Every open carrying a generic-germ algebra is nonempty; affineness is additionally required for the integral-closure equivalences. A_U and B_U use their actual section rings and ν.app(U) coefficient map."
+      ],
+      "proofSteps": [
+        "Compose the two existing section and generic-germ maps, with the actual preimage open and its nonemptiness witness."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-preimage-nonempty",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization",
+        "mathlib:AlgebraicGeometry.Scheme.germToFunctionField"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-affine-absolute-closure-7e92bd",
+          "locator": "§3, one-component conductor square immediately before Proposition3.1; authored affine deductions from the listed pinned statements.",
+          "match": "The paper motivates the normalization and conductor comparison. The exact affine section-ring and generic-stalk equivalences are authored deductions. No global normalization isomorphism, projectivity or cohomology theorem is attributed to this passage."
+        }
+      ],
+      "acceptance": [
+        "For any nonempty open U⊂C, define c_U:A_U=Γ(C,U)→K_N by the actual map ν.app(U) followed by the generic germ on ν⁻¹U. The preimage is nonempty by the existing surjectivity theorem."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison",
+          "how": "Supply the exact affine ring comparisons and restriction equations needed to identify the integral comparison δ with an isomorphism; the global scheme identification is not yet asserted."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify source affine sections inside the curve function field before constructing conductor sheaves and the normalization cohomology sequence."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Provide the normalization comparison for the actual quadratic pinching charts, retaining cuspidal and inseparable cases as well as the separable nonsplit node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalizationSectionsToField",
+      "api": [
+        {
+          "name": "QuadraticPinch.Global.normalizationSectionsToField_germ",
+          "role": "compatibility",
+          "statement": "For every nonempty U, c_U equals the generic germ A_U→K_C followed by the specified native function-field isomorphism σ:K_C→K_N."
+        },
+        {
+          "name": "QuadraticPinch.Global.normalizationSectionsToField_injective",
+          "role": "characterisation",
+          "statement": "For every nonempty U⊂C, the actual coefficient map c_U is injective."
+        },
+        {
+          "name": "QuadraticPinch.Global.normalizationSectionsToField_restrict",
+          "role": "functoriality",
+          "statement": "For nonempty V⊂U⊂C, restriction A_U→A_V followed by c_V equals c_U as ring homomorphisms."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.Global.test_sectionsToField_cusp",
+          "kind": "degenerate",
+          "statement": "For a=b=0 over any field, c_U(r) equals σ of the actual curve generic germ of r on every nonempty U."
+        },
+        {
+          "name": "QuadraticPinch.Global.test_sectionsToField_char2_nonzero",
+          "kind": "computation",
+          "statement": "For k=F₂ and a=b=1, every nonzero section on a nonempty open has nonzero image under c_U."
+        },
+        {
+          "name": "QuadraticPinch.Global.test_sectionsToField_restrict",
+          "kind": "compatibility",
+          "statement": "For every inclusion of nonempty opens V⊂U, the two evaluated coefficient maps agree after actual presheaf restriction."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/sections-generic-coefficient-germ",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Compatibility with the curve generic germ",
+      "kind": "lemma",
+      "statement": "For every nonempty U, c_U equals the generic germ A_U→K_C followed by the specified native function-field isomorphism σ:K_C→K_N.",
+      "hypotheses": [
+        "k is any field, a,b∈k and q=t²+at+b. C(a,b), N(a,b) and ν are the actual incoming two-chart schemes and finite surjective morphism. No characteristic, perfectness, separability or nonzero-discriminant restriction is imposed.",
+        "K_C and K_N are the native generic-point stalk fields. Every open carrying a generic-germ algebra is nonempty; affineness is additionally required for the integral-closure equivalences. A_U and B_U use their actual section rings and ν.app(U) coefficient map."
+      ],
+      "proofSteps": [
+        "Use the incoming germ compatibility for the actual stalk map σ."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/sections-generic-coefficient-map",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-map-germ"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-affine-absolute-closure-7e92bd",
+          "locator": "§3, one-component conductor square immediately before Proposition3.1; authored affine deductions from the listed pinned statements.",
+          "match": "The paper motivates the normalization and conductor comparison. The exact affine section-ring and generic-stalk equivalences are authored deductions. No global normalization isomorphism, projectivity or cohomology theorem is attributed to this passage."
+        }
+      ],
+      "acceptance": [
+        "For every nonempty U, c_U equals the generic germ A_U→K_C followed by the specified native function-field isomorphism σ:K_C→K_N."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison",
+          "how": "Supply the exact affine ring comparisons and restriction equations needed to identify the integral comparison δ with an isomorphism; the global scheme identification is not yet asserted."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify source affine sections inside the curve function field before constructing conductor sheaves and the normalization cohomology sequence."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Provide the normalization comparison for the actual quadratic pinching charts, retaining cuspidal and inseparable cases as well as the separable nonsplit node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalizationSectionsToField_germ"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/sections-generic-coefficient-injective",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Faithfulness of the coefficient embedding",
+      "kind": "lemma",
+      "statement": "For every nonempty U⊂C, the actual coefficient map c_U is injective.",
+      "hypotheses": [
+        "k is any field, a,b∈k and q=t²+at+b. C(a,b), N(a,b) and ν are the actual incoming two-chart schemes and finite surjective morphism. No characteristic, perfectness, separability or nonzero-discriminant restriction is imposed.",
+        "K_C and K_N are the native generic-point stalk fields. Every open carrying a generic-germ algebra is nonempty; affineness is additionally required for the integral-closure equivalences. A_U and B_U use their actual section rings and ν.app(U) coefficient map."
+      ],
+      "proofSteps": [
+        "The curve generic germ is injective; the field homomorphism σ is injective. Compose these maps."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/sections-generic-coefficient-germ",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-curve-integral",
+        "mathlib:AlgebraicGeometry.Scheme.germToFunctionField_injective"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-affine-absolute-closure-7e92bd",
+          "locator": "§3, one-component conductor square immediately before Proposition3.1; authored affine deductions from the listed pinned statements.",
+          "match": "The paper motivates the normalization and conductor comparison. The exact affine section-ring and generic-stalk equivalences are authored deductions. No global normalization isomorphism, projectivity or cohomology theorem is attributed to this passage."
+        }
+      ],
+      "acceptance": [
+        "For every nonempty U⊂C, the actual coefficient map c_U is injective."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison",
+          "how": "Supply the exact affine ring comparisons and restriction equations needed to identify the integral comparison δ with an isomorphism; the global scheme identification is not yet asserted."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify source affine sections inside the curve function field before constructing conductor sheaves and the normalization cohomology sequence."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Provide the normalization comparison for the actual quadratic pinching charts, retaining cuspidal and inseparable cases as well as the separable nonsplit node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalizationSectionsToField_injective"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/sections-generic-coefficient-restrict",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Coefficient restriction in the common generic field",
+      "kind": "lemma",
+      "statement": "For nonempty V⊂U⊂C, restriction A_U→A_V followed by c_V equals c_U as ring homomorphisms.",
+      "hypotheses": [
+        "k is any field, a,b∈k and q=t²+at+b. C(a,b), N(a,b) and ν are the actual incoming two-chart schemes and finite surjective morphism. No characteristic, perfectness, separability or nonzero-discriminant restriction is imposed.",
+        "K_C and K_N are the native generic-point stalk fields. Every open carrying a generic-germ algebra is nonempty; affineness is additionally required for the integral-closure equivalences. A_U and B_U use their actual section rings and ν.app(U) coefficient map."
+      ],
+      "proofSteps": [
+        "Replace both coefficient maps by generic germ followed by σ and apply germ restriction naturality."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/sections-generic-coefficient-germ",
+        "mathlib:TopCat.Presheaf.germ_res"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-affine-absolute-closure-7e92bd",
+          "locator": "§3, one-component conductor square immediately before Proposition3.1; authored affine deductions from the listed pinned statements.",
+          "match": "The paper motivates the normalization and conductor comparison. The exact affine section-ring and generic-stalk equivalences are authored deductions. No global normalization isomorphism, projectivity or cohomology theorem is attributed to this passage."
+        }
+      ],
+      "acceptance": [
+        "For nonempty V⊂U⊂C, restriction A_U→A_V followed by c_V equals c_U as ring homomorphisms."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison",
+          "how": "Supply the exact affine ring comparisons and restriction equations needed to identify the integral comparison δ with an isomorphism; the global scheme identification is not yet asserted."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify source affine sections inside the curve function field before constructing conductor sheaves and the normalization cohomology sequence."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Provide the normalization comparison for the actual quadratic pinching charts, retaining cuspidal and inseparable cases as well as the separable nonsplit node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalizationSectionsToField_restrict"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/preimage-sections-integral-closure",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Actual source sections as an integral closure",
+      "kind": "lemma",
+      "statement": "For every nonempty affine U⊂C, B_U is an IsIntegralClosure of A_U in the actual K_N. Its A_U-algebra is ν.app(U), its map into K_N is the generic germ, and the coefficient map is c_U.",
+      "hypotheses": [
+        "k is any field, a,b∈k and q=t²+at+b. C(a,b), N(a,b) and ν are the actual incoming two-chart schemes and finite surjective morphism. No characteristic, perfectness, separability or nonzero-discriminant restriction is imposed.",
+        "K_C and K_N are the native generic-point stalk fields. Every open carrying a generic-germ algebra is nonempty; affineness is additionally required for the integral-closure equivalences. A_U and B_U use their actual section rings and ν.app(U) coefficient map."
+      ],
+      "proofSteps": [
+        "The defining equality for c_U supplies the scalar tower A_U→B_U→K_N. The finite map makes B_U integral over A_U. The actual affine-open generic-stalk theorem makes K_N a fraction field of B_U. Combine this with normality of B_U using the existing integral-closure instance."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/preimage-affine-sections-normal",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/sections-generic-coefficient-map",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-is-finite",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.isIntegral_app",
+        "mathlib:algebraMap_isIntegral_iff",
+        "mathlib:IsScalarTower.of_algebraMap_eq'",
+        "mathlib:AlgebraicGeometry.functionField_isFractionRing_of_isAffineOpen",
+        "mathlib:IsIntegralClosure.of_isIntegrallyClosed"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-affine-absolute-closure-7e92bd",
+          "locator": "§3, one-component conductor square immediately before Proposition3.1; authored affine deductions from the listed pinned statements.",
+          "match": "The paper motivates the normalization and conductor comparison. The exact affine section-ring and generic-stalk equivalences are authored deductions. No global normalization isomorphism, projectivity or cohomology theorem is attributed to this passage."
+        }
+      ],
+      "acceptance": [
+        "For every nonempty affine U⊂C, B_U is an IsIntegralClosure of A_U in the actual K_N. Its A_U-algebra is ν.app(U), its map into K_N is the generic germ, and the coefficient map is c_U."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison",
+          "how": "Supply the exact affine ring comparisons and restriction equations needed to identify the integral comparison δ with an isomorphism; the global scheme identification is not yet asserted."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify source affine sections inside the curve function field before constructing conductor sheaves and the normalization cohomology sequence."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Provide the normalization comparison for the actual quadratic pinching charts, retaining cuspidal and inseparable cases as well as the separable nonsplit node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalization_sections_integralClosure"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/source-sections-closure-equivalence",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Affine closure equivalence in the source field",
+      "kind": "construction",
+      "statement": "For every nonempty affine U⊂C, construct the specified A_U-algebra equivalence e_U:B_U≃integralClosure(A_U,K_N), with the actual coefficient action c_U and generic-germ embedding of B_U.",
+      "hypotheses": [
+        "k is any field, a,b∈k and q=t²+at+b. C(a,b), N(a,b) and ν are the actual incoming two-chart schemes and finite surjective morphism. No characteristic, perfectness, separability or nonzero-discriminant restriction is imposed.",
+        "K_C and K_N are the native generic-point stalk fields. Every open carrying a generic-germ algebra is nonempty; affineness is additionally required for the integral-closure equivalences. A_U and B_U use their actual section rings and ν.app(U) coefficient map."
+      ],
+      "proofSteps": [
+        "Compare B_U and the native integral-closure subalgebra as two integral closures in K_N, using their exact scalar towers."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/preimage-sections-integral-closure",
+        "mathlib:IsIntegralClosure.equiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-affine-absolute-closure-7e92bd",
+          "locator": "§3, one-component conductor square immediately before Proposition3.1; authored affine deductions from the listed pinned statements.",
+          "match": "The paper motivates the normalization and conductor comparison. The exact affine section-ring and generic-stalk equivalences are authored deductions. No global normalization isomorphism, projectivity or cohomology theorem is attributed to this passage."
+        }
+      ],
+      "acceptance": [
+        "For every nonempty affine U⊂C, construct the specified A_U-algebra equivalence e_U:B_U≃integralClosure(A_U,K_N), with the actual coefficient action c_U and generic-germ embedding of B_U."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison",
+          "how": "Supply the exact affine ring comparisons and restriction equations needed to identify the integral comparison δ with an isomorphism; the global scheme identification is not yet asserted."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify source affine sections inside the curve function field before constructing conductor sheaves and the normalization cohomology sequence."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Provide the normalization comparison for the actual quadratic pinching charts, retaining cuspidal and inseparable cases as well as the separable nonsplit node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalizationSectionsClosureEquiv",
+      "api": [
+        {
+          "name": "QuadraticPinch.Global.normalizationSectionsClosureEquiv_val",
+          "role": "compatibility",
+          "statement": "The ambient K_N-value of e_U(s) is the actual generic germ of s∈B_U."
+        },
+        {
+          "name": "QuadraticPinch.Global.normalizationSectionsClosureEquiv_coefficient",
+          "role": "simp",
+          "statement": "For r∈A_U, e_U(ν.app(U)(r)) is the native coefficient image in integralClosure(A_U,K_N)."
+        },
+        {
+          "name": "QuadraticPinch.Global.normalizationSectionsClosureEquiv_inverse_val",
+          "role": "characterisation",
+          "statement": "For z∈integralClosure(A_U,K_N), the actual source generic germ of e_U⁻¹(z) is z itself."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.Global.test_sourceClosure_cusp_germ",
+          "kind": "degenerate",
+          "statement": "For a=b=0, the ambient value of every e_U(s) equals the native source generic germ of s."
+        },
+        {
+          "name": "QuadraticPinch.Global.test_sourceClosure_char2_coefficient",
+          "kind": "computation",
+          "statement": "For k=F₂ and a=b=1, every coefficient section maps to the exact native coefficient element of the closure in K_N."
+        },
+        {
+          "name": "QuadraticPinch.Global.test_sourceClosure_integral_element",
+          "kind": "characterisation",
+          "statement": "Every actual integral element z in K_N is the generic germ of the inverse image e_U⁻¹(z)."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/source-sections-closure-value",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Ambient value of the source closure equivalence",
+      "kind": "lemma",
+      "statement": "The ambient K_N-value of e_U(s) is the actual generic germ of s∈B_U.",
+      "hypotheses": [
+        "k is any field, a,b∈k and q=t²+at+b. C(a,b), N(a,b) and ν are the actual incoming two-chart schemes and finite surjective morphism. No characteristic, perfectness, separability or nonzero-discriminant restriction is imposed.",
+        "K_C and K_N are the native generic-point stalk fields. Every open carrying a generic-germ algebra is nonempty; affineness is additionally required for the integral-closure equivalences. A_U and B_U use their actual section rings and ν.app(U) coefficient map."
+      ],
+      "proofSteps": [
+        "Use the native ambient-value law for the integral-closure equivalence."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/source-sections-closure-equivalence",
+        "mathlib:IsIntegralClosure.algebraMap_equiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-affine-absolute-closure-7e92bd",
+          "locator": "§3, one-component conductor square immediately before Proposition3.1; authored affine deductions from the listed pinned statements.",
+          "match": "The paper motivates the normalization and conductor comparison. The exact affine section-ring and generic-stalk equivalences are authored deductions. No global normalization isomorphism, projectivity or cohomology theorem is attributed to this passage."
+        }
+      ],
+      "acceptance": [
+        "The ambient K_N-value of e_U(s) is the actual generic germ of s∈B_U."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison",
+          "how": "Supply the exact affine ring comparisons and restriction equations needed to identify the integral comparison δ with an isomorphism; the global scheme identification is not yet asserted."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify source affine sections inside the curve function field before constructing conductor sheaves and the normalization cohomology sequence."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Provide the normalization comparison for the actual quadratic pinching charts, retaining cuspidal and inseparable cases as well as the separable nonsplit node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalizationSectionsClosureEquiv_val"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/function-field-coefficient-algebra-equivalence",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Function-field isomorphism over an affine coefficient ring",
+      "kind": "construction",
+      "statement": "For every nonempty open U⊂C, upgrade the actual σ:K_C≅K_N to an A_U-algebra equivalence: K_C has its native generic-germ action and K_N has c_U. No affineness is required for this upgrade.",
+      "hypotheses": [
+        "k is any field, a,b∈k and q=t²+at+b. C(a,b), N(a,b) and ν are the actual incoming two-chart schemes and finite surjective morphism. No characteristic, perfectness, separability or nonzero-discriminant restriction is imposed.",
+        "K_C and K_N are the native generic-point stalk fields. Every open carrying a generic-germ algebra is nonempty; affineness is additionally required for the integral-closure equivalences. A_U and B_U use their actual section rings and ν.app(U) coefficient map."
+      ],
+      "proofSteps": [
+        "Keep the exact underlying native field isomorphism. Its coefficient equation is the established germ compatibility."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/sections-generic-coefficient-germ",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-iso"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-affine-absolute-closure-7e92bd",
+          "locator": "§3, one-component conductor square immediately before Proposition3.1; authored affine deductions from the listed pinned statements.",
+          "match": "The paper motivates the normalization and conductor comparison. The exact affine section-ring and generic-stalk equivalences are authored deductions. No global normalization isomorphism, projectivity or cohomology theorem is attributed to this passage."
+        }
+      ],
+      "acceptance": [
+        "For every nonempty open U⊂C, upgrade the actual σ:K_C≅K_N to an A_U-algebra equivalence: K_C has its native generic-germ action and K_N has c_U. No affineness is required for this upgrade."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison",
+          "how": "Supply the exact affine ring comparisons and restriction equations needed to identify the integral comparison δ with an isomorphism; the global scheme identification is not yet asserted."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify source affine sections inside the curve function field before constructing conductor sheaves and the normalization cohomology sequence."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Provide the normalization comparison for the actual quadratic pinching charts, retaining cuspidal and inseparable cases as well as the separable nonsplit node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalizationFunctionFieldAlgEquiv",
+      "api": [
+        {
+          "name": "QuadraticPinch.Global.normalizationFunctionFieldAlgEquiv_apply",
+          "role": "compatibility",
+          "statement": "The value of the coefficient-algebra equivalence on x∈K_C is exactly σ(x), the already constructed stalk map."
+        },
+        {
+          "name": "QuadraticPinch.Global.normalizationFunctionFieldAlgEquiv_coefficient",
+          "role": "simp",
+          "statement": "For r∈A_U, the field algebra equivalence sends the actual curve generic germ of r to c_U(r)."
+        },
+        {
+          "name": "QuadraticPinch.Global.normalizationFunctionFieldAlgEquiv_symm",
+          "role": "compatibility",
+          "statement": "The inverse of the coefficient-algebra equivalence is exactly the incoming σ⁻¹ on every x∈K_N."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.Global.test_fieldAlgebra_cusp_coefficient",
+          "kind": "degenerate",
+          "statement": "For a=b=0, the upgraded field isomorphism sends each native curve coefficient germ to c_U of that coefficient."
+        },
+        {
+          "name": "QuadraticPinch.Global.test_fieldAlgebra_char2_inverse",
+          "kind": "computation",
+          "statement": "For k=F₂ and a=b=1, the inverse on every source field element is exactly the specified native σ⁻¹."
+        },
+        {
+          "name": "QuadraticPinch.Global.test_fieldAlgebra_affine_nonexample",
+          "kind": "non-example",
+          "statement": "The actual coefficient-algebra field map is bijective while the actual affine pinch inclusion A_q→k[t] is not surjective, for every a,b and every nonempty U."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/function-field-coefficient-algebra-forward",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Specified forward field map",
+      "kind": "lemma",
+      "statement": "The value of the coefficient-algebra equivalence on x∈K_C is exactly σ(x), the already constructed stalk map.",
+      "hypotheses": [
+        "k is any field, a,b∈k and q=t²+at+b. C(a,b), N(a,b) and ν are the actual incoming two-chart schemes and finite surjective morphism. No characteristic, perfectness, separability or nonzero-discriminant restriction is imposed.",
+        "K_C and K_N are the native generic-point stalk fields. Every open carrying a generic-germ algebra is nonempty; affineness is additionally required for the integral-closure equivalences. A_U and B_U use their actual section rings and ν.app(U) coefficient map."
+      ],
+      "proofSteps": [
+        "Unfold only the new algebra-equivalence structure; the underlying field map was retained."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/function-field-coefficient-algebra-equivalence",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-map"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-affine-absolute-closure-7e92bd",
+          "locator": "§3, one-component conductor square immediately before Proposition3.1; authored affine deductions from the listed pinned statements.",
+          "match": "The paper motivates the normalization and conductor comparison. The exact affine section-ring and generic-stalk equivalences are authored deductions. No global normalization isomorphism, projectivity or cohomology theorem is attributed to this passage."
+        }
+      ],
+      "acceptance": [
+        "The value of the coefficient-algebra equivalence on x∈K_C is exactly σ(x), the already constructed stalk map."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison",
+          "how": "Supply the exact affine ring comparisons and restriction equations needed to identify the integral comparison δ with an isomorphism; the global scheme identification is not yet asserted."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify source affine sections inside the curve function field before constructing conductor sheaves and the normalization cohomology sequence."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Provide the normalization comparison for the actual quadratic pinching charts, retaining cuspidal and inseparable cases as well as the separable nonsplit node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalizationFunctionFieldAlgEquiv_apply"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-sections-closure-equivalence",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Affine closure equivalence in the curve field",
+      "kind": "construction",
+      "statement": "For every nonempty affine U⊂C, construct an A_U-algebra equivalence E_U:B_U≃integralClosure(A_U,K_C), where the closure is taken inside the actual stalk-defined curve field with its native generic-germ A_U-action.",
+      "hypotheses": [
+        "k is any field, a,b∈k and q=t²+at+b. C(a,b), N(a,b) and ν are the actual incoming two-chart schemes and finite surjective morphism. No characteristic, perfectness, separability or nonzero-discriminant restriction is imposed.",
+        "K_C and K_N are the native generic-point stalk fields. Every open carrying a generic-germ algebra is nonempty; affineness is additionally required for the integral-closure equivalences. A_U and B_U use their actual section rings and ν.app(U) coefficient map."
+      ],
+      "proofSteps": [
+        "Compose e_U with the native integral-closure equivalence induced by σ⁻¹ over A_U. The resulting map uses the curve field itself, rather than an independently chosen fraction field."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/source-sections-closure-equivalence",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/function-field-coefficient-algebra-equivalence",
+        "mathlib:AlgEquiv.mapIntegralClosure"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-affine-absolute-closure-7e92bd",
+          "locator": "§3, one-component conductor square immediately before Proposition3.1; authored affine deductions from the listed pinned statements.",
+          "match": "The paper motivates the normalization and conductor comparison. The exact affine section-ring and generic-stalk equivalences are authored deductions. No global normalization isomorphism, projectivity or cohomology theorem is attributed to this passage."
+        }
+      ],
+      "acceptance": [
+        "For every nonempty affine U⊂C, construct an A_U-algebra equivalence E_U:B_U≃integralClosure(A_U,K_C), where the closure is taken inside the actual stalk-defined curve field with its native generic-germ A_U-action."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison",
+          "how": "Supply the exact affine ring comparisons and restriction equations needed to identify the integral comparison δ with an isomorphism; the global scheme identification is not yet asserted."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify source affine sections inside the curve function field before constructing conductor sheaves and the normalization cohomology sequence."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Provide the normalization comparison for the actual quadratic pinching charts, retaining cuspidal and inseparable cases as well as the separable nonsplit node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteSectionsClosureEquiv",
+      "api": [
+        {
+          "name": "QuadraticPinch.Global.absoluteSectionsClosureEquiv_val",
+          "role": "compatibility",
+          "statement": "For s∈B_U, the ambient K_C-value of E_U(s) is σ⁻¹(germ_N(s))."
+        },
+        {
+          "name": "QuadraticPinch.Global.absoluteSectionsClosureEquiv_coefficient",
+          "role": "simp",
+          "statement": "For r∈A_U, E_U(ν.app(U)(r)) equals the image of r under the native algebra map A_U→integralClosure(A_U,K_C)."
+        },
+        {
+          "name": "QuadraticPinch.Global.absoluteSectionsClosureEquiv_restrict",
+          "role": "functoriality",
+          "statement": "For nonempty affine V⊂U and s∈B_U, the ambient values in K_C of E_V(res(s)) and E_U(s) agree, where res is the actual structure-presheaf restriction Γ(N,ν⁻¹U)→Γ(N,ν⁻¹V)."
+        },
+        {
+          "name": "QuadraticPinch.Global.absoluteSectionsClosureEquiv_inverse_val",
+          "role": "characterisation",
+          "statement": "For z∈integralClosure(A_U,K_C), the generic germ of E_U⁻¹(z) equals σ(z)."
+        },
+        {
+          "name": "QuadraticPinch.Global.absoluteSectionsClosureEquiv_inverse_restrict",
+          "role": "functoriality",
+          "statement": "Let nonempty affine V⊂U and let z_U and z_V lie in the two native closures inside K_C with equal ambient values. Then the actual restriction of E_U⁻¹(z_U) equals E_V⁻¹(z_V)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.Global.test_absoluteClosure_cusp_coefficient",
+          "kind": "degenerate",
+          "statement": "For a=b=0, E_U sends every pulled-back coefficient to its native image in the closure inside K_C."
+        },
+        {
+          "name": "QuadraticPinch.Global.test_absoluteClosure_char2_integral_element",
+          "kind": "computation",
+          "statement": "For k=F₂ and a=b=1, the source generic germ of E_U⁻¹(z) is the actual σ(z) for every integral element z in K_C."
+        },
+        {
+          "name": "QuadraticPinch.Global.test_absoluteClosure_overlap",
+          "kind": "compatibility",
+          "statement": "On any nonempty affine inclusion V⊂U, integral elements in K_C with equal ambient values have inverse images agreeing under the actual source restriction."
+        },
+        {
+          "name": "QuadraticPinch.Global.test_absoluteClosure_empty_open_excluded",
+          "kind": "non-example",
+          "statement": "The empty open of C has no nonempty instance, so the generic-field section comparison cannot be instantiated there."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-sections-closure-value",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Ambient value of the absolute closure equivalence",
+      "kind": "lemma",
+      "statement": "For s∈B_U, the ambient K_C-value of E_U(s) is σ⁻¹(germ_N(s)).",
+      "hypotheses": [
+        "k is any field, a,b∈k and q=t²+at+b. C(a,b), N(a,b) and ν are the actual incoming two-chart schemes and finite surjective morphism. No characteristic, perfectness, separability or nonzero-discriminant restriction is imposed.",
+        "K_C and K_N are the native generic-point stalk fields. Every open carrying a generic-germ algebra is nonempty; affineness is additionally required for the integral-closure equivalences. A_U and B_U use their actual section rings and ν.app(U) coefficient map."
+      ],
+      "proofSteps": [
+        "The native mapIntegralClosure retains the underlying field map; use the established e_U value."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-sections-closure-equivalence",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/source-sections-closure-value",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/function-field-coefficient-algebra-equivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-affine-absolute-closure-7e92bd",
+          "locator": "§3, one-component conductor square immediately before Proposition3.1; authored affine deductions from the listed pinned statements.",
+          "match": "The paper motivates the normalization and conductor comparison. The exact affine section-ring and generic-stalk equivalences are authored deductions. No global normalization isomorphism, projectivity or cohomology theorem is attributed to this passage."
+        }
+      ],
+      "acceptance": [
+        "For s∈B_U, the ambient K_C-value of E_U(s) is σ⁻¹(germ_N(s))."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison",
+          "how": "Supply the exact affine ring comparisons and restriction equations needed to identify the integral comparison δ with an isomorphism; the global scheme identification is not yet asserted."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify source affine sections inside the curve function field before constructing conductor sheaves and the normalization cohomology sequence."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Provide the normalization comparison for the actual quadratic pinching charts, retaining cuspidal and inseparable cases as well as the separable nonsplit node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteSectionsClosureEquiv_val"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-sections-closure-coefficient",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The closure equivalence fixes base coefficients",
+      "kind": "lemma",
+      "statement": "For r∈A_U, E_U(ν.app(U)(r)) equals the image of r under the native algebra map A_U→integralClosure(A_U,K_C).",
+      "hypotheses": [
+        "k is any field, a,b∈k and q=t²+at+b. C(a,b), N(a,b) and ν are the actual incoming two-chart schemes and finite surjective morphism. No characteristic, perfectness, separability or nonzero-discriminant restriction is imposed.",
+        "K_C and K_N are the native generic-point stalk fields. Every open carrying a generic-germ algebra is nonempty; affineness is additionally required for the integral-closure equivalences. A_U and B_U use their actual section rings and ν.app(U) coefficient map."
+      ],
+      "proofSteps": [
+        "Apply the coefficient law of the actual A_U-algebra equivalence."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-sections-closure-equivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-affine-absolute-closure-7e92bd",
+          "locator": "§3, one-component conductor square immediately before Proposition3.1; authored affine deductions from the listed pinned statements.",
+          "match": "The paper motivates the normalization and conductor comparison. The exact affine section-ring and generic-stalk equivalences are authored deductions. No global normalization isomorphism, projectivity or cohomology theorem is attributed to this passage."
+        }
+      ],
+      "acceptance": [
+        "For r∈A_U, E_U(ν.app(U)(r)) equals the image of r under the native algebra map A_U→integralClosure(A_U,K_C)."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison",
+          "how": "Supply the exact affine ring comparisons and restriction equations needed to identify the integral comparison δ with an isomorphism; the global scheme identification is not yet asserted."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify source affine sections inside the curve function field before constructing conductor sheaves and the normalization cohomology sequence."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Provide the normalization comparison for the actual quadratic pinching charts, retaining cuspidal and inseparable cases as well as the separable nonsplit node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteSectionsClosureEquiv_coefficient"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-sections-closure-restrict",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Forward restriction compatibility in the curve field",
+      "kind": "lemma",
+      "statement": "For nonempty affine V⊂U and s∈B_U, the ambient values in K_C of E_V(res(s)) and E_U(s) agree, where res is the actual structure-presheaf restriction Γ(N,ν⁻¹U)→Γ(N,ν⁻¹V).",
+      "hypotheses": [
+        "k is any field, a,b∈k and q=t²+at+b. C(a,b), N(a,b) and ν are the actual incoming two-chart schemes and finite surjective morphism. No characteristic, perfectness, separability or nonzero-discriminant restriction is imposed.",
+        "K_C and K_N are the native generic-point stalk fields. Every open carrying a generic-germ algebra is nonempty; affineness is additionally required for the integral-closure equivalences. A_U and B_U use their actual section rings and ν.app(U) coefficient map."
+      ],
+      "proofSteps": [
+        "Both ambient values are σ⁻¹ of the corresponding source generic germs; apply generic-germ restriction naturality."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-sections-closure-value",
+        "mathlib:TopCat.Presheaf.germ_res"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-affine-absolute-closure-7e92bd",
+          "locator": "§3, one-component conductor square immediately before Proposition3.1; authored affine deductions from the listed pinned statements.",
+          "match": "The paper motivates the normalization and conductor comparison. The exact affine section-ring and generic-stalk equivalences are authored deductions. No global normalization isomorphism, projectivity or cohomology theorem is attributed to this passage."
+        }
+      ],
+      "acceptance": [
+        "For nonempty affine V⊂U and s∈B_U, the ambient values in K_C of E_V(res(s)) and E_U(s) agree, where res is the actual structure-presheaf restriction Γ(N,ν⁻¹U)→Γ(N,ν⁻¹V)."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison",
+          "how": "Supply the exact affine ring comparisons and restriction equations needed to identify the integral comparison δ with an isomorphism; the global scheme identification is not yet asserted."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify source affine sections inside the curve function field before constructing conductor sheaves and the normalization cohomology sequence."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Provide the normalization comparison for the actual quadratic pinching charts, retaining cuspidal and inseparable cases as well as the separable nonsplit node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteSectionsClosureEquiv_restrict"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-sections-closure-inverse-value",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Generic value of an integral element lifted to sections",
+      "kind": "lemma",
+      "statement": "For z∈integralClosure(A_U,K_C), the generic germ of E_U⁻¹(z) equals σ(z).",
+      "hypotheses": [
+        "k is any field, a,b∈k and q=t²+at+b. C(a,b), N(a,b) and ν are the actual incoming two-chart schemes and finite surjective morphism. No characteristic, perfectness, separability or nonzero-discriminant restriction is imposed.",
+        "K_C and K_N are the native generic-point stalk fields. Every open carrying a generic-germ algebra is nonempty; affineness is additionally required for the integral-closure equivalences. A_U and B_U use their actual section rings and ν.app(U) coefficient map."
+      ],
+      "proofSteps": [
+        "Apply the ambient-value identity to E_U⁻¹(z), simplify the inverse round trip and cancel the injective map σ⁻¹."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-sections-closure-value",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-iso-hom-inv"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-affine-absolute-closure-7e92bd",
+          "locator": "§3, one-component conductor square immediately before Proposition3.1; authored affine deductions from the listed pinned statements.",
+          "match": "The paper motivates the normalization and conductor comparison. The exact affine section-ring and generic-stalk equivalences are authored deductions. No global normalization isomorphism, projectivity or cohomology theorem is attributed to this passage."
+        }
+      ],
+      "acceptance": [
+        "For z∈integralClosure(A_U,K_C), the generic germ of E_U⁻¹(z) equals σ(z)."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison",
+          "how": "Supply the exact affine ring comparisons and restriction equations needed to identify the integral comparison δ with an isomorphism; the global scheme identification is not yet asserted."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify source affine sections inside the curve function field before constructing conductor sheaves and the normalization cohomology sequence."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Provide the normalization comparison for the actual quadratic pinching charts, retaining cuspidal and inseparable cases as well as the separable nonsplit node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteSectionsClosureEquiv_inverse_val"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-sections-closure-inverse-restrict",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Inverse restriction compatibility for integral elements",
+      "kind": "lemma",
+      "statement": "Let nonempty affine V⊂U and let z_U and z_V lie in the two native closures inside K_C with equal ambient values. Then the actual restriction of E_U⁻¹(z_U) equals E_V⁻¹(z_V).",
+      "hypotheses": [
+        "k is any field, a,b∈k and q=t²+at+b. C(a,b), N(a,b) and ν are the actual incoming two-chart schemes and finite surjective morphism. No characteristic, perfectness, separability or nonzero-discriminant restriction is imposed.",
+        "K_C and K_N are the native generic-point stalk fields. Every open carrying a generic-germ algebra is nonempty; affineness is additionally required for the integral-closure equivalences. A_U and B_U use their actual section rings and ν.app(U) coefficient map."
+      ],
+      "proofSteps": [
+        "Apply injectivity of E_V, then subtype extensionality. Forward restriction compatibility and the two inverse round trips reduce the claim to the equality of ambient field values."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-sections-closure-restrict",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-sections-closure-equivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-affine-absolute-closure-7e92bd",
+          "locator": "§3, one-component conductor square immediately before Proposition3.1; authored affine deductions from the listed pinned statements.",
+          "match": "The paper motivates the normalization and conductor comparison. The exact affine section-ring and generic-stalk equivalences are authored deductions. No global normalization isomorphism, projectivity or cohomology theorem is attributed to this passage."
+        }
+      ],
+      "acceptance": [
+        "Let nonempty affine V⊂U and let z_U and z_V lie in the two native closures inside K_C with equal ambient values. Then the actual restriction of E_U⁻¹(z_U) equals E_V⁻¹(z_V)."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison",
+          "how": "Supply the exact affine ring comparisons and restriction equations needed to identify the integral comparison δ with an isomorphism; the global scheme identification is not yet asserted."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify source affine sections inside the curve function field before constructing conductor sheaves and the normalization cohomology sequence."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Provide the normalization comparison for the actual quadratic pinching charts, retaining cuspidal and inseparable cases as well as the separable nonsplit node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.absoluteSectionsClosureEquiv_inverse_restrict"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/source-sections-closure-coefficient",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Source closure coefficient compatibility",
+      "kind": "lemma",
+      "statement": "For r∈A_U, e_U(ν.app(U)(r)) is the native coefficient image in integralClosure(A_U,K_N).",
+      "hypotheses": [
+        "k is any field, a,b∈k and q=t²+at+b. C(a,b), N(a,b) and ν are the actual incoming two-chart schemes and finite surjective morphism. No characteristic, perfectness, separability or nonzero-discriminant restriction is imposed.",
+        "K_C and K_N are the native generic-point stalk fields. Every open carrying a generic-germ algebra is nonempty; affineness is additionally required for the integral-closure equivalences. A_U and B_U use their actual section rings and ν.app(U) coefficient map."
+      ],
+      "proofSteps": [
+        "Use the coefficient law of e_U."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/source-sections-closure-equivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-affine-absolute-closure-7e92bd",
+          "locator": "§3, one-component conductor square immediately before Proposition3.1; authored affine deductions from the listed pinned statements.",
+          "match": "The paper motivates the normalization and conductor comparison. The exact affine section-ring and generic-stalk equivalences are authored deductions. No global normalization isomorphism, projectivity or cohomology theorem is attributed to this passage."
+        }
+      ],
+      "acceptance": [
+        "For r∈A_U, e_U(ν.app(U)(r)) is the native coefficient image in integralClosure(A_U,K_N)."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison",
+          "how": "Supply the exact affine ring comparisons and restriction equations needed to identify the integral comparison δ with an isomorphism; the global scheme identification is not yet asserted."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify source affine sections inside the curve function field before constructing conductor sheaves and the normalization cohomology sequence."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Provide the normalization comparison for the actual quadratic pinching charts, retaining cuspidal and inseparable cases as well as the separable nonsplit node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalizationSectionsClosureEquiv_coefficient"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/source-sections-closure-inverse-value",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Source-field integral elements lift with their specified germ",
+      "kind": "lemma",
+      "statement": "For z∈integralClosure(A_U,K_N), the actual source generic germ of e_U⁻¹(z) is z itself.",
+      "hypotheses": [
+        "k is any field, a,b∈k and q=t²+at+b. C(a,b), N(a,b) and ν are the actual incoming two-chart schemes and finite surjective morphism. No characteristic, perfectness, separability or nonzero-discriminant restriction is imposed.",
+        "K_C and K_N are the native generic-point stalk fields. Every open carrying a generic-germ algebra is nonempty; affineness is additionally required for the integral-closure equivalences. A_U and B_U use their actual section rings and ν.app(U) coefficient map."
+      ],
+      "proofSteps": [
+        "Apply the ambient-value law to the inverse image and use the inverse round trip."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/source-sections-closure-value"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-affine-absolute-closure-7e92bd",
+          "locator": "§3, one-component conductor square immediately before Proposition3.1; authored affine deductions from the listed pinned statements.",
+          "match": "The paper motivates the normalization and conductor comparison. The exact affine section-ring and generic-stalk equivalences are authored deductions. No global normalization isomorphism, projectivity or cohomology theorem is attributed to this passage."
+        }
+      ],
+      "acceptance": [
+        "For z∈integralClosure(A_U,K_N), the actual source generic germ of e_U⁻¹(z) is z itself."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison",
+          "how": "Supply the exact affine ring comparisons and restriction equations needed to identify the integral comparison δ with an isomorphism; the global scheme identification is not yet asserted."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify source affine sections inside the curve function field before constructing conductor sheaves and the normalization cohomology sequence."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Provide the normalization comparison for the actual quadratic pinching charts, retaining cuspidal and inseparable cases as well as the separable nonsplit node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalizationSectionsClosureEquiv_inverse_val"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/function-field-coefficient-algebra-coefficient",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "The field algebra equivalence respects every coefficient",
+      "kind": "lemma",
+      "statement": "For r∈A_U, the field algebra equivalence sends the actual curve generic germ of r to c_U(r).",
+      "hypotheses": [
+        "k is any field, a,b∈k and q=t²+at+b. C(a,b), N(a,b) and ν are the actual incoming two-chart schemes and finite surjective morphism. No characteristic, perfectness, separability or nonzero-discriminant restriction is imposed.",
+        "K_C and K_N are the native generic-point stalk fields. Every open carrying a generic-germ algebra is nonempty; affineness is additionally required for the integral-closure equivalences. A_U and B_U use their actual section rings and ν.app(U) coefficient map."
+      ],
+      "proofSteps": [
+        "Apply the native algebra-equivalence coefficient law."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/function-field-coefficient-algebra-equivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-affine-absolute-closure-7e92bd",
+          "locator": "§3, one-component conductor square immediately before Proposition3.1; authored affine deductions from the listed pinned statements.",
+          "match": "The paper motivates the normalization and conductor comparison. The exact affine section-ring and generic-stalk equivalences are authored deductions. No global normalization isomorphism, projectivity or cohomology theorem is attributed to this passage."
+        }
+      ],
+      "acceptance": [
+        "For r∈A_U, the field algebra equivalence sends the actual curve generic germ of r to c_U(r)."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison",
+          "how": "Supply the exact affine ring comparisons and restriction equations needed to identify the integral comparison δ with an isomorphism; the global scheme identification is not yet asserted."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify source affine sections inside the curve function field before constructing conductor sheaves and the normalization cohomology sequence."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Provide the normalization comparison for the actual quadratic pinching charts, retaining cuspidal and inseparable cases as well as the separable nonsplit node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalizationFunctionFieldAlgEquiv_coefficient"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/function-field-coefficient-algebra-inverse",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Specified inverse field map",
+      "kind": "lemma",
+      "statement": "The inverse of the coefficient-algebra equivalence is exactly the incoming σ⁻¹ on every x∈K_N.",
+      "hypotheses": [
+        "k is any field, a,b∈k and q=t²+at+b. C(a,b), N(a,b) and ν are the actual incoming two-chart schemes and finite surjective morphism. No characteristic, perfectness, separability or nonzero-discriminant restriction is imposed.",
+        "K_C and K_N are the native generic-point stalk fields. Every open carrying a generic-germ algebra is nonempty; affineness is additionally required for the integral-closure equivalences. A_U and B_U use their actual section rings and ν.app(U) coefficient map."
+      ],
+      "proofSteps": [
+        "The new structure retains both maps of the incoming native field isomorphism."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/function-field-coefficient-algebra-equivalence",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-iso"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-affine-absolute-closure-7e92bd",
+          "locator": "§3, one-component conductor square immediately before Proposition3.1; authored affine deductions from the listed pinned statements.",
+          "match": "The paper motivates the normalization and conductor comparison. The exact affine section-ring and generic-stalk equivalences are authored deductions. No global normalization isomorphism, projectivity or cohomology theorem is attributed to this passage."
+        }
+      ],
+      "acceptance": [
+        "The inverse of the coefficient-algebra equivalence is exactly the incoming σ⁻¹ on every x∈K_N."
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-normalization-comparison",
+          "how": "Supply the exact affine ring comparisons and restriction equations needed to identify the integral comparison δ with an isomorphism; the global scheme identification is not yet asserted."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Identify source affine sections inside the curve function field before constructing conductor sheaves and the normalization cohomology sequence."
+        },
+        {
+          "where": "Schröer §3 one-component conductor square",
+          "how": "Provide the normalization comparison for the actual quadratic pinching charts, retaining cuspidal and inseparable cases as well as the separable nonsplit node."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch.Global"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.Global.normalizationFunctionFieldAlgEquiv_symm"
     }
   ],
   "requests": [
@@ -27571,7 +28903,8 @@
         "The actual quadratic two-chart Scheme C and glued source N, their coefficient-compatible global morphism ν, both target-chart pullback squares, and global finiteness of ν have separately checked native prototypes. The actual overlap map has u=1/t and z=1/(tq). Identify C with the specified Proj cubic and N with the native projective line, prove the normalization universal property and projectivity/properness, then identify the conductor ideal sheaf and structure-sheaf exact sequence and derive finite-pushforward H0/H1. Separate I₂ geometry and all other inherited obligations remain required; all stages stay partial and all implementations unchecked.",
         "For every field k and q=t²+at+b, the specified finite global map ν:N→C is surjective; both schemes are integral, every source stalk is integrally closed, and an actual dense-open Scheme.PartialIso agrees with ν over Spec k. The projective-line and Proj identifications, normalization universal property, projectivity/properness, conductor ideal sheaf, structure-sheaf exact sequence and finite-pushforward H0/H1 remain separate obligations. The I₂ construction and all other inherited gaps remain open; seven stages stay partial and all implementations unchecked.",
         "For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked.",
-        "The actual common infinity chart yields ν(η_N)=η_C and the specified native stalk-field isomorphism K_C≅K_N, with nonempty-open germ compatibility. Its inverse gives the actual generic-point lift and an integral comparison δ:(C.fromSpecStalk η_C).normalization→N satisfying both triangles and uniqueness. The existing Tau Ceti nonempty-preimage theorem is imported. Prove δ is an isomorphism using actual affine integral-closure comparisons before asserting absolute normalization; retain P¹/Proj identification, properness/projectivity, conductor ideal sheaf/exact sequence, finite-pushforward H0/H1, and the independent I₂ construction. Every stage remains partial and every implementation status unchecked."
+        "The actual common infinity chart yields ν(η_N)=η_C and the specified native stalk-field isomorphism K_C≅K_N, with nonempty-open germ compatibility. Its inverse gives the actual generic-point lift and an integral comparison δ:(C.fromSpecStalk η_C).normalization→N satisfying both triangles and uniqueness. The existing Tau Ceti nonempty-preimage theorem is imported. Prove δ is an isomorphism using actual affine integral-closure comparisons before asserting absolute normalization; retain P¹/Proj identification, properness/projectivity, conductor ideal sheaf/exact sequence, finite-pushforward H0/H1, and the independent I₂ construction. Every stage remains partial and every implementation status unchecked.",
+        "For every nonempty affine U⊂C, the actual B_U=Γ(N,ν⁻¹U) is integrally closed and is the integral closure of A_U=Γ(C,U) in K_N. The specified σ upgrades to an A_U-algebra equivalence and gives E_U:B_U≃integralClosure(A_U,K_C), with exact forward/inverse generic-germ, coefficient and restriction laws. This settles the affine generic-field comparison. It does not identify E_U with the sections of the existing δ: compare against native normalizationDiagram/normalizationObjIso, handle the empty-open branch and assemble the scheme isomorphism. Preserve P¹/Proj identification, properness/projectivity, conductor ideal sheaf and exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry. All seven stages remain partial and every implementation unchecked."
       ]
     },
     {
@@ -31671,5 +33004,57 @@
     "scope": "Actual generic stalk fields and native integral factorization, with no absolute comparison isomorphism claim.",
     "nextRequired": "The actual common infinity chart yields ν(η_N)=η_C and the specified native stalk-field isomorphism K_C≅K_N, with nonempty-open germ compatibility. Its inverse gives the actual generic-point lift and an integral comparison δ:(C.fromSpecStalk η_C).normalization→N satisfying both triangles and uniqueness. The existing Tau Ceti nonempty-preimage theorem is imported. Prove δ is an isomorphism using actual affine integral-closure comparisons before asserting absolute normalization; retain P¹/Proj identification, properness/projectivity, conductor ideal sheaf/exact sequence, finite-pushforward H0/H1, and the independent I₂ construction. Every stage remains partial and every implementation status unchecked.",
     "preserved": "463 incoming contracts, except four dependencies and one proof step appended to the existing I1 genus consumer; all78 source routes,21 source findings,17 gaps,23 requests and29 planets retained."
+  },
+  "affineAbsoluteClosureContinuation": {
+    "worker": "Codex — codex-7e92bd",
+    "date": "2026-10-03",
+    "incomingPR": 5971,
+    "mathBase": "11afb7f0b91344cc7270c2b5f3c7b06de1cf5ba4",
+    "newNodes": 21,
+    "newConstructions": 4,
+    "newLemmas": 17,
+    "newApiItems": 14,
+    "newTests": 13,
+    "incomingContractsPreserved": true,
+    "fullCanonicalCompiled": false,
+    "frontier": "For every nonempty affine U⊂C, the actual B_U=Γ(N,ν⁻¹U) is integrally closed and is the integral closure of A_U=Γ(C,U) in K_N. The specified σ upgrades to an A_U-algebra equivalence and gives E_U:B_U≃integralClosure(A_U,K_C), with exact forward/inverse generic-germ, coefficient and restriction laws. This settles the affine generic-field comparison. It does not identify E_U with the sections of the existing δ: compare against native normalizationDiagram/normalizationObjIso, handle the empty-open branch and assemble the scheme isomorphism. Preserve P¹/Proj identification, properness/projectivity, conductor ideal sheaf and exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry. All seven stages remain partial and every implementation unchecked.",
+    "compilation": {
+      "native": {
+        "time": "2026-10-03T10:02:47.469286+00:00",
+        "source": "Native.lean",
+        "sha256": "46dd95137198a312de60ffeb39d1c125118e421921ae294513b7f0ee4acfd737",
+        "availableGiB": 74,
+        "exit": 0,
+        "lines": 4278,
+        "examples": 197,
+        "audits": 354,
+        "warnings": 0,
+        "admissionWarnings": 0,
+        "seconds": "0:44.72",
+        "peakRSSKiB": 7125236,
+        "diagnosticsSha256": "8446a4b9da75375e68b7923fce9eaaf75aef02d5dc6af4821931720f6770a340"
+      },
+      "sketch": {
+        "time": "2026-10-03T10:08:33.702616+00:00",
+        "source": "Sketch.lean",
+        "sha256": "69e900ea8d66969364cd1fd579e840c7d766b8a72342307c454bb0dd75673720",
+        "availableGiB": 71,
+        "exit": 0,
+        "lines": 2818,
+        "examples": 216,
+        "audits": 20,
+        "warnings": 496,
+        "admissionWarnings": 496,
+        "seconds": "0:33.11",
+        "peakRSSKiB": 6893660,
+        "diagnosticsSha256": "919af9585d5454a90f533aefbad26380edaeb7c7537e6a71e706ff917a00ea48"
+      },
+      "fullCanonical": {
+        "compiled": false,
+        "source": "Canonical.lean",
+        "sha256": "69f7a36ba82d69ea624a756364e5120eef81a3f452010c8a1f9eacc5aba584f6",
+        "reason": "Exact Mathlib pin is available. Prescribed TauCeti f790474821cf4256814db967cb154e7af3d0c369 artifacts are absent; existing TauCeti build cf386627e9176a3827c1a5fe804989fd94a4d216 differs."
+      }
+    }
   }
 }
