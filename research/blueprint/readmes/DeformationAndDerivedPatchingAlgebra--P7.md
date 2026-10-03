@@ -1,3 +1,162 @@
+# Polynomial representatives of homogeneous series
+
+Let σ be finite, k a commutative ring, R=k[[X_i]] and P=k[X_i]. Write ι:P→R for the native injective polynomial inclusion, v for the algebraically generated variable ideal, HC_n for the native series component and H_n for the polynomial-valued component. All degree indices are natural numbers; order takes values in the extended naturals. The zero series keeps its infinite order.
+
+The coefficient comparison uses the native polynomial and formal-series carriers. It applies to arbitrary commutative coefficients, including zero divisors, to zero polynomials and to the empty variable set. Exact principal-equation kernel factorization additionally assumes no zero divisors and a specified finite equation order. No field, reducedness, irreducibility, characteristic or local-ring instance is hidden in these adapters.
+
+## Construction and exact API
+
+### Polynomial-valued homogeneous component
+
+`TauCeti.HilbertSamuel.homogeneousPolynomial` — For finite σ and a commutative ring k, H_n:R=k[[X_i]]→k[X_i] is the k-linear composite of native total truncation at n+1 with the native polynomial degree-n component. It keeps exactly the coefficients of total degree n.
+
+Compose the two native linear maps. Finite σ ensures that each degree has finitely many monomials. Do not identify this map with total truncation on arbitrary series or equip a fixed component projection with a ring-homomorphism structure.
+
+Inputs: `mathlib:MvPolynomial.homogeneousComponent`, `mathlib:MvPowerSeries.truncTotal`, `mathlib:LinearMap.comp`.
+
+### Coefficients of the polynomial component
+
+`TauCeti.HilbertSamuel.homogeneousPolynomial_coeff` — For every exponent β, coeff_β(H_n(f)) equals coeff_β(f) when totalDegree(β)=n, and zero otherwise.
+
+Apply the polynomial-component and total-truncation coefficient formulas. If degree β=n, the cutoff n+1 retains that coefficient; otherwise the component kills it.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-component`, `mathlib:MvPolynomial.coeff_homogeneousComponent`, `mathlib:MvPowerSeries.coeff_truncTotal_eq_ite`.
+
+### Polynomial inclusion recovers the native series component
+
+`TauCeti.HilbertSamuel.coe_homogeneousPolynomial` — Under the native injective polynomial inclusion ι:k[X_i]→k[[X_i]], ι(H_n(f))=HC_n(f), the existing series-valued homogeneous component.
+
+Compare every coefficient using polynomial inclusion and the two exact degree formulas.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-coeff`, `mathlib:MvPolynomial.coeff_coe`, `mathlib:MvPowerSeries.coeff_homogeneousComponent`.
+
+### Homogeneity of the polynomial component
+
+`TauCeti.HilbertSamuel.homogeneousPolynomial_isHomogeneous` — For every f and n, H_n(f) satisfies native MvPolynomial.IsHomogeneous of degree n, including the zero polynomial.
+
+Use native homogeneity of a polynomial homogeneous component on the truncated polynomial.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-component`, `mathlib:MvPolynomial.homogeneousComponent_isHomogeneous`.
+
+### Compatibility with the native polynomial component
+
+`TauCeti.HilbertSamuel.homogeneousPolynomial_coe` — For every polynomial p, H_n(ι(p)) is exactly its native polynomial homogeneousComponent n p.
+
+Compare coefficients; polynomial inclusion preserves each coefficient.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-coeff`, `mathlib:MvPolynomial.coeff_coe`, `mathlib:MvPolynomial.coeff_homogeneousComponent`.
+
+### Polynomial and series homogeneity agree
+
+`TauCeti.HilbertSamuel.coe_isHomogeneous_iff` — For every polynomial p and n, the included series ι(p) is homogeneous of degree n if and only if p is homogeneous of degree n.
+
+Translate series homogeneity to equality with HC_n, use the component comparison and injectivity of inclusion, and recover polynomial homogeneity. Conversely a homogeneous polynomial is fixed by its native component; include this equality and use the native series characterization.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-series`, `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-inclusion`, `mathlib:MvPolynomial.coe_injective`, `mathlib:MvPowerSeries.isHomogeneous_iff_eq_homogeneousComponent`, `mathlib:MvPolynomial.homogeneousComponent_eq_self`, `mathlib:MvPolynomial.homogeneousComponent_isHomogeneous`.
+
+### Retraction on homogeneous polynomials
+
+`TauCeti.HilbertSamuel.homogeneousPolynomial_coe_of_homogeneous` — If p is a native homogeneous polynomial of degree n, then H_n(ι(p))=p.
+
+Apply compatibility with the polynomial component and its existing fixed-point theorem.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-inclusion`, `mathlib:MvPolynomial.homogeneousComponent_eq_self`.
+
+### Unique polynomial representative of a homogeneous series
+
+`TauCeti.HilbertSamuel.homogeneous_existsUnique_polynomial` — For every native degree-n homogeneous series f in finitely many variables, there exists a unique polynomial p with native degree-n homogeneity and ι(p)=f. The representative is H_n(f).
+
+Use H_n(f), its homogeneity and the series fixed-point characterization for existence. Injectivity of the native polynomial inclusion proves uniqueness; no new series or polynomial carrier is introduced.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-degree`, `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-series`, `mathlib:MvPolynomial.coe_injective`, `mathlib:MvPowerSeries.isHomogeneous_iff_eq_homogeneousComponent`.
+
+### Vanishing comparison for homogeneous components
+
+`TauCeti.HilbertSamuel.homogeneousPolynomial_eq_zero_iff` — For every n and f, H_n(f)=0 if and only if HC_n(f)=0.
+
+Include the polynomial and use the native injective inclusion zero criterion.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-series`, `mathlib:MvPolynomial.coe_eq_zero_iff`.
+
+### Initial polynomial as total truncation
+
+`TauCeti.HilbertSamuel.homogeneousPolynomial_eq_truncTotal` — If n≤order(f), with order in extended naturals, then H_n(f)=truncTotal(n+1,f). This assertion retains its order hypothesis and includes f=0.
+
+For degree below n, the native order bound kills the coefficient. At degree n both formulas retain it, and above n both vanish.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-coeff`, `mathlib:MvPowerSeries.coeff_truncTotal_eq_ite`, `mathlib:MvPowerSeries.coeff_of_lt_order`.
+
+### Nonzero initial polynomial at exact finite order
+
+`TauCeti.HilbertSamuel.homogeneousPolynomial_ne_zero_of_order` — If order(f)=n in extended naturals, then H_n(f)≠0. No no-zero-divisors assumption is needed for this single-series statement.
+
+Transfer a hypothetical polynomial vanishing to HC_n and contradict the native exact-order nonvanishing theorem.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-vanishing`, `mathlib:MvPowerSeries.homogeneousComponent_of_order`.
+
+### Multiplication of polynomial initial components
+
+`TauCeti.HilbertSamuel.homogeneousPolynomial_mul_of_le_order` — If m≤order(f) and n≤order(g), then H_(m+n)(fg)=H_m(f)H_n(g). This identity holds over arbitrary commutative coefficients; it does not assert that the product is nonzero.
+
+Include both sides into series, preserve multiplication under inclusion and apply the existing native homogeneous-component product formula with both order bounds. Use injectivity of polynomial inclusion. Distinguish the identity from additive equality of exact orders in the presence of zero divisors.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-series`, `mathlib:MvPolynomial.coe_injective`, `mathlib:MvPolynomial.coe_mul`, `mathlib:MvPowerSeries.homogeneousComponent_mul_of_le_order`.
+
+### Orthogonality and idempotence of polynomial components
+
+`TauCeti.HilbertSamuel.homogeneousPolynomial_component` — For every m,n,f, H_m(ι(H_n(f))) is H_n(f) when m=n, and zero otherwise.
+
+Use polynomial compatibility and the native component formula on the degree-n homogeneous polynomial H_n(f).
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-inclusion`, `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-degree`, `mathlib:MvPolynomial.homogeneousComponent_of_mem`.
+
+### Polynomial equation-jet kernel above equation order
+
+`TauCeti.HilbertSamuel.curveDegreeProjection_polynomial_kernel` — Let v=(X_i)⊂R, k have no zero divisors, order(f)=d≤n and g∈v^n. Its actual image φ_f,n(g) in R/((f)+v^(n+1)) is zero iff H_n(g)=H_d(f)w for some native homogeneous polynomial w of degree n−d.
+
+Invoke the existing actual series-valued kernel equivalence. Replace its homogeneous series witness by the unique polynomial representative and reflect the product equality through native polynomial inclusion. Conversely include a polynomial witness, use the homogeneity equivalence and product compatibility, then apply the old kernel theorem. Both directions retain d≤n and exact order.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-kernel`, `DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-series-unique-polynomial`, `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-series-homogeneity`, `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-series`, `mathlib:MvPolynomial.coe_injective`, `mathlib:MvPolynomial.coe_mul`.
+
+### Polynomial equation-jet kernel below equation order
+
+`TauCeti.HilbertSamuel.curveDegreeProjection_polynomial_below_order` — For arbitrary commutative k, n<d≤order(f) and g∈v^n, the actual image φ_f,n(g) vanishes if and only if H_n(g)=0. No finite exact order or no-zero-divisors assumption is required.
+
+Use the existing lower-degree kernel theorem and transfer homogeneous-component vanishing through the native polynomial inclusion.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-below-order`, `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-vanishing`.
+
+### Polynomial kernel for the zero equation
+
+`TauCeti.HilbertSamuel.curveDegreeProjection_polynomial_zero_equation` — For f=0 and every n and g∈v^n, the actual image φ_0,n(g) vanishes if and only if H_n(g)=0. The zero equation retains its infinite order.
+
+Use the existing zero-equation kernel theorem and the polynomial/series vanishing equivalence, without converting infinite order to a natural number.
+
+Inputs: `DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-zero-equation`, `DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-vanishing`.
+
+## Distinguishing tests
+
+- `HomogeneousPolynomialTests.zero_input` (degenerate): For every finite variable type, commutative coefficient ring and n, H_n(0)=0.
+- `HomogeneousPolynomialTests.native_polynomial` (compatibility): For every native degree-n homogeneous polynomial p, H_n(ι(p))=p.
+- `HomogeneousPolynomialTests.no_variables` (degenerate): With no variables and coefficient a∈ℚ, H_0(C(a))=C(a) and H_1(C(a))=0.
+- `HomogeneousPolynomialTests.exact_degree_not_truncation` (computation): In two variables over F₂, H_1(1+X₀+X₀²)=X₀; the constant term must be discarded as well as the square.
+- `HomogeneousPolynomialTests.not_multiplicative_in_fixed_degree` (non-example): In two variables over ℚ, H_1(X₀X₀)=0 differs from H_1(X₀)H_1(X₀)=X₀². A fixed-degree component is not a ring map.
+- `HomogeneousPolynomialTests.nilpotent_coefficients` (non-example): In two variables over ℤ/4ℤ, for p=2X₀, H_1(ι(p))≠0 but H_2(ι(p)²)=0. The product identity must not be strengthened to nonzero products for all coefficient rings.
+
+The linear map already carries additivity and scalar compatibility through native composition. Its polynomial inclusion, retraction, unique-representative and orthogonal-component formulas allow consumers to work without unfolding it. The product formula uses degree m+n and both order bounds; it neither makes H_n a ring map nor asserts nonvanishing over zero-divisor coefficients.
+
+## Consumers and remaining mathematical work
+
+The actual degree projection is the previously defined map from v^n to R/((f)+v^(n+1)). Its polynomial kernel assertion is an equality of actual representatives, not a prescribed Hilbert function. The arbitrary series witness in its existing kernel proof becomes a unique homogeneous polynomial through ι; the converse includes this polynomial witness and returns to the same native quotient. The strict-below-order and zero-equation branches preserve their weaker assumptions.
+
+The polynomial/series homogeneous comparison and actual polynomial equation-jet kernel now have checked native prototypes. Construct the actual image identification with q^n/q^(n+1), then assemble the generator-compatible and multiplicative full graded tangent-cone isomorphism. Curve/support dimension and comparison with the general cumulative polynomial and intrinsic/ambient multiplicity remain required. General Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed-paper obligation remain open; canonical bodies and implementation statuses remain admitted/unchecked.
+
+The reserved intrinsic Hilbert–Samuel construction retains arbitrary Noetherian local rings, primary ideals and finite modules. Its intrinsic support-dimension normalization and the separate ambient-dimension normalization remain distinct. This finite-variable comparison supplies a source-proof input to that general theory and does not define a second multiplicity. The existing thirteen planets and all other stage/owner boundaries remain as specified below.
+
+Sources: the credited [plane-curve jet source-proof checkpoint, §§2–5](https://github.com/CBirkbeck/tauceti-explorer/blob/eb645dc85df65608c56fafc4d9ed0e71ab0ca3ce/research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md), especially equation (9); native pinned polynomial homogeneous components and series truncation/inclusion; [Stacks 00K4](https://stacks.math.columbia.edu/tag/00K4) for the distinction between graded and cumulative lengths. The finite-variable, commutative-coefficient comparisons above are authored deductions from those native formulas and the credited proof, not newly quoted whole-paper theorems.
+
+---
+
 # Finite equation jets and cumulative curve lengths
 
 Continuation of the partial R03.3 blueprint, 3 October 2026. All eight stages
