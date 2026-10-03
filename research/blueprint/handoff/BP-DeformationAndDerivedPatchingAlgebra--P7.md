@@ -1,3 +1,193 @@
+# Degree-wise actual initial relations — #551 checkpoint
+
+Codex — codex-a71f92, 2026-10-03. Claim 5964959432 was confirmed explicitly
+by bot 5964960489 after the whole issue was reread.
+Mathematical base: `7a0839ba10a362fba9724a9704e986412ea03aa8`.
+Publication base: `9c8a340faae54f977214d1a159764c3ca25a1e0e`.
+Only the four issue-authorized deliverables change. The shared checkout
+was read-only; no repository snapshot, library build, new Lake project,
+cache fetch, language server, manual merge/label change or worker delegation
+was used.
+
+## Result and remaining boundary
+
+Ten new declaration nodes (one actual coefficient-linear projection and nine
+lemmas), five API items and six typed tests provide the two directions of
+the principal-equation degree relation and actual projection kernel.
+For finite σ, R=k[[X_i]], v=span(X_i) and g∈v^n, HC_n(g)=0 iff
+g∈v^(n+1). With no-zero-divisors k, exact order(f)=d≤n, actual
+denominator membership is equivalent to HC_n(g)=HC_d(f)·w for a
+homogeneous degree-(n−d) series w. The strict-below-order and zero-equation
+branches require no domain. The projection definition and its quotient
+representative API need no finiteness of σ.
+
+The codex-a71f92 continuation proves the actual degree-wise series/ideal kernel adapters and coefficient-linear equation-jet projection, including both principal relation directions, small-index, zero/unit and characteristic-two nonreduced tests. It preserves the complete incoming proof prefix. Still construct the polynomial-valued homogeneous comparison, identify the map's image with the existing q^n/q^(n+1) carrier, and assemble the multiplicatively compatible full tangent-cone graded isomorphism. Curve/support dimension, comparison with the general Hilbert–Samuel constructor, intrinsic/ambient multiplicities, general Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed source obligation remain required; canonical bodies remain admitted and every node remains unchecked and every stage retains its incoming partial or not_read status.
+
+All 147 incoming node objects and the reserved general multiplicity node
+are unchanged. No existing gap, request, source issue, route, supplier,
+boundary field or source receipt is deleted or reattributed. Preserve all
+eight stage statuses exactly: P7/R03.3/R03.4 partial; the other five not_read.
+Every mathematical implementation status remains unchecked, and the whole
+packet remains partial. The reader append supplies individual statements,
+proof steps, inputs, API and discriminating tests; the suggested append
+has matching native mathematical headers and six typed examples.
+
+## Reading and source discipline
+
+The current WORKERS and governing protocols were hash-confirmed at the
+immutable base. The accepted scoped AUDIT-17 rows and complete accepted
+review were read before math planning, as were applicable accepted RS-08
+ownership and narrowing records, its architecture/conservation text and
+whole campaign document. The two whole upstream style examples read in
+this continuous session are JacobianChallenge and StableReduction;
+their blobs at this base match the previously read exact blobs.
+
+Credited DDPA-JET-HANDOFF §§3–5 were personally read with the actual
+equation (9), both kernel directions and the remaining full graded map.
+The generalized series/ideal adapters are authored deductions from that
+proof and the already proved native finite-variable order equivalence;
+they are not claimed as a newly printed theorem. Selected pinned native
+homogeneous-component, order, ideal-sum and quotient/linear-map statements
+were read with their hypotheses. Complete Stacks 00K4 mathematical content
+was read for its conventions. Bounded pinned concept, open Mathlib issue/PR
+and Zulip screens supply no additional implementation assumption. Source
+hashes and exact reading extent are in HS-INITIAL-RELATION-PIN-a71f92;
+all whole-paper/routed-source backlog stays attributed and open.
+
+## Checks and resources
+
+Native proof SHA-256:
+`695a088a82bfd4d432a4af5bf41d4f1b99d33138db2bcf86f3d9c08c9973a3a5`.
+Canonical suggested SHA-256:
+`d4436ea6117da50ee365d6886425697862cfebae297be2f735cfdca3a279bc6e`.
+Incoming native prefix SHA-256:
+`5a8f33443d5002d6d11eb5a4b513cfdafc36fa8fd4cf0a2874ea4b2b504a0389`.
+
+The complete 2251-line native proof passes with 129 distinct axiom audits,
+only propext/Classical.choice/Quot.sound, no admissions and no warnings/errors.
+Its complete 2018-line incoming prefix is byte-preserved. Six new named tests
+cover zero input, units, zero equation survival, characteristic-two degree-one
+survival and degree-two equation annihilation, and the exact n=d boundary.
+The complete 3134-line canonical file passes with 411 placeholder warnings
+only and 207 examples. The native file contains 64 anonymous inherited
+examples in addition to its inherited/new named tests.
+
+Both compiles used the already existing Lean 4.34.0-rc2 / Mathlib
+082e2d37e8b0463410cdb532e111cd43d5a66174 build. Tau Ceti source pin
+f790474821cf4256814db967cb154e7af3d0c369 was checked; no Tau Ceti import is
+required by this suggested file. Available memory was 38–39 GiB before
+each compile. One Lean process ran at a time under a 1200-second limit.
+Final native time was 10.70 seconds, peak RSS 3567696 KiB. No process is
+left running. Source/log scratch remained under 2 MiB before replay and
+is removed recoverably after the PR opens.
+
+Actual indexed scripts/check_blueprint.py logic returns no errors/warnings:
+157 nodes, 139 API items, 129 required definition/construction tests,
+13 planets, 292 baseline declarations, 15 gaps and 2 requests.
+(The all-node test count, including lemma fixtures, is printed by the
+supplementary validator.) Actual intake file rules pass. The actual
+immutable build.assemble output retains R03.6 and 210 whole-roadmap
+declarations. Own and scoped combined DAGs are acyclic, with no unresolved
+references; all incoming stage edges and other roadmap skipped/pending
+records are unchanged. All 65 accepted restructure pairs are reachable.
+Of 13 required supplier pairs, 12 are reachable. The one missing
+LocalFieldsRamification layer 0 → R03.4 pair is inherited and control-equal;
+it is a separate ownership/integration boundary, not repaired here.
+
+## Durable public replay
+
+[Public proof/check archive 1ee3d626cd226cffc0ee869aff618df03e133c65](https://github.com/CBirkbeck/tauceti-explorer/commit/1ee3d626cd226cffc0ee869aff618df03e133c65)
+is the final head's second parent and changes only the same four authorized
+paths. Its suggested-file comment contains the exact full native proof
+between BEGIN/END ARCHIVED CHECKED INITIAL RELATIONS codex-a71f92 markers.
+Its handoff contains full path-normalized native/canonical logs, the actual
+validation receipt, and complete immutable_view.py / validate.py scripts.
+No private scratch directory is needed to resume.
+
+The recovery program below extracts only the issue's four files and exact
+proof/check evidence, using apply_patch for writes. Supply REPO as the
+existing clone, REPLAY_SCRATCH as a new empty disk scratch directory, ARCHIVE
+as 1ee3d626cd226cffc0ee869aff618df03e133c65, and CANDIDATE as the immutable PR head. Read-only git fetch
+of those exact commits is permitted; never clone/copy the repository.
+
+```python
+"""Recover only the four issue deliverables and their exact native replay evidence."""
+import hashlib,sys,subprocess
+from pathlib import Path
+repo=Path(sys.argv[1]).resolve();dst=Path(sys.argv[2]).resolve()
+archive=sys.argv[3];candidate=sys.argv[4]
+stem="DeformationAndDerivedPatchingAlgebra--P7"
+paths={
+"research/blueprint/packets/"+stem+".json":"packet.json",
+"research/blueprint/readmes/"+stem+".md":"reader.md",
+"research/blueprint/suggested/"+stem+".lean":"Canonical.lean",
+"research/blueprint/handoff/BP-"+stem+".md":"handoff.md"}
+def blob(commit,path):
+ return subprocess.check_output(["git","show",commit+":"+path],cwd=repo).decode()
+archlean=blob(archive,"research/blueprint/suggested/"+stem+".lean")
+marker="\n/- BEGIN ARCHIVED CHECKED INITIAL RELATIONS codex-a71f92\n"
+end="END ARCHIVED CHECKED INITIAL RELATIONS codex-a71f92 -/\n"
+assert archlean.count(marker)==1
+canonical,native=archlean.split(marker);native=native.rsplit(end,1)[0]
+assert hashlib.sha256(native.encode()).hexdigest()=="695a088a82bfd4d432a4af5bf41d4f1b99d33138db2bcf86f3d9c08c9973a3a5"
+assert hashlib.sha256(canonical.encode()).hexdigest()=="d4436ea6117da50ee365d6886425697862cfebae297be2f735cfdca3a279bc6e"
+hand=blob(archive,"research/blueprint/handoff/BP-"+stem+".md")
+def section(heading,language):
+ tail=hand.split("\n## "+heading+"\n",1)[1]
+ return tail.split("\n```"+language+"\n",1)[1].split("\n```\n",1)[0]
+files={name:blob(candidate,path)for path,name in paths.items()}
+assert files["Canonical.lean"]==canonical
+files.update({"Native.lean":native,
+"Native.log":section("Native log (machine paths normalized)","text"),
+"Canonical.log":section("Canonical log (machine paths normalized)","text"),
+"validation.log":section("Actual immutable validation log (path normalized)","text"),
+"immutable_view.py":section("Exact immutable view","python"),
+"validate.py":section("Exact validator","python")})
+assert dst.is_dir() and not any((dst/name).exists()for name in files)
+patch="*** Begin Patch\n"
+for name,data in files.items():
+ assert data.endswith("\n"),name
+ patch+="*** Add File: "+str(dst/name)+"\n"+"\n".join("+"+line for line in data[:-1].split("\n"))+"\n"
+patch+="*** End Patch\n"
+subprocess.run(["apply_patch"],input=patch,text=True,check=True,stdout=subprocess.DEVNULL)
+print("Recovered exact issue files, native proof, normalized logs and actual validator; no repository snapshot.")
+
+```
+
+Run recovery and the actual validator against the stated immutable
+publication base. The recovered compile logs document the exact checked
+bytes; to rerun Lean, first verify the existing build pins and free -g,
+then run Native.lean and Canonical.lean sequentially, each with timeout 1200.
+Do not compile below 20 GiB available, set up a project, build libraries,
+or start a language server.
+
+```bash
+python3 recover.py "$REPO" "$REPLAY_SCRATCH" "$ARCHIVE" "$CANDIDATE"
+TAUCETI_REPO="$REPO" N11_VALIDATE_BASE=9c8a340faae54f977214d1a159764c3ca25a1e0e TAUCETI_BASELINE="$PINNED_BASELINE" python3 "$REPLAY_SCRATCH/validate.py"
+```
+
+The publication replay is exercised byte-for-byte before opening the PR;
+the validator is rerun on the recovered files without repeating the
+unchanged compiler run. Submission uses Refs #551, not a closing keyword.
+The bot performs intake; no manual merge or labels.
+
+## Where to resume
+
+First compare native homogeneous series with homogeneous polynomials,
+then identify the actual projection image with the existing q^n/q^(n+1)
+carrier and assemble the full graded algebra map/isomorphism with generator,
+component and multiplication specifications. Only after native curve/support
+dimension is proved, compare the actual unique eventual polynomial with
+the existing general constructor and extract intrinsic/ambient multiplicity.
+Do not change the general reserved key into this special case. General
+Hilbert–Serre, support/degree, Artin–Rees, completion, localization, associativity,
+all stage targets and every routed-paper/source correction remain required.
+
+---
+
+The complete incoming handoff follows as credited historical evidence;
+its earlier reading and check receipts belong to their respective authors.
+
 # Actual plane quotient lengths determine unique rational polynomials — #551 checkpoint
 
 Codex — codex-5ebb6f, 2026-10-03. Winning [claim 5964618237](https://github.com/CBirkbeck/tauceti-explorer/issues/551#issuecomment-5964618237), confirmed by [bot 5964619220](https://github.com/CBirkbeck/tauceti-explorer/issues/551#issuecomment-5964619220).
