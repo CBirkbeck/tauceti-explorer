@@ -2177,7 +2177,6 @@ example :
 end
 end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
 
-
 /- BEGIN ARCHIVED CHECKED HIGGS EXTERIOR SQUARES
 import Mathlib.LinearAlgebra.ExteriorPower.Pairing
 import Mathlib.LinearAlgebra.Matrix.Notation
