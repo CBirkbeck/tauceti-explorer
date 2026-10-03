@@ -1,3 +1,293 @@
+# Factorial root chart colimit
+
+For a commutative ring A and f∈A, write B_n=A[t_n]/(t_nⁿ−f) and d_i=(i+1)!. The factorial diagram has maps B_(d_i)→B_(d_j) sending t_(d_i) to t_(d_j)^(d_j/d_i). Its colimit C_f is the actual native algebra direct limit. The canonical A-algebra inclusions ι_i:B_(d_i)→C_f form a specified colimit cocone on the existing factorial functor. The point isomorphism and leg formulas keep the precise carriers visible in the planning API.
+
+Every finite insertion is injective. Indeed, a divisibility map B_n→B_N is the earlier faithfully flat transition after writing N=nm; the native faithful scalar action makes that map injective. Mathlib's directed-limit insertion criterion then applies. Thus, for A=F₂ and f=0, the element ι_1(t₂) is nonzero and has square zero. Passing to the infinite chart does not remove finite-level nilpotents. The construction includes the zero ring.
+
+Put u_i=ι_i(t_(d_i)). These elements satisfy u_i^(d_i)=f and u_i=u_j^(d_j/d_i) for i≤j. Every element of C_f comes from a finite level, and an A-algebra map out of C_f is determined by its values on all u_i. More precisely, a compatible family r_i in a commutative A-algebra C with those power equations determines a unique A-algebra map C_f→C. The construction uses finite AdjoinRoot lifts and the existing native algebra direct-limit lift. Its API gives root evaluation, uniqueness and compatibility with postcomposition.
+
+This is the algebraic input to the local chart construction in [Talpo–Vistoli, Section 3.1](https://arxiv.org/pdf/1410.1164v2), specialized to one generator. Comparison with the colimit over every positive divisibility index, coherent reindexing of root-object groupoids, the diagonalizable grading, Spec-limit transport and fpqc torsor/quotient comparisons remain separate obligations. These thirteen leaves refine the existing infinite-affine-quotient proof without changing its statement. The source's reduced-fibre discussion on printed p.17 motivates keeping nilpotents visible; the explicit F₂ computation here is an authored test.
+
+The packet has 194 unchecked nodes, 152 API records (150 on definitions/constructions), 170 test records (146 on definitions/constructions), 171 baseline declarations and 39 planets. All 181 inherited statement contracts and 180 entire node objects are retained. All ten stages remain partial, with the same eight gaps and thirteen supplier requests. Neither routed paper inventory nor root-stack ownership changes. The roadmap definition and the earlier reader below are retained.
+
+The reviewed FA.0–FA.7 library audit and REV-AUDIT-20 are the ownership baseline: existing function-field algebra is imported, while its adelic/class-field and curve-side gaps are not replanned here. Generic colimits are already in Mathlib. A bounded upstream search found [Mathlib PR #39341](https://github.com/leanprover-community/mathlib4/pull/39341), which adds star-algebra variants of the existing direct-limit API; it supplies no additional ordinary-algebra prerequisite here. The [Zulip discussion of DirectLimit and categorical colimits](https://leanprover-community.github.io/archive/stream/113489-new-members/topic/Q.2FZ.20as.20colimit.20of.20Z.2FnZ.html) supports making the categorical comparison explicit. No external implementation is copied.
+
+The separate native proof file passes 95 examples and 86 axiom audits, with no errors, admissions or warnings. The Mathlib-only extraction of the submitted signatures passes 95 examples with 222 admission warnings and no others. The complete geometric suggested file is uncompiled because the existing pinned build lacks required Tau Ceti modules. The [handoff](../handoff/DESIGN-FunctionFieldArithmeticPartII.md) gives the exact archive, hashes, recovery commands and graph checks. Proof evidence does not change the packet's unchecked statuses.
+
+## Added declaration plans
+
+### Factorial root chart colimit
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit. Proposed name: TauCeti.RootStack.FactorialAffineColimit. Kind: construction.
+
+Construct the A-algebra C_f=colim_i B_(d_i) of the factorial divisibility maps. Use the native directed algebra limit with its inherited commutative ring and A-algebra instances. Its transition adapter sends t_(d_i) to t_(d_j)^(d_j/d_i) and fixes A. Identity and composition are the actual directed-system equations.
+
+Hypotheses: A is any commutative ring, f∈A, B_n=A[T]/(T^n−f), and d_i=(i+1)! for i∈N. Every exponent in a divisibility transition is positive. No reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is used.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/affine-divisibility-identity, FunctionFieldArithmeticPartII:RS.2/affine-divisibility-composition, mathlib:DirectedSystem, mathlib:DirectLimit, mathlib:Nat.factorial_dvd_factorial, mathlib:Nat.factorial_ne_zero.
+
+Construction or proof:
+
+1. Specialize the fixed-index maps to factorial exponents; their identity and composition give the native DirectedSystem.
+2. Instantiate the existing DirectLimit commutative-ring and algebra structures. Do not define a second generic limit.
+
+API:
+
+- TauCeti.RootStack.FactorialAffineColimit (constructor): Construct the A-algebra C_f=colim_i B_(d_i) of the factorial divisibility maps. Use the native directed algebra limit with its inherited commutative ring and A-algebra instances. Its transition adapter sends t_(d_i) to t_(d_j)^(d_j/d_i) and fixes A. Identity and composition are the actual directed-system equations.
+- TauCeti.RootStack.factorialAffineMap (functoriality): The exact factorial transition adapter is the previously specified divisibility map with source B_(d_i) and target B_(d_j).
+- TauCeti.RootStack.factorialAffineDirected (compatibility): The native directed-system instance has the actual identity and composition equations of these maps.
+- TauCeti.RootStack.factorialAffineColimit.exists_level (extensionality): Every x∈C_f equals ι_i(y) for some i and some y∈B_(d_i).
+- TauCeti.RootStack.factorialAffineColimit.hom_ext (extensionality): For any commutative A-algebra C and A-algebra homomorphisms g,h:C_f→C, equality g(u_i)=h(u_i) for every i implies g=h.
+
+Unit tests:
+
+- factorialAffineColimit.test_wild_nonzero (non-example): For A=F_2 and f=0, ι_1(t_2) is nonzero. A construction replacing the charts by their reductions fails.
+- factorialAffineColimit.test_wild_square (computation): The same element ι_1(t_2) over F_2 with f=0 has square zero, so the infinite chart retains a nonzero nilpotent.
+- factorialAffineColimit.test_zeroRing (degenerate): For A=Z/1Z and f=0 every element of C_f is zero; no nontrivial-ring hypothesis is added.
+
+Acceptance: Use the actual AdjoinRoot algebras, their coefficient actions and Mathlib DirectLimit. Retain the zero ring and wild nilpotents. The colimit of chart algebras does not itself identify the coherent root-object groupoids, grading action or fpqc quotient. Those existing obligations remain.
+
+### Finite root charts inside the colimit
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion. Proposed name: TauCeti.RootStack.factorialAffineInclusion. Kind: construction.
+
+For every i construct the canonical A-algebra homomorphism ι_i:B_(d_i)→C_f from the native direct-limit insertion. It preserves coefficients and all ring operations.
+
+Hypotheses: A is any commutative ring, f∈A, B_n=A[T]/(T^n−f), and d_i=(i+1)! for i∈N. Every exponent in a divisibility transition is positive. No reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is used.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit, mathlib:DirectLimit.Algebra.of.
+
+Construction or proof:
+
+1. Apply the native algebra direct-limit insertion on the exact finite root carrier.
+
+API:
+
+- TauCeti.RootStack.factorialAffineInclusion (constructor): For every i construct the canonical A-algebra homomorphism ι_i:B_(d_i)→C_f from the native direct-limit insertion. It preserves coefficients and all ring operations.
+- TauCeti.RootStack.factorialAffineInclusion.transition (compatibility): For i≤j and x∈B_(d_i), ι_j(j_(d_i,d_j)(x))=ι_i(x), with the fixed-index divisibility transition.
+- TauCeti.RootStack.factorialAffineInclusion.root (simp): For i≤j put u_i=ι_i(t_(d_i)); then u_i=u_j^(d_j/d_i).
+- TauCeti.RootStack.factorialAffineInclusion.pow (simp): For every i the distinguished element u_i satisfies u_i^(d_i)=algebraMap(A,C_f)(f).
+- TauCeti.RootStack.factorialAffineInclusion.injective (extensionality): Every insertion ι_i:B_(d_i)→C_f is injective. Thus a nonzero finite-chart nilpotent remains nonzero in C_f.
+
+Unit tests:
+
+- factorialAffineColimit.test_two_to_six (computation): The level-one root ι_1(t_2) equals the cube of the level-two root ι_2(t_6).
+- factorialAffineInclusion.test_coefficients (compatibility): For A=Z/4Z, f=2 and every a∈A, ι_1 fixes the coefficient image of a, including nilpotent coefficients.
+- factorialAffineColimit.test_wild_nonzero (non-example): The inclusion of the second-root chart over F_2 with f=0 does not kill its nonzero root.
+
+Acceptance: Use the actual AdjoinRoot algebras, their coefficient actions and Mathlib DirectLimit. Retain the zero ring and wild nilpotents. The colimit of chart algebras does not itself identify the coherent root-object groupoids, grading action or fpqc quotient. Those existing obligations remain.
+
+### Compatible finite chart inclusions
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-transition. Proposed name: TauCeti.RootStack.factorialAffineInclusion.transition. Kind: lemma.
+
+For i≤j and x∈B_(d_i), ι_j(j_(d_i,d_j)(x))=ι_i(x), with the fixed-index divisibility transition.
+
+Hypotheses: A is any commutative ring, f∈A, B_n=A[T]/(T^n−f), and d_i=(i+1)! for i∈N. Every exponent in a divisibility transition is positive. No reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is used.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion, mathlib:DirectLimit.Algebra.of_f.
+
+Construction or proof:
+
+1. Use the native equality identifying an element with its transition image in the directed limit.
+
+Acceptance: Use the actual AdjoinRoot algebras, their coefficient actions and Mathlib DirectLimit. Retain the zero ring and wild nilpotents. The colimit of chart algebras does not itself identify the coherent root-object groupoids, grading action or fpqc quotient. Those existing obligations remain.
+
+### Compatible roots in the colimit
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-root. Proposed name: TauCeti.RootStack.factorialAffineInclusion.root. Kind: lemma.
+
+For i≤j put u_i=ι_i(t_(d_i)); then u_i=u_j^(d_j/d_i).
+
+Hypotheses: A is any commutative ring, f∈A, B_n=A[T]/(T^n−f), and d_i=(i+1)! for i∈N. Every exponent in a divisibility transition is positive. No reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is used.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-transition, FunctionFieldArithmeticPartII:RS.2/affine-divisibility-root.
+
+Construction or proof:
+
+1. Apply insertion compatibility to the distinguished root and use the finite root-image formula; algebra homomorphisms preserve powers.
+
+Acceptance: Use the actual AdjoinRoot algebras, their coefficient actions and Mathlib DirectLimit. Retain the zero ring and wild nilpotents. The colimit of chart algebras does not itself identify the coherent root-object groupoids, grading action or fpqc quotient. Those existing obligations remain.
+
+### Root equations in the colimit
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-power. Proposed name: TauCeti.RootStack.factorialAffineInclusion.pow. Kind: lemma.
+
+For every i the distinguished element u_i satisfies u_i^(d_i)=algebraMap(A,C_f)(f).
+
+Hypotheses: A is any commutative ring, f∈A, B_n=A[T]/(T^n−f), and d_i=(i+1)! for i∈N. Every exponent in a divisibility transition is positive. No reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is used.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion, FunctionFieldArithmeticPartII:RS.0/affine-root-relation.
+
+Construction or proof:
+
+1. Move the power through the insertion, apply the finite root equation, and use coefficient compatibility.
+
+Acceptance: Use the actual AdjoinRoot algebras, their coefficient actions and Mathlib DirectLimit. Retain the zero ring and wild nilpotents. The colimit of chart algebras does not itself identify the coherent root-object groupoids, grading action or fpqc quotient. Those existing obligations remain.
+
+### Injective root chart transitions
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/affine-divisibility-injective. Proposed name: TauCeti.RootStack.affineDivisibility.injective. Kind: lemma.
+
+For every pair of positive integers n|N, the actual fixed-index A-algebra map B_n→B_N is injective, including over nonreduced and zero coefficient rings.
+
+Hypotheses: A is any commutative ring, f∈A, B_n=A[T]/(T^n−f), and d_i=(i+1)! for i∈N. Every exponent in a divisibility transition is positive. No reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is used.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/affine-divisibility-multiplicative, FunctionFieldArithmeticPartII:RS.2/affine-transition-faithfully-flat, mathlib:Module.FaithfullyFlat.faithfulSMul, mathlib:FaithfulSMul.algebraMap_injective.
+
+Construction or proof:
+
+1. Write N=nm; positivity of N forces m>0. The agreement lemma identifies the actual map with the existing multiplicative transition.
+2. Use its actual coefficient algebra and previously established faithful flatness. Import the native faithful-scalar-action instance and injectivity of its algebra map.
+
+Acceptance: Use the actual AdjoinRoot algebras, their coefficient actions and Mathlib DirectLimit. Retain the zero ring and wild nilpotents. The colimit of chart algebras does not itself identify the coherent root-object groupoids, grading action or fpqc quotient. Those existing obligations remain.
+
+### Finite root charts embed in the colimit
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-injective. Proposed name: TauCeti.RootStack.factorialAffineInclusion.injective. Kind: lemma.
+
+Every insertion ι_i:B_(d_i)→C_f is injective. Thus a nonzero finite-chart nilpotent remains nonzero in C_f.
+
+Hypotheses: A is any commutative ring, f∈A, B_n=A[T]/(T^n−f), and d_i=(i+1)! for i∈N. Every exponent in a divisibility transition is positive. No reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is used.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion, FunctionFieldArithmeticPartII:RS.2/affine-divisibility-injective, mathlib:DirectLimit.mk_injective.
+
+Construction or proof:
+
+1. Every factorial transition is injective by the positive divisibility result. Apply the native directed-limit insertion criterion.
+
+Acceptance: Use the actual AdjoinRoot algebras, their coefficient actions and Mathlib DirectLimit. Retain the zero ring and wild nilpotents. The colimit of chart algebras does not itself identify the coherent root-object groupoids, grading action or fpqc quotient. Those existing obligations remain.
+
+### Finite-level representatives in the root colimit
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-elements. Proposed name: TauCeti.RootStack.factorialAffineColimit.exists_level. Kind: lemma.
+
+Every x∈C_f equals ι_i(y) for some i and some y∈B_(d_i).
+
+Hypotheses: A is any commutative ring, f∈A, B_n=A[T]/(T^n−f), and d_i=(i+1)! for i∈N. Every exponent in a divisibility transition is positive. No reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is used.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion, mathlib:DirectLimit.exists_eq_mk.
+
+Construction or proof:
+
+1. The existing representative theorem for the directed quotient supplies the level and element; its quotient insertion is the actual algebra insertion.
+
+Acceptance: Use the actual AdjoinRoot algebras, their coefficient actions and Mathlib DirectLimit. Retain the zero ring and wild nilpotents. The colimit of chart algebras does not itself identify the coherent root-object groupoids, grading action or fpqc quotient. Those existing obligations remain.
+
+### Root values determine colimit homomorphisms
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext. Proposed name: TauCeti.RootStack.factorialAffineColimit.hom_ext. Kind: lemma.
+
+For any commutative A-algebra C and A-algebra homomorphisms g,h:C_f→C, equality g(u_i)=h(u_i) for every i implies g=h.
+
+Hypotheses: A is any commutative ring, f∈A, B_n=A[T]/(T^n−f), and d_i=(i+1)! for i∈N. Every exponent in a divisibility transition is positive. No reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is used.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion, mathlib:DirectLimit.Algebra.hom_ext, mathlib:AdjoinRoot.algHom_ext.
+
+Construction or proof:
+
+1. Native limit extensionality reduces to equality after every finite insertion. Native AdjoinRoot algebra extensionality reduces each resulting equality to its root value.
+
+Acceptance: Use the actual AdjoinRoot algebras, their coefficient actions and Mathlib DirectLimit. Retain the zero ring and wild nilpotents. The colimit of chart algebras does not itself identify the coherent root-object groupoids, grading action or fpqc quotient. Those existing obligations remain.
+
+### Root chart colimit cocone
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-affine-cocone. Proposed name: TauCeti.RootStack.factorialAffineCocone. Kind: construction.
+
+Construct a native cocone on the previously specified factorialAffineTower with point C_f and leg ι_i under the specified chart identifications. Supply the chosen point isomorphism with CommAlgCat.of(A,C_f) and the equality between each transported cocone leg and ι_i composed with its finite-level chart.
+
+Hypotheses: A is any commutative ring, f∈A, B_n=A[T]/(T^n−f), and d_i=(i+1)! for i∈N. Every exponent in a divisibility transition is positive. No reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is used.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-affine-tower, FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-transition, mathlib:CategoryTheory.Limits.Cocone, mathlib:CommAlgCat.of, mathlib:CommAlgCat.ofHom.
+
+Construction or proof:
+
+1. Use the actual commutative-algebra object C_f and native insertions as cocone legs.
+2. The existing insertion-transition equation proves naturality for the exact predecessor functor. The point isomorphism and leg equations expose the carrier independently of admitted planning bodies.
+
+API:
+
+- TauCeti.RootStack.factorialAffineCocone (constructor): Construct a native cocone on the previously specified factorialAffineTower with point C_f and leg ι_i under the specified chart identifications. Supply the chosen point isomorphism with CommAlgCat.of(A,C_f) and the equality between each transported cocone leg and ι_i composed with its finite-level chart.
+- TauCeti.RootStack.factorialAffineCocone.point (compatibility): The specified native isomorphism identifies the cocone point with CommAlgCat.of(A,C_f).
+- TauCeti.RootStack.factorialAffineCocone.leg (compatibility): After that point isomorphism, the ith cocone leg is ι_i composed with the specified finite-level chart.
+- TauCeti.RootStack.factorialAffineCocone.isColimit (extensionality): The specified cocone on factorialAffineTower is a colimit in CommAlgCat(A). Its universal map to any cocone is the native direct-limit algebra lift of that cocone’s legs.
+
+Unit tests:
+
+- factorialAffineCocone.test_wild (compatibility): The actual cocone over F_2 with f=0 satisfies the native IsColimit universal property.
+- factorialAffineCocone.test_zeroRing (degenerate): The actual cocone over Z/1Z satisfies that universal property too.
+- factorialAffineCocone.test_leg (compatibility): At level zero the actual cocone leg through its point identification is exactly ι_0 after its finite chart identification.
+
+Acceptance: Use the actual AdjoinRoot algebras, their coefficient actions and Mathlib DirectLimit. Retain the zero ring and wild nilpotents. The colimit of chart algebras does not itself identify the coherent root-object groupoids, grading action or fpqc quotient. Those existing obligations remain.
+
+### Universal factorial root chart cocone
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-affine-cocone-is-colimit. Proposed name: TauCeti.RootStack.factorialAffineCocone.isColimit. Kind: theorem.
+
+The specified cocone on factorialAffineTower is a colimit in CommAlgCat(A). Its universal map to any cocone is the native direct-limit algebra lift of that cocone’s legs.
+
+Hypotheses: A is any commutative ring, f∈A, B_n=A[T]/(T^n−f), and d_i=(i+1)! for i∈N. Every exponent in a divisibility transition is positive. No reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is used.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-affine-cocone, mathlib:DirectLimit.Algebra.lift, mathlib:DirectLimit.Algebra.hom_ext, mathlib:CategoryTheory.Limits.IsColimit.
+
+Construction or proof:
+
+1. The target cocone naturality equations give the compatibility required by the native algebra lift.
+2. The native lift agrees with each finite leg, proving factorization. Native direct-limit algebra extensionality proves uniqueness.
+
+Acceptance: Use the actual AdjoinRoot algebras, their coefficient actions and Mathlib DirectLimit. Retain the zero ring and wild nilpotents. The colimit of chart algebras does not itself identify the coherent root-object groupoids, grading action or fpqc quotient. Those existing obligations remain.
+
+### Universal compatible factorial roots
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift. Proposed name: TauCeti.RootStack.factorialAffineRootLift. Kind: construction.
+
+For any commutative A-algebra C and a family r_i∈C satisfying r_i^(d_i)=f and r_j^(d_j/d_i)=r_i for every i≤j, construct the unique A-algebra homomorphism C_f→C carrying u_i to r_i. This is a universal property for actual algebra elements, with coefficients fixed.
+
+Hypotheses: A is any commutative ring, f∈A, B_n=A[T]/(T^n−f), and d_i=(i+1)! for i∈N. Every exponent in a divisibility transition is positive. No reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is used.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit, FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion, FunctionFieldArithmeticPartII:RS.2/affine-divisibility-root, FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext, mathlib:AdjoinRoot.liftAlgHom, mathlib:AdjoinRoot.algHom_ext, mathlib:DirectLimit.Algebra.lift.
+
+Construction or proof:
+
+1. At level i lift the prescribed root r_i through the actual AdjoinRoot algebra, using its displayed root equation.
+2. For i≤j compare the two finite algebra maps by root extensionality; the displayed power-compatibility gives equality.
+3. Apply the existing native direct-limit algebra lift. Evaluation and root extensionality give the specified values and uniqueness. Postcomposition follows by the same uniqueness.
+
+API:
+
+- TauCeti.RootStack.factorialAffineRootLift (constructor): For any commutative A-algebra C and a family r_i∈C satisfying r_i^(d_i)=f and r_j^(d_j/d_i)=r_i for every i≤j, construct the unique A-algebra homomorphism C_f→C carrying u_i to r_i. This is a universal property for actual algebra elements, with coefficients fixed.
+- TauCeti.RootStack.factorialAffineRootLift.root (simp): The map associated to a compatible root family satisfies lift(r)(ι_i(t_(d_i)))=r_i at every level.
+- TauCeti.RootStack.factorialAffineRootLift.unique (extensionality): Any A-algebra homomorphism with all the prescribed root values equals the constructed lift.
+- TauCeti.RootStack.factorialAffineRootLift.postcomp (functoriality): Postcomposing the universal lift with an A-algebra map k:C→D equals the lift of the family k(r_i), with its induced power equations and compatibility.
+
+Unit tests:
+
+- factorialAffineRootLift.test_one (computation): For A=C=Z, f=1 and r_i=1, the universal lift sends the level-two root to 1.
+- factorialAffineRootLift.test_zero (computation): For A=C=F_2, f=0 and r_i=0, the lift sends ι_1(t_2) to 0. This evaluation may kill a nilpotent even though the finite insertion is injective.
+- factorialAffineRootLift.test_identity (compatibility): The lift of the universal family u_i, with its proved power and compatibility equations, is the identity A-algebra homomorphism of C_f.
+
+Acceptance: Use the actual AdjoinRoot algebras, their coefficient actions and Mathlib DirectLimit. Retain the zero ring and wild nilpotents. The colimit of chart algebras does not itself identify the coherent root-object groupoids, grading action or fpqc quotient. Those existing obligations remain.
+
+### Evaluation of the universal compatible roots
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift-root. Proposed name: TauCeti.RootStack.factorialAffineRootLift.root. Kind: lemma.
+
+The map associated to a compatible root family satisfies lift(r)(ι_i(t_(d_i)))=r_i at every level.
+
+Hypotheses: A is any commutative ring, f∈A, B_n=A[T]/(T^n−f), and d_i=(i+1)! for i∈N. Every exponent in a divisibility transition is positive. No reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is used.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift, mathlib:AdjoinRoot.liftAlgHom_root.
+
+Construction or proof:
+
+1. The direct-limit lift evaluated on an insertion is the corresponding finite quotient lift; apply the native lift-root computation.
+
+Acceptance: Use the actual AdjoinRoot algebras, their coefficient actions and Mathlib DirectLimit. Retain the zero ring and wild nilpotents. The colimit of chart algebras does not itself identify the coherent root-object groupoids, grading action or fpqc quotient. Those existing obligations remain.
+
+---
+
+The following retained reader records its earlier checkpoints; the current counts and continuation are above.
+
 ## Current checkpoint: factorial affine root algebra diagram
 
 Codex — codex-J6LwjP, 2026-10-02, issue #3403. The current packet contains 181 unchecked proposed nodes: 9 definitions, 30 constructions, 95 lemmas, 36 theorems, 10 comparisons and 1 application. It has 134 API records (132 required definition/construction records), 158 tests (134 required definition/construction tests), 159 baseline entries and 39 planets. All ten stages remain partial; the eight gaps and thirteen supplier requests remain unchanged.
