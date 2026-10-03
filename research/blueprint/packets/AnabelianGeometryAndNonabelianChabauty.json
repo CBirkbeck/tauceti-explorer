@@ -12,7 +12,7 @@
     "AnabelianGeometryAndNonabelianChabauty:NC.6"
   ],
   "status": "partial",
-  "summary": "Partial continuation of the source-faithful anabelian plan. Twenty-three native declaration-sized inputs specify general continuous source restriction on actual cocycles, nonabelian H¹ and invariant subgroups, with functor laws, subgroup comparisons, coefficient compatibility and the precise surjective-source injection criterion. Thirteen tests include a nonneutral class killed by a nonsurjective source map. All seven stages remain partial; additive/geometric/local-condition and source obligations stay explicit. Current inner-twisting continuation supplies actual continuous action/cocycle/gauge-orbit equivalences and the invariant criterion; all inherited geometric/local-condition and source boundaries remain.",
+  "summary": "Partial continuation of the source-faithful anabelian plan. Twenty-three native declaration-sized inputs specify general continuous source restriction on actual cocycles, nonabelian H¹ and invariant subgroups, with functor laws, subgroup comparisons, coefficient compatibility and the precise surjective-source injection criterion. Thirteen tests include a nonneutral class killed by a nonsurjective source map. All seven stages remain partial; additive/geometric/local-condition and source obligations stay explicit. Current inner-twisting continuation supplies actual continuous action/cocycle/gauge-orbit equivalences and the invariant criterion; all inherited geometric/local-condition and source boundaries remain. Continuous coefficient maps now induce actual equivariant homomorphisms between inner twists; cocycle and H¹ twisting commute with these maps, with the correct fibre over the mapped chosen class.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -1102,6 +1102,19 @@
         "§1 continuous cocycle/gauge definitions and complete Proposition 1 statement/proof, PDF pages 5–7"
       ],
       "readingExtent": "Selected passages freshly read; not a new whole-paper or representability proof reading. Inner twisting and cocycle/orbit equivalences below are authored deductions from the actual ordered cocycle/gauge formulas; geometric torsor classification is not certified."
+    },
+    {
+      "id": "KimCoefficientTwisting-codex-5ebb6f",
+      "title": "The motivic fundamental group of P¹ ∖ {0, 1, ∞} and the theorem of Siegel",
+      "authors": "Minhyong Kim",
+      "edition": "arXiv:math/0409456v1; abstract continuous coefficient/twisting deductions from §1, PDF pp.5–7",
+      "url": "https://arxiv.org/pdf/math/0409456v1",
+      "sha256": "00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941",
+      "accessed": "2026-10-03",
+      "readSections": [
+        "Complete PDF pages5–7: continuous cocycle/gauge definitions, Proposition1 statement and full proof, coefficient-functor paragraph and Proposition2 opening. The coefficient-twisting squares are authored deductions from the ordered formulas."
+      ],
+      "readingExtent": "Selected pages only. No new full-paper, torsor-classification, representability, Chen or BDMTV closure is claimed."
     }
   ],
   "nodes": [
@@ -1885,7 +1898,8 @@
       "proofSteps": [
         "Represent x by c. By the inherited H¹ basepoint characterisation, i_*x=1 iff i(c(g))=u(g•u)⁻¹ for one u ∈ B and all g. Put b=u⁻¹ to obtain the displayed formula.",
         "Conversely that formula makes the image cocycle the B-coboundary of b⁻¹, so its class is the basepoint.",
-        "The formula supplies membership in i(A) for each g and therefore an admissible connecting-cocycle input. Its image identity and injectivity identify it with c. Change of lift and the separate fixed-orbit theorem give the coset interpretation."
+        "The formula supplies membership in i(A) for each g and therefore an admissible connecting-cocycle input. Its image identity and injectivity identify it with c. Change of lift and the separate fixed-orbit theorem give the coset interpretation.",
+        "For the inherited nonneutral-fibre route, use H1.twistEquiv_map_fibre to replace the coefficient-map fibre over [f∘c] with the neutral fibre of the actual twisted coefficient homomorphism. Twisted subgroup realization and quotient/local-condition adapters still require their own constructions."
       ],
       "acceptance": [
         "Kim's crystalline condition: for U_n(R) ≤ U_n(B_cr ⊗ R), the image of H⁰(G_v, U_n(B_cr ⊗ R)/U_n(R)) → H¹(G_v, U_n(R)) is the set of crystalline torsors (Kim 2009, §3); this is (a) for a subgroup that is not normal.",
@@ -1896,7 +1910,8 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.3/functoriality",
         "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-cocycle-image",
         "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-change-lift",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-fixed-orbits"
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-fixed-orbits",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-repointed-fibre"
       ],
       "sources": [
         {
@@ -9410,6 +9425,670 @@
           "how": "Supply the algebraic cocycle/orbit leg for the inherited nonneutral-fibre route; subgroup/quotient/local-condition naturality remains explicit work."
         }
       ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-map",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "construction",
+      "title": "Coefficient homomorphism between inner twists",
+      "declarationName": "TauCeti.NonabelianCohomology.Twist.map",
+      "statement": "Construct the continuous equivariant group homomorphism f_c:Twist(c)→*Twist(f∘c) with j_(f∘c)(f_c(x))=f(j_c(x)). Its underlying homomorphism is exactly f.",
+      "hypotheses": [
+        "G is a group with a topology. U,V,W are topological groups with jointly continuous G-actions by automorphisms. c∈Z¹(G,U) is an actual continuous cocycle. G need not be a topological group for these formulas.",
+        "f:U→*V is continuous and G-equivariant; where used f′:V→*W has the same hypotheses. Neither map is assumed injective, surjective, closed or split.",
+        "Twist(c) has the original underlying group/topology and inner action g⋆x=c(g)g(x)c(g)⁻¹. Write j_c for its native underlying group identification, τ_c(d)(g)=j_c(d(g))c(g), and T_c for the induced actual H¹ gauge-orbit equivalence. The target is repointed at [c]; no preservation of its original neutral point is asserted."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisting",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-underlying-group",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-map"
+      ],
+      "proofSteps": [
+        "Use the existing underlying group/topology synonyms and the actual mapped cocycle f∘c. Reuse f as the group homomorphism.",
+        "Continuity is hf; equivariance expands to f(c(g)g(x)c(g)⁻¹)=f(c(g))g(f(x))f(c(g))⁻¹ by multiplicativity, preservation of inverse and the given original equivariance."
+      ],
+      "acceptance": [
+        "Construct the continuous equivariant group homomorphism f_c:Twist(c)→*Twist(f∘c) with j_(f∘c)(f_c(x))=f(j_c(x)). Its underlying homomorphism is exactly f."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Basic",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Twist.map"
+      },
+      "sources": [
+        {
+          "sourceId": "KimCoefficientTwisting-codex-5ebb6f",
+          "locator": "§1 ordered continuous cocycle/gauge formulas and coefficient functor, exact v1 PDF pp.5–7",
+          "excerpt": "1-cocycle",
+          "match": "Authored coefficient-naturality deduction from the source conventions; no claim that Kim prints this particular abstract diagram or proves its geometric/local-condition extensions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+          "how": "Move the actual coefficient-map fibre over [f∘c] to a neutral fibre using the constructed twist and correct mapped base point."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+          "how": "Supply the continuous coefficient compatibility needed before subgroup/normal-quotient twisting adapters and nonneutral exactness."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Twist.map_apply",
+          "role": "compatibility",
+          "statement": "For every x∈Twist(c), j_(f∘c)(f_c(x))=f(j_c(x))."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Twist.map_continuous",
+          "role": "compatibility",
+          "statement": "The actual coefficient homomorphism f_c:Twist(c)→Twist(f∘c) is continuous."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Twist.map_smul",
+          "role": "compatibility",
+          "statement": "For every g∈G and x∈Twist(c), f_c(g⋆x)=g⋆f_c(x), with the target action twisted by f∘c."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Twist.map_id",
+          "role": "compatibility",
+          "statement": "For every c, the twisted coefficient map induced by id_U equals id_(Twist(c)) as a native group homomorphism."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Twist.map_comp",
+          "role": "compatibility",
+          "statement": "For every c, (f′∘f)_c=(f′)_(f∘c)∘f_c as native group homomorphisms, with the actual composite continuity and equivariance proofs."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.twistEquiv_map",
+          "role": "compatibility",
+          "statement": "For every d∈Z¹(G,Twist(c)), τ_(f∘c)((f_c)_*d)=f_*(τ_c(d)) as actual continuous cocycles."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistEquiv_map",
+          "role": "compatibility",
+          "statement": "For every a∈H¹(G,Twist(c)), T_(f∘c)((f_c)_*a)=f_*(T_c(a))."
+        }
+      ],
+      "tests": [
+        {
+          "name": "twistCoefficientTests.value",
+          "kind": "compatibility",
+          "statement": "For every x, the actual twisted coefficient value is f(j_c(x)) under the target underlying-group identification."
+        },
+        {
+          "name": "twistCoefficientTests.identity",
+          "kind": "degenerate",
+          "statement": "The actual twisted identity coefficient map fixes every x."
+        },
+        {
+          "name": "twistCoefficientTests.constant",
+          "kind": "non-example",
+          "statement": "The constant-one coefficient homomorphism maps every twisted x to 1; no coefficient injectivity can be inferred from the twisting square."
+        },
+        {
+          "name": "twistCoefficientTests.cocycle_square",
+          "kind": "compatibility",
+          "statement": "The actual continuous cocycle coefficient square commutes, with multiplication by c(g) on the right."
+        },
+        {
+          "name": "twistCoefficientTests.repointed_neutral",
+          "kind": "characterisation",
+          "statement": "The image of T_c(1) under the actual coefficient H¹ map is the gauge class [f∘c]."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-value",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Value of a twisted coefficient map",
+      "declarationName": "TauCeti.NonabelianCohomology.Twist.map_apply",
+      "statement": "For every x∈Twist(c), j_(f∘c)(f_c(x))=f(j_c(x)).",
+      "hypotheses": [
+        "G is a group with a topology. U,V,W are topological groups with jointly continuous G-actions by automorphisms. c∈Z¹(G,U) is an actual continuous cocycle. G need not be a topological group for these formulas.",
+        "f:U→*V is continuous and G-equivariant; where used f′:V→*W has the same hypotheses. Neither map is assumed injective, surjective, closed or split.",
+        "Twist(c) has the original underlying group/topology and inner action g⋆x=c(g)g(x)c(g)⁻¹. Write j_c for its native underlying group identification, τ_c(d)(g)=j_c(d(g))c(g), and T_c for the induced actual H¹ gauge-orbit equivalence. The target is repointed at [c]; no preservation of its original neutral point is asserted."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-map"
+      ],
+      "proofSteps": [
+        "Evaluate the actual homomorphism on the underlying synonym; the equality is definitional."
+      ],
+      "acceptance": [
+        "For every x∈Twist(c), j_(f∘c)(f_c(x))=f(j_c(x))."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Basic",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Twist.map_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "KimCoefficientTwisting-codex-5ebb6f",
+          "locator": "§1 ordered continuous cocycle/gauge formulas and coefficient functor, exact v1 PDF pp.5–7",
+          "excerpt": "1-cocycle",
+          "match": "Authored coefficient-naturality deduction from the source conventions; no claim that Kim prints this particular abstract diagram or proves its geometric/local-condition extensions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+          "how": "Move the actual coefficient-map fibre over [f∘c] to a neutral fibre using the constructed twist and correct mapped base point."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+          "how": "Supply the continuous coefficient compatibility needed before subgroup/normal-quotient twisting adapters and nonneutral exactness."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-continuity",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Continuity of a twisted coefficient map",
+      "declarationName": "TauCeti.NonabelianCohomology.Twist.map_continuous",
+      "statement": "The actual coefficient homomorphism f_c:Twist(c)→Twist(f∘c) is continuous.",
+      "hypotheses": [
+        "G is a group with a topology. U,V,W are topological groups with jointly continuous G-actions by automorphisms. c∈Z¹(G,U) is an actual continuous cocycle. G need not be a topological group for these formulas.",
+        "f:U→*V is continuous and G-equivariant; where used f′:V→*W has the same hypotheses. Neither map is assumed injective, surjective, closed or split.",
+        "Twist(c) has the original underlying group/topology and inner action g⋆x=c(g)g(x)c(g)⁻¹. Write j_c for its native underlying group identification, τ_c(d)(g)=j_c(d(g))c(g), and T_c for the induced actual H¹ gauge-orbit equivalence. The target is repointed at [c]; no preservation of its original neutral point is asserted."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-map"
+      ],
+      "proofSteps": [
+        "Both topologies are the inherited coefficient topologies. The actual continuity proof is hf."
+      ],
+      "acceptance": [
+        "The actual coefficient homomorphism f_c:Twist(c)→Twist(f∘c) is continuous."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Basic",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Twist.map_continuous"
+      },
+      "sources": [
+        {
+          "sourceId": "KimCoefficientTwisting-codex-5ebb6f",
+          "locator": "§1 ordered continuous cocycle/gauge formulas and coefficient functor, exact v1 PDF pp.5–7",
+          "excerpt": "1-cocycle",
+          "match": "Authored coefficient-naturality deduction from the source conventions; no claim that Kim prints this particular abstract diagram or proves its geometric/local-condition extensions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+          "how": "Move the actual coefficient-map fibre over [f∘c] to a neutral fibre using the constructed twist and correct mapped base point."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+          "how": "Supply the continuous coefficient compatibility needed before subgroup/normal-quotient twisting adapters and nonneutral exactness."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-equivariance",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Equivariance between the two twisted actions",
+      "declarationName": "TauCeti.NonabelianCohomology.Twist.map_smul",
+      "statement": "For every g∈G and x∈Twist(c), f_c(g⋆x)=g⋆f_c(x), with the target action twisted by f∘c.",
+      "hypotheses": [
+        "G is a group with a topology. U,V,W are topological groups with jointly continuous G-actions by automorphisms. c∈Z¹(G,U) is an actual continuous cocycle. G need not be a topological group for these formulas.",
+        "f:U→*V is continuous and G-equivariant; where used f′:V→*W has the same hypotheses. Neither map is assumed injective, surjective, closed or split.",
+        "Twist(c) has the original underlying group/topology and inner action g⋆x=c(g)g(x)c(g)⁻¹. Write j_c for its native underlying group identification, τ_c(d)(g)=j_c(d(g))c(g), and T_c for the induced actual H¹ gauge-orbit equivalence. The target is repointed at [c]; no preservation of its original neutral point is asserted."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-map",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-value"
+      ],
+      "proofSteps": [
+        "Apply injectivity of j_(f∘c) to compare values in V. Expand both actual inner actions, apply map_mul twice, map_inv, and original G-equivariance. Do not commute any factors."
+      ],
+      "acceptance": [
+        "For every g∈G and x∈Twist(c), f_c(g⋆x)=g⋆f_c(x), with the target action twisted by f∘c."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Basic",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Twist.map_smul"
+      },
+      "sources": [
+        {
+          "sourceId": "KimCoefficientTwisting-codex-5ebb6f",
+          "locator": "§1 ordered continuous cocycle/gauge formulas and coefficient functor, exact v1 PDF pp.5–7",
+          "excerpt": "1-cocycle",
+          "match": "Authored coefficient-naturality deduction from the source conventions; no claim that Kim prints this particular abstract diagram or proves its geometric/local-condition extensions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+          "how": "Move the actual coefficient-map fibre over [f∘c] to a neutral fibre using the constructed twist and correct mapped base point."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+          "how": "Supply the continuous coefficient compatibility needed before subgroup/normal-quotient twisting adapters and nonneutral exactness."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-identity",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Identity coefficient map under twisting",
+      "declarationName": "TauCeti.NonabelianCohomology.Twist.map_id",
+      "statement": "For every c, the twisted coefficient map induced by id_U equals id_(Twist(c)) as a native group homomorphism.",
+      "hypotheses": [
+        "G is a group with a topology. U,V,W are topological groups with jointly continuous G-actions by automorphisms. c∈Z¹(G,U) is an actual continuous cocycle. G need not be a topological group for these formulas.",
+        "f:U→*V is continuous and G-equivariant; where used f′:V→*W has the same hypotheses. Neither map is assumed injective, surjective, closed or split.",
+        "Twist(c) has the original underlying group/topology and inner action g⋆x=c(g)g(x)c(g)⁻¹. Write j_c for its native underlying group identification, τ_c(d)(g)=j_c(d(g))c(g), and T_c for the induced actual H¹ gauge-orbit equivalence. The target is repointed at [c]; no preservation of its original neutral point is asserted."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-map"
+      ],
+      "proofSteps": [
+        "The mapped cocycle under the identity and both underlying homomorphisms agree definitionally."
+      ],
+      "acceptance": [
+        "For every c, the twisted coefficient map induced by id_U equals id_(Twist(c)) as a native group homomorphism."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Basic",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Twist.map_id"
+      },
+      "sources": [
+        {
+          "sourceId": "KimCoefficientTwisting-codex-5ebb6f",
+          "locator": "§1 ordered continuous cocycle/gauge formulas and coefficient functor, exact v1 PDF pp.5–7",
+          "excerpt": "1-cocycle",
+          "match": "Authored coefficient-naturality deduction from the source conventions; no claim that Kim prints this particular abstract diagram or proves its geometric/local-condition extensions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+          "how": "Move the actual coefficient-map fibre over [f∘c] to a neutral fibre using the constructed twist and correct mapped base point."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+          "how": "Supply the continuous coefficient compatibility needed before subgroup/normal-quotient twisting adapters and nonneutral exactness."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-composition",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Composition of twisted coefficient maps",
+      "declarationName": "TauCeti.NonabelianCohomology.Twist.map_comp",
+      "statement": "For every c, (f′∘f)_c=(f′)_(f∘c)∘f_c as native group homomorphisms, with the actual composite continuity and equivariance proofs.",
+      "hypotheses": [
+        "G is a group with a topology. U,V,W are topological groups with jointly continuous G-actions by automorphisms. c∈Z¹(G,U) is an actual continuous cocycle. G need not be a topological group for these formulas.",
+        "f:U→*V is continuous and G-equivariant; where used f′:V→*W has the same hypotheses. Neither map is assumed injective, surjective, closed or split.",
+        "Twist(c) has the original underlying group/topology and inner action g⋆x=c(g)g(x)c(g)⁻¹. Write j_c for its native underlying group identification, τ_c(d)(g)=j_c(d(g))c(g), and T_c for the induced actual H¹ gauge-orbit equivalence. The target is repointed at [c]; no preservation of its original neutral point is asserted."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-map"
+      ],
+      "proofSteps": [
+        "Use the definitional equality of mapped cocycles under composition and the original native homomorphism composition. The topology/action proof arguments do not change the underlying homomorphism."
+      ],
+      "acceptance": [
+        "For every c, (f′∘f)_c=(f′)_(f∘c)∘f_c as native group homomorphisms, with the actual composite continuity and equivariance proofs."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Basic",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Twist.map_comp"
+      },
+      "sources": [
+        {
+          "sourceId": "KimCoefficientTwisting-codex-5ebb6f",
+          "locator": "§1 ordered continuous cocycle/gauge formulas and coefficient functor, exact v1 PDF pp.5–7",
+          "excerpt": "1-cocycle",
+          "match": "Authored coefficient-naturality deduction from the source conventions; no claim that Kim prints this particular abstract diagram or proves its geometric/local-condition extensions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+          "how": "Move the actual coefficient-map fibre over [f∘c] to a neutral fibre using the constructed twist and correct mapped base point."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+          "how": "Supply the continuous coefficient compatibility needed before subgroup/normal-quotient twisting adapters and nonneutral exactness."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-cocycle-square",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Coefficient naturality of the cocycle twisting equivalence",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.twistEquiv_map",
+      "statement": "For every d∈Z¹(G,Twist(c)), τ_(f∘c)((f_c)_*d)=f_*(τ_c(d)) as actual continuous cocycles.",
+      "hypotheses": [
+        "G is a group with a topology. U,V,W are topological groups with jointly continuous G-actions by automorphisms. c∈Z¹(G,U) is an actual continuous cocycle. G need not be a topological group for these formulas.",
+        "f:U→*V is continuous and G-equivariant; where used f′:V→*W has the same hypotheses. Neither map is assumed injective, surjective, closed or split.",
+        "Twist(c) has the original underlying group/topology and inner action g⋆x=c(g)g(x)c(g)⁻¹. Write j_c for its native underlying group identification, τ_c(d)(g)=j_c(d(g))c(g), and T_c for the induced actual H¹ gauge-orbit equivalence. The target is repointed at [c]; no preservation of its original neutral point is asserted."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-continuity",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-equivariance",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-cocycle-equivalence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-map"
+      ],
+      "proofSteps": [
+        "Apply actual cocycle extensionality. At g the left side is f(j_c(d(g)))f(c(g)), while the right side is f(j_c(d(g))c(g)); map_mul identifies them in exactly this order."
+      ],
+      "acceptance": [
+        "For every d∈Z¹(G,Twist(c)), τ_(f∘c)((f_c)_*d)=f_*(τ_c(d)) as actual continuous cocycles."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Basic",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.twistEquiv_map"
+      },
+      "sources": [
+        {
+          "sourceId": "KimCoefficientTwisting-codex-5ebb6f",
+          "locator": "§1 ordered continuous cocycle/gauge formulas and coefficient functor, exact v1 PDF pp.5–7",
+          "excerpt": "1-cocycle",
+          "match": "Authored coefficient-naturality deduction from the source conventions; no claim that Kim prints this particular abstract diagram or proves its geometric/local-condition extensions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+          "how": "Move the actual coefficient-map fibre over [f∘c] to a neutral fibre using the constructed twist and correct mapped base point."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+          "how": "Supply the continuous coefficient compatibility needed before subgroup/normal-quotient twisting adapters and nonneutral exactness."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-inverse-cocycle-square",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Coefficient naturality of inverse cocycle twisting",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.twistEquiv_symm_map",
+      "statement": "For every e∈Z¹(G,U), τ_(f∘c)⁻¹(f_*e)=(f_c)_*(τ_c⁻¹(e)) as actual continuous cocycles.",
+      "hypotheses": [
+        "G is a group with a topology. U,V,W are topological groups with jointly continuous G-actions by automorphisms. c∈Z¹(G,U) is an actual continuous cocycle. G need not be a topological group for these formulas.",
+        "f:U→*V is continuous and G-equivariant; where used f′:V→*W has the same hypotheses. Neither map is assumed injective, surjective, closed or split.",
+        "Twist(c) has the original underlying group/topology and inner action g⋆x=c(g)g(x)c(g)⁻¹. Write j_c for its native underlying group identification, τ_c(d)(g)=j_c(d(g))c(g), and T_c for the induced actual H¹ gauge-orbit equivalence. The target is repointed at [c]; no preservation of its original neutral point is asserted."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-cocycle-square"
+      ],
+      "proofSteps": [
+        "Apply injectivity of the actual equivalence τ_(f∘c), then use the forward square and both actual inverse identities. No injectivity of f is used."
+      ],
+      "acceptance": [
+        "For every e∈Z¹(G,U), τ_(f∘c)⁻¹(f_*e)=(f_c)_*(τ_c⁻¹(e)) as actual continuous cocycles."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Basic",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.twistEquiv_symm_map"
+      },
+      "sources": [
+        {
+          "sourceId": "KimCoefficientTwisting-codex-5ebb6f",
+          "locator": "§1 ordered continuous cocycle/gauge formulas and coefficient functor, exact v1 PDF pp.5–7",
+          "excerpt": "1-cocycle",
+          "match": "Authored coefficient-naturality deduction from the source conventions; no claim that Kim prints this particular abstract diagram or proves its geometric/local-condition extensions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+          "how": "Move the actual coefficient-map fibre over [f∘c] to a neutral fibre using the constructed twist and correct mapped base point."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+          "how": "Supply the continuous coefficient compatibility needed before subgroup/normal-quotient twisting adapters and nonneutral exactness."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-h1-square",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Coefficient naturality on the actual H¹ orbit quotient",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistEquiv_map",
+      "statement": "For every a∈H¹(G,Twist(c)), T_(f∘c)((f_c)_*a)=f_*(T_c(a)).",
+      "hypotheses": [
+        "G is a group with a topology. U,V,W are topological groups with jointly continuous G-actions by automorphisms. c∈Z¹(G,U) is an actual continuous cocycle. G need not be a topological group for these formulas.",
+        "f:U→*V is continuous and G-equivariant; where used f′:V→*W has the same hypotheses. Neither map is assumed injective, surjective, closed or split.",
+        "Twist(c) has the original underlying group/topology and inner action g⋆x=c(g)g(x)c(g)⁻¹. Write j_c for its native underlying group identification, τ_c(d)(g)=j_c(d(g))c(g), and T_c for the induced actual H¹ gauge-orbit equivalence. The target is repointed at [c]; no preservation of its original neutral point is asserted."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-cocycle-square",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-equivalence"
+      ],
+      "proofSteps": [
+        "Choose an actual cocycle representative via H1.mk_surjective. Evaluate both native quotient maps on that representative using map_mk and twistEquiv_mk; the actual cocycle square identifies their images."
+      ],
+      "acceptance": [
+        "For every a∈H¹(G,Twist(c)), T_(f∘c)((f_c)_*a)=f_*(T_c(a))."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Basic",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistEquiv_map"
+      },
+      "sources": [
+        {
+          "sourceId": "KimCoefficientTwisting-codex-5ebb6f",
+          "locator": "§1 ordered continuous cocycle/gauge formulas and coefficient functor, exact v1 PDF pp.5–7",
+          "excerpt": "1-cocycle",
+          "match": "Authored coefficient-naturality deduction from the source conventions; no claim that Kim prints this particular abstract diagram or proves its geometric/local-condition extensions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+          "how": "Move the actual coefficient-map fibre over [f∘c] to a neutral fibre using the constructed twist and correct mapped base point."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+          "how": "Supply the continuous coefficient compatibility needed before subgroup/normal-quotient twisting adapters and nonneutral exactness."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-inverse-h1-square",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Coefficient naturality of inverse H¹ twisting",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistEquiv_symm_map",
+      "statement": "For every a∈H¹(G,U), T_(f∘c)⁻¹(f_*a)=(f_c)_*(T_c⁻¹(a)).",
+      "hypotheses": [
+        "G is a group with a topology. U,V,W are topological groups with jointly continuous G-actions by automorphisms. c∈Z¹(G,U) is an actual continuous cocycle. G need not be a topological group for these formulas.",
+        "f:U→*V is continuous and G-equivariant; where used f′:V→*W has the same hypotheses. Neither map is assumed injective, surjective, closed or split.",
+        "Twist(c) has the original underlying group/topology and inner action g⋆x=c(g)g(x)c(g)⁻¹. Write j_c for its native underlying group identification, τ_c(d)(g)=j_c(d(g))c(g), and T_c for the induced actual H¹ gauge-orbit equivalence. The target is repointed at [c]; no preservation of its original neutral point is asserted."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-h1-square"
+      ],
+      "proofSteps": [
+        "Apply injectivity of the actual orbit equivalence T_(f∘c), use the forward H¹ square and its actual inverse identities."
+      ],
+      "acceptance": [
+        "For every a∈H¹(G,U), T_(f∘c)⁻¹(f_*a)=(f_c)_*(T_c⁻¹(a))."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Basic",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistEquiv_symm_map"
+      },
+      "sources": [
+        {
+          "sourceId": "KimCoefficientTwisting-codex-5ebb6f",
+          "locator": "§1 ordered continuous cocycle/gauge formulas and coefficient functor, exact v1 PDF pp.5–7",
+          "excerpt": "1-cocycle",
+          "match": "Authored coefficient-naturality deduction from the source conventions; no claim that Kim prints this particular abstract diagram or proves its geometric/local-condition extensions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+          "how": "Move the actual coefficient-map fibre over [f∘c] to a neutral fibre using the constructed twist and correct mapped base point."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+          "how": "Supply the continuous coefficient compatibility needed before subgroup/normal-quotient twisting adapters and nonneutral exactness."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-repointed-neutral",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Mapped base point of the twisted H¹ equivalence",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistEquiv_map_one",
+      "statement": "For every c and f, f_*(T_c(1))=[f∘c]. The image is the mapped chosen class, not necessarily the original target neutral point.",
+      "hypotheses": [
+        "G is a group with a topology. U,V,W are topological groups with jointly continuous G-actions by automorphisms. c∈Z¹(G,U) is an actual continuous cocycle. G need not be a topological group for these formulas.",
+        "f:U→*V is continuous and G-equivariant; where used f′:V→*W has the same hypotheses. Neither map is assumed injective, surjective, closed or split.",
+        "Twist(c) has the original underlying group/topology and inner action g⋆x=c(g)g(x)c(g)⁻¹. Write j_c for its native underlying group identification, τ_c(d)(g)=j_c(d(g))c(g), and T_c for the induced actual H¹ gauge-orbit equivalence. The target is repointed at [c]; no preservation of its original neutral point is asserted."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-h1-square",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-equivalence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map"
+      ],
+      "proofSteps": [
+        "Use T_c(1)=[c] and the coefficient quotient map on the actual representative c."
+      ],
+      "acceptance": [
+        "For every c and f, f_*(T_c(1))=[f∘c]. The image is the mapped chosen class, not necessarily the original target neutral point."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Basic",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistEquiv_map_one"
+      },
+      "sources": [
+        {
+          "sourceId": "KimCoefficientTwisting-codex-5ebb6f",
+          "locator": "§1 ordered continuous cocycle/gauge formulas and coefficient functor, exact v1 PDF pp.5–7",
+          "excerpt": "1-cocycle",
+          "match": "Authored coefficient-naturality deduction from the source conventions; no claim that Kim prints this particular abstract diagram or proves its geometric/local-condition extensions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+          "how": "Move the actual coefficient-map fibre over [f∘c] to a neutral fibre using the constructed twist and correct mapped base point."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+          "how": "Supply the continuous coefficient compatibility needed before subgroup/normal-quotient twisting adapters and nonneutral exactness."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-repointed-fibre",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Neutral fibre after coefficient twisting and repointing",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistEquiv_map_fibre",
+      "statement": "For every a∈H¹(G,Twist(c)), f_*(T_c(a))=[f∘c] if and only if (f_c)_*(a)=1. This identifies the actual fibre over the mapped chosen class without asserting injectivity of the coefficient map.",
+      "hypotheses": [
+        "G is a group with a topology. U,V,W are topological groups with jointly continuous G-actions by automorphisms. c∈Z¹(G,U) is an actual continuous cocycle. G need not be a topological group for these formulas.",
+        "f:U→*V is continuous and G-equivariant; where used f′:V→*W has the same hypotheses. Neither map is assumed injective, surjective, closed or split.",
+        "Twist(c) has the original underlying group/topology and inner action g⋆x=c(g)g(x)c(g)⁻¹. Write j_c for its native underlying group identification, τ_c(d)(g)=j_c(d(g))c(g), and T_c for the induced actual H¹ gauge-orbit equivalence. The target is repointed at [c]; no preservation of its original neutral point is asserted."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-h1-square",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-neutral-fibre"
+      ],
+      "proofSteps": [
+        "Rewrite f_*T_c(a) using the proved coefficient/H¹ square. The actual equivalence T_(f∘c) sends exactly the source neutral class to [f∘c], so its neutral-fibre criterion gives the equivalence."
+      ],
+      "acceptance": [
+        "For every a∈H¹(G,Twist(c)), f_*(T_c(a))=[f∘c] if and only if (f_c)_*(a)=1. This identifies the actual fibre over the mapped chosen class without asserting injectivity of the coefficient map."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Basic",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistEquiv_map_fibre"
+      },
+      "sources": [
+        {
+          "sourceId": "KimCoefficientTwisting-codex-5ebb6f",
+          "locator": "§1 ordered continuous cocycle/gauge formulas and coefficient functor, exact v1 PDF pp.5–7",
+          "excerpt": "1-cocycle",
+          "match": "Authored coefficient-naturality deduction from the source conventions; no claim that Kim prints this particular abstract diagram or proves its geometric/local-condition extensions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+          "how": "Move the actual coefficient-map fibre over [f∘c] to a neutral fibre using the constructed twist and correct mapped base point."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+          "how": "Supply the continuous coefficient compatibility needed before subgroup/normal-quotient twisting adapters and nonneutral exactness."
+        }
+      ]
     }
   ],
   "requests": [
@@ -9594,7 +10273,8 @@
         "Actual subgroup restriction on continuous cocycles and native H¹ orbit sets, inverse-gauge normalization, image=neutral restriction fibre and unique same-N inflated class are supplied under explicit joint quotient-action continuity. General multiplicative quotient-action continuity discharge, reverse-inclusion transitions, compact-discrete filtered-colimit bijection and genuine additive cocycle conversion remain open. All representability, local-condition, source-proof, inherited API/granularity and geometric obligations remain open.",
         "Joint multiplicative quotient-action continuity and the neutral-fibre equivalence are supplied for separately continuous multiplication on G (in particular topological groups), topological group U and jointly continuous ambient automorphism action. Earlier results for arbitrary group topologies retain their explicit quotient-action continuity hypothesis. Reverse-inclusion transitions, compact-discrete filtered-colimit bijection, canonical additive cocycle conversion, representability, local conditions, inherited API/granularity and geometric source/supplier obligations remain open.",
         "Reverse-inclusion cocycle and H¹ transitions, their native type-valued diagram, actual inflation cocone and compact/discrete finite-quotient equivalence are specified. The colimit requires discrete U and does not extend the unipotent p-adic topology by assumption. Genuine additive cocycle conversion, compatibility with the existing TauCeti additive transition/colimit, representability, local conditions, inherited API/granularity and all geometric source/supplier obligations remain open.",
-        "Current codex-J6LwjP twisting checkpoint supplies the actual continuous inner action, right-multiplication cocycle equivalence, gauge-orbit quotient equivalence, representative/neutral-fibre formulas and twisted-invariant criterion, with checked native prototypes and the nonneutral S₃ example. Subgroup/quotient and source/coefficient naturality of twisting, genuine additive comparison, unipotent point topologies, representability, local conditions and all geometric/source/supplier obligations remain open. The orbit bijection is pointed only after repointing its target at [c]."
+        "Current codex-J6LwjP twisting checkpoint supplies the actual continuous inner action, right-multiplication cocycle equivalence, gauge-orbit quotient equivalence, representative/neutral-fibre formulas and twisted-invariant criterion, with checked native prototypes and the nonneutral S₃ example. Subgroup/quotient and source/coefficient naturality of twisting, genuine additive comparison, unipotent point topologies, representability, local conditions and all geometric/source/supplier obligations remain open. The orbit bijection is pointed only after repointing its target at [c].",
+        "Coefficient naturality of the actual inner twist, both cocycle/H¹ equivalences, identity/composition and the fibre over [f∘c] are specified by this checkpoint. Twisted subgroup and normal-quotient realization, source-group naturality, genuine additive comparison, unipotent point topologies, geometric torsors, representability and local conditions remain required constructions. The reserved all-coefficient/all-degree étale K(pi,1), its qualified raw-homotopy comparison, Chen /57–58, complete BDMTV NC.2/NC.5 routes and E9/E10 obligations are unchanged."
       ]
     },
     {
@@ -11425,6 +12105,50 @@
         "§1 continuous cocycle/gauge definitions and complete Proposition 1 statement/proof, PDF pages 5–7"
       ],
       "readingExtent": "Selected passages freshly read; not a new whole-paper or representability proof reading. Inner twisting and cocycle/orbit equivalences below are authored deductions from the actual ordered cocycle/gauge formulas; geometric torsor classification is not certified."
+    }
+  },
+  "coefficientTwistingContinuation": {
+    "agent": "Codex — codex-5ebb6f",
+    "issue": 1020,
+    "claimComment": 5964184656,
+    "winningBotComment": 5964185654,
+    "readBase": "14122f5410315c7254b29874b6b80bf3f7bdd159",
+    "status": "partial",
+    "newNodes": [
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-map",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-value",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-continuity",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-equivariance",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-identity",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-composition",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-cocycle-square",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-inverse-cocycle-square",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-h1-square",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-inverse-h1-square",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-repointed-neutral",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-repointed-fibre"
+    ],
+    "preservedContracts": 144,
+    "unchangedNodeObjects": 143,
+    "remaining": "Coefficient naturality of the actual inner twist, both cocycle/H¹ equivalences, identity/composition and the fibre over [f∘c] are specified by this checkpoint. Twisted subgroup and normal-quotient realization, source-group naturality, genuine additive comparison, unipotent point topologies, geometric torsors, representability and local conditions remain required constructions. The reserved all-coefficient/all-degree étale K(pi,1), its qualified raw-homotopy comparison, Chen /57–58, complete BDMTV NC.2/NC.5 routes and E9/E10 obligations are unchanged.",
+    "source": {
+      "id": "KimCoefficientTwisting-codex-5ebb6f",
+      "title": "The motivic fundamental group of P¹ ∖ {0, 1, ∞} and the theorem of Siegel",
+      "authors": "Minhyong Kim",
+      "edition": "arXiv:math/0409456v1; abstract continuous coefficient/twisting deductions from §1, PDF pp.5–7",
+      "url": "https://arxiv.org/pdf/math/0409456v1",
+      "sha256": "00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941",
+      "accessed": "2026-10-03",
+      "readSections": [
+        "Complete PDF pages5–7: continuous cocycle/gauge definitions, Proposition1 statement and full proof, coefficient-functor paragraph and Proposition2 opening. The coefficient-twisting squares are authored deductions from the ordered formulas."
+      ],
+      "readingExtent": "Selected pages only. No new full-paper, torsor-classification, representability, Chen or BDMTV closure is claimed."
+    },
+    "priorArt": {
+      "url": "https://github.com/leanprover-community/mathlib4/pull/31613",
+      "head": "9dc1e337689fa7ba4fefa52b4874660bdd3a3619",
+      "state": "OPEN",
+      "readScope": "Inherited algebraic-prior-art audit retained; current PR state/head rechecked. Bounded Zulip web search found no relevant twisting decision; no whole-PR or whole-Zulip absence claim. No source copied. Continuous comparison remains required when adopting the algebraic API."
     }
   }
 }
