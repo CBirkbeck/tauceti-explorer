@@ -13,7 +13,7 @@
     "AlgebraicModuliForArithmeticGeometry:R09.7"
   ],
   "status": "partial",
-  "summary": "Native semilinear site restriction of fixed-band Isom actions, with actual modification naturality, pseudofunctor identity/composition comparisons, and restriction-compatible natural local-object transport:18 new declarations,13 API items and14 parameterized tests. The independent proof prototype has no admissions; the roadmap remains partial and every implementation status remains unchecked. Native fixed-band morphism groupoid checkpoint:17 declaration-sized refinements (one definition, three constructions, thirteen lemmas),16 API entries and12 typed tests. All420 incoming declarations retain their contracts; only the neutral/all self-equivalence parents gain one dependency and one proof step each. The420-node source coverage, ten gaps and22 supplier requests remain required. Native Hom-sheaf assembly checkpoint: 19 new declarations, three constructions, 13 API items and 12 tests. Use full StrongTrans composition coherence and Mathlib local-bijection gluing to specify fibrewise fullness in the inherited adapter universe convention. All 365 untouched incoming node objects and the old full-faithfulness contract are retained; that parent gains only two prerequisite edges and one proof step. All implementations stay unchecked. Partial checkpoint with 366 declaration nodes. Adds 25 actual StrongTrans pullback adapters: five constructions and twenty lemmas, sixteen API items and fifteen native carrier/orientation tests. The actual local equivalences now compare the correct target pullbacks; arbitrary deeper-slice coherence and inverse Hom-sheaf gluing remain open. All incoming general gerbe/key-definition statements, source issues, requests, planets and ownership contracts are preserved; only the general full-faithfulness node receives two supplier edges and one proof step. No stage or reserved key is closed. Object-descent continuation: 27 native adapter and proof nodes retain local objects and isomorphisms, all three DescentData equations, actual global image morphisms, and fibrewise equivalence; coherent banded inverse and universe normalization remain open. This continuation separates eight native fixed-band inverse/modification adapters, with an independent coefficient universe and admission-free prototype audits, from the still-requested generic coherent inverse StrongTrans. It does not certify the global gerbe equivalence. This continuation bundles actual fibre Isom actions in native Action, maps every native fixed-band modification to equivariant postcomposition, and supplies choice-independent natural local-object transport. These pointwise leaves retain independent coefficient universes and possible empty section sets; the full torsor-sheaf comparison remains open.",
+  "summary": "Actual slice Hom sheaves and a functor on fixed-band gerbe modifications, with local sections, compatible simply transitive band actions and transported Isom comparison:28 new declarations,21 API items and22 typed tests. Independent native proof evidence is checked without admissions; no implementation or stage closure is claimed. Native semilinear site restriction of fixed-band Isom actions, with actual modification naturality, pseudofunctor identity/composition comparisons, and restriction-compatible natural local-object transport:18 new declarations,13 API items and14 parameterized tests. The independent proof prototype has no admissions; the roadmap remains partial and every implementation status remains unchecked. Native fixed-band morphism groupoid checkpoint:17 declaration-sized refinements (one definition, three constructions, thirteen lemmas),16 API entries and12 typed tests. All420 incoming declarations retain their contracts; only the neutral/all self-equivalence parents gain one dependency and one proof step each. The420-node source coverage, ten gaps and22 supplier requests remain required. Native Hom-sheaf assembly checkpoint: 19 new declarations, three constructions, 13 API items and 12 tests. Use full StrongTrans composition coherence and Mathlib local-bijection gluing to specify fibrewise fullness in the inherited adapter universe convention. All 365 untouched incoming node objects and the old full-faithfulness contract are retained; that parent gains only two prerequisite edges and one proof step. All implementations stay unchecked. Partial checkpoint with 366 declaration nodes. Adds 25 actual StrongTrans pullback adapters: five constructions and twenty lemmas, sixteen API items and fifteen native carrier/orientation tests. The actual local equivalences now compare the correct target pullbacks; arbitrary deeper-slice coherence and inverse Hom-sheaf gluing remain open. All incoming general gerbe/key-definition statements, source issues, requests, planets and ownership contracts are preserved; only the general full-faithfulness node receives two supplier edges and one proof step. No stage or reserved key is closed. Object-descent continuation: 27 native adapter and proof nodes retain local objects and isomorphisms, all three DescentData equations, actual global image morphisms, and fibrewise equivalence; coherent banded inverse and universe normalization remain open. This continuation separates eight native fixed-band inverse/modification adapters, with an independent coefficient universe and admission-free prototype audits, from the still-requested generic coherent inverse StrongTrans. It does not certify the global gerbe equivalence. This continuation bundles actual fibre Isom actions in native Action, maps every native fixed-band modification to equivariant postcomposition, and supplies choice-independent natural local-object transport. These pointwise leaves retain independent coefficient universes and possible empty section sets; the full torsor-sheaf comparison remains open.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1641,6 +1641,15 @@
         "sourceSha256": "39524d6537900931d3a4dfe3929ba4200675f74b109a64cfe85695669bdb952d",
         "provides": "Right whiskering of an actual natural transformation by a functor.",
         "checked": "Statement, hypotheses and defining fields read at pinned commit082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-03, Codex codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Pseudofunctor.mapComp'_inv_naturality",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Bicategory/Functor/Cat.lean",
+        "sourceLine": 76,
+        "sourceSha256": "aeb933e95caa385d20ea8be19f198fff644995ddb7a2f943d6bb3e0a22c6909d",
+        "provides": "Naturality of the inverse flexible pseudofunctor composition comparison on an actual fibre arrow.",
+        "checked": "Statement and proof read at exact pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66224, 2026-10-03, Codex codex-J6LwjP."
       }
     ]
   },
@@ -2488,6 +2497,34 @@
         "Mathlib/CategoryTheory/NatIso.lean": "c2e8b0662cae553808f1973dfc6027272b8ec2697a105a487ce1b1044330d103",
         "Mathlib/CategoryTheory/Whiskering.lean": "39524d6537900931d3a4dfe3929ba4200675f74b109a64cfe85695669bdb952d"
       }
+    },
+    {
+      "id": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+      "title": "Slice Hom sheaves for fixed-band gerbe morphisms",
+      "authors": "Martin Olsson and course-note contributors; Michael Groechenig, Dimitri Wyss and Paul Ziegler; native deductions by Codex — codex-J6LwjP",
+      "edition": "Public mathematical text read 2026-10-03; exact pinned Mathlib082e2d3",
+      "url": "https://stacky.net/files/written/Stacks/Stacks.pdf",
+      "accessDate": "2026-10-03",
+      "readSections": [
+        "Fresh complete mathematical text of Olsson printed122–123 through Remark31.5, including the full31.3/31.4 proofs and visible incompleteness warning31.6; GWZ20 Definition2.6 and §2.2.1 printed514–515 through the groupoid-of-automorphisms/torsors discussion. Read through the public PDF text tool; no rendered page inspection or successful new local GWZ download is claimed.",
+        "Fresh pinned Mathlib IsStack extends IsPrestack; entire presheafHom/pullHom/sheafHom and overMapCompPresheafHomIso definitions and their restriction-coherence proofs; mapComp' and its hom/inv naturality. Positive prior art: use existing Hom sheaf descent, not a new generic descent carrier or an SF1 assumption of the desired conclusion.",
+        "Fresh bot-confirmed whole issue reread, all12 own reviewed audit rows, REV-AUDIT01, reserved gerbe node and survey/API, prescribed nine red-team claims/verdicts, RS27 owned decisions,28owners and26touching links, complete accepted repair review and all34 own link records. The earlier session's full AlgebraicCurves/JacobianChallenge readings are retained with unchanged source guards; this is not a fresh complete audit of all482 incoming declarations or routed sources.",
+        "Recovered public PR6002 full head and archive:38 authenticated artifacts and4 deliverables. Executed its actual immutable verifier; output equals its published publication-base receipt. Fresh native incoming definitions and restriction/action/local-object transport proof blocks were read; earlier historical proof batches were authenticated, not freshly re-proved individually.",
+        "All28 new formulas/proofs are authored deductions. The22 tests are parameterized native-carrier checks, not instantiated new geometric/nonconstant-site fixtures. No general library absence claim, classification proof or implementation claim."
+      ],
+      "sourceHashes": {
+        "Mathlib/CategoryTheory/Bicategory/Functor/Cat.lean": "aeb933e95caa385d20ea8be19f198fff644995ddb7a2f943d6bb3e0a22c6909d"
+      },
+      "priorArt": [
+        {
+          "url": "https://github.com/leanprover-community/mathlib4/pull/24434",
+          "scope": "Fresh open draft effectiveness-of-descent PR body and dependency list; pinned native Hom sheaf reused, no unpinned code imported."
+        },
+        {
+          "url": "https://leanprover-community.github.io/archive/stream/116395-maths/topic/Formalizing.20stacks.html",
+          "scope": "Fresh bounded native fibre/pullback/coherence discussion; design context only."
+        }
+      ]
     }
   ],
   "nodes": [
@@ -3639,7 +3676,12 @@
         "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
         "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/groupoid",
         "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-nat-iso-independent",
-        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/self-transport-nat-iso-restriction"
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/self-transport-nat-iso-restriction",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-functor",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/local-sections",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-action-free-transitive",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-action-restriction",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/transport-iso-equiv-modification"
       ],
       "proofSteps": [
         "Conjugate along F≃BA.",
@@ -3648,7 +3690,8 @@
         "Recover modifications by evaluation at the trivial torsor and descent, giving full faithfulness.",
         "Use banded-hom/groupoid on the actual native fixed-band full subcategory. Its arrows retain all compatible modifications and their genuine component inverses. Constructing the torsor comparison functor, its full faithfulness and its coherent inverse remains a separate obligation; invertibility of modifications does not prove that comparison.",
         "Use the native pointwise action functor, actual modification evaluation, and choice-independent natural local-object transport; still prove restriction coherence and the full torsor-sheaf comparison before this target is discharged.",
-        "Use the native restriction natural transformation, its unit/composition endpoint comparisons and the natural local-object restriction square. These diagrams supply restriction compatibility; still assemble the sheaf-level functor and its required descent and equivalence data."
+        "Use the native restriction natural transformation, its unit/composition endpoint comparisons and the natural local-object restriction square. These diagrams supply restriction compatibility; still assemble the sheaf-level functor and its required descent and equivalence data.",
+        "Use the existing Mathlib slice Hom sheaf for the local chosen objects, the actual sheaf functor on modifications, its locally simply transitive band action and restriction comparison. Package these in the supplied torsor groupoid and glue via the earlier choice-independent local-object maps; full faithfulness and coherent inverse/unit/counit remain required."
       ],
       "acceptance": [
         "For A=Z/3Z over an algebraically closed point, the self-equivalence groupoid has one isomorphism class and three automorphisms of its identity object.",
@@ -5261,12 +5304,18 @@
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-isom-transport",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.1",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-functor",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/local-sections",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-action-free-transitive",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-action-restriction",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/transport-iso-equiv-modification"
       ],
       "proofSteps": [
         "Choose local objects using local nonemptiness.",
         "Transport on overlaps is independent of object isomorphism and satisfies the cocycle.",
-        "Descend the torsors and their actions; descend modifications through their component maps."
+        "Descend the torsors and their actions; descend modifications through their component maps.",
+        "Use the existing Mathlib slice Hom sheaf for the local chosen objects, the actual sheaf functor on modifications, its locally simply transitive band action and restriction comparison. Package these in the supplied torsor groupoid and glue via the earlier choice-independent local-object maps; full faithfulness and coherent inverse/unit/counit remain required."
       ],
       "acceptance": [
         "The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses."
@@ -29610,6 +29659,1659 @@
           "statement": "The complete natural-transformation square for changing a local object commutes after action restriction."
         }
       ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/fibre-hom-sheaf",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The native slice Hom sheaf",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheaf",
+      "statement": "For x∈F(U), y∈G(U) and a fixed-band strong morphism X:F→G, set H_X=G.sheafHom(J,y,X_U(x)) on (Over U,J.over U). Its value at t:T→U is Hom(G(t)y,G(t)(X_U(x))). Its restriction is the existing pullHom map, including both mapComp' comparisons. Every arrow is invertible because G is a gerbe; no section is selected.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-category",
+        "mathlib:CategoryTheory.Pseudofunctor.sheafHom",
+        "mathlib:CategoryTheory.Pseudofunctor.presheafHom"
+      ],
+      "proofSteps": [
+        "Use the existing sheafHom construction with the gerbe's IsPrestack instance inherited through IsStack.",
+        "Retain the native Over-site carrier and all of its restriction comparisons."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheaf_locallyNonempty",
+          "role": "compatibility",
+          "statement": "For every t:T→U there is a sieve R∈J(T) such that for every g:V→T in R the actual set H_X(g followed by t) is nonempty. This asserts local sections and does not assert a global section of H_X."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheaf_obj",
+          "role": "compatibility",
+          "statement": "The underlying presheaf of H_X is exactly G.presheafHom(y,X_U(x))."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheaf_isSheaf",
+          "role": "compatibility",
+          "statement": "H_X satisfies the actual Presheaf.IsSheaf condition for J.over U."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.SheafAssemblyTests.actual_hom_sheaf",
+          "kind": "computation",
+          "statement": "The underlying presheaf is exactly the existing G.presheafHom, rather than a wrapper assumed to satisfy descent."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.SheafAssemblyTests.local_sections",
+          "kind": "compatibility",
+          "statement": "Over every actual slice object there is a covering sieve with a section over each composite restriction."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.SheafAssemblyTests.actual_sheaf_property",
+          "kind": "compatibility",
+          "statement": "The constructed native carrier satisfies the actual Presheaf.IsSheaf condition on the Over topology."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-iso-equiv",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Hom sections as actual isomorphisms",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSectionIsoEquiv",
+      "statement": "For t:T→U, H_X(t) is equivalent to Isom(G(t)y,G(t)(X_U(x))). Send each arrow p to asIso(p), using gerbe invertibility, and send an isomorphism to its hom. Both functions are mutual inverses, even when the types are empty.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/fibre-hom-sheaf",
+        "AlgebraicModuliForArithmeticGeometry:key/gerbes",
+        "mathlib:CategoryTheory.asIso"
+      ],
+      "proofSteps": [
+        "Install the supplied gerbe invertibility instance for each p, then use asIso.",
+        "The arrow round trip is definitional and the isomorphism round trip follows from Iso.ext."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSectionIsoEquiv_hom",
+          "role": "compatibility",
+          "statement": "The hom of sectionIsoEquiv(p) is exactly p."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSectionIsoEquiv_symm_apply",
+          "role": "compatibility",
+          "statement": "The inverse section/isomorphism conversion sends q to its actual hom arrow."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSectionIsoEquiv_apply_symm_apply",
+          "role": "compatibility",
+          "statement": "Converting q.hom back to an isomorphism recovers q."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.SheafAssemblyTests.iso_roundtrip",
+          "kind": "computation",
+          "statement": "Sending an actual Hom section to its isomorphism and back recovers the section."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.SheafAssemblyTests.iso_inverse_roundtrip",
+          "kind": "computation",
+          "statement": "The reverse Hom/isomorphism conversion recovers every actual isomorphism."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.SheafAssemblyTests.iso_actual_arrow",
+          "kind": "computation",
+          "statement": "The isomorphism conversion retains exactly the original section arrow."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-map",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Modification maps on the sheaf",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafMap",
+      "statement": "For an actual native modification m:X⇒Y, define H(m):H_X→H_Y by p↦p followed by G(t)(m_U(x)) at t:T→U. This is a morphism of the existing sheaves, with a naturality square for every actual Over-arrow.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/fibre-hom-sheaf",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/component-iso",
+        "mathlib:CategoryTheory.Pseudofunctor.mapComp'_inv_naturality"
+      ],
+      "proofSteps": [
+        "Postcompose by the pulled-back component of the actual modification.",
+        "Expand native pullHom and distribute G(g) over composition; inverse mapComp' naturality identifies the two restrictions."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafMap_apply",
+          "role": "compatibility",
+          "statement": "H(m)_t(p)=p followed by G(t)(m_U(x)), with p on the original Hom carrier."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafMap_equivariant",
+          "role": "compatibility",
+          "statement": "For every t, a and p, H(m)_t(a acting on p)=a acting on H(m)_t(p). The same actual coefficient a is used at the two target objects."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafMap_id",
+          "role": "compatibility",
+          "statement": "H(identity X) is the identity sheaf arrow of H_X."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.SheafAssemblyTests.actual_modification",
+          "kind": "computation",
+          "statement": "The sheaf map postcomposes p with the pulled-back actual component m_U(x)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.SheafAssemblyTests.modification_restriction",
+          "kind": "compatibility",
+          "statement": "The map on an actual modification commutes with every Over-site restriction as an equality of native Type arrows."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.SheafAssemblyTests.identity_section_map",
+          "kind": "degenerate",
+          "statement": "The identity modification map fixes every section over every slice object."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-map-apply",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Evaluating the modification map",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafMap_apply",
+      "statement": "H(m)_t(p)=p followed by G(t)(m_U(x)), with p on the original Hom carrier.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-map"
+      ],
+      "proofSteps": [
+        "Evaluate the constructed natural transformation component."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-functor",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The functor to slice sheaves",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafFunctor",
+      "statement": "X↦H_X and m↦H(m) form an actual functor from the native fixed-band HomCategory(bF,bG) to Sheaf(J.over U,Type v'). The identity and composite modifications map to the identity and composite sheaf arrows.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/fibre-hom-sheaf",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-map"
+      ],
+      "proofSteps": [
+        "Use the native sheaf and modification map as the functor data.",
+        "Check identities componentwise by fibre functor map_id and composites by map_comp and associativity."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafFunctor_obj",
+          "role": "compatibility",
+          "statement": "The image of X under fibreHomSheafFunctor is exactly G.sheafHom(J,y,X_U(x))."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafFunctor_map",
+          "role": "compatibility",
+          "statement": "The image of m is exactly the constructed sheaf map H(m)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafFunctor_map_comp",
+          "role": "compatibility",
+          "statement": "The image of m followed by n is H(m) followed by H(n), in native Sheaf arrows."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.SheafAssemblyTests.identity_functor",
+          "kind": "compatibility",
+          "statement": "The identity modification gives the identity of the actual sheaf."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.SheafAssemblyTests.composed_modifications",
+          "kind": "compatibility",
+          "statement": "Two native modifications give the composite of their two sheaf maps."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.SheafAssemblyTests.functor_carrier",
+          "kind": "computation",
+          "statement": "The functor object is the precise existing Hom sheaf."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-iso-equiv-hom",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The isomorphism retains the section arrow",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSectionIsoEquiv_hom",
+      "statement": "The hom of sectionIsoEquiv(p) is exactly p.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-iso-equiv"
+      ],
+      "proofSteps": [
+        "Evaluate the asIso hom field."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-functor-obj",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The functor object is the existing Hom sheaf",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafFunctor_obj",
+      "statement": "The image of X under fibreHomSheafFunctor is exactly G.sheafHom(J,y,X_U(x)).",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-functor"
+      ],
+      "proofSteps": [
+        "Unfold the object field."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-functor-map",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The functor map is postcomposition",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafFunctor_map",
+      "statement": "The image of m is exactly the constructed sheaf map H(m).",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-functor"
+      ],
+      "proofSteps": [
+        "Unfold the map field."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-map-iso",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Invertible maps induced by modifications",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafMapIso",
+      "statement": "Every actual modification m yields a native isomorphism H_X≅H_Y by applying the sheaf functor to homIso(m). Its inverse uses the actual inverse modification, retaining both component and sheaf naturality.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-functor",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-iso",
+        "mathlib:CategoryTheory.Functor.mapIso"
+      ],
+      "proofSteps": [
+        "Apply the constructed functor to the existing native modification isomorphism.",
+        "Its inverse laws follow from mapIso; no abstract existence witness replaces the maps."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafMapIso_hom",
+          "role": "compatibility",
+          "statement": "The hom of fibreHomSheafMapIso(m) is H(m)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafMapIso_inv",
+          "role": "compatibility",
+          "statement": "The inverse of fibreHomSheafMapIso(m) is H(homIso(m).inv), an actual sheaf map."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafMapIso_hom_inv_id",
+          "role": "compatibility",
+          "statement": "The forward sheaf isomorphism of m followed by its inverse is the identity."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.SheafAssemblyTests.inverse_modification",
+          "kind": "compatibility",
+          "statement": "The inverse sheaf map is obtained from the native inverse modification."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.SheafAssemblyTests.inverse_modification_roundtrip",
+          "kind": "compatibility",
+          "statement": "The actual forward and inverse modification sheaf maps compose to the identity."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.SheafAssemblyTests.forward_modification",
+          "kind": "compatibility",
+          "statement": "The isomorphism forward arrow is the actual modification sheaf map."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-map-iso-hom",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The forward isomorphism map",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafMapIso_hom",
+      "statement": "The hom of fibreHomSheafMapIso(m) is H(m).",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-map-iso"
+      ],
+      "proofSteps": [
+        "Evaluate mapIso and the native homIso hom field."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-map-iso-inv",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The inverse isomorphism map",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafMapIso_inv",
+      "statement": "The inverse of fibreHomSheafMapIso(m) is H(homIso(m).inv), an actual sheaf map.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-map-iso"
+      ],
+      "proofSteps": [
+        "Evaluate mapIso's inverse field."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/local-sections",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Local sections on every slice object",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheaf_locallyNonempty",
+      "statement": "For every t:T→U there is a sieve R∈J(T) such that for every g:V→T in R the actual set H_X(g followed by t) is nonempty. This asserts local sections and does not assert a global section of H_X.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/fibre-hom-sheaf",
+        "AlgebraicModuliForArithmeticGeometry:key/gerbes",
+        "mathlib:CategoryTheory.Cat.Hom.toNatIso"
+      ],
+      "proofSteps": [
+        "Apply gerbe local isomorphy to G(t)y and G(t)(X_U(x)) in G(T).",
+        "Transport each resulting local isomorphism between the twice-pulled objects to a Hom section at g followed by t using the hom and inverse of G.mapComp(t,g)."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-action",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Band action on Hom sections",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSectionAction",
+      "statement": "At t:T→U construct a native Action(Type v',Multiplicative A(T)) on H_X(t). The element a acts by p↦p followed by the hom of bG.autEquiv(T,G(t)(X_U(x)))(a). The coefficient universe w is independent of the fibre-hom universe v'. No nonempty-section instance is required.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/fibre-hom-sheaf",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding",
+        "mathlib:Action"
+      ],
+      "proofSteps": [
+        "Use postcomposition by the actual band automorphism.",
+        "The multiplicative equivalence gives the identity and product laws; respect native Aut multiplication and category composition order."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSectionAction_apply",
+          "role": "compatibility",
+          "statement": "The native section action sends (a,p) to p followed by bG(a).hom at the pulled-back target object."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSectionAction_freeTransitive",
+          "role": "compatibility",
+          "statement": "For any p,q∈H_X(t) there exists exactly one a∈Multiplicative A(T) with a acting on p equal to q. The assertion is conditional on the two given sections and allows H_X(t) itself to be empty."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSectionAction_restriction",
+          "role": "compatibility",
+          "statement": "For an Over-arrow f:t1→t2 with underlying g:T1→T2, restricting a acting on p∈H_X(t2) equals A(g)(a) acting on the restricted p∈H_X(t1). The restrictions are the native pullHom functions, including both flexible composition comparisons."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.SheafAssemblyTests.empty_sections_allowed",
+          "kind": "non-example",
+          "statement": "A conditionally empty Hom section carrier still has the constructed band action, with no nonemptiness hypothesis."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.SheafAssemblyTests.unique_band_difference",
+          "kind": "compatibility",
+          "statement": "Any two actual sections have a unique band coefficient relating them."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.SheafAssemblyTests.semilinear_restriction",
+          "kind": "compatibility",
+          "statement": "The actual pullHom restriction transports the coefficient along A(g); both endpoint composition comparisons remain."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.SheafAssemblyTests.modification_equivariance",
+          "kind": "compatibility",
+          "statement": "The actual modification section map respects the band action at both target objects."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-action-apply",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Evaluating the band action",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSectionAction_apply",
+      "statement": "The native section action sends (a,p) to p followed by bG(a).hom at the pulled-back target object.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-action"
+      ],
+      "proofSteps": [
+        "Evaluate the underlying TypeCat arrow of the action."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-action-free-transitive",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The unique band difference of two sections",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSectionAction_freeTransitive",
+      "statement": "For any p,q∈H_X(t) there exists exactly one a∈Multiplicative A(T) with a acting on p equal to q. The assertion is conditional on the two given sections and allows H_X(t) itself to be empty.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-action",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-iso-equiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding"
+      ],
+      "proofSteps": [
+        "Form the actual target automorphism asIso(p) inverse followed by asIso(q), then invert the band multiplicative equivalence.",
+        "Its hom equation gives the required section; cancel the invertible p and apply band injectivity to prove uniqueness."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-map-equivariant",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Modification maps respect the band action",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafMap_equivariant",
+      "statement": "For every t, a and p, H(m)_t(a acting on p)=a acting on H(m)_t(p). The same actual coefficient a is used at the two target objects.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-map",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-action",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/fibre-action",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/component-iso"
+      ],
+      "proofSteps": [
+        "Apply band_commute to G(t).mapIso(componentIso(m,U,x)).",
+        "Take homs and prepend p; associativity yields the equality of actual Hom sections."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-action-restriction",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The section action is semilinear under restriction",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSectionAction_restriction",
+      "statement": "For an Over-arrow f:t1→t2 with underlying g:T1→T2, restricting a acting on p∈H_X(t2) equals A(g)(a) acting on the restricted p∈H_X(t1). The restrictions are the native pullHom functions, including both flexible composition comparisons.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-action",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/fibre-hom-sheaf",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/fibre-action",
+        "mathlib:CategoryTheory.Pseudofunctor.mapComp'"
+      ],
+      "proofSteps": [
+        "Expand the existing pullHom formula and distribute G(g) over the action composite.",
+        "Use band pullback for G(g)(bG(a)); commute the resulting band automorphism across the inverse target mapComp' component by band conjugation.",
+        "The Over triangle identifies the composite arrow, with its proof retained in mapComp'."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/transport-iso-equiv",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Comparison with the transported Isom sections",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomTransportIsoEquiv",
+      "statement": "At t:T→U, H_X(t) is equivalent to Isom(G(t)y,X_T(F(t)x)). Send p to asIso(p) followed by restrictionIso(X,t,x); the inverse sends q to the hom of q followed by the inverse restriction comparison. Thus the native Hom sheaf retains the preceding transported fibre-Isom carrier.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-iso-equiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso"
+      ],
+      "proofSteps": [
+        "Compose the Hom-to-Iso conversion with the actual inverse strong-transformation naturality component.",
+        "Cancel that component with its inverse to prove both equivalence laws."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomTransportIsoEquiv_apply",
+          "role": "compatibility",
+          "statement": "The transport equivalence sends p to sectionIsoEquiv(p) followed by restrictionIso(X,t,x)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomTransportIsoEquiv_modification",
+          "role": "compatibility",
+          "statement": "Converting H(m)_t(p) to the transported Y Isom equals the transported X Isom of p followed by componentIso(m,T,F(t)x). This identifies the sheaf functor maps with the preceding native fibre-Isom modification maps."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomTransportIsoEquiv_symm_apply",
+          "role": "compatibility",
+          "statement": "The inverse transported comparison sends q to the hom of q followed by the inverse strong restriction comparison."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.SheafAssemblyTests.transport_roundtrip",
+          "kind": "computation",
+          "statement": "The transported Hom/Isom comparison and its stated inverse recover a section."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.SheafAssemblyTests.transport_modification",
+          "kind": "compatibility",
+          "statement": "The transported sheaf modification map agrees with the native modification component at the restricted source object."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.SheafAssemblyTests.inverse_transport_formula",
+          "kind": "computation",
+          "statement": "The inverse transported comparison is postcomposition by the inverse strong restriction comparison, followed by hom."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/transport-iso-equiv-apply",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The transported section formula",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomTransportIsoEquiv_apply",
+      "statement": "The transport equivalence sends p to sectionIsoEquiv(p) followed by restrictionIso(X,t,x).",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/transport-iso-equiv"
+      ],
+      "proofSteps": [
+        "Evaluate the equivalence forward function."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/transport-iso-equiv-modification",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The transported section modification square",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomTransportIsoEquiv_modification",
+      "statement": "Converting H(m)_t(p) to the transported Y Isom equals the transported X Isom of p followed by componentIso(m,T,F(t)x). This identifies the sheaf functor maps with the preceding native fibre-Isom modification maps.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/transport-iso-equiv",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-map",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso-modification"
+      ],
+      "proofSteps": [
+        "Apply restrictionIso_modification to t,x and the actual modification m.",
+        "Take homs, prepend p and use Iso.ext to obtain the claimed equality of actual isomorphisms."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-obj",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The underlying native presheaf",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheaf_obj",
+      "statement": "The underlying presheaf of H_X is exactly G.presheafHom(y,X_U(x)).",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/fibre-hom-sheaf"
+      ],
+      "proofSteps": [
+        "Evaluate the native sheaf object field."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-is-sheaf",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The actual Hom sheaf property",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheaf_isSheaf",
+      "statement": "H_X satisfies the actual Presheaf.IsSheaf condition for J.over U.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/fibre-hom-sheaf"
+      ],
+      "proofSteps": [
+        "Use the sheafHom property already provided by native IsPrestack."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-iso-inverse",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The inverse isomorphism conversion",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSectionIsoEquiv_symm_apply",
+      "statement": "The inverse section/isomorphism conversion sends q to its actual hom arrow.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-iso-equiv"
+      ],
+      "proofSteps": [
+        "Evaluate the inverse function."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-iso-inverse-law",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The inverse conversion law",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSectionIsoEquiv_apply_symm_apply",
+      "statement": "Converting q.hom back to an isomorphism recovers q.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-iso-equiv"
+      ],
+      "proofSteps": [
+        "Use the constructed equivalence right inverse."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-map-id",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Identity modification sheaf map",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafMap_id",
+      "statement": "H(identity X) is the identity sheaf arrow of H_X.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-functor"
+      ],
+      "proofSteps": [
+        "Use the actual functor map_id law."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-functor-map-comp",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Composition in the sheaf functor",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafFunctor_map_comp",
+      "statement": "The image of m followed by n is H(m) followed by H(n), in native Sheaf arrows.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-functor"
+      ],
+      "proofSteps": [
+        "Use the actual functor map_comp law."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-map-iso-roundtrip",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Inverse modification sheaf round trip",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafMapIso_hom_inv_id",
+      "statement": "The forward sheaf isomorphism of m followed by its inverse is the identity.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-map-iso"
+      ],
+      "proofSteps": [
+        "Use the native isomorphism hom_inv_id law."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/transport-iso-inverse",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The inverse transported section formula",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomTransportIsoEquiv_symm_apply",
+      "statement": "The inverse transported comparison sends q to the hom of q followed by the inverse strong restriction comparison.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.",
+        "Fix an abelian coefficient sheaf A in independent universe w and actual bandings bF,bG. X,Y are actual objects of HomCategory(bF,bG) and m is a native modification.",
+        "Fix U, x∈F(U), y∈G(U) and, for sections, t:T→U. For a self-equivalence and a neutral object take F=G,bF=bG and y=x. No global gerbe object is assumed outside this fixed local construction."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/transport-iso-equiv"
+      ],
+      "proofSteps": [
+        "Evaluate the inverse equivalence function."
+      ],
+      "acceptance": [
+        "Use the existing sheafHom, Over and native modification carriers with actual maps and coefficient restrictions.",
+        "This supplies the local sheaf and functor data. Package it into D0's actual torsor groupoid, glue choice-independent local objects, and establish the comparison equivalence and inverse/unit/counit before claiming that larger target."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Provides actual local sheaves, maps on modifications, and compatible locally simply transitive coefficient actions for the next gluing step."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "For a neutral object x use y=x; retain actual arrows and modifications before proving equivalence with the torsor groupoid."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-slice-sheaf-codex-J6LwjP",
+          "locator": "Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native deductions using pinned Mathlib Hom sheaves.",
+          "excerpt": "gerbe",
+          "match": "Source context motivates the torsor construction; the exact slice-site carriers, maps and equations are authored deductions, not quotations or a complete classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -29831,7 +31533,8 @@
         "Fixed-band natural-isomorphism/modification invariance, native chosen fibre-inverse coefficients, and unit/counit fibre transport now have eight precise leaves and admission-free prototypes with independent coefficient universe. The generic coherent inverse StrongTrans and unit/counit/triangle assembly is explicitly requested from D0; the earlier Hom-sheaf/object-descent universe normalization and all other remaining obligations are unchanged.",
         "Use the native fixed-band morphism groupoid in the torsor comparison and construct its actual functors/coherent unit and counit. This checkpoint supplies modification inverses, not the coherent inverse StrongTrans requested from D0 or the general self-equivalence classification.",
         "Native pointwise Isom action functors and choice-independent natural local-object transports now have separate leaves. Prove compatibility with arbitrary site restrictions, construct the torsor-sheaf functor on actual modifications, and prove its full faithfulness and coherent inverse/unit/counit. Pointwise action carriers may be empty, and no sheaf torsor or global neutralization follows from this checkpoint alone. All previous gaps and22 supplier requests remain.",
-        "Native Action.res restriction maps, actual modification naturality, unit/composition formulas with both endpoint comparisons, and natural local-object restriction squares now have precise leaves and an independently checked proof prototype with independent coefficient universe. Assemble the actual torsor sheaf and its functor on modifications using the SF1 descent input, then prove full faithfulness and the coherent inverse/unit/counit using D0. The14 new tests are parameterized actual-carrier checks, not fresh geometric or nonconstant-site instances; instantiate those restrictions in the existing nonconstant fixtures as further validation. The SF1 descended band, nonneutral O(1) root gerbe, derived H2, compatible fpqc limits and all inherited stage/source obligations and22 requests remain required."
+        "Native Action.res restriction maps, actual modification naturality, unit/composition formulas with both endpoint comparisons, and natural local-object restriction squares now have precise leaves and an independently checked proof prototype with independent coefficient universe. Assemble the actual torsor sheaf and its functor on modifications using the SF1 descent input, then prove full faithfulness and the coherent inverse/unit/counit using D0. The14 new tests are parameterized actual-carrier checks, not fresh geometric or nonconstant-site instances; instantiate those restrictions in the existing nonconstant fixtures as further validation. The SF1 descended band, nonneutral O(1) root gerbe, derived H2, compatible fpqc limits and all inherited stage/source obligations and22 requests remain required.",
+        "The local Isom sheaf is now constructed using the existing Mathlib sheafHom carrier, with the actual functor on modifications, inverse sheaf maps, covering-sieve local sections, a locally simply transitive band action, semilinear restriction and comparison to the earlier transported Isom sections. No new general sheaf descent theorem is required for this local construction. Package the data into D0's actual torsor groupoid and glue the choice-independent local objects for a nonneutral gerbe; then prove full faithfulness and the coherent inverse/unit/counit. Instantiate the22 parameterized checks on the existing nonconstant fixtures as further validation. Every inherited gap,22requests,8sourceIssues, SF1 descended-band comparison, nonneutral O(1) root example, derived H2, compatible fpqc limits and other stage obligations remains open."
       ]
     },
     {
@@ -32020,6 +33723,52 @@
       "Fresh exact pinned Action.res fields, StrongTrans naturality_id_inv/naturality_comp_inv, modification naturality, Cat.Hom.toNatIso, Iso.app, Functor.mapIso_trans/refl/symm and Functor.whiskerRight. All new formulas and proofs are authored deductions on the incoming native carriers.",
       "Fresh issue and bot-confirmed reread, all12 reviewed own audit rows and REV-AUDIT01, campaign reader, accepted RS27 own keeps/28owners/relevant links and complete REV-FIX-RT-RS-27, all34 touching link entries, reserved gerbe node and survey/API, nine prescribed red-team claim/fix records. Previously complete upstream AlgebraicCurves/JacobianChallenge reading is hash-guarded unchanged; fresh ModularCurves1E/4A supplier paragraphs only. This does not assert a fresh full audit of464 incoming declarations or all papers.",
       "Bounded open Mathlib PR searches gerbe and StrongTrans returned zero. Indexed Zulip Formalizing stacks discussion about native fibres and coherent pullbacks was read. Bounded pinned TauCeti source and Mathlib CategoryTheory searches gerbe|fibreIsomRestriction|selfTransportActionIso returned zero matches. No exhaustive library-absence assertion or unpinned code adoption."
+    ]
+  },
+  "sheafAssemblyContinuation": {
+    "worker": "Codex — codex-J6LwjP",
+    "date": "2026-10-03",
+    "issue": 672,
+    "base": "bfaee0037f9da3fb3e72daae67bc80620d1dce22",
+    "newNodes": [
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/fibre-hom-sheaf",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-iso-equiv",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-map",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-map-apply",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-functor",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-iso-equiv-hom",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-functor-obj",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-functor-map",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-map-iso",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-map-iso-hom",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-map-iso-inv",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/local-sections",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-action",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-action-apply",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-action-free-transitive",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-map-equivariant",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-action-restriction",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/transport-iso-equiv",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/transport-iso-equiv-apply",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/transport-iso-equiv-modification",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-obj",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-is-sheaf",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-iso-inverse",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-iso-inverse-law",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-map-id",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-functor-map-comp",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-map-iso-roundtrip",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/transport-iso-inverse"
+    ],
+    "newAPI": 21,
+    "newTests": 22,
+    "frontier": "The local Isom sheaf is now constructed using the existing Mathlib sheafHom carrier, with the actual functor on modifications, inverse sheaf maps, covering-sieve local sections, a locally simply transitive band action, semilinear restriction and comparison to the earlier transported Isom sections. No new general sheaf descent theorem is required for this local construction. Package the data into D0's actual torsor groupoid and glue the choice-independent local objects for a nonneutral gerbe; then prove full faithfulness and the coherent inverse/unit/counit. Instantiate the22 parameterized checks on the existing nonconstant fixtures as further validation. Every inherited gap,22requests,8sourceIssues, SF1 descended-band comparison, nonneutral O(1) root example, derived H2, compatible fpqc limits and other stage obligations remains open.",
+    "readingScope": [
+      "Fresh complete mathematical text of Olsson printed122–123 through Remark31.5, including the full31.3/31.4 proofs and visible incompleteness warning31.6; GWZ20 Definition2.6 and §2.2.1 printed514–515 through the groupoid-of-automorphisms/torsors discussion. Read through the public PDF text tool; no rendered page inspection or successful new local GWZ download is claimed.",
+      "Fresh pinned Mathlib IsStack extends IsPrestack; entire presheafHom/pullHom/sheafHom and overMapCompPresheafHomIso definitions and their restriction-coherence proofs; mapComp' and its hom/inv naturality. Positive prior art: use existing Hom sheaf descent, not a new generic descent carrier or an SF1 assumption of the desired conclusion.",
+      "Fresh bot-confirmed whole issue reread, all12 own reviewed audit rows, REV-AUDIT01, reserved gerbe node and survey/API, prescribed nine red-team claims/verdicts, RS27 owned decisions,28owners and26touching links, complete accepted repair review and all34 own link records. The earlier session's full AlgebraicCurves/JacobianChallenge readings are retained with unchanged source guards; this is not a fresh complete audit of all482 incoming declarations or routed sources.",
+      "Recovered public PR6002 full head and archive:38 authenticated artifacts and4 deliverables. Executed its actual immutable verifier; output equals its published publication-base receipt. Fresh native incoming definitions and restriction/action/local-object transport proof blocks were read; earlier historical proof batches were authenticated, not freshly re-proved individually.",
+      "All28 new formulas/proofs are authored deductions. The22 tests are parameterized native-carrier checks, not instantiated new geometric/nonconstant-site fixtures. No general library absence claim, classification proof or implementation claim."
     ]
   }
 }
