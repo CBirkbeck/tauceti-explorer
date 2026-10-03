@@ -69,7 +69,8 @@ for directory,ext in [('packets','json'),('readmes','md'),('suggested','lean'),(
  name=('BP-' if directory=='handoff' else '')+STEM+'.'+ext
  (S/('incoming-'+directory+'.'+ext)).write_bytes(fetch(ROOT+BASE+'/research/blueprint/'+directory+'/'+name))
 handoff=fetch(ROOT+HEAD+'/research/blueprint/handoff/BP-'+STEM+'.md').decode()
-blocks=re.findall(r'```python\n(.*?)```',handoff,re.S)
+fence=chr(96)*3
+blocks=re.findall(fence+'python'+chr(10)+'(.*?)'+fence,handoff,re.S)
 assert len(blocks)>=4
 for f,t in zip(['recover.py','verify.py','immutable_view.py','graph.py'],blocks[:4]):(S/f).write_text(t)
 (S/'publication-base.txt').write_text(PUBLICATION_BASE+'\n')
