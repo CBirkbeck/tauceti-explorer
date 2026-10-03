@@ -1,3 +1,238 @@
+# Affine integral closure in the actual curve function field
+
+For an arbitrary field k and a,b∈k, let q=t²+at+b and retain the specified two-chart schemes C=C(a,b), N=N(a,b) and their finite surjective morphism ν:N→C. The generic stalks K_C and K_N are the native function fields, and σ:K_C≅K_N is the specified stalk-map isomorphism induced by the common infinity chart. No perfectness, separability, characteristic or nonzero-discriminant condition is imposed. In particular, the same affine statements include the cusp q=t², the nonsplit quadratic over F₂ and inseparable quadratics over imperfect fields.
+
+For every nonempty affine open U⊂C, put A_U=Γ(C,U) and B_U=Γ(N,ν⁻¹U). These are the actual structure-sheaf section rings. Finiteness makes ν⁻¹U affine; surjectivity makes it nonempty. The A_U-action on B_U is the actual section map ν.app(U). The map c_U:A_U→K_N is ν.app(U) followed by the source generic germ, equivalently the curve generic germ followed by σ. Both identifications are part of the interface, so independently chosen field isomorphisms cannot replace σ.
+
+The normality of every source stalk implies that B_U is integrally closed: use the actual open immersion Spec B_U→N, its stalk isomorphisms, the native prime-localization comparison and the local criterion for integral closedness. The native generic-stalk theorem makes K_N the fraction field of B_U. Finiteness of ν makes B_U integral over A_U. These inputs give the actual integral-closure property in K_N and the specified A_U-algebra equivalence e_U:B_U≃integralClosure(A_U,K_N).
+
+The field isomorphism σ respects the A_U-actions and therefore transports the closure to the actual curve field. The composite E_U:B_U≃integralClosure(A_U,K_C) has ambient value σ⁻¹(germ_N(s)). It fixes base coefficients. If V⊂U are nonempty affine opens, restricting a source section does not change this ambient K_C-value. Conversely, two integral elements in the two closures with the same ambient value have inverse images agreeing under the actual restriction map. These are the forward and inverse compatibility laws required to assemble the affine comparisons.
+
+The generic-field construction has an explicit nonempty-open hypothesis. The empty-open branch belongs to the comparison with the library's normalization diagram. To identify the existing integral scheme map δ as an isomorphism, compare E_U with the native normalizationDiagram and normalizationObjIso, handle that branch and identify the assembled map with δ through its two triangles. The P¹/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1 and independent I₂ construction remain targets. The Ferrand key keeps its general scheme/algebraic-space scope; these quadratic affine adapters do not replace its existence and descent statements.
+
+The declarations below belong to G.1. They import native local integral-closure, affine-scheme, section, germ and field APIs. General scheme, space, descent and cohomology theory remains with the existing SF.0/SF.1/SF.3 suppliers; the source-specific chart and field comparisons are the content here. The primary motivation is Schröer, §3's one-component conductor square, while these exact generic-stalk statements follow from the specified chart data and the pinned library declarations.
+
+## Normal sections on source affine opens
+
+`QuadraticPinch.Global.source_affine_sections_integrallyClosed` — For every nonempty affine open V of the actual source N(a,b), its section ring Γ(N,V) is integrally closed.
+
+Construction or proof: Use integrality of N to make Γ(N,V) a domain. For each maximal ideal P take its actual point of Spec Γ(N,V). The fromSpec open immersion identifies its stalk with the corresponding normal source stalk. Spec.stalkIso identifies that stalk with the localization at P. Apply the native maximal-localization criterion.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-source-stalks`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-source-integral`, `mathlib:IsIntegrallyClosed.of_localization_maximal`, `mathlib:AlgebraicGeometry.IsAffineOpen.fromSpec`, `mathlib:AlgebraicGeometry.Spec.stalkIso`, `mathlib:IsIntegrallyClosed.of_equiv`.
+
+## Normal sections over an affine target open
+
+`QuadraticPinch.Global.normalization_preimage_sections_integrallyClosed` — For every nonempty affine U⊂C, the actual section ring B_U=Γ(N,ν⁻¹U) is integrally closed.
+
+Construction or proof: Surjectivity supplies nonempty ν⁻¹U. Finiteness supplies its affineness. Apply normality of source affine sections.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/source-affine-sections-normal`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-preimage-nonempty`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-is-finite`, `mathlib:AlgebraicGeometry.IsAffineOpen.preimage`.
+
+## Coefficient map into the source function field
+
+`QuadraticPinch.Global.normalizationSectionsToField` — For any nonempty open U⊂C, define c_U:A_U=Γ(C,U)→K_N by the actual map ν.app(U) followed by the generic germ on ν⁻¹U. The preimage is nonempty by the existing surjectivity theorem.
+
+Construction or proof: Compose the two existing section and generic-germ maps, with the actual preimage open and its nonemptiness witness.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-preimage-nonempty`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization`, `mathlib:AlgebraicGeometry.Scheme.germToFunctionField`.
+
+API:
+
+- `QuadraticPinch.Global.normalizationSectionsToField_germ`: For every nonempty U, c_U equals the generic germ A_U→K_C followed by the specified native function-field isomorphism σ:K_C→K_N.
+- `QuadraticPinch.Global.normalizationSectionsToField_injective`: For every nonempty U⊂C, the actual coefficient map c_U is injective.
+- `QuadraticPinch.Global.normalizationSectionsToField_restrict`: For nonempty V⊂U⊂C, restriction A_U→A_V followed by c_V equals c_U as ring homomorphisms.
+
+Acceptance examples:
+
+- `QuadraticPinch.Global.test_sectionsToField_cusp` (degenerate): For a=b=0 over any field, c_U(r) equals σ of the actual curve generic germ of r on every nonempty U.
+- `QuadraticPinch.Global.test_sectionsToField_char2_nonzero` (computation): For k=F₂ and a=b=1, every nonzero section on a nonempty open has nonzero image under c_U.
+- `QuadraticPinch.Global.test_sectionsToField_restrict` (compatibility): For every inclusion of nonempty opens V⊂U, the two evaluated coefficient maps agree after actual presheaf restriction.
+
+## Compatibility with the curve generic germ
+
+`QuadraticPinch.Global.normalizationSectionsToField_germ` — For every nonempty U, c_U equals the generic germ A_U→K_C followed by the specified native function-field isomorphism σ:K_C→K_N.
+
+Construction or proof: Use the incoming germ compatibility for the actual stalk map σ.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/sections-generic-coefficient-map`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-map-germ`.
+
+## Faithfulness of the coefficient embedding
+
+`QuadraticPinch.Global.normalizationSectionsToField_injective` — For every nonempty U⊂C, the actual coefficient map c_U is injective.
+
+Construction or proof: The curve generic germ is injective; the field homomorphism σ is injective. Compose these maps.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/sections-generic-coefficient-germ`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normal-curve-integral`, `mathlib:AlgebraicGeometry.Scheme.germToFunctionField_injective`.
+
+## Coefficient restriction in the common generic field
+
+`QuadraticPinch.Global.normalizationSectionsToField_restrict` — For nonempty V⊂U⊂C, restriction A_U→A_V followed by c_V equals c_U as ring homomorphisms.
+
+Construction or proof: Replace both coefficient maps by generic germ followed by σ and apply germ restriction naturality.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/sections-generic-coefficient-germ`, `mathlib:TopCat.Presheaf.germ_res`.
+
+## Actual source sections as an integral closure
+
+`QuadraticPinch.Global.normalization_sections_integralClosure` — For every nonempty affine U⊂C, B_U is an IsIntegralClosure of A_U in the actual K_N. Its A_U-algebra is ν.app(U), its map into K_N is the generic germ, and the coefficient map is c_U.
+
+Construction or proof: The defining equality for c_U supplies the scalar tower A_U→B_U→K_N. The finite map makes B_U integral over A_U. The actual affine-open generic-stalk theorem makes K_N a fraction field of B_U. Combine this with normality of B_U using the existing integral-closure instance.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/preimage-affine-sections-normal`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/sections-generic-coefficient-map`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/global-normalization-is-finite`, `mathlib:AlgebraicGeometry.Scheme.Hom.isIntegral_app`, `mathlib:algebraMap_isIntegral_iff`, `mathlib:IsScalarTower.of_algebraMap_eq'`, `mathlib:AlgebraicGeometry.functionField_isFractionRing_of_isAffineOpen`, `mathlib:IsIntegralClosure.of_isIntegrallyClosed`.
+
+## Affine closure equivalence in the source field
+
+`QuadraticPinch.Global.normalizationSectionsClosureEquiv` — For every nonempty affine U⊂C, construct the specified A_U-algebra equivalence e_U:B_U≃integralClosure(A_U,K_N), with the actual coefficient action c_U and generic-germ embedding of B_U.
+
+Construction or proof: Compare B_U and the native integral-closure subalgebra as two integral closures in K_N, using their exact scalar towers.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/preimage-sections-integral-closure`, `mathlib:IsIntegralClosure.equiv`.
+
+API:
+
+- `QuadraticPinch.Global.normalizationSectionsClosureEquiv_val`: The ambient K_N-value of e_U(s) is the actual generic germ of s∈B_U.
+- `QuadraticPinch.Global.normalizationSectionsClosureEquiv_coefficient`: For r∈A_U, e_U(ν.app(U)(r)) is the native coefficient image in integralClosure(A_U,K_N).
+- `QuadraticPinch.Global.normalizationSectionsClosureEquiv_inverse_val`: For z∈integralClosure(A_U,K_N), the actual source generic germ of e_U⁻¹(z) is z itself.
+
+Acceptance examples:
+
+- `QuadraticPinch.Global.test_sourceClosure_cusp_germ` (degenerate): For a=b=0, the ambient value of every e_U(s) equals the native source generic germ of s.
+- `QuadraticPinch.Global.test_sourceClosure_char2_coefficient` (computation): For k=F₂ and a=b=1, every coefficient section maps to the exact native coefficient element of the closure in K_N.
+- `QuadraticPinch.Global.test_sourceClosure_integral_element` (characterisation): Every actual integral element z in K_N is the generic germ of the inverse image e_U⁻¹(z).
+
+## Ambient value of the source closure equivalence
+
+`QuadraticPinch.Global.normalizationSectionsClosureEquiv_val` — The ambient K_N-value of e_U(s) is the actual generic germ of s∈B_U.
+
+Construction or proof: Use the native ambient-value law for the integral-closure equivalence.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/source-sections-closure-equivalence`, `mathlib:IsIntegralClosure.algebraMap_equiv`.
+
+## Function-field isomorphism over an affine coefficient ring
+
+`QuadraticPinch.Global.normalizationFunctionFieldAlgEquiv` — For every nonempty open U⊂C, upgrade the actual σ:K_C≅K_N to an A_U-algebra equivalence: K_C has its native generic-germ action and K_N has c_U. No affineness is required for this upgrade.
+
+Construction or proof: Keep the exact underlying native field isomorphism. Its coefficient equation is the established germ compatibility.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/sections-generic-coefficient-germ`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-iso`.
+
+API:
+
+- `QuadraticPinch.Global.normalizationFunctionFieldAlgEquiv_apply`: The value of the coefficient-algebra equivalence on x∈K_C is exactly σ(x), the already constructed stalk map.
+- `QuadraticPinch.Global.normalizationFunctionFieldAlgEquiv_coefficient`: For r∈A_U, the field algebra equivalence sends the actual curve generic germ of r to c_U(r).
+- `QuadraticPinch.Global.normalizationFunctionFieldAlgEquiv_symm`: The inverse of the coefficient-algebra equivalence is exactly the incoming σ⁻¹ on every x∈K_N.
+
+Acceptance examples:
+
+- `QuadraticPinch.Global.test_fieldAlgebra_cusp_coefficient` (degenerate): For a=b=0, the upgraded field isomorphism sends each native curve coefficient germ to c_U of that coefficient.
+- `QuadraticPinch.Global.test_fieldAlgebra_char2_inverse` (computation): For k=F₂ and a=b=1, the inverse on every source field element is exactly the specified native σ⁻¹.
+- `QuadraticPinch.Global.test_fieldAlgebra_affine_nonexample` (non-example): The actual coefficient-algebra field map is bijective while the actual affine pinch inclusion A_q→k[t] is not surjective, for every a,b and every nonempty U.
+
+## Specified forward field map
+
+`QuadraticPinch.Global.normalizationFunctionFieldAlgEquiv_apply` — The value of the coefficient-algebra equivalence on x∈K_C is exactly σ(x), the already constructed stalk map.
+
+Construction or proof: Unfold only the new algebra-equivalence structure; the underlying field map was retained.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/function-field-coefficient-algebra-equivalence`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-map`.
+
+## Affine closure equivalence in the curve field
+
+`QuadraticPinch.Global.absoluteSectionsClosureEquiv` — For every nonempty affine U⊂C, construct an A_U-algebra equivalence E_U:B_U≃integralClosure(A_U,K_C), where the closure is taken inside the actual stalk-defined curve field with its native generic-germ A_U-action.
+
+Construction or proof: Compose e_U with the native integral-closure equivalence induced by σ⁻¹ over A_U. The resulting map uses the curve field itself, rather than an independently chosen fraction field.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/source-sections-closure-equivalence`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/function-field-coefficient-algebra-equivalence`, `mathlib:AlgEquiv.mapIntegralClosure`.
+
+API:
+
+- `QuadraticPinch.Global.absoluteSectionsClosureEquiv_val`: For s∈B_U, the ambient K_C-value of E_U(s) is σ⁻¹(germ_N(s)).
+- `QuadraticPinch.Global.absoluteSectionsClosureEquiv_coefficient`: For r∈A_U, E_U(ν.app(U)(r)) equals the image of r under the native algebra map A_U→integralClosure(A_U,K_C).
+- `QuadraticPinch.Global.absoluteSectionsClosureEquiv_restrict`: For nonempty affine V⊂U and s∈B_U, the ambient values in K_C of E_V(res(s)) and E_U(s) agree, where res is the actual structure-presheaf restriction Γ(N,ν⁻¹U)→Γ(N,ν⁻¹V).
+- `QuadraticPinch.Global.absoluteSectionsClosureEquiv_inverse_val`: For z∈integralClosure(A_U,K_C), the generic germ of E_U⁻¹(z) equals σ(z).
+- `QuadraticPinch.Global.absoluteSectionsClosureEquiv_inverse_restrict`: Let nonempty affine V⊂U and let z_U and z_V lie in the two native closures inside K_C with equal ambient values. Then the actual restriction of E_U⁻¹(z_U) equals E_V⁻¹(z_V).
+
+Acceptance examples:
+
+- `QuadraticPinch.Global.test_absoluteClosure_cusp_coefficient` (degenerate): For a=b=0, E_U sends every pulled-back coefficient to its native image in the closure inside K_C.
+- `QuadraticPinch.Global.test_absoluteClosure_char2_integral_element` (computation): For k=F₂ and a=b=1, the source generic germ of E_U⁻¹(z) is the actual σ(z) for every integral element z in K_C.
+- `QuadraticPinch.Global.test_absoluteClosure_overlap` (compatibility): On any nonempty affine inclusion V⊂U, integral elements in K_C with equal ambient values have inverse images agreeing under the actual source restriction.
+- `QuadraticPinch.Global.test_absoluteClosure_empty_open_excluded` (non-example): The empty open of C has no nonempty instance, so the generic-field section comparison cannot be instantiated there.
+
+## Ambient value of the absolute closure equivalence
+
+`QuadraticPinch.Global.absoluteSectionsClosureEquiv_val` — For s∈B_U, the ambient K_C-value of E_U(s) is σ⁻¹(germ_N(s)).
+
+Construction or proof: The native mapIntegralClosure retains the underlying field map; use the established e_U value.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-sections-closure-equivalence`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/source-sections-closure-value`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/function-field-coefficient-algebra-equivalence`.
+
+## The closure equivalence fixes base coefficients
+
+`QuadraticPinch.Global.absoluteSectionsClosureEquiv_coefficient` — For r∈A_U, E_U(ν.app(U)(r)) equals the image of r under the native algebra map A_U→integralClosure(A_U,K_C).
+
+Construction or proof: Apply the coefficient law of the actual A_U-algebra equivalence.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-sections-closure-equivalence`.
+
+## Forward restriction compatibility in the curve field
+
+`QuadraticPinch.Global.absoluteSectionsClosureEquiv_restrict` — For nonempty affine V⊂U and s∈B_U, the ambient values in K_C of E_V(res(s)) and E_U(s) agree, where res is the actual structure-presheaf restriction Γ(N,ν⁻¹U)→Γ(N,ν⁻¹V).
+
+Construction or proof: Both ambient values are σ⁻¹ of the corresponding source generic germs; apply generic-germ restriction naturality.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-sections-closure-value`, `mathlib:TopCat.Presheaf.germ_res`.
+
+## Generic value of an integral element lifted to sections
+
+`QuadraticPinch.Global.absoluteSectionsClosureEquiv_inverse_val` — For z∈integralClosure(A_U,K_C), the generic germ of E_U⁻¹(z) equals σ(z).
+
+Construction or proof: Apply the ambient-value identity to E_U⁻¹(z), simplify the inverse round trip and cancel the injective map σ⁻¹.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-sections-closure-value`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-iso-hom-inv`.
+
+## Inverse restriction compatibility for integral elements
+
+`QuadraticPinch.Global.absoluteSectionsClosureEquiv_inverse_restrict` — Let nonempty affine V⊂U and let z_U and z_V lie in the two native closures inside K_C with equal ambient values. Then the actual restriction of E_U⁻¹(z_U) equals E_V⁻¹(z_V).
+
+Construction or proof: Apply injectivity of E_V, then subtype extensionality. Forward restriction compatibility and the two inverse round trips reduce the claim to the equality of ambient field values.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-sections-closure-restrict`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/absolute-sections-closure-equivalence`.
+
+## Source closure coefficient compatibility
+
+`QuadraticPinch.Global.normalizationSectionsClosureEquiv_coefficient` — For r∈A_U, e_U(ν.app(U)(r)) is the native coefficient image in integralClosure(A_U,K_N).
+
+Construction or proof: Use the coefficient law of e_U.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/source-sections-closure-equivalence`.
+
+## Source-field integral elements lift with their specified germ
+
+`QuadraticPinch.Global.normalizationSectionsClosureEquiv_inverse_val` — For z∈integralClosure(A_U,K_N), the actual source generic germ of e_U⁻¹(z) is z itself.
+
+Construction or proof: Apply the ambient-value law to the inverse image and use the inverse round trip.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/source-sections-closure-value`.
+
+## The field algebra equivalence respects every coefficient
+
+`QuadraticPinch.Global.normalizationFunctionFieldAlgEquiv_coefficient` — For r∈A_U, the field algebra equivalence sends the actual curve generic germ of r to c_U(r).
+
+Construction or proof: Apply the native algebra-equivalence coefficient law.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/function-field-coefficient-algebra-equivalence`.
+
+## Specified inverse field map
+
+`QuadraticPinch.Global.normalizationFunctionFieldAlgEquiv_symm` — The inverse of the coefficient-algebra equivalence is exactly the incoming σ⁻¹ on every x∈K_N.
+
+Construction or proof: The new structure retains both maps of the incoming native field isomorphism.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/function-field-coefficient-algebra-equivalence`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/normalization-function-field-iso`.
+
+---
+
 # Generic-point fields and the absolute-normalization comparison
 
 Let k be any field, q=t²+at+b, C the previously glued pinched curve, N its specified glued source and ν:N→C the actual finite morphism. All objects in this section are those existing constructions; in particular the field objects are the schemes’ native generic-point stalks. No perfectness, separability, characteristic or discriminant assumption enters. The infinity chart H is an integral common open subscheme. Its two open immersions and their triangle with ν give ν(η_N)=η_C. Consequently the actual stalk map of ν transports to a specified map σ:K_C→K_N. Taking the common-chart triangle on stalks and cancelling its two isomorphisms proves that σ is an isomorphism. Its germ square retains each nonempty open and the actual pullback map on its sections.
