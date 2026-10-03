@@ -33,7 +33,7 @@ The exact indexed blueprint checker, erratum checker and actual intake functions
 
 ## Public recovery
 
-Archive ancestor: `Archive commit will be recorded after the payload commit.`. All proof bodies, exact canonical/new/incoming artifacts, normalized final diagnostics and compile receipts are recoverable from its suggested-file payload. This is a source archive, not an installed Tau Ceti implementation. The final suggested file retains the canonical sketch and a compact recovery receipt.
+Archive ancestor: `8a58420ab91eb8685e72fd71610661ef6dc3be4e`. All proof bodies, exact canonical/new/incoming artifacts, normalized final diagnostics and compile receipts are recoverable from its suggested-file payload. This is a source archive, not an installed Tau Ceti implementation. The final suggested file retains the canonical sketch and a compact recovery receipt.
 
 Save the following five Python fences as recover.py, verify.py, immutable.py, graph.py and run_lean.py, preserving a final newline. Run recover.py with a destination directory and this PR head commit. It retrieves only the issue-owned artifacts/deliverables and verifies all hashes, including the five scripts. In a checkout of that same head, run verify.py with the recovery directory and a pinned declarations.tsv, then graph.py with the recovery directory. Recovery, verification and assembly do not execute Lean. run_lean.py is an explicit optional replay tool taking an artifact filename, an existing exact-pin build and a log stem; it enforces the memory and timeout guards.
 
@@ -93,7 +93,7 @@ Save the following five Python fences as recover.py, verify.py, immutable.py, gr
       "lines": 682
     }
   },
-  "archiveCommit": "Archive commit will be recorded after the payload commit.",
+  "archiveCommit": "8a58420ab91eb8685e72fd71610661ef6dc3be4e",
   "scripts": {
     "recover.py": "0b3da0151f714370298a28a9251d8c6cf3c72228e70f599710e39561a7ffb626",
     "verify.py": "9a40f7917581b771b2bbac4a9e1c8e5949e8b810979d27960bc4d63ce843266b",
