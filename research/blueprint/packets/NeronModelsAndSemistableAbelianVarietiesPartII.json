@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-stage partial design with 440 incoming declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked. For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain. This continuation adds23 nodes (6constructions17lemmas),19 consumed API items and22 exact examples for the specified ν: all-open section injectivity, zero kernel after flat pullback and the existing relative normalization comparison/descent. The affine inclusion A_q→k[t] is not surjective. The resulting packet has463 nodes; all7stages remain partial. New native and admitted sources are uncompiled in this turn because available memory is below20GiB; all implementation statuses remain unchecked. The actual generic-point function-field continuation specifies the genuine transported ν stalk map and its native field isomorphism, then the canonical integral comparison from normalization in K_C to N with both triangles and uniqueness. It does not identify that comparison as an isomorphism. For every nonempty affine U⊂C, the actual B_U=Γ(N,ν⁻¹U) is integrally closed and is the integral closure of A_U=Γ(C,U) in K_N. The specified σ upgrades to an A_U-algebra equivalence and gives E_U:B_U≃integralClosure(A_U,K_C), with exact forward/inverse generic-germ, coefficient and restriction laws. This settles the affine generic-field comparison. It does not identify E_U with the sections of the existing δ: compare against native normalizationDiagram/normalizationObjIso, handle the empty-open branch and assemble the scheme isomorphism. Preserve P¹/Proj identification, properness/projectivity, conductor ideal sheaf and exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry. All seven stages remain partial and every implementation unchecked. Twelve native-normalization section nodes (three constructions and nine lemmas) give κ_U:S_U≃ₐ[A_U]K_C for nonempty U, θ_U:D_U≃ₐ[A_U]integralClosure(A_U,K_C) and Ψ_U:D_U≃ₐ[A_U]B_U for nonempty affine U, with exact coefficients, ambient values, inverse formulas and κ restriction compatibility. General rational-function and normalization APIs are imported. Identification with δ.app, θ/Ψ restriction compatibility, empty opens and global scheme assembly remain required. The resulting packet has 513 nodes; all stages remain partial and all implementations unchecked. The actual comparison δ:η.normalization→N is now identified with Ψ_U⁻¹ on nonempty affine sections, with native closure and source restriction formulas. Empty-open sections are handled separately, the finite-map affine cover proves δ is a scheme isomorphism, and its inverse respects both triangles. The actual comparison upgrades to Λ_U:B_U≃ₐ[A_U]D_U on every open, commuting with forward and inverse restriction and the actual coefficients; on nonempty affine opens it recovers Ψ_U⁻¹. The native projective-line/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1, independent I₂ geometry and every inherited family/model/classification obligation remain required. All seven stages are partial and every mathematical implementation status is unchecked. The full canonical Tau Ceti-importing file is uncompiled; the bounded Mathlib artifacts with the consumed exact pinned Tau Ceti source excerpt are checked. The common-ideal reconstruction now has native comparison, kernel, compatible-pair lifting and categorical pullback proofs, an actual inverse-coordinate ring equivalence, and an additive sequence whose middle exactness is equivalent to the image being an ideal. The arbitrary-subring conductor square and native quotient-module annihilator identity are checked separately, and actual all-open conductor ideals agree across the absolute normalization isomorphism. The conductor ideal sheaf, structure-sheaf sequence, properness/projectivity and cohomology remain separate obligations. The finite spanning-family conductor criterion, product common-denominator equivalence and native fraction membership in its extended ideal retain arbitrary commutative bases, noninjective coefficient maps, empty families and nilpotent denominators. The recomputed localized-B conductor and global IdealSheafData restriction comparisons remain separate required identifications; no stage closes. The actual finite-algebra conductor is now recomputed after localization, with no injectivity or denominator-regularity assumption. Six new supporting declarations and four regression tests specialize the previous finite-generator checkpoint; the global affine-restriction/IdealSheafData comparison remains open. Actual conductor-sheaf continuation:11 declaration-sized lemmas,7 API items and6 typed tests, with native proofs of the existing construction and its three APIs.",
+  "summary": "Seven-stage partial design with 440 incoming declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked. For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain. This continuation adds23 nodes (6constructions17lemmas),19 consumed API items and22 exact examples for the specified ν: all-open section injectivity, zero kernel after flat pullback and the existing relative normalization comparison/descent. The affine inclusion A_q→k[t] is not surjective. The resulting packet has463 nodes; all7stages remain partial. New native and admitted sources are uncompiled in this turn because available memory is below20GiB; all implementation statuses remain unchecked. The actual generic-point function-field continuation specifies the genuine transported ν stalk map and its native field isomorphism, then the canonical integral comparison from normalization in K_C to N with both triangles and uniqueness. It does not identify that comparison as an isomorphism. For every nonempty affine U⊂C, the actual B_U=Γ(N,ν⁻¹U) is integrally closed and is the integral closure of A_U=Γ(C,U) in K_N. The specified σ upgrades to an A_U-algebra equivalence and gives E_U:B_U≃integralClosure(A_U,K_C), with exact forward/inverse generic-germ, coefficient and restriction laws. This settles the affine generic-field comparison. It does not identify E_U with the sections of the existing δ: compare against native normalizationDiagram/normalizationObjIso, handle the empty-open branch and assemble the scheme isomorphism. Preserve P¹/Proj identification, properness/projectivity, conductor ideal sheaf and exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry. All seven stages remain partial and every implementation unchecked. Twelve native-normalization section nodes (three constructions and nine lemmas) give κ_U:S_U≃ₐ[A_U]K_C for nonempty U, θ_U:D_U≃ₐ[A_U]integralClosure(A_U,K_C) and Ψ_U:D_U≃ₐ[A_U]B_U for nonempty affine U, with exact coefficients, ambient values, inverse formulas and κ restriction compatibility. General rational-function and normalization APIs are imported. Identification with δ.app, θ/Ψ restriction compatibility, empty opens and global scheme assembly remain required. The resulting packet has 513 nodes; all stages remain partial and all implementations unchecked. The actual comparison δ:η.normalization→N is now identified with Ψ_U⁻¹ on nonempty affine sections, with native closure and source restriction formulas. Empty-open sections are handled separately, the finite-map affine cover proves δ is a scheme isomorphism, and its inverse respects both triangles. The actual comparison upgrades to Λ_U:B_U≃ₐ[A_U]D_U on every open, commuting with forward and inverse restriction and the actual coefficients; on nonempty affine opens it recovers Ψ_U⁻¹. The native projective-line/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1, independent I₂ geometry and every inherited family/model/classification obligation remain required. All seven stages are partial and every mathematical implementation status is unchecked. The full canonical Tau Ceti-importing file is uncompiled; the bounded Mathlib artifacts with the consumed exact pinned Tau Ceti source excerpt are checked. The common-ideal reconstruction now has native comparison, kernel, compatible-pair lifting and categorical pullback proofs, an actual inverse-coordinate ring equivalence, and an additive sequence whose middle exactness is equivalent to the image being an ideal. The arbitrary-subring conductor square and native quotient-module annihilator identity are checked separately, and actual all-open conductor ideals agree across the absolute normalization isomorphism. The conductor ideal sheaf, structure-sheaf sequence, properness/projectivity and cohomology remain separate obligations. The finite spanning-family conductor criterion, product common-denominator equivalence and native fraction membership in its extended ideal retain arbitrary commutative bases, noninjective coefficient maps, empty families and nilpotent denominators. The recomputed localized-B conductor and global IdealSheafData restriction comparisons remain separate required identifications; no stage closes. The actual finite-algebra conductor is now recomputed after localization, with no injectivity or denominator-regularity assumption. Six new supporting declarations and four regression tests specialize the previous finite-generator checkpoint; the global affine-restriction/IdealSheafData comparison remains open. Actual conductor-sheaf continuation:11 declaration-sized lemmas,7 API items and6 typed tests, with native proofs of the existing construction and its three APIs. Actual conductor-map continuation:14 new declarations (2constructions12lemmas),11 API entries and6 new typed tests; the existing conductorMap and its three APIs have native proofs.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -3250,6 +3250,102 @@
         "line": 749,
         "provides": "The actual morphism kernel datum on an affine target is ofIdealTop of the top section-map kernel.",
         "checked": "Full statement and ambient assumptions personally read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-7e92bd on2026-10-03; native generic result imported, not replanned."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comapIso_hom_fst",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Functorial.lean",
+        "line": 53,
+        "provides": "lemma comapIso_hom_fst (I : Y.IdealSheafData) (f : X ⟶ Y) : Full native statement and ambient hypotheses personally read; the left-isomorphism cancellation also generates its checked dual.",
+        "checked": "Full statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Imported generic API, never replanned."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsPullback.of_iso_pullback",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/IsPullback/Basic.lean",
+        "line": 61,
+        "provides": "theorem of_iso_pullback (h : CommSq fst snd f g) [HasPullback f g] (i : P ≅ pullback f g) Full native statement and ambient hypotheses personally read; the left-isomorphism cancellation also generates its checked dual.",
+        "checked": "Full statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Imported generic API, never replanned."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeMap",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Functorial.lean",
+        "line": 208,
+        "provides": "def subschemeMap (I : X.IdealSheafData) (J : Y.IdealSheafData) Full native statement and ambient hypotheses personally read; the left-isomorphism cancellation also generates its checked dual.",
+        "checked": "Full statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Imported generic API, never replanned."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.le_map_comap",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Functorial.lean",
+        "line": 129,
+        "provides": "lemma le_map_comap      : J ≤ (J.comap f).map f                       := (map_gc f).le_u_l J Full native statement and ambient hypotheses personally read; the left-isomorphism cancellation also generates its checked dual.",
+        "checked": "Full statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Imported generic API, never replanned."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ideal_map_of_isAffineHom",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Functorial.lean",
+        "line": 194,
+        "provides": "lemma ideal_map_of_isAffineHom Full native statement and ambient hypotheses personally read; the left-isomorphism cancellation also generates its checked dual.",
+        "checked": "Full statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Imported generic API, never replanned."
+      },
+      {
+        "ref": "mathlib:Ideal.quotientMap_comp_mk",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+        "line": 613,
+        "provides": "theorem quotientMap_comp_mk {J : Ideal R} {I : Ideal S} [I.IsTwoSided] [J.IsTwoSided] Full native statement and ambient hypotheses personally read; the left-isomorphism cancellation also generates its checked dual.",
+        "checked": "Full statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Imported generic API, never replanned."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeι_app_surjective",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean",
+        "line": 558,
+        "provides": "lemma subschemeι_app_surjective (U : X.affineOpens) : Full native statement and ambient hypotheses personally read; the left-isomorphism cancellation also generates its checked dual.",
+        "checked": "Full statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Imported generic API, never replanned."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ConcreteCategory.epi_of_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/ConcreteCategory/EpiMono.lean",
+        "line": 167,
+        "provides": "theorem epi_of_surjective {X Y : C} (f : X ⟶ Y) (s : Function.Surjective f) : Full native statement and ambient hypotheses personally read; the left-isomorphism cancellation also generates its checked dual.",
+        "checked": "Full statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Imported generic API, never replanned."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.isIso_subschemeι_iff_eq_bot",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean",
+        "line": 734,
+        "provides": "lemma isIso_subschemeι_iff_eq_bot (I : X.IdealSheafData) : IsIso I.subschemeι ↔ I = ⊥ := Full native statement and ambient hypotheses personally read; the left-isomorphism cancellation also generates its checked dual.",
+        "checked": "Full statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Imported generic API, never replanned."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_bot",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Functorial.lean",
+        "line": 132,
+        "provides": "@[simp] lemma comap_bot : comap ⊥ f = ⊥                               := (map_gc f).l_bot Full native statement and ambient hypotheses personally read; the left-isomorphism cancellation also generates its checked dual.",
+        "checked": "Full statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Imported generic API, never replanned."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsPullback.isIso_snd_of_isIso",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/IsPullback/Basic.lean",
+        "line": 148,
+        "provides": "lemma isIso_snd_of_isIso (h : IsPullback fst snd f g) (inst : IsIso f := by infer_instance) : Full native statement and ambient hypotheses personally read; the left-isomorphism cancellation also generates its checked dual.",
+        "checked": "Full statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Imported generic API, never replanned."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.isIso_comp_left_iff",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Iso.lean",
+        "line": 368,
+        "provides": "theorem isIso_comp_left_iff {X Y Z : C} (f : X ⟶ Y) (g : Y ⟶ Z) [IsIso f] : Full native statement and ambient hypotheses personally read; the left-isomorphism cancellation also generates its checked dual.",
+        "checked": "Full statement and ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Imported generic API, never replanned."
       }
     ]
   },
@@ -3823,6 +3919,19 @@
         "Complete Lemma10.40.4 statement and proof at07T8; separate source receipt."
       ],
       "derivation": "The conductor-specific localization equality is inherited and rechecked. The actual affine restriction, compatible ideal family, canonical Spec comparison and affine quotient-module annihilator proofs are authored native deductions. No new full Ferrand, Witaszek or Schroer paper/erratum audit is claimed."
+    },
+    {
+      "id": "conductor-map-native-20261003-rtOQ9t",
+      "title": "Actual conductor subscheme map and canonical quotient-section comparison",
+      "authors": "The Stacks Project authors; explicit adapter deductions by Codex — codex-rtOQ9t",
+      "edition": "Online passages read3October2026",
+      "url": "https://stacks.math.columbia.edu/tag/0C6L",
+      "sha256": "e182458b1ea9aa030de14ef59f11a74a88edac0295250efbebbaeedd055e1dc6",
+      "accessed": "2026-10-03T17:46:57.386343+00:00",
+      "readSections": [
+        "Complete Lemma53.10.5 proof and Example53.10.6; especially the conductor module and two quotient ideals."
+      ],
+      "derivation": "The actual induced closed-subscheme map and quotient-section formula are authored deductions from the pinned native APIs. No claim that the proper-curve source states these more general contracts; no fresh full-paper or erratum collation."
     }
   ],
   "nodes": [
@@ -10141,7 +10250,8 @@
       "proofSteps": [
         "Use the native IdealSheafData.comapIso and its two projection equations to specify g_f.",
         "Import the already proved cartesian comparison and stability of finiteness under base change. These general results are baseline citations and API compatibility facts, not new mathematical nodes.",
-        "Use conductor-affine-quotients to identify g_f on every affine chart with the native quotient map."
+        "Use conductor-affine-quotients to identify g_f on every affine chart with the native quotient map.",
+        "The native continuation checks the exact existing conductorMap definition and its square, cartesian and finite APIs. It compares the actual map with subschemeMap, proves uniqueness and identifies its actual quotient-ring section maps with the two canonical subschemeObjIso charts. The source ideal J(V) is still the native pullback ideal; identification with the recomputed ambient conductor K, geometric/categorical pushout and the all-open exact sequence remain separate required comparisons."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf",
@@ -10149,7 +10259,9 @@
         "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comapIso",
         "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comapIso_hom_snd",
         "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeMap_subschemeι",
-        "mathlib:AlgebraicGeometry.IsFinite"
+        "mathlib:AlgebraicGeometry.IsFinite",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comapIso_hom_fst",
+        "mathlib:CategoryTheory.IsPullback.of_iso_pullback"
       ],
       "sources": [
         {
@@ -10195,6 +10307,31 @@
           "name": "conductorMap_isFinite",
           "role": "compatibility",
           "statement": "The induced map D_f→C_f is finite because it is the base change of the finite morphism f."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorMap_eq_subschemeMap",
+          "role": "compatibility",
+          "statement": "For every finite schematically dominant scheme map f:Y→P, the existing conductorMap f equals the native subschemeMap from the pulled-back conductor ideal J=I_f.comap f to I_f, with the actual adjunction inequality I_f≤J.map f."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorMap_unique",
+          "role": "extensionality",
+          "statement": "For finite schematically dominant f and any actual g:J.subscheme→I_f.subscheme satisfying g followed by the target closed inclusion equals the source closed inclusion followed by f, g equals conductorMap f."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorMap_preimage",
+          "role": "compatibility",
+          "statement": "For finite schematically dominant f and every open U⊂P, the inverse image under conductorMap f of j_f⁻¹U equals i_f⁻¹(f⁻¹U), as native opens of J.subscheme."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorMap_isIso_of_isIso",
+          "role": "compatibility",
+          "statement": "For any scheme isomorphism f:Y→P, the actual conductorMap f is an isomorphism. Its finite and schematically dominant instances are the existing native ones."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorMap_isIso_iff_of_zero",
+          "role": "compatibility",
+          "statement": "For finite schematically dominant f with I_f=0 as a full native ideal-sheaf datum, conductorMap f is an isomorphism if and only if f is. No reducedness, Noetherian, birationality or field assumption is needed."
         }
       ],
       "tests": [
@@ -33243,6 +33380,622 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map-native-lift",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Canonical closed-subscheme lift",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorMap_eq_subschemeMap",
+      "statement": "For every finite schematically dominant scheme map f:Y→P, the existing conductorMap f equals the native subschemeMap from the pulled-back conductor ideal J=I_f.comap f to I_f, with the actual adjunction inequality I_f≤J.map f.",
+      "hypotheses": [
+        "Exactly the finiteness, schematic dominance, affineness, isomorphism or zero-conductor hypotheses stated above. All scheme and commutative-ring carriers, including empty schemes, zero rings and nilpotents, are native."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeMap",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comapIso_hom_snd",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.le_map_comap"
+      ],
+      "proofSteps": [
+        "Apply the exact pinned comapIso_hom_snd equation to I_f and f; its composite is the unchanged conductorMap definition."
+      ],
+      "acceptance": [
+        "For every finite schematically dominant scheme map f:Y→P, the existing conductorMap f equals the native subschemeMap from the pulled-back conductor ideal J=I_f.comap f to I_f, with the actual adjunction inequality I_f≤J.map f.",
+        "Compare the actual maps and canonical chart isomorphisms. No all-open structure-sheaf exactness or ambient-conductor equality is inferred from the commuting square."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-map-native-20261003-rtOQ9t",
+          "locator": "Stacks Lemma53.10.5 full proof and Example53.10.6; authored native closed-subscheme-map and quotient-chart deductions",
+          "match": "The source motivates the conductor ideal and the two quotient ideals. These general actual-map adapters are authored deductions from the pinned library, not claims that the proper-curve source has these general hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map-unique",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Uniqueness of the conductor map",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorMap_unique",
+      "statement": "For finite schematically dominant f and any actual g:J.subscheme→I_f.subscheme satisfying g followed by the target closed inclusion equals the source closed inclusion followed by f, g equals conductorMap f.",
+      "hypotheses": [
+        "Exactly the finiteness, schematic dominance, affineness, isomorphism or zero-conductor hypotheses stated above. All scheme and commutative-ring carriers, including empty schemes, zero rings and nilpotents, are native."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map"
+      ],
+      "proofSteps": [
+        "Cancel the native target closed immersion, which is a monomorphism, and use the exact existing conductorMap_square API. No extra universal-property field is assumed."
+      ],
+      "acceptance": [
+        "For finite schematically dominant f and any actual g:J.subscheme→I_f.subscheme satisfying g followed by the target closed inclusion equals the source closed inclusion followed by f, g equals conductorMap f.",
+        "Compare the actual maps and canonical chart isomorphisms. No all-open structure-sheaf exactness or ambient-conductor equality is inferred from the commuting square."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-map-native-20261003-rtOQ9t",
+          "locator": "Stacks Lemma53.10.5 full proof and Example53.10.6; authored native closed-subscheme-map and quotient-chart deductions",
+          "match": "The source motivates the conductor ideal and the two quotient ideals. These general actual-map adapters are authored deductions from the pinned library, not claims that the proper-curve source has these general hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map-preimage",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Exact inverse image in the conductor square",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorMap_preimage",
+      "statement": "For finite schematically dominant f and every open U⊂P, the inverse image under conductorMap f of j_f⁻¹U equals i_f⁻¹(f⁻¹U), as native opens of J.subscheme.",
+      "hypotheses": [
+        "Exactly the finiteness, schematic dominance, affineness, isomorphism or zero-conductor hypotheses stated above. All scheme and commutative-ring carriers, including empty schemes, zero rings and nilpotents, are native."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map"
+      ],
+      "proofSteps": [
+        "Apply inverse image of the actual open U to the exact conductorMap_square equality. The equality holds for every open, including the empty open."
+      ],
+      "acceptance": [
+        "For finite schematically dominant f and every open U⊂P, the inverse image under conductorMap f of j_f⁻¹U equals i_f⁻¹(f⁻¹U), as native opens of J.subscheme.",
+        "Compare the actual maps and canonical chart isomorphisms. No all-open structure-sheaf exactness or ambient-conductor equality is inferred from the commuting square."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-map-native-20261003-rtOQ9t",
+          "locator": "Stacks Lemma53.10.5 full proof and Example53.10.6; authored native closed-subscheme-map and quotient-chart deductions",
+          "match": "The source motivates the conductor ideal and the two quotient ideals. These general actual-map adapters are authored deductions from the pinned library, not claims that the proper-curve source has these general hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-chart-map",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "construction",
+      "title": "The conductor map on actual open sections",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorChartMap",
+      "statement": "For finite schematically dominant f and every open U⊂P, define the actual CommRingCat map Γ(I_f.subscheme,j_f⁻¹U)→Γ(J.subscheme,i_f⁻¹f⁻¹U) by conductorMap f.appLE, using conductorMap_preimage to identify the source open. Affineness is not required for this construction.",
+      "hypotheses": [
+        "Exactly the finiteness, schematic dominance, affineness, isomorphism or zero-conductor hypotheses stated above. All scheme and commutative-ring carriers, including empty schemes, zero rings and nilpotents, are native."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map-preimage",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.appLE"
+      ],
+      "proofSteps": [
+        "Use the actual section map of conductorMap f and the proved inverse-image equality. The result has the exact native section-ring carriers used by the quotient charts; it is not a map between unspecified isomorphic rings."
+      ],
+      "acceptance": [
+        "For finite schematically dominant f and every open U⊂P, define the actual CommRingCat map Γ(I_f.subscheme,j_f⁻¹U)→Γ(J.subscheme,i_f⁻¹f⁻¹U) by conductorMap f.appLE, using conductorMap_preimage to identify the source open. Affineness is not required for this construction.",
+        "Compare the actual maps and canonical chart isomorphisms. No all-open structure-sheaf exactness or ambient-conductor equality is inferred from the commuting square."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-map-native-20261003-rtOQ9t",
+          "locator": "Stacks Lemma53.10.5 full proof and Example53.10.6; authored native closed-subscheme-map and quotient-chart deductions",
+          "match": "The source motivates the conductor ideal and the two quotient ideals. These general actual-map adapters are authored deductions from the pinned library, not claims that the proper-curve source has these general hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorChartMap_comm",
+          "role": "compatibility",
+          "statement": "For finite schematically dominant f and every open U⊂P, j_f.app U followed by conductorChartMap f U equals f.app U followed by i_f.app(f⁻¹U). All four maps are the actual native section maps."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorChartMap_restrict",
+          "role": "compatibility",
+          "statement": "For finite schematically dominant f and arbitrary opens U⊆V of P, restricting target-conductor sections from j_f⁻¹V to j_f⁻¹U then applying conductorChartMap at U equals applying it at V then restricting source-conductor sections from i_f⁻¹f⁻¹V to i_f⁻¹f⁻¹U. Both restrictions are the actual native presheaf maps."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorChartMap_coordinates",
+          "role": "compatibility",
+          "statement": "For finite schematically dominant f, affine U and any actual section x of I_f.subscheme over j_f⁻¹U, the native source-conductor chart coordinate of conductorChartMap f U(x) is conductorQuotientMap f U applied to the native target-conductor chart coordinate of x."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ConductorChartChecked.empty_comm",
+          "kind": "degenerate",
+          "statement": "On the empty target open, the actual conductor-section map commutes with both inclusion section maps and f.app, retaining the zero section rings."
+        },
+        {
+          "name": "ConductorChartChecked.quotient_representative",
+          "kind": "compatibility",
+          "statement": "For every affine U and a in its actual section ring, start with the actual target-conductor section obtained by applying its subschemeObjIso inverse to the quotient class of a. After the actual conductorChartMap and the source chart hom, the result is the quotient class of f.app U(a)."
+        },
+        {
+          "name": "ConductorChartChecked.empty_restriction",
+          "kind": "degenerate",
+          "statement": "For every target open U, restriction from the actual conductor open over U to the empty open commutes with conductorChartMap using the actual source-conductor presheaf restriction."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-affine-quotients",
+          "how": "Identify the actual conductor map through its two canonical closed-subscheme quotient charts, before identifying the source ideal with the full ambient conductor."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-geometric",
+          "how": "Supply commuting maps on actual opens and restriction naturality for the required structure-sheaf comparison. Exactness and geometric pushout remain separate required proofs."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-chart-map-square",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The section-map square on every open",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorChartMap_comm",
+      "statement": "For finite schematically dominant f and every open U⊂P, j_f.app U followed by conductorChartMap f U equals f.app U followed by i_f.app(f⁻¹U). All four maps are the actual native section maps.",
+      "hypotheses": [
+        "Exactly the finiteness, schematic dominance, affineness, isomorphism or zero-conductor hypotheses stated above. All scheme and commutative-ring carriers, including empty schemes, zero rings and nilpotents, are native."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-chart-map",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.comp_appLE"
+      ],
+      "proofSteps": [
+        "Rewrite the two composites through the native appLE composition law, then apply the exact conductorMap_square equality. This commutation law does not assert exactness of a structure-sheaf sequence."
+      ],
+      "acceptance": [
+        "For finite schematically dominant f and every open U⊂P, j_f.app U followed by conductorChartMap f U equals f.app U followed by i_f.app(f⁻¹U). All four maps are the actual native section maps.",
+        "Compare the actual maps and canonical chart isomorphisms. No all-open structure-sheaf exactness or ambient-conductor equality is inferred from the commuting square."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-map-native-20261003-rtOQ9t",
+          "locator": "Stacks Lemma53.10.5 full proof and Example53.10.6; authored native closed-subscheme-map and quotient-chart deductions",
+          "match": "The source motivates the conductor ideal and the two quotient ideals. These general actual-map adapters are authored deductions from the pinned library, not claims that the proper-curve source has these general hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-chart-ideal-inclusion",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Conductor ideals respected by the actual section map",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorChart_ideal_le",
+      "statement": "For finite schematically dominant f, affine U⊂P and V=f⁻¹U, the actual section map f_U:Γ(P,U)→Γ(Y,V) sends I_f(U) into J(V), where J=I_f.comap f is the native pulled-back ideal datum. This does not yet identify J(V) with the ambient conductor of im(f_U).",
+      "hypotheses": [
+        "Exactly the finiteness, schematic dominance, affineness, isomorphism or zero-conductor hypotheses stated above. All scheme and commutative-ring carriers, including empty schemes, zero rings and nilpotents, are native."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.le_map_comap",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ideal_map_of_isAffineHom"
+      ],
+      "proofSteps": [
+        "Evaluate the native adjunction inequality I_f≤J.map f on U. Finiteness makes f affine; apply ideal_map_of_isAffineHom to identify the right-hand component with the actual contracted J(V)."
+      ],
+      "acceptance": [
+        "For finite schematically dominant f, affine U⊂P and V=f⁻¹U, the actual section map f_U:Γ(P,U)→Γ(Y,V) sends I_f(U) into J(V), where J=I_f.comap f is the native pulled-back ideal datum. This does not yet identify J(V) with the ambient conductor of im(f_U).",
+        "Compare the actual maps and canonical chart isomorphisms. No all-open structure-sheaf exactness or ambient-conductor equality is inferred from the commuting square."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-map-native-20261003-rtOQ9t",
+          "locator": "Stacks Lemma53.10.5 full proof and Example53.10.6; authored native closed-subscheme-map and quotient-chart deductions",
+          "match": "The source motivates the conductor ideal and the two quotient ideals. These general actual-map adapters are authored deductions from the pinned library, not claims that the proper-curve source has these general hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-chart-map-restriction",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Restriction of the conductor section map",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorChartMap_restrict",
+      "statement": "For finite schematically dominant f and arbitrary opens U⊆V of P, restricting target-conductor sections from j_f⁻¹V to j_f⁻¹U then applying conductorChartMap at U equals applying it at V then restricting source-conductor sections from i_f⁻¹f⁻¹V to i_f⁻¹f⁻¹U. Both restrictions are the actual native presheaf maps.",
+      "hypotheses": [
+        "Exactly the finiteness, schematic dominance, affineness, isomorphism or zero-conductor hypotheses stated above. All scheme and commutative-ring carriers, including empty schemes, zero rings and nilpotents, are native."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-chart-map",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.map_appLE",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.appLE_map"
+      ],
+      "proofSteps": [
+        "Apply the pinned map_appLE and appLE_map naturality laws to the actual maps and inverse-image inclusions. Both expressions become the same appLE with the same source and target opens."
+      ],
+      "acceptance": [
+        "For finite schematically dominant f and arbitrary opens U⊆V of P, restricting target-conductor sections from j_f⁻¹V to j_f⁻¹U then applying conductorChartMap at U equals applying it at V then restricting source-conductor sections from i_f⁻¹f⁻¹V to i_f⁻¹f⁻¹U. Both restrictions are the actual native presheaf maps.",
+        "Compare the actual maps and canonical chart isomorphisms. No all-open structure-sheaf exactness or ambient-conductor equality is inferred from the commuting square."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-map-native-20261003-rtOQ9t",
+          "locator": "Stacks Lemma53.10.5 full proof and Example53.10.6; authored native closed-subscheme-map and quotient-chart deductions",
+          "match": "The source motivates the conductor ideal and the two quotient ideals. These general actual-map adapters are authored deductions from the pinned library, not claims that the proper-curve source has these general hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-quotient-map",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "construction",
+      "title": "The actual conductor quotient-ring map",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorQuotientMap",
+      "statement": "For finite schematically dominant f, affine U⊂P and V=f⁻¹U, define the native induced ring map Γ(P,U)/I_f(U)→Γ(Y,V)/J(V) using Ideal.quotientMap and the proved conductorChart_ideal_le inequality, with J=I_f.comap f. Retain the full ideals and nilpotents.",
+      "hypotheses": [
+        "Exactly the finiteness, schematic dominance, affineness, isomorphism or zero-conductor hypotheses stated above. All scheme and commutative-ring carriers, including empty schemes, zero rings and nilpotents, are native."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-chart-ideal-inclusion",
+        "mathlib:Ideal.quotientMap"
+      ],
+      "proofSteps": [
+        "Apply the existing native quotientMap to the actual f.app U ring map. This construction keeps J(V) as the actual pullback ideal; the further equality J(V)=c(im(f_U),Γ(Y,V)) remains a separate required comparison."
+      ],
+      "acceptance": [
+        "For finite schematically dominant f, affine U⊂P and V=f⁻¹U, define the native induced ring map Γ(P,U)/I_f(U)→Γ(Y,V)/J(V) using Ideal.quotientMap and the proved conductorChart_ideal_le inequality, with J=I_f.comap f. Retain the full ideals and nilpotents.",
+        "Compare the actual maps and canonical chart isomorphisms. No all-open structure-sheaf exactness or ambient-conductor equality is inferred from the commuting square."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-map-native-20261003-rtOQ9t",
+          "locator": "Stacks Lemma53.10.5 full proof and Example53.10.6; authored native closed-subscheme-map and quotient-chart deductions",
+          "match": "The source motivates the conductor ideal and the two quotient ideals. These general actual-map adapters are authored deductions from the pinned library, not claims that the proper-curve source has these general hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorQuotientMap_mk",
+          "role": "compatibility",
+          "statement": "For finite schematically dominant f, affine U and a∈Γ(P,U), conductorQuotientMap f U sends the actual quotient class of a modulo I_f(U) to the actual quotient class of f.app U(a) modulo J(f⁻¹U)."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorQuotientMap_comp_mk",
+          "role": "compatibility",
+          "statement": "For finite schematically dominant f and affine U, conductorQuotientMap f U composed with the actual source quotient map equals the actual target quotient map composed with f.app U, as RingHom maps."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorChartMap_quotient",
+          "role": "compatibility",
+          "statement": "For finite schematically dominant f and affine U, conductorChartMap f U followed by the actual source-conductor subschemeObjIso hom equals the actual target-conductor subschemeObjIso hom followed by conductorQuotientMap f U, as CommRingCat maps. The two canonical identifications use the native closed subschemes of I_f and J."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ConductorQuotientChecked.zero_class",
+          "kind": "degenerate",
+          "statement": "For every affine U, the actual conductorQuotientMap sends the quotient class of zero to zero."
+        },
+        {
+          "name": "ConductorQuotientChecked.empty_open",
+          "kind": "degenerate",
+          "statement": "For the empty affine target open, the actual conductorQuotientMap is bijective between the native quotient rings of the two zero section rings."
+        },
+        {
+          "name": "ConductorQuotientChecked.nonreduced_diagonal",
+          "kind": "non-example",
+          "statement": "For the actual diagonal Z/4→Z/4×Z/4, prove the Spec map finite and schematically dominant, its full conductor ideal datum zero, and its conductorMap not an isomorphism. The quotient class of the actual section corresponding to2 is nonzero with square zero, and its image under the actual conductorQuotientMap is also nonzero with square zero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-affine-quotients",
+          "how": "Identify the actual conductor map through its two canonical closed-subscheme quotient charts, before identifying the source ideal with the full ambient conductor."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-geometric",
+          "how": "Supply commuting maps on actual opens and restriction naturality for the required structure-sheaf comparison. Exactness and geometric pushout remain separate required proofs."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-quotient-map-representative",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Evaluation on a quotient representative",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorQuotientMap_mk",
+      "statement": "For finite schematically dominant f, affine U and a∈Γ(P,U), conductorQuotientMap f U sends the actual quotient class of a modulo I_f(U) to the actual quotient class of f.app U(a) modulo J(f⁻¹U).",
+      "hypotheses": [
+        "Exactly the finiteness, schematic dominance, affineness, isomorphism or zero-conductor hypotheses stated above. All scheme and commutative-ring carriers, including empty schemes, zero rings and nilpotents, are native."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-quotient-map",
+        "mathlib:Ideal.quotientMap_mk"
+      ],
+      "proofSteps": [
+        "Use the native quotientMap_mk evaluation law with the exact ideals and actual section map."
+      ],
+      "acceptance": [
+        "For finite schematically dominant f, affine U and a∈Γ(P,U), conductorQuotientMap f U sends the actual quotient class of a modulo I_f(U) to the actual quotient class of f.app U(a) modulo J(f⁻¹U).",
+        "Compare the actual maps and canonical chart isomorphisms. No all-open structure-sheaf exactness or ambient-conductor equality is inferred from the commuting square."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-map-native-20261003-rtOQ9t",
+          "locator": "Stacks Lemma53.10.5 full proof and Example53.10.6; authored native closed-subscheme-map and quotient-chart deductions",
+          "match": "The source motivates the conductor ideal and the two quotient ideals. These general actual-map adapters are authored deductions from the pinned library, not claims that the proper-curve source has these general hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-quotient-map-square",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The native quotient-ring square",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorQuotientMap_comp_mk",
+      "statement": "For finite schematically dominant f and affine U, conductorQuotientMap f U composed with the actual source quotient map equals the actual target quotient map composed with f.app U, as RingHom maps.",
+      "hypotheses": [
+        "Exactly the finiteness, schematic dominance, affineness, isomorphism or zero-conductor hypotheses stated above. All scheme and commutative-ring carriers, including empty schemes, zero rings and nilpotents, are native."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-quotient-map",
+        "mathlib:Ideal.quotientMap_comp_mk"
+      ],
+      "proofSteps": [
+        "Apply the native quotientMap_comp_mk equation to the exact conductorChart_ideal_le witness."
+      ],
+      "acceptance": [
+        "For finite schematically dominant f and affine U, conductorQuotientMap f U composed with the actual source quotient map equals the actual target quotient map composed with f.app U, as RingHom maps.",
+        "Compare the actual maps and canonical chart isomorphisms. No all-open structure-sheaf exactness or ambient-conductor equality is inferred from the commuting square."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-map-native-20261003-rtOQ9t",
+          "locator": "Stacks Lemma53.10.5 full proof and Example53.10.6; authored native closed-subscheme-map and quotient-chart deductions",
+          "match": "The source motivates the conductor ideal and the two quotient ideals. These general actual-map adapters are authored deductions from the pinned library, not claims that the proper-curve source has these general hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-chart-map-quotient",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The scheme map equals the quotient map in canonical charts",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorChartMap_quotient",
+      "statement": "For finite schematically dominant f and affine U, conductorChartMap f U followed by the actual source-conductor subschemeObjIso hom equals the actual target-conductor subschemeObjIso hom followed by conductorQuotientMap f U, as CommRingCat maps. The two canonical identifications use the native closed subschemes of I_f and J.",
+      "hypotheses": [
+        "Exactly the finiteness, schematic dominance, affineness, isomorphism or zero-conductor hypotheses stated above. All scheme and commutative-ring carriers, including empty schemes, zero rings and nilpotents, are native."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-chart-map-square",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-quotient-map-representative",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeObjIso",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeι_app",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeι_app_surjective",
+        "mathlib:CategoryTheory.ConcreteCategory.epi_of_surjective"
+      ],
+      "proofSteps": [
+        "Cancel the actual target inclusion section map, which is surjective on this affine open. Apply conductorChartMap_comm, rewrite both inclusion maps using the exact subschemeι_app formulas, cancel the two actual chart isomorphisms, and evaluate the native quotient map on a representative."
+      ],
+      "acceptance": [
+        "For finite schematically dominant f and affine U, conductorChartMap f U followed by the actual source-conductor subschemeObjIso hom equals the actual target-conductor subschemeObjIso hom followed by conductorQuotientMap f U, as CommRingCat maps. The two canonical identifications use the native closed subschemes of I_f and J.",
+        "Compare the actual maps and canonical chart isomorphisms. No all-open structure-sheaf exactness or ambient-conductor equality is inferred from the commuting square."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-map-native-20261003-rtOQ9t",
+          "locator": "Stacks Lemma53.10.5 full proof and Example53.10.6; authored native closed-subscheme-map and quotient-chart deductions",
+          "match": "The source motivates the conductor ideal and the two quotient ideals. These general actual-map adapters are authored deductions from the pinned library, not claims that the proper-curve source has these general hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-chart-map-coordinates",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Exact section coordinates under the conductor map",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorChartMap_coordinates",
+      "statement": "For finite schematically dominant f, affine U and any actual section x of I_f.subscheme over j_f⁻¹U, the native source-conductor chart coordinate of conductorChartMap f U(x) is conductorQuotientMap f U applied to the native target-conductor chart coordinate of x.",
+      "hypotheses": [
+        "Exactly the finiteness, schematic dominance, affineness, isomorphism or zero-conductor hypotheses stated above. All scheme and commutative-ring carriers, including empty schemes, zero rings and nilpotents, are native."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-chart-map-quotient"
+      ],
+      "proofSteps": [
+        "Evaluate the equality of the actual CommRingCat composites in conductorChartMap_quotient at x."
+      ],
+      "acceptance": [
+        "For finite schematically dominant f, affine U and any actual section x of I_f.subscheme over j_f⁻¹U, the native source-conductor chart coordinate of conductorChartMap f U(x) is conductorQuotientMap f U applied to the native target-conductor chart coordinate of x.",
+        "Compare the actual maps and canonical chart isomorphisms. No all-open structure-sheaf exactness or ambient-conductor equality is inferred from the commuting square."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-map-native-20261003-rtOQ9t",
+          "locator": "Stacks Lemma53.10.5 full proof and Example53.10.6; authored native closed-subscheme-map and quotient-chart deductions",
+          "match": "The source motivates the conductor ideal and the two quotient ideals. These general actual-map adapters are authored deductions from the pinned library, not claims that the proper-curve source has these general hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map-isomorphism",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Conductor map of a scheme isomorphism",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorMap_isIso_of_isIso",
+      "statement": "For any scheme isomorphism f:Y→P, the actual conductorMap f is an isomorphism. Its finite and schematically dominant instances are the existing native ones.",
+      "hypotheses": [
+        "Exactly the finiteness, schematic dominance, affineness, isomorphism or zero-conductor hypotheses stated above. All scheme and commutative-ring carriers, including empty schemes, zero rings and nilpotents, are native."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map",
+        "mathlib:CategoryTheory.IsPullback.isIso_snd_of_isIso"
+      ],
+      "proofSteps": [
+        "Use the exact conductorMap_isPullback API and native stability of isomorphisms under pullback. This includes the identity and empty schemes."
+      ],
+      "acceptance": [
+        "For any scheme isomorphism f:Y→P, the actual conductorMap f is an isomorphism. Its finite and schematically dominant instances are the existing native ones.",
+        "Compare the actual maps and canonical chart isomorphisms. No all-open structure-sheaf exactness or ambient-conductor equality is inferred from the commuting square."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-map-native-20261003-rtOQ9t",
+          "locator": "Stacks Lemma53.10.5 full proof and Example53.10.6; authored native closed-subscheme-map and quotient-chart deductions",
+          "match": "The source motivates the conductor ideal and the two quotient ideals. These general actual-map adapters are authored deductions from the pinned library, not claims that the proper-curve source has these general hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map-zero-isomorphism",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Isomorphism criterion when the conductor is zero",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorMap_isIso_iff_of_zero",
+      "statement": "For finite schematically dominant f with I_f=0 as a full native ideal-sheaf datum, conductorMap f is an isomorphism if and only if f is. No reducedness, Noetherian, birationality or field assumption is needed.",
+      "hypotheses": [
+        "Exactly the finiteness, schematic dominance, affineness, isomorphism or zero-conductor hypotheses stated above. All scheme and commutative-ring carriers, including empty schemes, zero rings and nilpotents, are native."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map",
+        "mathlib:AlgebraicGeometry.Scheme.isIso_subschemeι_iff_eq_bot",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_bot",
+        "mathlib:CategoryTheory.isIso_comp_left_iff",
+        "mathlib:CategoryTheory.IsIso.of_isIso_comp_left"
+      ],
+      "proofSteps": [
+        "The zero-ideal closed inclusion is an isomorphism on both sides, because comap sends zero to zero. Apply the conductorMap_square equation and cancel these native isomorphisms; the generated dual of the pinned isIso_comp_left_iff supplies the other cancellation."
+      ],
+      "acceptance": [
+        "For finite schematically dominant f with I_f=0 as a full native ideal-sheaf datum, conductorMap f is an isomorphism if and only if f is. No reducedness, Noetherian, birationality or field assumption is needed.",
+        "Compare the actual maps and canonical chart isomorphisms. No all-open structure-sheaf exactness or ambient-conductor equality is inferred from the commuting square."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-map-native-20261003-rtOQ9t",
+          "locator": "Stacks Lemma53.10.5 full proof and Example53.10.6; authored native closed-subscheme-map and quotient-chart deductions",
+          "match": "The source motivates the conductor ideal and the two quotient ideals. These general actual-map adapters are authored deductions from the pinned library, not claims that the proper-curve source has these general hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -33600,7 +34353,8 @@
         "Global conductor signatures remain uncompiled; the generic finite-module annihilator and exact affine quotient/localization exports are requested at SF.0.",
         "The ring localization comparison is explicit. The actual affine basic-open union, structure-sheaf and categorical scheme comparisons still require the named supplier exports; this does not close the scheme or algebraic-space stage.",
         "The native affine reconstruction and annihilator identities are now separately checked. Still supply finite flat/localization compatibility, actual conductor IdealSheafData and quotient-scheme identifications, the all-open geometric pushout and scheme/algebraic-space supplier exports; no stage is closed.",
-        "The actual conductor family now satisfies the native basic-open compatibility law; ofIdeals preserves every prescribed affine ideal. Native proofs establish the old membership, greatest-ideal and affine ofIdealTop contracts, arbitrary affine restriction and composition, identity and empty-open boundaries, the canonical ΓSpecIso comparison, and the affine quotient-module annihilator formula. The native closed subscheme is available, with the identity case checked empty. Still construct and compare the conductor quotient-square maps, the all-open structure-sheaf exact sequence and categorical geometric pushout, the recomputed flat base-change comparison, projectivity/properness/cohomology and the remaining I2 and other routed-paper targets. The generic flat-annihilator supplier request remains open. The full Tau-importing canonical file remains uncompiled; no whole-stage completion is claimed."
+        "The actual conductor family now satisfies the native basic-open compatibility law; ofIdeals preserves every prescribed affine ideal. Native proofs establish the old membership, greatest-ideal and affine ofIdealTop contracts, arbitrary affine restriction and composition, identity and empty-open boundaries, the canonical ΓSpecIso comparison, and the affine quotient-module annihilator formula. The native closed subscheme is available, with the identity case checked empty. Still construct and compare the conductor quotient-square maps, the all-open structure-sheaf exact sequence and categorical geometric pushout, the recomputed flat base-change comparison, projectivity/properness/cohomology and the remaining I2 and other routed-paper targets. The generic flat-annihilator supplier request remains open. The full Tau-importing canonical file remains uncompiled; no whole-stage completion is claimed.",
+        "The actual conductorMap now has checked native square, cartesian and finite APIs, comparison with subschemeMap and uniqueness. Its actual section map is defined on every target open and commutes with native restrictions. On affine opens, the two actual subschemeObjIso identifications conjugate this section map to the native induced quotient-ring map A/I→B/J, where J is the actual pulled-back ideal datum. The nonreduced diagonal Z/4 example retains a nonzero square-zero class on both sides and shows the induced map need not be an isomorphism. The exact equality J(V)=c(im(f.app U),B) still requires the affine tensor-quotient/pullback ideal comparison; no geometric pushout or all-open structure-sheaf exactness is inferred. All inherited properness/projectivity, P¹/Proj, cohomology, flat-recomputed conductor, I2 and classification obligations remain required. All seven stages remain partial and every implementation unchecked; the full Tau-importing suggested file remains uncompiled."
       ]
     },
     {
