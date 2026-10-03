@@ -4143,3 +4143,125 @@ Source: Ben Heuer, [published PDF](https://link.springer.com/content/pdf/10.1007
 ### Global boundary
 
 The affine finite-coordinate result does not construct a sheaf tensor or identify its sections with tensors of global sections. The existing H.0/higgs-commuting global target still consumes E1 restriction, exterior/dual tensor comparison, local equality detection and gluing. Arbitrary-Q cross-ring exterior projection/base-change comparison, finite-projective dual localization, the global Ω²⊗T² identification and all λ-connection/Griffiths/Rees supplier obligations remain explicit work. No Hodge parent carrier is duplicated, no stage or reserved key is closed, and all149 source-route obligations retain their previous status. H.0 is partial and H.1–H.8 are not_read. The full suggested file uses admitted bodies under protocol13; its type check is separate from the admission-free native prototype archived in the handoff.
+
+## Affine tensor Higgs fields — codex-7e92bd continuation
+
+General ringed-site Higgs/constant-parameter connection plan with 173 nodes. The affine tensor continuation supplies the actual tensor field on arbitrary modules, its contraction and coefficient-map identities, horizontal tensor maps, native symmetry, both unitors and associator; finite-basis coefficient directions give tensor integrability over any commutative ring. All 161 inherited contracts, ordered-iterate/base-change/chart/exterior APIs, eight routes and 149 source obligations remain. H.0 is partial and H.1–H.8 are not_read; every node is unchecked. General-Q tensor curvature, nonzero-parameter balancing, the integral tensor-nilpotence bound, exterior scalar extension, finite-projective and actual sheaf restriction/gluing, determinant/Tate/period adapters and source decomposition remain open.
+
+Liu–Zhu, [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), §2.1 Theorem 2.1(iv), equation (2.4), uses the sum of the two induced Higgs fields on a sheaf tensor. The following arbitrary-ring affine identities are authored deductions, not a proof of the correspondence or its tensor functor. The source read covers all of §2.1 and the preceding Theorem 1.6, Remark 1.10 and conventions; it does not cover the whole paper.
+
+R is an arbitrary commutative ring; E,F,Q (and any explicitly named E′,F′,G,P) are arbitrary R-modules. Fields θ:E→E⊗_R Q and ψ:F→F⊗_R Q are actual R-linear maps, without an integrability assumption unless explicitly stated. No finiteness, flatness, freeness, reducedness or characteristic hypothesis is imposed on E or F.
+Write T(θ,ψ)=rightComm∘(θ⊗id_F)+assoc⁻¹∘(id_E⊗ψ), with target (E⊗_R F)⊗_R Q; write a_θ(v)=rid∘(id_E⊗v)∘θ and κ(θ)=(id_E⊗π₂)∘I₂(θ) for the inherited native contraction and exterior square. Tensor associators, symmetry and unitors are the existing Mathlib linear equivalences, not new general module constructions.
+Only the integrability theorem requires a chosen finite basis b:I→Q. Every other new tensor identity holds for arbitrary Q. The tensor unit carries the zero Higgs field. This is the affine λ=0 specialization: neither the nonzero-parameter Leibniz balancing nor actual sheaf restriction/gluing is discharged.
+
+The coefficient module Q remains a single common factor. In the p-adic application Q models the existing differential/Tate coefficient module; no Tate trivialization is chosen here. Tensoring a Higgs field with the zero field on R gives the unit operation. Tensoring two scalar unit fields instead adds their scalar coefficients.
+
+### Affine tensor Higgs field
+
+`TwistedHiggsBundle.affineTensorField` — Construct T(θ,ψ):E⊗_R F→(E⊗_R F)⊗_R Q as the sum rightComm∘(θ⊗id_F)+assoc⁻¹∘(id_E⊗ψ). Both summands retain one common coefficient module Q; no tensor-square coefficient or division is introduced.
+
+Proof outline: Compose the native tensor maps with rightComm and the inverse associator, then add in the native module of linear maps.
+
+Prerequisites: `mathlib:TensorProduct.map`, `mathlib:TensorProduct.rightComm`, `mathlib:TensorProduct.assoc`.
+
+### Tensor Higgs field on pure tensors
+
+`TwistedHiggsBundle.affineTensorField_tmul` — For every e∈E and f∈F, T(θ,ψ)(e⊗f)=rightComm(θ(e)⊗f)+assoc⁻¹(e⊗ψ(f)).
+
+Proof outline: Evaluate the two defining composites on a pure tensor.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-tensor-field`, `mathlib:TensorProduct.map_tmul`.
+
+### Tensor of zero Higgs fields
+
+`TwistedHiggsBundle.affineTensorField_zero` — T(0_E,0_F)=0 as a native linear map E⊗_R F→(E⊗_R F)⊗_R Q.
+
+Proof outline: Apply native tensor extensionality and the pure-tensor formula.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-tensor-tmul`, `mathlib:TensorProduct.ext'`.
+
+### Contraction of the tensor Higgs field
+
+`TwistedHiggsBundle.affineTensorField_contractions` — For every v∈Hom_R(Q,R), a_T(θ,ψ)(v)=a_θ(v)⊗id_F+id_E⊗a_ψ(v) in End_R(E⊗_R F).
+
+Proof outline: Apply tensor extensionality; expand the contraction of each summand. Tensor induction on θ(e) and ψ(f) reduces the two equations to pure tensors, where scalar balance gives the stated endomorphisms.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-tensor-tmul`, `HodgeStructuresPartII:H.0/affine-contractions`, `mathlib:TensorProduct.ext'`, `mathlib:TensorProduct.induction_on`, `mathlib:TensorProduct.rightComm_tmul`, `mathlib:TensorProduct.assoc_symm_tmul`.
+
+### Commuting tensor contractions
+
+`TwistedHiggsBundle.affineTensorField_contractions_commute` — For v,w∈Hom_R(Q,R), if a_θ(v)a_θ(w)=a_θ(w)a_θ(v) and a_ψ(v)a_ψ(w)=a_ψ(w)a_ψ(v), then a_T(θ,ψ)(v)a_T(θ,ψ)(w)=a_T(θ,ψ)(w)a_T(θ,ψ)(v). Products are composition with the right factor applied first.
+
+Proof outline: Use the contraction formula and tensor extensionality. Expand both products into four terms; the two mixed terms match by acting in separate tensor factors, and the two same-factor terms match by the hypotheses. Reorder the four-term sum without dividing by two.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-tensor-contractions`, `mathlib:TensorProduct.ext'`, `mathlib:TensorProduct.map_tmul`.
+
+### Integrability of the tensor Higgs field
+
+`TwistedHiggsBundle.affineTensorField_integrable` — If Q has a chosen finite basis b:I→Q and κ(θ)=κ(ψ)=0, then κ(T(θ,ψ))=0. E and F remain arbitrary R-modules, including torsion modules.
+
+Proof outline: Use the inherited finite-coordinate integrability criterion for Q. Each input curvature vanishing gives commuting contractions at b.coord i and b.coord j; the tensor contraction lemma supplies the pairwise commutation required by the criterion.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-tensor-commute`, `HodgeStructuresPartII:H.0/affine-exterior-zero-contractions-commute`, `HodgeStructuresPartII:H.0/affine-exterior-coordinate-criterion`.
+
+### Tensor field under coefficient postcomposition
+
+`TwistedHiggsBundle.affineTensorField_coefficientMap` — For any R-linear u:Q→P, (id_(E⊗F)⊗u)∘T(θ,ψ)=T((id_E⊗u)∘θ,(id_F⊗u)∘ψ). This is same-ring postcomposition, with no injectivity or flatness requirement on u.
+
+Proof outline: Apply tensor extensionality and expand both fields. Tensor induction on each input field value reduces naturality of the associator and permutation to their pure-tensor formulas.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-tensor-tmul`, `HodgeStructuresPartII:H.0/affine-coefficient-map`, `mathlib:TensorProduct.ext'`, `mathlib:TensorProduct.induction_on`, `mathlib:TensorProduct.rightComm_tmul`, `mathlib:TensorProduct.assoc_symm_tmul`.
+
+### Tensor of horizontal linear maps
+
+`TwistedHiggsBundle.affineTensorField_horizontal` — For fields θ′ on E′ and ψ′ on F′ with coefficients Q and R-linear f:E→E′, g:F→F′, suppose θ′∘f=(f⊗id_Q)∘θ and ψ′∘g=(g⊗id_Q)∘ψ. Then T(θ′,ψ′)∘(f⊗g)=((f⊗g)⊗id_Q)∘T(θ,ψ). No map needs to be invertible.
+
+Proof outline: Evaluate on e⊗x, substitute both horizontal equations, and separate the two summands. Tensor induction on θ(e) and ψ(x) proves each tensor-map/permutation identity.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-tensor-tmul`, `mathlib:TensorProduct.ext'`, `mathlib:TensorProduct.induction_on`, `mathlib:TensorProduct.rightComm_tmul`, `mathlib:TensorProduct.assoc_symm_tmul`.
+
+### Horizontal tensor symmetry
+
+`TwistedHiggsBundle.affineTensorField_comm` — For the native symmetry c:E⊗_R F≃F⊗_R E, T(ψ,θ)∘c=(c⊗id_Q)∘T(θ,ψ).
+
+Proof outline: Evaluate on e⊗f, swap the two summands, and use tensor induction on the two field values with the native commutor, rightComm and associator evaluations.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-tensor-tmul`, `mathlib:TensorProduct.comm`, `mathlib:TensorProduct.comm_tmul`, `mathlib:TensorProduct.ext'`, `mathlib:TensorProduct.induction_on`, `mathlib:TensorProduct.rightComm_tmul`, `mathlib:TensorProduct.assoc_symm_tmul`.
+
+### Horizontal right tensor unit
+
+`TwistedHiggsBundle.affineTensorField_rid` — For the native right unitor ρ:E⊗_R R≃E and the zero field on R, θ∘ρ=(ρ⊗id_Q)∘T(θ,0_R).
+
+Proof outline: Evaluate at e⊗r. Linearity makes the left side r•θ(e); tensor induction on θ(e) identifies the right side with the same scalar action.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-tensor-tmul`, `mathlib:TensorProduct.rid`, `mathlib:TensorProduct.rid_tmul`, `mathlib:TensorProduct.ext'`, `mathlib:TensorProduct.induction_on`, `mathlib:TensorProduct.rightComm_tmul`.
+
+### Horizontal left tensor unit
+
+`TwistedHiggsBundle.affineTensorField_lid` — For the native left unitor ℓ:R⊗_R E≃E and the zero field on R, θ∘ℓ=(ℓ⊗id_Q)∘T(0_R,θ).
+
+Proof outline: Evaluate at r⊗e and use linearity. Tensor induction on θ(e) reduces both sides to r acting on the E component of each pure tensor.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-tensor-tmul`, `mathlib:TensorProduct.lid`, `mathlib:TensorProduct.lid_tmul`, `mathlib:TensorProduct.ext'`, `mathlib:TensorProduct.induction_on`, `mathlib:TensorProduct.assoc_symm_tmul`.
+
+### Horizontal tensor associator
+
+`TwistedHiggsBundle.affineTensorField_assoc` — For a third arbitrary R-module G with field χ:G→G⊗_R Q and the native associator α:(E⊗_R F)⊗_R G≃E⊗_R(F⊗_R G), T(θ,T(ψ,χ))∘α=(α⊗id_Q)∘T(T(θ,ψ),χ).
+
+Proof outline: Use threefold tensor extensionality and expand the fields into the three summands contributed by θ,ψ,χ. Reassociate the sum; for each term, tensor induction on its field value reduces the equality to the native permutation and associator formulas.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-tensor-tmul`, `mathlib:TensorProduct.assoc`, `mathlib:TensorProduct.assoc_tmul`, `mathlib:TensorProduct.assoc_symm_tmul`, `mathlib:TensorProduct.rightComm_tmul`, `mathlib:TensorProduct.ext_threefold`, `mathlib:TensorProduct.induction_on`.
+
+### Construction tests
+
+- `TwistedHiggsBundle.affineTensorField.test_zero` (degenerate): For arbitrary E,F,Q, tensoring the two zero Higgs fields gives the zero field.
+- `TwistedHiggsBundle.affineTensorField.test_integer_sum` (computation): Over R=ℤ and E=F=Q=ℤ, tensor the two fields e↦e⊗1. The value at 1⊗1 is (1⊗1)⊗2, retaining both summands.
+- `TwistedHiggsBundle.affineTensorField.test_char_two_cancellation` (non-example): Over R=E=F=Q=ZMod 2, the scalar unit field e↦e⊗1 is nonzero, but tensoring it with itself gives the zero field. Tensor-field vanishing cannot reflect the vanishing of either input.
+- `TwistedHiggsBundle.affineTensorField.test_torsion_integrability` (compatibility): Over ℤ with Q=ℤ, use E=ZMod 2 and F=ZMod 4 and the one-direction fields with identity operators and direction 1. Their tensor field has zero native exterior square, without a flatness or freeness assumption on either module.
+- `TwistedHiggsBundle.affineTensorField.test_zero_direction_map` (degenerate): For arbitrary fields θ,ψ and an arbitrary target coefficient module P, postcompose both fields by the zero map Q→P; their tensor field is zero.
+
+### Ownership and remaining work
+
+The affine λ=0 tensor field, tensor contraction formula, horizontal maps and native associativity/symmetry/unit equations are now planned with separately checked proofs for arbitrary modules. Tensor integrability is proved using a chosen finite basis of Q and no condition on E,F. Still prove the actual tensor-curvature formula for arbitrary Q, the N+M−1 ordered nilpotence bound by integral shuffles, same-λ nonzero-parameter balancing, cross-ring tensor/exterior comparison and E1 sheaf restriction/gluing. No global key, supplier, source route or stage is closed.
+
+All six existing planets, all eight accepted routes, the 149 routed obligations, five supplier requests and 35 global suggested-file omissions are retained. The intrinsic tensor construction gains these affine inputs without changing its original statement. Generic underived sheaf tensor, dual, exterior and pullback comparisons remain with E1; ordinary connection/calculus with CR.1; filtration/Rees with DD.1; general VHS with D3; Jacobi with the existing ColemanPowerSeries declaration.
