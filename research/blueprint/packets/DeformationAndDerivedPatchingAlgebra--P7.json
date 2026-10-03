@@ -13602,6 +13602,132 @@
       }
     },
     "remaining": "The actual plane-curve and zero-equation functions now have independently proved unique eventual rational polynomials, explicit degree/leading-coefficient API and factorial coefficient arithmetic. Compare these with the existing general polynomial constructor through its proved specification, identify intrinsic/ambient multiplicities under proved support and dimension hypotheses, and prove the native tangent-cone kernel and curve dimension. General Hilbert–Serre induction, support/degree, Artin–Rees, completion, localization lengths, associativity, every routed source obligation and all eight stage targets remain required.",
-    "sourceBoundary": "Fresh selected primary conventions, complete credited authored §§1–3 and selected pinned native proofs; all applicable reviewed audit rows and accepted ownership read. No fresh complete routed-paper, prior node-by-node or catalogue-wide source audit is claimed."
+    "sourceBoundary": "Fresh selected primary conventions, complete credited authored §§1–3 and selected pinned native proofs; all applicable reviewed audit rows and accepted ownership read. No fresh complete routed-paper, prior node-by-node or catalogue-wide source audit is claimed.",
+    "publicationBase": "0f8afef629b4d0be5a436d2d5da7112ee34a9999",
+    "proofArchive": "17609bb00b2bdb9f50bb72f35150dd692670fb44",
+    "proofReconstructionSha256": "2fc0839354a4d577106a8b9c21e6f1917bfd078cc149ada1334ed5eb06d775fa",
+    "validationScriptSha256": "e5256413c88f1265c89ad08465bcef609200d01cad63d35a2006cb4d9563b4f2",
+    "leanChecks": {
+      "Native": {
+        "sourceSha256": "5a8f33443d5002d6d11eb5a4b513cfdafc36fa8fd4cf0a2874ea4b2b504a0389",
+        "diagnosticSha256": "110907d3bb3f65b2283c46b20d290c23ac43fca586952f6985bd7329ef70eb17",
+        "lines": 2018,
+        "bytes": 99933,
+        "examples": 64,
+        "newNamedTests": 11,
+        "errors": 0,
+        "warnings": 0,
+        "admissionWarnings": 0,
+        "axiomAudits": 113,
+        "sorryAxInAudits": 0,
+        "availableGiBBeforeCompile": 43,
+        "elapsed": "0:09.34",
+        "maxRSSKiB": 3562840,
+        "exitStatus": 0
+      },
+      "Canonical": {
+        "sourceSha256": "d79478f1e937c1b3047a92677e71b7ee3bec1eb95c99030f3a99188301414a9e",
+        "diagnosticSha256": "314462559f7a6fc1660365ebff1eeaff75c6d070b4f727b74ecdf4d57d93783a",
+        "lines": 3034,
+        "bytes": 149522,
+        "examples": 201,
+        "newNamedTests": 11,
+        "errors": 0,
+        "warnings": 396,
+        "admissionWarnings": 396,
+        "axiomAudits": 0,
+        "sorryAxInAudits": 0,
+        "availableGiBBeforeCompile": 43,
+        "elapsed": "0:25.61",
+        "maxRSSKiB": 3574948,
+        "exitStatus": 0
+      }
+    },
+    "validation": {
+      "publicationBase": "0f8afef629b4d0be5a436d2d5da7112ee34a9999",
+      "mathematicalBase": "1cb7fbca1727576cfc5c3fa0de58b9f1092552ea",
+      "checker": {
+        "roadmap": "DeformationAndDerivedPatchingAlgebra",
+        "status": "partial",
+        "nodes": 147,
+        "kinds": {
+          "lemma": 99,
+          "theorem": 16,
+          "definition": 8,
+          "construction": 24
+        },
+        "apiItems": 134,
+        "unitTests": 123,
+        "planets": 13,
+        "baselineDeclarations": 281,
+        "prerequisites": {
+          "baseline": 366,
+          "node (this packet)": 221,
+          "node (integrated)": 1
+        },
+        "gaps": 15,
+        "requests": 2,
+        "stagesInScope": 8,
+        "stagesClosed": 0
+      },
+      "errors": [],
+      "warnings": [],
+      "intake": "pass",
+      "preservedContracts": 130,
+      "preservedWholeNodes": 129,
+      "newNodes": 17,
+      "mathHeadersMatched": 18,
+      "newTestTypesMatched": 11,
+      "allAPIItems": 134,
+      "allTests": 177,
+      "nativeAxiomAudits": 113,
+      "canonicalAdmissionWarnings": 396,
+      "nativeSha256": "5a8f33443d5002d6d11eb5a4b513cfdafc36fa8fd4cf0a2874ea4b2b504a0389",
+      "canonicalSha256": "d79478f1e937c1b3047a92677e71b7ee3bec1eb95c99030f3a99188301414a9e",
+      "stageDAG": {
+        "vertices": 3003,
+        "edges": 8623,
+        "acyclic": true
+      },
+      "ownDAG": {
+        "vertices": 147,
+        "edges": 221,
+        "acyclic": true
+      },
+      "scopedCombinedDAG": {
+        "vertices": 3138,
+        "edges": 8992,
+        "acyclic": true
+      },
+      "reachableDeclarations": 148,
+      "externalDeclarations": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/depth-auslander-buchsbaum-and-dimension-bounds"
+      ],
+      "baselineLeaves": 250,
+      "unresolvedReferences": 0,
+      "otherPartsRetained": [
+        "DeformationAndDerivedPatchingAlgebra--R03.6"
+      ],
+      "roadmapDeclarations": 200,
+      "supplierStagePairs": 13,
+      "supplierStagePairsReachable": 12,
+      "inheritedMissingPairs": [
+        [
+          "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+          "DeformationAndDerivedPatchingAlgebra:R03.4"
+        ]
+      ],
+      "acceptedRestructurePairs": 65,
+      "acceptedRestructurePairsAllReachable": true,
+      "stageEdgesUnchanged": true,
+      "otherSkippedPendingUnchanged": true,
+      "ownSkippedPendingEmpty": true,
+      "changedPaths": [
+        "research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md",
+        "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--P7.json",
+        "research/blueprint/readmes/DeformationAndDerivedPatchingAlgebra--P7.md",
+        "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--P7.lean"
+      ]
+    }
   }
 }
