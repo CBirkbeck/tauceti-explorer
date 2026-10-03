@@ -1,6 +1,6 @@
 # StableReductionPartII: finite projective completed coefficients
 
-Codex — codex-rtOQ9t. Refs #3342. Claim5969961288 confirmed by bot5969962412; one claim held.
+Codex — codex-rtOQ9t. Refs #3342. Correction claim 5970519535 confirmed by bot 5970520958; one claim held.
 
 All 466 incoming node objects are unchanged. The packet now has 500 unchecked declarations: 34 additions, comprising eight constructions and 26 promoted API/auxiliary lemmas. There are 25 new APIs and 27 new typed acceptance examples. All 35 planets, 135 requests, 15 gaps, 11 source issues, 21 consumer routes, version checks, reserved general moduli key definition and the other seven stage descriptions are preserved. All eight stages remain partial.
 
@@ -20,18 +20,20 @@ Fresh serial existing-pin Lean receipts:
 
 - native: SHA256`f04e541a2942b887f9150009aeaa0bb87f340cf5ea4eaeb142117b9fc8479a5a`, exit0, 7596lines, 278examples, 446axiom audits, 0warnings (0admission warnings), 37GiB available, 1:01.73, RSS4101568KiB.
 - canonical: SHA256`01e1eb362be633bc355b4a9926e1a7c96c418d0317015cb3b49b10b680f6e94b`, exit0, 5505lines, 340examples, 0axiom audits, 823warnings (823admission warnings), 36GiB available, 0:48.12, RSS3784448KiB.
-- Published suggested file: SHA256`c37498f1d36ca18de50739f4a81803acf2bd179e3eaf1e03fccce837dd492bd3`, exit0, 823admission-only warnings, 35GiB available, 0:47.33, RSS3771452KiB.
+- Published suggested file: SHA256`227254ad09205e234ab50f151e8a6d678bb9e370e50a5d6492e52e4cfbee8461`, exit0, 823admission-only warnings, 35GiB available, 0:47.63, RSS3776596KiB.
 
 Every compile used one existing Lean4.34.0-rc2 process, repeated free -g immediately before launch, required at least20GiB available and enforced a1200s timeout. No Lake setup, update, cache or build and no language server was used. No compile remains running.
 
 Resume with the exact finite-presentation/completion or universally acyclic-complex argument for arbitrary completed coefficients, then actual relative Hom/Ext and faithful reflection. Keep the two coefficient rings distinct. Continue to the pointed completed-local hull, coefficient-compatible sheaf descent and finite-presentation approximation for arbitrary bases. The reusable relative-stable-reflexivity owner interface, Knudsen Proposition6/Bourbaki proof and Proposition7 exercise, plus all MC.0–MC.7 geometric requirements remain open.
 
-Recovery: save the first five Python fences as recover.py, verify.py, immutable.py, graph.py and compile.py, preserving final newlines. Set TAUCETI_REPO to an existing checkout; recover.py DEST PUBLIC_HEAD authenticates all five public deliverables, five input deliverables at the recorded mathematical base, 20 text artifacts and five helpers. Pass the pinned declarations.tsv to verify.py DEST INDEX, then run graph.py DEST. The optional compile.py DEST EXISTING_MATHLIB EXISTING_LEAN Native.lean or Published.lean enforces memory and timeout guards; wait for each process. Fetch an absent immutable commit read-only if necessary. Do not create a clone or snapshot. Own scratch is removed after opening the PR; all referenced evidence is publicly recoverable.
+Recovery: save the first five Python fences as recover.py, verify.py, immutable.py, graph.py and compile.py, preserving final newlines. Set TAUCETI_REPO to an existing checkout; recover.py DEST PUBLIC_HEAD authenticates all five public deliverables, five input deliverables at the recorded mathematical base, 21 text artifacts and five helpers. Pass the pinned declarations.tsv to verify.py DEST INDEX, then run graph.py DEST. The optional compile.py DEST EXISTING_MATHLIB EXISTING_LEAN Native.lean or Published.lean enforces memory and timeout guards; wait for each process. Fetch an absent immutable commit read-only if necessary. Do not create a clone or snapshot. Own scratch is removed after opening the PR; all referenced evidence is publicly recoverable.
+
+This follow-up to #6007 corrects the issue’s documentation boundary: the 27 new unit-test descriptions are mathematical prose, and the 34 Lean header blocks are removed from the reader. All declarations, dependencies, APIs, test names, mathematical hypotheses and proof bodies are preserved; Native.lean and Canonical.lean have exactly their #6007 hashes. TestDescriptions.py authenticates the mapping from each typed example name to its mathematical contract. The packet checker, intake checks and refreshed promoted graph pass. The exact republished suggested file was freshly compiled as above.
 
 <!-- FINITE PROJECTIVE COMPLETION METADATA
 {
   "base": "07e1d7c228cd31a3acaf8848dd1c62c5342a48aa",
-  "publicationBase": "f6213b8004ec27a5c3f7f45b1947112569e1cb0c",
+  "publicationBase": "20ee6c0227a623ea43ae92a967b2141edc7b49cc",
   "artifacts": {
     "IncomingNative.lean": {
       "bytes": 398616,
@@ -66,16 +68,16 @@ Recovery: save the first five Python fences as recover.py, verify.py, immutable.
       "sha256": "cefe69779f267e469420c2e69549f4dce2833b42c842c5c20bb676b5c58744da"
     },
     "Spec.json": {
-      "bytes": 18895,
-      "sha256": "a150025ae3a5b873f378d2456d42e6df00996efeccf45542e80e2ae07a7b21a8"
+      "bytes": 18896,
+      "sha256": "c9352e68bb8e37bbe5843718c6c887b2df962031cd9c54c40736a3e433fa8da3"
     },
     "Spec.py": {
-      "bytes": 13791,
-      "sha256": "541f95d020ad4cde26bb22a19cdc3d6639694b488a4052d1dbfa0e52eb1f1105"
+      "bytes": 13792,
+      "sha256": "1f12de833e1633d6c57f4e1060786a436fe64a1dc0cf1996fa334c28aaaad2ce"
     },
     "author.py": {
-      "bytes": 12304,
-      "sha256": "7538d8f4284fd75d85fe623cf0cecef66aaa8fabdfc82840efead35d9ea2311a"
+      "bytes": 12239,
+      "sha256": "d1018d2b7c948de6da0d9b21c98270666043cd52342fd07372a2c7636daf51bd"
     },
     "project.py": {
       "bytes": 2035,
@@ -103,7 +105,7 @@ Recovery: save the first five Python fences as recover.py, verify.py, immutable.
     },
     "graph-publication.json": {
       "bytes": 783,
-      "sha256": "b5e0c9049cb2912c6b534135445a336653fa12c0fb1610ccbd282553becd4187"
+      "sha256": "7e82b590286db5b618e07e1904b1c7a7d5774714a3060dfea8137ea7c736fe6f"
     },
     "math-base.txt": {
       "bytes": 41,
@@ -111,12 +113,16 @@ Recovery: save the first five Python fences as recover.py, verify.py, immutable.
     },
     "verify-local.json": {
       "bytes": 2260,
-      "sha256": "3a75f9a5c9029b01da4321b0ed264a2e8a1a7896808cf94783984bc1410e028a"
+      "sha256": "8f6cf1baeaa0e07988e4b4989a1195af63542a749acad0742ac1bd659a1246b2"
+    },
+    "TestDescriptions.py": {
+      "bytes": 4662,
+      "sha256": "3e006ca880a84086004032c38ff79150fa67b5aacd3b2cbd48ff7442f6e961a6"
     }
   },
   "scripts": {
     "recover.py": "58c81dc0a8442c5de6a73ccd8af93c5f4369d46fe4f2f32ac42b1fd178dcd202",
-    "verify.py": "b326668cd867d420221804d58b65bae9d0d688f6a3707d569065b97578af0ba9",
+    "verify.py": "837e9eaea5eb2c50fe9c885d791c1ac20ef381fe8eab6dee51733b352d2dbd79",
     "immutable.py": "f4fe5f25af3bdecd0550e29f4f2905c8f6d591b37803b60a6a7cebb96378358a",
     "graph.py": "7a64bd3dc540e621b43f088557059762038660dca7e910f3be70561578ef32b0",
     "compile.py": "bb9a961889fa2e5d99565f14f84efd3b2921c67f633bc177f5b9f35221ef3e0b"
@@ -145,7 +151,7 @@ Recovery: save the first five Python fences as recover.py, verify.py, immutable.
   },
   "publishedCompilation": {
     "file": "Published.lean",
-    "sha256": "c37498f1d36ca18de50739f4a81803acf2bd179e3eaf1e03fccce837dd492bd3",
+    "sha256": "227254ad09205e234ab50f151e8a6d678bb9e370e50a5d6492e52e4cfbee8461",
     "exit": 0,
     "warnings": 823,
     "admissionWarnings": 823,
@@ -153,11 +159,11 @@ Recovery: save the first five Python fences as recover.py, verify.py, immutable.
     "examples": 340,
     "lines": 5509,
     "availableGiB": 35,
-    "seconds": "0:47.33",
-    "peakRSSKiB": 3771452,
-    "diagnosticsSha256": "6732499078c646ffcd73bb26fd75f2234bd02d89f654611f55b3f8a3a743f33c",
+    "seconds": "0:47.63",
+    "peakRSSKiB": 3776596,
+    "diagnosticsSha256": "7ed86dddc03f669a24aff0c6b13d58c715dee29fa37da2c092b151021a9c1cc9",
     "leanVersion": "Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)",
-    "checkedAt": "2026-10-03T15:07:08.246554+00:00"
+    "checkedAt": "2026-10-03T15:35:38.171652+00:00"
   }
 }
 END FINITE PROJECTIVE COMPLETION METADATA -->
@@ -255,6 +261,7 @@ assert [(x['kind'],x['name'],x['header']) for x in project.declarations(adm)]==[
 assert len(ds)==61 and len(re.findall(r'^-- test: ',nn,re.M))==27
 assert json.loads((S/'Declarations.json').read_text())==ds
 from Spec import ROWS,APIS,CONTEXT,FRONTIER
+from TestDescriptions import TESTS
 assert set(x[0] for x in ROWS)==set(x['name'] for x in ds if x['name'])
 declnames={x['name'] for x in ds if x['name']}
 prefix='NodeSectionFactorization.PolynomialModel.'
@@ -264,6 +271,10 @@ for n in p['nodes'][466:]:
  if n['kind']=='construction':assert len(n['tests'])>=3
 assert sum(len(n.get('api',[])) for n in p['nodes'][466:])==25
 assert sum(len(n.get('tests',[])) for n in p['nodes'][466:])==27
+for n in p['nodes'][466:]:
+ for t in n.get('tests',[]):assert t['statement']==CONTEXT+TESTS[t['name'][len(prefix):]]
+assert '```lean' not in (S/'Candidate-reader.md').read_text()[:-len((S/'Input-reader.md').read_text())]
+assert not re.search(r'\bsorry\b|Typed native test:|→ₗ\[|\b(letI|example|def|lemma)\b',json.dumps([t for n in p['nodes'][466:] for t in n.get('tests',[])],ensure_ascii=False))
 assert (S/'Candidate-reader.md').read_text().endswith((S/'Input-reader.md').read_text())
 reader=(S/'Candidate-reader.md').read_text()
 for n in p['nodes'][466:]:
