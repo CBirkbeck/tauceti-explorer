@@ -1,3 +1,251 @@
+# Native morphism groupoids for fixed-band gerbes
+
+Fix a site (C,J), native Cat-valued pseudofunctors F,G, and actual abelian bandings bF,bG by a specified sheaf A. The coefficient universe is independent of the fibre object and morphism universes. The fixed-band morphism category is the native full subcategory of StrongTrans(F,G) on BandPreserving(bF,bG). All native modifications remain arrows. No neutralization or terminal object is chosen.
+
+The target gerbe condition makes every component of a native modification invertible. Native natural-isomorphism and modification-isomorphism constructors supply the inverse naturality equations. Their forward components are the original modification; their inverse components are the actual target-fibre inverses. The fixed-band full-subcategory inclusion is fully faithful, so it retains distinct modifications and cannot collapse to a set of isomorphism classes.
+
+Use this groupoid in the neutral and general self-equivalence comparisons. The coherent inverse strong transformation remains the exact D0 supplier request; the torsor functor, descent, its full faithfulness, unit/counit and derived H² classification remain separate targets. The general reserved gerbe, nonneutral root and compatible-object profinite-limit contracts, external coherent-duality import, source corrections and all eight partial scope entries retain their stated generality.
+
+## Native gerbe modifications with their actual inverses
+
+`AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iso`; declaration `TauCeti.AlgebraicGeometry.BandedMorphism.modificationIso`.
+
+For a native modification m:η⇒θ of strong transformations F→G with G a gerbe, construct an actual modification isomorphism M(m):η≅θ whose forward modification is m. Its inverse component at U,x is the inverse of the actual target-fibre arrow m(U,x). No band-preservation assumption is needed for this construction.
+
+Prerequisites: `AlgebraicModuliForArithmeticGeometry:key/gerbes`, `mathlib:CategoryTheory.Pseudofunctor.StrongTrans.isoMk`, `mathlib:CategoryTheory.Cat.Hom.isoMk`, `mathlib:CategoryTheory.NatIso.ofComponents`.
+
+Apply the target gerbe groupoid projection to each actual component arrow.
+
+Use native asIso and NatIso.ofComponents; the original natural-transformation equation supplies forward naturality.
+
+Use StrongTrans.isoMk and the original modification equation; Mathlib supplies inverse modification naturality.
+
+API:
+
+- `BandedMorphism.modificationIso_hom`: For every m, M(m).hom=m as a native modification, including every component natural transformation.
+- `BandedMorphism.modificationIso_inv_app`: For every actual test object U and source object x, the (U,x) component of M(m).inv equals the native inverse of m(U,x).
+- `BandedMorphism.modificationIso_id`: For every η, M(idη) is the native identity isomorphism of η.
+- `BandedMorphism.modificationIso_comp`: For composable native modifications m and n, M(m≫n)=M(m)≪≫M(n). The inverse thus uses reverse composition.
+
+Tests:
+
+- `BandedMorphismTests.modification_forward` (compatibility): The forward modification of M(m) is exactly the supplied native m.
+- `BandedMorphismTests.modification_inverse_component` (computation): For each U,x the inverse component is the native inverse of m(U,x), with both endpoints retained.
+- `BandedMorphismTests.modification_composition` (compatibility): For actual composable m,n the constructed isomorphism of their composite is the composite of their constructed isomorphisms.
+
+## The modification isomorphism keeps its forward arrow
+
+`AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iso-hom`; declaration `TauCeti.AlgebraicGeometry.BandedMorphism.modificationIso_hom`.
+
+For every m, M(m).hom=m as a native modification, including every component natural transformation.
+
+Prerequisites: `AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iso`, `mathlib:CategoryTheory.Pseudofunctor.StrongTrans.homCategory.ext`, `mathlib:CategoryTheory.Cat.Hom₂.ext`.
+
+Use native modification and Cat 2-morphism extensionality; the component is the original m by construction.
+
+## The inverse modification is computed in the fibre
+
+`AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iso-inv-app`; declaration `TauCeti.AlgebraicGeometry.BandedMorphism.modificationIso_inv_app`.
+
+For every actual test object U and source object x, the (U,x) component of M(m).inv equals the native inverse of m(U,x).
+
+Prerequisites: `AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iso`.
+
+Evaluate the two native iso constructors and the asIso inverse field; their definitions give the displayed inverse.
+
+## The modification inverse construction preserves identity
+
+`AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iso-id`; declaration `TauCeti.AlgebraicGeometry.BandedMorphism.modificationIso_id`.
+
+For every η, M(idη) is the native identity isomorphism of η.
+
+Prerequisites: `AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iso-hom`, `mathlib:CategoryTheory.Iso.ext`.
+
+Apply Iso.ext and the forward-arrow equation to the identity modification.
+
+## The modification inverse construction preserves composition
+
+`AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iso-comp`; declaration `TauCeti.AlgebraicGeometry.BandedMorphism.modificationIso_comp`.
+
+For composable native modifications m and n, M(m≫n)=M(m)≪≫M(n). The inverse thus uses reverse composition.
+
+Prerequisites: `AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iso-hom`, `mathlib:CategoryTheory.Iso.ext`.
+
+Apply Iso.ext and rewrite the three forward arrows with modificationIso_hom.
+
+## Every native gerbe modification transports the fixed band
+
+`AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iff`; declaration `TauCeti.AlgebraicGeometry.BandedMorphism.modification_iff`.
+
+For native m:η⇒θ between F→G and specified bands bF,bG, BandPreserving(bF,bG,η) if and only if BandPreserving(bF,bG,θ). No additional IsIso(m) assumption is required because G is a gerbe.
+
+Prerequisites: `AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iso`, `AlgebraicModuliForArithmeticGeometry:R09.4/inverse-band/modification-iff`.
+
+Supply M(m) to the incoming modificationIso_iff fixed-band adapter. The reverse implication uses its inverse.
+
+## The native category of fixed-band morphisms
+
+`AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-category`; declaration `TauCeti.AlgebraicGeometry.BandedMorphism.HomCategory`.
+
+For A-banded gerbes (F,bF),(G,bG), take the existing full subcategory of native StrongTrans(F,G) on the property BandPreserving(bF,bG,η). Its objects are actual strong transformations with that property; its arrows are all native modifications between them, with their inherited identity and composition. No quotient of objects or arrows is taken.
+
+Prerequisites: `AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism`, `mathlib:CategoryTheory.Pseudofunctor.StrongTrans.homCategory`, `mathlib:CategoryTheory.ObjectProperty.FullSubcategory`, `mathlib:CategoryTheory.ObjectProperty.FullSubcategory.category`, `mathlib:CategoryTheory.ObjectProperty.ι`, `mathlib:CategoryTheory.ObjectProperty.homMk`, `mathlib:CategoryTheory.ObjectProperty.fullyFaithfulι`.
+
+Specialize the existing ObjectProperty.FullSubcategory carrier to the specified band equation.
+
+Reuse the native StrongTrans modification category and native full-subcategory identity/composition.
+
+Object and arrow constructors and the fully faithful forgetful functor are exact specializations of the native API, not a second general carrier.
+
+API:
+
+- `BandedMorphism.mk`: An actual band-preserving transformation with its specified band property is an object of the native fixed-band full subcategory.
+- `BandedMorphism.homMk`: Every actual underlying modification between fixed-band objects packages as an arrow of the full subcategory.
+- `BandedMorphism.forget`: The native inclusion functor forgets only the fixed-band object property and retains every modification.
+- `BandedMorphism.forget_fullyFaithful`: The native inclusion of the fixed-band full subcategory has the existing fully faithful data of ObjectProperty.fullyFaithfulι.
+- `BandedMorphism.hom_ext`: For m,n:X⇒Y in the fixed-band category, equality of their underlying natural transformations at every U implies m=n.
+- `BandedMorphism.modification_iff`: For native m:η⇒θ between F→G and specified bands bF,bG, BandPreserving(bF,bG,η) if and only if BandPreserving(bF,bG,θ). No additional IsIso(m) assumption is required because G is a gerbe.
+
+Tests:
+
+- `BandedMorphismTests.carrier_arrows` (characterisation): Every native underlying modification m:X.obj⇒Y.obj lifts and is recovered exactly; no arrow is discarded.
+- `BandedMorphismTests.carrier_distinct_arrows` (non-example): If two actual fixed-band modifications m,n are distinct, their forgotten modifications remain distinct. Replacing the groupoid by isomorphism classes cannot satisfy this test.
+- `BandedMorphismTests.carrier_band` (compatibility): A supplied band-preserving native transformation η maps to a fixed-band object whose forgotten transformation is exactly η.
+
+## Fixed-band modifications are determined by actual components
+
+`AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-ext`; declaration `TauCeti.AlgebraicGeometry.BandedMorphism.hom_ext`.
+
+For m,n:X⇒Y in the fixed-band category, equality of their underlying natural transformations at every U implies m=n.
+
+Prerequisites: `AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-category`, `mathlib:CategoryTheory.ObjectProperty.hom_ext`, `mathlib:CategoryTheory.Pseudofunctor.StrongTrans.homCategory.ext`, `mathlib:CategoryTheory.Cat.Hom₂.ext`.
+
+Apply native full-subcategory hom_ext, native modification component extensionality and Cat.Hom₂.ext. Every LocallyDiscrete opposite object is a test object U.
+
+## Every fixed-band modification has an inverse in the same category
+
+`AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-iso`; declaration `TauCeti.AlgebraicGeometry.BandedMorphism.homIso`.
+
+For any m:X⇒Y in the fixed-band category, lift M(m.hom) using native ObjectProperty.isoMk to an actual isomorphism X≅Y in that category. Its inverse connects the same specified band-preserving endpoints; no new object or equivalence-class representative is chosen.
+
+Prerequisites: `AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-category`, `AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iso`, `mathlib:CategoryTheory.ObjectProperty.isoMk`.
+
+Apply the native full-subcategory iso constructor to the actual underlying modification isomorphism.
+
+The endpoints already carry the band property, so no property on a separate arrow surrogate is imposed.
+
+API:
+
+- `BandedMorphism.homIso_hom`: For every m:X⇒Y, homIso(m).hom=m in the fixed-band category.
+- `BandedMorphism.homIso_inv_app`: For every m:X⇒Y, U and x, the underlying (U,x) component of homIso(m).inv is the native inverse of the component of m.
+- `BandedMorphism.homIso_comp`: For m:X⇒Y and n:Y⇒Z, homIso(m≫n)=homIso(m)≪≫homIso(n).
+
+Tests:
+
+- `BandedMorphismTests.hom_forward` (compatibility): Lifting an actual fixed-band modification to an isomorphism retains its exact forward arrow.
+- `BandedMorphismTests.hom_inverse_component` (computation): After forgetting the fixed-band inverse, each actual (U,x) component is the inverse of the original component.
+- `BandedMorphismTests.hom_composition` (compatibility): For actual fixed-band m,n the constructed isomorphism of the composite is their composite isomorphism.
+
+## The fixed-band isomorphism keeps the given modification
+
+`AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-iso-hom`; declaration `TauCeti.AlgebraicGeometry.BandedMorphism.homIso_hom`.
+
+For every m:X⇒Y, homIso(m).hom=m in the fixed-band category.
+
+Prerequisites: `AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-iso`, `AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iso-hom`, `mathlib:CategoryTheory.ObjectProperty.hom_ext`.
+
+Apply full-subcategory hom_ext and modificationIso_hom.
+
+## Every fixed-band modification is invertible
+
+`AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-is-iso`; declaration `TauCeti.AlgebraicGeometry.BandedMorphism.hom_isIso`.
+
+Every native arrow m:X⇒Y of the fixed-band category satisfies IsIso(m), with no fully faithful or component-equivalence assumption on X or Y.
+
+Prerequisites: `AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-iso-hom`.
+
+Replace m by the hom of homIso(m), then use the existing IsIso instance for an isomorphism hom.
+
+## The fixed-band inverse has the actual fibre inverse
+
+`AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-iso-inv-app`; declaration `TauCeti.AlgebraicGeometry.BandedMorphism.homIso_inv_app`.
+
+For every m:X⇒Y, U and x, the underlying (U,x) component of homIso(m).inv is the native inverse of the component of m.
+
+Prerequisites: `AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-iso`, `AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iso-inv-app`.
+
+Evaluate native ObjectProperty.isoMk; its underlying inverse is M(m.hom).inv. Evaluate the component inverse equation.
+
+## Fixed-band modification inverses respect composition
+
+`AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-iso-comp`; declaration `TauCeti.AlgebraicGeometry.BandedMorphism.homIso_comp`.
+
+For m:X⇒Y and n:Y⇒Z, homIso(m≫n)=homIso(m)≪≫homIso(n).
+
+Prerequisites: `AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-iso-hom`, `mathlib:CategoryTheory.Iso.ext`.
+
+Compare forward morphisms using Iso.ext and homIso_hom.
+
+## The groupoid of all native fixed-band modifications
+
+`AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/groupoid`; declaration `TauCeti.AlgebraicGeometry.BandedMorphism.groupoid`.
+
+On the fixed-band full subcategory construct native Groupoid.ofIsIso using hom_isIso. The underlying category is the same native full subcategory, and its chosen inverse of m equals homIso(m).inv. This is the morphism groupoid required before the self-equivalence/torsor comparison; it does not construct the missing coherent inverse strong transformation.
+
+Prerequisites: `AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-category`, `AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-is-iso`, `mathlib:CategoryTheory.Groupoid.ofIsIso`.
+
+Supply every native modification IsIso from hom_isIso to Groupoid.ofIsIso.
+
+Reuse the underlying category unchanged and identify its chosen inverse with the actual fibre-inverse isomorphism by native inverse uniqueness.
+
+API:
+
+- `BandedMorphism.groupoid_inv`: For every m:X⇒Y, the native groupoid inverse is homIso(m).inv.
+- `BandedMorphism.groupoid_comp_inv`: For m:X⇒Y, m≫groupoid.inv(m)=idX as an actual modification.
+- `BandedMorphism.groupoid_inv_comp`: For m:X⇒Y, groupoid.inv(m)≫m=idY as an actual modification.
+
+Tests:
+
+- `BandedMorphismTests.groupoid_inverse` (characterisation): The chosen native groupoid inverse agrees with the inverse of the actual homIso construction.
+- `BandedMorphismTests.groupoid_right_inverse` (compatibility): A supplied native modification composed with its groupoid inverse equals the identity of its source object.
+- `BandedMorphismTests.groupoid_left_inverse` (compatibility): Its groupoid inverse composed with the supplied native modification equals the identity of its target object.
+
+## The groupoid inverse agrees with the supplied modification inverse
+
+`AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/groupoid-inv`; declaration `TauCeti.AlgebraicGeometry.BandedMorphism.groupoid_inv`.
+
+For every m:X⇒Y, the native groupoid inverse is homIso(m).inv.
+
+Prerequisites: `AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/groupoid`, `AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-iso-hom`, `mathlib:CategoryTheory.IsIso.inv_eq_of_hom_inv_id`.
+
+Use the right-inverse law of homIso(m) after its forward arrow is identified with m; apply native inverse uniqueness.
+
+## The groupoid right inverse law retains the source identity
+
+`AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/groupoid-comp-inv`; declaration `TauCeti.AlgebraicGeometry.BandedMorphism.groupoid_comp_inv`.
+
+For m:X⇒Y, m≫groupoid.inv(m)=idX as an actual modification.
+
+Prerequisites: `AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/groupoid`.
+
+Read the native Groupoid comp_inv field for the supplied structure.
+
+## The groupoid left inverse law retains the target identity
+
+`AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/groupoid-inv-comp`; declaration `TauCeti.AlgebraicGeometry.BandedMorphism.groupoid_inv_comp`.
+
+For m:X⇒Y, groupoid.inv(m)≫m=idY as an actual modification.
+
+Prerequisites: `AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/groupoid`.
+
+Read the native Groupoid inv_comp field for the supplied structure.
+
+## Planning and validation boundary
+
+All437 nodes remain unchecked, with17 definitions,100 constructions,287 lemmas,28 theorems and5 comparisons. There are413 raw API entries and426 raw tests; all10 planets, ten gaps and22 requests remain. The actual native proof source checks the incoming eight inverse-band lemmas and the new21 declarations, with20 actual-carrier examples. The canonical file remains a suggested form, with admitted API/tests; its concrete full-subcategory alias and native groupoid constructor reuse the existing carrier to retain its actual object and morphism projections. The full Tau Ceti canonical file is uncompiled because the pinned Tau Ceti build is unavailable; the distinct Mathlib-only extraction receives its own serial check. These checks do not certify the older uncompiled native draft or global classification.
+
+## Attributed incoming reader
+
 # Fixed-band inverse and modification transport — Codex — codex-a71f92
 
 This partial checkpoint continues the native gerbe equivalence work in R09.4. It adds eight declaration-sized lemmas and eight actual-carrier tests; the entire incoming reader follows unchanged below. The packet remains a plan, all implementation entries remain unchecked, and no scope entry is marked closed. Source-derived mathematical deductions and prototype proof audits are distinct from an implementation claim.
