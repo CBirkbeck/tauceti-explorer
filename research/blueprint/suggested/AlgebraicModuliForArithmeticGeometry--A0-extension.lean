@@ -7341,3 +7341,243 @@ example {a c d : Core (F.obj (.mk (op U)))} (e : a ⟶ c) (f : c ⟶ d)
   sorry
 
 end TauCeti.AlgebraicGeometry.BandedMorphism
+
+namespace TauCeti.AlgebraicGeometry.BandedMorphism
+open CategoryTheory Opposite Bicategory
+open scoped Pseudofunctor.StrongTrans
+open Pseudofunctor.LocallyDiscreteOpToCat
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
+  {F G : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}}
+  [IsGerbe F J] [IsGerbe G J] {A : Sheaf J AddCommGrpCat.{w}}
+  (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+local instance : Category (Pseudofunctor.StrongTrans F G) :=
+  Pseudofunctor.StrongTrans.homCategory (F := F) (G := G)
+variable {U V : C}
+
+noncomputable def fibreHomBaseChangeIso (X : HomCategory bF bG) (f : V ⟶ U)
+    (x : F.obj (.mk (op U))) (y : G.obj (.mk (op U))) :
+    (J.overMapPullback (Type v') f).obj (fibreHomSheaf bF bG U x y X) ≅
+      fibreHomSheaf bF bG V ((F.map f.op.toLoc).toFunctor.obj x)
+        ((G.map f.op.toLoc).toFunctor.obj y) X := by
+  let z := (X.obj.app (.mk (op U))).toFunctor.obj x
+  let r := restrictionIso bF bG X f x
+  let e := G.overMapCompPresheafHomIso y z f
+  let d : G.presheafHom ((G.map f.op.toLoc).toFunctor.obj y)
+      ((G.map f.op.toLoc).toFunctor.obj z) ≅
+      G.presheafHom ((G.map f.op.toLoc).toFunctor.obj y)
+        ((X.obj.app (.mk (op V))).toFunctor.obj
+          ((F.map f.op.toLoc).toFunctor.obj x)) :=
+    NatIso.ofComponents (fun T => Equiv.toIso
+      (Iso.homToEquiv ((G.map T.unop.hom.op.toLoc).toFunctor.mapIso r))) (by sorry)
+  exact
+    { hom := { hom := (e ≪≫ d).hom }
+      inv := { hom := (e ≪≫ d).inv }
+      hom_inv_id := by sorry
+      inv_hom_id := by sorry }
+
+lemma fibreHomBaseChangeIso_apply (X : HomCategory bF bG) (f : V ⟶ U)
+    (x : F.obj (.mk (op U))) (y : G.obj (.mk (op U))) (T : Over V)
+    (p : (fibreHomSheaf bF bG U x y X).obj.obj (op ((Over.map f).obj T))) :
+    (fibreHomBaseChangeIso bF bG X f x y).hom.hom.app (op T) p =
+      (G.overMapCompPresheafHomIso y
+        ((X.obj.app (.mk (op U))).toFunctor.obj x) f).hom.app (op T) p ≫
+        (G.map T.hom.op.toLoc).toFunctor.map (restrictionIso bF bG X f x).hom := by
+  sorry
+
+lemma fibreHomBaseChangeIso_inv_apply (X : HomCategory bF bG) (f : V ⟶ U)
+    (x : F.obj (.mk (op U))) (y : G.obj (.mk (op U))) (T : Over V)
+    (p : (fibreHomSheaf bF bG V ((F.map f.op.toLoc).toFunctor.obj x)
+      ((G.map f.op.toLoc).toFunctor.obj y) X).obj.obj (op T)) :
+    (fibreHomBaseChangeIso bF bG X f x y).inv.hom.app (op T) p =
+      (G.overMapCompPresheafHomIso y
+        ((X.obj.app (.mk (op U))).toFunctor.obj x) f).inv.app (op T)
+        (p ≫ (G.map T.hom.op.toLoc).toFunctor.map (restrictionIso bF bG X f x).inv) := by
+  sorry
+
+lemma fibreHomBaseChangeIso_formula (X : HomCategory bF bG) (f : V ⟶ U)
+    (x : F.obj (.mk (op U))) (y : G.obj (.mk (op U))) (T : Over V)
+    (p : (fibreHomSheaf bF bG U x y X).obj.obj (op ((Over.map f).obj T))) :
+    let c := Cat.Hom.toNatIso (G.mapComp' f.op.toLoc T.hom.op.toLoc
+      ((Over.map f).obj T).hom.op.toLoc)
+    (fibreHomBaseChangeIso bF bG X f x y).hom.hom.app (op T) p =
+      (c.app y).inv ≫ p ≫
+        (c.app ((X.obj.app (.mk (op U))).toFunctor.obj x)).hom ≫
+        (G.map T.hom.op.toLoc).toFunctor.map (restrictionIso bF bG X f x).hom := by
+  sorry
+
+lemma fibreHomBaseChangeIso_modification {X Y : HomCategory bF bG} (m : X ⟶ Y)
+    (f : V ⟶ U) (x : F.obj (.mk (op U))) (y : G.obj (.mk (op U))) :
+    (J.overMapPullback (Type v') f).map (fibreHomSheafMap bF bG U x y m) ≫
+        (fibreHomBaseChangeIso bF bG Y f x y).hom =
+      (fibreHomBaseChangeIso bF bG X f x y).hom ≫
+        fibreHomSheafMap bF bG V ((F.map f.op.toLoc).toFunctor.obj x)
+          ((G.map f.op.toLoc).toFunctor.obj y) m := by
+  sorry
+
+noncomputable def fibreHomBaseChangeNatIso (f : V ⟶ U)
+    (x : F.obj (.mk (op U))) (y : G.obj (.mk (op U))) :
+    fibreHomSheafFunctor bF bG U x y ⋙ J.overMapPullback (Type v') f ≅
+      fibreHomSheafFunctor bF bG V ((F.map f.op.toLoc).toFunctor.obj x)
+        ((G.map f.op.toLoc).toFunctor.obj y) :=
+  NatIso.ofComponents (fun X => fibreHomBaseChangeIso bF bG X f x y)
+    (fun m => fibreHomBaseChangeIso_modification bF bG m f x y)
+
+lemma fibreHomBaseChangeNatIso_app (f : V ⟶ U)
+    (x : F.obj (.mk (op U))) (y : G.obj (.mk (op U))) (X : HomCategory bF bG) :
+    (fibreHomBaseChangeNatIso bF bG f x y).app X =
+      fibreHomBaseChangeIso bF bG X f x y := by
+  sorry
+
+lemma fibreHomBaseChangeNatIso_hom_app (f : V ⟶ U)
+    (x : F.obj (.mk (op U))) (y : G.obj (.mk (op U))) (X : HomCategory bF bG) :
+    (fibreHomBaseChangeNatIso bF bG f x y).hom.app X =
+      (fibreHomBaseChangeIso bF bG X f x y).hom := by
+  sorry
+
+lemma fibreHomBaseChangeNatIso_inv_app (f : V ⟶ U)
+    (x : F.obj (.mk (op U))) (y : G.obj (.mk (op U))) (X : HomCategory bF bG) :
+    (fibreHomBaseChangeNatIso bF bG f x y).inv.app X =
+      (fibreHomBaseChangeIso bF bG X f x y).inv := by
+  sorry
+
+lemma fibreHomBaseChangeIso_equivariant (X : HomCategory bF bG) (f : V ⟶ U)
+    (x : F.obj (.mk (op U))) (y : G.obj (.mk (op U))) (T : Over V)
+    (a : Multiplicative (A.obj.obj (op T.left)))
+    (p : (fibreHomSheaf bF bG U x y X).obj.obj (op ((Over.map f).obj T))) :
+    (fibreHomBaseChangeIso bF bG X f x y).hom.hom.app (op T)
+        (((fibreHomSectionAction bF bG U x y X ((Over.map f).obj T)).ρ a).hom p) =
+      ((fibreHomSectionAction bF bG V ((F.map f.op.toLoc).toFunctor.obj x)
+        ((G.map f.op.toLoc).toFunctor.obj y) X T).ρ a).hom
+          ((fibreHomBaseChangeIso bF bG X f x y).hom.hom.app (op T) p) := by
+  sorry
+
+lemma fibreHomBaseChangeIso_inv_equivariant (X : HomCategory bF bG) (f : V ⟶ U)
+    (x : F.obj (.mk (op U))) (y : G.obj (.mk (op U))) (T : Over V)
+    (a : Multiplicative (A.obj.obj (op T.left)))
+    (p : (fibreHomSheaf bF bG V ((F.map f.op.toLoc).toFunctor.obj x)
+      ((G.map f.op.toLoc).toFunctor.obj y) X).obj.obj (op T)) :
+    (fibreHomBaseChangeIso bF bG X f x y).inv.hom.app (op T)
+        (((fibreHomSectionAction bF bG V ((F.map f.op.toLoc).toFunctor.obj x)
+          ((G.map f.op.toLoc).toFunctor.obj y) X T).ρ a).hom p) =
+      ((fibreHomSectionAction bF bG U x y X ((Over.map f).obj T)).ρ a).hom
+        ((fibreHomBaseChangeIso bF bG X f x y).inv.hom.app (op T) p) := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.BandedMorphism
+
+namespace TauCeti.AlgebraicGeometry.BandedMorphism
+open CategoryTheory Opposite Bicategory
+open scoped Pseudofunctor.StrongTrans
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
+  {F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}} [IsGerbe F J]
+  {A : Sheaf J AddCommGrpCat.{w}} (b : AbelianBanding F J A) {U V : C}
+local instance : Category (Pseudofunctor.StrongTrans F F) :=
+  Pseudofunctor.StrongTrans.homCategory (F := F) (G := F)
+
+lemma selfHomBaseChangeTransport_square (X : HomCategory b b) (f : V ⟶ U)
+    {x x' : F.obj (.mk (op U))} (e : x ≅ x') :
+    (J.overMapPullback (Type v') f).map (selfHomSheafTransport b X e) ≫
+        (fibreHomBaseChangeIso b b X f x' x').hom =
+      (fibreHomBaseChangeIso b b X f x x).hom ≫
+        selfHomSheafTransport b X ((F.map f.op.toLoc).toFunctor.mapIso e) := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.BandedMorphism
+
+namespace TauCeti.AlgebraicGeometry.SheafBaseChangeTests
+open CategoryTheory Opposite Bicategory
+open TauCeti.AlgebraicGeometry.BandedMorphism
+open scoped Pseudofunctor.StrongTrans
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
+  {F G : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}}
+  [IsGerbe F J] [IsGerbe G J] {A : Sheaf J AddCommGrpCat.{w}}
+  (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+local instance : Category (Pseudofunctor.StrongTrans F G) :=
+  Pseudofunctor.StrongTrans.homCategory (F := F) (G := G)
+variable {U V : C} (f : V ⟶ U)
+  (x : F.obj (.mk (op U))) (y : G.obj (.mk (op U)))
+
+-- test: SheafBaseChangeTests.inverse_roundtrip
+example (X : HomCategory bF bG) (T : Over V)
+    (p : (fibreHomSheaf bF bG U x y X).obj.obj (op ((Over.map f).obj T))) :
+    (fibreHomBaseChangeIso bF bG X f x y).inv.hom.app (op T)
+        ((fibreHomBaseChangeIso bF bG X f x y).hom.hom.app (op T) p) = p := by
+  sorry
+
+-- test: SheafBaseChangeTests.empty_sections
+example (X : HomCategory bF bG) (T : Over V)
+    [hEmpty : IsEmpty ((fibreHomSheaf bF bG U x y X).obj.obj (op ((Over.map f).obj T)))] :
+    IsEmpty ((fibreHomSheaf bF bG V ((F.map f.op.toLoc).toFunctor.obj x)
+      ((G.map f.op.toLoc).toFunctor.obj y) X).obj.obj (op T)) := by
+  sorry
+
+-- test: SheafBaseChangeTests.unit_coefficient
+example (X : HomCategory bF bG) (T : Over V)
+    (p : (fibreHomSheaf bF bG U x y X).obj.obj (op ((Over.map f).obj T))) :
+    (fibreHomBaseChangeIso bF bG X f x y).hom.hom.app (op T)
+      (((fibreHomSectionAction bF bG U x y X ((Over.map f).obj T)).ρ 1).hom p) =
+        (fibreHomBaseChangeIso bF bG X f x y).hom.hom.app (op T) p := by
+  sorry
+
+-- test: SheafBaseChangeTests.deeper_slice
+example (X : HomCategory bF bG) {T W : Over V} (g : W ⟶ T)
+    (p : (fibreHomSheaf bF bG U x y X).obj.obj (op ((Over.map f).obj T))) :
+    (fibreHomSheaf bF bG V ((F.map f.op.toLoc).toFunctor.obj x)
+        ((G.map f.op.toLoc).toFunctor.obj y) X).obj.map g.op
+      ((fibreHomBaseChangeIso bF bG X f x y).hom.hom.app (op T) p) =
+    (fibreHomBaseChangeIso bF bG X f x y).hom.hom.app (op W)
+      ((fibreHomSheaf bF bG U x y X).obj.map ((Over.map f).map g).op p) := by
+  sorry
+
+-- test: SheafBaseChangeTests.inverse_modification
+example {X Y : HomCategory bF bG} (m : X ⟶ Y) :
+    (J.overMapPullback (Type v') f).map
+        (fibreHomSheafMap bF bG U x y (homIso bF bG m).inv) ≫
+      (fibreHomBaseChangeIso bF bG X f x y).hom =
+    (fibreHomBaseChangeIso bF bG Y f x y).hom ≫
+      fibreHomSheafMap bF bG V ((F.map f.op.toLoc).toFunctor.obj x)
+        ((G.map f.op.toLoc).toFunctor.obj y) (homIso bF bG m).inv := by
+  sorry
+
+-- test: SheafBaseChangeTests.composite_modifications
+example {X Y Z : HomCategory bF bG} (m : X ⟶ Y) (n : Y ⟶ Z) :
+    ((J.overMapPullback (Type v') f).map (fibreHomSheafMap bF bG U x y m) ≫
+        (J.overMapPullback (Type v') f).map (fibreHomSheafMap bF bG U x y n)) ≫
+      (fibreHomBaseChangeNatIso bF bG f x y).hom.app Z =
+    (fibreHomBaseChangeNatIso bF bG f x y).hom.app X ≫
+      (fibreHomSheafMap bF bG V ((F.map f.op.toLoc).toFunctor.obj x)
+        ((G.map f.op.toLoc).toFunctor.obj y) m ≫
+       fibreHomSheafMap bF bG V ((F.map f.op.toLoc).toFunctor.obj x)
+        ((G.map f.op.toLoc).toFunctor.obj y) n) := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.SheafBaseChangeTests
+
+namespace TauCeti.AlgebraicGeometry.SheafBaseChangeTests
+open CategoryTheory Opposite Bicategory
+open TauCeti.AlgebraicGeometry.BandedMorphism
+open scoped Pseudofunctor.StrongTrans
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
+  {F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}} [IsGerbe F J]
+  {A : Sheaf J AddCommGrpCat.{w}} (b : AbelianBanding F J A) {U V : C}
+local instance : Category (Pseudofunctor.StrongTrans F F) :=
+  Pseudofunctor.StrongTrans.homCategory (F := F) (G := F)
+
+-- test: SheafBaseChangeTests.local_object_square
+example (X : HomCategory b b) (f : V ⟶ U)
+    {x x' : F.obj (.mk (op U))} (e : x ≅ x') :
+    (J.overMapPullback (Type v') f).map (selfHomSheafTransport b X e) ≫
+        (fibreHomBaseChangeNatIso b b f x' x').hom.app X =
+      (fibreHomBaseChangeNatIso b b f x x).hom.app X ≫
+        selfHomSheafTransport b X ((F.map f.op.toLoc).toFunctor.mapIso e) := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.SheafBaseChangeTests
