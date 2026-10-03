@@ -1,3 +1,295 @@
+# BP-AnabelianGeometryAndNonabelianChabauty — twisted kernels and quotient topology
+
+Codex — codex-5ebb6f, issue #1020; claim 5965740757 confirmed by bot 5965741646. Partial checkpoint, 2026-10-03.
+
+The continuation adds 24 declaration-sized leaves, 15 typed tests and five native baseline imports. It realizes the actual kernel of the inherited twisted coefficient map, restricts its inner action with proved joint continuity, constructs its actual H¹ inclusion and proves that the translated image lies in the fibre over [f∘c]. For surjective f it uses Mathlib’s native quotient-by-kernel multiplicative equivalence; its inverse is continuous if and only if f is a quotient map.
+
+All 196 incoming mathematical contracts survive; 194 whole node objects are identical. Only the central-extension and functoriality consumers acquire prerequisites and proof steps. Existing planets, requests, source versions, restructure proposals, the reserved general all-coefficient/all-degree étale K(π,1), raw-homotopy qualifications, RT8 A2/NS/ρ, Chen /57–58, BDMTV routes and E9/E10 are preserved. NC.0 and NC.3 remain partial; NC.1/2/4/5/6 remain not_read. Every implementationStatus remains unchecked. No stage is closed.
+
+## Fresh reading and deductions
+
+Read the whole issue before and after its winning claim; the current seven reviewed NC audit rows with verdicts/duplicate decisions, REV-AUDIT-08 relevant corrections, all seven layer contracts, the complete 83-line campaign reader, the reserved key contract and ownership, and exact existing consumers. Direct source/target records in link-map files touching this roadmap: zero. The actual assembler checks accepted restructuring and supplier paths.
+
+Freshly downloaded the exact official Kim arXiv:math/0409456v1 PDF; SHA-256 00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941. Read complete printed/PDF pp.5–7: continuous cochains/cocycles, ordered gauge convention, full Proposition 1 statement and proof, coefficient-functor and central-quotient paragraphs, and Proposition 2 statement/opening proof only. These kernel/topology results are authored deductions. No complete Proposition 2 proof, whole-paper or geometric Selmer/torsor-classification closure is attributed to this reading.
+
+At Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 read the complete native kernel/membership/normality statements and surrounding variables, quotientKerEquivOfSurjective and kerLift, the native quotient topology/projection criterion, Topology.IsQuotientMap.continuous_iff and comp, and Homeomorph.isQuotientMap with its topology variables. The declaration index omits the registered normal_ker instance; its actual checked source is recorded under MonoidHom.ker, without inventing an indexed baseline name. Existing native structures are reused. Tau Ceti remains pinned at f790474821cf4256814db967cb154e7af3d0c369.
+
+Earlier in this continuous worker session the upstream JacobianChallenge, StableReduction, HodgeStructures and SemisimpleAlgebras documents were read in full; those historical reads are not fresh whole-document reads for this claim. No upstream roadmap is replanned.
+
+## Proof and specification checks
+
+The checked Native63.lean is the byte-identical 2856-line incoming native proof program plus the new mathematical declarations, typed tests and axiom audit. It has 3266 lines, 91 anonymous examples, 48 named theorems and 222 printed axiom audits. It compiled with zero errors, warnings or admissions. All audited axioms lie in {propext, Classical.choice, Quot.sound}; sorryAx is absent. The noncommutative S₂/S₃ fixture detects the conjugated kernel action; constant-map and quotient-topology non-examples retain the exact hypotheses. The topology failure test is conditional on ¬IsQuotientMap f; no concrete topological counterexample is claimed.
+
+Full Canonical63.lean: 3223 lines, 164 examples. It was not compiled because the exact-pin Tau Ceti LowDegree build is unavailable; the available Tau Ceti checkout differs from the pin. The exact Mathlib-only Sketch63.lean strips only TauCeti imports and the existing section Abelian: 3206 lines, 164 examples, exit 0, 415 intended admission warnings, zero errors/other warnings. All 24 new mathematical and 15 test headers agree exactly with the native program after normalizing theorem-to-example syntax. Test headers use named kernel-membership, restricted-action and surjectivity bridges so they remain well typed when proposed construction bodies are admitted.
+
+Immediately before each final compile, free -g showed 25 GiB (native) and 26 GiB (extraction) available. Both ran serially in the existing build, finished in about 18 seconds, and left no process running. No library build, cache download, Lake project or language server was started.
+
+Packet: 220 nodes (3 definitions, 36 constructions, 147 lemmas, 27 theorems, 7 comparisons), 200 required API items and 153 required tests, 212 raw API items and 164 raw tests, 138 baseline declarations, 11 planets, 9 gaps and 16 requests. The indexed checker and actual intake functions pass with zero errors, warnings, file problems or auto-refusals. Actual atlas assembly and combined prerequisite DAG are checked with the candidate injected as a promotion input; exact counts are in the final publication receipt.
+
+## Resume
+
+Actual kernels of continuous equivariant coefficient maps are now realized in the inner twist with restricted jointly continuous action, native underlying kernel comparison and induced H¹ inclusion. Its translated image lies in the fibre over [f∘c]; no converse or H¹ injectivity is claimed. For surjective f the actual native group quotient is identified with the target twist, and its inverse is continuous exactly when f is a quotient map. A descended quotient G-action and quotient H¹ comparison, arbitrary G-stable subgroup realization, geometric local conditions, genuine additive comparison, unipotent point topologies, geometric torsor classification, representability and all reserved K(pi,1)/source/supplier obligations remain open.
+
+Recover the public immutable proof archive using the final handoff's Python recipe. Modify a fresh owned branch after a newly confirmed claim, never this immutable archive. Match the complete native/admitted headers, rerun the indexed packet checker, actual intake and actual atlas graph. For any new compile, check free -g immediately, require at least 20 GiB, run only one Lean process in the existing build, and stop at 20 minutes. The artifact recovery does not rerun historical compiles.
+
+## Public immutable recovery
+
+Mathematical base: `2bc684df36a586e1a305395ddf6f0d0fb82aa63c`. Publication main base: `18f322ad4eefb4ef36e39cef812c403829f23e2c`. Immutable proof archive: [`b965e4e5d7fadcee30a00cbcfa56299cd0ce3800`](https://github.com/CBirkbeck/tauceti-explorer/commit/b965e4e5d7fadcee30a00cbcfa56299cd0ce3800). The archive is retained as an ancestor of this submission. The published Lean file is the exact thin canonical specification; the complete native source and transcripts are recovered from the immutable archive.
+
+Save the following program as recover63.py and run `python3 recover63.py RECOVERY_DIR SUBMITTED_REF` from an existing repository checkout, then `python3 RECOVERY_DIR/validate63.py RECOVERY_DIR DECLARATIONS_TSV` and `python3 RECOVERY_DIR/graph63.py RECOVERY_DIR/original-packets.json`. DECLARATIONS_TSV is the pinned declaration index. Public recovery checks all 18 artifacts byte-for-byte before validation. VALIDATE_BASE may explicitly override the recorded publication main when auditing a later checkout. This recovery and validation do not assert a second compilation.
+
+```python
+from pathlib import Path
+import hashlib,json,subprocess,sys,urllib.request
+OUT=Path(sys.argv[1]);REF=sys.argv[2] if len(sys.argv)>2 else 'HEAD'
+OUT.mkdir(parents=True,exist_ok=True,mode=0o700)
+ARCHIVE='b965e4e5d7fadcee30a00cbcfa56299cd0ce3800'
+BASE='2bc684df36a586e1a305395ddf6f0d0fb82aa63c'
+PUB='18f322ad4eefb4ef36e39cef812c403829f23e2c'
+RID='AnabelianGeometryAndNonabelianChabauty'
+EXPECTED={'Native63.lean': '31ba3d7ff0b338d853692290dd55df11161726949643fc39966dc3f63c058c95', 'Canonical63.lean': '9e86f307055e8953f7433f0685fec28f092a9992e1e9e9959c532fe437e63d24', 'Sketch63.lean': '677dd3ddd20397d1fbcb3475db5ca3da39819b11dd9754cc9dd1b7696ae49dff', 'Native.lean': '1f6fc508e77a33378a5ce427b11f4880ea31a0ddd72bab00af20cce14cf54b74', 'extension.lean': '52280375a7034725143ff657ab0e41286fdb76c68dea6f0ebd1f07962dafc9f3', 'tests63.lean': '6321121daa60283590fef959b6ce5b712061dddde1164fc52c96aa660256dc59', 'audits63.lean': '24cc64923f90ef9c0f2d62b298f883e2dc07627263e729f0fb46a7b457490751', 'original-packets.json': 'af7f73b1b59cdb24716149c3a731e7b0d2f98939c52ccf11fbff26bed65024d1', 'original-readmes.md': 'd6b4e2dbd28ef829879c3dcb8ed52619b19d1b77d8a79acc03f4928988e54187', 'original-suggested.lean': '786fd24e1ab97abdd56b0892b7d88c97acc3d0bfc4b471884271f1692e03f8c8', 'original-handoff.md': '81c955a23e9ed8acf905cbf4ad67c73bb2e1b2935911c06cdc673bb264169dbf', 'Reader63.md': 'f494c762190de55e4fbb5a864f72be32f7a56e0bbe12ffde5f8c7518d0a270d0', 'validate63.py': 'b3f6c96a002583578cf1ededf22e3b4fa564c9e161ccb41d61faa961cafd6814', 'graph63.py': '3b8241f00fecc80656f033af4f2c74587f88d8771b7cf6d7d318f9fdb072ac88', 'design-metadata.json': '9dd929e3474a392f76740f555905acf54d5ce012d1fcd0551e385f959bb33fc8', 'native63-normalized.log': '64a5fb4e4446f1920b7b110441b37bd74716e36ce1ce1d665e0220cb09c43489', 'sketch63-normalized.log': '929d5b7fb9c541a469a92e60337542daf29684d5848b754edfac0e7f73affaee', 'memory63.json': 'd6c4647a9c2220ab02f12b1ec435b53ee7ba795c1aa18edd22170e1692431184'}
+LENGTHS=[126911, 10649, 7627]
+url='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'+ARCHIVE+'/'
+lean=urllib.request.urlopen(url+'research/blueprint/suggested/'+RID+'.lean',timeout=60).read()
+head,tail=lean.split(b'/- BEGIN ARCHIVED CHECKED TWISTED KERNELS 63\n',1)
+assert head.endswith(b'\n')
+canonical=head[:-1]
+native=tail.split(b'\nEND ARCHIVED CHECKED TWISTED KERNELS 63 -/',1)[0]
+(OUT/'Canonical63.lean').write_bytes(canonical);(OUT/'Native63.lean').write_bytes(native)
+parts=[('Native.lean',LENGTHS[0]),('extension.lean',LENGTHS[1]),('tests63.lean',LENGTHS[2])]
+position=0
+for name,length in parts:
+ (OUT/name).write_bytes(native[position:position+length]);position+=length
+(OUT/'audits63.lean').write_bytes(native[position:])
+text=canonical.decode();projection='\n'.join(l for l in text.splitlines()if not l.startswith('import TauCeti.'))+'\n'
+a=projection.index('section Abelian');b=projection.index('end Abelian',a)+len('end Abelian');projection=projection[:a]+projection[b:]
+(OUT/'Sketch63.lean').write_text(projection)
+for folder,ext in [('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]:
+ path='research/blueprint/'+folder+'/'+('BP-'if folder=='handoff'else'')+RID+'.'+ext
+ (OUT/('original-'+folder+'.'+ext)).write_bytes(subprocess.check_output(['git','show',BASE+':'+path]))
+(OUT/'Reader63.md').write_bytes(subprocess.check_output(['git','show',REF+':research/blueprint/readmes/'+RID+'.md']))
+hand=urllib.request.urlopen(url+'research/blueprint/handoff/BP-'+RID+'.md',timeout=60).read().decode()
+for marker,name,lang in [('VALIDATOR','validate63.py','python'),('GRAPH','graph63.py','python'),('METADATA','design-metadata.json','json'),('NATIVE LOG','native63-normalized.log','text'),('SKETCH LOG','sketch63-normalized.log','text'),('MEMORY','memory63.json','json')]:
+ start='<!-- BEGIN TWISTED KERNEL '+marker+' 63 -->\n```'+lang+'\n'
+ body=hand.split(start,1)[1].split('\n```\n<!-- END TWISTED KERNEL '+marker+' 63 -->',1)[0]+'\n'
+ (OUT/name).write_text(body)
+for name,want in EXPECTED.items():
+ got=hashlib.sha256((OUT/name).read_bytes()).hexdigest();assert got==want,(name,got,want)
+(OUT/'base').write_text(BASE+'\n');(OUT/'publication-base.txt').write_text(PUB+'\n')
+print(json.dumps({'archive':ARCHIVE,'recoveredArtifacts':len(EXPECTED),'allSha256Matched':True,'fullCanonicalCompiled':False},indent=2))
+```
+
+## Publication validation
+
+Public recovery was executed against GitHub commit b965e4e5d7fadcee30a00cbcfa56299cd0ce3800: all 18 artifacts matched their recorded SHA-256 hashes. The recovered actual validator and graph script were executed and their reports match the receipts below exactly. No historical compile was repeated.
+
+```json
+{
+  "validation": {
+    "oldNodeObjectsPreserved": 194,
+    "oldContractsPreserved": 196,
+    "newHeadersMatched": 24,
+    "newTestsMatched": 15,
+    "incomingProofPreserved": true,
+    "canonicalPrefixPreserved": true,
+    "readerSuffixPreserved": true,
+    "intakeFileProblems": [],
+    "intakeAutoRefusals": [],
+    "checker": {
+      "packet": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty.json",
+      "roadmap": "AnabelianGeometryAndNonabelianChabauty",
+      "status": "partial",
+      "nodes": 220,
+      "kinds": {
+        "definition": 3,
+        "lemma": 147,
+        "comparison": 7,
+        "construction": 36,
+        "theorem": 27
+      },
+      "apiItems": 200,
+      "unitTests": 153,
+      "planets": 11,
+      "baselineDeclarations": 138,
+      "prerequisites": {
+        "baseline": 205,
+        "node (this packet)": 475,
+        "stage": 48
+      },
+      "gaps": 9,
+      "requests": 16,
+      "stagesInScope": 7,
+      "stagesClosed": 0
+    },
+    "rawApiItems": 212,
+    "rawTests": 164,
+    "lean": {
+      "Native63": {
+        "warnings": 0,
+        "audits": 222,
+        "exit": 0,
+        "sourceSha256": "31ba3d7ff0b338d853692290dd55df11161726949643fc39966dc3f63c058c95",
+        "transcriptSha256": "64a5fb4e4446f1920b7b110441b37bd74716e36ce1ce1d665e0220cb09c43489"
+      },
+      "Sketch63": {
+        "warnings": 415,
+        "audits": 0,
+        "exit": 0,
+        "sourceSha256": "677dd3ddd20397d1fbcb3475db5ca3da39819b11dd9754cc9dd1b7696ae49dff",
+        "transcriptSha256": "929d5b7fb9c541a469a92e60337542daf29684d5848b754edfac0e7f73affaee"
+      }
+    },
+    "memory": {
+      "Native63": {
+        "availableGiB": 25,
+        "elapsedSeconds": 18.01246476173401,
+        "exit": 0
+      },
+      "Sketch63": {
+        "availableGiB": 26,
+        "elapsedSeconds": 18.513198375701904,
+        "exit": 0
+      }
+    },
+    "fullCanonicalCompiled": false,
+    "publicationBase": "18f322ad4eefb4ef36e39cef812c403829f23e2c",
+    "scriptSha256": "b3f6c96a002583578cf1ededf22e3b4fa564c9e161ccb41d61faa961cafd6814"
+  },
+  "actualAtlasGraph": {
+    "stage": {
+      "vertices": 3018,
+      "edges": 8655,
+      "acyclic": true
+    },
+    "own": {
+      "vertices": 220,
+      "edges": 475,
+      "acyclic": true
+    },
+    "combinedPrerequisites": {
+      "vertices": 3227,
+      "edges": 9386,
+      "acyclic": true
+    },
+    "virtualSupplierEndpoints": 51,
+    "reachableDeclarations": 220,
+    "unresolvedReferences": 0,
+    "actualBlueprint": {
+      "declarations": 220,
+      "planets": 11,
+      "kinds": {
+        "comparison": 7,
+        "construction": 36,
+        "definition": 3,
+        "lemma": 147,
+        "theorem": 27
+      },
+      "skippedLinks": []
+    },
+    "stageEdgesUnchanged": true,
+    "otherRoadmapSkippedPendingLinksUnchanged": true,
+    "requiredStagePairs": 20,
+    "requiredStagePairsReachable": 20,
+    "allLiveAcceptedRestructurePaths": 3783,
+    "allLiveAcceptedRestructurePathsReachable": 3783,
+    "touchingAcceptedRestructurePaths": 5,
+    "scriptSha256": "3b8241f00fecc80656f033af4f2c74587f88d8771b7cf6d7d318f9fdb072ac88"
+  },
+  "freshMainInputGuards": {
+    "base": "2bc684df36a586e1a305395ddf6f0d0fb82aa63c",
+    "publicationBase": "18f322ad4eefb4ef36e39cef812c403829f23e2c",
+    "inputs": [
+      {
+        "path": "research/blueprint/WORKERS.md",
+        "baseBlob": "8027079974ec12f83e5249366fc5dc64609a7727",
+        "freshBlob": "8027079974ec12f83e5249366fc5dc64609a7727",
+        "unchanged": true
+      },
+      {
+        "path": "research/blueprint/PROTOCOL.md",
+        "baseBlob": "44ab78513f2eda7801bb58ce3f50ba86d9ecb4df",
+        "freshBlob": "44ab78513f2eda7801bb58ce3f50ba86d9ecb4df",
+        "unchanged": true
+      },
+      {
+        "path": "research/blueprint/UPSTREAM_GUIDE.md",
+        "baseBlob": "a767747585bba9a7c57ff365e02a574f04cfec71",
+        "freshBlob": "a767747585bba9a7c57ff365e02a574f04cfec71",
+        "unchanged": true
+      },
+      {
+        "path": "research/expansion/PROTOCOL.md",
+        "baseBlob": "c763c69dd1a81f4ded9843c714f8b32c9c4cf854",
+        "freshBlob": "c763c69dd1a81f4ded9843c714f8b32c9c4cf854",
+        "unchanged": true
+      },
+      {
+        "path": "research/blueprint/reviews/REV-AUDIT-08.md",
+        "baseBlob": "74e04473cbdbd7f7055c2d96fbc57e22daf8f589",
+        "freshBlob": "74e04473cbdbd7f7055c2d96fbc57e22daf8f589",
+        "unchanged": true
+      },
+      {
+        "path": "data/library-coverage.json",
+        "baseBlob": "5e708cfc74a51b10e62149113872fe4e00eb5846",
+        "freshBlob": "5e708cfc74a51b10e62149113872fe4e00eb5846",
+        "unchanged": true
+      },
+      {
+        "path": "research/blueprint/keydefs/owners.json",
+        "baseBlob": "842994dba6bbb56d36a67dd7409baa053f410330",
+        "freshBlob": "842994dba6bbb56d36a67dd7409baa053f410330",
+        "unchanged": true
+      },
+      {
+        "path": "data/keydefs/KEYDEF-algebraicgeometry.json",
+        "baseBlob": "b3fbb2e57c169ab14c7704a47b96f83d41adb5fe",
+        "freshBlob": "b3fbb2e57c169ab14c7704a47b96f83d41adb5fe",
+        "unchanged": true
+      },
+      {
+        "path": "research/blueprint/papers/papers.json",
+        "baseBlob": "1904ee922a931e2281130f1488ddb24d81e71f63",
+        "freshBlob": "1904ee922a931e2281130f1488ddb24d81e71f63",
+        "unchanged": true
+      },
+      {
+        "path": "content/campaign/AnabelianGeometryAndNonabelianChabauty/README.md",
+        "baseBlob": "76b23b57493c140090c99a5cf70712a252fa871a",
+        "freshBlob": "76b23b57493c140090c99a5cf70712a252fa871a",
+        "unchanged": true
+      },
+      {
+        "path": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty.json",
+        "baseBlob": "15fba26078ee34e05027af992ae23dde9cc2ed0e",
+        "freshBlob": "15fba26078ee34e05027af992ae23dde9cc2ed0e",
+        "unchanged": true
+      },
+      {
+        "path": "research/blueprint/readmes/AnabelianGeometryAndNonabelianChabauty.md",
+        "baseBlob": "0960346d4ac86fb825ad09767f635ca8f7c877fa",
+        "freshBlob": "0960346d4ac86fb825ad09767f635ca8f7c877fa",
+        "unchanged": true
+      },
+      {
+        "path": "research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty.lean",
+        "baseBlob": "9bc234a9cd1cc530e2a474b6b97bdb4776234d37",
+        "freshBlob": "9bc234a9cd1cc530e2a474b6b97bdb4776234d37",
+        "unchanged": true
+      },
+      {
+        "path": "research/blueprint/handoff/BP-AnabelianGeometryAndNonabelianChabauty.md",
+        "baseBlob": "f7a72f34edaa002011c24fb0887a570a7b4a51b1",
+        "freshBlob": "f7a72f34edaa002011c24fb0887a570a7b4a51b1",
+        "unchanged": true
+      }
+    ]
+  }
+}
+```
+
+## Preserved incoming handoff
+
 # Current checkpoint — source-group naturality of twisting, Codex codex-rtOQ9t
 
 Refs #1020. Claim comment 5965400800 was confirmed by bot comment 5965401853. The whole 26779-character issue was read before claiming and reread after confirmation, including RT8, reserved key and deliverable instructions. This is a partial checkpoint. Every implementation status remains unchecked.
