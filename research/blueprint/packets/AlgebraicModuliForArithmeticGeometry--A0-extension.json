@@ -13,7 +13,7 @@
     "AlgebraicModuliForArithmeticGeometry:R09.7"
   ],
   "status": "partial",
-  "summary": "Native Hom-sheaf assembly checkpoint: 19 new declarations, three constructions, 13 API items and 12 tests. Use full StrongTrans composition coherence and Mathlib local-bijection gluing to specify fibrewise fullness in the inherited adapter universe convention. All 365 untouched incoming node objects and the old full-faithfulness contract are retained; that parent gains only two prerequisite edges and one proof step. All implementations stay unchecked. Partial checkpoint with 366 declaration nodes. Adds 25 actual StrongTrans pullback adapters: five constructions and twenty lemmas, sixteen API items and fifteen native carrier/orientation tests. The actual local equivalences now compare the correct target pullbacks; arbitrary deeper-slice coherence and inverse Hom-sheaf gluing remain open. All incoming general gerbe/key-definition statements, source issues, requests, planets and ownership contracts are preserved; only the general full-faithfulness node receives two supplier edges and one proof step. No stage or reserved key is closed.",
+  "summary": "Native Hom-sheaf assembly checkpoint: 19 new declarations, three constructions, 13 API items and 12 tests. Use full StrongTrans composition coherence and Mathlib local-bijection gluing to specify fibrewise fullness in the inherited adapter universe convention. All 365 untouched incoming node objects and the old full-faithfulness contract are retained; that parent gains only two prerequisite edges and one proof step. All implementations stay unchecked. Partial checkpoint with 366 declaration nodes. Adds 25 actual StrongTrans pullback adapters: five constructions and twenty lemmas, sixteen API items and fifteen native carrier/orientation tests. The actual local equivalences now compare the correct target pullbacks; arbitrary deeper-slice coherence and inverse Hom-sheaf gluing remain open. All incoming general gerbe/key-definition statements, source issues, requests, planets and ownership contracts are preserved; only the general full-faithfulness node receives two supplier edges and one proof step. No stage or reserved key is closed. Object-descent continuation: 27 native adapter and proof nodes retain local objects and isomorphisms, all three DescentData equations, actual global image morphisms, and fibrewise equivalence; coherent banded inverse and universe normalization remain open.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1315,6 +1315,69 @@
         "module": "Mathlib/CategoryTheory/SingleObj.lean",
         "provides": "The actual one-object functor induced by a monoid homomorphism; used by the non-full constant-unit boundary test.",
         "checked": "Actual statement and ambient hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.FullyFaithful.ofFullyFaithful",
+        "kind": "construction",
+        "module": "Mathlib/CategoryTheory/Functor/FullyFaithful.lean",
+        "provides": "The exact existing native Functor.FullyFaithful.ofFullyFaithful declaration is reused in the object-descent refinement.",
+        "checked": "Actual statement and ambient hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Sieve",
+        "kind": "definition",
+        "module": "Mathlib/CategoryTheory/Sites/Sieves/Basic.lean",
+        "provides": "The exact existing native Sieve declaration is reused in the object-descent refinement.",
+        "checked": "Actual statement and ambient hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Sieve.ofArrows_category",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Sites/Sieves/Basic.lean",
+        "provides": "The exact existing native Sieve.ofArrows_category declaration is reused in the object-descent refinement.",
+        "checked": "Actual statement and ambient hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.GrothendieckTopology.transitive",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Sites/Grothendieck.lean",
+        "provides": "The exact existing native GrothendieckTopology.transitive declaration is reused in the object-descent refinement.",
+        "checked": "Actual statement and ambient hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.GrothendieckTopology.superset_covering",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Sites/Grothendieck.lean",
+        "provides": "The exact existing native GrothendieckTopology.superset_covering declaration is reused in the object-descent refinement.",
+        "checked": "Actual statement and ambient hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Pseudofunctor.DescentData.iso",
+        "kind": "construction",
+        "module": "Mathlib/CategoryTheory/Sites/Descent/DescentData.lean",
+        "provides": "The exact existing native Pseudofunctor.DescentData.iso declaration is reused in the object-descent refinement.",
+        "checked": "Actual statement and ambient hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Pseudofunctor.fullyFaithfulToDescentData",
+        "kind": "construction",
+        "module": "Mathlib/CategoryTheory/Sites/Descent/DescentData.lean",
+        "provides": "The exact existing native Pseudofunctor.fullyFaithfulToDescentData declaration is reused in the object-descent refinement.",
+        "checked": "Actual statement and ambient hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.objPreimage",
+        "kind": "construction",
+        "module": "Mathlib/CategoryTheory/EssentialImage.lean",
+        "provides": "The exact existing native Functor.objPreimage declaration is reused in the object-descent refinement.",
+        "checked": "Actual statement and ambient hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.objObjPreimageIso",
+        "kind": "construction",
+        "module": "Mathlib/CategoryTheory/EssentialImage.lean",
+        "provides": "The exact existing native Functor.objObjPreimageIso declaration is reused in the object-descent refinement.",
+        "checked": "Actual statement and ambient hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
       }
     ]
   },
@@ -2040,6 +2103,32 @@
         "Mathlib/CategoryTheory/Sites/LocallyInjective.lean": "cef3deebb285b45abae9be3a35a464cfd1ff6bbc3e974c9ea4bfcf306a4e0728",
         "Mathlib/CategoryTheory/Sites/LocallySurjective.lean": "7a730ba6c4b580b7612e97508e1af05d6b39091b017d4d4422a2a93ce2573c64",
         "Mathlib/CategoryTheory/Sites/Over.lean": "46ba17b6ed171fefc18877d0d4470e11aea339dc56dbfd4b988266ed0bc43493"
+      }
+    },
+    {
+      "id": "OG-OBJECT-DESCENT-5ebb6f",
+      "title": "Banded gerbe object descent through native sieve and DescentData carriers",
+      "authors": "Martin Olsson (lectures), course-note contributors; Mathlib contributors; authored native object-descent refinement Codex — codex-5ebb6f",
+      "edition": "Exact author-hosted notes accessed 2026-10-03; Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://stacky.net/files/written/Stacks/Stacks.pdf",
+      "sha256": "716bf95c7a200194d5fd1f2af48372253fde5ea65487b5d362bcccb5e0b7426a",
+      "accessDate": "2026-10-03",
+      "readSections": [
+        "Fresh complete PDF122–123, with122 rendered and inspected: Definition31.1, Remark31.2, full Lemma31.3 proof, Lemma31.4, Remark31.5, only the visible beginning of31.6 and its incompleteness warning. No complete classification proof or whole-paper read is claimed.",
+        "Fresh complete mathematical text of Stacks06NZ; its local existence and local isomorphism conditions are gerbe inputs, not an object-descent conclusion.",
+        "Fresh exact pinned native DescentData fields including pullHom_hom, hom_self and hom_comp; iso, Hom, native category laws, hom_ext, ofObj, isoMk, toDescentData, fullyFaithfulToDescentData; IsStack and its essSurj_of_sieve/isEquivalence_toDescentData declarations; FullyFaithful data, ofFullyFaithful, preimage/map identities, preimageIso, EssSurj and its object witness/isomorphism; IsEquivalence; native Sieve and ofArrows_category; topology transitive/superset_covering; pullHom with both mapComp′ factors. These carriers and their general effectivity are reused.",
+        "Fresh whole issue before claim and after bot confirmation, all twelve reviewed audit rows and full REV-AUDIT01, whole campaign reader, all scoped descriptions, exact RS27 keep/owner/supplier records and relevant links, complete reserved gerbe node and sample API, owners/reservation and all relevant gerbe requests; fresh incoming original targets, actual band/StrongTrans signatures, latest peer Hom-sheaf signatures and public source recovery. Existing remaining audited contracts are preserved.",
+        "Bounded fresh open Mathlib PR search for gerbe returned zero; indexed Zulip search led to Formalizing stacks, where the native-fibre and descent-data design discussion was inspected. No exhaustive absence claim or unpinned implementation is consumed."
+      ],
+      "sourceHashes": {
+        "Mathlib/CategoryTheory/Functor/FullyFaithful.lean": "94c995fd165ad4c7a422bca4b64d422deb2207bc490967487bb20b16b2d3315e",
+        "Mathlib/CategoryTheory/EssentialImage.lean": "a72ca2e0427028cf8ab5256b008727458aa002d52b8ca0d962eb4ef808b81691",
+        "Mathlib/CategoryTheory/Equivalence.lean": "7cdcf9ca9aa50982c7471a2f4124e667f164fd68dfc6bdad08272c6565a457ea",
+        "Mathlib/CategoryTheory/Sites/Descent/DescentData.lean": "2292153f538142a8c3879094fed08f38a619a6dd13af91ab1c2f29448fb5e13e",
+        "Mathlib/CategoryTheory/Sites/Descent/IsPrestack.lean": "470b75a20ab5cb1de6de12444a84d4b50352cbd1b6bba9224cd54779dd8b22b2",
+        "Mathlib/CategoryTheory/Sites/Descent/IsStack.lean": "389633d8611b769455a07fdb1d0b591848dfba27ba09f12274dd391d086d2a10",
+        "Mathlib/CategoryTheory/Sites/Sieves/Basic.lean": "9d65ddf7ea8f811b0a05126c2768a9cd3ede8ecce4e0e98cb43a1d2b572cad7b",
+        "Mathlib/CategoryTheory/Sites/Grothendieck.lean": "7cfa1dbe1bc7ac44fabb7cef395478d7978e72e5282fa67310bf7248ff1d611d"
       }
     }
   ],
@@ -2872,12 +2961,15 @@
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism",
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-full-faithful",
-        "mathlib:CategoryTheory.Pseudofunctor.isEquivalence_toDescentData"
+        "mathlib:CategoryTheory.Pseudofunctor.isEquivalence_toDescentData",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/global-preimage",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/component-essential-surjectivity"
       ],
       "proofSteps": [
         "For z∈G(U) locally choose y∈F and an isomorphism η(y)≅z.",
         "Full faithfulness uniquely lifts the descent isomorphisms of z to those of y and reflects their cocycle condition.",
-        "Effective descent in F gives an object over U; morphism descent in G gives its image isomorphism to z."
+        "Effective descent in F gives an object over U; morphism descent in G gives its image isomorphism to z.",
+        "The object-descent continuation supplies the actual local-image covering sieve, reflected native DescentData equations, effective global source object and target image isomorphism in the inherited coefficient universe. It does not certify the more general reserved universe interface."
       ],
       "acceptance": [
         "The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses."
@@ -2910,11 +3002,13 @@
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-full-faithful",
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-essential-surjective",
-        "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism"
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/component-equivalence"
       ],
       "proofSteps": [
         "Combine fibrewise full faithfulness and essential surjectivity.",
-        "Choose inverses and transport the existing strong naturality; the lifted inverse and unit/counit preserve the band."
+        "Choose inverses and transport the existing strong naturality; the lifted inverse and unit/counit preserve the band.",
+        "The new componentIsEquivalence adapter is only the fibrewise first step. A coherent inverse StrongTrans and its band-preserving unit/counit still require explicit further nodes and Lean signatures; they are not supplied by native component IsEquivalence alone."
       ],
       "acceptance": [
         "The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses."
@@ -23051,6 +23145,1402 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/component-fully-faithful",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Native full-faithfulness data for the banded component",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.componentFullyFaithful",
+      "statement": "For each U construct the native FullyFaithful data of the actual component functor ηU, using the inherited coefficient universe convention.",
+      "hypotheses": [
+        "C is an arbitrary category, J its specified Grothendieck topology, and F,G actual Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with native strong transformation η. The gerbe hypothesis supplies native stack descent, local nonemptiness and local isomorphism, and groupoid fibres; no terminal object, finite site or pullbacks in C are assumed.",
+        "For component full-faithfulness, lifted overlaps, source descent, and global essential surjectivity, bF and bG are actual bandings by the same sheaf A and η preserves that band. The incoming new adapter convention A : Sheaf J AddCommGrpCat.{v′} is retained. This does not validate the reserved independent coefficient-universe interface.",
+        "For overlap and image constructions the family f_i, actual local objects x_i and image isomorphisms e_i are inputs. An actual gluing isomorphism r is input only to the local/global image-of-gluing operations. The generated-sieve covering hypothesis is required for the global image operation. The final global-preimage theorem constructs all these inputs from local gerbe existence and native stack effectivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/component-full",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-faithful",
+        "mathlib:CategoryTheory.Functor.FullyFaithful.ofFullyFaithful"
+      ],
+      "proofSteps": [
+        "Register the incoming BandedMorphism.full and BandedMorphism.faithful instances for the actual ηU; neither is a new fullness predicate.",
+        "Apply the pinned FullyFaithful.ofFullyFaithful constructor. Its inverse acts on arbitrary actual Hom types and supplies both map/preimage identities.",
+        "Use this data only in the coefficient universe v′ of the previous Hom-sheaf continuation; the independent coefficient-universe contract is still a separate gap."
+      ],
+      "acceptance": [
+        "For each U construct the native FullyFaithful data of the actual component functor ηU, using the inherited coefficient universe convention."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-OBJECT-DESCENT-5ebb6f",
+          "locator": "Olsson §31 Lemma31.3, PDF122–123; authored native descent refinement componentFullyFaithful",
+          "match": "The local existence and descent route is specialized to the owned banded gerbe morphism. The detailed comparisons, arbitrary-common-test-object equations and API refinements are authored deductions using the pinned Mathlib carriers."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.componentFullyFaithful_map_preimage",
+          "role": "compatibility",
+          "statement": "Mapping componentFullyFaithful.preimage(p) by ηU gives p for every arrow between actual image objects."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.componentFullyFaithful_preimage_map",
+          "role": "characterisation",
+          "statement": "The native inverse recovers every source arrow from its ηU image."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.componentFullyFaithful_map_injective",
+          "role": "characterisation",
+          "statement": "Equality of images of any two actual source arrows reflects their equality."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.arrowRoundTrip",
+          "kind": "compatibility",
+          "statement": "Every arbitrary arrow between image objects is recovered by mapping the native preimage."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.sourceRoundTrip",
+          "kind": "characterisation",
+          "statement": "For any source arrow p, preimage of ηU.map(p) is p; a constant inverse on Hom types fails this test."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.nonidentityAutomorphism",
+          "kind": "non-example",
+          "statement": "A nonidentity source endomorphism remains nonidentity under ηU; forgetting a nontrivial stabilizer fails this test."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Olsson §31 Lemma31.3 essential-surjectivity proof and AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-essential-surjective",
+          "how": "Construct and descend actual local source lifts using the inherited full-faithfulness route, retaining native object and morphism descent data."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:key/gerbes and AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+          "how": "Supply the precise fibrewise object-descent step; the inverse StrongTrans, band-preserving inverse and general universe normalization remain separate obligations."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/component-map-preimage",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The native inverse really lifts every target arrow",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.componentFullyFaithful_map_preimage",
+      "statement": "Mapping componentFullyFaithful.preimage(p) by ηU gives p for every arrow between actual image objects.",
+      "hypotheses": [
+        "C is an arbitrary category, J its specified Grothendieck topology, and F,G actual Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with native strong transformation η. The gerbe hypothesis supplies native stack descent, local nonemptiness and local isomorphism, and groupoid fibres; no terminal object, finite site or pullbacks in C are assumed.",
+        "For component full-faithfulness, lifted overlaps, source descent, and global essential surjectivity, bF and bG are actual bandings by the same sheaf A and η preserves that band. The incoming new adapter convention A : Sheaf J AddCommGrpCat.{v′} is retained. This does not validate the reserved independent coefficient-universe interface.",
+        "For overlap and image constructions the family f_i, actual local objects x_i and image isomorphisms e_i are inputs. An actual gluing isomorphism r is input only to the local/global image-of-gluing operations. The generated-sieve covering hypothesis is required for the global image operation. The final global-preimage theorem constructs all these inputs from local gerbe existence and native stack effectivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/component-fully-faithful",
+        "mathlib:CategoryTheory.Functor.FullyFaithful"
+      ],
+      "proofSteps": [
+        "Use the named map_preimage projection of the native FullyFaithful data. There is no pre-existing source anchor or chosen source isomorphism in this operation."
+      ],
+      "acceptance": [
+        "Mapping componentFullyFaithful.preimage(p) by ηU gives p for every arrow between actual image objects."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-OBJECT-DESCENT-5ebb6f",
+          "locator": "Olsson §31 Lemma31.3, PDF122–123; authored native descent refinement componentFullyFaithful_map_preimage",
+          "match": "The local existence and descent route is specialized to the owned banded gerbe morphism. The detailed comparisons, arbitrary-common-test-object equations and API refinements are authored deductions using the pinned Mathlib carriers."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/local-image-sieve",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The sieve of actual local preimages of a target object",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.localImageSieve",
+      "statement": "For z in G(U), construct the native sieve Lz whose arrows f:V→U admit an object x in F(V) and an actual isomorphism ηV(x)≅G(f)(z).",
+      "hypotheses": [
+        "C is an arbitrary category, J its specified Grothendieck topology, and F,G actual Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with native strong transformation η. The gerbe hypothesis supplies native stack descent, local nonemptiness and local isomorphism, and groupoid fibres; no terminal object, finite site or pullbacks in C are assumed.",
+        "For component full-faithfulness, lifted overlaps, source descent, and global essential surjectivity, bF and bG are actual bandings by the same sheaf A and η preserves that band. The incoming new adapter convention A : Sheaf J AddCommGrpCat.{v′} is retained. This does not validate the reserved independent coefficient-universe interface.",
+        "For overlap and image constructions the family f_i, actual local objects x_i and image isomorphisms e_i are inputs. An actual gluing isomorphism r is input only to the local/global image-of-gluing operations. The generated-sieve covering hypothesis is required for the global image operation. The final global-preimage theorem constructs all these inputs from local gerbe existence and native stack effectivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/comparison",
+        "mathlib:CategoryTheory.Sieve"
+      ],
+      "proofSteps": [
+        "Set the underlying presieve at f to existence of the displayed object and isomorphism, retaining morphism data rather than an isomorphism-class equality.",
+        "For g:W→V restrict x and its image isomorphism. Compose the strong comparison c_g(x), G(g) applied to the given isomorphism, and the inverse native G.mapComp′ comparison to obtain ηW(F(g)x)≅G(g≫f)z.",
+        "This proves the native downward_closed field on all precompositions. No pullbacks in C, finite cover, global source object or terminal base is needed."
+      ],
+      "acceptance": [
+        "For z in G(U), construct the native sieve Lz whose arrows f:V→U admit an object x in F(V) and an actual isomorphism ηV(x)≅G(f)(z)."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-OBJECT-DESCENT-5ebb6f",
+          "locator": "Olsson §31 Lemma31.3, PDF122–123; authored native descent refinement localImageSieve",
+          "match": "The local existence and descent route is specialized to the owned banded gerbe morphism. The detailed comparisons, arbitrary-common-test-object equations and API refinements are authored deductions using the pinned Mathlib carriers."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.localImageSieve_mem",
+          "role": "compatibility",
+          "statement": "Membership f∈Lz is equivalent to existence of x in F(V) and Nonempty(ηV(x)≅G(f)z)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.localImageSieve_covering",
+          "role": "compatibility",
+          "statement": "For two gerbes on the specified arbitrary site, Lz belongs to J(U); band preservation is not needed for this local existence step."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.localImageSieve_identity",
+          "role": "compatibility",
+          "statement": "The identity of U belongs to Lz exactly when there is y in F(U) with an actual isomorphism ηU(y)≅z."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.membershipData",
+          "kind": "characterisation",
+          "statement": "At every base arrow, membership retains both a source object and an actual target isomorphism."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.deeperImage",
+          "kind": "compatibility",
+          "statement": "A local-image arrow stays in the native sieve after every precomposition, including arrows not selected in the initial cover."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.identityImage",
+          "kind": "degenerate",
+          "statement": "Membership of id U is a global object-and-isomorphism witness through G.mapId; being covering alone is not used."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Olsson §31 Lemma31.3 essential-surjectivity proof and AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-essential-surjective",
+          "how": "Construct and descend actual local source lifts using the inherited full-faithfulness route, retaining native object and morphism descent data."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:key/gerbes and AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+          "how": "Supply the precise fibrewise object-descent step; the inverse StrongTrans, band-preserving inverse and general universe normalization remain separate obligations."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/local-image-membership",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Membership retains a local object and an isomorphism",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.localImageSieve_mem",
+      "statement": "Membership f∈Lz is equivalent to existence of x in F(V) and Nonempty(ηV(x)≅G(f)z).",
+      "hypotheses": [
+        "C is an arbitrary category, J its specified Grothendieck topology, and F,G actual Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with native strong transformation η. The gerbe hypothesis supplies native stack descent, local nonemptiness and local isomorphism, and groupoid fibres; no terminal object, finite site or pullbacks in C are assumed.",
+        "For component full-faithfulness, lifted overlaps, source descent, and global essential surjectivity, bF and bG are actual bandings by the same sheaf A and η preserves that band. The incoming new adapter convention A : Sheaf J AddCommGrpCat.{v′} is retained. This does not validate the reserved independent coefficient-universe interface.",
+        "For overlap and image constructions the family f_i, actual local objects x_i and image isomorphisms e_i are inputs. An actual gluing isomorphism r is input only to the local/global image-of-gluing operations. The generated-sieve covering hypothesis is required for the global image operation. The final global-preimage theorem constructs all these inputs from local gerbe existence and native stack effectivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/local-image-sieve"
+      ],
+      "proofSteps": [
+        "Unfold the presieve component; the native sieve adds closure, not a quotient of the witness data."
+      ],
+      "acceptance": [
+        "Membership f∈Lz is equivalent to existence of x in F(V) and Nonempty(ηV(x)≅G(f)z)."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-OBJECT-DESCENT-5ebb6f",
+          "locator": "Olsson §31 Lemma31.3, PDF122–123; authored native descent refinement localImageSieve_mem",
+          "match": "The local existence and descent route is specialized to the owned banded gerbe morphism. The detailed comparisons, arbitrary-common-test-object equations and API refinements are authored deductions using the pinned Mathlib carriers."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/local-image-covering",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The local image sieve covers every target object",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.localImageSieve_covering",
+      "statement": "For two gerbes on the specified arbitrary site, Lz belongs to J(U); band preservation is not needed for this local existence step.",
+      "hypotheses": [
+        "C is an arbitrary category, J its specified Grothendieck topology, and F,G actual Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with native strong transformation η. The gerbe hypothesis supplies native stack descent, local nonemptiness and local isomorphism, and groupoid fibres; no terminal object, finite site or pullbacks in C are assumed.",
+        "For component full-faithfulness, lifted overlaps, source descent, and global essential surjectivity, bF and bG are actual bandings by the same sheaf A and η preserves that band. The incoming new adapter convention A : Sheaf J AddCommGrpCat.{v′} is retained. This does not validate the reserved independent coefficient-universe interface.",
+        "For overlap and image constructions the family f_i, actual local objects x_i and image isomorphisms e_i are inputs. An actual gluing isomorphism r is input only to the local/global image-of-gluing operations. The generated-sieve covering hypothesis is required for the global image operation. The final global-preimage theorem constructs all these inputs from local gerbe existence and native stack effectivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/local-image-membership",
+        "AlgebraicModuliForArithmeticGeometry:key/gerbes",
+        "mathlib:CategoryTheory.GrothendieckTopology.transitive",
+        "mathlib:CategoryTheory.GrothendieckTopology.superset_covering"
+      ],
+      "proofSteps": [
+        "Choose a covering sieve R from F.locallyNonempty. For each f:V→U in R, choose x in F(V).",
+        "Apply G.locallyIsomorphic to ηV(x) and G(f)z. Its covering sieve S on V consists of arrows g along which the two target objects become isomorphic.",
+        "Use c_g(x) and the G.mapComp′ comparison as in downward closure to show S≤Lz.pullback(f). Superset covering makes Lz.pullback(f) cover V.",
+        "Apply native GrothendieckTopology.transitive to R and Lz. Local existence alone has not yet produced a global object in F(U)."
+      ],
+      "acceptance": [
+        "For two gerbes on the specified arbitrary site, Lz belongs to J(U); band preservation is not needed for this local existence step."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-OBJECT-DESCENT-5ebb6f",
+          "locator": "Olsson §31 Lemma31.3, PDF122–123; authored native descent refinement localImageSieve_covering",
+          "match": "The local existence and descent route is specialized to the owned banded gerbe morphism. The detailed comparisons, arbitrary-common-test-object equations and API refinements are authored deductions using the pinned Mathlib carriers."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/local-image-identity",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Identity membership is precisely a global image witness",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.localImageSieve_identity",
+      "statement": "The identity of U belongs to Lz exactly when there is y in F(U) with an actual isomorphism ηU(y)≅z.",
+      "hypotheses": [
+        "C is an arbitrary category, J its specified Grothendieck topology, and F,G actual Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with native strong transformation η. The gerbe hypothesis supplies native stack descent, local nonemptiness and local isomorphism, and groupoid fibres; no terminal object, finite site or pullbacks in C are assumed.",
+        "For component full-faithfulness, lifted overlaps, source descent, and global essential surjectivity, bF and bG are actual bandings by the same sheaf A and η preserves that band. The incoming new adapter convention A : Sheaf J AddCommGrpCat.{v′} is retained. This does not validate the reserved independent coefficient-universe interface.",
+        "For overlap and image constructions the family f_i, actual local objects x_i and image isomorphisms e_i are inputs. An actual gluing isomorphism r is input only to the local/global image-of-gluing operations. The generated-sieve covering hypothesis is required for the global image operation. The final global-preimage theorem constructs all these inputs from local gerbe existence and native stack effectivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/local-image-membership",
+        "mathlib:CategoryTheory.Pseudofunctor.mapId'"
+      ],
+      "proofSteps": [
+        "Use the native G.mapId natural isomorphism to identify G(id U)z with z. Do not replace that comparison by a definitional equality.",
+        "Compose or invert this comparison to move between the two existence statements. This is a membership criterion, not an inference that every covering sieve contains id U."
+      ],
+      "acceptance": [
+        "The identity of U belongs to Lz exactly when there is y in F(U) with an actual isomorphism ηU(y)≅z."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-OBJECT-DESCENT-5ebb6f",
+          "locator": "Olsson §31 Lemma31.3, PDF122–123; authored native descent refinement localImageSieve_identity",
+          "match": "The local existence and descent route is specialized to the owned banded gerbe morphism. The detailed comparisons, arbitrary-common-test-object equations and API refinements are authored deductions using the pinned Mathlib carriers."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/target-overlap",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Target overlap isomorphisms between images of chosen local lifts",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.targetOverlapIso",
+      "statement": "For a family f_i:X_i→U, objects x_i in F(X_i), and e_i:η_i(x_i)≅G(f_i)z, construct an isomorphism ηY(F(a)x_i)≅ηY(F(b)x_j) on every common test object q:Y→U with a≫f_i=q=b≫f_j.",
+      "hypotheses": [
+        "C is an arbitrary category, J its specified Grothendieck topology, and F,G actual Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with native strong transformation η. The gerbe hypothesis supplies native stack descent, local nonemptiness and local isomorphism, and groupoid fibres; no terminal object, finite site or pullbacks in C are assumed.",
+        "For component full-faithfulness, lifted overlaps, source descent, and global essential surjectivity, bF and bG are actual bandings by the same sheaf A and η preserves that band. The incoming new adapter convention A : Sheaf J AddCommGrpCat.{v′} is retained. This does not validate the reserved independent coefficient-universe interface.",
+        "For overlap and image constructions the family f_i, actual local objects x_i and image isomorphisms e_i are inputs. An actual gluing isomorphism r is input only to the local/global image-of-gluing operations. The generated-sieve covering hypothesis is required for the global image operation. The final global-preimage theorem constructs all these inputs from local gerbe existence and native stack effectivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/comparison",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData.ofObj",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData.iso"
+      ],
+      "proofSteps": [
+        "Use the native target descent datum of the single object z for the family f; its iso(q,a,b) is defined without a pullback object.",
+        "Conjugate that isomorphism by c_a(x_i) followed by G(a)(e_i), and by the inverse of c_b(x_j) followed by G(b)(e_j).",
+        "All five factors have actual endpoints in G(Y). Covering is unnecessary for this local construction."
+      ],
+      "acceptance": [
+        "For a family f_i:X_i→U, objects x_i in F(X_i), and e_i:η_i(x_i)≅G(f_i)z, construct an isomorphism ηY(F(a)x_i)≅ηY(F(b)x_j) on every common test object q:Y→U with a≫f_i=q=b≫f_j."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-OBJECT-DESCENT-5ebb6f",
+          "locator": "Olsson §31 Lemma31.3, PDF122–123; authored native descent refinement targetOverlapIso",
+          "match": "The local existence and descent route is specialized to the owned banded gerbe morphism. The detailed comparisons, arbitrary-common-test-object equations and API refinements are authored deductions using the pinned Mathlib carriers."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.targetOverlapIso_formula",
+          "role": "compatibility",
+          "statement": "The target overlap is c_a(x_i), then G(a)(e_i), then the native ofObj(z) overlap, then G(b)(e_j) inverse, then c_b(x_j) inverse."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.targetOverlapIso_self",
+          "role": "compatibility",
+          "statement": "For i=j and a=b the targetOverlapIso is the native identity isomorphism."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.targetOverlapIso_comp",
+          "role": "compatibility",
+          "statement": "For three local indices i,j,k and maps a,b,c over the same q, the i-to-j overlap followed by the j-to-k overlap equals the i-to-k overlap."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.selfOverlap",
+          "kind": "degenerate",
+          "statement": "For the same local index and base arrow, the complete five-factor target comparison cancels to the identity."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.tripleOverlap",
+          "kind": "compatibility",
+          "statement": "Three distinct local lifts over a common test object satisfy the ordered target cocycle."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.reverseTargetOverlap",
+          "kind": "compatibility",
+          "statement": "Interchanging the two local lifts reverses the complete target overlap isomorphism."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Olsson §31 Lemma31.3 essential-surjectivity proof and AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-essential-surjective",
+          "how": "Construct and descend actual local source lifts using the inherited full-faithfulness route, retaining native object and morphism descent data."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:key/gerbes and AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+          "how": "Supply the precise fibrewise object-descent step; the inverse StrongTrans, band-preserving inverse and general universe normalization remain separate obligations."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/target-overlap-formula",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The five factors and orientations of the target overlap",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.targetOverlapIso_formula",
+      "statement": "The target overlap is c_a(x_i), then G(a)(e_i), then the native ofObj(z) overlap, then G(b)(e_j) inverse, then c_b(x_j) inverse.",
+      "hypotheses": [
+        "C is an arbitrary category, J its specified Grothendieck topology, and F,G actual Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with native strong transformation η. The gerbe hypothesis supplies native stack descent, local nonemptiness and local isomorphism, and groupoid fibres; no terminal object, finite site or pullbacks in C are assumed.",
+        "For component full-faithfulness, lifted overlaps, source descent, and global essential surjectivity, bF and bG are actual bandings by the same sheaf A and η preserves that band. The incoming new adapter convention A : Sheaf J AddCommGrpCat.{v′} is retained. This does not validate the reserved independent coefficient-universe interface.",
+        "For overlap and image constructions the family f_i, actual local objects x_i and image isomorphisms e_i are inputs. An actual gluing isomorphism r is input only to the local/global image-of-gluing operations. The generated-sieve covering hypothesis is required for the global image operation. The final global-preimage theorem constructs all these inputs from local gerbe existence and native stack effectivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/target-overlap"
+      ],
+      "proofSteps": [
+        "Evaluate the specified composition; retain both strong comparisons and both local image isomorphisms."
+      ],
+      "acceptance": [
+        "The target overlap is c_a(x_i), then G(a)(e_i), then the native ofObj(z) overlap, then G(b)(e_j) inverse, then c_b(x_j) inverse."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-OBJECT-DESCENT-5ebb6f",
+          "locator": "Olsson §31 Lemma31.3, PDF122–123; authored native descent refinement targetOverlapIso_formula",
+          "match": "The local existence and descent route is specialized to the owned banded gerbe morphism. The detailed comparisons, arbitrary-common-test-object equations and API refinements are authored deductions using the pinned Mathlib carriers."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/target-overlap-self",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Self-overlap is the identity",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.targetOverlapIso_self",
+      "statement": "For i=j and a=b the targetOverlapIso is the native identity isomorphism.",
+      "hypotheses": [
+        "C is an arbitrary category, J its specified Grothendieck topology, and F,G actual Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with native strong transformation η. The gerbe hypothesis supplies native stack descent, local nonemptiness and local isomorphism, and groupoid fibres; no terminal object, finite site or pullbacks in C are assumed.",
+        "For component full-faithfulness, lifted overlaps, source descent, and global essential surjectivity, bF and bG are actual bandings by the same sheaf A and η preserves that band. The incoming new adapter convention A : Sheaf J AddCommGrpCat.{v′} is retained. This does not validate the reserved independent coefficient-universe interface.",
+        "For overlap and image constructions the family f_i, actual local objects x_i and image isomorphisms e_i are inputs. An actual gluing isomorphism r is input only to the local/global image-of-gluing operations. The generated-sieve covering hypothesis is required for the global image operation. The final global-preimage theorem constructs all these inputs from local gerbe existence and native stack effectivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/target-overlap-formula",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData"
+      ],
+      "proofSteps": [
+        "Use the native target hom_self law. The outer comparison and image-isomorphism factors cancel with their inverses. Use Iso.ext to retain both directions."
+      ],
+      "acceptance": [
+        "For i=j and a=b the targetOverlapIso is the native identity isomorphism."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-OBJECT-DESCENT-5ebb6f",
+          "locator": "Olsson §31 Lemma31.3, PDF122–123; authored native descent refinement targetOverlapIso_self",
+          "match": "The local existence and descent route is specialized to the owned banded gerbe morphism. The detailed comparisons, arbitrary-common-test-object equations and API refinements are authored deductions using the pinned Mathlib carriers."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/target-overlap-composite",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Target overlap satisfies the triple cocycle",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.targetOverlapIso_comp",
+      "statement": "For three local indices i,j,k and maps a,b,c over the same q, the i-to-j overlap followed by the j-to-k overlap equals the i-to-k overlap.",
+      "hypotheses": [
+        "C is an arbitrary category, J its specified Grothendieck topology, and F,G actual Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with native strong transformation η. The gerbe hypothesis supplies native stack descent, local nonemptiness and local isomorphism, and groupoid fibres; no terminal object, finite site or pullbacks in C are assumed.",
+        "For component full-faithfulness, lifted overlaps, source descent, and global essential surjectivity, bF and bG are actual bandings by the same sheaf A and η preserves that band. The incoming new adapter convention A : Sheaf J AddCommGrpCat.{v′} is retained. This does not validate the reserved independent coefficient-universe interface.",
+        "For overlap and image constructions the family f_i, actual local objects x_i and image isomorphisms e_i are inputs. An actual gluing isomorphism r is input only to the local/global image-of-gluing operations. The generated-sieve covering hypothesis is required for the global image operation. The final global-preimage theorem constructs all these inputs from local gerbe existence and native stack effectivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/target-overlap-formula",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData"
+      ],
+      "proofSteps": [
+        "Expand the two five-factor composites. Cancel the intermediate j comparison and image isomorphism.",
+        "Apply the hom_comp equation of the native target ofObj(z) datum; conclude equality of isomorphisms by equality of their forward arrows."
+      ],
+      "acceptance": [
+        "For three local indices i,j,k and maps a,b,c over the same q, the i-to-j overlap followed by the j-to-k overlap equals the i-to-k overlap."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-OBJECT-DESCENT-5ebb6f",
+          "locator": "Olsson §31 Lemma31.3, PDF122–123; authored native descent refinement targetOverlapIso_comp",
+          "match": "The local existence and descent route is specialized to the owned banded gerbe morphism. The detailed comparisons, arbitrary-common-test-object equations and API refinements are authored deductions using the pinned Mathlib carriers."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/lifted-overlap",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Lift the target overlap through the actual banded component",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.liftedOverlapIso",
+      "statement": "Construct the unique isomorphism F(a)x_i≅F(b)x_j whose image under ηY is the targetOverlapIso, using the native fully faithful component data.",
+      "hypotheses": [
+        "C is an arbitrary category, J its specified Grothendieck topology, and F,G actual Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with native strong transformation η. The gerbe hypothesis supplies native stack descent, local nonemptiness and local isomorphism, and groupoid fibres; no terminal object, finite site or pullbacks in C are assumed.",
+        "For component full-faithfulness, lifted overlaps, source descent, and global essential surjectivity, bF and bG are actual bandings by the same sheaf A and η preserves that band. The incoming new adapter convention A : Sheaf J AddCommGrpCat.{v′} is retained. This does not validate the reserved independent coefficient-universe interface.",
+        "For overlap and image constructions the family f_i, actual local objects x_i and image isomorphisms e_i are inputs. An actual gluing isomorphism r is input only to the local/global image-of-gluing operations. The generated-sieve covering hypothesis is required for the global image operation. The final global-preimage theorem constructs all these inputs from local gerbe existence and native stack effectivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/component-fully-faithful",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/target-overlap",
+        "mathlib:CategoryTheory.Functor.FullyFaithful.preimageIso"
+      ],
+      "proofSteps": [
+        "Apply componentFullyFaithful at Y to the target overlap and use its pinned preimageIso operation.",
+        "Both directions are lifted through the actual ηY.map; map injectivity reflects the two inverse identities.",
+        "No locally chosen source anchor is required at this point: fullness on all actual Hom types has already been planned."
+      ],
+      "acceptance": [
+        "Construct the unique isomorphism F(a)x_i≅F(b)x_j whose image under ηY is the targetOverlapIso, using the native fully faithful component data."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-OBJECT-DESCENT-5ebb6f",
+          "locator": "Olsson §31 Lemma31.3, PDF122–123; authored native descent refinement liftedOverlapIso",
+          "match": "The local existence and descent route is specialized to the owned banded gerbe morphism. The detailed comparisons, arbitrary-common-test-object equations and API refinements are authored deductions using the pinned Mathlib carriers."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.liftedOverlapIso_map",
+          "role": "compatibility",
+          "statement": "ηY.mapIso of the lifted overlap equals the specified target overlap as an actual native isomorphism."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.liftedOverlapIso_self",
+          "role": "compatibility",
+          "statement": "The lifted overlap from a local object to itself along the same base arrow is the identity isomorphism."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.liftedOverlapIso_comp",
+          "role": "compatibility",
+          "statement": "The i-to-j lifted overlap followed by the j-to-k lifted overlap is the i-to-k lifted overlap on every common test object."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.liftedOverlapIso_pullHom",
+          "role": "compatibility",
+          "statement": "For g:Y′→Y, q′=g≫q and specified ga=g≫a, gb=g≫b, native pullHom_F of the lifted overlap equals the lifted overlap at q′,ga,gb, with all base equalities retained."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.liftedImage",
+          "kind": "compatibility",
+          "statement": "Mapping the chosen lifted isomorphism gives the entire target overlap with both comparisons present."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.reflectedCocycle",
+          "kind": "compatibility",
+          "statement": "The lifted overlap satisfies the actual triple cocycle; lifting arrows independently without faithfulness fails this test."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.reverseLiftedOverlap",
+          "kind": "compatibility",
+          "statement": "Interchanging source local indices gives the inverse lifted isomorphism, not another arbitrary preimage."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Olsson §31 Lemma31.3 essential-surjectivity proof and AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-essential-surjective",
+          "how": "Construct and descend actual local source lifts using the inherited full-faithfulness route, retaining native object and morphism descent data."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:key/gerbes and AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+          "how": "Supply the precise fibrewise object-descent step; the inverse StrongTrans, band-preserving inverse and general universe normalization remain separate obligations."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/lifted-overlap-image",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Mapping the lifted overlap returns the target overlap",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.liftedOverlapIso_map",
+      "statement": "ηY.mapIso of the lifted overlap equals the specified target overlap as an actual native isomorphism.",
+      "hypotheses": [
+        "C is an arbitrary category, J its specified Grothendieck topology, and F,G actual Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with native strong transformation η. The gerbe hypothesis supplies native stack descent, local nonemptiness and local isomorphism, and groupoid fibres; no terminal object, finite site or pullbacks in C are assumed.",
+        "For component full-faithfulness, lifted overlaps, source descent, and global essential surjectivity, bF and bG are actual bandings by the same sheaf A and η preserves that band. The incoming new adapter convention A : Sheaf J AddCommGrpCat.{v′} is retained. This does not validate the reserved independent coefficient-universe interface.",
+        "For overlap and image constructions the family f_i, actual local objects x_i and image isomorphisms e_i are inputs. An actual gluing isomorphism r is input only to the local/global image-of-gluing operations. The generated-sieve covering hypothesis is required for the global image operation. The final global-preimage theorem constructs all these inputs from local gerbe existence and native stack effectivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/lifted-overlap",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/component-map-preimage"
+      ],
+      "proofSteps": [
+        "Use map_preimage on both forward and inverse components of native preimageIso; Iso.ext proves the displayed identity."
+      ],
+      "acceptance": [
+        "ηY.mapIso of the lifted overlap equals the specified target overlap as an actual native isomorphism."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-OBJECT-DESCENT-5ebb6f",
+          "locator": "Olsson §31 Lemma31.3, PDF122–123; authored native descent refinement liftedOverlapIso_map",
+          "match": "The local existence and descent route is specialized to the owned banded gerbe morphism. The detailed comparisons, arbitrary-common-test-object equations and API refinements are authored deductions using the pinned Mathlib carriers."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/lifted-overlap-self",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Self-overlap lifts to the identity",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.liftedOverlapIso_self",
+      "statement": "The lifted overlap from a local object to itself along the same base arrow is the identity isomorphism.",
+      "hypotheses": [
+        "C is an arbitrary category, J its specified Grothendieck topology, and F,G actual Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with native strong transformation η. The gerbe hypothesis supplies native stack descent, local nonemptiness and local isomorphism, and groupoid fibres; no terminal object, finite site or pullbacks in C are assumed.",
+        "For component full-faithfulness, lifted overlaps, source descent, and global essential surjectivity, bF and bG are actual bandings by the same sheaf A and η preserves that band. The incoming new adapter convention A : Sheaf J AddCommGrpCat.{v′} is retained. This does not validate the reserved independent coefficient-universe interface.",
+        "For overlap and image constructions the family f_i, actual local objects x_i and image isomorphisms e_i are inputs. An actual gluing isomorphism r is input only to the local/global image-of-gluing operations. The generated-sieve covering hypothesis is required for the global image operation. The final global-preimage theorem constructs all these inputs from local gerbe existence and native stack effectivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/lifted-overlap-image",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/target-overlap-self",
+        "mathlib:CategoryTheory.Functor.FullyFaithful.map_injective"
+      ],
+      "proofSteps": [
+        "Map both forward arrows by ηY and use the target self-overlap equation. Faithfulness reflects their equality, hence equality of isomorphisms."
+      ],
+      "acceptance": [
+        "The lifted overlap from a local object to itself along the same base arrow is the identity isomorphism."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-OBJECT-DESCENT-5ebb6f",
+          "locator": "Olsson §31 Lemma31.3, PDF122–123; authored native descent refinement liftedOverlapIso_self",
+          "match": "The local existence and descent route is specialized to the owned banded gerbe morphism. The detailed comparisons, arbitrary-common-test-object equations and API refinements are authored deductions using the pinned Mathlib carriers."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/lifted-overlap-composite",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The lifted isomorphisms satisfy the triple cocycle",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.liftedOverlapIso_comp",
+      "statement": "The i-to-j lifted overlap followed by the j-to-k lifted overlap is the i-to-k lifted overlap on every common test object.",
+      "hypotheses": [
+        "C is an arbitrary category, J its specified Grothendieck topology, and F,G actual Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with native strong transformation η. The gerbe hypothesis supplies native stack descent, local nonemptiness and local isomorphism, and groupoid fibres; no terminal object, finite site or pullbacks in C are assumed.",
+        "For component full-faithfulness, lifted overlaps, source descent, and global essential surjectivity, bF and bG are actual bandings by the same sheaf A and η preserves that band. The incoming new adapter convention A : Sheaf J AddCommGrpCat.{v′} is retained. This does not validate the reserved independent coefficient-universe interface.",
+        "For overlap and image constructions the family f_i, actual local objects x_i and image isomorphisms e_i are inputs. An actual gluing isomorphism r is input only to the local/global image-of-gluing operations. The generated-sieve covering hypothesis is required for the global image operation. The final global-preimage theorem constructs all these inputs from local gerbe existence and native stack effectivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/lifted-overlap-image",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/target-overlap-composite",
+        "mathlib:CategoryTheory.Functor.FullyFaithful.map_injective"
+      ],
+      "proofSteps": [
+        "Apply ηY.map to the two forward arrows, use map_comp and the target cocycle, then reflect equality with the native fully faithful component."
+      ],
+      "acceptance": [
+        "The i-to-j lifted overlap followed by the j-to-k lifted overlap is the i-to-k lifted overlap on every common test object."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-OBJECT-DESCENT-5ebb6f",
+          "locator": "Olsson §31 Lemma31.3, PDF122–123; authored native descent refinement liftedOverlapIso_comp",
+          "match": "The local existence and descent route is specialized to the owned banded gerbe morphism. The detailed comparisons, arbitrary-common-test-object equations and API refinements are authored deductions using the pinned Mathlib carriers."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/lifted-overlap-restriction",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Lifted overlap respects deeper native restriction",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.liftedOverlapIso_pullHom",
+      "statement": "For g:Y′→Y, q′=g≫q and specified ga=g≫a, gb=g≫b, native pullHom_F of the lifted overlap equals the lifted overlap at q′,ga,gb, with all base equalities retained.",
+      "hypotheses": [
+        "C is an arbitrary category, J its specified Grothendieck topology, and F,G actual Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with native strong transformation η. The gerbe hypothesis supplies native stack descent, local nonemptiness and local isomorphism, and groupoid fibres; no terminal object, finite site or pullbacks in C are assumed.",
+        "For component full-faithfulness, lifted overlaps, source descent, and global essential surjectivity, bF and bG are actual bandings by the same sheaf A and η preserves that band. The incoming new adapter convention A : Sheaf J AddCommGrpCat.{v′} is retained. This does not validate the reserved independent coefficient-universe interface.",
+        "For overlap and image constructions the family f_i, actual local objects x_i and image isomorphisms e_i are inputs. An actual gluing isomorphism r is input only to the local/global image-of-gluing operations. The generated-sieve covering hypothesis is required for the global image operation. The final global-preimage theorem constructs all these inputs from local gerbe existence and native stack effectivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/lifted-overlap-image",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/target-overlap-formula",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/comparison-composite",
+        "mathlib:CategoryTheory.Pseudofunctor.LocallyDiscreteOpToCat.pullHom",
+        "mathlib:CategoryTheory.Functor.FullyFaithful.map_injective"
+      ],
+      "proofSteps": [
+        "Write pullHom_F as source mapComp′ hom, F(g) applied to the overlap, then source mapComp′ inv.",
+        "Map this composite by ηY′. Use naturality of c_g on the actual overlap arrow and the incoming comparison_comp formula on a,g and b,g. Source mapComp′ terms cancel against the strong-comparison terms.",
+        "Expand the target five-factor overlap. Naturality of G.mapComp′ moves G(g) applied to e_i and e_j to G(ga) and G(gb). The target ofObj(z) pullHom_hom law replaces the central overlap at q by its overlap at q′.",
+        "The result is the targetOverlapIso at q′,ga,gb. Use liftedOverlapIso_map there and reflect equality through ηY′. This varying-base step is required in addition to the triple cocycle."
+      ],
+      "acceptance": [
+        "For g:Y′→Y, q′=g≫q and specified ga=g≫a, gb=g≫b, native pullHom_F of the lifted overlap equals the lifted overlap at q′,ga,gb, with all base equalities retained."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-OBJECT-DESCENT-5ebb6f",
+          "locator": "Olsson §31 Lemma31.3, PDF122–123; authored native descent refinement liftedOverlapIso_pullHom",
+          "match": "The local existence and descent route is specialized to the owned banded gerbe morphism. The detailed comparisons, arbitrary-common-test-object equations and API refinements are authored deductions using the pinned Mathlib carriers."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/lifted-descent-data",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Native descent data made from the local banded lifts",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.liftedDescentData",
+      "statement": "Construct an object of the existing category F.DescentData(f), with objects x_i and overlap morphisms the forward maps of liftedOverlapIso, including all three native coherence fields.",
+      "hypotheses": [
+        "C is an arbitrary category, J its specified Grothendieck topology, and F,G actual Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with native strong transformation η. The gerbe hypothesis supplies native stack descent, local nonemptiness and local isomorphism, and groupoid fibres; no terminal object, finite site or pullbacks in C are assumed.",
+        "For component full-faithfulness, lifted overlaps, source descent, and global essential surjectivity, bF and bG are actual bandings by the same sheaf A and η preserves that band. The incoming new adapter convention A : Sheaf J AddCommGrpCat.{v′} is retained. This does not validate the reserved independent coefficient-universe interface.",
+        "For overlap and image constructions the family f_i, actual local objects x_i and image isomorphisms e_i are inputs. An actual gluing isomorphism r is input only to the local/global image-of-gluing operations. The generated-sieve covering hypothesis is required for the global image operation. The final global-preimage theorem constructs all these inputs from local gerbe existence and native stack effectivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/lifted-overlap-self",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/lifted-overlap-composite",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/lifted-overlap-restriction",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData"
+      ],
+      "proofSteps": [
+        "Use exactly the pinned DescentData constructor; do not introduce another descent-data type or a field asserting that η is essentially surjective.",
+        "Set obj(i)=x_i and hom(q,a,b) to the forward lifted-overlap arrow.",
+        "Supply pullHom_hom from deeper restriction, hom_self from lifted identity, and hom_comp from the reflected triple cocycle. These are distinct obligations, all explicitly admitted in the suggested construction."
+      ],
+      "acceptance": [
+        "Construct an object of the existing category F.DescentData(f), with objects x_i and overlap morphisms the forward maps of liftedOverlapIso, including all three native coherence fields."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-OBJECT-DESCENT-5ebb6f",
+          "locator": "Olsson §31 Lemma31.3, PDF122–123; authored native descent refinement liftedDescentData",
+          "match": "The local existence and descent route is specialized to the owned banded gerbe morphism. The detailed comparisons, arbitrary-common-test-object equations and API refinements are authored deductions using the pinned Mathlib carriers."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.liftedDescentData_obj",
+          "role": "compatibility",
+          "statement": "The object field of liftedDescentData at i is x_i."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.liftedDescentData_hom",
+          "role": "compatibility",
+          "statement": "For every common test object and pair of indices, the hom field is the forward arrow of the specified liftedOverlapIso."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.liftedDescentData_pullHom",
+          "role": "compatibility",
+          "statement": "The actual native descent-data hom field commutes with every deeper pullHom, with all base equality witnesses retained."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.retainedLocalObject",
+          "kind": "characterisation",
+          "statement": "Every object field of the native descent datum is the supplied x_i, so discarding the local objects fails."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.retainedLocalArrow",
+          "kind": "characterisation",
+          "statement": "Every overlap morphism is the specified lifted forward arrow, with all base equality witnesses retained."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.varyingBaseDescent",
+          "kind": "compatibility",
+          "statement": "The lifted datum obeys native pullHom under an arbitrary deeper base arrow; a record with only the identity and triple-cocycle laws fails."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Olsson §31 Lemma31.3 essential-surjectivity proof and AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-essential-surjective",
+          "how": "Construct and descend actual local source lifts using the inherited full-faithfulness route, retaining native object and morphism descent data."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:key/gerbes and AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+          "how": "Supply the precise fibrewise object-descent step; the inverse StrongTrans, band-preserving inverse and general universe normalization remain separate obligations."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/lifted-descent-objects",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The descent datum retains every chosen local object",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.liftedDescentData_obj",
+      "statement": "The object field of liftedDescentData at i is x_i.",
+      "hypotheses": [
+        "C is an arbitrary category, J its specified Grothendieck topology, and F,G actual Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with native strong transformation η. The gerbe hypothesis supplies native stack descent, local nonemptiness and local isomorphism, and groupoid fibres; no terminal object, finite site or pullbacks in C are assumed.",
+        "For component full-faithfulness, lifted overlaps, source descent, and global essential surjectivity, bF and bG are actual bandings by the same sheaf A and η preserves that band. The incoming new adapter convention A : Sheaf J AddCommGrpCat.{v′} is retained. This does not validate the reserved independent coefficient-universe interface.",
+        "For overlap and image constructions the family f_i, actual local objects x_i and image isomorphisms e_i are inputs. An actual gluing isomorphism r is input only to the local/global image-of-gluing operations. The generated-sieve covering hypothesis is required for the global image operation. The final global-preimage theorem constructs all these inputs from local gerbe existence and native stack effectivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/lifted-descent-data"
+      ],
+      "proofSteps": [
+        "Evaluate the explicit obj field of the native constructor; the local source objects are data, not merely nonemptiness proofs."
+      ],
+      "acceptance": [
+        "The object field of liftedDescentData at i is x_i."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-OBJECT-DESCENT-5ebb6f",
+          "locator": "Olsson §31 Lemma31.3, PDF122–123; authored native descent refinement liftedDescentData_obj",
+          "match": "The local existence and descent route is specialized to the owned banded gerbe morphism. The detailed comparisons, arbitrary-common-test-object equations and API refinements are authored deductions using the pinned Mathlib carriers."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/lifted-descent-arrows",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The descent datum retains the actual lifted overlap arrow",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.liftedDescentData_hom",
+      "statement": "For every common test object and pair of indices, the hom field is the forward arrow of the specified liftedOverlapIso.",
+      "hypotheses": [
+        "C is an arbitrary category, J its specified Grothendieck topology, and F,G actual Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with native strong transformation η. The gerbe hypothesis supplies native stack descent, local nonemptiness and local isomorphism, and groupoid fibres; no terminal object, finite site or pullbacks in C are assumed.",
+        "For component full-faithfulness, lifted overlaps, source descent, and global essential surjectivity, bF and bG are actual bandings by the same sheaf A and η preserves that band. The incoming new adapter convention A : Sheaf J AddCommGrpCat.{v′} is retained. This does not validate the reserved independent coefficient-universe interface.",
+        "For overlap and image constructions the family f_i, actual local objects x_i and image isomorphisms e_i are inputs. An actual gluing isomorphism r is input only to the local/global image-of-gluing operations. The generated-sieve covering hypothesis is required for the global image operation. The final global-preimage theorem constructs all these inputs from local gerbe existence and native stack effectivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/lifted-descent-data"
+      ],
+      "proofSteps": [
+        "Evaluate the explicit native hom field, including the supplied base-composition equalities."
+      ],
+      "acceptance": [
+        "For every common test object and pair of indices, the hom field is the forward arrow of the specified liftedOverlapIso."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-OBJECT-DESCENT-5ebb6f",
+          "locator": "Olsson §31 Lemma31.3, PDF122–123; authored native descent refinement liftedDescentData_hom",
+          "match": "The local existence and descent route is specialized to the owned banded gerbe morphism. The detailed comparisons, arbitrary-common-test-object equations and API refinements are authored deductions using the pinned Mathlib carriers."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/local-image-of-gluing",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The image comparison on each chart of a glued source object",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.imageLocalIso",
+      "statement": "Given y in F(U) and an actual native descent isomorphism r:ofObj_F(y)≅liftedDescentData, construct G(f_i)(ηU y)≅G(f_i)z on each chart i.",
+      "hypotheses": [
+        "C is an arbitrary category, J its specified Grothendieck topology, and F,G actual Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with native strong transformation η. The gerbe hypothesis supplies native stack descent, local nonemptiness and local isomorphism, and groupoid fibres; no terminal object, finite site or pullbacks in C are assumed.",
+        "For component full-faithfulness, lifted overlaps, source descent, and global essential surjectivity, bF and bG are actual bandings by the same sheaf A and η preserves that band. The incoming new adapter convention A : Sheaf J AddCommGrpCat.{v′} is retained. This does not validate the reserved independent coefficient-universe interface.",
+        "For overlap and image constructions the family f_i, actual local objects x_i and image isomorphisms e_i are inputs. An actual gluing isomorphism r is input only to the local/global image-of-gluing operations. The generated-sieve covering hypothesis is required for the global image operation. The final global-preimage theorem constructs all these inputs from local gerbe existence and native stack effectivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/lifted-descent-objects",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/lifted-descent-arrows",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/comparison",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData"
+      ],
+      "proofSteps": [
+        "Evaluate r and its inverse at i; native composition and identity of descent morphisms show these components are inverse isomorphisms F(f_i)y≅x_i.",
+        "Compose c_(f_i)(y) inverse, η_i applied to that component isomorphism, and e_i.",
+        "The comparison direction is G(f_i)(ηU y)→η_i(F(f_i)y). No cover is required until this local image is glued."
+      ],
+      "acceptance": [
+        "Given y in F(U) and an actual native descent isomorphism r:ofObj_F(y)≅liftedDescentData, construct G(f_i)(ηU y)≅G(f_i)z on each chart i."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-OBJECT-DESCENT-5ebb6f",
+          "locator": "Olsson §31 Lemma31.3, PDF122–123; authored native descent refinement imageLocalIso",
+          "match": "The local existence and descent route is specialized to the owned banded gerbe morphism. The detailed comparisons, arbitrary-common-test-object equations and API refinements are authored deductions using the pinned Mathlib carriers."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.imageLocalIso_hom",
+          "role": "compatibility",
+          "statement": "The forward arrow of imageLocalIso at i is c_(f_i)(y) inverse, followed by η_i.map(r.hom.hom(i)), followed by e_i.hom."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.imageLocalIso_comm",
+          "role": "compatibility",
+          "statement": "The imageLocalIso components satisfy the exact DescentData.isoMk comm equation between the target ofObj data of ηU y and z on every common test object."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.imageLocalIso_inv",
+          "role": "compatibility",
+          "statement": "The inverse arrow is e_i inverse, then η_i applied to the inverse gluing component, then the forward strong comparison."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.forwardGluingImage",
+          "kind": "compatibility",
+          "statement": "The local image starts with the inverse strong comparison, then the image of the forward gluing component, then e_i."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.inverseGluingImage",
+          "kind": "compatibility",
+          "statement": "The inverse local image starts with e_i inverse, then η_i of the inverse gluing component, then the forward strong comparison."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.nativeImageComm",
+          "kind": "compatibility",
+          "statement": "The chart image isomorphisms obey exactly the native target DescentData.isoMk comm equation on arbitrary common test objects."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Olsson §31 Lemma31.3 essential-surjectivity proof and AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-essential-surjective",
+          "how": "Construct and descend actual local source lifts using the inherited full-faithfulness route, retaining native object and morphism descent data."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:key/gerbes and AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+          "how": "Supply the precise fibrewise object-descent step; the inverse StrongTrans, band-preserving inverse and general universe normalization remain separate obligations."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/local-image-formula",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Forward formula for the image of a gluing component",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.imageLocalIso_hom",
+      "statement": "The forward arrow of imageLocalIso at i is c_(f_i)(y) inverse, followed by η_i.map(r.hom.hom(i)), followed by e_i.hom.",
+      "hypotheses": [
+        "C is an arbitrary category, J its specified Grothendieck topology, and F,G actual Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with native strong transformation η. The gerbe hypothesis supplies native stack descent, local nonemptiness and local isomorphism, and groupoid fibres; no terminal object, finite site or pullbacks in C are assumed.",
+        "For component full-faithfulness, lifted overlaps, source descent, and global essential surjectivity, bF and bG are actual bandings by the same sheaf A and η preserves that band. The incoming new adapter convention A : Sheaf J AddCommGrpCat.{v′} is retained. This does not validate the reserved independent coefficient-universe interface.",
+        "For overlap and image constructions the family f_i, actual local objects x_i and image isomorphisms e_i are inputs. An actual gluing isomorphism r is input only to the local/global image-of-gluing operations. The generated-sieve covering hypothesis is required for the global image operation. The final global-preimage theorem constructs all these inputs from local gerbe existence and native stack effectivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/local-image-of-gluing"
+      ],
+      "proofSteps": [
+        "Evaluate the three-factor composition and its actual component of r; the object projection of liftedDescentData is definitionally the specified x_i."
+      ],
+      "acceptance": [
+        "The forward arrow of imageLocalIso at i is c_(f_i)(y) inverse, followed by η_i.map(r.hom.hom(i)), followed by e_i.hom."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-OBJECT-DESCENT-5ebb6f",
+          "locator": "Olsson §31 Lemma31.3, PDF122–123; authored native descent refinement imageLocalIso_hom",
+          "match": "The local existence and descent route is specialized to the owned banded gerbe morphism. The detailed comparisons, arbitrary-common-test-object equations and API refinements are authored deductions using the pinned Mathlib carriers."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/local-image-compatibility",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The chartwise image comparisons are a native descent morphism",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.imageLocalIso_comm",
+      "statement": "The imageLocalIso components satisfy the exact DescentData.isoMk comm equation between the target ofObj data of ηU y and z on every common test object.",
+      "hypotheses": [
+        "C is an arbitrary category, J its specified Grothendieck topology, and F,G actual Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with native strong transformation η. The gerbe hypothesis supplies native stack descent, local nonemptiness and local isomorphism, and groupoid fibres; no terminal object, finite site or pullbacks in C are assumed.",
+        "For component full-faithfulness, lifted overlaps, source descent, and global essential surjectivity, bF and bG are actual bandings by the same sheaf A and η preserves that band. The incoming new adapter convention A : Sheaf J AddCommGrpCat.{v′} is retained. This does not validate the reserved independent coefficient-universe interface.",
+        "For overlap and image constructions the family f_i, actual local objects x_i and image isomorphisms e_i are inputs. An actual gluing isomorphism r is input only to the local/global image-of-gluing operations. The generated-sieve covering hypothesis is required for the global image operation. The final global-preimage theorem constructs all these inputs from local gerbe existence and native stack effectivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/local-image-formula",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/lifted-descent-arrows",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/lifted-overlap-image",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/target-overlap-formula",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/hom-sheaf/comparison-composite",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData.isoMk"
+      ],
+      "proofSteps": [
+        "Expand the local forward formula at i and j and the two target ofObj overlap maps.",
+        "Use the native r.hom.comm equation in F(Y), then ηY.map and strong naturality for a and b. The composite comparison formulas retain the source and target mapComp′ terms for f_i,a and f_j,b.",
+        "Substitute liftedOverlapIso_map and the five-factor target formula. The e_i,e_j and c_a,c_b factors cancel in the required directions.",
+        "What remains is precisely G(a)(p_i) followed by the z overlap equals the ηU y overlap followed by G(b)(p_j). This gives an actual target descent isomorphism, not equality of local isomorphism classes."
+      ],
+      "acceptance": [
+        "The imageLocalIso components satisfy the exact DescentData.isoMk comm equation between the target ofObj data of ηU y and z on every common test object."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-OBJECT-DESCENT-5ebb6f",
+          "locator": "Olsson §31 Lemma31.3, PDF122–123; authored native descent refinement imageLocalIso_comm",
+          "match": "The local existence and descent route is specialized to the owned banded gerbe morphism. The detailed comparisons, arbitrary-common-test-object equations and API refinements are authored deductions using the pinned Mathlib carriers."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/global-image-isomorphism",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "An actual global image isomorphism obtained by morphism descent",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.globalImageIso",
+      "statement": "When Sieve.ofArrows(X,f) covers U, the given y and native gluing isomorphism r produce an actual isomorphism ηU y≅z.",
+      "hypotheses": [
+        "C is an arbitrary category, J its specified Grothendieck topology, and F,G actual Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with native strong transformation η. The gerbe hypothesis supplies native stack descent, local nonemptiness and local isomorphism, and groupoid fibres; no terminal object, finite site or pullbacks in C are assumed.",
+        "For component full-faithfulness, lifted overlaps, source descent, and global essential surjectivity, bF and bG are actual bandings by the same sheaf A and η preserves that band. The incoming new adapter convention A : Sheaf J AddCommGrpCat.{v′} is retained. This does not validate the reserved independent coefficient-universe interface.",
+        "For overlap and image constructions the family f_i, actual local objects x_i and image isomorphisms e_i are inputs. An actual gluing isomorphism r is input only to the local/global image-of-gluing operations. The generated-sieve covering hypothesis is required for the global image operation. The final global-preimage theorem constructs all these inputs from local gerbe existence and native stack effectivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/local-image-compatibility",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData.isoMk",
+        "mathlib:CategoryTheory.Pseudofunctor.fullyFaithfulToDescentData",
+        "mathlib:CategoryTheory.Functor.FullyFaithful.preimageIso"
+      ],
+      "proofSteps": [
+        "Apply native DescentData.isoMk to imageLocalIso and its exact comm equation to obtain ofObj_G(ηU y)≅ofObj_G(z).",
+        "Use G.fullyFaithfulToDescentData with the stated covering hypothesis; G is a prestack because it is a gerbe.",
+        "Apply that native fully faithful functor’s preimageIso to obtain ηU y≅z. Both directions are actual morphisms, and their inverse identities follow from faithfulness.",
+        "A global source object y is an input here only because it was obtained from native source stack effectivity in the subsequent existence proof."
+      ],
+      "acceptance": [
+        "When Sieve.ofArrows(X,f) covers U, the given y and native gluing isomorphism r produce an actual isomorphism ηU y≅z."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-OBJECT-DESCENT-5ebb6f",
+          "locator": "Olsson §31 Lemma31.3, PDF122–123; authored native descent refinement globalImageIso",
+          "match": "The local existence and descent route is specialized to the owned banded gerbe morphism. The detailed comparisons, arbitrary-common-test-object equations and API refinements are authored deductions using the pinned Mathlib carriers."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.globalImageIso_restrict",
+          "role": "compatibility",
+          "statement": "Restricting globalImageIso.hom by G(f_i) gives imageLocalIso.hom at every chart i."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.globalImageIso_unique",
+          "role": "universal-property",
+          "statement": "Any p:ηU y≅z whose forward restrictions agree with all the imageLocalIso components equals globalImageIso."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.globalImageIso_inv_restrict",
+          "role": "compatibility",
+          "statement": "Restricting the inverse global image arrow gives the inverse local image arrow at every chart."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.globalRestriction",
+          "kind": "compatibility",
+          "statement": "The actual global forward arrow restricts to every prescribed chartwise image arrow."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.uniquenessForLocalData",
+          "kind": "characterisation",
+          "statement": "A second isomorphism with exactly the same local forward arrows equals the reconstructed global image isomorphism."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.Tests.emptyCoverEffectivity",
+          "kind": "degenerate",
+          "statement": "When the empty family is explicitly covering, the native target stack still yields an actual isomorphism; the covering hypothesis is not dropped."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Olsson §31 Lemma31.3 essential-surjectivity proof and AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-essential-surjective",
+          "how": "Construct and descend actual local source lifts using the inherited full-faithfulness route, retaining native object and morphism descent data."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:key/gerbes and AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+          "how": "Supply the precise fibrewise object-descent step; the inverse StrongTrans, band-preserving inverse and general universe normalization remain separate obligations."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/global-image-restriction",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The global image isomorphism has exactly the prescribed local arrows",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.globalImageIso_restrict",
+      "statement": "Restricting globalImageIso.hom by G(f_i) gives imageLocalIso.hom at every chart i.",
+      "hypotheses": [
+        "C is an arbitrary category, J its specified Grothendieck topology, and F,G actual Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with native strong transformation η. The gerbe hypothesis supplies native stack descent, local nonemptiness and local isomorphism, and groupoid fibres; no terminal object, finite site or pullbacks in C are assumed.",
+        "For component full-faithfulness, lifted overlaps, source descent, and global essential surjectivity, bF and bG are actual bandings by the same sheaf A and η preserves that band. The incoming new adapter convention A : Sheaf J AddCommGrpCat.{v′} is retained. This does not validate the reserved independent coefficient-universe interface.",
+        "For overlap and image constructions the family f_i, actual local objects x_i and image isomorphisms e_i are inputs. An actual gluing isomorphism r is input only to the local/global image-of-gluing operations. The generated-sieve covering hypothesis is required for the global image operation. The final global-preimage theorem constructs all these inputs from local gerbe existence and native stack effectivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/global-image-isomorphism",
+        "mathlib:CategoryTheory.Functor.FullyFaithful",
+        "mathlib:CategoryTheory.Pseudofunctor.toDescentData"
+      ],
+      "proofSteps": [
+        "Use map_preimage for the native target descent functor, then evaluate the resulting equality of descent morphisms at i. Its map on morphisms is exactly G(f_i).map."
+      ],
+      "acceptance": [
+        "Restricting globalImageIso.hom by G(f_i) gives imageLocalIso.hom at every chart i."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-OBJECT-DESCENT-5ebb6f",
+          "locator": "Olsson §31 Lemma31.3, PDF122–123; authored native descent refinement globalImageIso_restrict",
+          "match": "The local existence and descent route is specialized to the owned banded gerbe morphism. The detailed comparisons, arbitrary-common-test-object equations and API refinements are authored deductions using the pinned Mathlib carriers."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/global-image-uniqueness",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Uniqueness is relative to the complete local morphism data",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.globalImageIso_unique",
+      "statement": "Any p:ηU y≅z whose forward restrictions agree with all the imageLocalIso components equals globalImageIso.",
+      "hypotheses": [
+        "C is an arbitrary category, J its specified Grothendieck topology, and F,G actual Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with native strong transformation η. The gerbe hypothesis supplies native stack descent, local nonemptiness and local isomorphism, and groupoid fibres; no terminal object, finite site or pullbacks in C are assumed.",
+        "For component full-faithfulness, lifted overlaps, source descent, and global essential surjectivity, bF and bG are actual bandings by the same sheaf A and η preserves that band. The incoming new adapter convention A : Sheaf J AddCommGrpCat.{v′} is retained. This does not validate the reserved independent coefficient-universe interface.",
+        "For overlap and image constructions the family f_i, actual local objects x_i and image isomorphisms e_i are inputs. An actual gluing isomorphism r is input only to the local/global image-of-gluing operations. The generated-sieve covering hypothesis is required for the global image operation. The final global-preimage theorem constructs all these inputs from local gerbe existence and native stack effectivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/global-image-restriction",
+        "mathlib:CategoryTheory.Pseudofunctor.DescentData.hom_ext",
+        "mathlib:CategoryTheory.Pseudofunctor.fullyFaithfulToDescentData",
+        "mathlib:CategoryTheory.Functor.FullyFaithful.map_injective"
+      ],
+      "proofSteps": [
+        "Use native descent hom_ext on the family of restricted forward maps. Faithfulness of G.toDescentData reflects their equality over U; Iso.ext gives equality of isomorphisms.",
+        "This does not say different arbitrary choices e_i or r give the same isomorphism. Nontrivial target automorphisms remain visible."
+      ],
+      "acceptance": [
+        "Any p:ηU y≅z whose forward restrictions agree with all the imageLocalIso components equals globalImageIso."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-OBJECT-DESCENT-5ebb6f",
+          "locator": "Olsson §31 Lemma31.3, PDF122–123; authored native descent refinement globalImageIso_unique",
+          "match": "The local existence and descent route is specialized to the owned banded gerbe morphism. The detailed comparisons, arbitrary-common-test-object equations and API refinements are authored deductions using the pinned Mathlib carriers."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/global-preimage",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Local source objects descend to a global preimage of z",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.global_preimage",
+      "statement": "For every U and z in G(U), there exists y in F(U) together with Nonempty(ηU y≅z).",
+      "hypotheses": [
+        "C is an arbitrary category, J its specified Grothendieck topology, and F,G actual Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with native strong transformation η. The gerbe hypothesis supplies native stack descent, local nonemptiness and local isomorphism, and groupoid fibres; no terminal object, finite site or pullbacks in C are assumed.",
+        "For component full-faithfulness, lifted overlaps, source descent, and global essential surjectivity, bF and bG are actual bandings by the same sheaf A and η preserves that band. The incoming new adapter convention A : Sheaf J AddCommGrpCat.{v′} is retained. This does not validate the reserved independent coefficient-universe interface.",
+        "For overlap and image constructions the family f_i, actual local objects x_i and image isomorphisms e_i are inputs. An actual gluing isomorphism r is input only to the local/global image-of-gluing operations. The generated-sieve covering hypothesis is required for the global image operation. The final global-preimage theorem constructs all these inputs from local gerbe existence and native stack effectivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/local-image-covering",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/local-image-membership",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/lifted-descent-data",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/global-image-isomorphism",
+        "mathlib:CategoryTheory.Sieve.ofArrows_category",
+        "mathlib:CategoryTheory.Pseudofunctor.IsStack",
+        "mathlib:CategoryTheory.Functor.objPreimage",
+        "mathlib:CategoryTheory.Functor.objObjPreimageIso"
+      ],
+      "proofSteps": [
+        "Take R=Lz and the actual family of arrows f in R.arrows.category. The native ofArrows_category theorem identifies its generated sieve with R, so it is covering.",
+        "For each f in R choose its source object x_f and its actual image isomorphism e_f, using the membership characterization and classical choice. No global source anchor has been assumed.",
+        "Build the native liftedDescentData. Register F’s native IsStack.essSurj_of_sieve instance and take objPreimage of this datum; objObjPreimageIso is the actual r:ofObj_F(y)≅D.",
+        "Apply globalImageIso using the covering equality. Return the object y and the actual isomorphism witness.",
+        "An empty covering index is legitimate: effectivity still supplies a global source object from the empty descent datum. An empty index without a covering hypothesis gives no conclusion."
+      ],
+      "acceptance": [
+        "For every U and z in G(U), there exists y in F(U) together with Nonempty(ηU y≅z)."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-OBJECT-DESCENT-5ebb6f",
+          "locator": "Olsson §31 Lemma31.3, PDF122–123; authored native descent refinement global_preimage",
+          "match": "The local existence and descent route is specialized to the owned banded gerbe morphism. The detailed comparisons, arbitrary-common-test-object equations and API refinements are authored deductions using the pinned Mathlib carriers."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/component-essential-surjectivity",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The native component EssSurj instance",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.componentEssSurj",
+      "statement": "Every actual component functor ηU is EssSurj in the native Mathlib sense, in the inherited coefficient universe convention.",
+      "hypotheses": [
+        "C is an arbitrary category, J its specified Grothendieck topology, and F,G actual Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with native strong transformation η. The gerbe hypothesis supplies native stack descent, local nonemptiness and local isomorphism, and groupoid fibres; no terminal object, finite site or pullbacks in C are assumed.",
+        "For component full-faithfulness, lifted overlaps, source descent, and global essential surjectivity, bF and bG are actual bandings by the same sheaf A and η preserves that band. The incoming new adapter convention A : Sheaf J AddCommGrpCat.{v′} is retained. This does not validate the reserved independent coefficient-universe interface.",
+        "For overlap and image constructions the family f_i, actual local objects x_i and image isomorphisms e_i are inputs. An actual gluing isomorphism r is input only to the local/global image-of-gluing operations. The generated-sieve covering hypothesis is required for the global image operation. The final global-preimage theorem constructs all these inputs from local gerbe existence and native stack effectivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/global-preimage",
+        "mathlib:CategoryTheory.Functor.EssSurj"
+      ],
+      "proofSteps": [
+        "For every z use global_preimage to fill the exact native EssSurj.mem_essImage field, which is existence of an object and a Nonempty native isomorphism."
+      ],
+      "acceptance": [
+        "Every actual component functor ηU is EssSurj in the native Mathlib sense, in the inherited coefficient universe convention."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-OBJECT-DESCENT-5ebb6f",
+          "locator": "Olsson §31 Lemma31.3, PDF122–123; authored native descent refinement componentEssSurj",
+          "match": "The local existence and descent route is specialized to the owned banded gerbe morphism. The detailed comparisons, arbitrary-common-test-object equations and API refinements are authored deductions using the pinned Mathlib carriers."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/component-equivalence",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Fibrewise equivalence with its precise remaining boundary",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent.componentIsEquivalence",
+      "statement": "The actual ηU is a native IsEquivalence functor, using component full faithfulness and the newly specified object descent route.",
+      "hypotheses": [
+        "C is an arbitrary category, J its specified Grothendieck topology, and F,G actual Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with native strong transformation η. The gerbe hypothesis supplies native stack descent, local nonemptiness and local isomorphism, and groupoid fibres; no terminal object, finite site or pullbacks in C are assumed.",
+        "For component full-faithfulness, lifted overlaps, source descent, and global essential surjectivity, bF and bG are actual bandings by the same sheaf A and η preserves that band. The incoming new adapter convention A : Sheaf J AddCommGrpCat.{v′} is retained. This does not validate the reserved independent coefficient-universe interface.",
+        "For overlap and image constructions the family f_i, actual local objects x_i and image isomorphisms e_i are inputs. An actual gluing isomorphism r is input only to the local/global image-of-gluing operations. The generated-sieve covering hypothesis is required for the global image operation. The final global-preimage theorem constructs all these inputs from local gerbe existence and native stack effectivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/component-fully-faithful",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/component-essential-surjectivity",
+        "mathlib:CategoryTheory.Functor.IsEquivalence"
+      ],
+      "proofSteps": [
+        "Extract the native Full and Faithful instances from componentFullyFaithful and register componentEssSurj. Supply the three fields of native Functor.IsEquivalence.",
+        "This is the fibrewise step only. Choosing inverse functors, coherent inverse StrongTrans comparison data, and band preservation of the inverse and unit/counit remain obligations of the original pseudonatural equivalence target."
+      ],
+      "acceptance": [
+        "The actual ηU is a native IsEquivalence functor, using component full faithfulness and the newly specified object descent route."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.GerbeMorphismDescent"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-OBJECT-DESCENT-5ebb6f",
+          "locator": "Olsson §31 Lemma31.3, PDF122–123; authored native descent refinement componentIsEquivalence",
+          "match": "The local existence and descent route is specialized to the owned banded gerbe morphism. The detailed comparisons, arbitrary-common-test-object equations and API refinements are authored deductions using the pinned Mathlib carriers."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -23260,7 +24750,8 @@
         "Actual Isom/Hom principal comparison is now specified and independently checked on the native slice-presheaf and sheaf carriers, with covering-sieve local sections for arbitrary J. Complete the D0 torsor/classifying-stack adapter, the SF1 descended intrinsic-band comparison and the nonneutral O(1) root example; do not infer a chosen global isomorphism from local sections.",
         "The actual fixed-band component maps now have faithful fibres, an anchored Isom inverse with action/identity/composition laws and local covering-sieve equivalences. Build the coherent StrongTrans map on native slice Hom sheaves and glue those inverses before claiming fibrewise fullness. Essential surjectivity, inverse strong transformation and the full equivalence target remain open, alongside all inherited frontiers.",
         "Actual strong-naturality transport now lands in G(f)(ηUx) and G(f)(ηUy), with inverse round trips, anchor independence, coefficients, injectivity and covering-sieve equivalences. Compatibility along arbitrary g:W→V in the slice still requires the native η.naturality_comp and both pseudofunctor comparison maps; the supplied-global-anchor restriction law is only a special case. Build that coherent Hom-presheaf map, then glue local inverses using the native Hom sheaf before claiming fibrewise fullness. All inherited frontiers and supplier requests remain open.",
-        "The arbitrary deeper-slice coherence, native Hom-presheaf/sheaf morphism, covering image-sieve argument, native locally-bijective sheaf inverse and actual fibre Full instance now have separate mathematical proof plans and admitted signatures. The new bodies have not been certified and the incoming native StrongTrans draft was itself uncompiled. The banded adapter family retains the same coefficient/fibre-hom universe convention; normalize and validate the independent-universe reserved-key interface before claiming the general theorem. Essential surjectivity, an inverse strong transformation, general gerbe equivalence, SF1 descended-band comparison, D0 torsor/classifying-stack comparison, nonneutral O(1) root gerbe, derived H2/classification, compatible-object profinite limits, R09.3 affine module descent elaboration, all other stage/source obligations and all 21 requests remain required."
+        "The arbitrary deeper-slice coherence, native Hom-presheaf/sheaf morphism, covering image-sieve argument, native locally-bijective sheaf inverse and actual fibre Full instance now have separate mathematical proof plans and admitted signatures. The new bodies have not been certified and the incoming native StrongTrans draft was itself uncompiled. The banded adapter family retains the same coefficient/fibre-hom universe convention; normalize and validate the independent-universe reserved-key interface before claiming the general theorem. Essential surjectivity, an inverse strong transformation, general gerbe equivalence, SF1 descended-band comparison, D0 torsor/classifying-stack comparison, nonneutral O(1) root gerbe, derived H2/classification, compatible-object profinite limits, R09.3 affine module descent elaboration, all other stage/source obligations and all 21 requests remain required.",
+        "The object-descent route is specified with native carriers and actual morphisms; inverse StrongTrans/band coherence, independent coefficient-universe normalization and admitted mathematical proof bodies remain open."
       ]
     },
     {
@@ -23376,7 +24867,28 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/hom-map",
         "AlgebraicModuliForArithmeticGeometry:R09.4/strong-pullback/cover-equiv"
       ],
-      "homSheafAssemblyContinuation": "The arbitrary deeper-slice coherence, native Hom-presheaf/sheaf morphism, covering image-sieve argument, native locally-bijective sheaf inverse and actual fibre Full instance now have separate mathematical proof plans and admitted signatures. The new bodies have not been certified and the incoming native StrongTrans draft was itself uncompiled. The banded adapter family retains the same coefficient/fibre-hom universe convention; normalize and validate the independent-universe reserved-key interface before claiming the general theorem. Essential surjectivity, an inverse strong transformation, general gerbe equivalence, SF1 descended-band comparison, D0 torsor/classifying-stack comparison, nonneutral O(1) root gerbe, derived H2/classification, compatible-object profinite limits, R09.3 affine module descent elaboration, all other stage/source obligations and all 21 requests remain required."
+      "homSheafAssemblyContinuation": "The arbitrary deeper-slice coherence, native Hom-presheaf/sheaf morphism, covering image-sieve argument, native locally-bijective sheaf inverse and actual fibre Full instance now have separate mathematical proof plans and admitted signatures. The new bodies have not been certified and the incoming native StrongTrans draft was itself uncompiled. The banded adapter family retains the same coefficient/fibre-hom universe convention; normalize and validate the independent-universe reserved-key interface before claiming the general theorem. Essential surjectivity, an inverse strong transformation, general gerbe equivalence, SF1 descended-band comparison, D0 torsor/classifying-stack comparison, nonneutral O(1) root gerbe, derived H2/classification, compatible-object profinite limits, R09.3 affine module descent elaboration, all other stage/source obligations and all 21 requests remain required.",
+      "objectDescentContinuation": {
+        "newNodes": 27,
+        "newTests": 21,
+        "scope": "Native banded component object descent in the inherited coefficient universe v′.",
+        "covered": [
+          "local-image covering sieve",
+          "ordered five-factor target overlap",
+          "fully faithful source lift",
+          "identity, cocycle and arbitrary deeper pullHom restriction",
+          "native lifted DescentData",
+          "actual local and global image isomorphism",
+          "global object witness and native component EssSurj/IsEquivalence"
+        ],
+        "remains": [
+          "All new proof bodies and existing Hom-sheaf full-faithfulness bodies require implementation beyond the admitted design.",
+          "Independent coefficient universe normalization and validation of the reserved gerbe interface.",
+          "Inverse StrongTrans, pseudonaturality coherence, band-preserving inverse and unit/counit.",
+          "Complete gerbe/H² classification effectivity and the other previously recorded campaign gaps."
+        ],
+        "validation": "Admitted suggested forms; see fresh compilation and public verification receipts in the handoff."
+      }
     }
   ],
   "sourceIssues": [
@@ -23476,6 +24988,42 @@
       ],
       "affectedNodes": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/relative-pullback"
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/E7",
+      "source": "OG-OBJECT-DESCENT-5ebb6f",
+      "kind": "misprint",
+      "locator": "Author-hosted Stacks.pdf SHA256716bf95c…7426a, Lemma31.3 full-faithfulness paragraph, PDF122",
+      "printed": "The source cites Lemma 31.3.",
+      "correction": "Replace the circular self-reference in the full-faithfulness paragraph by the proof that an equivariant map between torsors for the same band is bijective, and the native sheaf local-bijection argument.",
+      "reason": "The cited number is the lemma currently being proved. The paragraph requires the independent local torsor-map result, not its own global conclusion.",
+      "affects": "the proof",
+      "known": "Present in the current author-hosted notes and already noted in the incoming Hom-sheaf explanation; no separate corrigendum has been checked.",
+      "searched": [
+        "Fresh author-hosted PDF122–123, including the full Lemma31.3 proof",
+        "Incoming Hom-sheaf continuation statement of the corrected proof route"
+      ],
+      "affectedNodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-full-faithful"
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/E8",
+      "source": "OG-OBJECT-DESCENT-5ebb6f",
+      "kind": "misprint",
+      "locator": "Same exact author-hosted Stacks.pdf, Lemma31.3 essential-surjectivity gluing paragraph, PDF123",
+      "printed": "z ∈ G₁(S)",
+      "correction": "Read z as an object of G₁(U), the fibre over the base U used by that paragraph and its cover.",
+      "reason": "The paragraph fixes U and then its covering U_i→U. S is not defined there; all local restrictions and the object descended from them are over U.",
+      "affects": "the proof",
+      "known": "Present in the current author-hosted notes; no separate correction or corrigendum has been checked.",
+      "searched": [
+        "Fresh author-hosted PDF122–123, notation and full proof of Lemma31.3"
+      ],
+      "affectedNodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-essential-surjective",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/object-descent/global-preimage"
       ]
     }
   ],
