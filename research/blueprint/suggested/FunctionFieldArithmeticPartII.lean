@@ -2387,3 +2387,271 @@ example (f : A) (hr : ∀ i, factorialAffineInclusion f i (AdjoinRoot.root _) ^
   sorry
 
 end TauCeti.RootStack
+
+/-! Positive-divisibility root chart colimit and factorial comparison. -/
+noncomputable section
+namespace TauCeti.RootStack
+variable {A : Type u} [CommRing A]
+
+/-- Root exponents, with the divisibility preorder rather than numeric order. -/
+structure RootDivIndex where
+  exponent : ℕ
+  positive : 0 < exponent
+
+@[reducible] instance : Preorder RootDivIndex where
+  le n N := n.exponent ∣ N.exponent
+  le_refl n := dvd_refl _
+  le_trans _ _ _ := dvd_trans
+
+instance : DecidableLE RootDivIndex :=
+  fun n N => inferInstanceAs (Decidable (n.exponent ∣ N.exponent))
+
+instance (n : RootDivIndex) : NeZero n.exponent := ⟨Nat.ne_of_gt n.positive⟩
+instance : Inhabited RootDivIndex := ⟨⟨1, by decide⟩⟩
+instance : IsDirectedOrder RootDivIndex where
+  directed n N := ⟨⟨n.exponent * N.exponent, Nat.mul_pos n.positive N.positive⟩,
+    dvd_mul_right _ _, dvd_mul_left _ _⟩
+
+abbrev RootDivIndex.factorial (i : ℕ) : RootDivIndex :=
+  ⟨Nat.factorial (i+1), Nat.factorial_pos _⟩
+
+lemma RootDivIndex.cofinal (n : RootDivIndex) :
+    n ≤ RootDivIndex.factorial n.exponent := by
+  sorry
+
+lemma RootDivIndex.factorial_mono {i j : ℕ} (h : i ≤ j) :
+    RootDivIndex.factorial i ≤ RootDivIndex.factorial j := by
+  sorry
+local instance (i : ℕ) : NeZero (Nat.factorial (i+1)) := ⟨Nat.factorial_ne_zero _⟩
+
+lemma factorialAffineInclusion.comp_transition (f : A) {i j : ℕ} (h : i ≤ j) :
+    (factorialAffineInclusion f j).comp (factorialAffineMap f i j h) =
+      factorialAffineInclusion f i := by
+  sorry
+
+def factorialAffineExtension (f : A) (n : RootDivIndex) :
+    AffineRing f n.exponent →ₐ[A] FactorialAffineColimit f := by
+  sorry
+
+lemma factorialAffineExtension.at_level (f : A) (n : RootDivIndex) (i : ℕ)
+    (h : n ≤ RootDivIndex.factorial i) :
+    factorialAffineExtension f n =
+      (factorialAffineInclusion f i).comp (affineDivisibility f _ _ h) := by
+  sorry
+
+lemma factorialAffineExtension.transition (f : A) {n N : RootDivIndex} (h : n ≤ N) :
+    (factorialAffineExtension f N).comp (affineDivisibility f _ _ h) =
+      factorialAffineExtension f n := by
+  sorry
+
+lemma factorialAffineExtension.factorial (f : A) (i : ℕ) :
+    factorialAffineExtension f (RootDivIndex.factorial i) =
+      factorialAffineInclusion f i := by
+  sorry
+
+lemma factorialAffineExtension.injective (f : A) (n : RootDivIndex) :
+    Function.Injective (factorialAffineExtension f n) := by
+  sorry
+
+def divisibilityAffineMap (f : A) (n N : RootDivIndex) (h : n ≤ N) :
+    AffineRing f n.exponent →ₐ[A] AffineRing f N.exponent := by
+  sorry
+
+instance divisibilityAffineDirected (f : A) :
+    DirectedSystem (fun n : RootDivIndex => AffineRing f n.exponent)
+      (fun i j h => divisibilityAffineMap f i j h) := by
+  sorry
+
+abbrev DivisibilityAffineColimit (f : A) :=
+  DirectLimit (fun n : RootDivIndex => AffineRing f n.exponent) (divisibilityAffineMap f)
+
+def divisibilityAffineInclusion (f : A) (n : RootDivIndex) :
+    AffineRing f n.exponent →ₐ[A] DivisibilityAffineColimit f := by
+  sorry
+
+lemma divisibilityAffineInclusion.transition (f : A) {n N : RootDivIndex} (h : n ≤ N)
+    (x : AffineRing f n.exponent) :
+    divisibilityAffineInclusion f N (affineDivisibility f _ _ h x) =
+      divisibilityAffineInclusion f n x := by
+  sorry
+
+lemma divisibilityAffineInclusion.injective (f : A) (n : RootDivIndex) :
+    Function.Injective (divisibilityAffineInclusion f n) := by
+  sorry
+
+lemma divisibilityAffineColimit.exists_level (f : A) (x : DivisibilityAffineColimit f) :
+    ∃ n : RootDivIndex, ∃ y : AffineRing f n.exponent, divisibilityAffineInclusion f n y = x := by
+  sorry
+
+lemma divisibilityAffineColimit.hom_ext (f : A) {C : Type u} [CommRing C] [Algebra A C]
+    (g h : DivisibilityAffineColimit f →ₐ[A] C)
+    (heq : ∀ n, g (divisibilityAffineInclusion f n (AdjoinRoot.root _)) =
+      h (divisibilityAffineInclusion f n (AdjoinRoot.root _))) : g = h := by
+  sorry
+
+def divisibilityToFactorial (f : A) :
+    DivisibilityAffineColimit f →ₐ[A] FactorialAffineColimit f := by
+  sorry
+
+lemma divisibilityToFactorial.inclusion (f : A) (n : RootDivIndex)
+    (x : AffineRing f n.exponent) :
+    divisibilityToFactorial f (divisibilityAffineInclusion f n x) =
+      factorialAffineExtension f n x := by
+  sorry
+
+def factorialToDivisibility (f : A) :
+    FactorialAffineColimit f →ₐ[A] DivisibilityAffineColimit f := by
+  sorry
+
+lemma factorialToDivisibility.inclusion (f : A) (i : ℕ)
+    (x : AffineRing f (Nat.factorial (i+1))) :
+    factorialToDivisibility f (factorialAffineInclusion f i x) =
+      divisibilityAffineInclusion f (RootDivIndex.factorial i) x := by
+  sorry
+
+lemma divisibilityToFactorial.left_inverse (f : A) (x : DivisibilityAffineColimit f) :
+    factorialToDivisibility f (divisibilityToFactorial f x) = x := by
+  sorry
+
+lemma divisibilityToFactorial.right_inverse (f : A) (x : FactorialAffineColimit f) :
+    divisibilityToFactorial f (factorialToDivisibility f x) = x := by
+  sorry
+
+def divisibilityFactorialEquiv (f : A) :
+    DivisibilityAffineColimit f ≃ₐ[A] FactorialAffineColimit f := by
+  sorry
+
+lemma divisibilityFactorialEquiv.inclusion (f : A) (n : RootDivIndex) (i : ℕ)
+    (h : n ≤ RootDivIndex.factorial i) (x : AffineRing f n.exponent) :
+    divisibilityFactorialEquiv f (divisibilityAffineInclusion f n x) =
+      factorialAffineInclusion f i (affineDivisibility f _ _ h x) := by
+  sorry
+
+lemma divisibilityFactorialEquiv.root (f : A) (n : RootDivIndex) (i : ℕ)
+    (h : n ≤ RootDivIndex.factorial i) :
+    divisibilityFactorialEquiv f (divisibilityAffineInclusion f n (AdjoinRoot.root _)) =
+      factorialAffineInclusion f i (AdjoinRoot.root _) ^
+        (Nat.factorial (i+1) / n.exponent) := by
+  sorry
+end TauCeti.RootStack
+namespace TauCeti.RootStack
+variable {A : Type u} [CommRing A]
+
+lemma divisibilityAffineInclusion.pow (f : A) (n : RootDivIndex) :
+    divisibilityAffineInclusion f n (AdjoinRoot.root _) ^ n.exponent =
+      algebraMap A (DivisibilityAffineColimit f) f := by
+  sorry
+
+lemma divisibilityAffineInclusion.root (f : A) {n N : RootDivIndex} (h : n ≤ N) :
+    divisibilityAffineInclusion f n (AdjoinRoot.root _) =
+      divisibilityAffineInclusion f N (AdjoinRoot.root _) ^ (N.exponent / n.exponent) := by
+  sorry
+-- rootDivIndex.test_zero
+
+example (n : RootDivIndex) : n.exponent ≠ 0 := by
+  sorry
+-- rootDivIndex.test_two_six
+
+example : (⟨2, by decide⟩ : RootDivIndex) ≤ ⟨6, by decide⟩ := by
+  sorry
+-- rootDivIndex.test_numeric_order
+
+example : ¬ (⟨2, by decide⟩ : RootDivIndex) ≤ ⟨3, by decide⟩ := by
+  sorry
+-- factorialAffineExtension.test_three_at_six
+
+example (f : A) : factorialAffineExtension f ⟨3, by decide⟩ =
+    (factorialAffineInclusion f 2).comp (affineDivisibility f 3 6 (by decide)) := by
+  sorry
+-- factorialAffineExtension.test_choice
+
+example (f : A) (x : AffineRing f 3) :
+    factorialAffineInclusion f 2 (affineDivisibility f 3 6 (by decide) x) =
+      factorialAffineInclusion f 3 (affineDivisibility f 3 24 (by decide) x) := by
+  sorry
+-- factorialAffineExtension.test_one
+
+example (f : A) : factorialAffineExtension f (RootDivIndex.factorial 0) =
+    factorialAffineInclusion f 0 := by
+  sorry
+-- divisibilityAffineColimit.test_wild_nonzero
+
+example : divisibilityAffineInclusion (0 : ZMod 2) ⟨2, by decide⟩ (AdjoinRoot.root _) ≠ 0 := by
+  sorry
+-- divisibilityAffineColimit.test_wild_square
+
+example : divisibilityAffineInclusion (0 : ZMod 2) ⟨2, by decide⟩ (AdjoinRoot.root _) ^ 2 = 0 := by
+  sorry
+-- divisibilityAffineColimit.test_zero_ring
+
+example (x : DivisibilityAffineColimit (0 : ZMod 1)) : x = 0 := by
+  sorry
+-- divisibilityAffineInclusion.test_two_six
+
+example (f : A) : divisibilityAffineInclusion f ⟨2, by decide⟩ (AdjoinRoot.root _) =
+    divisibilityAffineInclusion f ⟨6, by decide⟩ (AdjoinRoot.root _) ^ 3 := by
+  sorry
+-- divisibilityAffineInclusion.test_coefficients
+
+example (f a : ZMod 4) :
+    divisibilityAffineInclusion f ⟨3, by decide⟩ (algebraMap (ZMod 4) _ a) =
+      algebraMap (ZMod 4) (DivisibilityAffineColimit f) a := by
+  sorry
+-- divisibilityAffineInclusion.test_identity
+
+example (f : A) (n : RootDivIndex) (x : AffineRing f n.exponent) :
+    divisibilityAffineInclusion f n (affineDivisibility f n.exponent n.exponent (dvd_refl _) x) =
+      divisibilityAffineInclusion f n x := by
+  sorry
+-- divisibilityToFactorial.test_three
+
+example (f : A) : divisibilityToFactorial f
+    (divisibilityAffineInclusion f ⟨3, by decide⟩ (AdjoinRoot.root _)) =
+      factorialAffineInclusion f 2 (AdjoinRoot.root _) ^ 2 := by
+  sorry
+-- divisibilityToFactorial.test_coefficients
+
+example (f a : ZMod 4) :
+    divisibilityToFactorial f (algebraMap (ZMod 4) _ a) =
+      algebraMap (ZMod 4) (FactorialAffineColimit f) a := by
+  sorry
+-- divisibilityToFactorial.test_factorial
+
+example (f : A) (i : ℕ) (x : AffineRing f (Nat.factorial (i+1))) :
+    divisibilityToFactorial f
+      (divisibilityAffineInclusion f (RootDivIndex.factorial i) x) =
+        factorialAffineInclusion f i x := by
+  sorry
+-- factorialToDivisibility.test_root
+
+example (f : A) : factorialToDivisibility f (factorialAffineInclusion f 1 (AdjoinRoot.root _)) =
+    divisibilityAffineInclusion f ⟨2, by decide⟩ (AdjoinRoot.root _) := by
+  sorry
+-- factorialToDivisibility.test_coefficients
+
+example (f a : ZMod 4) :
+    factorialToDivisibility f (algebraMap (ZMod 4) _ a) =
+      algebraMap (ZMod 4) (DivisibilityAffineColimit f) a := by
+  sorry
+-- factorialToDivisibility.test_zero
+
+example : factorialToDivisibility (0 : ZMod 1) 0 = 0 := by
+  sorry
+-- divisibilityFactorialEquiv.test_three
+
+example (f : A) : divisibilityFactorialEquiv f
+    (divisibilityAffineInclusion f ⟨3, by decide⟩ (AdjoinRoot.root _)) =
+      factorialAffineInclusion f 2 (AdjoinRoot.root _) ^ 2 := by
+  sorry
+-- divisibilityFactorialEquiv.test_coefficients
+
+example (f a : ZMod 4) :
+    divisibilityFactorialEquiv f (algebraMap (ZMod 4) _ a) =
+      algebraMap (ZMod 4) (FactorialAffineColimit f) a := by
+  sorry
+-- divisibilityFactorialEquiv.test_inverse
+
+example (f : A) (x : DivisibilityAffineColimit f) :
+    (divisibilityFactorialEquiv f).symm (divisibilityFactorialEquiv f x) = x := by
+  sorry
+end TauCeti.RootStack

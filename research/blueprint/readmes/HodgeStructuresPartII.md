@@ -3479,3 +3479,66 @@ Fresh primary reading: [Stacks tag 00EN](https://stacks.math.columbia.edu/tag/00
 Current codex-5ebb6f affine-local checkpoint proves actual chart transport and ordered comparison, fixed-bound detection through a unit-ideal principal cover, and a positive finite-subcover bound for varying local exponents. Finite-projective modules are included without bases. This does not construct actual sheaf restriction identifications, sheaf tensor powers, equality detection or gluing: discharge the E1 request on the native module-sheaf carrier before upgrading the affine statement to a global ringed-site theorem. Non-quasi-compact sites need separate uniformity hypotheses. Exterior-integrability transport, rank bounds, period/Tate adapters, all source routes and H.1–H.8 remain open.
 
 All nodes remain unchecked plans. A separate archived native proof tests this affine slice; no generic module/sheaf carrier, E1 implementation, global integrability or paper correspondence is supplied here.
+
+
+## Affine chart overlap coherence — 2026-10-03 checkpoint
+
+This continuation supplies the affine field agreement needed before chart descent. Both chart pairs identify the same scalar-extended E and Q over the same receiving ring S. No bases or finiteness hypotheses are used. Actual sheaf tensor/restriction identifications and equality detection/gluing remain E1 supplier obligations. These are plans, with separate checked native proofs; all implementations remain unchecked.
+
+### Unique field in a specified affine chart
+
+Declaration: `TwistedHiggsBundle.affineChartField_eq_iff_horizontal` (`HodgeStructuresPartII:H.0/affine-chart-field-uniqueness`).
+
+For every S-linear ψ:F₁→F₁⊗_S P₁, ψ=θ₁ if and only if ψ∘e₁=(e₁⊗q₁)∘θ_S.
+
+Hypotheses and conventions:
+
+R and S are commutative rings with a specified R-algebra S. E,Q are arbitrary R-modules. For i=1,2, e_i:S⊗_R E≃_S F_i and q_i:S⊗_R Q≃_S P_i are actual native linear equivalences. No basis, flatness, finite generation, projectivity or exterior-integrability assumption is needed.
+
+Write θ_i=(e_i⊗q_i)∘θ_S∘e_i⁻¹, a_i=e_i⁻¹.trans(e_j) and b_i=q_i⁻¹.trans(q_j), where trans applies its right argument after its left. I_n is the inherited left-prepended ordered tensor iterate, with the tensor unit at n=0. Both charts must identify the same receiving-ring modules.
+
+For restrictions to a common overlap ring, first obtain the actual scalar-extension and restriction identifications from the E1 supplier. These affine statements neither supply a ringed-site sheaf tensor comparison nor prove equality detection or gluing. No individual nonfaithful scalar extension reflects a source-ring field merely because its receiving charts agree.
+
+Proof plan: The forward implication is the existing actual horizontal square. For the reverse implication evaluate the horizontal equality on e₁⁻¹(x), cancel e₁e₁⁻¹, and compare with the actual definition of θ₁. Surjectivity is supplied by the equivalence, not an extra stored equality.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-chart-field`, `mathlib:LinearEquiv.apply_symm_apply`.
+
+### Horizontal transition between affine field charts
+
+Declaration: `TwistedHiggsBundle.affineChartField_transition` (`HodgeStructuresPartII:H.0/affine-chart-field-transition`).
+
+Put a=e₁⁻¹.trans(e₂):F₁≃_S F₂ and b=q₁⁻¹.trans(q₂):P₁≃_S P₂. Then θ₂∘a=(a⊗b)∘θ₁ as actual S-linear maps.
+
+Proof plan: Expand only the actual affine chart-field composites. The left side evaluates θ_S on e₁⁻¹(x) after cancellation in e₂. Use native TensorProduct.map_map on the right. Cancel e₁⁻¹e₁ and q₁⁻¹q₁; both sides become (e₂⊗q₂)(θ_S(e₁⁻¹(x))). The coefficient transition is indispensable.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-chart-field`, `mathlib:TensorProduct.map_map`, `mathlib:LinearEquiv.trans_apply`, `mathlib:LinearEquiv.symm_apply_apply`.
+
+### Ordered iterate agreement on affine chart overlaps
+
+Declaration: `TwistedHiggsBundle.affineOrderedIterate_chart_transition` (`HodgeStructuresPartII:H.0/affine-chart-iterate-transition`).
+
+For the same a and b and every n≥0, I_n(θ₂)∘a=(a⊗b^⊗n)∘I_n(θ₁). Here b^⊗n is the actual PiTensorProduct.map on Fin n, including the empty tensor unit.
+
+Proof plan: Apply the inherited actual ordered-iterate naturality to the proved field-transition square with f=a and u=b. Its base case uses Fin 0 and the tensor unit, and its successor preserves the inherited ordered prepend. No coefficient basis or bound rescaling is introduced.
+
+Prerequisites: `HodgeStructuresPartII:H.0/affine-chart-field-transition`, `HodgeStructuresPartII:H.0/affine-ordered-iterate-natural`.
+
+### Chart API acceptance tests
+
+`TwistedHiggsBundle.affineChartField.test_horizontal_unique` (characterisation): Any two S-linear candidate chart fields satisfying the actual horizontal square with the same e and q are equal. The inverse chart determines the value on every section.
+
+`TwistedHiggsBundle.affineChartField.test_chart_roundtrip` (compatibility): At every n≥0, reversing the two charts reverses both module transitions and gives the reverse ordered-iterate square, with no bound change.
+
+`TwistedHiggsBundle.affineChartField.test_empty_word_transition` (degenerate): For every input x, the degree-zero iterate in the second chart sends a(x) to a(x)⊗1 in F₂⊗_S P₂^⊗0. It is independent of the first coefficient chart; the value remains the tensor unit rather than an imposed zero value.
+
+`TwistedHiggsBundle.affineChartField.test_sign_overlap` (computation): With identity E-charts, first coefficient chart identity and second coefficient chart negation, I_n(θ₂)=(id⊗neg^⊗n)∘I_n(θ_S) for every n, including zero.
+
+`TwistedHiggsBundle.affineChartField.test_missing_coefficient_transition` (non-example): Over ℤ, (id⊗neg)(1⊗1)≠1⊗1, as detected by the native right tensor unit. Omitting the coefficient transition gives the wrong square even in rank one.
+
+`TwistedHiggsBundle.affineChartField.test_triple_overlap` (compatibility): For three arbitrary chart pairs of the same θ_S, the two successive E-transitions and two successive Q-transitions give exactly the direct 1→3 ordered-iterate square for every n. Native equivalence cancellation proves the cocycle; no generic cocycle construction is replanned.
+
+Source: [Heuer, published paper](https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf), Definition 1.2(2), p.262 and Definition 4.1/Remark 4.2, pp.297–298, selected passages read 2026-10-03. The affine chart equations are authored deductions; no global Simpson equivalence or new generic sheaf descent carrier is claimed.
+
+Current codex-J6LwjP chart-overlap checkpoint supplies unique affine chart fields, actual horizontal two-chart transition and all-degree ordered-iterate transition, including tensor-unit and triple-overlap checks. Before global restriction/descent, discharge E1’s actual sheaf tensor-power comparison, restriction identifications and equality detection/gluing. Exterior-integrability transport, global determinant/Tate adapters, rank bounds, all 149 source obligations and H.1–H.8 remain open.
+
+The three new declarations are API entries of the existing affineChartField construction. Its previous contracts, six API items, seven tests and all inherited source routes are retained. The test labels above correspond to six new planning examples.

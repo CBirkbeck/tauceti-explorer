@@ -1,3 +1,269 @@
+# Positive-divisibility root chart comparison
+
+For any commutative ring A and f∈A, put B_n=A[t_n]/(t_nⁿ−f) for n>0. All quotient rings and coefficient actions in this section are the native ones. Order the positive root exponents by divisibility. A map n|N acts by t_n↦t_N^(N/n), on exactly B_n and B_N. The identity and composition were supplied earlier; the present continuation uses those maps to construct the full directed algebra colimit C_div. The previously specified factorial algebra is C_f=colim_i B_(d_i), where d_i=(i+1)!.
+
+The root index stores a positive exponent and uses divisibility for its preorder. Numeric inequalities between exponents do not give arrows: 2 precedes 6, but 2 does not precede 3. Products supply common upper bounds. Each n divides (n+1)!, and the factorial adapter is monotone from numeric order to divisibility. This is an adapter for this diagram, using the existing directed-order and direct-limit infrastructure. It introduces no competing generic colimit construction.
+
+Write ι_i:B_(d_i)→C_f for the factorial insertion. Define the extension e_n:B_n→C_f by composing the transition to B_((n+1)!) with ι_n. For every factorial multiple d_i of n, the exact homomorphism equality e_n=ι_i∘j_(n,d_i) holds. To prove independence of i, use a common factorial level k=max(n,i), rewrite both insertions through ι_k, and apply the actual quotient-map composition law. Consequently e_N∘j_(n,N)=e_n whenever n|N, and e_(d_i)=ι_i. Each e_n is injective, as a composite of the earlier injective finite transition and factorial insertion.
+
+Let κ_n:B_n→C_div be the native insertion. The compatible e_n determine an A-algebra homomorphism α:C_div→C_f; its exact finite evaluation is α(κ_n(x))=e_n(x). The factorial insertions κ_(d_i) similarly determine β:C_f→C_div, with β(ι_i(x))=κ_(d_i)(x). Both inverse laws follow on actual finite representatives. On κ_n(x), βα becomes κ_((n+1)!)(j_(n,(n+1)!)(x)), which is κ_n(x). On ι_i(x), αβ becomes e_(d_i)(x)=ι_i(x). Thus the native A-algebra equivalence C_div≃C_f has specified forward and inverse maps, rather than an unspecified isomorphism class.
+
+For v_n=κ_n(t_n) and u_i=ι_i(t_(d_i)), the comparison sends v_n to u_i^(d_i/n) at any factorial multiple. Both sides preserve every coefficient from A. The relations v_nⁿ=f and v_n=v_N^(N/n) hold in C_div. Every κ_n is injective; every colimit element has a finite representative; and homomorphisms out of C_div are determined on all the v_n by the existing quotient and directed-limit extensionality APIs.
+
+The nonreduced tests matter. For A=F₂ and f=0, v₂ is nonzero and v₂²=0. Injectivity and the native monic power basis prove nonvanishing; the actual quotient relation proves its square vanishes. Both colimits therefore retain the nilpotent, including at wild exponents. The diagram and comparison also include the zero ring. Nonfactorial-coordinate tests use n=3 and levels 6 and 24, with the exact transition powers. Coefficient tests over Z/4Z retain arbitrary parameters and nonreduced coefficients.
+
+These are authored rank-one algebra inputs to [Talpo–Vistoli, Proposition 3.5, Remark 3.6 and Section 3.1, printed pp.13–17](https://arxiv.org/pdf/1410.1164v2). The source constructs cofinal root limits and local quotient models. It does not literally state these algebra-map APIs. The fresh reading includes Proposition 3.5 and its proof, the cofinal-system remark, the local models and Proposition 3.10 with its proof; the downloaded PDF matches the inherited version hash. Earlier primary-source receipts remain attributed to their workers.
+
+The packet has 218 unchecked nodes, with 24 new leaves. All 194 incoming mathematical statements, hypotheses, API entries, tests and acceptance contracts remain; 193 whole node objects are unchanged. The infinite-affine-quotient consumer adds the comparison prerequisites and an updated first algebraic proof step. There are 176 API entries and 164 tests on definitions/constructions, 175 baseline references, and the same 39 planets, eight gaps, thirteen requests and ten partial stages. The two routed paper inventories, source issues and key-definition ownership remain unchanged.
+
+This comparison completes an algebraic leaf. Coherent reindexing of root-object groupoids must still carry actual arrows and transition isomorphisms. The diagonalizable grading and action, affine Spec-limit identification, fpqc frame torsors, and infinite quotient groupoid comparison remain separate obligations. Finite fppf Kummer theory and infinite fpqc torsors retain their distinct topology contracts. No stage, gap, route or geometric target is marked closed.
+
+The complete 2,875-line native prototype elaborated against exact Mathlib with no errors, warnings or admissions, including 116 examples and 111 axiom audits. The 1,746-line admitted Mathlib projection elaborated with 269 admission warnings and no other warnings or errors. The full 2,657-line geometric planning file remains uncompiled because required exact-pin Tau Ceti compiled imports are absent in the existing build. Its original 2,389-line block is retained unchanged. The positive index, its factorial exponent adapter and native DirectLimit carrier abbreviations remain visible as type plumbing; new construction and proof bodies are admitted. No implementation is claimed.
+
+## New declarations and their API
+
+The common hypotheses are an arbitrary commutative ring A, a parameter f, actual positive quotient-root exponents and the specified maps above. All named declarations below lie in the RootStack namespace. Each leaf realizes RS.2 and imports the existing finite-root algebra, direct-limit or transition results listed in the packet.
+
+### Positive divisibility root indices
+
+TauCeti.RootStack.RootDivIndex — The root-chart index stores an exponent n∈N and a proof n>0. Its preorder is n≤N exactly when n divides N, with decidable comparison, nonzero exponents and distinguished index 1. Products supply common upper bounds. The factorial adapter sends i∈N to d_i=(i+1)!.
+
+Proof outline. Instantiate the native Preorder with divisibility reflexivity and transitivity; do not use numeric order. The product nN is positive and divisible by both n and N, giving the native directed-order instance. Use positivity of factorials for the adapter; no generic colimit or competing quotient carrier is defined.
+
+The planned API is:
+
+- TauCeti.RootStack.RootDivIndex (constructor): The root-chart index stores an exponent n∈N and a proof n>0. Its preorder is n≤N exactly when n divides N, with decidable comparison, nonzero exponents and distinguished index 1. Products supply common upper bounds. The factorial adapter sends i∈N to d_i=(i+1)!.
+- TauCeti.RootStack.RootDivIndex.factorial (functoriality): The factorial index has actual exponent (i+1)!, definitionally on the specified carrier.
+- TauCeti.RootStack.RootDivIndex.cofinal (compatibility): Every positive index n divides d_(n.exponent).
+- TauCeti.RootStack.RootDivIndex.factorial_mono (functoriality): If i≤j in numeric order, d_i divides d_j.
+
+The unit tests are:
+
+- rootDivIndex.test_zero (non-example): Every root index has nonzero exponent; including exponent zero is rejected.
+- rootDivIndex.test_two_six (computation): The index 2 precedes 6 in the divisibility preorder.
+- rootDivIndex.test_numeric_order (non-example): The index 2 does not precede 3, despite 2<3 numerically.
+
+### Factorial multiple of each root index
+
+TauCeti.RootStack.RootDivIndex.cofinal — For every positive root index n, n divides d_(n.exponent)=(n.exponent+1)!.
+
+Proof outline. Apply the native factorial-divisibility theorem to n>0 and n≤n+1.
+
+### Divisibility along factorial levels
+
+TauCeti.RootStack.RootDivIndex.factorial_mono — For i≤j in N, the factorial indices d_i and d_j satisfy d_i divides d_j.
+
+Proof outline. Apply the native factorial-divisibility theorem to i+1≤j+1.
+
+### Factorial transition as a homomorphism equation
+
+TauCeti.RootStack.factorialAffineInclusion.comp_transition — For i≤j, the composite ι_j∘j_(d_i,d_j) equals ι_i as an actual A-algebra homomorphism.
+
+Proof outline. Apply algebra-homomorphism extensionality and the existing pointwise transition law.
+
+### Every root chart in the factorial colimit
+
+TauCeti.RootStack.factorialAffineExtension — For a positive root index n construct e_n:B_n→C_f as ι_(n.exponent)∘j_(n,d_(n.exponent)). Coefficients and all ring operations are preserved.
+
+Proof outline. Use the specified factorial multiple and compose the actual fixed-index quotient map with the native factorial insertion.
+
+The planned API is:
+
+- TauCeti.RootStack.factorialAffineExtension (constructor): For a positive root index n construct e_n:B_n→C_f as ι_(n.exponent)∘j_(n,d_(n.exponent)). Coefficients and all ring operations are preserved.
+- TauCeti.RootStack.factorialAffineExtension.at_level (extensionality): For every i with n dividing d_i, e_n equals ι_i∘j_(n,d_i), independently of the chosen factorial multiple.
+- TauCeti.RootStack.factorialAffineExtension.transition (compatibility): For n dividing N, e_N∘j_(n,N)=e_n.
+- TauCeti.RootStack.factorialAffineExtension.factorial (simp): At the actual factorial index d_i, e_(d_i)=ι_i.
+- TauCeti.RootStack.factorialAffineExtension.injective (extensionality): Every e_n is injective, including over wild or zero coefficient rings.
+
+The unit tests are:
+
+- factorialAffineExtension.test_three_at_six (computation): The index-3 extension is ι_2 composed with the actual map B_3→B_6.
+- factorialAffineExtension.test_choice (compatibility): For every x∈B_3, its images through B_6 and B_24 agree in C_f.
+- factorialAffineExtension.test_one (degenerate): The factorial index d_0=1 extends by the first factorial insertion.
+
+### Independence of the factorial multiple
+
+TauCeti.RootStack.factorialAffineExtension.at_level — For every positive n and every i with n dividing d_i, e_n=ι_i∘j_(n,d_i) as A-algebra homomorphisms.
+
+Proof outline. Choose k=max(n.exponent,i). Rewrite both candidate maps through ι_k using the factorial inclusion composition law. The actual divisibility-map composition law makes both maps ι_k∘j_(n,d_k); proof irrelevance removes any choice of divisibility witness.
+
+### Compatibility of all finite chart extensions
+
+TauCeti.RootStack.factorialAffineExtension.transition — For positive indices n dividing N, e_N∘j_(n,N)=e_n.
+
+Proof outline. Compute e_n using the factorial multiple d_(N.exponent), which is also divisible by n. Apply actual quotient-map composition in the same target carrier.
+
+### Extension at a factorial index
+
+TauCeti.RootStack.factorialAffineExtension.factorial — For every i, the extension at root index d_i is exactly the factorial insertion ι_i.
+
+Proof outline. Choose the level i itself in the choice-independence law and simplify its identity transition.
+
+### Injectivity of each factorial chart extension
+
+TauCeti.RootStack.factorialAffineExtension.injective — For every positive root index n, the map e_n:B_n→C_f is injective.
+
+Proof outline. Both the actual quotient transition and the factorial insertion in the defining composite are injective.
+
+### All positive root chart colimit
+
+TauCeti.RootStack.DivisibilityAffineColimit — Construct C_div=colim_(n|N) B_n over the positive divisibility index, using Mathlib DirectLimit with its inherited commutative ring and A-algebra structures. Its adapter map is exactly the existing fixed-index j_(n,N).
+
+Proof outline. Instantiate the directed system using the exact identity and composition equations of the previously checked quotient maps. Apply the native directed algebra colimit on this index; no new general limit implementation is introduced.
+
+The planned API is:
+
+- TauCeti.RootStack.DivisibilityAffineColimit (constructor): Construct C_div=colim_(n|N) B_n over the positive divisibility index, using Mathlib DirectLimit with its inherited commutative ring and A-algebra structures. Its adapter map is exactly the existing fixed-index j_(n,N).
+- TauCeti.RootStack.divisibilityAffineMap (functoriality): The map for n≤N is exactly affineDivisibility at their actual positive exponents.
+- TauCeti.RootStack.divisibilityAffineDirected (compatibility): The map adapter satisfies the native DirectedSystem identity and composition fields.
+- TauCeti.RootStack.divisibilityAffineColimit.exists_level (extensionality): Every element of C_div comes from one actual positive finite chart.
+- TauCeti.RootStack.divisibilityAffineColimit.hom_ext (extensionality): Algebra maps out of C_div are determined by all finite distinguished roots.
+
+The unit tests are:
+
+- divisibilityAffineColimit.test_wild_nonzero (non-example): For A=F_2 and f=0, the index-2 root remains nonzero in C_div; replacing the charts by reductions fails.
+- divisibilityAffineColimit.test_wild_square (computation): That nonzero index-2 root has square zero in C_div.
+- divisibilityAffineColimit.test_zero_ring (degenerate): For A=Z/1Z and f=0, every element of C_div is zero.
+
+### Finite charts in the divisibility colimit
+
+TauCeti.RootStack.divisibilityAffineInclusion — For each positive n construct κ_n:B_n→C_div as the native A-algebra insertion, preserving coefficients and all ring operations.
+
+Proof outline. Instantiate the existing native insertion on the actual root-chart directed system.
+
+The planned API is:
+
+- TauCeti.RootStack.divisibilityAffineInclusion (constructor): For each positive n construct κ_n:B_n→C_div as the native A-algebra insertion, preserving coefficients and all ring operations.
+- TauCeti.RootStack.divisibilityAffineInclusion.transition (compatibility): For n dividing N and x∈B_n, κ_N(j_(n,N)(x))=κ_n(x).
+- TauCeti.RootStack.divisibilityAffineInclusion.injective (extensionality): Every κ_n is injective.
+- TauCeti.RootStack.divisibilityAffineInclusion.pow (simp): The image v_n=κ_n(t_n) satisfies v_n^n=algebraMap(A,C_div)(f).
+- TauCeti.RootStack.divisibilityAffineInclusion.root (simp): For n dividing N, v_n=v_N^(N/n).
+
+The unit tests are:
+
+- divisibilityAffineInclusion.test_two_six (computation): The image of the index-2 root is the cube of the index-6 root.
+- divisibilityAffineInclusion.test_coefficients (compatibility): Over Z/4Z, the index-3 insertion preserves every coefficient, for arbitrary parameter f.
+- divisibilityAffineInclusion.test_identity (degenerate): The identity transition at any positive index leaves its insertion unchanged.
+
+### Divisibility transition in the colimit
+
+TauCeti.RootStack.divisibilityAffineInclusion.transition — For n dividing N and x∈B_n, κ_N(j_(n,N)(x))=κ_n(x).
+
+Proof outline. Apply the actual native insertion transition theorem.
+
+### Finite roots survive the divisibility colimit
+
+TauCeti.RootStack.divisibilityAffineInclusion.injective — For every positive n, κ_n:B_n→C_div is injective.
+
+Proof outline. All transition maps are injective by the existing finite faithful-flat result. Apply the native direct-limit insertion-injectivity theorem.
+
+### Finite representatives in the divisibility colimit
+
+TauCeti.RootStack.divisibilityAffineColimit.exists_level — Every x∈C_div equals κ_n(y) for some positive index n and y∈B_n.
+
+Proof outline. Use the actual quotient representative theorem and identify its quotient constructor with κ_n.
+
+### Maps determined on every finite root
+
+TauCeti.RootStack.divisibilityAffineColimit.hom_ext — For any commutative A-algebra C, two A-algebra maps g,h:C_div→C agree if g(v_n)=h(v_n) for every positive n.
+
+Proof outline. Apply native direct-limit extensionality to each component homomorphism. At each component apply native AdjoinRoot algebra-map extensionality on its distinguished root.
+
+### Divisibility colimit to factorial colimit
+
+TauCeti.RootStack.divisibilityToFactorial — Construct α:C_div→C_f by the native algebra lift of the compatible family e_n. It is characterized by α(κ_n(x))=e_n(x) at every positive index.
+
+Proof outline. The extension transition law supplies the native lift’s compatibility field. The native lift evaluation law identifies its values on each component.
+
+The planned API is:
+
+- TauCeti.RootStack.divisibilityToFactorial (constructor): Construct α:C_div→C_f by the native algebra lift of the compatible family e_n. It is characterized by α(κ_n(x))=e_n(x) at every positive index.
+- TauCeti.RootStack.divisibilityToFactorial.inclusion (simp): For every positive n and x∈B_n, α(κ_n(x))=e_n(x).
+- TauCeti.RootStack.divisibilityToFactorial.left_inverse (compatibility): The factorial-to-divisibility map composed with α is the identity on C_div.
+- TauCeti.RootStack.divisibilityToFactorial.right_inverse (compatibility): α composed with the factorial-to-divisibility map is the identity on C_f.
+
+The unit tests are:
+
+- divisibilityToFactorial.test_three (computation): The index-3 root maps to the square of the factorial index-6 root.
+- divisibilityToFactorial.test_coefficients (compatibility): Over Z/4Z, α preserves every coefficient for arbitrary f.
+- divisibilityToFactorial.test_factorial (characterisation): At each actual factorial index d_i, α carries its entire finite chart exactly to ι_i.
+
+### Factorial colimit to divisibility colimit
+
+TauCeti.RootStack.factorialToDivisibility — Construct β:C_f→C_div by the native algebra lift of the finite-chart insertions κ_(d_i). It satisfies β(ι_i(x))=κ_(d_i)(x).
+
+Proof outline. The factorial divisibility and κ transition laws make this family compatible. Apply the existing native algebra lift and its component evaluation law.
+
+The planned API is:
+
+- TauCeti.RootStack.factorialToDivisibility (constructor): Construct β:C_f→C_div by the native algebra lift of the finite-chart insertions κ_(d_i). It satisfies β(ι_i(x))=κ_(d_i)(x).
+- TauCeti.RootStack.factorialToDivisibility.inclusion (simp): For every i and x∈B_(d_i), β(ι_i(x))=κ_(d_i)(x).
+- TauCeti.RootStack.divisibilityToFactorial.right_inverse (compatibility): The actual map α is a left inverse of β on every element of C_f.
+
+The unit tests are:
+
+- factorialToDivisibility.test_root (computation): The factorial index-2 root maps to the same root in the all-positive index-2 chart.
+- factorialToDivisibility.test_coefficients (compatibility): Over Z/4Z, β preserves every coefficient for arbitrary f.
+- factorialToDivisibility.test_zero (degenerate): For the zero coefficient ring, β sends zero to zero.
+
+### Return to the divisibility colimit
+
+TauCeti.RootStack.divisibilityToFactorial.left_inverse — For every x∈C_div, β(α(x))=x.
+
+Proof outline. Write x=κ_n(y). The two lift evaluation laws identify its image as κ_(d_(n.exponent))(j_(n,d_(n.exponent))(y)). The actual all-divisibility insertion transition law gives κ_n(y).
+
+### Return to the factorial colimit
+
+TauCeti.RootStack.divisibilityToFactorial.right_inverse — For every x∈C_f, α(β(x))=x.
+
+Proof outline. Write x=ι_i(y). Evaluate both lifts and use e_(d_i)=ι_i.
+
+### Factorial and divisibility chart comparison
+
+TauCeti.RootStack.divisibilityFactorialEquiv — The actual A-algebras C_div and C_f are canonically equivalent. Its forward map is α and its inverse is β, with the finite-coordinate formulas specified below.
+
+Proof outline. Turn the two actual algebra maps and both inverse equations into the native AlgEquiv. Do not identify coherent root-object groupoids or an fpqc quotient from an algebra equivalence alone.
+
+The planned API is:
+
+- TauCeti.RootStack.divisibilityFactorialEquiv (constructor): The actual A-algebras C_div and C_f are canonically equivalent. Its forward map is α and its inverse is β, with the finite-coordinate formulas specified below.
+- TauCeti.RootStack.divisibilityFactorialEquiv.inclusion (compatibility): For n dividing d_i and x∈B_n, the equivalence sends κ_n(x) to ι_i(j_(n,d_i)(x)).
+- TauCeti.RootStack.divisibilityFactorialEquiv.root (simp): For n dividing d_i, the equivalence sends v_n to u_i^(d_i/n), where u_i=ι_i(t_(d_i)).
+
+The unit tests are:
+
+- divisibilityFactorialEquiv.test_three (computation): The nonfactorial index-3 root maps to the square of the factorial index-6 root.
+- divisibilityFactorialEquiv.test_coefficients (compatibility): Over Z/4Z, the actual equivalence preserves every coefficient for arbitrary parameter f.
+- divisibilityFactorialEquiv.test_inverse (characterisation): Applying the inverse equivalence after the forward equivalence gives every original element of C_div.
+
+### Comparison at any factorial multiple
+
+TauCeti.RootStack.divisibilityFactorialEquiv.inclusion — For any positive n, any i with n dividing d_i, and x∈B_n, the equivalence sends κ_n(x) to ι_i(j_(n,d_i)(x)).
+
+Proof outline. Evaluate α on κ_n(x), then use the independent-factorial-multiple law.
+
+### Explicit root-coordinate comparison
+
+TauCeti.RootStack.divisibilityFactorialEquiv.root — For any positive n dividing d_i, the actual comparison sends v_n to u_i^(d_i/n).
+
+Proof outline. Apply the finite-chart comparison to t_n, evaluate the actual divisibility map on its root, and use preservation of powers.
+
+### All-positive root power relation
+
+TauCeti.RootStack.divisibilityAffineInclusion.pow — For every positive n, v_n^n=algebraMap(A,C_div)(f).
+
+Proof outline. Transport the existing native finite root relation through the actual insertion.
+
+### All-positive root transition relation
+
+TauCeti.RootStack.divisibilityAffineInclusion.root — For positive n dividing N, v_n=v_N^(N/n).
+
+Proof outline. Rewrite v_n through the actual insertion transition, evaluate the finite root transition and preserve powers.
+
+## Earlier checkpoints and their historical receipts
+
+The earlier reader is preserved below. Its checkpoint counts and open-leaf descriptions are historical; the comparison and current counts above supersede those statements for this continuation. Other source and supplier obligations retain their original provenance.
+
 # Factorial root chart colimit
 
 For a commutative ring A and f∈A, write B_n=A[t_n]/(t_nⁿ−f) and d_i=(i+1)!. The factorial diagram has maps B_(d_i)→B_(d_j) sending t_(d_i) to t_(d_j)^(d_j/d_i). Its colimit C_f is the actual native algebra direct limit. The canonical A-algebra inclusions ι_i:B_(d_i)→C_f form a specified colimit cocone on the existing factorial functor. The point isomorphism and leg formulas keep the precise carriers visible in the planning API.
