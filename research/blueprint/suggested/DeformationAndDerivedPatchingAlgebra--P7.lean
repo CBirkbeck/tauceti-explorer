@@ -3890,3 +3890,222 @@ example (f : MvPowerSeries (Fin 1) (ZMod 1)) (p : MvPolynomial (Fin 1) (ZMod 1))
 end
 end TauCeti.HilbertSamuel.FullCurveGradedTests
 /- END FULL CURVE GRADED ASSEMBLY -/
+
+namespace TauCeti.HilbertSamuel
+open scoped Pointwise
+noncomputable section ScalarRestriction
+variable {A B M : Type*} [CommRing A] [CommRing B] [Algebra A B]
+  [AddCommGroup M] [Module A M] [Module B M] [IsScalarTower A B M]
+
+def adicQuotientRestrictionEquiv (q : Ideal A) (r : ℕ) :
+    (M ⧸ (q ^ r • (⊤ : Submodule A M))) ≃ₗ[A]
+      M ⧸ ((q.map (algebraMap A B)) ^ r • (⊤ : Submodule B M)) := by sorry
+
+lemma adicQuotientRestrictionEquiv_mk (q : Ideal A) (r : ℕ) (m : M) :
+    adicQuotientRestrictionEquiv (B := B) (M := M) q r (Submodule.Quotient.mk m) =
+      Submodule.Quotient.mk m := by sorry
+
+lemma adicQuotientRestrictionEquiv_symm_mk (q : Ideal A) (r : ℕ) (m : M) :
+    (adicQuotientRestrictionEquiv (B := B) (M := M) q r).symm
+      (Submodule.Quotient.mk m) = Submodule.Quotient.mk m := by sorry
+
+lemma function_restrictScalars_of_surjective
+    (h : Function.Surjective (algebraMap A B)) (q : Ideal A) (n : ℕ) :
+    function (A := A) (M := M) q n =
+      function (A := B) (M := M) (q.map (algebraMap A B)) n := by sorry
+
+section FiniteLocal
+variable [IsNoetherianRing A] [IsNoetherianRing B] [IsLocalRing A] [IsLocalRing B]
+  [Module.Finite A M] [Module.Finite B M]
+
+lemma polynomial_restrictScalars_of_surjective
+    (h : Function.Surjective (algebraMap A B)) (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A)
+    (hB : (q.map (algebraMap A B)).radical = IsLocalRing.maximalIdeal B) :
+    polynomial (A := A) (M := M) q hq =
+      polynomial (A := B) (M := M) (q.map (algebraMap A B)) hB := by sorry
+
+lemma multiplicity_restrictScalars_of_surjective
+    (h : Function.Surjective (algebraMap A B)) (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A)
+    (hB : (q.map (algebraMap A B)).radical = IsLocalRing.maximalIdeal B) :
+    multiplicity (A := A) (M := M) q hq =
+      multiplicity (A := B) (M := M) (q.map (algebraMap A B)) hB := by sorry
+
+lemma multiplicityInDegree_restrictScalars_of_surjective
+    (h : Function.Surjective (algebraMap A B)) (q : Ideal A)
+    (hq : q.radical = IsLocalRing.maximalIdeal A)
+    (hB : (q.map (algebraMap A B)).radical = IsLocalRing.maximalIdeal B) (D : ℕ) :
+    multiplicityInDegree (A := A) (M := M) q hq D =
+      multiplicityInDegree (A := B) (M := M) (q.map (algebraMap A B)) hB D := by sorry
+
+end FiniteLocal
+end ScalarRestriction
+
+noncomputable section CurveMultiplicity
+variable {k : Type*} [Field k] (f : MvPowerSeries (Fin 2) k)
+local notation "R" => MvPowerSeries (Fin 2) k
+local notation "I" => Ideal.span ({f} : Set R)
+local notation "C" => R ⧸ I
+local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → R))
+local notation "q" => v.map (Ideal.Quotient.mk I)
+variable [IsNoetherianRing C] [IsLocalRing C]
+
+lemma planeCurve_polynomial_eq_explicit (d : ℕ) (hd : f.order = (d : ℕ∞))
+    (hq : q.radical = IsLocalRing.maximalIdeal C) :
+    polynomial (A := C) (M := C) q hq = planeCurvePolynomial d := by sorry
+
+lemma planeCurve_multiplicity (d : ℕ) (hd : f.order = (d : ℕ∞))
+    (hq : q.radical = IsLocalRing.maximalIdeal C) :
+    multiplicity (A := C) (M := C) q hq = (d : ℚ) := by sorry
+
+lemma planeCurve_polynomial_degree (d : ℕ) (hd : f.order = (d : ℕ∞))
+    (hq : q.radical = IsLocalRing.maximalIdeal C) (hd0 : d ≠ 0) :
+    (polynomial (A := C) (M := C) q hq).natDegree = 1 := by sorry
+
+lemma planeCurve_polynomial_leadingCoeff (d : ℕ) (hd : f.order = (d : ℕ∞))
+    (hq : q.radical = IsLocalRing.maximalIdeal C) :
+    (polynomial (A := C) (M := C) q hq).leadingCoeff = (d : ℚ) := by sorry
+
+lemma planeCurve_supportDim [Nontrivial C] (d : ℕ) (hd : f.order = (d : ℕ∞))
+    (hq : q.radical = IsLocalRing.maximalIdeal C) (hd0 : d ≠ 0) :
+    Module.supportDim C C = (1 : WithBot ℕ∞) := by sorry
+
+lemma planeCurve_multiplicityInDegree_one (d : ℕ) (hd : f.order = (d : ℕ∞))
+    (hq : q.radical = IsLocalRing.maximalIdeal C) (hd0 : d ≠ 0) :
+    multiplicityInDegree (A := C) (M := C) q hq 1 = (d : ℚ) := by sorry
+
+lemma planeCurve_multiplicityInDegree_gt_one (d D : ℕ) (hd : f.order = (d : ℕ∞))
+    (hq : q.radical = IsLocalRing.maximalIdeal C) (hd0 : d ≠ 0) (hD : 1 < D) :
+    multiplicityInDegree (A := C) (M := C) q hq D = 0 := by sorry
+
+variable [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R C]
+
+lemma planeCurve_multiplicityInDegree_two_restrictScalars (d : ℕ)
+    (hd : f.order = (d : ℕ∞)) (hd0 : d ≠ 0)
+    (hv : v.radical = IsLocalRing.maximalIdeal R)
+    (hq : q.radical = IsLocalRing.maximalIdeal C) :
+    multiplicityInDegree (A := R) (M := C) v hv 2 = 0 := by sorry
+
+lemma planeCurve_multiplicity_restrictScalars (d : ℕ)
+    (hd : f.order = (d : ℕ∞))
+    (hv : v.radical = IsLocalRing.maximalIdeal R)
+    (hq : q.radical = IsLocalRing.maximalIdeal C) :
+    multiplicity (A := R) (M := C) v hv = (d : ℚ) := by sorry
+
+lemma planeCurve_degree_two_ne_intrinsic (d : ℕ)
+    (hd : f.order = (d : ℕ∞)) (hd0 : d ≠ 0)
+    (hv : v.radical = IsLocalRing.maximalIdeal R)
+    (hq : q.radical = IsLocalRing.maximalIdeal C) :
+    multiplicityInDegree (A := R) (M := C) v hv 2 ≠
+      multiplicity (A := R) (M := C) v hv := by sorry
+
+end CurveMultiplicity
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+open Polynomial
+noncomputable section ScalarCurveExamples
+-- test: ScalarCurveTests.identity_representative
+example : adicQuotientRestrictionEquiv (B := ℚ) (M := ℚ) (⊥ : Ideal ℚ) 1 (Submodule.Quotient.mk (7 : ℚ)) = Submodule.Quotient.mk (7 : ℚ) := by sorry
+-- test: ScalarCurveTests.zeroth_power_zero_quotient
+example : adicQuotientRestrictionEquiv (B := ℚ) (M := ℚ) (⊥ : Ideal ℚ) 0 (Submodule.Quotient.mk (7 : ℚ)) = 0 := by sorry
+-- test: ScalarCurveTests.nonflat_integer_mod_two
+example : function (A := ℤ) (M := ZMod 2) (Ideal.span ({(2 : ℤ)} : Set ℤ)) 4 = 1 := by sorry
+-- test: ScalarCurveTests.infinite_length_retained
+example : function (A := ℤ) (M := ℤ) (⊥ : Ideal ℤ) 7 = ⊤ := by sorry
+section smooth
+local notation "R" => MvPowerSeries (Fin 2) (ℚ)
+local notation "x" => (MvPowerSeries.X (0 : Fin 2) : R)
+local notation "y" => (MvPowerSeries.X (1 : Fin 2) : R)
+local notation "f" => (x)
+local notation "I" => Ideal.span ({f} : Set R)
+local notation "C" => R ⧸ I
+local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → R))
+local notation "q" => v.map (Ideal.Quotient.mk I)
+variable [IsNoetherianRing C] [IsLocalRing C]
+-- test: ScalarCurveTests.smooth_intrinsic
+example (hq : q.radical = IsLocalRing.maximalIdeal C) : multiplicity (A := C) (M := C) q hq = 1 := by sorry
+end smooth
+section node
+local notation "R" => MvPowerSeries (Fin 2) (ℚ)
+local notation "x" => (MvPowerSeries.X (0 : Fin 2) : R)
+local notation "y" => (MvPowerSeries.X (1 : Fin 2) : R)
+local notation "f" => (x * y)
+local notation "I" => Ideal.span ({f} : Set R)
+local notation "C" => R ⧸ I
+local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → R))
+local notation "q" => v.map (Ideal.Quotient.mk I)
+variable [IsNoetherianRing C] [IsLocalRing C]
+-- test: ScalarCurveTests.node_intrinsic
+example (hq : q.radical = IsLocalRing.maximalIdeal C) : multiplicity (A := C) (M := C) q hq = 2 := by sorry
+-- test: ScalarCurveTests.node_actual_polynomial
+example (hq : q.radical = IsLocalRing.maximalIdeal C) : polynomial (A := C) (M := C) q hq = Polynomial.C 2 * Polynomial.X + 1 := by sorry
+-- test: ScalarCurveTests.node_support_dimension
+example [Nontrivial C] (hq : q.radical = IsLocalRing.maximalIdeal C) : Module.supportDim C C = (1 : WithBot ℕ∞) := by sorry
+end node
+section cusp
+local notation "R" => MvPowerSeries (Fin 2) (ℚ)
+local notation "x" => (MvPowerSeries.X (0 : Fin 2) : R)
+local notation "y" => (MvPowerSeries.X (1 : Fin 2) : R)
+local notation "f" => (y ^ 2 - x ^ 3)
+local notation "I" => Ideal.span ({f} : Set R)
+local notation "C" => R ⧸ I
+local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → R))
+local notation "q" => v.map (Ideal.Quotient.mk I)
+variable [IsNoetherianRing C] [IsLocalRing C]
+-- test: ScalarCurveTests.cusp_intrinsic
+example (hq : q.radical = IsLocalRing.maximalIdeal C) : multiplicity (A := C) (M := C) q hq = 2 := by sorry
+end cusp
+section nonreduced_char_two
+local notation "R" => MvPowerSeries (Fin 2) (ZMod 2)
+local notation "x" => (MvPowerSeries.X (0 : Fin 2) : R)
+local notation "y" => (MvPowerSeries.X (1 : Fin 2) : R)
+local notation "f" => (x ^ 2)
+local notation "I" => Ideal.span ({f} : Set R)
+local notation "C" => R ⧸ I
+local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → R))
+local notation "q" => v.map (Ideal.Quotient.mk I)
+variable [IsNoetherianRing C] [IsLocalRing C]
+-- test: ScalarCurveTests.nonreduced_char_two_intrinsic
+example (hq : q.radical = IsLocalRing.maximalIdeal C) : multiplicity (A := C) (M := C) q hq = 2 := by sorry
+-- test: ScalarCurveTests.nonreduced_char_two_actual_polynomial
+example (hq : q.radical = IsLocalRing.maximalIdeal C) : polynomial (A := C) (M := C) q hq = Polynomial.C 2 * Polynomial.X + 1 := by sorry
+-- test: ScalarCurveTests.nilpotent_higher_extraction
+example (hq : q.radical = IsLocalRing.maximalIdeal C) : multiplicityInDegree (A := C) (M := C) q hq 3 = 0 := by sorry
+variable [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R C]
+-- test: ScalarCurveTests.nilpotent_intrinsic_degree_two_distinction
+example (hv : v.radical = IsLocalRing.maximalIdeal R) (hq : q.radical = IsLocalRing.maximalIdeal C) : multiplicity (A := R) (M := C) v hv = 2 ∧ multiplicityInDegree (A := R) (M := C) v hv 2 = 0 := by sorry
+end nonreduced_char_two
+section order_three
+local notation "R" => MvPowerSeries (Fin 2) (ℚ)
+local notation "x" => (MvPowerSeries.X (0 : Fin 2) : R)
+local notation "y" => (MvPowerSeries.X (1 : Fin 2) : R)
+local notation "f" => (x ^ 3)
+local notation "I" => Ideal.span ({f} : Set R)
+local notation "C" => R ⧸ I
+local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → R))
+local notation "q" => v.map (Ideal.Quotient.mk I)
+variable [IsNoetherianRing C] [IsLocalRing C]
+-- test: ScalarCurveTests.order_three_intrinsic
+example (hq : q.radical = IsLocalRing.maximalIdeal C) : multiplicity (A := C) (M := C) q hq = 3 := by sorry
+-- test: ScalarCurveTests.order_three_actual_polynomial
+example (hq : q.radical = IsLocalRing.maximalIdeal C) : polynomial (A := C) (M := C) q hq = Polynomial.C 3 * Polynomial.X := by sorry
+end order_three
+-- test: ScalarCurveTests.unit_function_boundary
+example (n : ℕ) : let R := MvPowerSeries (Fin 2) ℚ; let I : Ideal R := Ideal.span {(1 : R)}; let C := R ⧸ I; let v : Ideal R := Ideal.span (Set.range MvPowerSeries.X); function (A := C) (M := C) (v.map (Ideal.Quotient.mk I)) n = 0 := by sorry
+-- test: ScalarCurveTests.zero_equation_surface_boundary
+example : let R := MvPowerSeries (Fin 2) ℚ; let I : Ideal R := Ideal.span {(0 : R)}; let C := R ⧸ I; let v : Ideal R := Ideal.span (Set.range MvPowerSeries.X); (0 : R).order = ⊤ ∧ function (A := C) (M := C) (v.map (Ideal.Quotient.mk I)) 1 = 3 := by sorry
+end ScalarCurveExamples
+end TauCeti.HilbertSamuel
+
+/- SCALAR_CURVE_RECOVERY
+{
+  "sourceArchive": "79f9ad05e21173a15d629b1c8a183b71ad9e4078",
+  "hashes": {
+    "Canonical.lean": "03ec60add6d8b92b479be988154432d4752c62dabc62e5765721cc6ea9fcab02",
+    "NewAdmitted.lean": "1233c93ce2c0f330c5f4c5ce598a2ffcc7c287c6042cf7adb6427442e0fe8a9c",
+    "NewProofDraft.lean": "9b07520442b33b65bba24e57478ea6ee9338ec5b18745f47ee01a93b6afc686a"
+  }
+}
+-/
