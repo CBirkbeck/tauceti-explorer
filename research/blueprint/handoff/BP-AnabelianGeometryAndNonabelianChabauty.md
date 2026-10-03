@@ -32,1104 +32,261 @@ Actual kernels of continuous equivariant coefficient maps are now realized in th
 
 Recover the public immutable proof archive using the final handoff's Python recipe. Modify a fresh owned branch after a newly confirmed claim, never this immutable archive. Match the complete native/admitted headers, rerun the indexed packet checker, actual intake and actual atlas graph. For any new compile, check free -g immediately, require at least 20 GiB, run only one Lean process in the existing build, and stop at 20 minutes. The artifact recovery does not rerun historical compiles.
 
-## Immutable archive payloads
+## Public immutable recovery
 
-<!-- BEGIN TWISTED KERNEL VALIDATOR 63 -->
+Mathematical base: `2bc684df36a586e1a305395ddf6f0d0fb82aa63c`. Publication main base: `18f322ad4eefb4ef36e39cef812c403829f23e2c`. Immutable proof archive: [`b965e4e5d7fadcee30a00cbcfa56299cd0ce3800`](https://github.com/CBirkbeck/tauceti-explorer/commit/b965e4e5d7fadcee30a00cbcfa56299cd0ce3800). The archive is retained as an ancestor of this submission. The published Lean file is the exact thin canonical specification; the complete native source and transcripts are recovered from the immutable archive.
+
+Save the following program as recover63.py and run `python3 recover63.py RECOVERY_DIR SUBMITTED_REF` from an existing repository checkout, then `python3 RECOVERY_DIR/validate63.py RECOVERY_DIR DECLARATIONS_TSV` and `python3 RECOVERY_DIR/graph63.py RECOVERY_DIR/original-packets.json`. DECLARATIONS_TSV is the pinned declaration index. Public recovery checks all 18 artifacts byte-for-byte before validation. VALIDATE_BASE may explicitly override the recorded publication main when auditing a later checkout. This recovery and validation do not assert a second compilation.
+
 ```python
 from pathlib import Path
-import ast,hashlib,json,os,re,subprocess,sys
-R=Path.cwd();S=Path(sys.argv[1]);RID='AnabelianGeometryAndNonabelianChabauty';ST=RID+':NC.3';NS='TauCeti.NonabelianCohomology.'
-paths=['research/blueprint/'+f+'/'+('BP-'if f=='handoff'else'')+RID+'.'+ext for f,ext in [('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]]
-p=json.loads((R/paths[0]).read_text());old=json.loads((S/'original-packets.json').read_text());meta=json.loads((S/'design-metadata.json').read_text());nodes={n['id']:n for n in p['nodes']}
-assert len(old['nodes'])==196 and len(nodes)==220
-for n in old['nodes']:
- v=nodes[n['id']]
- if n['id']not in meta['changes']:assert v==n,n['id']
- else:
-  assert {k:x for k,x in v.items()if k not in ['prerequisites','proofSteps']}=={k:x for k,x in n.items()if k not in ['prerequisites','proofSteps']}
-  assert v['prerequisites']==n['prerequisites']+meta['changes'][n['id']]
-  assert v['proofSteps']==n['proofSteps']+[meta['steps'][n['id']]]
-for k in old:
- if k not in ['summary','nodes','sources','baseline','coverage','gaps']:assert p[k]==old[k],k
-assert set(p)==set(old)|{'twistedKernelContinuation'}
-assert p['sources'][:-1]==old['sources'] and p['baseline']['declarations'][:-5]==old['baseline']['declarations']
-assert {k:v for k,v in p['baseline'].items()if k!='declarations'}=={k:v for k,v in old['baseline'].items()if k!='declarations'}
-assert p['gaps'][:-1]==old['gaps'][:-1]
-assert {k:v for k,v in p['gaps'][-1].items()if k!='twistedKernelContinuation'}==old['gaps'][-1]
-for a,b in zip(p['coverage'],old['coverage']):
- if a['stageId']==ST:
-  assert a['remaining'][:-1]==b['remaining'] and {k:v for k,v in a.items()if k!='remaining'}=={k:v for k,v in b.items()if k!='remaining'}
- else:assert a==b
-assert [(c['stageId'],c['status'])for c in p['coverage']]==[(c['stageId'],c['status'])for c in old['coverage']]
-assert p['status']=='partial' and all(n['implementationStatus']=='unchecked'for n in p['nodes'])
-full=(R/paths[2]).read_text();reader=(R/paths[1]).read_text();prefix=(S/'Native.lean').read_text();new=(S/'extension.lean').read_text();tests=(S/'tests63.lean').read_text();native=(S/'Native63.lean').read_text();audits=(S/'audits63.lean').read_text()
-assert hashlib.sha256(prefix.encode()).hexdigest()==meta['nativePredecessorSha256']=='1f6fc508e77a33378a5ce427b11f4880ea31a0ddd72bab00af20cce14cf54b74'
-assert native==prefix+new+tests+audits and not re.search(r'\bsorry\b|\baxiom\b',native)
-assert full.startswith((S/'original-suggested.lean').read_text()) and reader.endswith((S/'original-readmes.md').read_text())
-assert full==(S/'Canonical63.lean').read_text() and reader==(S/'Reader63.md').read_text()
-admitted=full.split('/- BEGIN TWISTED KERNELS 63 -/\n')[1].split('/- END TWISTED KERNELS 63 -/')[0]
-def headers(text):
- lines=text.splitlines(keepends=True);out={}
- for i,l in enumerate(lines):
-  m=re.match(r'^(def|lemma|theorem|example)\b(?: ([\w.]+))?',l)
-  if not m:continue
-  j=i+1
-  while j<len(lines)and not re.match(r'^(?:def|lemma|theorem|example|end|namespace|variable|section|-- test:|@\[)',lines[j]):j+=1
-  raw=''.join(lines[i:j]);depth=0;sep=None
-  for k,ch in enumerate(raw):
-   if ch in '([{':depth+=1
-   elif ch in ')]}':depth-=1
-   elif depth==0 and raw[k:k+3]==' :=':sep=k;break
-   elif depth==0 and raw[k:k+7]==' where\n':sep=k;break
-  assert sep is not None,raw[:120]
-  head=raw[:sep];label=lines[i-1].strip();istest=m[1]in ['example','theorem']
-  name=label.removeprefix('-- test: ')if istest else m[2]
-  if m[1]=='theorem':head=head.replace('theorem '+m[2],'example',1)
-  assert not istest or label.startswith('-- test: '),name
-  out[('test'if istest else m[1],name)]=' '.join(head.split())
- return out
-hn=headers(new+tests);ha=headers(admitted);assert hn==ha
-math={n for(k,n)in hn if k!='test'};tnames={n for(k,n)in hn if k=='test'}
-assert len(math)==24 and len(tnames)==15 and math==set(meta['mathNames'])and tnames==set(meta['testNames'])
-for n in p['nodes'][196:]:
- assert n['id']==meta['newIds'][n['declarationName'].removeprefix(NS)]
- assert n['declarationName'].removeprefix(NS)in math and n['declarationName']in reader and n['statement']in reader
- assert ' '.join(n['leanSignature'].split())==hn[('def'if n['kind']=='construction'else'lemma',n['declarationName'].removeprefix(NS))]
- for a in n.get('api',[]):assert a['name'].removeprefix(NS)in math and a['name']in reader and a['statement']in reader
- for t in n.get('tests',[]):assert t['name']in tnames and t['statement']in reader
-assert {t['name']for n in p['nodes'][196:]for t in n.get('tests',[])}==tnames
-projection='\n'.join(l for l in full.splitlines()if not l.startswith('import TauCeti.'))+'\n';a=projection.index('section Abelian');b=projection.index('end Abelian',a)+len('end Abelian');projection=projection[:a]+projection[b:]
-assert (S/'Sketch63.lean').read_text()==projection
-lean={}
-for stem,count,warnings in [('Native63',222,0),('Sketch63',0,415)]:
- path=S/(stem.lower()+'-normalized.log')
- assert path.exists(),path
- log=path.read_text();assert 'EXIT 0'in log and not re.search(r'error(?:\(|:)|sorryAx',log)
- assert log.count('warning:')==log.count('warning: declaration uses')==warnings
- assert log.count('depends on axioms:')+log.count('does not depend on any axioms')==count
- found=re.findall(r'depends on axioms: \[(.*?)\]',log,re.S)
- assert all(set(re.findall(r'\b(?:\w+\.)*\w+\b',v))<={'propext','Classical.choice','Quot.sound'}for v in found)
- lean[stem]={'warnings':warnings,'audits':count,'exit':0,'sourceSha256':hashlib.sha256((S/(stem+'.lean')).read_bytes()).hexdigest(),'transcriptSha256':hashlib.sha256(path.read_bytes()).hexdigest()}
-mem=json.loads((S/'memory63.json').read_text());assert set(mem)==set(lean)and all(m['availableGiB']>=20 and m['exit']==0 and m['elapsedSeconds']<1200 for m in mem.values())
-# Execute the repository's actual intake functions, not lookalike scans.
-tree=ast.parse((R/'research/blueprint/intake.py').read_text());names={'file_problems','auto_refusals','own_files','independent_of'}
-picked=[n for n in tree.body if isinstance(n,ast.Assign)and any(isinstance(t,ast.Name)and t.id in {'ALLOWED','PRIVATE'}for t in n.targets)or isinstance(n,ast.FunctionDef)and n.name in names]
-env={'json':json,'re':re};exec(compile(ast.Module(body=picked,type_ignores=[]),'actual-intake','exec'),env)
-job=next(j for j in json.loads((R/'research/blueprint/queue.json').read_text())['jobs']if j['id']=='BP-'+RID)
-problems=[x for path in paths for x in env['file_problems'](path,(R/path).read_text())];refusals=env['auto_refusals'](job,paths,False,{'codex-5ebb6f'},set());assert not problems and not refusals,(problems,refusals)
-for path in paths:
- text=(R/path).read_text();assert not re.search(r'[ \t]+$',text,re.M),path
- assert not re.search(r'/(?:home|Users)/[^/\s]+/',text),path
-pub=os.environ.get('VALIDATE_BASE',(S/'publication-base.txt').read_text().strip())
-changed=set(subprocess.check_output(['git','diff','--name-only',pub],text=True).splitlines());assert changed<=set(paths),changed
-sys.path.insert(0,str(R/'scripts'));import check_blueprint
-errors,warnings,summary=check_blueprint.check(R/paths[0],check_blueprint.load_index(Path(sys.argv[2])),check_blueprint.world());assert not errors and not warnings,(errors,warnings)
-summary['packet']=paths[0]
-report={'oldNodeObjectsPreserved':194,'oldContractsPreserved':196,'newHeadersMatched':24,'newTestsMatched':15,'incomingProofPreserved':True,'canonicalPrefixPreserved':True,'readerSuffixPreserved':True,'intakeFileProblems':problems,'intakeAutoRefusals':refusals,'checker':summary,'rawApiItems':sum(len(n.get('api',[]))for n in p['nodes']),'rawTests':sum(len(n.get('tests',[]))for n in p['nodes']),'lean':lean,'memory':mem,'fullCanonicalCompiled':False,'publicationBase':pub,'scriptSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
-print(json.dumps(report,ensure_ascii=False,indent=2))
+import hashlib,json,subprocess,sys,urllib.request
+OUT=Path(sys.argv[1]);REF=sys.argv[2] if len(sys.argv)>2 else 'HEAD'
+OUT.mkdir(parents=True,exist_ok=True,mode=0o700)
+ARCHIVE='b965e4e5d7fadcee30a00cbcfa56299cd0ce3800'
+BASE='2bc684df36a586e1a305395ddf6f0d0fb82aa63c'
+PUB='18f322ad4eefb4ef36e39cef812c403829f23e2c'
+RID='AnabelianGeometryAndNonabelianChabauty'
+EXPECTED={'Native63.lean': '31ba3d7ff0b338d853692290dd55df11161726949643fc39966dc3f63c058c95', 'Canonical63.lean': '9e86f307055e8953f7433f0685fec28f092a9992e1e9e9959c532fe437e63d24', 'Sketch63.lean': '677dd3ddd20397d1fbcb3475db5ca3da39819b11dd9754cc9dd1b7696ae49dff', 'Native.lean': '1f6fc508e77a33378a5ce427b11f4880ea31a0ddd72bab00af20cce14cf54b74', 'extension.lean': '52280375a7034725143ff657ab0e41286fdb76c68dea6f0ebd1f07962dafc9f3', 'tests63.lean': '6321121daa60283590fef959b6ce5b712061dddde1164fc52c96aa660256dc59', 'audits63.lean': '24cc64923f90ef9c0f2d62b298f883e2dc07627263e729f0fb46a7b457490751', 'original-packets.json': 'af7f73b1b59cdb24716149c3a731e7b0d2f98939c52ccf11fbff26bed65024d1', 'original-readmes.md': 'd6b4e2dbd28ef829879c3dcb8ed52619b19d1b77d8a79acc03f4928988e54187', 'original-suggested.lean': '786fd24e1ab97abdd56b0892b7d88c97acc3d0bfc4b471884271f1692e03f8c8', 'original-handoff.md': '81c955a23e9ed8acf905cbf4ad67c73bb2e1b2935911c06cdc673bb264169dbf', 'Reader63.md': 'f494c762190de55e4fbb5a864f72be32f7a56e0bbe12ffde5f8c7518d0a270d0', 'validate63.py': 'b3f6c96a002583578cf1ededf22e3b4fa564c9e161ccb41d61faa961cafd6814', 'graph63.py': '3b8241f00fecc80656f033af4f2c74587f88d8771b7cf6d7d318f9fdb072ac88', 'design-metadata.json': '9dd929e3474a392f76740f555905acf54d5ce012d1fcd0551e385f959bb33fc8', 'native63-normalized.log': '64a5fb4e4446f1920b7b110441b37bd74716e36ce1ce1d665e0220cb09c43489', 'sketch63-normalized.log': '929d5b7fb9c541a469a92e60337542daf29684d5848b754edfac0e7f73affaee', 'memory63.json': 'd6c4647a9c2220ab02f12b1ec435b53ee7ba795c1aa18edd22170e1692431184'}
+LENGTHS=[126911, 10649, 7627]
+url='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'+ARCHIVE+'/'
+lean=urllib.request.urlopen(url+'research/blueprint/suggested/'+RID+'.lean',timeout=60).read()
+head,tail=lean.split(b'/- BEGIN ARCHIVED CHECKED TWISTED KERNELS 63\n',1)
+assert head.endswith(b'\n')
+canonical=head[:-1]
+native=tail.split(b'\nEND ARCHIVED CHECKED TWISTED KERNELS 63 -/',1)[0]
+(OUT/'Canonical63.lean').write_bytes(canonical);(OUT/'Native63.lean').write_bytes(native)
+parts=[('Native.lean',LENGTHS[0]),('extension.lean',LENGTHS[1]),('tests63.lean',LENGTHS[2])]
+position=0
+for name,length in parts:
+ (OUT/name).write_bytes(native[position:position+length]);position+=length
+(OUT/'audits63.lean').write_bytes(native[position:])
+text=canonical.decode();projection='\n'.join(l for l in text.splitlines()if not l.startswith('import TauCeti.'))+'\n'
+a=projection.index('section Abelian');b=projection.index('end Abelian',a)+len('end Abelian');projection=projection[:a]+projection[b:]
+(OUT/'Sketch63.lean').write_text(projection)
+for folder,ext in [('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]:
+ path='research/blueprint/'+folder+'/'+('BP-'if folder=='handoff'else'')+RID+'.'+ext
+ (OUT/('original-'+folder+'.'+ext)).write_bytes(subprocess.check_output(['git','show',BASE+':'+path]))
+(OUT/'Reader63.md').write_bytes(subprocess.check_output(['git','show',REF+':research/blueprint/readmes/'+RID+'.md']))
+hand=urllib.request.urlopen(url+'research/blueprint/handoff/BP-'+RID+'.md',timeout=60).read().decode()
+for marker,name,lang in [('VALIDATOR','validate63.py','python'),('GRAPH','graph63.py','python'),('METADATA','design-metadata.json','json'),('NATIVE LOG','native63-normalized.log','text'),('SKETCH LOG','sketch63-normalized.log','text'),('MEMORY','memory63.json','json')]:
+ start='<!-- BEGIN TWISTED KERNEL '+marker+' 63 -->\n```'+lang+'\n'
+ body=hand.split(start,1)[1].split('\n```\n<!-- END TWISTED KERNEL '+marker+' 63 -->',1)[0]+'\n'
+ (OUT/name).write_text(body)
+for name,want in EXPECTED.items():
+ got=hashlib.sha256((OUT/name).read_bytes()).hexdigest();assert got==want,(name,got,want)
+(OUT/'base').write_text(BASE+'\n');(OUT/'publication-base.txt').write_text(PUB+'\n')
+print(json.dumps({'archive':ARCHIVE,'recoveredArtifacts':len(EXPECTED),'allSha256Matched':True,'fullCanonicalCompiled':False},indent=2))
 ```
-<!-- END TWISTED KERNEL VALIDATOR 63 -->
 
-<!-- BEGIN TWISTED KERNEL GRAPH 63 -->
-```python
-"""Read-only actual atlas assembly with the candidate injected as promotion inputs."""
-from pathlib import Path
-import sys,json,copy,collections
-root=Path.cwd();sys.path.insert(0,str(root/'scripts'))
-import build,blueprints,check_blueprint
-rid='AnabelianGeometryAndNonabelianChabauty'
-p=json.loads((root/'research/blueprint/packets'/f'{rid}.json').read_text())
-r=next(x for x in json.loads((root/'data/atlas.json').read_text())['roadmaps'] if x['id']==rid)
-a0=json.loads((root/'data/atlas.json').read_text())
-packets,documents,definitions=blueprints.load_promoted(root)
-packets=[x for x in packets if x[1].get('roadmapId')!=rid]+[(rid,p)]
-documents[rid]=f'research/blueprint/readmes/{rid}.md'
-definitions=[x for x in definitions if x['id']!=rid]
-if not any(x['id']==rid for x in a0['roadmaps']):definitions.append(r)
-build.load_promoted=lambda *args:(copy.deepcopy(packets),copy.deepcopy(documents),copy.deepcopy(definitions))
-a,*rest=build.assemble(require_distances=False)
-ctx=check_blueprint.world()
-world={}
-for folder in ['data/decompositions','data/blueprints','research/blueprint/packets']:
- for path in sorted((root/folder).glob('*.json')):
-  q=json.loads(path.read_text())
-  for n in q.get('nodes',[]):world.setdefault(n['id'],n)
-world.update({n['id']:n for n in p['nodes']})
-stages={s['id']:s for s in a['stages']}
-stageids=set(stages)|set(ctx[1])
-stageedges={(e['source'],e['target']) for e in a['stageEdges']}
-virtual={v for e in stageedges for v in e}-set(stages)
+## Publication validation
 
-def dag(vertices,edges):
- vertices=set(vertices)|{v for e in edges for v in e}
- out=collections.defaultdict(set);indeg={v:0 for v in vertices}
- for s,t in edges:
-  if t not in out[s]:out[s].add(t);indeg[t]+=1
- stack=[v for v,k in indeg.items() if k==0];count=0
- while stack:
-  x=stack.pop();count+=1
-  for y in out[x]:
-   indeg[y]-=1
-   if indeg[y]==0:stack.append(y)
- assert count==len(vertices),f'cycle: {[v for v,k in indeg.items() if k][:15]}'
- return {'vertices':len(vertices),'edges':len(edges),'acyclic':True}
+Public recovery was executed against GitHub commit b965e4e5d7fadcee30a00cbcfa56299cd0ce3800: all 18 artifacts matched their recorded SHA-256 hashes. The recovered actual validator and graph script were executed and their reports match the receipts below exactly. No historical compile was repeated.
 
-own={n['id']:n for n in p['nodes']}
-ownedges={(q,n['id']) for n in p['nodes'] for q in n.get('prerequisites',[]) if q in own}
-stack=list(own);seen=set();dep=set();unresolved=set()
-while stack:
- nid=stack.pop()
- if nid in seen:continue
- seen.add(nid)
- n=world[nid]
- for q in n.get('prerequisites',[]):
-  if q.startswith(('mathlib:','tauceti:')) and q not in stageids and not q.startswith('tauceti:TauCetiRoadmap/'):continue
-  dep.add((q,nid))
-  if q in world:stack.append(q)
-  elif q not in stageids:unresolved.add(q)
-assert not unresolved,sorted(unresolved)
-# Include actual recorded parent metadata and request edges, not synthetic realises attachments.
-parents={(world[v]['parentStageId'],v) for v in seen
-         if world[v].get('parentStageId') in stageids or world[v].get('parentStageId') in seen}
-requests={(request['supplier'],consumer) for request in p.get('requests',[])
-          for consumer in request.get('neededBy',[]) if consumer in own or consumer in stageids}
-dep |= parents | requests
-report={'stage':dag(stages,stageedges),'own':dag(own,ownedges),'combinedPrerequisites':dag(set(stages)|seen,stageedges|dep),'virtualSupplierEndpoints':len(virtual),'reachableDeclarations':len(seen),'unresolvedReferences':len(unresolved)}
-roadmap=next(x for x in a['roadmaps'] if x['id']==rid)
-assert roadmap['blueprint']['declarations']==len(own)
-assert roadmap['blueprint']['planets']==11
-assert not roadmap['blueprint']['skippedLinks'],roadmap['blueprint']['skippedLinks']
-assert not roadmap.get('pendingLinks',[]),roadmap.get('pendingLinks',[])
-report['actualBlueprint']={k:roadmap['blueprint'][k] for k in ['declarations','planets','kinds','skippedLinks']}
-# The original packet is used as a second promotion input to check projection preservation.
-p0=json.loads(sys.argv[1] and Path(sys.argv[1]).read_text()) if len(sys.argv)>1 else p
-r0=copy.deepcopy(r)
-basepackets=[x for x in packets if x[1].get('roadmapId')!=rid]+[(rid,p0)]
-build.load_promoted=lambda *args:(copy.deepcopy(basepackets),copy.deepcopy(documents),copy.deepcopy(definitions))
-b,*_=build.assemble(require_distances=False)
-bedges={(e['source'],e['target']) for e in b['stageEdges']}
-assert stageedges==bedges
-report['stageEdgesUnchanged']=True
-control={x['id']:(x.get('blueprint',{}).get('skippedLinks',[]),x.get('pendingLinks',[])) for x in a['roadmaps'] if x['id']!=rid}
-control0={x['id']:(x.get('blueprint',{}).get('skippedLinks',[]),x.get('pendingLinks',[])) for x in b['roadmaps'] if x['id']!=rid}
-assert control==control0
-report['otherRoadmapSkippedPendingLinksUnchanged']=True
-# Check all original in-roadmap dependencies and explicit request supplier paths.
-stageout=collections.defaultdict(set)
-for source,target in stageedges:stageout[source].add(target)
-def reachable(source,target):
- todo=[source];done=set()
- while todo:
-  x=todo.pop()
-  if x==target:return True
-  if x in done:continue
-  done.add(x);todo.extend(stageout[x]-done)
- return False
-pairs={(e['source'],e['target']) for e in a0['stageEdges'] if e['target'].startswith(rid+':')}
-for node in p['nodes']:
- for q in node.get('prerequisites',[]):
-  if q in stageids and q not in world and q != node['parentStageId']:pairs.add((q,node['parentStageId']))
-for request in p.get('requests',[]):
- for consumer in request.get('neededBy',[]):
-  if consumer in own:pairs.add((request['supplier'],own[consumer]['parentStageId']))
-  elif consumer in stageids:pairs.add((request['supplier'],consumer))
-assert all(reachable(source,target) for source,target in pairs),[(s,t) for s,t in pairs if not reachable(s,t)]
-report['requiredStagePairs']=len(pairs)
-report['requiredStagePairsReachable']=len(pairs)
-
-# Read live accepted proposals through the actual assembler's loader.
-from restructure import load_accepted
-accepted={(x['source'],x['target']) for proposal in load_accepted(root)
-          for x in proposal.get('links',[]) if x.get('source') in stages and x.get('target') in stages}
-missing=[(s,t) for s,t in sorted(accepted) if not reachable(s,t)]
-assert not missing,missing
-report['allLiveAcceptedRestructurePaths']=len(accepted)
-report['allLiveAcceptedRestructurePathsReachable']=len(accepted)
-report['touchingAcceptedRestructurePaths']=sum(s.startswith(rid+':') or t.startswith(rid+':') for s,t in accepted)
-report['scriptSha256']=__import__('hashlib').sha256(Path(__file__).read_bytes()).hexdigest()
-print(json.dumps(report,ensure_ascii=False,indent=2))
-```
-<!-- END TWISTED KERNEL GRAPH 63 -->
-
-<!-- BEGIN TWISTED KERNEL METADATA 63 -->
 ```json
 {
-  "changes": {
-    "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension": [
-      "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-action",
-      "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-action-continuity",
-      "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-equivalence",
-      "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-quotient-homeomorphism",
-      "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-quotient-topology-criterion"
-    ],
-    "AnabelianGeometryAndNonabelianChabauty:NC.3/functoriality": [
-      "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-inclusion",
-      "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-repointed-fibre"
+  "validation": {
+    "oldNodeObjectsPreserved": 194,
+    "oldContractsPreserved": 196,
+    "newHeadersMatched": 24,
+    "newTestsMatched": 15,
+    "incomingProofPreserved": true,
+    "canonicalPrefixPreserved": true,
+    "readerSuffixPreserved": true,
+    "intakeFileProblems": [],
+    "intakeAutoRefusals": [],
+    "checker": {
+      "packet": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty.json",
+      "roadmap": "AnabelianGeometryAndNonabelianChabauty",
+      "status": "partial",
+      "nodes": 220,
+      "kinds": {
+        "definition": 3,
+        "lemma": 147,
+        "comparison": 7,
+        "construction": 36,
+        "theorem": 27
+      },
+      "apiItems": 200,
+      "unitTests": 153,
+      "planets": 11,
+      "baselineDeclarations": 138,
+      "prerequisites": {
+        "baseline": 205,
+        "node (this packet)": 475,
+        "stage": 48
+      },
+      "gaps": 9,
+      "requests": 16,
+      "stagesInScope": 7,
+      "stagesClosed": 0
+    },
+    "rawApiItems": 212,
+    "rawTests": 164,
+    "lean": {
+      "Native63": {
+        "warnings": 0,
+        "audits": 222,
+        "exit": 0,
+        "sourceSha256": "31ba3d7ff0b338d853692290dd55df11161726949643fc39966dc3f63c058c95",
+        "transcriptSha256": "64a5fb4e4446f1920b7b110441b37bd74716e36ce1ce1d665e0220cb09c43489"
+      },
+      "Sketch63": {
+        "warnings": 415,
+        "audits": 0,
+        "exit": 0,
+        "sourceSha256": "677dd3ddd20397d1fbcb3475db5ca3da39819b11dd9754cc9dd1b7696ae49dff",
+        "transcriptSha256": "929d5b7fb9c541a469a92e60337542daf29684d5848b754edfac0e7f73affaee"
+      }
+    },
+    "memory": {
+      "Native63": {
+        "availableGiB": 25,
+        "elapsedSeconds": 18.01246476173401,
+        "exit": 0
+      },
+      "Sketch63": {
+        "availableGiB": 26,
+        "elapsedSeconds": 18.513198375701904,
+        "exit": 0
+      }
+    },
+    "fullCanonicalCompiled": false,
+    "publicationBase": "18f322ad4eefb4ef36e39cef812c403829f23e2c",
+    "scriptSha256": "b3f6c96a002583578cf1ededf22e3b4fa564c9e161ccb41d61faa961cafd6814"
+  },
+  "actualAtlasGraph": {
+    "stage": {
+      "vertices": 3018,
+      "edges": 8655,
+      "acyclic": true
+    },
+    "own": {
+      "vertices": 220,
+      "edges": 475,
+      "acyclic": true
+    },
+    "combinedPrerequisites": {
+      "vertices": 3227,
+      "edges": 9386,
+      "acyclic": true
+    },
+    "virtualSupplierEndpoints": 51,
+    "reachableDeclarations": 220,
+    "unresolvedReferences": 0,
+    "actualBlueprint": {
+      "declarations": 220,
+      "planets": 11,
+      "kinds": {
+        "comparison": 7,
+        "construction": 36,
+        "definition": 3,
+        "lemma": 147,
+        "theorem": 27
+      },
+      "skippedLinks": []
+    },
+    "stageEdgesUnchanged": true,
+    "otherRoadmapSkippedPendingLinksUnchanged": true,
+    "requiredStagePairs": 20,
+    "requiredStagePairsReachable": 20,
+    "allLiveAcceptedRestructurePaths": 3783,
+    "allLiveAcceptedRestructurePathsReachable": 3783,
+    "touchingAcceptedRestructurePaths": 5,
+    "scriptSha256": "3b8241f00fecc80656f033af4f2c74587f88d8771b7cf6d7d318f9fdb072ac88"
+  },
+  "freshMainInputGuards": {
+    "base": "2bc684df36a586e1a305395ddf6f0d0fb82aa63c",
+    "publicationBase": "18f322ad4eefb4ef36e39cef812c403829f23e2c",
+    "inputs": [
+      {
+        "path": "research/blueprint/WORKERS.md",
+        "baseBlob": "8027079974ec12f83e5249366fc5dc64609a7727",
+        "freshBlob": "8027079974ec12f83e5249366fc5dc64609a7727",
+        "unchanged": true
+      },
+      {
+        "path": "research/blueprint/PROTOCOL.md",
+        "baseBlob": "44ab78513f2eda7801bb58ce3f50ba86d9ecb4df",
+        "freshBlob": "44ab78513f2eda7801bb58ce3f50ba86d9ecb4df",
+        "unchanged": true
+      },
+      {
+        "path": "research/blueprint/UPSTREAM_GUIDE.md",
+        "baseBlob": "a767747585bba9a7c57ff365e02a574f04cfec71",
+        "freshBlob": "a767747585bba9a7c57ff365e02a574f04cfec71",
+        "unchanged": true
+      },
+      {
+        "path": "research/expansion/PROTOCOL.md",
+        "baseBlob": "c763c69dd1a81f4ded9843c714f8b32c9c4cf854",
+        "freshBlob": "c763c69dd1a81f4ded9843c714f8b32c9c4cf854",
+        "unchanged": true
+      },
+      {
+        "path": "research/blueprint/reviews/REV-AUDIT-08.md",
+        "baseBlob": "74e04473cbdbd7f7055c2d96fbc57e22daf8f589",
+        "freshBlob": "74e04473cbdbd7f7055c2d96fbc57e22daf8f589",
+        "unchanged": true
+      },
+      {
+        "path": "data/library-coverage.json",
+        "baseBlob": "5e708cfc74a51b10e62149113872fe4e00eb5846",
+        "freshBlob": "5e708cfc74a51b10e62149113872fe4e00eb5846",
+        "unchanged": true
+      },
+      {
+        "path": "research/blueprint/keydefs/owners.json",
+        "baseBlob": "842994dba6bbb56d36a67dd7409baa053f410330",
+        "freshBlob": "842994dba6bbb56d36a67dd7409baa053f410330",
+        "unchanged": true
+      },
+      {
+        "path": "data/keydefs/KEYDEF-algebraicgeometry.json",
+        "baseBlob": "b3fbb2e57c169ab14c7704a47b96f83d41adb5fe",
+        "freshBlob": "b3fbb2e57c169ab14c7704a47b96f83d41adb5fe",
+        "unchanged": true
+      },
+      {
+        "path": "research/blueprint/papers/papers.json",
+        "baseBlob": "1904ee922a931e2281130f1488ddb24d81e71f63",
+        "freshBlob": "1904ee922a931e2281130f1488ddb24d81e71f63",
+        "unchanged": true
+      },
+      {
+        "path": "content/campaign/AnabelianGeometryAndNonabelianChabauty/README.md",
+        "baseBlob": "76b23b57493c140090c99a5cf70712a252fa871a",
+        "freshBlob": "76b23b57493c140090c99a5cf70712a252fa871a",
+        "unchanged": true
+      },
+      {
+        "path": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty.json",
+        "baseBlob": "15fba26078ee34e05027af992ae23dde9cc2ed0e",
+        "freshBlob": "15fba26078ee34e05027af992ae23dde9cc2ed0e",
+        "unchanged": true
+      },
+      {
+        "path": "research/blueprint/readmes/AnabelianGeometryAndNonabelianChabauty.md",
+        "baseBlob": "0960346d4ac86fb825ad09767f635ca8f7c877fa",
+        "freshBlob": "0960346d4ac86fb825ad09767f635ca8f7c877fa",
+        "unchanged": true
+      },
+      {
+        "path": "research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty.lean",
+        "baseBlob": "9bc234a9cd1cc530e2a474b6b97bdb4776234d37",
+        "freshBlob": "9bc234a9cd1cc530e2a474b6b97bdb4776234d37",
+        "unchanged": true
+      },
+      {
+        "path": "research/blueprint/handoff/BP-AnabelianGeometryAndNonabelianChabauty.md",
+        "baseBlob": "f7a72f34edaa002011c24fb0887a570a7b4a51b1",
+        "freshBlob": "f7a72f34edaa002011c24fb0887a570a7b4a51b1",
+        "unchanged": true
+      }
     ]
-  },
-  "steps": {
-    "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension": "For the kernel of the native central-quotient projection, first identify it with the specified central subgroup and then import its restricted inner action and joint continuity, its native underlying kernel comparison and the native quotient comparison when f is surjective. The quotient comparison is a homeomorphism exactly when f is a quotient map. This supplies actual group/topology realizations in the kernel-of-map case; a descended quotient G-action, quotient H¹ comparison and arbitrary G-stable subgroup adapters remain required.",
-    "AnabelianGeometryAndNonabelianChabauty:NC.3/functoriality": "Apply H1.map to the actual restricted twisted-kernel inclusion, using its proved joint action continuity. Its composite with the twisted coefficient map is neutral on every cocycle class, so the existing twist translation puts its image in the fibre over [f∘c]. This is one inclusion; a converse lift, injectivity and geometric local-condition compatibility remain separate obligations."
-  },
-  "newIds": {
-    "Twist.kernel_mem": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-membership",
-    "Twist.kernel_stable": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-stability",
-    "Twist.kernelEquiv": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-equivalence",
-    "Twist.kernelEquiv_value": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-equivalence-value",
-    "Twist.kernelEquiv_continuous": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-equivalence-continuous",
-    "Twist.kernelEquiv_symm_continuous": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-equivalence-inverse-continuous",
-    "Twist.kernelAction": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-action",
-    "Twist.kernelAction_value": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-action-value",
-    "Twist.kernelContinuousSMul": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-action-continuity",
-    "H1.twistedKernelInclusion": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-inclusion",
-    "H1.twistedKernelInclusion_mk": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-representative",
-    "H1.twistedKernelInclusion_one": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-neutral",
-    "H1.twistedKernelInclusion_image": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-image",
-    "H1.twistedKernelInclusion_fibre": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-repointed-fibre",
-    "Twist.map_surjective": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-map-surjectivity",
-    "Twist.quotientEquiv": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-quotient-equivalence",
-    "Twist.quotientEquiv_mk": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-quotient-value",
-    "Twist.quotientEquiv_continuous": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-quotient-continuous",
-    "Twist.quotientEquiv_symm_continuous": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-quotient-inverse-continuous",
-    "Twist.quotientHomeomorph": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-quotient-homeomorphism",
-    "Twist.quotientHomeomorph_mk": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-quotient-homeomorphism-value",
-    "Twist.quotientHomeomorph_toEquiv": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-quotient-homeomorphism-comparison",
-    "Twist.quotientHomeomorph_mul": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-quotient-homeomorphism-multiplication",
-    "Twist.quotientEquiv_symm_continuous_iff": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-quotient-topology-criterion"
-  },
-  "nativePredecessorSha256": "1f6fc508e77a33378a5ce427b11f4880ea31a0ddd72bab00af20cce14cf54b74",
-  "frontier": "Actual kernels of continuous equivariant coefficient maps are now realized in the inner twist with restricted jointly continuous action, native underlying kernel comparison and induced H¹ inclusion. Its translated image lies in the fibre over [f∘c]; no converse or H¹ injectivity is claimed. For surjective f the actual native group quotient is identified with the target twist, and its inverse is continuous exactly when f is a quotient map. A descended quotient G-action and quotient H¹ comparison, arbitrary G-stable subgroup realization, geometric local conditions, genuine additive comparison, unipotent point topologies, geometric torsor classification, representability and all reserved K(pi,1)/source/supplier obligations remain open.",
-  "baselineAdded": 5,
-  "mathNames": [
-    "Twist.kernel_mem",
-    "Twist.kernel_stable",
-    "Twist.kernelEquiv",
-    "Twist.kernelEquiv_value",
-    "Twist.kernelEquiv_continuous",
-    "Twist.kernelEquiv_symm_continuous",
-    "Twist.kernelAction",
-    "Twist.kernelAction_value",
-    "Twist.kernelContinuousSMul",
-    "H1.twistedKernelInclusion",
-    "H1.twistedKernelInclusion_mk",
-    "H1.twistedKernelInclusion_one",
-    "H1.twistedKernelInclusion_image",
-    "H1.twistedKernelInclusion_fibre",
-    "Twist.map_surjective",
-    "Twist.quotientEquiv",
-    "Twist.quotientEquiv_mk",
-    "Twist.quotientEquiv_continuous",
-    "Twist.quotientEquiv_symm_continuous",
-    "Twist.quotientHomeomorph",
-    "Twist.quotientHomeomorph_mk",
-    "Twist.quotientHomeomorph_toEquiv",
-    "Twist.quotientHomeomorph_mul",
-    "Twist.quotientEquiv_symm_continuous_iff"
-  ],
-  "testNames": [
-    "Twist.kernelEquiv.test_inverse",
-    "Twist.kernelEquiv.test_identity_kernel",
-    "Twist.kernelEquiv.test_constant_kernel",
-    "Twist.kernelAction.test_unit",
-    "Twist.kernelAction.test_joint_continuity",
-    "Twist.kernelAction.test_noncommutative_action",
-    "H1.twistedKernelInclusion.test_neutral",
-    "H1.twistedKernelInclusion.test_gauge_classes",
-    "H1.twistedKernelInclusion.test_repointed_fibre",
-    "Twist.quotientEquiv.test_native_comparison",
-    "Twist.quotientEquiv.test_inverse",
-    "Twist.quotientEquiv.test_nonsurjective_constant",
-    "Twist.quotientHomeomorph.test_native_value",
-    "Twist.quotientHomeomorph.test_inverse",
-    "Twist.quotientHomeomorph.test_quotient_topology_required"
-  ]
-}
-```
-<!-- END TWISTED KERNEL METADATA 63 -->
-
-<!-- BEGIN TWISTED KERNEL NATIVE LOG 63 -->
-```text
-'TauCeti.NonabelianCohomology.Z1.descend' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.descend_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.descend_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.inflate' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.inflate_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.inflate_trivialOn' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.inflate_descend' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.descend_inflate' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.descend_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.inflate_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.descendEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.descendEquiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.descendEquiv_symm_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.descend_proof_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.descend_gauge_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.inflate_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.descendEquiv_left_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.descendEquiv_right_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.descendEquiv_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.instMulAction' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.smul_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.coboundary' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.mk' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.mk_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.mk_eq_mk_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.instOne' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.mk_eq_one_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.inflate_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.inflate_gauge_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.inflate' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.inflate_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.inflate_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.inflate_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.inflate_eq_one_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.restrict' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.restrict_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.restrict_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.restrict_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.normalize_trivialOn' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.mk_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.restrict' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.restrict_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.restrict_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.restrict_mk_eq_one_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.restrict_inflate' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.restrict_inflate' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.mem_range_inflate_iff_restrict_eq_one' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.H1.existsUnique_inflate_of_restrict_eq_one' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.quotientFixedContinuousSMul' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.inflateNeutralEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.inflateNeutralEquiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.inflateNeutralEquiv_symm_inflate' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.H1.inflateNeutralEquiv_apply_symm' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.H1.inflateNeutralEquiv_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.transition' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.transition' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.inflate_transition' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.transition_trans' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.transition_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.quotientDiagram' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.inflationCocone' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.exists_quotient_class' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.inflationCoconeIsColimit' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv_ι' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.map' does not depend on any axioms
-'TauCeti.NonabelianCohomology.Z1.map_apply' does not depend on any axioms
-'TauCeti.NonabelianCohomology.Z1.map_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.map_trivial' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.map_id' does not depend on any axioms
-'TauCeti.NonabelianCohomology.Z1.map_comp' depends on axioms: [propext, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.map' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.map_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.map_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.map_id' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.map_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H0.map' depends on axioms: [propext]
-'TauCeti.NonabelianCohomology.H0.map_apply' depends on axioms: [propext]
-'TauCeti.NonabelianCohomology.H0.map_id' depends on axioms: [propext]
-'TauCeti.NonabelianCohomology.H0.map_comp' depends on axioms: [propext, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.res' does not depend on any axioms
-'TauCeti.NonabelianCohomology.Z1.res_apply' does not depend on any axioms
-'TauCeti.NonabelianCohomology.Z1.res_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.res_id' does not depend on any axioms
-'TauCeti.NonabelianCohomology.Z1.res_comp' depends on axioms: [propext, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.res_injective' depends on axioms: [Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.res_subgroup' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.res_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.res' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.res_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.res_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.res_id' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.res_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.res_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.res_subgroup' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.res_map' does not depend on any axioms
-'TauCeti.NonabelianCohomology.H1.res_map' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H0.res' depends on axioms: [propext]
-'TauCeti.NonabelianCohomology.H0.res_apply' depends on axioms: [propext]
-'TauCeti.NonabelianCohomology.H0.res_id' depends on axioms: [propext]
-'TauCeti.NonabelianCohomology.H0.res_comp' depends on axioms: [propext, Quot.sound]
-'TauCeti.NonabelianCohomology.H0.res_injective' depends on axioms: [propext]
-'TauCeti.NonabelianCohomology.H0.res_map' depends on axioms: [propext, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist' does not depend on any axioms
-'TauCeti.NonabelianCohomology.Twist.smul_def' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.twistEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.twistEquiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.twistEquiv_symm_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.twistEquiv_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.twistEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.twistEquiv_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.twistEquiv_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.twistEquiv_eq_class_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.mem_fixed_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.toOriginal' does not depend on any axioms
-'TauCeti.NonabelianCohomology.Twist.map' does not depend on any axioms
-'TauCeti.NonabelianCohomology.Twist.map_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.map_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.map_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.map_id' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.map_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.twistEquiv_map' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.twistEquiv_symm_map' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.twistEquiv_map' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.twistEquiv_symm_map' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.twistEquiv_map_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.twistEquiv_map_fibre' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.gaugeEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.gaugeEquiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.gaugeEquiv_symm_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.gaugeEquiv_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.gaugeEquiv_symm_continuous' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.gaugeEquiv_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.gaugeEquiv_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.gaugeEquiv_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.twistEquiv_gaugeMap' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.twistEquiv_gaugeMap' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.changeRepresentative' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.changeRepresentative_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.changeRepresentative_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.changeRepresentative_gauge' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.changeRepresentative_id' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.changeRepresentative_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.changeRepresentative_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.changeRepresentative_twistEquiv' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.H1.changeRepresentative_eq_map' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.GaugeTransportTests.inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.GaugeTransportTests.identity' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.GaugeTransportTests.noncommutative_direction' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.GaugeTransportTests.neutral' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.GaugeTransportTests.nonneutral' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.GaugeTransportTests.class_hypothesis' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.sourceEquiv' depends on axioms: [Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.sourceEquiv_apply' depends on axioms: [Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.sourceEquiv_symm_apply' depends on axioms: [Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.sourceEquiv_continuous' depends on axioms: [Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.sourceEquiv_symm_continuous' depends on axioms: [Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.sourceEquiv_smul' depends on axioms: [propext, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.twistRes' depends on axioms: [propext, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.twistRes_apply' depends on axioms: [propext, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.twistRes_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.twistRes_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.twistRes_translation' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.twistRes' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.twistRes_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.twistRes_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.twistRes_translation' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.sourceEquiv_gauge' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Z1.twistRes_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.twistRes_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.twistRes_representative' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.twistRes_identity_translation' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.H1.twistRes_comp_translation' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.TwistedSourceTests.inverse' depends on axioms: [Quot.sound]
-'TauCeti.NonabelianCohomology.TwistedSourceTests.semilinear' depends on axioms: [propext, Quot.sound]
-'TauCeti.NonabelianCohomology.TwistedSourceTests.noncommutative_action' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.TwistedSourceTests.cocycle_identity' depends on axioms: [propext, Quot.sound]
-'TauCeti.NonabelianCohomology.TwistedSourceTests.cocycle_gauge' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.TwistedSourceTests.cocycle_detection' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.TwistedSourceTests.neutral' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.TwistedSourceTests.gauge_classes' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.TwistedSourceTests.class_detection' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.TwistedSourceTests.nonsurjective_loss' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.kernel_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.kernel_stable' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.kernelEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.kernelEquiv_value' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.kernelEquiv_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.kernelEquiv_symm_continuous' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.kernelAction' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.kernelAction_value' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.kernelContinuousSMul' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.twistedKernelInclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_image' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_fibre' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.map_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.quotientEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.quotientEquiv_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.quotientEquiv_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.quotientEquiv_symm_continuous' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.quotientHomeomorph' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.quotientHomeomorph_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.quotientHomeomorph_toEquiv' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.quotientHomeomorph_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.Twist.quotientEquiv_symm_continuous_iff' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.TwistedKernelTests.kernel_inverse' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.TwistedKernelTests.identity_kernel' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.TwistedKernelTests.constant_kernel' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.TwistedKernelTests.action_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TauCeti.NonabelianCohomology.TwistedKernelTests.action_continuous' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.TwistedKernelTests.action_noncommutative' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.TwistedKernelTests.inclusion_neutral' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.TwistedKernelTests.inclusion_gauge' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.TwistedKernelTests.inclusion_fibre' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.TwistedKernelTests.quotient_native' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.TwistedKernelTests.quotient_inverse' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.TwistedKernelTests.quotient_nonsurjective' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.TwistedKernelTests.homeomorph_value' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.TwistedKernelTests.homeomorph_inverse' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'TauCeti.NonabelianCohomology.TwistedKernelTests.homeomorph_topology_required' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-	Command being timed: "timeout 1200 lake env lean Native63.lean"
-	User time (seconds): 22.82
-	System time (seconds): 0.63
-	Percent of CPU this job got: 130%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:18.01
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 3700684
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 117574
-	Voluntary context switches: 25402
-	Involuntary context switches: 994
-	Swaps: 0
-	File system inputs: 1408
-	File system outputs: 48
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
-EXIT 0
-```
-<!-- END TWISTED KERNEL NATIVE LOG 63 -->
-
-<!-- BEGIN TWISTED KERNEL SKETCH LOG 63 -->
-```text
-Sketch63.lean:57:15: warning: declaration uses `sorry`
-Sketch63.lean:64:0: warning: declaration uses `sorry`
-Sketch63.lean:66:8: warning: declaration uses `sorry`
-Sketch63.lean:68:8: warning: declaration uses `sorry`
-Sketch63.lean:73:4: warning: declaration uses `sorry`
-Sketch63.lean:76:9: warning: declaration uses `sorry`
-Sketch63.lean:81:8: warning: declaration uses `sorry`
-Sketch63.lean:84:4: warning: declaration uses `sorry`
-Sketch63.lean:100:8: warning: declaration uses `sorry`
-Sketch63.lean:102:8: warning: declaration uses `sorry`
-Sketch63.lean:107:8: warning: declaration uses `sorry`
-Sketch63.lean:120:4: warning: declaration uses `sorry`
-Sketch63.lean:124:4: warning: declaration uses `sorry`
-Sketch63.lean:127:8: warning: declaration uses `sorry`
-Sketch63.lean:130:8: warning: declaration uses `sorry`
-Sketch63.lean:132:8: warning: declaration uses `sorry`
-Sketch63.lean:137:4: warning: declaration uses `sorry`
-Sketch63.lean:155:4: warning: declaration uses `sorry`
-Sketch63.lean:160:8: warning: declaration uses `sorry`
-Sketch63.lean:165:8: warning: declaration uses `sorry`
-Sketch63.lean:171:8: warning: declaration uses `sorry`
-Sketch63.lean:178:8: warning: declaration uses `sorry`
-Sketch63.lean:186:8: warning: declaration uses `sorry`
-Sketch63.lean:194:0: warning: declaration uses `sorry`
-Sketch63.lean:200:0: warning: declaration uses `sorry`
-Sketch63.lean:206:0: warning: declaration uses `sorry`
-Sketch63.lean:212:0: warning: declaration uses `sorry`
-Sketch63.lean:222:8: warning: declaration uses `sorry`
-Sketch63.lean:229:8: warning: declaration uses `sorry`
-Sketch63.lean:237:8: warning: declaration uses `sorry`
-Sketch63.lean:244:8: warning: declaration uses `sorry`
-Sketch63.lean:256:8: warning: declaration uses `sorry`
-Sketch63.lean:263:4: warning: declaration uses `sorry`
-Sketch63.lean:270:8: warning: declaration uses `sorry`
-Sketch63.lean:274:8: warning: declaration uses `sorry`
-Sketch63.lean:279:8: warning: declaration uses `sorry`
-Sketch63.lean:286:4: warning: declaration uses `sorry`
-Sketch63.lean:292:8: warning: declaration uses `sorry`
-Sketch63.lean:299:8: warning: declaration uses `sorry`
-Sketch63.lean:303:8: warning: declaration uses `sorry`
-Sketch63.lean:310:8: warning: declaration uses `sorry`
-Sketch63.lean:315:8: warning: declaration uses `sorry`
-Sketch63.lean:321:8: warning: declaration uses `sorry`
-Sketch63.lean:326:8: warning: declaration uses `sorry`
-Sketch63.lean:333:8: warning: declaration uses `sorry`
-Sketch63.lean:339:0: warning: declaration uses `sorry`
-Sketch63.lean:344:0: warning: declaration uses `sorry`
-Sketch63.lean:349:0: warning: declaration uses `sorry`
-Sketch63.lean:364:0: warning: declaration uses `sorry`
-Sketch63.lean:369:0: warning: declaration uses `sorry`
-Sketch63.lean:376:0: warning: declaration uses `sorry`
-Sketch63.lean:399:4: warning: declaration uses `sorry`
-Sketch63.lean:405:8: warning: declaration uses `sorry`
-Sketch63.lean:433:4: warning: declaration uses `sorry`
-Sketch63.lean:436:0: warning: declaration uses `sorry`
-Sketch63.lean:437:0: warning: declaration uses `sorry`
-Sketch63.lean:439:8: warning: declaration uses `sorry`
-Sketch63.lean:443:4: warning: declaration uses `sorry`
-Sketch63.lean:445:4: warning: declaration uses `sorry`
-Sketch63.lean:447:8: warning: declaration uses `sorry`
-Sketch63.lean:474:4: warning: declaration uses `sorry`
-Sketch63.lean:478:4: warning: declaration uses `sorry`
-Sketch63.lean:480:8: warning: declaration uses `sorry`
-Sketch63.lean:483:8: warning: declaration uses `sorry`
-Sketch63.lean:491:0: warning: declaration uses `sorry`
-Sketch63.lean:498:0: warning: declaration uses `sorry`
-Sketch63.lean:512:4: warning: declaration uses `sorry`
-Sketch63.lean:514:6: warning: declaration uses `sorry`
-Sketch63.lean:516:6: warning: declaration uses `sorry`
-Sketch63.lean:520:6: warning: declaration uses `sorry`
-Sketch63.lean:524:6: warning: declaration uses `sorry`
-Sketch63.lean:529:6: warning: declaration uses `sorry`
-Sketch63.lean:533:6: warning: declaration uses `sorry`
-Sketch63.lean:537:6: warning: declaration uses `sorry`
-Sketch63.lean:541:6: warning: declaration uses `sorry`
-Sketch63.lean:547:6: warning: declaration uses `sorry`
-Sketch63.lean:559:6: warning: declaration uses `sorry`
-Sketch63.lean:562:6: warning: declaration uses `sorry`
-Sketch63.lean:565:0: warning: declaration uses `sorry`
-Sketch63.lean:568:0: warning: declaration uses `sorry`
-Sketch63.lean:572:0: warning: declaration uses `sorry`
-Sketch63.lean:579:0: warning: declaration uses `sorry`
-Sketch63.lean:583:0: warning: declaration uses `sorry`
-Sketch63.lean:586:0: warning: declaration uses `sorry`
-Sketch63.lean:595:0: warning: declaration uses `sorry`
-Sketch63.lean:598:0: warning: declaration uses `sorry`
-Sketch63.lean:607:4: warning: declaration uses `sorry`
-Sketch63.lean:610:6: warning: declaration uses `sorry`
-Sketch63.lean:613:6: warning: declaration uses `sorry`
-Sketch63.lean:617:4: warning: declaration uses `sorry`
-Sketch63.lean:619:6: warning: declaration uses `sorry`
-Sketch63.lean:622:6: warning: declaration uses `sorry`
-Sketch63.lean:625:6: warning: declaration uses `sorry`
-Sketch63.lean:628:6: warning: declaration uses `sorry`
-Sketch63.lean:631:6: warning: declaration uses `sorry`
-Sketch63.lean:634:6: warning: declaration uses `sorry`
-Sketch63.lean:636:4: warning: declaration uses `sorry`
-Sketch63.lean:639:6: warning: declaration uses `sorry`
-Sketch63.lean:642:6: warning: declaration uses `sorry`
-Sketch63.lean:645:6: warning: declaration uses `sorry`
-Sketch63.lean:648:6: warning: declaration uses `sorry`
-Sketch63.lean:654:6: warning: declaration uses `sorry`
-Sketch63.lean:656:6: warning: declaration uses `sorry`
-Sketch63.lean:659:6: warning: declaration uses `sorry`
-Sketch63.lean:662:6: warning: declaration uses `sorry`
-Sketch63.lean:673:0: warning: declaration uses `sorry`
-Sketch63.lean:677:0: warning: declaration uses `sorry`
-Sketch63.lean:681:0: warning: declaration uses `sorry`
-Sketch63.lean:687:0: warning: declaration uses `sorry`
-Sketch63.lean:690:0: warning: declaration uses `sorry`
-Sketch63.lean:694:0: warning: declaration uses `sorry`
-Sketch63.lean:698:0: warning: declaration uses `sorry`
-Sketch63.lean:702:0: warning: declaration uses `sorry`
-Sketch63.lean:706:0: warning: declaration uses `sorry`
-Sketch63.lean:719:6: warning: declaration uses `sorry`
-Sketch63.lean:723:6: warning: declaration uses `sorry`
-Sketch63.lean:729:4: warning: declaration uses `sorry`
-Sketch63.lean:731:6: warning: declaration uses `sorry`
-Sketch63.lean:734:6: warning: declaration uses `sorry`
-Sketch63.lean:736:6: warning: declaration uses `sorry`
-Sketch63.lean:739:6: warning: declaration uses `sorry`
-Sketch63.lean:744:0: warning: declaration uses `sorry`
-Sketch63.lean:747:0: warning: declaration uses `sorry`
-Sketch63.lean:751:0: warning: declaration uses `sorry`
-Sketch63.lean:757:0: warning: declaration uses `sorry`
-Sketch63.lean:1187:0: warning: declaration uses `sorry`
-Sketch63.lean:1188:0: warning: declaration uses `sorry`
-Sketch63.lean:1189:0: warning: declaration uses `sorry`
-Sketch63.lean:1264:0: warning: declaration uses `sorry`
-Sketch63.lean:1265:0: warning: declaration uses `sorry`
-Sketch63.lean:1266:0: warning: declaration uses `sorry`
-Sketch63.lean:1267:0: warning: declaration uses `sorry`
-Sketch63.lean:1268:0: warning: declaration uses `sorry`
-Sketch63.lean:1271:0: warning: declaration uses `sorry`
-Sketch63.lean:1273:0: warning: declaration uses `sorry`
-Sketch63.lean:1274:0: warning: declaration uses `sorry`
-Sketch63.lean:1275:0: warning: declaration uses `sorry`
-Sketch63.lean:1276:0: warning: declaration uses `sorry`
-Sketch63.lean:1277:0: warning: declaration uses `sorry`
-Sketch63.lean:1278:0: warning: declaration uses `sorry`
-Sketch63.lean:1312:0: warning: declaration uses `sorry`
-Sketch63.lean:1316:0: warning: declaration uses `sorry`
-Sketch63.lean:1319:0: warning: declaration uses `sorry`
-Sketch63.lean:1322:0: warning: declaration uses `sorry`
-Sketch63.lean:1329:0: warning: declaration uses `sorry`
-Sketch63.lean:1337:0: warning: declaration uses `sorry`
-Sketch63.lean:1344:0: warning: declaration uses `sorry`
-Sketch63.lean:1351:0: warning: declaration uses `sorry`
-Sketch63.lean:1356:0: warning: declaration uses `sorry`
-Sketch63.lean:1360:0: warning: declaration uses `sorry`
-Sketch63.lean:1364:0: warning: declaration uses `sorry`
-Sketch63.lean:1380:4: warning: declaration uses `sorry`
-Sketch63.lean:1382:6: warning: declaration uses `sorry`
-Sketch63.lean:1384:6: warning: declaration uses `sorry`
-Sketch63.lean:1388:6: warning: declaration uses `sorry`
-Sketch63.lean:1391:6: warning: declaration uses `sorry`
-Sketch63.lean:1400:6: warning: declaration uses `sorry`
-Sketch63.lean:1402:4: warning: declaration uses `sorry`
-Sketch63.lean:1404:6: warning: declaration uses `sorry`
-Sketch63.lean:1406:6: warning: declaration uses `sorry`
-Sketch63.lean:1408:6: warning: declaration uses `sorry`
-Sketch63.lean:1419:6: warning: declaration uses `sorry`
-Sketch63.lean:1426:6: warning: declaration uses `sorry`
-Sketch63.lean:1429:8: warning: declaration uses `sorry`
-Sketch63.lean:1432:8: warning: declaration uses `sorry`
-Sketch63.lean:1444:0: warning: declaration uses `sorry`
-Sketch63.lean:1447:0: warning: declaration uses `sorry`
-Sketch63.lean:1450:0: warning: declaration uses `sorry`
-Sketch63.lean:1454:0: warning: declaration uses `sorry`
-Sketch63.lean:1457:0: warning: declaration uses `sorry`
-Sketch63.lean:1460:0: warning: declaration uses `sorry`
-Sketch63.lean:1463:0: warning: declaration uses `sorry`
-Sketch63.lean:1469:0: warning: declaration uses `sorry`
-Sketch63.lean:1483:0: warning: declaration uses `sorry`
-Sketch63.lean:1508:6: warning: declaration uses `sorry`
-Sketch63.lean:1524:4: warning: declaration uses `sorry`
-Sketch63.lean:1528:6: warning: declaration uses `sorry`
-Sketch63.lean:1532:6: warning: declaration uses `sorry`
-Sketch63.lean:1536:6: warning: declaration uses `sorry`
-Sketch63.lean:1540:6: warning: declaration uses `sorry`
-Sketch63.lean:1545:0: warning: declaration uses `sorry`
-Sketch63.lean:1548:0: warning: declaration uses `sorry`
-Sketch63.lean:1552:0: warning: declaration uses `sorry`
-Sketch63.lean:1556:0: warning: declaration uses `sorry`
-Sketch63.lean:1560:0: warning: declaration uses `sorry`
-Sketch63.lean:1564:0: warning: declaration uses `sorry`
-Sketch63.lean:1583:4: warning: declaration uses `sorry`
-Sketch63.lean:1586:6: warning: declaration uses `sorry`
-Sketch63.lean:1590:6: warning: declaration uses `sorry`
-Sketch63.lean:1594:6: warning: declaration uses `sorry`
-Sketch63.lean:1597:6: warning: declaration uses `sorry`
-Sketch63.lean:1601:6: warning: declaration uses `sorry`
-Sketch63.lean:1604:6: warning: declaration uses `sorry`
-Sketch63.lean:1613:4: warning: declaration uses `sorry`
-Sketch63.lean:1616:6: warning: declaration uses `sorry`
-Sketch63.lean:1619:6: warning: declaration uses `sorry`
-Sketch63.lean:1622:6: warning: declaration uses `sorry`
-Sketch63.lean:1625:6: warning: declaration uses `sorry`
-Sketch63.lean:1629:6: warning: declaration uses `sorry`
-Sketch63.lean:1632:6: warning: declaration uses `sorry`
-Sketch63.lean:1648:4: warning: declaration uses `sorry`
-Sketch63.lean:1657:4: warning: declaration uses `sorry`
-Sketch63.lean:1663:6: warning: declaration uses `sorry`
-Sketch63.lean:1667:6: warning: declaration uses `sorry`
-Sketch63.lean:1671:6: warning: declaration uses `sorry`
-Sketch63.lean:1675:6: warning: declaration uses `sorry`
-Sketch63.lean:1679:6: warning: declaration uses `sorry`
-Sketch63.lean:1681:6: warning: declaration uses `sorry`
-Sketch63.lean:1695:8: warning: declaration uses `sorry`
-Sketch63.lean:1700:18: warning: declaration uses `sorry`
-Sketch63.lean:1704:8: warning: declaration uses `sorry`
-Sketch63.lean:1707:18: warning: declaration uses `sorry`
-Sketch63.lean:1710:6: warning: declaration uses `sorry`
-Sketch63.lean:1715:6: warning: declaration uses `sorry`
-Sketch63.lean:1720:6: warning: declaration uses `sorry`
-Sketch63.lean:1736:0: warning: declaration uses `sorry`
-Sketch63.lean:1739:0: warning: declaration uses `sorry`
-Sketch63.lean:1743:0: warning: declaration uses `sorry`
-Sketch63.lean:1750:0: warning: declaration uses `sorry`
-Sketch63.lean:1753:0: warning: declaration uses `sorry`
-Sketch63.lean:1758:0: warning: declaration uses `sorry`
-Sketch63.lean:1769:0: warning: declaration uses `sorry`
-Sketch63.lean:1773:0: warning: declaration uses `sorry`
-Sketch63.lean:1779:0: warning: declaration uses `sorry`
-Sketch63.lean:1784:0: warning: declaration uses `sorry`
-Sketch63.lean:1789:0: warning: declaration uses `sorry`
-Sketch63.lean:1794:0: warning: declaration uses `sorry`
-Sketch63.lean:1807:0: warning: declaration uses `sorry`
-Sketch63.lean:1811:0: warning: declaration uses `sorry`
-Sketch63.lean:1816:0: warning: declaration uses `sorry`
-Sketch63.lean:1821:0: warning: declaration uses `sorry`
-Sketch63.lean:1828:0: warning: declaration uses `sorry`
-Sketch63.lean:1858:6: warning: declaration uses `sorry`
-Sketch63.lean:1863:6: warning: declaration uses `sorry`
-Sketch63.lean:1868:6: warning: declaration uses `sorry`
-Sketch63.lean:1871:6: warning: declaration uses `sorry`
-Sketch63.lean:1883:6: warning: declaration uses `sorry`
-Sketch63.lean:1888:6: warning: declaration uses `sorry`
-Sketch63.lean:1903:6: warning: declaration uses `sorry`
-Sketch63.lean:1907:6: warning: declaration uses `sorry`
-Sketch63.lean:1910:6: warning: declaration uses `sorry`
-Sketch63.lean:1926:0: warning: declaration uses `sorry`
-Sketch63.lean:1930:0: warning: declaration uses `sorry`
-Sketch63.lean:1936:0: warning: declaration uses `sorry`
-Sketch63.lean:1942:0: warning: declaration uses `sorry`
-Sketch63.lean:1946:0: warning: declaration uses `sorry`
-Sketch63.lean:1952:0: warning: declaration uses `sorry`
-Sketch63.lean:1962:0: warning: declaration uses `sorry`
-Sketch63.lean:1966:0: warning: declaration uses `sorry`
-Sketch63.lean:1971:0: warning: declaration uses `sorry`
-Sketch63.lean:1977:0: warning: declaration uses `sorry`
-Sketch63.lean:1999:0: warning: declaration uses `sorry`
-Sketch63.lean:2021:0: warning: declaration uses `sorry`
-Sketch63.lean:2051:4: warning: declaration uses `sorry`
-Sketch63.lean:2054:6: warning: declaration uses `sorry`
-Sketch63.lean:2058:6: warning: declaration uses `sorry`
-Sketch63.lean:2062:6: warning: declaration uses `sorry`
-Sketch63.lean:2065:6: warning: declaration uses `sorry`
-Sketch63.lean:2072:6: warning: declaration uses `sorry`
-Sketch63.lean:2076:6: warning: declaration uses `sorry`
-Sketch63.lean:2084:6: warning: declaration uses `sorry`
-Sketch63.lean:2088:4: warning: declaration uses `sorry`
-Sketch63.lean:2091:6: warning: declaration uses `sorry`
-Sketch63.lean:2095:6: warning: declaration uses `sorry`
-Sketch63.lean:2099:6: warning: declaration uses `sorry`
-Sketch63.lean:2102:6: warning: declaration uses `sorry`
-Sketch63.lean:2109:6: warning: declaration uses `sorry`
-Sketch63.lean:2113:6: warning: declaration uses `sorry`
-Sketch63.lean:2128:6: warning: declaration uses `sorry`
-Sketch63.lean:2140:6: warning: declaration uses `sorry`
-Sketch63.lean:2156:4: warning: declaration uses `sorry`
-Sketch63.lean:2159:6: warning: declaration uses `sorry`
-Sketch63.lean:2163:6: warning: declaration uses `sorry`
-Sketch63.lean:2166:6: warning: declaration uses `sorry`
-Sketch63.lean:2172:6: warning: declaration uses `sorry`
-Sketch63.lean:2178:6: warning: declaration uses `sorry`
-Sketch63.lean:2195:0: warning: declaration uses `sorry`
-Sketch63.lean:2201:0: warning: declaration uses `sorry`
-Sketch63.lean:2205:0: warning: declaration uses `sorry`
-Sketch63.lean:2210:0: warning: declaration uses `sorry`
-Sketch63.lean:2216:0: warning: declaration uses `sorry`
-Sketch63.lean:2222:0: warning: declaration uses `sorry`
-Sketch63.lean:2228:0: warning: declaration uses `sorry`
-Sketch63.lean:2233:0: warning: declaration uses `sorry`
-Sketch63.lean:2244:0: warning: declaration uses `sorry`
-Sketch63.lean:2249:0: warning: declaration uses `sorry`
-Sketch63.lean:2253:0: warning: declaration uses `sorry`
-Sketch63.lean:2262:0: warning: declaration uses `sorry`
-Sketch63.lean:2287:0: warning: declaration uses `sorry`
-Sketch63.lean:2306:6: warning: declaration uses `sorry`
-Sketch63.lean:2309:6: warning: declaration uses `sorry`
-Sketch63.lean:2312:6: warning: declaration uses `sorry`
-Sketch63.lean:2315:6: warning: declaration uses `sorry`
-Sketch63.lean:2318:6: warning: declaration uses `sorry`
-Sketch63.lean:2321:6: warning: declaration uses `sorry`
-Sketch63.lean:2325:0: warning: declaration uses `sorry`
-Sketch63.lean:2328:0: warning: declaration uses `sorry`
-Sketch63.lean:2331:0: warning: declaration uses `sorry`
-Sketch63.lean:2334:0: warning: declaration uses `sorry`
-Sketch63.lean:2338:0: warning: declaration uses `sorry`
-Sketch63.lean:2342:0: warning: declaration uses `sorry`
-Sketch63.lean:2363:0: warning: declaration uses `sorry`
-Sketch63.lean:2383:0: warning: declaration uses `sorry`
-Sketch63.lean:2400:4: warning: declaration uses `sorry`
-Sketch63.lean:2404:6: warning: declaration uses `sorry`
-Sketch63.lean:2409:6: warning: declaration uses `sorry`
-Sketch63.lean:2413:6: warning: declaration uses `sorry`
-Sketch63.lean:2418:6: warning: declaration uses `sorry`
-Sketch63.lean:2422:6: warning: declaration uses `sorry`
-Sketch63.lean:2430:6: warning: declaration uses `sorry`
-Sketch63.lean:2437:6: warning: declaration uses `sorry`
-Sketch63.lean:2443:6: warning: declaration uses `sorry`
-Sketch63.lean:2450:6: warning: declaration uses `sorry`
-Sketch63.lean:2456:6: warning: declaration uses `sorry`
-Sketch63.lean:2460:6: warning: declaration uses `sorry`
-Sketch63.lean:2467:0: warning: declaration uses `sorry`
-Sketch63.lean:2473:0: warning: declaration uses `sorry`
-Sketch63.lean:2477:0: warning: declaration uses `sorry`
-Sketch63.lean:2481:0: warning: declaration uses `sorry`
-Sketch63.lean:2489:0: warning: declaration uses `sorry`
-Sketch63.lean:2503:4: warning: declaration uses `sorry`
-Sketch63.lean:2505:6: warning: declaration uses `sorry`
-Sketch63.lean:2509:6: warning: declaration uses `sorry`
-Sketch63.lean:2513:6: warning: declaration uses `sorry`
-Sketch63.lean:2516:6: warning: declaration uses `sorry`
-Sketch63.lean:2519:6: warning: declaration uses `sorry`
-Sketch63.lean:2522:6: warning: declaration uses `sorry`
-Sketch63.lean:2525:6: warning: declaration uses `sorry`
-Sketch63.lean:2530:6: warning: declaration uses `sorry`
-Sketch63.lean:2535:6: warning: declaration uses `sorry`
-Sketch63.lean:2540:4: warning: declaration uses `sorry`
-Sketch63.lean:2543:6: warning: declaration uses `sorry`
-Sketch63.lean:2548:6: warning: declaration uses `sorry`
-Sketch63.lean:2551:6: warning: declaration uses `sorry`
-Sketch63.lean:2556:6: warning: declaration uses `sorry`
-Sketch63.lean:2559:6: warning: declaration uses `sorry`
-Sketch63.lean:2564:6: warning: declaration uses `sorry`
-Sketch63.lean:2567:6: warning: declaration uses `sorry`
-Sketch63.lean:2571:6: warning: declaration uses `sorry`
-Sketch63.lean:2578:0: warning: declaration uses `sorry`
-Sketch63.lean:2582:0: warning: declaration uses `sorry`
-Sketch63.lean:2586:0: warning: declaration uses `sorry`
-Sketch63.lean:2608:0: warning: declaration uses `sorry`
-Sketch63.lean:2612:0: warning: declaration uses `sorry`
-Sketch63.lean:2618:0: warning: declaration uses `sorry`
-Sketch63.lean:2634:4: warning: declaration uses `sorry`
-Sketch63.lean:2640:6: warning: declaration uses `sorry`
-Sketch63.lean:2647:6: warning: declaration uses `sorry`
-Sketch63.lean:2655:6: warning: declaration uses `sorry`
-Sketch63.lean:2661:6: warning: declaration uses `sorry`
-Sketch63.lean:2667:6: warning: declaration uses `sorry`
-Sketch63.lean:2673:4: warning: declaration uses `sorry`
-Sketch63.lean:2679:6: warning: declaration uses `sorry`
-Sketch63.lean:2686:6: warning: declaration uses `sorry`
-Sketch63.lean:2691:6: warning: declaration uses `sorry`
-Sketch63.lean:2698:6: warning: declaration uses `sorry`
-Sketch63.lean:2705:4: warning: declaration uses `sorry`
-Sketch63.lean:2710:6: warning: declaration uses `sorry`
-Sketch63.lean:2716:6: warning: declaration uses `sorry`
-Sketch63.lean:2721:6: warning: declaration uses `sorry`
-Sketch63.lean:2728:6: warning: declaration uses `sorry`
-Sketch63.lean:2737:6: warning: declaration uses `sorry`
-Sketch63.lean:2742:6: warning: declaration uses `sorry`
-Sketch63.lean:2747:6: warning: declaration uses `sorry`
-Sketch63.lean:2755:6: warning: declaration uses `sorry`
-Sketch63.lean:2765:6: warning: declaration uses `sorry`
-Sketch63.lean:2790:0: warning: declaration uses `sorry`
-Sketch63.lean:2797:0: warning: declaration uses `sorry`
-Sketch63.lean:2804:0: warning: declaration uses `sorry`
-Sketch63.lean:2832:0: warning: declaration uses `sorry`
-Sketch63.lean:2839:0: warning: declaration uses `sorry`
-Sketch63.lean:2847:0: warning: declaration uses `sorry`
-Sketch63.lean:2854:0: warning: declaration uses `sorry`
-Sketch63.lean:2861:0: warning: declaration uses `sorry`
-Sketch63.lean:2868:0: warning: declaration uses `sorry`
-Sketch63.lean:2875:0: warning: declaration uses `sorry`
-Sketch63.lean:2900:6: warning: declaration uses `sorry`
-Sketch63.lean:2905:6: warning: declaration uses `sorry`
-Sketch63.lean:2911:4: warning: declaration uses `sorry`
-Sketch63.lean:2916:6: warning: declaration uses `sorry`
-Sketch63.lean:2922:6: warning: declaration uses `sorry`
-Sketch63.lean:2927:6: warning: declaration uses `sorry`
-Sketch63.lean:2933:4: warning: declaration uses `sorry`
-Sketch63.lean:2938:6: warning: declaration uses `sorry`
-Sketch63.lean:2945:6: warning: declaration uses `sorry`
-Sketch63.lean:2951:4: warning: declaration uses `sorry`
-Sketch63.lean:2958:6: warning: declaration uses `sorry`
-Sketch63.lean:2968:6: warning: declaration uses `sorry`
-Sketch63.lean:2975:6: warning: declaration uses `sorry`
-Sketch63.lean:2984:6: warning: declaration uses `sorry`
-Sketch63.lean:2993:6: warning: declaration uses `sorry`
-Sketch63.lean:2998:4: warning: declaration uses `sorry`
-Sketch63.lean:3004:6: warning: declaration uses `sorry`
-Sketch63.lean:3010:6: warning: declaration uses `sorry`
-Sketch63.lean:3016:6: warning: declaration uses `sorry`
-Sketch63.lean:3022:4: warning: declaration uses `sorry`
-Sketch63.lean:3028:6: warning: declaration uses `sorry`
-Sketch63.lean:3035:6: warning: declaration uses `sorry`
-Sketch63.lean:3042:6: warning: declaration uses `sorry`
-Sketch63.lean:3051:6: warning: declaration uses `sorry`
-Sketch63.lean:3069:0: warning: declaration uses `sorry`
-Sketch63.lean:3076:0: warning: declaration uses `sorry`
-Sketch63.lean:3082:0: warning: declaration uses `sorry`
-Sketch63.lean:3090:0: warning: declaration uses `sorry`
-Sketch63.lean:3097:0: warning: declaration uses `sorry`
-Sketch63.lean:3104:0: warning: declaration uses `sorry`
-Sketch63.lean:3131:0: warning: declaration uses `sorry`
-Sketch63.lean:3139:0: warning: declaration uses `sorry`
-Sketch63.lean:3149:0: warning: declaration uses `sorry`
-Sketch63.lean:3159:0: warning: declaration uses `sorry`
-Sketch63.lean:3167:0: warning: declaration uses `sorry`
-Sketch63.lean:3175:0: warning: declaration uses `sorry`
-Sketch63.lean:3181:0: warning: declaration uses `sorry`
-Sketch63.lean:3190:0: warning: declaration uses `sorry`
-Sketch63.lean:3198:0: warning: declaration uses `sorry`
-	Command being timed: "timeout 1200 lake env lean Sketch63.lean"
-	User time (seconds): 21.13
-	System time (seconds): 0.61
-	Percent of CPU this job got: 117%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:18.51
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 3679548
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 115270
-	Voluntary context switches: 24588
-	Involuntary context switches: 1088
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 96
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
-EXIT 0
-```
-<!-- END TWISTED KERNEL SKETCH LOG 63 -->
-
-<!-- BEGIN TWISTED KERNEL MEMORY 63 -->
-```json
-{
-  "Native63": {
-    "availableGiB": 25,
-    "elapsedSeconds": 18.01246476173401,
-    "exit": 0
-  },
-  "Sketch63": {
-    "availableGiB": 26,
-    "elapsedSeconds": 18.513198375701904,
-    "exit": 0
   }
 }
 ```
-<!-- END TWISTED KERNEL MEMORY 63 -->
 
 ## Preserved incoming handoff
 
