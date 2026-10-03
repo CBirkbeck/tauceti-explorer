@@ -13,7 +13,7 @@
     "AlgebraicModuliForArithmeticGeometry:R09.7"
   ],
   "status": "partial",
-  "summary": "Native fixed-band morphism groupoid checkpoint:17 declaration-sized refinements (one definition, three constructions, thirteen lemmas),16 API entries and12 typed tests. All420 incoming declarations retain their contracts; only the neutral/all self-equivalence parents gain one dependency and one proof step each. The420-node source coverage, ten gaps and22 supplier requests remain required. Native Hom-sheaf assembly checkpoint: 19 new declarations, three constructions, 13 API items and 12 tests. Use full StrongTrans composition coherence and Mathlib local-bijection gluing to specify fibrewise fullness in the inherited adapter universe convention. All 365 untouched incoming node objects and the old full-faithfulness contract are retained; that parent gains only two prerequisite edges and one proof step. All implementations stay unchecked. Partial checkpoint with 366 declaration nodes. Adds 25 actual StrongTrans pullback adapters: five constructions and twenty lemmas, sixteen API items and fifteen native carrier/orientation tests. The actual local equivalences now compare the correct target pullbacks; arbitrary deeper-slice coherence and inverse Hom-sheaf gluing remain open. All incoming general gerbe/key-definition statements, source issues, requests, planets and ownership contracts are preserved; only the general full-faithfulness node receives two supplier edges and one proof step. No stage or reserved key is closed. Object-descent continuation: 27 native adapter and proof nodes retain local objects and isomorphisms, all three DescentData equations, actual global image morphisms, and fibrewise equivalence; coherent banded inverse and universe normalization remain open. This continuation separates eight native fixed-band inverse/modification adapters, with an independent coefficient universe and admission-free prototype audits, from the still-requested generic coherent inverse StrongTrans. It does not certify the global gerbe equivalence. This continuation bundles actual fibre Isom actions in native Action, maps every native fixed-band modification to equivariant postcomposition, and supplies choice-independent natural local-object transport. These pointwise leaves retain independent coefficient universes and possible empty section sets; the full torsor-sheaf comparison remains open.",
+  "summary": "Native semilinear site restriction of fixed-band Isom actions, with actual modification naturality, pseudofunctor identity/composition comparisons, and restriction-compatible natural local-object transport:18 new declarations,13 API items and14 parameterized tests. The independent proof prototype has no admissions; the roadmap remains partial and every implementation status remains unchecked. Native fixed-band morphism groupoid checkpoint:17 declaration-sized refinements (one definition, three constructions, thirteen lemmas),16 API entries and12 typed tests. All420 incoming declarations retain their contracts; only the neutral/all self-equivalence parents gain one dependency and one proof step each. The420-node source coverage, ten gaps and22 supplier requests remain required. Native Hom-sheaf assembly checkpoint: 19 new declarations, three constructions, 13 API items and 12 tests. Use full StrongTrans composition coherence and Mathlib local-bijection gluing to specify fibrewise fullness in the inherited adapter universe convention. All 365 untouched incoming node objects and the old full-faithfulness contract are retained; that parent gains only two prerequisite edges and one proof step. All implementations stay unchecked. Partial checkpoint with 366 declaration nodes. Adds 25 actual StrongTrans pullback adapters: five constructions and twenty lemmas, sixteen API items and fifteen native carrier/orientation tests. The actual local equivalences now compare the correct target pullbacks; arbitrary deeper-slice coherence and inverse Hom-sheaf gluing remain open. All incoming general gerbe/key-definition statements, source issues, requests, planets and ownership contracts are preserved; only the general full-faithfulness node receives two supplier edges and one proof step. No stage or reserved key is closed. Object-descent continuation: 27 native adapter and proof nodes retain local objects and isomorphisms, all three DescentData equations, actual global image morphisms, and fibrewise equivalence; coherent banded inverse and universe normalization remain open. This continuation separates eight native fixed-band inverse/modification adapters, with an independent coefficient universe and admission-free prototype audits, from the still-requested generic coherent inverse StrongTrans. It does not certify the global gerbe equivalence. This continuation bundles actual fibre Isom actions in native Action, maps every native fixed-band modification to equivariant postcomposition, and supplies choice-independent natural local-object transport. These pointwise leaves retain independent coefficient universes and possible empty section sets; the full torsor-sheaf comparison remains open.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1596,6 +1596,51 @@
         "sourceSha256": "1d4d9ab541d36ee5a2c9e60d140219967740a36c74e147bdf77f0a32f4ec7fbb",
         "provides": "The native TypeCat.ofHom carrier or exact statement used by the fixed-band fibre action construction.",
         "checked": "Exact statement, ambient hypotheses and defining fields read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex codex-rtOQ9t."
+      },
+      {
+        "ref": "mathlib:Action.res",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Action/Basic.lean",
+        "sourceLine": 329,
+        "sourceSha256": "f77ddee62b1491667184c83c5accd077e87f49033c74e8888696c93c78150813",
+        "provides": "Native restriction of actions along any monoid homomorphism; its map retains the underlying function.",
+        "checked": "Statement, hypotheses and defining fields read at pinned commit082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-03, Codex codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Pseudofunctor.StrongTrans.naturality_id_inv",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Bicategory/NaturalTransformation/Pseudo.lean",
+        "sourceLine": 221,
+        "sourceSha256": "4485e8cf6de3421060a3c803f2c37495a63b8ad785f956b87687c3d324011406",
+        "provides": "Inverse identity comparison of a native strong transformation, including both pseudofunctor unit comparisons.",
+        "checked": "Statement, hypotheses and defining fields read at pinned commit082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-03, Codex codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Pseudofunctor.StrongTrans.naturality_comp_inv",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Bicategory/NaturalTransformation/Pseudo.lean",
+        "sourceLine": 263,
+        "sourceSha256": "4485e8cf6de3421060a3c803f2c37495a63b8ad785f956b87687c3d324011406",
+        "provides": "Inverse composition comparison of a native strong transformation, including both pseudofunctor composition comparisons.",
+        "checked": "Statement, hypotheses and defining fields read at pinned commit082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-03, Codex codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Iso.app",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/NatIso.lean",
+        "sourceLine": 51,
+        "sourceSha256": "c2e8b0662cae553808f1973dfc6027272b8ec2697a105a487ce1b1044330d103",
+        "provides": "Actual object component of a natural isomorphism.",
+        "checked": "Statement, hypotheses and defining fields read at pinned commit082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-03, Codex codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.whiskerRight",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Whiskering.lean",
+        "sourceLine": 58,
+        "sourceSha256": "39524d6537900931d3a4dfe3929ba4200675f74b109a64cfe85695669bdb952d",
+        "provides": "Right whiskering of an actual natural transformation by a functor.",
+        "checked": "Statement, hypotheses and defining fields read at pinned commit082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-03, Codex codex-7e92bd."
       }
     ]
   },
@@ -2393,6 +2438,56 @@
         "The formulas and independence proof are authored deductions. All inherited source issues, sources and reading receipts retain their original provenance."
       ],
       "readingAgent": "Codex — codex-rtOQ9t"
+    },
+    {
+      "id": "OG-GWZ-restriction-codex-7e92bd",
+      "title": "Restriction of native fixed-band Isom actions and local-object transport",
+      "authors": "Martin Olsson and course-note contributors; Michael Groechenig, Dimitri Wyss and Paul Ziegler; native deductions by Codex — codex-7e92bd",
+      "edition": "Exact public source bytes accessed 2026-10-03; Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://stacky.net/files/written/Stacks/Stacks.pdf",
+      "sha256": "716bf95c7a200194d5fd1f2af48372253fde5ea65487b5d362bcccb5e0b7426a",
+      "accessDate": "2026-10-03",
+      "readSections": [
+        "Fresh mathematical text of printed122–123: Definition31.1, Remark31.2, full Lemma31.3 proof, Lemma31.4 and Remark31.5; visible beginning/warning of31.6. No rendered PDF-page inspection or complete classification proof is claimed. E7/E8 remain unchanged.",
+        "Fresh GWZ20 Definition2.6 and §2.2.1 through the automorphism-groupoid/torsor statement on printed514–515; Lemma2.7 is outside this continuation. Fresh complete mathematical definition Stacks06NZ.",
+        "Fresh exact pinned Action.res fields, StrongTrans naturality_id_inv/naturality_comp_inv, modification naturality, Cat.Hom.toNatIso, Iso.app, Functor.mapIso_trans/refl/symm and Functor.whiskerRight. All new formulas and proofs are authored deductions on the incoming native carriers.",
+        "Fresh issue and bot-confirmed reread, all12 reviewed own audit rows and REV-AUDIT01, campaign reader, accepted RS27 own keeps/28owners/relevant links and complete REV-FIX-RT-RS-27, all34 touching link entries, reserved gerbe node and survey/API, nine prescribed red-team claim/fix records. Previously complete upstream AlgebraicCurves/JacobianChallenge reading is hash-guarded unchanged; fresh ModularCurves1E/4A supplier paragraphs only. This does not assert a fresh full audit of464 incoming declarations or all papers.",
+        "Bounded open Mathlib PR searches gerbe and StrongTrans returned zero. Indexed Zulip Formalizing stacks discussion about native fibres and coherent pullbacks was read. Bounded pinned TauCeti source and Mathlib CategoryTheory searches gerbe|fibreIsomRestriction|selfTransportActionIso returned zero matches. No exhaustive library-absence assertion or unpinned code adoption."
+      ],
+      "relatedSources": [
+        {
+          "file": "Olsson.pdf",
+          "url": "https://stacky.net/files/written/Stacks/Stacks.pdf",
+          "sha256": "716bf95c7a200194d5fd1f2af48372253fde5ea65487b5d362bcccb5e0b7426a",
+          "bytes": 1616523,
+          "accessed": "2026-10-03T13:49:00.558094+00:00"
+        },
+        {
+          "file": "06NZ.html",
+          "url": "https://stacks.math.columbia.edu/tag/06NZ",
+          "sha256": "b60742528d35ea2612a54bc8d95096fb2e97a39e4cba59034918834e5f414535",
+          "bytes": 14136,
+          "accessed": "2026-10-03T13:49:01.066436+00:00"
+        },
+        {
+          "url": "https://link.springer.com/content/pdf/10.1007/s00222-020-00957-8.pdf",
+          "sha256": "f2231145778b0a3fb57ce241ce0014fc4299f0de536d3e19daf4206d146c3e07",
+          "bytes": 929005,
+          "accessDate": "2026-10-03T14:09:35.320679+00:00"
+        }
+      ],
+      "priorArt": [
+        {
+          "url": "https://leanprover-community.github.io/archive/stream/116395-maths/topic/Formalizing.20stacks.html",
+          "scope": "Fresh pullback/composition discussion, April2024; design context only."
+        }
+      ],
+      "sourceHashes": {
+        "Mathlib/CategoryTheory/Action/Basic.lean": "f77ddee62b1491667184c83c5accd077e87f49033c74e8888696c93c78150813",
+        "Mathlib/CategoryTheory/Bicategory/NaturalTransformation/Pseudo.lean": "4485e8cf6de3421060a3c803f2c37495a63b8ad785f956b87687c3d324011406",
+        "Mathlib/CategoryTheory/NatIso.lean": "c2e8b0662cae553808f1973dfc6027272b8ec2697a105a487ce1b1044330d103",
+        "Mathlib/CategoryTheory/Whiskering.lean": "39524d6537900931d3a4dfe3929ba4200675f74b109a64cfe85695669bdb952d"
+      }
     }
   ],
   "nodes": [
@@ -3543,7 +3638,8 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism",
         "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
         "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/groupoid",
-        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-nat-iso-independent"
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-nat-iso-independent",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/self-transport-nat-iso-restriction"
       ],
       "proofSteps": [
         "Conjugate along F≃BA.",
@@ -3551,7 +3647,8 @@
         "Locally trivialize Q to compare its image with Q⊗P; band preservation makes the comparison independent of the chosen trivialization.",
         "Recover modifications by evaluation at the trivial torsor and descent, giving full faithfulness.",
         "Use banded-hom/groupoid on the actual native fixed-band full subcategory. Its arrows retain all compatible modifications and their genuine component inverses. Constructing the torsor comparison functor, its full faithfulness and its coherent inverse remains a separate obligation; invertibility of modifications does not prove that comparison.",
-        "Use the native pointwise action functor, actual modification evaluation, and choice-independent natural local-object transport; still prove restriction coherence and the full torsor-sheaf comparison before this target is discharged."
+        "Use the native pointwise action functor, actual modification evaluation, and choice-independent natural local-object transport; still prove restriction coherence and the full torsor-sheaf comparison before this target is discharged.",
+        "Use the native restriction natural transformation, its unit/composition endpoint comparisons and the natural local-object restriction square. These diagrams supply restriction compatibility; still assemble the sheaf-level functor and its required descent and equivalence data."
       ],
       "acceptance": [
         "For A=Z/3Z over an algebraically closed point, the self-equivalence groupoid has one isomorphism class and three automorphisms of its identity object.",
@@ -5123,13 +5220,15 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism",
         "AlgebraicModuliForArithmeticGeometry:R09.4/isom-torsor",
         "AlgebraicModuliForArithmeticGeometry:R09.4/banding-iso-independent",
-        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-nat-iso-independent"
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-nat-iso-independent",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/self-transport-nat-iso-restriction"
       ],
       "proofSteps": [
         "Replacing φ by φ∘a changes η(φ) by the matching band automorphism η(a).",
         "Band preservation and the band conjugation equation move η(a) past p and cancel a⁻¹.",
         "Functoriality of η gives composition; its strong naturality gives the restriction comparison.",
-        "Use the native pointwise action functor, actual modification evaluation, and choice-independent natural local-object transport; still prove restriction coherence and the full torsor-sheaf comparison before this target is discharged."
+        "Use the native pointwise action functor, actual modification evaluation, and choice-independent natural local-object transport; still prove restriction coherence and the full torsor-sheaf comparison before this target is discharged.",
+        "Use the native restriction natural transformation, its unit/composition endpoint comparisons and the natural local-object restriction square. These diagrams supply restriction compatibility; still assemble the sheaf-level functor and its required descent and equivalence data."
       ],
       "acceptance": [
         "The conclusion is invariant under equivalence over the fixed site and retains all stated hypotheses."
@@ -5253,14 +5352,16 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
         "DiamondsAndVStacks:D0/stackification",
         "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/groupoid",
-        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-nat-iso-independent"
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-nat-iso-independent",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/self-transport-nat-iso-restriction"
       ],
       "proofSteps": [
         "On a cover with local objects, use the neutral-gerbe equivalence.",
         "Choice-independent transport glues both functors and their unit and counit.",
         "Descent of modifications makes the functor fully faithful as a functor of groupoids.",
         "Use banded-hom/groupoid on the actual native fixed-band full subcategory. Its arrows retain all compatible modifications and their genuine component inverses. Constructing the torsor comparison functor, its full faithfulness and its coherent inverse remains a separate obligation; invertibility of modifications does not prove that comparison.",
-        "Use the native pointwise action functor, actual modification evaluation, and choice-independent natural local-object transport; still prove restriction coherence and the full torsor-sheaf comparison before this target is discharged."
+        "Use the native pointwise action functor, actual modification evaluation, and choice-independent natural local-object transport; still prove restriction coherence and the full torsor-sheaf comparison before this target is discharged.",
+        "Use the native restriction natural transformation, its unit/composition endpoint comparisons and the natural local-object restriction square. These diagrams supply restriction compatibility; still assemble the sheaf-level functor and its required descent and equivalence data."
       ],
       "acceptance": [
         "Taking isomorphism classes gives H1(A), but the groupoid retains A automorphisms of the identity.",
@@ -28438,6 +28539,1077 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restrict-action-hom",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Restricting a fibre Isom action",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedIsom.restrictActionHom",
+      "statement": "For f:V→U and x,y∈F(U), the actual map p↦F(f)(p) is a morphism from fibreAction(b,x,y) to Action.res(A(f)) of fibreAction(b,F(f)x,F(f)y). The coefficient homomorphism is the native multiplicative form of A(f).",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with specified object and fibre-hom universes, and their IsGerbe predicates.",
+        "Fix a sheaf A of abelian groups in an independent universe w and actual AbelianBanding data bF,bG. For the self case F=G and bF=bG=b.",
+        "Use f:V→U and, when present, g:W→V; X is an object of the native fixed-band HomCategory, and m is an actual native modification. The source Isom set may be empty."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/fibre-action",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding",
+        "mathlib:Action.res",
+        "mathlib:AddMonoidHom.toMultiplicative",
+        "mathlib:CategoryTheory.Functor.mapIso_trans"
+      ],
+      "proofSteps": [
+        "Use the underlying function F(f).mapIso on the actual Iso type; no section is chosen.",
+        "Apply mapIso_trans and the band pullback equation to prove semilinearity with respect to A(f)."
+      ],
+      "acceptance": [
+        "The carrier, functors, isomorphisms, modifications and action restriction are the existing native ones; the source and target of every comparison retain their pseudofunctor coherence.",
+        "This establishes the stated section-level restriction diagram. Constructing the torsor sheaf and comparison functor, its full faithfulness, and the coherent inverse/unit/counit remains required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supplies restrictions and their coherent local-object gluing diagrams on the actual Isom actions."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retains actual modifications and their restriction naturality before the equivalence of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedIsom"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-restriction-codex-7e92bd",
+          "locator": "Olsson31.1–31.5, printed122–123; GWZ20 Definition2.6 and §2.2.1, printed514–515; authored native deductions.",
+          "excerpt": "gerbe",
+          "match": "The sources motivate bands and self-equivalence torsors. The exact native restriction formulas and proofs are authored deductions, not printed formulas or a completed classification theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedIsom.restrictActionHom_apply",
+          "role": "simp",
+          "statement": "The underlying function of restrictActionHom(b,f,x,y) sends p:x≅y to the actual mapped isomorphism F(f)(p)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedIsom.restrictActionHom_postcompose",
+          "role": "compatibility",
+          "statement": "For p:x≅y and q:y≅z, restriction of p followed by q equals the restriction of p followed by the restriction of q."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedIsom.restrictActionHom_refl",
+          "role": "compatibility",
+          "statement": "Restriction sends the actual identity isomorphism of x to the identity of F(f)x."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionActionTests.empty_source",
+          "kind": "non-example",
+          "statement": "An empty source Isom set still admits the constructed equivariant restriction arrow; the constructor requires no global section."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionActionTests.band_coefficient",
+          "kind": "compatibility",
+          "statement": "Restriction of p followed by b_y(a) equals restricted p followed by the target band evaluated at the actual coefficient A(f)(a)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionActionTests.restricted_unit",
+          "kind": "computation",
+          "statement": "Restricting the identity isomorphism gives the identity of the pulled-back object."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restrict-action-hom-apply",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The underlying restriction function",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedIsom.restrictActionHom_apply",
+      "statement": "The underlying function of restrictActionHom(b,f,x,y) sends p:x≅y to the actual mapped isomorphism F(f)(p).",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with specified object and fibre-hom universes, and their IsGerbe predicates.",
+        "Fix a sheaf A of abelian groups in an independent universe w and actual AbelianBanding data bF,bG. For the self case F=G and bF=bG=b.",
+        "Use f:V→U and, when present, g:W→V; X is an object of the native fixed-band HomCategory, and m is an actual native modification. The source Isom set may be empty."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restrict-action-hom"
+      ],
+      "proofSteps": [
+        "Evaluate the native Action.Hom field."
+      ],
+      "acceptance": [
+        "The carrier, functors, isomorphisms, modifications and action restriction are the existing native ones; the source and target of every comparison retain their pseudofunctor coherence.",
+        "This establishes the stated section-level restriction diagram. Constructing the torsor sheaf and comparison functor, its full faithfulness, and the coherent inverse/unit/counit remains required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supplies restrictions and their coherent local-object gluing diagrams on the actual Isom actions."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retains actual modifications and their restriction naturality before the equivalence of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedIsom"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-restriction-codex-7e92bd",
+          "locator": "Olsson31.1–31.5, printed122–123; GWZ20 Definition2.6 and §2.2.1, printed514–515; authored native deductions.",
+          "excerpt": "gerbe",
+          "match": "The sources motivate bands and self-equivalence torsors. The exact native restriction formulas and proofs are authored deductions, not printed formulas or a completed classification theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restrict-action-hom-postcompose",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Restriction preserves composed isomorphisms",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedIsom.restrictActionHom_postcompose",
+      "statement": "For p:x≅y and q:y≅z, restriction of p followed by q equals the restriction of p followed by the restriction of q.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with specified object and fibre-hom universes, and their IsGerbe predicates.",
+        "Fix a sheaf A of abelian groups in an independent universe w and actual AbelianBanding data bF,bG. For the self case F=G and bF=bG=b.",
+        "Use f:V→U and, when present, g:W→V; X is an object of the native fixed-band HomCategory, and m is an actual native modification. The source Isom set may be empty."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restrict-action-hom",
+        "mathlib:CategoryTheory.Functor.mapIso_trans"
+      ],
+      "proofSteps": [
+        "Use the existing mapIso_trans theorem on the fibre pullback functor."
+      ],
+      "acceptance": [
+        "The carrier, functors, isomorphisms, modifications and action restriction are the existing native ones; the source and target of every comparison retain their pseudofunctor coherence.",
+        "This establishes the stated section-level restriction diagram. Constructing the torsor sheaf and comparison functor, its full faithfulness, and the coherent inverse/unit/counit remains required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supplies restrictions and their coherent local-object gluing diagrams on the actual Isom actions."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retains actual modifications and their restriction naturality before the equivalence of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedIsom"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-restriction-codex-7e92bd",
+          "locator": "Olsson31.1–31.5, printed122–123; GWZ20 Definition2.6 and §2.2.1, printed514–515; authored native deductions.",
+          "excerpt": "gerbe",
+          "match": "The sources motivate bands and self-equivalence torsors. The exact native restriction formulas and proofs are authored deductions, not printed formulas or a completed classification theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restrict-action-hom-refl",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Restriction preserves the identity isomorphism",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedIsom.restrictActionHom_refl",
+      "statement": "Restriction sends the actual identity isomorphism of x to the identity of F(f)x.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with specified object and fibre-hom universes, and their IsGerbe predicates.",
+        "Fix a sheaf A of abelian groups in an independent universe w and actual AbelianBanding data bF,bG. For the self case F=G and bF=bG=b.",
+        "Use f:V→U and, when present, g:W→V; X is an object of the native fixed-band HomCategory, and m is an actual native modification. The source Isom set may be empty."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restrict-action-hom",
+        "mathlib:CategoryTheory.Functor.mapIso_refl"
+      ],
+      "proofSteps": [
+        "Apply native mapIso_refl."
+      ],
+      "acceptance": [
+        "The carrier, functors, isomorphisms, modifications and action restriction are the existing native ones; the source and target of every comparison retain their pseudofunctor coherence.",
+        "This establishes the stated section-level restriction diagram. Constructing the torsor sheaf and comparison functor, its full faithfulness, and the coherent inverse/unit/counit remains required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supplies restrictions and their coherent local-object gluing diagrams on the actual Isom actions."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retains actual modifications and their restriction naturality before the equivalence of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedIsom"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-restriction-codex-7e92bd",
+          "locator": "Olsson31.1–31.5, printed122–123; GWZ20 Definition2.6 and §2.2.1, printed514–515; authored native deductions.",
+          "excerpt": "gerbe",
+          "match": "The sources motivate bands and self-equivalence torsors. The exact native restriction formulas and proofs are authored deductions, not printed formulas or a completed classification theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The strong restriction comparison",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.restrictionIso",
+      "statement": "For a native band-preserving strong transformation X:F→G, define c(X,f,x):G(f)(X(U)x)≅X(V)(F(f)x) as the inverse object component of X.naturality(f).",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with specified object and fibre-hom universes, and their IsGerbe predicates.",
+        "Fix a sheaf A of abelian groups in an independent universe w and actual AbelianBanding data bF,bG. For the self case F=G and bF=bG=b.",
+        "Use f:V→U and, when present, g:W→V; X is an object of the native fixed-band HomCategory, and m is an actual native modification. The source Isom set may be empty."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/fibre-isom-action-functor",
+        "mathlib:CategoryTheory.Cat.Hom.toNatIso",
+        "mathlib:CategoryTheory.Iso.app"
+      ],
+      "proofSteps": [
+        "Take the native natural isomorphism attached to X.naturality(f), evaluate at x, and invert it.",
+        "Keep its direction explicit: the source is the pullback of X(U)x, and the target is X(V) of the pullback of x."
+      ],
+      "acceptance": [
+        "The carrier, functors, isomorphisms, modifications and action restriction are the existing native ones; the source and target of every comparison retain their pseudofunctor coherence.",
+        "This establishes the stated section-level restriction diagram. Constructing the torsor sheaf and comparison functor, its full faithfulness, and the coherent inverse/unit/counit remains required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supplies restrictions and their coherent local-object gluing diagrams on the actual Isom actions."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retains actual modifications and their restriction naturality before the equivalence of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-restriction-codex-7e92bd",
+          "locator": "Olsson31.1–31.5, printed122–123; GWZ20 Definition2.6 and §2.2.1, printed514–515; authored native deductions.",
+          "excerpt": "gerbe",
+          "match": "The sources motivate bands and self-equivalence torsors. The exact native restriction formulas and proofs are authored deductions, not printed formulas or a completed classification theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.restrictionIso_naturality",
+          "role": "compatibility",
+          "statement": "For e:x≅x′, G(f)(X(U)(e)) followed by c(X,f,x′) equals c(X,f,x) followed by X(V)(F(f)(e))."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.restrictionIso_id",
+          "role": "compatibility",
+          "statement": "For f=id_U, c(X,f,x) equals the G.mapId component at X(U)x followed by X(U) applied to the inverse F.mapId component at x. Neither unit comparison is discarded."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.restrictionIso_comp",
+          "role": "compatibility",
+          "statement": "For f:V→U and g:W→V, c(X,g≫f,x) is G.mapComp(f,g) at X(U)x, then G(g)(c(X,f,x)), then c(X,g,F(f)x), then X(W) of the inverse F.mapComp(f,g) at x."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.restrictionIso_modification",
+          "role": "compatibility",
+          "statement": "For a native modification m:X→Y, G(f)(componentIso(m,U,x)) followed by c(Y,f,x) equals c(X,f,x) followed by componentIso(m,V,F(f)x)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionActionTests.comparison_roundtrip",
+          "kind": "compatibility",
+          "statement": "The inverse strong comparison followed by the original native comparison component is the identity."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionActionTests.comparison_identity",
+          "kind": "compatibility",
+          "statement": "The identity-arrow comparison retains both G.mapId and the inverse F.mapId component."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionActionTests.comparison_composition",
+          "kind": "compatibility",
+          "statement": "On two composable site arrows, the strong comparison includes G.mapComp, both intermediate comparisons and the inverse F.mapComp."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Semilinear restriction of morphism Isom actions",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomRestriction",
+      "statement": "For X:F→G, x∈F(U) and y∈G(U), define R(X,f,x,y):Isom(y,X(U)x)→Isom(G(f)y,X(V)(F(f)x)) by p↦G(f)(p) followed by c(X,f,x). Bundle it as an actual Action.Hom after Action.res(A(f)).",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with specified object and fibre-hom universes, and their IsGerbe predicates.",
+        "Fix a sheaf A of abelian groups in an independent universe w and actual AbelianBanding data bF,bG. For the self case F=G and bF=bG=b.",
+        "Use f:V→U and, when present, g:W→V; X is an object of the native fixed-band HomCategory, and m is an actual native modification. The source Isom set may be empty."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restrict-action-hom",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/postcompose-action-iso",
+        "mathlib:Action.res"
+      ],
+      "proofSteps": [
+        "Compose the already equivariant fibre restriction with Action.res applied to postcomposition by c(X,f,x).",
+        "The postcomposition equivariance uses the fixed band conjugation equation, so the coefficients agree at the changed target object."
+      ],
+      "acceptance": [
+        "The carrier, functors, isomorphisms, modifications and action restriction are the existing native ones; the source and target of every comparison retain their pseudofunctor coherence.",
+        "This establishes the stated section-level restriction diagram. Constructing the torsor sheaf and comparison functor, its full faithfulness, and the coherent inverse/unit/counit remains required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supplies restrictions and their coherent local-object gluing diagrams on the actual Isom actions."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retains actual modifications and their restriction naturality before the equivalence of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-restriction-codex-7e92bd",
+          "locator": "Olsson31.1–31.5, printed122–123; GWZ20 Definition2.6 and §2.2.1, printed514–515; authored native deductions.",
+          "excerpt": "gerbe",
+          "match": "The sources motivate bands and self-equivalence torsors. The exact native restriction formulas and proofs are authored deductions, not printed formulas or a completed classification theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomRestriction_apply",
+          "role": "simp",
+          "statement": "R(X,f,x,y)(p) is exactly G(f)(p) followed by c(X,f,x), on the original Isom carrier."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomRestriction_id",
+          "role": "compatibility",
+          "statement": "R(X,id_U,x,y)(p) equals the G.mapId component at y followed by p and then X(U) of the inverse F.mapId component at x."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomRestriction_comp",
+          "role": "compatibility",
+          "statement": "R(X,g≫f,x,y)(p) equals the G.mapComp(f,g) component at y, then R(X,g,F(f)x,G(f)y)(R(X,f,x,y)(p)), then X(W) of the inverse F.mapComp(f,g) component at x."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionActionTests.actual_transport",
+          "kind": "computation",
+          "statement": "The constructed native Action.Hom sends p to G(f)(p) followed by the inverse strong comparison."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionActionTests.semilinear_transport",
+          "kind": "compatibility",
+          "statement": "Transport of p acted on by a equals transported p acted on by A(f)(a), at the changed target X(V)(F(f)x)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionActionTests.transport_identity",
+          "kind": "compatibility",
+          "statement": "Restricting along the identity uses the two endpoint identifications; it does not assert an ill-typed strict identity."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction-apply",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Evaluating the semilinear restriction",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomRestriction_apply",
+      "statement": "R(X,f,x,y)(p) is exactly G(f)(p) followed by c(X,f,x), on the original Isom carrier.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with specified object and fibre-hom universes, and their IsGerbe predicates.",
+        "Fix a sheaf A of abelian groups in an independent universe w and actual AbelianBanding data bF,bG. For the self case F=G and bF=bG=b.",
+        "Use f:V→U and, when present, g:W→V; X is an object of the native fixed-band HomCategory, and m is an actual native modification. The source Isom set may be empty."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction"
+      ],
+      "proofSteps": [
+        "Unfold the underlying native Action.Hom composition."
+      ],
+      "acceptance": [
+        "The carrier, functors, isomorphisms, modifications and action restriction are the existing native ones; the source and target of every comparison retain their pseudofunctor coherence.",
+        "This establishes the stated section-level restriction diagram. Constructing the torsor sheaf and comparison functor, its full faithfulness, and the coherent inverse/unit/counit remains required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supplies restrictions and their coherent local-object gluing diagrams on the actual Isom actions."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retains actual modifications and their restriction naturality before the equivalence of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-restriction-codex-7e92bd",
+          "locator": "Olsson31.1–31.5, printed122–123; GWZ20 Definition2.6 and §2.2.1, printed514–515; authored native deductions.",
+          "excerpt": "gerbe",
+          "match": "The sources motivate bands and self-equivalence torsors. The exact native restriction formulas and proofs are authored deductions, not printed formulas or a completed classification theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso-modification",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Strong comparison commutes with modifications",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.restrictionIso_modification",
+      "statement": "For a native modification m:X→Y, G(f)(componentIso(m,U,x)) followed by c(Y,f,x) equals c(X,f,x) followed by componentIso(m,V,F(f)x).",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with specified object and fibre-hom universes, and their IsGerbe predicates.",
+        "Fix a sheaf A of abelian groups in an independent universe w and actual AbelianBanding data bF,bG. For the self case F=G and bF=bG=b.",
+        "Use f:V→U and, when present, g:W→V; X is an object of the native fixed-band HomCategory, and m is an actual native modification. The source Isom set may be empty."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/component-iso"
+      ],
+      "proofSteps": [
+        "Evaluate m.naturality(f) at x.",
+        "Multiply the resulting equality on the left by the inverse X comparison and on the right by the inverse Y comparison; cancel the two actual natural-isomorphism components."
+      ],
+      "acceptance": [
+        "The carrier, functors, isomorphisms, modifications and action restriction are the existing native ones; the source and target of every comparison retain their pseudofunctor coherence.",
+        "This establishes the stated section-level restriction diagram. Constructing the torsor sheaf and comparison functor, its full faithfulness, and the coherent inverse/unit/counit remains required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supplies restrictions and their coherent local-object gluing diagrams on the actual Isom actions."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retains actual modifications and their restriction naturality before the equivalence of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-restriction-codex-7e92bd",
+          "locator": "Olsson31.1–31.5, printed122–123; GWZ20 Definition2.6 and §2.2.1, printed514–515; authored native deductions.",
+          "excerpt": "gerbe",
+          "match": "The sources motivate bands and self-equivalence torsors. The exact native restriction formulas and proofs are authored deductions, not printed formulas or a completed classification theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction-nat-trans",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Restriction natural in the gerbe morphism",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomRestrictionNatTrans",
+      "statement": "R(X,f,x,y), as X varies in the native fixed-band HomCategory, forms a natural transformation from fibreIsomActionFunctor(U,x,y) to fibreIsomActionFunctor(V,F(f)x,G(f)y) followed by Action.res(A(f)).",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with specified object and fibre-hom universes, and their IsGerbe predicates.",
+        "Fix a sheaf A of abelian groups in an independent universe w and actual AbelianBanding data bF,bG. For the self case F=G and bF=bG=b.",
+        "Use f:V→U and, when present, g:W→V; X is an object of the native fixed-band HomCategory, and m is an actual native modification. The source Isom set may be empty."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso-modification",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/fibre-isom-action-functor"
+      ],
+      "proofSteps": [
+        "Use R(X,f,x,y) as the component at each actual strong transformation.",
+        "For each actual modification, evaluate the naturality square at p, distribute G(f) over composition and use restrictionIso_modification."
+      ],
+      "acceptance": [
+        "The carrier, functors, isomorphisms, modifications and action restriction are the existing native ones; the source and target of every comparison retain their pseudofunctor coherence.",
+        "This establishes the stated section-level restriction diagram. Constructing the torsor sheaf and comparison functor, its full faithfulness, and the coherent inverse/unit/counit remains required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supplies restrictions and their coherent local-object gluing diagrams on the actual Isom actions."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retains actual modifications and their restriction naturality before the equivalence of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-restriction-codex-7e92bd",
+          "locator": "Olsson31.1–31.5, printed122–123; GWZ20 Definition2.6 and §2.2.1, printed514–515; authored native deductions.",
+          "excerpt": "gerbe",
+          "match": "The sources motivate bands and self-equivalence torsors. The exact native restriction formulas and proofs are authored deductions, not printed formulas or a completed classification theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomRestrictionNatTrans_app",
+          "role": "simp",
+          "statement": "The component of fibreIsomRestrictionNatTrans(f,x,y) at X is the native equivariant map R(X,f,x,y)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomRestrictionNatTrans_naturality",
+          "role": "compatibility",
+          "statement": "For every m:X→Y, first applying the U-fibre action functor to m and then R(Y,f) equals R(X,f) followed by Action.res(A(f)) applied to the V-fibre action functor on m. This is equality of native Action.Hom arrows."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportNatIso_restriction",
+          "role": "compatibility",
+          "statement": "The natural isomorphism selfTransportNatIso(e), followed by the restriction transformation at x′, equals the restriction transformation at x followed by the right whiskering of selfTransportNatIso(F(f)(e)) with Action.res(A(f))."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionActionTests.natural_component",
+          "kind": "computation",
+          "statement": "The component at X is the actual equivariant fibre restriction, with unchanged source Isom carrier."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionActionTests.modification_square",
+          "kind": "compatibility",
+          "statement": "A native modification commutes with the restriction transformation as an equality of native equivariant maps."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionActionTests.inverse_modification_square",
+          "kind": "compatibility",
+          "statement": "The same restriction square holds for the native inverse modification, with both component isomorphisms inverted."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction-nat-trans-app",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Components of the restriction transformation",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomRestrictionNatTrans_app",
+      "statement": "The component of fibreIsomRestrictionNatTrans(f,x,y) at X is the native equivariant map R(X,f,x,y).",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with specified object and fibre-hom universes, and their IsGerbe predicates.",
+        "Fix a sheaf A of abelian groups in an independent universe w and actual AbelianBanding data bF,bG. For the self case F=G and bF=bG=b.",
+        "Use f:V→U and, when present, g:W→V; X is an object of the native fixed-band HomCategory, and m is an actual native modification. The source Isom set may be empty."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction-nat-trans"
+      ],
+      "proofSteps": [
+        "Evaluate the app field."
+      ],
+      "acceptance": [
+        "The carrier, functors, isomorphisms, modifications and action restriction are the existing native ones; the source and target of every comparison retain their pseudofunctor coherence.",
+        "This establishes the stated section-level restriction diagram. Constructing the torsor sheaf and comparison functor, its full faithfulness, and the coherent inverse/unit/counit remains required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supplies restrictions and their coherent local-object gluing diagrams on the actual Isom actions."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retains actual modifications and their restriction naturality before the equivalence of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-restriction-codex-7e92bd",
+          "locator": "Olsson31.1–31.5, printed122–123; GWZ20 Definition2.6 and §2.2.1, printed514–515; authored native deductions.",
+          "excerpt": "gerbe",
+          "match": "The sources motivate bands and self-equivalence torsors. The exact native restriction formulas and proofs are authored deductions, not printed formulas or a completed classification theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction-nat-trans-naturality",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The equivariant modification square",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomRestrictionNatTrans_naturality",
+      "statement": "For every m:X→Y, first applying the U-fibre action functor to m and then R(Y,f) equals R(X,f) followed by Action.res(A(f)) applied to the V-fibre action functor on m. This is equality of native Action.Hom arrows.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with specified object and fibre-hom universes, and their IsGerbe predicates.",
+        "Fix a sheaf A of abelian groups in an independent universe w and actual AbelianBanding data bF,bG. For the self case F=G and bF=bG=b.",
+        "Use f:V→U and, when present, g:W→V; X is an object of the native fixed-band HomCategory, and m is an actual native modification. The source Isom set may be empty."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction-nat-trans"
+      ],
+      "proofSteps": [
+        "Expose the naturality equation of the constructed natural transformation; its objects and maps are the actual native carriers."
+      ],
+      "acceptance": [
+        "The carrier, functors, isomorphisms, modifications and action restriction are the existing native ones; the source and target of every comparison retain their pseudofunctor coherence.",
+        "This establishes the stated section-level restriction diagram. Constructing the torsor sheaf and comparison functor, its full faithfulness, and the coherent inverse/unit/counit remains required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supplies restrictions and their coherent local-object gluing diagrams on the actual Isom actions."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retains actual modifications and their restriction naturality before the equivalence of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-restriction-codex-7e92bd",
+          "locator": "Olsson31.1–31.5, printed122–123; GWZ20 Definition2.6 and §2.2.1, printed514–515; authored native deductions.",
+          "excerpt": "gerbe",
+          "match": "The sources motivate bands and self-equivalence torsors. The exact native restriction formulas and proofs are authored deductions, not printed formulas or a completed classification theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso-naturality",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Strong comparison and change of source object",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.restrictionIso_naturality",
+      "statement": "For e:x≅x′, G(f)(X(U)(e)) followed by c(X,f,x′) equals c(X,f,x) followed by X(V)(F(f)(e)).",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with specified object and fibre-hom universes, and their IsGerbe predicates.",
+        "Fix a sheaf A of abelian groups in an independent universe w and actual AbelianBanding data bF,bG. For the self case F=G and bF=bG=b.",
+        "Use f:V→U and, when present, g:W→V; X is an object of the native fixed-band HomCategory, and m is an actual native modification. The source Isom set may be empty."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso"
+      ],
+      "proofSteps": [
+        "Apply the naturality of the inverse of the native comparison natural isomorphism to e.hom, then use Iso.ext."
+      ],
+      "acceptance": [
+        "The carrier, functors, isomorphisms, modifications and action restriction are the existing native ones; the source and target of every comparison retain their pseudofunctor coherence.",
+        "This establishes the stated section-level restriction diagram. Constructing the torsor sheaf and comparison functor, its full faithfulness, and the coherent inverse/unit/counit remains required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supplies restrictions and their coherent local-object gluing diagrams on the actual Isom actions."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retains actual modifications and their restriction naturality before the equivalence of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-restriction-codex-7e92bd",
+          "locator": "Olsson31.1–31.5, printed122–123; GWZ20 Definition2.6 and §2.2.1, printed514–515; authored native deductions.",
+          "excerpt": "gerbe",
+          "match": "The sources motivate bands and self-equivalence torsors. The exact native restriction formulas and proofs are authored deductions, not printed formulas or a completed classification theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso-id",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The unit coherence of the strong comparison",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.restrictionIso_id",
+      "statement": "For f=id_U, c(X,f,x) equals the G.mapId component at X(U)x followed by X(U) applied to the inverse F.mapId component at x. Neither unit comparison is discarded.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with specified object and fibre-hom universes, and their IsGerbe predicates.",
+        "Fix a sheaf A of abelian groups in an independent universe w and actual AbelianBanding data bF,bG. For the self case F=G and bF=bG=b.",
+        "Use f:V→U and, when present, g:W→V; X is an object of the native fixed-band HomCategory, and m is an actual native modification. The source Isom set may be empty."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso",
+        "mathlib:CategoryTheory.Pseudofunctor.StrongTrans.naturality_id_inv"
+      ],
+      "proofSteps": [
+        "Evaluate the native inverse identity-coherence equation at x and simplify only the Cat associator and unitor components."
+      ],
+      "acceptance": [
+        "The carrier, functors, isomorphisms, modifications and action restriction are the existing native ones; the source and target of every comparison retain their pseudofunctor coherence.",
+        "This establishes the stated section-level restriction diagram. Constructing the torsor sheaf and comparison functor, its full faithfulness, and the coherent inverse/unit/counit remains required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supplies restrictions and their coherent local-object gluing diagrams on the actual Isom actions."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retains actual modifications and their restriction naturality before the equivalence of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-restriction-codex-7e92bd",
+          "locator": "Olsson31.1–31.5, printed122–123; GWZ20 Definition2.6 and §2.2.1, printed514–515; authored native deductions.",
+          "excerpt": "gerbe",
+          "match": "The sources motivate bands and self-equivalence torsors. The exact native restriction formulas and proofs are authored deductions, not printed formulas or a completed classification theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso-comp",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The composition coherence of the strong comparison",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.restrictionIso_comp",
+      "statement": "For f:V→U and g:W→V, c(X,g≫f,x) is G.mapComp(f,g) at X(U)x, then G(g)(c(X,f,x)), then c(X,g,F(f)x), then X(W) of the inverse F.mapComp(f,g) at x.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with specified object and fibre-hom universes, and their IsGerbe predicates.",
+        "Fix a sheaf A of abelian groups in an independent universe w and actual AbelianBanding data bF,bG. For the self case F=G and bF=bG=b.",
+        "Use f:V→U and, when present, g:W→V; X is an object of the native fixed-band HomCategory, and m is an actual native modification. The source Isom set may be empty."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso",
+        "mathlib:CategoryTheory.Pseudofunctor.StrongTrans.naturality_comp_inv"
+      ],
+      "proofSteps": [
+        "Evaluate the native inverse composition-coherence equation at x.",
+        "Keep both mapComp factors; remove only Cat associators whose object components are identities."
+      ],
+      "acceptance": [
+        "The carrier, functors, isomorphisms, modifications and action restriction are the existing native ones; the source and target of every comparison retain their pseudofunctor coherence.",
+        "This establishes the stated section-level restriction diagram. Constructing the torsor sheaf and comparison functor, its full faithfulness, and the coherent inverse/unit/counit remains required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supplies restrictions and their coherent local-object gluing diagrams on the actual Isom actions."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retains actual modifications and their restriction naturality before the equivalence of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-restriction-codex-7e92bd",
+          "locator": "Olsson31.1–31.5, printed122–123; GWZ20 Definition2.6 and §2.2.1, printed514–515; authored native deductions.",
+          "excerpt": "gerbe",
+          "match": "The sources motivate bands and self-equivalence torsors. The exact native restriction formulas and proofs are authored deductions, not printed formulas or a completed classification theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction-id",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Identity restriction with its endpoint identifications",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomRestriction_id",
+      "statement": "R(X,id_U,x,y)(p) equals the G.mapId component at y followed by p and then X(U) of the inverse F.mapId component at x.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with specified object and fibre-hom universes, and their IsGerbe predicates.",
+        "Fix a sheaf A of abelian groups in an independent universe w and actual AbelianBanding data bF,bG. For the self case F=G and bF=bG=b.",
+        "Use f:V→U and, when present, g:W→V; X is an object of the native fixed-band HomCategory, and m is an actual native modification. The source Isom set may be empty."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction-apply",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso-id"
+      ],
+      "proofSteps": [
+        "Substitute the comparison identity equation into the formula for R.",
+        "Move the G.mapId component past G(id)(p) using its naturality."
+      ],
+      "acceptance": [
+        "The carrier, functors, isomorphisms, modifications and action restriction are the existing native ones; the source and target of every comparison retain their pseudofunctor coherence.",
+        "This establishes the stated section-level restriction diagram. Constructing the torsor sheaf and comparison functor, its full faithfulness, and the coherent inverse/unit/counit remains required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supplies restrictions and their coherent local-object gluing diagrams on the actual Isom actions."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retains actual modifications and their restriction naturality before the equivalence of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-restriction-codex-7e92bd",
+          "locator": "Olsson31.1–31.5, printed122–123; GWZ20 Definition2.6 and §2.2.1, printed514–515; authored native deductions.",
+          "excerpt": "gerbe",
+          "match": "The sources motivate bands and self-equivalence torsors. The exact native restriction formulas and proofs are authored deductions, not printed formulas or a completed classification theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction-comp",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Two successive restrictions with endpoint comparisons",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomRestriction_comp",
+      "statement": "R(X,g≫f,x,y)(p) equals the G.mapComp(f,g) component at y, then R(X,g,F(f)x,G(f)y)(R(X,f,x,y)(p)), then X(W) of the inverse F.mapComp(f,g) component at x.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with specified object and fibre-hom universes, and their IsGerbe predicates.",
+        "Fix a sheaf A of abelian groups in an independent universe w and actual AbelianBanding data bF,bG. For the self case F=G and bF=bG=b.",
+        "Use f:V→U and, when present, g:W→V; X is an object of the native fixed-band HomCategory, and m is an actual native modification. The source Isom set may be empty."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction-apply",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso-comp",
+        "mathlib:CategoryTheory.Functor.mapIso_trans"
+      ],
+      "proofSteps": [
+        "Expand both successive restrictions and distribute the pullback functor over the composite isomorphism.",
+        "Use the naturality of G.mapComp at p to move its component from X(U)x to y, retaining the F.mapComp endpoint correction."
+      ],
+      "acceptance": [
+        "The carrier, functors, isomorphisms, modifications and action restriction are the existing native ones; the source and target of every comparison retain their pseudofunctor coherence.",
+        "This establishes the stated section-level restriction diagram. Constructing the torsor sheaf and comparison functor, its full faithfulness, and the coherent inverse/unit/counit remains required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supplies restrictions and their coherent local-object gluing diagrams on the actual Isom actions."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retains actual modifications and their restriction naturality before the equivalence of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-restriction-codex-7e92bd",
+          "locator": "Olsson31.1–31.5, printed122–123; GWZ20 Definition2.6 and §2.2.1, printed514–515; authored native deductions.",
+          "excerpt": "gerbe",
+          "match": "The sources motivate bands and self-equivalence torsors. The exact native restriction formulas and proofs are authored deductions, not printed formulas or a completed classification theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/self-transport-action-iso-restriction",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Local-object transport commutes with restriction",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportActionIso_restriction",
+      "statement": "For X:F→F and e:x≅x′, selfTransportActionIso(X,e) followed by R(X,f,x′,x′) equals R(X,f,x,x) followed by Action.res(A(f)) applied to selfTransportActionIso(X,F(f)(e)). This is equality of actual Action.Hom arrows.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with specified object and fibre-hom universes, and their IsGerbe predicates.",
+        "Fix a sheaf A of abelian groups in an independent universe w and actual AbelianBanding data bF,bG. For the self case F=G and bF=bG=b.",
+        "Use f:V→U and, when present, g:W→V; X is an object of the native fixed-band HomCategory, and m is an actual native modification. The source Isom set may be empty."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso-naturality",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso"
+      ],
+      "proofSteps": [
+        "Evaluate both arrows on p:x≅X(U)x and expand the local-object transport e⁻¹ followed by p followed by X(U)(e).",
+        "Distribute F(f) over those three factors and use restrictionIso_naturality on the last factor."
+      ],
+      "acceptance": [
+        "The carrier, functors, isomorphisms, modifications and action restriction are the existing native ones; the source and target of every comparison retain their pseudofunctor coherence.",
+        "This establishes the stated section-level restriction diagram. Constructing the torsor sheaf and comparison functor, its full faithfulness, and the coherent inverse/unit/counit remains required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supplies restrictions and their coherent local-object gluing diagrams on the actual Isom actions."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retains actual modifications and their restriction naturality before the equivalence of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-restriction-codex-7e92bd",
+          "locator": "Olsson31.1–31.5, printed122–123; GWZ20 Definition2.6 and §2.2.1, printed514–515; authored native deductions.",
+          "excerpt": "gerbe",
+          "match": "The sources motivate bands and self-equivalence torsors. The exact native restriction formulas and proofs are authored deductions, not printed formulas or a completed classification theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionActionTests.restricted_choice_independence",
+          "kind": "compatibility",
+          "statement": "Two connecting local isomorphisms e,e′ give the same restricted equivariant self-transport map."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/self-transport-nat-iso-restriction",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Natural local-object transport commutes with restriction",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportNatIso_restriction",
+      "statement": "The natural isomorphism selfTransportNatIso(e), followed by the restriction transformation at x′, equals the restriction transformation at x followed by the right whiskering of selfTransportNatIso(F(f)(e)) with Action.res(A(f)).",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G with specified object and fibre-hom universes, and their IsGerbe predicates.",
+        "Fix a sheaf A of abelian groups in an independent universe w and actual AbelianBanding data bF,bG. For the self case F=G and bF=bG=b.",
+        "Use f:V→U and, when present, g:W→V; X is an object of the native fixed-band HomCategory, and m is an actual native modification. The source Isom set may be empty."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/self-transport-action-iso-restriction",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction-nat-trans",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-nat-iso",
+        "mathlib:CategoryTheory.Functor.whiskerRight"
+      ],
+      "proofSteps": [
+        "Use natural-transformation extensionality on every X and apply the actual equivariant local-object square.",
+        "The inherited independence of e identifies these squares for any other connecting isomorphism, without choosing one globally."
+      ],
+      "acceptance": [
+        "The carrier, functors, isomorphisms, modifications and action restriction are the existing native ones; the source and target of every comparison retain their pseudofunctor coherence.",
+        "This establishes the stated section-level restriction diagram. Constructing the torsor sheaf and comparison functor, its full faithfulness, and the coherent inverse/unit/counit remains required."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supplies restrictions and their coherent local-object gluing diagrams on the actual Isom actions."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Retains actual modifications and their restriction naturality before the equivalence of groupoids."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-GWZ-restriction-codex-7e92bd",
+          "locator": "Olsson31.1–31.5, printed122–123; GWZ20 Definition2.6 and §2.2.1, printed514–515; authored native deductions.",
+          "excerpt": "gerbe",
+          "match": "The sources motivate bands and self-equivalence torsors. The exact native restriction formulas and proofs are authored deductions, not printed formulas or a completed classification theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.RestrictionActionTests.local_object_square",
+          "kind": "compatibility",
+          "statement": "The complete natural-transformation square for changing a local object commutes after action restriction."
+        }
+      ]
     }
   ],
   "requests": [
@@ -28658,7 +29830,8 @@
         "The object-descent route is specified with native carriers and actual morphisms; inverse StrongTrans/band coherence, independent coefficient-universe normalization and admitted mathematical proof bodies remain open.",
         "Fixed-band natural-isomorphism/modification invariance, native chosen fibre-inverse coefficients, and unit/counit fibre transport now have eight precise leaves and admission-free prototypes with independent coefficient universe. The generic coherent inverse StrongTrans and unit/counit/triangle assembly is explicitly requested from D0; the earlier Hom-sheaf/object-descent universe normalization and all other remaining obligations are unchanged.",
         "Use the native fixed-band morphism groupoid in the torsor comparison and construct its actual functors/coherent unit and counit. This checkpoint supplies modification inverses, not the coherent inverse StrongTrans requested from D0 or the general self-equivalence classification.",
-        "Native pointwise Isom action functors and choice-independent natural local-object transports now have separate leaves. Prove compatibility with arbitrary site restrictions, construct the torsor-sheaf functor on actual modifications, and prove its full faithfulness and coherent inverse/unit/counit. Pointwise action carriers may be empty, and no sheaf torsor or global neutralization follows from this checkpoint alone. All previous gaps and22 supplier requests remain."
+        "Native pointwise Isom action functors and choice-independent natural local-object transports now have separate leaves. Prove compatibility with arbitrary site restrictions, construct the torsor-sheaf functor on actual modifications, and prove its full faithfulness and coherent inverse/unit/counit. Pointwise action carriers may be empty, and no sheaf torsor or global neutralization follows from this checkpoint alone. All previous gaps and22 supplier requests remain.",
+        "Native Action.res restriction maps, actual modification naturality, unit/composition formulas with both endpoint comparisons, and natural local-object restriction squares now have precise leaves and an independently checked proof prototype with independent coefficient universe. Assemble the actual torsor sheaf and its functor on modifications using the SF1 descent input, then prove full faithfulness and the coherent inverse/unit/counit using D0. The14 new tests are parameterized actual-carrier checks, not fresh geometric or nonconstant-site instances; instantiate those restrictions in the existing nonconstant fixtures as further validation. The SF1 descended band, nonneutral O(1) root gerbe, derived H2, compatible fpqc limits and all inherited stage/source obligations and22 requests remain required."
       ]
     },
     {
@@ -28998,13 +30171,13 @@
       "sha256": "820bc690bb5753e990b580716b93aff2326d873ae03b7bf2aee8e9e935e55ed6"
     },
     {
-      "kind": "public-html",
+      "kind": "published",
       "url": "https://stacks.math.columbia.edu/tag/06NY",
       "read": "2026-10-02",
       "sha256": "784df742e6d6c147f90645bfef73a6ad9fa60cb34e9b2d3006401857ed88a32e"
     },
     {
-      "kind": "public-html",
+      "kind": "published",
       "url": "https://stacks.math.columbia.edu/tag/026F",
       "read": "2026-10-02",
       "sha256": "0024923a8e370df81c72261a9765c15c3e1d3bbb8b59a46ab41605f2f2ae60a0"
@@ -30812,5 +31985,41 @@
       "stageEdgesUnchanged": true
     },
     "publicationBase": "7a0839ba10a362fba9724a9704e986412ea03aa8"
+  },
+  "restrictionActionContinuation": {
+    "worker": "Codex — codex-7e92bd",
+    "date": "2026-10-03",
+    "issue": 672,
+    "base": "c9c1157a2e091ed86a2daf61d66dd65cefae45cd",
+    "newNodes": [
+      "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restrict-action-hom",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restrict-action-hom-apply",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restrict-action-hom-postcompose",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restrict-action-hom-refl",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction-apply",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso-modification",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction-nat-trans",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction-nat-trans-app",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction-nat-trans-naturality",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso-naturality",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso-id",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso-comp",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction-id",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction-comp",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/self-transport-action-iso-restriction",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/self-transport-nat-iso-restriction"
+    ],
+    "newAPI": 13,
+    "newTests": 14,
+    "frontier": "Native Action.res restriction maps, actual modification naturality, unit/composition formulas with both endpoint comparisons, and natural local-object restriction squares now have precise leaves and an independently checked proof prototype with independent coefficient universe. Assemble the actual torsor sheaf and its functor on modifications using the SF1 descent input, then prove full faithfulness and the coherent inverse/unit/counit using D0. The14 new tests are parameterized actual-carrier checks, not fresh geometric or nonconstant-site instances; instantiate those restrictions in the existing nonconstant fixtures as further validation. The SF1 descended band, nonneutral O(1) root gerbe, derived H2, compatible fpqc limits and all inherited stage/source obligations and22 requests remain required.",
+    "readingScope": [
+      "Fresh mathematical text of printed122–123: Definition31.1, Remark31.2, full Lemma31.3 proof, Lemma31.4 and Remark31.5; visible beginning/warning of31.6. No rendered PDF-page inspection or complete classification proof is claimed. E7/E8 remain unchanged.",
+      "Fresh GWZ20 Definition2.6 and §2.2.1 through the automorphism-groupoid/torsor statement on printed514–515; Lemma2.7 is outside this continuation. Fresh complete mathematical definition Stacks06NZ.",
+      "Fresh exact pinned Action.res fields, StrongTrans naturality_id_inv/naturality_comp_inv, modification naturality, Cat.Hom.toNatIso, Iso.app, Functor.mapIso_trans/refl/symm and Functor.whiskerRight. All new formulas and proofs are authored deductions on the incoming native carriers.",
+      "Fresh issue and bot-confirmed reread, all12 reviewed own audit rows and REV-AUDIT01, campaign reader, accepted RS27 own keeps/28owners/relevant links and complete REV-FIX-RT-RS-27, all34 touching link entries, reserved gerbe node and survey/API, nine prescribed red-team claim/fix records. Previously complete upstream AlgebraicCurves/JacobianChallenge reading is hash-guarded unchanged; fresh ModularCurves1E/4A supplier paragraphs only. This does not assert a fresh full audit of464 incoming declarations or all papers.",
+      "Bounded open Mathlib PR searches gerbe and StrongTrans returned zero. Indexed Zulip Formalizing stacks discussion about native fibres and coherent pullbacks was read. Bounded pinned TauCeti source and Mathlib CategoryTheory searches gerbe|fibreIsomRestriction|selfTransportActionIso returned zero matches. No exhaustive library-absence assertion or unpinned code adoption."
+    ]
   }
 }
