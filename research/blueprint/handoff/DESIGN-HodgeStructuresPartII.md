@@ -1,3 +1,5 @@
+Public archive: c366ebe1bca3a326bc612150f1227da799206385. Recovery authenticates33 text artifacts and four mathematical deliverables. Indexed checker:235 nodes,248 API items,233 tests, six planets and205 baseline references; zero errors/warnings. Native proof slice:zero errors/warnings and eleven admission-free axiom audits. The conditional supplement has455 inherited admission warnings; the canonical planning body has474 admission warnings.
+
 # DESIGN-HodgeStructuresPartII: common-parameter additive tensor checkpoint
 
 Agent: Codex. Session: codex-J6LwjP. Refs #3371. Claim5967746989 was confirmed by bot5967748468; the complete issue was reread and remained unchanged at publication. Incoming PR5969 final49fc3f503e934a073863527231a61ce21dfa2bef, archiveb77b7514a8a4b61859e13cbc77a7435147a2ebe5. Its public recovery authenticated all28 text artifacts and four mathematical overlays. Mathematical base00543cc31e57baabca31912286aef502cf7c42e4; publication audit baseaa370acc1dfe5cbe0db341f684b419f54e044ab7.
@@ -130,14 +132,14 @@ The read-path SHA identifies the sorted accessed Git blob paths, not their conte
 
 ## Public recovery and revalidation
 
-Archive commit: PENDING_ARCHIVE. The final suggested file contains BEGIN ARCHIVED ADDITIVE PARAMETER PAYLOAD, whose base64/zlib JSON maps artifact basenames to text and SHA256. Save the first four Python fences in order as recover.py, verify.py, immutable.py and graph.py in a disk scratch directory. From the one existing repository clone, recover.py accepts an explicit archive/final commit and destination. It authenticates every artifact and the four mathematical overlays. A future worker can recover sources and receipt bytes; recovery alone is not a fresh Lean compilation.
+Archive commit: c366ebe1bca3a326bc612150f1227da799206385. The final suggested file contains BEGIN ARCHIVED ADDITIVE PARAMETER PAYLOAD, whose base64/zlib JSON maps artifact basenames to text and SHA256. Save the first four Python fences in order as recover.py, verify.py, immutable.py and graph.py in a disk scratch directory. From the one existing repository clone, recover.py accepts an explicit archive/final commit and destination. It authenticates every artifact and the four mathematical overlays. A future worker can recover sources and receipt bytes; recovery alone is not a fresh Lean compilation.
 
 Run the recovered verify.py and graph.py with the recovered scratch directory and existing declaration index. Set HODGE_VALIDATE_BASE to either audit base above. The immutable adapter prevents writes into its repository tree and loads the actual scripts at that commit. The native/admitted headers, tests, preservation and recorded source/log hashes are checked before the indexed checker and actual intake functions. No new environment or cache setup is needed. To rerun Lean, apply WORKERS' current free-g guard and serialize native, supplement and canonical checks in the existing pinned build. Future output may use a different filename prefix; normalization is recorded above.
 
 ```python
 from pathlib import Path
 import sys,subprocess,json,re,base64,zlib,hashlib
-RID='HodgeStructuresPartII';ARCHIVE='PENDING_ARCHIVE'
+RID='HodgeStructuresPartII';ARCHIVE='c366ebe1bca3a326bc612150f1227da799206385'
 ref=sys.argv[1] if len(sys.argv)>1 else ARCHIVE
 out=Path(sys.argv[2] if len(sys.argv)>2 else 'recovered');out.mkdir(parents=True,exist_ok=True)
 def read(path):return subprocess.check_output(['git','show',ref+':'+path],text=True)
