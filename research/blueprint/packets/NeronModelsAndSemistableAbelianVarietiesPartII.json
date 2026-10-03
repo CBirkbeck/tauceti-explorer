@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-stage partial design with 382 declaration nodes. The actual quadratic two-chart Scheme C and glued source N, their coefficient-compatible global morphism ν, both target-chart pullback squares, and global finiteness of ν have separately checked native prototypes. The actual overlap map has u=1/t and z=1/(tq). Identify C with the specified Proj cubic and N with the native projective line, prove the normalization universal property and projectivity/properness, then identify the conductor ideal sheaf and structure-sheaf exact sequence and derive finite-pushforward H0/H1. Separate I₂ geometry and all other inherited obligations remain required; all stages stay partial and all implementations unchecked. All incoming contracts, source qualifications, key ownership, routes, classification certificates, requests, gaps and planets are retained. The full Tau Ceti-importing suggested file is uncompiled; the exact Mathlib-only native and admitted extracts are separately checked prototypes. For every field k and q=t²+at+b, the specified finite global map ν:N→C is surjective; both schemes are integral, every source stalk is integrally closed, and an actual dense-open Scheme.PartialIso agrees with ν over Spec k. The projective-line and Proj identifications, normalization universal property, projectivity/properness, conductor ideal sheaf, structure-sheaf exact sequence and finite-pushforward H0/H1 remain separate obligations. The I₂ construction and all other inherited gaps remain open; seven stages stay partial and all implementations unchecked.",
+  "summary": "Seven-stage partial design with 421 declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2362,6 +2362,70 @@
         "module": "Mathlib/AlgebraicGeometry/AffineScheme.lean",
         "provides": "Native ring isomorphism between an affine-scheme stalk and localization at its prime.",
         "checked": "Relevant complete declaration statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:Module.Basis.finTwoProd",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Basis/Fin.lean",
+        "line": 124,
+        "provides": "Standard native basis of R×R indexed by Fin2.",
+        "checked": "Codex codex-rtOQ9t read the complete statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. This generic result is imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Module.Basis.finTwoProd_zero",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Basis/Fin.lean",
+        "line": 128,
+        "provides": "First standard pair basis vector is (1,0).",
+        "checked": "Codex codex-rtOQ9t read the complete statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. This generic result is imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Module.Basis.finTwoProd_one",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Basis/Fin.lean",
+        "line": 132,
+        "provides": "Second standard pair basis vector is (0,1).",
+        "checked": "Codex codex-rtOQ9t read the complete statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. This generic result is imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Module.Basis.coe_finTwoProd_repr",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Basis/Fin.lean",
+        "line": 136,
+        "provides": "Standard pair representation is the two component function.",
+        "checked": "Codex codex-rtOQ9t read the complete statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. This generic result is imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Module.Free.of_basis",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/FreeModule/Basic.lean",
+        "line": 65,
+        "provides": "Native freeness from a basis over any semiring.",
+        "checked": "Codex codex-rtOQ9t read the complete statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. This generic result is imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Module.Finite.of_basis",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/FreeModule/Finite/Basic.lean",
+        "line": 39,
+        "provides": "Native finite module from a finite-indexed basis.",
+        "checked": "Codex codex-rtOQ9t read the complete statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. This generic result is imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Module.finrank_eq_card_basis",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Dimension/StrongRankCondition.lean",
+        "line": 451,
+        "provides": "Module finrank equals basis cardinality over a semiring satisfying strong rank condition.",
+        "checked": "Codex codex-rtOQ9t read the complete statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. This generic result is imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Module.Flat.of_free",
+        "kind": "instance",
+        "module": "Mathlib/RingTheory/Flat/Basic.lean",
+        "line": 231,
+        "provides": "Native flatness from freeness over a commutative semiring.",
+        "checked": "Codex codex-rtOQ9t read the complete statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03. This generic result is imported, not replanned."
       }
     ]
   },
@@ -2806,6 +2870,18 @@
       "readSections": [
         "Codex codex-7e92bd: complete §3 terminology, both conductor diagrams, Propositions3.1–3.2 with displayed proofs/count table, and Proposition3.3 statement/table. No fresh complete-paper or recursive-source reading claim.",
         "The new scheme surjectivity, integral and normal-stalk statements and dense-open isomorphism are authored deductions from the incoming native chart constructions and the named pinned Mathlib declarations."
+      ]
+    },
+    {
+      "id": "schroer-rtOQ9t-polynomial-basis",
+      "title": "There is no Enriques surface over the integers",
+      "authors": "Stefan Schröer",
+      "edition": "arXiv:2004.07025v3 HTML; separate from the Annals197(2023) edition",
+      "url": "https://arxiv.org/html/2004.07025v3",
+      "sha256": "d14049912dcab6a438ed62363e246d0087c61342c51813ac482f5aba48d92456",
+      "accessed": "2026-10-03",
+      "readSections": [
+        "Codex codex-rtOQ9t: complete §3 terminology and both conductor diagrams, Propositions3.1–3.2 with displayed proofs and count table, Proposition3.3 statement/table. The rank-two polynomial-module calculation is an authored deduction from the incoming native quadratic coordinates and the pinned basis API, not a printed theorem of this paper. No fresh whole-paper or recursive-source closure claim."
       ]
     }
   ],
@@ -23131,6 +23207,888 @@
       },
       "implementationStatus": "unchecked",
       "declarationName": "QuadraticPinch.Global.normalizationPartialIso_inverse"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-parameter-hom",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Polynomial parameter of a quadratic pinch",
+      "kind": "construction",
+      "statement": "Construct the actual k-algebra homomorphism θ:k[T]→A_q by θ(P)=P(q), using native polynomial evaluation at q∈A_q. The coefficient variable T and ambient normalization coordinate t have different images.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the existing scalar-remainder subalgebra k+qk[t]. S=k[T] acts by T↦q. No separability, discriminant or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "Evaluate at the existing element q∈A_q; its membership witnesses are scalar0 and multiplier1. Reuse native aeval and the actual subalgebra carrier."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra",
+        "mathlib:Polynomial.aeval"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-polynomial-basis",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored polynomial-module deduction from the existing affine coordinate equivalence",
+          "match": "The source motivates the quadratic conductor chart. The displayed rank-two basis, scalar formulas and native module properties are authored deductions; they are not attributed as printed source theorems or global normalization results."
+        }
+      ],
+      "acceptance": [
+        "Retain the specified scalar action and the actual incoming carrier; the cusp and characteristic-two specializations obey the same statement."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.parameterHom",
+      "api": [
+        {
+          "name": "QuadraticPinch.parameterHom_coe",
+          "role": "coercion",
+          "statement": "For every P∈k[T], the ambient value of θ(P) equals P(q) in k[t]."
+        },
+        {
+          "name": "QuadraticPinch.parameterHom_coordinates",
+          "role": "characterisation",
+          "statement": "For every P∈S, θ(P) is exactly the image of (P,0) under the S-linear coordinates."
+        },
+        {
+          "name": "QuadraticPinch.parameterHom_injective",
+          "role": "characterisation",
+          "statement": "The actual evaluation θ:S→A_q is injective, so S identifies with k[q] inside the existing pinched algebra."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.test_parameter_X",
+          "kind": "computation",
+          "statement": "For all a,b, the actual θ(T) has ambient value t²+at+b."
+        },
+        {
+          "name": "QuadraticPinch.test_parameter_cusp",
+          "kind": "degenerate",
+          "statement": "For q=t² over any field, the actual θ(T) is t²."
+        },
+        {
+          "name": "QuadraticPinch.test_parameter_char2",
+          "kind": "computation",
+          "statement": "For q=t²+t+1 over F₂, the actual θ(T) is t²+t+1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-generation",
+          "how": "Supply the actual polynomial-module coefficient interface in the quadratic affine chart."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-reconstruction",
+          "how": "Make unique two-term coefficient reconstruction available without unfolding the pinched subalgebra."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-parameter-algebra",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Polynomial scalar action on a quadratic pinch",
+      "kind": "construction",
+      "statement": "Give the existing commutative ring A_q the native Algebra k[T] structure induced by θ; its algebra map is θ and P·f=P(q)f. This introduces no new ring or module carrier.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the existing scalar-remainder subalgebra k+qk[t]. S=k[T] acts by T↦q. No separability, discriminant or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "Apply RingHom.toAlgebra to the specified θ. There is no preexisting k[T]-action on this carrier; the existing k-action is distinct."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-parameter-hom",
+        "mathlib:RingHom.toAlgebra"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-polynomial-basis",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored polynomial-module deduction from the existing affine coordinate equivalence",
+          "match": "The source motivates the quadratic conductor chart. The displayed rank-two basis, scalar formulas and native module properties are authored deductions; they are not attributed as printed source theorems or global normalization results."
+        }
+      ],
+      "acceptance": [
+        "Retain the specified scalar action and the actual incoming carrier; the cusp and characteristic-two specializations obey the same statement."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.parameterAlgebra",
+      "api": [
+        {
+          "name": "QuadraticPinch.parameter_smul",
+          "role": "characterisation",
+          "statement": "For P∈k[T] and f∈A_q, the ambient value of P·f is P(q)f."
+        },
+        {
+          "name": "QuadraticPinch.polynomialModule_free",
+          "role": "instance",
+          "statement": "The actual θ-module A_q is native Module.Free S A_q."
+        },
+        {
+          "name": "QuadraticPinch.polynomialModule_finite",
+          "role": "instance",
+          "statement": "The actual θ-module A_q is native Module.Finite S A_q, generated by1 and tq."
+        },
+        {
+          "name": "QuadraticPinch.polynomialModule_flat",
+          "role": "instance",
+          "statement": "The actual θ-module A_q is native Module.Flat S A_q. This concerns k[T]→A_q, and gives no flatness statement for the distinct inclusion A_q→k[t]."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.test_parameter_action",
+          "kind": "characterisation",
+          "statement": "For every P and actual f∈A_q, the ambient scalar action is P(q)f."
+        },
+        {
+          "name": "QuadraticPinch.test_parameter_unit_action",
+          "kind": "compatibility",
+          "statement": "For every P, the actual scalar P·1 equals θ(P) in A_q."
+        },
+        {
+          "name": "QuadraticPinch.test_parameter_not_identity",
+          "kind": "non-example",
+          "statement": "For q=t² over any field, the ambient θ(T) differs from t; the scalar action cannot be evaluation at t."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-generation",
+          "how": "Supply the actual polynomial-module coefficient interface in the quadratic affine chart."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-reconstruction",
+          "how": "Make unique two-term coefficient reconstruction available without unfolding the pinched subalgebra."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-parameter-coe",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Ambient polynomial parameter formula",
+      "kind": "lemma",
+      "statement": "For every P∈k[T], the ambient value of θ(P) equals P(q) in k[t].",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the existing scalar-remainder subalgebra k+qk[t]. S=k[T] acts by T↦q. No separability, discriminant or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "Use aeval_subalgebra_coe and comp_eq_aeval for the actual q element."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-parameter-hom",
+        "mathlib:Polynomial.aeval_subalgebra_coe",
+        "mathlib:Polynomial.comp_eq_aeval"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-polynomial-basis",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored polynomial-module deduction from the existing affine coordinate equivalence",
+          "match": "The source motivates the quadratic conductor chart. The displayed rank-two basis, scalar formulas and native module properties are authored deductions; they are not attributed as printed source theorems or global normalization results."
+        }
+      ],
+      "acceptance": [
+        "Retain the specified scalar action and the actual incoming carrier; the cusp and characteristic-two specializations obey the same statement."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.parameterHom_coe"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-scalar-coe",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Ambient polynomial scalar formula",
+      "kind": "lemma",
+      "statement": "For P∈k[T] and f∈A_q, the ambient value of P·f is P(q)f.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the existing scalar-remainder subalgebra k+qk[t]. S=k[T] acts by T↦q. No separability, discriminant or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "Unfold the RingHom-induced action and use the parameter coercion formula."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-parameter-algebra",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-parameter-coe"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-polynomial-basis",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored polynomial-module deduction from the existing affine coordinate equivalence",
+          "match": "The source motivates the quadratic conductor chart. The displayed rank-two basis, scalar formulas and native module properties are authored deductions; they are not attributed as printed source theorems or global normalization results."
+        }
+      ],
+      "acceptance": [
+        "Retain the specified scalar action and the actual incoming carrier; the cusp and characteristic-two specializations obey the same statement."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.parameter_smul"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-coordinates",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Polynomial module coordinates",
+      "kind": "construction",
+      "statement": "Upgrade the existing k-linear equivalence e:(k[T]×k[T])≃A_q to a native S-linear equivalence, with ordinary componentwise S-action on its domain and the specified θ-action on its codomain. The forward function is (P,Q)↦P(q)+tqQ(q).",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the existing scalar-remainder subalgebra k+qk[t]. S=k[T] acts by T↦q. No separability, discriminant or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "Keep the existing bijection and additive law. Polynomial composition preserves multiplication; distributivity proves compatibility with the specified scalar action. No new normal-form theorem is assumed."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-parameter-algebra",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-scalar-coe",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coordinates"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-polynomial-basis",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored polynomial-module deduction from the existing affine coordinate equivalence",
+          "match": "The source motivates the quadratic conductor chart. The displayed rank-two basis, scalar formulas and native module properties are authored deductions; they are not attributed as printed source theorems or global normalization results."
+        }
+      ],
+      "acceptance": [
+        "Retain the specified scalar action and the actual incoming carrier; the cusp and characteristic-two specializations obey the same statement."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialCoordinates",
+      "api": [
+        {
+          "name": "QuadraticPinch.polynomialCoordinates_coe",
+          "role": "coercion",
+          "statement": "For every pair (P,Q), the ambient polynomial of the S-linear equivalence is P(q)+tqQ(q)."
+        },
+        {
+          "name": "QuadraticPinch.polynomialCoordinates_inverse",
+          "role": "compatibility",
+          "statement": "For each actual f∈A_q, the inverse polynomial-module coordinates equal the existing k-linear inverse coordinates as a pair of polynomials."
+        },
+        {
+          "name": "QuadraticPinch.polynomialCoordinates_smul",
+          "role": "compatibility",
+          "statement": "For H,P,Q∈S, e(HP,HQ)=H·e(P,Q) in the actual pinched algebra."
+        },
+        {
+          "name": "QuadraticPinch.polynomialCoordinates_reconstruction",
+          "role": "characterisation",
+          "statement": "For every f∈A_q with inverse coordinates (P,Q), P·b0+Q·b1=f for the actual θ-action and the actual finite basis."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.test_polynomial_roundtrip",
+          "kind": "characterisation",
+          "statement": "For every a,b and polynomial pair z, the actual S-linear coordinates inverse of e(z) is z."
+        },
+        {
+          "name": "QuadraticPinch.test_polynomial_char2_scalar",
+          "kind": "compatibility",
+          "statement": "For q=t²+t+1 over F₂ and arbitrary P,Q, e(TP,TQ)=θ(T)e(P,Q), the specified scalar action."
+        },
+        {
+          "name": "QuadraticPinch.test_polynomial_not_multiplicative",
+          "kind": "non-example",
+          "statement": "For q=t² over any field, e((0,1)²)=t³ differs from e(0,1)²=t⁶ with native componentwise pair multiplication."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-generation",
+          "how": "Supply the actual polynomial-module coefficient interface in the quadratic affine chart."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-reconstruction",
+          "how": "Make unique two-term coefficient reconstruction available without unfolding the pinched subalgebra."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-coordinates-coe",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Polynomial coordinates in the ambient ring",
+      "kind": "lemma",
+      "statement": "For every pair (P,Q), the ambient polynomial of the S-linear equivalence is P(q)+tqQ(q).",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the existing scalar-remainder subalgebra k+qk[t]. S=k[T] acts by T↦q. No separability, discriminant or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "The forward function is exactly the incoming coordinates function. Reuse its coercion equation."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-coordinates",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coordinates"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-polynomial-basis",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored polynomial-module deduction from the existing affine coordinate equivalence",
+          "match": "The source motivates the quadratic conductor chart. The displayed rank-two basis, scalar formulas and native module properties are authored deductions; they are not attributed as printed source theorems or global normalization results."
+        }
+      ],
+      "acceptance": [
+        "Retain the specified scalar action and the actual incoming carrier; the cusp and characteristic-two specializations obey the same statement."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialCoordinates_coe"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-coordinates-inverse",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Polynomial and field coordinates agree",
+      "kind": "lemma",
+      "statement": "For each actual f∈A_q, the inverse polynomial-module coordinates equal the existing k-linear inverse coordinates as a pair of polynomials.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the existing scalar-remainder subalgebra k+qk[t]. S=k[T] acts by T↦q. No separability, discriminant or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "The S-linear upgrade preserves both underlying functions; the equality is definitional."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-coordinates",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coordinates"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-polynomial-basis",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored polynomial-module deduction from the existing affine coordinate equivalence",
+          "match": "The source motivates the quadratic conductor chart. The displayed rank-two basis, scalar formulas and native module properties are authored deductions; they are not attributed as printed source theorems or global normalization results."
+        }
+      ],
+      "acceptance": [
+        "Retain the specified scalar action and the actual incoming carrier; the cusp and characteristic-two specializations obey the same statement."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialCoordinates_inverse"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-basis",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Rank two basis of a quadratic pinch",
+      "kind": "construction",
+      "statement": "Construct the actual native Module.Basis (Fin2) S A_q by transporting the standard basis of S×S along the S-linear coordinates. Its ordered vectors are1 and tq. This is a basis over k[q], with θ identifying S and its image.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the existing scalar-remainder subalgebra k+qk[t]. S=k[T] acts by T↦q. No separability, discriminant or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "Use Module.Basis.finTwoProd and Module.Basis.map. Generic basis theory is imported rather than planned again."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-coordinates",
+        "mathlib:Module.Basis.finTwoProd",
+        "mathlib:Module.Basis.map"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-polynomial-basis",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored polynomial-module deduction from the existing affine coordinate equivalence",
+          "match": "The source motivates the quadratic conductor chart. The displayed rank-two basis, scalar formulas and native module properties are authored deductions; they are not attributed as printed source theorems or global normalization results."
+        }
+      ],
+      "acceptance": [
+        "Retain the specified scalar action and the actual incoming carrier; the cusp and characteristic-two specializations obey the same statement."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialBasis",
+      "api": [
+        {
+          "name": "QuadraticPinch.polynomialBasis_zero",
+          "role": "simp",
+          "statement": "The ambient polynomial of the index0 polynomial-module basis vector is1."
+        },
+        {
+          "name": "QuadraticPinch.polynomialBasis_one",
+          "role": "simp",
+          "statement": "The ambient polynomial of the index1 polynomial-module basis vector is tq."
+        },
+        {
+          "name": "QuadraticPinch.polynomialBasis_repr",
+          "role": "characterisation",
+          "statement": "For f∈A_q with existing inverse coordinates (P,Q), the native finite basis representation has index0 coefficient P and index1 coefficient Q in S."
+        },
+        {
+          "name": "QuadraticPinch.polynomialModule_finrank",
+          "role": "characterisation",
+          "statement": "The native Module.finrank S A_q for the specified θ-action is2."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.test_polynomial_basis_vectors",
+          "kind": "computation",
+          "statement": "For all a,b, the ambient ordered polynomial-module basis vectors are1 and tq."
+        },
+        {
+          "name": "QuadraticPinch.test_polynomial_basis_cusp",
+          "kind": "degenerate",
+          "statement": "For q=t² over any field, the second polynomial-module basis vector is t³ and the native module finrank over k[T] is2."
+        },
+        {
+          "name": "QuadraticPinch.test_polynomial_basis_repr",
+          "kind": "characterisation",
+          "statement": "For the actual finite basis, repr(b0)(0)=1, repr(b1)(0)=0 and repr(b1)(1)=1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-generation",
+          "how": "Supply the actual polynomial-module coefficient interface in the quadratic affine chart."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-reconstruction",
+          "how": "Make unique two-term coefficient reconstruction available without unfolding the pinched subalgebra."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-basis-zero",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "First polynomial basis vector",
+      "kind": "lemma",
+      "statement": "The ambient polynomial of the index0 polynomial-module basis vector is1.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the existing scalar-remainder subalgebra k+qk[t]. S=k[T] acts by T↦q. No separability, discriminant or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "Evaluate the transported standard vector (1,0) by the coordinates formula."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-basis",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-coordinates-coe",
+        "mathlib:Module.Basis.finTwoProd_zero"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-polynomial-basis",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored polynomial-module deduction from the existing affine coordinate equivalence",
+          "match": "The source motivates the quadratic conductor chart. The displayed rank-two basis, scalar formulas and native module properties are authored deductions; they are not attributed as printed source theorems or global normalization results."
+        }
+      ],
+      "acceptance": [
+        "Retain the specified scalar action and the actual incoming carrier; the cusp and characteristic-two specializations obey the same statement."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialBasis_zero"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-basis-one",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Second polynomial basis vector",
+      "kind": "lemma",
+      "statement": "The ambient polynomial of the index1 polynomial-module basis vector is tq.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the existing scalar-remainder subalgebra k+qk[t]. S=k[T] acts by T↦q. No separability, discriminant or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "Evaluate the transported standard vector (0,1)."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-basis",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-coordinates-coe",
+        "mathlib:Module.Basis.finTwoProd_one"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-polynomial-basis",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored polynomial-module deduction from the existing affine coordinate equivalence",
+          "match": "The source motivates the quadratic conductor chart. The displayed rank-two basis, scalar formulas and native module properties are authored deductions; they are not attributed as printed source theorems or global normalization results."
+        }
+      ],
+      "acceptance": [
+        "Retain the specified scalar action and the actual incoming carrier; the cusp and characteristic-two specializations obey the same statement."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialBasis_one"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-basis-repr",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Polynomial coefficients of a pinched element",
+      "kind": "lemma",
+      "statement": "For f∈A_q with existing inverse coordinates (P,Q), the native finite basis representation has index0 coefficient P and index1 coefficient Q in S.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the existing scalar-remainder subalgebra k+qk[t]. S=k[T] acts by T↦q. No separability, discriminant or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "The transported basis representation is the inverse coordinates followed by the standard pair representation; evaluate its two indices."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-basis",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-coordinates-inverse",
+        "mathlib:Module.Basis.coe_finTwoProd_repr"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-polynomial-basis",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored polynomial-module deduction from the existing affine coordinate equivalence",
+          "match": "The source motivates the quadratic conductor chart. The displayed rank-two basis, scalar formulas and native module properties are authored deductions; they are not attributed as printed source theorems or global normalization results."
+        }
+      ],
+      "acceptance": [
+        "Retain the specified scalar action and the actual incoming carrier; the cusp and characteristic-two specializations obey the same statement."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialBasis_repr"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-free",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Freeness over the quadratic parameter",
+      "kind": "lemma",
+      "statement": "The actual θ-module A_q is native Module.Free S A_q.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the existing scalar-remainder subalgebra k+qk[t]. S=k[T] acts by T↦q. No separability, discriminant or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "Apply Module.Free.of_basis to the constructed finite basis."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-basis",
+        "mathlib:Module.Free.of_basis"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-polynomial-basis",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored polynomial-module deduction from the existing affine coordinate equivalence",
+          "match": "The source motivates the quadratic conductor chart. The displayed rank-two basis, scalar formulas and native module properties are authored deductions; they are not attributed as printed source theorems or global normalization results."
+        }
+      ],
+      "acceptance": [
+        "Retain the specified scalar action and the actual incoming carrier; the cusp and characteristic-two specializations obey the same statement."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialModule_free"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-finite",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Finiteness over the quadratic parameter",
+      "kind": "lemma",
+      "statement": "The actual θ-module A_q is native Module.Finite S A_q, generated by1 and tq.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the existing scalar-remainder subalgebra k+qk[t]. S=k[T] acts by T↦q. No separability, discriminant or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "The Fin2-indexed basis is finite; apply Module.Finite.of_basis. This concerns the parameter algebra, not the normalization map."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-basis",
+        "mathlib:Module.Finite.of_basis"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-polynomial-basis",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored polynomial-module deduction from the existing affine coordinate equivalence",
+          "match": "The source motivates the quadratic conductor chart. The displayed rank-two basis, scalar formulas and native module properties are authored deductions; they are not attributed as printed source theorems or global normalization results."
+        }
+      ],
+      "acceptance": [
+        "Retain the specified scalar action and the actual incoming carrier; the cusp and characteristic-two specializations obey the same statement."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialModule_finite"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-finrank",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Rank of the quadratic parameter algebra",
+      "kind": "lemma",
+      "statement": "The native Module.finrank S A_q for the specified θ-action is2.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the existing scalar-remainder subalgebra k+qk[t]. S=k[T] acts by T↦q. No separability, discriminant or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "Apply finrank_eq_card_basis and the cardinality of Fin2. The polynomial ring over a field satisfies strong rank condition."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-basis",
+        "mathlib:Module.finrank_eq_card_basis"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-polynomial-basis",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored polynomial-module deduction from the existing affine coordinate equivalence",
+          "match": "The source motivates the quadratic conductor chart. The displayed rank-two basis, scalar formulas and native module properties are authored deductions; they are not attributed as printed source theorems or global normalization results."
+        }
+      ],
+      "acceptance": [
+        "Retain the specified scalar action and the actual incoming carrier; the cusp and characteristic-two specializations obey the same statement."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialModule_finrank"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-flat",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Flatness over the quadratic parameter",
+      "kind": "lemma",
+      "statement": "The actual θ-module A_q is native Module.Flat S A_q. This concerns k[T]→A_q, and gives no flatness statement for the distinct inclusion A_q→k[t].",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the existing scalar-remainder subalgebra k+qk[t]. S=k[T] acts by T↦q. No separability, discriminant or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "Install the established free-module fact locally and reuse the native free-implies-flat instance."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-free",
+        "mathlib:Module.Flat.of_free"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-polynomial-basis",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored polynomial-module deduction from the existing affine coordinate equivalence",
+          "match": "The source motivates the quadratic conductor chart. The displayed rank-two basis, scalar formulas and native module properties are authored deductions; they are not attributed as printed source theorems or global normalization results."
+        }
+      ],
+      "acceptance": [
+        "Retain the specified scalar action and the actual incoming carrier; the cusp and characteristic-two specializations obey the same statement."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialModule_flat"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-parameter-coordinates",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Parameter image in polynomial coordinates",
+      "kind": "lemma",
+      "statement": "For every P∈S, θ(P) is exactly the image of (P,0) under the S-linear coordinates.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the existing scalar-remainder subalgebra k+qk[t]. S=k[T] acts by T↦q. No separability, discriminant or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "Compare ambient polynomial coercions using the two established formulas and subtype extensionality."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-parameter-coe",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-coordinates-coe"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-polynomial-basis",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored polynomial-module deduction from the existing affine coordinate equivalence",
+          "match": "The source motivates the quadratic conductor chart. The displayed rank-two basis, scalar formulas and native module properties are authored deductions; they are not attributed as printed source theorems or global normalization results."
+        }
+      ],
+      "acceptance": [
+        "Retain the specified scalar action and the actual incoming carrier; the cusp and characteristic-two specializations obey the same statement."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.parameterHom_coordinates"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-parameter-injective",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Faithful polynomial parameter",
+      "kind": "lemma",
+      "statement": "The actual evaluation θ:S→A_q is injective, so S identifies with k[q] inside the existing pinched algebra.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the existing scalar-remainder subalgebra k+qk[t]. S=k[T] acts by T↦q. No separability, discriminant or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "Write both parameter images as coordinate images of (P,0); apply injectivity of the established equivalence, then project the first coordinate."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-parameter-coordinates",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-coordinates"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-polynomial-basis",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored polynomial-module deduction from the existing affine coordinate equivalence",
+          "match": "The source motivates the quadratic conductor chart. The displayed rank-two basis, scalar formulas and native module properties are authored deductions; they are not attributed as printed source theorems or global normalization results."
+        }
+      ],
+      "acceptance": [
+        "Retain the specified scalar action and the actual incoming carrier; the cusp and characteristic-two specializations obey the same statement."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.parameterHom_injective"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-coordinates-scalar",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Scalar compatibility of polynomial coordinates",
+      "kind": "lemma",
+      "statement": "For H,P,Q∈S, e(HP,HQ)=H·e(P,Q) in the actual pinched algebra.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the existing scalar-remainder subalgebra k+qk[t]. S=k[T] acts by T↦q. No separability, discriminant or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "Use the native S-linear equivalence scalar law."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-coordinates"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-polynomial-basis",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored polynomial-module deduction from the existing affine coordinate equivalence",
+          "match": "The source motivates the quadratic conductor chart. The displayed rank-two basis, scalar formulas and native module properties are authored deductions; they are not attributed as printed source theorems or global normalization results."
+        }
+      ],
+      "acceptance": [
+        "Retain the specified scalar action and the actual incoming carrier; the cusp and characteristic-two specializations obey the same statement."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialCoordinates_smul"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-reconstruction",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Two-term reconstruction of a pinched element",
+      "kind": "lemma",
+      "statement": "For every f∈A_q with inverse coordinates (P,Q), P·b0+Q·b1=f for the actual θ-action and the actual finite basis.",
+      "hypotheses": [
+        "k is an arbitrary field; a,b∈k; q=t²+at+b; A_q is the existing scalar-remainder subalgebra k+qk[t]. S=k[T] acts by T↦q. No separability, discriminant or characteristic restriction is imposed."
+      ],
+      "proofSteps": [
+        "Use the ambient scalar formula and the two basis vectors. The incoming coordinates inverse law yields P(q)+tqQ(q)=f; commutativity identifies the two-term expression."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-scalar-coe",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-basis-zero",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-polynomial-basis-one",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-coordinates"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-rtOQ9t-polynomial-basis",
+          "locator": "§3 conductor diagrams and Proposition3.2; authored polynomial-module deduction from the existing affine coordinate equivalence",
+          "match": "The source motivates the quadratic conductor chart. The displayed rank-two basis, scalar formulas and native module properties are authored deductions; they are not attributed as printed source theorems or global normalization results."
+        }
+      ],
+      "acceptance": [
+        "Retain the specified scalar action and the actual incoming carrier; the cusp and characteristic-two specializations obey the same statement."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.polynomialCoordinates_reconstruction"
     }
   ],
   "requests": [
@@ -23500,17 +24458,18 @@
         "Suggested signatures for unbuilt geometric conditions",
         "Replace unresolved supplier stage requests by exact verified exports.",
         "Pointed genus-one scheme to binary-equation classification adapter; finite coefficient, count and cyclic-group calculations have explicit source-decomposed witnesses.",
-        "Native k-linear coordinates, Basis, finitely supported coefficient reconstruction and exact degree family are now stated and separately prototyped. The actual full bivariate range/kernel and canonical quotient algebra equivalence are now stated with a separate checked native prototype. Finite normalization, localization/fraction-field comparison, node/tangent/branch predicates, P¹/cohomology and every-extension count interfaces remain open. A k[q]-module instance/freeness interface is not constructed. The full Tau Ceti-importing file is uncompiled; the exact Mathlib-only extraction is checked. All implementation statuses remain unchecked.",
+        "Native k-linear coordinates, Basis, finitely supported coefficient reconstruction and exact degree family are now stated and separately prototyped. The actual full bivariate range/kernel and canonical quotient algebra equivalence are now stated with a separate checked native prototype. Finite normalization, localization/fraction-field comparison, node/tangent/branch predicates, P¹/cohomology and every-extension count interfaces remain open. The current polynomial-module continuation supplies the specified k[q]-action and native finite basis; geometric and supplier obligations in this row remain open. The full Tau Ceti-importing file is uncompiled; the exact Mathlib-only extraction is checked. All implementation statuses remain unchecked.",
         "The native affine solution equivalence and native pointCount/frobeniusTrace balance are now explicit. They count distinct rational roots; they do not supply projective normalization, conductor schemes, the structure-sheaf exact sequence, H¹ comparison, arbitrary finite-extension packaging or the separate two-component I₂ construction. The inherited affine algebra/presentation and all global/fibration/classification/model obligations remain planned. Full Tau Ceti-importing suggested file remains uncompiled.",
         "Native nonzero-quadratic-discriminant root/cardinality and split/nonsplit pointCount/frobeniusTrace branches, including receiving finite fields under actual field homomorphisms, are separately checked. The finite-field odd/even embedding criterion, scheme/projective normalization identification, conductor/sheaf/cohomology and independent I₂ count remain required; all G.0–G.6 obligations stay partial.",
         "Current finite-extension checkpoint supersedes the earlier native odd/even-criterion frontier: the irreducible quadratic root existence, distinct-root count, pointCount, cardinal-power and numerical trace-defect formulas have checked prototypes. Their geometric identification with the projective pinching/conductor schemes, nilpotent reduction and separate fixed-component I₂ calculation remain open; no other source obligations are discharged.",
         "The polynomial pinch localization and inverse coordinate are explicit. Prove finite generation of the normalization module, the fraction-field/normalization comparison, two projective charts and actual conductor-sheaf/cohomology sequence; retain the separate cusp, I₁ and I₂ distinctions.",
-        "The native affine finite-module, shared-fraction-field and integral-closure frontiers now have separately checked carrier signatures, including the actual finite Spec map. Construct the projective two-chart normalization comparison and conductor ideal sheaf, then the actual E/k structure-sheaf sequence and finite-pushforward H0/H1. Keep the unrelated k[q]-freeness target and all nodal/inseparable/I2 distinctions.",
+        "The native affine finite-module, shared-fraction-field and integral-closure frontiers now have separately checked carrier signatures, including the actual finite Spec map. Construct the projective two-chart normalization comparison and conductor ideal sheaf, then the actual E/k structure-sheaf sequence and finite-pushforward H0/H1. The current continuation supplies the distinct k[q]-freeness target; keep all nodal/inseparable/I2 distinctions.",
         "The specified native affine A_q-linear B/(A_q·1)≃E/(A_q·1), its actual k-linear B/A_q≃E/k, both representative equations, residue scalar actions, one-dimensional quadratic defect and actual conductor annihilators are now separately checked prototypes. Projective chart gluing, the global normalization comparison, conductor ideal sheaf, the actual structure-sheaf sequence and finite-pushforward H0/H1 remain open, as does the independent I₂ geometry. The full Tau Ceti-importing file is uncompiled; all implementation statuses and all seven coverage rows remain partial/unchecked.",
         "The reciprocal infinity quotient Chart(a,b)=R[u][Z]/(Q∞Z−u³), its explicit Bézout inverse, both specified R[u]-algebra maps and their inverse equivalence, native localization property and actual affine Spec open immersion now have separately checked prototypes over every commutative ring. The homogeneous normalization tuple, its cubic homogeneity and fieldwise absence of a common zero are checked against the actual native projective Weierstrass equation, with a nonsingular infinity point over every field. The two-chart overlap/gluing and actual Proj comparison, finite projective normalization, conductor ideal sheaf, structure-sheaf exact sequence, finite-pushforward H0/H1 and independent I₂ geometry remain required. Full Tau Ceti-importing file remains uncompiled; all seven stages are partial and all mathematical implementation statuses unchecked.",
         "The specified reciprocal polynomial localization equivalence is checked over arbitrary commutative rings, with its actual affine Spec isomorphism. The finite pinch localization at tq is identified with the normalized overlap; the infinity quotient localization at u is identified with the reversed polynomial overlap, and D(z)=D(u) is proved in its actual prime spectrum. Their composite gives the specified chart transition, and the homogeneous normalization tuples agree by the unit factor t⁻³. The global Proj identification, gluing of the normalization morphism, projective finiteness, conductor ideal sheaf, structure-sheaf exact sequence, finite-pushforward H0/H1 and separate I₂ geometry remain required. All stages remain partial and implementation statuses unchecked; the full Tau Ceti-importing file is uncompiled.",
         "The actual quadratic two-chart Scheme C and glued source N, their coefficient-compatible global morphism ν, both target-chart pullback squares, and global finiteness of ν have separately checked native prototypes. The actual overlap map has u=1/t and z=1/(tq). Identify C with the specified Proj cubic and N with the native projective line, prove the normalization universal property and projectivity/properness, then identify the conductor ideal sheaf and structure-sheaf exact sequence and derive finite-pushforward H0/H1. Separate I₂ geometry and all other inherited obligations remain required; all stages stay partial and all implementations unchecked.",
-        "For every field k and q=t²+at+b, the specified finite global map ν:N→C is surjective; both schemes are integral, every source stalk is integrally closed, and an actual dense-open Scheme.PartialIso agrees with ν over Spec k. The projective-line and Proj identifications, normalization universal property, projectivity/properness, conductor ideal sheaf, structure-sheaf exact sequence and finite-pushforward H0/H1 remain separate obligations. The I₂ construction and all other inherited gaps remain open; seven stages stay partial and all implementations unchecked."
+        "For every field k and q=t²+at+b, the specified finite global map ν:N→C is surjective; both schemes are integral, every source stalk is integrally closed, and an actual dense-open Scheme.PartialIso agrees with ν over Spec k. The projective-line and Proj identifications, normalization universal property, projectivity/properness, conductor ideal sheaf, structure-sheaf exact sequence and finite-pushforward H0/H1 remain separate obligations. The I₂ construction and all other inherited gaps remain open; seven stages stay partial and all implementations unchecked.",
+        "For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked."
       ]
     },
     {
@@ -23717,11 +24676,12 @@
     },
     {
       "id": "quadratic-pinching-native-exports",
-      "detail": "Native k-linear coordinates, Basis, finitely supported coefficient reconstruction and exact degree family are now stated and separately prototyped. The actual full bivariate range/kernel and canonical quotient algebra equivalence are now stated with a separate checked native prototype. Finite normalization, localization/fraction-field comparison, node/tangent/branch predicates, P¹/cohomology and every-extension count interfaces remain open. A k[q]-module instance/freeness interface is not constructed. The full Tau Ceti-importing file is uncompiled; the exact Mathlib-only extraction is checked. All implementation statuses remain unchecked. The native affine solution equivalence and native pointCount/frobeniusTrace balance are now explicit. They count distinct rational roots; they do not supply projective normalization, conductor schemes, the structure-sheaf exact sequence, H¹ comparison, arbitrary finite-extension packaging or the separate two-component I₂ construction. The inherited affine algebra/presentation and all global/fibration/classification/model obligations remain planned. Full Tau Ceti-importing suggested file remains uncompiled.",
+      "detail": "Native k-linear coordinates, Basis, finitely supported coefficient reconstruction and exact degree family are now stated and separately prototyped. The actual full bivariate range/kernel and canonical quotient algebra equivalence are now stated with a separate checked native prototype. Finite normalization, localization/fraction-field comparison, node/tangent/branch predicates, P¹/cohomology and every-extension count interfaces remain open. The current polynomial-module continuation supplies the specified k[q]-action and finite basis; the geometric and supplier obligations remain open. The full Tau Ceti-importing file is uncompiled; the exact Mathlib-only extraction is checked. All implementation statuses remain unchecked. The native affine solution equivalence and native pointCount/frobeniusTrace balance are now explicit. They count distinct rational roots; they do not supply projective normalization, conductor schemes, the structure-sheaf exact sequence, H¹ comparison, arbitrary finite-extension packaging or the separate two-component I₂ construction. The inherited affine algebra/presentation and all global/fibration/classification/model obligations remain planned. Full Tau Ceti-importing suggested file remains uncompiled.",
       "title": "Exact native quadratic-pinching owner interfaces",
       "overlapContinuation": "The specified reciprocal polynomial localization equivalence is checked over arbitrary commutative rings, with its actual affine Spec isomorphism. The finite pinch localization at tq is identified with the normalized overlap; the infinity quotient localization at u is identified with the reversed polynomial overlap, and D(z)=D(u) is proved in its actual prime spectrum. Their composite gives the specified chart transition, and the homogeneous normalization tuples agree by the unit factor t⁻³. The global Proj identification, gluing of the normalization morphism, projective finiteness, conductor ideal sheaf, structure-sheaf exact sequence, finite-pushforward H0/H1 and separate I₂ geometry remain required. All stages remain partial and implementation statuses unchecked; the full Tau Ceti-importing file is uncompiled.",
       "globalSchemeContinuation": "The actual quadratic two-chart Scheme C and glued source N, their coefficient-compatible global morphism ν, both target-chart pullback squares, and global finiteness of ν have separately checked native prototypes. The actual overlap map has u=1/t and z=1/(tq). Identify C with the specified Proj cubic and N with the native projective line, prove the normalization universal property and projectivity/properness, then identify the conductor ideal sheaf and structure-sheaf exact sequence and derive finite-pushforward H0/H1. Separate I₂ geometry and all other inherited obligations remain required; all stages stay partial and all implementations unchecked.",
-      "normalBirationalContinuation": "For every field k and q=t²+at+b, the specified finite global map ν:N→C is surjective; both schemes are integral, every source stalk is integrally closed, and an actual dense-open Scheme.PartialIso agrees with ν over Spec k. The projective-line and Proj identifications, normalization universal property, projectivity/properness, conductor ideal sheaf, structure-sheaf exact sequence and finite-pushforward H0/H1 remain separate obligations. The I₂ construction and all other inherited gaps remain open; seven stages stay partial and all implementations unchecked."
+      "normalBirationalContinuation": "For every field k and q=t²+at+b, the specified finite global map ν:N→C is surjective; both schemes are integral, every source stalk is integrally closed, and an actual dense-open Scheme.PartialIso agrees with ν over Spec k. The projective-line and Proj identifications, normalization universal property, projectivity/properness, conductor ideal sheaf, structure-sheaf exact sequence and finite-pushforward H0/H1 remain separate obligations. The I₂ construction and all other inherited gaps remain open; seven stages stay partial and all implementations unchecked.",
+      "polynomialModuleContinuation": "For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked."
     }
   ],
   "sourceIssues": [
@@ -27466,5 +28426,83 @@
       "IncomingNative": "79743d44fbe8c95a4887f95a61ea957c8831975dd4e5472022968acf8dd99697",
       "IncomingSketch": "bcd995740564027f6dd0b7f574293d474202b2d9c24ff937e487430a20052db4"
     }
+  },
+  "polynomialModuleContinuation": {
+    "agent": "Codex — codex-rtOQ9t",
+    "date": "2026-10-03",
+    "claimComment": 5965619472,
+    "botConfirmation": 5965620545,
+    "mathReadBase": "71b4558841ec24cefb350e9ba0e7846201bce3b8",
+    "publicationBase": "e8900fee9630d5937acb359fc7db190573c379f5",
+    "newNodes": 19,
+    "newTests": 12,
+    "nativePrototype": {
+      "sha256": "af6ee4f03ea9d7933189c3a6fa0e6f760671d0855eb87f37f987d05d2ae8df27",
+      "lines": 3126,
+      "inheritedAnonymousExamples": 141,
+      "namedTests": 19,
+      "axiomAudits": 274,
+      "warnings": 0,
+      "admissions": 0,
+      "elapsedSeconds": 38.72,
+      "peakRSSKiB": 7010568,
+      "availableGiBBeforeStart": 27
+    },
+    "admittedProjection": {
+      "sha256": "1dff3c6bf172a34edbb3cfc0b023c2b2d41ac384116be4652db152b8bd763f7a",
+      "lines": 2072,
+      "examples": 160,
+      "expectedAdmissionWarnings": 360,
+      "elapsedSeconds": 29.81,
+      "peakRSSKiB": 6863436,
+      "availableGiBBeforeStart": 28,
+      "extent": "Incoming bounded Mathlib-only1695-line projection, plus exact existing coordinate headers and all new headers. This is not the full canonical file."
+    },
+    "fullCanonical": {
+      "sha256": "b1e229f4e94d41b368a5fa5b420ebb9b384c7887074c4969ad8387b51d898c6f",
+      "lines": 3639,
+      "examples": 241,
+      "compiled": false,
+      "reason": "Four required Tau Ceti artifacts absent from all11 configured Lean roots; current build Tau Ceti revision does not certify the source pin."
+    },
+    "archiveCommit": "3bac08e874adc2ce841c65f9781a608cbb004e65",
+    "oldCoordinateProofCommit": "8337fdebca30e16ce95570df80f9680e05659f32",
+    "oldCoordinateSourceSha256": "be50fcb22ae6401fb49cbc293095732925344d37d1b8ec88734a13ac492d35cc",
+    "preservation": {
+      "wholeOldNodes": 402,
+      "sourceRoutes": 78,
+      "sourceFindings": 21,
+      "gaps": 17,
+      "requests": 23,
+      "planets": 29
+    },
+    "graph": {
+      "stageDAG": {
+        "vertices": 3043,
+        "edges": 8727,
+        "acyclic": true
+      },
+      "ownDeclarationDAG": {
+        "vertices": 421,
+        "edges": 1150,
+        "acyclic": true
+      },
+      "scopedDAG": {
+        "vertices": 3435,
+        "edges": 10486,
+        "acyclic": true
+      },
+      "reachableDeclarations": 421,
+      "externalDeclarations": [],
+      "baselineLeaves": 272,
+      "requiredPairs": 69,
+      "restructurePairs": 3613,
+      "unresolved": [],
+      "ownSkippedLinks": [],
+      "ownPendingLinks": [],
+      "otherSkipsMatch": true,
+      "stageEdgesUnchanged": true
+    },
+    "boundary": "For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked."
   }
 }
