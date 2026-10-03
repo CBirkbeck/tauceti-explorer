@@ -2756,3 +2756,107 @@ example : factorialUniversalScalars (ZMod 1) = 1 := by sorry
 
 end FactorialScalingContinuation
 end TauCeti.RootStack
+
+namespace TauCeti.RootStack
+section FactorialCoefficients
+variable {A B C : Type u} [CommRing A] [CommRing B] [CommRing C]
+local instance (i : ℕ) : NeZero (Nat.factorial (i+1)) := ⟨Nat.factorial_ne_zero _⟩
+
+def factorialRootScalars.map (φ : A →+* B) :
+    factorialRootScalars A →* factorialRootScalars B := by sorry
+
+lemma factorialRootScalars.map_value (φ : A →+* B) (s : factorialRootScalars A) (i : ℕ) :
+    (((factorialRootScalars.map φ s).val i : Bˣ) : B) = φ (s.val i : A) := by sorry
+
+lemma factorialRootScalars.map_id :
+    factorialRootScalars.map (RingHom.id A) = MonoidHom.id (factorialRootScalars A) := by sorry
+
+lemma factorialRootScalars.map_comp (φ : A →+* B) (ψ : B →+* C) :
+    factorialRootScalars.map (ψ.comp φ) =
+      (factorialRootScalars.map ψ).comp (factorialRootScalars.map φ) := by sorry
+
+lemma factorialAffineColimit.ringHom_ext (f : A) (φ : A →+* B)
+    (g h : FactorialAffineColimit f →+* B)
+    (hg : ∀ a, g (algebraMap A _ a) = φ a)
+    (hh : ∀ a, h (algebraMap A _ a) = φ a)
+    (hr : ∀ i, g (factorialAffineInclusion f i (AdjoinRoot.root _)) =
+      h (factorialAffineInclusion f i (AdjoinRoot.root _))) : g = h := by sorry
+
+def factorialCoefficientMap (φ : A →+* B) (f : A) :
+    FactorialAffineColimit f →+* FactorialAffineColimit (φ f) := by sorry
+
+lemma factorialCoefficientMap.root (φ : A →+* B) (f : A) (i : ℕ) :
+    factorialCoefficientMap φ f (factorialAffineInclusion f i (AdjoinRoot.root _)) =
+      factorialAffineInclusion (φ f) i (AdjoinRoot.root _) := by sorry
+
+lemma factorialCoefficientMap.constant (φ : A →+* B) (f a : A) :
+    factorialCoefficientMap φ f (algebraMap A _ a) =
+      algebraMap B _ (φ a) := by sorry
+
+lemma factorialCoefficientMap.id (f : A) :
+    factorialCoefficientMap (RingHom.id A) f = RingHom.id (FactorialAffineColimit f) := by sorry
+
+lemma factorialCoefficientMap.comp (φ : A →+* B) (ψ : B →+* C) (f : A) :
+    factorialCoefficientMap (ψ.comp φ) f =
+      (factorialCoefficientMap ψ (φ f)).comp (factorialCoefficientMap φ f) := by sorry
+
+lemma factorialScale.coefficient_naturality (φ : A →+* B) (f : A)
+    (s : factorialRootScalars A) :
+    (factorialCoefficientMap φ f).comp (factorialScale f s).toRingHom =
+      (factorialScale (φ f) (factorialRootScalars.map φ s)).toRingHom.comp
+        (factorialCoefficientMap φ f) := by sorry
+
+lemma factorialScaleEquiv.coefficient_naturality (φ : A →+* B) (f : A)
+    (s : factorialRootScalars A) (x : FactorialAffineColimit f) :
+    factorialCoefficientMap φ f (factorialScaleEquiv f s x) =
+      factorialScaleEquiv (φ f) (factorialRootScalars.map φ s)
+        (factorialCoefficientMap φ f x) := by sorry
+
+lemma factorialScaleEquiv.inverse_coefficient_naturality (φ : A →+* B) (f : A)
+    (s : factorialRootScalars A) (x : FactorialAffineColimit f) :
+    factorialCoefficientMap φ f ((factorialScaleEquiv f s).symm x) =
+      (factorialScaleEquiv (φ f) (factorialRootScalars.map φ s)).symm
+        (factorialCoefficientMap φ f x) := by sorry
+
+-- test: factorialCoefficientTests.scalar_value
+example (φ : A →+* B) (s : factorialRootScalars A) (i : ℕ) :
+    (((factorialRootScalars.map φ s).val i : Bˣ) : B) = φ (s.val i : A) := by sorry
+
+-- test: factorialCoefficientTests.scalar_one
+example (φ : A →+* B) : factorialRootScalars.map φ 1 = 1 := by sorry
+
+-- test: factorialCoefficientTests.scalar_inverse
+example (φ : A →+* B) (s : factorialRootScalars A) :
+    factorialRootScalars.map φ s⁻¹ = (factorialRootScalars.map φ s)⁻¹ := by sorry
+
+-- test: factorialCoefficientTests.identity
+example (f : A) (x : FactorialAffineColimit f) :
+    factorialCoefficientMap (RingHom.id A) f x = x := by sorry
+
+-- test: factorialCoefficientTests.root
+example (φ : A →+* B) (f : A) :
+    factorialCoefficientMap φ f (factorialAffineInclusion f 1 (AdjoinRoot.root _)) =
+      factorialAffineInclusion (φ f) 1 (AdjoinRoot.root _) := by sorry
+
+-- test: factorialCoefficientTests.composition
+example (φ : A →+* B) (ψ : B →+* C) (f : A) (x : FactorialAffineColimit f) :
+    factorialCoefficientMap (ψ.comp φ) f x =
+      factorialCoefficientMap ψ (φ f) (factorialCoefficientMap φ f x) := by sorry
+
+-- test: factorialCoefficientTests.zero_ring
+example (φ : ℤ →+* ZMod 1) (f : ℤ) (x : FactorialAffineColimit f) :
+    factorialCoefficientMap φ f x = 0 := by sorry
+
+-- test: factorialCoefficientTests.mod_two
+example : factorialCoefficientMap (Int.castRingHom (ZMod 2)) (0 : ℤ)
+    (algebraMap ℤ _ (2 : ℤ)) = 0 := by sorry
+
+-- test: factorialCoefficientTests.scaling_square
+example (φ : A →+* B) (f : A) (s : factorialRootScalars A)
+    (x : FactorialAffineColimit f) :
+    factorialCoefficientMap φ f (factorialScaleEquiv f s x) =
+      factorialScaleEquiv (φ f) (factorialRootScalars.map φ s)
+        (factorialCoefficientMap φ f x) := by sorry
+
+end FactorialCoefficients
+end TauCeti.RootStack
