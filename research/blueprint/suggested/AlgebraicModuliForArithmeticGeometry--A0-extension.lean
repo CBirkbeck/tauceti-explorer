@@ -11,6 +11,14 @@ The final omission ledger names every interface requiring an unavailable
 supplier. No desired theorem is encoded as an unspecified Prop-valued field.
 -/
 
+import Mathlib.CategoryTheory.SingleObj
+import Mathlib.CategoryTheory.Products.Basic
+import Mathlib.CategoryTheory.Discrete.Basic
+import Mathlib.CategoryTheory.Bicategory.Functor.LocallyDiscrete
+import Mathlib.Data.ZMod.Basic
+import Mathlib.SetTheory.Cardinal.Finite
+import Mathlib.Data.Fintype.Pi
+import Mathlib.Algebra.Group.TypeTags.Finite
 import Mathlib.CategoryTheory.Sites.Descent.IsStack
 import Mathlib.CategoryTheory.Sites.SheafCohomology.Basic
 import Mathlib.CategoryTheory.Endomorphism
@@ -3256,3 +3264,236 @@ example (e : A ≅ S)
     e = fromBandingSheafIso F J A b S hS := by sorry
 
 end TauCeti.AlgebraicGeometry.IntrinsicBandSections
+
+/-! Constant point-site intrinsic-band fixtures. Native carrier aliases only; all new mathematical bodies are admissions under PROTOCOL section 13. -/
+
+namespace TauCeti.AlgebraicGeometry.BandFixtures
+open CategoryTheory Opposite Bicategory
+open IntrinsicBandSections
+universe fixture_u fixture_v
+variable (C : Type u) [Category.{v} C]
+variable (D : Type fixture_u) [Category.{fixture_v} D]
+
+abbrev constantDiagram : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{fixture_v, fixture_u} :=
+  ((Functor.const Cᵒᵖ).obj (Cat.of D)).toPseudofunctor'
+
+noncomputable def constantSection (U : C) (z : (CatCenter D)ˣ) :
+    IntrinsicBandSection (constantDiagram C D) U := by sorry
+
+lemma constantSection_val (U V : C) (f : V ⟶ U) (z : (CatCenter D)ˣ) :
+    val (constantDiagram C D) (constantSection C D U z) V f = z := by sorry
+
+noncomputable def constantSectionsEquiv (U : C) :
+    (CatCenter D)ˣ ≃* IntrinsicBandSection (constantDiagram C D) U := by sorry
+
+lemma constantSectionsEquiv_restrict {U V : C} (f : V ⟶ U) (z : (CatCenter D)ˣ) :
+    restrict (constantDiagram C D) f (constantSectionsEquiv C D U z) =
+      constantSectionsEquiv C D V z := by sorry
+
+variable (I : Type fixture_u) (G : Type fixture_v) [CommGroup G]
+
+abbrev Fibre := Discrete I × SingleObj G
+
+def componentCenter (a : I → G) : CatCenter (Fibre I G) := by sorry
+
+def componentCenterUnit (a : I → G) : (CatCenter (Fibre I G))ˣ := by sorry
+
+def componentCenterEquiv : (I → G) ≃* (CatCenter (Fibre I G))ˣ := by sorry
+
+noncomputable def componentSectionsEquiv (U : C) :
+    (I → G) ≃* IntrinsicBandSection (constantDiagram C (Fibre I G)) U := by sorry
+
+lemma componentSectionsEquiv_eval {U V : C} (f : V ⟶ U) (a : I → G) (i : I) :
+    (eval (constantDiagram C (Fibre I G)) f (Discrete.mk i, SingleObj.star G)
+      (componentSectionsEquiv C I G U a)).hom.2 = a i := by sorry
+
+lemma componentSectionsEquiv_restrict {U V : C} (f : V ⟶ U) (a : I → G) :
+    restrict (constantDiagram C (Fibre I G)) f (componentSectionsEquiv C I G U a) =
+      componentSectionsEquiv C I G V a := by sorry
+
+lemma component_eval_bijective [Subsingleton I] (U : C) (i : I) :
+    Function.Bijective (eval (constantDiagram C (Fibre I G)) (𝟙 U)
+      (Discrete.mk i, SingleObj.star G)) := by sorry
+
+lemma component_eval_not_injective (U : C) (g : G) (hg : g ≠ 1) :
+    ¬ Function.Injective (eval (constantDiagram C (Fibre Bool G)) (𝟙 U)
+      (Discrete.mk false, SingleObj.star G)) := by sorry
+
+lemma fibre_no_cross_iso :
+    ¬ Nonempty (((Discrete.mk false, SingleObj.star G) : Fibre Bool G) ≅
+      (Discrete.mk true, SingleObj.star G)) := by sorry
+
+lemma constant_two_components_not_gerbe (U : C) :
+    ¬ IsGerbe (constantDiagram C (Fibre Bool G)) (⊥ : GrothendieckTopology C) := by sorry
+
+set_option backward.isDefEq.respectTransparency false in
+lemma point_isStack :
+    (constantDiagram (Discrete PUnit) (Fibre I G)).IsStack ⊥ := by sorry
+
+lemma point_connected_gerbe :
+    IsGerbe (constantDiagram (Discrete PUnit) (Fibre PUnit G)) ⊥ := by sorry
+
+-- BandPointTests.stack
+example : (constantDiagram (Discrete PUnit) (Fibre Bool (Multiplicative (ZMod 3)))).IsStack ⊥ := by sorry
+
+-- BandPointTests.gerbe
+example : IsGerbe
+    (constantDiagram (Discrete PUnit) (Fibre PUnit (Multiplicative (ZMod 3)))) ⊥ := by sorry
+
+lemma constantSection_restrict {U V : C} (f : V ⟶ U) (z : (CatCenter D)ˣ) :
+    restrict (constantDiagram C D) f (constantSection C D U z) =
+      constantSection C D V z := by sorry
+
+lemma constantSectionsEquiv_apply (U : C) (z : (CatCenter D)ˣ) :
+    constantSectionsEquiv C D U z = constantSection C D U z := by sorry
+
+lemma constantSectionsEquiv_symm_apply (U : C)
+    (s : IntrinsicBandSection (constantDiagram C D) U) :
+    (constantSectionsEquiv C D U).symm s = val (constantDiagram C D) s U (𝟙 U) := by sorry
+
+lemma componentCenter_app (a : I → G) (x : Fibre I G) :
+    (componentCenter I G a).app x = (𝟙 x.1, a x.1.as) := by sorry
+
+lemma componentCenter_naturality (a : I → G) {x y : Fibre I G} (f : x ⟶ y) :
+    f ≫ (componentCenter I G a).app y = (componentCenter I G a).app x ≫ f := by sorry
+
+lemma componentCenterUnit_val (a : I → G) :
+    (componentCenterUnit I G a).val = componentCenter I G a := by sorry
+
+lemma componentCenterUnit_inv (a : I → G) :
+    (componentCenterUnit I G a).inv = componentCenter I G (fun i => (a i)⁻¹) := by sorry
+
+lemma componentCenterEquiv_apply (a : I → G) :
+    componentCenterEquiv I G a = componentCenterUnit I G a := by sorry
+
+lemma componentCenterEquiv_symm_apply (z : (CatCenter (Fibre I G))ˣ) (i : I) :
+    (componentCenterEquiv I G).symm z i =
+      (z.val.app (Discrete.mk i, SingleObj.star G)).2 := by sorry
+
+lemma componentSectionsEquiv_symm_apply (U : C)
+    (s : IntrinsicBandSection (constantDiagram C (Fibre I G)) U) (i : I) :
+    (componentSectionsEquiv C I G U).symm s i =
+      ((val (constantDiagram C (Fibre I G)) s U (𝟙 U)).val.app
+        (Discrete.mk i, SingleObj.star G)).2 := by sorry
+
+-- BandPointTests.generator
+example : (eval
+    (constantDiagram (Discrete PUnit) (Fibre PUnit (Multiplicative (ZMod 3))))
+    (𝟙 (Discrete.mk PUnit.unit)) (Discrete.mk PUnit.unit, SingleObj.star _)
+    (componentSectionsEquiv (Discrete PUnit) PUnit (Multiplicative (ZMod 3))
+      (Discrete.mk PUnit.unit) (fun _ => Multiplicative.ofAdd (1 : ZMod 3)))).hom.2 =
+        Multiplicative.ofAdd (1 : ZMod 3) := by sorry
+
+-- BandPointTests.trivialDiscreteTwoObjects
+example : (constantDiagram (Discrete PUnit) (Fibre Bool (Multiplicative (ZMod 1)))).IsStack ⊥ ∧
+    ¬ IsGerbe (constantDiagram (Discrete PUnit) (Fibre Bool (Multiplicative (ZMod 1)))) ⊥ := by sorry
+
+-- BandPointTests.disconnectedWitness
+example : ∃ s : IntrinsicBandSection
+    (constantDiagram (Discrete PUnit) (Fibre Bool (Multiplicative (ZMod 3))))
+      (Discrete.mk PUnit.unit), s ≠ 1 ∧
+    eval (constantDiagram (Discrete PUnit) (Fibre Bool (Multiplicative (ZMod 3))))
+      (𝟙 (Discrete.mk PUnit.unit)) (Discrete.mk false, SingleObj.star _) s =
+        Iso.refl ((Discrete.mk false, SingleObj.star _) : Fibre Bool (Multiplicative (ZMod 3))) := by sorry
+
+-- ConstantCentreTests.one
+example (U : C) : constantSection C D U 1 = 1 := by sorry
+
+-- ConstantCentreTests.multiply
+example (U : C) (z t : (CatCenter D)ˣ) :
+    constantSection C D U (z * t) = constantSection C D U z * constantSection C D U t := by sorry
+
+-- ConstantCentreTests.allArrows
+example (U V : C) (f : V ⟶ U) (z : (CatCenter D)ˣ) :
+    val (constantDiagram C D) (constantSection C D U z) V f = z := by sorry
+
+-- ConstantEquivTests.centreRoundTrip
+example (U : C) (z : (CatCenter D)ˣ) :
+    (constantSectionsEquiv C D U).symm (constantSectionsEquiv C D U z) = z := by sorry
+
+-- ConstantEquivTests.sectionRoundTrip
+example (U : C) (s : IntrinsicBandSection (constantDiagram C D) U) :
+    constantSectionsEquiv C D U ((constantSectionsEquiv C D U).symm s) = s := by sorry
+
+-- ConstantEquivTests.restriction
+example {U V : C} (f : V ⟶ U) (z : (CatCenter D)ˣ) :
+    restrict (constantDiagram C D) f (constantSectionsEquiv C D U z) =
+      constantSectionsEquiv C D V z := by sorry
+
+-- ComponentCentreTests.component
+example (a : I → G) (i : I) :
+    (componentCenter I G a).app (Discrete.mk i, SingleObj.star G) = (𝟙 _, a i) := by sorry
+
+-- ComponentCentreTests.unit
+example (i : I) : (componentCenter I G 1).app (Discrete.mk i, SingleObj.star G) = 𝟙 _ := by sorry
+
+-- ComponentCentreTests.naturality
+example (a : I → G) {x y : Fibre I G} (f : x ⟶ y) :
+    f ≫ (componentCenter I G a).app y = (componentCenter I G a).app x ≫ f := by sorry
+
+-- ComponentUnitTests.value
+example (a : I → G) : (componentCenterUnit I G a).val = componentCenter I G a := by sorry
+
+-- ComponentUnitTests.inverse
+example (a : I → G) : (componentCenterUnit I G a).inv =
+    componentCenter I G (fun i => (a i)⁻¹) := by sorry
+
+-- ComponentUnitTests.roundTrip
+example (a : I → G) : (componentCenterUnit I G a).val *
+    (componentCenterUnit I G a).inv = 1 := by sorry
+
+-- ComponentEquivTests.coefficientRoundTrip
+example (a : I → G) : (componentCenterEquiv I G).symm (componentCenterEquiv I G a) = a := by sorry
+
+-- ComponentEquivTests.centreRoundTrip
+example (z : (CatCenter (Fibre I G))ˣ) :
+    componentCenterEquiv I G ((componentCenterEquiv I G).symm z) = z := by sorry
+
+-- ComponentEquivTests.inertiaCoordinates
+example (a : I → G) (i : I) :
+    ((componentCenterEquiv I G a).val.app (Discrete.mk i, SingleObj.star G)).2 = a i := by sorry
+
+-- ComponentSectionTests.evaluation
+example {U V : C} (f : V ⟶ U) (a : I → G) (i : I) :
+    (eval (constantDiagram C (Fibre I G)) f (Discrete.mk i, SingleObj.star G)
+      (componentSectionsEquiv C I G U a)).hom.2 = a i := by sorry
+
+-- ComponentSectionTests.restriction
+example {U V : C} (f : V ⟶ U) (a : I → G) :
+    restrict (constantDiagram C (Fibre I G)) f (componentSectionsEquiv C I G U a) =
+      componentSectionsEquiv C I G V a := by sorry
+
+-- ComponentSectionTests.roundTrip
+example (U : C) (a : I → G) :
+    (componentSectionsEquiv C I G U).symm (componentSectionsEquiv C I G U a) = a := by sorry
+
+-- BandPointTests.connected
+example : Function.Bijective
+    (eval (constantDiagram (Discrete PUnit) (Fibre PUnit (Multiplicative (ZMod 3))))
+      (𝟙 (Discrete.mk PUnit.unit)) (Discrete.mk PUnit.unit, SingleObj.star _)) := by sorry
+
+-- BandPointTests.disconnected
+example : ¬ Function.Injective
+    (eval (constantDiagram (Discrete PUnit) (Fibre Bool (Multiplicative (ZMod 3))))
+      (𝟙 (Discrete.mk PUnit.unit)) (Discrete.mk false, SingleObj.star _)) := by sorry
+
+-- BandPointTests.notGerbe
+example : ¬ IsGerbe
+    (constantDiagram (Discrete PUnit) (Fibre Bool (Multiplicative (ZMod 3)))) ⊥ := by sorry
+
+-- BandPointTests.connectedCardinality
+example : Nat.card (IntrinsicBandSection
+    (constantDiagram (Discrete PUnit) (Fibre PUnit (Multiplicative (ZMod 3))))
+      (Discrete.mk PUnit.unit)) = 3 := by sorry
+
+-- BandPointTests.disconnectedCardinality
+example : Nat.card (IntrinsicBandSection
+    (constantDiagram (Discrete PUnit) (Fibre Bool (Multiplicative (ZMod 3))))
+      (Discrete.mk PUnit.unit)) = 9 := by sorry
+
+-- BandPointTests.terminalFibre
+example : Nat.card (IntrinsicBandSection
+    (constantDiagram (Discrete PUnit) (Fibre PUnit (Multiplicative (ZMod 1))))
+      (Discrete.mk PUnit.unit)) = 1 := by sorry
+
+end TauCeti.AlgebraicGeometry.BandFixtures
