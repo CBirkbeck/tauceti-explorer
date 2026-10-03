@@ -354,6 +354,46 @@ print(json.dumps({'integerTensorSquare':mul(C,C),'integerTensorCubeZero':True,'c
 
 Recover the final sources, check `free -g` and use an existing exact-Mathlib-pin build only if at least20GiB is available. Run one source at a time with a1200-second limit, first the native proof experiment and then the admitted canonical sketch; resolve any newly exposed test elaboration errors and record exact-file diagnostics. The complete mixed ordered-tensor shuffle factorization, cross-ring exterior comparison and E1 sheaf operations remain the mathematical frontier. The characteristic-two example prevents replacing that frontier by a self-power converse. All global/source/supplier/stage closure remains open.
 
+## Immutable public recovery
+
+The archived proof experiments and all3 replay scripts are in ancestor commit `9a34a674dc624e21c9ad7ae573abda4baeeb1808`. The archive carries inert native text in the allowed suggested Lean file and scripts in this handoff; it does not carry a final-file execution receipt. The submitted suggested file is the thin admitted canonical sketch. Its archive extraction, full incoming-prefix hash, new/admitted headers and exact finite matrix results were checked.
+
+Save the next complete Python fence as recover.py outside an existing checkout. Run `python3 recover.py SUBMITTED_COMMIT EVIDENCE`, then `TAUCETI_REPO=EXISTING_CHECKOUT python3 EVIDENCE/verify.py EVIDENCE PINNED_DECLARATIONS.tsv`. Recovery fetches6 individually hashed public artifacts and5 final overlays, plus2 mathematical controls; it never downloads a repository snapshot or runs Lean.
+
+Recovery SHA256 `dba199f04d0d44638e06d7438133122d5396c67490ffc95c345169f0923aed40`.
+
+```python
+"""Recover public immutable proof experiments and current proposals; never imply a Lean execution."""
+from pathlib import Path
+import hashlib,json,re,sys,time,urllib.request
+REF=sys.argv[1];D=Path(sys.argv[2]);D.mkdir(parents=True,exist_ok=True)
+ARCHIVE='9a34a674dc624e21c9ad7ae573abda4baeeb1808';MATH='8ff517d75158e529ea1c286a8940a0b36165d241'
+FILES=['research/blueprint/roadmaps/HodgeStructuresPartII.json', 'research/blueprint/packets/HodgeStructuresPartII.json', 'research/blueprint/readmes/HodgeStructuresPartII.md', 'research/blueprint/suggested/HodgeStructuresPartII.lean', 'research/blueprint/handoff/DESIGN-HodgeStructuresPartII.md']
+HASHES={'Native.lean': 'e2e288fd7bc2f897c023ce4766d15e19c4215a20c095c5f4f96e9eed71ebc773', 'Canonical.lean': 'eef0fb3fb9fe12fc727bb27e297369f2a79e6b2c51cf289686893aa740410fce', 'New.lean': 'ac26afe05685d41c3901e9a6e4509d813553fc76ad1bdddd36e8040490cc2665', 'verify.py': 'df51c1b15587415d1fb42146278c2d85c73a4159fe5f020e7c982570f3bc0ca7', 'immutable_view.py': '20acf811caf731bd424804ca32f761a25efb5b4d95557c9c5f883847bae02930', 'finite_models64.py': '9d74c4f73566ce5bd78cc9733fd84c6313af6748d9ea8c95a7b160bb83938612'}
+def raw(ref,path):
+ url='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'+ref+'/'+path
+ for attempt in range(4):
+  try:return urllib.request.urlopen(url,timeout=45).read().decode()
+  except Exception:
+   if attempt==3:raise
+   time.sleep(2)
+suggested=raw(ARCHIVE,FILES[3]);hand=raw(ARCHIVE,FILES[4])
+canonical=suggested.split('\n/- BEGIN NATIVE TENSOR CONTRACTION ARCHIVE\n',1)[0]
+native=suggested.split('/- BEGIN NATIVE TENSOR CONTRACTION ARCHIVE\n',1)[1].split('END NATIVE TENSOR CONTRACTION ARCHIVE -/',1)[0]
+new=suggested.split('/- BEGIN NEW TENSOR CONTRACTION ARCHIVE\n',1)[1].split('END NEW TENSOR CONTRACTION ARCHIVE -/',1)[0]
+blocks=re.findall(r'```python\n(.*?)\n```',hand,re.S)
+contents={'Native.lean':native,'Canonical.lean':canonical,'New.lean':new}
+for name,block in zip(['verify.py','immutable_view.py','finite_models64.py'],blocks[:3]):contents[name]=block+'\n'
+for name,text in contents.items():
+ assert hashlib.sha256(text.encode()).hexdigest()==HASHES[name],name
+ (D/name).write_text(text)
+for name,path in [('original-packet.json',FILES[1]),('original-roadmap.json',FILES[0])]:
+ (D/name).write_text(raw(MATH,path))
+for path in FILES:
+ dest=D/'proposal'/path;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_text(raw(REF,path))
+print(json.dumps({'archive':ARCHIVE,'submitted':REF,'verifiedArtifacts':HASHES,'proposals':5,'controls':2,'mode':'source/hash/header only; final Lean sources were not compiled'},indent=2))
+```
+
 ## Preserved incoming handoff
 
 # Current checkpoint — affine monoidal scalar extension
