@@ -1,3 +1,393 @@
+# Native sheaf transport between local gerbe objects
+
+For a supplied local object x and a fixed-band self-morphism X, the preceding checkpoint constructs the actual slice Hom sheaf H_x(X). A supplied isomorphism e:x≅x′ induces the section map p ↦ F(t)(e⁻¹) ≫ p ≫ F(t)(X_U(e)). The native pullHom comparisons prove this is a sheaf map. Composition and identity hold, and reversing e supplies its actual inverse.
+
+The strong restriction comparison identifies this map with the already planned fibre Isom transport. Its band-preserving choice independence therefore gives equal sheaf maps for every two connecting isomorphisms. The map also respects the actual band action. Modification naturality assembles the maps into a natural isomorphism of sheaf-valued functors. Identity and composition then produce a functor from Mathlib’s existing Core(F(U)); its parallel arrows have equal images. No local object or connecting isomorphism is selected by that functor.
+
+Actual sheaf-level transport between supplied local gerbe objects now has identity, composition, inverse, choice-independence, coefficient-equivariance and modification-naturality laws, packaged as a native functor from Core(F(U)). This advances the gluing input only. Construct actual local object covers and overlap refinements, descend the sheaves/actions/maps for a nonneutral gerbe, package them in D0’s supplied torsor groupoid, and prove full faithfulness and coherent inverse/unit/counit. The12 tests are parameterized; concrete nonconstant-site instantiation remains. All10 inherited gaps,22requests,8sourceIssues and8partial stages remain; SF1 descended-band comparison, nonneutral O(1) roots, derived H2 and compatible fpqc limits remain open.
+
+All20 new declarations and12 parameterized examples compile in the separate native proof prototype without admissions. The full inherited Mathlib projection is checked with admission warnings only. The complete Tau Ceti-import suggested file remains UNCOMPILED: the available Tau Ceti build differs from the required pin and lacks the imported LongExactSequence artifact. All implementation statuses remain unchecked. Public proof and validation receipts are linked from the handoff.
+
+Primary motivation: [Olsson, printed122–123](https://stacky.net/files/written/Stacks/Stacks.pdf) and [GWZ20, Definition2.6 and §2.2.1, printed514–515](https://link.springer.com/content/pdf/10.1007/s00222-020-00957-8.pdf). Exact formulas and native coherence proofs are authored deductions. The prior source-issue records remain unresolved.
+
+## Transporting the native Hom sheaf
+
+AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/map. Proposed declaration: `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransport`.
+
+For a fixed-band self-morphism X and an actual isomorphism e:x≅x′ in F(U), define T_e:H_x(X)→H_x′(X), where H_x(X)=F.sheafHom(J,x,X_U(x)). At t:T→U the section p is sent to F(t)(e⁻¹) followed by p followed by F(t)(X_U(e)). This is an actual morphism of sheaves on (Over U,J.over U), natural for every Over-arrow with the native pullHom restrictions.
+
+Hypotheses: Fix a site (C,J), a native Cat-valued pseudofunctor F with IsGerbe(F,J), an abelian sheaf A and a fixed banding b. The coefficient universe w is independent of the fibre-hom universe v′. X,Y range over the actual fixed-band HomCategory(b,b); modifications are its native morphisms. Fix U and objects x,x′,x″ in F(U) only where supplied. Connecting isomorphisms and slice sections are explicit parameters; neither a global neutral object nor global sections are assumed.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/fibre-hom-sheaf, mathlib:CategoryTheory.Pseudofunctor.mapComp'_hom_naturality, mathlib:CategoryTheory.Pseudofunctor.mapComp'_inv_naturality.
+
+Proof outline:
+
+- Use the displayed precomposition/postcomposition formula as the actual Type-valued component.
+- Expand pullHom, distribute the fibre functor over composition, and use both naturalities of mapComp′ to prove the Over-site square.
+
+API:
+
+- TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransport_apply: T_e at t sends p to F(t)(e⁻¹) ≫ p ≫ F(t)(X_U(e)), with the original Hom section carrier retained.
+- TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransport_id: For every X, T_id_x is the identity morphism of H_x(X).
+- TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransport_comp: For e:x≅x′ and f:x′≅x″, T_(e followed by f)=T_e followed by T_f as actual sheaf morphisms.
+- TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransport_independent: For any two isomorphisms e,f:x≅x′, T_e=T_f as actual sheaf morphisms. No isomorphism is chosen globally, and existence of one is not asserted.
+- TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransport_equivariant: For a∈Multiplicative A(T) and p∈H_x(X)(t), T_e(a acting on p)=a acting on T_e(p). The coefficient universe w is independent of the fibre-hom universe v′, and no section nonemptiness is assumed.
+
+Unit tests:
+
+- TauCeti.AlgebraicGeometry.SheafTransportTests.automorphism_trivial: Transport around any supplied automorphism of x is the identity actual sheaf map; the isomorphism parameter cannot inject artificial monodromy.
+- TauCeti.AlgebraicGeometry.SheafTransportTests.modification_square: An actual modification commutes with the two actual local-object transport maps as a native sheaf square.
+- TauCeti.AlgebraicGeometry.SheafTransportTests.scalar_compatibility: Transport commutes with the same actual band coefficient on the two native section carriers.
+
+Source: Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native sheaf-level deductions. The sources motivate the automorphism/torsor comparison. These exact slice-sheaf transport formulas and coherence proofs are authored deductions, not a source quotation or complete classification proof.
+
+## Evaluating local-object transport
+
+AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/apply. Proposed declaration: `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransport_apply`.
+
+T_e at t sends p to F(t)(e⁻¹) ≫ p ≫ F(t)(X_U(e)), with the original Hom section carrier retained.
+
+Hypotheses: Fix a site (C,J), a native Cat-valued pseudofunctor F with IsGerbe(F,J), an abelian sheaf A and a fixed banding b. The coefficient universe w is independent of the fibre-hom universe v′. X,Y range over the actual fixed-band HomCategory(b,b); modifications are its native morphisms. Fix U and objects x,x′,x″ in F(U) only where supplied. Connecting isomorphisms and slice sections are explicit parameters; neither a global neutral object nor global sections are assumed.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/map.
+
+Proof outline:
+
+- Evaluate the component of the constructed sheaf morphism.
+
+Source: Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native sheaf-level deductions. The sources motivate the automorphism/torsor comparison. These exact slice-sheaf transport formulas and coherence proofs are authored deductions, not a source quotation or complete classification proof.
+
+## Identity local-object transport
+
+AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/identity. Proposed declaration: `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransport_id`.
+
+For every X, T_id_x is the identity morphism of H_x(X).
+
+Hypotheses: Fix a site (C,J), a native Cat-valued pseudofunctor F with IsGerbe(F,J), an abelian sheaf A and a fixed banding b. The coefficient universe w is independent of the fibre-hom universe v′. X,Y range over the actual fixed-band HomCategory(b,b); modifications are its native morphisms. Fix U and objects x,x′,x″ in F(U) only where supplied. Connecting isomorphisms and slice sections are explicit parameters; neither a global neutral object nor global sections are assumed.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/map.
+
+Proof outline:
+
+- Use sheaf and natural-transformation extensionality, then functor map_id and category identities.
+
+Source: Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native sheaf-level deductions. The sources motivate the automorphism/torsor comparison. These exact slice-sheaf transport formulas and coherence proofs are authored deductions, not a source quotation or complete classification proof.
+
+## Composing local-object transport
+
+AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/composition. Proposed declaration: `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransport_comp`.
+
+For e:x≅x′ and f:x′≅x″, T_(e followed by f)=T_e followed by T_f as actual sheaf morphisms.
+
+Hypotheses: Fix a site (C,J), a native Cat-valued pseudofunctor F with IsGerbe(F,J), an abelian sheaf A and a fixed banding b. The coefficient universe w is independent of the fibre-hom universe v′. X,Y range over the actual fixed-band HomCategory(b,b); modifications are its native morphisms. Fix U and objects x,x′,x″ in F(U) only where supplied. Connecting isomorphisms and slice sections are explicit parameters; neither a global neutral object nor global sections are assumed.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/map.
+
+Proof outline:
+
+- Expand at each section and use the functors’ map_comp laws and associativity, preserving the order of inverse arrows.
+
+Source: Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native sheaf-level deductions. The sources motivate the automorphism/torsor comparison. These exact slice-sheaf transport formulas and coherence proofs are authored deductions, not a source quotation or complete classification proof.
+
+## The sheaf isomorphism between local objects
+
+AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/iso. Proposed declaration: `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransportIso`.
+
+The map T_e is the hom of an actual sheaf isomorphism H_x(X)≅H_x′(X), with inverse T_(e⁻¹). Both inverse laws hold in the native Sheaf category.
+
+Hypotheses: Fix a site (C,J), a native Cat-valued pseudofunctor F with IsGerbe(F,J), an abelian sheaf A and a fixed banding b. The coefficient universe w is independent of the fibre-hom universe v′. X,Y range over the actual fixed-band HomCategory(b,b); modifications are its native morphisms. Fix U and objects x,x′,x″ in F(U) only where supplied. Connecting isomorphisms and slice sections are explicit parameters; neither a global neutral object nor global sections are assumed.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/map, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/identity, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/composition.
+
+Proof outline:
+
+- Use the two displayed maps as hom and inv.
+- Reduce each composite to transport along an identity using composition and inverse cancellation.
+
+API:
+
+- TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransportIso_hom: The hom field of selfHomSheafTransportIso(X,e) is T_e.
+- TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransportIso_inv: The inv field of selfHomSheafTransportIso(X,e) is T_(e⁻¹).
+- TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransportIso_independent: For e,f:x≅x′, selfHomSheafTransportIso(X,e)=selfHomSheafTransportIso(X,f).
+
+Unit tests:
+
+- TauCeti.AlgebraicGeometry.SheafTransportTests.inverse_roundtrip: The displayed forward sheaf map followed by its displayed inverse recovers every supplied native section.
+- TauCeti.AlgebraicGeometry.SheafTransportTests.empty_sections: If the actual Hom section set at a slice object is empty for x, it is empty for x′; no artificial global section is introduced.
+- TauCeti.AlgebraicGeometry.SheafTransportTests.iso_choice_independence: Two supplied connecting isomorphisms induce equal native sheaf isomorphisms, including their inverse data.
+
+Source: Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native sheaf-level deductions. The sources motivate the automorphism/torsor comparison. These exact slice-sheaf transport formulas and coherence proofs are authored deductions, not a source quotation or complete classification proof.
+
+## Agreement with the transported fibre Isom
+
+AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/transport-comparison. Proposed declaration: `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransport_transport`.
+
+At t:T→U, applying fibreHomTransportIsoEquiv to T_e(p) equals applying the preceding selfTransportActionIso along F(t).mapIso(e) to the transported Isom of p. The strong-transformation restriction comparison is retained.
+
+Hypotheses: Fix a site (C,J), a native Cat-valued pseudofunctor F with IsGerbe(F,J), an abelian sheaf A and a fixed banding b. The coefficient universe w is independent of the fibre-hom universe v′. X,Y range over the actual fixed-band HomCategory(b,b); modifications are its native morphisms. Fix U and objects x,x′,x″ in F(U) only where supplied. Connecting isomorphisms and slice sections are explicit parameters; neither a global neutral object nor global sections are assumed.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/map, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/transport-iso-equiv, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso-naturality.
+
+Proof outline:
+
+- Take homs of restrictionIso_naturality, prepend F(t)(e⁻¹) and p, and use Iso.ext.
+- This identifies the new sheaf map with the old fibre transport rather than introducing a second independent transport law.
+
+Source: Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native sheaf-level deductions. The sources motivate the automorphism/torsor comparison. These exact slice-sheaf transport formulas and coherence proofs are authored deductions, not a source quotation or complete classification proof.
+
+## Independence of the connecting isomorphism
+
+AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/independent. Proposed declaration: `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransport_independent`.
+
+For any two isomorphisms e,f:x≅x′, T_e=T_f as actual sheaf morphisms. No isomorphism is chosen globally, and existence of one is not asserted.
+
+Hypotheses: Fix a site (C,J), a native Cat-valued pseudofunctor F with IsGerbe(F,J), an abelian sheaf A and a fixed banding b. The coefficient universe w is independent of the fibre-hom universe v′. X,Y range over the actual fixed-band HomCategory(b,b); modifications are its native morphisms. Fix U and objects x,x′,x″ in F(U) only where supplied. Connecting isomorphisms and slice sections are explicit parameters; neither a global neutral object nor global sections are assumed.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/transport-comparison, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso-independent.
+
+Proof outline:
+
+- At each slice object use injectivity of the transported-Isom equivalence.
+- Apply the previously proved fixed-band fibre-transport independence to the two pulled-back isomorphisms and use the comparison on both sides.
+
+Source: Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native sheaf-level deductions. The sources motivate the automorphism/torsor comparison. These exact slice-sheaf transport formulas and coherence proofs are authored deductions, not a source quotation or complete classification proof.
+
+## Transport respects the section band action
+
+AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/equivariant. Proposed declaration: `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransport_equivariant`.
+
+For a∈Multiplicative A(T) and p∈H_x(X)(t), T_e(a acting on p)=a acting on T_e(p). The coefficient universe w is independent of the fibre-hom universe v′, and no section nonemptiness is assumed.
+
+Hypotheses: Fix a site (C,J), a native Cat-valued pseudofunctor F with IsGerbe(F,J), an abelian sheaf A and a fixed banding b. The coefficient universe w is independent of the fibre-hom universe v′. X,Y range over the actual fixed-band HomCategory(b,b); modifications are its native morphisms. Fix U and objects x,x′,x″ in F(U) only where supplied. Connecting isomorphisms and slice sections are explicit parameters; neither a global neutral object nor global sections are assumed.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/map, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/section-action, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso.
+
+Proof outline:
+
+- Apply band conjugation to the pulled-back isomorphism X_U(e).
+- Take homs and prepend F(t)(e⁻¹) and p; associativity yields the equality of actual sections.
+
+Source: Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native sheaf-level deductions. The sources motivate the automorphism/torsor comparison. These exact slice-sheaf transport formulas and coherence proofs are authored deductions, not a source quotation or complete classification proof.
+
+## Transport natural in fixed-band morphisms
+
+AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso. Proposed declaration: `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransportNatIso`.
+
+For e:x≅x′, the sheaf isomorphisms T_e(X) form a native natural isomorphism fibreHomSheafFunctor(b,b,U,x,x)≅fibreHomSheafFunctor(b,b,U,x′,x′). Its naturality holds for every actual native modification X⇒Y.
+
+Hypotheses: Fix a site (C,J), a native Cat-valued pseudofunctor F with IsGerbe(F,J), an abelian sheaf A and a fixed banding b. The coefficient universe w is independent of the fibre-hom universe v′. X,Y range over the actual fixed-band HomCategory(b,b); modifications are its native morphisms. Fix U and objects x,x′,x″ in F(U) only where supplied. Connecting isomorphisms and slice sections are explicit parameters; neither a global neutral object nor global sections are assumed.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/iso, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-functor, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-map.
+
+Proof outline:
+
+- Use the constructed sheaf isomorphisms as components of NatIso.ofComponents.
+- Apply the modification’s component naturality to e, pull it back by F(t), and prepend the same inverse and section.
+
+API:
+
+- TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransportNatIso_app: The component at X of selfHomSheafTransportNatIso(e) is exactly selfHomSheafTransportIso(X,e).
+- TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransportNatIso_independent: For any e,f:x≅x′, the two natural isomorphisms of sheaf-valued functors are equal.
+- TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransportNatIso_id: The natural isomorphism induced by id_x is the identity of the sheaf-valued functor.
+- TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransportNatIso_comp: The natural isomorphism induced by e followed by f is the composite of the natural isomorphisms induced by e and f.
+
+Unit tests:
+
+- TauCeti.AlgebraicGeometry.SheafTransportTests.inverse_modification: The natural transport square also holds for the actual inverse of any native modification.
+- TauCeti.AlgebraicGeometry.SheafTransportTests.three_objects: Three composable connecting isomorphisms obey the iterated natural-isomorphism cocycle equation.
+- TauCeti.AlgebraicGeometry.SheafTransportTests.actual_restriction: The actual section transport commutes with every supplied Over-arrow restriction on the native Hom sheaves.
+
+Source: Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native sheaf-level deductions. The sources motivate the automorphism/torsor comparison. These exact slice-sheaf transport formulas and coherence proofs are authored deductions, not a source quotation or complete classification proof.
+
+## The natural-isomorphism component
+
+AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso-app. Proposed declaration: `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransportNatIso_app`.
+
+The component at X of selfHomSheafTransportNatIso(e) is exactly selfHomSheafTransportIso(X,e).
+
+Hypotheses: Fix a site (C,J), a native Cat-valued pseudofunctor F with IsGerbe(F,J), an abelian sheaf A and a fixed banding b. The coefficient universe w is independent of the fibre-hom universe v′. X,Y range over the actual fixed-band HomCategory(b,b); modifications are its native morphisms. Fix U and objects x,x′,x″ in F(U) only where supplied. Connecting isomorphisms and slice sections are explicit parameters; neither a global neutral object nor global sections are assumed.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso.
+
+Proof outline:
+
+- Evaluate the native NatIso.ofComponents component.
+
+Source: Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native sheaf-level deductions. The sources motivate the automorphism/torsor comparison. These exact slice-sheaf transport formulas and coherence proofs are authored deductions, not a source quotation or complete classification proof.
+
+## Natural transport is choice independent
+
+AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso-independent. Proposed declaration: `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransportNatIso_independent`.
+
+For any e,f:x≅x′, the two natural isomorphisms of sheaf-valued functors are equal.
+
+Hypotheses: Fix a site (C,J), a native Cat-valued pseudofunctor F with IsGerbe(F,J), an abelian sheaf A and a fixed banding b. The coefficient universe w is independent of the fibre-hom universe v′. X,Y range over the actual fixed-band HomCategory(b,b); modifications are its native morphisms. Fix U and objects x,x′,x″ in F(U) only where supplied. Connecting isomorphisms and slice sections are explicit parameters; neither a global neutral object nor global sections are assumed.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/independent.
+
+Proof outline:
+
+- Use Iso.ext and NatTrans.ext; each component is the already choice-independent sheaf map.
+
+Source: Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native sheaf-level deductions. The sources motivate the automorphism/torsor comparison. These exact slice-sheaf transport formulas and coherence proofs are authored deductions, not a source quotation or complete classification proof.
+
+## Identity natural transport
+
+AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso-identity. Proposed declaration: `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransportNatIso_id`.
+
+The natural isomorphism induced by id_x is the identity of the sheaf-valued functor.
+
+Hypotheses: Fix a site (C,J), a native Cat-valued pseudofunctor F with IsGerbe(F,J), an abelian sheaf A and a fixed banding b. The coefficient universe w is independent of the fibre-hom universe v′. X,Y range over the actual fixed-band HomCategory(b,b); modifications are its native morphisms. Fix U and objects x,x′,x″ in F(U) only where supplied. Connecting isomorphisms and slice sections are explicit parameters; neither a global neutral object nor global sections are assumed.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/identity.
+
+Proof outline:
+
+- Use isomorphism and natural-transformation extensionality, then the component identity law.
+
+Source: Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native sheaf-level deductions. The sources motivate the automorphism/torsor comparison. These exact slice-sheaf transport formulas and coherence proofs are authored deductions, not a source quotation or complete classification proof.
+
+## Composition of natural transport
+
+AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso-composition. Proposed declaration: `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransportNatIso_comp`.
+
+The natural isomorphism induced by e followed by f is the composite of the natural isomorphisms induced by e and f.
+
+Hypotheses: Fix a site (C,J), a native Cat-valued pseudofunctor F with IsGerbe(F,J), an abelian sheaf A and a fixed banding b. The coefficient universe w is independent of the fibre-hom universe v′. X,Y range over the actual fixed-band HomCategory(b,b); modifications are its native morphisms. Fix U and objects x,x′,x″ in F(U) only where supplied. Connecting isomorphisms and slice sections are explicit parameters; neither a global neutral object nor global sections are assumed.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/composition.
+
+Proof outline:
+
+- Use isomorphism and natural-transformation extensionality and the component composition law.
+
+Source: Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native sheaf-level deductions. The sources motivate the automorphism/torsor comparison. These exact slice-sheaf transport formulas and coherence proofs are authored deductions, not a source quotation or complete classification proof.
+
+## The forward sheaf isomorphism map
+
+AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/iso-hom. Proposed declaration: `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransportIso_hom`.
+
+The hom field of selfHomSheafTransportIso(X,e) is T_e.
+
+Hypotheses: Fix a site (C,J), a native Cat-valued pseudofunctor F with IsGerbe(F,J), an abelian sheaf A and a fixed banding b. The coefficient universe w is independent of the fibre-hom universe v′. X,Y range over the actual fixed-band HomCategory(b,b); modifications are its native morphisms. Fix U and objects x,x′,x″ in F(U) only where supplied. Connecting isomorphisms and slice sections are explicit parameters; neither a global neutral object nor global sections are assumed.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/iso.
+
+Proof outline:
+
+- Evaluate the actual hom field.
+
+Source: Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native sheaf-level deductions. The sources motivate the automorphism/torsor comparison. These exact slice-sheaf transport formulas and coherence proofs are authored deductions, not a source quotation or complete classification proof.
+
+## The inverse sheaf isomorphism map
+
+AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/iso-inv. Proposed declaration: `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransportIso_inv`.
+
+The inv field of selfHomSheafTransportIso(X,e) is T_(e⁻¹).
+
+Hypotheses: Fix a site (C,J), a native Cat-valued pseudofunctor F with IsGerbe(F,J), an abelian sheaf A and a fixed banding b. The coefficient universe w is independent of the fibre-hom universe v′. X,Y range over the actual fixed-band HomCategory(b,b); modifications are its native morphisms. Fix U and objects x,x′,x″ in F(U) only where supplied. Connecting isomorphisms and slice sections are explicit parameters; neither a global neutral object nor global sections are assumed.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/iso.
+
+Proof outline:
+
+- Evaluate the actual inv field.
+
+Source: Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native sheaf-level deductions. The sources motivate the automorphism/torsor comparison. These exact slice-sheaf transport formulas and coherence proofs are authored deductions, not a source quotation or complete classification proof.
+
+## The sheaf isomorphism is choice independent
+
+AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/iso-independent. Proposed declaration: `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransportIso_independent`.
+
+For e,f:x≅x′, selfHomSheafTransportIso(X,e)=selfHomSheafTransportIso(X,f).
+
+Hypotheses: Fix a site (C,J), a native Cat-valued pseudofunctor F with IsGerbe(F,J), an abelian sheaf A and a fixed banding b. The coefficient universe w is independent of the fibre-hom universe v′. X,Y range over the actual fixed-band HomCategory(b,b); modifications are its native morphisms. Fix U and objects x,x′,x″ in F(U) only where supplied. Connecting isomorphisms and slice sections are explicit parameters; neither a global neutral object nor global sections are assumed.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/iso, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/independent.
+
+Proof outline:
+
+- Use Iso.ext and independence of the actual hom sheaf map.
+
+Source: Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native sheaf-level deductions. The sources motivate the automorphism/torsor comparison. These exact slice-sheaf transport formulas and coherence proofs are authored deductions, not a source quotation or complete classification proof.
+
+## A sheaf-valued functor of the local gerbe object
+
+AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/object-functor. Proposed declaration: `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafObjectFunctor`.
+
+For each U, construct the actual functor Core(F(U))→(HomCategory(b,b)→Sheaf(J.over U,Type v′)). Its object at x is the preceding sheaf-valued functor X↦H_x(X), and its map at the native core arrow e is the hom of selfHomSheafTransportNatIso(e.iso). The existing Core carrier is reused; no local object or connecting isomorphism is selected.
+
+Hypotheses: Fix a site (C,J), a native Cat-valued pseudofunctor F with IsGerbe(F,J), an abelian sheaf A and a fixed banding b. The coefficient universe w is independent of the fibre-hom universe v′. X,Y range over the actual fixed-band HomCategory(b,b); modifications are its native morphisms. Fix U and objects x,x′,x″ in F(U) only where supplied. Connecting isomorphisms and slice sections are explicit parameters; neither a global neutral object nor global sections are assumed.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso-identity, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso-composition, mathlib:CategoryTheory.Core, mathlib:CategoryTheory.CoreHom.
+
+Proof outline:
+
+- Use the native core object and isomorphism fields to define obj and map.
+- Take homs of the identity and composition laws of the constructed natural isomorphisms to supply the actual functor laws.
+
+API:
+
+- TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafObjectFunctor_obj: The value at a native core object x is exactly fibreHomSheafFunctor(b,b,U,x.of,x.of).
+- TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafObjectFunctor_map: The image of a native core arrow e is exactly the hom of selfHomSheafTransportNatIso(e.iso).
+- TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafObjectFunctor_parallel: For any parallel native core arrows e,f:x→y, selfHomSheafObjectFunctor(U).map(e)=selfHomSheafObjectFunctor(U).map(f). This gives uniqueness of the induced comparison, not faithfulness or global descent.
+
+Unit tests:
+
+- TauCeti.AlgebraicGeometry.SheafTransportTests.nonfaithful_with_parallel_arrows: If two distinct parallel core arrows are supplied, the actual local-object functor is not faithful because their images agree.
+- TauCeti.AlgebraicGeometry.SheafTransportTests.native_object: Evaluating the object functor at x and X has exactly the native presheafHom carrier.
+- TauCeti.AlgebraicGeometry.SheafTransportTests.native_composition: The functor image of a composite core arrow evaluates to the composite actual sheaf maps at every X.
+
+Source: Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native sheaf-level deductions. The sources motivate the automorphism/torsor comparison. These exact slice-sheaf transport formulas and coherence proofs are authored deductions, not a source quotation or complete classification proof.
+
+## Evaluating the local-object functor
+
+AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/object-functor-obj. Proposed declaration: `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafObjectFunctor_obj`.
+
+The value at a native core object x is exactly fibreHomSheafFunctor(b,b,U,x.of,x.of).
+
+Hypotheses: Fix a site (C,J), a native Cat-valued pseudofunctor F with IsGerbe(F,J), an abelian sheaf A and a fixed banding b. The coefficient universe w is independent of the fibre-hom universe v′. X,Y range over the actual fixed-band HomCategory(b,b); modifications are its native morphisms. Fix U and objects x,x′,x″ in F(U) only where supplied. Connecting isomorphisms and slice sections are explicit parameters; neither a global neutral object nor global sections are assumed.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/object-functor.
+
+Proof outline:
+
+- Evaluate the functor object field.
+
+Source: Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native sheaf-level deductions. The sources motivate the automorphism/torsor comparison. These exact slice-sheaf transport formulas and coherence proofs are authored deductions, not a source quotation or complete classification proof.
+
+## Evaluating its core-arrow map
+
+AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/object-functor-map. Proposed declaration: `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafObjectFunctor_map`.
+
+The image of a native core arrow e is exactly the hom of selfHomSheafTransportNatIso(e.iso).
+
+Hypotheses: Fix a site (C,J), a native Cat-valued pseudofunctor F with IsGerbe(F,J), an abelian sheaf A and a fixed banding b. The coefficient universe w is independent of the fibre-hom universe v′. X,Y range over the actual fixed-band HomCategory(b,b); modifications are its native morphisms. Fix U and objects x,x′,x″ in F(U) only where supplied. Connecting isomorphisms and slice sections are explicit parameters; neither a global neutral object nor global sections are assumed.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/object-functor.
+
+Proof outline:
+
+- Evaluate the functor map field.
+
+Source: Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native sheaf-level deductions. The sources motivate the automorphism/torsor comparison. These exact slice-sheaf transport formulas and coherence proofs are authored deductions, not a source quotation or complete classification proof.
+
+## Parallel local-object arrows have equal images
+
+AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/object-functor-parallel. Proposed declaration: `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafObjectFunctor_parallel`.
+
+For any parallel native core arrows e,f:x→y, selfHomSheafObjectFunctor(U).map(e)=selfHomSheafObjectFunctor(U).map(f). This gives uniqueness of the induced comparison, not faithfulness or global descent.
+
+Hypotheses: Fix a site (C,J), a native Cat-valued pseudofunctor F with IsGerbe(F,J), an abelian sheaf A and a fixed banding b. The coefficient universe w is independent of the fibre-hom universe v′. X,Y range over the actual fixed-band HomCategory(b,b); modifications are its native morphisms. Fix U and objects x,x′,x″ in F(U) only where supplied. Connecting isomorphisms and slice sections are explicit parameters; neither a global neutral object nor global sections are assumed.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/object-functor, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso-independent.
+
+Proof outline:
+
+- Take homs of independence for the two actual isomorphism fields e.iso and f.iso.
+
+Source: Olsson Remark31.5, printed123; GWZ20 §2.2.1, printed515; authored native sheaf-level deductions. The sources motivate the automorphism/torsor comparison. These exact slice-sheaf transport formulas and coherence proofs are authored deductions, not a source quotation or complete classification proof.
+
 # Slice Hom sheaves for gerbe modifications
 
 For a fixed base object U, x in F(U), y in G(U), and an actual fixed-band strong morphism X, use Mathlib's existing Hom sheaf H_X = G.sheafHom(J,y,X_U(x)) on the slice site. Gerbe invertibility identifies its arrow sections with actual isomorphisms. The restriction is the native pullHom formula, including both pseudofunctor composition comparisons. IsStack already supplies IsPrestack and hence this Hom sheaf descent. This local construction needs no new general SF1 descent assumption.
