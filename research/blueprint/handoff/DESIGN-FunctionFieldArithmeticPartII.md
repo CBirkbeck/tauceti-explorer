@@ -1,94 +1,89 @@
-# FunctionFieldArithmeticPartII — factorial root colimit checkpoint
+# FunctionFieldArithmeticPartII — positive-divisibility chart checkpoint
 
-Worker: Codex — codex-7e92bd. Date: 2026-10-03. Refs #3403. Claim comment 5963301931, confirmed by bot 5963303097; the whole issue was read before and after confirmation. Own branch codex-7e92bd-function-field-roots-loop; mathematical base 82974c4339c719693457ae009b07cbee4eed5772.
+Worker: Codex — codex-5ebb6f. Date: 2026-10-03. Refs #3403. Claim comment [5963556886](https://github.com/CBirkbeck/tauceti-explorer/issues/3403#issuecomment-5963556886), confirmed by bot [5963558309](https://github.com/CBirkbeck/tauceti-explorer/issues/3403#issuecomment-5963558309). The whole live issue was read before and after confirmation, with one claim held. Own branch codex-5ebb6f-root-next3; mathematical base b80fdf573cd685fc5723bd55865eb7392a56c9c2.
 
 ## Result and boundary
 
-Thirteen new declaration-sized nodes construct the actual factorial algebra colimit and its finite inclusions, transition/root-power equations, injectivity, finite representatives, root-value extensionality, specified categorical colimit cocone and universal compatible-root lift. The packet now has 194 unchecked nodes: 9 definitions, 34 constructions, 103 lemmas, 37 theorems, 10 comparisons and 1 application. There are 152 API records (150 required), 170 test records (146 required), 171 baseline declarations and 39 planets. All ten stages remain partial. The eight gaps, thirteen requests, both routed paper inventories, source issues and root-stack ownership are unchanged.
+Twenty-four new declaration-sized leaves construct the actual positive-divisibility root-chart colimit C_div and compare it with the existing factorial algebra C_f. The positive index uses divisibility, not numeric order; factorial multiples are cofinal. Every finite chart has an injective extension into C_f independent of the chosen factorial multiple. The native universal algebra lifts give α:C_div→C_f and β:C_f→C_div, and both actual inverse equations produce the specified A-algebra equivalence. At n|d_i, it sends the actual finite root v_n to u_i^(d_i/n). No reducedness, Noetherian, coefficient-field, unit-parameter or invertible-exponent assumption is added.
 
-All 181 prior statement contracts and 180 complete prior node objects are unchanged. Only the old infinite-affine-quotient object gains six prerequisites and a refined first proof step. The existing roadmap definition is byte-for-byte unchanged. The old reader is retained verbatim below the new section. Prior receipt provenance remains in the packet continuation history and the [immutable incoming handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/82974c4339c719693457ae009b07cbee4eed5772/research/blueprint/handoff/DESIGN-FunctionFieldArithmeticPartII.md); that historical handoff has not been re-audited in its entirety.
+The packet has 218 unchecked nodes: 10 definitions, 39 constructions, 120 lemmas, 37 theorems, 11 comparisons and one application. It has 181 API records (176 on definitions/constructions), 191 test records (164 on definitions/constructions), 175 baseline declarations and 39 planets. All 194 incoming statements, hypotheses, sources, API entries, tests, acceptance properties and uses remain. Exactly 193 complete incoming node objects are unchanged. Only the infinite-affine-quotient consumer adds three comparison prerequisites and refines its first algebraic proof step. The unchanged roadmap, eight gaps, thirteen requests, ten partial stages, two routed paper inventories, source issues and root-stack key ownership remain. The earlier reader is retained byte-for-byte behind the new section, explicitly as historical checkpoints.
 
-The checked mathematical model uses the existing DirectLimit of the exact B_((i+1)!) algebras. Native directed-system fields come from the previously checked fixed-index transitions. Injectivity factors N=nm, uses the existing faithful-flat coefficient algebra and its faithful scalar action, then applies the existing insertion-injectivity theorem. The universal lift comes from the actual AdjoinRoot quotient maps, compatible on the roots; direct-limit extensionality and quotient extensionality prove uniqueness. The native Cocone/IsColimit result compares this carrier with the exact predecessor factorial functor. Explicit point and leg APIs keep the carrier visible when planning bodies are admitted.
+Tests discriminate numeric order from divisibility, compare the nonfactorial index 3 through levels 6 and 24, check exact root powers and coefficients over Z/4Z, preserve a nonzero square-zero root over F₂ with f=0, and include the zero ring. The algebra equivalence does not prove coherent root-object groupoid reindexing, the diagonalizable grading/action, the affine Spec limit, fpqc frame torsors or infinite quotient groupoids. Those contracts, TOWER-AFF, KUMMER-FINITE, TOWER-TYPING, the DVR/Kummer bridge and the roots-of-2 non-fppf example remain. No stage, gap or source route is closed.
 
-The F₂, f=0 tests prove a nonzero square-zero element survives in the colimit. Other tests compute the 2!-to-3! root equation, all coefficients over Z/4Z with parameter 2, the zero coefficient ring, actual categorical colimits over both zero/wild rings, cocone leg zero, unit and zero root evaluations, and recovery of the identity from universal roots. The zero-root evaluation kills that nilpotent; its existence does not contradict injectivity of the chart inclusions.
+## Reading and baseline reuse
 
-Still required: compare the factorial colimit with the all-positive-divisibility chart colimit; reindex coherent root-object groupoids; construct the diagonalizable grading/action and transport the affine scheme limit; prove the root-specific fpqc frame-torsor and quotient groupoid comparisons. The TOWER-AFF, KUMMER-FINITE and TOWER-TYPING boundaries, DVR/Kummer comparison and roots-of-2 non-fppf example retain their obligations. No ring-colimit result closes those geometric contracts. The remaining YZ Appendix A and AV route closure/source coverage work remains exactly as recorded in the packet.
+Fresh complete prerequisites read: current handoff, all ten roadmap stages and sources, reserved root-stack key record, the FA.0–FA.7 parent library audit rows and accepted REV-AUDIT-20. The bounded parent-row selection contains no PartII row. Existing function-field/curve and generic scheme/stack suppliers are imported. Earlier whole upstream JacobianChallenge, StableReduction, HodgeStructures and SemisimpleAlgebras reading belongs to this continuous worker session; the nearby AlgebraicCurves and AdicSpaces scope/convention reading in this continuation was scoped, not a new whole-document claim.
 
-## Reading and prior art
+Fresh primary reading: [Talpo–Vistoli arXiv:1410.1164v2](https://arxiv.org/pdf/1410.1164v2), printed pp.13–17, including Proposition 3.5 and its proof, Remark 3.6, the local-model construction, Definition 3.8, Proposition 3.10 with proof and Corollary 3.13. PDF SHA-256 92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2 matches the inherited version receipt. These are authored rank-one algebraic inputs to that construction, not literal source theorem names. Historical YZ, AGV, B24 and AV source receipts and their limits retain their provenance in the packet and [incoming handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/b80fdf573cd685fc5723bd55865eb7392a56c9c2/research/blueprint/handoff/DESIGN-FunctionFieldArithmeticPartII.md).
 
-Fresh TV17 reading uses arXiv:1410.1164v2, PDF SHA-256 92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2. Printed pp.14–17 were inspected through the readable PDF: local charts, full Lemma 3.7, Definition 3.8, full Proposition 3.10 proof and Corollary 3.13, and the logarithmic-point/reduced-fibre discussion. The colimit API and explicit nilpotent test are authored rank-one algebraic specializations, not literal printed theorem claims. Historical YZ/AGV/B24/AV readings and erratum receipts retain their original worker provenance.
+At exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, fresh statement/field reading included native IsDirected/IsDirectedOrder, DirectedSystem, actual DirectLimit quotient representatives and insertion injectivity, native algebra of/lift/evaluation/hom_ext, factorial positivity/divisibility, and AlgEquiv.ofAlgHom with both inverse equations. The generic Functor.Final/colimitIso and filtered-finality statements were inspected; they are not redeveloped. Tau Ceti statement auditing retains f790474821cf4256814db967cb154e7af3d0c369. Root-specific maps use the inherited actual AdjoinRoot quotient transitions and the native colimit carrier. Four additional baseline names were checked in the exact declaration index.
 
-The reviewed FA.0–FA.7 library audit and REV-AUDIT-20 were read; no PartII audit row exists. Fresh nearby upstream reading was scoped to the AlgebraicCurves and AdicSpaces scope/ownership/convention sections. The existing curve/function-field and generic scheme/stack suppliers are imported. The new baseline declaration statements and ambient hypotheses were opened at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Native DirectLimit algebra instances, the algebra of/lift/hom_ext API, quotient representatives and insertion injectivity, faithful-flat scalar faithfulness, algebra-map injectivity, Cocone and IsColimit fields were inspected. No new generic colimit carrier or competing stack type is introduced.
+Bounded open Mathlib PR searches on 2026-10-03 for cofinal colimit, root stack and DirectLimit reindex returned no hits. The [human Zulip discussion](https://leanprover-community.github.io/archive/stream/113489-new-members/topic/Q.2FZ.20as.20colimit.20of.20Z.2FnZ.html), Aug10–11 2025, was freshly read for positive divisibility indices and DirectLimit versus categorical-colimit interfaces. Its bot search text is not mathematical evidence. No PR or discussion code was copied.
 
-Bounded open-PR searches were CommAlgCat colimit, root stack and DirectLimit algebra. The first two returned no hits. The last included [PR #39341](https://github.com/leanprover-community/mathlib4/pull/39341), inspected at head 23d06841a3fa28f677679cbc2e98788eda9bb808: full body, one-file list and entire diff, 100 additions and 3 deletions. It extends star-algebra direct limits; the ordinary algebra infrastructure needed here is already at the pin. No PR code was copied. The [human Zulip discussion of DirectLimit versus categorical colimits](https://leanprover-community.github.io/archive/stream/113489-new-members/topic/Q.2FZ.20as.20colimit.20of.20Z.2FnZ.html), August 10–11 2025, was read as API design context. The checked root-specific Cocone/IsColimit bridge supplies the concrete comparison used here.
+## Checked Lean and public recovery
 
-## Lean evidence and recovery
+The complete 2,527-line inherited native proof from codex-7e92bd is preserved byte-for-byte at the start of the new 2,875-line proof. Its SHA-256 is 05f9e273177e59765f130e85cdcbc9cda298b708db45791ae84697e891215eef, recovered from public archive 8145b20f5378b18ddb38cbf949c129669ff5975f. Earlier factorial and finite-free transition contributions retain their original credits. Fresh proof reading focused on the fixed-index quotient maps, native factorial inclusions and directed-limit universal maps actually used here.
 
-The predecessor 2268-line native proof from codex-J6LwjP is included byte-for-byte after the two new imports. Its SHA-256 is 772b52d1390997359924243d5742385771d733fa6c2b2666d393c3d05d31306d, recovered from archive c3a84cdc7ab042f6cef2ac1f585800474fcf3db9. Its finite-free transition proof in turn credits codex-rtOQ9t. These inherited portions were reused and rerun; fresh proof reading focused on the root relations, finite faithful-flat transition, fixed-index maps and factorial functor used in this continuation.
+The complete new proof is in an inert comment at public ancestor [c4096277ee51368485e14ce6487c0c7c2e2b6084](https://github.com/CBirkbeck/tauceti-explorer/blob/c4096277ee51368485e14ce6487c0c7c2e2b6084/research/blueprint/suggested/FunctionFieldArithmeticPartII.lean), between BEGIN/END ARCHIVED CHECKED POSITIVE DIVISIBILITY ROOT COMPARISON. The final file removes the archive and retains planning bodies. All 55 new declaration/instance/structure/example headers match the checked proof, including 21 new examples. Deterministic positive-index data and instances, its factorial exponent adapter and native carrier abbreviations remain as type plumbing; new mathematical construction and proof bodies are admitted. The original 2,389-line canonical block is unchanged.
 
-The complete new proof is preserved in an inert Lean comment at public ancestor [8145b20f5378b18ddb38cbf949c129669ff5975f](https://github.com/CBirkbeck/tauceti-explorer/blob/8145b20f5378b18ddb38cbf949c129669ff5975f/research/blueprint/suggested/FunctionFieldArithmeticPartII.lean), between BEGIN/END ARCHIVED CHECKED FACTORIAL ROOT COLIMIT. The final file removes the archive and retains admitted planning bodies. Eighteen new declaration/instance headers and eleven new example headers match the checked proof exactly; the native DirectLimit carrier abbreviation is retained as type plumbing.
+Serial compilation used an existing build whose Mathlib commit was freshly verified as exactly pinned. At least 45 GiB was available before final compiles. The native proof finished in 18.33 seconds at 3,465,744 KiB maximum RSS, with no errors, warnings, admissions or sorryAx in its 111 axiom audits. The admitted Mathlib projection finished in 6.92 seconds at 3,319,172 KiB, with 269 admission warnings and no other warnings or errors. Neither checked file imports Tau Ceti. No setup, update, library build, cache fetch or language server was started, and no process remains running.
 
-The existing build with exactly pinned Mathlib was used serially after checking at least 48 GiB available for the final runs. Both commands were bounded by 1200 seconds. No Lake environment, library build, cache download or language server was started. Run the recovered files with lake env lean in an existing build at the recorded pins. The shared checkout HEAD is cf386627e9176a3827c1a5fe804989fd94a4d216, while its Mathlib dependency is exactly the recorded pin; both checked files import only Mathlib. Tau Ceti statement auditing uses the separate f790474 baseline. The complete geometric file remains uncompiled: required TauCeti.AlgebraicGeometry.LineBundle.TensorProduct and TauCeti.Algebra.AlgebraicGroup.RootsOfUnity.Basic compiled modules are absent. No stand-ins or alternate imported carriers were created.
+The complete 2,657-line geometric file is uncompiled: the existing build lacks compiled TauCeti.AlgebraicGeometry.LineBundle.TensorProduct and TauCeti.Algebra.AlgebraicGroup.RootsOfUnity.Basic imports. Only the projection onto actual Mathlib carriers was checked. No substitute geometric carriers were introduced and no implementation is claimed.
 
 ```json
 {
-  "Native.lean": {
-    "sha256": "05f9e273177e59765f130e85cdcbc9cda298b708db45791ae84697e891215eef",
-    "lines": 2527,
-    "examples": 95,
-    "audits": 86,
+  "NextNative.lean": {
+    "sha256": "158aee809fd3942a13290c525a3feb60d2dbe7b8988c4236612ecc0c6fb39378",
+    "lines": 2875,
+    "examples": 116,
+    "audits": 111,
     "errors": 0,
     "admissionWarnings": 0,
     "otherWarnings": 0,
     "sorryAx": false,
-    "diagnosticSha256": "1f9674847af60bbae48b2051a1f5efb551b2c6c06c34167e5b57bd9d80ce9043",
-    "resource": "elapsed=14.73 maxRSS_KiB=3422728"
+    "diagnosticSha256": "469fc812ffa77da5b643ae0b0f6cbcb0d4910839dd56c47e68b7d3ed2b1d0b31",
+    "elapsed": "0:18.33",
+    "maxRSSKiB": 3465744
   },
-  "Sketch.lean": {
-    "sha256": "65884f8db54db6f38007109c9fd90f1f67e79729eb04d16aec03bf5ec3a8adc3",
-    "lines": 1478,
-    "examples": 95,
+  "NextSketch.lean": {
+    "sha256": "6bc59421fce69e6ab11224c502fac701fc64297fdc71b910cb7d534378fdf658",
+    "lines": 1746,
+    "examples": 116,
     "audits": 0,
     "errors": 0,
-    "admissionWarnings": 222,
+    "admissionWarnings": 269,
     "otherWarnings": 0,
     "sorryAx": false,
-    "diagnosticSha256": "8473678a9c3150484b5139939bc46c50c1c04b6ecae4f10bd97d4dbe558e4136",
-    "resource": "elapsed=5.73 maxRSS_KiB=3287084"
+    "diagnosticSha256": "d04a8d159a9ade75cd914cd1832588a2d2210fd2ad6dfdf14e90f9f656b8aee5",
+    "elapsed": "0:06.92",
+    "maxRSSKiB": 3319172
   },
-  "canonical": {
-    "sha256": "432043a35c40292d1d89e0b0a4b840dd62aa731910fc1f82670e4655f1455ef4",
-    "lines": 2389,
-    "newPublicHeaderParity": 18,
-    "newExampleHeaderParity": 11,
-    "retainedNativeCarrierAbbreviation": 1,
-    "compiled": false,
-    "reason": "The existing shared build lacks required TauCeti.AlgebraicGeometry.LineBundle.TensorProduct and TauCeti.Algebra.AlgebraicGroup.RootsOfUnity.Basic modules."
-  },
-  "sharedBuild": {
-    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-    "checkoutHead": "cf386627e9176a3827c1a5fe804989fd94a4d216",
-    "tauCetiImportsInCheckedFiles": 0,
-    "tauCetiBaselineForStatementAudit": "f790474821cf4256814db967cb154e7af3d0c369"
+  "NextCanonical.lean": {
+    "sha256": "625e4b2ddfa78eaefe87b1a2106ea33585c2e312507e59405acb94d3e3d04a33",
+    "lines": 2657,
+    "examples": 136,
+    "audits": 0
   }
 }
 ```
 
-Save the following recovery script in your own on-disk scratch. It writes Native.lean and Sketch.lean in the working directory; run from the final repository tree, or point its final-file read at an exact copy of that tree's suggested file. It uses the public immutable archive and asserts both proof and admitted-fragment hashes.
+The following complete recovery script was exercised against the public commit and exact final canonical file. Both outputs matched the checked files byte-for-byte. Save it in scratch space, run there with --canonical naming the final suggested file, and elaborate the recovered files only in an existing pinned build. Script SHA-256 44dd4729adadcaa09a3b5e31b0a07c378afdb5f5bef8641a6f5bda7d2ae71b6f.
 
 ```python
 from pathlib import Path
 import hashlib,subprocess
 path='research/blueprint/suggested/FunctionFieldArithmeticPartII.lean'
-archive='8145b20f5378b18ddb38cbf949c129669ff5975f'
+archive='c4096277ee51368485e14ce6487c0c7c2e2b6084'
 raw=subprocess.check_output(['gh','api','repos/CBirkbeck/tauceti-explorer/contents/'+path+'?ref='+archive,
     '-H','Accept: application/vnd.github.raw'],text=True)
-native=raw.split('BEGIN ARCHIVED CHECKED FACTORIAL ROOT COLIMIT\n',1)[1].split('END ARCHIVED CHECKED FACTORIAL ROOT COLIMIT\n',1)[0]
-assert hashlib.sha256(native.encode()).hexdigest()=='05f9e273177e59765f130e85cdcbc9cda298b708db45791ae84697e891215eef'
+native=raw.split('BEGIN ARCHIVED CHECKED POSITIVE DIVISIBILITY ROOT COMPARISON\n',1)[1].split('END ARCHIVED CHECKED POSITIVE DIVISIBILITY ROOT COMPARISON\n',1)[0]
+assert hashlib.sha256(native.encode()).hexdigest()=='158aee809fd3942a13290c525a3feb60d2dbe7b8988c4236612ecc0c6fb39378'
 Path('Native.lean').write_text(native)
-# Run from the repository root at the final PR tree, or replace this path with the recovered final file.
-head=Path(path).read_text()
-assert hashlib.sha256(head.encode()).hexdigest()=='432043a35c40292d1d89e0b0a4b840dd62aa731910fc1f82670e4655f1455ef4'
+# Run in a scratch directory; --canonical names the final suggested file. Only Native.lean and Sketch.lean are written in the working directory.
+import argparse
+parser=argparse.ArgumentParser();parser.add_argument('--canonical',required=True)
+head=Path(parser.parse_args().canonical).read_text()
+assert hashlib.sha256(head.encode()).hexdigest()=='625e4b2ddfa78eaefe87b1a2106ea33585c2e312507e59405acb94d3e3d04a33'
 imports='\n'.join(l for l in head.splitlines() if l.startswith('import Mathlib'))
 initial=head[head.index('abbrev AffineRing (f : A)'):head.index('-- TauCeti.RootStack.affineCoaction.nativePoint')]
 one=head[head.index('-- TauCeti.RootStack.affineCoaction.test_one'):head.index('-- TauCeti.RootStack.affineCoaction.test_sign')]
@@ -99,31 +94,33 @@ finite=head.split('/- BEGIN NATIVE FINITE ROOT TRANSITIONS -/\n',1)[1].split('/-
 prefix='\nnoncomputable section\nuniverse u\nnamespace TauCeti.RootStack\nvariable {A : Type u} [CommRing A]\nopen scoped TensorProduct\n'
 sketch=imports+prefix+initial+one+comparison+extra+'\nnamespace TauCeti.RootStack\nvariable {A : Type u} [CommRing A]\n'+finite+'\nend TauCeti.RootStack\n'+own
 sketch=sketch.replace('TauCeti.RootsOfUnityGroup.generator n','Multiplicative.ofAdd (1 : ZMod n)')
-assert hashlib.sha256(sketch.encode()).hexdigest()=='65884f8db54db6f38007109c9fd90f1f67e79729eb04d16aec03bf5ec3a8adc3'
+assert hashlib.sha256(sketch.encode()).hexdigest()=='6bc59421fce69e6ab11224c502fac701fc64297fdc71b910cb7d534378fdf658'
 Path('Sketch.lean').write_text(sketch)
 ```
 
-## Graph and preservation verification
+## Actual graphs, preservation and publication guard
 
-The actual packet checker was run with the pinned declaration index: zero errors and warnings. The actual assembler overlays this packet and its unchanged roadmap definition, retaining all other promoted inputs, and compares it with the incoming packet at the publication base after merging origin/main into this own branch. The publication guard verifies all seventeen governing, audit, key-definition, script and own-deliverable inputs unchanged since the mathematical base. No graph output is hand constructed. Stage edges, every other roadmap's skipped/pending links and the own planet count agree with the control. All 54 required stage pairs are reachable; no own skipped/pending links or unresolved nonlibrary prerequisites occur. The stage, own-declaration and combined graphs are acyclic. There are 245 reachable declarations, 51 external to this packet.
+The actual packet checker with the pinned declaration index reports zero errors and warnings. The assembler overlays this packet and the unchanged roadmap into the existing promoted atlas; the control overlays the incoming packet. No graph is hand constructed. Stage edges, planets and all other roadmaps’ skipped/pending links match the control. All 54 required supplier-stage pairs have directed paths; own skipped/pending links and unresolved nonlibrary prerequisites are empty. Stage, own-declaration and combined reachable graphs are acyclic.
+
+The mathematical base is b80fdf573cd685fc5723bd55865eb7392a56c9c2. The publication guard checked all 18 own-deliverable, governing, baseline, parent-audit/review, root-key and checker/assembler/intake inputs unchanged at publication base aeae47c9a675600efe5c88a0b7ab4cc82b9d13f3; the whole live issue body was unchanged and the winning claim still confirmed. The later main commit is merged only into this own branch, retaining the immutable public proof ancestor. The full reproducible graph/preservation script below writes its JSON receipt beside itself, so save it in scratch space and run it with the repository as working directory.
 
 ```json
 {
   "actualAssembler": true,
-  "base": "1636db22ab77e42624c42da4706ca8e9e8f28ce0",
-  "declarations": 194,
-  "ownDeclarations": 194,
+  "base": "b80fdf573cd685fc5723bd55865eb7392a56c9c2",
+  "declarations": 218,
+  "ownDeclarations": 218,
   "kinds": {
-    "construction": 34,
-    "definition": 9,
-    "comparison": 10,
-    "lemma": 103,
+    "construction": 39,
+    "definition": 10,
+    "comparison": 11,
+    "lemma": 120,
     "theorem": 37,
     "application": 1
   },
-  "apiTotal": 152,
-  "testsTotal": 170,
-  "baseline": 171,
+  "apiTotal": 181,
+  "testsTotal": 191,
+  "baseline": 175,
   "planets": 39,
   "gaps": 8,
   "requests": 13,
@@ -135,29 +132,82 @@ The actual packet checker was run with the pinned declaration index: zero errors
     "acyclic": true
   },
   "ownDeclarationDAG": {
-    "vertices": 194,
-    "edges": 401,
+    "vertices": 218,
+    "edges": 456,
     "acyclic": true
   },
   "stagesAndReachableDeclarations": {
-    "vertices": 3262,
-    "edges": 9529,
+    "vertices": 3286,
+    "edges": 9608,
     "acyclic": true
   },
-  "reachableDeclarations": 245,
+  "reachableDeclarations": 269,
+  "externalDeclarations": [
+    "AlgebraicModuliForArithmeticGeometry:R09.3/affine-fpqc-quasicoherent-descent",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/affine-module-descent-equivalence",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/affine-pullback-tensor",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/canonical-overlap-functor",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-descent-to-overlap",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-equivalence",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-morphisms",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-roundtrips",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-cocycle",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-inverses",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-maps",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/coalgebra-to-overlap",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/descent-equalizer-module-coordinates",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/finite-locally-free-descent",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/finite-presentation-module-descent",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-effective",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-faithful",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-full",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/module-descent-coaction",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/module-overlap-datum",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/native-module-canonical-comparison",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/native-module-descent-coalgebra",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coaction-roundtrips",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coalgebra-equivalence",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coalgebra-morphisms",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-comparison-canonical",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-diagonal",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-coordinates",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-diagonal",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-triple",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-to-chosen-descent",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-to-coalgebra",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pseudofunctor",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pullback",
+    "AlgebraicModuliForArithmeticGeometry:R09.3/tensor-comonad-coordinates",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-essential-surjective",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-full-faithful",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/classifying-abelian-gerbe",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/compatible-limit-family",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/isom-torsor",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/limit-stack-descent",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/neutralization",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/neutralization-equivalence",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/nonempty-affine-limit-gerbe",
+    "AlgebraicModuliForArithmeticGeometry:key/gerbes",
+    "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+    "DiamondsAndVStacks:D0/stackification"
+  ],
   "requiredStagePairs": 54,
   "requiredStagePairsReachable": 54,
   "stageEdgesUnchanged": true,
   "otherSkipsMatchOriginal": true,
-  "unchangedNodeObjects": 180,
-  "preservedStatements": 181,
-  "addedNodes": 13,
+  "unchangedNodeObjects": 193,
+  "preservedStatements": 194,
+  "addedNodes": 24,
   "unresolvedNonlibraryPrerequisites": [],
-  "scriptSha256": "cee8a621528215691cb6f3f2095edb0f39df74188cb6c6feaf9028daa2eac014"
+  "scriptSha256": "8eac52ef37e978082fc2ad342d0296f51e93d22b7749ff9c8369998ce94a659c"
 }
 ```
 
-The following read-only assembler and preservation recipe writes only its adjacent receipt JSON. Run from the repository root with this candidate over the recorded base. Its SHA-256 is cee8a621528215691cb6f3f2095edb0f39df74188cb6c6feaf9028daa2eac014. This explicitly checks every prior statement/hypothesis/source/API/test/acceptance contract, all 180 unchanged objects, append-only baseline/history, unchanged closure and route metadata, and all requested stage paths.
+Validator SHA-256 8eac52ef37e978082fc2ad342d0296f51e93d22b7749ff9c8369998ce94a659c.
 
 ```python
 import json,sys,subprocess,hashlib,re
@@ -166,7 +216,7 @@ from collections import defaultdict,deque,Counter
 root=Path.cwd();sys.path.insert(0,str(root/'scripts'));import build
 rid='FunctionFieldArithmeticPartII';stem=rid
 packetpath='research/blueprint/packets/'+stem+'.json'
-base='1636db22ab77e42624c42da4706ca8e9e8f28ce0'
+base='b80fdf573cd685fc5723bd55865eb7392a56c9c2'
 p=json.loads((root/packetpath).read_text())
 old=json.loads(subprocess.check_output(['git','show',base+':'+packetpath],text=True))
 r=json.loads((root/('research/blueprint/roadmaps/'+rid+'.json')).read_text())
@@ -249,7 +299,7 @@ for req in p['requests']:
 missing=[(s,t) for s,t in sorted(pairs) if not reachable(s,t)]
 assert not missing,missing
 ar={r['id']:r for r in a['roadmaps']};cr={r['id']:r for r in control['roadmaps']}
-assert ar[rid]['blueprint']['declarations']==cr[rid]['blueprint']['declarations']+13
+assert ar[rid]['blueprint']['declarations']==cr[rid]['blueprint']['declarations']+24
 assert ar[rid]['blueprint']['planets']==cr[rid]['blueprint']['planets']
 assert ar[rid]['blueprint']['skippedLinks']==cr[rid]['blueprint']['skippedLinks']
 assert not ar[rid].get('pendingLinks')
@@ -272,8 +322,8 @@ for id,n in on.items():
     assert all(t in own[id].get('tests',[]) for t in n.get('tests',[]))
     assert all(x in own[id].get('api',[]) for x in n.get('api',[]))
     assert all(x in own[id].get('acceptance',[]) for x in n.get('acceptance',[]))
-assert sum(own[id]==n for id,n in on.items())==180
-assert len(own)==194
+assert sum(own[id]==n for id,n in on.items())==193
+assert len(own)==218
 assert all(n['implementationStatus']=='unchecked' for n in own.values())
 lean=(root/('research/blueprint/suggested/'+stem+'.lean')).read_text()
 for node in p['nodes'][len(old['nodes']):]:
@@ -293,7 +343,7 @@ result={'actualAssembler':True,'base':base,'declarations':ar[rid]['blueprint']['
     'stageDAG':stageDAG,'ownDeclarationDAG':ownDAG,'stagesAndReachableDeclarations':combined,
     'reachableDeclarations':len(used),'externalDeclarations':sorted(used-set(own)),
     'requiredStagePairs':len(pairs),'requiredStagePairsReachable':len(pairs)-len(missing),'stageEdgesUnchanged':True,
-    'otherSkipsMatchOriginal':True,'unchangedNodeObjects':180,'preservedStatements':181,'addedNodes':13,'unresolvedNonlibraryPrerequisites':unresolved,
+    'otherSkipsMatchOriginal':True,'unchangedNodeObjects':193,'preservedStatements':194,'addedNodes':24,'unresolvedNonlibraryPrerequisites':unresolved,
     'scriptSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
 Path(__file__).with_suffix('.json').write_text(json.dumps(result,indent=2)+'\n')
 print(json.dumps(result,indent=2))
@@ -301,4 +351,4 @@ print(json.dumps(result,indent=2))
 
 ## Resume
 
-Recover and extend the checked actual native carriers. Begin with the all-divisibility algebra comparison or grading/action interface, preserving the distinct root-groupoid and fpqc torsor obligations. Do not treat the ring cocone as a proof of the infinite stack quotient. Keep the full geometry uncompiled limitation explicit until the required exact-pin imports exist. The packet and reader retain all earlier routes, gaps and supplier requests; consult the incoming immutable handoff for older recovery receipts. Submission opens a checkpoint; all implementation statuses remain unchecked.
+Recover the actual native proof and extend the coherent root-object groupoid reindexing or diagonalizable grading/action interface. Preserve the exact positive-divisibility and factorial maps and all finite roots. Transport Spec limits and prove fpqc frame-torsor/quotient comparisons through the existing generic suppliers; do not infer these from an algebra equivalence. Keep the complete geometric compilation limitation explicit until the required existing exact-pin imports are available. Consult the immutable incoming handoff and retained reader/history for the source-route closure work. This is a checkpoint with every stage partial and implementation unchecked; submit it, then take the next job under WORKERS.
