@@ -10288,8 +10288,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-StableReductionPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #3342"
+   "state": "external",
+   "note": "claimed on GitHub issue #3342"
   },
   {
    "id": "REV-DESIGN-StableReductionPartII",
