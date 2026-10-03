@@ -2311,3 +2311,118 @@ example {J : Type*} [Fintype J]
 
 end
 end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+
+/- BEGIN AFFINE HIGGS TENSOR FIELD -/
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+open scoped TensorProduct
+variable {R E F Q : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E] [AddCommGroup F] [Module R F]
+variable [AddCommGroup Q] [Module R Q]
+
+def affineTensorField (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) :
+    E ⊗[R] F →ₗ[R] (E ⊗[R] F) ⊗[R] Q := by sorry
+
+lemma affineTensorField_tmul (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (e : E) (f : F) :
+    affineTensorField θ ψ (e ⊗ₜ[R] f) =
+      TensorProduct.rightComm R E Q F (θ e ⊗ₜ[R] f) +
+        (TensorProduct.assoc R E F Q).symm (e ⊗ₜ[R] ψ f) := by sorry
+
+lemma affineTensorField_zero :
+    affineTensorField (0 : E →ₗ[R] E ⊗[R] Q) (0 : F →ₗ[R] F ⊗[R] Q) = 0 := by sorry
+
+lemma affineTensorField_contractions (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (v : Module.Dual R Q) :
+    affineContractions (affineTensorField θ ψ) v =
+      TensorProduct.map (affineContractions θ v) (LinearMap.id : F →ₗ[R] F) +
+        TensorProduct.map (LinearMap.id : E →ₗ[R] E) (affineContractions ψ v) := by sorry
+
+lemma affineTensorField_contractions_commute
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (v w : Module.Dual R Q)
+    (hθ : affineContractions θ v * affineContractions θ w =
+      affineContractions θ w * affineContractions θ v)
+    (hψ : affineContractions ψ v * affineContractions ψ w =
+      affineContractions ψ w * affineContractions ψ v) :
+    affineContractions (affineTensorField θ ψ) v * affineContractions (affineTensorField θ ψ) w =
+      affineContractions (affineTensorField θ ψ) w * affineContractions (affineTensorField θ ψ) v := by sorry
+
+lemma affineTensorField_integrable {I : Type*} [Fintype I] (b : Module.Basis I R Q)
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (hθ : affineExteriorSquare θ = 0) (hψ : affineExteriorSquare ψ = 0) :
+    affineExteriorSquare (affineTensorField θ ψ) = 0 := by sorry
+
+lemma affineTensorField_coefficientMap {P : Type*} [AddCommGroup P] [Module R P]
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (u : Q →ₗ[R] P) :
+    affineCoefficientMap (affineTensorField θ ψ) u =
+      affineTensorField (affineCoefficientMap θ u) (affineCoefficientMap ψ u) := by sorry
+
+lemma affineTensorField_horizontal {E' F' : Type*}
+    [AddCommGroup E'] [Module R E'] [AddCommGroup F'] [Module R F']
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (θ' : E' →ₗ[R] E' ⊗[R] Q) (ψ' : F' →ₗ[R] F' ⊗[R] Q)
+    (f : E →ₗ[R] E') (g : F →ₗ[R] F')
+    (hf : θ'.comp f = (TensorProduct.map f (LinearMap.id : Q →ₗ[R] Q)).comp θ)
+    (hg : ψ'.comp g = (TensorProduct.map g (LinearMap.id : Q →ₗ[R] Q)).comp ψ) :
+    (affineTensorField θ' ψ').comp (TensorProduct.map f g) =
+      (TensorProduct.map (TensorProduct.map f g) (LinearMap.id : Q →ₗ[R] Q)).comp
+        (affineTensorField θ ψ) := by sorry
+
+lemma affineTensorField_comm (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) :
+    (affineTensorField ψ θ).comp (TensorProduct.comm R E F).toLinearMap =
+      (TensorProduct.map (TensorProduct.comm R E F).toLinearMap
+        (LinearMap.id : Q →ₗ[R] Q)).comp (affineTensorField θ ψ) := by sorry
+
+lemma affineTensorField_rid (θ : E →ₗ[R] E ⊗[R] Q) :
+    θ.comp (TensorProduct.rid R E).toLinearMap =
+      (TensorProduct.map (TensorProduct.rid R E).toLinearMap
+        (LinearMap.id : Q →ₗ[R] Q)).comp
+          (affineTensorField θ (0 : R →ₗ[R] R ⊗[R] Q)) := by sorry
+
+lemma affineTensorField_lid (θ : E →ₗ[R] E ⊗[R] Q) :
+    θ.comp (TensorProduct.lid R E).toLinearMap =
+      (TensorProduct.map (TensorProduct.lid R E).toLinearMap
+        (LinearMap.id : Q →ₗ[R] Q)).comp
+          (affineTensorField (0 : R →ₗ[R] R ⊗[R] Q) θ) := by sorry
+
+lemma affineTensorField_assoc {G : Type*} [AddCommGroup G] [Module R G]
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (χ : G →ₗ[R] G ⊗[R] Q) :
+    (affineTensorField θ (affineTensorField ψ χ)).comp
+        (TensorProduct.assoc R E F G).toLinearMap =
+      (TensorProduct.map (TensorProduct.assoc R E F G).toLinearMap
+        (LinearMap.id : Q →ₗ[R] Q)).comp
+          (affineTensorField (affineTensorField θ ψ) χ) := by sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_zero
+example :
+    affineTensorField (0 : E →ₗ[R] E ⊗[R] Q) (0 : F →ₗ[R] F ⊗[R] Q) = 0 := by sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_integer_sum
+example :
+    affineTensorField (TensorProduct.rid ℤ ℤ).symm.toLinearMap
+      (TensorProduct.rid ℤ ℤ).symm.toLinearMap (1 ⊗ₜ[ℤ] 1) =
+        ((1 : ℤ) ⊗ₜ[ℤ] (1 : ℤ)) ⊗ₜ[ℤ] (2 : ℤ) := by sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_char_two_cancellation
+example :
+    (TensorProduct.rid (ZMod 2) (ZMod 2)).symm.toLinearMap ≠ 0 ∧
+    affineTensorField (TensorProduct.rid (ZMod 2) (ZMod 2)).symm.toLinearMap
+      (TensorProduct.rid (ZMod 2) (ZMod 2)).symm.toLinearMap = 0 := by sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_torsion_integrability
+example :
+    affineExteriorSquare (affineTensorField
+      (affineFiniteDirectionField (fun _ : Fin 1 => (LinearMap.id : ZMod 2 →ₗ[ℤ] ZMod 2))
+        (fun _ => (1 : ℤ)))
+      (affineFiniteDirectionField (fun _ : Fin 1 => (LinearMap.id : ZMod 4 →ₗ[ℤ] ZMod 4))
+        (fun _ => (1 : ℤ)))) = 0 := by sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_zero_direction_map
+example {P : Type*} [AddCommGroup P] [Module R P]
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) :
+    affineTensorField (affineCoefficientMap θ (0 : Q →ₗ[R] P))
+      (affineCoefficientMap ψ (0 : Q →ₗ[R] P)) = 0 := by sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+/- END AFFINE HIGGS TENSOR FIELD -/
