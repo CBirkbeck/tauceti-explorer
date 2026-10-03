@@ -15,7 +15,7 @@
     "FunctionFieldArithmeticPartII:GC.5",
     "FunctionFieldArithmeticPartII:GC.6"
   ],
-  "summary": "Partial 194-node factorial root-colimit checkpoint: thirteen new declaration-sized leaves supply the native directed algebra colimit, its injective finite-chart inclusions, root relations, element and homomorphism extensionality, a specified colimit cocone on the existing factorial functor, and the universal compatible-root lift. All 181 inherited contracts, both source-route inventories, 39 planets, eight gaps and thirteen supplier requests remain. Every stage remains partial and every implementation unchecked. Grading, all-divisibility and coherent root-groupoid comparisons and the fpqc quotient remain open; the complete geometric suggested file is uncompiled.",
+  "summary": "Partial 218-node positive-divisibility root-chart comparison checkpoint: 24 new declaration-sized leaves construct the native all-positive root algebra colimit, its injective finite insertions and root relations, extensions into the existing factorial colimit independent of the chosen multiple, both universal algebra maps and their actual inverse equivalence with finite-root formulas. All 194 inherited statement contracts, both source-route inventories, 39 planets, eight gaps and thirteen supplier requests remain. Every stage remains partial and every implementation unchecked. Coherent root-groupoid reindexing, grading, Spec limits and the fpqc quotient remain open; the full geometric suggested file remains uncompiled.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1282,6 +1282,42 @@
         "module": "Mathlib/CategoryTheory/Limits/IsLimit.lean",
         "provides": "Native colimit universal property: descent morphism, factorization and uniqueness.",
         "checked": "Complete defining fields/statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/CategoryTheory/Limits/IsLimit.lean:62, 2026-10-03 by Codex codex-7e92bd. Generic limit algebra instances read in Algebra/Colimit/DirectLimit.lean; root specialization independently checked."
+      },
+      {
+        "ref": "mathlib:IsDirected",
+        "kind": "class",
+        "module": "Mathlib/Order/Directed.lean",
+        "provides": "Native common-upper-bound predicate; instantiate it at the actual positive divisibility preorder.",
+        "sourceLine": 144,
+        "sourceSha256": "2c7ad74cf8707eccb1fd825885719af0ce6e88893f92a0c71c1611da76c8b99d",
+        "checked": "Complete statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-5ebb6f. Direct-limit component algebra structures and directed-system hypotheses were opened; no finite-presentation assumption is added."
+      },
+      {
+        "ref": "mathlib:IsDirectedOrder",
+        "kind": "abbrev",
+        "module": "Mathlib/Order/Directed.lean",
+        "provides": "Native directed-order interface for the divisibility index.",
+        "sourceLine": 150,
+        "sourceSha256": "2c7ad74cf8707eccb1fd825885719af0ce6e88893f92a0c71c1611da76c8b99d",
+        "checked": "Complete statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-5ebb6f. Direct-limit component algebra structures and directed-system hypotheses were opened; no finite-presentation assumption is added."
+      },
+      {
+        "ref": "mathlib:Nat.factorial_pos",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Factorial/Basic.lean",
+        "provides": "Every factorial exponent is positive, giving the actual positive index adapter.",
+        "sourceLine": 69,
+        "sourceSha256": "7e74e5fe77931379299dc2f05ee98e7ede1cda2c58f3586cf5ef4884d989d6c3",
+        "checked": "Complete statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-5ebb6f. Direct-limit component algebra structures and directed-system hypotheses were opened; no finite-presentation assumption is added."
+      },
+      {
+        "ref": "mathlib:DirectLimit.Algebra.lift_of",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Colimit/DirectLimit.lean",
+        "provides": "The existing universal algebra lift evaluates to its prescribed map on each component insertion.",
+        "sourceLine": 878,
+        "sourceSha256": "58ce3acade8dc0f9fcba9e7b1084ac58549612289fe5a68eeabdcab23d4c6b8b",
+        "checked": "Complete statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-5ebb6f. Direct-limit component algebra structures and directed-system hypotheses were opened; no finite-presentation assumption is added."
       }
     ]
   },
@@ -6858,10 +6894,13 @@
         "FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-root",
         "FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-power",
         "FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-injective",
-        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-elements"
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-elements",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-equivalence",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-inclusion",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-root"
       ],
       "proofSteps": [
-        "Use the native factorial affine diagram and its actual algebra colimit C_f, with the specified cocone, universal compatible-root lift and injective finite inclusions. The root-power and transition formulas give its finite coordinate functions. A separate comparison with the all-divisibility colimit, the diagonalizable grading and the fpqc torsor/groupoid contracts is still required; no such geometric conclusion follows merely from this algebra colimit.",
+        "Use the existing actual factorial algebra C_f and its checked finite-coordinate API. The positive-divisibility comparison identifies it with C_div by mutually inverse native algebra maps, carrying every positive root v_n to u_i^(d_i/n) at any factorial multiple. The diagonalizable grading, Spec-limit transport and coherent fpqc torsor/root-groupoid contracts are separate remaining steps; no geometric conclusion follows merely from this algebra comparison.",
         "For every compatible root system over T, form the finite frame torsors respecting its power identifications. Their maps are the finite μ transitions and are affine faithfully flat.",
         "The TOWER-AFF contract makes their inverse limit an affine fpqc G-torsor; its universal frames give an equivariant map to Spec B_infinity.",
         "Conversely an equivariant G-torsor map supplies the finite root data by finite quotient and the root-coordinate functions.",
@@ -11540,6 +11579,1247 @@
           "how": "Supply the actual affine chart colimit and its root-coordinate API; retain the separate grading, cofinality and fpqc groupoid comparison contracts."
         }
       ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/root-divisibility-index",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Positive divisibility root indices",
+      "kind": "definition",
+      "declarationName": "TauCeti.RootStack.RootDivIndex",
+      "statement": "The root-chart index stores an exponent n∈N and a proof n>0. Its preorder is n≤N exactly when n divides N, with decidable comparison, nonzero exponents and distinguished index 1. Products supply common upper bounds. The factorial adapter sends i∈N to d_i=(i+1)!.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A, and B_n is the actual AdjoinRoot algebra A[T]/(T^n−f). Root exponents are positive. No nontriviality, reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "mathlib:IsDirected",
+        "mathlib:IsDirectedOrder",
+        "mathlib:Nat.factorial_pos"
+      ],
+      "proofSteps": [
+        "Instantiate the native Preorder with divisibility reflexivity and transitivity; do not use numeric order.",
+        "The product nN is positive and divisible by both n and N, giving the native directed-order instance.",
+        "Use positivity of factorials for the adapter; no generic colimit or competing quotient carrier is defined."
+      ],
+      "acceptance": [
+        "Use the actual quotient rings and native directed colimits; keep every finite root and coefficient map visible.",
+        "This algebra comparison leaves coherent root arrows, grading, Spec limits and fpqc torsor/quotient comparisons as separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Proposition 3.5, Remark 3.6 and Section 3.1, printed pp.13–16; rank-one local models",
+          "match": "Authored root-algebra comparison derived from the source’s divisibility and cofinal local-model constructions. These algebra declarations are not literal named theorems of the paper and do not establish its coherent root-groupoid or fpqc quotient equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.RootStack.RootDivIndex",
+          "role": "constructor",
+          "statement": "The root-chart index stores an exponent n∈N and a proof n>0. Its preorder is n≤N exactly when n divides N, with decidable comparison, nonzero exponents and distinguished index 1. Products supply common upper bounds. The factorial adapter sends i∈N to d_i=(i+1)!."
+        },
+        {
+          "name": "TauCeti.RootStack.RootDivIndex.factorial",
+          "role": "functoriality",
+          "statement": "The factorial index has actual exponent (i+1)!, definitionally on the specified carrier."
+        },
+        {
+          "name": "TauCeti.RootStack.RootDivIndex.cofinal",
+          "role": "compatibility",
+          "statement": "Every positive index n divides d_(n.exponent)."
+        },
+        {
+          "name": "TauCeti.RootStack.RootDivIndex.factorial_mono",
+          "role": "functoriality",
+          "statement": "If i≤j in numeric order, d_i divides d_j."
+        }
+      ],
+      "tests": [
+        {
+          "name": "rootDivIndex.test_zero",
+          "kind": "non-example",
+          "statement": "Every root index has nonzero exponent; including exponent zero is rejected."
+        },
+        {
+          "name": "rootDivIndex.test_two_six",
+          "kind": "computation",
+          "statement": "The index 2 precedes 6 in the divisibility preorder."
+        },
+        {
+          "name": "rootDivIndex.test_numeric_order",
+          "kind": "non-example",
+          "statement": "The index 2 does not precede 3, despite 2<3 numerically."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Identify its actual all-divisibility affine algebra with the factorial algebra, with explicit finite coordinates; retain the separate geometric comparison contracts."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/root-factorial-cofinal",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Factorial multiple of each root index",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.RootDivIndex.cofinal",
+      "statement": "For every positive root index n, n divides d_(n.exponent)=(n.exponent+1)!.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A, and B_n is the actual AdjoinRoot algebra A[T]/(T^n−f). Root exponents are positive. No nontriviality, reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/root-divisibility-index",
+        "mathlib:Nat.dvd_factorial"
+      ],
+      "proofSteps": [
+        "Apply the native factorial-divisibility theorem to n>0 and n≤n+1."
+      ],
+      "acceptance": [
+        "Use the actual quotient rings and native directed colimits; keep every finite root and coefficient map visible.",
+        "This algebra comparison leaves coherent root arrows, grading, Spec limits and fpqc torsor/quotient comparisons as separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Proposition 3.5, Remark 3.6 and Section 3.1, printed pp.13–16; rank-one local models",
+          "match": "Authored root-algebra comparison derived from the source’s divisibility and cofinal local-model constructions. These algebra declarations are not literal named theorems of the paper and do not establish its coherent root-groupoid or fpqc quotient equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/root-factorial-mono",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Divisibility along factorial levels",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.RootDivIndex.factorial_mono",
+      "statement": "For i≤j in N, the factorial indices d_i and d_j satisfy d_i divides d_j.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A, and B_n is the actual AdjoinRoot algebra A[T]/(T^n−f). Root exponents are positive. No nontriviality, reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/root-divisibility-index",
+        "mathlib:Nat.factorial_dvd_factorial"
+      ],
+      "proofSteps": [
+        "Apply the native factorial-divisibility theorem to i+1≤j+1."
+      ],
+      "acceptance": [
+        "Use the actual quotient rings and native directed colimits; keep every finite root and coefficient map visible.",
+        "This algebra comparison leaves coherent root arrows, grading, Spec limits and fpqc torsor/quotient comparisons as separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Proposition 3.5, Remark 3.6 and Section 3.1, printed pp.13–16; rank-one local models",
+          "match": "Authored root-algebra comparison derived from the source’s divisibility and cofinal local-model constructions. These algebra declarations are not literal named theorems of the paper and do not establish its coherent root-groupoid or fpqc quotient equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/factorial-inclusion-comp-transition",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Factorial transition as a homomorphism equation",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.factorialAffineInclusion.comp_transition",
+      "statement": "For i≤j, the composite ι_j∘j_(d_i,d_j) equals ι_i as an actual A-algebra homomorphism.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A, and B_n is the actual AdjoinRoot algebra A[T]/(T^n−f). Root exponents are positive. No nontriviality, reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-transition"
+      ],
+      "proofSteps": [
+        "Apply algebra-homomorphism extensionality and the existing pointwise transition law."
+      ],
+      "acceptance": [
+        "Use the actual quotient rings and native directed colimits; keep every finite root and coefficient map visible.",
+        "This algebra comparison leaves coherent root arrows, grading, Spec limits and fpqc torsor/quotient comparisons as separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Proposition 3.5, Remark 3.6 and Section 3.1, printed pp.13–16; rank-one local models",
+          "match": "Authored root-algebra comparison derived from the source’s divisibility and cofinal local-model constructions. These algebra declarations are not literal named theorems of the paper and do not establish its coherent root-groupoid or fpqc quotient equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Every root chart in the factorial colimit",
+      "kind": "construction",
+      "declarationName": "TauCeti.RootStack.factorialAffineExtension",
+      "statement": "For a positive root index n construct e_n:B_n→C_f as ι_(n.exponent)∘j_(n,d_(n.exponent)). Coefficients and all ring operations are preserved.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A, and B_n is the actual AdjoinRoot algebra A[T]/(T^n−f). Root exponents are positive. No nontriviality, reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/root-factorial-cofinal",
+        "FunctionFieldArithmeticPartII:RS.2/affine-divisibility",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion"
+      ],
+      "proofSteps": [
+        "Use the specified factorial multiple and compose the actual fixed-index quotient map with the native factorial insertion."
+      ],
+      "acceptance": [
+        "Use the actual quotient rings and native directed colimits; keep every finite root and coefficient map visible.",
+        "This algebra comparison leaves coherent root arrows, grading, Spec limits and fpqc torsor/quotient comparisons as separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Proposition 3.5, Remark 3.6 and Section 3.1, printed pp.13–16; rank-one local models",
+          "match": "Authored root-algebra comparison derived from the source’s divisibility and cofinal local-model constructions. These algebra declarations are not literal named theorems of the paper and do not establish its coherent root-groupoid or fpqc quotient equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.RootStack.factorialAffineExtension",
+          "role": "constructor",
+          "statement": "For a positive root index n construct e_n:B_n→C_f as ι_(n.exponent)∘j_(n,d_(n.exponent)). Coefficients and all ring operations are preserved."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialAffineExtension.at_level",
+          "role": "extensionality",
+          "statement": "For every i with n dividing d_i, e_n equals ι_i∘j_(n,d_i), independently of the chosen factorial multiple."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialAffineExtension.transition",
+          "role": "compatibility",
+          "statement": "For n dividing N, e_N∘j_(n,N)=e_n."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialAffineExtension.factorial",
+          "role": "simp",
+          "statement": "At the actual factorial index d_i, e_(d_i)=ι_i."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialAffineExtension.injective",
+          "role": "extensionality",
+          "statement": "Every e_n is injective, including over wild or zero coefficient rings."
+        }
+      ],
+      "tests": [
+        {
+          "name": "factorialAffineExtension.test_three_at_six",
+          "kind": "computation",
+          "statement": "The index-3 extension is ι_2 composed with the actual map B_3→B_6."
+        },
+        {
+          "name": "factorialAffineExtension.test_choice",
+          "kind": "compatibility",
+          "statement": "For every x∈B_3, its images through B_6 and B_24 agree in C_f."
+        },
+        {
+          "name": "factorialAffineExtension.test_one",
+          "kind": "degenerate",
+          "statement": "The factorial index d_0=1 extends by the first factorial insertion."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Identify its actual all-divisibility affine algebra with the factorial algebra, with explicit finite coordinates; retain the separate geometric comparison contracts."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension-choice",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Independence of the factorial multiple",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.factorialAffineExtension.at_level",
+      "statement": "For every positive n and every i with n dividing d_i, e_n=ι_i∘j_(n,d_i) as A-algebra homomorphisms.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A, and B_n is the actual AdjoinRoot algebra A[T]/(T^n−f). Root exponents are positive. No nontriviality, reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-inclusion-comp-transition",
+        "FunctionFieldArithmeticPartII:RS.2/root-factorial-mono",
+        "FunctionFieldArithmeticPartII:RS.2/affine-divisibility-composition"
+      ],
+      "proofSteps": [
+        "Choose k=max(n.exponent,i). Rewrite both candidate maps through ι_k using the factorial inclusion composition law.",
+        "The actual divisibility-map composition law makes both maps ι_k∘j_(n,d_k); proof irrelevance removes any choice of divisibility witness."
+      ],
+      "acceptance": [
+        "Use the actual quotient rings and native directed colimits; keep every finite root and coefficient map visible.",
+        "This algebra comparison leaves coherent root arrows, grading, Spec limits and fpqc torsor/quotient comparisons as separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Proposition 3.5, Remark 3.6 and Section 3.1, printed pp.13–16; rank-one local models",
+          "match": "Authored root-algebra comparison derived from the source’s divisibility and cofinal local-model constructions. These algebra declarations are not literal named theorems of the paper and do not establish its coherent root-groupoid or fpqc quotient equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension-transition",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Compatibility of all finite chart extensions",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.factorialAffineExtension.transition",
+      "statement": "For positive indices n dividing N, e_N∘j_(n,N)=e_n.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A, and B_n is the actual AdjoinRoot algebra A[T]/(T^n−f). Root exponents are positive. No nontriviality, reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension-choice",
+        "FunctionFieldArithmeticPartII:RS.2/root-factorial-cofinal",
+        "FunctionFieldArithmeticPartII:RS.2/affine-divisibility-composition"
+      ],
+      "proofSteps": [
+        "Compute e_n using the factorial multiple d_(N.exponent), which is also divisible by n.",
+        "Apply actual quotient-map composition in the same target carrier."
+      ],
+      "acceptance": [
+        "Use the actual quotient rings and native directed colimits; keep every finite root and coefficient map visible.",
+        "This algebra comparison leaves coherent root arrows, grading, Spec limits and fpqc torsor/quotient comparisons as separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Proposition 3.5, Remark 3.6 and Section 3.1, printed pp.13–16; rank-one local models",
+          "match": "Authored root-algebra comparison derived from the source’s divisibility and cofinal local-model constructions. These algebra declarations are not literal named theorems of the paper and do not establish its coherent root-groupoid or fpqc quotient equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension-factorial",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Extension at a factorial index",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.factorialAffineExtension.factorial",
+      "statement": "For every i, the extension at root index d_i is exactly the factorial insertion ι_i.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A, and B_n is the actual AdjoinRoot algebra A[T]/(T^n−f). Root exponents are positive. No nontriviality, reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension-choice",
+        "FunctionFieldArithmeticPartII:RS.2/affine-divisibility-identity"
+      ],
+      "proofSteps": [
+        "Choose the level i itself in the choice-independence law and simplify its identity transition."
+      ],
+      "acceptance": [
+        "Use the actual quotient rings and native directed colimits; keep every finite root and coefficient map visible.",
+        "This algebra comparison leaves coherent root arrows, grading, Spec limits and fpqc torsor/quotient comparisons as separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Proposition 3.5, Remark 3.6 and Section 3.1, printed pp.13–16; rank-one local models",
+          "match": "Authored root-algebra comparison derived from the source’s divisibility and cofinal local-model constructions. These algebra declarations are not literal named theorems of the paper and do not establish its coherent root-groupoid or fpqc quotient equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension-injective",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Injectivity of each factorial chart extension",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.factorialAffineExtension.injective",
+      "statement": "For every positive root index n, the map e_n:B_n→C_f is injective.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A, and B_n is the actual AdjoinRoot algebra A[T]/(T^n−f). Root exponents are positive. No nontriviality, reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension",
+        "FunctionFieldArithmeticPartII:RS.2/affine-divisibility-injective",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-injective"
+      ],
+      "proofSteps": [
+        "Both the actual quotient transition and the factorial insertion in the defining composite are injective."
+      ],
+      "acceptance": [
+        "Use the actual quotient rings and native directed colimits; keep every finite root and coefficient map visible.",
+        "This algebra comparison leaves coherent root arrows, grading, Spec limits and fpqc torsor/quotient comparisons as separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Proposition 3.5, Remark 3.6 and Section 3.1, printed pp.13–16; rank-one local models",
+          "match": "Authored root-algebra comparison derived from the source’s divisibility and cofinal local-model constructions. These algebra declarations are not literal named theorems of the paper and do not establish its coherent root-groupoid or fpqc quotient equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-colimit",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "All positive root chart colimit",
+      "kind": "construction",
+      "declarationName": "TauCeti.RootStack.DivisibilityAffineColimit",
+      "statement": "Construct C_div=colim_(n|N) B_n over the positive divisibility index, using Mathlib DirectLimit with its inherited commutative ring and A-algebra structures. Its adapter map is exactly the existing fixed-index j_(n,N).",
+      "hypotheses": [
+        "A is any commutative ring, f∈A, and B_n is the actual AdjoinRoot algebra A[T]/(T^n−f). Root exponents are positive. No nontriviality, reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/root-divisibility-index",
+        "FunctionFieldArithmeticPartII:RS.2/affine-divisibility-identity",
+        "FunctionFieldArithmeticPartII:RS.2/affine-divisibility-composition",
+        "mathlib:DirectedSystem",
+        "mathlib:DirectLimit"
+      ],
+      "proofSteps": [
+        "Instantiate the directed system using the exact identity and composition equations of the previously checked quotient maps.",
+        "Apply the native directed algebra colimit on this index; no new general limit implementation is introduced."
+      ],
+      "acceptance": [
+        "Use the actual quotient rings and native directed colimits; keep every finite root and coefficient map visible.",
+        "This algebra comparison leaves coherent root arrows, grading, Spec limits and fpqc torsor/quotient comparisons as separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Proposition 3.5, Remark 3.6 and Section 3.1, printed pp.13–16; rank-one local models",
+          "match": "Authored root-algebra comparison derived from the source’s divisibility and cofinal local-model constructions. These algebra declarations are not literal named theorems of the paper and do not establish its coherent root-groupoid or fpqc quotient equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.RootStack.DivisibilityAffineColimit",
+          "role": "constructor",
+          "statement": "Construct C_div=colim_(n|N) B_n over the positive divisibility index, using Mathlib DirectLimit with its inherited commutative ring and A-algebra structures. Its adapter map is exactly the existing fixed-index j_(n,N)."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityAffineMap",
+          "role": "functoriality",
+          "statement": "The map for n≤N is exactly affineDivisibility at their actual positive exponents."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityAffineDirected",
+          "role": "compatibility",
+          "statement": "The map adapter satisfies the native DirectedSystem identity and composition fields."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityAffineColimit.exists_level",
+          "role": "extensionality",
+          "statement": "Every element of C_div comes from one actual positive finite chart."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityAffineColimit.hom_ext",
+          "role": "extensionality",
+          "statement": "Algebra maps out of C_div are determined by all finite distinguished roots."
+        }
+      ],
+      "tests": [
+        {
+          "name": "divisibilityAffineColimit.test_wild_nonzero",
+          "kind": "non-example",
+          "statement": "For A=F_2 and f=0, the index-2 root remains nonzero in C_div; replacing the charts by reductions fails."
+        },
+        {
+          "name": "divisibilityAffineColimit.test_wild_square",
+          "kind": "computation",
+          "statement": "That nonzero index-2 root has square zero in C_div."
+        },
+        {
+          "name": "divisibilityAffineColimit.test_zero_ring",
+          "kind": "degenerate",
+          "statement": "For A=Z/1Z and f=0, every element of C_div is zero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Identify its actual all-divisibility affine algebra with the factorial algebra, with explicit finite coordinates; retain the separate geometric comparison contracts."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Finite charts in the divisibility colimit",
+      "kind": "construction",
+      "declarationName": "TauCeti.RootStack.divisibilityAffineInclusion",
+      "statement": "For each positive n construct κ_n:B_n→C_div as the native A-algebra insertion, preserving coefficients and all ring operations.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A, and B_n is the actual AdjoinRoot algebra A[T]/(T^n−f). Root exponents are positive. No nontriviality, reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-colimit",
+        "mathlib:DirectLimit.Algebra.of"
+      ],
+      "proofSteps": [
+        "Instantiate the existing native insertion on the actual root-chart directed system."
+      ],
+      "acceptance": [
+        "Use the actual quotient rings and native directed colimits; keep every finite root and coefficient map visible.",
+        "This algebra comparison leaves coherent root arrows, grading, Spec limits and fpqc torsor/quotient comparisons as separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Proposition 3.5, Remark 3.6 and Section 3.1, printed pp.13–16; rank-one local models",
+          "match": "Authored root-algebra comparison derived from the source’s divisibility and cofinal local-model constructions. These algebra declarations are not literal named theorems of the paper and do not establish its coherent root-groupoid or fpqc quotient equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.RootStack.divisibilityAffineInclusion",
+          "role": "constructor",
+          "statement": "For each positive n construct κ_n:B_n→C_div as the native A-algebra insertion, preserving coefficients and all ring operations."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityAffineInclusion.transition",
+          "role": "compatibility",
+          "statement": "For n dividing N and x∈B_n, κ_N(j_(n,N)(x))=κ_n(x)."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityAffineInclusion.injective",
+          "role": "extensionality",
+          "statement": "Every κ_n is injective."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityAffineInclusion.pow",
+          "role": "simp",
+          "statement": "The image v_n=κ_n(t_n) satisfies v_n^n=algebraMap(A,C_div)(f)."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityAffineInclusion.root",
+          "role": "simp",
+          "statement": "For n dividing N, v_n=v_N^(N/n)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "divisibilityAffineInclusion.test_two_six",
+          "kind": "computation",
+          "statement": "The image of the index-2 root is the cube of the index-6 root."
+        },
+        {
+          "name": "divisibilityAffineInclusion.test_coefficients",
+          "kind": "compatibility",
+          "statement": "Over Z/4Z, the index-3 insertion preserves every coefficient, for arbitrary parameter f."
+        },
+        {
+          "name": "divisibilityAffineInclusion.test_identity",
+          "kind": "degenerate",
+          "statement": "The identity transition at any positive index leaves its insertion unchanged."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Identify its actual all-divisibility affine algebra with the factorial algebra, with explicit finite coordinates; retain the separate geometric comparison contracts."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion-transition",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Divisibility transition in the colimit",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.divisibilityAffineInclusion.transition",
+      "statement": "For n dividing N and x∈B_n, κ_N(j_(n,N)(x))=κ_n(x).",
+      "hypotheses": [
+        "A is any commutative ring, f∈A, and B_n is the actual AdjoinRoot algebra A[T]/(T^n−f). Root exponents are positive. No nontriviality, reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion",
+        "mathlib:DirectLimit.Algebra.of_f"
+      ],
+      "proofSteps": [
+        "Apply the actual native insertion transition theorem."
+      ],
+      "acceptance": [
+        "Use the actual quotient rings and native directed colimits; keep every finite root and coefficient map visible.",
+        "This algebra comparison leaves coherent root arrows, grading, Spec limits and fpqc torsor/quotient comparisons as separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Proposition 3.5, Remark 3.6 and Section 3.1, printed pp.13–16; rank-one local models",
+          "match": "Authored root-algebra comparison derived from the source’s divisibility and cofinal local-model constructions. These algebra declarations are not literal named theorems of the paper and do not establish its coherent root-groupoid or fpqc quotient equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion-injective",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Finite roots survive the divisibility colimit",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.divisibilityAffineInclusion.injective",
+      "statement": "For every positive n, κ_n:B_n→C_div is injective.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A, and B_n is the actual AdjoinRoot algebra A[T]/(T^n−f). Root exponents are positive. No nontriviality, reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion",
+        "FunctionFieldArithmeticPartII:RS.2/affine-divisibility-injective",
+        "mathlib:DirectLimit.mk_injective"
+      ],
+      "proofSteps": [
+        "All transition maps are injective by the existing finite faithful-flat result.",
+        "Apply the native direct-limit insertion-injectivity theorem."
+      ],
+      "acceptance": [
+        "Use the actual quotient rings and native directed colimits; keep every finite root and coefficient map visible.",
+        "This algebra comparison leaves coherent root arrows, grading, Spec limits and fpqc torsor/quotient comparisons as separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Proposition 3.5, Remark 3.6 and Section 3.1, printed pp.13–16; rank-one local models",
+          "match": "Authored root-algebra comparison derived from the source’s divisibility and cofinal local-model constructions. These algebra declarations are not literal named theorems of the paper and do not establish its coherent root-groupoid or fpqc quotient equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-colimit-elements",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Finite representatives in the divisibility colimit",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.divisibilityAffineColimit.exists_level",
+      "statement": "Every x∈C_div equals κ_n(y) for some positive index n and y∈B_n.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A, and B_n is the actual AdjoinRoot algebra A[T]/(T^n−f). Root exponents are positive. No nontriviality, reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-colimit",
+        "mathlib:DirectLimit.exists_eq_mk"
+      ],
+      "proofSteps": [
+        "Use the actual quotient representative theorem and identify its quotient constructor with κ_n."
+      ],
+      "acceptance": [
+        "Use the actual quotient rings and native directed colimits; keep every finite root and coefficient map visible.",
+        "This algebra comparison leaves coherent root arrows, grading, Spec limits and fpqc torsor/quotient comparisons as separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Proposition 3.5, Remark 3.6 and Section 3.1, printed pp.13–16; rank-one local models",
+          "match": "Authored root-algebra comparison derived from the source’s divisibility and cofinal local-model constructions. These algebra declarations are not literal named theorems of the paper and do not establish its coherent root-groupoid or fpqc quotient equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-colimit-ext",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Maps determined on every finite root",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.divisibilityAffineColimit.hom_ext",
+      "statement": "For any commutative A-algebra C, two A-algebra maps g,h:C_div→C agree if g(v_n)=h(v_n) for every positive n.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A, and B_n is the actual AdjoinRoot algebra A[T]/(T^n−f). Root exponents are positive. No nontriviality, reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion",
+        "mathlib:DirectLimit.Algebra.hom_ext",
+        "mathlib:AdjoinRoot.algHom_ext"
+      ],
+      "proofSteps": [
+        "Apply native direct-limit extensionality to each component homomorphism.",
+        "At each component apply native AdjoinRoot algebra-map extensionality on its distinguished root."
+      ],
+      "acceptance": [
+        "Use the actual quotient rings and native directed colimits; keep every finite root and coefficient map visible.",
+        "This algebra comparison leaves coherent root arrows, grading, Spec limits and fpqc torsor/quotient comparisons as separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Proposition 3.5, Remark 3.6 and Section 3.1, printed pp.13–16; rank-one local models",
+          "match": "Authored root-algebra comparison derived from the source’s divisibility and cofinal local-model constructions. These algebra declarations are not literal named theorems of the paper and do not establish its coherent root-groupoid or fpqc quotient equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-to-factorial",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Divisibility colimit to factorial colimit",
+      "kind": "construction",
+      "declarationName": "TauCeti.RootStack.divisibilityToFactorial",
+      "statement": "Construct α:C_div→C_f by the native algebra lift of the compatible family e_n. It is characterized by α(κ_n(x))=e_n(x) at every positive index.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A, and B_n is the actual AdjoinRoot algebra A[T]/(T^n−f). Root exponents are positive. No nontriviality, reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-colimit",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension-transition",
+        "mathlib:DirectLimit.Algebra.lift",
+        "mathlib:DirectLimit.Algebra.lift_of"
+      ],
+      "proofSteps": [
+        "The extension transition law supplies the native lift’s compatibility field.",
+        "The native lift evaluation law identifies its values on each component."
+      ],
+      "acceptance": [
+        "Use the actual quotient rings and native directed colimits; keep every finite root and coefficient map visible.",
+        "This algebra comparison leaves coherent root arrows, grading, Spec limits and fpqc torsor/quotient comparisons as separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Proposition 3.5, Remark 3.6 and Section 3.1, printed pp.13–16; rank-one local models",
+          "match": "Authored root-algebra comparison derived from the source’s divisibility and cofinal local-model constructions. These algebra declarations are not literal named theorems of the paper and do not establish its coherent root-groupoid or fpqc quotient equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.RootStack.divisibilityToFactorial",
+          "role": "constructor",
+          "statement": "Construct α:C_div→C_f by the native algebra lift of the compatible family e_n. It is characterized by α(κ_n(x))=e_n(x) at every positive index."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityToFactorial.inclusion",
+          "role": "simp",
+          "statement": "For every positive n and x∈B_n, α(κ_n(x))=e_n(x)."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityToFactorial.left_inverse",
+          "role": "compatibility",
+          "statement": "The factorial-to-divisibility map composed with α is the identity on C_div."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityToFactorial.right_inverse",
+          "role": "compatibility",
+          "statement": "α composed with the factorial-to-divisibility map is the identity on C_f."
+        }
+      ],
+      "tests": [
+        {
+          "name": "divisibilityToFactorial.test_three",
+          "kind": "computation",
+          "statement": "The index-3 root maps to the square of the factorial index-6 root."
+        },
+        {
+          "name": "divisibilityToFactorial.test_coefficients",
+          "kind": "compatibility",
+          "statement": "Over Z/4Z, α preserves every coefficient for arbitrary f."
+        },
+        {
+          "name": "divisibilityToFactorial.test_factorial",
+          "kind": "characterisation",
+          "statement": "At each actual factorial index d_i, α carries its entire finite chart exactly to ι_i."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Identify its actual all-divisibility affine algebra with the factorial algebra, with explicit finite coordinates; retain the separate geometric comparison contracts."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/factorial-to-divisibility",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Factorial colimit to divisibility colimit",
+      "kind": "construction",
+      "declarationName": "TauCeti.RootStack.factorialToDivisibility",
+      "statement": "Construct β:C_f→C_div by the native algebra lift of the finite-chart insertions κ_(d_i). It satisfies β(ι_i(x))=κ_(d_i)(x).",
+      "hypotheses": [
+        "A is any commutative ring, f∈A, and B_n is the actual AdjoinRoot algebra A[T]/(T^n−f). Root exponents are positive. No nontriviality, reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit",
+        "FunctionFieldArithmeticPartII:RS.2/root-factorial-mono",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion-transition",
+        "mathlib:DirectLimit.Algebra.lift",
+        "mathlib:DirectLimit.Algebra.lift_of"
+      ],
+      "proofSteps": [
+        "The factorial divisibility and κ transition laws make this family compatible.",
+        "Apply the existing native algebra lift and its component evaluation law."
+      ],
+      "acceptance": [
+        "Use the actual quotient rings and native directed colimits; keep every finite root and coefficient map visible.",
+        "This algebra comparison leaves coherent root arrows, grading, Spec limits and fpqc torsor/quotient comparisons as separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Proposition 3.5, Remark 3.6 and Section 3.1, printed pp.13–16; rank-one local models",
+          "match": "Authored root-algebra comparison derived from the source’s divisibility and cofinal local-model constructions. These algebra declarations are not literal named theorems of the paper and do not establish its coherent root-groupoid or fpqc quotient equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.RootStack.factorialToDivisibility",
+          "role": "constructor",
+          "statement": "Construct β:C_f→C_div by the native algebra lift of the finite-chart insertions κ_(d_i). It satisfies β(ι_i(x))=κ_(d_i)(x)."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialToDivisibility.inclusion",
+          "role": "simp",
+          "statement": "For every i and x∈B_(d_i), β(ι_i(x))=κ_(d_i)(x)."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityToFactorial.right_inverse",
+          "role": "compatibility",
+          "statement": "The actual map α is a left inverse of β on every element of C_f."
+        }
+      ],
+      "tests": [
+        {
+          "name": "factorialToDivisibility.test_root",
+          "kind": "computation",
+          "statement": "The factorial index-2 root maps to the same root in the all-positive index-2 chart."
+        },
+        {
+          "name": "factorialToDivisibility.test_coefficients",
+          "kind": "compatibility",
+          "statement": "Over Z/4Z, β preserves every coefficient for arbitrary f."
+        },
+        {
+          "name": "factorialToDivisibility.test_zero",
+          "kind": "degenerate",
+          "statement": "For the zero coefficient ring, β sends zero to zero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Identify its actual all-divisibility affine algebra with the factorial algebra, with explicit finite coordinates; retain the separate geometric comparison contracts."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-left-inverse",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Return to the divisibility colimit",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.divisibilityToFactorial.left_inverse",
+      "statement": "For every x∈C_div, β(α(x))=x.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A, and B_n is the actual AdjoinRoot algebra A[T]/(T^n−f). Root exponents are positive. No nontriviality, reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-to-factorial",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-to-divisibility",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-colimit-elements",
+        "FunctionFieldArithmeticPartII:RS.2/root-factorial-cofinal",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion-transition"
+      ],
+      "proofSteps": [
+        "Write x=κ_n(y). The two lift evaluation laws identify its image as κ_(d_(n.exponent))(j_(n,d_(n.exponent))(y)).",
+        "The actual all-divisibility insertion transition law gives κ_n(y)."
+      ],
+      "acceptance": [
+        "Use the actual quotient rings and native directed colimits; keep every finite root and coefficient map visible.",
+        "This algebra comparison leaves coherent root arrows, grading, Spec limits and fpqc torsor/quotient comparisons as separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Proposition 3.5, Remark 3.6 and Section 3.1, printed pp.13–16; rank-one local models",
+          "match": "Authored root-algebra comparison derived from the source’s divisibility and cofinal local-model constructions. These algebra declarations are not literal named theorems of the paper and do not establish its coherent root-groupoid or fpqc quotient equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-right-inverse",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Return to the factorial colimit",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.divisibilityToFactorial.right_inverse",
+      "statement": "For every x∈C_f, α(β(x))=x.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A, and B_n is the actual AdjoinRoot algebra A[T]/(T^n−f). Root exponents are positive. No nontriviality, reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-to-factorial",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-to-divisibility",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-elements",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension-factorial"
+      ],
+      "proofSteps": [
+        "Write x=ι_i(y). Evaluate both lifts and use e_(d_i)=ι_i."
+      ],
+      "acceptance": [
+        "Use the actual quotient rings and native directed colimits; keep every finite root and coefficient map visible.",
+        "This algebra comparison leaves coherent root arrows, grading, Spec limits and fpqc torsor/quotient comparisons as separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Proposition 3.5, Remark 3.6 and Section 3.1, printed pp.13–16; rank-one local models",
+          "match": "Authored root-algebra comparison derived from the source’s divisibility and cofinal local-model constructions. These algebra declarations are not literal named theorems of the paper and do not establish its coherent root-groupoid or fpqc quotient equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-equivalence",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Factorial and divisibility chart comparison",
+      "kind": "comparison",
+      "declarationName": "TauCeti.RootStack.divisibilityFactorialEquiv",
+      "statement": "The actual A-algebras C_div and C_f are canonically equivalent. Its forward map is α and its inverse is β, with the finite-coordinate formulas specified below.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A, and B_n is the actual AdjoinRoot algebra A[T]/(T^n−f). Root exponents are positive. No nontriviality, reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-left-inverse",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-right-inverse",
+        "mathlib:AlgEquiv.ofAlgHom"
+      ],
+      "proofSteps": [
+        "Turn the two actual algebra maps and both inverse equations into the native AlgEquiv.",
+        "Do not identify coherent root-object groupoids or an fpqc quotient from an algebra equivalence alone."
+      ],
+      "acceptance": [
+        "Use the actual quotient rings and native directed colimits; keep every finite root and coefficient map visible.",
+        "This algebra comparison leaves coherent root arrows, grading, Spec limits and fpqc torsor/quotient comparisons as separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Proposition 3.5, Remark 3.6 and Section 3.1, printed pp.13–16; rank-one local models",
+          "match": "Authored root-algebra comparison derived from the source’s divisibility and cofinal local-model constructions. These algebra declarations are not literal named theorems of the paper and do not establish its coherent root-groupoid or fpqc quotient equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.RootStack.divisibilityFactorialEquiv",
+          "role": "constructor",
+          "statement": "The actual A-algebras C_div and C_f are canonically equivalent. Its forward map is α and its inverse is β, with the finite-coordinate formulas specified below."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityFactorialEquiv.inclusion",
+          "role": "compatibility",
+          "statement": "For n dividing d_i and x∈B_n, the equivalence sends κ_n(x) to ι_i(j_(n,d_i)(x))."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityFactorialEquiv.root",
+          "role": "simp",
+          "statement": "For n dividing d_i, the equivalence sends v_n to u_i^(d_i/n), where u_i=ι_i(t_(d_i))."
+        }
+      ],
+      "tests": [
+        {
+          "name": "divisibilityFactorialEquiv.test_three",
+          "kind": "computation",
+          "statement": "The nonfactorial index-3 root maps to the square of the factorial index-6 root."
+        },
+        {
+          "name": "divisibilityFactorialEquiv.test_coefficients",
+          "kind": "compatibility",
+          "statement": "Over Z/4Z, the actual equivalence preserves every coefficient for arbitrary parameter f."
+        },
+        {
+          "name": "divisibilityFactorialEquiv.test_inverse",
+          "kind": "characterisation",
+          "statement": "Applying the inverse equivalence after the forward equivalence gives every original element of C_div."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Identify its actual all-divisibility affine algebra with the factorial algebra, with explicit finite coordinates; retain the separate geometric comparison contracts."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-inclusion",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Comparison at any factorial multiple",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.divisibilityFactorialEquiv.inclusion",
+      "statement": "For any positive n, any i with n dividing d_i, and x∈B_n, the equivalence sends κ_n(x) to ι_i(j_(n,d_i)(x)).",
+      "hypotheses": [
+        "A is any commutative ring, f∈A, and B_n is the actual AdjoinRoot algebra A[T]/(T^n−f). Root exponents are positive. No nontriviality, reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-equivalence",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-to-factorial",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension-choice"
+      ],
+      "proofSteps": [
+        "Evaluate α on κ_n(x), then use the independent-factorial-multiple law."
+      ],
+      "acceptance": [
+        "Use the actual quotient rings and native directed colimits; keep every finite root and coefficient map visible.",
+        "This algebra comparison leaves coherent root arrows, grading, Spec limits and fpqc torsor/quotient comparisons as separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Proposition 3.5, Remark 3.6 and Section 3.1, printed pp.13–16; rank-one local models",
+          "match": "Authored root-algebra comparison derived from the source’s divisibility and cofinal local-model constructions. These algebra declarations are not literal named theorems of the paper and do not establish its coherent root-groupoid or fpqc quotient equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-root",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "Explicit root-coordinate comparison",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.divisibilityFactorialEquiv.root",
+      "statement": "For any positive n dividing d_i, the actual comparison sends v_n to u_i^(d_i/n).",
+      "hypotheses": [
+        "A is any commutative ring, f∈A, and B_n is the actual AdjoinRoot algebra A[T]/(T^n−f). Root exponents are positive. No nontriviality, reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-inclusion",
+        "FunctionFieldArithmeticPartII:RS.2/affine-divisibility-root"
+      ],
+      "proofSteps": [
+        "Apply the finite-chart comparison to t_n, evaluate the actual divisibility map on its root, and use preservation of powers."
+      ],
+      "acceptance": [
+        "Use the actual quotient rings and native directed colimits; keep every finite root and coefficient map visible.",
+        "This algebra comparison leaves coherent root arrows, grading, Spec limits and fpqc torsor/quotient comparisons as separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Proposition 3.5, Remark 3.6 and Section 3.1, printed pp.13–16; rank-one local models",
+          "match": "Authored root-algebra comparison derived from the source’s divisibility and cofinal local-model constructions. These algebra declarations are not literal named theorems of the paper and do not establish its coherent root-groupoid or fpqc quotient equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion-power",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "All-positive root power relation",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.divisibilityAffineInclusion.pow",
+      "statement": "For every positive n, v_n^n=algebraMap(A,C_div)(f).",
+      "hypotheses": [
+        "A is any commutative ring, f∈A, and B_n is the actual AdjoinRoot algebra A[T]/(T^n−f). Root exponents are positive. No nontriviality, reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion",
+        "FunctionFieldArithmeticPartII:RS.0/affine-root-relation"
+      ],
+      "proofSteps": [
+        "Transport the existing native finite root relation through the actual insertion."
+      ],
+      "acceptance": [
+        "Use the actual quotient rings and native directed colimits; keep every finite root and coefficient map visible.",
+        "This algebra comparison leaves coherent root arrows, grading, Spec limits and fpqc torsor/quotient comparisons as separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Proposition 3.5, Remark 3.6 and Section 3.1, printed pp.13–16; rank-one local models",
+          "match": "Authored root-algebra comparison derived from the source’s divisibility and cofinal local-model constructions. These algebra declarations are not literal named theorems of the paper and do not establish its coherent root-groupoid or fpqc quotient equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion-root",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "All-positive root transition relation",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.divisibilityAffineInclusion.root",
+      "statement": "For positive n dividing N, v_n=v_N^(N/n).",
+      "hypotheses": [
+        "A is any commutative ring, f∈A, and B_n is the actual AdjoinRoot algebra A[T]/(T^n−f). Root exponents are positive. No nontriviality, reducedness, Noetherian, unit-parameter or invertible-exponent hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion-transition",
+        "FunctionFieldArithmeticPartII:RS.2/affine-divisibility-root"
+      ],
+      "proofSteps": [
+        "Rewrite v_n through the actual insertion transition, evaluate the finite root transition and preserve powers."
+      ],
+      "acceptance": [
+        "Use the actual quotient rings and native directed colimits; keep every finite root and coefficient map visible.",
+        "This algebra comparison leaves coherent root arrows, grading, Spec limits and fpqc torsor/quotient comparisons as separate obligations."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "Proposition 3.5, Remark 3.6 and Section 3.1, printed pp.13–16; rank-one local models",
+          "match": "Authored root-algebra comparison derived from the source’s divisibility and cofinal local-model constructions. These algebra declarations are not literal named theorems of the paper and do not establish its coherent root-groupoid or fpqc quotient equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -14321,6 +15601,107 @@
           "research/blueprint/handoff/DESIGN-FunctionFieldArithmeticPartII.md"
         ]
       }
+    },
+    {
+      "agent": "Codex",
+      "session": "codex-5ebb6f",
+      "date": "2026-10-03",
+      "issue": 3403,
+      "claimComment": 5963556886,
+      "botConfirmation": 5963558309,
+      "base": "b80fdf573cd685fc5723bd55865eb7392a56c9c2",
+      "scope": "Actual positive-divisibility affine root colimit and factorial A-algebra comparison",
+      "addedNodes": [
+        "FunctionFieldArithmeticPartII:RS.2/root-divisibility-index",
+        "FunctionFieldArithmeticPartII:RS.2/root-factorial-cofinal",
+        "FunctionFieldArithmeticPartII:RS.2/root-factorial-mono",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-inclusion-comp-transition",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension-choice",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension-transition",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension-factorial",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension-injective",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-colimit",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion-transition",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion-injective",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-colimit-elements",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-colimit-ext",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-to-factorial",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-to-divisibility",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-left-inverse",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-right-inverse",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-equivalence",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-inclusion",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-root",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion-power",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion-root"
+      ],
+      "preservedStatementContracts": 194,
+      "unchangedNodeObjects": 193,
+      "status": "partial checkpoint",
+      "sourceReading": "Fresh TV17 arXiv:1410.1164v2 printed pp.13–17 including Proposition 3.5 proof, Remark 3.6 and local models/Proposition 3.10 proof; exact PDF hash matches the inherited receipt. The algebra statements are authored rank-one input. Earlier source receipts retain their authors and scopes.",
+      "boundary": "The all-positive chart colimit now has an explicit factorial algebra equivalence, with every finite coordinate and both inverse maps. Coherent root-object groupoids, diagonalizable grading/action, affine Spec limits, fpqc frame torsors and quotient comparisons remain independent obligations. No gap, request, planet, stage or source route is closed.",
+      "priorArt": {
+        "searchDate": "2026-10-03",
+        "openPrQueries": {
+          "cofinal colimit": [],
+          "root stack": [],
+          "DirectLimit reindex": []
+        },
+        "nativeFinality": "Pinned generic Functor.Final/colimitIso and filtered finality statements were inspected, not redeveloped. The proof specializes existing DirectLimit algebra of/lift/hom_ext to actual root algebras and records their finite-coordinate maps.",
+        "zulip": "https://leanprover-community.github.io/archive/stream/113489-new-members/topic/Q.2FZ.20as.20colimit.20of.20Z.2FnZ.html",
+        "zulipRead": "Fresh human discussion Aug10–11 2025, including positive divisibility indices and native DirectLimit versus categorical colimits; bot-generated search output is not mathematical evidence."
+      },
+      "checkedEvidence": {
+        "NextNative.lean": {
+          "sha256": "158aee809fd3942a13290c525a3feb60d2dbe7b8988c4236612ecc0c6fb39378",
+          "lines": 2875,
+          "examples": 116,
+          "audits": 111,
+          "errors": 0,
+          "admissionWarnings": 0,
+          "otherWarnings": 0,
+          "sorryAx": false,
+          "diagnosticSha256": "469fc812ffa77da5b643ae0b0f6cbcb0d4910839dd56c47e68b7d3ed2b1d0b31",
+          "elapsed": "0:18.33",
+          "maxRSSKiB": 3465744
+        },
+        "NextSketch.lean": {
+          "sha256": "6bc59421fce69e6ab11224c502fac701fc64297fdc71b910cb7d534378fdf658",
+          "lines": 1746,
+          "examples": 116,
+          "audits": 0,
+          "errors": 0,
+          "admissionWarnings": 269,
+          "otherWarnings": 0,
+          "sorryAx": false,
+          "diagnosticSha256": "d04a8d159a9ade75cd914cd1832588a2d2210fd2ad6dfdf14e90f9f656b8aee5",
+          "elapsed": "0:06.92",
+          "maxRSSKiB": 3319172
+        },
+        "NextCanonical.lean": {
+          "sha256": "625e4b2ddfa78eaefe87b1a2106ea33585c2e312507e59405acb94d3e3d04a33",
+          "lines": 2657,
+          "examples": 136,
+          "audits": 0
+        }
+      },
+      "compiledCanonical": false,
+      "canonicalReason": "The existing build lacks required exact-pin TauCeti.AlgebraicGeometry.LineBundle.TensorProduct and TauCeti.Algebra.AlgebraicGroup.RootsOfUnity.Basic compiled imports. Only the actual native Mathlib projection elaborated; no build, setup, cache or LSP was started.",
+      "nativeArchive": "c4096277ee51368485e14ce6487c0c7c2e2b6084",
+      "nativeArchivePath": "research/blueprint/suggested/FunctionFieldArithmeticPartII.lean",
+      "publicationBase": "aeae47c9a675600efe5c88a0b7ab4cc82b9d13f3",
+      "headerParity": {
+        "newHeaders": 55,
+        "exampleHeaders": 21,
+        "inheritedNativeLines": 2527,
+        "inheritedNativeHash": "05f9e273177e59765f130e85cdcbc9cda298b708db45791ae84697e891215eef",
+        "originalCanonicalBlockUnchanged": true,
+        "originalReaderBlockUnchanged": true
+      },
+      "publicRecoverySha256": "44dd4729adadcaa09a3b5e31b0a07c378afdb5f5bef8641a6f5bda7d2ae71b6f",
+      "publicValidatorSha256": "c28a80d203f53c402efab538deb0e951f20b7ac68ec1dabc00bf420408b2ec03"
     }
   ]
 }
