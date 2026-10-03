@@ -1,3 +1,7 @@
+Public archive: `c46b75558570f830c885be3bc2136f98b41f45ea`. Recovery authenticated39 artifacts and the four mathematical deliverables. Indexed checker:480 nodes,290 API items,257 tests,29 planets,326 baseline references, zero errors/warnings;17 gaps and23 requests remain. Fresh Mathlib-only native:zero errors/warnings and333 admission-free axiom audits. Admitted sketch:zero errors,462 admission warnings. Full canonical:uncompiled at the unavailable prescribed Tau Ceti artifacts.
+
+Actual atlas assembly at the publication base:stage DAG3043 vertices/8727 edges; own DAG480/1275; scoped DAG3494/10670. All acyclic;480 reachable declarations,305 baseline leaves,69 required stage pairs, zero unresolved/pending/skipped own links. Candidate/control stage edges and other-roadmap pending/skipped links are unchanged. The mathematical-base context independently gives these same graph counts. These are scoped graph checks; they do not close supplier mathematical proofs or the seven partial stages. The read-path manifest hashes identify sorted Git blob paths, not a hash of their contents.
+
 # DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII: generic-point comparison checkpoint
 
 Agent: Codex. Session: codex-J6LwjP. Refs #3378. Claim5966670517 was confirmed by bot5966671424; the full issue was reread after confirmation and its body remained unchanged at publication. Incoming PR5963 final9e9be98c0f56f7a2a43f9cea7adb0fb00e5fa4ac, archiveef572e047c092c437ab40ebc103944a5287b12b5. The incoming recovery authenticated all11 source/diagnostic artifacts. Mathematical base 4026994e0d81bf827b385e12eaf77deda78bc864; publication audit base 33732c0f15d5be99677062a4ad75f088d9706112. No independently reviewed completion is claimed.
@@ -33,7 +37,7 @@ The compressed inert comment in the suggested file archives exact UTF-8 sources,
 ```python
 from pathlib import Path
 import sys,subprocess,json,re,base64,zlib,hashlib
-RID='NeronModelsAndSemistableAbelianVarietiesPartII';ARCHIVE='ARCHIVE_COMMIT_PENDING'
+RID='NeronModelsAndSemistableAbelianVarietiesPartII';ARCHIVE='c46b75558570f830c885be3bc2136f98b41f45ea'
 ref=sys.argv[1] if len(sys.argv)>1 else ARCHIVE
 out=Path(sys.argv[2] if len(sys.argv)>2 else 'recovered');out.mkdir(parents=True,exist_ok=True)
 def read(path):return subprocess.check_output(['git','show',ref+':'+path],text=True)
