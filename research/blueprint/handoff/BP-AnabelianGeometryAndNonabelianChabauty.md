@@ -1,3 +1,473 @@
+# Coefficient naturality of continuous inner twisting — Codex codex-5ebb6f
+
+Refs #1020. Claim5964184656 won, confirmed by bot5964185654. The whole issue
+was read before claiming and reread after confirmation. Mathematical base
+`14122f5410315c7254b29874b6b80bf3f7bdd159`; publication base
+`17fb0fc1c60e0fa1d8fa600597c9945e94a808ec`.
+
+## Result and boundary
+
+Twelve declaration-sized nodes construct the actual continuous equivariant
+homomorphism f_c:Twist(c)→*Twist(f∘c), its value/continuity/equivariance and
+identity/composition laws, the forward and inverse cocycle/H¹ squares, and
+the correctly repointed neutral value and fibre. Seven API records and five
+full typed examples include the constant-one coefficient map, so coefficient
+injectivity is not inferred from naturality. All implementation statuses remain
+unchecked; this is a partial specification checkpoint with checked prototypes.
+
+The ordered cocycle translation is τ_c(d)(g)=j_c(d(g))c(g). The coefficient
+square follows from f(j_c(d(g))c(g))=f(j_c(d(g)))f(c(g)), without commuting
+factors. The native H¹ square follows on actual gauge-orbit representatives.
+It gives f_*T_c(a)=[f∘c] iff (f_c)_*a=1. Neither f nor f_* is assumed injective;
+the target base point is the mapped chosen class, potentially nonneutral.
+G needs only a group and topology. Coefficient groups/actions are topological
+and jointly continuous; coefficient homomorphisms are continuous and equivariant.
+No compactness, discreteness, normality, section or geometric realization is
+smuggled into these abstract maps.
+
+All144 inherited mathematical contracts are preserved.143 whole node objects
+are unchanged; the existing subgroup exactness node only gains the final fibre
+lemma as a dependency and one proof step for its inherited nonneutral-fibre
+route. Its statement/hypotheses/tests/sources are unchanged. No dependency cycle
+is introduced. All metadata, historical sources, gaps, requests and omission
+ledgers are retained. The complete incoming reader/handoff are retained verbatim
+as suffixes; the complete canonical/native predecessors remain exact prefixes.
+
+Totals:156 nodes (3 definitions,26 constructions,93 lemmas,27 theorems,
+7 comparisons),160 API records (148 required),133 tests (122 required),
+128 baseline declarations,11 planets,9 gaps,16 requests. All seven stages
+remain partial. NC.6 is still a process endpoint, not a theorem added here.
+The all-coefficient/all-degree étale K(π,1) owner contract, its qualified raw
+homotopy comparison, geometric suppliers and counterexamples remain intact.
+RT8 still imports NS/ρ and symmetric homomorphisms from A2. Chen /57–58,
+full BDMTV NC.2/NC.5 routes and E9/E10 remain explicit source obligations.
+
+## Reading and pinned prior art
+
+Fresh reading includes the whole campaign, all seven stage descriptions and
+the17 touching stage edges with their endpoints, seven reviewed library-audit
+rows, complete REV-AUDIT-08 report, the reserved packet/catalog key entry and
+all29 matching link records. Link records are bounded screens, not whole foreign
+roadmap proof audits. The complete current predecessor continuation/recovery/
+validation/resume portion and selected actual cocycle, coefficient and twisting
+interfaces were read; no fresh full historical handoff or144-node proof audit
+is claimed. Upstream Jacobian/stable-reduction and other whole style readings
+are from this continuous worker session, not new whole readings for this slice.
+
+Fresh primary source: [Kim's exact v1 PDF](https://arxiv.org/pdf/math/0409456v1),
+complete PDF pages5–7: §1 continuous cochain/cocycle/gauge definitions,
+Proposition1 statement and entire proof, coefficient functor and opening of
+Proposition2. PDF SHA-256
+`00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941`.
+The twelve naturality interfaces are authored deductions from those conventions.
+No new whole-paper reading, torsor classification or representability claim.
+
+Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti
+f790474821cf4256814db967cb154e7af3d0c369 are the source/audit pins.
+The existing build's Mathlib HEAD was freshly verified exactly. Native map_mul
+and map_inv statements/bodies with their ambient typeclass hypotheses were
+freshly read; existing continuous coefficient and twist APIs are reused.
+No new baseline declarations or foreign ownership targets are created.
+[Open Mathlib PR31613](https://github.com/leanprover-community/mathlib4/pull/31613)
+remains OPEN at9dc1e337689fa7ba4fefa52b4874660bdd3a3619, freshly rechecked;
+its inherited algebraic prior-art reading is retained. The bounded current
+Zulip search found no relevant twisting API decision. Neither search certifies
+whole-library absence or a new whole-PR audit. No upstream code was copied.
+When that algebraic design is adopted, prove the continuous-carrier comparison.
+
+## Lean evidence
+
+Native:2311 lines,91 examples,127 named axiom audits. The2173-line incoming
+native file is an exact93454-byte prefix. All twelve new declaration headers
+and five full example headers match the admitted canonical section. Zero errors,
+warnings, admissions or sorryAx;13.80s,3578232KiB peak RSS. All audited axioms
+are the standard propext, Classical.choice, Quot.sound, or none. A section-scoped
+unusedSectionVars style-linter setting handles inherited action-variable
+context on definitional maps; mathematical diagnostics are not suppressed.
+
+Sketch:2494 lines,133 examples,320 expected admission warnings, zero errors
+or other warnings;15.11s,3573012KiB peak RSS. This projection removes only
+TauCeti import lines and the named Abelian section. The full2511-line canonical
+file is UNCOMPILED: the existing build's actual Lean path lacks
+TauCeti.RepresentationTheory.Homological.ContCohomology.LowDegree.olean.
+No replacement, setup, cache download, library build or language server was
+used. Serial compiles began with40GiB available, timeout1200 seconds, exit0.
+All new canonical outer bodies remain admitted; the actual inherited carriers
+and instances are retained. Source/normalized diagnostic receipts follow;
+normalization removes only the scratch prefix and elapsed/RSS footer.
+
+```json
+{
+  "Native": {
+    "lines": 2311,
+    "examples": 91,
+    "sha256": "da8459d77beb60e611bd3c7e20a2c94a6cc9c9c66bc8864feaed7f60edb65f56",
+    "diagnosticsSha256": "7682de5fc789fa188aeb7d116a5b48d8d1e75fb56b5dd4c0baac93ce998c8739",
+    "errors": 0,
+    "warnings": 0,
+    "admissionWarnings": 0,
+    "axiomAudits": 127,
+    "seconds": 13.8,
+    "peakRSSKiB": 3578232,
+    "availableGiB": 40,
+    "exit": 0
+  },
+  "Sketch": {
+    "lines": 2494,
+    "examples": 133,
+    "sha256": "7b36defb91de37489560353954b35c62f7d3c76cb6fe918cc00468aaf12d17cd",
+    "diagnosticsSha256": "ae7388922ff6f449307beaaf0fdd5cde8fd3fa0c6fd68738bb823b7e100bf059",
+    "errors": 0,
+    "warnings": 320,
+    "admissionWarnings": 320,
+    "axiomAudits": 0,
+    "seconds": 15.11,
+    "peakRSSKiB": 3573012,
+    "availableGiB": 40,
+    "exit": 0
+  },
+  "Canonical": {
+    "lines": 2511,
+    "examples": 133,
+    "sha256": "0a19bc3938e2b772ce789ae59599ecbda187a8347d486b36d11b77dbecab8141",
+    "compiled": false,
+    "reason": "Missing actual Tau Ceti LowDegree compiled artifact; the checked projection removes only TauCeti imports and the named Abelian section."
+  }
+}
+```
+
+## Public recovery and verification
+
+The complete checked prototype is archived in an inert comment at
+[`eb99a3fa5a9855109ddb9efd332dbbfb22a0ba5f`](https://github.com/CBirkbeck/tauceti-explorer/blob/eb99a3fa5a9855109ddb9efd332dbbfb22a0ba5f/research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty.lean).
+The final suggested file restores the admitted plan. This commit remains an
+ancestor of the published branch. Recovery uses immutable GitHub raw URLs;
+it downloads only the authorized job files, not a repository snapshot.
+
+Save the following exact script as recover.py in your own disk scratch;
+run it from the final repository root after publication. Its SHA-256 is
+`c8cba5f8233ad4118790c08424f0e0f37a48f2ce8716c1689e383c3961774392`. It recovers the
+native/incoming/canonical/projection sources and checks their hashes, retrieves
+the mathematical-base controls, and extracts the full new declaration/example
+headers plus both public validation scripts from this handoff.
+
+```python
+from pathlib import Path
+import urllib.request,hashlib,json,re
+out=Path(__file__).resolve().parent;root=Path.cwd();rid='AnabelianGeometryAndNonabelianChabauty'
+archive='eb99a3fa5a9855109ddb9efd332dbbfb22a0ba5f';base='14122f5410315c7254b29874b6b80bf3f7bdd159'
+prefix='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
+def raw(commit,path):
+ with urllib.request.urlopen(prefix+commit+'/'+path,timeout=90) as r:return r.read()
+def extract(data,start,end):
+ assert data.count(start)==data.count(end)==1
+ return data.split(start,1)[1].split(end,1)[0]
+path=f'research/blueprint/suggested/{rid}.lean'
+native=extract(raw(archive,path),b'\n/- BEGIN ARCHIVED CHECKED COEFFICIENT TWISTING\n',b'END ARCHIVED CHECKED COEFFICIENT TWISTING -/\n')
+incoming=extract(raw('45c30245f5ea313cc99b2d0344bfe6812b3764c2',path),b'\n/- BEGIN ARCHIVED CHECKED NONABELIAN INNER TWISTING\n',b'END ARCHIVED CHECKED NONABELIAN INNER TWISTING -/\n')
+can=(root/path).read_bytes()
+sketch='\n'.join(l for l in can.decode().splitlines() if not l.startswith('import TauCeti.'))+'\n';a=sketch.index('section Abelian');z=sketch.index('end Abelian',a)+len('end Abelian');sketch=(sketch[:a]+sketch[z:]).encode()
+for name,data,digest in [('Native.lean',native,'da8459d77beb60e611bd3c7e20a2c94a6cc9c9c66bc8864feaed7f60edb65f56'),('IncomingNative.lean',incoming,'53fca6cde894dd0a0625e6aa73ab2e75c7067be0b8ab63b0c0a0f539d341c43b'),('Canonical.lean',can,'0a19bc3938e2b772ce789ae59599ecbda187a8347d486b36d11b77dbecab8141'),('Sketch.lean',sketch,'7b36defb91de37489560353954b35c62f7d3c76cb6fe918cc00468aaf12d17cd')]:
+ assert hashlib.sha256(data).hexdigest()==digest,name
+ (out/name).write_bytes(data)
+for folder,ext in [('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]:
+ filename=('BP-' if folder=='handoff' else '')+rid+'.'+ext
+ (out/('original-'+folder+'.'+ext)).write_bytes(raw(base,'research/blueprint/'+folder+'/'+filename))
+assert native.startswith(incoming)
+t=native[len(incoming):].decode();starts=list(re.finditer(r'^(?:def|lemma|example)\b',t,re.M));heads={};examples=[]
+for i,m in enumerate(starts):
+ block=t[m.start():starts[i+1].start() if i+1<len(starts) else len(t)];h=block[:block.index(' :=')]
+ if h.startswith('example'):examples.append([re.findall(r'^-- test: ([\w.]+)',t[:m.start()],re.M)[-1],h])
+ else:heads[h.split()[1]]=h
+assert len(heads)==12 and len(examples)==5
+(out/'headers.json').write_text(json.dumps({'declarations':heads,'examples':examples},indent=2)+'\n')
+handoff=(root/f'research/blueprint/handoff/BP-{rid}.md').read_text()
+for name,start,end,digest in [('validate.py','# BEGIN COEFFICIENT TWISTING VALIDATOR\n','# END COEFFICIENT TWISTING VALIDATOR\n','79b3042f072ccd4e218a677db71cef82cd034799c9b6be9bc7f57b910144aeaa'),('graph.py','# BEGIN COEFFICIENT TWISTING GRAPH\n','# END COEFFICIENT TWISTING GRAPH\n','2cde142365b7fe571c2d3fa4b1a60e18eed1022f6e3243b31a0faaab55bdfc9a')]:
+ code=extract(handoff.encode(),start.encode(),end.encode())
+ assert hashlib.sha256(code).hexdigest()==digest,name
+ (out/name).write_bytes(code)
+print('Recovered four exact Lean sources, incoming controls, full new headers and both validation scripts')
+```
+
+With at least20GiB available before each run, elaborate Native.lean and
+Sketch.lean serially in an existing exact-pinned Mathlib build:
+`timeout 1200 lake env lean <absolute-source>`, redirecting to native.log and
+sketch.log beside the recovered files. The recorded timing footer uses
+`/usr/bin/time -f 'Elapsed %e seconds; peak %M KiB'`. Never set up/rebuild
+libraries. Source hashes are stable; elapsed time, RSS and diagnostics can vary.
+
+Run validate.py from the final repository root. It checks all preserved
+contracts/objects/metadata, exact native/canonical prefixes, new full headers,
+reader/API/test coverage, diagnostics and actual intake file/refusal rules.
+The available-memory fields are this worker's runs; measure your own.
+Its SHA-256 is`79b3042f072ccd4e218a677db71cef82cd034799c9b6be9bc7f57b910144aeaa`.
+
+```python
+# BEGIN COEFFICIENT TWISTING VALIDATOR
+from pathlib import Path
+import json,re,hashlib,collections,os,subprocess,importlib.util
+root=Path.cwd();s=Path(__file__).resolve().parent;rid='AnabelianGeometryAndNonabelianChabauty'
+paths=[f'research/blueprint/{d}/{rid}.{ext}' for d,ext in [('packets','json'),('readmes','md'),('suggested','lean')]]+[f'research/blueprint/handoff/BP-{rid}.md']
+p=json.loads((root/paths[0]).read_text());o=json.loads((s/'original-packets.json').read_text());nn={n['id']:n for n in p['nodes']};on={n['id']:n for n in o['nodes']};special=rid+':NC.3/exact-sequence'
+assert len(on)==144 and len(nn)==156
+for id,n in on.items():
+ for k,v in n.items():
+  if id==special and k in ('prerequisites','proofSteps'):assert nn[id][k][:len(v)]==v
+  else:assert nn[id][k]==v,(id,k)
+assert sum(nn[id]==n for id,n in on.items())==143
+for k in o:
+ if k not in ('nodes','summary','coverage','sources'):assert p[k]==o[k],k
+assert p['sources'][:-1]==o['sources'];assert p['baseline']==o['baseline']
+for a,b in zip(o['coverage'],p['coverage']):
+ if a['stageId']==rid+':NC.3':
+  assert b['remaining'][:-1]==a['remaining'];assert {k:v for k,v in b.items() if k!='remaining'}=={k:v for k,v in a.items() if k!='remaining'}
+ else:assert a==b
+assert all(n['implementationStatus']=='unchecked' for n in p['nodes'])
+assert (root/paths[1]).read_bytes().endswith((s/'original-readmes.md').read_bytes())
+assert (root/paths[3]).read_bytes().endswith((s/'original-handoff.md').read_bytes())
+can=(root/paths[2]).read_text();priorcan=(s/'original-suggested.lean').read_text()
+marker='\nnamespace TauCeti.NonabelianCohomology\nsection CoefficientTwisting\n'
+k=can.rindex(marker);assert can[:k]==priorcan
+native=(s/'Native.lean').read_bytes();prior=(s/'IncomingNative.lean').read_bytes()
+assert native.startswith(prior);assert hashlib.sha256(prior).hexdigest()=='53fca6cde894dd0a0625e6aa73ab2e75c7067be0b8ab63b0c0a0f539d341c43b'
+assert native[len(prior):].decode().startswith(marker)
+h=json.loads((s/'headers.json').read_text());assert len(h['declarations'])==12 and len(h['examples'])==5
+newcan=can[k:]
+for name,head in h['declarations'].items():assert head+' := by sorry' in newcan,name
+for name,head in h['examples']:assert '-- test: '+name+'\n'+head+' := by sorry' in newcan,name
+assert not re.search(r'\b(sorry|admit|axiom)\b',native.decode())
+reader=(root/paths[1]).read_text()
+for id in set(nn)-set(on):
+ n=nn[id];assert n['statement'] in reader and n['declarationName'] in reader
+ for a in n.get('api',[]):assert a['name'] in reader and a['statement'] in reader
+ for t in n.get('tests',[]):assert t['name'] in dict(h['examples']) and t['statement'] in reader
+for n in p['nodes']:
+ for a in n.get('api',[]):assert a['name'] in can or a['name'].split('.')[-1] in can,a['name']
+ for t in n.get('tests',[]):assert t['name'] in can,t['name']
+sketch='\n'.join(l for l in can.splitlines() if not l.startswith('import TauCeti.'))+'\n';a=sketch.index('section Abelian');z=sketch.index('end Abelian',a)+len('end Abelian');assert sketch[:a]+sketch[z:]==(s/'Sketch.lean').read_text()
+spec=importlib.util.spec_from_file_location('intake',root/'research/blueprint/intake.py');intake=importlib.util.module_from_spec(spec);spec.loader.exec_module(intake)
+assert intake.check_files(paths)==0
+jobs,mapping=intake.load_queue();job=next(j for j in jobs if j['id']=='BP-'+rid);refusals=intake.auto_refusals(job,paths,False,set(),{'codex-5ebb6f'});assert not refusals,refusals
+base=os.environ.get('VALIDATE_BASE','14122f5410315c7254b29874b6b80bf3f7bdd159')
+assert set(subprocess.check_output(['git','diff','--name-only',base],text=True).splitlines())<=set(paths)
+report={'preservedContracts':144,'unchangedNodeObjects':143,'newNodes':12,'declarationHeadersMatched':12,'newExampleHeadersMatched':5,'incomingNativeBytes':len(prior),'kinds':dict(collections.Counter(n['kind'] for n in p['nodes'])),'apiOverall':sum(len(n.get('api',[])) for n in p['nodes']),'testsOverall':sum(len(n.get('tests',[])) for n in p['nodes'])}
+receipts={}
+for name,avail in [('Native',40),('Sketch',40)]:
+ source=s/(name+'.lean');log=s/(name.lower()+'.log');t=source.read_text();l=log.read_text();norm=l.replace(str(s)+'/','');norm=re.sub(r'Elapsed [^\n]+\n?','',norm)
+ errors=len(re.findall(r': error:',l));warnings=len(re.findall(r': warning:',l));admissions=len(re.findall(r'warning: declaration uses `sorry`',l));assert errors==0
+ if name=='Native':assert warnings==0 and 'sorryAx' not in l
+ else:assert warnings==admissions==320,(warnings,admissions)
+ timing=re.search(r'Elapsed ([\d.]+) seconds; peak (\d+) KiB',l);assert timing
+ receipts[name]={'lines':len(t.splitlines()),'examples':len(re.findall(r'^example\b',t,re.M)),'sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'diagnosticsSha256':hashlib.sha256(norm.encode()).hexdigest(),'errors':errors,'warnings':warnings,'admissionWarnings':admissions,'axiomAudits':len(re.findall(r'^#print axioms',t,re.M)),'seconds':float(timing[1]),'peakRSSKiB':int(timing[2]),'availableGiB':avail,'exit':0}
+receipts['Canonical']={'lines':len(can.splitlines()),'examples':len(re.findall(r'^example\b',can,re.M)),'sha256':hashlib.sha256(can.encode()).hexdigest(),'compiled':False,'reason':'Missing actual Tau Ceti LowDegree compiled artifact; the checked projection removes only TauCeti imports and the named Abelian section.'}
+(s/'receipts.json').write_text(json.dumps(receipts,indent=2)+'\n');(s/'preservation.json').write_text(json.dumps(report,indent=2)+'\n')
+print(json.dumps({'preservation':report,'receipts':receipts},indent=2))
+# END COEFFICIENT TWISTING VALIDATOR
+```
+
+## Actual atlas checks
+
+The indexed packet checker reports zero errors/warnings. The read-only actual
+atlas assembler injects the candidate and incoming control as promotion inputs
+on the same tree. Actual parent metadata and request edges are used; no synthetic
+realises-to-parent replacement. Stage/owner/combined graphs are acyclic;
+156 reachable declarations, zero unresolved references,20/20 required supplier
+paths reachable;51 virtual supplier endpoints explicit. Own skipped/pending
+links are empty; stage edges and other roadmaps' skipped/pending links are
+unchanged. The recorded graph report is:
+
+```json
+{
+  "stage": {
+    "vertices": 3018,
+    "edges": 8655,
+    "acyclic": true
+  },
+  "own": {
+    "vertices": 156,
+    "edges": 343,
+    "acyclic": true
+  },
+  "combinedPrerequisites": {
+    "vertices": 3163,
+    "edges": 9190,
+    "acyclic": true
+  },
+  "virtualSupplierEndpoints": 51,
+  "reachableDeclarations": 156,
+  "unresolvedReferences": 0,
+  "actualBlueprint": {
+    "declarations": 156,
+    "planets": 11,
+    "kinds": {
+      "comparison": 7,
+      "construction": 26,
+      "definition": 3,
+      "lemma": 93,
+      "theorem": 27
+    },
+    "skippedLinks": []
+  },
+  "stageEdgesUnchanged": true,
+  "otherRoadmapSkippedPendingLinksUnchanged": true,
+  "requiredStagePairs": 20,
+  "requiredStagePairsReachable": 20,
+  "preservedStatementContracts": 144,
+  "unchangedNodeObjects": 143,
+  "addedNodes": 12,
+  "apiTotal": 160,
+  "testsTotal": 133,
+  "baseline": 128,
+  "gaps": 9,
+  "requests": 16,
+  "scriptSha256": "2cde142365b7fe571c2d3fa4b1a60e18eed1022f6e3243b31a0faaab55bdfc9a"
+}
+```
+
+Run `TAUCETI_BASELINE=<existing-directory-containing-declarations.tsv> python3
+<scratch>/graph.py <scratch>/original-packets.json`. Run the genuine indexed
+checker separately with `python3 scripts/check_blueprint.py
+research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty.json --index
+<existing-declarations.tsv>`. The graph script's SHA-256 is
+`2cde142365b7fe571c2d3fa4b1a60e18eed1022f6e3243b31a0faaab55bdfc9a`.
+
+```python
+# BEGIN COEFFICIENT TWISTING GRAPH
+"""Read-only actual atlas assembly with the candidate injected as promotion inputs."""
+from pathlib import Path
+import sys,json,copy,collections
+root=Path.cwd();sys.path.insert(0,str(root/'scripts'))
+import build,blueprints,check_blueprint
+rid='AnabelianGeometryAndNonabelianChabauty'
+p=json.loads((root/'research/blueprint/packets'/f'{rid}.json').read_text())
+r=next(x for x in json.loads((root/'data/atlas.json').read_text())['roadmaps'] if x['id']==rid)
+a0=json.loads((root/'data/atlas.json').read_text())
+packets,documents,definitions=blueprints.load_promoted(root)
+packets=[x for x in packets if x[1].get('roadmapId')!=rid]+[(rid,p)]
+documents[rid]=f'research/blueprint/readmes/{rid}.md'
+definitions=[x for x in definitions if x['id']!=rid]
+if not any(x['id']==rid for x in a0['roadmaps']):definitions.append(r)
+build.load_promoted=lambda *args:(copy.deepcopy(packets),copy.deepcopy(documents),copy.deepcopy(definitions))
+a,*rest=build.assemble(require_distances=False)
+ctx=check_blueprint.world()
+world={}
+for folder in ['data/decompositions','data/blueprints','research/blueprint/packets']:
+ for path in sorted((root/folder).glob('*.json')):
+  q=json.loads(path.read_text())
+  for n in q.get('nodes',[]):world.setdefault(n['id'],n)
+world.update({n['id']:n for n in p['nodes']})
+stages={s['id']:s for s in a['stages']}
+stageids=set(stages)|set(ctx[1])
+stageedges={(e['source'],e['target']) for e in a['stageEdges']}
+virtual={v for e in stageedges for v in e}-set(stages)
+
+def dag(vertices,edges):
+ vertices=set(vertices)|{v for e in edges for v in e}
+ out=collections.defaultdict(set);indeg={v:0 for v in vertices}
+ for s,t in edges:
+  if t not in out[s]:out[s].add(t);indeg[t]+=1
+ stack=[v for v,k in indeg.items() if k==0];count=0
+ while stack:
+  x=stack.pop();count+=1
+  for y in out[x]:
+   indeg[y]-=1
+   if indeg[y]==0:stack.append(y)
+ assert count==len(vertices),f'cycle: {[v for v,k in indeg.items() if k][:15]}'
+ return {'vertices':len(vertices),'edges':len(edges),'acyclic':True}
+
+own={n['id']:n for n in p['nodes']}
+ownedges={(q,n['id']) for n in p['nodes'] for q in n.get('prerequisites',[]) if q in own}
+stack=list(own);seen=set();dep=set();unresolved=set()
+while stack:
+ nid=stack.pop()
+ if nid in seen:continue
+ seen.add(nid)
+ n=world[nid]
+ for q in n.get('prerequisites',[]):
+  if q.startswith(('mathlib:','tauceti:')) and q not in stageids and not q.startswith('tauceti:TauCetiRoadmap/'):continue
+  dep.add((q,nid))
+  if q in world:stack.append(q)
+  elif q not in stageids:unresolved.add(q)
+assert not unresolved,sorted(unresolved)
+# Include actual recorded parent metadata and request edges, not synthetic realises attachments.
+parents={(world[v]['parentStageId'],v) for v in seen
+         if world[v].get('parentStageId') in stageids or world[v].get('parentStageId') in seen}
+requests={(request['supplier'],consumer) for request in p.get('requests',[])
+          for consumer in request.get('neededBy',[]) if consumer in own or consumer in stageids}
+dep |= parents | requests
+report={'stage':dag(stages,stageedges),'own':dag(own,ownedges),'combinedPrerequisites':dag(set(stages)|seen,stageedges|dep),'virtualSupplierEndpoints':len(virtual),'reachableDeclarations':len(seen),'unresolvedReferences':len(unresolved)}
+roadmap=next(x for x in a['roadmaps'] if x['id']==rid)
+assert roadmap['blueprint']['declarations']==len(own)
+assert roadmap['blueprint']['planets']==11
+assert not roadmap['blueprint']['skippedLinks'],roadmap['blueprint']['skippedLinks']
+assert not roadmap.get('pendingLinks',[]),roadmap.get('pendingLinks',[])
+report['actualBlueprint']={k:roadmap['blueprint'][k] for k in ['declarations','planets','kinds','skippedLinks']}
+# The original packet is used as a second promotion input to check projection preservation.
+p0=json.loads(sys.argv[1] and Path(sys.argv[1]).read_text()) if len(sys.argv)>1 else p
+r0=copy.deepcopy(r)
+basepackets=[x for x in packets if x[1].get('roadmapId')!=rid]+[(rid,p0)]
+build.load_promoted=lambda *args:(copy.deepcopy(basepackets),copy.deepcopy(documents),copy.deepcopy(definitions))
+b,*_=build.assemble(require_distances=False)
+bedges={(e['source'],e['target']) for e in b['stageEdges']}
+assert stageedges==bedges
+report['stageEdgesUnchanged']=True
+control={x['id']:(x.get('blueprint',{}).get('skippedLinks',[]),x.get('pendingLinks',[])) for x in a['roadmaps'] if x['id']!=rid}
+control0={x['id']:(x.get('blueprint',{}).get('skippedLinks',[]),x.get('pendingLinks',[])) for x in b['roadmaps'] if x['id']!=rid}
+assert control==control0
+report['otherRoadmapSkippedPendingLinksUnchanged']=True
+# Check all original in-roadmap dependencies and explicit request supplier paths.
+stageout=collections.defaultdict(set)
+for source,target in stageedges:stageout[source].add(target)
+def reachable(source,target):
+ todo=[source];done=set()
+ while todo:
+  x=todo.pop()
+  if x==target:return True
+  if x in done:continue
+  done.add(x);todo.extend(stageout[x]-done)
+ return False
+pairs={(e['source'],e['target']) for e in a0['stageEdges'] if e['target'].startswith(rid+':')}
+for node in p['nodes']:
+ for q in node.get('prerequisites',[]):
+  if q in stageids and q not in world and q != node['parentStageId']:pairs.add((q,node['parentStageId']))
+for request in p.get('requests',[]):
+ for consumer in request.get('neededBy',[]):
+  if consumer in own:pairs.add((request['supplier'],own[consumer]['parentStageId']))
+  elif consumer in stageids:pairs.add((request['supplier'],consumer))
+assert all(reachable(source,target) for source,target in pairs),[(s,t) for s,t in pairs if not reachable(s,t)]
+report['requiredStagePairs']=len(pairs)
+report['requiredStagePairsReachable']=len(pairs)
+
+report.update(preservedStatementContracts=144,unchangedNodeObjects=143,addedNodes=12,apiTotal=sum(len(n.get('api',[])) for n in p['nodes']),testsTotal=sum(len(n.get('tests',[])) for n in p['nodes']),baseline=len(p['baseline']['declarations']),gaps=len(p['gaps']),requests=len(p['requests']))
+report['scriptSha256']=__import__('hashlib').sha256(Path(__file__).read_bytes()).hexdigest()
+print(json.dumps(report,ensure_ascii=False,indent=2))
+# END COEFFICIENT TWISTING GRAPH
+```
+
+The final publication validation repeats the indexed checker, public verifier,
+actual assembler and intake after bringing foreign main changes into this
+worker branch. Only the four issue-authorized files differ from publication
+main. Public recovery must round-trip before scratch cleanup; no worker process
+is left running when the PR opens.
+
+## Resume
+
+Continue with actual twisted subgroup/normal-quotient realization and
+source-group naturality, retaining the multiplication order and mapped base
+point proved here. Construct the genuine additive comparison against pinned
+Tau Ceti cochain differentials and transition/colimit machinery. Geometric
+unipotent point topologies, torsor comparison, representability/local conditions,
+NC.0/NC.1 source-sensitive work and complete Chen/BDMTV routes remain required
+work; none follows from this abstract coefficient square.
+
+---
+
+# Historical predecessor record — retained verbatim
+
+The following entire incoming handoff is historical provenance. Its commands,
+receipts and boundaries refer to earlier checkpoints; the recovery and validation
+instructions above describe the current continuation.
+
 # Actual continuous inner twisting — Codex codex-J6LwjP
 
 Refs #1020. Claim5963821834 won, explicitly confirmed by bot5963822933.
