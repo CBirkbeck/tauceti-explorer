@@ -1,3 +1,33 @@
+## Finite quotients compare the two coefficient bases
+
+Let A be a commutative ring and fix γ,δ,s,t∈A. Use the existing polynomial nodal chart
+
+R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²))
+
+with its actual coefficient map ι:A→R and section ideal J=(X−s,Y−t). Let p⊆A and m⊆R satisfy p⊆ι⁻¹(m). Write Â for the native p-adic completion, Bₙ=A/pⁿ and Qₙ=R/mⁿ, for every n≥0. The existing coefficient map on finite quotients is λₙ:Bₙ→Qₙ. The native evaluation evalₙ:Â→Bₙ gives Bₙ its actual Â-algebra. Give Qₙ its Bₙ-algebra through λₙ, its A-algebra through A→Bₙ, and its Â-algebra through evalₙ. These choices specify the module structures in every comparison. The two actions on Qₙ form the actual tower A→Â→Qₙ because evalₙ(e_A(b))=[b] for b∈A.
+
+Assume p is finitely generated. Let N be any Â-module with its compatible restricted A-action. Its completed action need not factor through Bₙ; N need not be flat or finitely generated. There is an actual Qₙ-linear equivalence
+
+Eₙ,N:Qₙ⊗_A N ≃ Qₙ⊗_Â N,
+
+whose map and inverse carry q⊗z to q⊗z. The finite-generation hypothesis controls the difference between an arbitrary completed scalar and a representative in A. It is not a hidden hypothesis on N.
+
+The proof has three separate declaration-sized steps. First, the pinned native completion theorem identifies the kernel of module evaluation with pⁿ·Â. The native algebra evaluation differs only by the canonical quotient identification, so evalₙ(a)=0 implies a∈pⁿ·Â. Second, every b∈pⁿ annihilates Qₙ, since its coefficient action factors through Bₙ. Submodule induction on c∈pⁿ·Â proves q⊗_A(cz)=0: for a generator c=b·d, the actual scalar tower on N gives (b·d)z=b(dz), and A-balancing moves b to Qₙ, where it acts by zero. Tensor additivity handles sums. This does not assume the desired comparison is an equivalence.
+
+Third, choose b∈A with [b]=evalₙ(a) for any a∈Â. Then c=a−e_A(b) belongs to pⁿ·Â. Its contribution to q⊗_A(az) vanishes by the induction lemma, and a acts on Qₙ exactly as b does. Ordinary A-balancing therefore proves (aq)⊗_A z=q⊗_A(az). This supplies the native compatible-scalar class for completed coefficients on the A-tensor. The scalar towers supply compatibility in the other direction. The existing Mathlib tensor equivalence combines the two actual maps; both inverse laws apply to arbitrary tensor sums, not only pure tensors.
+
+For any Qₙ-module L, postcomposition gives the native Qₙ-linear equivalence
+
+Hₙ,N,L:Hom_Qₙ(L,Qₙ⊗_A N) ≃ Hom_Qₙ(L,Qₙ⊗_Â N).
+
+Its evaluation formula is H(f)(x)=E(f(x)), and its inverse applies E⁻¹. This requires no projectivity or finite presentation of L. The section-ideal acceptance example uses the actual L=Qₙ⊗_R J, retaining the distinction between a finite quotient of the section module and a completed pointed hull. The APIs include both coefficient maps, original coefficients, evaluation surjectivity, kernel control, annihilation, the scalar tower, both pure-tensor formulas, both tensor round trips and the Hom round trip. Twelve named examples check original coefficients, unit and zero values, the completed coefficient square, completed balancing and the actual section-module target.
+
+The source motivation is Knudsen II, Appendix Definition1 and Theorem2, printed191–194, together with Proposition6, printed194–195. The appendix assumes noetherian rings S and R, a flat algebra map S→R, and a noetherian R-module; Proposition6 additionally assumes local rings and a local map. Its three assertions compare stable reflexivity of M over S, of the completed module over S, and of the completed module over the completed base. These are the full ambient hypotheses of the cited result. The finite-level adapters above need only the stated commutative rings, ideal containment and finite generation of p. They are an authored proof using native completion kernels and tensor products, not a purported transcription of Proposition6’s printed proof. That proof cites Bourbaki III5.4.4, whose text remains unread here. Proposition7 assumes I⊆rad(S), compares all finite reductions with the original stable-reflexivity condition, and leaves its proof as an exercise. No proof is credited to that exercise.
+
+The finite comparison does not prove that R̂⊗_A N→R̂⊗_Â N is injective. In particular, one cannot replace Qₙ by the entire completed ring by simply writing an inverse limit: tensor products with arbitrary N need not commute with that inverse limit. A justified completion Hom/Ext or universally acyclic-complex comparison, including its coefficient quantifiers and faithful reflection, is still required. The reusable stable-reflexivity formulation, pointed completed-local hull, coefficient-compatible family/sheaf descent and finite-presentation approximation remain explicit obligations. All MC.0–MC.7 stages remain partial, every implementation status remains unchecked, and the moduli-groupoid key, universal-curve and connected full-level component contracts retain their full scope.
+
+The current native proof draft and admitted suggested file have not been compiled: the shared-machine memory check was below the WORKERS.md minimum of20GB available. Earlier compilation receipts in the preserved history concern their exact earlier files. They do not certify the current whole files. Fresh source reading for this continuation is limited to physical31–35/printed191–195 of the journal scan and the specified pinned library statements; it is not a fresh full-paper or full-Appendix read.
+
 ## Completed coefficients and the two-base tensor quotient
 
 This continuation supplies the actual completed coefficient ring map for the existing polynomial nodal chart. It adds 23 declaration-sized nodes, five constructions with 16 API items and 15 tests, while retaining all 325 incoming nodes and the eight partial stages. The generic completion universal property, tensor comparison, surjectivity and kernel theorem already belong to pinned Mathlib. The new declarations specialize those results to the chart and record the compatibility of its coefficient actions. The relative stable-reflexivity completion theorem remains a separate input.
