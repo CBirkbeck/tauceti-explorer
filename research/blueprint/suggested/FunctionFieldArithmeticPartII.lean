@@ -4244,3 +4244,41 @@ example (φ : A →+* B) (f a : A) :
 
 end TauCeti.RootStack
 end
+
+/- Native rational-character computation API. Separate proof evidence is in the handoff. -/
+noncomputable section
+universe uQZ
+namespace TauCeti.RootStack
+variable {A : Type uQZ} [CommRing A]
+local instance (i : ℕ) : NeZero (Nat.factorial (i+1)) := ⟨Nat.factorial_ne_zero _⟩
+
+lemma affineQZCharacter.natCast (n : ℕ) [NeZero n] (k : ℕ) :
+    affineQZCharacter n (k : ZMod n) = ((k / (n : ℚ) : ℚ) : AddCircle (1 : ℚ))  := by
+  sorry
+
+lemma affineQZCharacter.apply (n : ℕ) [NeZero n] (k : ZMod n) :
+    affineQZCharacter n k = ((k.val / (n : ℚ) : ℚ) : AddCircle (1 : ℚ))  := by
+  sorry
+
+lemma factorialUnitQZMap.level (A : Type uQZ) [CommRing A] (i : ℕ)
+    (x : AffineRing (1 : A) (Nat.factorial (i+1))) :
+    factorialUnitQZMap A (factorialAffineInclusion (1 : A) i x) =
+      finiteRootQZMap A (Nat.factorial (i+1)) x  := by
+  sorry
+
+-- TauCeti.RootStack.affineQZCharacter.test_natcast_period
+example : affineQZCharacter 3 (7 : ZMod 3) = ((7 / 3 : ℚ) : AddCircle (1 : ℚ))  := by
+  sorry
+
+-- TauCeti.RootStack.affineQZCharacter.test_negative_representative
+example : affineQZCharacter 3 (-1 : ZMod 3) = ((2 / 3 : ℚ) : AddCircle (1 : ℚ))  := by
+  sorry
+
+-- TauCeti.RootStack.factorialUnitQZMap.test_level_basis
+example (a : A) : factorialUnitQZMap A (factorialAffineInclusion (1 : A) 2
+    ((affineUnitCyclicEquiv 6).symm (MonoidAlgebra.single (Multiplicative.ofAdd (2 : ZMod 6)) a))) =
+    MonoidAlgebra.single (Multiplicative.ofAdd ((1/3 : ℚ) : AddCircle (1 : ℚ))) a  := by
+  sorry
+
+end TauCeti.RootStack
+end
