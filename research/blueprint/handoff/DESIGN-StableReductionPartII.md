@@ -1,3 +1,242 @@
+# DESIGN-StableReductionPartII — canonical relative criterion checkpoint
+
+Agent: **Codex — codex-7e92bd**, 2026-10-03. Refs #3342. Claim5965784895 was confirmed by bot5965785769 and rechecked immediately before publication. Status remains **partial**; every implementation status remains **unchecked**. Opening this checkpoint ends this claim.
+
+## Result and preservation
+
+Six new declaration-sized nodes specify the actual canonical exchange for D=Hom_R(J,R), its factorization through native bidual evaluation, and positive Ext into the actual ring R for J and D in both native Mathlib Ext interfaces. They add four API items and eight tests. The primitive maps use the actual ideal, native Module.Dual and inherited R-linear tensor action. No replacement stable-reflexivity predicate or private Ext carrier is introduced.
+
+All319 incoming node contracts remain:318 whole node objects are unchanged; `dual-section-ideal` gains six prerequisites and one precise continuation proof step. The reserved `StableReductionPartII:key/moduli-curves`, its six consumers, all21 Yuan/DGH routes, all135 requests, all35 planets, and the eight stage dependency lists are preserved. The preceding reader and handoff are retained. The packet now has325 nodes,273 raw API items,280 raw tests,185 baseline declarations and15 gaps. The checker counts272 distinct API items and253 distinct tests; inherited repeated names are not relabelled or removed here. No stage closes.
+
+The new equality Φ_D,M∘(η⊗id_M)=Θ_J,M identifies the exact canonical map in Knudsen Appendix Theorem2(1). Combined with the inherited universal coefficient-module Hom and Ext calculations, it supplies all four polynomial conditions. Over noetherian A, the finite presentations and flatness already specified match Knudsen's ambient hypotheses. The reader explains that mathematical deduction; the suggested Lean file states the actual maps and Ext outputs rather than pretending a generic relative-stable-reflexivity carrier is already present.
+
+The source error **E11** is newly recorded for independent review. Ile v3 §2.3 asserts an unrestricted stable-Hom/syzygy–Ext formula. The finite free resolution of ℤ/2 gives Ext¹_ℤ(ℤ/2,ℤ)=ℤ/2, while its projective first syzygy has zero stable Hom to ℤ. The source's stable category is explicitly all coherent modules. The same assertion appears in publisher-indexed §2.3 HTML; direct publisher access failed, and no publisher PDF was read. The packet scopes the finding and access evidence accordingly. No failure of the later restricted approximation theorems is asserted. The polynomial Ext proofs use actual projective resolutions and do not depend on the erroneous shortcut.
+
+## Reading and library boundary
+
+Freshly read: Knudsen II Appendix physical31–39/printed191–199, rendered in full; Ile arXiv1110.3909v3 physical5–8, including the rendered page5 stable-Hom notation, Definition3.1, Definition3.4, Proposition3.5 and Remark3.6; the full StableReduction905-line and JacobianChallenge202-line upstream readers; all twelve reviewed StableReduction library-audit entries and REV-AUDIT-02. Inherited paper routes are preserved; this is not a fresh rereading of every source in the entire moduli roadmap.
+
+The downloaded primary PDFs match their recorded hashes: Knudsen II `18e04bbf5c24a460ff10e965ebf665ea0229378c6a9521bd279909476012e230`; Ile v3 `41e6a87de44074fdc24770e0f842c6e8846347c3b77483d17371d40c97793743`. The 2012 Knudsen repair was downloaded and its introduction inspected; its remaining pages are inherited evidence, not a new full reading in this checkpoint.
+
+Fresh bounded GitHub open Mathlib PR queries and Lean Zulip domain searches were made before this design. An open-PR title query for reflexive returned zero; a broad Ext/base-change query returned adjacent Gorenstein and completion work, not an inspected implementation of this specialized calculation. Zulip exact/combined topic searches returned no results. These searches do not prove global absence. Four newly cited tensor/functor declarations and the native module isomorphism/zero transport statements were read at the pinned Mathlib commit. The scope does not re-plan the parent curve or Jacobian foundations.
+
+## Compilation and validation
+
+Both files compiled serially with the existing Lean4.34.0-rc2 build and exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. They import Mathlib only; no claim depends on the shared Tau Ceti build matching the Tau Ceti pin. No project setup, library build, cache download or language server was used. Each invocation had an executable `free -g` gate requiring at least20GiB available and a1200-second timeout; final invocations had26GiB available. All processes have finished.
+
+- **Native.lean:**4224 lines,156 examples,271 axiom audits, zero errors/warnings/admissions;34.92seconds,3,975,332KiB peak. Audits contain only propext, Classical.choice and Quot.sound. SHA256 `145189ee4d8ce12b17280ce943144d516c835718a198ce37c64bd8a1daebe045`.
+- **FullCanonical.lean:**3439 lines,218 examples, zero errors and531 expected declaration-uses-sorry warnings only;29.41seconds,3,532,700KiB peak. SHA256 `eab684ae690547320f3b8326242915ed602d86408e5e75840dc6f1d536eafaa6`.
+- All18 new declaration/example headers are byte-matched between native and admitted versions. All ten new declaration/API names and eight test names match the packet. The incoming4050-line native file is preserved byte-for-byte before the additions.
+- Indexed `scripts/check_blueprint.py`: zero errors/warnings. Source-version and source-issue validators pass, including E11. Actual intake file and ownership checks: five allowed files, zero problems/refusals. `git diff --check` passes.
+- Real builder candidate/control assemblies: stage DAG3050vertices/8750edges; own declaration DAG325/733; scoped DAG3340/9922. All325 declarations are reached with174 baseline leaves,81 supplier pairs reachable, zero unresolved references, zero own skipped/pending links; all other skipped/pending lists match the unchanged control. Stage edges are unchanged.
+
+The full source proof checks are prototype evidence, not implementation status. The final suggested file uses admitted bodies as the protocol requests. Earlier failed prototype runs were corrected before these successful checks.
+
+## Public recovery
+
+Checked sources are archived as inert comments in commit `73aa1e5e38ec8a24caec5c61550a4028868b68ff` in `research/blueprint/suggested/StableReductionPartII.lean`; the final commit removes the archive comments and retains only the canonical signatures. The mathematical incoming base is `0afca1373e81cb7b4345d0e096d419be9a40274d` and the publication base is `e8900fee9630d5937acb359fc7db190573c379f5`. The incoming proof recovery SHA is checked independently by the verifier.
+
+From this repository at the PR head, save each Python block below under its indicated name. Choose an evidence directory on disk, not a memory-backed temporary directory, and pass it to `recover.py`. The script fetches only the immutable archive object and extracts five checked files with their SHA256 checks, plus the two baseline JSON snapshots. It does not create a Lean project or fetch/build dependencies.
+
+Run `python3 recover.py EVIDENCE`, then `python3 verify.py EVIDENCE`. To run the graph comparison, set `TAUCETI_BASELINE` to the existing pinned baseline directory and run `python3 graph.py EVIDENCE`. The graph counts refer to the publication base; a later atlas may change unrelated stage counts. Actual candidate/control equality is recomputed against that current tree. Compiler logs are retained locally; public recovery supplies exact compiler inputs and hashes. Without logs, the verifier reports source checks, not a new compilation. Compile only in an existing pinned build and obey WORKERS.md's memory, serial-process and timeout limits.
+
+## Where to resume
+
+The next mathematical step is the reusable relative-stable-reflexivity formulation and **two-base** completion theorem. Pin the generic owner before adding its definition or general theorem; this packet has not created a new private notion. Knudsen Proposition6 compares S→R with Ŝ→R̂. A proof must handle arbitrary Ŝ-module coefficients, actual completed scalar towers and canonical dual comparisons, with faithful reflection justified. The flat ambient R→R̂ adapters alone do not compare R̂⊗_S N with R̂⊗_Ŝ N. Bourbaki III5.4.4 is still unread here, and Appendix Proposition7 remains an exercise, not a proved dependency leaf.
+
+Then complete the pointed completed-local hull identification, coefficient-compatible sheaf descent and finite-presentation approximation to arbitrary bases. MC.0–MC.7 geometry, the moduli key, complete family signatures and the other existing gaps remain open. Keep E11 separate from the valid actual projective-resolution argument. Preserve the negative second presentation generators and the distinction between ordinary, relative and completed-local statements.
+
+
+### recover.py
+
+SHA256 `87d2dee89603b44a6ca06448abad781972851e0c211af357848b789e69a75a59`.
+
+```python
+from pathlib import Path
+import sys,subprocess,hashlib,json
+S=Path(sys.argv[1]);S.mkdir(parents=True,exist_ok=True)
+ARCHIVE='73aa1e5e38ec8a24caec5c61550a4028868b68ff'
+BASE='0afca1373e81cb7b4345d0e096d419be9a40274d'
+HASHES={'Native.lean': '145189ee4d8ce12b17280ce943144d516c835718a198ce37c64bd8a1daebe045', 'IncomingNative.lean': '8c54f664cadcb7e0dacd4a5411cf908c8dced56bff8071e79141e88ee0d04083', 'FullCanonical.lean': 'eab684ae690547320f3b8326242915ed602d86408e5e75840dc6f1d536eafaa6', 'NewNative.lean': 'db645789955121fa143fab022a40873a44cb45286bf08e284d717b2af220adca', 'NewAdmitted.lean': '23634bc2145272911a509a8e8cfcc53c2ce3b24b189ce3fac4567f5ddc30320d'}
+subprocess.run(['git','fetch','origin',ARCHIVE],check=True)
+raw=subprocess.check_output(['git','show',ARCHIVE+':research/blueprint/suggested/StableReductionPartII.lean'],text=True)
+for name,digest in HASHES.items():
+ start='/- BEGIN ARCHIVED RELATIVE CRITERION '+name+'\n';end='END ARCHIVED RELATIVE CRITERION '+name+' -/'
+ text=raw.split(start,1)[1].split(end,1)[0]
+ assert hashlib.sha256(text.encode()).hexdigest()==digest,name
+ (S/name).write_text(text)
+(S/'base.txt').write_text(BASE+'\n')
+for folder,name in [('packets','original-packet.json'),('roadmaps','original-roadmap.json')]:
+ data=subprocess.check_output(['git','show',BASE+':research/blueprint/'+folder+'/StableReductionPartII.json'])
+ (S/name).write_bytes(data)
+print(json.dumps(HASHES,indent=2))
+```
+
+### verify.py
+
+SHA256 `a9db79b71b083d8d10362d865e03a0a22d8cc430e780df6b04781f382c897504`.
+
+```python
+from pathlib import Path
+import sys,json,re,hashlib,subprocess
+W=Path.cwd();S=Path(sys.argv[1]);RID='StableReductionPartII';Q='NodeSectionFactorization.PolynomialModel.'
+files=['research/blueprint/'+f+'/'+('DESIGN-' if f=='handoff' else '')+RID+'.'+ext for f,ext in [('roadmaps','json'),('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]]
+p=json.loads((W/files[1]).read_text());old=json.loads((S/'original-packet.json').read_text());r=json.loads((W/files[0]).read_text());oldr=json.loads((S/'original-roadmap.json').read_text())
+assert len(p['nodes'])==325 and len(old['nodes'])==319
+for a,b in zip(p['nodes'],old['nodes']):
+ if a!=b:
+  assert a['id']==RID+':MC.2/dual-section-ideal'
+  assert a['prerequisites'][:-6]==b['prerequisites'] and a['proofSteps'][:-1]==b['proofSteps']
+  assert {k:v for k,v in a.items() if k not in ['prerequisites','proofSteps']}=={k:v for k,v in b.items() if k not in ['prerequisites','proofSteps']}
+for k in old:
+ if k not in ['nodes','summary','baseline','sources','sourceIssues','sourceVersions','coverage','gaps']:assert p[k]==old[k],k
+assert p['baseline']['declarations'][:-4]==old['baseline']['declarations']
+assert {k:v for k,v in p['baseline'].items() if k!='declarations'}=={k:v for k,v in old['baseline'].items() if k!='declarations'}
+assert p['sourceIssues'][:-1]==old['sourceIssues'] and p['sourceVersions'][:-2]==old['sourceVersions']
+assert p['gaps'][:-1]==old['gaps']
+for a,b in zip(p['sources'],old['sources']):
+ if a!=b:
+  assert a['id'] in ['knudsen2','ile'] and a['readSections'][:-1]==b['readSections']
+  assert {k:v for k,v in a.items() if k not in ['readSections','edition']}=={k:v for k,v in b.items() if k not in ['readSections','edition']}
+for a,b in zip(p['coverage'],old['coverage']):
+ if a!=b:assert a['stageId']==RID+':MC.2' and a['remaining'][:-1]==b['remaining'] and a['status']==b['status']=='partial'
+for k in oldr:
+ if k not in ['summary','stages']:assert r[k]==oldr[k],k
+for a,b in zip(r['stages'],oldr['stages']):
+ if a!=b:assert a['key']=='MC.2' and a['description'].startswith(b['description']) and {k:v for k,v in a.items() if k!='description'}=={k:v for k,v in b.items() if k!='description'}
+assert p['status']=='partial' and all(x['implementationStatus']=='unchecked' for x in p['nodes'])
+base=(S/'base.txt').read_text().strip()
+def blob(f):return subprocess.check_output(['git','show',base+':'+f],text=True)
+assert (W/files[2]).read_text().endswith(blob(files[2]))
+full=(W/files[3]).read_text();incoming=(S/'IncomingNative.lean').read_text();new=(S/'NewNative.lean').read_text();admitted=(S/'NewAdmitted.lean').read_text();native=(S/'Native.lean').read_text()
+assert full==blob(files[3])+'\n/- BEGIN RELATIVE CRITERION COMPARISON -/\n'+admitted+'/- END RELATIVE CRITERION COMPARISON -/\n'
+assert (S/'FullCanonical.lean').read_text()==full
+assert hashlib.sha256(incoming.encode()).hexdigest()=='8c54f664cadcb7e0dacd4a5411cf908c8dced56bff8071e79141e88ee0d04083'
+audit='\n'.join('#print axioms TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel.'+m for m in re.findall(r'^(?:def|lemma) (\w+)',new,re.M))+'\n'
+assert native==incoming+'\n'+new+audit and not re.search(r'\bsorry\b|^axiom\b',native,re.M)
+pat=r'^(?:def|lemma|example)\b[\s\S]*?(?=\n(?:set_option|lemma|def |-- test:|end\n)|\Z)'
+def headers(x):return [m.split(' :=',1)[0] for m in re.findall(pat,x,re.M)]
+assert headers(new)==headers(admitted) and len(headers(new))==18
+names=set(re.findall(r'^(?:def|lemma) (\w+)',new,re.M));planned={x['declarationName'].removeprefix(Q) for x in p['nodes'][-6:]}|{a['name'].removeprefix(Q) for x in p['nodes'][-6:] for a in x.get('api',[])}
+assert names==planned and len(names)==10
+plannedtests={t['name'] for n in p['nodes'][-6:] for t in n.get('tests',[])};assert plannedtests==set(re.findall(r'^-- test: (.+)$',admitted,re.M)) and len(plannedtests)==8
+assert len(re.findall(r'^example\b',native,re.M))==156 and len(re.findall(r'^example\b',full,re.M))==218
+assert len(re.findall(r'^#print axioms ',native,re.M))==271
+for name,digest in [('Native.lean','145189ee4d8ce12b17280ce943144d516c835718a198ce37c64bd8a1daebe045'),('FullCanonical.lean','eab684ae690547320f3b8326242915ed602d86408e5e75840dc6f1d536eafaa6')]:assert hashlib.sha256((S/name).read_bytes()).hexdigest()==digest
+if (S/'native.log').exists():
+ log=(S/'native.log').read_text();assert 'error:' not in log and 'error(' not in log and 'warning:' not in log and 'sorryAx' not in log
+ audits=re.findall(r'depends on axioms: \[([^]]*)\]',log);assert len(audits)==271
+ assert all(set(map(str.strip,a.split(',')))<=set(['propext','Classical.choice','Quot.sound']) for a in audits)
+if (S/'suggested.log').exists():
+ log=(S/'suggested.log').read_text();assert 'error:' not in log and 'error(' not in log
+ warnings=[z.split('warning:',1)[1].strip() for z in log.splitlines() if 'warning:' in z];assert len(warnings)==531 and set(warnings)=={"declaration uses `sorry`"}
+sys.path.insert(0,str(W/'scripts'));import check_errata
+assert not check_errata.versions_checked(p,p['sourceIssues']) and not check_errata.check_issues(p['sourceIssues'],RID)
+print(json.dumps({'nodes':325,'preservedWholeNodes':318,'extendedParent':1,'newNodes':6,'rawAPIs':sum(len(x.get('api',[])) for x in p['nodes']),'rawTests':sum(len(x.get('tests',[])) for x in p['nodes']),'newTests':8,'nativeAudits':271,'nativeExamples':156,'canonicalExamples':218,'sourceIssues':len(p['sourceIssues']),'routesPreserved':21,'keyConsumersPreserved':6,'allStagesPartial':True,'headersMatch':18},indent=2))
+
+import ast
+tree=ast.parse((W/'research/blueprint/intake.py').read_text());wanted={'file_problems','auto_refusals','own_files','independent_of'}
+picked=[n for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id in {'ALLOWED','PRIVATE'} for t in n.targets) or isinstance(n,ast.FunctionDef) and n.name in wanted]
+env={'json':json,'re':re};exec(compile(ast.Module(body=picked,type_ignores=[]),'actual-intake','exec'),env)
+job=next(j for j in json.loads((W/'research/blueprint/queue.json').read_text())['jobs'] if j['id']=='DESIGN-'+RID)
+problems=[x for f in files for x in env['file_problems'](f,(W/f).read_text())];refusals=env['auto_refusals'](job,files,False,{'codex-7e92bd'},set());assert not problems and not refusals,(problems,refusals)
+print(json.dumps({'intakeProblems':problems,'intakeRefusals':refusals,'allowedFiles':len(files)}))
+```
+
+### graph.py
+
+SHA256 `6ee47636a73730278c91524fe5f4877e8b274ac77f3de2912d275ca24a9b66c1`.
+
+```python
+from pathlib import Path
+import os,sys,json,collections,copy
+R=Path.cwd();S=Path(sys.argv[1]);RID='StableReductionPartII';STEM=RID
+sys.path.insert(0,str(R/'scripts'))
+import check_blueprint
+p=json.loads((R/'research/blueprint/packets'/f'{STEM}.json').read_text())
+old=json.loads((S/'original-packet.json').read_text())
+nodes={n['id']:n for n in p['nodes']}
+import build,blueprints
+packets,documents,definitions=blueprints.load_promoted(R)
+keep=[x for x in packets if x[0]!=STEM];documents[STEM]='research/blueprint/readmes/'+STEM+'.md'
+own_definition=json.loads((R/'research/blueprint/roadmaps'/f'{RID}.json').read_text())
+old_definition=json.loads((S/'original-roadmap.json').read_text())
+def assemble(candidate,definition):
+ build.load_promoted=lambda *args:(copy.deepcopy(keep+[(STEM,candidate)]),copy.deepcopy(documents),copy.deepcopy([d for d in definitions if d.get('id')!=RID]+[definition]))
+ return build.assemble(require_distances=False)[0]
+a=assemble(p,own_definition);b=assemble(old,old_definition)
+world={}
+for folder in ['data/decompositions','data/blueprints','research/blueprint/packets']:
+ for file in sorted((R/folder).glob('*.json')):
+  for n in json.loads(file.read_text()).get('nodes',[]):world.setdefault(n['id'],n)
+world.update(nodes)
+listedstageids={x['id'] for x in a['stages']}
+stageids=listedstageids|set(check_blueprint.world()[1])
+se={(e['source'],e['target']) for e in a['stageEdges']}
+assert se=={(e['source'],e['target']) for e in b['stageEdges']}
+def dag(vertices,edges):
+ vertices=set(vertices)|{v for e in edges for v in e}
+ following=collections.defaultdict(set);indeg={v:0 for v in vertices}
+ for s,t in edges:
+  if t not in following[s]:following[s].add(t);indeg[t]+=1
+ todo=[v for v,k in indeg.items() if k==0];count=0
+ while todo:
+  v=todo.pop();count+=1
+  for w in following[v]:
+   indeg[w]-=1
+   if indeg[w]==0:todo.append(w)
+ assert count==len(vertices),[v for v,k in indeg.items() if k][:10]
+ return {'vertices':len(vertices),'edges':len(edges),'acyclic':True}
+ownedges={(d,nid) for nid,n in nodes.items() for d in n['prerequisites'] if d in nodes}
+todo=list(nodes);seen=set();de=set();unresolved=set();baseref=set()
+while todo:
+ nid=todo.pop()
+ if nid in seen:continue
+ seen.add(nid)
+ for d in world[nid].get('prerequisites',[]):
+  if d.startswith(('mathlib:','tauceti:')) and d not in stageids:baseref.add(d);continue
+  de.add((d,nid))
+  if d in world:todo.append(d)
+  elif d not in stageids:unresolved.add(d)
+assert not unresolved,unresolved
+de|={(world[nid]['parentStageId'],nid) for nid in seen if world[nid].get('parentStageId')}
+de|={(q['supplier'],v) for q in p['requests'] for v in q.get('neededBy',[]) if v in nodes or v in stageids}
+out=collections.defaultdict(set)
+for s,t in se:out[s].add(t)
+def reachable(source,target):
+ todo=[source];seen=set()
+ while todo:
+  v=todo.pop()
+  if v==target:return True
+  if v not in seen:seen.add(v);todo.extend(out[v])
+ return False
+def stageof(v):
+ checked=set()
+ while v in world and v not in checked:checked.add(v);v=world[v].get('parentStageId')
+ return v
+roadmap=own_definition
+pairs={(d,RID+':'+s['key']) for s in roadmap['stages'] for d in s.get('requires',[])}
+pairs|={(d,stageof(nid)) for nid,n in nodes.items() for d in n['prerequisites'] if d in stageids and d not in world and d!=stageof(nid)}
+pairs|={(stageof(q['supplier']),stageof(v)) for q in p['requests'] for v in q['neededBy'] if stageof(q['supplier'])!=stageof(v)}
+rspairs=set()
+for file in (R/'research/blueprint/restructure').glob('*.result.json'):
+ q=json.loads(file.read_text())
+ if q.get('review',{}).get('status')!='accepted':continue
+ rspairs|={(x['source'],x['target']) for x in q.get('links',[]) if x.get('source','').startswith(RID+':') or x.get('target','').startswith(RID+':')}
+assert all(reachable(s,t) for s,t in pairs|rspairs),sorted((s,t) for s,t in pairs|rspairs if not reachable(s,t))
+ar={r['id']:r for r in a['roadmaps']};br={r['id']:r for r in b['roadmaps']}
+assert ar[RID]['blueprint']['declarations']==len(nodes)
+assert not ar[RID]['blueprint']['skippedLinks'] and not ar[RID].get('pendingLinks',[])
+def skips(r):return r.get('blueprint',{}).get('skippedLinks',[]),r.get('pendingLinks',[])
+assert all(skips(ar[x])==skips(br[x]) for x in br if x!=RID)
+summary={'stageDAG':dag(listedstageids,se),'ownDeclarationDAG':dag(nodes,ownedges),'scopedDAG':dag(listedstageids|seen,se|de),'reachableDeclarations':len(seen),'externalDeclarations':sorted(seen-set(nodes)),'baselineLeaves':len(baseref),'requiredPairs':len(pairs),'restructurePairs':len(rspairs),'unresolved':sorted(unresolved),'ownSkippedLinks':[],'ownPendingLinks':[],'otherSkipsMatch':True,'stageEdgesUnchanged':True}
+print(json.dumps(summary,indent=2))
+```
+
+---
+
+## Preserved previous handoff
+
 # StableReductionPartII: actual categorical Hom and higher Ext checkpoint
 
 Codex — codex-a71f92; 2026-10-03. Refs #3342.

@@ -13,7 +13,7 @@
     "StableReductionPartII:MC.7"
   ],
   "status": "partial",
-  "summary": "Partial pointed-moduli roadmap. Adds twelve consumed declaration-sized inputs for ordinary R-bidual reflexivity of the actual polynomial section ideal, with explicit inverse F↦F(incl), native evaluation equivalence and dual reflexivity through the existing Mathlib instance. All inherited contracts remain, all eight stages stay partial, and arbitrary coefficient-module Hom exchange, higher Ext, completion and family geometry remain required. The actual polynomial coefficient-module Hom comparisons D⊗_A M≃Hom_R(J,R⊗_A M) and J⊗_A M≃Hom_R(D,R⊗_A M) are R-linear, canonical on pure tensors, natural for arbitrary A-linear coefficient maps and compatible with native bidual evaluation when M=A. Signed coordinate lemmas and universal transpose exactness give bijectivity for every M without a flatness assumption; no higher Ext, relative stable-reflexivity or geometric closure is inferred. The actual R-module Hom cochains for the polynomial section ideal and dual are specified with correct alternating phases, signed augmentation cycles and zero native positive cohomology for every coefficient module. The augmented projective-resolution/Ext identification remains required. This checkpoint supplies the actual native projective resolutions of the polynomial section ideal and its dual; the higher Ext and geometric comparisons remain open. The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain.",
+  "summary": "Partial pointed-moduli roadmap. Adds twelve consumed declaration-sized inputs for ordinary R-bidual reflexivity of the actual polynomial section ideal, with explicit inverse F↦F(incl), native evaluation equivalence and dual reflexivity through the existing Mathlib instance. All inherited contracts remain, all eight stages stay partial, and arbitrary coefficient-module Hom exchange, higher Ext, completion and family geometry remain required. The actual polynomial coefficient-module Hom comparisons D⊗_A M≃Hom_R(J,R⊗_A M) and J⊗_A M≃Hom_R(D,R⊗_A M) are R-linear, canonical on pure tensors, natural for arbitrary A-linear coefficient maps and compatible with native bidual evaluation when M=A. Signed coordinate lemmas and universal transpose exactness give bijectivity for every M without a flatness assumption; no higher Ext, relative stable-reflexivity or geometric closure is inferred. The actual R-module Hom cochains for the polynomial section ideal and dual are specified with correct alternating phases, signed augmentation cycles and zero native positive cohomology for every coefficient module. The augmented projective-resolution/Ext identification remains required. This checkpoint supplies the actual native projective resolutions of the polynomial section ideal and its dual; the higher Ext and geometric comparisons remain open. The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain. The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1376,6 +1376,34 @@
         "line": 118,
         "provides": "CategoryTheory.Limits.IsZero.of_iso with the exact native category, module, projectivity and universe hypotheses; used only for the actual polynomial section Hom/Ext comparison.",
         "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92; declarations.tsv locator verified."
+      },
+      {
+        "ref": "mathlib:TensorProduct.AlgebraTensorModule.congr",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "provides": "Heterobasic tensor of actual linear equivalences, preserving the larger-ring action.",
+        "checked": "Statement and definition read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03."
+      },
+      {
+        "ref": "mathlib:TensorProduct.AlgebraTensorModule.rTensor",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "provides": "Tensor a larger-ring-linear map with the coefficient identity.",
+        "checked": "Statement and definition read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.mapIso",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Iso.lean",
+        "provides": "Apply a functor to an actual categorical isomorphism.",
+        "checked": "Statement and definition read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Abelian.extFunctorObj",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/DerivedCategory/Ext/Basic.lean",
+        "provides": "Localization-defined Ext as an additive-group-valued functor in the target.",
+        "checked": "Statement and definition read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03."
       }
     ]
   },
@@ -1426,7 +1454,8 @@
       "accessDate": "2026-10-02",
       "readSections": [
         "§§1–3, printed pp.161–191 (PDF1–31), rendered scan",
-        "Appendix, printed191–199 (PDF31–39), fresh visual selected read by codex-5ebb6f; cited Bourbaki proof and Proposition7 exercise remain unresolved."
+        "Appendix, printed191–199 (PDF31–39), fresh visual selected read by codex-5ebb6f; cited Bourbaki proof and Proposition7 exercise remain unresolved.",
+        "2026-10-03 codex-7e92bd: full Appendix physical31–39/printed191–199 freshly rendered and read. Bourbaki III5.4.4 and Proposition7 exercise still unresolved."
       ]
     },
     {
@@ -1457,12 +1486,13 @@
       "id": "ile",
       "title": "Stably reflexive modules and a lemma of Knudsen",
       "authors": "Runar Ile",
-      "edition": "arXiv:1110.3909 author preprint",
+      "edition": "arXiv:1110.3909v3,1September2013; bounded publisher HTML collation for E11",
       "url": "https://arxiv.org/pdf/1110.3909",
       "sha256": "41e6a87de44074fdc24770e0f842c6e8846347c3b77483d17371d40c97793743",
       "accessDate": "2026-10-02",
       "readSections": [
-        "Remark6.4 and Example6.5, PDF20–21; remaining proof not yet read"
+        "Remark6.4 and Example6.5, PDF20–21; remaining proof not yet read",
+        "2026-10-03 codex-7e92bd: arXiv1110.3909v3 PDF5–8, §2.3 and §3 through Lemma3.8; p5 rendered to check stable-Hom underlining. Publisher indexed §2.3 text collated, direct publisher access403; no publisher PDF read."
       ]
     },
     {
@@ -4279,7 +4309,13 @@
         "StableReductionPartII:MC.2/section-resolution-hom-differential",
         "StableReductionPartII:MC.2/section-ideal-localization-ext-vanishing",
         "StableReductionPartII:MC.2/section-dual-localization-ext-vanishing",
-        "StableReductionPartII:MC.2/section-resolution-hom-isomorphism-naturality"
+        "StableReductionPartII:MC.2/section-resolution-hom-isomorphism-naturality",
+        "StableReductionPartII:MC.2/section-bidual-coefficient-hom-equivalence",
+        "StableReductionPartII:MC.2/section-bidual-coefficient-hom-evaluation",
+        "StableReductionPartII:MC.2/section-ideal-absolute-derived-ext-vanishing",
+        "StableReductionPartII:MC.2/section-dual-absolute-derived-ext-vanishing",
+        "StableReductionPartII:MC.2/section-ideal-absolute-localization-ext-vanishing",
+        "StableReductionPartII:MC.2/section-dual-absolute-localization-ext-vanishing"
       ],
       "proofSteps": [
         "Apply the separately named polynomial dual, residue, coefficient-flatness, ring-linear tensor and actual quotient-base-change calculations; these are inputs to the completed-local comparison, not the global conclusion.",
@@ -4290,7 +4326,8 @@
         "Use the two separately constructed actual R-linear coefficient-module Hom equivalences Θ_D,M and Θ_J,M for every A-module M, their A-linear coefficient naturality and the M=A native-bidual comparison. They are proved through the signed presentation coordinates and coefficient-universal transpose exactness. This discharges the explicit polynomial Hom-exchange calculation without M-flatness; higher Ext/cochain interpretation, the exact relative stable-reflexivity input, two-base completion, pointed hull and family/sheaf descent remain separate.",
         "The native R-module Hom cochains now have zero positive cohomology for every coefficient module and correctly identified degree-zero cycles. Establish the actual augmented finite-free/projective resolutions and their native Ext comparison before invoking relative stable reflexivity.",
         "Use the actual finite-free native projective resolutions with signed P_J/P_D augmentations and the checked precomposition differential comparison. The remaining categorical Hom-complex/native Ext, exact relative stable-reflexivity, two-base completion and geometric descent comparisons are separate obligations.",
-        "The actual categorical Hom-complex isomorphisms and both native Mathlib higher Ext vanishing statements are now separate checked polynomial inputs for every coefficient module. Apply the exact Appendix/Ile relative stable-reflexivity and two-base completion comparisons only after their own proofs, then the pointed hull identification, family/sheaf descent and arbitrary-base approximation; this Ext calculation alone is not that geometric argument."
+        "The actual categorical Hom-complex isomorphisms and both native Mathlib higher Ext vanishing statements are now separate checked polynomial inputs for every coefficient module. Apply the exact Appendix/Ile relative stable-reflexivity and two-base completion comparisons only after their own proofs, then the pointed hull identification, family/sheaf descent and arbitrary-base approximation; this Ext calculation alone is not that geometric argument.",
+        "The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial."
       ],
       "acceptance": [
         "Do not strengthen this to J·J∨=J throughout a smoothing family: that equality holds only on the nodal-section locus."
@@ -18872,6 +18909,394 @@
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
         "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
       }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-bidual-coefficient-hom-equivalence",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Canonical coefficient exchange for the section dual",
+      "kind": "construction",
+      "statement": "Let A be any commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the coefficient algebra map, u=[X], v=[Y], J=(u−ιs,v−ιt) and D=Hom_R(J,R). All duals are R-linear and use native Module.Dual. For any A-module M put N_M=R⊗_A M with its inherited left R-action and η=Module.Dual.eval R J. The canonical exchange Φ_D,M:D∨⊗_A M≃ₗ[R]Hom_R(D,N_M) is an equivalence with Φ_D,M(F⊗m)(h)=F(h)⊗m. Construct it as (η⁻¹⊗id_M) followed by the existing Θ_J,M.",
+      "hypotheses": [
+        "No noetherianity, reducedness, nonzero coefficient ring, unit discriminant or flatness of M is assumed. Ext vanishing is only in positive degrees."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-bidual-equivalence",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-equivalence",
+        "mathlib:TensorProduct.AlgebraTensorModule.congr"
+      ],
+      "proofSteps": [
+        "Tensor the explicit native bidual equivalence with id_M using the heterobasic R-linear tensor equivalence.",
+        "Compose its inverse direction with Θ_J,M. On pure tensors, η(η⁻¹F)(h)=F(h) proves that the result is the actual canonical exchange map.",
+        "Tensor induction gives uniqueness and naturality for every A-linear map M→M′."
+      ],
+      "acceptance": [
+        "Use the actual ideal subtype, native R-duals and R-module tensor action. No private stable-reflexivity predicate or replacement Ext carrier is introduced.",
+        "This polynomial calculation does not supply the two-base completion comparison, pointed formal hull or family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6 printed194–195",
+          "match": "Identifies the four actual canonical Hom/Ext conditions. The polynomial all-ring calculation is an authored specialization of inherited exact resolutions; the source assumes noetherian S and R. Proposition6 is not proved by this specialization."
+        },
+        {
+          "sourceId": "ile",
+          "locator": "arXiv1110.3909v3 §3 Definition3.1 and Remark3.6, PDF6–8",
+          "match": "Identifies the second Hom comparison as σ_M⊗id followed by exchange for M*. The new map equality verifies that exact composition. The general stable-Hom shortcut in §2.3 is excluded; see E11."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionBidualTensorHomEquiv",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Matches the exact polynomial Hom/Ext hypotheses before the separately required relative-completion and sheaf descent steps."
+        }
+      ],
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionBidualTensorHomEquiv_tmul",
+          "role": "simp",
+          "statement": "Let A be any commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the coefficient algebra map, u=[X], v=[Y], J=(u−ιs,v−ιt) and D=Hom_R(J,R). All duals are R-linear and use native Module.Dual. For any A-module M put N_M=R⊗_A M with its inherited left R-action and η=Module.Dual.eval R J. Φ_D,M(F⊗m)(h)=F(h)⊗m."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionBidualTensorHomEquiv_inverse",
+          "role": "equivalence",
+          "statement": "Let A be any commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the coefficient algebra map, u=[X], v=[Y], J=(u−ιs,v−ιt) and D=Hom_R(J,R). All duals are R-linear and use native Module.Dual. For any A-module M put N_M=R⊗_A M with its inherited left R-action and η=Module.Dual.eval R J. Φ_D,M⁻¹(Φ_D,M(F⊗m))=F⊗m."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionBidualTensorHomEquiv_unique",
+          "role": "characterisation",
+          "statement": "Let A be any commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the coefficient algebra map, u=[X], v=[Y], J=(u−ιs,v−ιt) and D=Hom_R(J,R). All duals are R-linear and use native Module.Dual. For any A-module M put N_M=R⊗_A M with its inherited left R-action and η=Module.Dual.eval R J. Every R-linear equivalence e:D∨⊗_A M≃Hom_R(D,N_M) satisfying e(F⊗m)(h)=F(h)⊗m for all F,m,h equals Φ_D,M."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionBidualTensorHomEquiv_natural",
+          "role": "functoriality",
+          "statement": "Let A be any commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the coefficient algebra map, u=[X], v=[Y], J=(u−ιs,v−ιt) and D=Hom_R(J,R). All duals are R-linear and use native Module.Dual. For any A-module M put N_M=R⊗_A M with its inherited left R-action and η=Module.Dual.eval R J. For any A-linear f:M→M′, x∈D∨⊗_A M and h∈D, Φ_D,M′((id_D∨⊗f)x)(h)=(id_R⊗f)(Φ_D,M(x)(h))."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionBidualTensorHomEquiv.test_unit",
+          "kind": "compatibility",
+          "statement": "Let A be any commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the coefficient algebra map, u=[X], v=[Y], J=(u−ιs,v−ιt) and D=Hom_R(J,R). All duals are R-linear and use native Module.Dual. For any A-module M put N_M=R⊗_A M with its inherited left R-action and η=Module.Dual.eval R J. For M=A, the native R-linear right tensor unit sends Φ_D,A(F⊗1)(h) to F(h)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionBidualTensorHomEquiv.test_torsion",
+          "kind": "computation",
+          "statement": "Let A be any commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the coefficient algebra map, u=[X], v=[Y], J=(u−ιs,v−ιt) and D=Hom_R(J,R). All duals are R-linear and use native Module.Dual. For any A-module M put N_M=R⊗_A M with its inherited left R-action and η=Module.Dual.eval R J. For A=ℤ, (γ,δ,s,t)=(1,0,1,0), M=ℤ/2, Φ_D,M(F⊗1)(h)=F(h)⊗1 for all F,h. No flatness of M is available."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionBidualTensorHomEquiv.test_inverse_nonreduced",
+          "kind": "degenerate",
+          "statement": "Let A be any commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the coefficient algebra map, u=[X], v=[Y], J=(u−ιs,v−ιt) and D=Hom_R(J,R). All duals are R-linear and use native Module.Dual. For any A-module M put N_M=R⊗_A M with its inherited left R-action and η=Module.Dual.eval R J. For A=ℤ/4 and γ=δ=s=t=0, Φ_D,A⁻¹(Φ_D,A(F⊗1))=F⊗1 for all F. Neither reducedness nor invertible discriminant is available."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-bidual-coefficient-hom-evaluation",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Evaluation factorization of the second exchange map",
+      "kind": "comparison",
+      "statement": "Let A be any commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the coefficient algebra map, u=[X], v=[Y], J=(u−ιs,v−ιt) and D=Hom_R(J,R). All duals are R-linear and use native Module.Dual. For any A-module M put N_M=R⊗_A M with its inherited left R-action and η=Module.Dual.eval R J. For every x∈J⊗_A M, Φ_D,M((η⊗id_M)x)=Θ_J,M(x) in Hom_R(D,N_M). This identifies Knudsen’s ψ, and Ile’s σ_J⊗id followed by exchange, with the previously constructed evaluation comparison.",
+      "hypotheses": [
+        "No noetherianity, reducedness, nonzero coefficient ring, unit discriminant or flatness of M is assumed. Ext vanishing is only in positive degrees."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-bidual-coefficient-hom-equivalence",
+        "StableReductionPartII:MC.2/section-ideal-coefficient-hom-equivalence",
+        "StableReductionPartII:MC.2/section-bidual-equivalence-native",
+        "mathlib:TensorProduct.AlgebraTensorModule.rTensor"
+      ],
+      "proofSteps": [
+        "Check both sides on j⊗m: evaluation at h is h(j)⊗m.",
+        "Use tensor induction for zero and addition; the result is equality of actual R-linear maps on every tensor."
+      ],
+      "acceptance": [
+        "Use the actual ideal subtype, native R-duals and R-module tensor action. No private stable-reflexivity predicate or replacement Ext carrier is introduced.",
+        "This polynomial calculation does not supply the two-base completion comparison, pointed formal hull or family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6 printed194–195",
+          "match": "Identifies the four actual canonical Hom/Ext conditions. The polynomial all-ring calculation is an authored specialization of inherited exact resolutions; the source assumes noetherian S and R. Proposition6 is not proved by this specialization."
+        },
+        {
+          "sourceId": "ile",
+          "locator": "arXiv1110.3909v3 §3 Definition3.1 and Remark3.6, PDF6–8",
+          "match": "Identifies the second Hom comparison as σ_M⊗id followed by exchange for M*. The new map equality verifies that exact composition. The general stable-Hom shortcut in §2.3 is excluded; see E11."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionBidualTensorHomEquiv_evaluation",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Matches the exact polynomial Hom/Ext hypotheses before the separately required relative-completion and sheaf descent steps."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionBidualTensorHomEquiv_evaluation.test_native",
+          "kind": "compatibility",
+          "statement": "Let A be any commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the coefficient algebra map, u=[X], v=[Y], J=(u−ιs,v−ιt) and D=Hom_R(J,R). All duals are R-linear and use native Module.Dual. For any A-module M put N_M=R⊗_A M with its inherited left R-action and η=Module.Dual.eval R J. At every pure tensor j⊗m and h∈D, Φ_D,M((Module.Dual.eval R J⊗id_M)(j⊗m))(h)=h(j)⊗m."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-absolute-derived-ext-vanishing",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Positive derived Ext of the section ideal into its ring",
+      "kind": "theorem",
+      "statement": "Let A be any commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the coefficient algebra map, u=[X], v=[Y], J=(u−ιs,v−ιt) and D=Hom_R(J,R). All duals are R-linear and use native Module.Dual. For any A-module M put N_M=R⊗_A M with its inherited left R-action and η=Module.Dual.eval R J. For every n≥0, native _root_.Ext R (ModuleCat R) (n+1), evaluated contravariantly at J and covariantly at R, is a zero R-module object.",
+      "hypotheses": [
+        "No noetherianity, reducedness, nonzero coefficient ring, unit discriminant or flatness of M is assumed. Ext vanishing is only in positive degrees."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-derived-ext-vanishing",
+        "mathlib:TensorProduct.AlgebraTensorModule.rid",
+        "mathlib:LinearEquiv.toModuleIso",
+        "mathlib:CategoryTheory.Functor.mapIso",
+        "mathlib:CategoryTheory.Limits.IsZero.of_iso"
+      ],
+      "proofSteps": [
+        "Specialize coefficient-module vanishing for J to M=A.",
+        "Apply the actual Ext functor to the native R-linear tensor-unit isomorphism R⊗_A A≃R.",
+        "Transport IsZero along the inverse of that image isomorphism. Keep the R-action, variance and universe unchanged."
+      ],
+      "acceptance": [
+        "Use the actual ideal subtype, native R-duals and R-module tensor action. No private stable-reflexivity predicate or replacement Ext carrier is introduced.",
+        "This polynomial calculation does not supply the two-base completion comparison, pointed formal hull or family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6 printed194–195",
+          "match": "Identifies the four actual canonical Hom/Ext conditions. The polynomial all-ring calculation is an authored specialization of inherited exact resolutions; the source assumes noetherian S and R. Proposition6 is not proved by this specialization."
+        },
+        {
+          "sourceId": "ile",
+          "locator": "arXiv1110.3909v3 §3 Definition3.1 and Remark3.6, PDF6–8",
+          "match": "Identifies the second Hom comparison as σ_M⊗id followed by exchange for M*. The new map equality verifies that exact composition. The general stable-Hom shortcut in §2.3 is excluded; see E11."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealAbsoluteDerivedExt_isZero",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Matches the exact polynomial Hom/Ext hypotheses before the separately required relative-completion and sheaf descent steps."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealAbsoluteDerivedExt.test_zero_ring",
+          "kind": "degenerate",
+          "statement": "Let A be any commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the coefficient algebra map, u=[X], v=[Y], J=(u−ιs,v−ιt) and D=Hom_R(J,R). All duals are R-linear and use native Module.Dual. For any A-module M put N_M=R⊗_A M with its inherited left R-action and η=Module.Dual.eval R J. For A=ℤ/1 and γ=δ=s=t=0, native derived Ext¹_R(J,R) is zero."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-absolute-derived-ext-vanishing",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Positive derived Ext of the section dual into its ring",
+      "kind": "theorem",
+      "statement": "Let A be any commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the coefficient algebra map, u=[X], v=[Y], J=(u−ιs,v−ιt) and D=Hom_R(J,R). All duals are R-linear and use native Module.Dual. For any A-module M put N_M=R⊗_A M with its inherited left R-action and η=Module.Dual.eval R J. For every n≥0, native _root_.Ext R (ModuleCat R) (n+1), evaluated contravariantly at D and covariantly at R, is a zero R-module object.",
+      "hypotheses": [
+        "No noetherianity, reducedness, nonzero coefficient ring, unit discriminant or flatness of M is assumed. Ext vanishing is only in positive degrees."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-derived-ext-vanishing",
+        "mathlib:TensorProduct.AlgebraTensorModule.rid",
+        "mathlib:LinearEquiv.toModuleIso",
+        "mathlib:CategoryTheory.Functor.mapIso",
+        "mathlib:CategoryTheory.Limits.IsZero.of_iso"
+      ],
+      "proofSteps": [
+        "Specialize coefficient-module vanishing for D to M=A.",
+        "Apply the actual Ext functor to the native R-linear tensor-unit isomorphism R⊗_A A≃R.",
+        "Transport IsZero along the inverse of that image isomorphism. Keep the R-action, variance and universe unchanged."
+      ],
+      "acceptance": [
+        "Use the actual ideal subtype, native R-duals and R-module tensor action. No private stable-reflexivity predicate or replacement Ext carrier is introduced.",
+        "This polynomial calculation does not supply the two-base completion comparison, pointed formal hull or family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6 printed194–195",
+          "match": "Identifies the four actual canonical Hom/Ext conditions. The polynomial all-ring calculation is an authored specialization of inherited exact resolutions; the source assumes noetherian S and R. Proposition6 is not proved by this specialization."
+        },
+        {
+          "sourceId": "ile",
+          "locator": "arXiv1110.3909v3 §3 Definition3.1 and Remark3.6, PDF6–8",
+          "match": "Identifies the second Hom comparison as σ_M⊗id followed by exchange for M*. The new map equality verifies that exact composition. The general stable-Hom shortcut in §2.3 is excluded; see E11."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualAbsoluteDerivedExt_isZero",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Matches the exact polynomial Hom/Ext hypotheses before the separately required relative-completion and sheaf descent steps."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualAbsoluteDerivedExt.test_nonreduced",
+          "kind": "degenerate",
+          "statement": "Let A be any commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the coefficient algebra map, u=[X], v=[Y], J=(u−ιs,v−ιt) and D=Hom_R(J,R). All duals are R-linear and use native Module.Dual. For any A-module M put N_M=R⊗_A M with its inherited left R-action and η=Module.Dual.eval R J. For A=ℤ/4, γ=δ=s=t=0, native derived Ext²_R(D,R) is zero."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-absolute-localization-ext-vanishing",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Positive categorical Ext of the section ideal into its ring",
+      "kind": "theorem",
+      "statement": "Let A be any commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the coefficient algebra map, u=[X], v=[Y], J=(u−ιs,v−ιt) and D=Hom_R(J,R). All duals are R-linear and use native Module.Dual. For any A-module M put N_M=R⊗_A M with its inherited left R-action and η=Module.Dual.eval R J. For every n≥0 and α∈CategoryTheory.Abelian.Ext (ModuleCat.of R J) (ModuleCat.of R R) (n+1), α=0.",
+      "hypotheses": [
+        "No noetherianity, reducedness, nonzero coefficient ring, unit discriminant or flatness of M is assumed. Ext vanishing is only in positive degrees."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-localization-ext-vanishing",
+        "mathlib:TensorProduct.AlgebraTensorModule.rid",
+        "mathlib:LinearEquiv.toModuleIso",
+        "mathlib:CategoryTheory.Functor.mapIso",
+        "mathlib:CategoryTheory.Abelian.extFunctorObj"
+      ],
+      "proofSteps": [
+        "Map the native R-linear tensor-unit isomorphism through the localization-defined Ext functor in its target argument.",
+        "Apply the inherited coefficient-module vanishing with M=A to the inverse image of α.",
+        "Map the zero equality forward and use the actual categorical inverse identity. This is separate from the root Ext module-valued interface; no equality of the two Ext constructions is assumed."
+      ],
+      "acceptance": [
+        "Use the actual ideal subtype, native R-duals and R-module tensor action. No private stable-reflexivity predicate or replacement Ext carrier is introduced.",
+        "This polynomial calculation does not supply the two-base completion comparison, pointed formal hull or family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6 printed194–195",
+          "match": "Identifies the four actual canonical Hom/Ext conditions. The polynomial all-ring calculation is an authored specialization of inherited exact resolutions; the source assumes noetherian S and R. Proposition6 is not proved by this specialization."
+        },
+        {
+          "sourceId": "ile",
+          "locator": "arXiv1110.3909v3 §3 Definition3.1 and Remark3.6, PDF6–8",
+          "match": "Identifies the second Hom comparison as σ_M⊗id followed by exchange for M*. The new map equality verifies that exact composition. The general stable-Hom shortcut in §2.3 is excluded; see E11."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealAbsoluteExt_eq_zero",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Matches the exact polynomial Hom/Ext hypotheses before the separately required relative-completion and sheaf descent steps."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealAbsoluteExt.test_integral",
+          "kind": "computation",
+          "statement": "Let A be any commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the coefficient algebra map, u=[X], v=[Y], J=(u−ιs,v−ιt) and D=Hom_R(J,R). All duals are R-linear and use native Module.Dual. For any A-module M put N_M=R⊗_A M with its inherited left R-action and η=Module.Dual.eval R J. For A=ℤ, (γ,δ,s,t)=(1,0,1,0), every categorical Ext³_R(J,R) class is zero."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-absolute-localization-ext-vanishing",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Positive categorical Ext of the section dual into its ring",
+      "kind": "theorem",
+      "statement": "Let A be any commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the coefficient algebra map, u=[X], v=[Y], J=(u−ιs,v−ιt) and D=Hom_R(J,R). All duals are R-linear and use native Module.Dual. For any A-module M put N_M=R⊗_A M with its inherited left R-action and η=Module.Dual.eval R J. For every n≥0 and α∈CategoryTheory.Abelian.Ext (ModuleCat.of R D) (ModuleCat.of R R) (n+1), α=0.",
+      "hypotheses": [
+        "No noetherianity, reducedness, nonzero coefficient ring, unit discriminant or flatness of M is assumed. Ext vanishing is only in positive degrees."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-localization-ext-vanishing",
+        "mathlib:TensorProduct.AlgebraTensorModule.rid",
+        "mathlib:LinearEquiv.toModuleIso",
+        "mathlib:CategoryTheory.Functor.mapIso",
+        "mathlib:CategoryTheory.Abelian.extFunctorObj"
+      ],
+      "proofSteps": [
+        "Map the native R-linear tensor-unit isomorphism through the localization-defined Ext functor in its target argument.",
+        "Apply the inherited coefficient-module vanishing with M=A to the inverse image of α.",
+        "Map the zero equality forward and use the actual categorical inverse identity. This is separate from the root Ext module-valued interface; no equality of the two Ext constructions is assumed."
+      ],
+      "acceptance": [
+        "Use the actual ideal subtype, native R-duals and R-module tensor action. No private stable-reflexivity predicate or replacement Ext carrier is introduced.",
+        "This polynomial calculation does not supply the two-base completion comparison, pointed formal hull or family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Definition1 and Theorem2(1), printed191–193; Proposition6 printed194–195",
+          "match": "Identifies the four actual canonical Hom/Ext conditions. The polynomial all-ring calculation is an authored specialization of inherited exact resolutions; the source assumes noetherian S and R. Proposition6 is not proved by this specialization."
+        },
+        {
+          "sourceId": "ile",
+          "locator": "arXiv1110.3909v3 §3 Definition3.1 and Remark3.6, PDF6–8",
+          "match": "Identifies the second Hom comparison as σ_M⊗id followed by exchange for M*. The new map equality verifies that exact composition. The general stable-Hom shortcut in §2.3 is excluded; see E11."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionDualAbsoluteExt_eq_zero",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Matches the exact polynomial Hom/Ext hypotheses before the separately required relative-completion and sheaf descent steps."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionDualAbsoluteExt.test_nonreduced",
+          "kind": "computation",
+          "statement": "Let A be any commutative ring, γ,δ,s,t∈A, q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R the coefficient algebra map, u=[X], v=[Y], J=(u−ιs,v−ιt) and D=Hom_R(J,R). All duals are R-linear and use native Module.Dual. For any A-module M put N_M=R⊗_A M with its inherited left R-action and η=Module.Dual.eval R J. For A=ℤ/4, (γ,δ,s,t)=(0,0,1,0), every categorical Ext⁴_R(D,R) class is zero."
+        }
+      ]
     }
   ],
   "requests": [
@@ -19853,7 +20278,8 @@
         "Both actual coefficient-module Hom comparisons and their naturality are now supplied for every A-module M, with inherited R-actions, prescribed negative generators and the M=A native bidual specialization. The earlier open polynomial Hom exchange is discharged by these new nodes. What remains is the native finite-free-resolution/Hom-cochain and higher Ext interpretation, then the exact Appendix/Ile relative stable-reflexivity and two-base completion comparison, pointed completed-local hull, family/sheaf descent and arbitrary-base approximation.",
         "Current next frontier after native Hom cochains: instantiate the augmented finite-free R-resolutions of J and D with the actual P_J/P_D maps, prove native projectivity and identify their Hom cochains with native Ext. Positive cohomology vanishing by itself is not this comparison. All completion, relative stable-reflexivity, hull and family descent requirements remain.",
         "The actual augmented finite-free R-projective resolutions of J and D are now specified and separately checked with native QuasiIso. Their Hom precomposition differentials equal the existing arbitrary-coefficient cochain maps. Next identify the categorical Hom complex and native higher Ext; then apply the exact Appendix/Ile relative stable-reflexivity and two-base completion theorems, pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. The differential equality alone is not an Ext comparison.",
-        "The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain."
+        "The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain.",
+        "The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial."
       ]
     },
     {
@@ -20251,6 +20677,13 @@
         "StableReductionPartII:MC.4/persistent-node-residue-sequence"
       ],
       "detail": "Before full submission verify every short excerpt literally at its cited printed/PDF page, refine combined locators to individual statements, and collate the published Yuan/DGH texts. Yuan publisher PDF could not be acquired: Annals candidate404 and Euclid non-PDF response; author hash/version scope is explicit. CLM’s NSF copy repairs several older manuscript errors, but publisher identification still needs checking."
+    },
+    {
+      "title": "Reusable stable-reflexivity interface and two-base completion",
+      "neededBy": [
+        "StableReductionPartII:MC.2/dual-section-ideal"
+      ],
+      "detail": "The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial. Do not replace R̂⊗_Ŝ N by R̂⊗_S N for an arbitrary Ŝ-module N. Knudsen Proposition6 cites Bourbaki III5.4.4 without an argument; Proposition7 is an exercise. These remain unproved inputs here. The general stable-Hom/Ext formula in Ile §2.3 is false without additional hypotheses (E11) and is not a substitute."
     }
   ],
   "sourceIssues": [
@@ -20399,6 +20832,22 @@
         "Compared both author-copy proof endings and their correctly stated determinant-ample lemma.",
         "Bounded projectivity erratum search2026-10-02 found no exact correction; no assertion about an unread publisher text."
       ]
+    },
+    {
+      "id": "StableReductionPartII/E11",
+      "source": "ile",
+      "kind": "error",
+      "locator": "arXiv1110.3909v3 §2.3,PDF5, paragraph defining the syzygy functor; same assertion in publisher indexed §2.3 HTML, DOI10.1016/j.jalgebra.2013.08.024. Direct publisher request403; publisher PDF not read.",
+      "printed": "The source asserts, for every n>0, the isomorphism Hom̲_A(Syz_A^n M,N) ≅ Ext_A^n(M,N).",
+      "correction": "Without further hypotheses use the cokernel of Hom_A(P₀,N)→Hom_A(ΩM,N) from 0→ΩM→P₀→M→0, then dimension shift. Quotienting by every map through every coherent projective module is generally a larger quotient. Additional Ext vanishing against projectives can make the quotients agree; no unrestricted stable-category formula is used here.",
+      "reason": "Take A=ℤ, M=ℤ/2 and N=ℤ. The finite free resolution is 0→ℤ --2→ ℤ→ℤ/2→0, hence Ext¹_ℤ(ℤ/2,ℤ)=coker(2:ℤ→ℤ)=ℤ/2. Its first syzygy is 2ℤ≅ℤ, which is coherent projective. Every map from that syzygy to ℤ factors through the syzygy itself, so stable Hom is zero. The source defines the stable category of all coherent modules, without a stable-reflexivity restriction in this paragraph. This refutes the unqualified assertion, not the paper’s later restricted approximation theorems.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-10-03: arXiv submission history lists v1(2011),v2(2012),v3(2013); read latest v3 PDF5.",
+        "Publisher DOI-indexed §2.3 text reproduces the assertion; direct ScienceDirect and DOI opens fail403/internal error. No publisher PDF or journal correction archive was accessible.",
+        "Bounded title/author plus erratum,corrigendum,correction searches and author BI publication list found no exact correction. Novelty and the counterexample require independent review."
+      ]
     }
   ],
   "sourceVersions": [
@@ -20504,6 +20953,20 @@
       "read": "2026-10-03",
       "sha256": "2c89ce4072046d546ff9256a5c64cd488f41026c561f8858f4a78ce14c21d685",
       "citation": "arXiv:1106.1588v2 primary HTML; selected scope in the fresh codex-a71f92 receipt only"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1110.3909v3",
+      "read": "2026-10-03",
+      "sha256": "41e6a87de44074fdc24770e0f842c6e8846347c3b77483d17371d40c97793743",
+      "scope": "E11: §2.3 PDF5 read in full and rendered; §3 PDF6–8 read for canonical comparison."
+    },
+    {
+      "kind": "published",
+      "url": "https://doi.org/10.1016/j.jalgebra.2013.08.024",
+      "read": "2026-10-03",
+      "citation": "Runar Ile, Journal of Algebra397(2014),141–167",
+      "scope": "Only the publisher indexed HTML §2.3 extract was returned and read, reproducing the stable-Hom definition and assertion; direct opens failed. No full publisher text or PDF collation is claimed. E11 is fully witnessed by the hashed v3 PDF."
     }
   ],
   "restructure": [
@@ -24807,5 +25270,21 @@
       "NativeDiagnostics.txt": "f5d932b990e2eb9c91037ed4dc51bd318340722ed3fd1c4f4a6935c6b9605dfa",
       "CanonicalDiagnostics.txt": "cb98514c157c7b135649a892500c36a2895a2170441ba258dd69a4565ace8cac"
     }
+  },
+  "relativeCriterionContinuation": {
+    "agent": "Codex",
+    "session": "codex-7e92bd",
+    "date": "2026-10-03",
+    "addedNodes": [
+      "StableReductionPartII:MC.2/section-bidual-coefficient-hom-equivalence",
+      "StableReductionPartII:MC.2/section-bidual-coefficient-hom-evaluation",
+      "StableReductionPartII:MC.2/section-ideal-absolute-derived-ext-vanishing",
+      "StableReductionPartII:MC.2/section-dual-absolute-derived-ext-vanishing",
+      "StableReductionPartII:MC.2/section-ideal-absolute-localization-ext-vanishing",
+      "StableReductionPartII:MC.2/section-dual-absolute-localization-ext-vanishing"
+    ],
+    "inheritedNodeCount": 319,
+    "frontier": "The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial.",
+    "openWorkSearch": "Fresh bounded GitHub open PR title query reflexive returned0; broad Ext/base-change search returned adjacent Gorenstein/completion work, not this polynomial ideal calculation. Bounded Lean Zulip domain searches for stably reflexive and reflexive Ext returned no results. This is not a library-wide absence proof."
   }
 }
