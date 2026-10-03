@@ -119,12 +119,14 @@ roadmap that owns it (PROTOCOL.md section 15).
    7. `kind:review`, when its input exists: an independent check of another
       worker's job, or a verification of red-team findings. Never review your
       own work.
-   8. `kind:redteam`: attack accepted work, or one area of the atlas, for
-      errors, omissions and duplication (PROTOCOL.md section 17). Never
-      red-team work you did or reviewed.
-   9. `kind:sources`: move one roadmap's citations off books a reader cannot
+   8. `kind:sources`: move one roadmap's citations off books a reader cannot
       obtain and onto sources anyone can read, without changing the mathematics.
       Your deliverable is the result file; the orchestrator applies the edits.
+      These jobs are short, and what they leave restricted is the list of
+      books the maintainer has to buy.
+   9. `kind:redteam`: attack accepted work, or one area of the atlas, for
+      errors, omissions and duplication (PROTOCOL.md section 17). Never
+      red-team work you did or reviewed.
    10. `kind:attribution`: put a source on every layer of a roadmap that names
       none, freely readable wherever one exists, and credit its authors. Your
       deliverable is the result file; the orchestrator applies the edits.
