@@ -1,105 +1,101 @@
-# BP-AlgebraicModuliForArithmeticGeometry--A0-extension
+# BP-AlgebraicModuliForArithmeticGeometry--A0-extension: native local-object sheaf transport
 
-Checkpoint by Codex — codex-J6LwjP, 3 October 2026. Refs #672. This is a partial blueprint, with no implementation or stage/key-definition closure.
+Codex — codex-7e92bd · 3 October 2026 · Refs #672 · **partial**.
 
-## Delivered mathematics
+This checkpoint adds20 declarations (four constructions and16 lemmas),15 API items and12 typed tests for transport of the existing slice Hom sheaf between supplied local gerbe objects. At t:T→U, an isomorphism e:x≅x′ induces p ↦ F(t)(e⁻¹) ≫ p ≫ F(t)(X_U(e)). The native pullHom comparisons prove restriction naturality. Reversing e gives the actual inverse, and composition/identity hold as sheaf maps.
 
-The local sheaf H_X is the existing Mathlib `G.sheafHom J y (X_U(x))` on `J.over U`, using the gerbe's inherited IsPrestack instance. Its native pullHom restrictions retain both flexible pseudofunctor composition comparisons. Gerbe invertibility identifies its Hom sections with actual isomorphisms. Native modifications act by postcomposition with their pulled-back components and form an actual functor to slice sheaves; inverse modifications give actual inverse sheaf maps.
+The strong-transformation restriction comparison identifies this sheaf map with the preceding fibre Isom transport. Its band-preserving independence proves equality for any two supplied connecting isomorphisms. The maps preserve the actual coefficient action and are natural in every native modification. They assemble into a natural isomorphism of sheaf-valued functors and then a functor from Mathlib’s existing Core(F(U)). Parallel core arrows have equal images; no local object or connecting isomorphism is selected. Coefficient universe w remains independent of the fibre-hom universe v′.
 
-Gerbe local isomorphy supplies sections on a covering sieve over every slice object. The prescribed band acts by postcomposition at the pulled-back target. Any two given sections differ by a unique coefficient; sections may be empty. Band pullback and conjugation prove semilinearity for every actual Over-arrow, with the full native restriction formula. Modification maps respect this action. Postcomposition by the inverse strong restriction comparison identifies sections with the preceding transported fibre-Isom carrier and respects its actual modification components.
+The12 parameterized tests cover automorphism-triviality, actual modification and inverse-modification squares, scalar compatibility, inverse round trips, empty section sets, choice independence, triple composition, actual Over-site restrictions, nonfaithfulness when distinct parallel arrows exist, and the native object/composition carriers. No fresh concrete geometric or nonconstant-site fixture was instantiated. Existing fibre transport and principal-sheaf comparison are reused; no generic core, torsor carrier or sheaf descent theory is replanned.
 
-There are28 new declarations (7constructions,21lemmas),21 API items and22 typed examples. Every new construction has at least3 API items and3 tests; the section action has4 tests. These are parameterized native-carrier checks, including conditional empty sections, local covering sieves, inverse maps, restrictions and modification squares. No new concrete geometric or nonconstant-site instance is claimed.
+All510 incoming mathematical contracts are preserved.508 whole node objects are identical; only the prerequisites and proof outlines of the two existing torsor-comparison parents are appended. All10 gaps,22 requests,8 source issues,10 planets and8 partial stages remain. The20 additions are supporting gluing declarations, so no new planet is introduced. Every implementation status remains unchecked. The packet has530 nodes,484 raw API entries and492 raw test objects. The complete incoming reader and suggested-file text are retained, with the new Core import and appended admitted projection in the latter.
 
-## Preservation and validation
+## Reading and provenance
 
-All482 incoming mathematical contracts remain.480 whole node objects are unchanged; only self-equivalence-torsor and neutral-self-equivalences append5 prerequisites and1 proof-outline step. Every other packet field is unchanged except the prefixed summary, appended source/baseline record, appended R09.4 coverage entry and continuation provenance. All10gaps,22requests,8source issues,10planets, source versions, routed items and eight partial stage statuses remain. The reserved gerbe id and all ownership boundaries remain.
+Read the complete44034-character issue before claiming, and checked the exact same body after bot confirmation of comment5971828999 by5971830470. Read the whole incoming handoff. Authenticated [PR6011](https://github.com/CBirkbeck/tauceti-explorer/pull/6011), head17f8f3cee9e30e23caac1c030c812a549156fc68, archive88f47760c97bbdfcb5bf63a81bf32ff3d5a1e510:40 artifacts,6 helpers and4 final deliverables. Its actual immutable verifier was executed and reproduced its published publication-base report. All four incoming final deliverables match this job’s mathematical base.
 
-The packet has510nodes,209baseline declarations,469raw API entries and480raw tests. The actual checker counts461 API items and447 required tests, with no errors or warnings. The actual intake path/private-path/JSON checks and source-version/source-issue checks pass. The immutable actual checker/intake/assembler were executed at mathematical base `bfaee0037f9da3fb3e72daae67bc80620d1dce22` and publication base `9d7e0ed5b1ebccd09e773dd07d9a821666ba6c49`.52 input files are hash-guarded unchanged across both bases.
+Freshly read all preceding28 sheaf-assembly proofs, the consumed self-transport and restriction-comparison proof blocks, all10 current gaps, torsor-related requests, existing principal-sheaf comparison nodes, and D0/D3 carrier boundaries. The whole inherited native prefix was recompiled without admissions; this is not a claim of fresh line-by-line review of every historical proof, every one of the510 old declarations, or every inherited paper. The predecessor’s six helpers have been read; only the adapted seven helpers named in this checkpoint are required for replay.
 
-The own declaration DAG has510vertices and1070edges; the scoped DAG has3520vertices and10303edges. Both are acyclic. The stage DAG is unchanged, acyclic with3017vertices and8655edges at both bases.24 required supplier pairs and40 touching accepted-restructuring pairs are reachable. No own skipped/pending link or unresolved prerequisite remains in this structural check. Foreign roadmaps and stages match exactly; unrelated skipped/pending paths and other blueprint parts are preserved. This does not discharge the recorded mathematical gaps.
+The same continuous session’s earlier required control readings for [PR6002](https://github.com/CBirkbeck/tauceti-explorer/pull/6002) are reused with their exact scopes:12 own reviewed audit rows and REV-AUDIT01, campaign reader, accepted RS27 owned decisions/28owners/relevant links and complete repair review, all34 own touching links, reserved gerbe and survey/API, nine prescribed red-team records, complete AlgebraicCurves/JacobianChallenge readings and the specified ModularCurves supplier paragraphs. All52 controls matched at the mathematical base. At publication51 remain whole-file identical; own merged PR6017 changes SF.0 in the supplier packet. SFBoundary.json verifies unchanged complete SF.1 node/coverage objects and all supplier requests/sourceWorklist entries. SF.1 remains not_read. No new supplier closure is inferred.
 
-The incoming peer PR[#6002](https://github.com/CBirkbeck/tauceti-explorer/pull/6002), full head `32901dc32d53431b9376153bf115cce36e9a454f`, was recovered over public HTTP:38 authenticated artifacts and4deliverables. Its actual verifier was executed, and its publication-base output equals the archived report. The recovered sources were read at the bounded native frontier; no fresh complete proof audit of482declarations is claimed.
+Fresh primary-source text readings: [Olsson, printed122–123](https://stacky.net/files/written/Stacks/Stacks.pdf), including Definition31.1, Remark31.2, complete31.3/31.4 proofs and Remark31.5, plus only the visible beginning/incompleteness warning of31.6; [GWZ20, Definition2.6 and §2.2.1, printed514–515](https://link.springer.com/content/pdf/10.1007/s00222-020-00957-8.pdf), through the automorphism-groupoid/torsor/transgression discussion. No rendered-page inspection or complete31.6 proof is claimed. SourceReading.json records fresh successful HTTP byte hashes without archiving the PDFs. The exact formulas and native coherence proofs are authored deductions. Inherited source-issue metadata remains attributed and unchanged; the new record uses the correct GWZ20 URL and exact Mathlib pin.
 
-## Lean evidence and its limits
+Fresh pinned source ranges and hashes are in Reading.json: IsPrestack.lean20–180, Bicategory/Functor/Cat.lean24–100 and Core.lean1–95. The native Hom sheaf, pullHom and flexible composition comparisons are reused. The two added baseline declarations are Core and CoreHom. Bounded exact-name searches of current packets and pinned Mathlib/TauCeti found no matching selfHomSheafTransport/selfHomSheafObjectFunctor export. Earlier PR/Zulip observations are inherited context, not a fresh comprehensive online search or library-absence certificate.
 
-Mathlib is exactly `082e2d37e8b0463410cdb532e111cd43d5a66174`; Lean is4.34.0-rc2, commit6a10ac8c22beadecabdbb0919c2b50214762f91d. Only an existing build was used, serially after immediate memory checks, each with a1200-second timeout. No Lake setup, build, cache download or language server was run; no process is left running.
+## Validation
 
-The independent `Native.lean` proof prototype contains74examples and103axiom audits, with0errors,0warnings and0admissions; every audit has only propext, Classical.choice and Quot.sound as applicable. Source SHA256: `83cfd4a825fca5cb84bea88dd7a18349a07566f2aecffdbcca7c998038aee46b`. Normalized diagnostic SHA256: `aee80d1d4d77c9021f5b5829d8b0fa92e8cf2175ca5d5deda433ed255768ef1d`. Its immediate available memory was35GiB.
+Required pins: Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 and TauCeti f790474821cf4256814db967cb154e7af3d0c369. The complete Tau Ceti-import Suggested.lean is **UNCOMPILED**. The available Tau Ceti checkout is cf386627e9176a3827c1a5fe804989fd94a4d216 and has no imported LongExactSequence olean. Canonical.lean in the evidence archive means the entire inherited **Mathlib-only projection**, not the complete final suggested file.
 
-The whole inherited `MathlibCanonical.lean` projection contains335examples and elaborates with exactly739admission warnings and no other diagnostic. Source SHA256: `8632a59113ebc4d8ffcd9ddb7bca9e6d77f07e53cad91fd4b95a45d4b6ae05d2`. Diagnostic SHA256: `2fe8690af5a075f480921a832a99f7b2d4482cda10c44a312e8786e27e036f2d`. Immediate available memory was36GiB. `projection.py` retains actual carriers/maps and admits lemma/example proofs; all28 new native and suggested declaration headers are checked for equality.
+Both checks ran serially in the existing exact Mathlib build with38GiB available, one Lean thread,8GiB limit and1200-second timeout. No Lake setup, cache download, library build or language server was used. No process from these checks remains running.
 
-The **full Tau Ceti suggested file is UNCOMPILED**. The existing Tau Ceti build has commitcf386627e9176a3827c1a5fe804989fd94a4d216 instead of the required f790474821cf4256814db967cb154e7af3d0c369 and lacks the imported LongExactSequence artifact. The Mathlib receipts do not claim a full Tau Ceti build. Every implementationStatus remains unchecked.
+- Native.lean: 2022 lines,86 examples,exit0;0 warnings, all admission warnings where present;123 axiom audits; peak RSS2203356KiB. Source SHA256 `e7dbc0b7f329aa63d376a3bdabf16e6d2f706f2b28e1b21a77eec2fa23a27aab`; log SHA256 `5050594da2773e075b6a19af7e11e20ee1adaf5c43769a0a62aea648be5d4703`.
+- Canonical.lean: 5972 lines,347 examples,exit0;771 warnings, all admission warnings where present;0 axiom audits; peak RSS3705316KiB. Source SHA256 `92d02bdd405cbbb54344d96088253de482b8ed18491b64163c079de57ef8f381`; log SHA256 `22dcd39c7c26c8cd74f91f5386ecbc43878082b71d7ef6ae8489dccb61a91ce2`.
 
-## Reading and boundaries
+Native.lean includes the exact predecessor proof text after the new import, followed by the20 new declarations,12 tests and20 new axiom audits. All123 audited axiom closures use only propext, Classical.choice and Quot.sound, with no sorryAx. The proof-free new suggested projection retains concrete carrier/map data and admits theorem/test bodies and proof fields. Its34 textual admissions cause32 declaration warnings; with739 inherited warnings, the whole Mathlib projection has771 admission warnings and no other warnings. Every new declaration header and projected body is checked mechanically against the native source. All implementation statuses remain unchecked.
 
-Fresh primary-source mathematical text: [Olsson, printed122–123 through Remark31.5](https://stacky.net/files/written/Stacks/Stacks.pdf), and [GWZ20 Definition2.6 and §2.2.1, printed514–515](https://link.springer.com/content/pdf/10.1007/s00222-020-00957-8.pdf). Read using the public PDF text tool; no rendered-page inspection or successful local GWZ PDF fetch is claimed. The visible incomplete Lemma31.6 warning and all inherited source corrections remain. Exact new formulas/proofs are authored deductions, not printed formulas or a completed classification proof.
+The actual indexed checker reports530 nodes,476 API items,459 definition tests,211 baseline references,10 planets and zero closed stages, without errors or warnings. Source-issue/version and actual intake/file checks pass. Real immutable atlas assembly yields acyclic stage3017/8655, own declaration530/1115 and scoped3540/10368 vertex/edge counts. All24 own required pairs and40 touching accepted restructure pairs are reachable. There are no unresolved leaves or own skipped/pending links. Every stage edge and every foreign roadmap/stage object remains unchanged; existing sibling parts are retained by the assembler.
 
-Fresh pinned statements include the entire presheafHom/pullHom/sheafHom and overMapCompPresheafHomIso branch, the IsStack-to-IsPrestack inheritance, and mapComp' with hom/inv naturality. Positive prior art is retained: generic Hom sheaf descent already exists. The open [effectiveness-of-descent PR24434](https://github.com/leanprover-community/mathlib4/pull/24434) body and dependency list and the bounded [Formalizing stacks discussion](https://leanprover-community.github.io/archive/stream/116395-maths/topic/Formalizing.20stacks.html) were read as design context; no unpinned code was adopted. Bounded open-PR gerbe search returned no result; this is not an exhaustive library-absence claim.
-
-The issue was read before claiming and entirely reread after the exact bot confirmation of comment5970390717. All12 own reviewed audit rows, REV-AUDIT01, reserved gerbe node/survey/API, nine prescribed red-team claim/verdict records, accepted RS27 owned decisions,28owners and26touching links, its accepted repair review and all34 touching link records were read. Earlier complete session reading of AlgebraicCurves/JacobianChallenge is retained with unchanged guards; no fresh whole-source/audit reread is claimed. Generic stackification, quotient/torsor/classifying carriers remain D0's; SF1's algebraic-space/atlas/descended-band obligations remain external; coherent duality retains its reserved owner. No foreign owner, stage or anchor document is changed.
+Mathematical base `631e9fcb88488b4326b2833e3e9edb8de127c020`; publication control `a7da8ba667e0bc42e50b6a3f6006dec3cd04b06b`. Verification-math.json and Verification.json record their actual checks. Declaration-index SHA256 `86649a7d5f35d1178a45fe7aa4713741d03d43ff3b37bb8c91a1da1c794c8ce1`. The final complete suggested file SHA256 is `6d6055d9d52cae197e2b5f76435d65d9f46406b63e686edda967f4c2286243a1`.
 
 ## Resume
 
-The local Isom sheaf is now constructed using the existing Mathlib sheafHom carrier, with the actual functor on modifications, inverse sheaf maps, covering-sieve local sections, a locally simply transitive band action, semilinear restriction and comparison to the earlier transported Isom sections. No new general sheaf descent theorem is required for this local construction. Package the data into D0's actual torsor groupoid and glue the choice-independent local objects for a nonneutral gerbe; then prove full faithfulness and the coherent inverse/unit/counit. Instantiate the22 parameterized checks on the existing nonconstant fixtures as further validation. Every inherited gap,22requests,8sourceIssues, SF1 descended-band comparison, nonneutral O(1) root example, derived H2, compatible fpqc limits and other stage obligations remains open.
+Use R09.4/sheaf-transport/object-functor, object-functor-parallel, equivariant and transport-comparison as the next gluing inputs. Supply actual local object covers and overlap refinements, descend the sheaves/actions/maps for the nonneutral gerbe, and package them in D0’s supplied torsor groupoid. The existing generic D0 carrier/comparison obligations remain requested; do not replace them by Prop-valued records assuming the conclusion. Prove full faithfulness and the coherent inverse/unit/counit before claiming equivalence with torsors. The already planned principal-sheaf comparison should be imported, not duplicated.
 
-Use `NewProofs.lean` and `Tests.lean` for the native local construction, and `IncomingNative.lean` for its actual preceding carriers. The new sheaf construction avoids an SF1 assumption of the Hom-sheaf conclusion. For a neutral object take F=G and y=x. The next step is to package the established sheaf/action/local-section data into the actual D0 torsor carrier, then glue on local gerbe objects with the earlier choice-independent natural transport. Do not replace full faithfulness or a coherent inverse strong transformation by a proposition field or pointwise family. Instantiate the existing nonconstant fixtures before claiming concrete site validation. No complete root-gerbe, H2 or profinite-limit proof is claimed.
+Instantiate these parameterized checks on the existing nonconstant fixtures as further validation. Preserve empty-section behavior and the actual coefficient restrictions. All inherited SF1 descended-band comparison, nonneutral O(1) root example, derived H2, compatible fpqc limits, source issues and other stage obligations remain open. This is a partial planning checkpoint.
 
 ## Public recovery and replay
 
-The final suggested file contains the canonical sketch, not this payload.40 authenticated text artifacts are stored in its inert historical archive ancestor `88f47760c97bbdfcb5bf63a81bf32ff3d5a1e510`. Manifest SHA256: `fa3b2803cc6d8e9e35ae8b5d91e05042999470c260025c229329685dd426f2b3`. The script below fetches that public immutable blob, authenticates each artifact's exact bytes/line count and fetches the4 current deliverables at a supplied full40-character PR head. It checks that the recovery script being executed is exactly the one in the current public handoff. No private path or later scratch access is needed.
+Archive commit `d8f47ec6478a201d1a30552d5201b508479c03dc` is an ancestor touching only this issue’s suggested file. Its40 inert artifacts include all8 authoring, projection, handoff, verifier, graph and compiler helpers. Manifest SHA256 `e1d5b8444ae1fa05938805fda7026ae1bd40afb8d9108418e5479929dbef7c90`; payload SHA256 `cffc9d6f20839a903e075c4fe1090c71b2b6dafe63623f1d0d2803be1b84e1f0`. The final suggested file has no archive payload and retains the complete Tau Ceti-import planning text.
 
-Save the exact fenced script as recover.py in disk scratch. Run `python3 recover.py RECOVERY_DIRECTORY FULL_PR_HEAD`. In an existing clone, run `PYTHONDONTWRITEBYTECODE=1 python3 RECOVERY_DIRECTORY/verify.py RECOVERY_DIRECTORY DECLARATION_INDEX`. Set `MODULI_VALIDATE_BASE=bfaee0037f9da3fb3e72daae67bc80620d1dce22` for the mathematical-base replay; omit it for the recorded publication base. Compare the JSON outputs exactly to verify-math.json and verify-pub.json. Recovery authenticates evidence; this verifier actually runs the immutable checker, intake and assembler but does not execute Lean. Optional serial Lean replay uses `run-lean.py Native.lean EXISTING_EXACT_MATHLIB_BUILD native-replay` and the analogous MathlibCanonical command; honor the20GiB floor and1200-second timeout, never create/build a project.
+Save the Python fence below as recover.py and run `python3 recover.py REPLAY_DIR FULL_PR_HEAD_SHA`. It fetches the immutable public archive and four final deliverables, authenticates hashes, sizes and line counts, binds this handoff’s mathematical prefix, and checks its own code against the public handoff. Inspect the recovered helpers. From an existing repository checkout containing both recorded bases, run `PYTHONDONTWRITEBYTECODE=1 python3 REPLAY_DIR/verify.py REPLAY_DIR DECLARATION_INDEX`. Use the prescribed pinned declarations.tsv and put REPLAY_DIR outside the checkout. The verifier executes the actual immutable checker, intake and atlas assembler without running Lean or creating a repository snapshot. Its result should equal Verification.json.
 
-The manifest authenticates these six replay helpers:
+Optional serial proof replay, using only an existing exact Mathlib build: `python3 REPLAY_DIR/runcheck.py REPLAY_DIR MATHLIB_CHECKOUT LEAN_BINARY Native.lean`, then the corresponding Canonical.lean command after it finishes. The runner checks pins, tracked cleanliness, dependencies, compiler version, memory≥20GiB and timeout. Canonical.lean here is the Mathlib-only projection; Suggested.lean is the complete, uncompiled Tau Ceti-import file. Diagnostic hashes authenticate the recorded runs; elapsed times and resource statistics vary on replay.
 
-- verify.py: `7ca8ca087a2baec4270ca89d2f9f42e2a3674d4fecaf968a4f24bae03076e0a7`.
-- graph.py: `2678ea587d981137eeffb36f7e1d825d82f8d004ec28197e76a7f986443e0820`.
-- projection.py: `e85ce32978cb840adb6bb8024942f10b9adb43a04d683e60cd25c117b096a13a`.
-- immutable_view.py: `3f54d96cb030713615be9fc7662ff206f56638fd02ec7f2bd067886d9941d7e3`.
-- run-lean.py: `76e439c62960e9c32f553e550b9e7dbc0826cf0c7e8d178f1c75d24adbdb78c8`.
-- make_packet.py: `57fa490bc41a6cd33317d52be2faf5c5f262f9393fab84e9e89f6b1b890b2269`.
-
-The archive also includes incoming recovery/executed-verifier receipts, old/new native and canonical sources, input guards, the complete incoming packet/reader/sketch/handoff, new plan, typed tests, source reading receipt and raw checker/graph reports. There is no claim that merely authenticating an artifact re-executes its proof or validates every historical mathematical conclusion.
+Public HTTP recovery and verifier replay at the final immutable head are checked before opening the PR. Disposable scratch is removed after submission; only this handoff’s replay evidence is retained.
 
 ## Script: recover.py
 
 ```python
-"""Recover public, hash-authenticated evidence. This does not execute Lean."""
+"""Recover public hash-authenticated native sheaf-transport evidence; never executes Lean."""
 from pathlib import Path
 import base64,hashlib,json,re,sys,urllib.request,zlib
 S=Path(sys.argv[1]).resolve();S.mkdir(parents=True,exist_ok=True)
 HEAD=sys.argv[2];assert re.fullmatch('[0-9a-f]{40}',HEAD)
 ROOT='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
-STEM='AlgebraicModuliForArithmeticGeometry--A0-extension'
-ARCHIVE='88f47760c97bbdfcb5bf63a81bf32ff3d5a1e510'
-MANIFEST_SHA='fa3b2803cc6d8e9e35ae8b5d91e05042999470c260025c229329685dd426f2b3'
-EXPECTED={'packets': 'bada4c4e2ba2a20eae3cde75b6604e60d124c599196ce393ce817dc6f2a1d725', 'readmes': '4acb79e22473f77304f6f9bf7df8abe6430e3c8f870df91b7b84507ebdfd6171', 'suggested': '2951c5bde1aef713ab01e9b3f9b86b262b745b931e4cbe661adabddd958e5b64'}
+RID='AlgebraicModuliForArithmeticGeometry--A0-extension'
+ARCHIVE='d8f47ec6478a201d1a30552d5201b508479c03dc'
+MANIFEST_SHA='e1d5b8444ae1fa05938805fda7026ae1bd40afb8d9108418e5479929dbef7c90'
+PAYLOAD_SHA='cffc9d6f20839a903e075c4fe1090c71b2b6dafe63623f1d0d2803be1b84e1f0'
+EXPECTED={'packets': 'd57142209eb28970d008387560ab0ff007626819a2c94388da3f3bf950e68703', 'readmes': '383040455852daa238ee5dea85bf6beacc84b343c37e5cc3f4e0ae238d145ccb', 'suggested': '6d6055d9d52cae197e2b5f76435d65d9f46406b63e686edda967f4c2286243a1'}
 sha=lambda b:hashlib.sha256(b).hexdigest()
 def fetch(ref,path):
- with urllib.request.urlopen(ROOT+ref+'/'+path,timeout=60)as r:return r.read()
-raw=fetch(ARCHIVE,'research/blueprint/suggested/'+STEM+'.lean').decode()
-payload=json.loads(raw.split('/- BEGIN ARCHIVED GERBE SHEAF ASSEMBLY PAYLOAD\n',1)[1].split('\nEND ARCHIVED GERBE SHEAF ASSEMBLY PAYLOAD -/',1)[0])
+ with urllib.request.urlopen(ROOT+ref+'/'+path,timeout=30)as r:return r.read()
+raw=fetch(ARCHIVE,'research/blueprint/suggested/'+RID+'.lean').decode()
+pb=(raw.split('/- BEGIN ARCHIVED SHEAF TRANSPORT PAYLOAD\n',1)[1].split('END ARCHIVED SHEAF TRANSPORT PAYLOAD -/',1)[0]).encode()
+assert sha(pb)==PAYLOAD_SHA
+payload=json.loads(pb)
 def unpack(name):
  b=zlib.decompress(base64.b64decode(payload[name]['data']));assert sha(b)==payload[name]['sha256'],name
  return b
 mb=unpack('artifact-manifest.json');assert sha(mb)==MANIFEST_SHA;meta=json.loads(mb)
 assert set(payload)==set(meta)|{'artifact-manifest.json'}
 for name,m in meta.items():
- assert Path(name).name==name
+ assert Path(name).name==name and name not in {'.','..'}
  b=unpack(name);assert sha(b)==m['sha256']and len(b)==m['bytes']and len(b.splitlines())==m['lines'],name
  (S/name).write_bytes(b)
 (S/'artifact-manifest.json').write_bytes(mb)
 public={}
 for folder,ext,name in [('packets','json','Candidate.json'),('readmes','md','Reader.md'),('suggested','lean','Suggested.lean'),('handoff','md','Handoff.md')]:
- path='research/blueprint/'+folder+'/'+('BP-'if folder=='handoff'else'')+STEM+'.'+ext
+ path='research/blueprint/'+folder+'/'+('BP-'if folder=='handoff'else'')+RID+'.'+ext
  b=fetch(HEAD,path)
  if folder in EXPECTED:assert sha(b)==EXPECTED[folder],path
  (S/name).write_bytes(b);public[path]=sha(b)
-assert (S/'Suggested.lean').read_bytes()==(S/'Canonical.lean').read_bytes()
+(S/(RID+'.json')).write_bytes((S/'Candidate.json').read_bytes())
 fence=chr(96)*3;handoff=(S/'Handoff.md').read_text()
+assert handoff.startswith((S/'HandoffBase.md').read_text())
 code=handoff.split('## Script: recover.py\n\n'+fence+'python\n',1)[1].split('\n'+fence+'\n',1)[0]+'\n'
 assert code==Path(__file__).read_text(),'Executed recovery script differs from current public handoff.'
 (S/'recover.py').write_text(code)
-receipt=dict(head=HEAD,archive=ARCHIVE,artifactsVerified=len(meta),helperHashesVerified=6,publicDeliverables=public,recoverySha256=sha(code.encode()),LeanExecuted=False)
+receipt=dict(head=HEAD,archive=ARCHIVE,artifactsVerified=len(meta),archivedHelpersVerified=8,publicDeliverables=public,recoverySha256=sha(code.encode()),LeanExecuted=False)
 (S/'public-recovery.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt,indent=2))
 ```
