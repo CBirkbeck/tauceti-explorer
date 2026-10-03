@@ -13,7 +13,7 @@
     "AlgebraicModuliForArithmeticGeometry:R09.7"
   ],
   "status": "partial",
-  "summary": "Native Hom-sheaf assembly checkpoint: 19 new declarations, three constructions, 13 API items and 12 tests. Use full StrongTrans composition coherence and Mathlib local-bijection gluing to specify fibrewise fullness in the inherited adapter universe convention. All 365 untouched incoming node objects and the old full-faithfulness contract are retained; that parent gains only two prerequisite edges and one proof step. All implementations stay unchecked. Partial checkpoint with 366 declaration nodes. Adds 25 actual StrongTrans pullback adapters: five constructions and twenty lemmas, sixteen API items and fifteen native carrier/orientation tests. The actual local equivalences now compare the correct target pullbacks; arbitrary deeper-slice coherence and inverse Hom-sheaf gluing remain open. All incoming general gerbe/key-definition statements, source issues, requests, planets and ownership contracts are preserved; only the general full-faithfulness node receives two supplier edges and one proof step. No stage or reserved key is closed. Object-descent continuation: 27 native adapter and proof nodes retain local objects and isomorphisms, all three DescentData equations, actual global image morphisms, and fibrewise equivalence; coherent banded inverse and universe normalization remain open. This continuation separates eight native fixed-band inverse/modification adapters, with an independent coefficient universe and admission-free prototype audits, from the still-requested generic coherent inverse StrongTrans. It does not certify the global gerbe equivalence.",
+  "summary": "Native fixed-band morphism groupoid checkpoint:17 declaration-sized refinements (one definition, three constructions, thirteen lemmas),16 API entries and12 typed tests. All420 incoming declarations retain their contracts; only the neutral/all self-equivalence parents gain one dependency and one proof step each. The420-node source coverage, ten gaps and22 supplier requests remain required. Native Hom-sheaf assembly checkpoint: 19 new declarations, three constructions, 13 API items and 12 tests. Use full StrongTrans composition coherence and Mathlib local-bijection gluing to specify fibrewise fullness in the inherited adapter universe convention. All 365 untouched incoming node objects and the old full-faithfulness contract are retained; that parent gains only two prerequisite edges and one proof step. All implementations stay unchecked. Partial checkpoint with 366 declaration nodes. Adds 25 actual StrongTrans pullback adapters: five constructions and twenty lemmas, sixteen API items and fifteen native carrier/orientation tests. The actual local equivalences now compare the correct target pullbacks; arbitrary deeper-slice coherence and inverse Hom-sheaf gluing remain open. All incoming general gerbe/key-definition statements, source issues, requests, planets and ownership contracts are preserved; only the general full-faithfulness node receives two supplier edges and one proof step. No stage or reserved key is closed. Object-descent continuation: 27 native adapter and proof nodes retain local objects and isomorphisms, all three DescentData equations, actual global image morphisms, and fibrewise equivalence; coherent banded inverse and universe normalization remain open. This continuation separates eight native fixed-band inverse/modification adapters, with an independent coefficient universe and admission-free prototype audits, from the still-requested generic coherent inverse StrongTrans. It does not certify the global gerbe equivalence.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1434,6 +1434,114 @@
         "sourceLine": 79,
         "provides": "Equality of the hom components implies equality of the actual isomorphisms, including inverses.",
         "checked": "Exact statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92. The corresponding native fixed-band adapter has an admission-free proof prototype and clean axiom audit."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Pseudofunctor.StrongTrans.isoMk",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Bicategory/Modification/Pseudo.lean",
+        "sourceLine": 156,
+        "sourceSha256": "e1a3ba61190d5e0d12e8922cbe1363a819e8a9ea59603ab2de67c483fcd15dd7",
+        "provides": "Constructs an actual modification isomorphism from component isomorphisms and forward modification naturality, supplying inverse naturality.",
+        "checked": "Exact statement, ambient hypotheses and relevant defining fields read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Pseudofunctor.StrongTrans.homCategory.ext",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Bicategory/Modification/Pseudo.lean",
+        "sourceLine": 149,
+        "sourceSha256": "e1a3ba61190d5e0d12e8922cbe1363a819e8a9ea59603ab2de67c483fcd15dd7",
+        "provides": "Equality of all actual Cat component modifications gives equality of native modification morphisms.",
+        "checked": "Exact statement, ambient hypotheses and relevant defining fields read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Cat.Hom.isoMk",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Category/Cat.lean",
+        "sourceLine": 160,
+        "sourceSha256": "9e0a731c46c8986adc4395a43e7cf14616db47ca16882b1f868bc85934beaa72",
+        "provides": "Converts an actual native natural isomorphism into a Cat 2-isomorphism.",
+        "checked": "Exact statement, ambient hypotheses and relevant defining fields read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Cat.Hom₂.ext",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Category/Cat.lean",
+        "sourceLine": 155,
+        "sourceSha256": "9e0a731c46c8986adc4395a43e7cf14616db47ca16882b1f868bc85934beaa72",
+        "provides": "Equality of underlying natural transformations gives equality of the Cat 2-morphisms.",
+        "checked": "Exact statement, ambient hypotheses and relevant defining fields read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ObjectProperty.FullSubcategory",
+        "kind": "structure",
+        "module": "Mathlib/CategoryTheory/ObjectProperty/FullSubcategory.lean",
+        "sourceLine": 39,
+        "sourceSha256": "1dff56d1a7b031144855d5400955be63212df3ef8d216a98bc41ebeddcb2f03d",
+        "provides": "The existing full-subcategory carrier retains a native object and its property; all underlying arrows are retained.",
+        "checked": "Exact statement, ambient hypotheses and relevant defining fields read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ObjectProperty.FullSubcategory.category",
+        "kind": "instance",
+        "module": "Mathlib/CategoryTheory/ObjectProperty/FullSubcategory.lean",
+        "sourceLine": 45,
+        "sourceSha256": "1dff56d1a7b031144855d5400955be63212df3ef8d216a98bc41ebeddcb2f03d",
+        "provides": "The inherited native category on a full subcategory.",
+        "checked": "Exact statement, ambient hypotheses and relevant defining fields read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ObjectProperty.ι",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/ObjectProperty/FullSubcategory.lean",
+        "sourceLine": 59,
+        "sourceSha256": "1dff56d1a7b031144855d5400955be63212df3ef8d216a98bc41ebeddcb2f03d",
+        "provides": "The native forgetful functor of the full subcategory.",
+        "checked": "Exact statement, ambient hypotheses and relevant defining fields read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ObjectProperty.homMk",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/ObjectProperty/FullSubcategory.lean",
+        "sourceLine": 83,
+        "sourceSha256": "1dff56d1a7b031144855d5400955be63212df3ef8d216a98bc41ebeddcb2f03d",
+        "provides": "Packages any underlying native morphism as a full-subcategory morphism.",
+        "checked": "Exact statement, ambient hypotheses and relevant defining fields read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ObjectProperty.fullyFaithfulι",
+        "kind": "abbrev",
+        "module": "Mathlib/CategoryTheory/ObjectProperty/FullSubcategory.lean",
+        "sourceLine": 92,
+        "sourceSha256": "1dff56d1a7b031144855d5400955be63212df3ef8d216a98bc41ebeddcb2f03d",
+        "provides": "Native data witnessing full faithfulness of the inclusion.",
+        "checked": "Exact statement, ambient hypotheses and relevant defining fields read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ObjectProperty.hom_ext",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/ObjectProperty/FullSubcategory.lean",
+        "sourceLine": 52,
+        "sourceSha256": "1dff56d1a7b031144855d5400955be63212df3ef8d216a98bc41ebeddcb2f03d",
+        "provides": "Equality of native underlying morphisms gives equality in the full subcategory.",
+        "checked": "Exact statement, ambient hypotheses and relevant defining fields read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Groupoid.ofIsIso",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Groupoid.lean",
+        "sourceLine": 136,
+        "sourceSha256": "3ffaa85173f3ffc0aa0198682046ab7f7f09406c72c50dd1e2c1652d7b58ada3",
+        "provides": "The native Groupoid construction for an existing category with every arrow IsIso.",
+        "checked": "Exact statement, ambient hypotheses and relevant defining fields read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsIso.inv_eq_of_hom_inv_id",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Iso.lean",
+        "sourceLine": 296,
+        "sourceSha256": "b47eab342f3e7d08f4ff8d4a16d4580b0273d63f1a790b25560236c92d4cace7",
+        "provides": "The chosen native inverse equals any supplied right inverse.",
+        "checked": "Exact statement, ambient hypotheses and relevant defining fields read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex codex-J6LwjP."
       }
     ]
   },
@@ -2203,6 +2311,20 @@
         "Bounded all-packet node search found no other owner of these fixed-band inverse/modification adapters. D0 owns generic ordinary stack/morphism machinery. Bounded pinned Bicategory/TauCeti category source searches found no matching gerbe or inverse-StrongTrans result; no exhaustive absence claim.",
         "Fresh bounded open Mathlib PR searches for gerbe and StrongTrans returned no results. Indexed Zulip Formalizing stacks discussion inspected for native fibres, pseudofunctors and descent-data design; no unpinned implementation is consumed."
       ]
+    },
+    {
+      "id": "OG-J6LwjP-native-banded-hom",
+      "title": "Fixed-band native morphism groupoids, motivated by Olsson–Geraschenko gerbe notes",
+      "authors": "Martin Olsson (lectures), Anton Geraschenko and course-note contributors; native deductions by Codex codex-J6LwjP",
+      "edition": "Exact author-hosted notes accessed 2026-10-03",
+      "url": "https://stacky.net/files/written/Stacks/Stacks.pdf",
+      "sha256": "716bf95c7a200194d5fd1f2af48372253fde5ea65487b5d362bcccb5e0b7426a",
+      "readSections": [
+        "Complete printed pages122–123: Definition31.1, Remark31.2, complete Lemma31.3 proof, Lemma31.4 and Remark31.5; only the visible beginning/warning of31.6.",
+        "Stacks06NZ full mathematical definition. The new exact formulas are authored deductions on native pinned carriers, not printed formulas or a completed H2 proof.",
+        "Exact pinned StrongTrans modification/homCategory/isoMk; Cat.Hom.isoMk, Cat.Hom₂.ext; NatIso.ofComponents; ObjectProperty.FullSubcategory/category/ι/homMk/fullyFaithfulι/hom_ext/isoMk; Groupoid.ofIsIso; native inverse uniqueness and Iso.ext."
+      ],
+      "readingAgent": "Codex — codex-J6LwjP"
     }
   ],
   "nodes": [
@@ -3351,13 +3473,15 @@
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/neutralization-equivalence",
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism",
-        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products"
+        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/groupoid"
       ],
       "proofSteps": [
         "Conjugate along F≃BA.",
         "Evaluate a band-preserving equivalence on the trivial torsor to obtain P.",
         "Locally trivialize Q to compare its image with Q⊗P; band preservation makes the comparison independent of the chosen trivialization.",
-        "Recover modifications by evaluation at the trivial torsor and descent, giving full faithfulness."
+        "Recover modifications by evaluation at the trivial torsor and descent, giving full faithfulness.",
+        "Use banded-hom/groupoid on the actual native fixed-band full subcategory. Its arrows retain all compatible modifications and their genuine component inverses. Constructing the torsor comparison functor, its full faithfulness and its coherent inverse remains a separate obligation; invertibility of modifications does not prove that comparison."
       ],
       "acceptance": [
         "For A=Z/3Z over an algebraically closed point, the self-equivalence groupoid has one isomorphism class and three automorphisms of its identity object.",
@@ -5055,12 +5179,14 @@
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
         "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
-        "DiamondsAndVStacks:D0/stackification"
+        "DiamondsAndVStacks:D0/stackification",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/groupoid"
       ],
       "proofSteps": [
         "On a cover with local objects, use the neutral-gerbe equivalence.",
         "Choice-independent transport glues both functors and their unit and counit.",
-        "Descent of modifications makes the functor fully faithful as a functor of groupoids."
+        "Descent of modifications makes the functor fully faithful as a functor of groupoids.",
+        "Use banded-hom/groupoid on the actual native fixed-band full subcategory. Its arrows retain all compatible modifications and their genuine component inverses. Constructing the torsor comparison functor, its full faithfulness and its coherent inverse remains a separate obligation; invertibility of modifications does not prove that comparison."
       ],
       "acceptance": [
         "Taking isomorphism classes gives H1(A), but the groupoid retains A automorphisms of the identity.",
@@ -25564,6 +25690,1096 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iso",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Native gerbe modifications with their actual inverses",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.modificationIso",
+      "statement": "For a native modification m:η⇒θ of strong transformations F→G with G a gerbe, construct an actual modification isomorphism M(m):η≅θ whose forward modification is m. Its inverse component at U,x is the inverse of the actual target-fibre arrow m(U,x). No band-preservation assumption is needed for this construction.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors in fixed object and morphism universes.",
+        "For the modification isomorphism family only G is required to be a gerbe. Fixed-band constructions additionally take IsGerbe F J, a specified sheaf A in independent coefficient universe w and actual bandings bF,bG.",
+        "No terminal object, global neutralization, constant coefficient sheaf, or equality of coefficient and fibre universes is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:key/gerbes",
+        "mathlib:CategoryTheory.Pseudofunctor.StrongTrans.isoMk",
+        "mathlib:CategoryTheory.Cat.Hom.isoMk",
+        "mathlib:CategoryTheory.NatIso.ofComponents"
+      ],
+      "proofSteps": [
+        "Apply the target gerbe groupoid projection to each actual component arrow.",
+        "Use native asIso and NatIso.ofComponents; the original natural-transformation equation supplies forward naturality.",
+        "Use StrongTrans.isoMk and the original modification equation; Mathlib supplies inverse modification naturality."
+      ],
+      "acceptance": [
+        "The actual carrier retains objects, morphisms, inverse components and their coherence; every implementation status stays unchecked.",
+        "These leaves do not supply the D0 coherent inverse transformation, the torsor comparison, derived H2 classification or profinite 2-limit effectivity."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "Retain all actual modifications before evaluating on the trivial torsor; comparison must be a functor of groupoids."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Descend actual modification isomorphisms for arbitrary, possibly nonneutral gerbes; no global neutralization is added."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "The torsor map uses the actual forward components and their inverse and composition equations."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-J6LwjP-native-banded-hom",
+          "locator": "Definition31.1, Remarks31.2/31.5 and Lemma31.3, printed122–123; exact native API specializations.",
+          "excerpt": "morphism",
+          "match": "Authored deduction from the gerbe target-fibre groupoid condition and pinned modification/full-subcategory constructors; not a printed groupoid construction or a replacement ordinary stack carrier."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "BandedMorphism.modificationIso_hom",
+          "role": "projection",
+          "statement": "For every m, M(m).hom=m as a native modification, including every component natural transformation."
+        },
+        {
+          "name": "BandedMorphism.modificationIso_inv_app",
+          "role": "simp",
+          "statement": "For every actual test object U and source object x, the (U,x) component of M(m).inv equals the native inverse of m(U,x)."
+        },
+        {
+          "name": "BandedMorphism.modificationIso_id",
+          "role": "functoriality",
+          "statement": "For every η, M(idη) is the native identity isomorphism of η."
+        },
+        {
+          "name": "BandedMorphism.modificationIso_comp",
+          "role": "functoriality",
+          "statement": "For composable native modifications m and n, M(m≫n)=M(m)≪≫M(n). The inverse thus uses reverse composition."
+        }
+      ],
+      "tests": [
+        {
+          "name": "BandedMorphismTests.modification_forward",
+          "kind": "compatibility",
+          "statement": "The forward modification of M(m) is exactly the supplied native m."
+        },
+        {
+          "name": "BandedMorphismTests.modification_inverse_component",
+          "kind": "computation",
+          "statement": "For each U,x the inverse component is the native inverse of m(U,x), with both endpoints retained."
+        },
+        {
+          "name": "BandedMorphismTests.modification_composition",
+          "kind": "compatibility",
+          "statement": "For actual composable m,n the constructed isomorphism of their composite is the composite of their constructed isomorphisms."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iso-hom",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The modification isomorphism keeps its forward arrow",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.modificationIso_hom",
+      "statement": "For every m, M(m).hom=m as a native modification, including every component natural transformation.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors in fixed object and morphism universes.",
+        "For the modification isomorphism family only G is required to be a gerbe. Fixed-band constructions additionally take IsGerbe F J, a specified sheaf A in independent coefficient universe w and actual bandings bF,bG.",
+        "No terminal object, global neutralization, constant coefficient sheaf, or equality of coefficient and fibre universes is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iso",
+        "mathlib:CategoryTheory.Pseudofunctor.StrongTrans.homCategory.ext",
+        "mathlib:CategoryTheory.Cat.Hom₂.ext"
+      ],
+      "proofSteps": [
+        "Use native modification and Cat 2-morphism extensionality; the component is the original m by construction."
+      ],
+      "acceptance": [
+        "The actual carrier retains objects, morphisms, inverse components and their coherence; every implementation status stays unchecked.",
+        "These leaves do not supply the D0 coherent inverse transformation, the torsor comparison, derived H2 classification or profinite 2-limit effectivity."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "Retain all actual modifications before evaluating on the trivial torsor; comparison must be a functor of groupoids."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Descend actual modification isomorphisms for arbitrary, possibly nonneutral gerbes; no global neutralization is added."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "The torsor map uses the actual forward components and their inverse and composition equations."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-J6LwjP-native-banded-hom",
+          "locator": "Definition31.1, Remarks31.2/31.5 and Lemma31.3, printed122–123; exact native API specializations.",
+          "excerpt": "morphism",
+          "match": "Authored deduction from the gerbe target-fibre groupoid condition and pinned modification/full-subcategory constructors; not a printed groupoid construction or a replacement ordinary stack carrier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iso-inv-app",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The inverse modification is computed in the fibre",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.modificationIso_inv_app",
+      "statement": "For every actual test object U and source object x, the (U,x) component of M(m).inv equals the native inverse of m(U,x).",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors in fixed object and morphism universes.",
+        "For the modification isomorphism family only G is required to be a gerbe. Fixed-band constructions additionally take IsGerbe F J, a specified sheaf A in independent coefficient universe w and actual bandings bF,bG.",
+        "No terminal object, global neutralization, constant coefficient sheaf, or equality of coefficient and fibre universes is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iso"
+      ],
+      "proofSteps": [
+        "Evaluate the two native iso constructors and the asIso inverse field; their definitions give the displayed inverse."
+      ],
+      "acceptance": [
+        "The actual carrier retains objects, morphisms, inverse components and their coherence; every implementation status stays unchecked.",
+        "These leaves do not supply the D0 coherent inverse transformation, the torsor comparison, derived H2 classification or profinite 2-limit effectivity."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "Retain all actual modifications before evaluating on the trivial torsor; comparison must be a functor of groupoids."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Descend actual modification isomorphisms for arbitrary, possibly nonneutral gerbes; no global neutralization is added."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "The torsor map uses the actual forward components and their inverse and composition equations."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-J6LwjP-native-banded-hom",
+          "locator": "Definition31.1, Remarks31.2/31.5 and Lemma31.3, printed122–123; exact native API specializations.",
+          "excerpt": "morphism",
+          "match": "Authored deduction from the gerbe target-fibre groupoid condition and pinned modification/full-subcategory constructors; not a printed groupoid construction or a replacement ordinary stack carrier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iso-id",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The modification inverse construction preserves identity",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.modificationIso_id",
+      "statement": "For every η, M(idη) is the native identity isomorphism of η.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors in fixed object and morphism universes.",
+        "For the modification isomorphism family only G is required to be a gerbe. Fixed-band constructions additionally take IsGerbe F J, a specified sheaf A in independent coefficient universe w and actual bandings bF,bG.",
+        "No terminal object, global neutralization, constant coefficient sheaf, or equality of coefficient and fibre universes is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iso-hom",
+        "mathlib:CategoryTheory.Iso.ext"
+      ],
+      "proofSteps": [
+        "Apply Iso.ext and the forward-arrow equation to the identity modification."
+      ],
+      "acceptance": [
+        "The actual carrier retains objects, morphisms, inverse components and their coherence; every implementation status stays unchecked.",
+        "These leaves do not supply the D0 coherent inverse transformation, the torsor comparison, derived H2 classification or profinite 2-limit effectivity."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "Retain all actual modifications before evaluating on the trivial torsor; comparison must be a functor of groupoids."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Descend actual modification isomorphisms for arbitrary, possibly nonneutral gerbes; no global neutralization is added."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "The torsor map uses the actual forward components and their inverse and composition equations."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-J6LwjP-native-banded-hom",
+          "locator": "Definition31.1, Remarks31.2/31.5 and Lemma31.3, printed122–123; exact native API specializations.",
+          "excerpt": "morphism",
+          "match": "Authored deduction from the gerbe target-fibre groupoid condition and pinned modification/full-subcategory constructors; not a printed groupoid construction or a replacement ordinary stack carrier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iso-comp",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The modification inverse construction preserves composition",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.modificationIso_comp",
+      "statement": "For composable native modifications m and n, M(m≫n)=M(m)≪≫M(n). The inverse thus uses reverse composition.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors in fixed object and morphism universes.",
+        "For the modification isomorphism family only G is required to be a gerbe. Fixed-band constructions additionally take IsGerbe F J, a specified sheaf A in independent coefficient universe w and actual bandings bF,bG.",
+        "No terminal object, global neutralization, constant coefficient sheaf, or equality of coefficient and fibre universes is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iso-hom",
+        "mathlib:CategoryTheory.Iso.ext"
+      ],
+      "proofSteps": [
+        "Apply Iso.ext and rewrite the three forward arrows with modificationIso_hom."
+      ],
+      "acceptance": [
+        "The actual carrier retains objects, morphisms, inverse components and their coherence; every implementation status stays unchecked.",
+        "These leaves do not supply the D0 coherent inverse transformation, the torsor comparison, derived H2 classification or profinite 2-limit effectivity."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "Retain all actual modifications before evaluating on the trivial torsor; comparison must be a functor of groupoids."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Descend actual modification isomorphisms for arbitrary, possibly nonneutral gerbes; no global neutralization is added."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "The torsor map uses the actual forward components and their inverse and composition equations."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-J6LwjP-native-banded-hom",
+          "locator": "Definition31.1, Remarks31.2/31.5 and Lemma31.3, printed122–123; exact native API specializations.",
+          "excerpt": "morphism",
+          "match": "Authored deduction from the gerbe target-fibre groupoid condition and pinned modification/full-subcategory constructors; not a printed groupoid construction or a replacement ordinary stack carrier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iff",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Every native gerbe modification transports the fixed band",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.modification_iff",
+      "statement": "For native m:η⇒θ between F→G and specified bands bF,bG, BandPreserving(bF,bG,η) if and only if BandPreserving(bF,bG,θ). No additional IsIso(m) assumption is required because G is a gerbe.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors in fixed object and morphism universes.",
+        "For the modification isomorphism family only G is required to be a gerbe. Fixed-band constructions additionally take IsGerbe F J, a specified sheaf A in independent coefficient universe w and actual bandings bF,bG.",
+        "No terminal object, global neutralization, constant coefficient sheaf, or equality of coefficient and fibre universes is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/inverse-band/modification-iff"
+      ],
+      "proofSteps": [
+        "Supply M(m) to the incoming modificationIso_iff fixed-band adapter. The reverse implication uses its inverse."
+      ],
+      "acceptance": [
+        "The actual carrier retains objects, morphisms, inverse components and their coherence; every implementation status stays unchecked.",
+        "These leaves do not supply the D0 coherent inverse transformation, the torsor comparison, derived H2 classification or profinite 2-limit effectivity."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "Retain all actual modifications before evaluating on the trivial torsor; comparison must be a functor of groupoids."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Descend actual modification isomorphisms for arbitrary, possibly nonneutral gerbes; no global neutralization is added."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "The torsor map uses the actual forward components and their inverse and composition equations."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-J6LwjP-native-banded-hom",
+          "locator": "Definition31.1, Remarks31.2/31.5 and Lemma31.3, printed122–123; exact native API specializations.",
+          "excerpt": "morphism",
+          "match": "Authored deduction from the gerbe target-fibre groupoid condition and pinned modification/full-subcategory constructors; not a printed groupoid construction or a replacement ordinary stack carrier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-category",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The native category of fixed-band morphisms",
+      "kind": "definition",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.HomCategory",
+      "statement": "For A-banded gerbes (F,bF),(G,bG), take the existing full subcategory of native StrongTrans(F,G) on the property BandPreserving(bF,bG,η). Its objects are actual strong transformations with that property; its arrows are all native modifications between them, with their inherited identity and composition. No quotient of objects or arrows is taken.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors in fixed object and morphism universes.",
+        "For the modification isomorphism family only G is required to be a gerbe. Fixed-band constructions additionally take IsGerbe F J, a specified sheaf A in independent coefficient universe w and actual bandings bF,bG.",
+        "No terminal object, global neutralization, constant coefficient sheaf, or equality of coefficient and fibre universes is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism",
+        "mathlib:CategoryTheory.Pseudofunctor.StrongTrans.homCategory",
+        "mathlib:CategoryTheory.ObjectProperty.FullSubcategory",
+        "mathlib:CategoryTheory.ObjectProperty.FullSubcategory.category",
+        "mathlib:CategoryTheory.ObjectProperty.ι",
+        "mathlib:CategoryTheory.ObjectProperty.homMk",
+        "mathlib:CategoryTheory.ObjectProperty.fullyFaithfulι"
+      ],
+      "proofSteps": [
+        "Specialize the existing ObjectProperty.FullSubcategory carrier to the specified band equation.",
+        "Reuse the native StrongTrans modification category and native full-subcategory identity/composition.",
+        "Object and arrow constructors and the fully faithful forgetful functor are exact specializations of the native API, not a second general carrier."
+      ],
+      "acceptance": [
+        "The actual carrier retains objects, morphisms, inverse components and their coherence; every implementation status stays unchecked.",
+        "These leaves do not supply the D0 coherent inverse transformation, the torsor comparison, derived H2 classification or profinite 2-limit effectivity."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "Retain all actual modifications before evaluating on the trivial torsor; comparison must be a functor of groupoids."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Descend actual modification isomorphisms for arbitrary, possibly nonneutral gerbes; no global neutralization is added."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "The torsor map uses the actual forward components and their inverse and composition equations."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-J6LwjP-native-banded-hom",
+          "locator": "Definition31.1, Remarks31.2/31.5 and Lemma31.3, printed122–123; exact native API specializations.",
+          "excerpt": "morphism",
+          "match": "Authored deduction from the gerbe target-fibre groupoid condition and pinned modification/full-subcategory constructors; not a printed groupoid construction or a replacement ordinary stack carrier."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "BandedMorphism.mk",
+          "role": "constructor",
+          "statement": "An actual band-preserving transformation with its specified band property is an object of the native fixed-band full subcategory."
+        },
+        {
+          "name": "BandedMorphism.homMk",
+          "role": "constructor",
+          "statement": "Every actual underlying modification between fixed-band objects packages as an arrow of the full subcategory."
+        },
+        {
+          "name": "BandedMorphism.forget",
+          "role": "coercion",
+          "statement": "The native inclusion functor forgets only the fixed-band object property and retains every modification."
+        },
+        {
+          "name": "BandedMorphism.forget_fullyFaithful",
+          "role": "compatibility",
+          "statement": "The native inclusion of the fixed-band full subcategory has the existing fully faithful data of ObjectProperty.fullyFaithfulι."
+        },
+        {
+          "name": "BandedMorphism.hom_ext",
+          "role": "extensionality",
+          "statement": "For m,n:X⇒Y in the fixed-band category, equality of their underlying natural transformations at every U implies m=n."
+        },
+        {
+          "name": "BandedMorphism.modification_iff",
+          "role": "characterisation",
+          "statement": "For native m:η⇒θ between F→G and specified bands bF,bG, BandPreserving(bF,bG,η) if and only if BandPreserving(bF,bG,θ). No additional IsIso(m) assumption is required because G is a gerbe."
+        }
+      ],
+      "tests": [
+        {
+          "name": "BandedMorphismTests.carrier_arrows",
+          "kind": "characterisation",
+          "statement": "Every native underlying modification m:X.obj⇒Y.obj lifts and is recovered exactly; no arrow is discarded."
+        },
+        {
+          "name": "BandedMorphismTests.carrier_distinct_arrows",
+          "kind": "non-example",
+          "statement": "If two actual fixed-band modifications m,n are distinct, their forgotten modifications remain distinct. Replacing the groupoid by isomorphism classes cannot satisfy this test."
+        },
+        {
+          "name": "BandedMorphismTests.carrier_band",
+          "kind": "compatibility",
+          "statement": "A supplied band-preserving native transformation η maps to a fixed-band object whose forgotten transformation is exactly η."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-ext",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Fixed-band modifications are determined by actual components",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.hom_ext",
+      "statement": "For m,n:X⇒Y in the fixed-band category, equality of their underlying natural transformations at every U implies m=n.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors in fixed object and morphism universes.",
+        "For the modification isomorphism family only G is required to be a gerbe. Fixed-band constructions additionally take IsGerbe F J, a specified sheaf A in independent coefficient universe w and actual bandings bF,bG.",
+        "No terminal object, global neutralization, constant coefficient sheaf, or equality of coefficient and fibre universes is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-category",
+        "mathlib:CategoryTheory.ObjectProperty.hom_ext",
+        "mathlib:CategoryTheory.Pseudofunctor.StrongTrans.homCategory.ext",
+        "mathlib:CategoryTheory.Cat.Hom₂.ext"
+      ],
+      "proofSteps": [
+        "Apply native full-subcategory hom_ext, native modification component extensionality and Cat.Hom₂.ext. Every LocallyDiscrete opposite object is a test object U."
+      ],
+      "acceptance": [
+        "The actual carrier retains objects, morphisms, inverse components and their coherence; every implementation status stays unchecked.",
+        "These leaves do not supply the D0 coherent inverse transformation, the torsor comparison, derived H2 classification or profinite 2-limit effectivity."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "Retain all actual modifications before evaluating on the trivial torsor; comparison must be a functor of groupoids."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Descend actual modification isomorphisms for arbitrary, possibly nonneutral gerbes; no global neutralization is added."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "The torsor map uses the actual forward components and their inverse and composition equations."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-J6LwjP-native-banded-hom",
+          "locator": "Definition31.1, Remarks31.2/31.5 and Lemma31.3, printed122–123; exact native API specializations.",
+          "excerpt": "morphism",
+          "match": "Authored deduction from the gerbe target-fibre groupoid condition and pinned modification/full-subcategory constructors; not a printed groupoid construction or a replacement ordinary stack carrier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-iso",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Every fixed-band modification has an inverse in the same category",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.homIso",
+      "statement": "For any m:X⇒Y in the fixed-band category, lift M(m.hom) using native ObjectProperty.isoMk to an actual isomorphism X≅Y in that category. Its inverse connects the same specified band-preserving endpoints; no new object or equivalence-class representative is chosen.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors in fixed object and morphism universes.",
+        "For the modification isomorphism family only G is required to be a gerbe. Fixed-band constructions additionally take IsGerbe F J, a specified sheaf A in independent coefficient universe w and actual bandings bF,bG.",
+        "No terminal object, global neutralization, constant coefficient sheaf, or equality of coefficient and fibre universes is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-category",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iso",
+        "mathlib:CategoryTheory.ObjectProperty.isoMk"
+      ],
+      "proofSteps": [
+        "Apply the native full-subcategory iso constructor to the actual underlying modification isomorphism.",
+        "The endpoints already carry the band property, so no property on a separate arrow surrogate is imposed."
+      ],
+      "acceptance": [
+        "The actual carrier retains objects, morphisms, inverse components and their coherence; every implementation status stays unchecked.",
+        "These leaves do not supply the D0 coherent inverse transformation, the torsor comparison, derived H2 classification or profinite 2-limit effectivity."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "Retain all actual modifications before evaluating on the trivial torsor; comparison must be a functor of groupoids."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Descend actual modification isomorphisms for arbitrary, possibly nonneutral gerbes; no global neutralization is added."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "The torsor map uses the actual forward components and their inverse and composition equations."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-J6LwjP-native-banded-hom",
+          "locator": "Definition31.1, Remarks31.2/31.5 and Lemma31.3, printed122–123; exact native API specializations.",
+          "excerpt": "morphism",
+          "match": "Authored deduction from the gerbe target-fibre groupoid condition and pinned modification/full-subcategory constructors; not a printed groupoid construction or a replacement ordinary stack carrier."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "BandedMorphism.homIso_hom",
+          "role": "projection",
+          "statement": "For every m:X⇒Y, homIso(m).hom=m in the fixed-band category."
+        },
+        {
+          "name": "BandedMorphism.homIso_inv_app",
+          "role": "simp",
+          "statement": "For every m:X⇒Y, U and x, the underlying (U,x) component of homIso(m).inv is the native inverse of the component of m."
+        },
+        {
+          "name": "BandedMorphism.homIso_comp",
+          "role": "functoriality",
+          "statement": "For m:X⇒Y and n:Y⇒Z, homIso(m≫n)=homIso(m)≪≫homIso(n)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "BandedMorphismTests.hom_forward",
+          "kind": "compatibility",
+          "statement": "Lifting an actual fixed-band modification to an isomorphism retains its exact forward arrow."
+        },
+        {
+          "name": "BandedMorphismTests.hom_inverse_component",
+          "kind": "computation",
+          "statement": "After forgetting the fixed-band inverse, each actual (U,x) component is the inverse of the original component."
+        },
+        {
+          "name": "BandedMorphismTests.hom_composition",
+          "kind": "compatibility",
+          "statement": "For actual fixed-band m,n the constructed isomorphism of the composite is their composite isomorphism."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-iso-hom",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The fixed-band isomorphism keeps the given modification",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.homIso_hom",
+      "statement": "For every m:X⇒Y, homIso(m).hom=m in the fixed-band category.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors in fixed object and morphism universes.",
+        "For the modification isomorphism family only G is required to be a gerbe. Fixed-band constructions additionally take IsGerbe F J, a specified sheaf A in independent coefficient universe w and actual bandings bF,bG.",
+        "No terminal object, global neutralization, constant coefficient sheaf, or equality of coefficient and fibre universes is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-iso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iso-hom",
+        "mathlib:CategoryTheory.ObjectProperty.hom_ext"
+      ],
+      "proofSteps": [
+        "Apply full-subcategory hom_ext and modificationIso_hom."
+      ],
+      "acceptance": [
+        "The actual carrier retains objects, morphisms, inverse components and their coherence; every implementation status stays unchecked.",
+        "These leaves do not supply the D0 coherent inverse transformation, the torsor comparison, derived H2 classification or profinite 2-limit effectivity."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "Retain all actual modifications before evaluating on the trivial torsor; comparison must be a functor of groupoids."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Descend actual modification isomorphisms for arbitrary, possibly nonneutral gerbes; no global neutralization is added."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "The torsor map uses the actual forward components and their inverse and composition equations."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-J6LwjP-native-banded-hom",
+          "locator": "Definition31.1, Remarks31.2/31.5 and Lemma31.3, printed122–123; exact native API specializations.",
+          "excerpt": "morphism",
+          "match": "Authored deduction from the gerbe target-fibre groupoid condition and pinned modification/full-subcategory constructors; not a printed groupoid construction or a replacement ordinary stack carrier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-is-iso",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Every fixed-band modification is invertible",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.hom_isIso",
+      "statement": "Every native arrow m:X⇒Y of the fixed-band category satisfies IsIso(m), with no fully faithful or component-equivalence assumption on X or Y.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors in fixed object and morphism universes.",
+        "For the modification isomorphism family only G is required to be a gerbe. Fixed-band constructions additionally take IsGerbe F J, a specified sheaf A in independent coefficient universe w and actual bandings bF,bG.",
+        "No terminal object, global neutralization, constant coefficient sheaf, or equality of coefficient and fibre universes is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-iso-hom"
+      ],
+      "proofSteps": [
+        "Replace m by the hom of homIso(m), then use the existing IsIso instance for an isomorphism hom."
+      ],
+      "acceptance": [
+        "The actual carrier retains objects, morphisms, inverse components and their coherence; every implementation status stays unchecked.",
+        "These leaves do not supply the D0 coherent inverse transformation, the torsor comparison, derived H2 classification or profinite 2-limit effectivity."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "Retain all actual modifications before evaluating on the trivial torsor; comparison must be a functor of groupoids."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Descend actual modification isomorphisms for arbitrary, possibly nonneutral gerbes; no global neutralization is added."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "The torsor map uses the actual forward components and their inverse and composition equations."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-J6LwjP-native-banded-hom",
+          "locator": "Definition31.1, Remarks31.2/31.5 and Lemma31.3, printed122–123; exact native API specializations.",
+          "excerpt": "morphism",
+          "match": "Authored deduction from the gerbe target-fibre groupoid condition and pinned modification/full-subcategory constructors; not a printed groupoid construction or a replacement ordinary stack carrier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-iso-inv-app",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The fixed-band inverse has the actual fibre inverse",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.homIso_inv_app",
+      "statement": "For every m:X⇒Y, U and x, the underlying (U,x) component of homIso(m).inv is the native inverse of the component of m.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors in fixed object and morphism universes.",
+        "For the modification isomorphism family only G is required to be a gerbe. Fixed-band constructions additionally take IsGerbe F J, a specified sheaf A in independent coefficient universe w and actual bandings bF,bG.",
+        "No terminal object, global neutralization, constant coefficient sheaf, or equality of coefficient and fibre universes is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-iso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/modification-iso-inv-app"
+      ],
+      "proofSteps": [
+        "Evaluate native ObjectProperty.isoMk; its underlying inverse is M(m.hom).inv. Evaluate the component inverse equation."
+      ],
+      "acceptance": [
+        "The actual carrier retains objects, morphisms, inverse components and their coherence; every implementation status stays unchecked.",
+        "These leaves do not supply the D0 coherent inverse transformation, the torsor comparison, derived H2 classification or profinite 2-limit effectivity."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "Retain all actual modifications before evaluating on the trivial torsor; comparison must be a functor of groupoids."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Descend actual modification isomorphisms for arbitrary, possibly nonneutral gerbes; no global neutralization is added."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "The torsor map uses the actual forward components and their inverse and composition equations."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-J6LwjP-native-banded-hom",
+          "locator": "Definition31.1, Remarks31.2/31.5 and Lemma31.3, printed122–123; exact native API specializations.",
+          "excerpt": "morphism",
+          "match": "Authored deduction from the gerbe target-fibre groupoid condition and pinned modification/full-subcategory constructors; not a printed groupoid construction or a replacement ordinary stack carrier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-iso-comp",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Fixed-band modification inverses respect composition",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.homIso_comp",
+      "statement": "For m:X⇒Y and n:Y⇒Z, homIso(m≫n)=homIso(m)≪≫homIso(n).",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors in fixed object and morphism universes.",
+        "For the modification isomorphism family only G is required to be a gerbe. Fixed-band constructions additionally take IsGerbe F J, a specified sheaf A in independent coefficient universe w and actual bandings bF,bG.",
+        "No terminal object, global neutralization, constant coefficient sheaf, or equality of coefficient and fibre universes is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-iso-hom",
+        "mathlib:CategoryTheory.Iso.ext"
+      ],
+      "proofSteps": [
+        "Compare forward morphisms using Iso.ext and homIso_hom."
+      ],
+      "acceptance": [
+        "The actual carrier retains objects, morphisms, inverse components and their coherence; every implementation status stays unchecked.",
+        "These leaves do not supply the D0 coherent inverse transformation, the torsor comparison, derived H2 classification or profinite 2-limit effectivity."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "Retain all actual modifications before evaluating on the trivial torsor; comparison must be a functor of groupoids."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Descend actual modification isomorphisms for arbitrary, possibly nonneutral gerbes; no global neutralization is added."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "The torsor map uses the actual forward components and their inverse and composition equations."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-J6LwjP-native-banded-hom",
+          "locator": "Definition31.1, Remarks31.2/31.5 and Lemma31.3, printed122–123; exact native API specializations.",
+          "excerpt": "morphism",
+          "match": "Authored deduction from the gerbe target-fibre groupoid condition and pinned modification/full-subcategory constructors; not a printed groupoid construction or a replacement ordinary stack carrier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/groupoid",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The groupoid of all native fixed-band modifications",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.groupoid",
+      "statement": "On the fixed-band full subcategory construct native Groupoid.ofIsIso using hom_isIso. The underlying category is the same native full subcategory, and its chosen inverse of m equals homIso(m).inv. This is the morphism groupoid required before the self-equivalence/torsor comparison; it does not construct the missing coherent inverse strong transformation.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors in fixed object and morphism universes.",
+        "For the modification isomorphism family only G is required to be a gerbe. Fixed-band constructions additionally take IsGerbe F J, a specified sheaf A in independent coefficient universe w and actual bandings bF,bG.",
+        "No terminal object, global neutralization, constant coefficient sheaf, or equality of coefficient and fibre universes is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-category",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-is-iso",
+        "mathlib:CategoryTheory.Groupoid.ofIsIso"
+      ],
+      "proofSteps": [
+        "Supply every native modification IsIso from hom_isIso to Groupoid.ofIsIso.",
+        "Reuse the underlying category unchanged and identify its chosen inverse with the actual fibre-inverse isomorphism by native inverse uniqueness."
+      ],
+      "acceptance": [
+        "The actual carrier retains objects, morphisms, inverse components and their coherence; every implementation status stays unchecked.",
+        "These leaves do not supply the D0 coherent inverse transformation, the torsor comparison, derived H2 classification or profinite 2-limit effectivity."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "Retain all actual modifications before evaluating on the trivial torsor; comparison must be a functor of groupoids."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Descend actual modification isomorphisms for arbitrary, possibly nonneutral gerbes; no global neutralization is added."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "The torsor map uses the actual forward components and their inverse and composition equations."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-J6LwjP-native-banded-hom",
+          "locator": "Definition31.1, Remarks31.2/31.5 and Lemma31.3, printed122–123; exact native API specializations.",
+          "excerpt": "morphism",
+          "match": "Authored deduction from the gerbe target-fibre groupoid condition and pinned modification/full-subcategory constructors; not a printed groupoid construction or a replacement ordinary stack carrier."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "BandedMorphism.groupoid_inv",
+          "role": "compatibility",
+          "statement": "For every m:X⇒Y, the native groupoid inverse is homIso(m).inv."
+        },
+        {
+          "name": "BandedMorphism.groupoid_comp_inv",
+          "role": "structure",
+          "statement": "For m:X⇒Y, m≫groupoid.inv(m)=idX as an actual modification."
+        },
+        {
+          "name": "BandedMorphism.groupoid_inv_comp",
+          "role": "structure",
+          "statement": "For m:X⇒Y, groupoid.inv(m)≫m=idY as an actual modification."
+        }
+      ],
+      "tests": [
+        {
+          "name": "BandedMorphismTests.groupoid_inverse",
+          "kind": "characterisation",
+          "statement": "The chosen native groupoid inverse agrees with the inverse of the actual homIso construction."
+        },
+        {
+          "name": "BandedMorphismTests.groupoid_right_inverse",
+          "kind": "compatibility",
+          "statement": "A supplied native modification composed with its groupoid inverse equals the identity of its source object."
+        },
+        {
+          "name": "BandedMorphismTests.groupoid_left_inverse",
+          "kind": "compatibility",
+          "statement": "Its groupoid inverse composed with the supplied native modification equals the identity of its target object."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/groupoid-inv",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The groupoid inverse agrees with the supplied modification inverse",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.groupoid_inv",
+      "statement": "For every m:X⇒Y, the native groupoid inverse is homIso(m).inv.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors in fixed object and morphism universes.",
+        "For the modification isomorphism family only G is required to be a gerbe. Fixed-band constructions additionally take IsGerbe F J, a specified sheaf A in independent coefficient universe w and actual bandings bF,bG.",
+        "No terminal object, global neutralization, constant coefficient sheaf, or equality of coefficient and fibre universes is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/groupoid",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-iso-hom",
+        "mathlib:CategoryTheory.IsIso.inv_eq_of_hom_inv_id"
+      ],
+      "proofSteps": [
+        "Use the right-inverse law of homIso(m) after its forward arrow is identified with m; apply native inverse uniqueness."
+      ],
+      "acceptance": [
+        "The actual carrier retains objects, morphisms, inverse components and their coherence; every implementation status stays unchecked.",
+        "These leaves do not supply the D0 coherent inverse transformation, the torsor comparison, derived H2 classification or profinite 2-limit effectivity."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "Retain all actual modifications before evaluating on the trivial torsor; comparison must be a functor of groupoids."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Descend actual modification isomorphisms for arbitrary, possibly nonneutral gerbes; no global neutralization is added."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "The torsor map uses the actual forward components and their inverse and composition equations."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-J6LwjP-native-banded-hom",
+          "locator": "Definition31.1, Remarks31.2/31.5 and Lemma31.3, printed122–123; exact native API specializations.",
+          "excerpt": "morphism",
+          "match": "Authored deduction from the gerbe target-fibre groupoid condition and pinned modification/full-subcategory constructors; not a printed groupoid construction or a replacement ordinary stack carrier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/groupoid-comp-inv",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The groupoid right inverse law retains the source identity",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.groupoid_comp_inv",
+      "statement": "For m:X⇒Y, m≫groupoid.inv(m)=idX as an actual modification.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors in fixed object and morphism universes.",
+        "For the modification isomorphism family only G is required to be a gerbe. Fixed-band constructions additionally take IsGerbe F J, a specified sheaf A in independent coefficient universe w and actual bandings bF,bG.",
+        "No terminal object, global neutralization, constant coefficient sheaf, or equality of coefficient and fibre universes is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/groupoid"
+      ],
+      "proofSteps": [
+        "Read the native Groupoid comp_inv field for the supplied structure."
+      ],
+      "acceptance": [
+        "The actual carrier retains objects, morphisms, inverse components and their coherence; every implementation status stays unchecked.",
+        "These leaves do not supply the D0 coherent inverse transformation, the torsor comparison, derived H2 classification or profinite 2-limit effectivity."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "Retain all actual modifications before evaluating on the trivial torsor; comparison must be a functor of groupoids."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Descend actual modification isomorphisms for arbitrary, possibly nonneutral gerbes; no global neutralization is added."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "The torsor map uses the actual forward components and their inverse and composition equations."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-J6LwjP-native-banded-hom",
+          "locator": "Definition31.1, Remarks31.2/31.5 and Lemma31.3, printed122–123; exact native API specializations.",
+          "excerpt": "morphism",
+          "match": "Authored deduction from the gerbe target-fibre groupoid condition and pinned modification/full-subcategory constructors; not a printed groupoid construction or a replacement ordinary stack carrier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/groupoid-inv-comp",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The groupoid left inverse law retains the target identity",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.groupoid_inv_comp",
+      "statement": "For m:X⇒Y, groupoid.inv(m)≫m=idY as an actual modification.",
+      "hypotheses": [
+        "C is a fixed small category with topology J; F,G are native Cat-valued pseudofunctors in fixed object and morphism universes.",
+        "For the modification isomorphism family only G is required to be a gerbe. Fixed-band constructions additionally take IsGerbe F J, a specified sheaf A in independent coefficient universe w and actual bandings bF,bG.",
+        "No terminal object, global neutralization, constant coefficient sheaf, or equality of coefficient and fibre universes is assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/groupoid"
+      ],
+      "proofSteps": [
+        "Read the native Groupoid inv_comp field for the supplied structure."
+      ],
+      "acceptance": [
+        "The actual carrier retains objects, morphisms, inverse components and their coherence; every implementation status stays unchecked.",
+        "These leaves do not supply the D0 coherent inverse transformation, the torsor comparison, derived H2 classification or profinite 2-limit effectivity."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/neutral-self-equivalences",
+          "how": "Retain all actual modifications before evaluating on the trivial torsor; comparison must be a functor of groupoids."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/all-self-equivalences",
+          "how": "Descend actual modification isomorphisms for arbitrary, possibly nonneutral gerbes; no global neutralization is added."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "The torsor map uses the actual forward components and their inverse and composition equations."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-J6LwjP-native-banded-hom",
+          "locator": "Definition31.1, Remarks31.2/31.5 and Lemma31.3, printed122–123; exact native API specializations.",
+          "excerpt": "morphism",
+          "match": "Authored deduction from the gerbe target-fibre groupoid condition and pinned modification/full-subcategory constructors; not a printed groupoid construction or a replacement ordinary stack carrier."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -25782,7 +26998,8 @@
         "Actual strong-naturality transport now lands in G(f)(ηUx) and G(f)(ηUy), with inverse round trips, anchor independence, coefficients, injectivity and covering-sieve equivalences. Compatibility along arbitrary g:W→V in the slice still requires the native η.naturality_comp and both pseudofunctor comparison maps; the supplied-global-anchor restriction law is only a special case. Build that coherent Hom-presheaf map, then glue local inverses using the native Hom sheaf before claiming fibrewise fullness. All inherited frontiers and supplier requests remain open.",
         "The arbitrary deeper-slice coherence, native Hom-presheaf/sheaf morphism, covering image-sieve argument, native locally-bijective sheaf inverse and actual fibre Full instance now have separate mathematical proof plans and admitted signatures. The new bodies have not been certified and the incoming native StrongTrans draft was itself uncompiled. The banded adapter family retains the same coefficient/fibre-hom universe convention; normalize and validate the independent-universe reserved-key interface before claiming the general theorem. Essential surjectivity, an inverse strong transformation, general gerbe equivalence, SF1 descended-band comparison, D0 torsor/classifying-stack comparison, nonneutral O(1) root gerbe, derived H2/classification, compatible-object profinite limits, R09.3 affine module descent elaboration, all other stage/source obligations and all 21 requests remain required.",
         "The object-descent route is specified with native carriers and actual morphisms; inverse StrongTrans/band coherence, independent coefficient-universe normalization and admitted mathematical proof bodies remain open.",
-        "Fixed-band natural-isomorphism/modification invariance, native chosen fibre-inverse coefficients, and unit/counit fibre transport now have eight precise leaves and admission-free prototypes with independent coefficient universe. The generic coherent inverse StrongTrans and unit/counit/triangle assembly is explicitly requested from D0; the earlier Hom-sheaf/object-descent universe normalization and all other remaining obligations are unchanged."
+        "Fixed-band natural-isomorphism/modification invariance, native chosen fibre-inverse coefficients, and unit/counit fibre transport now have eight precise leaves and admission-free prototypes with independent coefficient universe. The generic coherent inverse StrongTrans and unit/counit/triangle assembly is explicitly requested from D0; the earlier Hom-sheaf/object-descent universe normalization and all other remaining obligations are unchanged.",
+        "Use the native fixed-band morphism groupoid in the torsor comparison and construct its actual functors/coherent unit and counit. This checkpoint supplies modification inverses, not the coherent inverse StrongTrans requested from D0 or the general self-equivalence classification."
       ]
     },
     {
