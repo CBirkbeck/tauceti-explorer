@@ -1,3 +1,4 @@
+import Mathlib.RingTheory.MvPowerSeries.NoZeroDivisors
 import Mathlib.Algebra.Field.ZMod
 import Mathlib.LinearAlgebra.Complex.FiniteDimensional
 import Mathlib.RingTheory.MvPowerSeries.Inverse
@@ -2682,4 +2683,68 @@ example :
     Module.length (ZMod 2) (MvPowerSeries (Fin 2) (ZMod 2) ⧸ q ^ 3) = 6 := by sorry
 
 end JetCoordinates
+end TauCeti.HilbertSamuel
+
+/-! Exact-order shifted-jet continuation. These are planning signatures;
+all new bodies are admitted under PROTOCOL §13. The checked proofs are archived separately. -/
+namespace TauCeti.HilbertSamuel
+noncomputable section ShiftedOrderContinuation
+variable {σ k : Type*} [Finite σ] [CommRing k]
+local notation "R" => MvPowerSeries σ k
+local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : σ → R))
+
+lemma mul_mem_variableIdeal_pow_iff [NoZeroDivisors k] (f g : R) (d r : ℕ)
+    (hd : f.order = (d : ℕ∞)) :
+    f * g ∈ v ^ (d + r) ↔ g ∈ v ^ r := by sorry
+
+lemma shiftedJetMap_eq_quotientMulMap (f : R) (d N : ℕ) (hN : d ≤ N)
+    (hd : (d : ℕ∞) ≤ f.order) :
+    shiftedJetMap f d N hN hd = quotientMulMap (v ^ (N + 1 - d))
+      (v ^ (N + 1)) f (shiftedJet_denominator f d N hN hd) := by sorry
+
+omit [Finite σ] in
+lemma jetProjection_eq_principalQuotientProjection (f : R) (N : ℕ) :
+    jetProjection f N = principalQuotientProjection (v ^ (N + 1)) f := by sorry
+
+-- test: HilbertSamuelShiftedOrderTest.zero_multiplier
+example (r : ℕ) :
+    (0 : R) * 1 ∈ v ^ (1 + r) ∧ (0 : R).order ≠ (1 : ℕ∞) := by sorry
+
+-- test: HilbertSamuelShiftedOrderTest.membership_zero_argument
+example [NoZeroDivisors k] (f : R) (d r : ℕ) (hd : f.order = (d : ℕ∞)) :
+    f * 0 ∈ v ^ (d + r) ↔ (0 : R) ∈ v ^ r := by sorry
+
+-- test: HilbertSamuelShiftedOrderTest.membership_zero_cutoff
+example [NoZeroDivisors k] (f g : R) (d : ℕ) (hd : f.order = (d : ℕ∞)) :
+    f * g ∈ v ^ d := by sorry
+
+-- test: HilbertSamuelShiftedOrderTest.loose_order_bound
+example :
+    let f : MvPowerSeries (Fin 2) ℚ := MvPowerSeries.X 0 ^ 2
+    ∃ hd : (1 : ℕ∞) ≤ f.order,
+      ¬ Function.Injective (shiftedJetMap f 1 1 (by decide) hd) := by sorry
+
+-- test: HilbertSamuelShiftedOrderTest.exactness_zero_divisors
+example (f : MvPowerSeries (Fin 2) (ZMod 4)) (d N : ℕ) (hN : d ≤ N)
+    (hd : (d : ℕ∞) ≤ f.order) :
+    LinearMap.range (shiftedJetMap f d N hN hd) = LinearMap.ker (jetProjection f N) ∧
+      Function.Surjective (jetProjection f N) := shiftedJetMap_exact f d N hN hd
+
+-- test: HilbertSamuelJetTest.small_index_not_shifted
+example :
+    let f : MvPowerSeries (Fin 2) ℚ := MvPowerSeries.X 0 ^ 4
+    let q : Ideal (MvPowerSeries (Fin 2) ℚ) := Ideal.span (Set.range MvPowerSeries.X)
+    Function.Bijective (jetProjection f 0) ∧
+      ¬ Function.Injective
+        (LinearMap.mulLeft (MvPowerSeries (Fin 2) ℚ ⧸ q)
+          (Ideal.Quotient.mk q f)) := by sorry
+
+-- test: HilbertSamuelShiftedOrderTest.wrong_source_field
+example :
+    let q : Ideal (MvPowerSeries (Fin 2) ℚ) := Ideal.span (Set.range MvPowerSeries.X)
+    ∃ h : (q ^ 2 : Submodule (MvPowerSeries (Fin 2) ℚ) (MvPowerSeries (Fin 2) ℚ)) ≤
+        Submodule.comap (LinearMap.mulLeft (MvPowerSeries (Fin 2) ℚ) (MvPowerSeries.X 0)) (q ^ 2),
+      ¬ Function.Injective (quotientMulMap (q ^ 2) (q ^ 2) (MvPowerSeries.X 0) h) := by sorry
+
+end ShiftedOrderContinuation
 end TauCeti.HilbertSamuel
