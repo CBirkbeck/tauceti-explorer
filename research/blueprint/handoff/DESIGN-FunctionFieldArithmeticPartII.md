@@ -1,3 +1,1243 @@
+# Coefficient naturality of the universal factorial root coaction
+
+Codex — codex-rtOQ9t. Refs #3403. Claim5965051651 was won and confirmed
+by bot5965052651; the whole issue was read before and after confirmation.
+Mathematical read base:7a0839ba10a362fba9724a9704e986412ea03aa8. Fresh publication/control base:b725306dcef5613ca909fcaafaded4840e72777c;
+all five incoming authorized blobs are unchanged between these bases.
+
+## Result and precise boundary
+
+Sixteen declaration-sized nodes add two constructions and fourteen lemmas:
+the unity-root coefficient adapter U_φ, actual heterobasic tensor adapter
+T_(φ,f), their root/coefficient formulas and identity/composition laws,
+compatibility of the actual universal coherent unit family and its inverses,
+and the actual coaction, counit and antipode coefficient squares. There are
+11 new API records and14 typed examples. Generic heterobasic tensor maps
+and tensor induction already exist at the pin and are imported, not replanned.
+All276 incoming contracts remain,275 entire node objects unchanged. Only
+the infinite-affine-quotient consumer gains three prerequisites and one proof
+step; its statement, hypotheses, API and tests remain. All incoming reader
+and suggested text are exact prefixes; the entire incoming handoff is kept
+below. The roadmap definition is byte-identical.
+
+Coefficient maps carry coherent roots to coherent roots.
+
+For arbitrary commutative rings A,B,C in one fixed universe, any ring maps
+φ:A→B and ψ:B→C and f∈A, use the inherited actual colimits C_A(f),
+H_A=C_A(1), roots u_i,h_i at orders(i+1)!, universal units σ_A,
+coefficient map F_(φ,f), coaction ρ_f, counit ε_A and antipode S_A.
+The specialized root lift lands literally in H_B, using φ(1)=1. The existing
+native tensor map uses this unity adapter and F_(φ,f), with both coefficient
+compatibility witnesses proved. On each u_i the two coaction composites are
+h_i^B⊗u_i^(φ(f)); on coefficients both are ι_B∘φ. Native semilinear
+colimit extensionality proves equality of the full ring maps. The counit
+square uses the root value1. Unit-value extensionality first identifies the
+mapped universal coherent family, then inversion gives the antipode square.
+Tensor induction proves identity; native tensor ring-map extensionality on
+the two factor inclusions proves composition.
+
+No nontriviality, reducedness, domain, characteristic-zero, invertible-order,
+Noetherian, flatness or unit-parameter assumption is introduced. Under ℤ→Z/2Z
+at f=0, the actual degree-two coaction image remains nonzero and has square0.
+Nonvanishing uses actual coaction/chart injectivity and the monic root power
+basis; the square uses the root relation. Zero-ring target cases are retained.
+These are actual ring-map equalities over different coefficient bases, not
+an assertion of geometric pullback equivalence or arbitrary-universe transport.
+
+Totals:292 nodes (11 definitions,53 constructions,179 lemmas,37 theorems,
+11 comparisons,1 application),240 raw API records,250 raw tests,
+194 baseline declarations,39 planets,8 gaps,13 requests. Required-node
+API/test denominators are those reported by the indexed checker below.
+All ten stages remain partial and every implementation unchecked.
+The general reserved root-stack key, full nonreduced fibres, relative roots,
+all historical corrections/versions/source routes and independent symplectic
+direction remain. No whole-source or whole-stage closure is claimed.
+
+## Reading, pins and honest compilation scope
+
+Governing WORKERS/blueprint PROTOCOL/expansion PROTOCOL/upstream guide were
+read in this continuous session, along with the whole issue before/after the
+winning claim. The complete ten-stage definition and coverage records, general
+reserved key/ownership and survey entry, complete reviewed FA.0–FA.7 rows,
+applicable REV-AUDIT-20 corrections and complete REV-RT-AUDIT-20 report were
+read. Actual SF.1/SF.2/SF.3,R09.3–R09.5,D0,FA.2/FA.4 supplier descriptions
+and all incoming stage requires/requests were read; the PartII link screen
+finds no touching link-map entries. Complete JacobianChallenge and
+StableReduction upstream documents were read in this continuous session at
+unchanged pins. Historical broader receipts retain their preceding authors.
+
+Fresh primary reading:[Talpo–Vistoli v2](https://arxiv.org/pdf/1410.1164v2),
+complete printed/PDF pp.14–16, with displayed formulas, full statements and
+proofs, Cartier-dual tower, grading equivariance and the affine quotient
+passage. PDF715504 bytes, SHA-256
+92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2,
+read2026-10-03. The identities above are authored coordinate deductions,
+not printed theorem names or a certificate of the geometric quotient theorem.
+No new whole-paper audit or upstream-absence claim is made.
+
+Selected inherited actual root-lift, semilinear extensionality, coefficient,
+coaction, counit, universal-unit and antipode declarations were freshly read.
+The complete3767-line incoming native file was publicly recovered, hashed
+and replayed, with all161 inherited examples and167 audits retained; it was
+not freshly read in full. Full native tensor map statements and applicable
+variables, tensor induction and unit-map values were read at the exact pins.
+Tau Ceti source:f790474821cf4256814db967cb154e7af3d0c369.
+Mathlib source/build:082e2d37e8b0463410cdb532e111cd43d5a66174.
+Lean4.34.0-rc2. One bounded compiler was used at a time with at least34GiB
+available; no setup, update, caches, build or LSP was started.
+
+The full canonical suggested file remains **uncompiled**: exact-pin compiled
+Tau Ceti geometric supplier imports are unavailable. The exact whole
+Mathlib-only algebra projection compiles with only admitted-proof warnings.
+The separate actual native proof compiles with zero errors/warnings/admissions;
+all183 axiom audits exclude admission axioms and use only propext,
+Classical.choice and Quot.sound. Both algebra files contain175 examples.
+
+## Resume
+
+Use the actual inherited and new maps. Identify H_A with the canonical
+coordinate Hopf algebra A[Q/Z] and its convolution group of points; transport
+coaction and coefficient maps through the positive-divisibility equivalence
+and universe adapters. Construct coherent root-object groupoid reindexing,
+affine Spec limits, fpqc frame torsors and the infinite quotient comparison.
+Preserve all TOWER-AFF,KUMMER-FINITE,TOWER-TYPING,DVR/Kummer obligations,
+the all-roots-of2 non-fppf example, and both Yun–Zhang and independent
+symplectic routes. The same8 gaps and13 supplier requests remain open.
+
+## Public reconstruction and executable verification
+
+[Exact native proof archive](https://github.com/CBirkbeck/tauceti-explorer/blob/f6525a32f107fbff6b945dd5d76e5ca6ea2c771b/research/blueprint/suggested/FunctionFieldArithmeticPartII.lean)
+is an ancestor of the final admitted sketch. The archive contains the entire
+native source and the exact canonical prefix. Fetch this PR branch in the
+existing repository, save recover.py below to one owned disk scratch directory,
+and run it from the repository root. It recovers four Lean inputs, five
+incoming controls and all public scripts, with exact hashes. It creates no
+repository snapshot. Prior archive786bad00199efcb0855a2c7fe28edc403d77a30d
+is used only to independently recover/hash the inherited full proof prefix.
+
+```python
+# BEGIN COEFFICIENT RECOVERY
+from pathlib import Path
+import hashlib,subprocess,re,ast
+s=Path(__file__).resolve().parent
+rid='FunctionFieldArithmeticPartII';path='research/blueprint/suggested/'+rid+'.lean'
+def blob(commit,path):return subprocess.check_output(['git','show',commit+':'+path]).decode()
+def check(text,digest):assert hashlib.sha256(text.encode()).hexdigest()==digest
+archive=blob('f6525a32f107fbff6b945dd5d76e5ca6ea2c771b',path)
+start='\n/- BEGIN ARCHIVED CHECKED COEFFICIENT COACTION NATURALITY\n'
+end='\nEND ARCHIVED CHECKED COEFFICIENT COACTION NATURALITY -/\n'
+canonical,tail=archive.split(start,1);native=tail.split(end,1)[0]
+check(canonical,'d288d19e1218e4632cd4cb1abf06701436d9b21391e7df6925c4471e7f4f347b');check(native,'d418a342fe5852ce1241dda4189b3afdc153d27efbc184cb93e1bf1db2ce88c4')
+priorarchive=blob('786bad00199efcb0855a2c7fe28edc403d77a30d',path)
+oldcanonical,tail=priorarchive.split('\n/- BEGIN ARCHIVED CHECKED FACTORIAL UNIVERSAL COACTION\n',1)
+prior=tail.split('\nEND ARCHIVED CHECKED FACTORIAL UNIVERSAL COACTION -/\n',1)[0]
+check(prior,'22882a03c3d2f4d517dc9c60f90b7c764538157bf92e647fd778d2c4a075afcc')
+assert native.startswith(prior)
+for name,text in [('Canonical.lean',canonical),('Native.lean',native),('Predecessor.lean',prior)]: (s/name).write_text(text)
+base='7a0839ba10a362fba9724a9704e986412ea03aa8'
+for d,e in [('roadmaps','json'),('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]:
+ stem='DESIGN-'+rid if d=='handoff' else rid
+ (s/('incoming-'+d+'.'+e)).write_text(blob(base,'research/blueprint/'+d+'/'+stem+'.'+e))
+handoff=Path('research/blueprint/handoff/DESIGN-'+rid+'.md').read_text()
+for name,marker,digest in [('project.py', 'COEFFICIENT PROJECTION', '29340cf6a3d521ebb51a840515a4e450701a5d88339f3a9475ebe772bce1f0fa'), ('validate.py', 'COEFFICIENT VALIDATOR', '4c3718161ae958309232b77602920a41dc60f4f37c8f853fb98aa759f2821b1e'), ('graph.py', 'COEFFICIENT GRAPH', 'a883c9de04983145d734c13ccabdcd43f44c7792b1a46fceec52a15f90dd86c4')]:
+ code=handoff.split('# BEGIN '+marker+'\n',1)[1].split('# END '+marker+'\n',1)[0]
+ check(code,digest);ast.parse(code);(s/name).write_text(code)
+namespace={};exec((s/'project.py').read_text(),namespace)
+sketch=namespace['project'](canonical);check(sketch,'2a18012efdb87abfaedcc141b120218cf1135a6469cc4805367048bd1f368e67');(s/'Sketch.lean').write_text(sketch)
+for filename,marker in [('native.log','COEFFICIENT NATIVE TRANSCRIPT'),('sketch.log','COEFFICIENT SKETCH TRANSCRIPT')]:
+ (s/filename).write_text(handoff.split('# BEGIN '+marker+'\n',1)[1].split('# END '+marker+'\n',1)[0])
+print('Recovered exact native/canonical/projection sources, inherited proof, five controls and public validation scripts')
+# END COEFFICIENT RECOVERY
+```
+
+Check free -g for at least20GiB before each one-at-a-time invocation. Use only
+the existing exact-pin dependency build. Run /usr/bin/time with format
+'ELAPSED %e RSS %M EXIT %x' and timeout1200 around lake env lean on the
+recovered absolute Native.lean and Sketch.lean paths, from that build root;
+redirect to native.log and sketch.log beside the recovered files. Do not
+set up, update, obtain caches, build dependencies or start an LSP. Then from
+the repository root run validate.py and graph.py with PYTHONDONTWRITEBYTECODE=1,
+TAUCETI_BASELINE pointing to the existing source/index directory and
+VALIDATE_BASE=b725306dcef5613ca909fcaafaded4840e72777c. Native logs recovered from this handoff are the
+recorded transcripts; replace them with your own when independently compiling.
+This run had36GiB available before Native and34GiB before Sketch; the
+validator records those receipts and accepts AVAILABLE_GIB_NATIVE/SKETCH overrides.
+
+## Actual receipts and preservation
+
+```json
+{
+  "preservation": {
+    "preservedContracts": 276,
+    "unchangedNodeObjects": 275,
+    "addedNodes": 16,
+    "mathHeadersMatched": 16,
+    "testHeadersMatched": 14,
+    "checker": {
+      "packet": "research/blueprint/packets/FunctionFieldArithmeticPartII.json",
+      "roadmap": "FunctionFieldArithmeticPartII",
+      "status": "partial",
+      "nodes": 292,
+      "kinds": {
+        "construction": 53,
+        "definition": 11,
+        "comparison": 11,
+        "lemma": 179,
+        "theorem": 37,
+        "application": 1
+      },
+      "apiItems": 235,
+      "unitTests": 218,
+      "planets": 39,
+      "baselineDeclarations": 194,
+      "prerequisites": {
+        "baseline": 314,
+        "node (this packet)": 661,
+        "stage": 64,
+        "node (blueprint)": 16
+      },
+      "gaps": 8,
+      "requests": 13,
+      "stagesInScope": 10,
+      "stagesClosed": 0
+    },
+    "intakeProblems": [],
+    "autoRefusals": [],
+    "rawAPITotal": 240,
+    "rawTestsTotal": 250
+  },
+  "receipts": {
+    "Native": {
+      "lines": 4092,
+      "sha256": "d418a342fe5852ce1241dda4189b3afdc153d27efbc184cb93e1bf1db2ce88c4",
+      "examples": 175,
+      "errors": 0,
+      "warnings": 0,
+      "admissionWarnings": 0,
+      "axiomAudits": 183,
+      "seconds": 47.62,
+      "peakRSSKiB": 3952652,
+      "availableGiBBeforeCompile": 36,
+      "exit": 0,
+      "normalizedDiagnosticSha256": "ba4a0baa886ec3b429abefc469cb97e3cc9f2679660a457051cd511b5f746f09"
+    },
+    "Sketch": {
+      "lines": 2416,
+      "sha256": "2a18012efdb87abfaedcc141b120218cf1135a6469cc4805367048bd1f368e67",
+      "examples": 175,
+      "errors": 0,
+      "warnings": 402,
+      "admissionWarnings": 402,
+      "axiomAudits": 0,
+      "seconds": 15.91,
+      "peakRSSKiB": 3480440,
+      "availableGiBBeforeCompile": 34,
+      "exit": 0,
+      "normalizedDiagnosticSha256": "54935563646e046fdf738b7a34cacba3edadf46f867ef00cece42faefeae3ce4"
+    },
+    "Canonical": {
+      "lines": 3327,
+      "sha256": "d288d19e1218e4632cd4cb1abf06701436d9b21391e7df6925c4471e7f4f347b",
+      "examples": 195,
+      "compiled": false,
+      "reason": "Existing exact-pin build lacks native Tau Ceti geometric supplier imports. Only the exact whole Mathlib-only algebra projection and native replay were compiled."
+    }
+  },
+  "projection": {
+    "actualAssembler": true,
+    "base": "b725306dcef5613ca909fcaafaded4840e72777c",
+    "declarations": 292,
+    "ownDeclarations": 292,
+    "kinds": {
+      "construction": 53,
+      "definition": 11,
+      "comparison": 11,
+      "lemma": 179,
+      "theorem": 37,
+      "application": 1
+    },
+    "apiTotal": 240,
+    "testsTotal": 250,
+    "baseline": 194,
+    "planets": 39,
+    "gaps": 8,
+    "requests": 13,
+    "ownSkippedLinks": [],
+    "ownPendingLinks": [],
+    "stageDAG": {
+      "vertices": 3056,
+      "edges": 8723,
+      "acyclic": true
+    },
+    "ownDeclarationDAG": {
+      "vertices": 292,
+      "edges": 661,
+      "acyclic": true
+    },
+    "stagesAndReachableDeclarations": {
+      "vertices": 3360,
+      "edges": 9887,
+      "acyclic": true
+    },
+    "reachableDeclarations": 343,
+    "externalDeclarations": [
+      "AlgebraicModuliForArithmeticGeometry:R09.3/affine-fpqc-quasicoherent-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/affine-module-descent-equivalence",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/affine-pullback-tensor",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/canonical-overlap-functor",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-descent-to-overlap",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-equivalence",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-morphisms",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-roundtrips",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-cocycle",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-inverses",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-maps",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/coalgebra-to-overlap",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/descent-equalizer-module-coordinates",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/finite-locally-free-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/finite-presentation-module-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-effective",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-faithful",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-full",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/module-descent-coaction",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/module-overlap-datum",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/native-module-canonical-comparison",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/native-module-descent-coalgebra",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coaction-roundtrips",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coalgebra-equivalence",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coalgebra-morphisms",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-comparison-canonical",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-diagonal",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-coordinates",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-diagonal",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-triple",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-to-chosen-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-to-coalgebra",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pseudofunctor",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pullback",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/tensor-comonad-coordinates",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-essential-surjective",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-full-faithful",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/classifying-abelian-gerbe",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/compatible-limit-family",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-torsor",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/limit-stack-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/neutralization",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/neutralization-equivalence",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/nonempty-affine-limit-gerbe",
+      "AlgebraicModuliForArithmeticGeometry:key/gerbes",
+      "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+      "DiamondsAndVStacks:D0/stackification"
+    ],
+    "requiredStagePairs": 54,
+    "requiredStagePairsReachable": 54,
+    "stageEdgesUnchanged": true,
+    "otherSkipsMatchOriginal": true,
+    "allAcceptedRestructurePathsChecked": 3834,
+    "acceptedRestructurePaths": 0,
+    "acceptedRestructurePathsReachable": 0,
+    "unchangedNodeObjects": 275,
+    "preservedStatements": 276,
+    "addedNodes": 16,
+    "unresolvedNonlibraryPrerequisites": [],
+    "scriptSha256": "a883c9de04983145d734c13ccabdcd43f44c7792b1a46fceec52a15f90dd86c4"
+  }
+}
+```
+
+```python
+# BEGIN COEFFICIENT PROJECTION
+import hashlib
+def project(can):
+    imports = '\n'.join((l for l in can.splitlines() if l.startswith('import Mathlib')))
+    initial = can[can.index('abbrev AffineRing (f : A)'):can.index('-- TauCeti.RootStack.affineCoaction.nativePoint')]
+    one = can[can.index('-- TauCeti.RootStack.affineCoaction.test_one'):can.index('-- TauCeti.RootStack.affineCoaction.test_sign')]
+    comparison = can[can.index('section AffineTorsorComparison'):can.index('-- Native acceptance computations')]
+    own = can[can.index('/-! Native factorial chart diagram continuation'):]
+    extra = can[can.index('-- Native acceptance computations'):can.index('/-! Native factorial chart diagram continuation')]
+    finite = can.split('/- BEGIN NATIVE FINITE ROOT TRANSITIONS -/\n', 1)[1].split('/- END NATIVE FINITE ROOT TRANSITIONS -/\n', 1)[0]
+    pre = '\nnoncomputable section\nuniverse u\nnamespace TauCeti.RootStack\nvariable {A : Type u} [CommRing A]\nopen scoped TensorProduct\n'
+    sketch = imports + pre + initial + one + comparison + extra + '\nnamespace TauCeti.RootStack\nvariable {A : Type u} [CommRing A]\n' + finite + '\nend TauCeti.RootStack\n' + own
+    sketch = sketch.replace('TauCeti.RootsOfUnityGroup.generator n', 'Multiplicative.ofAdd (1 : ZMod n)')
+    return sketch
+# END COEFFICIENT PROJECTION
+```
+
+```python
+# BEGIN COEFFICIENT VALIDATOR
+from pathlib import Path
+import os,sys,json,re,hashlib,collections,importlib.util,subprocess
+root=Path.cwd();s=Path(__file__).resolve().parent;rid='FunctionFieldArithmeticPartII';prefix='research/blueprint/'
+files=[prefix+d+'/'+rid+'.'+ext for d,ext in [('roadmaps','json'),('packets','json'),('readmes','md'),('suggested','lean')]]+[prefix+'handoff/DESIGN-'+rid+'.md']
+p=json.loads((root/files[1]).read_text());o=json.loads((s/'incoming-packets.json').read_text());nn={n['id']:n for n in p['nodes']};on={n['id']:n for n in o['nodes']};special=rid+':RS.2/infinite-affine-quotient'
+assert len(on)==276 and len(nn)==292 and set(on)<=set(nn)
+for nid,n in on.items():
+ for k,v in n.items():
+  if nid==special and k in ('prerequisites','proofSteps'):assert nn[nid][k][:len(v)]==v
+  else:assert nn[nid][k]==v,(nid,k)
+assert len(nn[special]['prerequisites'])==len(on[special]['prerequisites'])+3
+assert len(nn[special]['proofSteps'])==len(on[special]['proofSteps'])+1
+assert sum(nn[nid]==n for nid,n in on.items())==275
+for k in o:
+ if k not in ('nodes','baseline','summary','coverage','sources','auditEvidence','continuationHistory'):assert p[k]==o[k],k
+assert p['sources'][:-2]==o['sources'];assert p['baseline']['declarations'][:-4]==o['baseline']['declarations'];assert p['continuationHistory'][:-1]==o['continuationHistory']
+for k in o['baseline']:
+ if k!='declarations':assert p['baseline'][k]==o['baseline'][k]
+for k in o['auditEvidence']:assert p['auditEvidence'][k]==o['auditEvidence'][k]
+for a,b in zip(o['coverage'],p['coverage']):
+ if a['stageId']==rid+':RS.2':assert b['remaining'][:-1]==a['remaining'];assert {k:v for k,v in b.items() if k!='remaining'}=={k:v for k,v in a.items() if k!='remaining'}
+ else:assert a==b
+assert p['status']=='partial' and all(n['implementationStatus']=='unchecked' for n in nn.values())
+assert all(c['status']=='partial' for c in p['coverage'])
+assert nn[rid+':key/root-stacks']==on[rid+':key/root-stacks']
+assert (root/files[0]).read_bytes()==(s/'incoming-roadmaps.json').read_bytes()
+assert (root/files[2]).read_bytes().startswith((s/'incoming-readmes.md').read_bytes())
+assert (root/files[4]).read_bytes().endswith((s/'incoming-handoff.md').read_bytes())
+can=(root/files[3]).read_text();oldcan=(s/'incoming-suggested.lean').read_text();assert can.startswith(oldcan)
+assert can==(s/'Canonical.lean').read_text()
+native=(s/'Native.lean').read_text();prior=(s/'Predecessor.lean').read_text()
+assert native.startswith(prior) and hashlib.sha256(prior.encode()).hexdigest()=='22882a03c3d2f4d517dc9c60f90b7c764538157bf92e647fd778d2c4a075afcc'
+assert not re.search(r'\bsorry\b|sorryAx|^axiom\b',native,re.M)
+new=native[len(prior):];extra=can[len(oldcan):]
+def header_at(text,start):
+ end=start;depth=0
+ # Body delimiter only at bracket depth0; named arguments are not body delimiters.
+ while end<len(text):
+  c=text[end]
+  if c in '([{':depth+=1
+  if c in ')]}':depth-=1
+  if text.startswith(':=',end) and depth==0:return text[start:end].rstrip()
+  end+=1
+ raise AssertionError(text[start:start+120])
+headers={}
+for nid in set(nn)-set(on):
+ n=nn[nid];name=n['declarationName'].removeprefix('TauCeti.RootStack.')
+ pattern=r'^(?:def|lemma) '+re.escape(name)+r'(?=\s|\{)'
+ a=re.search(pattern,new,re.M);b=re.search(pattern,extra,re.M);assert a and b,name
+ assert header_at(new,a.start())==header_at(extra,b.start()),name
+ headers[name]=header_at(new,a.start())
+reader=(root/files[2]).read_text();tests={}
+for n in p['nodes'][276:]:
+ assert n['statement'] in reader and n['declarationName'] in reader
+ if n['kind']=='construction':assert len(n['api'])>=3 and len(n['tests'])>=3
+ for a in n.get('api',[]):assert a['name'] in reader and a['statement'] in reader
+ for t in n.get('tests',[]):
+  assert t['statement'] in reader
+  marker='-- '+t['name']+'\n';assert marker in new and marker in extra
+  a=new.index('example',new.index(marker)+len(marker));b=extra.index('example',extra.index(marker)+len(marker))
+  assert header_at(new,a)==header_at(extra,b),t['name'];tests[t['name']]=header_at(new,a)
+assert len(headers)==16 and len(tests)==14
+assert 'BEGIN ARCHIVED CHECKED COEFFICIENT COACTION' not in can
+spec=importlib.util.spec_from_file_location('intake',root/'research/blueprint/intake.py');intake=importlib.util.module_from_spec(spec);spec.loader.exec_module(intake)
+assert intake.check_files(files)==0
+jobs,mapping=intake.load_queue();job=next(j for j in jobs if j['id']=='DESIGN-'+rid)
+refusals=intake.auto_refusals(job,files,False,set(),{'codex-rtOQ9t'});assert not refusals,refusals
+base=os.environ.get('VALIDATE_BASE','b725306dcef5613ca909fcaafaded4840e72777c')
+assert set(subprocess.check_output(['git','diff','--name-only',base],text=True).splitlines())<=set(files)
+sys.path.insert(0,str(root/'scripts'));import check_blueprint
+errors,warnings,summary=check_blueprint.check(root/files[1],check_blueprint.load_index(Path(os.environ['TAUCETI_BASELINE'])/'declarations.tsv'),check_blueprint.world())
+assert not errors and not warnings,(errors,warnings)
+summary['packet']=files[1]
+receipts={}
+for name,filename,logname in [('Native','Native.lean','native.log'),('Sketch','Sketch.lean','sketch.log')]:
+ source=(s/filename).read_text();log=(s/logname).read_text()
+ assert not re.search(r'error\(|error:',log),(name,'errors')
+ timing=re.search(r'ELAPSED ([\d.]+) RSS (\d+) EXIT (\d+)',log);assert timing and timing[3]=='0',name
+ warnings=len(re.findall(r'warning:',log));admissions=len(re.findall(r'warning: declaration uses `sorry`',log))
+ if name=='Native':
+  assert warnings==0 and 'sorryAx' not in log
+  assert log.count('depends on axioms:')==183
+  for audit in re.finditer(r'depends on axioms:\s*\[([\s\S]*?)\]',log):assert set(x.strip() for x in audit[1].split(',') if x.strip())<={'propext','Classical.choice','Quot.sound'}
+ else:assert warnings==admissions
+ assert len(re.findall(r'^example\b',source,re.M))==175,(name,'examples')
+ normalized=log.replace(str(s)+'/','')
+ receipts[name]={'lines':len(source.splitlines()),'sha256':hashlib.sha256(source.encode()).hexdigest(),'examples':175,'errors':0,'warnings':warnings,'admissionWarnings':admissions,'axiomAudits':len(re.findall(r'^#print axioms',source,re.M)),'seconds':float(timing[1]),'peakRSSKiB':int(timing[2]),'availableGiBBeforeCompile':int(os.environ.get('AVAILABLE_GIB_'+name.upper(),'36' if name=='Native' else '34')),'exit':0,'normalizedDiagnosticSha256':hashlib.sha256(normalized.encode()).hexdigest()}
+receipts['Canonical']={'lines':len(can.splitlines()),'sha256':hashlib.sha256(can.encode()).hexdigest(),'examples':len(re.findall(r'^example\b',can,re.M)),'compiled':False,'reason':'Existing exact-pin build lacks native Tau Ceti geometric supplier imports. Only the exact whole Mathlib-only algebra projection and native replay were compiled.'}
+report={'preservedContracts':276,'unchangedNodeObjects':275,'addedNodes':16,'mathHeadersMatched':len(headers),'testHeadersMatched':len(tests),'checker':summary,'intakeProblems':[],'autoRefusals':[],'rawAPITotal':sum(len(n.get('api',[])) for n in p['nodes']),'rawTestsTotal':sum(len(n.get('tests',[])) for n in p['nodes'])}
+(s/'receipts.json').write_text(json.dumps(receipts,indent=2)+'\n');(s/'preservation.json').write_text(json.dumps(report,indent=2)+'\n')
+print(json.dumps({'preservation':report,'receipts':receipts},indent=2))
+# END COEFFICIENT VALIDATOR
+```
+
+```python
+# BEGIN COEFFICIENT GRAPH
+import json,sys,subprocess,hashlib,re
+from pathlib import Path
+from collections import defaultdict,deque,Counter
+root=Path.cwd();sys.path.insert(0,str(root/'scripts'));import build
+rid='FunctionFieldArithmeticPartII';stem=rid
+packetpath='research/blueprint/packets/'+stem+'.json'
+base=__import__('os').environ.get('VALIDATE_BASE','b725306dcef5613ca909fcaafaded4840e72777c')
+p=json.loads((root/packetpath).read_text())
+old=json.loads(subprocess.check_output(['git','show',base+':'+packetpath],text=True))
+r=json.loads((root/('research/blueprint/roadmaps/'+rid+'.json')).read_text())
+load=build.load_promoted
+def assemble(packet):
+    def overlay(*a,**k):
+        ps,ds,defs=load(*a,**k)
+        return ([(n,v) for n,v in ps if n!=stem]+[(stem,packet)],
+            {**ds,stem:'research/blueprint/readmes/'+stem+'.md'},
+            [v for v in defs if v['id']!=rid]+[r])
+    build.load_promoted=overlay
+    return build.assemble(require_distances=False)[0]
+a=assemble(p);control=assemble(old)
+def dag(vertices,edges):
+    edges=set(edges);vertices=set(vertices)|{x for e in edges for x in e}
+    following=defaultdict(set);indegree=dict.fromkeys(vertices,0)
+    for s,t in edges:following[s].add(t);indegree[t]+=1
+    q=deque(v for v in vertices if not indegree[v]);seen=[]
+    while q:
+        v=q.popleft();seen.append(v)
+        for w in following[v]:
+            indegree[w]-=1
+            if not indegree[w]:q.append(w)
+    assert len(seen)==len(vertices),('cycle',sorted(v for v in vertices if indegree[v])[:10])
+    return {'vertices':len(vertices),'edges':len(edges),'acyclic':True}
+se={(e['source'],e['target']) for e in a['stageEdges']}
+ce={(e['source'],e['target']) for e in control['stageEdges']}
+assert se==ce
+stageids={s['id'] for s in a['stages']}
+own={n['id']:n for n in p['nodes']}
+oe={(dep,n['id']) for n in own.values() for dep in n.get('prerequisites',[]) if dep in own}
+stageDAG=dag(stageids,se);ownDAG=dag(own,oe)
+allnodes=dict(own)
+for folder in ('data/decompositions','data/blueprints','research/blueprint/packets'):
+    for path in sorted((root/folder).glob('*.json')):
+        for n in json.loads(path.read_text()).get('nodes',[]):allnodes.setdefault(n['id'],n)
+used=set(own);todo=list(own)
+while todo:
+    v=todo.pop()
+    for d in allnodes[v].get('prerequisites',[]):
+        if d in allnodes and d not in used:used.add(d);todo.append(d)
+unresolved=[]
+for v in used:
+    for dep in allnodes[v].get('prerequisites',[]):
+        if dep not in stageids and dep not in used and (not dep.startswith(('mathlib:','tauceti:')) or dep.startswith('tauceti:TauCetiRoadmap/')):unresolved.append((v,dep))
+assert not unresolved,unresolved
+edges=set(se)
+for v in used:
+    n=allnodes[v];parent=n.get('parentStageId')
+    if parent:edges.add((parent,v))
+    for d in n.get('prerequisites',[]):
+        if d in stageids or d in used:edges.add((d,v))
+for request in p['requests']:
+    for v in request['neededBy']:edges.add((request['supplier'],v))
+combined=dag(stageids|used,edges)
+following=defaultdict(set)
+for s,t in se:following[s].add(t)
+def reachable(s,t):
+    todo=[s];seen=set()
+    while todo:
+        x=todo.pop()
+        if x==t:return True
+        if x not in seen:seen.add(x);todo+=list(following[x])
+    return False
+pairs=set()
+for stage in r['stages']:
+    for dep in stage.get('requires',[]):pairs.add((dep,rid+':'+stage['key']))
+def stage_of(v):
+    seen=set()
+    while v in allnodes and v not in seen:
+        seen.add(v);v=allnodes[v].get('parentStageId')
+    return v
+for n in own.values():
+    for d in n.get('prerequisites',[]):
+        if d in stageids and d not in allnodes and d!=stage_of(n['id']):pairs.add((d,stage_of(n['id'])))
+for req in p['requests']:
+    for v in req['neededBy']:
+        source=stage_of(req['supplier']);target=stage_of(v)
+        if source!=target:pairs.add((source,target))
+missing=[(s,t) for s,t in sorted(pairs) if not reachable(s,t)]
+assert not missing,missing
+accepted=[];acceptedAll=[]
+for path in sorted((root/'data/restructure').glob('*.json')):
+    for edge in json.loads(path.read_text()).get('links',[]):
+        source=edge.get('source');target=edge.get('target')
+        if source in stageids and target in stageids:
+            assert reachable(source,target),(path.name,source,target)
+            acceptedAll.append((path.name,source,target))
+            if source.startswith(rid+':') or target.startswith(rid+':'):accepted.append((path.name,source,target))
+ar={r['id']:r for r in a['roadmaps']};cr={r['id']:r for r in control['roadmaps']}
+assert ar[rid]['blueprint']['declarations']==cr[rid]['blueprint']['declarations']+16
+assert ar[rid]['blueprint']['planets']==cr[rid]['blueprint']['planets']
+assert ar[rid]['blueprint']['skippedLinks']==cr[rid]['blueprint']['skippedLinks']
+assert not ar[rid].get('pendingLinks')
+assert all(ar[x].get('pendingLinks')==cr[x].get('pendingLinks') for x in cr)
+assert all(ar[x].get('blueprint',{}).get('skippedLinks')==cr[x].get('blueprint',{}).get('skippedLinks') for x in cr)
+assert all(n['implementationStatus']=='unchecked' for n in own.values())
+result={'actualAssembler':True,'base':base,'declarations':ar[rid]['blueprint']['declarations'],'ownDeclarations':len(own),
+    'kinds':dict(Counter(n['kind'] for n in own.values())),
+    'apiTotal':sum(len(n.get('api',[])) for n in own.values()),'testsTotal':sum(len(n.get('tests',[])) for n in own.values()),
+    'baseline':len(p['baseline']['declarations']),'planets':ar[rid]['blueprint']['planets'],'gaps':len(p['gaps']),'requests':len(p['requests']),
+    'ownSkippedLinks':ar[rid]['blueprint']['skippedLinks'],'ownPendingLinks':ar[rid]['blueprint'].get('pendingLinks',[]),
+    'stageDAG':stageDAG,'ownDeclarationDAG':ownDAG,'stagesAndReachableDeclarations':combined,
+    'reachableDeclarations':len(used),'externalDeclarations':sorted(used-set(own)),
+    'requiredStagePairs':len(pairs),'requiredStagePairsReachable':len(pairs)-len(missing),'stageEdgesUnchanged':True,
+    'otherSkipsMatchOriginal':True,'allAcceptedRestructurePathsChecked':len(acceptedAll),'acceptedRestructurePaths':len(accepted),'acceptedRestructurePathsReachable':len(accepted),'unchangedNodeObjects':275,'preservedStatements':276,'addedNodes':16,'unresolvedNonlibraryPrerequisites':unresolved,
+    'scriptSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+Path(__file__).with_suffix('.json').write_text(json.dumps(result,indent=2)+'\n')
+print(json.dumps(result,indent=2))
+# END COEFFICIENT GRAPH
+```
+
+```text
+# BEGIN COEFFICIENT NATIVE TRANSCRIPT
+'TauCeti.RootStack.affineTorsorComparison.coefficientPermutation_rows' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.coefficientPermutation_sign' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.weight_exponent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.weight_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.matrix_reindex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.determinant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.kernel_coordinate_condition' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.kernelCoordinateEquiv' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.kernelCoordinateEquiv_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.kernelCoordinateEquiv_symm_coordinates' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.kernelCoordinateEquiv_nonwrap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.kernel_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.cokernelResidue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.cokernelResidue_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.cokernelResidue_surjective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.cokernelResidue_ker' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.cokernelCoordinateEquiv' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.cokernelCoordinateEquiv_mk' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.cokernelCoordinateEquiv_symm_residue' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.cokernelCoordinateEquiv_eq_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.cokernel_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineRoot.unit_mul_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.unitEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.unitEquiv_toAlgHom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.unitEquiv_symm_character' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.unitEquiv_symm_right' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.unitEquiv_symm_character_tmul' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.unit_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.wrappingEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.wrappingEquiv_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.wrappingEquiv_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.wrappingEquiv_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.lower_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.wrapping_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv_symm_coordinates' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.source_finrank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.kernel_zero_finrank' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.range_zero_finrank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTorsorComparison.zero_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransition.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransition.constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransition.unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransition.comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineIteratedReverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineIteratedReverse.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineIteratedReverse.constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineIteratedReverse.coefficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransitionIterated' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransitionIterated.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransitionIterated.coefficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransitionBasis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransitionBasis.apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransitionBasis.repr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransitionBasis.repr_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransitionSpecProperties' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineTransitionFaithfullyFlat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineDivisibility' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineDivisibility.constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineDivisibility.unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineDivisibility.multiplicative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineDivisibility.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineDivisibility.identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineDivisibility.composition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineTower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineTower.chart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineTower.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineTower.constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.affineDivisibility.injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineCocone.isColimit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineRootLift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineInclusion.injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineDirected' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineInclusion.transition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineInclusion.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineInclusion.pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineColimit.exists_level' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineColimit.hom_ext' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineRootLift.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineRootLift.unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineRootLift.postcomp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineCocone.point' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineCocone.leg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.RootDivIndex.cofinal' depends on axioms: [propext]
+'TauCeti.RootStack.RootDivIndex.factorial_mono' depends on axioms: [propext]
+'TauCeti.RootStack.factorialAffineInclusion.comp_transition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineExtension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineExtension.at_level' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineExtension.transition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineExtension.factorial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAffineExtension.injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityAffineDirected' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityAffineInclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityAffineInclusion.transition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityAffineInclusion.injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityAffineColimit.exists_level' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityAffineColimit.hom_ext' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityToFactorial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityToFactorial.inclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialToDivisibility' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialToDivisibility.inclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityToFactorial.left_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityToFactorial.right_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityFactorialEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityFactorialEquiv.inclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityFactorialEquiv.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityAffineInclusion.pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.divisibilityAffineInclusion.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialRootScalars.transition' depends on axioms: [propext, Quot.sound]
+'TauCeti.RootStack.factorialScale' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScale.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScale.constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScale.one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScale.mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScaleEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScaleEquiv.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScaleEquiv.inverse_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialUniversalScalars' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialUniversalScalars.value' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialRootScalars.map' depends on axioms: [propext, Quot.sound]
+'TauCeti.RootStack.factorialRootScalars.map_value' depends on axioms: [propext, Quot.sound]
+'TauCeti.RootStack.factorialRootScalars.map_id' depends on axioms: [propext, Quot.sound]
+'TauCeti.RootStack.factorialRootScalars.map_comp' depends on axioms: [propext, Quot.sound]
+'TauCeti.RootStack.factorialAffineColimit.ringHom_ext' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCoefficientMap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCoefficientMap.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCoefficientMap.constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCoefficientMap.id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCoefficientMap.comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScale.coefficient_naturality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScaleEquiv.coefficient_naturality' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.factorialScaleEquiv.inverse_coefficient_naturality' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.factorialCoaction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCoaction.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCoaction.constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCounit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCounit.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCoaction.counit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCoaction.coassoc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCoaction.right_counit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCoaction.cocomm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAntipode' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAntipode.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAntipode.left_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAntipode.right_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAntipode.involutive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScalarEvaluation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScalarEvaluation.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScalarPoints' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScalarPoints.value' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScalarPoints.naturality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCoaction.specialization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCoaction.injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialBialgebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialBialgebra.comul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialBialgebra.counit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialHopfAlgebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialHopfAlgebra.antipode' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCounit.constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCounit.surjective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScalarEvaluation.constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScalarEvaluation.universal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScalarPoints.left_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialScalarPoints.right_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialUnitCoefficientMap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialUnitCoefficientMap.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialUnitCoefficientMap.constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialUnitCoefficientMap.id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialUnitCoefficientMap.comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCounit.coefficient_naturality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialTensorCoefficientMap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialTensorCoefficientMap.tmul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialTensorCoefficientMap.constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialCoaction.coefficient_naturality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialUnitCoefficientMap.universal_scalars' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TauCeti.RootStack.factorialUnitCoefficientMap.inverse_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialAntipode.coefficient_naturality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialTensorCoefficientMap.root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialTensorCoefficientMap.id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.RootStack.factorialTensorCoefficientMap.comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+ELAPSED 47.62 RSS 3952652 EXIT 0
+# END COEFFICIENT NATIVE TRANSCRIPT
+```
+
+```text
+# BEGIN COEFFICIENT SKETCH TRANSCRIPT
+Sketch.lean:45:6: warning: declaration uses `sorry`
+Sketch.lean:50:6: warning: declaration uses `sorry`
+Sketch.lean:55:6: warning: declaration uses `sorry`
+Sketch.lean:60:4: warning: declaration uses `sorry`
+Sketch.lean:64:6: warning: declaration uses `sorry`
+Sketch.lean:70:6: warning: declaration uses `sorry`
+Sketch.lean:75:6: warning: declaration uses `sorry`
+Sketch.lean:83:6: warning: declaration uses `sorry`
+Sketch.lean:90:6: warning: declaration uses `sorry`
+Sketch.lean:98:6: warning: declaration uses `sorry`
+Sketch.lean:108:0: warning: declaration uses `sorry`
+Sketch.lean:119:4: warning: declaration uses `sorry`
+Sketch.lean:124:6: warning: declaration uses `sorry`
+Sketch.lean:130:6: warning: declaration uses `sorry`
+Sketch.lean:138:6: warning: declaration uses `sorry`
+Sketch.lean:144:6: warning: declaration uses `sorry`
+Sketch.lean:154:6: warning: declaration uses `sorry`
+Sketch.lean:167:6: warning: declaration uses `sorry`
+Sketch.lean:175:6: warning: declaration uses `sorry`
+Sketch.lean:184:4: warning: declaration uses `sorry`
+Sketch.lean:187:6: warning: declaration uses `sorry`
+Sketch.lean:193:6: warning: declaration uses `sorry`
+Sketch.lean:199:6: warning: declaration uses `sorry`
+Sketch.lean:208:4: warning: declaration uses `sorry`
+Sketch.lean:211:6: warning: declaration uses `sorry`
+Sketch.lean:217:6: warning: declaration uses `sorry`
+Sketch.lean:223:6: warning: declaration uses `sorry`
+Sketch.lean:231:0: warning: declaration uses `sorry`
+Sketch.lean:235:0: warning: declaration uses `sorry`
+Sketch.lean:240:0: warning: declaration uses `sorry`
+Sketch.lean:245:0: warning: declaration uses `sorry`
+Sketch.lean:249:0: warning: declaration uses `sorry`
+Sketch.lean:254:0: warning: declaration uses `sorry`
+Sketch.lean:258:4: warning: declaration uses `sorry`
+Sketch.lean:261:6: warning: declaration uses `sorry`
+Sketch.lean:265:6: warning: declaration uses `sorry`
+Sketch.lean:269:6: warning: declaration uses `sorry`
+Sketch.lean:275:0: warning: declaration uses `sorry`
+Sketch.lean:278:0: warning: declaration uses `sorry`
+Sketch.lean:281:0: warning: declaration uses `sorry`
+Sketch.lean:283:6: warning: declaration uses `sorry`
+Sketch.lean:287:6: warning: declaration uses `sorry`
+Sketch.lean:297:6: warning: declaration uses `sorry`
+Sketch.lean:305:6: warning: declaration uses `sorry`
+Sketch.lean:314:6: warning: declaration uses `sorry`
+Sketch.lean:325:6: warning: declaration uses `sorry`
+Sketch.lean:334:6: warning: declaration uses `sorry`
+Sketch.lean:343:18: warning: declaration uses `sorry`
+Sketch.lean:349:6: warning: declaration uses `sorry`
+Sketch.lean:355:6: warning: declaration uses `sorry`
+Sketch.lean:363:6: warning: declaration uses `sorry`
+Sketch.lean:371:8: warning: declaration uses `sorry`
+Sketch.lean:386:18: warning: declaration uses `sorry`
+Sketch.lean:391:6: warning: declaration uses `sorry`
+Sketch.lean:398:6: warning: declaration uses `sorry`
+Sketch.lean:402:6: warning: declaration uses `sorry`
+Sketch.lean:409:18: warning: declaration uses `sorry`
+Sketch.lean:415:6: warning: declaration uses `sorry`
+Sketch.lean:422:6: warning: declaration uses `sorry`
+Sketch.lean:428:6: warning: declaration uses `sorry`
+Sketch.lean:438:8: warning: declaration uses `sorry`
+Sketch.lean:451:8: warning: declaration uses `sorry`
+Sketch.lean:455:8: warning: declaration uses `sorry`
+Sketch.lean:458:8: warning: declaration uses `sorry`
+Sketch.lean:462:6: warning: declaration uses `sorry`
+Sketch.lean:469:4: warning: declaration uses `sorry`
+Sketch.lean:474:6: warning: declaration uses `sorry`
+Sketch.lean:479:6: warning: declaration uses `sorry`
+Sketch.lean:488:6: warning: declaration uses `sorry`
+Sketch.lean:495:6: warning: declaration uses `sorry`
+Sketch.lean:507:8: warning: declaration uses `sorry`
+Sketch.lean:521:8: warning: declaration uses `sorry`
+Sketch.lean:529:4: warning: declaration uses `sorry`
+Sketch.lean:533:6: warning: declaration uses `sorry`
+Sketch.lean:537:6: warning: declaration uses `sorry`
+Sketch.lean:541:6: warning: declaration uses `sorry`
+Sketch.lean:544:6: warning: declaration uses `sorry`
+Sketch.lean:548:6: warning: declaration uses `sorry`
+Sketch.lean:553:18: warning: declaration uses `sorry`
+Sketch.lean:557:6: warning: declaration uses `sorry`
+Sketch.lean:562:6: warning: declaration uses `sorry`
+Sketch.lean:565:6: warning: declaration uses `sorry`
+Sketch.lean:571:6: warning: declaration uses `sorry`
+Sketch.lean:575:6: warning: declaration uses `sorry`
+Sketch.lean:580:6: warning: declaration uses `sorry`
+Sketch.lean:587:8: warning: declaration uses `sorry`
+Sketch.lean:595:0: warning: declaration uses `sorry`
+Sketch.lean:598:0: warning: declaration uses `sorry`
+Sketch.lean:602:0: warning: declaration uses `sorry`
+Sketch.lean:607:0: warning: declaration uses `sorry`
+Sketch.lean:611:0: warning: declaration uses `sorry`
+Sketch.lean:618:0: warning: declaration uses `sorry`
+Sketch.lean:625:0: warning: declaration uses `sorry`
+Sketch.lean:630:0: warning: declaration uses `sorry`
+Sketch.lean:646:0: warning: declaration uses `sorry`
+Sketch.lean:650:0: warning: declaration uses `sorry`
+Sketch.lean:660:0: warning: declaration uses `sorry`
+Sketch.lean:669:0: warning: declaration uses `sorry`
+Sketch.lean:674:0: warning: declaration uses `sorry`
+Sketch.lean:681:0: warning: declaration uses `sorry`
+Sketch.lean:689:0: warning: declaration uses `sorry`
+Sketch.lean:694:0: warning: declaration uses `sorry`
+Sketch.lean:704:0: warning: declaration uses `sorry`
+Sketch.lean:721:0: warning: declaration uses `sorry`
+Sketch.lean:725:0: warning: declaration uses `sorry`
+Sketch.lean:730:0: warning: declaration uses `sorry`
+Sketch.lean:734:0: warning: declaration uses `sorry`
+Sketch.lean:738:0: warning: declaration uses `sorry`
+Sketch.lean:754:0: warning: declaration uses `sorry`
+Sketch.lean:761:0: warning: declaration uses `sorry`
+Sketch.lean:770:0: warning: declaration uses `sorry`
+Sketch.lean:781:0: warning: declaration uses `sorry`
+Sketch.lean:787:0: warning: declaration uses `sorry`
+Sketch.lean:800:0: warning: declaration uses `sorry`
+Sketch.lean:803:0: warning: declaration uses `sorry`
+Sketch.lean:806:0: warning: declaration uses `sorry`
+Sketch.lean:809:0: warning: declaration uses `sorry`
+Sketch.lean:812:0: warning: declaration uses `sorry`
+Sketch.lean:815:0: warning: declaration uses `sorry`
+Sketch.lean:818:0: warning: declaration uses `sorry`
+Sketch.lean:821:0: warning: declaration uses `sorry`
+Sketch.lean:832:0: warning: declaration uses `sorry`
+Sketch.lean:836:0: warning: declaration uses `sorry`
+Sketch.lean:842:0: warning: declaration uses `sorry`
+Sketch.lean:847:0: warning: declaration uses `sorry`
+Sketch.lean:852:0: warning: declaration uses `sorry`
+Sketch.lean:862:6: warning: declaration uses `sorry`
+Sketch.lean:866:6: warning: declaration uses `sorry`
+Sketch.lean:871:6: warning: declaration uses `sorry`
+Sketch.lean:876:6: warning: declaration uses `sorry`
+Sketch.lean:881:6: warning: declaration uses `sorry`
+Sketch.lean:890:0: warning: declaration uses `sorry`
+Sketch.lean:894:0: warning: declaration uses `sorry`
+Sketch.lean:898:0: warning: declaration uses `sorry`
+Sketch.lean:902:0: warning: declaration uses `sorry`
+Sketch.lean:906:0: warning: declaration uses `sorry`
+Sketch.lean:910:0: warning: declaration uses `sorry`
+Sketch.lean:914:0: warning: declaration uses `sorry`
+Sketch.lean:922:0: warning: declaration uses `sorry`
+Sketch.lean:930:0: warning: declaration uses `sorry`
+Sketch.lean:938:0: warning: declaration uses `sorry`
+Sketch.lean:946:0: warning: declaration uses `sorry`
+Sketch.lean:961:4: warning: declaration uses `sorry`
+Sketch.lean:965:6: warning: declaration uses `sorry`
+Sketch.lean:974:6: warning: declaration uses `sorry`
+Sketch.lean:979:6: warning: declaration uses `sorry`
+Sketch.lean:986:6: warning: declaration uses `sorry`
+Sketch.lean:999:4: warning: declaration uses `sorry`
+Sketch.lean:1003:6: warning: declaration uses `sorry`
+Sketch.lean:1009:6: warning: declaration uses `sorry`
+Sketch.lean:1014:6: warning: declaration uses `sorry`
+Sketch.lean:1020:4: warning: declaration uses `sorry`
+Sketch.lean:1028:6: warning: declaration uses `sorry`
+Sketch.lean:1035:6: warning: declaration uses `sorry`
+Sketch.lean:1041:4: warning: declaration uses `sorry`
+Sketch.lean:1047:6: warning: declaration uses `sorry`
+Sketch.lean:1053:6: warning: declaration uses `sorry`
+Sketch.lean:1059:6: warning: declaration uses `sorry`
+Sketch.lean:1066:8: warning: declaration uses `sorry`
+Sketch.lean:1072:8: warning: declaration uses `sorry`
+Sketch.lean:1079:0: warning: declaration uses `sorry`
+Sketch.lean:1086:0: warning: declaration uses `sorry`
+Sketch.lean:1095:0: warning: declaration uses `sorry`
+Sketch.lean:1101:0: warning: declaration uses `sorry`
+Sketch.lean:1108:0: warning: declaration uses `sorry`
+Sketch.lean:1113:0: warning: declaration uses `sorry`
+Sketch.lean:1120:0: warning: declaration uses `sorry`
+Sketch.lean:1125:0: warning: declaration uses `sorry`
+Sketch.lean:1133:0: warning: declaration uses `sorry`
+Sketch.lean:1140:0: warning: declaration uses `sorry`
+Sketch.lean:1146:0: warning: declaration uses `sorry`
+Sketch.lean:1151:0: warning: declaration uses `sorry`
+Sketch.lean:1158:0: warning: declaration uses `sorry`
+Sketch.lean:1165:0: warning: declaration uses `sorry`
+Sketch.lean:1178:4: warning: declaration uses `sorry`
+Sketch.lean:1182:6: warning: declaration uses `sorry`
+Sketch.lean:1187:6: warning: declaration uses `sorry`
+Sketch.lean:1191:6: warning: declaration uses `sorry`
+Sketch.lean:1197:6: warning: declaration uses `sorry`
+Sketch.lean:1203:6: warning: declaration uses `sorry`
+Sketch.lean:1210:6: warning: declaration uses `sorry`
+Sketch.lean:1215:4: warning: declaration uses `sorry`
+Sketch.lean:1219:4: warning: declaration uses `sorry`
+Sketch.lean:1223:6: warning: declaration uses `sorry`
+Sketch.lean:1232:6: warning: declaration uses `sorry`
+Sketch.lean:1241:0: warning: declaration uses `sorry`
+Sketch.lean:1246:0: warning: declaration uses `sorry`
+Sketch.lean:1253:0: warning: declaration uses `sorry`
+Sketch.lean:1259:0: warning: declaration uses `sorry`
+Sketch.lean:1264:0: warning: declaration uses `sorry`
+Sketch.lean:1273:0: warning: declaration uses `sorry`
+Sketch.lean:1283:0: warning: declaration uses `sorry`
+Sketch.lean:1291:0: warning: declaration uses `sorry`
+Sketch.lean:1306:4: warning: declaration uses `sorry`
+Sketch.lean:1310:9: warning: declaration uses `sorry`
+Sketch.lean:1319:4: warning: declaration uses `sorry`
+Sketch.lean:1323:6: warning: declaration uses `sorry`
+Sketch.lean:1329:6: warning: declaration uses `sorry`
+Sketch.lean:1335:6: warning: declaration uses `sorry`
+Sketch.lean:1340:6: warning: declaration uses `sorry`
+Sketch.lean:1344:6: warning: declaration uses `sorry`
+Sketch.lean:1348:6: warning: declaration uses `sorry`
+Sketch.lean:1352:6: warning: declaration uses `sorry`
+Sketch.lean:1358:4: warning: declaration uses `sorry`
+Sketch.lean:1361:4: warning: declaration uses `sorry`
+Sketch.lean:1364:4: warning: declaration uses `sorry`
+Sketch.lean:1370:6: warning: declaration uses `sorry`
+Sketch.lean:1379:0: warning: declaration uses `sorry`
+Sketch.lean:1384:0: warning: declaration uses `sorry`
+Sketch.lean:1389:0: warning: declaration uses `sorry`
+Sketch.lean:1393:4: warning: declaration uses `sorry`
+Sketch.lean:1397:6: warning: declaration uses `sorry`
+Sketch.lean:1402:6: warning: declaration uses `sorry`
+Sketch.lean:1410:6: warning: declaration uses `sorry`
+Sketch.lean:1422:0: warning: declaration uses `sorry`
+Sketch.lean:1429:0: warning: declaration uses `sorry`
+Sketch.lean:1434:0: warning: declaration uses `sorry`
+Sketch.lean:1439:0: warning: declaration uses `sorry`
+Sketch.lean:1444:0: warning: declaration uses `sorry`
+Sketch.lean:1451:0: warning: declaration uses `sorry`
+Sketch.lean:1457:0: warning: declaration uses `sorry`
+Sketch.lean:1469:0: warning: declaration uses `sorry`
+Sketch.lean:1507:6: warning: declaration uses `sorry`
+Sketch.lean:1511:6: warning: declaration uses `sorry`
+Sketch.lean:1516:6: warning: declaration uses `sorry`
+Sketch.lean:1521:4: warning: declaration uses `sorry`
+Sketch.lean:1525:6: warning: declaration uses `sorry`
+Sketch.lean:1531:6: warning: declaration uses `sorry`
+Sketch.lean:1536:6: warning: declaration uses `sorry`
+Sketch.lean:1541:6: warning: declaration uses `sorry`
+Sketch.lean:1545:4: warning: declaration uses `sorry`
+Sketch.lean:1549:9: warning: declaration uses `sorry`
+Sketch.lean:1557:4: warning: declaration uses `sorry`
+Sketch.lean:1561:6: warning: declaration uses `sorry`
+Sketch.lean:1567:6: warning: declaration uses `sorry`
+Sketch.lean:1571:6: warning: declaration uses `sorry`
+Sketch.lean:1575:6: warning: declaration uses `sorry`
+Sketch.lean:1581:4: warning: declaration uses `sorry`
+Sketch.lean:1585:6: warning: declaration uses `sorry`
+Sketch.lean:1591:4: warning: declaration uses `sorry`
+Sketch.lean:1595:6: warning: declaration uses `sorry`
+Sketch.lean:1601:6: warning: declaration uses `sorry`
+Sketch.lean:1605:6: warning: declaration uses `sorry`
+Sketch.lean:1609:4: warning: declaration uses `sorry`
+Sketch.lean:1613:6: warning: declaration uses `sorry`
+Sketch.lean:1619:6: warning: declaration uses `sorry`
+Sketch.lean:1629:6: warning: declaration uses `sorry`
+Sketch.lean:1634:6: warning: declaration uses `sorry`
+Sketch.lean:1640:0: warning: declaration uses `sorry`
+Sketch.lean:1644:0: warning: declaration uses `sorry`
+Sketch.lean:1648:0: warning: declaration uses `sorry`
+Sketch.lean:1652:0: warning: declaration uses `sorry`
+Sketch.lean:1657:0: warning: declaration uses `sorry`
+Sketch.lean:1663:0: warning: declaration uses `sorry`
+Sketch.lean:1668:0: warning: declaration uses `sorry`
+Sketch.lean:1672:0: warning: declaration uses `sorry`
+Sketch.lean:1676:0: warning: declaration uses `sorry`
+Sketch.lean:1680:0: warning: declaration uses `sorry`
+Sketch.lean:1685:0: warning: declaration uses `sorry`
+Sketch.lean:1691:0: warning: declaration uses `sorry`
+Sketch.lean:1697:0: warning: declaration uses `sorry`
+Sketch.lean:1703:0: warning: declaration uses `sorry`
+Sketch.lean:1709:0: warning: declaration uses `sorry`
+Sketch.lean:1716:0: warning: declaration uses `sorry`
+Sketch.lean:1721:0: warning: declaration uses `sorry`
+Sketch.lean:1727:0: warning: declaration uses `sorry`
+Sketch.lean:1731:0: warning: declaration uses `sorry`
+Sketch.lean:1737:0: warning: declaration uses `sorry`
+Sketch.lean:1743:0: warning: declaration uses `sorry`
+Sketch.lean:1754:4: warning: declaration uses `sorry`
+Sketch.lean:1756:6: warning: declaration uses `sorry`
+Sketch.lean:1759:6: warning: declaration uses `sorry`
+Sketch.lean:1762:4: warning: declaration uses `sorry`
+Sketch.lean:1765:6: warning: declaration uses `sorry`
+Sketch.lean:1769:6: warning: declaration uses `sorry`
+Sketch.lean:1772:6: warning: declaration uses `sorry`
+Sketch.lean:1774:6: warning: declaration uses `sorry`
+Sketch.lean:1777:4: warning: declaration uses `sorry`
+Sketch.lean:1780:6: warning: declaration uses `sorry`
+Sketch.lean:1784:6: warning: declaration uses `sorry`
+Sketch.lean:1788:4: warning: declaration uses `sorry`
+Sketch.lean:1791:6: warning: declaration uses `sorry`
+Sketch.lean:1796:0: warning: declaration uses `sorry`
+Sketch.lean:1799:0: warning: declaration uses `sorry`
+Sketch.lean:1803:0: warning: declaration uses `sorry`
+Sketch.lean:1807:0: warning: declaration uses `sorry`
+Sketch.lean:1811:0: warning: declaration uses `sorry`
+Sketch.lean:1814:0: warning: declaration uses `sorry`
+Sketch.lean:1819:0: warning: declaration uses `sorry`
+Sketch.lean:1823:0: warning: declaration uses `sorry`
+Sketch.lean:1827:0: warning: declaration uses `sorry`
+Sketch.lean:1832:0: warning: declaration uses `sorry`
+Sketch.lean:1837:0: warning: declaration uses `sorry`
+Sketch.lean:1841:0: warning: declaration uses `sorry`
+Sketch.lean:1844:0: warning: declaration uses `sorry`
+Sketch.lean:1854:4: warning: declaration uses `sorry`
+Sketch.lean:1857:6: warning: declaration uses `sorry`
+Sketch.lean:1860:6: warning: declaration uses `sorry`
+Sketch.lean:1863:6: warning: declaration uses `sorry`
+Sketch.lean:1867:6: warning: declaration uses `sorry`
+Sketch.lean:1874:4: warning: declaration uses `sorry`
+Sketch.lean:1877:6: warning: declaration uses `sorry`
+Sketch.lean:1881:6: warning: declaration uses `sorry`
+Sketch.lean:1885:6: warning: declaration uses `sorry`
+Sketch.lean:1888:6: warning: declaration uses `sorry`
+Sketch.lean:1892:6: warning: declaration uses `sorry`
+Sketch.lean:1898:6: warning: declaration uses `sorry`
+Sketch.lean:1904:6: warning: declaration uses `sorry`
+Sketch.lean:1911:0: warning: declaration uses `sorry`
+Sketch.lean:1915:0: warning: declaration uses `sorry`
+Sketch.lean:1918:0: warning: declaration uses `sorry`
+Sketch.lean:1922:0: warning: declaration uses `sorry`
+Sketch.lean:1926:0: warning: declaration uses `sorry`
+Sketch.lean:1931:0: warning: declaration uses `sorry`
+Sketch.lean:1936:0: warning: declaration uses `sorry`
+Sketch.lean:1940:0: warning: declaration uses `sorry`
+Sketch.lean:1944:0: warning: declaration uses `sorry`
+Sketch.lean:1960:4: warning: declaration uses `sorry`
+Sketch.lean:1965:6: warning: declaration uses `sorry`
+Sketch.lean:1971:6: warning: declaration uses `sorry`
+Sketch.lean:1977:4: warning: declaration uses `sorry`
+Sketch.lean:1981:6: warning: declaration uses `sorry`
+Sketch.lean:1985:6: warning: declaration uses `sorry`
+Sketch.lean:1989:6: warning: declaration uses `sorry`
+Sketch.lean:1992:6: warning: declaration uses `sorry`
+Sketch.lean:1999:6: warning: declaration uses `sorry`
+Sketch.lean:2009:6: warning: declaration uses `sorry`
+Sketch.lean:2016:6: warning: declaration uses `sorry`
+Sketch.lean:2022:4: warning: declaration uses `sorry`
+Sketch.lean:2026:6: warning: declaration uses `sorry`
+Sketch.lean:2031:6: warning: declaration uses `sorry`
+Sketch.lean:2038:6: warning: declaration uses `sorry`
+Sketch.lean:2045:6: warning: declaration uses `sorry`
+Sketch.lean:2050:4: warning: declaration uses `sorry`
+Sketch.lean:2055:6: warning: declaration uses `sorry`
+Sketch.lean:2061:6: warning: declaration uses `sorry`
+Sketch.lean:2066:6: warning: declaration uses `sorry`
+Sketch.lean:2071:4: warning: declaration uses `sorry`
+Sketch.lean:2075:6: warning: declaration uses `sorry`
+Sketch.lean:2081:6: warning: declaration uses `sorry`
+Sketch.lean:2088:6: warning: declaration uses `sorry`
+Sketch.lean:2093:6: warning: declaration uses `sorry`
+Sketch.lean:2098:6: warning: declaration uses `sorry`
+Sketch.lean:2105:6: warning: declaration uses `sorry`
+Sketch.lean:2108:7: warning: declaration uses `sorry`
+Sketch.lean:2113:6: warning: declaration uses `sorry`
+Sketch.lean:2119:6: warning: declaration uses `sorry`
+Sketch.lean:2125:7: warning: declaration uses `sorry`
+Sketch.lean:2131:6: warning: declaration uses `sorry`
+Sketch.lean:2140:0: warning: declaration uses `sorry`
+Sketch.lean:2148:0: warning: declaration uses `sorry`
+Sketch.lean:2155:0: warning: declaration uses `sorry`
+Sketch.lean:2160:0: warning: declaration uses `sorry`
+Sketch.lean:2166:0: warning: declaration uses `sorry`
+Sketch.lean:2172:0: warning: declaration uses `sorry`
+Sketch.lean:2178:0: warning: declaration uses `sorry`
+Sketch.lean:2183:0: warning: declaration uses `sorry`
+Sketch.lean:2188:0: warning: declaration uses `sorry`
+Sketch.lean:2195:0: warning: declaration uses `sorry`
+Sketch.lean:2201:0: warning: declaration uses `sorry`
+Sketch.lean:2206:0: warning: declaration uses `sorry`
+Sketch.lean:2213:0: warning: declaration uses `sorry`
+Sketch.lean:2219:0: warning: declaration uses `sorry`
+Sketch.lean:2225:0: warning: declaration uses `sorry`
+Sketch.lean:2231:0: warning: declaration uses `sorry`
+Sketch.lean:2237:0: warning: declaration uses `sorry`
+Sketch.lean:2243:0: warning: declaration uses `sorry`
+Sketch.lean:2253:0: warning: declaration uses `sorry`
+Sketch.lean:2261:0: warning: declaration uses `sorry`
+Sketch.lean:2268:0: warning: declaration uses `sorry`
+Sketch.lean:2278:0: warning: declaration uses `sorry`
+Sketch.lean:2286:0: warning: declaration uses `sorry`
+Sketch.lean:2305:4: warning: declaration uses `sorry`
+Sketch.lean:2307:6: warning: declaration uses `sorry`
+Sketch.lean:2310:6: warning: declaration uses `sorry`
+Sketch.lean:2312:6: warning: declaration uses `sorry`
+Sketch.lean:2314:6: warning: declaration uses `sorry`
+Sketch.lean:2317:6: warning: declaration uses `sorry`
+Sketch.lean:2320:4: warning: declaration uses `sorry`
+Sketch.lean:2323:6: warning: declaration uses `sorry`
+Sketch.lean:2327:6: warning: declaration uses `sorry`
+Sketch.lean:2330:6: warning: declaration uses `sorry`
+Sketch.lean:2333:6: warning: declaration uses `sorry`
+Sketch.lean:2336:6: warning: declaration uses `sorry`
+Sketch.lean:2340:6: warning: declaration uses `sorry`
+Sketch.lean:2343:6: warning: declaration uses `sorry`
+Sketch.lean:2349:6: warning: declaration uses `sorry`
+Sketch.lean:2351:6: warning: declaration uses `sorry`
+Sketch.lean:2363:0: warning: declaration uses `sorry`
+Sketch.lean:2366:0: warning: declaration uses `sorry`
+Sketch.lean:2369:0: warning: declaration uses `sorry`
+Sketch.lean:2373:0: warning: declaration uses `sorry`
+Sketch.lean:2375:0: warning: declaration uses `sorry`
+Sketch.lean:2382:0: warning: declaration uses `sorry`
+Sketch.lean:2385:0: warning: declaration uses `sorry`
+Sketch.lean:2388:0: warning: declaration uses `sorry`
+Sketch.lean:2393:0: warning: declaration uses `sorry`
+Sketch.lean:2395:0: warning: declaration uses `sorry`
+Sketch.lean:2399:0: warning: declaration uses `sorry`
+Sketch.lean:2402:0: warning: declaration uses `sorry`
+Sketch.lean:2407:0: warning: declaration uses `sorry`
+Sketch.lean:2412:0: warning: declaration uses `sorry`
+ELAPSED 15.91 RSS 3480440 EXIT 0
+# END COEFFICIENT SKETCH TRANSCRIPT
+```
+
+## Incoming handoff, preserved in full
+
+The preceding receipts below retain their original worker provenance. The
+current result, replay and resume instructions above govern this continuation.
+
 # Universal factorial root coaction and native Hopf structure
 
 Codex — codex-a71f92. Refs #3403. Claim5964634228 was explicitly won by
