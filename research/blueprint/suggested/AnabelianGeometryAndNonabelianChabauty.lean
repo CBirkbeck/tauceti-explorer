@@ -137,10 +137,6 @@ theorem H1.map_mk (f : U →* U') (hf : Continuous f)
 /-- NC.3/functoriality (a), on invariants. -/
 def H0.map (f : U →* U') (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) : H0 G U →* H0 G U' := sorry
 
-/-- NC.3/functoriality (b): restriction along `φ : G' → G`, with `G'` acting through `φ`. -/
-def H1.res {G' : Type*} [Group G'] [TopologicalSpace G'] [MulDistribMulAction G' U]
-    [ContinuousSMul G' U] (φ : G' →* G) (hφ : Continuous φ)
-    (hact : ∀ (g' : G') (x : U), g' • x = φ g' • x) : H1 G U → H1 G' U := sorry
 
 end Functoriality
 
@@ -1082,7 +1078,7 @@ EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.H1.res
 API: The restriction H¹(G, U) → H¹(G′, U) along a continuous homomorphism G′ → G.
 Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
 
-OMITTED TauCeti.NonabelianCohomology.H1.res_comp
+NOW TYPED BELOW: TauCeti.NonabelianCohomology.H1.res_comp
 API: Restriction along a composite is the composite of restrictions.
 Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
 
@@ -2054,6 +2050,263 @@ example :
     letI : ContinuousSMul G U := ⟨continuous_snd⟩
     (H0.map (MonoidHom.id U) (fun (_ : G) _ => rfl)
       ⟨Equiv.swap (0 : Fin 3) 1, fun _ => rfl⟩).val = Equiv.swap (0 : Fin 3) 1 := by
+  sorry
+
+end TauCeti.NonabelianCohomology
+
+/- Continuous source restriction and coefficient compatibility. -/
+namespace TauCeti.NonabelianCohomology
+section SourceRestriction
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {H : Type*} [Group H] [TopologicalSpace H]
+  {K : Type*} [Group K] [TopologicalSpace K]
+  {U : Type*} [Group U] [TopologicalSpace U]
+  [MulDistribMulAction G U] [MulDistribMulAction H U] [MulDistribMulAction K U]
+
+def Z1.res (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) : Z1 G U → Z1 H U := by
+  sorry
+lemma Z1.res_apply (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U) (h : H) :
+    Z1.res φ hφ hact c h = c (φ h) := by
+  sorry
+lemma Z1.res_one (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) :
+    Z1.res φ hφ hact (1 : Z1 G U) = 1 := by
+  sorry
+lemma Z1.res_id : Z1.res (MonoidHom.id G) continuous_id (fun _ _ => rfl) =
+    (id : Z1 G U → Z1 G U) := by
+  sorry
+lemma Z1.res_comp (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x)
+    (ψ : K →* H) (hψ : Continuous ψ)
+    (hact' : ∀ (k : K) (x : U), k • x = ψ k • x) :
+    Z1.res (φ.comp ψ) (hφ.comp hψ) (fun k x => (hact' k x).trans (hact (ψ k) x)) =
+      Z1.res ψ hψ hact' ∘ Z1.res φ hφ hact := by
+  sorry
+lemma Z1.res_injective (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x)
+    (hsur : Function.Surjective φ) : Function.Injective (Z1.res φ hφ hact) := by
+  sorry
+lemma Z1.res_subgroup (N : Subgroup G) :
+    Z1.res N.subtype continuous_subtype_val (fun _ _ => rfl) =
+      (Z1.restrict N : Z1 G U → Z1 N U) := by
+  sorry
+
+variable [IsTopologicalGroup U] [ContinuousSMul G U] [ContinuousSMul H U]
+  [ContinuousSMul K U]
+
+lemma Z1.res_smul (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (x : U) (c : Z1 G U) :
+    Z1.res φ hφ hact (x • c) = x • Z1.res φ hφ hact c := by
+  sorry
+def H1.res (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) : H1 G U → H1 H U := by
+  sorry
+lemma H1.res_mk (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U) :
+    H1.res φ hφ hact (H1.mk c) = H1.mk (Z1.res φ hφ hact c) := by
+  sorry
+lemma H1.res_one (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) :
+    H1.res φ hφ hact (1 : H1 G U) = 1 := by
+  sorry
+lemma H1.res_id : H1.res (MonoidHom.id G) continuous_id (fun _ _ => rfl) =
+    (id : H1 G U → H1 G U) := by
+  sorry
+lemma H1.res_comp (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x)
+    (ψ : K →* H) (hψ : Continuous ψ)
+    (hact' : ∀ (k : K) (x : U), k • x = ψ k • x) :
+    H1.res (φ.comp ψ) (hφ.comp hψ) (fun k x => (hact' k x).trans (hact (ψ k) x)) =
+      H1.res ψ hψ hact' ∘ H1.res φ hφ hact := by
+  sorry
+lemma H1.res_injective (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x)
+    (hsur : Function.Surjective φ) : Function.Injective (H1.res φ hφ hact) := by
+  sorry
+lemma H1.res_subgroup (N : Subgroup G) :
+    H1.res N.subtype continuous_subtype_val (fun _ _ => rfl) =
+      (H1.restrict N : H1 G U → H1 N U) := by
+  sorry
+
+end SourceRestriction
+
+section SourceCoefficientCompatibility
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {H : Type*} [Group H] [TopologicalSpace H]
+  {U : Type*} [Group U] [TopologicalSpace U]
+  [MulDistribMulAction G U] [MulDistribMulAction H U]
+  {V : Type*} [Group V] [TopologicalSpace V]
+  [MulDistribMulAction G V] [MulDistribMulAction H V]
+
+lemma Z1.res_map (φ : H →* G) (hφ : Continuous φ)
+    (hU : ∀ (h : H) (x : U), h • x = φ h • x)
+    (hV : ∀ (h : H) (x : V), h • x = φ h • x)
+    (f : U →* V) (hf : Continuous f)
+    (heq : ∀ (g : G) (x : U), f (g • x) = g • f x) :
+    Z1.res φ hφ hV ∘ Z1.map f hf heq =
+      Z1.map f hf (fun h x => by rw [hU, heq, hV]) ∘ Z1.res φ hφ hU := by
+  sorry
+
+variable [IsTopologicalGroup U] [ContinuousSMul G U] [ContinuousSMul H U]
+  [IsTopologicalGroup V] [ContinuousSMul G V] [ContinuousSMul H V]
+
+lemma H1.res_map (φ : H →* G) (hφ : Continuous φ)
+    (hU : ∀ (h : H) (x : U), h • x = φ h • x)
+    (hV : ∀ (h : H) (x : V), h • x = φ h • x)
+    (f : U →* V) (hf : Continuous f)
+    (heq : ∀ (g : G) (x : U), f (g • x) = g • f x) :
+    H1.res φ hφ hV ∘ H1.map f hf heq =
+      H1.map f hf (fun h x => by rw [hU, heq, hV]) ∘ H1.res φ hφ hU := by
+  sorry
+
+end SourceCoefficientCompatibility
+
+section SourceInvariants
+variable {G : Type*} [Group G] {H : Type*} [Group H] {K : Type*} [Group K]
+  {U : Type*} [Group U]
+  [MulDistribMulAction G U] [MulDistribMulAction H U] [MulDistribMulAction K U]
+
+def H0.res (φ : H →* G)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) : H0 G U →* H0 H U := by
+  sorry
+lemma H0.res_apply (φ : H →* G)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (x : H0 G U) :
+    (H0.res φ hact x : U) = x := by
+  sorry
+lemma H0.res_id : H0.res (MonoidHom.id G) (fun _ _ => rfl) =
+    MonoidHom.id (H0 G U) := by
+  sorry
+lemma H0.res_comp (φ : H →* G)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x)
+    (ψ : K →* H) (hact' : ∀ (k : K) (x : U), k • x = ψ k • x) :
+    H0.res (φ.comp ψ) (fun k x => (hact' k x).trans (hact (ψ k) x)) =
+      (H0.res ψ hact').comp (H0.res φ hact) := by
+  sorry
+lemma H0.res_injective (φ : H →* G)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) :
+    Function.Injective (H0.res φ hact) := by
+  sorry
+
+variable {V : Type*} [Group V] [MulDistribMulAction G V] [MulDistribMulAction H V]
+lemma H0.res_map (φ : H →* G)
+    (hU : ∀ (h : H) (x : U), h • x = φ h • x)
+    (hV : ∀ (h : H) (x : V), h • x = φ h • x)
+    (f : U →* V) (heq : ∀ (g : G) (x : U), f (g • x) = g • f x) :
+    (H0.res φ hV).comp (H0.map f heq) =
+      (H0.map f (fun h x => by rw [hU, heq, hV])).comp (H0.res φ hU) := by
+  sorry
+
+end SourceInvariants
+end TauCeti.NonabelianCohomology
+namespace TauCeti.NonabelianCohomology
+section SourceRestrictionTests
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {H : Type*} [Group H] [TopologicalSpace H]
+  {U : Type*} [Group U] [TopologicalSpace U]
+  [MulDistribMulAction G U] [MulDistribMulAction H U]
+-- test: sourceCocyclesTests.value
+example (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U) (h : H) :
+    Z1.res φ hφ hact c h = c (φ h) := by
+  sorry
+
+-- test: sourceCocyclesTests.identity
+example (c : Z1 G U) : Z1.res (MonoidHom.id G) continuous_id (fun _ _ => rfl) c = c := by
+  sorry
+
+-- test: sourceCocyclesTests.constantSource
+example (hact : ∀ (h : H) (x : U), h • x = (1 : H →* G) h • x) (c : Z1 G U) :
+    Z1.res (1 : H →* G) continuous_const hact c = 1 := by
+  sorry
+
+-- test: sourceCocyclesTests.subgroup
+example (N : Subgroup G) (c : Z1 G U) :
+    Z1.res N.subtype continuous_subtype_val (fun _ _ => rfl) c = Z1.restrict N c := by
+  sorry
+
+variable [IsTopologicalGroup U] [ContinuousSMul G U] [ContinuousSMul H U]
+-- test: sourceClassesTests.one
+example (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) :
+    H1.res φ hφ hact (1 : H1 G U) = 1 := by
+  sorry
+
+-- test: sourceClassesTests.gauge
+example (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x) (c : Z1 G U) (x : U) :
+    H1.res φ hφ hact (H1.mk (x • c)) = H1.mk (Z1.res φ hφ hact c) := by
+  sorry
+
+-- test: sourceClassesTests.subgroup
+example (N : Subgroup G) (a : H1 G U) :
+    H1.res N.subtype continuous_subtype_val (fun _ _ => rfl) a = H1.restrict N a := by
+  sorry
+
+-- test: sourceClassesTests.surjectiveReflection
+example (φ : H →* G) (hφ : Continuous φ)
+    (hact : ∀ (h : H) (x : U), h • x = φ h • x)
+    (hsur : Function.Surjective φ) (a : H1 G U) :
+    H1.res φ hφ hact a = 1 ↔ a = 1 := by
+  sorry
+
+end SourceRestrictionTests
+section SourceInvariantTests
+variable {G : Type*} [Group G] {H : Type*} [Group H]
+  {U : Type*} [Group U] [MulDistribMulAction G U] [MulDistribMulAction H U]
+-- test: sourceInvariantsTests.one
+example (φ : H →* G) (hact : ∀ (h : H) (x : U), h • x = φ h • x) :
+    H0.res φ hact (1 : H0 G U) = 1 := by
+  sorry
+
+-- test: sourceInvariantsTests.identity
+example (x : H0 G U) : H0.res (MonoidHom.id G) (fun _ _ => rfl) x = x := by
+  sorry
+
+-- test: sourceInvariantsTests.value
+example (φ : H →* G) (hact : ∀ (h : H) (x : U), h • x = φ h • x) (x : H0 G U) :
+    (H0.res φ hact x : U) = x := by
+  sorry
+
+end SourceInvariantTests
+end TauCeti.NonabelianCohomology
+
+namespace TauCeti.NonabelianCohomology
+-- test: sourceClassesTests.noninjective
+example :
+    let G := Equiv.Perm (Fin 2)
+    let U := Equiv.Perm (Fin 3)
+    letI : TopologicalSpace G := ⊥
+    letI : TopologicalSpace U := ⊥
+    letI : DiscreteTopology G := ⟨rfl⟩
+    letI : DiscreteTopology U := ⟨rfl⟩
+    letI : IsTopologicalGroup U := inferInstance
+    letI : MulDistribMulAction G U := {
+      smul := fun _ x => x
+      one_smul := fun _ => rfl
+      mul_smul := fun _ _ _ => rfl
+      smul_one := fun _ => rfl
+      smul_mul := fun _ _ _ => rfl }
+    letI : ContinuousSMul G U := ⟨continuous_snd⟩
+    let c : Z1 G U := ⟨fun g => if g = 1 then 1 else Equiv.swap 0 1,
+      continuous_of_discreteTopology, by decide⟩
+    H1.mk c ≠ 1 ∧
+      H1.res (1 : G →* G) continuous_const (fun _ _ => rfl) (H1.mk c) = 1 := by
+  sorry
+
+end TauCeti.NonabelianCohomology
+
+namespace TauCeti.NonabelianCohomology
+-- test: sourceClassesTests.nativePullbackAction
+example {G : Type*} [Group G] [TopologicalSpace G]
+    {H : Type*} [Group H] [TopologicalSpace H]
+    {U : Type*} [Group U] [TopologicalSpace U] [IsTopologicalGroup U]
+    [MulDistribMulAction G U] [ContinuousSMul G U]
+    (φ : H →* G) (hφ : Continuous φ) :
+    letI : MulDistribMulAction H U := MulDistribMulAction.compHom U φ
+    letI : ContinuousSMul H U := MulAction.continuousSMul_compHom hφ
+    H1.res φ hφ (fun _ _ => rfl) (1 : H1 G U) = 1 := by
   sorry
 
 end TauCeti.NonabelianCohomology
