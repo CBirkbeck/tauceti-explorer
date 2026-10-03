@@ -79,7 +79,7 @@ def blob(ref,path):
 def emit(name,data):
  target=out/name
  assert target.parent==out and not target.exists(),target
- patch='*** Begin Patch\n*** Add File: '+str(target)+'\n'+''.join('+'+line+'\n' for line in data.rstrip('\n').split('\n'))+'*** End Patch\n'
+ patch='*** Begin Patch\n*** Add File: '+str(target)+'\n'+''.join('+'+line+'\n' for line in data.removesuffix('\n').split('\n'))+'*** End Patch\n'
  subprocess.run(['apply_patch'],input=patch,text=True,check=True,capture_output=True)
  assert target.read_text()==data,name
 for name,(path,start,end,expected) in files.items():
