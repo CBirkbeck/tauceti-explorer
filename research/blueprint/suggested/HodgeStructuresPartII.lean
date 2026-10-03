@@ -4065,3 +4065,266 @@ example : ∃ Ω : TwoForms ℤ A A (Fin 0 → A),
 
 end
 end TauCeti.Hodge.ParameterConnection.Intrinsic
+
+namespace TauCeti.Hodge.ParameterConnection.Intrinsic
+noncomputable section
+open scoped TensorProduct
+universe u v w z p q t
+variable {k R S : Type u} [CommRing k] [CommRing R] [CommRing S]
+  [Algebra k R] [Algebra k S] [Algebra R S]
+variable {W : Type w} [AddCommGroup W] [Module R W] [Module k W]
+variable {Z : Type z} [AddCommGroup Z] [Module R Z]
+variable {V : Type p} [AddCommGroup V] [Module S V] [Module k V]
+variable {Y : Type q} [AddCommGroup Y] [Module S Y]
+variable {Ω : TwoForms k R W Z} {Γ : TwoForms k S V Y}
+variable {E : Type v} [AddCommGroup E] [Module R E]
+
+/-- The actual scalar-extension unit, with its coefficient-ring semilinearity. -/
+def scalarUnit : E →ₛₗ[algebraMap R S] S ⊗[R] E where
+  toFun e := 1 ⊗ₜ[R] e
+  map_add' := by intro x y; exact TensorProduct.tmul_add 1 x y
+  map_smul' := by
+    intro a e
+    simp only [TensorProduct.tmul_smul, TensorProduct.smul_tmul']
+    rw [Algebra.smul_def, mul_one]
+    simp only [smul_eq_mul, mul_one]
+
+lemma scalarUnit_apply (e : E) : scalarUnit (S := S) e = 1 ⊗ₜ[R] e := by
+  sorry
+
+variable {lam : R}
+
+def Preconnection.pullbackPair (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+    (D : Preconnection Ω lam E) : S →+ E →+ (S ⊗[R] E) ⊗[S] V where
+  toFun s :=
+    { toFun := fun e => s • TensorProduct.map scalarUnit m.one (D.toAddHom e) +
+        algebraMap R S lam • (scalarUnit e ⊗ₜ[S] Γ.d0 s)
+      map_zero' := by simp
+      map_add' := by intros; simp only [map_add, smul_add, TensorProduct.add_tmul]; abel }
+  map_zero' := by ext; simp
+  map_add' := by
+    intros; ext
+    simp only [AddMonoidHom.coe_mk, ZeroHom.coe_mk, map_add, add_smul,
+      TensorProduct.tmul_add, smul_add, AddMonoidHom.add_apply]
+    abel
+
+lemma Preconnection.pullbackPair_apply (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+    (D : Preconnection Ω lam E) (s : S) (e : E) :
+    D.pullbackPair m s e = s • TensorProduct.map scalarUnit m.one (D.toAddHom e) +
+      algebraMap R S lam • (scalarUnit e ⊗ₜ[S] Γ.d0 s) := by
+  sorry
+
+lemma Preconnection.pullback_balanced (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+    (D : Preconnection Ω lam E) (a : R) (s : S) (e : E) :
+    D.pullbackPair m (a • s) e = D.pullbackPair m s (a • e) := by
+  sorry
+
+def Preconnection.affinePullback (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+    (D : Preconnection Ω lam E) : Preconnection Γ (algebraMap R S lam) (S ⊗[R] E) where
+  toAddHom := TensorProduct.liftAddHom (D.pullbackPair m) (D.pullback_balanced m)
+  leibniz := by
+    intro a x
+    induction x using TensorProduct.induction_on with
+    | zero => simp
+    | add x y hx hy =>
+      simp only [smul_add, map_add, hx, hy, TensorProduct.add_tmul]
+      abel
+    | tmul s e =>
+      simp only [TensorProduct.smul_tmul', smul_eq_mul,
+        TensorProduct.liftAddHom_tmul, Preconnection.pullbackPair_apply,
+        Derivation.leibniz, TensorProduct.tmul_add, TensorProduct.tmul_smul,
+        smul_add, smul_smul]
+      rw [mul_comm (algebraMap R S lam) a, mul_comm (algebraMap R S lam) s]
+      simp only [scalarUnit_apply, TensorProduct.smul_tmul', smul_eq_mul, mul_one]
+      abel
+
+lemma Preconnection.affinePullback_tmul (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+    (D : Preconnection Ω lam E) (s : S) (e : E) :
+    (D.affinePullback m).toAddHom (s ⊗ₜ[R] e) =
+      s • TensorProduct.map scalarUnit m.one (D.toAddHom e) +
+        algebraMap R S lam • (scalarUnit e ⊗ₜ[S] Γ.d0 s) := by
+  sorry
+
+variable [IsScalarTower k R W] [IsScalarTower k S V]
+
+lemma Preconnection.affinePullback_unit (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+    (D : Preconnection Ω lam E) :
+    Preconnection.SemilinearHorizontal m D (D.affinePullback m) scalarUnit := by
+  sorry
+
+lemma Preconnection.affinePullback_curvature_unit
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E) (e : E) :
+    (D.affinePullback m).curvature (scalarUnit e) =
+      TensorProduct.map scalarUnit m.two (D.curvature e) := by
+  sorry
+
+lemma Preconnection.affinePullback_curvature_tmul
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
+    (hlam : Ω.d0 lam = 0) (s : S) (e : E) :
+    (D.affinePullback m).curvature (s ⊗ₜ[R] e) =
+      s • TensorProduct.map scalarUnit m.two (D.curvature e) := by
+  sorry
+
+lemma Preconnection.affinePullback_flat
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
+    (hlam : Ω.d0 lam = 0) (hD : ∀ e, D.curvature e = 0) (x : S ⊗[R] E) :
+    (D.affinePullback m).curvature x = 0 := by
+  sorry
+
+lemma Preconnection.affinePullback_unique
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
+    (C : Preconnection Γ (algebraMap R S lam) (S ⊗[R] E))
+    (h : Preconnection.SemilinearHorizontal m D C scalarUnit) : C = D.affinePullback m := by
+  sorry
+
+lemma Preconnection.affinePullback_flat_iff
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
+    (hlam : Ω.d0 lam = 0)
+    (hi : Function.Injective (TensorProduct.map (scalarUnit (E := E)) m.two)) :
+    (∀ x, (D.affinePullback m).curvature x = 0) ↔ ∀ e, D.curvature e = 0 := by
+  sorry
+
+variable {F : Type t} [AddCommGroup F] [Module R F]
+
+omit [IsScalarTower k R W] [IsScalarTower k S V] in
+lemma scalarUnit_baseChange (h : E →ₗ[R] F) (e : E) :
+    h.baseChange S (scalarUnit e) = scalarUnit (h e) := by
+  sorry
+
+omit [IsScalarTower k R W] [IsScalarTower k S V] in
+lemma scalarUnit_tensor_natural (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+    (h : E →ₗ[R] F) (x : E ⊗[R] W) :
+    TensorProduct.map (h.baseChange S) LinearMap.id (TensorProduct.map scalarUnit m.one x) =
+      TensorProduct.map scalarUnit m.one (TensorProduct.map h LinearMap.id x) := by
+  sorry
+
+omit [IsScalarTower k R W] [IsScalarTower k S V] in
+lemma Preconnection.affinePullback_horizontal
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
+    (C : Preconnection Ω lam F) (h : E →ₗ[R] F)
+    (hh : ∀ e, C.toAddHom (h e) = TensorProduct.map h LinearMap.id (D.toAddHom e))
+    (x : S ⊗[R] E) :
+    (C.affinePullback m).toAddHom (h.baseChange S x) =
+      TensorProduct.map (h.baseChange S) LinearMap.id ((D.affinePullback m).toAddHom x) := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.Intrinsic
+
+
+namespace TauCeti.Hodge.ParameterConnection.Intrinsic
+noncomputable section
+open scoped TensorProduct
+universe u v w z p q
+variable {k R S : Type u} [CommRing k] [CommRing R] [CommRing S]
+  [Algebra k R] [Algebra k S] [Algebra R S]
+variable {W : Type w} [AddCommGroup W] [Module R W] [Module k W]
+variable {Z : Type z} [AddCommGroup Z] [Module R Z]
+variable {V : Type p} [AddCommGroup V] [Module S V] [Module k V]
+variable {Y : Type q} [AddCommGroup Y] [Module S Y]
+variable {Ω : TwoForms k R W Z} {Γ : TwoForms k S V Y}
+variable {E : Type v} [AddCommGroup E] [Module R E] {lam : R}
+
+-- test: scalarUnit.test_semilinear
+example (a : R) (e : E) : scalarUnit (S := S) (a • e) =
+    algebraMap R S a • scalarUnit (R := R) (S := S) e := by
+  sorry
+
+-- test: Preconnection.pullbackPair.test_balance
+example (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
+    (a : R) (s : S) (e : E) : D.pullbackPair m (a • s) e =
+      D.pullbackPair m s (a • e) := by
+  sorry
+
+-- test: Preconnection.affinePullback.test_leibniz
+example (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
+    (s : S) (x : S ⊗[R] E) :
+    (D.affinePullback m).toAddHom (s • x) = s • (D.affinePullback m).toAddHom x +
+      algebraMap R S lam • (x ⊗ₜ[S] Γ.d0 s) := by
+  sorry
+
+-- test: Preconnection.affinePullback.test_zero_higgs
+example (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω 0 E)
+    (s : S) (e : E) : (D.affinePullback m).toAddHom (s ⊗ₜ[R] e) =
+      s • TensorProduct.map scalarUnit m.one (D.toAddHom e) := by
+  sorry
+
+-- test: Preconnection.pullbackPair.test_add_left
+example (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
+    (s t : S) (e : E) : D.pullbackPair m (s + t) e =
+      D.pullbackPair m s e + D.pullbackPair m t e := by
+  sorry
+
+-- test: Preconnection.pullbackPair.test_add_right
+example (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
+    (s : S) (e f : E) : D.pullbackPair m s (e + f) =
+      D.pullbackPair m s e + D.pullbackPair m s f := by
+  sorry
+
+-- test: scalarUnit.test_baseChange
+example {F : Type*} [AddCommGroup F] [Module R F] (h : E →ₗ[R] F) (e : E) :
+    h.baseChange S (scalarUnit e) = scalarUnit (h e) := by
+  sorry
+
+variable [IsScalarTower k R W] [IsScalarTower k S V]
+
+-- test: Preconnection.affinePullback.test_unit_horizontal
+example (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E) :
+    Preconnection.SemilinearHorizontal m D (D.affinePullback m) scalarUnit := by
+  sorry
+
+-- test: Preconnection.affinePullback.test_flat_arbitrary_sum
+example (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
+    (h : Ω.d0 lam = 0) (hD : ∀ e, D.curvature e = 0) (s t : S) (e f : E) :
+    (D.affinePullback m).curvature ((s ⊗ₜ[R] e) + (t ⊗ₜ[R] f)) = 0 := by
+  sorry
+
+-- test: Preconnection.affinePullback.test_uniqueness
+example (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
+    (C : Preconnection Γ (algebraMap R S lam) (S ⊗[R] E))
+    (h : Preconnection.SemilinearHorizontal m D C scalarUnit) :
+    C = D.affinePullback m := by
+  sorry
+
+-- test: Preconnection.affinePullback.test_reflection
+example (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
+    (h : Ω.d0 lam = 0)
+    (hi : Function.Injective (TensorProduct.map (scalarUnit (E := E)) m.two)) :
+    (∀ x, (D.affinePullback m).curvature x = 0) ↔ ∀ e, D.curvature e = 0 := by
+  sorry
+
+-- test: Preconnection.affinePullback.test_horizontal_map
+example {F : Type*} [AddCommGroup F] [Module R F]
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
+    (C : Preconnection Ω lam F) (h : E →ₗ[R] F)
+    (hh : ∀ e, C.toAddHom (h e) = TensorProduct.map h LinearMap.id (D.toAddHom e))
+    (x : S ⊗[R] E) : (C.affinePullback m).toAddHom (h.baseChange S x) =
+      TensorProduct.map (h.baseChange S) LinearMap.id ((D.affinePullback m).toAddHom x) := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.Intrinsic
+
+namespace TauCeti.Hodge.ParameterConnection.Intrinsic
+noncomputable section
+open scoped TensorProduct
+local notation "A" => Polynomial ℤ
+
+-- test: Preconnection.affinePullback.test_new_polynomial_direction
+example : ∃ Ω : TwoForms ℤ ℤ ℤ (Fin 0 → ℤ),
+    ∃ Γ : TwoForms ℤ A A (Fin 0 → A),
+    ∃ m : TwoForms.Morphism (algebraMap ℤ A) Ω Γ,
+    ∃ D : Preconnection Ω 2 ℤ,
+      (∀ n, D.toAddHom n = 0) ∧
+      (∀ x, (D.affinePullback m).curvature x = 0) ∧
+      (D.affinePullback m).toAddHom (Polynomial.X ⊗ₜ[ℤ] (1 : ℤ)) =
+        (2 : A) • ((1 ⊗ₜ[ℤ] (1 : ℤ)) ⊗ₜ[A] (1 : A)) ∧
+      (D.affinePullback m).toAddHom (Polynomial.X ⊗ₜ[ℤ] (1 : ℤ)) ≠ 0 := by
+  sorry
+
+-- test: scalarUnit.test_not_surjective
+example : ¬ Function.Surjective (scalarUnit (R := ℤ) (S := A) (E := ℤ)) := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.Intrinsic
