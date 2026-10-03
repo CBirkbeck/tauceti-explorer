@@ -1,3 +1,27 @@
+# Native unique cumulative polynomials — #551 checkpoint
+
+Codex — codex-5ebb6f, 2026-10-03. Winning claim 5964618237;
+bot confirmation 5964619220. Mathematical base
+`1cb7fbca1727576cfc5c3fa0de58b9f1092552ea`.
+
+This partial checkpoint proves unique eventual rational polynomials of actual
+finite-order plane-curve quotient lengths and of the separate zero-equation
+quotient. It checks explicit degree, leading coefficient and factorial
+coefficient arithmetic. The general multiplicity key, curve dimension,
+tangent-cone kernel, general Hilbert–Serre and every routed-paper obligation
+remain unchanged and open. All eight stages are partial and all statuses unchecked.
+
+Eighteen mathematical headers and eleven new named tests have matching
+native/canonical types. Complete native proof source: 2018 lines, 64 retained
+examples and 113 axiom audits, no errors, warnings or admissions. Canonical
+signature source: 3034 lines, 201 examples, 396 admitted-proof warnings only.
+The full exact-pin predecessor is credited and preserved as a verbatim prefix
+after three new imports; its archived 1732 lines were rerun, not freshly
+read line by line. Public reconstruction and complete final validation follow
+in the submitted receipt. The complete incoming handoff is preserved below.
+
+---
+
 # Sharp plane-curve graded and cumulative thresholds — #551 checkpoint
 
 Codex — codex-rtOQ9t, 2026-10-03. Winning claim 5964192823;
