@@ -12,7 +12,7 @@
     "SchemeAndStackFoundations:SF.6"
   ],
   "status": "partial",
-  "summary": "Continuation of the existing SF.0 henselization strand: all twenty-five inherited IDs retained; four declaration-sized actual-section selector, kernel, product and localization adapters are added with native proofs, and the inherited etale-lift uniqueness statement now has a native proof. The generic unramified diagonal and idempotent/localization machinery are already built and imported. Lifted residue-selector localization, finite-data implementation, source criterion/universal cocone, ownership overlap, all other keys/stages/source routes and confirmed findings remain open; every implementation stays unchecked pending review. Flat-annihilator continuation: eight new lemma-sized supplier steps and seven tests, retaining the entire twenty-nine-node henselization strand.",
+  "summary": "Continuation of the existing SF.0 henselization strand: all twenty-five inherited IDs retained; four declaration-sized actual-section selector, kernel, product and localization adapters are added with native proofs, and the inherited etale-lift uniqueness statement now has a native proof. The generic unramified diagonal and idempotent/localization machinery are already built and imported. Lifted residue-selector localization, finite-data implementation, source criterion/universal cocone, ownership overlap, all other keys/stages/source routes and confirmed findings remain open; every implementation stays unchecked pending review. Flat-annihilator continuation: eight new lemma-sized supplier steps and seven tests, retaining the entire twenty-nine-node henselization strand. Quotient/cokernel continuation: thirteen native adapter declarations, three API items and eight tests, preserving all thirty-seven incoming whole nodes and every existing obligation.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -511,6 +511,134 @@
         "line": 152,
         "provides": "theorem ker_mkQ : ker p.mkQ = p := by ext; simp",
         "checked": "Full statement and its relevant ambient assumptions personally read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-7e92bd on2026-10-03. Imported native result, not new planning work."
+      },
+      {
+        "ref": "mathlib:Ideal.annihilator_quotient",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Colon.lean",
+        "line": 173,
+        "provides": "theorem _root_.Ideal.annihilator_quotient {I : Ideal R} [I.IsTwoSided] :",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Exact source ranges and file hashes are recorded in Reading.json; this is an imported built result."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.annihilator_eq",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "line": 882,
+        "provides": "theorem LinearEquiv.annihilator_eq (e : M ≃ₗ[R] M') :",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Exact source ranges and file hashes are recorded in Reading.json; this is an imported built result."
+      },
+      {
+        "ref": "mathlib:LinearMap.baseChange_comp",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "line": 689,
+        "provides": "lemma baseChange_comp (g : N →ₗ[R] P) :",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Exact source ranges and file hashes are recorded in Reading.json; this is an imported built result."
+      },
+      {
+        "ref": "mathlib:LinearMap.lTensor_range",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/RightExactness.lean",
+        "line": 130,
+        "provides": "theorem LinearMap.lTensor_range :",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Exact source ranges and file hashes are recorded in Reading.json; this is an imported built result."
+      },
+      {
+        "ref": "mathlib:LinearMap.range_comp",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/Submodule/Range.lean",
+        "line": 82,
+        "provides": "theorem range_comp [RingHomSurjective τ₁₂] [RingHomSurjective τ₂₃] [RingHomSurjective τ₁₃]",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Exact source ranges and file hashes are recorded in Reading.json; this is an imported built result."
+      },
+      {
+        "ref": "mathlib:Module.Finite.quotient",
+        "kind": "instance",
+        "module": "Mathlib/RingTheory/Finiteness/Basic.lean",
+        "line": 261,
+        "provides": "instance quotient (R) {A M} [Semiring R] [AddCommGroup M] [Ring A] [Module A M] [Module R M]",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Exact source ranges and file hashes are recorded in Reading.json; this is an imported built result."
+      },
+      {
+        "ref": "mathlib:Submodule.baseChange",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "line": 830,
+        "provides": "def baseChange : Submodule A (A ⊗[R] M) :=",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Exact source ranges and file hashes are recorded in Reading.json; this is an imported built result."
+      },
+      {
+        "ref": "mathlib:Submodule.baseChange_mono",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "line": 857,
+        "provides": "theorem baseChange_mono (h : p ≤ q) : p.baseChange A ≤ q.baseChange A := by",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Exact source ranges and file hashes are recorded in Reading.json; this is an imported built result."
+      },
+      {
+        "ref": "mathlib:Submodule.mapQ",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+        "line": 172,
+        "provides": "def mapQ (f : M →ₛₗ[τ₁₂] M₂) (h : p ≤ comap f q) : M ⧸ p →ₛₗ[τ₁₂] M₂ ⧸ q :=",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Exact source ranges and file hashes are recorded in Reading.json; this is an imported built result."
+      },
+      {
+        "ref": "mathlib:Submodule.map_le_iff_le_comap",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/Submodule/Map.lean",
+        "line": 214,
+        "provides": "theorem map_le_iff_le_comap {f : M →ₛₗ[σ₁₂] M₂} {p : Submodule R M} {q : Submodule R₂ M₂} :",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Exact source ranges and file hashes are recorded in Reading.json; this is an imported built result."
+      },
+      {
+        "ref": "mathlib:Submodule.quotEquivOfEq",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "line": 252,
+        "provides": "def quotEquivOfEq (h : p = p') : (M ⧸ p) ≃ₗ[R] M ⧸ p' :=",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Exact source ranges and file hashes are recorded in Reading.json; this is an imported built result."
+      },
+      {
+        "ref": "mathlib:Submodule.quotEquivOfEq_mk",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "line": 264,
+        "provides": "theorem quotEquivOfEq_mk (h : p = p') (x : M) :",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Exact source ranges and file hashes are recorded in Reading.json; this is an imported built result."
+      },
+      {
+        "ref": "mathlib:Submodule.range_subtype",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/Submodule/Range.lean",
+        "line": 309,
+        "provides": "theorem range_subtype : range p.subtype = p := by simpa using map_comap_subtype p ⊤",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Exact source ranges and file hashes are recorded in Reading.json; this is an imported built result."
+      },
+      {
+        "ref": "mathlib:Submodule.restrictScalars_injective",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/Submodule/RestrictScalars.lean",
+        "line": 67,
+        "provides": "theorem restrictScalars_injective :",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Exact source ranges and file hashes are recorded in Reading.json; this is an imported built result."
+      },
+      {
+        "ref": "mathlib:TensorProduct.AlgebraTensorModule.tensorQuotientEquiv",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Quotient.lean",
+        "line": 270,
+        "provides": "noncomputable def tensorQuotientEquiv (n : Submodule B N) :",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Exact source ranges and file hashes are recorded in Reading.json; this is an imported built result."
+      },
+      {
+        "ref": "mathlib:TensorProduct.smul_tmul",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Defs.lean",
+        "line": 184,
+        "provides": "theorem smul_tmul [DistribMulAction R' N] [CompatibleSMul R R' M N] (r : R') (m : M) (n : N) :",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on2026-10-03. Exact source ranges and file hashes are recorded in Reading.json; this is an imported built result."
       }
     ]
   },
@@ -619,6 +747,32 @@
       "readSections": [
         "Complete displayed statement and proof of Lemma10.39.2.",
         "Native statement and proof adapters are authored deductions. No whole-chapter or downstream source audit is claimed."
+      ]
+    },
+    {
+      "id": "STACKS-00DF",
+      "title": "Right exactness of tensor product",
+      "authors": "The Stacks Project authors",
+      "edition": "Online statement and displayed proof read2026-10-03",
+      "url": "https://stacks.math.columbia.edu/tag/00DF",
+      "sha256": "3bb81296a391cc67e6db93279041b8be00425bda4d110662b0c6287bf924ed1a",
+      "accessed": "2026-10-03T18:35:36.448314+00:00",
+      "readSections": [
+        "Complete Lemma 10.12.10 statement, Hom-tensor proof and displayed exact sequences; adapters and maps authored here.",
+        "No full-chapter or paper closure is claimed."
+      ]
+    },
+    {
+      "id": "STACKS-00DI",
+      "title": "Failure of tensor injectivity without flatness",
+      "authors": "The Stacks Project authors",
+      "edition": "Online statement and displayed proof read2026-10-03",
+      "url": "https://stacks.math.columbia.edu/tag/00DI",
+      "sha256": "12a49818dadd74c730b376b40477ff0ad140aabbc1fb17325f20e9603f56bf2e",
+      "accessed": "2026-10-03T18:35:36.757390+00:00",
+      "readSections": [
+        "Complete Example 10.12.12 and its displayed multiplication-by-two calculation; reproduced with left extension of scalars using tensor symmetry.",
+        "No full-chapter or paper closure is claimed."
       ]
     }
   ],
@@ -2481,6 +2635,572 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/quotient-basechange-square",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Canonical quotient square",
+      "leanName": "TauCeti.SchemeFoundations.QuotientBaseChange.quotient_baseChange_square",
+      "statement": "For a commutative R-algebra S and a submodule Q of an R-module M, the existing S-linear tensor quotient equivalence E_Q satisfies E_Q ∘ (Q.mkQ).baseChange S = (Q.baseChange S).mkQ. The equality compares the actual linear maps on all tensors.",
+      "hypotheses": [
+        "R and S are commutative rings, including zero rings, in independent universes. M and N are arbitrary additive commutative groups with R-module structures. Flatness and finite generation are required only where explicitly stated; finite generation applies to the quotient or cokernel."
+      ],
+      "prerequisites": [
+        "mathlib:TensorProduct.AlgebraTensorModule.tensorQuotientEquiv",
+        "mathlib:LinearMap.baseChange",
+        "mathlib:Submodule.baseChange"
+      ],
+      "proofSteps": [
+        "Apply tensor-linear-map extensionality. Both composites send s⊗m to the class of s⊗m in the quotient by Q.baseChange S. No choice of generators or flatness is involved."
+      ],
+      "acceptance": [
+        "For a commutative R-algebra S and a submodule Q of an R-module M, the existing S-linear tensor quotient equivalence E_Q satisfies E_Q ∘ (Q.mkQ).baseChange S = (Q.baseChange S).mkQ. The equality compares the actual linear maps on all tensors.",
+        "Use the existing native quotient carriers and actual tensor, subtype, range and quotient maps. The separate proof file must compile at the pin without admissions or additional axioms."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/TensorProduct/Quotient",
+        "namespace": "TauCeti.SchemeFoundations.QuotientBaseChange"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-00DF",
+          "locator": "Complete Lemma 10.12.10",
+          "match": "The quotient/cokernel and naturality statements are explicit authored adapters of the pinned baseline. The source supplies the right-exact or flat-annihilator input, not these Lean declaration names."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/quotient-basechange-annihilator",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Annihilator transport through the tensor quotient",
+      "leanName": "TauCeti.SchemeFoundations.QuotientBaseChange.quotient_baseChange_annihilator",
+      "statement": "For every commutative R-algebra S and Q≤M, Ann_S(S⊗_R(M/Q)) equals Ann_S((S⊗_R M)/(Q.baseChange S)). The quotient equivalence is the existing S-linear Mathlib tensorQuotientEquiv, with its image submodule definitionally Q.baseChange S.",
+      "hypotheses": [
+        "R and S are commutative rings, including zero rings, in independent universes. M and N are arbitrary additive commutative groups with R-module structures. Flatness and finite generation are required only where explicitly stated; finite generation applies to the quotient or cokernel."
+      ],
+      "prerequisites": [
+        "mathlib:TensorProduct.AlgebraTensorModule.tensorQuotientEquiv",
+        "mathlib:LinearEquiv.annihilator_eq",
+        "mathlib:Submodule.baseChange"
+      ],
+      "proofSteps": [
+        "Read the complete ambient scalar towers of the existing tensor quotient equivalence. Apply its native annihilator_eq theorem; both scalar rings are S. This imports the equivalence instead of defining a second quotient carrier."
+      ],
+      "acceptance": [
+        "For every commutative R-algebra S and Q≤M, Ann_S(S⊗_R(M/Q)) equals Ann_S((S⊗_R M)/(Q.baseChange S)). The quotient equivalence is the existing S-linear Mathlib tensorQuotientEquiv, with its image submodule definitionally Q.baseChange S.",
+        "Use the existing native quotient carriers and actual tensor, subtype, range and quotient maps. The separate proof file must compile at the pin without admissions or additional axioms."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/TensorProduct/Quotient",
+        "namespace": "TauCeti.SchemeFoundations.QuotientBaseChange"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-07T8",
+          "locator": "Complete Lemma 10.40.4",
+          "match": "The quotient/cokernel and naturality statements are explicit authored adapters of the pinned baseline. The source supplies the right-exact or flat-annihilator input, not these Lean declaration names."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/flat-quotient-annihilator",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Flat base change of quotient annihilators",
+      "leanName": "TauCeti.SchemeFoundations.QuotientBaseChange.quotient_annihilator_flat_baseChange",
+      "statement": "If S is a flat commutative R-algebra and M/Q is finitely generated over R, then (Ann_R(M/Q)).map(algebraMap R S)=Ann_S((S⊗_R M)/(Q.baseChange S)). Only the quotient M/Q must be finite; M and Q need not be finite, Noetherian or finitely presented.",
+      "hypotheses": [
+        "R and S are commutative rings, including zero rings, in independent universes. M and N are arbitrary additive commutative groups with R-module structures. Flatness and finite generation are required only where explicitly stated; finite generation applies to the quotient or cokernel."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/flat-annihilator",
+        "SchemeAndStackFoundations:SF.0/quotient-basechange-annihilator"
+      ],
+      "proofSteps": [
+        "Apply the incoming finite-module flat-annihilator theorem to the actual quotient M/Q. Transport its S-annihilator through the native tensor quotient equivalence. No additional finiteness is introduced."
+      ],
+      "acceptance": [
+        "If S is a flat commutative R-algebra and M/Q is finitely generated over R, then (Ann_R(M/Q)).map(algebraMap R S)=Ann_S((S⊗_R M)/(Q.baseChange S)). Only the quotient M/Q must be finite; M and Q need not be finite, Noetherian or finitely presented.",
+        "Use the existing native quotient carriers and actual tensor, subtype, range and quotient maps. The separate proof file must compile at the pin without admissions or additional axioms."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/TensorProduct/Quotient",
+        "namespace": "TauCeti.SchemeFoundations.QuotientBaseChange"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-07T8",
+          "locator": "Complete Lemma 10.40.4",
+          "match": "The quotient/cokernel and naturality statements are explicit authored adapters of the pinned baseline. The source supplies the right-exact or flat-annihilator input, not these Lean declaration names."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/quotient-annihilator-basechange-inclusion",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Unconditional quotient annihilator inclusion",
+      "leanName": "TauCeti.SchemeFoundations.QuotientBaseChange.quotient_annihilator_map_le_baseChange",
+      "statement": "For every commutative R-algebra S and Q≤M, (Ann_R(M/Q)).map(algebraMap R S)≤Ann_S((S⊗_R M)/(Q.baseChange S)). This inclusion requires neither flatness nor finiteness.",
+      "hypotheses": [
+        "R and S are commutative rings, including zero rings, in independent universes. M and N are arbitrary additive commutative groups with R-module structures. Flatness and finite generation are required only where explicitly stated; finite generation applies to the quotient or cokernel."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/annihilator-basechange-inclusion",
+        "SchemeAndStackFoundations:SF.0/quotient-basechange-annihilator"
+      ],
+      "proofSteps": [
+        "Use the incoming unconditional annihilator inclusion for M/Q, then the S-linear quotient annihilator comparison. Equality is asserted only in the preceding flat finite-quotient theorem."
+      ],
+      "acceptance": [
+        "For every commutative R-algebra S and Q≤M, (Ann_R(M/Q)).map(algebraMap R S)≤Ann_S((S⊗_R M)/(Q.baseChange S)). This inclusion requires neither flatness nor finiteness.",
+        "Use the existing native quotient carriers and actual tensor, subtype, range and quotient maps. The separate proof file must compile at the pin without admissions or additional axioms."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/TensorProduct/Quotient",
+        "namespace": "TauCeti.SchemeFoundations.QuotientBaseChange"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-07T8",
+          "locator": "Complete Lemma 10.40.4",
+          "match": "The quotient/cokernel and naturality statements are explicit authored adapters of the pinned baseline. The source supplies the right-exact or flat-annihilator input, not these Lean declaration names."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/range-basechange",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Image under extension of scalars",
+      "leanName": "TauCeti.SchemeFoundations.QuotientBaseChange.baseChange_range",
+      "statement": "For any R-linear f:M→N and commutative R-algebra S, range(f.baseChange S)=(range f).baseChange S. This is an equality of native S-submodules; f need not be injective and S need not be flat.",
+      "hypotheses": [
+        "R and S are commutative rings, including zero rings, in independent universes. M and N are arbitrary additive commutative groups with R-module structures. Flatness and finite generation are required only where explicitly stated; finite generation applies to the quotient or cokernel."
+      ],
+      "prerequisites": [
+        "mathlib:LinearMap.lTensor_range",
+        "mathlib:Submodule.baseChange",
+        "mathlib:LinearMap.baseChange"
+      ],
+      "proofSteps": [
+        "Compare the native S-submodules after restricting scalars to R, using injectivity of restriction of submodules. The resulting ranges are exactly the existing lTensor_range equality. This is a scalar-structure adapter for that built result."
+      ],
+      "acceptance": [
+        "For any R-linear f:M→N and commutative R-algebra S, range(f.baseChange S)=(range f).baseChange S. This is an equality of native S-submodules; f need not be injective and S need not be flat.",
+        "Use the existing native quotient carriers and actual tensor, subtype, range and quotient maps. The separate proof file must compile at the pin without admissions or additional axioms."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/TensorProduct/Quotient",
+        "namespace": "TauCeti.SchemeFoundations.QuotientBaseChange"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-00DF",
+          "locator": "Complete Lemma 10.12.10",
+          "match": "The quotient/cokernel and naturality statements are explicit authored adapters of the pinned baseline. The source supplies the right-exact or flat-annihilator input, not these Lean declaration names."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/submodule-image-basechange",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Submodule image compatibility",
+      "leanName": "TauCeti.SchemeFoundations.QuotientBaseChange.baseChange_map",
+      "statement": "For Q≤M and f:M→N, extending Q.map f to S equals the image of Q.baseChange S under f.baseChange S. This holds for all commutative R-algebras S without flatness.",
+      "hypotheses": [
+        "R and S are commutative rings, including zero rings, in independent universes. M and N are arbitrary additive commutative groups with R-module structures. Flatness and finite generation are required only where explicitly stated; finite generation applies to the quotient or cokernel."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/range-basechange",
+        "mathlib:LinearMap.range_comp",
+        "mathlib:Submodule.range_subtype",
+        "mathlib:LinearMap.baseChange_comp"
+      ],
+      "proofSteps": [
+        "Express Q.map f as the range of f composed with the actual subtype of Q. Apply range-basechange, baseChange_comp and range_comp. The remaining source range is definitionally Q.baseChange S."
+      ],
+      "acceptance": [
+        "For Q≤M and f:M→N, extending Q.map f to S equals the image of Q.baseChange S under f.baseChange S. This holds for all commutative R-algebras S without flatness.",
+        "Use the existing native quotient carriers and actual tensor, subtype, range and quotient maps. The separate proof file must compile at the pin without admissions or additional axioms."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/TensorProduct/Quotient",
+        "namespace": "TauCeti.SchemeFoundations.QuotientBaseChange"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-00DF",
+          "locator": "Complete Lemma 10.12.10",
+          "match": "The quotient/cokernel and naturality statements are explicit authored adapters of the pinned baseline. The source supplies the right-exact or flat-annihilator input, not these Lean declaration names."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/quotient-map-basechange-containment",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Extended containment for quotient maps",
+      "leanName": "TauCeti.SchemeFoundations.QuotientBaseChange.baseChange_le_comap",
+      "statement": "If Q≤P.comap f for f:M→N, then Q.baseChange S≤(P.baseChange S).comap(f.baseChange S). This supplies the actual containment proof needed to induce the map on the extended quotients.",
+      "hypotheses": [
+        "R and S are commutative rings, including zero rings, in independent universes. M and N are arbitrary additive commutative groups with R-module structures. Flatness and finite generation are required only where explicitly stated; finite generation applies to the quotient or cokernel."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/submodule-image-basechange",
+        "mathlib:Submodule.baseChange_mono",
+        "mathlib:Submodule.map_le_iff_le_comap"
+      ],
+      "proofSteps": [
+        "Translate containment to an image inequality. Rewrite the image using submodule-image-basechange and apply the existing monotonicity of extension of submodules."
+      ],
+      "acceptance": [
+        "If Q≤P.comap f for f:M→N, then Q.baseChange S≤(P.baseChange S).comap(f.baseChange S). This supplies the actual containment proof needed to induce the map on the extended quotients.",
+        "Use the existing native quotient carriers and actual tensor, subtype, range and quotient maps. The separate proof file must compile at the pin without admissions or additional axioms."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/TensorProduct/Quotient",
+        "namespace": "TauCeti.SchemeFoundations.QuotientBaseChange"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-00DF",
+          "locator": "Complete Lemma 10.12.10",
+          "match": "The quotient/cokernel and naturality statements are explicit authored adapters of the pinned baseline. The source supplies the right-exact or flat-annihilator input, not these Lean declaration names."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/quotient-map-basechange-naturality",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Naturality of the quotient comparison",
+      "leanName": "TauCeti.SchemeFoundations.QuotientBaseChange.quotient_baseChange_naturality",
+      "statement": "For f:M→N and Q≤P.comap f, E_P ∘ (Q.mapQ P f).baseChange S equals the induced map (Q.baseChange S).mapQ (P.baseChange S) (f.baseChange S) composed with E_Q. All four maps are the native S-linear maps and equivalences with the preceding extended containment proof.",
+      "hypotheses": [
+        "R and S are commutative rings, including zero rings, in independent universes. M and N are arbitrary additive commutative groups with R-module structures. Flatness and finite generation are required only where explicitly stated; finite generation applies to the quotient or cokernel."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/quotient-map-basechange-containment",
+        "mathlib:Submodule.mapQ",
+        "mathlib:TensorProduct.AlgebraTensorModule.tensorQuotientEquiv"
+      ],
+      "proofSteps": [
+        "Use tensor and quotient extensionality. On s⊗[m], the two composites give [s⊗f(m)]. Retain the actual native containment and mapQ arguments; no arbitrary isomorphism replaces either comparison map."
+      ],
+      "acceptance": [
+        "For f:M→N and Q≤P.comap f, E_P ∘ (Q.mapQ P f).baseChange S equals the induced map (Q.baseChange S).mapQ (P.baseChange S) (f.baseChange S) composed with E_Q. All four maps are the native S-linear maps and equivalences with the preceding extended containment proof.",
+        "Use the existing native quotient carriers and actual tensor, subtype, range and quotient maps. The separate proof file must compile at the pin without admissions or additional axioms."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/TensorProduct/Quotient",
+        "namespace": "TauCeti.SchemeFoundations.QuotientBaseChange"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-00DF",
+          "locator": "Complete Lemma 10.12.10",
+          "match": "The quotient/cokernel and naturality statements are explicit authored adapters of the pinned baseline. The source supplies the right-exact or flat-annihilator input, not these Lean declaration names."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/flat-cokernel-annihilator",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "theorem",
+      "title": "Flat base change of finite cokernel annihilators",
+      "leanName": "TauCeti.SchemeFoundations.QuotientBaseChange.cokernel_annihilator_flat_baseChange",
+      "statement": "For an R-linear f:M→N, a flat commutative R-algebra S and finite R-module N/range f, extending Ann_R(N/range f) to S gives Ann_S((S⊗_R N)/range(f.baseChange S)). Finiteness of the cokernel alone suffices, and f need not be injective.",
+      "hypotheses": [
+        "R and S are commutative rings, including zero rings, in independent universes. M and N are arbitrary additive commutative groups with R-module structures. Flatness and finite generation are required only where explicitly stated; finite generation applies to the quotient or cokernel."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/flat-quotient-annihilator",
+        "SchemeAndStackFoundations:SF.0/range-basechange"
+      ],
+      "proofSteps": [
+        "Apply the quotient theorem with Q=range f, then rewrite its extended submodule using range-basechange. The result computes the full annihilator of the actual quotient by the actual extended map, including nilpotent scalars."
+      ],
+      "acceptance": [
+        "For an R-linear f:M→N, a flat commutative R-algebra S and finite R-module N/range f, extending Ann_R(N/range f) to S gives Ann_S((S⊗_R N)/range(f.baseChange S)). Finiteness of the cokernel alone suffices, and f need not be injective.",
+        "Use the existing native quotient carriers and actual tensor, subtype, range and quotient maps. The separate proof file must compile at the pin without admissions or additional axioms."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/TensorProduct/Quotient",
+        "namespace": "TauCeti.SchemeFoundations.QuotientBaseChange"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-07T8",
+          "locator": "Complete Lemma 10.40.4",
+          "match": "The quotient/cokernel and naturality statements are explicit authored adapters of the pinned baseline. The source supplies the right-exact or flat-annihilator input, not these Lean declaration names."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Flat base change of finite cokernels"
+      },
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0 existing SF.0 requests for quotient/tensor and full conductor base change",
+          "how": "Supply the generic native finite-cokernel annihilator calculation. The consumer still identifies its algebra inclusion range and actual conductor/sheaf maps; no Neron node or multi-part request is closed here."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/cokernel-basechange-comparison",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "construction",
+      "title": "Canonical cokernel comparison",
+      "leanName": "TauCeti.SchemeFoundations.QuotientBaseChange.cokernelBaseChangeEquiv",
+      "statement": "For any R-linear f:M→N and commutative R-algebra S, construct the S-linear equivalence S⊗_R(N/range f)≃(S⊗_R N)/range(f.baseChange S) by composing the existing tensor quotient equivalence with the native quotient transport along range-basechange. This named adapter introduces no new module or quotient carrier.",
+      "hypotheses": [
+        "R and S are commutative rings, including zero rings, in independent universes. M and N are arbitrary additive commutative groups with R-module structures. Flatness and finite generation are required only where explicitly stated; finite generation applies to the quotient or cokernel."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/range-basechange",
+        "mathlib:TensorProduct.AlgebraTensorModule.tensorQuotientEquiv",
+        "mathlib:Submodule.quotEquivOfEq"
+      ],
+      "proofSteps": [
+        "Compose tensorQuotientEquiv S R S (range f) with quotEquivOfEq using the symmetric range-basechange equality. The concrete Lean constructor is retained in every projection; no flatness, generator choice or finite presentation is needed."
+      ],
+      "acceptance": [
+        "For any R-linear f:M→N and commutative R-algebra S, construct the S-linear equivalence S⊗_R(N/range f)≃(S⊗_R N)/range(f.baseChange S) by composing the existing tensor quotient equivalence with the native quotient transport along range-basechange. This named adapter introduces no new module or quotient carrier.",
+        "Use the existing native quotient carriers and actual tensor, subtype, range and quotient maps. The separate proof file must compile at the pin without admissions or additional axioms."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/TensorProduct/Quotient",
+        "namespace": "TauCeti.SchemeFoundations.QuotientBaseChange"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-00DF",
+          "locator": "Complete Lemma 10.12.10",
+          "match": "The quotient/cokernel and naturality statements are explicit authored adapters of the pinned baseline. The source supplies the right-exact or flat-annihilator input, not these Lean declaration names."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.SchemeFoundations.QuotientBaseChange.cokernelBaseChangeEquiv_tmul",
+          "role": "compatibility",
+          "statement": "The canonical cokernel comparison sends s⊗[n] to [s⊗n] for every s∈S and n∈N. Brackets denote the respective actual native quotient maps, so elements of range f are respected.",
+          "proof": "Use SchemeAndStackFoundations:SF.0/cokernel-basechange-representative; the native proof and admitted header coincide."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.QuotientBaseChange.cokernelBaseChangeEquiv_symm_mk_tmul",
+          "role": "compatibility",
+          "statement": "The inverse canonical cokernel comparison sends [s⊗n] to s⊗[n]. This fixes the inverse map on actual pure-tensor quotient representatives without a flatness hypothesis.",
+          "proof": "Use SchemeAndStackFoundations:SF.0/cokernel-basechange-inverse; the native proof and admitted header coincide."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.QuotientBaseChange.cokernel_baseChange_square",
+          "role": "compatibility",
+          "statement": "As S-linear maps from S⊗_R N, cokernelBaseChangeEquiv S f composed with (range f).mkQ.baseChange S equals (range(f.baseChange S)).mkQ. The named comparison is therefore compatible with the actual quotient projection.",
+          "proof": "Use SchemeAndStackFoundations:SF.0/cokernel-basechange-square; the native proof and admitted header coincide."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuotientBaseChangeChecked.identity_cokernel",
+          "kind": "degenerate",
+          "statement": "For the identity map of any R-module, the quotient by the image of its scalar extension is a singleton, for every S."
+        },
+        {
+          "name": "QuotientBaseChangeChecked.zero_map_scalar",
+          "kind": "computation",
+          "statement": "For the zero map Z→Z and S=Z/5, the canonical comparison sends 3⊗[7] to a class whose actual quotient-zero and right-unit coordinates equal 1."
+        },
+        {
+          "name": "QuotientBaseChangeChecked.inverse_representative",
+          "kind": "compatibility",
+          "statement": "For multiplication by 2 on Z and S=Z/4, the actual inverse comparison sends [3⊗7] to 3⊗[7], although this scalar extension is not flat."
+        },
+        {
+          "name": "QuotientBaseChangeChecked.nonflat_injective_map_collapses",
+          "kind": "non-example",
+          "statement": "Multiplication by 2 on Z is injective, but its extension to Z/2 is the zero linear map, and 1⊗1 is nonzero. Right-exact quotient comparison does not imply preservation of injectivity."
+        },
+        {
+          "name": "QuotientBaseChangeChecked.nonreduced_quotient_annihilator",
+          "kind": "computation",
+          "statement": "For Q=(2) in Z/4 under identity extension, the nonzero scalar 2 annihilates the actual quotient of the tensor module by Q.baseChange."
+        },
+        {
+          "name": "QuotientBaseChangeChecked.nonreduced_diagonal_quotient",
+          "kind": "computation",
+          "statement": "For Q=(2) in Z/4 under its actual flat diagonal extension to Z/4×Z/4, the nonzero scalar (2,2) annihilates the extended quotient."
+        },
+        {
+          "name": "QuotientBaseChangeChecked.top_quotient_annihilator",
+          "kind": "degenerate",
+          "statement": "For Q=M and any commutative R-algebra S, the actual extended quotient has unit annihilator, without a flatness or finiteness hypothesis."
+        },
+        {
+          "name": "QuotientBaseChangeChecked.zero_ring_cokernel",
+          "kind": "degenerate",
+          "statement": "For multiplication by 2 on Z and the zero coefficient ring Z/1, the actual extended cokernel quotient is a singleton."
+        }
+      ],
+      "uses": [
+        {
+          "where": "SF.0 flat-cokernel-annihilator and NeronModelsAndSemistableAbelianVarietiesPartII:G.0 quotient/tensor requests",
+          "how": "Fix the actual S-linear comparison, inverse and quotient projection for every map f. Consumers transport their concrete cokernel after separately identifying its image submodule."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/cokernel-basechange-representative",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Cokernel comparison on representatives",
+      "leanName": "TauCeti.SchemeFoundations.QuotientBaseChange.cokernelBaseChangeEquiv_tmul",
+      "statement": "The canonical cokernel comparison sends s⊗[n] to [s⊗n] for every s∈S and n∈N. Brackets denote the respective actual native quotient maps, so elements of range f are respected.",
+      "hypotheses": [
+        "R and S are commutative rings, including zero rings, in independent universes. M and N are arbitrary additive commutative groups with R-module structures. Flatness and finite generation are required only where explicitly stated; finite generation applies to the quotient or cokernel."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/cokernel-basechange-comparison",
+        "mathlib:Submodule.quotEquivOfEq_mk"
+      ],
+      "proofSteps": [
+        "Unfold the concrete composite on the actual tensor and quotient representatives. Both the existing tensor equivalence and quotient transport have the required defining evaluation."
+      ],
+      "acceptance": [
+        "The canonical cokernel comparison sends s⊗[n] to [s⊗n] for every s∈S and n∈N. Brackets denote the respective actual native quotient maps, so elements of range f are respected.",
+        "Use the existing native quotient carriers and actual tensor, subtype, range and quotient maps. The separate proof file must compile at the pin without admissions or additional axioms."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/TensorProduct/Quotient",
+        "namespace": "TauCeti.SchemeFoundations.QuotientBaseChange"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-00DF",
+          "locator": "Complete Lemma 10.12.10",
+          "match": "The quotient/cokernel and naturality statements are explicit authored adapters of the pinned baseline. The source supplies the right-exact or flat-annihilator input, not these Lean declaration names."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/cokernel-basechange-inverse",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Inverse cokernel comparison on representatives",
+      "leanName": "TauCeti.SchemeFoundations.QuotientBaseChange.cokernelBaseChangeEquiv_symm_mk_tmul",
+      "statement": "The inverse canonical cokernel comparison sends [s⊗n] to s⊗[n]. This fixes the inverse map on actual pure-tensor quotient representatives without a flatness hypothesis.",
+      "hypotheses": [
+        "R and S are commutative rings, including zero rings, in independent universes. M and N are arbitrary additive commutative groups with R-module structures. Flatness and finite generation are required only where explicitly stated; finite generation applies to the quotient or cokernel."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/cokernel-basechange-comparison",
+        "mathlib:Submodule.quotEquivOfEq"
+      ],
+      "proofSteps": [
+        "The inverse of the composite is the inverse native quotient transport followed by the inverse tensor quotient equivalence. Evaluate each on the same representative; both defining computations are exact."
+      ],
+      "acceptance": [
+        "The inverse canonical cokernel comparison sends [s⊗n] to s⊗[n]. This fixes the inverse map on actual pure-tensor quotient representatives without a flatness hypothesis.",
+        "Use the existing native quotient carriers and actual tensor, subtype, range and quotient maps. The separate proof file must compile at the pin without admissions or additional axioms."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/TensorProduct/Quotient",
+        "namespace": "TauCeti.SchemeFoundations.QuotientBaseChange"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-00DF",
+          "locator": "Complete Lemma 10.12.10",
+          "match": "The quotient/cokernel and naturality statements are explicit authored adapters of the pinned baseline. The source supplies the right-exact or flat-annihilator input, not these Lean declaration names."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/cokernel-basechange-square",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Canonical cokernel square",
+      "leanName": "TauCeti.SchemeFoundations.QuotientBaseChange.cokernel_baseChange_square",
+      "statement": "As S-linear maps from S⊗_R N, cokernelBaseChangeEquiv S f composed with (range f).mkQ.baseChange S equals (range(f.baseChange S)).mkQ. The named comparison is therefore compatible with the actual quotient projection.",
+      "hypotheses": [
+        "R and S are commutative rings, including zero rings, in independent universes. M and N are arbitrary additive commutative groups with R-module structures. Flatness and finite generation are required only where explicitly stated; finite generation applies to the quotient or cokernel."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/cokernel-basechange-comparison",
+        "SchemeAndStackFoundations:SF.0/cokernel-basechange-representative"
+      ],
+      "proofSteps": [
+        "Apply tensor-linear-map extensionality. The defining comparison sends the tensor of each quotient representative to the quotient of the same actual tensor."
+      ],
+      "acceptance": [
+        "As S-linear maps from S⊗_R N, cokernelBaseChangeEquiv S f composed with (range f).mkQ.baseChange S equals (range(f.baseChange S)).mkQ. The named comparison is therefore compatible with the actual quotient projection.",
+        "Use the existing native quotient carriers and actual tensor, subtype, range and quotient maps. The separate proof file must compile at the pin without admissions or additional axioms."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/TensorProduct/Quotient",
+        "namespace": "TauCeti.SchemeFoundations.QuotientBaseChange"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-00DF",
+          "locator": "Complete Lemma 10.12.10",
+          "match": "The quotient/cokernel and naturality statements are explicit authored adapters of the pinned baseline. The source supplies the right-exact or flat-annihilator input, not these Lean declaration names."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [],
@@ -2492,7 +3212,8 @@
         "Complete the twenty-nine-node henselization strand. Four finite-data adapters remain admitted. Four actual-section adapters and etale-lift uniqueness now have native proofs; lifted residue-selector quotient/localization coherence and the source criterion/universal cocone remain unfinished. Functorial maps and residue naturality remain conditional on universal-property closure.",
         "Plan the reserved excellent-schemes key. Reuse existing schemes/morphisms, smooth/etale/proper/flat predicates, QCoh and local algebra. Source-decompose relative Spec, general Proj/canonical comparison without unrestricted O(1) or properness claims.",
         "Retain all SF.0 routed source obligations listed in sourceWorklist, including perfect geometry, coherent extension, standard coordinates and finite-presentation spreading. Weil restriction uses the confirmed MC0F → RG2.0a → R09.3 import, not a duplicate.",
-        "The generic flat-annihilator supplier now has eight declaration-sized nodes and seven typed boundary tests. Native proofs establish the finite-module identity, arbitrary-element identity, unconditional inclusion and finite ideal-intersection comparison using the pinned kernel and tensor APIs. The Neron Part II consumer must still identify the actual base-changed quotient algebra/module and conductor/sheaf maps; its multi-part SF.0 request remains open. All existing henselization, reserved-key, source-route and other-stage obligations remain unchanged."
+        "The generic flat-annihilator supplier now has eight declaration-sized nodes and seven typed boundary tests. Native proofs establish the finite-module identity, arbitrary-element identity, unconditional inclusion and finite ideal-intersection comparison using the pinned kernel and tensor APIs. The Neron Part II consumer must still identify the actual base-changed quotient algebra/module and conductor/sheaf maps; its multi-part SF.0 request remains open. All existing henselization, reserved-key, source-route and other-stage obligations remain unchanged.",
+        "The generic native quotient/cokernel comparison now has thirteen declaration-sized adapters and eight typed tests. Its actual quotient square and module-map naturality hold without flatness; full annihilator equality requires flatness and finiteness of the quotient/cokernel alone. The conductor consumer must still identify its particular algebra-image submodule, affine pullback ideals and section/sheaf maps. Existing henselization, reserved-key, all routed-source and other-stage obligations remain open."
       ]
     },
     {
@@ -2686,6 +3407,18 @@
       "url": "https://stacks.math.columbia.edu/tag/0BBY",
       "read": "2026-10-03",
       "sha256": "467b603439da657cd2cac75c94aaef5ddc4d7340c76b1d3e10c093f23cbef50f"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://stacks.math.columbia.edu/tag/00DF",
+      "read": "2026-10-03",
+      "sha256": "3bb81296a391cc67e6db93279041b8be00425bda4d110662b0c6287bf924ed1a"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://stacks.math.columbia.edu/tag/00DI",
+      "read": "2026-10-03",
+      "sha256": "12a49818dadd74c730b376b40477ff0ad140aabbc1fb17325f20e9603f56bf2e"
     }
   ],
   "baselineCoverage": [
@@ -3170,12 +3903,13 @@
     }
   ],
   "validationBoundary": {
-    "agent": "Codex — codex-7e92bd",
+    "agent": "Codex — codex-rtOQ9t",
     "date": "2026-10-03",
     "issue": 642,
-    "implementation": "All37 nodes remain unchecked. Eight new native proofs have no admitted dependencies; the five inherited native proofs are separately re-audited. The suggested file is an admitted plan and does not certify the remaining mathematics.",
-    "sourceRead": "Fresh complete Stacks07T8 and0BBY statements/proofs. All29 old node objects,62 source routes,12 unimplemented findings,8 gaps,6 reserved-key boundaries and inherited source issue E1 are unchanged; prior source readings retain their original attribution.",
-    "elaboration": "The entire final Mathlib-only canonical file elaborates at the pinned commit, with55 admission warnings only. Separate new native proofs and seven tests have no warnings; the canonical-plus-audit file rechecks the five inherited native proof axiom closures. No Tau Ceti import or library build."
+    "implementation": "All fifty nodes remain unchecked and all seven stages remain partial/not_read. The separately retained native proofs cover thirteen new declarations and eight new tests, reusing and re-auditing the eight incoming flat-annihilator proofs. No whole-roadmap implementation is claimed.",
+    "sourceRead": "Fresh complete Stacks00DF and00DI and re-read07T8. All37 incoming node objects,62 routes,12 findings,8 gaps,6 reserved-key boundaries and inherited E1 are retained unchanged. Earlier readings keep their original attribution.",
+    "elaboration": "The whole final Mathlib-only canonical suggested file is checked at the pin with expected admission warnings only. Native proofs/tests and five inherited canonical axiom closures are checked separately; exact receipts are authenticated in the handoff.",
+    "remaining": "The generic native quotient/cokernel comparison now has thirteen declaration-sized adapters and eight typed tests. Its actual quotient square and module-map naturality hold without flatness; full annihilator equality requires flatness and finiteness of the quotient/cokernel alone. The conductor consumer must still identify its particular algebra-image submodule, affine pullback ideals and section/sheaf maps. Existing henselization, reserved-key, all routed-source and other-stage obligations remain open."
   },
   "restructure": [
     {

@@ -1,3 +1,5 @@
+import Mathlib.LinearAlgebra.TensorProduct.Quotient
+import Mathlib.RingTheory.Ideal.Colon
 import Mathlib.RingTheory.Flat.Equalizer
 import Mathlib.LinearAlgebra.TensorProduct.Pi
 import Mathlib.RingTheory.Ideal.Maps
@@ -506,3 +508,144 @@ example :
 
 end Nonflat
 end TauCeti.SchemeFoundations.FlatAnnihilator
+
+open TensorProduct
+noncomputable section
+namespace TauCeti.SchemeFoundations.QuotientBaseChange
+universe qbU qbV qbW qbZ
+variable {R : Type qbU} [CommRing R] (S : Type qbV) [CommRing S] [Algebra R S]
+variable {M : Type qbW} [AddCommGroup M] [Module R M]
+variable {N : Type qbZ} [AddCommGroup N] [Module R N]
+
+lemma quotient_baseChange_square (Q : Submodule R M) :
+    (AlgebraTensorModule.tensorQuotientEquiv S R S Q).toLinearMap ∘ₗ
+      Q.mkQ.baseChange S = (Q.baseChange S).mkQ := by
+  sorry
+
+lemma quotient_baseChange_annihilator (Q : Submodule R M) :
+    Module.annihilator S (S ⊗[R] (M ⧸ Q)) =
+      Module.annihilator S ((S ⊗[R] M) ⧸ Q.baseChange S) := by
+  sorry
+
+lemma quotient_annihilator_flat_baseChange (Q : Submodule R M)
+    [Module.Flat R S] [Module.Finite R (M ⧸ Q)] :
+    (Module.annihilator R (M ⧸ Q)).map (algebraMap R S) =
+      Module.annihilator S ((S ⊗[R] M) ⧸ Q.baseChange S) := by
+  sorry
+
+lemma quotient_annihilator_map_le_baseChange (Q : Submodule R M) :
+    (Module.annihilator R (M ⧸ Q)).map (algebraMap R S) ≤
+      Module.annihilator S ((S ⊗[R] M) ⧸ Q.baseChange S) := by
+  sorry
+
+lemma baseChange_range (f : M →ₗ[R] N) :
+    LinearMap.range (f.baseChange S) = f.range.baseChange S := by
+  sorry
+
+lemma baseChange_map (Q : Submodule R M) (f : M →ₗ[R] N) :
+    (Q.map f).baseChange S = (Q.baseChange S).map (f.baseChange S) := by
+  sorry
+
+lemma baseChange_le_comap (Q : Submodule R M) (P : Submodule R N)
+    (f : M →ₗ[R] N) (hf : Q ≤ P.comap f) :
+    Q.baseChange S ≤ (P.baseChange S).comap (f.baseChange S) := by
+  sorry
+
+lemma quotient_baseChange_naturality (Q : Submodule R M) (P : Submodule R N)
+    (f : M →ₗ[R] N) (hf : Q ≤ P.comap f) :
+    (AlgebraTensorModule.tensorQuotientEquiv S R S P).toLinearMap ∘ₗ
+      (Q.mapQ P f hf).baseChange S =
+    (Q.baseChange S).mapQ (P.baseChange S) (f.baseChange S)
+        (baseChange_le_comap S Q P f hf) ∘ₗ
+      (AlgebraTensorModule.tensorQuotientEquiv S R S Q).toLinearMap := by
+  sorry
+
+lemma cokernel_annihilator_flat_baseChange (f : M →ₗ[R] N)
+    [Module.Flat R S] [Module.Finite R (N ⧸ f.range)] :
+    (Module.annihilator R (N ⧸ f.range)).map (algebraMap R S) =
+      Module.annihilator S ((S ⊗[R] N) ⧸ LinearMap.range (f.baseChange S)) := by
+  sorry
+
+noncomputable def cokernelBaseChangeEquiv (f : M →ₗ[R] N) :
+    S ⊗[R] (N ⧸ f.range) ≃ₗ[S]
+      (S ⊗[R] N) ⧸ LinearMap.range (f.baseChange S) :=
+  AlgebraTensorModule.tensorQuotientEquiv S R S f.range ≪≫ₗ
+    Submodule.quotEquivOfEq _ _ (baseChange_range S f).symm
+
+lemma cokernelBaseChangeEquiv_tmul (f : M →ₗ[R] N) (s : S) (n : N) :
+    cokernelBaseChangeEquiv S f (s ⊗ₜ[R] (Submodule.Quotient.mk n)) =
+      Submodule.Quotient.mk (s ⊗ₜ[R] n) := by
+  sorry
+
+lemma cokernelBaseChangeEquiv_symm_mk_tmul (f : M →ₗ[R] N) (s : S) (n : N) :
+    (cokernelBaseChangeEquiv S f).symm (Submodule.Quotient.mk (s ⊗ₜ[R] n)) =
+      s ⊗ₜ[R] (Submodule.Quotient.mk n) := by
+  sorry
+
+lemma cokernel_baseChange_square (f : M →ₗ[R] N) :
+    (cokernelBaseChangeEquiv S f).toLinearMap ∘ₗ
+      f.range.mkQ.baseChange S = (LinearMap.range (f.baseChange S)).mkQ := by
+  sorry
+
+end TauCeti.SchemeFoundations.QuotientBaseChange
+
+open TensorProduct
+noncomputable section
+namespace TauCeti.SchemeFoundations.QuotientBaseChange
+
+-- test: QuotientBaseChangeChecked.identity_cokernel
+example {R S M : Type*} [CommRing R] [CommRing S] [Algebra R S]
+    [AddCommGroup M] [Module R M] :
+    Subsingleton ((S ⊗[R] M) ⧸
+      LinearMap.range ((LinearMap.id : M →ₗ[R] M).baseChange S)) := by
+  sorry
+
+-- test: QuotientBaseChangeChecked.zero_map_scalar
+example :
+    AlgebraTensorModule.rid ℤ (ZMod 5) (ZMod 5)
+      (((LinearMap.range ((0 : ℤ →ₗ[ℤ] ℤ).baseChange (ZMod 5))).quotEquivOfEqBot
+        (by simp))
+      (cokernelBaseChangeEquiv (ZMod 5) (0 : ℤ →ₗ[ℤ] ℤ)
+        ((3 : ZMod 5) ⊗ₜ[ℤ] (Submodule.Quotient.mk (7 : ℤ))))) = 1 := by
+  sorry
+
+-- test: QuotientBaseChangeChecked.inverse_representative
+example :
+    (cokernelBaseChangeEquiv (ZMod 4) (LinearMap.toSpanSingleton ℤ ℤ (2 : ℤ))).symm
+      (Submodule.Quotient.mk ((3 : ZMod 4) ⊗ₜ[ℤ] (7 : ℤ))) =
+        (3 : ZMod 4) ⊗ₜ[ℤ] (Submodule.Quotient.mk (7 : ℤ)) := by
+  sorry
+
+-- test: QuotientBaseChangeChecked.nonflat_injective_map_collapses
+example :
+    Function.Injective (LinearMap.toSpanSingleton ℤ ℤ (2 : ℤ)) ∧
+      (LinearMap.toSpanSingleton ℤ ℤ (2 : ℤ)).baseChange (ZMod 2) = 0 ∧
+      ((1 : ZMod 2) ⊗ₜ[ℤ] (1 : ℤ)) ≠ 0 := by
+  sorry
+
+-- test: QuotientBaseChangeChecked.nonreduced_quotient_annihilator
+example : (2 : ZMod 4) ≠ 0 ∧
+    (2 : ZMod 4) ∈ Module.annihilator (ZMod 4)
+      (((ZMod 4) ⊗[ZMod 4] (ZMod 4)) ⧸
+        (Ideal.span {(2 : ZMod 4)}).baseChange (ZMod 4)) := by
+  sorry
+
+-- test: QuotientBaseChangeChecked.nonreduced_diagonal_quotient
+example : ((2, 2) : ZMod 4 × ZMod 4) ≠ 0 ∧
+    ((2, 2) : ZMod 4 × ZMod 4) ∈ Module.annihilator (ZMod 4 × ZMod 4)
+      (((ZMod 4 × ZMod 4) ⊗[ZMod 4] (ZMod 4)) ⧸
+        (Ideal.span {(2 : ZMod 4)}).baseChange (ZMod 4 × ZMod 4)) := by
+  sorry
+
+-- test: QuotientBaseChangeChecked.top_quotient_annihilator
+example {R S M : Type*} [CommRing R] [CommRing S] [Algebra R S]
+    [AddCommGroup M] [Module R M] :
+    Module.annihilator S ((S ⊗[R] M) ⧸ (⊤ : Submodule R M).baseChange S) = ⊤ := by
+  sorry
+
+-- test: QuotientBaseChangeChecked.zero_ring_cokernel
+example : Subsingleton ((ZMod 1 ⊗[ℤ] ℤ) ⧸
+    LinearMap.range ((LinearMap.toSpanSingleton ℤ ℤ (2 : ℤ)).baseChange (ZMod 1))) := by
+  sorry
+
+end TauCeti.SchemeFoundations.QuotientBaseChange
