@@ -7415,3 +7415,194 @@ The degree-two coaction image under ℤ→Z/2Z at f=0 is nonzero and squares to0
 All276 incoming mathematical contracts, the general reserved root-stack key, historical source/correction/routes, the independent symplectic direction, and existing planet choices remain. Only the infinite-affine-quotient consumer gains the three coefficient squares and one proof step. All ten stages stay partial and all implementations unchecked. The canonical suggested file has admitted bodies; a separate exact native proof replay is recorded in the handoff.
 
 The remaining frontier is the diagonalizable coordinate Hopf comparison H_A≃A[Q/Z], convolution on points, positive-divisibility transport and universe adapters, coherent root-object groupoid reindexing, affine Spec limits, fpqc frame torsors and the infinite quotient equivalence. TOWER-AFF, KUMMER-FINITE, TOWER-TYPING, DVR/Kummer and the all-roots-of2 non-fppf example retain their full hypotheses. Yun–Zhang and the independent symplectic source routes retain their distinct owners and requirements.
+
+## Convolution points of the factorial unity-root algebra
+
+Let A be any commutative ring and B,C any specified commutative A-algebras in the same universe. Write H_A=C_A(1), h_i for its actual roots of order (i+1)!, S_B for the existing subgroup of coherent B-unit families, and P_B and E_B for the existing point equivalence and evaluation inverse. Use the actual native convolution monoid WithConv(AlgHom_A(H_A,B)) supplied by Mathlib: multiplication is the tensor lift of p and q after Δ, and its identity is the coefficient map after ε. It is not pointwise multiplication of ring maps. The inherited actual factorial Hopf algebra and Tau Ceti’s existing convolution-group instance give inverse p∘S. No generic convolution group is specified again.
+
+Convolution multiplies coherent root values. On h_i its value is p(h_i)q(h_i), the identity value is1 and the antipode replaces the universal unit by its inverse. Unit-value injectivity and the existing point equivalence therefore give the multiplicative equivalence Q_B below. In particular the identity algebra map H_A→H_A is generally not the identity convolution point. Over Z/3Z its degree-two universal coordinate is nontrivial, whereas the counit point has that coordinate1. The comparison retains zero rings and wild characteristic and makes no invertible-order assumption.
+
+The generic Hopf point-group API is imported from the exact pins. These are coordinate comparisons on actual algebras, distinct from the remaining identification H_A≅A[Q/Z], positive-divisibility and universe transports, root-object groupoid reindexing, affine Spec limits, fpqc normalized-frame torsors and geometric quotient equivalence. These geometric obligations remain in RS.2; the Yun–Zhang and independent symplectic routes keep their full existing contracts.
+
+### Convolution on each factorial root
+
+TauCeti.RootStack.factorialConvPoints.root. For all algebra points p,q:H_A→B and i≥0, their native convolution product evaluates on h_i as p(h_i)q(h_i), where h_i is the distinguished root of order (i+1)!.
+
+Proof route: Use the native convolution evaluation formula with the actual inherited bialgebra comultiplication Δ, then substitute the actual coaction root h_i⊗h_i; the native tensor lift evaluates this tensor as p(h_i)q(h_i).
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-universal-bialgebra, FunctionFieldArithmeticPartII:RS.2/factorial-universal-bialgebra-comul, FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-root, mathlib:AlgHom.convMul_apply.
+
+### Convolution identity on roots
+
+TauCeti.RootStack.factorialConvPoints.one_root. The native convolution identity point H_A→B evaluates to 1 on every distinguished unity root h_i; it is the coefficient map composed with the actual counit, rather than the identity map of H_A.
+
+Proof route: The native convolution identity is the coefficient map after the actual inherited bialgebra counit ε; substitute ε(h_i)=1 and preservation of one.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-universal-bialgebra, FunctionFieldArithmeticPartII:RS.2/factorial-universal-bialgebra-counit, FunctionFieldArithmeticPartII:RS.2/factorial-universal-counit-root, mathlib:AlgHom.convOne_def.
+
+### Multiplication of represented coherent scalars
+
+TauCeti.RootStack.factorialScalarPoints.conv_mul. The existing point equivalence P_B:AlgHom_A(H_A,B)≃S_B sends the underlying algebra homomorphism of p*q in the native convolution monoid to P_B(p)P_B(q) in the actual subgroup S_B of coherent unit families.
+
+Proof route: Compare the unit values at every index using injectivity of unit values and subtype extensionality; use the root-coordinate convolution formula.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-points-value, FunctionFieldArithmeticPartII:RS.2/convolution-root.
+
+### Identity of represented coherent scalars
+
+TauCeti.RootStack.factorialScalarPoints.conv_one. The existing point equivalence P_B sends the underlying algebra map of the convolution identity to the actual identity coherent family 1∈S_B.
+
+Proof route: Compare every unit value using the convolution counit root formula; the identity family has constant unit value1.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-points-value, FunctionFieldArithmeticPartII:RS.2/convolution-one-root.
+
+### Convolution of coherent-family evaluations
+
+TauCeti.RootStack.factorialScalarEvaluation.conv_mul. For any s,t∈S_B, toConv(E_B(st))=toConv(E_B(s))*toConv(E_B(t)) in the actual native convolution monoid WithConv(AlgHom_A(H_A,B)).
+
+Proof route: Use injectivity of the existing point equivalence, its reconstruction of coherent families, and multiplication compatibility.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-points-right-inverse, FunctionFieldArithmeticPartII:RS.2/convolution-scalar-multiplication.
+
+### Counit evaluation of the identity family
+
+TauCeti.RootStack.factorialScalarEvaluation.conv_one. toConv(E_B(1)) is the identity of the actual native convolution monoid; equivalently E_B(1)=ι_B∘ε_A as algebra homomorphisms H_A→B.
+
+Proof route: Use injectivity of the existing point equivalence, its coherent-family round trip, and the identity formula.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-points-right-inverse, FunctionFieldArithmeticPartII:RS.2/convolution-scalar-identity.
+
+### Antipode on represented coherent scalars
+
+TauCeti.RootStack.factorialScalarPoints.antipode. For every algebra point p:H_A→B, P_B(p∘S_A)=P_B(p)⁻¹ as an equality in the existing subgroup S_B of coherent B-unit families.
+
+Proof route: Evaluate the actual antipode on each h_i as the inverse of the universal unit. The existing unit-family map is a monoid homomorphism between groups, so it preserves inverses; use unit-value injectivity.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-universal-antipode-root, FunctionFieldArithmeticPartII:RS.2/factorial-scalar-coefficient-map, FunctionFieldArithmeticPartII:RS.2/factorial-scalar-coefficient-value, FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalars-value.
+
+### Evaluation of inverse coherent families
+
+TauCeti.RootStack.factorialScalarEvaluation.antipode. For all s∈S_B, E_B(s⁻¹)=E_B(s)∘S_A as actual A-algebra homomorphisms H_A→B.
+
+Proof route: Use injectivity of P_B, the antipode coordinate comparison, and the coherent-family round trip.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-points-right-inverse, FunctionFieldArithmeticPartII:RS.2/convolution-antipode-scalars.
+
+### Left inverse of a root-algebra point
+
+TauCeti.RootStack.factorialConvPoints.left_inverse. For every algebra point p:H_A→B, toConv(p∘S_A)*toConv(p)=1 in the native convolution monoid; the inverse is given by the actual antipode and introduces no alternative group structure.
+
+Proof route: Use injectivity of P_B to reduce to P_B(p)⁻¹P_B(p)=1 in the actual coherent unit subgroup.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/convolution-scalar-multiplication, FunctionFieldArithmeticPartII:RS.2/convolution-antipode-scalars, FunctionFieldArithmeticPartII:RS.2/convolution-scalar-identity.
+
+### Right inverse of a root-algebra point
+
+TauCeti.RootStack.factorialConvPoints.right_inverse. For every algebra point p:H_A→B, toConv(p)*toConv(p∘S_A)=1 in the native convolution monoid.
+
+Proof route: Use injectivity of P_B to reduce to P_B(p)P_B(p)⁻¹=1 in the actual coherent unit subgroup.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/convolution-scalar-multiplication, FunctionFieldArithmeticPartII:RS.2/convolution-antipode-scalars, FunctionFieldArithmeticPartII:RS.2/convolution-scalar-identity.
+
+### Convolution points and coherent roots of unity
+
+TauCeti.RootStack.factorialScalarPointsMulEquiv. Construct the multiplicative equivalence Q_B:WithConv(AlgHom_A(H_A,B))≃*S_B using the existing native convolution monoid on algebra homomorphisms. Its forward map is the existing P_B on the underlying algebra homomorphism; its inverse is toConv(E_B(s)). This is also the comparison of groups when the existing Tau Ceti convolution-group instance for the actual inherited Hopf algebra is installed.
+
+Proof route: Retain the actual underlying point equivalence, wrapping algebra maps with native WithConv. Its two inverse laws are the inherited point round trips. The proved convolution multiplication law supplies the native MulEquiv constructor. No generic convolution structure is rebuilt.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-points, FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-points-left-inverse, FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-points-right-inverse, FunctionFieldArithmeticPartII:RS.2/convolution-scalar-multiplication, mathlib:MulEquiv.
+
+API:
+
+- TauCeti.RootStack.factorialScalarPointsMulEquiv.apply: For every p∈WithConv(AlgHom_A(H_A,B)), Q_B(p)=P_B(p.ofConv).
+- TauCeti.RootStack.factorialScalarPointsMulEquiv.symm_apply: For every coherent family s∈S_B, Q_B⁻¹(s)=toConv(E_B(s)).
+- TauCeti.RootStack.factorialScalarPointsMulEquiv.root: For every native convolution point p and index i, the ring value of the i-th unit of Q_B(p) is p.ofConv(h_i).
+- TauCeti.RootStack.factorialScalarPointsMulEquiv.mul: For every p,q∈WithConv(AlgHom_A(H_A,B)), Q_B(p*q)=Q_B(p)Q_B(q).
+- TauCeti.RootStack.factorialScalarPointsMulEquiv.one: Q_B(1)=1 for the native convolution identity and the actual coherent-family identity.
+- TauCeti.RootStack.factorialScalarPointsMulEquiv.pow: For every p∈WithConv(AlgHom_A(H_A,B)) and n∈ℕ, Q_B(p^n)=Q_B(p)^n, including n=0.
+- TauCeti.RootStack.factorialScalarPointsMulEquiv.naturality: For any A-algebra map k:B→C and p∈WithConv(AlgHom_A(H_A,B)), Q_C(toConv(k∘p.ofConv))=S(k)(Q_B(p)), where S(k) is the inherited unit-family monoid homomorphism. Thus the comparison intertwines the native functor of convolution points with coherent-root functoriality.
+
+Acceptance tests:
+
+- convolutionPointsTests.degree_two (computation): Over Z/4Z, convolution of E(s) and E(t) evaluates the distinguished degree-two unity root as the product of the ring values of s_1 and t_1.
+- convolutionPointsTests.identity (compatibility): The native convolution identity maps under Q_B to the identity coherent family for every A-algebra B.
+- convolutionPointsTests.roundtrip (compatibility): For every actual native convolution point p, Q_B⁻¹(Q_B(p))=p.
+- convolutionPointsTests.inverse (characterisation): For every algebra point p, convolution of p∘S_A with p is the native convolution identity.
+- convolutionPointsTests.zero_ring (degenerate): For A=B=Z/1Z, the actual point comparison sends the native convolution identity to the unique coherent family1.
+- convolutionPointsTests.counit_not_identity (non-example): For A=Z/3Z and B=H_A, the identity algebra map of H_A has a nonidentity degree-two coordinate under Q_B. It therefore differs from the convolution identity, whose every root value is1.
+- convolutionPointsTests.naturality (compatibility): Postcomposing E_B(s) by any A-algebra map k:B→C and then applying Q_C gives the coherent family S(k)(s).
+- convolutionPointsTests.root_order (characterisation): Every actual algebra point p evaluates h_i to an element whose (i+1)! power is1, with arbitrary characteristic and zero rings included.
+
+### Underlying represented point of the multiplicative equivalence
+
+TauCeti.RootStack.factorialScalarPointsMulEquiv.apply. For every p∈WithConv(AlgHom_A(H_A,B)), Q_B(p)=P_B(p.ofConv).
+
+Proof route: Unfold the forward map of the specialized native multiplicative equivalence.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/convolution-points-equivalence.
+
+### Evaluation inverse of the multiplicative equivalence
+
+TauCeti.RootStack.factorialScalarPointsMulEquiv.symm_apply. For every coherent family s∈S_B, Q_B⁻¹(s)=toConv(E_B(s)).
+
+Proof route: Unfold the inverse map of the specialized native multiplicative equivalence.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/convolution-points-equivalence.
+
+### Naturality of the multiplicative point comparison
+
+TauCeti.RootStack.factorialScalarPointsMulEquiv.naturality. For any A-algebra map k:B→C and p∈WithConv(AlgHom_A(H_A,B)), Q_C(toConv(k∘p.ofConv))=S(k)(Q_B(p)), where S(k) is the inherited unit-family monoid homomorphism. Thus the comparison intertwines the native functor of convolution points with coherent-root functoriality.
+
+Proof route: Use the existing naturality of P on the underlying algebra homomorphisms; Q has that exact forward map. Native postcomposition is multiplicative by the imported convolution distributivity result.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-points-naturality, FunctionFieldArithmeticPartII:RS.2/factorial-scalar-coefficient-map, FunctionFieldArithmeticPartII:RS.2/convolution-points-equivalence, mathlib:AlgHom.comp_convMul_distrib.
+
+### Naturality of the evaluation inverse
+
+TauCeti.RootStack.factorialScalarEvaluation.naturality. For every s∈S_B and A-algebra map k:B→C, k∘E_B(s)=E_C(S(k)(s)) as actual A-algebra homomorphisms H_A→C.
+
+Proof route: Apply injectivity of P_C, its naturality, and the coherent-family round trip on both sides.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-points-naturality, FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-points-right-inverse.
+
+### Convolution powers under the point comparison
+
+TauCeti.RootStack.factorialScalarPointsMulEquiv.pow. For every p∈WithConv(AlgHom_A(H_A,B)) and n∈ℕ, Q_B(p^n)=Q_B(p)^n, including n=0.
+
+Proof route: Apply the native multiplicative equivalence preservation of natural powers.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/convolution-points-equivalence.
+
+### Multiplication under the point comparison
+
+TauCeti.RootStack.factorialScalarPointsMulEquiv.mul. For every p,q∈WithConv(AlgHom_A(H_A,B)), Q_B(p*q)=Q_B(p)Q_B(q).
+
+Proof route: Apply multiplication preservation of the constructed native multiplicative equivalence.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/convolution-points-equivalence.
+
+### Identity under the point comparison
+
+TauCeti.RootStack.factorialScalarPointsMulEquiv.one. Q_B(1)=1 for the native convolution identity and the actual coherent-family identity.
+
+Proof route: Apply identity preservation of a native multiplicative equivalence between monoids.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/convolution-points-equivalence.
+
+### Root value under the point comparison
+
+TauCeti.RootStack.factorialScalarPointsMulEquiv.root. For every native convolution point p and index i, the ring value of the i-th unit of Q_B(p) is p.ofConv(h_i).
+
+Proof route: Use the existing point-equivalence root value because Q has that same underlying forward map.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-points-value, FunctionFieldArithmeticPartII:RS.2/convolution-points-equivalence.
+
+### Commutativity of unity-root convolution points
+
+TauCeti.RootStack.factorialConvPoints.comm. For every p,q∈WithConv(AlgHom_A(H_A,B)), p*q=q*p. This follows from the actual point comparison without installing an alternate commutative-group instance.
+
+Proof route: Apply injectivity of Q_B, multiplication preservation and commutativity of the coherent unit subgroup.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/convolution-points-equivalence.
+
+Sources: Talpo–Vistoli, arXiv:1410.1164v2, complete pp.14–16, for the Cartier-dual action and affine quotient motivation; the displayed coordinate deductions are authored here. The generic convolution product is imported from Mathlib/RingTheory/Bialgebra/Convolution at082e2d3; the generic Hopf point group and antipode inverse are imported from TauCeti/Algebra/AlgebraicGroup/FunctorOfPoints atf790474.
