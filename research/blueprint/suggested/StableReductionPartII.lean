@@ -1,3 +1,6 @@
+import Mathlib.Algebra.Category.ModuleCat.Limits
+import Mathlib.Algebra.Category.ModuleCat.ChangeOfRings
+import Mathlib.CategoryTheory.Category.Preorder
 import Mathlib.RingTheory.AdicCompletion.Completeness
 import Mathlib.CategoryTheory.Abelian.Ext
 import Mathlib.CategoryTheory.Abelian.Projective.Ext
@@ -4218,3 +4221,419 @@ example (n : ℕ) (f : N →ₗ[AdicCompletion p A] N') (x :
 end
 end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
 /- END FINITE TWO-BASE COHERENCE -/
+
+/- BEGIN FINITE TENSOR LIMIT COMPARISON -/
+namespace TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+noncomputable section
+open TensorProduct CategoryTheory CategoryTheory.Limits Opposite
+set_option maxHeartbeats 2000000
+set_option linter.style.haveILetI false
+set_option backward.isDefEq.respectTransparency true
+set_option backward.isDefEq.respectTransparency.types true
+set_option autoImplicit false
+attribute [local instance 100] ModuleCat.isModule
+
+def completionFiniteTensorDiagramA (A : Type*) [CommRing A] (γ δ s t : A)
+    (p : Ideal A) (m : Ideal (Ring A γ δ s t))
+    (h : p ≤ m.comap (coefficientHom A γ δ s t))
+    (N : Type*) [AddCommGroup N] [Module A N] [Module (AdicCompletion p A) N]
+    [IsScalarTower A (AdicCompletion p A) N] : ℕᵒᵖ ⥤ ModuleCat A := by
+  refine {
+    obj := fun n =>
+      letI := completionResidueAlgebra A p n.unop
+      letI := completionFiniteChartAlgebra A γ δ s t p m n.unop h
+      letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n.unop) (Ideal.Quotient.mk (p ^ n.unop))
+      letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n.unop) (AdicCompletion.evalₐ p n.unop).toRingHom
+      letI := completionFiniteCoefficient_tower A γ δ s t p m n.unop h
+      ModuleCat.of A (((Ring A γ δ s t) ⧸ m ^ n.unop) ⊗[A] N)
+    map := fun {i j} f => by
+      letI := completionResidueAlgebra A p i.unop
+      letI := completionFiniteChartAlgebra A γ δ s t p m i.unop h
+      letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ i.unop) (Ideal.Quotient.mk (p ^ i.unop))
+      letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ i.unop) (AdicCompletion.evalₐ p i.unop).toRingHom
+      letI := completionFiniteCoefficient_tower A γ δ s t p m i.unop h
+      letI := completionResidueAlgebra A p j.unop
+      letI := completionFiniteChartAlgebra A γ δ s t p m j.unop h
+      letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ j.unop) (Ideal.Quotient.mk (p ^ j.unop))
+      letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ j.unop) (AdicCompletion.evalₐ p j.unop).toRingHom
+      letI := completionFiniteCoefficient_tower A γ δ s t p m j.unop h
+      set_option backward.isDefEq.respectTransparency false in
+      set_option backward.isDefEq.respectTransparency.types false in
+      exact ModuleCat.ofHom (((completionFiniteTransition A γ δ s t p m h (leOfHom f.unop)).toLinearMap.restrictScalars A).rTensor N)
+    map_id := ?_
+    map_comp := ?_ }
+  · sorry
+  · sorry
+
+
+def completionFiniteTensorDiagramComplete (A : Type*) [CommRing A] (γ δ s t : A)
+    (p : Ideal A) (m : Ideal (Ring A γ δ s t))
+    (h : p ≤ m.comap (coefficientHom A γ δ s t))
+    (N : Type*) [AddCommGroup N] [Module A N] [Module (AdicCompletion p A) N]
+    [IsScalarTower A (AdicCompletion p A) N] : ℕᵒᵖ ⥤ ModuleCat A := by
+  refine {
+    obj := fun n =>
+      letI := completionResidueAlgebra A p n.unop
+      letI := completionFiniteChartAlgebra A γ δ s t p m n.unop h
+      letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n.unop) (Ideal.Quotient.mk (p ^ n.unop))
+      letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n.unop) (AdicCompletion.evalₐ p n.unop).toRingHom
+      letI := completionFiniteCoefficient_tower A γ δ s t p m n.unop h
+      (ModuleCat.restrictScalars (algebraMap A (AdicCompletion p A))).obj (ModuleCat.of (AdicCompletion p A) (((Ring A γ δ s t) ⧸ m ^ n.unop) ⊗[AdicCompletion p A] N))
+    map := fun {i j} f => by
+      letI := completionResidueAlgebra A p i.unop
+      letI := completionFiniteChartAlgebra A γ δ s t p m i.unop h
+      letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ i.unop) (Ideal.Quotient.mk (p ^ i.unop))
+      letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ i.unop) (AdicCompletion.evalₐ p i.unop).toRingHom
+      letI := completionFiniteCoefficient_tower A γ δ s t p m i.unop h
+      letI := completionResidueAlgebra A p j.unop
+      letI := completionFiniteChartAlgebra A γ δ s t p m j.unop h
+      letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ j.unop) (Ideal.Quotient.mk (p ^ j.unop))
+      letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ j.unop) (AdicCompletion.evalₐ p j.unop).toRingHom
+      letI := completionFiniteCoefficient_tower A γ δ s t p m j.unop h
+      set_option backward.isDefEq.respectTransparency false in
+      set_option backward.isDefEq.respectTransparency.types false in
+      exact ((ModuleCat.restrictScalars (algebraMap A (AdicCompletion p A))).map (ModuleCat.ofHom ((completionFiniteTransition A γ δ s t p m h (leOfHom f.unop)).toLinearMap.rTensor N)))
+    map_id := ?_
+    map_comp := ?_ }
+  · sorry
+  · sorry
+
+
+def completionFiniteTensorDiagramIso (A : Type*) [CommRing A] (γ δ s t : A)
+    (p : Ideal A) (m : Ideal (Ring A γ δ s t))
+    (h : p ≤ m.comap (coefficientHom A γ δ s t))
+    (N : Type*) [AddCommGroup N] [Module A N] [Module (AdicCompletion p A) N]
+    [IsScalarTower A (AdicCompletion p A) N] (hp : p.FG) :
+    completionFiniteTensorDiagramA A γ δ s t p m h N ≅
+      completionFiniteTensorDiagramComplete A γ δ s t p m h N := by
+  refine NatIso.ofComponents (fun n => ?_) ?_
+  · letI := completionResidueAlgebra A p n.unop
+    letI := completionFiniteChartAlgebra A γ δ s t p m n.unop h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n.unop) (Ideal.Quotient.mk (p ^ n.unop))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n.unop) (AdicCompletion.evalₐ p n.unop).toRingHom
+    letI := completionFiniteCoefficient_tower A γ δ s t p m n.unop h
+    let e := completionFiniteTensorEquiv A γ δ s t p m n.unop N hp h
+    change ModuleCat.of A (((Ring A γ δ s t) ⧸ m ^ n.unop) ⊗[A] N) ≅
+      (ModuleCat.restrictScalars (algebraMap A (AdicCompletion p A))).obj
+        (ModuleCat.of (AdicCompletion p A) (((Ring A γ δ s t) ⧸ m ^ n.unop) ⊗[AdicCompletion p A] N))
+    refine {
+      hom := ModuleCat.ofHom (X := ModuleCat.of A (((Ring A γ δ s t) ⧸ m ^ n.unop) ⊗[A] N))
+        (Y := (ModuleCat.restrictScalars (algebraMap A (AdicCompletion p A))).obj
+          (ModuleCat.of (AdicCompletion p A) (((Ring A γ δ s t) ⧸ m ^ n.unop) ⊗[AdicCompletion p A] N)))
+        { toFun := e, map_add' := e.map_add, map_smul' := ?_ }
+      inv := ModuleCat.ofHom (X := (ModuleCat.restrictScalars (algebraMap A (AdicCompletion p A))).obj
+          (ModuleCat.of (AdicCompletion p A) (((Ring A γ δ s t) ⧸ m ^ n.unop) ⊗[AdicCompletion p A] N)))
+        (Y := ModuleCat.of A (((Ring A γ δ s t) ⧸ m ^ n.unop) ⊗[A] N))
+        { toFun := e.symm, map_add' := e.symm.map_add, map_smul' := ?_ }
+      hom_inv_id := ?_
+      inv_hom_id := ?_ }
+    · sorry
+    · sorry
+    · sorry
+    · sorry
+  · sorry
+
+
+def completionFiniteTensorLimitIso (A : Type*) [CommRing A] (γ δ s t : A)
+    (p : Ideal A) (m : Ideal (Ring A γ δ s t))
+    (h : p ≤ m.comap (coefficientHom A γ δ s t))
+    (N : Type*) [AddCommGroup N] [Module A N] [Module (AdicCompletion p A) N]
+    [IsScalarTower A (AdicCompletion p A) N] (hp : p.FG) :
+    limit (completionFiniteTensorDiagramA A γ δ s t p m h N) ≅
+      limit (completionFiniteTensorDiagramComplete A γ δ s t p m h N) :=
+  HasLimit.isoOfNatIso (completionFiniteTensorDiagramIso A γ δ s t p m h N hp)
+
+variable (A : Type*) [CommRing A] (γ δ s t : A)
+variable (p : Ideal A) (m : Ideal (Ring A γ δ s t))
+variable (h : p ≤ m.comap (coefficientHom A γ δ s t))
+variable (N : Type*) [AddCommGroup N] [Module A N] [Module (AdicCompletion p A) N]
+variable [IsScalarTower A (AdicCompletion p A) N]
+
+lemma completionFiniteTensorDiagramA_obj (n : ℕ) :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+    letI := completionFiniteCoefficient_tower A γ δ s t p m n h
+    (completionFiniteTensorDiagramA A γ δ s t p m h N).obj (op n) = ModuleCat.of A (((Ring A γ δ s t) ⧸ m ^ n) ⊗[A] N) := by
+  sorry
+
+lemma completionFiniteTensorDiagramA_map_tmul {i j : ℕ} (hij : i ≤ j) (q : ((Ring A γ δ s t) ⧸ m ^ j)) (z : N) :
+    letI := completionResidueAlgebra A p i
+    letI := completionFiniteChartAlgebra A γ δ s t p m i h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ i) (Ideal.Quotient.mk (p ^ i))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ i) (AdicCompletion.evalₐ p i).toRingHom
+    letI := completionFiniteCoefficient_tower A γ δ s t p m i h
+    letI := completionResidueAlgebra A p j
+    letI := completionFiniteChartAlgebra A γ δ s t p m j h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ j) (Ideal.Quotient.mk (p ^ j))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ j) (AdicCompletion.evalₐ p j).toRingHom
+    letI := completionFiniteCoefficient_tower A γ δ s t p m j h
+    (completionFiniteTensorDiagramA A γ δ s t p m h N).map (homOfLE hij).op (q ⊗ₜ[A] z) =
+      completionFiniteTransition A γ δ s t p m h hij q ⊗ₜ[A] z := by
+  sorry
+
+lemma completionFiniteTensorDiagramA_map_id (n : ℕ) :
+    (completionFiniteTensorDiagramA A γ δ s t p m h N).map (𝟙 (op n)) = 𝟙 ((completionFiniteTensorDiagramA A γ δ s t p m h N).obj (op n)) := by
+  sorry
+
+lemma completionFiniteTensorDiagramA_map_comp {i j k : ℕ} (hij : i ≤ j) (hjk : j ≤ k) :
+    (completionFiniteTensorDiagramA A γ δ s t p m h N).map ((homOfLE hjk).op ≫ (homOfLE hij).op) =
+      (completionFiniteTensorDiagramA A γ δ s t p m h N).map (homOfLE hjk).op ≫ (completionFiniteTensorDiagramA A γ δ s t p m h N).map (homOfLE hij).op := by
+  sorry
+
+lemma completionFiniteTensorDiagramComplete_obj (n : ℕ) :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+    letI := completionFiniteCoefficient_tower A γ δ s t p m n h
+    (completionFiniteTensorDiagramComplete A γ δ s t p m h N).obj (op n) = (ModuleCat.restrictScalars (algebraMap A (AdicCompletion p A))).obj (ModuleCat.of (AdicCompletion p A) (((Ring A γ δ s t) ⧸ m ^ n) ⊗[AdicCompletion p A] N)) := by
+  sorry
+
+lemma completionFiniteTensorDiagramComplete_map_tmul {i j : ℕ} (hij : i ≤ j) (q : ((Ring A γ δ s t) ⧸ m ^ j)) (z : N) :
+    letI := completionResidueAlgebra A p i
+    letI := completionFiniteChartAlgebra A γ δ s t p m i h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ i) (Ideal.Quotient.mk (p ^ i))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ i) (AdicCompletion.evalₐ p i).toRingHom
+    letI := completionFiniteCoefficient_tower A γ δ s t p m i h
+    letI := completionResidueAlgebra A p j
+    letI := completionFiniteChartAlgebra A γ δ s t p m j h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ j) (Ideal.Quotient.mk (p ^ j))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ j) (AdicCompletion.evalₐ p j).toRingHom
+    letI := completionFiniteCoefficient_tower A γ δ s t p m j h
+    (completionFiniteTensorDiagramComplete A γ δ s t p m h N).map (homOfLE hij).op (q ⊗ₜ[AdicCompletion p A] z) =
+      completionFiniteTransition A γ δ s t p m h hij q ⊗ₜ[AdicCompletion p A] z := by
+  sorry
+
+lemma completionFiniteTensorDiagramComplete_map_id (n : ℕ) :
+    (completionFiniteTensorDiagramComplete A γ δ s t p m h N).map (𝟙 (op n)) = 𝟙 ((completionFiniteTensorDiagramComplete A γ δ s t p m h N).obj (op n)) := by
+  sorry
+
+lemma completionFiniteTensorDiagramComplete_map_comp {i j k : ℕ} (hij : i ≤ j) (hjk : j ≤ k) :
+    (completionFiniteTensorDiagramComplete A γ δ s t p m h N).map ((homOfLE hjk).op ≫ (homOfLE hij).op) =
+      (completionFiniteTensorDiagramComplete A γ δ s t p m h N).map (homOfLE hjk).op ≫ (completionFiniteTensorDiagramComplete A γ δ s t p m h N).map (homOfLE hij).op := by
+  sorry
+
+lemma completionFiniteTensorDiagramIso_hom_tmul (hp : p.FG) (n : ℕ) (q : ((Ring A γ δ s t) ⧸ m ^ n)) (z : N) :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+    letI := completionFiniteCoefficient_tower A γ δ s t p m n h
+    (completionFiniteTensorDiagramIso A γ δ s t p m h N hp).hom.app (op n) (q ⊗ₜ[A] z) = q ⊗ₜ[AdicCompletion p A] z := by
+  sorry
+
+lemma completionFiniteTensorDiagramIso_inv_tmul (hp : p.FG) (n : ℕ) (q : ((Ring A γ δ s t) ⧸ m ^ n)) (z : N) :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+    letI := completionFiniteCoefficient_tower A γ δ s t p m n h
+    (completionFiniteTensorDiagramIso A γ δ s t p m h N hp).inv.app (op n) (q ⊗ₜ[AdicCompletion p A] z) = q ⊗ₜ[A] z := by
+  sorry
+
+lemma completionFiniteTensorDiagramIso_naturality (hp : p.FG) {i j : ℕ} (hij : i ≤ j) :
+    (completionFiniteTensorDiagramA A γ δ s t p m h N).map (homOfLE hij).op ≫ (completionFiniteTensorDiagramIso A γ δ s t p m h N hp).hom.app (op i) =
+      (completionFiniteTensorDiagramIso A γ δ s t p m h N hp).hom.app (op j) ≫ (completionFiniteTensorDiagramComplete A γ δ s t p m h N).map (homOfLE hij).op := by
+  sorry
+
+lemma completionFiniteTensorDiagramIso_inverse_naturality (hp : p.FG) {i j : ℕ} (hij : i ≤ j) :
+    (completionFiniteTensorDiagramComplete A γ δ s t p m h N).map (homOfLE hij).op ≫ (completionFiniteTensorDiagramIso A γ δ s t p m h N hp).inv.app (op i) =
+      (completionFiniteTensorDiagramIso A γ δ s t p m h N hp).inv.app (op j) ≫ (completionFiniteTensorDiagramA A γ δ s t p m h N).map (homOfLE hij).op := by
+  sorry
+
+lemma completionFiniteTensorDiagramIso_left (hp : p.FG) (n : ℕ) :
+    (completionFiniteTensorDiagramIso A γ δ s t p m h N hp).hom.app (op n) ≫ (completionFiniteTensorDiagramIso A γ δ s t p m h N hp).inv.app (op n) = 𝟙 ((completionFiniteTensorDiagramA A γ δ s t p m h N).obj (op n)) := by
+  sorry
+
+lemma completionFiniteTensorDiagramIso_right (hp : p.FG) (n : ℕ) :
+    (completionFiniteTensorDiagramIso A γ δ s t p m h N hp).inv.app (op n) ≫ (completionFiniteTensorDiagramIso A γ δ s t p m h N hp).hom.app (op n) = 𝟙 ((completionFiniteTensorDiagramComplete A γ δ s t p m h N).obj (op n)) := by
+  sorry
+
+lemma completionFiniteTensorLimitIso_hom_projection (hp : p.FG) (n : ℕ) :
+    (completionFiniteTensorLimitIso A γ δ s t p m h N hp).hom ≫ limit.π (completionFiniteTensorDiagramComplete A γ δ s t p m h N) (op n) =
+      limit.π (completionFiniteTensorDiagramA A γ δ s t p m h N) (op n) ≫ (completionFiniteTensorDiagramIso A γ δ s t p m h N hp).hom.app (op n) := by
+  sorry
+
+lemma completionFiniteTensorLimitIso_inv_projection (hp : p.FG) (n : ℕ) :
+    (completionFiniteTensorLimitIso A γ δ s t p m h N hp).inv ≫ limit.π (completionFiniteTensorDiagramA A γ δ s t p m h N) (op n) =
+      limit.π (completionFiniteTensorDiagramComplete A γ δ s t p m h N) (op n) ≫ (completionFiniteTensorDiagramIso A γ δ s t p m h N hp).inv.app (op n) := by
+  sorry
+
+lemma completionFiniteTensorLimitIso_left (hp : p.FG) :
+    (completionFiniteTensorLimitIso A γ δ s t p m h N hp).hom ≫ (completionFiniteTensorLimitIso A γ δ s t p m h N hp).inv = 𝟙 (limit (completionFiniteTensorDiagramA A γ δ s t p m h N)) := by
+  sorry
+
+lemma completionFiniteTensorLimitIso_right (hp : p.FG) :
+    (completionFiniteTensorLimitIso A γ δ s t p m h N hp).inv ≫ (completionFiniteTensorLimitIso A γ δ s t p m h N hp).hom = 𝟙 (limit (completionFiniteTensorDiagramComplete A γ δ s t p m h N)) := by
+  sorry
+
+lemma completionFiniteTensorLimitIso_unique (hp : p.FG) (f : limit (completionFiniteTensorDiagramA A γ δ s t p m h N) ⟶ limit (completionFiniteTensorDiagramComplete A γ δ s t p m h N))
+    (hf : ∀ n : ℕ, f ≫ limit.π (completionFiniteTensorDiagramComplete A γ δ s t p m h N) (op n) =
+      limit.π (completionFiniteTensorDiagramA A γ δ s t p m h N) (op n) ≫ (completionFiniteTensorDiagramIso A γ δ s t p m h N hp).hom.app (op n)) :
+    f = (completionFiniteTensorLimitIso A γ δ s t p m h N hp).hom := by
+  sorry
+
+lemma completionFiniteTensorLimitIso_lift (hp : p.FG) (c : Cone (completionFiniteTensorDiagramA A γ δ s t p m h N)) :
+    limit.lift (completionFiniteTensorDiagramA A γ δ s t p m h N) c ≫ (completionFiniteTensorLimitIso A γ δ s t p m h N hp).hom =
+      limit.lift (completionFiniteTensorDiagramComplete A γ δ s t p m h N) ((Cone.postcompose (completionFiniteTensorDiagramIso A γ δ s t p m h N hp).hom).obj c) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramA.test_map_tmul
+example {i j : ℕ} (hij : i ≤ j) (q : ((Ring A γ δ s t) ⧸ m ^ j)) (z : N) :
+    letI := completionResidueAlgebra A p i
+    letI := completionFiniteChartAlgebra A γ δ s t p m i h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ i) (Ideal.Quotient.mk (p ^ i))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ i) (AdicCompletion.evalₐ p i).toRingHom
+    letI := completionFiniteCoefficient_tower A γ δ s t p m i h
+    letI := completionResidueAlgebra A p j
+    letI := completionFiniteChartAlgebra A γ δ s t p m j h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ j) (Ideal.Quotient.mk (p ^ j))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ j) (AdicCompletion.evalₐ p j).toRingHom
+    letI := completionFiniteCoefficient_tower A γ δ s t p m j h
+    (completionFiniteTensorDiagramA A γ δ s t p m h N).map (homOfLE hij).op (q ⊗ₜ[A] z) =
+      completionFiniteTransition A γ δ s t p m h hij q ⊗ₜ[A] z := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramA.test_map_id
+example (n : ℕ) :
+    (completionFiniteTensorDiagramA A γ δ s t p m h N).map (𝟙 (op n)) = 𝟙 ((completionFiniteTensorDiagramA A γ δ s t p m h N).obj (op n)) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramA.test_zero_level
+example (j : ℕ) (x : (completionFiniteTensorDiagramA A γ δ s t p m h N).obj (op j)) :
+    (completionFiniteTensorDiagramA A γ δ s t p m h N).map (homOfLE (Nat.zero_le j)).op x = 0 := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramComplete.test_map_tmul
+example {i j : ℕ} (hij : i ≤ j) (q : ((Ring A γ δ s t) ⧸ m ^ j)) (z : N) :
+    letI := completionResidueAlgebra A p i
+    letI := completionFiniteChartAlgebra A γ δ s t p m i h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ i) (Ideal.Quotient.mk (p ^ i))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ i) (AdicCompletion.evalₐ p i).toRingHom
+    letI := completionFiniteCoefficient_tower A γ δ s t p m i h
+    letI := completionResidueAlgebra A p j
+    letI := completionFiniteChartAlgebra A γ δ s t p m j h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ j) (Ideal.Quotient.mk (p ^ j))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ j) (AdicCompletion.evalₐ p j).toRingHom
+    letI := completionFiniteCoefficient_tower A γ δ s t p m j h
+    (completionFiniteTensorDiagramComplete A γ δ s t p m h N).map (homOfLE hij).op (q ⊗ₜ[AdicCompletion p A] z) =
+      completionFiniteTransition A γ δ s t p m h hij q ⊗ₜ[AdicCompletion p A] z := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramComplete.test_map_id
+example (n : ℕ) :
+    (completionFiniteTensorDiagramComplete A γ δ s t p m h N).map (𝟙 (op n)) = 𝟙 ((completionFiniteTensorDiagramComplete A γ δ s t p m h N).obj (op n)) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramComplete.test_zero_level
+example (j : ℕ) (x : (completionFiniteTensorDiagramComplete A γ δ s t p m h N).obj (op j)) :
+    (completionFiniteTensorDiagramComplete A γ δ s t p m h N).map (homOfLE (Nat.zero_le j)).op x = 0 := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso.test_hom_tmul
+example (hp : p.FG) (n : ℕ) (q : ((Ring A γ δ s t) ⧸ m ^ n)) (z : N) :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+    letI := completionFiniteCoefficient_tower A γ δ s t p m n h
+    (completionFiniteTensorDiagramIso A γ δ s t p m h N hp).hom.app (op n) (q ⊗ₜ[A] z) = q ⊗ₜ[AdicCompletion p A] z := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso.test_inv_tmul
+example (hp : p.FG) (n : ℕ) (q : ((Ring A γ δ s t) ⧸ m ^ n)) (z : N) :
+    letI := completionResidueAlgebra A p n
+    letI := completionFiniteChartAlgebra A γ δ s t p m n h
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (Ideal.Quotient.mk (p ^ n))
+    letI := Algebra.compHom ((Ring A γ δ s t) ⧸ m ^ n) (AdicCompletion.evalₐ p n).toRingHom
+    letI := completionFiniteCoefficient_tower A γ δ s t p m n h
+    (completionFiniteTensorDiagramIso A γ δ s t p m h N hp).inv.app (op n) (q ⊗ₜ[AdicCompletion p A] z) = q ⊗ₜ[A] z := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso.test_left
+example (hp : p.FG) (n : ℕ) :
+    (completionFiniteTensorDiagramIso A γ δ s t p m h N hp).hom.app (op n) ≫ (completionFiniteTensorDiagramIso A γ δ s t p m h N hp).inv.app (op n) = 𝟙 ((completionFiniteTensorDiagramA A γ δ s t p m h N).obj (op n)) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso.test_hom_projection
+example (hp : p.FG) (n : ℕ) :
+    (completionFiniteTensorLimitIso A γ δ s t p m h N hp).hom ≫ limit.π (completionFiniteTensorDiagramComplete A γ δ s t p m h N) (op n) =
+      limit.π (completionFiniteTensorDiagramA A γ δ s t p m h N) (op n) ≫ (completionFiniteTensorDiagramIso A γ δ s t p m h N hp).hom.app (op n) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso.test_inv_projection
+example (hp : p.FG) (n : ℕ) :
+    (completionFiniteTensorLimitIso A γ δ s t p m h N hp).inv ≫ limit.π (completionFiniteTensorDiagramA A γ δ s t p m h N) (op n) =
+      limit.π (completionFiniteTensorDiagramComplete A γ δ s t p m h N) (op n) ≫ (completionFiniteTensorDiagramIso A γ δ s t p m h N hp).inv.app (op n) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso.test_lift
+example (hp : p.FG) (c : Cone (completionFiniteTensorDiagramA A γ δ s t p m h N)) :
+    limit.lift (completionFiniteTensorDiagramA A γ δ s t p m h N) c ≫ (completionFiniteTensorLimitIso A γ δ s t p m h N hp).hom =
+      limit.lift (completionFiniteTensorDiagramComplete A γ δ s t p m h N) ((Cone.postcompose (completionFiniteTensorDiagramIso A γ δ s t p m h N hp).hom).obj c) := by
+  sorry
+
+end
+end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+/- END FINITE TENSOR LIMIT COMPARISON -/
+
+/- INVERSE LIMIT ARCHIVE RECEIPT
+{
+  "archiveCommit": "8a58420ab91eb8685e72fd71610661ef6dc3be4e",
+  "recovery": "First five Python fences in research/blueprint/handoff/DESIGN-StableReductionPartII.md; all source artifacts and diagnostics are in this archive ancestor.",
+  "artifacts": {
+    "Native.lean": {
+      "sha256": "737a7c2c1ce3eee8bccf83870375fe8b72ddde52711b9811747828ad7bc2552d",
+      "bytes": 335195,
+      "lines": 6061
+    },
+    "Canonical.lean": {
+      "sha256": "409bd4239b0ce14187b61d835a37474d4b0bb3daee7501f384f256c8225f3af0",
+      "bytes": 243082,
+      "lines": 4580
+    },
+    "NewNative.lean": {
+      "sha256": "28a5002038dd51c4c779cdb19022c4013ed69a8cf1f7aaebe298ba7b36a6e4ef",
+      "bytes": 38938,
+      "lines": 577
+    },
+    "NewAdmitted.lean": {
+      "sha256": "67e87ac39ba5c1cfcd6de1341019c6cb09dcce9f3ef49d5d51385f6749011f7b",
+      "bytes": 23618,
+      "lines": 357
+    },
+    "IncomingNative.lean": {
+      "sha256": "162dcf957d43986427dbab003a1de181e7306513dd5c59d8c2aad4fbc1d9e407",
+      "bytes": 293317,
+      "lines": 5457
+    },
+    "IncomingCanonical.lean": {
+      "sha256": "d16a9eb659f754b6e41d1e11a2fe748fa8d9136035f5a3c922cda7c9c51abcda",
+      "bytes": 219311,
+      "lines": 4220
+    },
+    "NewAudits.lean": {
+      "sha256": "d181dc659830a89bb8a899f99bd88c5a6cc5d8f824733e42f70fc65e176b9a21",
+      "bytes": 2787,
+      "lines": 24
+    },
+    "Compilation.json": {
+      "sha256": "546b6fdb416207ecff16a9321ca785ace01416afdc02ed00658282c09c88a498",
+      "bytes": 1019,
+      "lines": 36
+    },
+    "native-final.log": {
+      "sha256": "014004aa9f3d686c75b244ff4d4366c1678a69b80f77fcf9fc2dd22c8b42ac99",
+      "bytes": 55383,
+      "lines": 1090
+    },
+    "canonical-final.log": {
+      "sha256": "bfea304429b2a50490b92700e4e9dfabcabf601c0033e02a575884b7f278b57e",
+      "bytes": 38208,
+      "lines": 682
+    }
+  }
+}
+END INVERSE LIMIT ARCHIVE RECEIPT -/

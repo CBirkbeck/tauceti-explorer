@@ -1,3 +1,315 @@
+# Finite tensor inverse limits in the nodal chart
+
+This development builds on the actual polynomial node ring, coefficient actions and finite two-base tensor comparisons. It retains the full stable-curve moduli and compactification scope, including every reserved-key consumer and all parent-owned curve geometry.
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge.
+
+For i≤j, the actual quotient map τᵢⱼ:Qⱼ→Qᵢ induces both tensor transitions. Both diagrams live in ModuleCat(A); the Â-tensor diagram is restricted to A. The comparison and its inverse are A-linear. No Â-linear structure on an original-base inverse limit is assumed.
+
+Finite generation of p is used for Eₙ,N and its limit comparison. The two diagrams themselves need no finite generation of p. The module N is arbitrary, and its action need not factor through A/pⁿ. No flatness or finite generation of N is required.
+
+The limit comparison is the native limit of the actual natural isomorphism. Its forward and inverse projection equations specify its action on compatible finite components. They characterize the map uniquely, and the cone-lift equation identifies how an arbitrary compatible cone is transported. This proves an isomorphism between two limits of tensor products. Identifying either one with an ordinary tensor product of completed rings requires its own theorem and hypotheses.
+
+Knudsen II, Appendix Proposition6, printed194–195, compares the two completed bases but cites Bourbaki III5.4.4 for its proof. Proposition7 states a local criterion as an exercise. These source obligations remain separate from the elementary categorical comparison below. All eight geometric stages and the reserved moduli key remain partial.
+
+## Finite tensor diagram over the original base
+
+`StableReductionPartII:MC.2/finite-tensor-diagram-a` — `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramA`
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Construct the actual functor Fᴬ_N:ℕᵒᵖ→ModuleCat(A), with object Qₙ⊗_A N at n and map τᵢⱼ⊗id_N from level j to i for i≤j. Here τᵢⱼ is the inherited actual quotient transition. Finite generation of p is unnecessary.
+
+Define the actual object and morphism data at each quotient level, retaining the specified scalar actions. Prove identity on pure tensors from the incoming actual quotient transition identity. Prove composition on actual quotient representatives, then extend by native tensor induction.
+
+Prerequisites: `StableReductionPartII:MC.2/finite-transition-algebra`, `StableReductionPartII:MC.2/finite-transition-identity`, `StableReductionPartII:MC.2/finite-transition-compose`, `StableReductionPartII:MC.2/finite-chart-coefficient-tower`, `StableReductionPartII:MC.2/finite-chart-original-scalar`, `mathlib:CategoryTheory.Functor`, `mathlib:CategoryTheory.leOfHom`, `mathlib:ModuleCat.of`, `mathlib:ModuleCat.ofHom`, `mathlib:ModuleCat.hom_injective`, `mathlib:TensorProduct.induction_on`, `mathlib:DFunLike.ext`, `mathlib:Ideal.Quotient.mk_surjective`.
+
+API:
+
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramA_obj` (data): At level n the diagram object is the actual A-module Qₙ⊗_AN.
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramA_map_tmul` (simp): For i≤j the j-to-i diagram transition sends q⊗z to τᵢⱼ(q)⊗z over A.
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramA_map_id` (functoriality): The transition at equal levels is the identity on the actual tensor module.
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramA_map_comp` (functoriality): For i≤j≤k the k-to-i transition is the composite of the k-to-j and j-to-i transitions.
+
+Tests:
+
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramA.test_map_tmul` (compatibility): For i≤j the j-to-i diagram transition sends q⊗z to τᵢⱼ(q)⊗z over A.
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramA.test_map_id` (compatibility): The transition at equal levels is the identity on the actual tensor module.
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramA.test_zero_level` (degenerate): At level zero Q₀=R/R=0, so every j-to-zero transition on the actual tensor module is zero.
+
+## Finite tensor diagram over the completed base
+
+`StableReductionPartII:MC.2/finite-tensor-diagram-complete` — `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramComplete`
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Construct the actual functor FÂ_N:ℕᵒᵖ→ModuleCat(A), with object Qₙ⊗_Â N at n, restricted to A through native ModuleCat.restrictScalars along A→Â, and map τᵢⱼ⊗id_N over Â, restricted to A, from level j to i. Finite generation of p is unnecessary.
+
+Form each tensor over Â with the actual finite quotient action. Restrict the bundled Â-module through the native ModuleCat scalar-restriction functor along A→Â; its A-action is exactly Module.compHom. Apply the same native restriction functor to the actual Â-linear transition tensor map. Prove identity on pure tensors using the incoming quotient identity and composition on actual quotient representatives, then extend by native tensor induction.
+
+Prerequisites: `StableReductionPartII:MC.2/finite-transition-algebra`, `StableReductionPartII:MC.2/finite-transition-identity`, `StableReductionPartII:MC.2/finite-transition-compose`, `StableReductionPartII:MC.2/finite-chart-coefficient-tower`, `mathlib:CategoryTheory.Functor`, `mathlib:CategoryTheory.leOfHom`, `mathlib:ModuleCat.of`, `mathlib:ModuleCat.ofHom`, `mathlib:ModuleCat.hom_injective`, `mathlib:TensorProduct.induction_on`, `mathlib:DFunLike.ext`, `mathlib:Ideal.Quotient.mk_surjective`.
+
+API:
+
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramComplete_obj` (data): At level n the diagram object is the actual A-module Qₙ⊗_ÂN.
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramComplete_map_tmul` (simp): For i≤j the j-to-i diagram transition sends q⊗z to τᵢⱼ(q)⊗z over Â.
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramComplete_map_id` (functoriality): The transition at equal levels is the identity on the actual tensor module.
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramComplete_map_comp` (functoriality): For i≤j≤k the k-to-i transition is the composite of the k-to-j and j-to-i transitions.
+
+Tests:
+
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramComplete.test_map_tmul` (compatibility): For i≤j the j-to-i diagram transition sends q⊗z to τᵢⱼ(q)⊗z over Â.
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramComplete.test_map_id` (compatibility): The transition at equal levels is the identity on the actual tensor module.
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramComplete.test_zero_level` (degenerate): At level zero Q₀=R/R=0, so every j-to-zero transition on the actual tensor module is zero.
+
+## Natural two-base finite tensor comparison
+
+`StableReductionPartII:MC.2/finite-tensor-diagram-iso` — `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso`
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. Construct the actual native natural isomorphism E_N:Fᴬ_N≅FÂ_N with component at n the inherited Qₙ-linear finite tensor equivalence Eₙ,N as an A-linear isomorphism to the actual native restricted object. Verify A-linearity of both maps through the scalar tower; do not assume the two tensor actions are definitionally identical. Prove naturality for every inequality i≤j, including its inverse.
+
+Build the actual forward and inverse ModuleCat morphisms from the finite Qₙ-linear equivalence. Check their A-linearity on pure tensors using the actual A→Â→Qₙ scalar tower, then native tensor induction. Both inverse equations are those of the finite equivalence. Specialize the incoming all-quotient-transition equation to every arrow of ℕᵒᵖ; use native NatIso.ofComponents. Inverse naturality follows from the actual inverse, without an unproved compatibility field.
+
+Prerequisites: `StableReductionPartII:MC.2/finite-tensor-diagram-a`, `StableReductionPartII:MC.2/finite-tensor-diagram-complete`, `StableReductionPartII:MC.2/finite-tensor-equivalence`, `StableReductionPartII:MC.2/finite-tensor-forward-pure`, `StableReductionPartII:MC.2/finite-tensor-inverse-pure`, `StableReductionPartII:MC.2/finite-tensor-transition`, `StableReductionPartII:MC.2/finite-chart-coefficient-tower`, `mathlib:CategoryTheory.NatIso.ofComponents`, `mathlib:ModuleCat.restrictScalars`, `mathlib:ModuleCat.hom_injective`, `mathlib:TensorProduct.induction_on`, `mathlib:DFunLike.ext`, `mathlib:TensorProduct.smul_tmul'`, `mathlib:IsScalarTower.algebraMap_smul`.
+
+API:
+
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso_hom_tmul` (simp): Assume p finitely generated. The forward component at n sends q⊗_A z to the same pure tensor q⊗_Â z.
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso_inv_tmul` (simp): Assume p finitely generated. The inverse component at n sends q⊗_Â z to q⊗_A z.
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso_naturality` (compatibility): Assume p finitely generated. For every i≤j, τᴬᵢⱼ followed by Eᵢ equals Eⱼ followed by τÂᵢⱼ.
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso_inverse_naturality` (compatibility): Assume p finitely generated. The inverse components commute with every quotient transition.
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso_left` (equivalence): Assume p finitely generated. The left component roundtrip at n is the identity.
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso_right` (equivalence): Assume p finitely generated. The right component roundtrip at n is the identity.
+
+Tests:
+
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso.test_hom_tmul` (compatibility): Assume p finitely generated. The forward component at n sends q⊗_A z to the same pure tensor q⊗_Â z.
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso.test_inv_tmul` (compatibility): Assume p finitely generated. The inverse component at n sends q⊗_Â z to q⊗_A z.
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso.test_left` (compatibility): Assume p finitely generated. The left component roundtrip at n is the identity.
+
+## Two-base inverse-limit tensor comparison
+
+`StableReductionPartII:MC.2/finite-tensor-limit-iso` — `NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso`
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. Construct the actual native A-linear isomorphism Λ_N:lim Fᴬ_N≅lim FÂ_N from the natural isomorphism E_N. Its projections are Eₙ,N on the finite components, its inverse has components Eₙ,N⁻¹, and it carries every compatible cone to the transported cone. This identifies two limits of tensor products; no equality with an ordinary tensor product of a completed ring is asserted.
+
+Use native ModuleCat limits and HasLimit.isoOfNatIso; do not construct another inverse-limit carrier. Specialize the native forward/inverse projection equations, cone-lift comparison and limit.hom_ext. The actual isomorphism gives both roundtrips.
+
+Prerequisites: `StableReductionPartII:MC.2/finite-tensor-diagram-iso`, `mathlib:ModuleCat.hasLimits`, `mathlib:CategoryTheory.Limits.HasLimit.isoOfNatIso`.
+
+API:
+
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso_hom_projection` (projection): Assume p finitely generated. Projection at n after the limit comparison equals projection at n followed by Eₙ.
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso_inv_projection` (projection): Assume p finitely generated. Projection at n after the inverse limit comparison equals projection at n followed by Eₙ⁻¹.
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso_left` (equivalence): Assume p finitely generated. The left limit roundtrip is the identity.
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso_right` (equivalence): Assume p finitely generated. The right limit roundtrip is the identity.
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso_unique` (characterisation): Assume p finitely generated. Any A-linear map between the two limits with all the prescribed finite-component equations equals the limit comparison.
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso_lift` (universal-property): Assume p finitely generated. For every actual cone c to the A-tensor diagram, transport its legs by Eₙ; its universal lift to the completed-base-tensor limit is the old lift followed by the limit comparison.
+
+Tests:
+
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso.test_hom_projection` (compatibility): Assume p finitely generated. Projection at n after the limit comparison equals projection at n followed by Eₙ.
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso.test_inv_projection` (compatibility): Assume p finitely generated. Projection at n after the inverse limit comparison equals projection at n followed by Eₙ⁻¹.
+- `NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso.test_lift` (characterisation): Assume p finitely generated. For every actual cone c to the A-tensor diagram, transport its legs by Eₙ; its universal lift to the completed-base-tensor limit is the old lift followed by the limit comparison.
+
+## DiagramA obj
+
+`StableReductionPartII:MC.2/finite-tensor-diagram-a-obj` — `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramA_obj`
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. At level n the diagram object is the actual A-module Qₙ⊗_AN.
+
+Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components.
+
+Prerequisites: `StableReductionPartII:MC.2/finite-tensor-diagram-a`.
+
+## DiagramA map tmul
+
+`StableReductionPartII:MC.2/finite-tensor-diagram-a-map-tmul` — `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramA_map_tmul`
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. For i≤j the j-to-i diagram transition sends q⊗z to τᵢⱼ(q)⊗z over A.
+
+Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components.
+
+Prerequisites: `StableReductionPartII:MC.2/finite-tensor-diagram-a`.
+
+## DiagramA map id
+
+`StableReductionPartII:MC.2/finite-tensor-diagram-a-map-id` — `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramA_map_id`
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. The transition at equal levels is the identity on the actual tensor module.
+
+Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components.
+
+Prerequisites: `StableReductionPartII:MC.2/finite-tensor-diagram-a`.
+
+## DiagramA map comp
+
+`StableReductionPartII:MC.2/finite-tensor-diagram-a-map-comp` — `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramA_map_comp`
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. For i≤j≤k the k-to-i transition is the composite of the k-to-j and j-to-i transitions.
+
+Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components.
+
+Prerequisites: `StableReductionPartII:MC.2/finite-tensor-diagram-a`.
+
+## DiagramComplete obj
+
+`StableReductionPartII:MC.2/finite-tensor-diagram-complete-obj` — `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramComplete_obj`
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. At level n the diagram object is the actual A-module Qₙ⊗_ÂN.
+
+Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components.
+
+Prerequisites: `StableReductionPartII:MC.2/finite-tensor-diagram-complete`.
+
+## DiagramComplete map tmul
+
+`StableReductionPartII:MC.2/finite-tensor-diagram-complete-map-tmul` — `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramComplete_map_tmul`
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. For i≤j the j-to-i diagram transition sends q⊗z to τᵢⱼ(q)⊗z over Â.
+
+Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components.
+
+Prerequisites: `StableReductionPartII:MC.2/finite-tensor-diagram-complete`.
+
+## DiagramComplete map id
+
+`StableReductionPartII:MC.2/finite-tensor-diagram-complete-map-id` — `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramComplete_map_id`
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. The transition at equal levels is the identity on the actual tensor module.
+
+Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components.
+
+Prerequisites: `StableReductionPartII:MC.2/finite-tensor-diagram-complete`.
+
+## DiagramComplete map comp
+
+`StableReductionPartII:MC.2/finite-tensor-diagram-complete-map-comp` — `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramComplete_map_comp`
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. For i≤j≤k the k-to-i transition is the composite of the k-to-j and j-to-i transitions.
+
+Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components.
+
+Prerequisites: `StableReductionPartII:MC.2/finite-tensor-diagram-complete`.
+
+## DiagramIso hom tmul
+
+`StableReductionPartII:MC.2/finite-tensor-diagram-iso-hom-tmul` — `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso_hom_tmul`
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. The forward component at n sends q⊗_A z to the same pure tensor q⊗_Â z.
+
+Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components.
+
+Prerequisites: `StableReductionPartII:MC.2/finite-tensor-diagram-iso`, `StableReductionPartII:MC.2/finite-tensor-forward-pure`.
+
+## DiagramIso inv tmul
+
+`StableReductionPartII:MC.2/finite-tensor-diagram-iso-inv-tmul` — `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso_inv_tmul`
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. The inverse component at n sends q⊗_Â z to q⊗_A z.
+
+Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components.
+
+Prerequisites: `StableReductionPartII:MC.2/finite-tensor-diagram-iso`, `StableReductionPartII:MC.2/finite-tensor-inverse-pure`.
+
+## DiagramIso naturality
+
+`StableReductionPartII:MC.2/finite-tensor-diagram-iso-naturality` — `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso_naturality`
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. For every i≤j, τᴬᵢⱼ followed by Eᵢ equals Eⱼ followed by τÂᵢⱼ.
+
+Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components.
+
+Prerequisites: `StableReductionPartII:MC.2/finite-tensor-diagram-iso`, `StableReductionPartII:MC.2/finite-tensor-transition`, `mathlib:CategoryTheory.NatTrans`.
+
+## DiagramIso inverse naturality
+
+`StableReductionPartII:MC.2/finite-tensor-diagram-iso-inverse-naturality` — `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso_inverse_naturality`
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. The inverse components commute with every quotient transition.
+
+Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components.
+
+Prerequisites: `StableReductionPartII:MC.2/finite-tensor-diagram-iso`, `StableReductionPartII:MC.2/finite-tensor-inverse-transition`, `mathlib:CategoryTheory.NatTrans`.
+
+## DiagramIso left
+
+`StableReductionPartII:MC.2/finite-tensor-diagram-iso-left` — `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso_left`
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. The left component roundtrip at n is the identity.
+
+Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components.
+
+Prerequisites: `StableReductionPartII:MC.2/finite-tensor-diagram-iso`, `mathlib:CategoryTheory.Iso`.
+
+## DiagramIso right
+
+`StableReductionPartII:MC.2/finite-tensor-diagram-iso-right` — `NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso_right`
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. The right component roundtrip at n is the identity.
+
+Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components.
+
+Prerequisites: `StableReductionPartII:MC.2/finite-tensor-diagram-iso`, `mathlib:CategoryTheory.Iso`.
+
+## LimitIso hom projection
+
+`StableReductionPartII:MC.2/finite-tensor-limit-hom-projection` — `NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso_hom_projection`
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. Projection at n after the limit comparison equals projection at n followed by Eₙ.
+
+Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components.
+
+Prerequisites: `StableReductionPartII:MC.2/finite-tensor-limit-iso`, `StableReductionPartII:MC.2/finite-tensor-diagram-iso`, `mathlib:CategoryTheory.Limits.HasLimit.isoOfNatIso_hom_π`.
+
+## LimitIso inv projection
+
+`StableReductionPartII:MC.2/finite-tensor-limit-inv-projection` — `NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso_inv_projection`
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. Projection at n after the inverse limit comparison equals projection at n followed by Eₙ⁻¹.
+
+Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components.
+
+Prerequisites: `StableReductionPartII:MC.2/finite-tensor-limit-iso`, `StableReductionPartII:MC.2/finite-tensor-diagram-iso`, `mathlib:CategoryTheory.Limits.HasLimit.isoOfNatIso_inv_π`.
+
+## LimitIso left
+
+`StableReductionPartII:MC.2/finite-tensor-limit-left` — `NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso_left`
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. The left limit roundtrip is the identity.
+
+Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components.
+
+Prerequisites: `StableReductionPartII:MC.2/finite-tensor-limit-iso`, `mathlib:CategoryTheory.Iso`.
+
+## LimitIso right
+
+`StableReductionPartII:MC.2/finite-tensor-limit-right` — `NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso_right`
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. The right limit roundtrip is the identity.
+
+Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components.
+
+Prerequisites: `StableReductionPartII:MC.2/finite-tensor-limit-iso`, `mathlib:CategoryTheory.Iso`.
+
+## LimitIso unique
+
+`StableReductionPartII:MC.2/finite-tensor-limit-unique` — `NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso_unique`
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. Any A-linear map between the two limits with all the prescribed finite-component equations equals the limit comparison.
+
+Apply native limit.hom_ext to every ℕᵒᵖ object, using the prescribed projections and the promoted forward projection equation.
+
+Prerequisites: `StableReductionPartII:MC.2/finite-tensor-limit-iso`, `StableReductionPartII:MC.2/finite-tensor-limit-hom-projection`, `mathlib:CategoryTheory.Limits.limit.hom_ext`.
+
+## LimitIso lift
+
+`StableReductionPartII:MC.2/finite-tensor-limit-lift` — `NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso_lift`
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. For every actual cone c to the A-tensor diagram, transport its legs by Eₙ; its universal lift to the completed-base-tensor limit is the old lift followed by the limit comparison.
+
+Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components.
+
+Prerequisites: `StableReductionPartII:MC.2/finite-tensor-limit-iso`, `StableReductionPartII:MC.2/finite-tensor-diagram-iso`, `mathlib:CategoryTheory.Limits.HasLimit.lift_isoOfNatIso_hom`, `mathlib:CategoryTheory.Limits.Cone.postcompose`.
+
+The preceding mathematical contracts continue below.
+
 # Finite two-base coherence — current continuation
 
 This partial checkpoint for issue #3342 adds ten declarations: one construction and nine lemmas, eight API additions and six acceptance examples. The packet now has 382 nodes (8 definitions, 75 constructions, 230 lemmas, 67 theorems, one application and one comparison), 317 raw API entries and 313 raw tests. The definition/construction checker counts 316 API entries and 286 required tests. There are 221 pinned baseline declarations, 35 planets, 135 requests and fifteen gaps. All eight stages remain partial and every implementation remains unchecked. Historical counts and receipts in the preserved reader below refer to their earlier revisions.
