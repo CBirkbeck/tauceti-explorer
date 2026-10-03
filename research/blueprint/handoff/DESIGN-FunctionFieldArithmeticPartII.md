@@ -1,3 +1,473 @@
+# Arbitrary-section rational character coaction — Codex codex-a71f92
+
+Refs #3403. Claim 5966721918 was confirmed by bot comment 5966722976 before work. Mathematical base: a29a5de40a8f9ea98f544153013ca05c7aca8649. Publication/validation base: 33732c0f15d5be99677062a4ad75f088d9706112. Only the five authorized deliverables change. No repository checkout, commit or push was performed locally; shared source trees were read through immutable Git objects.
+
+This checkpoint adds ten declaration-sized items: one construction and nine lemmas, with nine promoted API items and five tests. It transports the actual arbitrary-section LEFT coaction through the incoming H_A≃A[Q/Z] equivalence. Its root/power/coefficient formulas, native counit/coassociativity, injectivity, universal-coinvariance reflection and unity-chart compatibility are explicit. No flatness, reducedness, nonzero-section, unit-parameter or exponent-invertibility assumption is smuggled in. No generic tensor, Hopf or stack carrier is duplicated.
+
+All 368 incoming mathematical contracts remain; 367 node objects are identical. Only the existing infinite fpqc quotient consumer gains five prerequisites and one proof step. All 33 source-coverage routes, eight gaps, thirteen supplier requests and previous corrections/histories survive. Both the complete Yun–Zhang and independent symplectic routes remain. No stage closes, no new planet is added and every implementation status remains unchecked. The reader and handoff retain the entire incoming documents as exact suffixes. The suggested prefix is unchanged except for alpha-renaming the incoming rational-character block's universe u to uQZ, including its Type annotations, to avoid the detected duplicate global universe declaration; the new block uses uQZCoact. No old proposition, hypothesis, API item, test type or body changes.
+
+Packet totals: 378 nodes (66 constructions, 11 definitions, 11 comparisons, 252 lemmas, 37 theorems and one application), 301 raw API entries/296 construction-definition API entries, 297 raw tests/265 construction-definition tests, 40 planets and 225 baseline declarations. Four new native tensor references were personally checked in the actual pinned source with ambient hypotheses; general operations are imported, not planned again.
+
+## Executed checks
+
+The actual blueprint checker reports zero errors and warnings; the actual intake scanner and automatic refusal predicates pass all five paths. The verifier checks exact old-contract preservation, the permitted universe alpha-renaming, new API/test names, both type-level let binders, source/header parity, private-path/trailing-space exclusion, and complete canonical 242 examples. All 36 link maps were parsed; no entry names this roadmap's stages.
+
+The actual atlas assembler was run for candidate and incoming control, retaining all other promoted packets/documents/definitions. At the publication base the stage DAG has 3057 vertices/8724 edges, own declaration DAG 378/893 and scoped DAG 3508/10418. All are acyclic. The 491 reachable declarations include 113 suppliers and terminate at 297 baseline leaves or explicit stage contracts. All 87 required pairs are reachable; there are no unresolved references, own skipped links or pending links. All other roadmap skip/pending states and all stage edges match the incoming control. Forty-five unrelated preexisting unreachable accepted-restructure paths remain unchanged; none touches this roadmap. The immutable adapter reads 845 paths; manifest SHA256 058eeeb5e5c0bdfc5035fb51bc7ec615b0620060b78255e78566ae7f62f43681. This hashes the path list, not source contents. Eighteen instruction/audit/input guards and all five starting deliverables are unchanged between the mathematical and publication bases.
+
+Exact finite arithmetic performed 7062 assertions: 3792 multiplication comparisons, 960 root-power comparisons and 576 finite-transition comparisons over Z, Z/1, Z/2, Z/4, Z/6 and Z/7, with section parameters −1,0,1,2 and exponents 1,2,3,6. Counit, coassociativity, root weights, invariants, nilpotents and rejected numerator/point-reduction alternatives were checked. These finite checks are not an infinite-colimit proof or Lean certification.
+
+## Compilation boundary and reproducible native typing receipt
+
+**The complete suggested file remains UNCOMPILED.** The available full Tau Ceti build does not have the required f790474 compiled modules; no attempt to build or cache them was made. Initial available memory was 9 GiB; no elaboration was attempted then. Memory subsequently recovered to 83 GiB, and an immediate guard enforced at least 20 GiB before each compiler launch. All launches were serial with a 1200-second timeout. No Lake project, dependency update, library build or LSP was started, and no compiler remains running.
+
+The final 5071-line Mathlib-only native typing fragment DOES elaborate: exit 0, 52.22 seconds, maximum resident memory 4009836 KiB, and only the expected admitted-proof warnings. It contains the authenticated incoming native source (not a private replacement type), the incoming 28 rational-coordinate declarations/15 tests with universe alpha-renaming, and all ten new declaration signatures/five tests. This checks their types against actual DirectLimit/AdjoinRoot/MonoidAlgebra/tensor constructions; it does NOT prove the admitted coordinate/coaction statements or certify the complete canonical imports. Two preliminary compositions failed on duplicate universe declarations; the final alpha-renaming is included in both the canonical file and replay recipe. An earlier preparation failed its hash before producing a file; a following compiler invocation reported that missing file, not a successful elaboration. No failed invocation is counted as a proof check.
+
+```json
+{
+  "typingSha256": "8d7c21d7f4edb2afd0720f1844540858bfee1ebad18180ff0001c07d61a253bd",
+  "typingLines": 5071,
+  "nativeIncomingSha256": "a345e37f1cb27602a255406f0353f726a5a90b17119aa5878cb79328e14e12a9",
+  "incomingQZSignatureSha256": "ff20d15a481d7ffd9d471a39764d48167d28180586354591207e9140d4736cb3",
+  "newSignatureSha256": "96fd3c93927397dd48da75a806502cf30944e1d3b7845e8c82cb6b34898194b4",
+  "scope": "The authenticated Mathlib-only native fragment plus alpha-renamed incoming Q/Z signatures and all fifteen new declaration/example headers elaborated. Admitted signatures, not proof certification. Complete canonical file UNCOMPILED because exact-pin full TauCeti compiled modules are unavailable.",
+  "exitCode": 0,
+  "elapsedSeconds": 52.22,
+  "maxResidentKiB": 4009836,
+  "availableMemoryGiBAtDecision": 83
+}
+```
+
+## Source reading, ownership and continuation
+
+Fresh selected reading: complete Talpo–Vistoli arXiv1410.1164v2 printed pp.14–16, including the Cartier-dual grading, Lemma3.7 proof, fpqc quotient definition, Lemma3.12 proof and Proposition3.10 proof. The exact downloaded PDF SHA256 is 92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2. The complete paper and joining sources were not freshly reread. The new identities are authored native tensor deductions, not printed theorem names or a new whole-source closure receipt. No new source error is asserted. Current WORKERS, binding protocols, relevant reviewed arithmetic/scheme audits and REV-AUDIT-20, reserved root-stack entry, all thirteen requests, both accepted route briefs and all ten layer descriptions were read. Nearby upstream AlgebraicCurves was read completely; the earlier full JacobianChallenge reading remains applicable and its immutable guard is unchanged. No reviewed D0 audit entry exists in the recorded audit index; its planned supplier boundary is not presented as an audit verdict.
+
+The reserved FunctionFieldArithmeticPartII:key/root-stacks remains the single general owner: arbitrary schemes/stacks and nontrivial line sections, relative closed-subscheme roots, divisibility transition objects and complete nonreduced fibres are not restricted to this affine calculation. Native tensor congr reflects universal coinvariance; it neither computes all infinite invariants nor reflects fixedness from base-field points.
+
+Resume with the actual arbitrary-section coefficient-naturality square in rational coordinates: use the existing heterobasic mapRingHom, the incoming factorialTensorCoefficientMap and E_A coefficient square, with both actual coefficient witnesses. Then establish higher-universe/full positive-index transports, coherent root-object groupoid reindexing, affine Spec limits, fpqc frame torsors and quotient comparison. Retain TOWER-AFF/KUMMER-FINITE/TOWER-TYPING, DVR/Kummer classification, the roots-of2 non-fppf example and every sheaf/norm/general-root boundary. Elaborate the full canonical file once an existing exact-pin full Tau Ceti build is available; no implementation or stage closure follows from this admitted native-fragment elaboration.
+
+## Public recovery and replay
+
+Save the first five Python blocks below as recover.py, verify.py, immutable_view.py, finite_roots.py and prepare_typing.py. Recovery takes a new outside-repository disk scratch directory and this PR's exact 40-character HEAD as its arguments. It restores only the five authorized files plus four helpers and the new signature block through apply_patch, verifies byte parity, and authenticates old archive objects. Run verify.py with the recovered scratch directory and the supplied exact pinned declaration-index filename. ROOTS_VALIDATE_BASE=33732c0f15d5be99677062a4ad75f088d9706112 selects the publication context; the mathematical base is the default. Run prepare_typing.py with the scratch directory to reproduce TypingFinal.lean, whose SHA256 must match the receipt. Use only an existing exact Mathlib build, require at least 20 GiB available, and impose a 1200-second timeout for any elaboration. Recovery/JSON/source checks alone never claim a new compiler run.
+
+```python
+"""Recover only the five authorized deliverables and four replay helpers via apply_patch."""
+from pathlib import Path
+import hashlib,json,os,re,subprocess,sys
+R=Path(os.environ.get('TAUCETI_REPO',str(Path.cwd()))).resolve()
+S=Path(sys.argv[1]).resolve();HEAD=sys.argv[2]
+assert re.fullmatch('[0-9a-f]{40}',HEAD) and not S.is_relative_to(R)
+RID='FunctionFieldArithmeticPartII'
+FILES=['research/blueprint/'+d+'/'+('DESIGN-' if d=='handoff' else '')+RID+'.'+e for d,e in [('roadmaps','json'),('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]]
+def ensure(ref):
+ if subprocess.run(['git','cat-file','-e',ref+'^{commit}'],cwd=R,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL).returncode:
+  subprocess.run(['git','fetch','origin',ref],cwd=R,check=True)
+def readref(ref,path):return subprocess.check_output(['git','show',ref+':'+path],cwd=R,text=True)
+def put(path,text):
+ path=S/path
+ assert not path.exists(),str(path)
+ patch='*** Begin Patch\n*** Add File: '+str(path)+'\n'+'\n'.join('+'+l for l in text.splitlines())+'\n*** End Patch\n'
+ subprocess.run(['apply_patch'],input=patch,text=True,check=True,stdout=subprocess.DEVNULL)
+ assert path.read_text()==text
+for ref in [HEAD,'a29a5de40a8f9ea98f544153013ca05c7aca8649','55316071de533c5fb77601a8c4951943d26092eb','0ddf3a197431c0192530db0dc5375f353ad77e44']:ensure(ref)
+contents={f:readref(HEAD,f) for f in FILES}
+for f,t in contents.items():put('proposal/'+f,t)
+canonical=contents[FILES[3]];start=canonical.rindex('/-! Rational-character LEFT coaction')
+put('New.lean',canonical[start:])
+blocks=re.findall(r'\x60\x60\x60python\n(.*?)\n\x60\x60\x60',contents[FILES[4]],re.S)
+names=['verify.py','immutable_view.py','finite_roots.py','prepare_typing.py']
+hashes={}
+for name,block in zip(names,blocks[1:5]):
+ t=block.removesuffix('\n')
+ put(name,t);hashes[name]=hashlib.sha256(t.encode()).hexdigest()
+assert len(hashes)==4
+print(json.dumps({'head':HEAD,'files':{f:hashlib.sha256(t.encode()).hexdigest() for f,t in contents.items()},'newSignatureSha256':hashlib.sha256(canonical[start:].encode()).hexdigest(),'helperHashes':hashes},indent=2))
+
+```
+
+```python
+"""Actual immutable checker/intake/atlas; no compiler invocation or repository writes."""
+from pathlib import Path
+import ast,collections,copy,hashlib,json,os,re,subprocess,sys
+R=Path(os.environ.get('TAUCETI_REPO',str(Path.cwd()))).resolve()
+S=Path(sys.argv[1]).resolve()
+RID='FunctionFieldArithmeticPartII'
+MATH='a29a5de40a8f9ea98f544153013ca05c7aca8649'
+BASE=os.environ.get('ROOTS_VALIDATE_BASE',MATH)
+FILES=['research/blueprint/'+d+'/'+('DESIGN-' if d=='handoff' else '')+RID+'.'+e for d,e in [('roadmaps','json'),('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]]
+def readref(ref,path):return subprocess.check_output(['git','show',ref+':'+path],cwd=R,text=True)
+proposal={f:(S/'proposal'/f).read_text() for f in FILES}
+p=json.loads(proposal[FILES[1]]);old=json.loads(readref(MATH,FILES[1]));nodes={n['id']:n for n in p['nodes']}
+assert len(old['nodes'])==368 and len(nodes)==378
+for n in old['nodes']:
+ q=nodes[n['id']]
+ if n['id'].endswith('/infinite-affine-quotient'):
+  assert {k:v for k,v in q.items() if k not in ('prerequisites','proofSteps')}=={k:v for k,v in n.items() if k not in ('prerequisites','proofSteps')}
+  assert q['prerequisites'][:-5]==n['prerequisites'] and q['proofSteps'][:-1]==n['proofSteps']
+ else:assert q==n,n['id']
+for k,v in old.items():
+ if k not in ('nodes','summary','sources','baseline','coverage','continuationHistory'):assert p[k]==v,k
+assert p['sources'][:-1]==old['sources'] and p['baseline']['declarations'][:-4]==old['baseline']['declarations']
+assert {k:v for k,v in p['baseline'].items() if k!='declarations'}=={k:v for k,v in old['baseline'].items() if k!='declarations'}
+assert p['continuationHistory'][:-1]==old['continuationHistory']
+for before,after in zip(old['coverage'],p['coverage']):
+ if before['stageId'].endswith(':RS.2'):
+  assert after['remaining'][:-1]==before['remaining']
+  assert {k:v for k,v in after.items() if k!='remaining'}=={k:v for k,v in before.items() if k!='remaining'}
+ else:assert before==after
+assert all(n['implementationStatus']=='unchecked' for n in p['nodes']) and p['status']=='partial'
+rd=json.loads(proposal[FILES[0]]);rold=json.loads(readref(MATH,FILES[0]))
+assert {k:v for k,v in rd.items() if k not in ('summary','stages')}=={k:v for k,v in rold.items() if k not in ('summary','stages')}
+for before,after in zip(rold['stages'],rd['stages']):
+ if before['key']=='RS.2':
+  assert {k:v for k,v in after.items() if k!='description'}=={k:v for k,v in before.items() if k!='description'}
+  assert after['description'].startswith(before['description'])
+ else:assert before==after
+new=(S/'New.lean').read_text()
+canonical=proposal[FILES[3]]
+incoming=readref(MATH,FILES[3]);marker='/- BEGIN INFINITE RATIONAL CHARACTERS -/'
+first,last=incoming.split(marker,1)
+normalized=first+marker+last.replace('universe u\n','universe uQZ\n').replace('Type u','Type uQZ')
+assert canonical==normalized+'\n'+new
+assert proposal[FILES[2]].endswith(readref(MATH,FILES[2]))
+assert proposal[FILES[4]].endswith(readref(MATH,FILES[4]))
+reader=proposal[FILES[2]][:-len(readref(MATH,FILES[2]))]
+assert 'sorry' not in reader and '\x60\x60\x60lean' not in reader
+def headers(txt):
+ result=[]
+ for m in re.finditer(r'^(?:def|lemma|example)\b',txt,re.M):
+  depth=0;body=None
+  for i in range(m.start(),len(txt)):
+   c=txt[i]
+   if c in '([{':depth+=1
+   if c in ')]}':depth-=1
+   if depth==0 and (txt.startswith(':=',i) or txt.startswith('where\n',i)):
+    line=txt[txt.rfind('\n',0,i)+1:i]
+    if re.match(r'\s*(?:let|letI)\b',line):continue
+    body=i;break
+  assert body is not None
+  result.append(' '.join(txt[m.start():body].split()))
+ return result
+assert len(headers(new))==15
+assert len(re.findall(r'^def ',new,re.M))==1 and len(re.findall(r'^lemma ',new,re.M))==9 and len(re.findall(r'^example\b',new,re.M))==5
+assert 'let G :=' in headers(new)[6] and 'let u :=' in headers(new)[13]
+for n in p['nodes'][368:]:
+ assert n['declarationName'] in reader and n['statement'] in reader
+ assert re.search(r'^(?:def|lemma) '+re.escape(n['declarationName'].removeprefix('TauCeti.RootStack.'))+r'\b',new,re.M)
+ for a in n.get('api',[]):assert a['name'] in reader and a['statement'] in reader and a['name'].removeprefix('TauCeti.RootStack.') in new
+ for t in n.get('tests',[]):assert t['name'] in reader and t['statement'] in reader and '-- test: '+t['name'] in new
+for f,v in proposal.items():
+ assert not re.search(r'[ \t]+$',v,re.M),f
+ assert not re.search(r'/(?:home|tmp|Users)/|file'+'://',v),f
+sys.path.insert(0,str(S))
+import finite_roots
+finite=finite_roots.run()
+GUARDS=["research/blueprint/WORKERS.md","research/blueprint/PROTOCOL.md","research/expansion/PROTOCOL.md","research/blueprint/UPSTREAM_GUIDE.md","data/library-coverage.json","research/blueprint/reviews/REV-AUDIT-02.md","research/blueprint/reviews/REV-AUDIT-20.md","data/keydefs/KEYDEF-algebraicgeometry.json","research/blueprint/keydefs/KEYDEF-algebraicgeometry.json","research/blueprint/keydefs/owners.json","research/blueprint/reserved-ids.json","content/tau-ceti/JacobianChallenge/README.md","content/tau-ceti/AlgebraicCurves/README.md","scripts/check_blueprint.py","scripts/source_issues.py","scripts/build.py","scripts/blueprints.py","research/blueprint/intake.py"]
+for f in GUARDS+FILES:assert readref(MATH,f)==readref(BASE,f),('input changed',f)
+linkpaths=[x for x in subprocess.check_output(['git','ls-tree','-r','--name-only',BASE],cwd=R,text=True).splitlines() if x.startswith('research/blueprint/links/') and x.endswith('.json')]
+linkmatches=[]
+for path in linkpaths:
+ q=json.loads(readref(BASE,path))
+ for key in ['links','overlaps','examined']:
+  for entry in q.get(key,[]):
+   if RID+':' in json.dumps(entry):linkmatches.append({'path':path,'kind':key,'entry':entry})
+print(json.dumps({'boundedLinkMapsRead':len(linkpaths),'ownRelevantEntries':linkmatches}),flush=True)
+import immutable_view as gv
+gv.install();sys.path.insert(0,str(R/'scripts'))
+import check_blueprint,build,blueprints
+errors,warnings,checker=check_blueprint.check(S/'proposal'/FILES[1],check_blueprint.load_index(Path(sys.argv[2])),check_blueprint.world())
+assert not errors and not warnings,(errors,warnings)
+tree=ast.parse((R/'research/blueprint/intake.py').read_text());names={'file_problems','auto_refusals','own_files','independent_of'}
+picked=[n for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id in {'ALLOWED','PRIVATE'} for t in n.targets) or isinstance(n,ast.FunctionDef) and n.name in names]
+env={'json':json,'re':re};exec(compile(ast.Module(body=picked,type_ignores=[]),'actual-intake', 'exec'),env)
+job=next(j for j in json.loads((R/'research/blueprint/queue.json').read_text())['jobs'] if j['id']=='DESIGN-'+RID)
+problems=[x for path,text in proposal.items() for x in env['file_problems'](path,text)]
+refusals=env['auto_refusals'](job,list(proposal),False,{'codex-a71f92'},set())
+assert not problems and not refusals,(problems,refusals)
+packets,documents,definitions=blueprints.load_promoted(R)
+keep=[x for x in packets if x[0]!=RID];documents[RID]=FILES[2]
+def assemble(candidate,definition):
+ build.load_promoted=lambda *args:(copy.deepcopy(keep+[(RID,candidate)]),copy.deepcopy(documents),copy.deepcopy([d for d in definitions if d.get('id')!=RID]+[definition]))
+ return build.assemble(require_distances=False)[0]
+a=assemble(p,rd);b=assemble(old,rold)
+world={}
+for folder in ['data/decompositions','data/blueprints','research/blueprint/packets']:
+ for file in sorted((R/folder).glob('*.json')):
+  for n in json.loads(file.read_text()).get('nodes',[]):world.setdefault(n['id'],n)
+world.update(nodes)
+listedstageids={x['id'] for x in a['stages']}
+stageids=listedstageids|set(check_blueprint.world()[1])
+se={(e['source'],e['target']) for e in a['stageEdges']}
+assert se=={(e['source'],e['target']) for e in b['stageEdges']}
+def dag(vertices,edges):
+ vertices=set(vertices)|{v for e in edges for v in e}
+ following=collections.defaultdict(set);indeg={v:0 for v in vertices}
+ for s,t in edges:
+  if t not in following[s]:following[s].add(t);indeg[t]+=1
+ todo=[v for v,k in indeg.items() if k==0];count=0
+ while todo:
+  v=todo.pop();count+=1
+  for w in following[v]:
+   indeg[w]-=1
+   if indeg[w]==0:todo.append(w)
+ assert count==len(vertices),[v for v,k in indeg.items() if k][:10]
+ return {'vertices':len(vertices),'edges':len(edges),'acyclic':True}
+ownedges={(d,nid) for nid,n in nodes.items() for d in n['prerequisites'] if d in nodes}
+todo=list(nodes);seen=set();de=set();unresolved=set();baseref=set()
+while todo:
+ nid=todo.pop()
+ if nid in seen:continue
+ seen.add(nid)
+ for d in world[nid].get('prerequisites',[]):
+  if d.startswith(('mathlib:','tauceti:')) and d not in stageids:baseref.add(d);continue
+  de.add((d,nid))
+  if d in world:todo.append(d)
+  elif d not in stageids:unresolved.add(d)
+assert not unresolved,unresolved
+de|={(world[nid]['parentStageId'],nid) for nid in seen if world[nid].get('parentStageId')}
+de|={(q['supplier'],v) for q in p['requests'] for v in q.get('neededBy',[]) if v in nodes or v in stageids}
+out=collections.defaultdict(set)
+for s,t in se:out[s].add(t)
+def reachable(source,target):
+ todo=[source];seen=set()
+ while todo:
+  v=todo.pop()
+  if v==target:return True
+  if v not in seen:seen.add(v);todo.extend(out[v])
+ return False
+def stageof(v):
+ checked=set()
+ while v in world and v not in checked:checked.add(v);v=world[v].get('parentStageId')
+ return v
+pairs={(d,s['id']) for s in a['stages'] if s['id'].startswith(RID+':') for d in s.get('requires',[])}
+pairs|={(d,stageof(nid)) for nid,n in nodes.items() for d in n['prerequisites'] if d in stageids and d not in world and d!=stageof(nid)}
+pairs|={(stageof(q['supplier']),stageof(v)) for q in p['requests'] for v in q['neededBy'] if stageof(q['supplier'])!=stageof(v)}
+rspairs=set()
+for file in (R/'research/blueprint/restructure').glob('*.result.json'):
+ q=json.loads(file.read_text())
+ if q.get('review',{}).get('status')!='accepted':continue
+ rspairs|={(x['source'],x['target']) for x in q.get('links',[]) if x.get('source') in stageids and x.get('target') in stageids}
+assert all(reachable(s,t) for s,t in pairs),sorted((s,t) for s,t in pairs if not reachable(s,t))
+missing_restructures=sorted((s,t) for s,t in rspairs if not reachable(s,t))
+assert not any(s.startswith(RID+':') or t.startswith(RID+':') for s,t in missing_restructures),missing_restructures
+# Stage edges are identical to the incoming control, so these unrelated preexisting paths are unchanged.
+ar={r['id']:r for r in a['roadmaps']};br={r['id']:r for r in b['roadmaps']}
+assert ar[RID]['blueprint']['declarations']==len(nodes)
+assert not ar[RID]['blueprint']['skippedLinks'] and not ar[RID].get('pendingLinks',[])
+def skips(r):return r.get('blueprint',{}).get('skippedLinks',[]),r.get('pendingLinks',[])
+assert all(skips(ar[x])==skips(br[x]) for x in br if x!=RID)
+summary={'stageDAG':dag(listedstageids,se),'ownDeclarationDAG':dag(nodes,ownedges),'scopedDAG':dag(listedstageids|seen,se|de),'reachableDeclarations':len(seen),'externalDeclarations':sorted(seen-set(nodes)),'baselineLeaves':len(baseref),'requiredPairs':len(pairs),'restructurePairs':len(rspairs),'ownRestructurePairs':sum(s.startswith(RID+':') or t.startswith(RID+':') for s,t in rspairs),'otherPreexistingUnreachableRestructurePairs':len(missing_restructures),'otherUnreachableRestructurePairListSha256':hashlib.sha256(json.dumps(missing_restructures).encode()).hexdigest(),'unresolved':sorted(unresolved),'ownSkippedLinks':[],'ownPendingLinks':[],'otherSkipsMatch':True,'stageEdgesUnchanged':True}
+
+print(json.dumps({'graph':summary,'checker':{k:v for k,v in checker.items() if k!='packet'},'preservedWholeNodeObjects':367,'preservedMathematicalContracts':368,'newNodes':10,'newApiItems':9,'newTests':5,'rawApiItems':sum(len(n.get('api',[])) for n in p['nodes']),'rawTests':sum(len(n.get('tests',[])) for n in p['nodes']),'finiteRegression':finite,'typedSources':{'newHeaders':15,'canonicalExamples':len(re.findall(r'^example\b',canonical,re.M)),'canonicalLines':len(canonical.splitlines()),'canonicalSha256':hashlib.sha256(canonical.encode()).hexdigest(),'execution':'Complete canonical UNCOMPILED. Fifteen new headers elaborated in authenticated Mathlib-only native fragment; see handoff compilation receipt.'},'intakeProblems':problems,'intakeRefusals':refusals,'guardsUnchanged':len(GUARDS),'immutableReadPaths':len(gv.READS),'immutableReadPathListSha256':hashlib.sha256(json.dumps(sorted(gv.READS)).encode()).hexdigest(),'verifierSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()},indent=2),flush=True)
+
+```
+
+```python
+"""Read the immutable audit tree without creating a repository snapshot."""
+import fnmatch
+import importlib.abc
+import importlib.util
+import io
+from pathlib import Path
+import subprocess
+import sys
+
+import os
+REPO = Path(os.environ.get('TAUCETI_REPO', str(Path.cwd())))
+BASE = os.environ.get('ROOTS_VALIDATE_BASE', 'a29a5de40a8f9ea98f544153013ca05c7aca8649')
+TRACKED = set(subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', BASE], cwd=REPO, text=True).splitlines())
+CACHE = {}
+READS = set()
+ORIGINAL = {name: getattr(Path, name) for name in ('read_text', 'read_bytes', 'exists', 'is_file', 'is_dir', 'glob', 'rglob', 'open', 'write_text', 'write_bytes')}
+
+def relative(path):
+    try:
+        return str(path.resolve().relative_to(REPO.resolve()))
+    except ValueError:
+        return None
+
+def blob(key):
+    if key not in TRACKED:
+        raise FileNotFoundError(key)
+    READS.add(key)
+    if key not in CACHE:
+        CACHE[key] = subprocess.check_output(['git', 'show', BASE + ':' + key], cwd=REPO)
+    return CACHE[key]
+
+def read_text(path, encoding=None, errors=None):
+    key = relative(path)
+    if key is None:
+        return ORIGINAL['read_text'](path, encoding=encoding, errors=errors)
+    return blob(key).decode(encoding or 'utf-8', errors or 'strict')
+
+def read_bytes(path):
+    key = relative(path)
+    return ORIGINAL['read_bytes'](path) if key is None else blob(key)
+
+def is_file(path):
+    key = relative(path)
+    return ORIGINAL['is_file'](path) if key is None else key in TRACKED
+
+def is_dir(path):
+    key = relative(path)
+    return ORIGINAL['is_dir'](path) if key is None else any(s.startswith(key.rstrip('/') + '/') for s in TRACKED) or key == '.'
+
+def exists(path):
+    key = relative(path)
+    return ORIGINAL['exists'](path) if key is None else is_file(path) or is_dir(path)
+
+def glob(path, pattern, recursive=False):
+    key = relative(path)
+    if key is None:
+        yield from ORIGINAL['rglob' if recursive else 'glob'](path, pattern)
+        return
+    prefix = '' if key == '.' else key.rstrip('/') + '/'
+    for candidate in sorted(TRACKED):
+        if not candidate.startswith(prefix):
+            continue
+        tail = candidate[len(prefix):]
+        if fnmatch.fnmatch(tail, pattern) and (recursive or '/' not in tail):
+            yield REPO / candidate
+
+def open_path(path, mode='r', buffering=-1, encoding=None, errors=None, newline=None):
+    key = relative(path)
+    if key is None:
+        return ORIGINAL['open'](path, mode, buffering, encoding, errors, newline)
+    if mode not in ('r', 'rb'):
+        raise PermissionError('audit tree is read-only')
+    return io.BytesIO(blob(key)) if mode == 'rb' else io.StringIO(blob(key).decode(encoding or 'utf-8', errors or 'strict'))
+
+def write_text(path, *args, **kwargs):
+    if relative(path) is not None:
+        raise PermissionError('audit tree is read-only')
+    return ORIGINAL['write_text'](path, *args, **kwargs)
+
+def write_bytes(path, *args, **kwargs):
+    if relative(path) is not None:
+        raise PermissionError('audit tree is read-only')
+    return ORIGINAL['write_bytes'](path, *args, **kwargs)
+
+class Loader(importlib.abc.Loader):
+    def __init__(self, key):
+        self.key = key
+    def create_module(self, spec):
+        return None
+    def exec_module(self, module):
+        module.__file__ = str(REPO / self.key)
+        exec(compile(blob(self.key), module.__file__, 'exec'), module.__dict__)
+
+class Finder(importlib.abc.MetaPathFinder):
+    def find_spec(self, fullname, path=None, target=None):
+        key = 'scripts/' + fullname + '.py'
+        if '.' not in fullname and key in TRACKED:
+            return importlib.util.spec_from_loader(fullname, Loader(key))
+
+def install():
+    for name, function in [('read_text', read_text), ('read_bytes', read_bytes), ('exists', exists), ('is_file', is_file), ('is_dir', is_dir), ('glob', glob), ('rglob', lambda path, pattern: glob(path, pattern, True)), ('open', open_path), ('write_text', write_text), ('write_bytes', write_bytes)]:
+        setattr(Path, name, function)
+    sys.meta_path.insert(0, Finder())
+
+```
+
+```python
+"""Exact finite root-chart/character-tensor regression; not a Lean proof."""
+from fractions import Fraction
+from itertools import product
+import json
+def run():
+ assertions=0;products=0;powers=0;transitions=0
+ def check(v):
+  nonlocal assertions
+  assert v
+  assertions+=1
+ def clean(d,m):
+  return {k:(v%m if m else v) for k,v in d.items() if (v%m if m else v)!=0}
+ def add(a,b,m):
+  d=dict(a)
+  for k,v in b.items():d[k]=d.get(k,0)+v
+  return clean(d,m)
+ def mul(a,b,n,f,m):
+  d={}
+  for i,x in a.items():
+   for j,y in b.items():
+    q,r=divmod(i+j,n);d[r]=d.get(r,0)+x*y*f**q
+  return clean(d,m)
+ def char(q):return q%1
+ def rho(a,n,m):return clean({(char(Fraction(i,n)),i):v for i,v in a.items()},m)
+ def tmul(a,b,n,f,m):
+  d={}
+  for (q,i),x in a.items():
+   for (r,j),y in b.items():
+    k,l=divmod(i+j,n);key=(char(q+r),l)
+    d[key]=d.get(key,0)+x*y*f**k
+  return clean(d,m)
+ def rootpow(n,f,k,m):
+  q,r=divmod(k,n);return clean({r:f**q},m)
+ for m in (0,1,2,4,6,7):
+  for f in (-1,0,1,2):
+   for n in (1,2,3,6):
+    vals=[{},clean({0:1},m),clean({i:(i+1) for i in range(n)},m)]
+    vals += [clean({i:1},m) for i in range(n)]
+    for a,b in product(vals,repeat=2):
+     check(rho(mul(a,b,n,f,m),n,m)==tmul(rho(a,n,m),rho(b,n,m),n,f,m));products+=1
+    for a in vals:
+     ra=rho(a,n,m)
+     # counit e_q -> 1, and both coassociativity routes e_q -> e_q tensor e_q
+     check(clean({i:v for (q,i),v in ra.items()},m)==a)
+     check({(q,q,i):v for (q,i),v in ra.items()}=={(char(Fraction(i,n)),q,i):v for (q,i),v in ra.items()})
+     invariant=rho(a,n,m)=={(Fraction(0),i):v for i,v in a.items()}
+     check(invariant==all(i==0 for i in a))
+    for k in range(3*n+1):
+     a=rootpow(n,f,k,m);expected=clean({(char(Fraction(k,n)),i):v for i,v in a.items()},m)
+     check(rho(a,n,m)==expected);powers+=1
+    N=6*n
+    for a in vals:
+     old=rho(a,n,m)
+     embedded=clean({i*(N//n):v for i,v in a.items()},m)
+     check(rho(embedded,N,m)==clean({(q,i*(N//n)):v for (q,i),v in old.items()},m));transitions+=1
+ # The zero section's wild root is universally non-invariant but every F2-valued unity root is 1.
+ check(rho({1:1},2,2)!={(Fraction(0),1):1})
+ check([z for z in range(2) if z**2%2==1]==[1])
+ check(char(Fraction(2,6))==Fraction(1,3))
+ check(char(Fraction(1,1))==0)
+ # Wrong numerator and wrong reduction are explicit rejected alternatives.
+ check(char(Fraction(1,6))!=char(Fraction(2,6)))
+ check(rootpow(2,0,1,2)=={1:1} and rootpow(2,0,2,2)=={})
+ return {'assertions':assertions,'multiplicationComparisons':products,'rootPowerComparisons':powers,'finiteTransitionComparisons':transitions,'coefficientRings':['Z','Z/1','Z/2','Z/4','Z/6','Z/7'],'sectionParameters':[-1,0,1,2],'finiteExponents':[1,2,3,6],'status':'EXACT FINITE REGRESSION ONLY; not Lean or an infinite colimit certificate'}
+if __name__=='__main__':print(json.dumps(run(),indent=2))
+
+```
+
+```python
+"""Recover two authenticated source artifacts and compose a native typing check through apply_patch."""
+from pathlib import Path
+import sys,subprocess,hashlib,json,base64,zlib
+R=Path.cwd();S=Path(sys.argv[1]).resolve()
+assert not S.is_relative_to(R.resolve())
+def get(ref,path):return subprocess.check_output(['git','show',ref+':'+path],text=True)
+path='research/blueprint/suggested/FunctionFieldArithmeticPartII.lean'
+raw=get('55316071de533c5fb77601a8c4951943d26092eb',path)
+native=raw.split('/- BEGIN ARCHIVED FINITE CYCLIC Native.lean\n',1)[1].split('\nEND ARCHIVED FINITE CYCLIC Native.lean -/',1)[0]+'\n'
+assert hashlib.sha256(native.encode()).hexdigest()=='a345e37f1cb27602a255406f0353f726a5a90b17119aa5878cb79328e14e12a9'
+raw=get('0ddf3a197431c0192530db0dc5375f353ad77e44',path)
+a=json.loads(zlib.decompress(base64.b64decode(raw.split('/- BEGIN ARCHIVED RATIONAL CHARACTER PAYLOAD\n',1)[1].split('\nEND ARCHIVED RATIONAL CHARACTER PAYLOAD -/',1)[0])))
+qz=a['NewAdmitted.lean']['text']
+assert hashlib.sha256(qz.encode()).hexdigest()=='7aa05994de7fd74b36a70fbb5dcb71b89323c83d6e431661544aa7070962a215'
+new=(S/'New.lean').read_text()
+qz=qz.replace('universe u\n','universe uQZ\n').replace('Type u','Type uQZ')
+typing='import Mathlib.Topology.Instances.AddCircle.Defs\n'+native+'\n'+qz+'\n'+new
+def put(name,text):
+ target=S/name
+ assert not target.exists()
+ patch='*** Begin Patch\n*** Add File: '+str(target)+'\n'+'\n'.join('+'+line for line in text.splitlines())+'\n*** End Patch\n'
+ subprocess.run(['apply_patch'],input=patch,text=True,check=True,stdout=subprocess.DEVNULL)
+ assert target.read_text()==text if text.endswith('\n') else target.read_text()==text+'\n'
+put('TypingFinal.lean',typing)
+print(json.dumps({'typingSha256':hashlib.sha256(typing.encode()).hexdigest(),'typingLines':len(typing.splitlines()),'nativeIncomingSha256':hashlib.sha256(native.encode()).hexdigest(),'incomingQZSignatureSha256':hashlib.sha256(qz.encode()).hexdigest(),'newSignatureSha256':hashlib.sha256(new.encode()).hexdigest(),'scope':'Native Mathlib-only fragment. No full TauCeti import or complete canonical file certification.'}))
+
+```
+
+---
+
 # Infinite unity-root rational character coordinates — codex-J6LwjP
 
 Refs #3403. Agent: Codex; session: codex-J6LwjP. Claim 5966323460 was confirmed by bot comment 5966324692 before work. Mathematical base: 6542c9133014b0dc32397ee3bf3ad5d6009649ca; publication base: 4026994e0d81bf827b385e12eaf77deda78bc864. Only the issue's five deliverables changed.
