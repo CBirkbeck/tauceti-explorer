@@ -1,3 +1,274 @@
+# Affine common-parameter tensor and pullback
+
+For two preconnections D,C with the same parameter λ, the native equivalence u:S⊗_R(E⊗_R F)≅(S⊗_R E)⊗_S(S⊗_R F) intertwines the actual pullback of D⊗C with the tensor of their actual pullbacks. Pullback of the unit connection identifies under the native right-unitor with f(λ)dΓ. The derivative term appears once. The proof first tensors actual semilinearly horizontal maps, then uses the scalar-unit comparison and uniqueness of affine pullback. All module and coefficient carriers are native and arbitrary.
+
+The structural comparisons and their two horizontal directions hold without d₀λ=0, flatness, bases or projectivity. Extended differentials and additive curvature commute with the same equivalences. The flatness equivalence compares two S-connections; it does not detect curvature over R. The separate test transporting flat factors assumes dΩλ=0.
+
+Two concrete computations check the boundary: the ℤ→ℤ[x] pullback of two λ=2 unit lines gives coefficient2, with2≠4; the actual nonflat quotient ℤ→ℤ/2 erases the tensor Higgs operator’s source value2. These are operator computations, not a sheaf-gluing or curvature-reflection assertion. Six further typed tests cover the parameter, Higgs specialization, inverse scalar formula, flat factors, zero section and unit derivative.
+
+Actual affine pullback now respects the common-λ tensor and unit through native distribBaseChange and rid, with structural equalities, both horizontal directions, exterior-extension and curvature comparisons and equivalent flatness of the two S-connections. No d₀λ=0, flatness, basis or projectivity is needed for those comparisons. This does not reflect source curvature or prove global monoidal coherence. Universal exterior-power base-change, identity/three-step categorical pullback coherence, dual comparison and E1 sheaf tensor/restriction, equality detection and effective gluing remain. The reserved global key,149 routed items,35 omissions, five requests, eleven gaps, determinant/Tate/period adapters, arbitrary-Q tensor-valued shuffle and H.1–H.8 remain open. Previous frontier text is checkpoint history.
+
+The14 new lemmas and8 examples compile in a separate native proof file without admissions; its132 axiom audits use only the standard kernel axioms. The complete Mathlib-only canonical suggested file is checked with admission warnings only. All implementation statuses remain unchecked and all nine stage statuses retain their previous values. Public evidence and exact checks are in the handoff.
+
+Fresh source conventions: [Esnault–Groechenig, author printed23–24](https://www.mi.fu-berlin.de/users/esnault/preprints/helene/126_esn_gro.pdf) and [Stacks §60.15](https://stacks.math.columbia.edu/tag/07J5). The exact arbitrary-ring tensor/pullback comparison is an authored deduction. The inherited EG20/E10 issue/version envelope and all route obligations remain unchanged.
+
+## Semilinear transport of the first tensor summand
+
+HodgeStructuresPartII:H.0/semilinear-tensor-right-comm. Proposed declaration: `TwoForms.Morphism.tensor_rightComm`.
+
+For a calculus morphism m over f:R→S, f-semilinear h:E→E′ and j:F→F′, x∈E⊗_R W and y∈F, rightComm_S((h⊗m.one)x⊗j(y))=((h⊗j)⊗m.one)(rightComm_R(x⊗y)). All maps are actual native semilinear tensor maps.
+
+Hypotheses: k,R,S are arbitrary commutative rings with specified k-algebra structures. E,F and all degree-one/two coefficient modules have independent universes and additive commutative group structures. No finite generation, basis, projectivity, characteristic or flatness hypothesis is imposed. Ω and Γ are the existing supplied TwoForms calculi; m is an actual calculus morphism with native semilinear degree-one/two maps respecting d₀,d₁ and wedge. Compatible k-module scalar towers are retained wherever the preconnection APIs require them. D and C have the same arbitrary parameter λ. For affine pullback S is an R-algebra and f=algebraMap R S. The comparison theorems require no d₀λ=0; a separate flat-source preservation test explicitly supplies that hypothesis. Generic semilinear naturality uses an arbitrary ring map f. These are affine native tensor/module comparisons. They do not identify sheaf tensor sections with tensors of global sections, construct universal exterior forms, reflect source curvature along nonfaithful extensions, or establish global monoidal functor coherence.
+
+Prerequisites: HodgeStructuresPartII:H.0/calculus-ring-morphism, mathlib:TensorProduct.map, mathlib:TensorProduct.rightComm, mathlib:TensorProduct.induction_on.
+
+Proof outline:
+
+- Induct on the actual tensor x. Additivity handles zero/sums; native map_tmul and rightComm_tmul give the pure-tensor case.
+
+Source: Author printed23–24, §4.2 convention and complete printed Lemma4.9 proof; Complete §60.15 and Lemma60.15.1 proof. Motivates the parameter Leibniz convention; these arbitrary-module native comparison equations are authored deductions.
+
+## Semilinear transport of the second tensor summand
+
+HodgeStructuresPartII:H.0/semilinear-tensor-assoc-inverse. Proposed declaration: `TwoForms.Morphism.tensor_assoc_symm`.
+
+For the same m,h,j, x∈E and y∈F⊗_R W, assoc_S⁻¹(h(x)⊗(j⊗m.one)y)=((h⊗j)⊗m.one)(assoc_R⁻¹(x⊗y)). The comparison crosses actual coefficient rings.
+
+Hypotheses: k,R,S are arbitrary commutative rings with specified k-algebra structures. E,F and all degree-one/two coefficient modules have independent universes and additive commutative group structures. No finite generation, basis, projectivity, characteristic or flatness hypothesis is imposed. Ω and Γ are the existing supplied TwoForms calculi; m is an actual calculus morphism with native semilinear degree-one/two maps respecting d₀,d₁ and wedge. Compatible k-module scalar towers are retained wherever the preconnection APIs require them. D and C have the same arbitrary parameter λ. For affine pullback S is an R-algebra and f=algebraMap R S. The comparison theorems require no d₀λ=0; a separate flat-source preservation test explicitly supplies that hypothesis. Generic semilinear naturality uses an arbitrary ring map f. These are affine native tensor/module comparisons. They do not identify sheaf tensor sections with tensors of global sections, construct universal exterior forms, reflect source curvature along nonfaithful extensions, or establish global monoidal functor coherence.
+
+Prerequisites: HodgeStructuresPartII:H.0/calculus-ring-morphism, mathlib:TensorProduct.map, mathlib:TensorProduct.assoc, mathlib:TensorProduct.induction_on.
+
+Proof outline:
+
+- Induct on y. The pure-tensor component is the native associator inverse evaluation; sums follow by additivity.
+
+Source: Author printed23–24, §4.2 convention and complete printed Lemma4.9 proof; Complete §60.15 and Lemma60.15.1 proof. Motivates the parameter Leibniz convention; these arbitrary-module native comparison equations are authored deductions.
+
+## Tensoring horizontal maps across coefficient rings
+
+HodgeStructuresPartII:H.0/semilinear-tensor-horizontal. Proposed declaration: `Preconnection.semilinearHorizontal_affineTensor`.
+
+If h is semilinearly horizontal from D to D′ over m and j is semilinearly horizontal from C to C′ over m, then the actual h⊗j is semilinearly horizontal from D.affineTensor(C) to D′.affineTensor(C′). D and C share λ, and the target pair shares f(λ); there is one common parameter.
+
+Hypotheses: k,R,S are arbitrary commutative rings with specified k-algebra structures. E,F and all degree-one/two coefficient modules have independent universes and additive commutative group structures. No finite generation, basis, projectivity, characteristic or flatness hypothesis is imposed. Ω and Γ are the existing supplied TwoForms calculi; m is an actual calculus morphism with native semilinear degree-one/two maps respecting d₀,d₁ and wedge. Compatible k-module scalar towers are retained wherever the preconnection APIs require them. D and C have the same arbitrary parameter λ. For affine pullback S is an R-algebra and f=algebraMap R S. The comparison theorems require no d₀λ=0; a separate flat-source preservation test explicitly supplies that hypothesis. Generic semilinear naturality uses an arbitrary ring map f. These are affine native tensor/module comparisons. They do not identify sheaf tensor sections with tensors of global sections, construct universal exterior forms, reflect source curvature along nonfaithful extensions, or establish global monoidal functor coherence.
+
+Prerequisites: HodgeStructuresPartII:H.0/semilinear-horizontal, HodgeStructuresPartII:H.0/affine-parameter-tensor, HodgeStructuresPartII:H.0/semilinear-tensor-right-comm, HodgeStructuresPartII:H.0/semilinear-tensor-assoc-inverse.
+
+Proof outline:
+
+- Induct on E⊗_R F. Expand the two tensor-connection summands on a pure tensor.
+- Substitute the given horizontal equations and apply the two native cross-ring permutation comparisons. No linearity of the connection operator is asserted.
+
+Source: Author printed23–24, §4.2 convention and complete printed Lemma4.9 proof; Complete §60.15 and Lemma60.15.1 proof. Motivates the parameter Leibniz convention; these arbitrary-module native comparison equations are authored deductions.
+
+## Scalar units under tensor distribution
+
+HodgeStructuresPartII:H.0/scalar-unit-tensor-distribution. Proposed declaration: `scalarUnit_distribBaseChange`.
+
+For every x∈E⊗_R F, the existing distribBaseChange equivalence sends η(x) to (η_E⊗η_F)(x), where η(e)=1⊗e. The equality is on the actual tensor carriers.
+
+Hypotheses: k,R,S are arbitrary commutative rings with specified k-algebra structures. E,F and all degree-one/two coefficient modules have independent universes and additive commutative group structures. No finite generation, basis, projectivity, characteristic or flatness hypothesis is imposed. Ω and Γ are the existing supplied TwoForms calculi; m is an actual calculus morphism with native semilinear degree-one/two maps respecting d₀,d₁ and wedge. Compatible k-module scalar towers are retained wherever the preconnection APIs require them. D and C have the same arbitrary parameter λ. For affine pullback S is an R-algebra and f=algebraMap R S. The comparison theorems require no d₀λ=0; a separate flat-source preservation test explicitly supplies that hypothesis. Generic semilinear naturality uses an arbitrary ring map f. These are affine native tensor/module comparisons. They do not identify sheaf tensor sections with tensors of global sections, construct universal exterior forms, reflect source curvature along nonfaithful extensions, or establish global monoidal functor coherence.
+
+Prerequisites: HodgeStructuresPartII:H.0/scalar-extension-unit, mathlib:TensorProduct.AlgebraTensorModule.distribBaseChange, mathlib:TensorProduct.AlgebraTensorModule.distribBaseChange_tmul.
+
+Proof outline:
+
+- Induct on x and use the existing equivalence evaluation on a pure tensor.
+
+Source: Author printed23–24, §4.2 convention and complete printed Lemma4.9 proof; Complete §60.15 and Lemma60.15.1 proof. Motivates the parameter Leibniz convention; these arbitrary-module native comparison equations are authored deductions.
+
+## The differential coefficient comparison
+
+HodgeStructuresPartII:H.0/scalar-unit-tensor-distribution-forms. Proposed declaration: `scalarUnit_distribBaseChange_tensor`.
+
+Let u=distribBaseChange:R-algebra extension S⊗_R(E⊗_R F)≅(S⊗_R E)⊗_S(S⊗_R F). For every x∈(E⊗_R F)⊗_R W, (u⁻¹⊗id_V)(((η_E⊗η_F)⊗m.one)x)=(η_(E⊗F)⊗m.one)x.
+
+Hypotheses: k,R,S are arbitrary commutative rings with specified k-algebra structures. E,F and all degree-one/two coefficient modules have independent universes and additive commutative group structures. No finite generation, basis, projectivity, characteristic or flatness hypothesis is imposed. Ω and Γ are the existing supplied TwoForms calculi; m is an actual calculus morphism with native semilinear degree-one/two maps respecting d₀,d₁ and wedge. Compatible k-module scalar towers are retained wherever the preconnection APIs require them. D and C have the same arbitrary parameter λ. For affine pullback S is an R-algebra and f=algebraMap R S. The comparison theorems require no d₀λ=0; a separate flat-source preservation test explicitly supplies that hypothesis. Generic semilinear naturality uses an arbitrary ring map f. These are affine native tensor/module comparisons. They do not identify sheaf tensor sections with tensors of global sections, construct universal exterior forms, reflect source curvature along nonfaithful extensions, or establish global monoidal functor coherence.
+
+Prerequisites: HodgeStructuresPartII:H.0/scalar-unit-tensor-distribution, HodgeStructuresPartII:H.0/calculus-ring-morphism, mathlib:TensorProduct.map.
+
+Proof outline:
+
+- Induct on x. Rewrite the inner pair of scalar units using tensor distribution and cancel the actual native equivalence with its inverse.
+
+Source: Author printed23–24, §4.2 convention and complete printed Lemma4.9 proof; Complete §60.15 and Lemma60.15.1 proof. Motivates the parameter Leibniz convention; these arbitrary-module native comparison equations are authored deductions.
+
+## Tensor pullback as equality of preconnections
+
+HodgeStructuresPartII:H.0/affine-pullback-tensor-equality. Proposed declaration: `Preconnection.affinePullback_tensor_eq`.
+
+Transporting the actual tensor D_S.affineTensor(C_S) by u⁻¹ gives exactly (D.affineTensor(C))_S as a Preconnection structure, where D_S=D.affinePullback(m) and u is the native distribBaseChange equivalence. This holds for arbitrary λ, E,F and R→S without d₀λ=0, flatness, projectivity, bases or injectivity.
+
+Hypotheses: k,R,S are arbitrary commutative rings with specified k-algebra structures. E,F and all degree-one/two coefficient modules have independent universes and additive commutative group structures. No finite generation, basis, projectivity, characteristic or flatness hypothesis is imposed. Ω and Γ are the existing supplied TwoForms calculi; m is an actual calculus morphism with native semilinear degree-one/two maps respecting d₀,d₁ and wedge. Compatible k-module scalar towers are retained wherever the preconnection APIs require them. D and C have the same arbitrary parameter λ. For affine pullback S is an R-algebra and f=algebraMap R S. The comparison theorems require no d₀λ=0; a separate flat-source preservation test explicitly supplies that hypothesis. Generic semilinear naturality uses an arbitrary ring map f. These are affine native tensor/module comparisons. They do not identify sheaf tensor sections with tensors of global sections, construct universal exterior forms, reflect source curvature along nonfaithful extensions, or establish global monoidal functor coherence.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback, HodgeStructuresPartII:H.0/affine-pullback-unique, HodgeStructuresPartII:H.0/affine-pullback-unit-horizontal, HodgeStructuresPartII:H.0/semilinear-tensor-horizontal, HodgeStructuresPartII:H.0/scalar-unit-tensor-distribution-forms, HodgeStructuresPartII:H.0/affine-coordinate-transport.
+
+Proof outline:
+
+- Apply the existing uniqueness of affine pullback to the transported tensor connection.
+- Check horizontality of the scalar-extension unit using the semilinear tensor theorem for η_E,η_F.
+- The preceding differential coefficient comparison identifies the two actual target maps; uniqueness yields equality of structures.
+
+Source: Author printed23–24, §4.2 convention and complete printed Lemma4.9 proof; Complete §60.15 and Lemma60.15.1 proof. Motivates the parameter Leibniz convention; these arbitrary-module native comparison equations are authored deductions.
+
+## The inverse tensor comparison is horizontal
+
+HodgeStructuresPartII:H.0/affine-pullback-tensor-horizontal-inverse. Proposed declaration: `Preconnection.affinePullback_tensor_horizontal_inv`.
+
+For x∈(S⊗_R E)⊗_S(S⊗_R F), (D⊗C)_S(u⁻¹x)=(u⁻¹⊗id_V)((D_S⊗C_S)(x)). This uses the actual inverse native module equivalence.
+
+Hypotheses: k,R,S are arbitrary commutative rings with specified k-algebra structures. E,F and all degree-one/two coefficient modules have independent universes and additive commutative group structures. No finite generation, basis, projectivity, characteristic or flatness hypothesis is imposed. Ω and Γ are the existing supplied TwoForms calculi; m is an actual calculus morphism with native semilinear degree-one/two maps respecting d₀,d₁ and wedge. Compatible k-module scalar towers are retained wherever the preconnection APIs require them. D and C have the same arbitrary parameter λ. For affine pullback S is an R-algebra and f=algebraMap R S. The comparison theorems require no d₀λ=0; a separate flat-source preservation test explicitly supplies that hypothesis. Generic semilinear naturality uses an arbitrary ring map f. These are affine native tensor/module comparisons. They do not identify sheaf tensor sections with tensors of global sections, construct universal exterior forms, reflect source curvature along nonfaithful extensions, or establish global monoidal functor coherence.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-tensor-equality, HodgeStructuresPartII:H.0/coordinate-transport-horizontal.
+
+Proof outline:
+
+- Rewrite by the equality of preconnection structures and use the native module-transport horizontal law.
+
+Source: Author printed23–24, §4.2 convention and complete printed Lemma4.9 proof; Complete §60.15 and Lemma60.15.1 proof. Motivates the parameter Leibniz convention; these arbitrary-module native comparison equations are authored deductions.
+
+## The forward tensor comparison is horizontal
+
+HodgeStructuresPartII:H.0/affine-pullback-tensor-horizontal. Proposed declaration: `Preconnection.affinePullback_tensor_horizontal`.
+
+For x∈S⊗_R(E⊗_R F), (D_S⊗C_S)(u(x))=(u⊗id_V)((D⊗C)_S(x)). Thus the existing native tensor-distribution equivalence intertwines the constructed operators.
+
+Hypotheses: k,R,S are arbitrary commutative rings with specified k-algebra structures. E,F and all degree-one/two coefficient modules have independent universes and additive commutative group structures. No finite generation, basis, projectivity, characteristic or flatness hypothesis is imposed. Ω and Γ are the existing supplied TwoForms calculi; m is an actual calculus morphism with native semilinear degree-one/two maps respecting d₀,d₁ and wedge. Compatible k-module scalar towers are retained wherever the preconnection APIs require them. D and C have the same arbitrary parameter λ. For affine pullback S is an R-algebra and f=algebraMap R S. The comparison theorems require no d₀λ=0; a separate flat-source preservation test explicitly supplies that hypothesis. Generic semilinear naturality uses an arbitrary ring map f. These are affine native tensor/module comparisons. They do not identify sheaf tensor sections with tensors of global sections, construct universal exterior forms, reflect source curvature along nonfaithful extensions, or establish global monoidal functor coherence.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-tensor-horizontal-inverse, HodgeStructuresPartII:H.0/affine-parameter-horizontal-inverse.
+
+Proof outline:
+
+- Apply the existing inverse-horizontal theorem to u⁻¹ and the preceding equation.
+
+Source: Author printed23–24, §4.2 convention and complete printed Lemma4.9 proof; Complete §60.15 and Lemma60.15.1 proof. Motivates the parameter Leibniz convention; these arbitrary-module native comparison equations are authored deductions.
+
+## Tensor pullback commutes with exterior extension
+
+HodgeStructuresPartII:H.0/affine-pullback-tensor-extension. Proposed declaration: `Preconnection.affinePullback_tensor_extend`.
+
+The actual degree-one extended differentials commute with u⊗id_V on input and u⊗id_Y on output. Both compared connections and both extended operators are over S and the supplied calculus Γ.
+
+Hypotheses: k,R,S are arbitrary commutative rings with specified k-algebra structures. E,F and all degree-one/two coefficient modules have independent universes and additive commutative group structures. No finite generation, basis, projectivity, characteristic or flatness hypothesis is imposed. Ω and Γ are the existing supplied TwoForms calculi; m is an actual calculus morphism with native semilinear degree-one/two maps respecting d₀,d₁ and wedge. Compatible k-module scalar towers are retained wherever the preconnection APIs require them. D and C have the same arbitrary parameter λ. For affine pullback S is an R-algebra and f=algebraMap R S. The comparison theorems require no d₀λ=0; a separate flat-source preservation test explicitly supplies that hypothesis. Generic semilinear naturality uses an arbitrary ring map f. These are affine native tensor/module comparisons. They do not identify sheaf tensor sections with tensors of global sections, construct universal exterior forms, reflect source curvature along nonfaithful extensions, or establish global monoidal functor coherence.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-tensor-horizontal, HodgeStructuresPartII:H.0/extension-horizontal.
+
+Proof outline:
+
+- Apply the existing extended-differential naturality to the actual forward horizontal map u. This compares supplied forms over S, not universal exterior powers across R→S.
+
+Source: Author printed23–24, §4.2 convention and complete printed Lemma4.9 proof; Complete §60.15 and Lemma60.15.1 proof. Motivates the parameter Leibniz convention; these arbitrary-module native comparison equations are authored deductions.
+
+## Tensor pullback commutes with curvature
+
+HodgeStructuresPartII:H.0/affine-pullback-tensor-curvature. Proposed declaration: `Preconnection.affinePullback_tensor_curvature`.
+
+For every x∈S⊗_R(E⊗_R F), κ_(D_S⊗C_S)(u(x))=(u⊗id_Y)(κ_((D⊗C)_S)(x)). No relatively constant parameter is needed for this additive curvature naturality.
+
+Hypotheses: k,R,S are arbitrary commutative rings with specified k-algebra structures. E,F and all degree-one/two coefficient modules have independent universes and additive commutative group structures. No finite generation, basis, projectivity, characteristic or flatness hypothesis is imposed. Ω and Γ are the existing supplied TwoForms calculi; m is an actual calculus morphism with native semilinear degree-one/two maps respecting d₀,d₁ and wedge. Compatible k-module scalar towers are retained wherever the preconnection APIs require them. D and C have the same arbitrary parameter λ. For affine pullback S is an R-algebra and f=algebraMap R S. The comparison theorems require no d₀λ=0; a separate flat-source preservation test explicitly supplies that hypothesis. Generic semilinear naturality uses an arbitrary ring map f. These are affine native tensor/module comparisons. They do not identify sheaf tensor sections with tensors of global sections, construct universal exterior forms, reflect source curvature along nonfaithful extensions, or establish global monoidal functor coherence.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-tensor-horizontal, HodgeStructuresPartII:H.0/curvature-horizontal.
+
+Proof outline:
+
+- Apply the existing curvature naturality to the actual module equivalence u and its forward horizontal equation.
+
+Source: Author printed23–24, §4.2 convention and complete printed Lemma4.9 proof; Complete §60.15 and Lemma60.15.1 proof. Motivates the parameter Leibniz convention; these arbitrary-module native comparison equations are authored deductions.
+
+## Equivalent flatness of the two target connections
+
+HodgeStructuresPartII:H.0/affine-pullback-tensor-flatness. Proposed declaration: `Preconnection.affinePullback_tensor_flat_iff`.
+
+The pulled-back tensor (D⊗C)_S has zero curvature on every section if and only if the tensor of pullbacks D_S⊗C_S has zero curvature on every section. Both sides are S-connections. This does not reflect curvature back to R or assert flatness of either factor.
+
+Hypotheses: k,R,S are arbitrary commutative rings with specified k-algebra structures. E,F and all degree-one/two coefficient modules have independent universes and additive commutative group structures. No finite generation, basis, projectivity, characteristic or flatness hypothesis is imposed. Ω and Γ are the existing supplied TwoForms calculi; m is an actual calculus morphism with native semilinear degree-one/two maps respecting d₀,d₁ and wedge. Compatible k-module scalar towers are retained wherever the preconnection APIs require them. D and C have the same arbitrary parameter λ. For affine pullback S is an R-algebra and f=algebraMap R S. The comparison theorems require no d₀λ=0; a separate flat-source preservation test explicitly supplies that hypothesis. Generic semilinear naturality uses an arbitrary ring map f. These are affine native tensor/module comparisons. They do not identify sheaf tensor sections with tensors of global sections, construct universal exterior forms, reflect source curvature along nonfaithful extensions, or establish global monoidal functor coherence.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-tensor-equality, HodgeStructuresPartII:H.0/coordinate-flatness-equivalence.
+
+Proof outline:
+
+- Rewrite the pulled-back tensor using the structural equality and apply flatness invariance under the actual module equivalence.
+
+Source: Author printed23–24, §4.2 convention and complete printed Lemma4.9 proof; Complete §60.15 and Lemma60.15.1 proof. Motivates the parameter Leibniz convention; these arbitrary-module native comparison equations are authored deductions.
+
+## Pulling back the unit connection
+
+HodgeStructuresPartII:H.0/affine-pullback-unit-connection-equality. Proposed declaration: `Preconnection.affinePullback_unitConnection_eq`.
+
+Let v:S⊗_R R≅S be the existing native AlgebraTensorModule.rid. Transporting unit(Γ,f(λ)) by v⁻¹ gives exactly unit(Ω,λ).affinePullback(m). The target operator is f(λ)dΓ, including derivatives of new target scalars.
+
+Hypotheses: k,R,S are arbitrary commutative rings with specified k-algebra structures. E,F and all degree-one/two coefficient modules have independent universes and additive commutative group structures. No finite generation, basis, projectivity, characteristic or flatness hypothesis is imposed. Ω and Γ are the existing supplied TwoForms calculi; m is an actual calculus morphism with native semilinear degree-one/two maps respecting d₀,d₁ and wedge. Compatible k-module scalar towers are retained wherever the preconnection APIs require them. D and C have the same arbitrary parameter λ. For affine pullback S is an R-algebra and f=algebraMap R S. The comparison theorems require no d₀λ=0; a separate flat-source preservation test explicitly supplies that hypothesis. Generic semilinear naturality uses an arbitrary ring map f. These are affine native tensor/module comparisons. They do not identify sheaf tensor sections with tensors of global sections, construct universal exterior forms, reflect source curvature along nonfaithful extensions, or establish global monoidal functor coherence.
+
+Prerequisites: HodgeStructuresPartII:H.0/unit-connection, HodgeStructuresPartII:H.0/affine-pullback-unique, HodgeStructuresPartII:H.0/affine-coordinate-transport, mathlib:TensorProduct.AlgebraTensorModule.rid, mathlib:TensorProduct.AlgebraTensorModule.rid_symm_apply.
+
+Proof outline:
+
+- Use affine pullback uniqueness. Evaluate transport and the unit operator at η(r).
+- Use dΓ(f(r))=m.one(dΩ(r)), the native right-unitor evaluations and scalar compatibility.
+
+Source: Author printed23–24, §4.2 convention and complete printed Lemma4.9 proof; Complete §60.15 and Lemma60.15.1 proof. Motivates the parameter Leibniz convention; these arbitrary-module native comparison equations are authored deductions.
+
+## The inverse unit comparison is horizontal
+
+HodgeStructuresPartII:H.0/affine-pullback-unit-connection-horizontal-inverse. Proposed declaration: `Preconnection.affinePullback_unitConnection_horizontal_inv`.
+
+For s∈S, the pulled-back unit evaluated at v⁻¹(s)=s⊗1 equals (v⁻¹⊗id_V)(f(λ)(1⊗dΓ(s))). The actual new derivative is retained.
+
+Hypotheses: k,R,S are arbitrary commutative rings with specified k-algebra structures. E,F and all degree-one/two coefficient modules have independent universes and additive commutative group structures. No finite generation, basis, projectivity, characteristic or flatness hypothesis is imposed. Ω and Γ are the existing supplied TwoForms calculi; m is an actual calculus morphism with native semilinear degree-one/two maps respecting d₀,d₁ and wedge. Compatible k-module scalar towers are retained wherever the preconnection APIs require them. D and C have the same arbitrary parameter λ. For affine pullback S is an R-algebra and f=algebraMap R S. The comparison theorems require no d₀λ=0; a separate flat-source preservation test explicitly supplies that hypothesis. Generic semilinear naturality uses an arbitrary ring map f. These are affine native tensor/module comparisons. They do not identify sheaf tensor sections with tensors of global sections, construct universal exterior forms, reflect source curvature along nonfaithful extensions, or establish global monoidal functor coherence.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-unit-connection-equality, HodgeStructuresPartII:H.0/coordinate-transport-horizontal.
+
+Proof outline:
+
+- Rewrite using the unit structural equality and apply the module-transport horizontal law.
+
+Source: Author printed23–24, §4.2 convention and complete printed Lemma4.9 proof; Complete §60.15 and Lemma60.15.1 proof. Motivates the parameter Leibniz convention; these arbitrary-module native comparison equations are authored deductions.
+
+## The forward unit comparison is horizontal
+
+HodgeStructuresPartII:H.0/affine-pullback-unit-connection-horizontal. Proposed declaration: `Preconnection.affinePullback_unitConnection_horizontal`.
+
+For x∈S⊗_R R, unit(Γ,f(λ))(v(x))=(v⊗id_V)(unit(Ω,λ)_S(x)). This identifies the actual affine monoidal unit comparison in the forward direction.
+
+Hypotheses: k,R,S are arbitrary commutative rings with specified k-algebra structures. E,F and all degree-one/two coefficient modules have independent universes and additive commutative group structures. No finite generation, basis, projectivity, characteristic or flatness hypothesis is imposed. Ω and Γ are the existing supplied TwoForms calculi; m is an actual calculus morphism with native semilinear degree-one/two maps respecting d₀,d₁ and wedge. Compatible k-module scalar towers are retained wherever the preconnection APIs require them. D and C have the same arbitrary parameter λ. For affine pullback S is an R-algebra and f=algebraMap R S. The comparison theorems require no d₀λ=0; a separate flat-source preservation test explicitly supplies that hypothesis. Generic semilinear naturality uses an arbitrary ring map f. These are affine native tensor/module comparisons. They do not identify sheaf tensor sections with tensors of global sections, construct universal exterior forms, reflect source curvature along nonfaithful extensions, or establish global monoidal functor coherence.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-pullback-unit-connection-horizontal-inverse, HodgeStructuresPartII:H.0/affine-parameter-horizontal-inverse.
+
+Proof outline:
+
+- Use the actual inverse-horizontal theorem for v⁻¹ to obtain the forward equation.
+
+Source: Author printed23–24, §4.2 convention and complete printed Lemma4.9 proof; Complete §60.15 and Lemma60.15.1 proof. Motivates the parameter Leibniz convention; these arbitrary-module native comparison equations are authored deductions.
+
+## Consumed API and unit tests
+
+API additions to HodgeStructuresPartII:H.0/semilinear-horizontal:
+
+- Preconnection.semilinearHorizontal_affineTensor: If h is semilinearly horizontal from D to D′ over m and j is semilinearly horizontal from C to C′ over m, then the actual h⊗j is semilinearly horizontal from D.affineTensor(C) to D′.affineTensor(C′). D and C share λ, and the target pair shares f(λ); there is one common parameter.
+
+API additions to HodgeStructuresPartII:H.0/affine-pullback:
+
+- Preconnection.affinePullback_tensor_eq: Transporting the actual tensor D_S.affineTensor(C_S) by u⁻¹ gives exactly (D.affineTensor(C))_S as a Preconnection structure, where D_S=D.affinePullback(m) and u is the native distribBaseChange equivalence. This holds for arbitrary λ, E,F and R→S without d₀λ=0, flatness, projectivity, bases or injectivity.
+- Preconnection.affinePullback_tensor_horizontal_inv: For x∈(S⊗_R E)⊗_S(S⊗_R F), (D⊗C)_S(u⁻¹x)=(u⁻¹⊗id_V)((D_S⊗C_S)(x)). This uses the actual inverse native module equivalence.
+- Preconnection.affinePullback_tensor_horizontal: For x∈S⊗_R(E⊗_R F), (D_S⊗C_S)(u(x))=(u⊗id_V)((D⊗C)_S(x)). Thus the existing native tensor-distribution equivalence intertwines the constructed operators.
+- Preconnection.affinePullback_tensor_extend: The actual degree-one extended differentials commute with u⊗id_V on input and u⊗id_Y on output. Both compared connections and both extended operators are over S and the supplied calculus Γ.
+- Preconnection.affinePullback_tensor_curvature: For every x∈S⊗_R(E⊗_R F), κ_(D_S⊗C_S)(u(x))=(u⊗id_Y)(κ_((D⊗C)_S)(x)). No relatively constant parameter is needed for this additive curvature naturality.
+- Preconnection.affinePullback_tensor_flat_iff: The pulled-back tensor (D⊗C)_S has zero curvature on every section if and only if the tensor of pullbacks D_S⊗C_S has zero curvature on every section. Both sides are S-connections. This does not reflect curvature back to R or assert flatness of either factor.
+- Preconnection.affinePullback_unitConnection_eq: Let v:S⊗_R R≅S be the existing native AlgebraTensorModule.rid. Transporting unit(Γ,f(λ)) by v⁻¹ gives exactly unit(Ω,λ).affinePullback(m). The target operator is f(λ)dΓ, including derivatives of new target scalars.
+- Preconnection.affinePullback_unitConnection_horizontal_inv: For s∈S, the pulled-back unit evaluated at v⁻¹(s)=s⊗1 equals (v⁻¹⊗id_V)(f(λ)(1⊗dΓ(s))). The actual new derivative is retained.
+- Preconnection.affinePullback_unitConnection_horizontal: For x∈S⊗_R R, unit(Γ,f(λ))(v(x))=(v⊗id_V)(unit(Ω,λ)_S(x)). This identifies the actual affine monoidal unit comparison in the forward direction.
+
+Test additions to HodgeStructuresPartII:H.0/affine-pullback:
+
+- MonoidalPullbackTests.same_parameter: The tensor of actual pullbacks obeys the target Leibniz rule with exactly one coefficient f(λ).
+- MonoidalPullbackTests.higgs_specialization: The actual tensor-distribution horizontal equation also holds for the λ=0 Higgs specialization.
+- MonoidalPullbackTests.inverse_actual_scalars: The inverse comparison sends (s⊗e)⊗(t⊗f) to st⊗(e⊗f), and its horizontal equation retains both target scalar factors.
+- MonoidalPullbackTests.constant_flat_factors: For dΩλ=0 and flat D,C, the actual tensor of pullbacks is flat on every section; the proof combines the monoidal flatness comparison with the existing source tensor and pullback results.
+- MonoidalPullbackTests.zero_section: The tensor connection comparison sends the actual zero section to zero.
+- MonoidalPullbackTests.unit_new_derivative: Under the native unitor, pullback of the unit evaluates at s⊗1 to f(λ)(1⊗dΓs), retaining new target derivatives.
+- MonoidalPullbackTests.polynomial_one_parameter: Construct the actual ℤ→ℤ[x] zero-to-polynomial calculus map and D=unit(2). D is zero over ℤ, but the tensor of two pullbacks evaluated at (x⊗1)⊗(1⊗1) gives2 under the native multiplication/unit identifications, and2≠4.
+- MonoidalPullbackTests.nonflat_operator_erasure: For the actual nonflat quotient ℤ→ℤ/2 and scalar Higgs operator1 on each source line, the tensor operator evaluates to2 over ℤ, whereas the tensor of pullbacks evaluates to0 over ℤ/2. This tests operator erasure, not curvature reflection or global descent.
+
 # Affine parameter pullback along ring towers
 
 For a compatible commutative algebra tower R→S→T and genuine supplied calculus maps m:Ω→Γ and n:Γ→Δ, construct the actual iterated pullback on T⊗_S(S⊗_R E). Only g(f(λ)) is rewritten as λ_T; the existing additive operator is retained.
