@@ -761,3 +761,204 @@ example :
   sorry
 
 end TauCeti.SchemeFoundations.IdealPullback
+
+noncomputable section
+namespace TauCeti.SchemeFoundations.IdealPullback
+open CategoryTheory AlgebraicGeometry Opposite
+variable {X Y : Scheme.{u}}
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+
+lemma extendedIdeal_restrict (I : Y.IdealSheafData) (f : X ⟶ Y)
+    {U V : Y.affineOpens} (h : U ≤ V) :
+    ((I.ideal V).map (f.app V).hom).map
+      (X.presheaf.map ((TopologicalSpace.Opens.map f.base).map (homOfLE h)).op).hom =
+        (I.ideal U).map (f.app U).hom := by
+  sorry
+
+def quotientRestriction (I : Y.IdealSheafData) (f : X ⟶ Y)
+    {U V : Y.affineOpens} (h : U ≤ V) :
+    (Γ(X, f ⁻¹ᵁ V) ⧸ (I.ideal V).map (f.app V).hom) →+*
+      (Γ(X, f ⁻¹ᵁ U) ⧸ (I.ideal U).map (f.app U).hom) :=
+  Ideal.quotientMap _
+    (X.presheaf.map ((TopologicalSpace.Opens.map f.base).map (homOfLE h)).op).hom
+    (Ideal.map_le_iff_le_comap.mp (extendedIdeal_restrict I f h).le)
+
+lemma quotientRestriction_mk (I : Y.IdealSheafData) (f : X ⟶ Y)
+    {U V : Y.affineOpens} (h : U ≤ V) (b : Γ(X, f ⁻¹ᵁ V)) :
+    quotientRestriction I f h (Ideal.Quotient.mk _ b) =
+      Ideal.Quotient.mk _
+        ((X.presheaf.map ((TopologicalSpace.Opens.map f.base).map (homOfLE h)).op) b) := by
+  sorry
+
+lemma quotientRestriction_id (I : Y.IdealSheafData) (f : X ⟶ Y)
+    (U : Y.affineOpens) :
+    quotientRestriction I f (le_refl U) = RingHom.id _ := by
+  sorry
+
+lemma quotientRestriction_comp (I : Y.IdealSheafData) (f : X ⟶ Y)
+    {U V W : Y.affineOpens} (h : U ≤ V) (k : V ≤ W) :
+    quotientRestriction I f (h.trans k) =
+      (quotientRestriction I f h).comp (quotientRestriction I f k) := by
+  sorry
+
+lemma comapObjIso_naturality (I : Y.IdealSheafData) (f : X ⟶ Y)
+    {U V : Y.affineOpens} (h : U ≤ V)
+    (HU : IsAffineOpen (f ⁻¹ᵁ U)) (HV : IsAffineOpen (f ⁻¹ᵁ V)) :
+    (I.comap f).subscheme.presheaf.map
+        ((TopologicalSpace.Opens.map (I.comap f).subschemeι.base).map
+          ((TopologicalSpace.Opens.map f.base).map (homOfLE h))).op ≫
+      (comapObjIso I f U HU).hom =
+        (comapObjIso I f V HV).hom ≫ CommRingCat.ofHom (quotientRestriction I f h) := by
+  sorry
+
+lemma comapObjIso_inv_naturality (I : Y.IdealSheafData) (f : X ⟶ Y)
+    {U V : Y.affineOpens} (h : U ≤ V)
+    (HU : IsAffineOpen (f ⁻¹ᵁ U)) (HV : IsAffineOpen (f ⁻¹ᵁ V)) :
+    CommRingCat.ofHom (quotientRestriction I f h) ≫ (comapObjIso I f U HU).inv =
+      (comapObjIso I f V HV).inv ≫
+        (I.comap f).subscheme.presheaf.map
+          ((TopologicalSpace.Opens.map (I.comap f).subschemeι.base).map
+            ((TopologicalSpace.Opens.map f.base).map (homOfLE h))).op := by
+  sorry
+
+def quotientPresheaf (I : Y.IdealSheafData) (f : X ⟶ Y) :
+    Y.affineOpensᵒᵖ ⥤ CommRingCat.{u} where
+  obj U := CommRingCat.of (Γ(X, f ⁻¹ᵁ U.unop) ⧸
+    (I.ideal U.unop).map (f.app U.unop).hom)
+  map h := CommRingCat.ofHom (quotientRestriction I f h.unop.le)
+  map_id U := by
+    sorry
+  map_comp h k := by
+    sorry
+
+lemma quotientPresheaf_obj (I : Y.IdealSheafData) (f : X ⟶ Y)
+    (U : Y.affineOpens) :
+    (quotientPresheaf I f).obj (op U) =
+      CommRingCat.of (Γ(X, f ⁻¹ᵁ U) ⧸ (I.ideal U).map (f.app U).hom) := by
+  sorry
+
+lemma quotientPresheaf_map (I : Y.IdealSheafData) (f : X ⟶ Y)
+    {U V : Y.affineOpens} (h : U ≤ V) :
+    (quotientPresheaf I f).map (homOfLE h).op =
+      CommRingCat.ofHom (quotientRestriction I f h) := by
+  sorry
+
+def comapObjNatIso (I : Y.IdealSheafData) (f : X ⟶ Y) [IsAffineHom f] :
+    ((show Monotone (fun U : Y.affineOpens => U.1) from fun _ _ h => h).functor ⋙
+      TopologicalSpace.Opens.map f.base ⋙
+      TopologicalSpace.Opens.map (I.comap f).subschemeι.base).op ⋙
+        (I.comap f).subscheme.presheaf ≅ quotientPresheaf I f :=
+  NatIso.ofComponents (fun U => comapObjIso I f U.unop (U.unop.2.preimage f))
+    (fun h => by sorry)
+
+lemma comapObjNatIso_app (I : Y.IdealSheafData) (f : X ⟶ Y) [IsAffineHom f]
+    (U : Y.affineOpens) :
+    (comapObjNatIso I f).app (op U) = comapObjIso I f U (U.2.preimage f) := by
+  sorry
+
+lemma comapObjNatIso_hom_app (I : Y.IdealSheafData) (f : X ⟶ Y) [IsAffineHom f]
+    (U : Y.affineOpens) :
+    (comapObjNatIso I f).hom.app (op U) = (comapObjIso I f U (U.2.preimage f)).hom := by
+  sorry
+
+lemma comapObjNatIso_inv_app (I : Y.IdealSheafData) (f : X ⟶ Y) [IsAffineHom f]
+    (U : Y.affineOpens) :
+    (comapObjNatIso I f).inv.app (op U) = (comapObjIso I f U (U.2.preimage f)).inv := by
+  sorry
+
+end TauCeti.SchemeFoundations.IdealPullback
+
+noncomputable section
+namespace TauCeti.SchemeFoundations.IdealPullback
+open CategoryTheory AlgebraicGeometry Opposite
+variable {X Y : Scheme.{u}}
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+
+-- test: QuotientRestrictionChecked.empty_target
+example (I : Y.IdealSheafData) (f : X ⟶ Y) (V : Y.affineOpens)
+    (q : Γ(X, f ⁻¹ᵁ V) ⧸ (I.ideal V).map (f.app V).hom) :
+    quotientRestriction I f (show (⟨⊥, isAffineOpen_bot Y⟩ : Y.affineOpens) ≤ V
+      from (show (⊥ : Y.Opens) ≤ V.1 from bot_le)) q = 0 := by
+  sorry
+
+-- test: QuotientRestrictionChecked.triple_overlap
+example (I : Y.IdealSheafData) (f : X ⟶ Y)
+    {U V W T : Y.affineOpens} (h : U ≤ V) (k : V ≤ W) (l : W ≤ T)
+    (q : Γ(X, f ⁻¹ᵁ T) ⧸ (I.ideal T).map (f.app T).hom) :
+    quotientRestriction I f ((h.trans k).trans l) q =
+      quotientRestriction I f h (quotientRestriction I f k (quotientRestriction I f l q)) := by
+  sorry
+
+-- test: QuotientRestrictionChecked.nonreduced_identity
+example :
+    let X := Spec (.of (ZMod 4))
+    let I : X.IdealSheafData := ⊥
+    let U : X.affineOpens := ⟨⊤, isAffineOpen_top _⟩
+    let b := (Scheme.ΓSpecIso (.of (ZMod 4))).inv 2
+    quotientRestriction I (𝟙 X) (le_refl U) (Ideal.Quotient.mk _ b) ≠ 0 ∧
+      (quotientRestriction I (𝟙 X) (le_refl U) (Ideal.Quotient.mk _ b)) ^ 2 = 0 := by
+  sorry
+
+-- test: QuotientPresheafChecked.basic_open_representative
+example (I : Y.IdealSheafData) (f : X ⟶ Y) (V : Y.affineOpens)
+    (s : Γ(Y, V)) (b : Γ(X, f ⁻¹ᵁ V)) :
+    (quotientPresheaf I f).map (homOfLE (Y.affineBasicOpen_le s)).op
+      (Ideal.Quotient.mk _ b) =
+        Ideal.Quotient.mk _ ((X.presheaf.map
+          ((TopologicalSpace.Opens.map f.base).map
+            (homOfLE (Y.affineBasicOpen_le s))).op) b) := by
+  sorry
+
+-- test: QuotientPresheafChecked.nonflat_surviving_unit
+example :
+    let Y := Spec (.of ℤ)
+    let X := Spec (.of (ZMod 2))
+    let f : X ⟶ Y := Spec.map (CommRingCat.ofHom (Int.castRingHom (ZMod 2)))
+    let I : Y.IdealSheafData := Scheme.IdealSheafData.ofIdealTop (Ideal.span {2})
+    let U : Y.affineOpens := ⟨⊤, isAffineOpen_top _⟩
+    (1 : (quotientPresheaf I f).obj (op U)) ≠ 0 := by
+  sorry
+
+-- test: QuotientPresheafChecked.zero_ideal_path
+example (f : X ⟶ Y) {U V W : Y.affineOpens} (h : U ≤ V) (k : V ≤ W)
+    (b : Γ(X, f ⁻¹ᵁ W)) :
+    (quotientPresheaf (⊥ : Y.IdealSheafData) f).map (homOfLE h).op
+      ((quotientPresheaf (⊥ : Y.IdealSheafData) f).map (homOfLE k).op
+        (Ideal.Quotient.mk _ b)) =
+        (quotientPresheaf (⊥ : Y.IdealSheafData) f).map (homOfLE (h.trans k)).op
+          (Ideal.Quotient.mk _ b) := by
+  sorry
+
+-- test: ComapObjNatIsoChecked.roundtrip
+example (I : Y.IdealSheafData) (f : X ⟶ Y) [IsAffineHom f]
+    (U : Y.affineOpens)
+    (x : Γ((I.comap f).subscheme, (I.comap f).subschemeι ⁻¹ᵁ (f ⁻¹ᵁ U))) :
+    (comapObjNatIso I f).inv.app (op U) ((comapObjNatIso I f).hom.app (op U) x) = x := by
+  sorry
+
+-- test: ComapObjNatIsoChecked.forward_overlap
+example (I : Y.IdealSheafData) (f : X ⟶ Y) [IsAffineHom f]
+    {U V W : Y.affineOpens} (h : U ≤ V) (k : V ≤ W) :
+    (I.comap f).subscheme.presheaf.map
+      ((TopologicalSpace.Opens.map (I.comap f).subschemeι.base).map
+        ((TopologicalSpace.Opens.map f.base).map (homOfLE (h.trans k)))).op ≫
+        (comapObjNatIso I f).hom.app (op U) =
+      (comapObjNatIso I f).hom.app (op W) ≫
+        (quotientPresheaf I f).map (homOfLE k).op ≫
+          (quotientPresheaf I f).map (homOfLE h).op := by
+  sorry
+
+-- test: ComapObjNatIsoChecked.inverse_overlap
+example (I : Y.IdealSheafData) (f : X ⟶ Y) [IsAffineHom f]
+    {U V : Y.affineOpens} (h : U ≤ V) :
+    (quotientPresheaf I f).map (homOfLE h).op ≫
+      (comapObjNatIso I f).inv.app (op U) =
+        (comapObjNatIso I f).inv.app (op V) ≫
+          (I.comap f).subscheme.presheaf.map
+            ((TopologicalSpace.Opens.map (I.comap f).subschemeι.base).map
+              ((TopologicalSpace.Opens.map f.base).map (homOfLE h))).op := by
+  sorry
+
+end TauCeti.SchemeFoundations.IdealPullback
