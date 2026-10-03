@@ -1,3 +1,171 @@
+# Actual adic module image grading and projections
+
+The native image-component decomposition and homogeneous scalar action use the same ordinary Rees module quotient and its existing degree quotient inclusions. Arbitrary commutative rings, ideals and modules are allowed. Recomposition agrees with the exact inherited expansion, and the two actual inverse identities register the existing native decomposition. The external direct sum carries precisely GradedModule.isModule for the original quotient action; its comparison is linear over gr_q(A). Individual degree projections are A-linear and generally shift under positive-degree scalars.
+
+The projection equals the inclusion of the actual quotient coefficient. Hence its value belongs to the same image component; projections are idempotent and orthogonal, fixed points characterize actual homogeneity, and zero projection is equivalent to zero quotient coefficient. All projections together detect equality through the exact inverse finite expansion. No new generic grading, carrier or transported scalar action is introduced.
+
+## Recomposition of the actual adic module image components
+
+TauCeti.HilbertSamuel.adicModuleRecompose_componentEquiv
+
+Let L=gr_q(M), G_n=q^nM/q(q^nM), i_n:G_n→L and e_n:G_n≃L_n be the existing maps, where L_n is the actual image of i_n. For every finitely supported x∈⊕G_n, native recomposition c of the componentwise image equivalences satisfies c((⊕e_n)(x))=adicModuleExpansion(x).
+
+Hypotheses: A is an arbitrary commutative ring with identity, q is any ideal, and M is any A-module. Degrees are natural numbers. No locality, Noetherianity, domain, proper-ideal, finite-generation or freeness premise is added.
+
+Proof: Compare the two A-linear maps on each direct-sum inclusion by DirectSum.linearMap_ext. The native component equivalence has ambient value i_n; recomposition of lof_n(e_n(a)) is i_n(a), exactly the previously proved expansion formula. Finite linear extensionality gives the full equality.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-components, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-expansion-single, mathlib:DirectSum.linearMap_ext, mathlib:DirectSum.congrLinearEquiv, mathlib:DirectSum.lmap_lof, mathlib:DirectSum.coeLinearMap_lof.
+
+## Recomposition after adic module decomposition
+
+TauCeti.HilbertSamuel.adicModuleDecompose_leftInverse
+
+For the actual A-linear d_M:L→⊕L_n and canonical recomposition c:⊕L_n→L, c∘d_M=id_L as A-linear maps.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q is any ideal, and M is any A-module. Degrees are natural numbers. No locality, Noetherianity, domain, proper-ideal, finite-generation or freeness premise is added.
+
+Proof: Apply A-linear extensionality to x∈L and unfold d_M=(⊕e_n)∘adicModuleDirectSumEquiv.symm. The recomposition comparison gives the old expansion of its actual inverse coordinate vector. The existing equivalence inverse law returns x.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-components, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-recompose-range-equivalences, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-direct-sum.
+
+## Adic module decomposition after recomposition
+
+TauCeti.HilbertSamuel.adicModuleDecompose_rightInverse
+
+For the same native maps, d_M∘c=id_(⊕L_n) as A-linear maps; the identity holds on every finitely supported component vector.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q is any ideal, and M is any A-module. Degrees are natural numbers. No locality, Noetherianity, domain, proper-ideal, finite-generation or freeness premise is added.
+
+Proof: Write E=⊕e_n. The recomposition comparison applied to E.symm(x) identifies c(x) with expansion(E.symm(x)). Substitute this in d_M(c(x)). The old expansion equivalence and E cancel with their actual inverses. No infinite product or alternate action is used.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-components, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-recompose-range-equivalences, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-direct-sum.
+
+## Agreement with native adic module decomposition
+
+TauCeti.HilbertSamuel.adicModuleGrading_decompose
+
+For every x∈L, DirectSum.decompose(L_n)(x)=d_M(x). This is the exact native registered decomposition, with its original coefficient coordinates.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q is any ideal, and M is any A-module. Degrees are natural numbers. No locality, Noetherianity, domain, proper-ideal, finite-generation or freeness premise is added.
+
+Proof: Unfold the registered DirectSum.Decomposition.ofLinearMap instance. Its decomposition field is the existing d_M, so the equality is definitional.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-grading-registration.
+
+## The native projection is the actual coefficient inclusion
+
+TauCeti.HilbertSamuel.adicModuleProjection_coefficient
+
+For every n≥0 and x∈L, π_n^M(x)=i_n(c_n^M(x)), where c_n^M is the previously proved quotient coefficient map. This identifies the native ambient projection on every class, including mixed degrees.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q is any ideal, and M is any A-module. Degrees are natural numbers. No locality, Noetherianity, domain, proper-ideal, finite-generation or freeness premise is added.
+
+Proof: Use native decomposition extensionality to compare the two A-linear maps on each image component L_j. Choose its actual degree quotient representative. The existing inclusion projection law and the coefficient retraction/other-degree-zero laws give equality separately for n=j and n≠j.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-grading-registration, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-coefficient, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-coefficient-inclusion, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-coefficient-inclusion-other, mathlib:DirectSum.decompose_lhom_ext.
+
+## Actual image membership of an adic module projection
+
+TauCeti.HilbertSamuel.adicModuleProjection_mem
+
+For every n≥0 and x∈L, π_n^M(x) belongs to the actual submodule L_n=range(i_n).
+
+Hypotheses: A is an arbitrary commutative ring with identity, q is any ideal, and M is any A-module. Degrees are natural numbers. No locality, Noetherianity, domain, proper-ideal, finite-generation or freeness premise is added.
+
+Proof: Replace the projection by i_n(c_n^M(x)); its coefficient class is an explicit witness to actual range membership.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-projection-coefficient, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-components.
+
+## Idempotence and orthogonality of adic module projections
+
+TauCeti.HilbertSamuel.adicModuleProjection_comp
+
+For every i,j≥0 and x∈L, π_i^M(π_j^M(x))=π_j^M(x) if i=j, and is zero otherwise. Thus every projection is idempotent and distinct projections are orthogonal.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q is any ideal, and M is any A-module. Degrees are natural numbers. No locality, Noetherianity, domain, proper-ideal, finite-generation or freeness premise is added.
+
+Proof: Express π_j(x) as the actual degree-j inclusion of its coefficient. Apply the original projection-on-inclusion law with the actual same quotient class.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-projection-coefficient, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-grading-registration.
+
+## Homogeneity detected by the actual projection
+
+TauCeti.HilbertSamuel.adicModuleProjection_eq_self_iff
+
+For every n≥0 and x∈L, π_n^M(x)=x if and only if x∈L_n. This refers to the actual image submodule of the inherited quotient, not a predicate replacing its construction.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q is any ideal, and M is any A-module. Degrees are natural numbers. No locality, Noetherianity, domain, proper-ideal, finite-generation or freeness premise is added.
+
+Proof: If π_n(x)=x, substitute in the proved projection image-membership statement. If x∈L_n, choose its actual degree quotient representative and apply the original same-degree inclusion law.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-projection-image-membership, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-grading-registration.
+
+## Zero projection detected by the quotient coefficient
+
+TauCeti.HilbertSamuel.adicModuleProjection_eq_zero_iff
+
+For every n≥0 and x∈L, π_n^M(x)=0 if and only if c_n^M(x)=0 in the native degree quotient G_n.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q is any ideal, and M is any A-module. Degrees are natural numbers. No locality, Noetherianity, domain, proper-ideal, finite-generation or freeness premise is added.
+
+Proof: Use the projection coefficient formula. Injectivity of the existing degree inclusion and the pinned injective linear-map zero criterion give the equivalence.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-projection-coefficient, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-piece-inclusion, mathlib:LinearMap.map_eq_zero_iff.
+
+## Equality detected by all native adic module projections
+
+TauCeti.HilbertSamuel.adicModuleProjection_ext
+
+For x,y∈L, if π_n^M(x)=π_n^M(y) for every n≥0, then x=y. No finite-generation, local-ring or faithful-scalar-extension assumption is required.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q is any ideal, and M is any A-module. Degrees are natural numbers. No locality, Noetherianity, domain, proper-ideal, finite-generation or freeness premise is added.
+
+Proof: The actual coefficient inclusions are injective, so all projection equalities give all quotient coefficient equalities. The previously proved inverse-expansion coordinate formula identifies these with all coordinates of the two actual finite direct-sum inverse images. DFinsupp.ext and injectivity of the inverse equivalence give x=y.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-projection-coefficient, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-piece-inclusion, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-direct-sum-inverse-coordinate, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-direct-sum, mathlib:DFinsupp.ext.
+
+## Consumed API and typed tests
+
+For DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-components:
+
+TauCeti.HilbertSamuel.adicModuleRecompose_componentEquiv (compatibility): Let L=gr_q(M), G_n=q^nM/q(q^nM), i_n:G_n→L and e_n:G_n≃L_n be the existing maps, where L_n is the actual image of i_n. For every finitely supported x∈⊕G_n, native recomposition c of the componentwise image equivalences satisfies c((⊕e_n)(x))=adicModuleExpansion(x).
+
+TauCeti.HilbertSamuel.adicModuleDecompose_leftInverse (relation): For the actual A-linear d_M:L→⊕L_n and canonical recomposition c:⊕L_n→L, c∘d_M=id_L as A-linear maps.
+
+TauCeti.HilbertSamuel.adicModuleDecompose_rightInverse (relation): For the same native maps, d_M∘c=id_(⊕L_n) as A-linear maps; the identity holds on every finitely supported component vector.
+
+For DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-grading-registration:
+
+TauCeti.HilbertSamuel.adicModuleGrading_decompose (compatibility): For every x∈L, DirectSum.decompose(L_n)(x)=d_M(x). This is the exact native registered decomposition, with its original coefficient coordinates.
+
+TauCeti.HilbertSamuel.adicModuleProjection_coefficient (compatibility): For every n≥0 and x∈L, π_n^M(x)=i_n(c_n^M(x)), where c_n^M is the previously proved quotient coefficient map. This identifies the native ambient projection on every class, including mixed degrees.
+
+TauCeti.HilbertSamuel.adicModuleProjection_mem (characterisation): For every n≥0 and x∈L, π_n^M(x) belongs to the actual submodule L_n=range(i_n).
+
+TauCeti.HilbertSamuel.adicModuleProjection_comp (relation): For every i,j≥0 and x∈L, π_i^M(π_j^M(x))=π_j^M(x) if i=j, and is zero otherwise. Thus every projection is idempotent and distinct projections are orthogonal.
+
+TauCeti.HilbertSamuel.adicModuleProjection_eq_self_iff (characterisation): For every n≥0 and x∈L, π_n^M(x)=x if and only if x∈L_n. This refers to the actual image submodule of the inherited quotient, not a predicate replacing its construction.
+
+TauCeti.HilbertSamuel.adicModuleProjection_eq_zero_iff (characterisation): For every n≥0 and x∈L, π_n^M(x)=0 if and only if c_n^M(x)=0 in the native degree quotient G_n.
+
+TauCeti.HilbertSamuel.adicModuleProjection_ext (extensionality): For x,y∈L, if π_n^M(x)=π_n^M(y) for every n≥0, then x=y. No finite-generation, local-ring or faithful-scalar-extension assumption is required.
+
+AdicModuleProjectionTests.nonfree_constant (non-example): For A=Z,q=0,M=Z/4, the actual constant class of1 is nonzero and its native degree-zero projection is itself. M need not be free over A.
+
+AdicModuleProjectionTests.mixed_degrees (compatibility): For any A,q,M and degree quotient classes a∈G_0,b∈G_1, the actual class x=i_0(a)+i_1(b) has π_0(x)=i_0(a), π_1(x)=i_1(b) and π_2(x)=0.
+
+AdicModuleProjectionTests.nonreduced_degree_one (computation): For A=M=Z/4 and q=(2), the actual degree-one monomial2 is nonzero, its degree-one projection is itself and its degree-zero projection is zero. The computation retains the nilpotent coefficient2.
+
+AdicModuleProjectionTests.unit_ideal (degenerate): For any A-module M and q=A, every actual ambient projection of every quotient class is zero.
+
+## Continuation boundary
+
+The existing native adic module image grading, scalar action, direct-sum comparison and projections now have admission-free proof prototypes on their exact inherited signatures. Ten new lemmas give actual inverse identities, native decomposition agreement, coefficient projection, membership, orthogonality, homogeneity, zero detection and all-projection extensionality. This supersedes prototype omissions for these adapters only. Homogeneous kernel/range/quotient gradings, scalar descent and finiteness over the smaller ring and degreewise length exactness remain required for general Hilbert–Serre; no eventual polynomial is assumed as its own existence premise. Support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and every routed-source obligation remain open; implementation statuses stay unchecked.
+
+The preceding native ring and module proof prefix is recovered from immutable PR6028 and authenticated before reuse. The full incoming reader follows unchanged, including historical omissions superseded only by these precise proof prototypes. Canonical bodies remain admitted; no library formalisation is claimed.
+
+---
+
 # Coefficients and finite decomposition of the adic graded module
 
 The native module denominator is now compared coefficientwise with q^(n+1)M, and the exact existing monomial kernel, piece inclusion, homogeneous action and direct-sum comparison have admission-free native proof prototypes. Every statement holds for any commutative ring A, ideal q and A-module M. No finiteness, freeness, locality or Noetherianity is needed for these comparisons.
