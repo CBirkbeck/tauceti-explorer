@@ -13,7 +13,7 @@
     "StableReductionPartII:MC.7"
   ],
   "status": "partial",
-  "summary": "Finite two-base coherence checkpoint: ten new declarations (one construction, nine lemmas), eight API additions and six acceptance examples, including an explicit native scalar-action bridge and actual quotient/coefficient naturality. All incoming mathematical contracts and all source issues/routes/keys are retained. Partial pointed-moduli roadmap. Adds twelve consumed declaration-sized inputs for ordinary R-bidual reflexivity of the actual polynomial section ideal, with explicit inverse F↦F(incl), native evaluation equivalence and dual reflexivity through the existing Mathlib instance. All inherited contracts remain, all eight stages stay partial, and arbitrary coefficient-module Hom exchange, higher Ext, completion and family geometry remain required. The actual polynomial coefficient-module Hom comparisons D⊗_A M≃Hom_R(J,R⊗_A M) and J⊗_A M≃Hom_R(D,R⊗_A M) are R-linear, canonical on pure tensors, natural for arbitrary A-linear coefficient maps and compatible with native bidual evaluation when M=A. Signed coordinate lemmas and universal transpose exactness give bijectivity for every M without a flatness assumption; no higher Ext, relative stable-reflexivity or geometric closure is inferred. The actual R-module Hom cochains for the polynomial section ideal and dual are specified with correct alternating phases, signed augmentation cycles and zero native positive cohomology for every coefficient module. The augmented projective-resolution/Ext identification remains required. This checkpoint supplies the actual native projective resolutions of the polynomial section ideal and its dual; the higher Ext and geometric comparisons remain open. The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain. The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial. This continuation supplies the actual completed coefficient algebra and its exact two-base tensor quotient, keeping the full relative completion theorem open. Finite quotient two-base coefficient comparison for every completed-base module, with finite-generation kernel control and actual Hom target transport.",
+  "summary": "Finite two-base coherence checkpoint: ten new declarations (one construction, nine lemmas), eight API additions and six acceptance examples, including an explicit native scalar-action bridge and actual quotient/coefficient naturality. All incoming mathematical contracts and all source issues/routes/keys are retained. Partial pointed-moduli roadmap. Adds twelve consumed declaration-sized inputs for ordinary R-bidual reflexivity of the actual polynomial section ideal, with explicit inverse F↦F(incl), native evaluation equivalence and dual reflexivity through the existing Mathlib instance. All inherited contracts remain, all eight stages stay partial, and arbitrary coefficient-module Hom exchange, higher Ext, completion and family geometry remain required. The actual polynomial coefficient-module Hom comparisons D⊗_A M≃Hom_R(J,R⊗_A M) and J⊗_A M≃Hom_R(D,R⊗_A M) are R-linear, canonical on pure tensors, natural for arbitrary A-linear coefficient maps and compatible with native bidual evaluation when M=A. Signed coordinate lemmas and universal transpose exactness give bijectivity for every M without a flatness assumption; no higher Ext, relative stable-reflexivity or geometric closure is inferred. The actual R-module Hom cochains for the polynomial section ideal and dual are specified with correct alternating phases, signed augmentation cycles and zero native positive cohomology for every coefficient module. The augmented projective-resolution/Ext identification remains required. This checkpoint supplies the actual native projective resolutions of the polynomial section ideal and its dual; the higher Ext and geometric comparisons remain open. The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain. The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial. This continuation supplies the actual completed coefficient algebra and its exact two-base tensor quotient, keeping the full relative completion theorem open. Finite quotient two-base coefficient comparison for every completed-base module, with finite-generation kernel control and actual Hom target transport. The actual finite tensor diagrams over A and Â now have an A-linear natural isomorphism and native inverse-limit comparison with forward/inverse projections, uniqueness and cone transport. This compares limits of finite tensors only; ordinary tensor commutation with completion and the full relative completion theorem remain distinct required inputs.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1656,6 +1656,132 @@
         "module": "Mathlib/RingTheory/Ideal/Operations.lean",
         "provides": "The level-zero ideal is the whole ring, so the finite quotient test is the zero ring.",
         "checked": "Actual declaration statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor",
+        "kind": "structure",
+        "module": "Mathlib/CategoryTheory/Functor/Basic.lean",
+        "provides": "Native CategoryTheory.Functor specialized only to the actual finite nodal tensor diagrams and their inverse-limit comparison.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.NatIso.ofComponents",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/NatIso.lean",
+        "provides": "Native CategoryTheory.NatIso.ofComponents specialized only to the actual finite nodal tensor diagrams and their inverse-limit comparison.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.leOfHom",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Category/Preorder.lean",
+        "provides": "Native CategoryTheory.leOfHom specialized only to the actual finite nodal tensor diagrams and their inverse-limit comparison.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:ModuleCat.restrictScalars",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Category/ModuleCat/ChangeOfRings.lean",
+        "provides": "Native ModuleCat.restrictScalars specialized only to the actual finite nodal tensor diagrams and their inverse-limit comparison.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:ModuleCat.hom_injective",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Category/ModuleCat/Basic.lean",
+        "provides": "Native ModuleCat.hom_injective specialized only to the actual finite nodal tensor diagrams and their inverse-limit comparison.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:ModuleCat.hasLimits",
+        "kind": "instance",
+        "module": "Mathlib/Algebra/Category/ModuleCat/Limits.lean",
+        "provides": "Native ModuleCat.hasLimits specialized only to the actual finite nodal tensor diagrams and their inverse-limit comparison.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.HasLimit.isoOfNatIso",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Limits/HasLimits.lean",
+        "provides": "Native CategoryTheory.Limits.HasLimit.isoOfNatIso specialized only to the actual finite nodal tensor diagrams and their inverse-limit comparison.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.HasLimit.isoOfNatIso_hom_π",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Limits/HasLimits.lean",
+        "provides": "Native CategoryTheory.Limits.HasLimit.isoOfNatIso_hom_π specialized only to the actual finite nodal tensor diagrams and their inverse-limit comparison.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.HasLimit.isoOfNatIso_inv_π",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Limits/HasLimits.lean",
+        "provides": "Native CategoryTheory.Limits.HasLimit.isoOfNatIso_inv_π specialized only to the actual finite nodal tensor diagrams and their inverse-limit comparison.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.HasLimit.lift_isoOfNatIso_hom",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Limits/HasLimits.lean",
+        "provides": "Native CategoryTheory.Limits.HasLimit.lift_isoOfNatIso_hom specialized only to the actual finite nodal tensor diagrams and their inverse-limit comparison.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.limit.hom_ext",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Limits/HasLimits.lean",
+        "provides": "Native CategoryTheory.Limits.limit.hom_ext specialized only to the actual finite nodal tensor diagrams and their inverse-limit comparison.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:TensorProduct.induction_on",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Defs.lean",
+        "provides": "Native TensorProduct.induction_on specialized only to the actual finite nodal tensor diagrams and their inverse-limit comparison.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:DFunLike.ext",
+        "kind": "theorem",
+        "module": "Mathlib/Data/FunLike/Basic.lean",
+        "provides": "Native DFunLike.ext specialized only to the actual finite nodal tensor diagrams and their inverse-limit comparison.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:TensorProduct.smul_tmul'",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Defs.lean",
+        "provides": "Native TensorProduct.smul_tmul' specialized only to the actual finite nodal tensor diagrams and their inverse-limit comparison.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:IsScalarTower.algebraMap_smul",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Algebra/Tower.lean",
+        "provides": "Native IsScalarTower.algebraMap_smul specialized only to the actual finite nodal tensor diagrams and their inverse-limit comparison.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Iso",
+        "kind": "structure",
+        "module": "Mathlib/CategoryTheory/Iso.lean",
+        "provides": "Native CategoryTheory.Iso specialized only to the actual finite nodal tensor diagrams and their inverse-limit comparison.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.NatTrans",
+        "kind": "structure",
+        "module": "Mathlib/CategoryTheory/NatTrans.lean",
+        "provides": "Native CategoryTheory.NatTrans specialized only to the actual finite nodal tensor diagrams and their inverse-limit comparison.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.Cone.postcompose",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Limits/Cones.lean",
+        "provides": "Native CategoryTheory.Limits.Cone.postcompose specialized only to the actual finite nodal tensor diagrams and their inverse-limit comparison.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
       }
     ]
   },
@@ -1929,6 +2055,20 @@
         "Mathlib/Algebra/Algebra/Hom.lean": "0cc5cf0d3af02f98ad61aea11c5298547f190d551eee978ea46a48f303fd3af0",
         "Mathlib/Algebra/Algebra/Defs.lean": "8cd3931aa8f1e5295c6b7892a70dcf8f7e231df28ff0b6bed1a20b14a5f5a64c"
       }
+    },
+    {
+      "id": "finite-limit-native-pinned",
+      "title": "Native module limits and natural-isomorphism transport in Mathlib",
+      "authors": "Mathlib contributors; specialized nodal-chart adapters authored by Codex — codex-5ebb6f",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/tree/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib",
+      "readSections": [
+        "ModuleCat/Basic.lean: module objects/morphisms and LinearEquiv.toModuleIso; ModuleCat/Limits.lean: native limits",
+        "Equiv/Basic.lean: scalar restriction; CategoryTheory/NatIso.lean: ofComponents",
+        "CategoryTheory/Category/Preorder.lean: leOfHom; Limits/HasLimits.lean: isoOfNatIso, projection, lift and hom_ext",
+        "Functor/Basic.lean; Iso.lean; NatTrans.lean; Limits/Cones.lean: native carriers and transport"
+      ],
+      "accessDate": "2026-10-03"
     }
   ],
   "nodes": [
@@ -22275,6 +22415,1143 @@
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
         "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
       }
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-diagram-a",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Finite tensor diagram over the original base",
+      "kind": "construction",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Construct the actual functor Fᴬ_N:ℕᵒᵖ→ModuleCat(A), with object Qₙ⊗_A N at n and map τᵢⱼ⊗id_N from level j to i for i≤j. Here τᵢⱼ is the inherited actual quotient transition. Finite generation of p is unnecessary.",
+      "hypotheses": [
+        "N is arbitrary: no finite generation, flatness or quotient-annihilation hypothesis on N.",
+        "No noetherianity, localness, discriminant or regular-sequence assumption is used.",
+        "No finite-generation assumption on p."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-transition-algebra",
+        "StableReductionPartII:MC.2/finite-transition-identity",
+        "StableReductionPartII:MC.2/finite-transition-compose",
+        "StableReductionPartII:MC.2/finite-chart-coefficient-tower",
+        "StableReductionPartII:MC.2/finite-chart-original-scalar",
+        "mathlib:CategoryTheory.Functor",
+        "mathlib:CategoryTheory.leOfHom",
+        "mathlib:ModuleCat.of",
+        "mathlib:ModuleCat.ofHom",
+        "mathlib:ModuleCat.hom_injective",
+        "mathlib:TensorProduct.induction_on",
+        "mathlib:DFunLike.ext",
+        "mathlib:Ideal.Quotient.mk_surjective"
+      ],
+      "proofSteps": [
+        "Define the actual object and morphism data at each quotient level, retaining the specified scalar actions.",
+        "Prove identity on pure tensors from the incoming actual quotient transition identity. Prove composition on actual quotient representatives, then extend by native tensor induction."
+      ],
+      "acceptance": [
+        "Use actual native modules, quotient transition maps, functors, natural isomorphisms and limits.",
+        "Retain every quotient-transition direction and the actual inherited/restricted scalar action.",
+        "The two-base ordinary completion, stable-reflexivity, pointed hull and family/stack conclusions retain their exact independent inputs."
+      ],
+      "sources": [
+        {
+          "sourceId": "finite-limit-native-pinned",
+          "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
+          "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned."
+        },
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Proposition6, printed194–195 (physical34–35)",
+          "match": "Motivates comparing the original and completed coefficient bases. Proposition6 cites Bourbaki III5.4.4; this adapter proves only the limits of the displayed finite tensor diagrams, not the source completion theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramA",
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramA_obj",
+          "role": "data",
+          "statement": "At level n the diagram object is the actual A-module Qₙ⊗_AN."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramA_map_tmul",
+          "role": "simp",
+          "statement": "For i≤j the j-to-i diagram transition sends q⊗z to τᵢⱼ(q)⊗z over A."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramA_map_id",
+          "role": "functoriality",
+          "statement": "The transition at equal levels is the identity on the actual tensor module."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramA_map_comp",
+          "role": "functoriality",
+          "statement": "For i≤j≤k the k-to-i transition is the composite of the k-to-j and j-to-i transitions."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramA.test_map_tmul",
+          "kind": "compatibility",
+          "statement": "For i≤j the j-to-i diagram transition sends q⊗z to τᵢⱼ(q)⊗z over A."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramA.test_map_id",
+          "kind": "compatibility",
+          "statement": "The transition at equal levels is the identity on the actual tensor module."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramA.test_zero_level",
+          "kind": "degenerate",
+          "statement": "At level zero Q₀=R/R=0, so every j-to-zero transition on the actual tensor module is zero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal; Knudsen Appendix Proposition6",
+          "how": "Supplies coherent finite-coefficient and inverse-limit inputs; the ordinary two-base completion theorem is a separate target."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-diagram-complete",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Finite tensor diagram over the completed base",
+      "kind": "construction",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Construct the actual functor FÂ_N:ℕᵒᵖ→ModuleCat(A), with object Qₙ⊗_Â N at n, restricted to A through native ModuleCat.restrictScalars along A→Â, and map τᵢⱼ⊗id_N over Â, restricted to A, from level j to i. Finite generation of p is unnecessary.",
+      "hypotheses": [
+        "N is arbitrary: no finite generation, flatness or quotient-annihilation hypothesis on N.",
+        "No noetherianity, localness, discriminant or regular-sequence assumption is used.",
+        "No finite-generation assumption on p."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-transition-algebra",
+        "StableReductionPartII:MC.2/finite-transition-identity",
+        "StableReductionPartII:MC.2/finite-transition-compose",
+        "StableReductionPartII:MC.2/finite-chart-coefficient-tower",
+        "mathlib:CategoryTheory.Functor",
+        "mathlib:CategoryTheory.leOfHom",
+        "mathlib:ModuleCat.of",
+        "mathlib:ModuleCat.ofHom",
+        "mathlib:ModuleCat.hom_injective",
+        "mathlib:TensorProduct.induction_on",
+        "mathlib:DFunLike.ext",
+        "mathlib:Ideal.Quotient.mk_surjective"
+      ],
+      "proofSteps": [
+        "Form each tensor over Â with the actual finite quotient action. Restrict the bundled Â-module through the native ModuleCat scalar-restriction functor along A→Â; its A-action is exactly Module.compHom.",
+        "Apply the same native restriction functor to the actual Â-linear transition tensor map. Prove identity on pure tensors using the incoming quotient identity and composition on actual quotient representatives, then extend by native tensor induction."
+      ],
+      "acceptance": [
+        "Use actual native modules, quotient transition maps, functors, natural isomorphisms and limits.",
+        "Retain every quotient-transition direction and the actual inherited/restricted scalar action.",
+        "The two-base ordinary completion, stable-reflexivity, pointed hull and family/stack conclusions retain their exact independent inputs."
+      ],
+      "sources": [
+        {
+          "sourceId": "finite-limit-native-pinned",
+          "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
+          "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned."
+        },
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Proposition6, printed194–195 (physical34–35)",
+          "match": "Motivates comparing the original and completed coefficient bases. Proposition6 cites Bourbaki III5.4.4; this adapter proves only the limits of the displayed finite tensor diagrams, not the source completion theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramComplete",
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramComplete_obj",
+          "role": "data",
+          "statement": "At level n the diagram object is the actual A-module Qₙ⊗_ÂN."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramComplete_map_tmul",
+          "role": "simp",
+          "statement": "For i≤j the j-to-i diagram transition sends q⊗z to τᵢⱼ(q)⊗z over Â."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramComplete_map_id",
+          "role": "functoriality",
+          "statement": "The transition at equal levels is the identity on the actual tensor module."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramComplete_map_comp",
+          "role": "functoriality",
+          "statement": "For i≤j≤k the k-to-i transition is the composite of the k-to-j and j-to-i transitions."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramComplete.test_map_tmul",
+          "kind": "compatibility",
+          "statement": "For i≤j the j-to-i diagram transition sends q⊗z to τᵢⱼ(q)⊗z over Â."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramComplete.test_map_id",
+          "kind": "compatibility",
+          "statement": "The transition at equal levels is the identity on the actual tensor module."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramComplete.test_zero_level",
+          "kind": "degenerate",
+          "statement": "At level zero Q₀=R/R=0, so every j-to-zero transition on the actual tensor module is zero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal; Knudsen Appendix Proposition6",
+          "how": "Supplies coherent finite-coefficient and inverse-limit inputs; the ordinary two-base completion theorem is a separate target."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-diagram-iso",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Natural two-base finite tensor comparison",
+      "kind": "construction",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. Construct the actual native natural isomorphism E_N:Fᴬ_N≅FÂ_N with component at n the inherited Qₙ-linear finite tensor equivalence Eₙ,N as an A-linear isomorphism to the actual native restricted object. Verify A-linearity of both maps through the scalar tower; do not assume the two tensor actions are definitionally identical. Prove naturality for every inequality i≤j, including its inverse.",
+      "hypotheses": [
+        "N is arbitrary: no finite generation, flatness or quotient-annihilation hypothesis on N.",
+        "No noetherianity, localness, discriminant or regular-sequence assumption is used.",
+        "p is finitely generated."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-diagram-a",
+        "StableReductionPartII:MC.2/finite-tensor-diagram-complete",
+        "StableReductionPartII:MC.2/finite-tensor-equivalence",
+        "StableReductionPartII:MC.2/finite-tensor-forward-pure",
+        "StableReductionPartII:MC.2/finite-tensor-inverse-pure",
+        "StableReductionPartII:MC.2/finite-tensor-transition",
+        "StableReductionPartII:MC.2/finite-chart-coefficient-tower",
+        "mathlib:CategoryTheory.NatIso.ofComponents",
+        "mathlib:ModuleCat.restrictScalars",
+        "mathlib:ModuleCat.hom_injective",
+        "mathlib:TensorProduct.induction_on",
+        "mathlib:DFunLike.ext",
+        "mathlib:TensorProduct.smul_tmul'",
+        "mathlib:IsScalarTower.algebraMap_smul"
+      ],
+      "proofSteps": [
+        "Build the actual forward and inverse ModuleCat morphisms from the finite Qₙ-linear equivalence. Check their A-linearity on pure tensors using the actual A→Â→Qₙ scalar tower, then native tensor induction. Both inverse equations are those of the finite equivalence.",
+        "Specialize the incoming all-quotient-transition equation to every arrow of ℕᵒᵖ; use native NatIso.ofComponents. Inverse naturality follows from the actual inverse, without an unproved compatibility field."
+      ],
+      "acceptance": [
+        "Use actual native modules, quotient transition maps, functors, natural isomorphisms and limits.",
+        "Retain every quotient-transition direction and the actual inherited/restricted scalar action.",
+        "The two-base ordinary completion, stable-reflexivity, pointed hull and family/stack conclusions retain their exact independent inputs."
+      ],
+      "sources": [
+        {
+          "sourceId": "finite-limit-native-pinned",
+          "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
+          "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned."
+        },
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Proposition6, printed194–195 (physical34–35)",
+          "match": "Motivates comparing the original and completed coefficient bases. Proposition6 cites Bourbaki III5.4.4; this adapter proves only the limits of the displayed finite tensor diagrams, not the source completion theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso",
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso_hom_tmul",
+          "role": "simp",
+          "statement": "Assume p finitely generated. The forward component at n sends q⊗_A z to the same pure tensor q⊗_Â z."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso_inv_tmul",
+          "role": "simp",
+          "statement": "Assume p finitely generated. The inverse component at n sends q⊗_Â z to q⊗_A z."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso_naturality",
+          "role": "compatibility",
+          "statement": "Assume p finitely generated. For every i≤j, τᴬᵢⱼ followed by Eᵢ equals Eⱼ followed by τÂᵢⱼ."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso_inverse_naturality",
+          "role": "compatibility",
+          "statement": "Assume p finitely generated. The inverse components commute with every quotient transition."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso_left",
+          "role": "equivalence",
+          "statement": "Assume p finitely generated. The left component roundtrip at n is the identity."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso_right",
+          "role": "equivalence",
+          "statement": "Assume p finitely generated. The right component roundtrip at n is the identity."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso.test_hom_tmul",
+          "kind": "compatibility",
+          "statement": "Assume p finitely generated. The forward component at n sends q⊗_A z to the same pure tensor q⊗_Â z."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso.test_inv_tmul",
+          "kind": "compatibility",
+          "statement": "Assume p finitely generated. The inverse component at n sends q⊗_Â z to q⊗_A z."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso.test_left",
+          "kind": "compatibility",
+          "statement": "Assume p finitely generated. The left component roundtrip at n is the identity."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal; Knudsen Appendix Proposition6",
+          "how": "Supplies coherent finite-coefficient and inverse-limit inputs; the ordinary two-base completion theorem is a separate target."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-limit-iso",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Two-base inverse-limit tensor comparison",
+      "kind": "construction",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. Construct the actual native A-linear isomorphism Λ_N:lim Fᴬ_N≅lim FÂ_N from the natural isomorphism E_N. Its projections are Eₙ,N on the finite components, its inverse has components Eₙ,N⁻¹, and it carries every compatible cone to the transported cone. This identifies two limits of tensor products; no equality with an ordinary tensor product of a completed ring is asserted.",
+      "hypotheses": [
+        "N is arbitrary: no finite generation, flatness or quotient-annihilation hypothesis on N.",
+        "No noetherianity, localness, discriminant or regular-sequence assumption is used.",
+        "p is finitely generated."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-diagram-iso",
+        "mathlib:ModuleCat.hasLimits",
+        "mathlib:CategoryTheory.Limits.HasLimit.isoOfNatIso"
+      ],
+      "proofSteps": [
+        "Use native ModuleCat limits and HasLimit.isoOfNatIso; do not construct another inverse-limit carrier.",
+        "Specialize the native forward/inverse projection equations, cone-lift comparison and limit.hom_ext. The actual isomorphism gives both roundtrips."
+      ],
+      "acceptance": [
+        "Use actual native modules, quotient transition maps, functors, natural isomorphisms and limits.",
+        "Retain every quotient-transition direction and the actual inherited/restricted scalar action.",
+        "The two-base ordinary completion, stable-reflexivity, pointed hull and family/stack conclusions retain their exact independent inputs."
+      ],
+      "sources": [
+        {
+          "sourceId": "finite-limit-native-pinned",
+          "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
+          "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned."
+        },
+        {
+          "sourceId": "knudsen2",
+          "locator": "Appendix Proposition6, printed194–195 (physical34–35)",
+          "match": "Motivates comparing the original and completed coefficient bases. Proposition6 cites Bourbaki III5.4.4; this adapter proves only the limits of the displayed finite tensor diagrams, not the source completion theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso",
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso_hom_projection",
+          "role": "projection",
+          "statement": "Assume p finitely generated. Projection at n after the limit comparison equals projection at n followed by Eₙ."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso_inv_projection",
+          "role": "projection",
+          "statement": "Assume p finitely generated. Projection at n after the inverse limit comparison equals projection at n followed by Eₙ⁻¹."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso_left",
+          "role": "equivalence",
+          "statement": "Assume p finitely generated. The left limit roundtrip is the identity."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso_right",
+          "role": "equivalence",
+          "statement": "Assume p finitely generated. The right limit roundtrip is the identity."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso_unique",
+          "role": "characterisation",
+          "statement": "Assume p finitely generated. Any A-linear map between the two limits with all the prescribed finite-component equations equals the limit comparison."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso_lift",
+          "role": "universal-property",
+          "statement": "Assume p finitely generated. For every actual cone c to the A-tensor diagram, transport its legs by Eₙ; its universal lift to the completed-base-tensor limit is the old lift followed by the limit comparison."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso.test_hom_projection",
+          "kind": "compatibility",
+          "statement": "Assume p finitely generated. Projection at n after the limit comparison equals projection at n followed by Eₙ."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso.test_inv_projection",
+          "kind": "compatibility",
+          "statement": "Assume p finitely generated. Projection at n after the inverse limit comparison equals projection at n followed by Eₙ⁻¹."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso.test_lift",
+          "kind": "characterisation",
+          "statement": "Assume p finitely generated. For every actual cone c to the A-tensor diagram, transport its legs by Eₙ; its universal lift to the completed-base-tensor limit is the old lift followed by the limit comparison."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal; Knudsen Appendix Proposition6",
+          "how": "Supplies coherent finite-coefficient and inverse-limit inputs; the ordinary two-base completion theorem is a separate target."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-diagram-a-obj",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "DiagramA obj",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. At level n the diagram object is the actual A-module Qₙ⊗_AN.",
+      "hypotheses": [
+        "The coefficient ideal is finitely generated only for comparison statements; no condition on N besides the displayed actual scalar tower."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-diagram-a"
+      ],
+      "proofSteps": [
+        "Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components."
+      ],
+      "acceptance": [
+        "All arrows have the stated orientation, actual finite tensor components and coefficient actions."
+      ],
+      "sources": [
+        {
+          "sourceId": "finite-limit-native-pinned",
+          "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
+          "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramA_obj"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-diagram-a-map-tmul",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "DiagramA map tmul",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. For i≤j the j-to-i diagram transition sends q⊗z to τᵢⱼ(q)⊗z over A.",
+      "hypotheses": [
+        "The coefficient ideal is finitely generated only for comparison statements; no condition on N besides the displayed actual scalar tower."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-diagram-a"
+      ],
+      "proofSteps": [
+        "Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components."
+      ],
+      "acceptance": [
+        "All arrows have the stated orientation, actual finite tensor components and coefficient actions."
+      ],
+      "sources": [
+        {
+          "sourceId": "finite-limit-native-pinned",
+          "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
+          "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramA_map_tmul"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-diagram-a-map-id",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "DiagramA map id",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. The transition at equal levels is the identity on the actual tensor module.",
+      "hypotheses": [
+        "The coefficient ideal is finitely generated only for comparison statements; no condition on N besides the displayed actual scalar tower."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-diagram-a"
+      ],
+      "proofSteps": [
+        "Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components."
+      ],
+      "acceptance": [
+        "All arrows have the stated orientation, actual finite tensor components and coefficient actions."
+      ],
+      "sources": [
+        {
+          "sourceId": "finite-limit-native-pinned",
+          "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
+          "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramA_map_id"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-diagram-a-map-comp",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "DiagramA map comp",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. For i≤j≤k the k-to-i transition is the composite of the k-to-j and j-to-i transitions.",
+      "hypotheses": [
+        "The coefficient ideal is finitely generated only for comparison statements; no condition on N besides the displayed actual scalar tower."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-diagram-a"
+      ],
+      "proofSteps": [
+        "Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components."
+      ],
+      "acceptance": [
+        "All arrows have the stated orientation, actual finite tensor components and coefficient actions."
+      ],
+      "sources": [
+        {
+          "sourceId": "finite-limit-native-pinned",
+          "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
+          "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramA_map_comp"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-diagram-complete-obj",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "DiagramComplete obj",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. At level n the diagram object is the actual A-module Qₙ⊗_ÂN.",
+      "hypotheses": [
+        "The coefficient ideal is finitely generated only for comparison statements; no condition on N besides the displayed actual scalar tower."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-diagram-complete"
+      ],
+      "proofSteps": [
+        "Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components."
+      ],
+      "acceptance": [
+        "All arrows have the stated orientation, actual finite tensor components and coefficient actions."
+      ],
+      "sources": [
+        {
+          "sourceId": "finite-limit-native-pinned",
+          "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
+          "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramComplete_obj"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-diagram-complete-map-tmul",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "DiagramComplete map tmul",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. For i≤j the j-to-i diagram transition sends q⊗z to τᵢⱼ(q)⊗z over Â.",
+      "hypotheses": [
+        "The coefficient ideal is finitely generated only for comparison statements; no condition on N besides the displayed actual scalar tower."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-diagram-complete"
+      ],
+      "proofSteps": [
+        "Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components."
+      ],
+      "acceptance": [
+        "All arrows have the stated orientation, actual finite tensor components and coefficient actions."
+      ],
+      "sources": [
+        {
+          "sourceId": "finite-limit-native-pinned",
+          "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
+          "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramComplete_map_tmul"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-diagram-complete-map-id",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "DiagramComplete map id",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. The transition at equal levels is the identity on the actual tensor module.",
+      "hypotheses": [
+        "The coefficient ideal is finitely generated only for comparison statements; no condition on N besides the displayed actual scalar tower."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-diagram-complete"
+      ],
+      "proofSteps": [
+        "Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components."
+      ],
+      "acceptance": [
+        "All arrows have the stated orientation, actual finite tensor components and coefficient actions."
+      ],
+      "sources": [
+        {
+          "sourceId": "finite-limit-native-pinned",
+          "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
+          "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramComplete_map_id"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-diagram-complete-map-comp",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "DiagramComplete map comp",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. For i≤j≤k the k-to-i transition is the composite of the k-to-j and j-to-i transitions.",
+      "hypotheses": [
+        "The coefficient ideal is finitely generated only for comparison statements; no condition on N besides the displayed actual scalar tower."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-diagram-complete"
+      ],
+      "proofSteps": [
+        "Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components."
+      ],
+      "acceptance": [
+        "All arrows have the stated orientation, actual finite tensor components and coefficient actions."
+      ],
+      "sources": [
+        {
+          "sourceId": "finite-limit-native-pinned",
+          "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
+          "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramComplete_map_comp"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-diagram-iso-hom-tmul",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "DiagramIso hom tmul",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. The forward component at n sends q⊗_A z to the same pure tensor q⊗_Â z.",
+      "hypotheses": [
+        "The coefficient ideal is finitely generated only for comparison statements; no condition on N besides the displayed actual scalar tower."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-diagram-iso",
+        "StableReductionPartII:MC.2/finite-tensor-forward-pure"
+      ],
+      "proofSteps": [
+        "Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components."
+      ],
+      "acceptance": [
+        "All arrows have the stated orientation, actual finite tensor components and coefficient actions."
+      ],
+      "sources": [
+        {
+          "sourceId": "finite-limit-native-pinned",
+          "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
+          "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso_hom_tmul"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-diagram-iso-inv-tmul",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "DiagramIso inv tmul",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. The inverse component at n sends q⊗_Â z to q⊗_A z.",
+      "hypotheses": [
+        "The coefficient ideal is finitely generated only for comparison statements; no condition on N besides the displayed actual scalar tower."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-diagram-iso",
+        "StableReductionPartII:MC.2/finite-tensor-inverse-pure"
+      ],
+      "proofSteps": [
+        "Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components."
+      ],
+      "acceptance": [
+        "All arrows have the stated orientation, actual finite tensor components and coefficient actions."
+      ],
+      "sources": [
+        {
+          "sourceId": "finite-limit-native-pinned",
+          "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
+          "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso_inv_tmul"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-diagram-iso-naturality",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "DiagramIso naturality",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. For every i≤j, τᴬᵢⱼ followed by Eᵢ equals Eⱼ followed by τÂᵢⱼ.",
+      "hypotheses": [
+        "The coefficient ideal is finitely generated only for comparison statements; no condition on N besides the displayed actual scalar tower."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-diagram-iso",
+        "StableReductionPartII:MC.2/finite-tensor-transition",
+        "mathlib:CategoryTheory.NatTrans"
+      ],
+      "proofSteps": [
+        "Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components."
+      ],
+      "acceptance": [
+        "All arrows have the stated orientation, actual finite tensor components and coefficient actions."
+      ],
+      "sources": [
+        {
+          "sourceId": "finite-limit-native-pinned",
+          "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
+          "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso_naturality"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-diagram-iso-inverse-naturality",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "DiagramIso inverse naturality",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. The inverse components commute with every quotient transition.",
+      "hypotheses": [
+        "The coefficient ideal is finitely generated only for comparison statements; no condition on N besides the displayed actual scalar tower."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-diagram-iso",
+        "StableReductionPartII:MC.2/finite-tensor-inverse-transition",
+        "mathlib:CategoryTheory.NatTrans"
+      ],
+      "proofSteps": [
+        "Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components."
+      ],
+      "acceptance": [
+        "All arrows have the stated orientation, actual finite tensor components and coefficient actions."
+      ],
+      "sources": [
+        {
+          "sourceId": "finite-limit-native-pinned",
+          "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
+          "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso_inverse_naturality"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-diagram-iso-left",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "DiagramIso left",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. The left component roundtrip at n is the identity.",
+      "hypotheses": [
+        "The coefficient ideal is finitely generated only for comparison statements; no condition on N besides the displayed actual scalar tower."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-diagram-iso",
+        "mathlib:CategoryTheory.Iso"
+      ],
+      "proofSteps": [
+        "Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components."
+      ],
+      "acceptance": [
+        "All arrows have the stated orientation, actual finite tensor components and coefficient actions."
+      ],
+      "sources": [
+        {
+          "sourceId": "finite-limit-native-pinned",
+          "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
+          "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso_left"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-diagram-iso-right",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "DiagramIso right",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. The right component roundtrip at n is the identity.",
+      "hypotheses": [
+        "The coefficient ideal is finitely generated only for comparison statements; no condition on N besides the displayed actual scalar tower."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-diagram-iso",
+        "mathlib:CategoryTheory.Iso"
+      ],
+      "proofSteps": [
+        "Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components."
+      ],
+      "acceptance": [
+        "All arrows have the stated orientation, actual finite tensor components and coefficient actions."
+      ],
+      "sources": [
+        {
+          "sourceId": "finite-limit-native-pinned",
+          "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
+          "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorDiagramIso_right"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-limit-hom-projection",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "LimitIso hom projection",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. Projection at n after the limit comparison equals projection at n followed by Eₙ.",
+      "hypotheses": [
+        "The coefficient ideal is finitely generated only for comparison statements; no condition on N besides the displayed actual scalar tower."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-limit-iso",
+        "StableReductionPartII:MC.2/finite-tensor-diagram-iso",
+        "mathlib:CategoryTheory.Limits.HasLimit.isoOfNatIso_hom_π"
+      ],
+      "proofSteps": [
+        "Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components."
+      ],
+      "acceptance": [
+        "All arrows have the stated orientation, actual finite tensor components and coefficient actions."
+      ],
+      "sources": [
+        {
+          "sourceId": "finite-limit-native-pinned",
+          "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
+          "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso_hom_projection"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-limit-inv-projection",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "LimitIso inv projection",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. Projection at n after the inverse limit comparison equals projection at n followed by Eₙ⁻¹.",
+      "hypotheses": [
+        "The coefficient ideal is finitely generated only for comparison statements; no condition on N besides the displayed actual scalar tower."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-limit-iso",
+        "StableReductionPartII:MC.2/finite-tensor-diagram-iso",
+        "mathlib:CategoryTheory.Limits.HasLimit.isoOfNatIso_inv_π"
+      ],
+      "proofSteps": [
+        "Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components."
+      ],
+      "acceptance": [
+        "All arrows have the stated orientation, actual finite tensor components and coefficient actions."
+      ],
+      "sources": [
+        {
+          "sourceId": "finite-limit-native-pinned",
+          "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
+          "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso_inv_projection"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-limit-left",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "LimitIso left",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. The left limit roundtrip is the identity.",
+      "hypotheses": [
+        "The coefficient ideal is finitely generated only for comparison statements; no condition on N besides the displayed actual scalar tower."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-limit-iso",
+        "mathlib:CategoryTheory.Iso"
+      ],
+      "proofSteps": [
+        "Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components."
+      ],
+      "acceptance": [
+        "All arrows have the stated orientation, actual finite tensor components and coefficient actions."
+      ],
+      "sources": [
+        {
+          "sourceId": "finite-limit-native-pinned",
+          "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
+          "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso_left"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-limit-right",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "LimitIso right",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. The right limit roundtrip is the identity.",
+      "hypotheses": [
+        "The coefficient ideal is finitely generated only for comparison statements; no condition on N besides the displayed actual scalar tower."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-limit-iso",
+        "mathlib:CategoryTheory.Iso"
+      ],
+      "proofSteps": [
+        "Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components."
+      ],
+      "acceptance": [
+        "All arrows have the stated orientation, actual finite tensor components and coefficient actions."
+      ],
+      "sources": [
+        {
+          "sourceId": "finite-limit-native-pinned",
+          "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
+          "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso_right"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-limit-unique",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "LimitIso unique",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. Any A-linear map between the two limits with all the prescribed finite-component equations equals the limit comparison.",
+      "hypotheses": [
+        "The coefficient ideal is finitely generated only for comparison statements; no condition on N besides the displayed actual scalar tower."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-limit-iso",
+        "StableReductionPartII:MC.2/finite-tensor-limit-hom-projection",
+        "mathlib:CategoryTheory.Limits.limit.hom_ext"
+      ],
+      "proofSteps": [
+        "Apply native limit.hom_ext to every ℕᵒᵖ object, using the prescribed projections and the promoted forward projection equation."
+      ],
+      "acceptance": [
+        "All arrows have the stated orientation, actual finite tensor components and coefficient actions."
+      ],
+      "sources": [
+        {
+          "sourceId": "finite-limit-native-pinned",
+          "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
+          "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso_unique"
+    },
+    {
+      "id": "StableReductionPartII:MC.2/finite-tensor-limit-lift",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "LimitIso lift",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient homomorphism, p⊆A and m⊆R ideals with p⊆ι⁻¹(m). Set Â=AdicCompletion(p,A), Qₙ=R/mⁿ, and let N be an arbitrary Â-module with its restricted A-action and the actual scalar tower A→Â→N. On each Qₙ use the finite coefficient actions induced by A/pⁿ and evaluation Â→A/pⁿ, identified with the inherited A-action by the explicit scalar bridge. Assume p finitely generated. For every actual cone c to the A-tensor diagram, transport its legs by Eₙ; its universal lift to the completed-base-tensor limit is the old lift followed by the limit comparison.",
+      "hypotheses": [
+        "The coefficient ideal is finitely generated only for comparison statements; no condition on N besides the displayed actual scalar tower."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/finite-tensor-limit-iso",
+        "StableReductionPartII:MC.2/finite-tensor-diagram-iso",
+        "mathlib:CategoryTheory.Limits.HasLimit.lift_isoOfNatIso_hom",
+        "mathlib:CategoryTheory.Limits.Cone.postcompose"
+      ],
+      "proofSteps": [
+        "Specialize the named construction and native API to the actual nodal quotient tensors; use the prescribed finite comparison on components."
+      ],
+      "acceptance": [
+        "All arrows have the stated orientation, actual finite tensor components and coefficient actions."
+      ],
+      "sources": [
+        {
+          "sourceId": "finite-limit-native-pinned",
+          "locator": "Pinned ModuleCat basic/limits, NatIso.ofComponents and HasLimits projection/lift/uniqueness statements",
+          "match": "The four specialized constructions and their elementary proofs are authored applications of native pinned categorical APIs. No new generic limit, tensor or completion object is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.completionFiniteTensorLimitIso_lift"
     }
   ],
   "requests": [
@@ -23260,7 +24537,8 @@
         "The exact canonical second exchange is now identified as Φ_D,M∘(η⊗id_M)=Θ_J,M. Together with inherited Θ_D,M and both coefficient-universal Ext vanishings, the polynomial model meets all four conditions of Knudsen Appendix Theorem2(1); over noetherian A this gives the source’s relative stable-reflexivity conclusion for J (and symmetrically D). Actual positive Ext into R is separately transported through the native right tensor unit in both Mathlib Ext interfaces. The suggested file does not invent a generic stable-reflexivity predicate. The remaining work is its reusable owner-level formulation, Proposition6’s two-base completion comparison (including Ŝ-module coefficients), pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All eight stages remain partial.",
         "The actual ideal-adic coefficient homomorphism Â→R̂ is now constructed from compatible native finite quotients for the polynomial nodal chart whenever p⊆ι⁻¹(m). Its original-coefficient square, finite evaluations, uniqueness and actual A→Â→R̂ scalar tower have explicit native signatures and proof bodies. The complete new native and admitted files are not freshly compiled in this continuation because available memory is below the WORKERS.md threshold. For every Â-module N, the native R̂-linear comparison R̂⊗_A N→R̂⊗_Â N is surjective, with its exact Â-linear kernel generated by completed-coefficient balancing differences. This identifies the additional quotient; injectivity is not claimed. Next establish the reusable owner-level relative stable-reflexivity formulation and the actual two-base completion Hom/Ext or universally acyclic-complex comparison with justified faithful reflection, then the pointed completed-local hull, coefficient-compatible sheaf descent and arbitrary-base approximation. Bourbaki III5.4.4 remains unread and Proposition7 remains an exercise input. All eight stages remain partial.",
         "For finitely generated p and every Â-module N, the finite quotients now have an explicit actual equivalence Qₙ⊗_A N≃Qₙ⊗_Â N and postcomposition equivalences on actual Hom spaces, including L=Qₙ⊗_R J. The proof uses the native completion evaluation kernel pⁿ·Â and submodule induction; N need not factor through A/pⁿ or be flat. This finite-level result does not prove injectivity of R̂⊗_A N→R̂⊗_Â N. Passing through an inverse limit would require justified tensor/Hom/Ext comparison hypotheses and cannot be inferred for arbitrary N. Knudsen Proposition6, Proposition7, owner-level stable-reflexivity, faithful reflection, hull identification, sheaf descent, approximation and all eight geometric stages remain open. Current Native and FullCanonical are uncompiled proof draft and admitted plan respectively; older compilation receipts are historical only.",
-        "The actual finite quotient maps now preserve completed coefficients, compose and have identity laws. The finite tensor equivalence and its inverse commute with every quotient transition and every completed-coefficient-module map. The inherited original-coefficient quotient action is compared explicitly with the displayed finite coefficient homomorphism, repairing the native proof draft without changing its hypotheses. This supplies the coherent finite family, but no inverse-limit diagram, limit comparison, tensor/limit interchange, whole completed-ring injectivity, universally acyclic completion or faithful reflection is claimed. The reusable relative stable-reflexivity interface, Knudsen Proposition6 and the Proposition7 exercise, pointed hull, family/sheaf descent, approximation and all eight geometric stages remain open."
+        "The actual finite quotient maps now preserve completed coefficients, compose and have identity laws. The finite tensor equivalence and its inverse commute with every quotient transition and every completed-coefficient-module map. The inherited original-coefficient quotient action is compared explicitly with the displayed finite coefficient homomorphism, repairing the native proof draft without changing its hypotheses. This supplies the coherent finite family, but no inverse-limit diagram, limit comparison, tensor/limit interchange, whole completed-ring injectivity, universally acyclic completion or faithful reflection is claimed. The reusable relative stable-reflexivity interface, Knudsen Proposition6 and the Proposition7 exercise, pointed hull, family/sheaf descent, approximation and all eight geometric stages remain open.",
+        "The finite tensor inverse-limit comparison is specified with native diagrams, projection equations and cone transport. Identify the relevant ordinary completed tensor products with these limits under the exact required finiteness hypotheses, then establish the full two-base relative completion theorem and geometric descent. All other MC.2 targets remain required."
       ]
     },
     {
@@ -24209,7 +25487,7 @@
   "prototypeCoverage": {
     "status": "partial",
     "compiled": true,
-    "reason": "The entire current Mathlib-only admitted sketch elaborates. A separately checked admission-free native archive preserves all prior polynomial/tensor/bidual bodies and supplies the actual arbitrary-coefficient-module Hom maps, signed coordinate proofs, R-linear isomorphisms, coefficient naturality and M=A unit/bidual comparisons. Higher Ext, relative stable reflexivity, two-base completion and all geometry remain open. The specialized actual Hom cochain signatures, positive native cohomology and signed augmentation cycles are now expressible; native resolution/Ext comparison remains outside this checkpoint. The actual native projective-resolution signatures and differential comparisons are now expressible; categorical Hom-complex/Ext comparisons remain open. The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain. The actual ideal-adic coefficient homomorphism Â→R̂ is now constructed from compatible native finite quotients for the polynomial nodal chart whenever p⊆ι⁻¹(m). Its original-coefficient square, finite evaluations, uniqueness and actual A→Â→R̂ scalar tower have explicit native signatures and proof bodies. The complete new native and admitted files are not freshly compiled in this continuation because available memory is below the WORKERS.md threshold. For every Â-module N, the native R̂-linear comparison R̂⊗_A N→R̂⊗_Â N is surjective, with its exact Â-linear kernel generated by completed-coefficient balancing differences. This identifies the additional quotient; injectivity is not claimed. Next establish the reusable owner-level relative stable-reflexivity formulation and the actual two-base completion Hom/Ext or universally acyclic-complex comparison with justified faithful reflection, then the pointed completed-local hull, coefficient-compatible sheaf descent and arbitrary-base approximation. Bourbaki III5.4.4 remains unread and Proposition7 remains an exercise input. All eight stages remain partial. Current complete suggested file not freshly compiled: available memory is below20 GB. Historical compilation receipts refer only to their own recovered source hashes. For finitely generated p and every Â-module N, the finite quotients now have an explicit actual equivalence Qₙ⊗_A N≃Qₙ⊗_Â N and postcomposition equivalences on actual Hom spaces, including L=Qₙ⊗_R J. The proof uses the native completion evaluation kernel pⁿ·Â and submodule induction; N need not factor through A/pⁿ or be flat. This finite-level result does not prove injectivity of R̂⊗_A N→R̂⊗_Â N. Passing through an inverse limit would require justified tensor/Hom/Ext comparison hypotheses and cannot be inferred for arbitrary N. Knudsen Proposition6, Proposition7, owner-level stable-reflexivity, faithful reflection, hull identification, sheaf descent, approximation and all eight geometric stages remain open. Current Native and FullCanonical are uncompiled proof draft and admitted plan respectively; older compilation receipts are historical only. The actual finite quotient maps now preserve completed coefficients, compose and have identity laws. The finite tensor equivalence and its inverse commute with every quotient transition and every completed-coefficient-module map. The inherited original-coefficient quotient action is compared explicitly with the displayed finite coefficient homomorphism, repairing the native proof draft without changing its hypotheses. This supplies the coherent finite family, but no inverse-limit diagram, limit comparison, tensor/limit interchange, whole completed-ring injectivity, universally acyclic completion or faithful reflection is claimed. The reusable relative stable-reflexivity interface, Knudsen Proposition6 and the Proposition7 exercise, pointed hull, family/sheaf descent, approximation and all eight geometric stages remain open.",
+    "reason": "The entire current Mathlib-only admitted sketch elaborates. A separately checked admission-free native archive preserves all prior polynomial/tensor/bidual bodies and supplies the actual arbitrary-coefficient-module Hom maps, signed coordinate proofs, R-linear isomorphisms, coefficient naturality and M=A unit/bidual comparisons. Higher Ext, relative stable reflexivity, two-base completion and all geometry remain open. The specialized actual Hom cochain signatures, positive native cohomology and signed augmentation cycles are now expressible; native resolution/Ext comparison remains outside this checkpoint. The actual native projective-resolution signatures and differential comparisons are now expressible; categorical Hom-complex/Ext comparisons remain open. The actual categorical Hom-complex comparison is now checked, coefficient-natural in every degree and linked to both native Mathlib positive Ext interfaces. Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0 for every M without flatness. The next frontier is the exact Appendix/Ile relative stable-reflexivity and two-base completion theorem, then the pointed completed-local hull, family/sheaf descent and arbitrary-base approximation. All MC.0–MC.7 geometric obligations remain. The actual ideal-adic coefficient homomorphism Â→R̂ is now constructed from compatible native finite quotients for the polynomial nodal chart whenever p⊆ι⁻¹(m). Its original-coefficient square, finite evaluations, uniqueness and actual A→Â→R̂ scalar tower have explicit native signatures and proof bodies. The complete new native and admitted files are not freshly compiled in this continuation because available memory is below the WORKERS.md threshold. For every Â-module N, the native R̂-linear comparison R̂⊗_A N→R̂⊗_Â N is surjective, with its exact Â-linear kernel generated by completed-coefficient balancing differences. This identifies the additional quotient; injectivity is not claimed. Next establish the reusable owner-level relative stable-reflexivity formulation and the actual two-base completion Hom/Ext or universally acyclic-complex comparison with justified faithful reflection, then the pointed completed-local hull, coefficient-compatible sheaf descent and arbitrary-base approximation. Bourbaki III5.4.4 remains unread and Proposition7 remains an exercise input. All eight stages remain partial. Current complete suggested file not freshly compiled: available memory is below20 GB. Historical compilation receipts refer only to their own recovered source hashes. For finitely generated p and every Â-module N, the finite quotients now have an explicit actual equivalence Qₙ⊗_A N≃Qₙ⊗_Â N and postcomposition equivalences on actual Hom spaces, including L=Qₙ⊗_R J. The proof uses the native completion evaluation kernel pⁿ·Â and submodule induction; N need not factor through A/pⁿ or be flat. This finite-level result does not prove injectivity of R̂⊗_A N→R̂⊗_Â N. Passing through an inverse limit would require justified tensor/Hom/Ext comparison hypotheses and cannot be inferred for arbitrary N. Knudsen Proposition6, Proposition7, owner-level stable-reflexivity, faithful reflection, hull identification, sheaf descent, approximation and all eight geometric stages remain open. Current Native and FullCanonical are uncompiled proof draft and admitted plan respectively; older compilation receipts are historical only. The actual finite quotient maps now preserve completed coefficients, compose and have identity laws. The finite tensor equivalence and its inverse commute with every quotient transition and every completed-coefficient-module map. The inherited original-coefficient quotient action is compared explicitly with the displayed finite coefficient homomorphism, repairing the native proof draft without changing its hypotheses. This supplies the coherent finite family, but no inverse-limit diagram, limit comparison, tensor/limit interchange, whole completed-ring injectivity, universally acyclic completion or faithful reflection is claimed. The reusable relative stable-reflexivity interface, Knudsen Proposition6 and the Proposition7 exercise, pointed hull, family/sheaf descent, approximation and all eight geometric stages remain open. The actual finite tensor diagrams over A and Â now have an A-linear natural isomorphism and native inverse-limit comparison with forward/inverse projections, uniqueness and cone transport. This compares limits of finite tensors only; ordinary tensor commutation with completion and the full relative completion theorem remain distinct required inputs.",
     "expressedNodes": [
       "StableReductionPartII:MC.2/binary-node-form",
       "StableReductionPartII:MC.2/node-factorization-products",
@@ -24478,7 +25756,31 @@
       "StableReductionPartII:MC.2/finite-tensor-transition",
       "StableReductionPartII:MC.2/finite-tensor-inverse-transition",
       "StableReductionPartII:MC.2/finite-tensor-coefficient-naturality",
-      "StableReductionPartII:MC.2/finite-tensor-inverse-coefficient"
+      "StableReductionPartII:MC.2/finite-tensor-inverse-coefficient",
+      "StableReductionPartII:MC.2/finite-tensor-diagram-a",
+      "StableReductionPartII:MC.2/finite-tensor-diagram-complete",
+      "StableReductionPartII:MC.2/finite-tensor-diagram-iso",
+      "StableReductionPartII:MC.2/finite-tensor-limit-iso",
+      "StableReductionPartII:MC.2/finite-tensor-diagram-a-obj",
+      "StableReductionPartII:MC.2/finite-tensor-diagram-a-map-tmul",
+      "StableReductionPartII:MC.2/finite-tensor-diagram-a-map-id",
+      "StableReductionPartII:MC.2/finite-tensor-diagram-a-map-comp",
+      "StableReductionPartII:MC.2/finite-tensor-diagram-complete-obj",
+      "StableReductionPartII:MC.2/finite-tensor-diagram-complete-map-tmul",
+      "StableReductionPartII:MC.2/finite-tensor-diagram-complete-map-id",
+      "StableReductionPartII:MC.2/finite-tensor-diagram-complete-map-comp",
+      "StableReductionPartII:MC.2/finite-tensor-diagram-iso-hom-tmul",
+      "StableReductionPartII:MC.2/finite-tensor-diagram-iso-inv-tmul",
+      "StableReductionPartII:MC.2/finite-tensor-diagram-iso-naturality",
+      "StableReductionPartII:MC.2/finite-tensor-diagram-iso-inverse-naturality",
+      "StableReductionPartII:MC.2/finite-tensor-diagram-iso-left",
+      "StableReductionPartII:MC.2/finite-tensor-diagram-iso-right",
+      "StableReductionPartII:MC.2/finite-tensor-limit-hom-projection",
+      "StableReductionPartII:MC.2/finite-tensor-limit-inv-projection",
+      "StableReductionPartII:MC.2/finite-tensor-limit-left",
+      "StableReductionPartII:MC.2/finite-tensor-limit-right",
+      "StableReductionPartII:MC.2/finite-tensor-limit-unique",
+      "StableReductionPartII:MC.2/finite-tensor-limit-lift"
     ],
     "expressedApi": [
       "NodeForm.eval",
@@ -26940,6 +28242,42 @@
         "peakRSSKiB": 3639336,
         "diagnosticsSha256": "38b990b540105dbfcc8f460acec9aee03e2286ff46269eb830e562489fde9bac"
       }
+    },
+    "finiteTensorLimitCompilation": {
+      "native": {
+        "time": "2026-10-03T11:08:24.571500+00:00",
+        "file": "Native.lean",
+        "sha256": "737a7c2c1ce3eee8bccf83870375fe8b72ddde52711b9811747828ad7bc2552d",
+        "availableGiB": 62,
+        "started": true,
+        "exit": 0,
+        "lines": 6061,
+        "examples": 201,
+        "audits": 352,
+        "errors": 0,
+        "warnings": 0,
+        "admissionWarnings": 0,
+        "seconds": "0:47.62",
+        "peakRSSKiB": 4085920,
+        "diagnosticsSha256": "014004aa9f3d686c75b244ff4d4366c1678a69b80f77fcf9fc2dd22c8b42ac99"
+      },
+      "canonical": {
+        "time": "2026-10-03T11:10:03.996365+00:00",
+        "file": "Canonical.lean",
+        "sha256": "409bd4239b0ce14187b61d835a37474d4b0bb3daee7501f384f256c8225f3af0",
+        "availableGiB": 61,
+        "started": true,
+        "exit": 0,
+        "lines": 4580,
+        "examples": 263,
+        "audits": 0,
+        "errors": 0,
+        "warnings": 656,
+        "admissionWarnings": 656,
+        "seconds": "0:37.72",
+        "peakRSSKiB": 3667440,
+        "diagnosticsSha256": "bfea304429b2a50490b92700e4e9dfabcabf601c0033e02a575884b7f278b57e"
+      }
     }
   },
   "upstreamImportEncoding": {
@@ -27151,6 +28489,14 @@
       "version": "arXiv:1106.1588v2 primary HTML",
       "sha256": "2c89ce4072046d546ff9256a5c64cd488f41026c561f8858f4a78ce14c21d685",
       "scope": "Fresh introduction/Main Lemma and complete §3 Key Example/Proposition3.1/Corollary3.2 and §4 proof. No new whole-paper, PDF, Appendix/Ile or Eisenbud proof audit. Higher polynomial Ext is an authored deduction from the inherited actual resolutions and pinned native Mathlib APIs."
+    },
+    {
+      "sourceId": "knudsen2",
+      "reader": "Codex — codex-5ebb6f",
+      "date": "2026-10-03",
+      "sha256": "18e04bbf5c24a460ff10e965ebf665ea0229378c6a9521bd279909476012e230",
+      "scope": "Fresh rendered visual read of physical34–35, printed194–195, including Propositions4–7 and the beginning of the nodal example. No fresh whole-paper, Ile or Bourbaki proof audit.",
+      "use": "Proposition6 refers to Bourbaki III5.4.4 and Proposition7 supplies an exercise. The new finite tensor diagrams and native inverse-limit comparison are authored deductions, separate from those unfinished completion inputs."
     }
   ],
   "coefficientChangeContinuation": {
@@ -28392,5 +29738,37 @@
     "frontier": "The actual ideal-adic coefficient homomorphism Â→R̂ is now constructed from compatible native finite quotients for the polynomial nodal chart whenever p⊆ι⁻¹(m). Its original-coefficient square, finite evaluations, uniqueness and actual A→Â→R̂ scalar tower have explicit native signatures and proof bodies. The complete new native and admitted files are not freshly compiled in this continuation because available memory is below the WORKERS.md threshold. For every Â-module N, the native R̂-linear comparison R̂⊗_A N→R̂⊗_Â N is surjective, with its exact Â-linear kernel generated by completed-coefficient balancing differences. This identifies the additional quotient; injectivity is not claimed. Next establish the reusable owner-level relative stable-reflexivity formulation and the actual two-base completion Hom/Ext or universally acyclic-complex comparison with justified faithful reflection, then the pointed completed-local hull, coefficient-compatible sheaf descent and arbitrary-base approximation. Bourbaki III5.4.4 remains unread and Proposition7 remains an exercise input. All eight stages remain partial.",
     "libraryBoundary": "Generic completion lift, compatible-scalar tensor map, surjectivity and kernel formula are imported from pinned Mathlib. The newly planned declarations specialize them to the existing nodal chart and chosen completed coefficient algebra; no new generic completion, tensor or stable-reflexivity carrier is proposed.",
     "executionBoundary": "The complete Native.lean and FullCanonical.lean have not been freshly compiled. A whole-file native attempt was terminated (exit143) after the memory report showed19 GB available. Later reports17–19 GB prevent another start under WORKERS.md. The archived source is proof evidence for inspection, not a successful elaboration receipt."
+  },
+  "finiteTensorLimitContinuation": {
+    "worker": "Codex — codex-5ebb6f",
+    "date": "2026-10-03",
+    "base": "8c30afe02077e5b8923d4d71b823b6c574606a15",
+    "incomingNodesPreserved": 382,
+    "newDeclarations": 24,
+    "newApiItems": 20,
+    "newTests": 12,
+    "addedBaselineRefs": [
+      "mathlib:CategoryTheory.Functor",
+      "mathlib:CategoryTheory.NatIso.ofComponents",
+      "mathlib:CategoryTheory.leOfHom",
+      "mathlib:ModuleCat.restrictScalars",
+      "mathlib:ModuleCat.hom_injective",
+      "mathlib:ModuleCat.hasLimits",
+      "mathlib:CategoryTheory.Limits.HasLimit.isoOfNatIso",
+      "mathlib:CategoryTheory.Limits.HasLimit.isoOfNatIso_hom_π",
+      "mathlib:CategoryTheory.Limits.HasLimit.isoOfNatIso_inv_π",
+      "mathlib:CategoryTheory.Limits.HasLimit.lift_isoOfNatIso_hom",
+      "mathlib:CategoryTheory.Limits.limit.hom_ext",
+      "mathlib:TensorProduct.induction_on",
+      "mathlib:DFunLike.ext",
+      "mathlib:TensorProduct.smul_tmul'",
+      "mathlib:IsScalarTower.algebraMap_smul",
+      "mathlib:CategoryTheory.Iso",
+      "mathlib:CategoryTheory.NatTrans",
+      "mathlib:CategoryTheory.Limits.Cone.postcompose"
+    ],
+    "nativeArchive": "Recoverable proof bodies in the suggested-file archive ancestor identified by the handoff.",
+    "ordinaryTensorLimitBoundary": "No identification of ordinary completed tensor products with these inverse limits; no closure of Proposition6/7, stable-reflexivity, pointed local hull or family/stack geometry.",
+    "upstreamSearch": "Bounded GitHub open tensor/limit and adic-completion searches and the public Zulip CompleteGroupAlgebra discussion; use native pinned categorical limits. No blanket search-based absence claim."
   }
 }
