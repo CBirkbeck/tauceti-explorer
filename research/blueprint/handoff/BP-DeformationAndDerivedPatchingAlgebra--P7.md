@@ -20,7 +20,7 @@ Mathematical base:fb636d0b727444d0078a661b7591b0d79409af63. Publication base:2bc
 
 The checked prototype is archived in the inert suggested-file block at [a9ae87a27904da425bf9d997e038bfa23fe3a466](https://github.com/CBirkbeck/tauceti-explorer/commit/a9ae87a27904da425bf9d997e038bfa23fe3a466). The final suggested file restores admitted planning bodies. Save the first four Python blocks below as recover.py,verify.py,immutable_view.py,graph.py in disk evidence storage. From the submitted checkout, run python3 EVIDENCE/recover.py SUBMITTED_COMMIT EVIDENCE, then P7_VALIDATE_BASE=2bc684df36a586e1a305395ddf6f0d0fb82aa63c python3 EVIDENCE/verify.py EVIDENCE PINNED_DECLARATIONS_TSV. Recovery fetches immutable public sources and checks their exact hashes. Compiler logs are not distributed; their receipts below record the original executions. Without logs the verifier explicitly reports source/header validation only. For a new execution, check free memory and existing build pins and compile Native.lean and Canonical.lean serially with timeout1200, redirecting to native.log and canonical.log and using the elapsed/peak resource footer checked by verify.py. Do not set up or build libraries.
 
-### recover.py (SHA-256 c3275a6c1fe022c42dab1c8dd06fe9839a475de437a2ec280591c745e383e9fb)
+### recover.py (SHA-256 c12dba3bfa0e47e2d35bdfd06eda430741f971867cfe0362c72a2f5712d796b9)
 
 ```python
 from pathlib import Path
@@ -37,7 +37,7 @@ def sha(t):return hashlib.sha256(t.encode()).hexdigest()
 if __name__=='__main__':
  ref=sys.argv[1];out=Path(sys.argv[2]);out.mkdir(parents=True,exist_ok=True)
  handoff=read(ref,'research/blueprint/handoff/BP-'+STEM+'.md')
- metadata=json.loads(re.findall(r'```json\n(.*?)```',handoff,re.S)[0])
+ metadata=json.loads(re.findall(chr(96)*3+r'json\n(.*?)'+chr(96)*3,handoff,re.S)[0])
  native=section(read(ARCHIVE,PATH),'/- BEGIN ARCHIVED CHECKED DEGREE QUOTIENT COMPARISON','END ARCHIVED CHECKED DEGREE QUOTIENT COMPARISON -/')
  incoming=section(read(INCOMING,PATH),'/- BEGIN ARCHIVED CHECKED POLYNOMIAL HOMOGENEOUS COMPARISON','END ARCHIVED CHECKED POLYNOMIAL HOMOGENEOUS COMPARISON -/')
  assert sha(incoming)=='6af365e82b4f3db615436237ee78b14c214e46509f8af8fcaa5653996c240139'
@@ -57,34 +57,10 @@ if __name__=='__main__':
   path='research/blueprint/'+folder+'/'+('BP-' if folder=='handoff' else '')+STEM+ext
   (out/('Incoming-'+folder+ext)).write_text(read(BASE,path))
  (out/'metadata.json').write_text(json.dumps(metadata,ensure_ascii=False,indent=2)+'\n')
- fences=re.findall(r'```python\n(.*?)```',handoff,re.S)
- for filename,code in zip(['recover.py','verify.py','immutable_view.py','graph.py'],fences[:4]):(out/filename).write_text(code)
- print('Public source/hash recovery passed; compiler logs are not distributed or recertified.')
-```json\n(.*?)```',handoff,re.S)[0])
- native=section(read(ARCHIVE,PATH),'/- BEGIN ARCHIVED CHECKED DEGREE QUOTIENT COMPARISON','END ARCHIVED CHECKED DEGREE QUOTIENT COMPARISON -/')
- incoming=section(read(INCOMING,PATH),'/- BEGIN ARCHIVED CHECKED POLYNOMIAL HOMOGENEOUS COMPARISON','END ARCHIVED CHECKED POLYNOMIAL HOMOGENEOUS COMPARISON -/')
- assert sha(incoming)=='6af365e82b4f3db615436237ee78b14c214e46509f8af8fcaa5653996c240139'
- assert native.startswith(incoming+'\n')
- tail=native[len(incoming)+1:]
- new,sep,tail=tail.partition('\nnamespace TauCeti.HilbertSamuel.DegreeQuotientTests\n');assert sep
- tests,sep,audits=('namespace TauCeti.HilbertSamuel.DegreeQuotientTests\n'+tail).partition('\n#print axioms TauCeti.HilbertSamuel.homogeneousLift\n');assert sep
- audits='#print axioms TauCeti.HilbertSamuel.homogeneousLift\n'+audits
- full=read(ref,PATH)
- admitted=section(full,'/- BEGIN DEGREE QUOTIENT COMPARISON -/','/- END DEGREE QUOTIENT COMPARISON -/')
- objects={'Native':native,'Canonical':full,'New':new,'Tests':tests,'Audits':audits,'NewAdmitted':admitted}
- for name,text in objects.items():
-  assert sha(text)==metadata['proofHashes'][name],name
-  (out/(name+'.lean')).write_text(text)
- (out/'incoming').mkdir(exist_ok=True);(out/'incoming/Native.lean').write_text(incoming)
- for folder,ext in [('packets','.json'),('readmes','.md'),('suggested','.lean'),('handoff','.md')]:
-  path='research/blueprint/'+folder+'/'+('BP-' if folder=='handoff' else '')+STEM+ext
-  (out/('Incoming-'+folder+ext)).write_text(read(BASE,path))
- (out/'metadata.json').write_text(json.dumps(metadata,ensure_ascii=False,indent=2)+'\n')
- fences=re.findall(r'```python\n(.*?)```',handoff,re.S)
+ fences=re.findall(chr(96)*3+r'python\n(.*?)'+chr(96)*3,handoff,re.S)
  for filename,code in zip(['recover.py','verify.py','immutable_view.py','graph.py'],fences[:4]):(out/filename).write_text(code)
  print('Public source/hash recovery passed; compiler logs are not distributed or recertified.')
 ```
-
 ### verify.py (SHA-256 1648e9df03c93e9bd1d069df244520ecab57dfa2e454d88e8b6ce894c98cd4e5)
 
 ```python
